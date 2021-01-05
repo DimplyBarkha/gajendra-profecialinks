@@ -2,27 +2,32 @@ input:
   keywords: rosenwasser
   _url: http://zalando.de
 extractions:
-  - html: https://workbench.import.io/html/run=495dda70-2c16-4009-930d-c3eb83584fe3/task=76fa4ccd-c14f-456b-84d4-0745ec9a987b/02f64877-e624-4f69-9ce0-036bbd9d9fbc.html
+  - html: https://workbench.import.io/html/run=1f5cabcd-0f09-460d-9877-08b2e321eb0f/task=f0614530-aa9a-4b53-a1f8-d24ae5c6d69a/75184e19-1c03-4523-93ef-840c3bf1f458.html
     extractionConfigId: product/search/stores/z/zalando/DE/extract
     data:
       - group:
           - id:
-              - text: up121u031-j11
+              - text: lot32g00a-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/article[1]/a[1]/@href
             name:
               - text: |-
-                  Ulla Popken
-                  Wollmantel/klassischer Mantel - rosenwasser-melange
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  L'Oréal Men Expert
+                  HYDRA ENERGY CREATINE MOISTURIZING GEL - Gesichtscreme
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/ulla-popken-wollmantelklassischer-mantel-rosenwasser-melange-up121u031-j11.html
+              - text: https://zalando.de/loreal-men-expert-hydra-energy-kreatin-feuchtigkeits-gel-50ml-tagespflege-neutral-lot32g00a-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/64017a28e49a33e08025e057707d1aed/c9dccdef6c4f49d88901f1ebea7de23c.jpg?imwidth=606
+              - text: https://img01.ztat.net/article/spp-media-p1/9e8956deb57036dba3cef1e1fb684d78/f714d34367ae4be88a3a5bbf9b3703f6.jpg?imwidth=606&filter=packshot
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
             price:
-              - text: 99,99 €
+              - text: 12,95 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: L'Oréal Men Expert
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "1"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/@rank
@@ -37,23 +42,31 @@ extractions:
                 raw: yes
                 locale: de_DE
                 value: true
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: 3i031g00b-s11
+              - text: lot32g00f-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/article[1]/a[1]/@href
             name:
               - text: |-
-                  3ina
-                  THE EYES & LIPS MAKEUP REMOVER - Make-up-Entferner - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  L'Oréal Men Expert
+                  VITA LIFT 5 EYE CARE 15ML - Augenpflege
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/3ina-the-eyes-and-lips-makeup-remover-make-up-entferner-3i031g00b-s11.html
+              - text: https://zalando.de/loreal-men-expert-vita-lift-5-augenpflege-15ml-augenpflege-neutral-lot32g00f-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/e582e902a72232c0a58839ab0a25f5a7/5ec840116cee441aa694f67d5ea7f254.jpg?imwidth=606&filter=packshot
+              - text: https://img01.ztat.net/article/spp-media-p1/5589756b53033ef491808e1bb7f15c4e/18483b14b78848ebb94baf9d62c980e6.jpg?imwidth=606&filter=packshot
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
             price:
-              - text: 12,60 €
+              - text: 11,95 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: L'Oréal Men Expert
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "2"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/@rank
@@ -68,24 +81,31 @@ extractions:
                 raw: yes
                 locale: de_DE
                 value: true
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: rig32g00c-s11
+              - text: lot32g00j-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/article[1]/a[1]/@href
             name:
-              - text: >-
-                  Rituals
-
-                  THE RITUAL OF SAMURAI ANTI-PERSPIRANT SPRAY SPORT 24H-ANTITRANSPIRANT-SPRAY - Deodorant - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/article[1]/div[2]/a[1]/header[1]/div[1]
+              - text: |-
+                  L'Oréal Men Expert
+                  HYDRA ENERGY HEALTHY LOOK SOFORT EFFEKT - Gesichtscreme
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/rituals-the-ritual-of-samurai-anti-perspirant-spray-sport-24h-antitransp-deodorant-rig32g00c-s11.html
+              - text: https://zalando.de/loreal-men-expert-hydra-energy-healthy-look-sofort-effekt-gesichtscreme-lot32g00j-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/2c0b546c2c863920b24831c81c1a37d3/6fde770c3ec74edc9eb1bb9a265e1210.jpg?imwidth=606&filter=packshot
+              - text: https://img01.ztat.net/article/spp-media-p1/2aabf5566e123169a268c58d3c213981/fe0fdbdd59f248e8967805a526d61654.jpg?imwidth=606&filter=packshot
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
             price:
-              - text: 8,70 €
+              - text: 12,95 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: L'Oréal Men Expert
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "3"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/@rank
@@ -100,23 +120,31 @@ extractions:
                 raw: yes
                 locale: de_DE
                 value: true
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: arz31j000-j11
+              - text: jam22o06p-a11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/article[1]/a[1]/@href
             name:
               - text: |-
-                  ARI ANWA Skincare
-                  THE GLOW KIT ROSE - Gesichtspflege Zubehör - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  Jack & Jones PREMIUM
+                  JPRBLARAY ROLL NECK - Langarmshirt - white
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/ari-anwa-skincare-the-glow-kit-rose-gesichtspflege-zubehoer-arz31j000-j11.html
+              - text: https://zalando.de/jack-and-jones-premium-jprblaray-roll-neck-langarmshirt-white-jam22o06p-a11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/e2cf0f0f52df337fbb742baccc6525a6/0696449133684a2e9b3b997e940a9ed0.jpg?imwidth=606&filter=packshot
+              - text: https://img01.ztat.net/article/spp-media-p1/d9665f4df4933a5d9ef5d6531369332b/59ea0caa22874f5d9a169fa6872fd8d2.jpg?imwidth=606
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
             price:
-              - text: 32,95 €
+              - text: 24,99 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Jack & Jones PREMIUM
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "4"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/@rank
@@ -131,23 +159,31 @@ extractions:
                 raw: "1"
                 locale: de_DE
                 value: 1
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: lot32g00f-s11
+              - text: pem34j001-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/article[1]/a[1]/@href
             name:
               - text: |-
-                  L'Oréal Men Expert
-                  VITA LIFT 5 EYE CARE 15ML - Augenpflege - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  Percy Nobleman
+                  SAFETY RAZOR - Rasierer
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/loreal-men-expert-vita-lift-5-augenpflege-15ml-augenpflege-neutral-lot32g00f-s11.html
+              - text: https://zalando.de/percy-nobleman-safety-razor-rasierer-pem34j001-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/5589756b53033ef491808e1bb7f15c4e/18483b14b78848ebb94baf9d62c980e6.jpg?imwidth=606&filter=packshot
+              - text: https://img01.ztat.net/article/spp-media-p1/7f9ada01c7903587a6627e6ab4459b6b/7e2299a5f9a24b93943bef4856fb5544.jpg?imwidth=606&filter=packshot
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
             price:
-              - text: 11,60 €
+              - text: 28,95 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Percy Nobleman
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "5"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/@rank
@@ -162,23 +198,31 @@ extractions:
                 raw: "2"
                 locale: de_DE
                 value: 2
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: arz31j005-m11
+              - text: lot32g007-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[6]/article[1]/a[1]/@href
             name:
               - text: |-
-                  ARI ANWA Skincare
-                  THE GLOW KIT JADE - Gesichtspflege Zubehör - jade
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[6]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  L'Oréal Men Expert
+                  HYDRA ENERGY 24H CARE - Gesichtscreme
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[6]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/ari-anwa-skincare-the-glow-kit-jade-serum-jade-arz31j005-m11.html
+              - text: https://zalando.de/loreal-men-expert-hydra-energy-24h-pflege-50ml-tagespflege-neutral-lot32g007-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[6]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/538d53c966ed3340b1d28f43f2e61b06/feb2b098f9024af4ab01ceb088321e41.jpg?imwidth=606&filter=packshot
+              - text: https://img01.ztat.net/article/spp-media-p1/611dd8ca1c0f30e380310ffdc6402086/1f363fef3ecf40c99096263ed429af1f.jpg?imwidth=606&filter=packshot
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[6]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
             price:
-              - text: 29,95 €
+              - text: 7,95 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[6]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: L'Oréal Men Expert
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[6]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[6]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "6"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[6]/@rank
@@ -193,23 +237,32 @@ extractions:
                 raw: "3"
                 locale: de_DE
                 value: 3
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: drp31g023-s11
+              - text: tw731j027-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[7]/article[1]/a[1]/@href
             name:
-              - text: |-
-                  Dr. Hauschka
-                  ROSE DAY CREAM LIGHT - Gesichtscreme - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[7]/article[1]/div[2]/a[1]/header[1]/div[1]
+              - text: >-
+                  Tweezerman
+
+                  TWEEZERMATE 10-FOLD MAGNIFYING MIRROR WITH LIGHT - Gesichtspflege Zubehör
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[7]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/dr-hauschka-rose-day-cream-light-gesichtscreme-drp31g023-s11.html
+              - text: https://zalando.de/tweezerman-tweezermate-10-fach-vergroesserungsspiegel-mit-licht-koerperpflege-zubehoer-neutral-tw731j027-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[7]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/a47364a2b39e31f39bcc1c842a40bdb6/39cab363292e40bf8066e058464751d4.jpg?imwidth=606&filter=packshot
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[7]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/2ac71e3cf642351a8ecea2b06b20ecb3/43dae51ec338488983213ce151705d26.jpg?imwidth=606&filter=packshot
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[7]/article[1]/a[1]/figure[1]/div[2]/div[1]/img[1]/@src
             price:
-              - text: 23,25 €
+              - text: 16,55 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[7]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Tweezerman
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[7]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[7]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "7"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[7]/@rank
@@ -224,23 +277,31 @@ extractions:
                 raw: "4"
                 locale: de_DE
                 value: 4
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: drp31g001-s11
+              - text: rez32h00g-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[8]/article[1]/a[1]/@href
             name:
               - text: |-
-                  Dr. Hauschka
-                  DAILY HYDRATING EYE CREAM - Augenpflege - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[8]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  Redken
+                  REDKEN BREW THICK POMADE    - Styling
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[8]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/dr-hauschka-daily-hydrating-eye-cream-augenpflege-drp31g001-s11.html
+              - text: https://zalando.de/redken-redken-brew-thick-pomade-styling-rez32h00g-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[8]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/f2861a28e75f3a8697a74e959a2d3978/189c36359f21437892cd814d5d1a7ae7.jpg?imwidth=606&filter=packshot
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[8]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/26d003bb6bb43deab4f86d80ea53de3e/6f6f9fe9a57d4afe989f608a6037e152.jpg?imwidth=606&filter=packshot
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[8]/article[1]/a[1]/figure[1]/div[2]/div[1]/img[1]/@src
             price:
-              - text: 26,15 €
+              - text: 15,50 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[8]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Redken
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[8]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[8]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "8"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[8]/@rank
@@ -255,23 +316,32 @@ extractions:
                 raw: "5"
                 locale: de_DE
                 value: 5
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: drp31g009-s11
+              - text: lot32g00b-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[9]/article[1]/a[1]/@href
             name:
-              - text: |-
-                  Dr. Hauschka
-                  EYE MAKE-UP REMOVER - Make-up-Entferner - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[9]/article[1]/div[2]/a[1]/header[1]/div[1]
+              - text: >-
+                  L'Oréal Men Expert
+
+                  HYDRA ENERGY COOLING MOISTURIZING ANTI-GLARE 50ML - Gesichtscreme
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[9]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/dr-hauschka-eye-make-up-remover-make-up-entferner-drp31g009-s11.html
+              - text: https://zalando.de/loreal-men-expert-hydra-energy-kuehlendes-feuchtigkeitsgel-anti-glanz-50ml-tagespflege-neutral-lot32g00b-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[9]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/4a690325030532fda83f7003a533bbe9/5700d3e8560f4faeae3769abf5df37b1.jpg?imwidth=606&filter=packshot
+              - text: https://img01.ztat.net/article/spp-media-p1/bc1fde988d2a302ea7da375cc5897102/f8454b1d69c94b33810ed75793ee5b26.jpg?imwidth=606&filter=packshot
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[9]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
             price:
-              - text: 19,40 €
+              - text: 7,95 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[9]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: L'Oréal Men Expert
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[9]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[9]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "9"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[9]/@rank
@@ -286,23 +356,31 @@ extractions:
                 raw: "6"
                 locale: de_DE
                 value: 6
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: drp31g018-s11
+              - text: lot32g00e-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[10]/article[1]/a[1]/@href
             name:
               - text: |-
-                  Dr. Hauschka
-                  TINTED DAY CREAM - Getönte Tagespflege - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[10]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  L'Oréal Men Expert
+                  VITA LIFT 5 MOISTURIZER 50ML - Gesichtscreme
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[10]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/dr-hauschka-toenungscreme-getoente-tagespflege-drp31g018-s11.html
+              - text: https://zalando.de/loreal-men-expert-vita-lift-5-feuchtigkeitspflege-50ml-tagespflege-neutral-lot32g00e-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[10]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/e48e749fa4f831a88e2dfcad13b3dcc5/0f90da0892414af58f86023765ad7956.jpg?imwidth=606&filter=packshot
+              - text: https://img01.ztat.net/article/spp-media-p1/aac1599ebf353063a7a09710b9e2e966/833b1ef796f546f9b17eec9858e67ab0.jpg?imwidth=606&filter=packshot
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[10]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
             price:
-              - text: 24,25 €
+              - text: 12,95 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[10]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: L'Oréal Men Expert
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[10]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[10]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "10"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[10]/@rank
@@ -317,23 +395,31 @@ extractions:
                 raw: "7"
                 locale: de_DE
                 value: 7
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: drp31g01t-s11
+              - text: ji932g000-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[11]/article[1]/a[1]/@href
             name:
               - text: |-
-                  Dr. Hauschka
-                  INTENSIVE TREATMENT FOR MENOPAUSAL SKIN - Serum - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[11]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  Jil Sander Fragrances
+                  SUN MEN FRESH DEODORANT STICK - Deodorant
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[11]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/dr-hauschka-intensive-treatment-for-menopausal-skin-serum-drp31g01t-s11.html
+              - text: https://zalando.de/jil-sander-fragrances-system-ji932g000-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[11]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/9e4f7ceabcda36299ac4493680496c5f/1b2f02fd7b4b4f5384ad48f474c7250d.jpg?imwidth=606&filter=packshot
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[11]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/6d7b2af73f5e3c19a50ac07b48c70f41/d41d859f83e24cd8b458f49662617592.jpg?imwidth=606&filter=packshot
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[11]/article[1]/a[1]/figure[1]/div[2]/div[1]/img[1]/@src
             price:
-              - text: 53,45 €
+              - text: 16,95 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[11]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Jil Sander Fragrances
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[11]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[11]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "11"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[11]/@rank
@@ -348,23 +434,32 @@ extractions:
                 raw: "8"
                 locale: de_DE
                 value: 8
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: arz31g002-a11
+              - text: skj34j003-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[12]/article[1]/a[1]/@href
             name:
-              - text: |-
-                  ARI ANWA Skincare
-                  ROSENQUARZ ROSENWASSER SPRAY - Gesichtswasser - weiß
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[12]/article[1]/div[2]/a[1]/header[1]/div[1]
+              - text: >-
+                  Skin Gym
+
+                  DOUBLE DUTY SMOOTH & TEXTURED JADE FACE ROLLER - Gesichtspflege Zubehör
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[12]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/ari-anwa-skincare-rosenquarz-rosenwasser-spray-gesichtsoel-weiss-arz31g002-a11.html
+              - text: https://zalando.de/skin-gym-double-duty-smooth-and-textured-jade-face-roller-gesichtspflege-zubehoer-skj34j003-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[12]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/bcabafbfc0273e12b45a26372436e641/7dcc204e6e5c44a79efe859567ee44d8.jpg?imwidth=606&filter=packshot
+              - text: https://img01.ztat.net/article/spp-media-p1/843fff815fd13610b629dfa89ac1c4d2/17a7a561a9ef4a13a7d522eb5fb86d3b.jpg?imwidth=606&filter=packshot
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[12]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
             price:
-              - text: 16,95 €
+              - text: 37,95 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[12]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Skin Gym
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[12]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[12]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "12"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[12]/@rank
@@ -379,24 +474,31 @@ extractions:
                 raw: "9"
                 locale: de_DE
                 value: 9
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: m3t31g007-s11
+              - text: peh34g00q-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[13]/article[1]/a[1]/@href
             name:
-              - text: >-
-                  MAC
-
-                  GENTLY OFF EYE AND LIP MAKEUP REMOVER 100ML - Make-up-Entferner - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[13]/article[1]/div[2]/a[1]/header[1]/div[1]
+              - text: |-
+                  Perricone MD
+                  NO:RINSE EXFOLIATING PEEL - Gesichtspeeling
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[13]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/mac-gently-off-eye-and-lip-makeup-remover-100ml-make-up-entferner-neutral-m3t31g007-s11.html
+              - text: https://zalando.de/perricone-md-norinse-exfoliating-peel-59-ml-gesichtspeeling-peh34g00q-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[13]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/701ad38f37b9382e9e11d7103b68f50a/4c8925aee2004252b59cefe3bc8c2178.jpg?imwidth=606&filter=packshot
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[13]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/37f5796237473726aba1fdc89ded3ed8/5e9e3594e3354399aeae7e93cb8a9b99.jpg?imwidth=606&filter=packshot
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[13]/article[1]/a[1]/figure[1]/div[2]/div[1]/img[1]/@src
             price:
-              - text: 22,90 €
+              - text: 35,65 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[13]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Perricone MD
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[13]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[13]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "13"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[13]/@rank
@@ -411,23 +513,31 @@ extractions:
                 raw: "10"
                 locale: de_DE
                 value: 10
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: pik31e00i-s11
+              - text: wih34j000-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[14]/article[1]/a[1]/@href
             name:
               - text: |-
-                  Pixi
-                  MAKEUP FIXING MIST 80ML - Fixierspray und Fixierpuder - mist
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[14]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  Wilkinson Sword
+                  HYDRO 3 - Rasierer
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[14]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/pixi-makeup-fixing-mist-80ml-fixierspray-und-fixierpuder-mist-pik31e00i-s11.html
+              - text: https://zalando.de/wilkinson-sword-hydro-3-shaving-stick-haarentfernung-wih34j000-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[14]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/2e12f22a6cbe3188bffc0b9481c82d41/76a473407e4d4af091f42b149107c00c.jpg?imwidth=606&filter=packshot
+              - text: https://img01.ztat.net/article/spp-media-p1/3d9b242c2dd7334ca9df5103b0f8e40d/d5a3df3702b545b7b0ed71da5efa7adc.jpg?imwidth=606&filter=packshot
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[14]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
             price:
-              - text: 20,35 €
+              - text: 5,95 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[14]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Wilkinson Sword
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[14]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[14]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "14"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[14]/@rank
@@ -442,23 +552,31 @@ extractions:
                 raw: "11"
                 locale: de_DE
                 value: 11
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: sol31g004-s11
+              - text: mrb32g003-s12
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[15]/article[1]/a[1]/@href
             name:
               - text: |-
-                  SO!™ ROSE
-                  LIGHT NOTES FACIAL TONER 250ML - Gesichtswasser - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[15]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  Mr Bear Family
+                  BEARD BREW - Bartpflege - woodland
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[15]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/sotm-rose-light-notes-gesichtstoner-250ml-gesichtswasser-neutral-sol31g004-s11.html
+              - text: https://zalando.de/mr-bear-family-beard-brew-bartpflege-mrb32g003-s12.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[15]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/25f257a4b4d43ce2883780bf4a5c9f61/ac1b6a24b75d420daaf545f274db9d54.jpg?imwidth=606&filter=packshot
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[15]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/fde044e86c4e3ea8aafc6fb8822dc5d8/673ec2b3335a4c5f8a8a6598e18c1678.jpg?imwidth=606&filter=packshot
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[15]/article[1]/a[1]/figure[1]/div[2]/div[1]/img[1]/@src
             price:
-              - text: 24,25 €
+              - text: 18,95 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[15]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Mr Bear Family
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[15]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[15]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "15"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[15]/@rank
@@ -473,24 +591,31 @@ extractions:
                 raw: "12"
                 locale: de_DE
                 value: 12
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: lot32g006-s11
+              - text: anm32g005-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[16]/article[1]/a[1]/@href
             name:
-              - text: >-
-                  L'Oréal Men Expert
-
-                  HYDRA ENERGETIC MOISTURIZING FLUID THREE-DAY BEARD - Bartpflege - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[16]/article[1]/div[2]/a[1]/header[1]/div[1]
+              - text: |-
+                  Anthony
+                  DEEP-PORE CLEANSING CLAY - Gesichtsmaske
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[16]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/loreal-men-expert-hydra-energy-feuchtigkeitsfluid-3-tage-bart-50ml-bartpflege-neutral-lot32g006-s11.html
+              - text: https://zalando.de/anthony-deep-pore-cleansing-clay-90g-gesichtsmaske-neutral-anm32g005-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[16]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/b332e4f0dfa43752b345087fcde3ac3c/dfb84cb7dfbe4304a2cdecf892da3dfa.jpg?imwidth=606&filter=packshot
+              - text: https://img01.ztat.net/article/spp-media-p1/4862f44a4c55312593883559a6f0f5ff/351bbe89538e48bb9dc98f81cc82221a.jpg?imwidth=606&filter=packshot
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[16]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
             price:
-              - text: 13,55 €
+              - text: 28,95 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[16]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Anthony
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[16]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[16]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "16"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[16]/@rank
@@ -505,23 +630,31 @@ extractions:
                 raw: "13"
                 locale: de_DE
                 value: 13
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: sol31g002-s11
+              - text: sep32h004-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[17]/article[1]/a[1]/@href
             name:
               - text: |-
-                  SO!™ ROSE
-                  DAMASCENA'S BEST - Gesichtswasser - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[17]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  SEB MAN
+                  THE SCULPTOR 75ML - Styling
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[17]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/sotm-rose-classic-gesichtstoner-250ml-gesichtswasser-neutral-sol31g002-s11.html
+              - text: https://zalando.de/seb-man-the-sculptor-75ml-styling-sep32h004-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[17]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/a535af0348243e698aeeaba9588beb2b/5e84173a091f4887b997dbb561e331f0.png?imwidth=606&filter=packshot
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[17]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/4a5435d466663d1eb2dde73e9c2a16c6/305d2e36c6e84fde9e0442bd6184ac32.jpg?imwidth=606&filter=packshot
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[17]/article[1]/a[1]/figure[1]/div[2]/div[1]/img[1]/@src
             price:
-              - text: 24,25 €
+              - text: 16,55 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[17]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: SEB MAN
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[17]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[17]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "17"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[17]/@rank
@@ -536,23 +669,31 @@ extractions:
                 raw: "14"
                 locale: de_DE
                 value: 14
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: arz31g006-a11
+              - text: tw732j009-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[18]/article[1]/a[1]/@href
             name:
               - text: |-
-                  ARI ANWA Skincare
-                  ROSENQUARZ ROSENWASSER - Gesichtswasser - weiß
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[18]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  Tweezerman
+                  GEAR PRECISION GRIP TOENAIL CLIPPER - Nagelpflege-Zubehör
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[18]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/ari-anwa-skincare-gesichtspflegeset-weiss-arz31g006-a11.html
+              - text: https://zalando.de/tweezerman-gear-precision-grip-toenail-clipper-nagelpflege-zubehoer-neutral-tw732j009-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[18]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/42165a0cddb6385e9bc996d3a692a462/04904365b7bb4878af6e4bc11e5167c0.jpg?imwidth=606&filter=packshot
+              - text: https://img01.ztat.net/article/spp-media-p1/4b55f21605073671b661c5c44b5a047a/b46c76eab9de421482c3d5355966b5c6.jpg?imwidth=606&filter=packshot
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[18]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
             price:
-              - text: 20,95 €
+              - text: 17,95 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[18]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Tweezerman
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[18]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[18]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "18"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[18]/@rank
@@ -567,23 +708,31 @@ extractions:
                 raw: "15"
                 locale: de_DE
                 value: 15
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: cll31g05g-s11
+              - text: pem32j003-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[19]/article[1]/a[1]/@href
             name:
               - text: |-
-                  Clinique
-                  SUPERDEFENSE VALUE SET - Gesichtspflegeset - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[19]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  Percy Nobleman
+                  GENTLEMAN'S HAIR COMB - Bürste
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[19]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/clinique-superdefense-value-set-gesichtspflegeset-cll31g05g-s11.html
+              - text: https://zalando.de/percy-nobleman-gentlemans-hair-comb-haar-styling-zubehoer-pem32j003-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[19]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/c02b1d6c15843a8eafa22cbe76e09ccd/68fb73d60d4845f8b37e850cbca02549.jpg?imwidth=606&filter=packshot
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[19]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/b7454795bf4438ed9a05b1e365c61ad9/23050283026d4906ae118700fd129408.jpg?imwidth=606&filter=packshot
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[19]/article[1]/a[1]/figure[1]/div[2]/div[1]/img[1]/@src
             price:
-              - text: 48,55 €
+              - text: 11,65 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[19]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Percy Nobleman
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[19]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[19]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "19"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[19]/@rank
@@ -598,23 +747,32 @@ extractions:
                 raw: "16"
                 locale: de_DE
                 value: 16
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: drp31g00f-s11
+              - text: av934g001-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[20]/article[1]/a[1]/@href
             name:
-              - text: |-
-                  Dr. Hauschka
-                  FIRMING MASK - Gesichtsmaske - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[20]/article[1]/div[2]/a[1]/header[1]/div[1]
+              - text: >-
+                  Aveda
+
+                  BOTANICAL KINETICS™ INTENSE HYDRATING SOFT CREME - Gesichtscreme
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[20]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/dr-hauschka-firming-mask-gesichtsmaske-drp31g00f-s11.html
+              - text: https://zalando.de/aveda-botanical-kineticstm-intense-hydrating-soft-creme-gesichtscreme-av934g001-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[20]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/f34f0c496b4236bdadcbf000236ba110/8958c1554e31424e8db4214b7531b071.jpg?imwidth=606&filter=packshot
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[20]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/88841af7ecf4313b90afe69e6465ee94/035396c127bc4003aed63906f1157c20.jpg?imwidth=606&filter=packshot
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[20]/article[1]/a[1]/figure[1]/div[2]/div[1]/img[1]/@src
             price:
-              - text: 31,05 €
+              - text: 48,95 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[20]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Aveda
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[20]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[20]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "20"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[20]/@rank
@@ -629,23 +787,31 @@ extractions:
                 raw: "17"
                 locale: de_DE
                 value: 17
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: hou32g003-s11
+              - text: av934i000-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[21]/article[1]/a[1]/@href
             name:
               - text: |-
-                  HOUSE 99 by David Beckham
-                  EYE BALM TRULY BRIGHTER 15ML - Augenpflege - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[21]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  Aveda
+                  CHAKRA™ 5 BALANCING BODY MIST - Körperspray
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[21]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/house-99-by-david-beckham-eye-balm-truly-brighter-15ml-augenpflege-neutral-hou32g003-s11.html
+              - text: https://zalando.de/aveda-chakratm-5-balancing-body-mist-koerperspray-av934i000-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[21]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/3a538f4f3f4e3ecebe8996aceb2cadcb/fa4efa39bc304d0fa9025984772866eb.jpg?imwidth=606&filter=packshot
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[21]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/a690d78357c93d9e9c736a81e7d246c7/a4b4b1a0ded04ade850628a789c22853.jpg?imwidth=606&filter=packshot
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[21]/article[1]/a[1]/figure[1]/div[2]/div[1]/img[1]/@src
             price:
-              - text: 18,45 €
+              - text: 36,95 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[21]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Aveda
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[21]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[21]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "21"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[21]/@rank
@@ -660,23 +826,31 @@ extractions:
                 raw: "18"
                 locale: de_DE
                 value: 18
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: uri31g007-s11
+              - text: drr34g003-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[22]/article[1]/a[1]/@href
             name:
               - text: |-
-                  URANG
-                  LOVE ROSE X HIBICUS MASK SET - Gesichtspflegeset - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[22]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  Dr. Kerklaan
+                  NATURAL CBD RELIEF CREAM - Feuchtigkeitspflege
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[22]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/urang-love-rose-x-hibicus-mask-set-gesichtspflegeset-uri31g007-s11.html
+              - text: https://zalando.de/dr-kerklaan-natural-cbd-relief-cream-feuchtigkeitspflege-drr34g003-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[22]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/6db8997f0ffd36f4931c866301b8b1ed/0399e4b2c0c042ab9d1e529e6ed8134b.png?imwidth=606&filter=packshot
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[22]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/70ef3b24e9783fb39f45b5ae78dbe93d/e1efef89be99442ea8ef8fffd91bf2d5.jpg?imwidth=606&filter=packshot
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[22]/article[1]/a[1]/figure[1]/div[2]/div[1]/img[1]/@src
             price:
-              - text: 38,85 €
+              - text: 29,45 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[22]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Dr. Kerklaan
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[22]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[22]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "22"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[22]/@rank
@@ -691,23 +865,29 @@ extractions:
                 raw: "19"
                 locale: de_DE
                 value: 19
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: feg31g000-s11
+              - text: clp32g00b-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[23]/article[1]/a[1]/@href
             name:
               - text: |-
-                  Fedua
-                  HAND CREAMANTI AGE EXTRAORDINARY ROSE - Handcreme - white
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[23]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  Clinique for Men
+                  MOISTURIZER SPF21 100ML - Gesichtscreme
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[23]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/fedua-hand-creamanti-age-extraordinary-rose-handcreme-white-feg31g000-s11.html
+              - text: https://zalando.de/clinique-for-men-moisturizer-spf21-100ml-tagespflege-clp32g00b-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[23]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/07dc2464b31f3a30b0c9f24195d847be/a7e1235494744ad2991aa5d39b0fb8b4.jpg?imwidth=606&filter=packshot
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[23]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/23a6b36bf81d3d4884f22547a941fcc2/ee42c3064dae409ebf5a662e1ecf966b.jpg?imwidth=606&filter=packshot
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[23]/article[1]/a[1]/figure[1]/div[2]/div[1]/img[1]/@src
             price:
-              - text: 18,45 €
+              - text: 37,99 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[23]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Clinique for Men
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[23]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
             rank:
               - text: "23"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[23]/@rank
@@ -722,23 +902,31 @@ extractions:
                 raw: "20"
                 locale: de_DE
                 value: 20
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: sol31g003-s11
+              - text: b1g32j007-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[24]/article[1]/a[1]/@href
             name:
               - text: |-
-                  SO!™ ROSE
-                  CLASSIC FACIAL TONER 100ML - Gesichtswasser - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[24]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  Barberians
+                  FUSION RAZOR - Rasierer
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[24]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/sotm-rose-classic-gesichtstoner-100ml-gesichtswasser-neutral-sol31g003-s11.html
+              - text: https://zalando.de/barberians-fusion-razor-system-b1g32j007-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[24]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/ceb9314abdad3a3b88d759044d680252/08b0c2407fe440d79e32a9893fbb352b.jpg?imwidth=606&filter=packshot
+              - text: https://img01.ztat.net/article/spp-media-p1/c2b499a767d43f66b846cb6dd098c7d1/faa5484125e74b5fa3ac58369a87ffbd.png?imwidth=606&filter=packshot
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[24]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
             price:
-              - text: 16,50 €
+              - text: 79,95 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[24]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Barberians
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[24]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[24]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "24"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[24]/@rank
@@ -753,23 +941,31 @@ extractions:
                 raw: "21"
                 locale: de_DE
                 value: 21
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: os631g00p-s11
+              - text: av934g00w-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[25]/article[1]/a[1]/@href
             name:
               - text: |-
-                  Oskia
-                  FLORAL WATER TONER 150 ML - Gesichtswasser - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[25]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  Aveda
+                  BOTANICAL KINETICS™ SKIN TONING AGENT - Gesichtswasser
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[25]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/oskia-floral-water-toner-150-ml-gesichtswasser-os631g00p-s11.html
+              - text: https://zalando.de/aveda-botanical-kineticstm-skin-toning-agent-gesichtswasser-av934g00w-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[25]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/5643346ea26a39eeb043987b4a0b3af0/41bdba7d62df4049984334c3c75f24b4.jpg?imwidth=606&filter=packshot
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[25]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/ad4dc524cc2e30c6a30702c7950adc66/e1061fea359e42f3a14cae9166d9e033.jpg?imwidth=606&filter=packshot
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[25]/article[1]/a[1]/figure[1]/div[2]/div[1]/img[1]/@src
             price:
-              - text: 62,95 €
+              - text: 28,95 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[25]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Aveda
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[25]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[25]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "25"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[25]/@rank
@@ -784,23 +980,31 @@ extractions:
                 raw: "22"
                 locale: de_DE
                 value: 22
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: b1g32j007-s11
+              - text: tw732j00d-d11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[26]/article[1]/a[1]/@href
             name:
               - text: |-
-                  Barberians
-                  FUSION RAZOR - Rasierer - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[26]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  Tweezerman
+                  BROW GROOMING SET - Körperpflegeset - silver-coloured
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[26]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/barberians-fusion-razor-system-b1g32j007-s11.html
+              - text: https://zalando.de/tweezerman-system-silver-coloured-tw732j00d-d11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[26]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/c2b499a767d43f66b846cb6dd098c7d1/faa5484125e74b5fa3ac58369a87ffbd.png?imwidth=606&filter=packshot
+              - text: https://img01.ztat.net/article/spp-media-p1/14b5a8b6a8b830cea53b61d245b1ea7f/4261d580b46c467f94a54abffa0e8af6.jpg?imwidth=606&filter=packshot
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[26]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
             price:
-              - text: 77,45 €
+              - text: 29,95 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[26]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Tweezerman
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[26]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[26]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "26"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[26]/@rank
@@ -815,23 +1019,31 @@ extractions:
                 raw: "23"
                 locale: de_DE
                 value: 23
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: an231g006-s11
+              - text: t0p32i001-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[27]/article[1]/a[1]/@href
             name:
               - text: |-
-                  Anne Semonin
-                  MARINE TONER 200ML - Gesichtswasser - neutral
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[27]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  Thomas Clipper
+                  COLOGNE 50ML - Eau de Cologne - city
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[27]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/anne-semonin-marine-toner-200ml-make-up-entferner-neutral-an231g006-s11.html
+              - text: https://zalando.de/thomas-clipper-cologne-50ml-eau-de-toilette-city-t0p32i001-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[27]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/a4a3534ecc323679bc4d635c243c3b42/43977ab148a54dd4913b3dfc01eb8aef.png?imwidth=606&filter=packshot
+              - text: https://img01.ztat.net/article/spp-media-p1/384fd70e450333f7ac2e114835b7105f/ec38439723694832838d1ca0976dcbe2.jpg?imwidth=606&filter=packshot
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[27]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
             price:
-              - text: 46,65 €
+              - text: 79,95 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[27]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Thomas Clipper
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[27]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[27]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "27"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[27]/@rank
@@ -846,23 +1058,29 @@ extractions:
                 raw: "24"
                 locale: de_DE
                 value: 24
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: dao31g01o-s11
+              - text: atf34g003-a11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[28]/article[1]/a[1]/@href
             name:
               - text: |-
-                  Darphin
-                  ALL-DAY HYDRATING HAND AND NAIL CREAM - Handcreme - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[28]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  Atelier Rebul
+                  MICELLAR ROSE WATER 200ML - Gesichtsreinigung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[28]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/darphin-all-day-hydrating-hand-and-nail-cream-handcreme-dao31g01o-s11.html
+              - text: https://zalando.de/atelier-rebul-micellar-rose-water-200ml-gesichtsreinigung-atf34g003-a11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[28]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/c99166e04cbb35219f649d5654ee3b76/f1cbf876731441c18b8a3fc6437ca20f.jpg?imwidth=606&filter=packshot
+              - text: https://img01.ztat.net/article/spp-media-p1/47c3fe09c6ca3a0bb638bd7d369aa85d/e98f1ab57f7148d78df90001bd60231f.jpg?imwidth=606&filter=packshot
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[28]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
             price:
-              - text: 17,45 €
+              - text: 20,00 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[28]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Atelier Rebul
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[28]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
             rank:
               - text: "28"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[28]/@rank
@@ -877,23 +1095,31 @@ extractions:
                 raw: "25"
                 locale: de_DE
                 value: 25
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: eld31e003-j11
+              - text: gai34i004-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[29]/article[1]/a[1]/@href
             name:
               - text: |-
-                  ELLIS FAAS
-                  BLUSH PEN - Rouge - warm dusty pink
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[29]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  Gallivant
+                  LONDON EDP - Eau de Parfum
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[29]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/ellis-faas-blush-pen-rouge-warm-dusty-pink-eld31e003-j11.html
+              - text: https://zalando.de/gallivant-london-30ml-edp-eau-de-parfum-gai34i004-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[29]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/a0b12588f8cc328aac6f39c8f30c0221/80b88080a0fd4589b5d902e925f1abc7.png?imwidth=606&filter=packshot
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[29]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/c36a8af12ac03064ad27da62c4e7fa1b/4550957a0ff44341a4158466ae3af836.jpg?imwidth=606&filter=packshot
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[29]/article[1]/a[1]/figure[1]/div[2]/div[1]/img[1]/@src
             price:
-              - text: 28,15 €
+              - text: 65,95 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[29]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Gallivant
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[29]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[29]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "29"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[29]/@rank
@@ -908,23 +1134,31 @@ extractions:
                 raw: "26"
                 locale: de_DE
                 value: 26
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: drp31g01z-s11
+              - text: zw132j006-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[30]/article[1]/a[1]/@href
             name:
               - text: |-
-                  Dr. Hauschka
-                  ROSE DEODORANT - Deodorant - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[30]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  Zwilling
+                  TWINOX COMB - Haarentfernungs-Zubehör
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[30]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/dr-hauschka-rose-deodorant-deodorant-drp31g01z-s11.html
+              - text: https://zalando.de/zwilling-twinox-kamm-haarentfernungs-zubehoer-zw132j006-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[30]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/a1158bb785e033d0934c70b45f609355/9f8eb7f1ec214fabad0f02ec1fb8a0ec.jpg?imwidth=606&filter=packshot
+              - text: https://img01.ztat.net/article/spp-media-p1/2438a9a0508535c9bf8dc3e9873bb746/213be3b7d8e048ebaf414e98c3385eb2.jpg?imwidth=606&filter=packshot
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[30]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
             price:
-              - text: 12,60 €
+              - text: 22,95 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[30]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Zwilling
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[30]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[30]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "30"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[30]/@rank
@@ -939,23 +1173,29 @@ extractions:
                 raw: "27"
                 locale: de_DE
                 value: 27
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: cll31i00c-s11
+              - text: son32j002-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[31]/article[1]/a[1]/@href
             name:
               - text: |-
-                  Clinique
-                  AROMATICS IN WHITE - Eau de Parfum - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[31]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  Sober
+                  RASUR & BART RASIERHOBEL - Rasierer - black
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[31]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/clinique-aromatics-in-white-50ml-eau-de-parfum-neutral-cll31i00c-s11.html
+              - text: https://zalando.de/sober-rasur-and-bart-rasierhobel-rasierer-black-son32j002-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[31]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/524f96b1f00a3a9fbee18a52a14ca651/878f2578608c4905bb118d7f647624ad.jpg?imwidth=606&filter=packshot
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[31]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/969a175f45a53751b0c1a6dbe18c29f3/6781d234074d4f218da7bfcf11809616.jpg?imwidth=606&filter=packshot
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[31]/article[1]/a[1]/figure[1]/div[2]/div[1]/img[1]/@src
             price:
-              - text: 72,95 €
+              - text: 55,95 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[31]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Sober
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[31]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
             rank:
               - text: "31"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[31]/@rank
@@ -970,23 +1210,31 @@ extractions:
                 raw: "28"
                 locale: de_DE
                 value: 28
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: sol31g005-s11
+              - text: ski34g000-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[32]/article[1]/a[1]/@href
             name:
               - text: |-
-                  SO!™ ROSE
-                  LIGHT NOTES FACIAL TONER 100ML - Gesichtswasser - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[32]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  Skin Stories
+                  SKIN STORIES DAILY LOTION - Feuchtigkeitspflege
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[32]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/sotm-rose-light-notes-gesichtstoner-100ml-gesichtswasser-neutral-sol31g005-s11.html
+              - text: https://zalando.de/skin-stories-skin-stories-daily-lotion-feuchtigkeitspflege-ski34g000-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[32]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/a002ac658c63346fb36d2ffe645b5f6f/bd3bbb05ade84c01b317edc468cc2e64.jpg?imwidth=606&filter=packshot
+              - text: https://img01.ztat.net/article/spp-media-p1/a31789ab52aa3424a7f834715c0221ff/3b6b446ff89145a6838c1f29b9a756d4.jpg?imwidth=606&filter=packshot
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[32]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
             price:
-              - text: 16,50 €
+              - text: 9,95 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[32]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Skin Stories
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[32]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[32]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "32"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[32]/@rank
@@ -1001,23 +1249,31 @@ extractions:
                 raw: "29"
                 locale: de_DE
                 value: 29
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: cll31i00b-s11
+              - text: mrb32g009-s13
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[33]/article[1]/a[1]/@href
             name:
               - text: |-
-                  Clinique
-                  AROMATICS IN WHITE - Eau de Parfum - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[33]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  Mr Bear Family
+                  LIPBALM - Lippenbalsam - coconut
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[33]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/clinique-aromatics-in-white-100ml-eau-de-parfum-neutral-cll31i00b-s11.html
+              - text: https://zalando.de/mr-bear-family-lipbalm-lippenbalsam-mrb32g009-s13.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[33]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/4b54aaa69b8338dd8fcf141277d69fb0/e536673554ce4482a4d93f19ace58a71.jpg?imwidth=606&filter=packshot
+              - text: https://img01.ztat.net/article/spp-media-p1/4dd21494afac365897c8363b57eee5d3/a3fe63442f394164b7952f30d855e4fd.jpg?imwidth=606&filter=packshot
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[33]/article[1]/a[1]/figure[1]/div[2]/div[1]/img[1]/@src
             price:
-              - text: 101,65 €
+              - text: 6,10 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[33]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Mr Bear Family
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[33]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[33]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "33"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[33]/@rank
@@ -1032,23 +1288,29 @@ extractions:
                 raw: "30"
                 locale: de_DE
                 value: 30
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: bes31g003-s14
+              - text: clp32g001-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[34]/article[1]/a[1]/@href
             name:
               - text: |-
-                  Benamor
-                  BODY CREAM - Feuchtigkeitspflege - rose amélie
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[34]/article[1]/div[3]/a[1]/header[1]/div[1]
+                  Clinique for Men
+                  SUPER ENERGIZER DEPUFFING EYE GEL 14ML - Augenpflege
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[34]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/benamor-body-cream-150ml-feuchtigkeitspflege-bes31g003-s14.html
+              - text: https://zalando.de/clinique-for-men-super-energizer-depuffing-eye-gel-14ml-augenpflege-neutral-clp32g001-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[34]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/792660083c173c85adee6924ee707440/b1e388fd881e441c8127e5acc143b9ee.jpg?imwidth=606&filter=packshot
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[34]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/3b860c63bbae3999839feb1a7e8b45e8/e3a132720d0c42e98dfb337a1c18dd27.jpg?imwidth=606&filter=packshot
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[34]/article[1]/a[1]/figure[1]/div[2]/div[1]/img[1]/@src
             price:
-              - text: 18,45 €
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[34]/article[1]/div[3]/a[1]/header[1]/div[2]/span[1]
+              - text: 33,24 €
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[34]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Clinique for Men
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[34]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
             rank:
               - text: "34"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[34]/@rank
@@ -1063,23 +1325,31 @@ extractions:
                 raw: "31"
                 locale: de_DE
                 value: 31
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: eld31e003-g11
+              - text: wih34j009-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[35]/article[1]/a[1]/@href
             name:
               - text: |-
-                  ELLIS FAAS
-                  BLUSH PEN - Rouge - fresh coral
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[35]/article[1]/div[3]/a[1]/header[1]/div[1]
+                  Wilkinson Sword
+                  HYDRO SENSE COMFORT BLADES 4PCS - Haarentfernungs Accessoires
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[35]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/ellis-faas-blush-pen-rouge-eld31e003-g11.html
+              - text: https://zalando.de/wilkinson-sword-hydro-sense-comfort-blades-4pcs-haarentfernung-wih34j009-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[35]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/1f3c2cbb28de370bab0f212ace3e6b4a/731ce5c80d3f4aa3b022846c8310f495.png?imwidth=606&filter=packshot
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[35]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/dfaa295c8d33316192063ddecd730441/55875078f8064d00a3a578b492445da4.jpg?imwidth=606&filter=packshot
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[35]/article[1]/a[1]/figure[1]/div[2]/div[1]/img[1]/@src
             price:
-              - text: 28,15 €
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[35]/article[1]/div[3]/a[1]/header[1]/div[2]/span[1]
+              - text: 10,10 €
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[35]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Wilkinson Sword
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[35]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[35]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "35"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[35]/@rank
@@ -1094,23 +1364,31 @@ extractions:
                 raw: "32"
                 locale: de_DE
                 value: 32
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: feg31g001-s11
+              - text: b1d32g00l-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[36]/article[1]/a[1]/@href
             name:
               - text: |-
-                  Fedua
-                  HAND BALM DAILY EXTRAORDINARY ROSE - Handcreme - 3201 white
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[36]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  Baxter of California
+                  DEEP CLEANSING BAR CHARCOAL CLAY - Seife
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[36]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/fedua-hand-balm-daily-extraordinary-rose-handcreme-3201-white-feg31g001-s11.html
+              - text: https://zalando.de/baxter-of-california-deep-cleansing-bar-charcoal-clay-198g-seife-black-b1d32g00l-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[36]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/66749bc337aa3bdc938acc6e1604a202/59e77faba3a14dfea98a783c9f56c047.jpg?imwidth=606&filter=packshot
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[36]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/def94d7c0e603a14b349a0816ebde772/de91f25ed21942cbbcebe0ac635ee5d3.jpg?imwidth=606&filter=packshot
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[36]/article[1]/a[1]/figure[1]/div[2]/div[1]/img[1]/@src
             price:
-              - text: 17,45 €
+              - text: 14,85 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[36]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Baxter of California
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[36]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[36]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "36"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[36]/@rank
@@ -1125,23 +1403,31 @@ extractions:
                 raw: "33"
                 locale: de_DE
                 value: 33
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: eld31e003-j12
+              - text: brr32i00j-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[37]/article[1]/a[1]/@href
             name:
               - text: |-
-                  ELLIS FAAS
-                  BLUSH PEN - Rouge - mulled wine
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[37]/article[1]/div[3]/a[1]/header[1]/div[1]
+                  Bruno Banani Fragrance
+                  BRUNO BANANI MAN DEO STICK - Deodorant
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[37]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/ellis-faas-blush-pen-rouge-eld31e003-j12.html
+              - text: https://zalando.de/bruno-banani-fragrance-system-brr32i00j-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[37]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/4e29520f02383bd4a15e176e0c5ab32e/10b15b65e16f4a3b959e2f5e37425a48.png?imwidth=606&filter=packshot
+              - text: https://img01.ztat.net/article/spp-media-p1/33a9866c4a133bf5affe99bc63c5a14f/a341dc51d54342eaa9249b00cbac1ca2.jpg?imwidth=606&filter=packshot
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[37]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
             price:
-              - text: 28,15 €
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[37]/article[1]/div[3]/a[1]/header[1]/div[2]/span[1]
+              - text: 12,95 €
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[37]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Bruno Banani Fragrance
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[37]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[37]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "37"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[37]/@rank
@@ -1156,23 +1442,31 @@ extractions:
                 raw: "34"
                 locale: de_DE
                 value: 34
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: gw121d0ai-j11
+              - text: zed32g006-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[38]/article[1]/a[1]/@href
             name:
               - text: |-
-                  Gerry Weber
-                  T-Shirt basic - rosenwasser
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[38]/article[1]/div[3]/a[1]/header[1]/div[1]
+                  Zew for Men
+                  TOOTHPASTE - Zahnpflege
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[38]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/gerry-weber-t-shirt-basic-rosenwasser-gw121d0ai-j11.html
+              - text: https://zalando.de/zew-for-men-toothpaste-zahnpflege-zed32g006-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[38]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/1e2eaa6f5524387e94f8c201c53dfaec/96c2184c662844a88a622fef761051fb.jpg?imwidth=606
+              - text: https://img01.ztat.net/article/spp-media-p1/6605ad27401636aea75b2fa297ad7262/eda45a3f65074afe90d6c3abce3c6b7d.jpg?imwidth=606&filter=packshot
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[38]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
             price:
-              - text: 38,75 €
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[38]/article[1]/div[3]/a[1]/header[1]/div[2]/span[1]
+              - text: 10,95 €
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[38]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Zew for Men
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[38]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[38]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "38"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[38]/@rank
@@ -1187,23 +1481,31 @@ extractions:
                 raw: "35"
                 locale: de_DE
                 value: 35
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: eld31e003-o11
+              - text: niq32g000-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[39]/article[1]/a[1]/@href
             name:
               - text: |-
-                  ELLIS FAAS
-                  BLUSH PEN - Rouge - soft bronze
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[39]/article[1]/div[3]/a[1]/header[1]/div[1]
+                  Nivea Men
+                  DEEP CONTROL FACE GEL - Gesichtscreme
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[39]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/ellis-faas-blush-pen-rouge-eld31e003-o11.html
+              - text: https://zalando.de/nivea-men-deep-control-face-gel-gesichtscreme-niq32g000-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[39]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/753b16086f523fe39fadcbbc5b3575fe/5a3ec46fa39e4bc082ded14acbbe48ee.png?imwidth=606&filter=packshot
+              - text: https://img01.ztat.net/article/spp-media-p1/7099f2eebc523b0fac25cf3f6c0c49e0/b4f9dc22058b446086e48c5a0b5418e3.jpg?imwidth=606&filter=packshot
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[39]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
             price:
-              - text: 28,15 €
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[39]/article[1]/div[3]/a[1]/header[1]/div[2]/span[1]
+              - text: 10,95 €
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[39]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Nivea Men
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[39]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[39]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "39"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[39]/@rank
@@ -1218,23 +1520,31 @@ extractions:
                 raw: "36"
                 locale: de_DE
                 value: 36
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: av934g00w-s11
+              - text: bay32g005-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[40]/article[1]/a[1]/@href
             name:
               - text: |-
-                  Aveda
-                  BOTANICAL KINETICS™ SKIN TONING AGENT - Gesichtswasser - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[40]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  Barber Pro
+                  GENTLEMEN'S SHEET MASK 23G - Gesichtsmaske
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[40]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/aveda-botanical-kineticstm-skin-toning-agent-gesichtswasser-av934g00w-s11.html
+              - text: https://zalando.de/barber-pro-gentlemens-sheet-mask-23g-gesichtsmaske-neutral-bay32g005-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[40]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/ad4dc524cc2e30c6a30702c7950adc66/e1061fea359e42f3a14cae9166d9e033.jpg?imwidth=606&filter=packshot
+              - text: https://img01.ztat.net/article/spp-media-p1/367d46841445347b881783b5836c663b/349a7e3d6a044bc993aaf1d4c14f7fe6.jpg?imwidth=606&filter=packshot
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[40]/article[1]/a[1]/figure[1]/div[2]/div[1]/img[1]/@src
             price:
-              - text: 28,15 €
+              - text: 5,75 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[40]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Barber Pro
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[40]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[40]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "40"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[40]/@rank
@@ -1249,23 +1559,31 @@ extractions:
                 raw: "37"
                 locale: de_DE
                 value: 37
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: drp31g02u-s11
+              - text: pem34g000-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[41]/article[1]/a[1]/@href
             name:
               - text: |-
-                  Dr. Hauschka
-                  TINTED DAY CREAM - Getönte Tagespflege - chestnut
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[41]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  Percy Nobleman
+                  DEODORANT STICK - Deodorant
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[41]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/dr-hauschka-tinted-day-cream-getoente-tagespflege-chestnut-drp31g02u-s11.html
+              - text: https://zalando.de/percy-nobleman-deodorant-stick-deodorant-pem34g000-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[41]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/70c3020445313f3f854856940fc32b2b/d9abff890ab54d549abd8289fd3820ce.jpg?imwidth=606&filter=packshot
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[41]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/51cf8a9ce07438a0b9fb19d2dcde44bb/91fc1f74801f460ba0dce5eeca06d9a9.jpg?imwidth=606&filter=packshot
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[41]/article[1]/a[1]/figure[1]/div[2]/div[1]/img[1]/@src
             price:
-              - text: 3,85 €
+              - text: 14,90 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[41]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Percy Nobleman
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[41]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[41]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "41"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[41]/@rank
@@ -1280,23 +1598,31 @@ extractions:
                 raw: "38"
                 locale: de_DE
                 value: 38
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: atf34g003-a11
+              - text: hep32g000-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[42]/article[1]/a[1]/@href
             name:
               - text: |-
-                  Atelier Rebul
-                  MICELLAR ROSE WATER 200ML - Gesichtsreinigung - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[42]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  Heath
+                  FACE WASH - Gesichtsreinigung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[42]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/atelier-rebul-micellar-rose-water-200ml-gesichtsreinigung-atf34g003-a11.html
+              - text: https://zalando.de/heath-face-wash-gesichtsreinigung-hep32g000-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[42]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/47c3fe09c6ca3a0bb638bd7d369aa85d/e98f1ab57f7148d78df90001bd60231f.jpg?imwidth=606&filter=packshot
+              - text: https://img01.ztat.net/article/spp-media-p1/a0f9fff1dbbf32a49734e552fa6e7988/568c227925fc4f8ea8ec10b36196ff25.jpg?imwidth=606&filter=packshot
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[42]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
             price:
-              - text: 20,00 €
+              - text: 14,95 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[42]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Heath
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[42]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[42]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "42"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[42]/@rank
@@ -1311,23 +1637,31 @@ extractions:
                 raw: "39"
                 locale: de_DE
                 value: 39
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: rog31g025-s11
+              - text: az832i003-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[43]/article[1]/a[1]/@href
             name:
               - text: |-
-                  Rodial
-                  DRAGONS BLOOD COLLECTION - Gesichtspflegeset - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[43]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  Azzaro Parfums
+                  WANTED EAU DE TOILETTE VAPO - Eau de Toilette
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[43]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/rodial-dragons-blood-collection-gesichtspflegeset-rog31g025-s11.html
+              - text: https://zalando.de/azzaro-parfums-wanted-eau-de-toilette-vapo-eau-de-toilette-az832i003-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[43]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/02322828cb6931219d4075eaf4e22d69/d4a6cb3d95df46a6a37e1d2d182aeb2b.jpg?imwidth=606&filter=packshot
+              - text: https://img01.ztat.net/article/spp-media-p1/e6771805a2393ee58e22e46d51d36f63/5e58996e89a945c19d51493e8c1a3b49.png?imwidth=606&filter=packshot
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[43]/article[1]/a[1]/figure[1]/div[2]/div[1]/img[1]/@src
             price:
-              - text: 125,95 €
+              - text: 34,05 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[43]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Azzaro Parfums
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[43]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[43]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "43"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[43]/@rank
@@ -1342,23 +1676,31 @@ extractions:
                 raw: "40"
                 locale: de_DE
                 value: 40
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: brr32i00j-s11
+              - text: tht32i001-s21
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[44]/article[1]/a[1]/@href
             name:
               - text: |-
-                  Bruno Banani Fragrance
-                  BRUNO BANANI MAN DEO STICK - Deodorant - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[44]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  The Library of Fragrance
+                  EAU DE COLOGNE - Eau de Cologne - chipotle pepper
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[44]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/bruno-banani-fragrance-system-brr32i00j-s11.html
+              - text: https://zalando.de/the-library-of-fragrance-eau-de-cologne-eau-de-cologne-tht32i001-s21.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[44]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/33a9866c4a133bf5affe99bc63c5a14f/a341dc51d54342eaa9249b00cbac1ca2.jpg?imwidth=606&filter=packshot
+              - text: https://img01.ztat.net/article/spp-media-p1/ac04fa46a7293be69b936756780cb003/a39c3a5340184f4ab06db1ef3f588874.jpg?imwidth=606&filter=packshot
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[44]/article[1]/a[1]/figure[1]/div[2]/div[1]/img[1]/@src
             price:
-              - text: 9,50 €
+              - text: 14,60 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[44]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: The Library of Fragrance
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[44]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[44]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "44"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[44]/@rank
@@ -1373,23 +1715,31 @@ extractions:
                 raw: "41"
                 locale: de_DE
                 value: 41
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: jas32i003-s11
+              - text: zed32g001-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[45]/article[1]/a[1]/@href
             name:
               - text: |-
-                  JACK & JONES Fragrances
-                  BLUE JJ FRAGRANCE - Eau de Toilette - surf the web
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[45]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  Zew for Men
+                  SHAVING SOAP - Rasur
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[45]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/jack-and-jones-fragrances-blue-jj-fragrance-eau-de-toilette-surf-the-web-jas32i003-s11.html
+              - text: https://zalando.de/zew-for-men-shaving-soap-rasur-zed32g001-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[45]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/adc195c48dac3a35a1b726b784b64353/72a52352c5d04188bec235e308f3fe16.jpg?imwidth=606&filter=packshot
+              - text: https://img01.ztat.net/article/spp-media-p1/c32218547e4b3c8b97a6c206f8e3a395/23ca2e5abd8d4e9097ad1eba278d28ba.jpg?imwidth=606&filter=packshot
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[45]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
             price:
-              - text: 12,60 €
+              - text: 7,95 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[45]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Zew for Men
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[45]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[45]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "45"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[45]/@rank
@@ -1404,23 +1754,30 @@ extractions:
                 raw: "42"
                 locale: de_DE
                 value: 42
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: drp31g02l-s11
+              - text: elg34g00c-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[46]/article[1]/a[1]/@href
             name:
-              - text: |-
-                  Dr. Hauschka
-                  ROSE DAY CREAM LIGHT - Gesichtscreme - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[46]/article[1]/div[2]/a[1]/header[1]/div[1]
+              - text: >-
+                  ELEMIS
+
+                  ELEMIS SMART CLEANSE MICELLAR WATER - Gesichtswasser - transparent
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[46]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/dr-hauschka-rose-day-cream-light-gesichtscreme-drp31g02l-s11.html
+              - text: https://zalando.de/elemis-elemis-smart-cleanse-micellar-water-gesichtswasser-transparent-elg34g00c-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[46]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/f2e0bb529e9939b8ac0dc9d39e64b369/46cf0d9a58084dd5a6f5683435efbce1.jpg?imwidth=606&filter=packshot
+              - text: https://img01.ztat.net/article/spp-media-p1/e5e1223db4e938c8abe69810fc42800c/966b13fe6bf7468eb09b031ddce6741d.jpg?imwidth=606&filter=packshot
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[46]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
             price:
-              - text: 3,85 €
+              - text: 29,64 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[46]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: ELEMIS
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[46]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
             rank:
               - text: "46"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[46]/@rank
@@ -1435,23 +1792,31 @@ extractions:
                 raw: "43"
                 locale: de_DE
                 value: 43
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: drp31g02a-s11
+              - text: ark31i003-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[47]/article[1]/a[1]/@href
             name:
               - text: |-
-                  Dr. Hauschka
-                  FIRMING MASK - Gesichtsmaske - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[47]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  Aramis
+                  JHL EAU DE COLOGNE SPRAY 100ML - Eau de Cologne
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[47]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/dr-hauschka-firming-mask-gesichtsmaske-drp31g02a-s11.html
+              - text: https://zalando.de/aramis-jhl-eau-de-cologne-spray-100ml-eau-de-cologne-ark31i003-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[47]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/681f50e1e3ee3dbebb02539efbdb83a7/f832dc12ceff4e5d8829a9120f9856f4.jpg?imwidth=606&filter=packshot
+              - text: https://img01.ztat.net/article/spp-media-p1/99cb66f64ffa36a3be9c86ea57a2e490/135e8b7a74cf457099f2c891a9842aa9.jpg?imwidth=606&filter=packshot
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[47]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
             price:
-              - text: 4,80 €
+              - text: 89,95 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[47]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Aramis
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[47]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[47]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "47"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[47]/@rank
@@ -1466,24 +1831,31 @@ extractions:
                 raw: "44"
                 locale: de_DE
                 value: 44
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: elg34g00c-s11
+              - text: m4c32h000-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[48]/article[1]/a[1]/@href
             name:
-              - text: >-
-                  ELEMIS
-
-                  ELEMIS SMART CLEANSE MICELLAR WATER - Gesichtswasser - transparent
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[48]/article[1]/div[2]/a[1]/header[1]/div[1]
+              - text: |-
+                  Man Cave
+                  CAFFEINE SHAMPOO - Shampoo
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[48]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/elemis-elemis-smart-cleanse-micellar-water-gesichtswasser-transparent-elg34g00c-s11.html
+              - text: https://zalando.de/man-cave-caffeine-shampoo-200ml-shampoo-neutral-m4c32h000-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[48]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/e5e1223db4e938c8abe69810fc42800c/966b13fe6bf7468eb09b031ddce6741d.jpg?imwidth=606&filter=packshot
+              - text: https://img01.ztat.net/article/spp-media-p1/5f812de969983ababba6c51e6875aae3/04be237e69764b949f39ca41ccc77fa5.jpg?imwidth=606&filter=packshot
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[48]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
             price:
-              - text: 29,64 €
+              - text: 10,95 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[48]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Man Cave
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[48]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[48]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "48"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[48]/@rank
@@ -1498,24 +1870,31 @@ extractions:
                 raw: "45"
                 locale: de_DE
                 value: 45
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: aro34g000-a11
+              - text: ark31i004-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[49]/article[1]/a[1]/@href
             name:
-              - text: >-
-                  Aromatherapy Associates
-
-                  AROMATHERAPY ASSOCIATES HYDRATING ROSE SKIN TONIC - Gesichtswasser - transparent
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[49]/article[1]/div[2]/a[1]/header[1]/div[1]
+              - text: |-
+                  Aramis
+                  DEVIN EAU DE COLOGNE SPRAY 100ML - Eau de Cologne
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[49]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/aromatherapy-associates-aromatherapy-associates-hydrating-rose-skin-tonic-gesichtswasser-transparent-aro34g000-a11.html
+              - text: https://zalando.de/aramis-devin-eau-de-cologne-spray-100ml-eau-de-cologne-ark31i004-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[49]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/048d7aae73493c39bfd9d2b5b97645f7/3fbccc87bc2540af8735e7c1f08f34b8.jpg?imwidth=606&filter=packshot
+              - text: https://img01.ztat.net/article/spp-media-p1/a27ac556507631afb180686da9bfc8bb/a5a28cb77ae6444b9c5b64fb3ff2676d.jpg?imwidth=606&filter=packshot
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[49]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
             price:
-              - text: 33,06 €
+              - text: 89,95 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[49]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Aramis
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[49]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[49]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "49"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[49]/@rank
@@ -1530,23 +1909,31 @@ extractions:
                 raw: "46"
                 locale: de_DE
                 value: 46
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: drp31g005-s11
+              - text: sep32h000-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[50]/article[1]/a[1]/@href
             name:
               - text: |-
-                  Dr. Hauschka
-                  ROSE NURTURING BATH ESSENCE - Badezusatz - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[50]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  SEB MAN
+                  THE MULTITASKER 3IN1 - Duschgel
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[50]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/dr-hauschka-rose-nurturing-bath-essence-badezusatz-drp31g005-s11.html
+              - text: https://zalando.de/seb-man-the-multitasker-3in1-250ml-duschgel-sep32h000-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[50]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/383a24cb97c93c9fa42b54a586cda5d1/fe8d7416b5ae4965b46148e5d709f39c.jpg?imwidth=606&filter=packshot
+              - text: https://img01.ztat.net/article/spp-media-p1/615d73e27cda322c97f5b8b1a6ad475f/905ad97ebad742f28417b372ad62f37d.jpg?imwidth=606&filter=packshot
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[50]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
             price:
-              - text: 15,50 €
+              - text: 14,95 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[50]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: SEB MAN
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[50]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[50]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "50"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[50]/@rank
@@ -1561,23 +1948,31 @@ extractions:
                 raw: "47"
                 locale: de_DE
                 value: 47
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: pem34g000-s11
+              - text: sep32g000-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[51]/article[1]/a[1]/@href
             name:
               - text: |-
-                  Percy Nobleman
-                  DEODORANT STICK - Deodorant - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[51]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  SEB MAN
+                  THE GROOM OIL - Haarpflege
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[51]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/percy-nobleman-deodorant-stick-deodorant-pem34g000-s11.html
+              - text: https://zalando.de/seb-man-the-groom-oil-30ml-haarpflege-sep32g000-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[51]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/51cf8a9ce07438a0b9fb19d2dcde44bb/91fc1f74801f460ba0dce5eeca06d9a9.jpg?imwidth=606&filter=packshot
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[51]/article[1]/a[1]/figure[1]/div[2]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/9bd5bd2bbfc4335b8a567e51ca8d5499/3af3a2f2b9164223b2474ccc4b079337.jpg?imwidth=606&filter=packshot
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[51]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
             price:
-              - text: 17,45 €
+              - text: 23,95 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[51]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: SEB MAN
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[51]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[51]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "51"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[51]/@rank
@@ -1592,23 +1987,31 @@ extractions:
                 raw: "48"
                 locale: de_DE
                 value: 48
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: sol31g000-s11
+              - text: tw732j00a-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[52]/article[1]/a[1]/@href
             name:
               - text: |-
-                  SO!™ ROSE
-                  FACE HAIR & BODY SPRAY 100ML - Gesichtscreme - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[52]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  Tweezerman
+                  GEAR MOUSTACHE SCISSORS & COMB - Rasierset
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[52]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/sotm-rose-face-hair-and-body-spray-100ml-tagespflege-neutral-sol31g000-s11.html
+              - text: https://zalando.de/tweezerman-gear-moustache-scissors-and-comb-rasierset-neutral-tw732j00a-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[52]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/da3956a772a73e1ea8fca297f91b0a2a/9e622291ba55418a8f6fb634f01dd23b.jpg?imwidth=606&filter=packshot
+              - text: https://img01.ztat.net/article/spp-media-p1/a42f118b57a730e89b5870967f9db69c/c09e2b944a8949d1bb4cf3ef8ab42112.jpg?imwidth=606&filter=packshot
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[52]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
             price:
-              - text: 18,45 €
+              - text: 22,95 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[52]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Tweezerman
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[52]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[52]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "52"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[52]/@rank
@@ -1623,23 +2026,31 @@ extractions:
                 raw: "49"
                 locale: de_DE
                 value: 49
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: grc31g00g-j11
+              - text: pem32i001-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[53]/article[1]/a[1]/@href
             name:
               - text: |-
-                  Grounded
-                  ORGANIC ROSE WATER - Gesichtswasser - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[53]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  Percy Nobleman
+                  SIGNATURE EDT 100ML - Eau de Toilette
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[53]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/grounded-organic-rose-water-gesichtswasser-grc31g00g-j11.html
+              - text: https://zalando.de/percy-nobleman-signature-edt-100ml-eau-de-toilette-neutral-pem32i001-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[53]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/088c4b3f015e3009b2d6646373a93bbc/3fdc534d296a4bc09ee9bd4bfa2fce0b.png?imwidth=606&filter=packshot
+              - text: https://img01.ztat.net/article/spp-media-p1/625c456be7363a21b2435e796d7ea0e0/4f14ea0945a445efa4cdc63dd9f49b6d.jpg?imwidth=606&filter=packshot
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[53]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
             price:
-              - text: 14,55 €
+              - text: 84,95 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[53]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Percy Nobleman
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[53]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[53]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "53"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[53]/@rank
@@ -1654,23 +2065,31 @@ extractions:
                 raw: "50"
                 locale: de_DE
                 value: 50
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: rog31g00k-s11
+              - text: pem32j002-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[54]/article[1]/a[1]/@href
             name:
               - text: |-
-                  Rodial
-                  DRAGON'S BLOOD EYE GEL - Augenpflege - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[54]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  Percy Nobleman
+                  BEARD SCISSOR - Haarentfernungs-Zubehör
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[54]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/rodial-dragons-blood-eye-gel-15ml-augenpflege-neutral-rog31g00k-s11.html
+              - text: https://zalando.de/percy-nobleman-beard-scissor-haarentfernungs-zubehoer-neutral-pem32j002-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[54]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/bf5c500404663857b2a72a4035c5ce41/7605180e44b2418cb8d280f2783ae768.jpg?imwidth=606&filter=packshot
+              - text: https://img01.ztat.net/article/spp-media-p1/41aa2bb80c2d3573ab26036fac5a50ca/6556fac89cc44881b8cc37a614fc98bf.jpg?imwidth=606&filter=packshot
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[54]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
             price:
-              - text: 48,55 €
+              - text: 29,95 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[54]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Percy Nobleman
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[54]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[54]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "54"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[54]/@rank
@@ -1685,23 +2104,31 @@ extractions:
                 raw: "51"
                 locale: de_DE
                 value: 51
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: ark31i003-s11
+              - text: has32h00a-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[55]/article[1]/a[1]/@href
             name:
               - text: |-
-                  Aramis
-                  JHL EAU DE COLOGNE SPRAY 100ML - Eau de Cologne - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[55]/article[1]/div[2]/a[1]/header[1]/div[1]
+                  Hanz De Fuko
+                  STYLE LOCK 255G - Styling
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[55]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/aramis-jhl-eau-de-cologne-spray-100ml-eau-de-cologne-ark31i003-s11.html
+              - text: https://zalando.de/hanz-de-fuko-style-lock-255g-styling-neutral-has32h00a-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[55]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/99cb66f64ffa36a3be9c86ea57a2e490/135e8b7a74cf457099f2c891a9842aa9.jpg?imwidth=606&filter=packshot
+              - text: https://img01.ztat.net/article/spp-media-p1/5dc80f624c05347c804504af70aaa41f/60367cf13adc464db1f3b8ff195f97d3.jpg?imwidth=606&filter=packshot
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[55]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
             price:
-              - text: 87,45 €
+              - text: 29,95 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[55]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Hanz De Fuko
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[55]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[55]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "55"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[55]/@rank
@@ -1716,23 +2143,32 @@ extractions:
                 raw: "52"
                 locale: de_DE
                 value: 52
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: diu32i00h-s11
+              - text: b1d32g00o-s11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[56]/article[1]/a[1]/@href
             name:
-              - text: |-
-                  Diesel Fragrance
-                  SPIRIT OF THE BRAVE EAU DE TOILETTE VAPO - Eau de Toilette - -
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[56]/article[1]/div[2]/a[1]/header[1]/div[1]
+              - text: >-
+                  Baxter of California
+
+                  DAILY FACE WASH TRAVEL GESICHTSREINIGER 60ML - Gesichtsreinigung - blue clear
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[56]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/diesel-fragrance-spirit-of-the-brave-eau-de-toilette-vapo-eau-de-toilette-diu32i00h-s11.html
+              - text: https://zalando.de/baxter-of-california-daily-face-wash-travel-gesichtsreiniger-60ml-gesichtsreinigung-blue-clear-b1d32g00o-s11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[56]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/1277316403573e60a3611b9ed47e16e1/360e256a968e41839f96ec63064d251d.jpg?imwidth=606&filter=packshot
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[56]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/56fff11d71ba359b82657a199662a11d/29df84fc835846fc8736f6ad4b5ff251.jpg?imwidth=606&filter=packshot
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[56]/article[1]/a[1]/figure[1]/div[2]/div[1]/img[1]/@src
             price:
-              - text: 42,75 €
+              - text: 8,95 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[56]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Baxter of California
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[56]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[56]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
             rank:
               - text: "56"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[56]/@rank
@@ -1747,23 +2183,30 @@ extractions:
                 raw: "53"
                 locale: de_DE
                 value: 53
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
           - id:
-              - text: bes31g00k-j11
+              - text: da822q01v-a11
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[57]/article[1]/a[1]/@href
             name:
-              - text: |-
-                  Benamor
-                  LIQUID SOAP 300ML - Flüssigseife - rose amélie
-                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[57]/article[1]/div[2]/a[1]/header[1]/div[1]
+              - text: "Daniel Hechter
+
+                  ESSENTIAL ROLLKRAGEN - Strickpullover -
+                  weiã"
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[57]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
             productUrl:
-              - text: https://zalando.de/benamor-liquid-soap-300ml-fluessigseife-rose-amelie-bes31g00k-j11.html
+              - text: https://zalando.de/daniel-hechter-strickpullover-white-da822q01v-a11.html
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[57]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/9c7f4c5a18303a90b57937c9c30c4e93/37eaf06e0e674fb7b186e327d7402cad.jpg?imwidth=606&filter=packshot
+              - text: https://img01.ztat.net/article/spp-media-p1/121025d57177316189afdaffbd934543/2321ffad7c0c4de380a6d3622da3f1cc.jpg?imwidth=606&filter=packshot
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[57]/article[1]/a[1]/figure[1]/div[1]/div[1]/img[1]/@src
             price:
-              - text: 11,60 €
+              - text: 29,99 €
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[57]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Daniel Hechter
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[57]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
             rank:
               - text: "57"
                 xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[57]/@rank
@@ -1778,5 +2221,47 @@ extractions:
                 raw: "54"
                 locale: de_DE
                 value: 54
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
+          - id:
+              - text: b0122q004-a12
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[58]/article[1]/a[1]/@href
+            name:
+              - text: |-
+                  Bertoni
+                  HENRIK - Strickpullover - antique white
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[58]/article[1]/div[2]/a[1]/header[1]/div[1]/@name
+            productUrl:
+              - text: https://zalando.de/bertoni-henrik-roll-neck-strickpullover-antique-white-b0122q004-a12.html
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[58]/article[1]/a[1]/@href
+            thumbnail:
+              - text: https://img01.ztat.net/article/spp-media-p1/8fbd9ec26dda3a3b8cadc6fb719bb061/c1a9b272aca2457cb8e574a24cb6ab80.jpg?imwidth=606&filter=packshot
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[58]/article[1]/a[1]/figure[1]/div[2]/div[1]/img[1]/@src
+            price:
+              - text: 59,95 €
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[58]/article[1]/div[2]/a[1]/header[1]/div[2]/span[1]
+            manufacturer:
+              - text: Bertoni
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[58]/article[1]/div[2]/a[1]/header[1]/div[1]/span[1]
+              - text: Premium-Lieferung
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[58]/article[1]/div[2]/a[1]/header[1]/div[3]/div[1]/span[1]
+            rank:
+              - text: "58"
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[58]/@rank
+                type: NUMBER
+                raw: "58"
+                locale: de_DE
+                value: 58
+            rankOrganic:
+              - text: "55"
+                xpath: /html/body/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[58]/@rankorganic
+                type: NUMBER
+                raw: "55"
+                locale: de_DE
+                value: 55
+            searchUrl:
+              - text: https://www.zalando.de/herren/?q=rosenwasser
+                xpath: /html/head[1]/link[6]/@href
         xpath: /html
-    timestamp: 1605513287050
+    timestamp: 1609835036804
