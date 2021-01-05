@@ -8,7 +8,7 @@ module.exports = {
     domain: 'selfridges.com',
     zipcode: '',
   },
-  implementation: async function implementation (
+  implementation: async function implementation(
     inputs,
     parameters,
     context,
@@ -45,14 +45,42 @@ module.exports = {
         console.log('Stopped at search page');
       }
     }
+    /* await context.evaluate(() => {
+      function addElementToDocument (key, value) {
+        const catElement = document.createElement('div');
+        catElement.id = key;
+        catElement.textContent = value;
+        catElement.style.display = 'none';
+        document.body.appendChild(catElement);
+      }
+      function findJsonObj (scriptXPath) {
+        try {
+          const element = document.evaluate(scriptXPath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+          let jsonStr = element.textContent;
+          jsonStr = jsonStr.trim();
+          return JSON.parse(jsonStr);
+        } catch (error) {
+          console.log(error.message);
+        }
+      }
+ 
+      const dataObj = findJsonObj('//script[@data-component="pdp-semantic-data"]');
+      if (dataObj && dataObj.model) {
+        dataObj.model.forEach(element => {
+          addElementToDocument('added-variantId', element.sku);
+        });
+        
+      }
 
+    });
+ */
     await new Promise((resolve) => setTimeout(resolve, 8000));
     await context.evaluate(() => {
-      const isColor = document.querySelector('section[data-js-variant-type="multi-colour"]');
+      const isColor = document.querySelector('section[data-js-variant-type*="multi-colour"]');
       if (isColor) {
         const variantUrls = [];
-        [...document.querySelectorAll('section[data-js-variant-type="multi-colour"] div[data-select-count-text="Colours"] span.c-select__dropdown-item')].map((ele) => variantUrls.push(ele.getAttribute('data-js-action')));
-        const array = document.querySelectorAll('section[data-js-variant-type="multi-colour"] div[data-select-count-text="Colours"] span.c-select__dropdown-item');
+        [...document.querySelectorAll('section[data-js-variant-type*="multi-colour"] div[data-select-count-text="Colours"] span.c-select__dropdown-item')].map((ele) => variantUrls.push(ele.getAttribute('data-js-action')));
+        const array = document.querySelectorAll('section[data-js-variant-type*="multi-colour"] div[data-select-count-text="Colours"] span.c-select__dropdown-item');
         for (let i = 0; i < variantUrls.length; i++) {
           const currentUrl = document.querySelector('link[rel="canonical"]').getAttribute('href');
           array[i].setAttribute('variantUrl', `${currentUrl}?previewAttribute=${variantUrls[i]}`);

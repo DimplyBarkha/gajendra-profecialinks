@@ -5,25 +5,15 @@
  * @param { ImportIO.IContext } context
  * @param { { execute: ImportIO.Action, extract: ImportIO.Action } } dependencies
  */
-async function implementation (
-  inputs,
-  parameters,
-  context,
-  dependencies,
-) {
-  const { URL, RPC, SKU } = inputs;
+async function implementation (inputs, parameters, context, dependencies) {
   const { execute, extract } = dependencies;
-  const url = URL;
-  const id = (RPC) || ((SKU) || inputs.id);
-  const zipcode = inputs.zipcode || parameters.zipcode;
-  let resultsReturned = await execute({ url, id, zipcode });
-
-  if (!resultsReturned){
-    console.log('No results returned');
+  const resultsReturned = await execute(inputs);
+  if (!resultsReturned) {
+    console.log('No results were returned');
     return;
   }
 
-  await extract({ url, id });
+  await extract(inputs);
 }
 
 module.exports = {
@@ -43,6 +33,12 @@ module.exports = {
     {
       name: 'zipcode',
       description: 'to set location',
+      optional: true,
+    },
+    {
+      name: 'storeID',
+      description: 'Id of the store',
+      type: 'string',
       optional: true,
     },
   ],
@@ -77,11 +73,17 @@ module.exports = {
       type: 'string',
       optional: true,
     },
+    {
+      name: 'storeID',
+      description: 'Id of the store',
+      type: 'string',
+      optional: true,
+    },
   ],
   dependencies: {
-    execute: 'action:product/details/execute',
-    extract: 'action:product/details/extract',
+    execute: 'action:product/media/execute',
+    extract: 'action:product/media/extract',
   },
-  path: './details/stores/${store[0:1]}/${store}/${country}/details',
+  path: './media/stores/${store[0:1]}/${store}/${country}/media',
   implementation,
 };
