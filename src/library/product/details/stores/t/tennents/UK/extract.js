@@ -18,8 +18,8 @@ module.exports = {
       document.querySelector('body').setAttribute('url', productUrl);
 
       const addToBasketButton = document.querySelector('a.AddToBasket_Button');
-      const isButtonDisabled = addToBasketButton.getAttribute('disabled') === 'disabled';
-      document.querySelector('body').setAttribute('availability', isButtonDisabled ? 'Out Of Stock' : 'In Stock');
+      const isButtonDisabled = addToBasketButton ? addToBasketButton.getAttribute('disabled') === 'disabled' : false;
+      document.querySelector('body').setAttribute('availability', isButtonDisabled ? 'Out Of Stock' : '');
     });
 
     var extractedData = await context.extract(productDetails, { transform });

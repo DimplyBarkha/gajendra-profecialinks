@@ -5,7 +5,7 @@ module.exports = {
     store: 'tennents',
     domain: 'new.tennentsdirect.com',
     loadedSelector: 'div.ProductTitleBar_Title',
-    noResultsXPath: 'div[@class="sub-banner-container"]',
+    noResultsXPath: '//div[@class="spinner-wrap"][contains(@style, "block")] | //h1[@class="not-found"]',
     zipcode: '',
   },
   implementation: async (
@@ -56,8 +56,10 @@ module.exports = {
       const productLinkElement = document.querySelector('div.product-card a.product-image');
       return productLinkElement ? productLinkElement.getAttribute('href') : null;
     });
-    if (!productUrl) throw new Error('No results!');
-    await dependencies.goto({ ...inputs, url: productUrl });
+    if (productUrl) {
+      await dependencies.goto({ ...inputs, url: productUrl });
+      await context.waitForNavigation();
+    }
 
     if (loadedSelector) {
       await context.waitForFunction(
