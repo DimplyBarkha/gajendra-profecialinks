@@ -51,7 +51,7 @@ async function implementation (
     if(variantDiv2) {
       variantDiv2.forEach(element=> {
         variantUrl = window.location.href
-        element.click();
+        element.click()
         const variantLink = document.createElement('div');
         variantLink.setAttribute('class', 'variantUrl');
         variantLink.setAttribute('href', variantUrl);
