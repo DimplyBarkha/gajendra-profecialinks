@@ -2,7 +2,7 @@ input:
   _url: http://pnp.co.za
   URL: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Beverages/Cold-Drinks/Carbonated-Soft-Drinks/COCA-COLA-NON-RET-1L/p/000000000000148832_EA
 extractions:
-  - html: https://workbench.import.io/html/run=aab525ed-4f85-4736-b3fb-80b860baa2c0/task=f379b5bc-c53b-4385-b861-11ded53c6f54/645a5329-4368-4015-bba7-1f09bbf919af.html
+  - html: https://workbench.import.io/html/run=be80494f-8449-4343-a040-9422e264b9f0/task=ee98cec2-ad2c-4338-9d5b-7f126b3aa300/271c4337-75f9-4186-a08d-d9cb9af181a2.html
     extractionConfigId: product/details/stores/p/pnp/ZA/extract
     data:
       - group:
@@ -34,10 +34,13 @@ extractions:
               - text: Coca-Cola 1l
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[1]/h1[1]
             description:
-              - text: At The Coca-Cola Company, we are a diverse, global community of people who
-                  thirst for more. Together, we are growing and learning,
-                  building on our iconic past to make an impact.
-                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/text()[1]
+              - text: >-
+                  DESCRIPTION:
+                   
+                   
+                   
+                   At The Coca-Cola Company, we are a diverse, global community of people who thirst for more. Together, we are growing and learning, building on our iconic past to make an impact.
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]
             brandText:
               - text: Coca-Cola
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[1]/h1[1]
@@ -59,17 +62,20 @@ extractions:
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[6]
+            promotion:
+              - text: Buy any 8 for R100.00 (Smart Price)
+                xpath: /html/body/div[7]
             variantCount:
               - text: "0"
             price:
               - text: R15,99
             gtin:
               - text: "5449000054227"
-            directions:
-              - text: ""
+            secondaryImageTotal:
+              - text: "0"
             ingredientsList:
               - text: caffeine, caramel, carbonated water, flavouring, phosphoric acid, sugar
             caloriesPerServing:
               - text: 180 kJ
         xpath: /html
-    timestamp: 1606211110008
+    timestamp: 1609855948086

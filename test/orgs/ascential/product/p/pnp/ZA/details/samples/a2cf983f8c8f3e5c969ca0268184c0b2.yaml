@@ -2,7 +2,7 @@ input:
   _url: http://pnp.co.za
   URL: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Health-%26-Beauty/Body-%26-Facial-Care/Body-Care/Hand-%26-Body-Lotion/DAWN-LOTION-VITAMIN-E-400ML/p/000000000000540347_EA
 extractions:
-  - html: https://workbench.import.io/html/run=aab525ed-4f85-4736-b3fb-80b860baa2c0/task=ccde5703-a869-49a6-8617-2aac53dbea8c/333d0cbc-3bdf-4d45-b352-4c272b4155ad.html
+  - html: https://workbench.import.io/html/run=be80494f-8449-4343-a040-9422e264b9f0/task=ea8adf6b-9c25-4722-9f7c-f64bd6a042c9/f0e37105-191c-4004-91fd-71c1c5607838.html
     extractionConfigId: product/details/stores/p/pnp/ZA/extract
     data:
       - group:
@@ -16,12 +16,20 @@ extractions:
               - text: Dawn Body Lotion Vitamin E 400ml
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[1]/h1[1]
             description:
-              - text: |-
-                  Dawn Body Lotion Vitamin E 400ml is enriched with 
-                  glycerine, fruit extracts and vitamins A and E to 
-                  breathe new life into your skin. It offers skin intense 
-                  24-hour moisturisation, giving it a natural glow
-                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/text()[1]
+              - text: >-
+                  DESCRIPTION:
+                   
+                   
+                   
+                   Dawn Body Lotion Vitamin E 400ml is enriched with glycerine, fruit extracts and vitamins A and E to breathe new life into your skin. It offers skin intense 24-hour moisturisation, giving it a natural glow
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]
+              - text: >-
+                  FEATURES:
+                   
+                   
+                   
+                   Glycerine enriched. Vitamin E. Body lotion. With fruit extracts and vitamins A & E.
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]
             brandText:
               - text: Dawn
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[1]/h1[1]
@@ -31,6 +39,14 @@ extractions:
             variantId:
               - text: 000000000000540347_EA
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[3]/div[1]/div[3]/div[1]/form[1]/input[3]/@value
+            directions:
+              - text: |-
+                  USAGE:
+                   
+                   
+                   
+                   Store in a cool, dry place.
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[4]
             ratingCount:
               - text: "0"
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[3]/div[1]/div[4]/a[1]/text()[1]
@@ -52,11 +68,11 @@ extractions:
               - text: R15,99
             gtin:
               - text: "6001087012393"
-            directions:
-              - text: Store in a cool, dry place.
+            secondaryImageTotal:
+              - text: "0"
             ingredientsList:
               - text: ""
             caloriesPerServing:
               - text: " "
         xpath: /html/body
-    timestamp: 1606211108592
+    timestamp: 1609855945819

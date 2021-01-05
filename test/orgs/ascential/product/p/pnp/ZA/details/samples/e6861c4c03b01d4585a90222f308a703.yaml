@@ -2,48 +2,30 @@ input:
   _url: http://pnp.co.za
   URL: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Food-Cupboard/Chocolates-%26-Sweets/Chocolate-Bars%2C-Bags-%26-Packs/Pre-Packed-Chocolates/NESTLE-SMARTIES-280GR/p/000000000000549843_EA
 extractions:
-  - html: https://workbench.import.io/html/run=aab525ed-4f85-4736-b3fb-80b860baa2c0/task=8012fca3-1b68-497c-8b6f-2c7fa8a97311/b4dce63d-1d2b-4553-b5ee-e6e24e6d207c.html
+  - html: https://workbench.import.io/html/run=be80494f-8449-4343-a040-9422e264b9f0/task=2b221fae-112e-47b5-b06c-717eb4236109/28108ffe-148d-4eb6-92a2-e3a080aa39b8.html
     extractionConfigId: product/details/stores/p/pnp/ZA/extract
     data:
       - group:
-          - totalFatPerServing:
-              - text: "0.6"
+          - sodiumPerServing:
+              - text: "1"
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[2]/td[2]/text()[1]
-            totalFatPerServingUom:
-              - text: g
-                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[2]/td[4]/text()[1]
-            saturatedFatPerServing:
-              - text: "0.2"
-                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[3]/td[2]/text()[1]
-            saturatedFatPerServingUom:
-              - text: g
-                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[3]/td[4]/text()[1]
-            cholesterolPerServing:
-              - text: "64"
-                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[4]/td[2]/text()[1]
-            cholesterolPerServingUom:
-              - text: mg
-                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[4]/td[4]/text()[1]
-            dietaryFibrePerServing:
-              - text: "0.3"
-                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[8]/td[2]/text()[1]
-            dietaryFibrePerServingUom:
-              - text: g
-                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[8]/td[4]/text()[1]
-            sodiumPerServing:
-              - text: "337"
-                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[9]/td[2]/text()[1]
             sodiumPerServingUom:
               - text: mg
-                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[9]/td[4]/text()[1]
-            proteinPerServing:
-              - text: "24.7"
-                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[10]/td[2]/text()[1]
-            proteinPerServingUom:
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[2]/td[4]/text()[1]
+            totalCarbPerServing:
+              - text: "99"
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[3]/td[2]/text()[1]
+            totalCarbPerServingUom:
               - text: g
-                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[10]/td[4]/text()[1]
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[3]/td[4]/text()[1]
+            totalSugarsPerServing:
+              - text: "99"
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[4]/td[2]/text()[1]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[4]/td[4]/text()[1]
             image:
-              - text: https://cdn-prd-02.pnp.co.za/sys-master/images/hd2/h92/9223405830174/silo-6001068675203-front-293873_400Wx400H
+              - text: https://cdn-prd-02.pnp.co.za/sys-master/images/h57/h7d/10093846134814/silo-product-image-v2-10Dec2020-180425-6001068675203-front-482250-2814_400Wx400H
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
             imageAlt:
               - text: Nestle Smarties 280g
@@ -51,6 +33,14 @@ extractions:
             nameExtended:
               - text: Nestle Smarties 280g
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[1]/h1[1]
+            description:
+              - text: >-
+                  DESCRIPTION:
+                   
+                   
+                   
+                   The Smarties brand is a world-famous brand with colours consisting of Red, yellow, orange, green, purple, pink, brown and blue! Smarties have been reformulated to remove artificial colours, making sure children can now safely enjoy the fun of colours
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]
             brandText:
               - text: Nestle
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[1]/h1[1]
@@ -78,11 +68,11 @@ extractions:
               - text: R64,99
             gtin:
               - text: "6001068675203"
-            directions:
-              - text: ""
+            secondaryImageTotal:
+              - text: "0"
             ingredientsList:
               - text: ""
             caloriesPerServing:
-              - text: 490 kJ
+              - text: 1683 kJ
         xpath: /html
-    timestamp: 1606211119208
+    timestamp: 1609855967806

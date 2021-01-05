@@ -22,7 +22,7 @@ fields:
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
-  xpath: (//img[@class="owl-lazy"]/@src)[position()>1] 
+  xpath: //div[@class="owl-item"]//@data-src
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
@@ -54,7 +54,7 @@ fields:
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: //div[contains(text(),"DESCRIPTION")]/../following-sibling::div/text()
+  xpath: //div[@class="headline"][contains(text(),'DESCRIPTION') or contains(text(),'FEATURES')]/../..
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -104,7 +104,7 @@ fields:
 - name: directions
   singleValue: true
   description: Content under "directions" header
-  xpath: normalize-space(//div[contains(text(),"USAGE")]/../following-sibling::div/text())
+  xpath: //div[@class="headline"][contains(text(),'USAGE')]/../..
 - name: warnings
   singleValue: true
   description: Content under "warnings" header
@@ -241,6 +241,7 @@ fields:
 - name: secondaryImageTotal
   singleValue: true
   description: 
+  xpath: count(//div[@class="owl-item"]//@data-src)
 - name: news
   singleValue: true
   description: 

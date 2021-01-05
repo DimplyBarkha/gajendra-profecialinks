@@ -2,7 +2,7 @@ input:
   _url: http://pnp.co.za
   URL: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Beverages/Cold-Drinks/Carbonated-Soft-Drinks/COCA-COLA-ZERO-1L/p/000000000000378532_EA
 extractions:
-  - html: https://workbench.import.io/html/run=aab525ed-4f85-4736-b3fb-80b860baa2c0/task=6c455ce9-c979-4b58-b7aa-fbcd2db00ec2/0c61a742-ca3e-4147-9c24-e17cf1a27628.html
+  - html: https://workbench.import.io/html/run=be80494f-8449-4343-a040-9422e264b9f0/task=c194da74-092a-4dd0-b22b-84cc3e590c0f/27db5016-dab1-4b6f-8228-ed7cf81a308b.html
     extractionConfigId: product/details/stores/p/pnp/ZA/extract
     data:
       - group:
@@ -64,8 +64,13 @@ extractions:
               - text: Coca-Cola Zero Plastic Bottle 1l
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[1]/h1[1]
             description:
-              - text: GREAT COCA-COLA TASTE, ZERO SUGAR, LOW KILOJULE
-                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/text()[1]
+              - text: |-
+                  DESCRIPTION:
+                   
+                   
+                   
+                   GREAT COCA-COLA TASTE, ZERO SUGAR, LOW KILOJULE
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]
             brandText:
               - text: Coca-Cola
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[1]/h1[1]
@@ -87,17 +92,20 @@ extractions:
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[6]
+            promotion:
+              - text: Buy any 2 for R25.00
+                xpath: /html/body/div[7]
             variantCount:
               - text: "0"
             price:
-              - text: R15,99
+              - text: R13,99
             gtin:
               - text: "5449000133328"
-            directions:
-              - text: ""
+            secondaryImageTotal:
+              - text: "0"
             ingredientsList:
               - text: ""
             caloriesPerServing:
               - text: 2014 kJ
         xpath: /html
-    timestamp: 1606211107911
+    timestamp: 1609855944171
