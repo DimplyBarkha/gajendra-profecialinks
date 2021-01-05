@@ -12,7 +12,7 @@ module.exports = {
     await context.evaluate(async function () {
       try {
         // @ts-ignore
-        document.querySelector('div[class="banner-actions-container"]>button').click()
+        document.querySelector('button[id="onetrust-accept-btn-handler"]').click()
         await new Promise(r => setTimeout(r, 10000));
       } catch (error) {
 
