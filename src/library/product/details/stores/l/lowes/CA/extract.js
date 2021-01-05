@@ -41,12 +41,12 @@ module.exports = {
       }
     });
     await context.evaluate(() => {
-      function addEleToDoc (key, value) {
+      function addEleToDoc (key, value, tag) {
         const prodEle = document.createElement('div');
         prodEle.id = key;
         prodEle.textContent = value;
         prodEle.style.display = 'none';
-        document.body.appendChild(prodEle);
+        tag ? document.body.prepend(prodEle) : document.body.appendChild(prodEle);
       }
       const iFrame = document.querySelector('iframe[title="Product Videos"]');
       if (iFrame) {
@@ -54,8 +54,16 @@ module.exports = {
         var finalSrc = iFrame.contentWindow.document.getElementsByTagName('video');
         for (let index = 0; index < finalSrc.length; index++) {
           if (finalSrc[index].src) {
-            addEleToDoc('pd_videos', finalSrc[index].src);
+            addEleToDoc('pd_videos', finalSrc[index].src, false);
           }
+        }
+      }
+      // @ts-ignore
+      let response = document.querySelector('script[type="application/ld+json"]') && document.querySelector('script[type="application/ld+json"]').innerText;
+      if (response) {
+        response = JSON.parse(response);
+        if (response.aggregateRating) {
+          response.aggregateRating.ratingValue && addEleToDoc('pd_aggregate', response.aggregateRating.ratingValue, true);
         }
       }
     });

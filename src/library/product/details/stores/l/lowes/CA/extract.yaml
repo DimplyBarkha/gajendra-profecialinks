@@ -11,7 +11,7 @@ fields:
     xpath: //h1[contains(@class,'product-name') or contains(@class,'Heading')]
   - name: alternateImages
     singleValue: false
-    xpath: (//div[contains(@class,"galleryWrapper")]//li//img[@alt="image"]/@src)[position()>1]
+    xpath: (//*[contains(@class,"product-carousel-item")]//img/@src)[position()>1]
   - name: metaKeywords
     singleValue: false
     xpath: //meta[contains(@name, "keywords")]/@content
@@ -97,12 +97,12 @@ fields:
     singleValue: false
     description: The stated aggregate rating
   - name: aggregateRating
-    xpath: (//div[contains(@class,'bv_avgRating_component_container')])[1]
+    xpath: //div[@id="pd_aggregate"] | (//div[contains(@class,'bv_avgRating_component_container')])[1]
     type: NUMBER
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
-    xpath: //div[@class="row product-delivery"]/div[position()>1]/descendant::h4|//div[@class="row product-delivery"]/div[position()>1]/descendant::span
+    xpath: 
   - name: shippingDimensions
     singleValue: false
     xpath: 
@@ -226,7 +226,7 @@ fields:
     singleValue: false
     description: null
     type: NUMBER
-    xpath: count((//div[contains(@class,"galleryWrapper")]//li//img[@alt="image"]/@src)[position()>1])
+    xpath: count((//*[contains(@class,"product-carousel-item")]//img/@src)[position()>1])
   - name: news
     singleValue: false
     description: null

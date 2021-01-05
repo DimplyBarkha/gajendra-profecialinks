@@ -11,8 +11,8 @@ const transform = (data) => {
     .replace(/&amp;#160/g, ' ')
     .replace(/\u00A0/g, ' ')
     .replace(/\s{2,}/g, ' ')
-    .replace(/"\s{1,}/g, '"')
-    .replace(/\s{1,}"/g, '"')
+    .replace(/"\s{1,}/g, '" ')
+    .replace(/\s{1,}"/g, ' "')
     .replace(/^ +| +$|( )+/g, ' ')
     .replace(/\\"/gm, '"')
     // eslint-disable-next-line no-control-regex
@@ -20,6 +20,20 @@ const transform = (data) => {
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
     for (const row of group) {
+      if (row.image) {
+        row.image.forEach(item => {
+          if (item.text.match(/(.*)_l.jpg/)) {
+            item.text = item.text.replace(/(.*)_l.jpg/, '$1.jpg');
+          }
+          if (!item.text.startsWith('https') && row.nameExtended && row.nameExtended[0]) {
+            item.text = row.nameExtended[0].text;
+          }
+        });
+      } else {
+        if (!row.image && row.nameExtended && row.nameExtended[0]) {
+          row.image = row.nameExtended;
+        }
+      }
       if (row.specifications) {
         let text = '';
         row.specifications.forEach(item => {
@@ -78,7 +92,7 @@ const transform = (data) => {
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {
-          text += item.text.replace(/\n \n/g, ' ').replace('Content from the Manufacturer', '').replace(/(.*)This content uses cookies to improve your experience. By continuing, you agree to this use(.*)/, '$1');
+          text += item.text.replace(/\n \n/g, ' ').replace('Content from the Manufacturer', '').replace(/(.*)This content uses cookies to improve your experience. By continuing, you agree to this use(.*)/, '$1').replace(/\{.*\}/g, '');
         });
         row.manufacturerDescription = [
           {
@@ -132,7 +146,7 @@ const transform = (data) => {
       if (row.manufacturerImages) {
         const manufacturerImages = [];
         row.manufacturerImages.forEach(item => {
-          !item.text.startsWith('https') ? manufacturerImages.push({ text: `https:${item.text}` }) : manufacturerImages.push({ text: item.text });
+          item.text.match(/(.*) 200w,(.*)/) ? manufacturerImages.push({ text: item.text.replace(/(.*) 200w,(.*)/, '$1') }) : manufacturerImages.push({ text: item.text });
         });
         row.manufacturerImages = manufacturerImages;
       }
