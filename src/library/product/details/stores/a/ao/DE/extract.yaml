@@ -151,7 +151,7 @@ fields:
 - name: manufacturerDescription
   singleValue: false
   description: The extended description of the product supplied by the lister
-  xpath: //section[@id="richContent"]//h2 | //section[@id="richContent"]//div[@class="inner"]/div/h3 | //section[@id="richContent"]//div[@class="inner"]/div/h3/following-sibling::p
+  xpath: //section[@id="richContent"]//h2 | //section[@id="richContent"]//div[@class="inner"]/div/h3 | //section[@id="richContent"]//div[@class="inner"]/div/h3/following-sibling::p | //section[@id="richContent"]//div[@class="inner"]/div/h3/following-sibling::text()
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
