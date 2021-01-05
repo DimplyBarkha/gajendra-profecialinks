@@ -45,6 +45,6 @@ module.exports = {
     postLogin: 'action:navigation/auth/postLogin',
     doLogin: 'action:navigation/auth/doLogin',
   },
-  path: './domains/${domain[0:2]}/${domain}/authenticate',
+  path: './auth/domains/${domain[0:2]}/${domain}/authenticate',
   implementation,
 };
