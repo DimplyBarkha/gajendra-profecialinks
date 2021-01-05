@@ -18,6 +18,7 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  const applyScroll = async function (context) {
   await context.evaluate(async function () {
     try{
       document.querySelector('#coiPage-1 > div.coi-banner__page-footer > div.coi-button-group > button.coi-banner__accept').click()
@@ -29,17 +30,11 @@ async function implementation(
 
       }
     let scrollTop = 0;
-    while (scrollTop !== 200000) {
-      await stall(500);
-      scrollTop += 500;
+    while (scrollTop !== 50000) {
+      scrollTop += 1000;
       window.scroll(0, scrollTop);
-      if (scrollTop === 200000) {
-        await stall(500);
-        break;
-      }
+      await stall(1000);
     }
-    
-
     function stall(ms) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -47,7 +42,11 @@ async function implementation(
         }, ms);
       });
     }
+  })
+}
+  await applyScroll(context);
   
+  await context.evaluate(async function () {
   function addHiddenDiv(id, content, index) {
     const newDiv = document.createElement('div');
     newDiv.id = id;
