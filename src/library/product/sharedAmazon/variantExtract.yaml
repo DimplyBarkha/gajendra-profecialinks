@@ -7,9 +7,11 @@ fields:
     singleValue: false
     description: variant id, to uniquely identify variant
     xpath: //*[@id='ii_variant']
+    # /text()
+    # regExp: ^.{0,10}
   - name: variantUrl
     singleValue: false
     description: variant Url
     xpath: //*[@id='ii_variant']/text()
     regExp: (.+)
-    regExpReplace: https://amazon.in/dp/$1
+    regExpReplace: https://amazon.com/dp/product/$1/?fpw=alm&s=amazonfresh&fpw=fresh
