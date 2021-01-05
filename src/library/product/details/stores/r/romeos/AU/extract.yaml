@@ -491,3 +491,7 @@ fields:
     description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: false
+  - name: drive
+    xpath: //div[h3[contains(text(), 'Contact')]]/ul/li[last()]
+  - name: retailer_id
+    xpath: //a[@data-pjax='shopfront']//span[@class='AccountBar__Button__Label']  
