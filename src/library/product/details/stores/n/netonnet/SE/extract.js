@@ -42,7 +42,9 @@ module.exports = {
             for (let i = 0; i < onlyText.length; i++) {
               const header = onlyText[i].querySelector('td.plHeader')
               if (header && header.innerText === 'Medföljande tillbehör' || header && header.innerText === 'Medföljande verktyg') {
+
                 const imgText2 = onlyText[i].querySelector('td.plValue');
+                console.log('imgText2',imgText2)
                 imgText2 && inBoxTextArray.push(imgText2.innerText);
               }
             }
@@ -58,7 +60,7 @@ module.exports = {
         document.body.appendChild(newDiv);
       }
       console.log('inTheBoxText', JSON.stringify(inBoxTextArray));
-      addHiddenDiv('inTheBoxText', inBoxTextArray.join(' || '));
+      addHiddenDiv('inTheBoxText', inBoxTextArray.join(' || ').replace(/,/g, '||'));
     });
 
     try {
