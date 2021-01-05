@@ -20,7 +20,7 @@ fields:
     xpath: //div[contains(@class, "goodDescriptionText")]//img/@data-src | //div[@id="inpage_container"]//img//@src
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[contains(@class, "goodDescriptionText")]//text()[not(contains(.,'}'))]
+    xpath: //div[contains(@class, "goodDescriptionText")]//div[contains(@class,'inpage_selector_feature')]//text()[not(contains(.,'}'))]
   - name: category
     singleValue: false
     xpath: (//div[@class="breadcrumbs qr-breadcrumbs"]/span/a)
