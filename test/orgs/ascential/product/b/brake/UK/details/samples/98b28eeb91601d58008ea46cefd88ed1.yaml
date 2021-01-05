@@ -2,7 +2,7 @@ input:
   RPC: 10905
   _url: http://brake.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=468c2137-9b9d-4bdb-b869-cfa173480834/task=5ac2bfe0-70d4-4335-9f68-3c44eeb5edfa/f3731b2e-3db5-4afd-b09c-20255176262b.html
+  - html: https://workbench.import.io/html/run=3d9e6696-20e5-4eef-850c-7a7d460fb261/task=84133b9b-ea03-405f-8729-fb680fee3ebe/1fd24701-9585-4109-a709-285656886a3a.html
     extractionConfigId: product/details/stores/b/brake/UK/extract
     data:
       - group:
@@ -16,13 +16,10 @@ extractions:
               - text: Knorr Professional Madras Sauce 2.2L
                 xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[2]
             price:
-              - text: £11.59
+              - text: £10.99
                 xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[4]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
-            quantity:
-              - text: "2"
-                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[4]/div[2]/div[1]/div[1]/div[2]
             variantId:
-              - text: A 10905
+              - text: "10905"
                 xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]
             mpc:
               - text: A 10905
@@ -31,7 +28,7 @@ extractions:
               - text: Knorr Professional Madras Sauce 2.2L
                 xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[2]
             pricePerUnit:
-              - text: £5.27
+              - text: £5.00
                 xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[4]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]
             pricePerUnitUom:
               - text: ltr
@@ -82,39 +79,57 @@ extractions:
               - text: https://www.brake.co.uk/dry-store/foods-of-the-world/cooking-sauces/indian/knorr-professional-madras-sauce-2-2l/p/10905
                 xpath: /html/body/div[7]
             availabilityText:
-              - text: In stock
+              - text: In Stock
                 xpath: /html/body/div[8]
             description:
               - text: A Madras prepared sauce combining tomatoes and onions with a medium hot
                   blend of spices.
                 xpath: /html/body/div[10]
+            ingredientsList:
+              - text: Water, tomato (20%), onion (8%), rapeseed oil, modified maize starch,
+                  concentrated tomato puree (1.6%), sugar, spices (contain
+                  MUSTARD), coriander powder, lemon juice from concentrate,
+                  paprika powder, cumin powder, dried onion (1%), garlic puree,
+                  salt, ginger puree, acid (acetic acid), cumin seed, dried
+                  crushed red chilli, black MUSTARD seed, dried coriander leaf,
+                  dried curry leaf.
+                xpath: /html/body/div[11]
+            allergyAdvice:
+              - text: "Contains: Mustard|May contain: Almonds, Cashew Nut, Nuts and Peanuts"
+                xpath: /html/body/div[12]
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[12]
+                xpath: /html/body/div[14]
+            quantity:
+              - text: 1 x 2.2ltr
+                xpath: /html/body/div[15]
             packSize:
               - text: 1 x 2.2ltr
-                xpath: /html/body/div[13]
+                xpath: /html/body/div[15]
+            caloriesPerServing:
+              - text: 97|407
+                xpath: /html/body/div[16]
             totalFatPerServingUom:
               - text: g
-                xpath: /html/body/div[14]
+                xpath: /html/body/div[17]
             saturatedFatPerServingUom:
               - text: g
-                xpath: /html/body/div[15]
+                xpath: /html/body/div[18]
             proteinPerServingUom:
               - text: g
-                xpath: /html/body/div[16]
+                xpath: /html/body/div[19]
             totalSugarsPerServingUom:
               - text: g
-                xpath: /html/body/div[17]
+                xpath: /html/body/div[20]
             totalCarbPerServingUom:
               - text: g
-                xpath: /html/body/div[18]
+                xpath: /html/body/div[21]
             dietaryFibrePerServingUom:
               - text: g
-                xpath: /html/body/div[18]
+                xpath: /html/body/div[21]
             saltPerServingUom:
               - text: g
-                xpath: /html/body/div[20]
+                xpath: /html/body/div[23]
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -125,16 +140,6 @@ extractions:
               - text: No
             Image360Present:
               - text: No
-            ingredientsList:
-              - text: "Ingredients: Water, tomato (20%), onion (8%), rapeseed oil, modified
-                  maize starch, concentrated tomato puree (1.6%), sugar, spices
-                  (contain MUSTARD), coriander powder, lemon juice from
-                  concentrate, paprika powder, cumin powder, dried onion (1%),
-                  garlic puree, salt, ginger puree, acid (acetic acid), cumin
-                  seed, dried crushed red chilli, black MUSTARD seed, dried
-                  coriander leaf, dried curry leaf."
-            caloriesPerServing:
-              - text: "97"
             totalFatPerServing:
               - text: "6.2"
             saturatedFatPerServing:
@@ -151,9 +156,7 @@ extractions:
               - text: "0.79"
             dietaryInformation:
               - text: Suitable for Vegetarians Suitable for Vegans
-            allergyAdvice:
-              - text: "Contains: Mustard May contain: Almonds, Cashew Nut, Nuts and Peanuts"
             packaging:
               - text: ""
         xpath: /html
-    timestamp: 1606745472718
+    timestamp: 1609844565245

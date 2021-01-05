@@ -68,9 +68,7 @@ fields:
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
-  xpath: //div[contains(@class, "product-details__price-panel visible-md")]//div[contains(text(), "Full case quantity")] 
-  regExp: "Full case quantity: (\\d+)"
-  regExpReplace: $1 
+  xpath:  //div[contains(@id, 'packSizeid')]
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page
@@ -253,7 +251,7 @@ fields:
   singleValue: true
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
-  xpath: normalize-space(//p[contains(text(), "Ingredients")])
+  xpath: //div[contains(@id, 'ingredients_id')]
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.
@@ -271,7 +269,7 @@ fields:
   singleValue: true
   description: Nutritional Information for Calories Per Serving content - Usually
     based on per 100g serving
-  xpath: normalize-space(//div[@id="collapse2"]//th[contains(text(), "kcal")]/following-sibling::td)
+  xpath: //div[@id='calories_per_serving_id']
 - name: caloriesFromFatPerServing
   singleValue: true
   description: Nutritional Information for Calories From Fat content - Usually based
@@ -417,7 +415,7 @@ fields:
 - name: allergyAdvice
   singleValue: true
   description: Allergy information associated with the product
-  xpath: concat(normalize-space(//p[contains(text(), "Contains:")]), ' ', normalize-space(//p[contains(text(), "May contain:")]))
+  xpath: //div[contains(@id, 'allergy_advice_id')]
 - name: recyclingInformation
   singleValue: true
   description: Recycling information associated with the product

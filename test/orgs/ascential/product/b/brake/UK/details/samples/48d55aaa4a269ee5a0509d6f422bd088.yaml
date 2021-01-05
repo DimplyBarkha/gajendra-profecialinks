@@ -2,7 +2,7 @@ input:
   RPC: 100549
   _url: http://brake.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=468c2137-9b9d-4bdb-b869-cfa173480834/task=54d48b98-dc6d-410b-93e7-844fcd6a7fad/7c685c83-6fbe-4256-95fb-ebfa2f2433c1.html
+  - html: https://workbench.import.io/html/run=3d9e6696-20e5-4eef-850c-7a7d460fb261/task=bc9a1aaa-d824-47b7-940f-d8893a294216/08d62008-db1e-48fc-a41e-b66df4065cde.html
     extractionConfigId: product/details/stores/b/brake/UK/extract
     data:
       - group:
@@ -20,13 +20,10 @@ extractions:
               - text: Bisto Chicken Gravy Granules 1.9kg
                 xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[2]
             price:
-              - text: £10.25
-                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[4]/div[2]/div[1]/div[2]/div[2]/div[1]/span[2]
-            quantity:
-              - text: "1"
-                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[4]/div[2]/div[1]/div[1]/div[2]
+              - text: £16.59
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[4]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
             variantId:
-              - text: A 100549
+              - text: "100549"
                 xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]
             mpc:
               - text: A 100549
@@ -35,7 +32,7 @@ extractions:
               - text: Bisto Chicken Gravy Granules 1.9kg
                 xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[2]
             pricePerUnit:
-              - text: £0.41
+              - text: £0.66
                 xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[4]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]
             pricePerUnitUom:
               - text: ltr
@@ -86,41 +83,53 @@ extractions:
               - text: https://www.brake.co.uk/dry-store/gravy-sauces/gravy/granules/bisto-chicken-gravy-granules-1-9kg/p/100549
                 xpath: /html/body/div[7]
             availabilityText:
-              - text: In stock
+              - text: In Stock
                 xpath: /html/body/div[8]
-            listPrice:
-              - text: £16.59
-                xpath: /html/body/div[9]
             description:
               - text: Chicken Flavour Gravy Granules 1.9kg
                 xpath: /html/body/div[10]
+            ingredientsList:
+              - text: Potato Starch, Maltodextrin, Palm Oil, Salt, WHEAT Flour (with added
+                  Calcium, Iron, Niacin, Thiamin), Flavourings (contain MILK),
+                  Sugar, Flavour Enhancers (E621, E635), Colour (E150c),
+                  Emulsifier (E322) (contains SOYA).
+                xpath: /html/body/div[11]
+            allergyAdvice:
+              - text: "Contains: Gluten, Milk, Soya and Wheat"
+                xpath: /html/body/div[12]
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[12]
+                xpath: /html/body/div[14]
+            quantity:
+              - text: 1 x 1.9kg (makes 25ltr)
+                xpath: /html/body/div[15]
             packSize:
               - text: 1 x 1.9kg (makes 25ltr)
-                xpath: /html/body/div[13]
+                xpath: /html/body/div[15]
+            caloriesPerServing:
+              - text: 400|1680
+                xpath: /html/body/div[16]
             totalFatPerServingUom:
               - text: g
-                xpath: /html/body/div[14]
+                xpath: /html/body/div[17]
             saturatedFatPerServingUom:
               - text: g
-                xpath: /html/body/div[15]
+                xpath: /html/body/div[18]
             proteinPerServingUom:
               - text: g
-                xpath: /html/body/div[16]
+                xpath: /html/body/div[19]
             totalSugarsPerServingUom:
               - text: g
-                xpath: /html/body/div[17]
+                xpath: /html/body/div[20]
             totalCarbPerServingUom:
               - text: g
-                xpath: /html/body/div[18]
+                xpath: /html/body/div[21]
             dietaryFibrePerServingUom:
               - text: g
-                xpath: /html/body/div[18]
+                xpath: /html/body/div[21]
             saltPerServingUom:
               - text: g
-                xpath: /html/body/div[20]
+                xpath: /html/body/div[23]
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -131,13 +140,6 @@ extractions:
               - text: No
             Image360Present:
               - text: No
-            ingredientsList:
-              - text: "Ingredients: Potato Starch, Maltodextrin, Palm Oil, Salt, WHEAT Flour
-                  (with added Calcium, Iron, Niacin, Thiamin), Flavourings
-                  (contain MILK), Sugar, Flavour Enhancers (E621, E635), Colour
-                  (E150c), Emulsifier (E322) (contains SOYA)."
-            caloriesPerServing:
-              - text: "400"
             totalFatPerServing:
               - text: "15.6"
             saturatedFatPerServing:
@@ -154,9 +156,7 @@ extractions:
               - text: "11.9"
             dietaryInformation:
               - text: " "
-            allergyAdvice:
-              - text: "Contains: Gluten, Milk, Soya and Wheat "
             packaging:
               - text: ""
         xpath: /html
-    timestamp: 1606745474001
+    timestamp: 1609844566280

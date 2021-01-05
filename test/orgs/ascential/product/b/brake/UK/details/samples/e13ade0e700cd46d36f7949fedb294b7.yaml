@@ -2,7 +2,7 @@ input:
   RPC: 100050
   _url: http://brake.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=468c2137-9b9d-4bdb-b869-cfa173480834/task=4c836ae2-9dc6-45af-97bf-5d5f9239ae27/7ae10350-cde0-4ed9-9a01-2a1c6ea84abb.html
+  - html: https://workbench.import.io/html/run=3d9e6696-20e5-4eef-850c-7a7d460fb261/task=c79770a2-d8de-4857-b47f-ac4d8c5e0756/f81c1450-1e08-4db5-af4c-cf3981a85938.html
     extractionConfigId: product/details/stores/b/brake/UK/extract
     data:
       - group:
@@ -20,11 +20,8 @@ extractions:
             price:
               - text: £23.59
                 xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[4]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
-            quantity:
-              - text: "1"
-                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[4]/div[2]/div[1]/div[1]/div[2]
             variantId:
-              - text: A 100050
+              - text: "100050"
                 xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]
             mpc:
               - text: A 100050
@@ -84,38 +81,52 @@ extractions:
               - text: https://www.brake.co.uk/dry-store/jam-honey-spread/portions/portions/marmite-portions-8g/p/100050
                 xpath: /html/body/div[7]
             availabilityText:
-              - text: In stock
+              - text: In Stock
                 xpath: /html/body/div[8]
             description:
               - text: Yeast Extract Spread fortified with B vitamins
                 xpath: /html/body/div[10]
+            ingredientsList:
+              - text: Yeast extract (contains BARLEY, WHEAT, OATS, RYE), salt, vegetable juice
+                  concentrate, vitamins (thiamin, riboflavin, niacin, vitamin
+                  B12 and folic acid), natural flavouring (contains CELERY).
+                xpath: /html/body/div[11]
+            allergyAdvice:
+              - text: "Contains: Barley, Celery, Gluten, Oats, Rye and Wheat"
+                xpath: /html/body/div[12]
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[12]
+                xpath: /html/body/div[14]
+            quantity:
+              - text: 4 x 24 x 8g
+                xpath: /html/body/div[15]
             packSize:
               - text: 4 x 24 x 8g
-                xpath: /html/body/div[13]
+                xpath: /html/body/div[15]
+            caloriesPerServing:
+              - text: 260|1100
+                xpath: /html/body/div[16]
             totalFatPerServingUom:
               - text: g
-                xpath: /html/body/div[14]
+                xpath: /html/body/div[17]
             saturatedFatPerServingUom:
               - text: g
-                xpath: /html/body/div[15]
+                xpath: /html/body/div[18]
             proteinPerServingUom:
               - text: g
-                xpath: /html/body/div[16]
+                xpath: /html/body/div[19]
             totalSugarsPerServingUom:
               - text: g
-                xpath: /html/body/div[17]
+                xpath: /html/body/div[20]
             totalCarbPerServingUom:
               - text: g
-                xpath: /html/body/div[18]
+                xpath: /html/body/div[21]
             dietaryFibrePerServingUom:
               - text: g
-                xpath: /html/body/div[18]
+                xpath: /html/body/div[21]
             saltPerServingUom:
               - text: g
-                xpath: /html/body/div[20]
+                xpath: /html/body/div[23]
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -126,13 +137,6 @@ extractions:
               - text: No
             Image360Present:
               - text: No
-            ingredientsList:
-              - text: "Ingredients: Yeast extract (contains BARLEY, WHEAT, OATS, RYE), salt,
-                  vegetable juice concentrate, vitamins (thiamin, riboflavin,
-                  niacin, vitamin B12 and folic acid), natural flavouring
-                  (contains CELERY)."
-            caloriesPerServing:
-              - text: "260"
             totalFatPerServing:
               - text: "0.1"
             saturatedFatPerServing:
@@ -149,9 +153,7 @@ extractions:
               - text: "10.8"
             dietaryInformation:
               - text: Suitable for Vegetarians Suitable for Vegans
-            allergyAdvice:
-              - text: "Contains: Barley, Celery, Gluten, Oats, Rye and Wheat "
             packaging:
               - text: ""
         xpath: /html
-    timestamp: 1606745482219
+    timestamp: 1609844562914

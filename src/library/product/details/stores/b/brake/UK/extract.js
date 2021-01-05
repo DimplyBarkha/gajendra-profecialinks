@@ -35,7 +35,7 @@ module.exports = {
       const productUrl = window.location.href;
       addElementToDocument('producturl', productUrl);
       const addToCartBtn = document.querySelector('div.product-details__price-panel.visible-md a.cart__add-button');
-      const productAvailability = addToCartBtn ? 'In stock' : 'Out of stock';
+      const productAvailability = addToCartBtn ? 'In Stock' : 'Out Of Stock';
       addElementToDocument('productAvailability', productAvailability);
       // @ts-ignore
       const productBrand = window.dataLayer[1].ecommerce.detail.products[0].brand;
@@ -48,6 +48,27 @@ module.exports = {
       const description = getEleByXpath('//div[contains(@class, "product-details__price-panel visible-md")]//following-sibling::div[@id="jsProductDetailsDesc"]/div');
       const descriptionText = description ? description.replace(/\.\.\./, '') : '';
       addElementToDocument('descId', descriptionText);
+
+      const ingredientsElem = getEleByXpath('//div[@id="collapse3"]//p[contains(text(), "Ingredients")]');
+      const ingredients = ingredientsElem ? ingredientsElem.trim().replace(/^Ingredients:(.*)/, '$1') : '';
+      addElementToDocument('ingredients_id', ingredients);
+
+      const allergyAdviceElemOne = getEleByXpath('//div[@id="collapse3"]//p[contains(text(), "Contains:")]');
+      const allergyAdviceTextOne = allergyAdviceElemOne ? allergyAdviceElemOne.trim() : '';
+      const allergyAdviceElemTwo = getEleByXpath('//div[@id="collapse3"]//p[contains(text(), "May contain:")]');
+      const allergyAdviceTextTwo = allergyAdviceElemTwo ? allergyAdviceElemTwo.trim() : '';
+      let allergyAdvice;
+      if (allergyAdviceTextOne && allergyAdviceTextTwo) {
+        allergyAdvice = allergyAdviceTextOne + '|' + allergyAdviceTextTwo;
+      } else if (allergyAdviceTextOne && !allergyAdviceTextTwo) {
+        allergyAdvice = allergyAdviceTextOne;
+      } else if (!allergyAdviceTextOne && allergyAdviceTextTwo) {
+        allergyAdvice = allergyAdviceTextTwo;
+      } else {
+        allergyAdvice = '';
+      }
+
+      addElementToDocument('allergy_advice_id', allergyAdvice);
 
       const alcoholContentText = description ? description.match(/\d+% ABV/) : null;
       const alcoholContent = alcoholContentText ? alcoholContentText[0] : '';
@@ -64,6 +85,21 @@ module.exports = {
       const packSizeText = packSizeInfo ? packSizeInfo.textContent : null;
       const packSize = packSizeText ? packSizeText.replace(/Pack size: /, '') : '';
       addElementToDocument('packSizeid', packSize);
+
+      const energyInCalElem = getEleByXpath('//div[@id="collapse2"]//th[contains(text(), "kcal")]/following-sibling::td');
+      const energyInCal = energyInCalElem ? energyInCalElem.trim() : null;
+      const energyInKJElem = getEleByXpath('//div[@id="collapse2"]//th[contains(text(), "KJ")]/following-sibling::td');
+      const energyInKJ = energyInKJElem ? energyInKJElem.trim() : null;
+      let caloriesPerServing;
+
+      if (energyInCal && energyInKJ) {
+        caloriesPerServing = energyInCal + '|' + energyInKJ;
+      } else if (energyInCal && !energyInKJ) {
+        caloriesPerServing = energyInCal;
+      } else {
+        caloriesPerServing = '';
+      }
+      addElementToDocument('calories_per_serving_id', caloriesPerServing);
 
       const fatInfo = getEleByXpath('//div[@id="collapse2"]//th[contains(text(), "Fat")]');
       const fatPerServingUom = fatInfo ? getServingSizeUom(fatInfo) : '';

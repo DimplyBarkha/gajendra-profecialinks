@@ -2,7 +2,7 @@ input:
   RPC: 127425
   _url: http://brake.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=468c2137-9b9d-4bdb-b869-cfa173480834/task=a5e903b0-c11a-41fe-9e89-6f0135e0ef9b/23bfbf84-eb64-49f7-a20c-b9966d8bcb78.html
+  - html: https://workbench.import.io/html/run=3d9e6696-20e5-4eef-850c-7a7d460fb261/task=ec96cb53-5f11-4080-a0b6-e11e38356832/4cb028a9-8962-46aa-ba1f-28df1fce3f87.html
     extractionConfigId: product/details/stores/b/brake/UK/extract
     data:
       - group:
@@ -16,13 +16,10 @@ extractions:
               - text: Highland Game Venison Fillet
                 xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[2]
             price:
-              - text: £69.99
-                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[4]/div[2]/div[1]/div[2]/div[2]/div[1]/span[2]
-            quantity:
-              - text: "1"
-                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[4]/div[2]/div[1]/div[1]/div[2]
+              - text: £97.99
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[4]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
             variantId:
-              - text: F 127425
+              - text: "127425"
                 xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]
             mpc:
               - text: F 127425
@@ -31,7 +28,7 @@ extractions:
               - text: Highland Game Venison Fillet
                 xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[2]
             pricePerUnit:
-              - text: £11.67
+              - text: £16.33
                 xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[4]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]
             pricePerUnitUom:
               - text: ea
@@ -69,43 +66,53 @@ extractions:
               - text: https://www.brake.co.uk/meat-poultry/frozen-raw-butchered-meat/beef/beef-joints/highland-game-venison-fillet/p/127425
                 xpath: /html/body/div[7]
             availabilityText:
-              - text: In stock
+              - text: In Stock
                 xpath: /html/body/div[8]
-            listPrice:
-              - text: £99.89
-                xpath: /html/body/div[9]
             description:
               - text: Super lean and naturally healthy, Wild British Venison, cut by hand from
                   top saddle by our expert butchers and portioned for your
                   convenience.
                 xpath: /html/body/div[10]
+            ingredientsList:
+              - text: venison
+                xpath: /html/body/div[11]
+            allergyAdvice:
+              - text: "Contains: None of the 14 Food Allergens|May contain: None of the 14 Food
+                  Allergens"
+                xpath: /html/body/div[12]
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[12]
+                xpath: /html/body/div[14]
+            quantity:
+              - text: 6 x 2 x 140g
+                xpath: /html/body/div[15]
             packSize:
               - text: 6 x 2 x 140g
-                xpath: /html/body/div[13]
+                xpath: /html/body/div[15]
+            caloriesPerServing:
+              - text: 108|456
+                xpath: /html/body/div[16]
             totalFatPerServingUom:
               - text: g
-                xpath: /html/body/div[14]
+                xpath: /html/body/div[17]
             saturatedFatPerServingUom:
               - text: g
-                xpath: /html/body/div[15]
+                xpath: /html/body/div[18]
             proteinPerServingUom:
               - text: g
-                xpath: /html/body/div[16]
+                xpath: /html/body/div[19]
             totalSugarsPerServingUom:
               - text: g
-                xpath: /html/body/div[17]
+                xpath: /html/body/div[20]
             totalCarbPerServingUom:
               - text: g
-                xpath: /html/body/div[18]
+                xpath: /html/body/div[21]
             dietaryFibrePerServingUom:
               - text: g
-                xpath: /html/body/div[18]
+                xpath: /html/body/div[21]
             saltPerServingUom:
               - text: g
-                xpath: /html/body/div[20]
+                xpath: /html/body/div[23]
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -116,10 +123,6 @@ extractions:
               - text: No
             Image360Present:
               - text: No
-            ingredientsList:
-              - text: ""
-            caloriesPerServing:
-              - text: "108"
             totalFatPerServing:
               - text: "2.1"
             saturatedFatPerServing:
@@ -136,10 +139,7 @@ extractions:
               - text: "0.24"
             dietaryInformation:
               - text: " "
-            allergyAdvice:
-              - text: "Contains: None of the 14 Food Allergens May contain: None of the 14 Food
-                  Allergens"
             packaging:
               - text: ""
         xpath: /html
-    timestamp: 1606745474593
+    timestamp: 1609844568013

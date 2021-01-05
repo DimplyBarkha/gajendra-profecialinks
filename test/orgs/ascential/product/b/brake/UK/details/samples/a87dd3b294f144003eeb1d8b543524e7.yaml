@@ -2,7 +2,7 @@ input:
   RPC: 100345
   _url: http://brake.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=468c2137-9b9d-4bdb-b869-cfa173480834/task=2b609ac6-bd96-4b7a-b981-0b86d6be4538/e5d8080b-630d-4746-801d-57fd90191b1a.html
+  - html: https://workbench.import.io/html/run=3d9e6696-20e5-4eef-850c-7a7d460fb261/task=5a5663fc-0fc6-49d0-b939-1df58eb448db/0befbe11-0d40-45ff-a0b9-0588e677e0ae.html
     extractionConfigId: product/details/stores/b/brake/UK/extract
     data:
       - group:
@@ -16,13 +16,10 @@ extractions:
               - text: Hellmann's Real Mayonnaise 10L
                 xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[2]
             price:
-              - text: £29.59
-                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[4]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
-            quantity:
-              - text: "1"
-                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[4]/div[2]/div[1]/div[1]/div[2]
+              - text: £17.99
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[4]/div[2]/div[1]/div[2]/div[2]/div[1]/span[2]
             variantId:
-              - text: A 100345
+              - text: "100345"
                 xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]
             mpc:
               - text: A 100345
@@ -31,7 +28,7 @@ extractions:
               - text: Hellmann's Real Mayonnaise 10L
                 xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[2]
             pricePerUnit:
-              - text: £0.30/100
+              - text: £0.18/100
                 xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[4]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]
             pricePerUnitUom:
               - text: ml
@@ -82,35 +79,52 @@ extractions:
               - text: https://www.brake.co.uk/dry-store/condiments-pickles/bulk-condiments/mayonnaise/hellmann-s-real-mayonnaise-10l/p/100345
                 xpath: /html/body/div[7]
             availabilityText:
-              - text: In stock
+              - text: In Stock
                 xpath: /html/body/div[8]
+            listPrice:
+              - text: £29.59
+                xpath: /html/body/div[9]
             description:
               - text: The Nation's favourite mayonnaise* made with 100% free range eggs and
                   committed to using sustainably sourced oils. Gluten free and
                   suitable for vegetarians. *Nielsen Retail Grocery Value Sales
                   MAT 15.06.2019
                 xpath: /html/body/div[10]
+            ingredientsList:
+              - text: Rapeseed oil (78%), water, free range pasteurised EGG and EGG yolk (8.9%),
+                  spirit vinegar, sugar, salt, lemon juice, antioxidant (calcium
+                  disodium EDTA), flavouring, paprika extract.
+                xpath: /html/body/div[11]
+            allergyAdvice:
+              - text: "Contains: Egg"
+                xpath: /html/body/div[12]
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[12]
+                xpath: /html/body/div[14]
+            quantity:
+              - text: 1 x 10ltr
+                xpath: /html/body/div[15]
             packSize:
               - text: 1 x 10ltr
-                xpath: /html/body/div[13]
+                xpath: /html/body/div[15]
+            caloriesPerServing:
+              - text: 714|2986
+                xpath: /html/body/div[16]
             totalFatPerServingUom:
               - text: g
-                xpath: /html/body/div[14]
+                xpath: /html/body/div[17]
             saturatedFatPerServingUom:
               - text: g
-                xpath: /html/body/div[15]
+                xpath: /html/body/div[18]
             proteinPerServingUom:
               - text: g
-                xpath: /html/body/div[16]
+                xpath: /html/body/div[19]
             totalSugarsPerServingUom:
               - text: g
-                xpath: /html/body/div[17]
+                xpath: /html/body/div[20]
             saltPerServingUom:
               - text: g
-                xpath: /html/body/div[20]
+                xpath: /html/body/div[23]
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -121,13 +135,6 @@ extractions:
               - text: No
             Image360Present:
               - text: No
-            ingredientsList:
-              - text: "Ingredients: Rapeseed oil (78%), water, free range pasteurised EGG and
-                  EGG yolk (8.9%), spirit vinegar, sugar, salt, lemon juice,
-                  antioxidant (calcium disodium EDTA), flavouring, paprika
-                  extract."
-            caloriesPerServing:
-              - text: "714"
             totalFatPerServing:
               - text: "79"
             saturatedFatPerServing:
@@ -144,9 +151,7 @@ extractions:
               - text: "1.2"
             dietaryInformation:
               - text: "Suitable for Vegetarians "
-            allergyAdvice:
-              - text: "Contains: Egg "
             packaging:
               - text: ""
         xpath: /html
-    timestamp: 1606745473049
+    timestamp: 1609844564412
