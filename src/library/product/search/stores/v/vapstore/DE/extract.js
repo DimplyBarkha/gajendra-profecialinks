@@ -16,7 +16,9 @@ const transform = (data, context) => {
     for (const row of group) {
 
       if (row.productUrl) {
-        const url = row.productUrl[0].text;
+        let url = row.productUrl[0].text;
+        console.log(url.replace(/-en([^-en]*)$/, '$1'));
+        url = url.replace(/-en([^-en]*)$/, '$1');
         row.productUrl[0].text = 'https://www.vapstore.de/' + url;
       }
 
@@ -28,6 +30,39 @@ const transform = (data, context) => {
   return data;
 };
 
+async function implementation (
+  inputs,
+  parameters,
+  context,
+  dependencies,
+) {
+  const { transform } = parameters;
+  const { productDetails } = dependencies;
+  const applyScroll = async function (context) {
+    await context.evaluate(async function () {
+      let scrollTop = 0;
+      while (scrollTop !== 20000) {
+        await stall(500);
+        scrollTop += 1000;
+        window.scroll(0, scrollTop);
+        if (scrollTop === 20000) {
+          await stall(5000);
+          break;
+        }
+      }
+      function stall (ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
+    });
+  };
+  await applyScroll(context);
+  return await context.extract(productDetails, { transform });
+};
+
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
@@ -37,4 +72,5 @@ module.exports = {
     domain: 'vapstore.de',
     zipcode: "''",
   },
+   implementation,
 };
