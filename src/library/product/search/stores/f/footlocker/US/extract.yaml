@@ -1,0 +1,100 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: paid
+    singleValue: true
+    description: Whether this is a sponsored/paid result
+    type: BOOLEAN
+  - name: brand
+    singleValue: true
+    description: The brand name
+    example: Panasonic
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    example: ["Dental Care","Toothbrushes & Accessories","Electric Toothbrushes & Accessories","Electric Toothbrushes","Rotating"]
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class='ProductCard-link ProductCard-content']/@href
+    regExp: (https:\/\/www.footlocker.com)?(.+)
+    regExpReplace: https://www.footlocker.com$2
+    description: The URL for the product details page
+  - name: name
+    singleValue: true
+    xpath: //span[@class="ProductName-primary"]/text()
+    description: The product name
+  - name: sku
+    singleValue: true
+    description: The store-specific product identifier
+  - name: mpc
+    singleValue: true
+    description: The model code of the product
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+  - name: aggregateRatingText
+    singleValue: true
+    description: The stated aggregate rating
+  - name: ratingCount
+    singleValue: true
+    description: The number of ratings
+  - name: reviewCount
+    singleValue: true
+    description: The number of reviews
+  - name: price
+    singleValue: true
+    xpath: //div[@class="ProductPrice"]/span/text()|//div[@class='ProductPrice']/p/span[1]
+    description: The offered price for the product
+  - name: listPrice
+    singleValue: true
+    xpath: //span[@class="ProductPrice-original"]/text()
+    description: The stated undiscounted price for the product
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer
+  - name: soldBy
+    singleValue: true
+    description: The name of the seller of the item (if available)
+  - name: endorsementText
+    singleValue: true
+    description: The text that signifies that a product is endorsed
+  - name: shippingInfo
+    singleValue: true
+    description: Shipping information for the product
+  - name: rank
+    singleValue: true
+    description: search/listing rank
+    xpath: //div[@class="rank"]  
+    type: NUMBER    
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    xpath: //div[@class="rank"]  
+    type: NUMBER 
+  - name: sponsored
+    singleValue: true
+    description: Is sponsored/paid
+    type: BOOLEAN    
+
+#  Should these be source specific formulas or in the extractor? 
+  - name: id
+    singleValue: false
+    description: Unique id (within this extractor)
+    xpath: //a[@class='ProductCard-link ProductCard-content']/@href
+    regExp: ([^\\\/]+(?=\.[\w]+$)|[^\\\/]+$)
+  - name: nameExtended
+    singleValue: true
+    xpath: //span[@class="ProductName-primary"]/text()
+    description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per extractor)
+  - name: aggregateRating
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER 
+  - name: thumbnail
+    singleValue: true
+    xpath: //div[@class="SearchResults"]/ul/li/div/div/span/span/img/@src 
+    description: The URL for the product thumbnail image
+ 
+

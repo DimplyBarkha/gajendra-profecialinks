@@ -1,10 +1,12 @@
+
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'footlocker.co.uk',
-    timeout: 100000,
+    prefix: null,
+    url: null,
     country: 'UK',
-    store: 'FootLocker',
+    store: 'footlocker',
     zipcode: '',
   },
 };
