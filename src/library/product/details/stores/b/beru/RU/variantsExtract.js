@@ -22,7 +22,7 @@ async function implementation (
       variantDivExtra.click();
     }
     let variantDiv = document.querySelectorAll('div.b_5w6zb4tA_L')[0];
-    let variantDiv2 = document.querySelectorAll('div.b_3cmFHJbptv picture.b_3ogURkuHm0');
+    let variantDiv2 = document.querySelectorAll('div.b_3cmFHJbptv picture.b_3ogURkuHm0 img');
     let variantFil;
     if(variantDiv) {
        variantFil = variantDiv.querySelectorAll('span.b_1vzk4iYy5n');
@@ -49,10 +49,9 @@ async function implementation (
     }
    
     if(variantDiv2) {
-      variantDiv2.forEach(element => {
-        element.click();
-        console.log(window.location.href , 'window.location.href');
+      variantDiv2.forEach(element=> {
         variantUrl = window.location.href
+        element.click();
         const variantLink = document.createElement('div');
         variantLink.setAttribute('class', 'variantUrl');
         variantLink.setAttribute('href', variantUrl);
