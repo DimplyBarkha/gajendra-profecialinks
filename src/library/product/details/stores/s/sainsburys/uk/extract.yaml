@@ -1,14 +1,14 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //body
+recordXPath: //html[@lang="en"]
 fields:
   - name: image
     singleValue: true
     description: URL of the main product image
     xpath: (//div[@class="pd__left skipto-content"]/img/@src)[1]
   - name: imageAlt
-    singleValue: true
+    singleValue: false
     description: Alt text of the main product image
     xpath: (//div[@class="pd__left skipto-content"]//@alt)[1]
   - name: alternateImages
@@ -16,15 +16,15 @@ fields:
     description: Other product images (not in manufacturer description)
     xpath: //img[@class="pd__additional__image pd__additional__image__active"]/@srcset
   - name: category
-    singleValue: true
+    singleValue: false
     description: The categories (e.g. from breadcrumbs)
     xpath: //ol[@class="ln-c-breadcrumbs ln-o-inline-list"]//li 
   - name: listPrice
-    singleValue: true
+    singleValue: false
     description: The stated undiscounted price for the product
     xpath: //div[@class='pd__cost__total undefined']/text()
   - name: price
-    singleValue: true
+    singleValue: false
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: //div[@class='pd__cost__total undefined']/text()  
@@ -32,10 +32,10 @@ fields:
     singleValue: true
     xpath: //html//div[@id='availabilityText']
     regExp: \w+$
-    # defaultValue: Out of Stock
+    defaultValue: Out Of Stock
   - name: description
     singleValue: false
-    xpath: //*[contains(text(),'Description')]/following-sibling::*[1]  
+    xpath: //*[contains(text(),'Description')]/following-sibling::*[1] |//*[contains(text(),'Description')]/following-sibling::*
   - name: brandText
     singleValue: true
     xpath: //html//div[@id="brandText"] 
@@ -45,28 +45,28 @@ fields:
     description: Product manufacturer
     xpath: //*[contains(text(),'Manufacturer')]/following-sibling::*[1]
   - name: sku
-    singleValue: false
+    singleValue: true
     description: The store-specific product identifier
     xpath: //span[@id="productSKU"]
   - name: mpc
-    singleValue: false
+    singleValue: true
     description: The manufacturer model code (unique) of the product
     xpath: //span[@id="productSKU"]
   - name: packSize
-    singleValue: true
+    singleValue: false
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
     xpath: //*[contains(text(),'Size')]/following-sibling::*[1]  
   - name: legalDisclaimer
-    singleValue: true
+    singleValue: false
     description: Content under "legal disclaimer" header
     xpath: //div[@class="ln-c-card pd__disclaimer ln-c-card--soft"]
   - name: directions
-    singleValue: true
+    singleValue: false
     description: Content under "directions" header
     xpath: //*[contains(text(),'Preparation')]/following-sibling::*[1]
   - name: warnings
-    singleValue: true
+    singleValue: false
     description: Content under "warnings" header
     xpath: //p[@data-test-id="pd-alcohol-warning"]/text()
   - name: aggregateRating
@@ -75,53 +75,53 @@ fields:
     type: NUMBER
     xpath: //html//div[@id="aggregateRating"]
   - name: shippingInfo
-    singleValue: true
+    singleValue: false
     description: Shipping information for the product
     xpath: //*[contains(text(),'Packaging')]/following-sibling::*[1]
   - name: name
-    singleValue: true
+    singleValue: false
     description: The product name
     xpath: //h1[@data-test-id="pd-product-title"]/text()
   - name: ingredientsList
-    singleValue: true
+    singleValue: false
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
     xpath: //*[contains(text(),'Ingredients')]/following-sibling::*[1]   
   - name: caloriesFromFatPerServing
-    singleValue: true
+    singleValue: false
     description: Nutritional Information for Calories From Fat content - Usually
       based on per 100g serving
-    xpath: //li[@class="lozenge medium fat"]//div[@class="lozengeHeaderSection"] 
+    xpath: //*[contains(text(),'Fat')]/following-sibling::*[1]
     regExp: \d.+
     # type: NUMBER
   - name: totalSugarsPerServing
-    singleValue: true
+    singleValue: false
     description: Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
     # type: NUMBER
-    xpath: //li[@class="lozenge medium sugars"]//div[@class="lozengeHeaderSection"]
+    xpath: //*[contains(text(),'Sugar')]/following-sibling::*[1]|//*[contains(text(),'sugars')]/following-sibling::*[1]
     regExp: \d.+
   - name: saltPerServing
-    singleValue: true
+    singleValue: false
     description: Nutritional Information for Salt content - Usually based on per
       100g serving
     # type: NUMBER
-    xpath: //li[@class="lozenge low salt"]//div[@class="lozengeHeaderSection"]
+    xpath: //*[contains(text(),'Salt')]/following-sibling::*[1]
     regExp: \d.+
   - name: dietaryInformation
-    singleValue: true
+    singleValue: false
     description: null
     xpath: //*[contains(text(),'Dietary Information')]/following-sibling::*[1]
   - name: storage
-    singleValue: true
+    singleValue: false
     description: Suggested storage location for product
     xpath: //*[contains(text(),'Storage')]/following-sibling::*[1]
   - name: countryOfOrigin
-    singleValue: true
+    singleValue: false
     description: The country from which the product originates
     xpath: //*[contains(text(),'Country of Origin')]/following-sibling::*[1]
   - name: packaging
-    singleValue: true
+    singleValue: false
     description: Packaging information
     xpath: //*[contains(text(),'packaging')]/following-sibling::*[1]
   - name: alcoholContent
@@ -129,18 +129,17 @@ fields:
     description: Alcohol content information
     xpath: //p[@data-test-id="pd-alcohol-warning"]
   - name: termsAndConditions
-    singleValue: true
+    singleValue: false
     description: Terms and conditions information text ['Yes','No']
     xpath: //a[@data-test-id="footer-link-terms-and-conditions"]/@href
     defaultValue: No
   - name: privacyPolicy
-    singleValue: true
+    singleValue: false
     description: Privacy Policy information text ['Yes','No']
     xpath: //a[@data-test-id="footer-link-privacy"]/@href
     defaultValue: No
   - name: gtin
-    singleValue: true
-    description: Privacy Policy information text ['Yes','No']
+    singleValue: false
     xpath: //html//div[@id="gtin"]
     # defaultValue: No  
  
