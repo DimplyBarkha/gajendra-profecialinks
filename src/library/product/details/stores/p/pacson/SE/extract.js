@@ -1,10 +1,11 @@
-const { cleanUp } = require('../../../../shared');
+const {transform} = require('./format')
+// const { transform } = require('../../../../extract');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'SE',
     store: 'pacson',
-    transform: cleanUp,
+    transform: transform,
     domain: 'pacson.se',
     zipcode: '',
   },
