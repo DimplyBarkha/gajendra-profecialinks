@@ -5,8 +5,6 @@ module.exports = {
     country: 'NL',
     store: 'bcc',
     domain: 'bcc.nl',
-    loadedSelector: null,
-    noResultsXPath: null,
-    zipcode: '',
+    noResultsXPath: '//p[contains(.,"Dit product is helaas niet meer beschikbaar. Bekijk hieronder onze alternatieven.")]',
   },
 };

@@ -1,25 +1,26 @@
-const { transform } = require('../../../../shared');
+const { transform } = require('../shared');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'NL',
     store: 'bcc',
-    transform: null,
+    transform,
     domain: 'bcc.nl',
-    zipcode: '',
-  },
-  implementation: async (inputs, parameters, context, dependencies) => {
+  }, implementation: async (
+    inputs,
+    parameters,
+    context,
+    dependencies,
+  ) => {
+    await context.evaluate(async function () {
+     const getBulletsPoint =  document.querySelectorAll('div[data-title="Productinformatie"] ul li');
+     if(getBulletsPoint.length){
+      getBulletsPoint.forEach((ele)=> ele.textContent = `|| ${ele.textContent}` );
+     }
+    });
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    await context.evaluate(() => {
-      const button = document.querySelector('section.productoffer .checkout-initiator');
-      if (button) {
-        document.querySelector('h1#page_title').setAttribute('availability', 'In Stock');
-      } else {
-        document.querySelector('h1#page_title').setAttribute('availability', 'Out of Stock');
-      }
-    });
     return await context.extract(productDetails, { transform });
   },
 };

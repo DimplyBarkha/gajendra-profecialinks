@@ -5,6 +5,5 @@ module.exports = {
     country: 'NL',
     store: 'bcc',
     domain: 'bcc.nl',
-    zipcode: '',
   },
 };
