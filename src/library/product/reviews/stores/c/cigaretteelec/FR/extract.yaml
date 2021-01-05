@@ -3,9 +3,19 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //div[@itemprop="review"]
 fields:
-  - name: helpfulCount
+  - name: helpful
     singleValue: false
     description: Number of people who said the review was helpful
+    xpath: //p[@class="netreviews_helpful_block"]/a[contains(text(),"Oui")]/span
+  - name: mediaURL
+    singleValue: false
+    xpath: (ancestor::html//div[contains(@class,"product-tab")]/div/a/@href)[position()=1]
+  - name: productFamily
+    singleValue: false
+    xpath: (ancestor::html//li[@itemprop="itemListElement"]//span[@itemprop="name"])[position()=3]
+  - name: productRange
+    singleValue: false
+    xpath: (ancestor::html//li[@itemprop="itemListElement"]//span[@itemprop="name"])[position()=4]
   - name: rating
     singleValue: false
     type: NUMBER
@@ -34,6 +44,7 @@ fields:
   - name: sku
     singleValue: false
     description: The store-specific product identifier
+    xpath: ancestor::html//meta[@itemprop="productID"]/@content
   - name: reviewDate
     singleValue: false
     description: Date the review was made
