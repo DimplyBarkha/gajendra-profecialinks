@@ -40,6 +40,8 @@ module.exports = {
       var price = getXpath('(//div[@class="product-detail__price-info"]/span[@class="price prio-30"])/text()', 'nodeValue');
       if (price != null){
         price = price.replace(",",".");
+        price = price.slice(0,-3);
+        price = price+" kr";
         addElementToDocument('price', price);
       }
 
