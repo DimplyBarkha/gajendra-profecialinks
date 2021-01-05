@@ -17,25 +17,20 @@ fields:
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name="keywords"]/@content
-  - name: url
-    singleValue: true
-    xpath: //link[@rel='canonical']/@href
-    regExp: (/.+)
-    regExpReplace: https://www.gracobaby.com$1
   - name: category
     singleValue: false
-    xpath: //ol[@class="breadcrumb"]/li[2]/a/text()
-  - name: category
-    singleValue: false
-    xpath: //html//div[@class="addSubCategoryInfo"]
+    xpath: //ol[@class="breadcrumb"]/li/a[not(contains(text(),'Home'))]
   - name: nameExtended
     singleValue: true
     xpath: //html//div[@class="addProductDescInfo"]
   - name: price
     singleValue: true
-    xpath: (//span[@class='price-tag']//span[@class="outline "])[1]/text() | (//span[@class="outline color"])[1]/text()
+    xpath: //span[@class='price-tag']/span/span
   - name: availabilityText
     singleValue: true
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out Of Stock
     xpath: //html//div[@class="graco_availability"]
   - name: description
     singleValue: false
@@ -51,7 +46,7 @@ fields:
     xpath: (//div[@class="wc-fragment"])[1]/@data-gtin
   - name: sku
     singleValue: true
-    xpath: //div[@class='container product-detail product-wrapper']/@data-pid
+    xpath: //html//div[@class='sku']
   - name: mpc
     singleValue: true
     xpath: (//span[@class="manufacturer-sku-id"]/@data-manufacturersku)[1]

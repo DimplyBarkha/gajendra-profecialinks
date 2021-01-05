@@ -21,7 +21,7 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //div[@class='image-container']/img/@src
-  - name: url
+  - name: searchUrl
     singleValue: false
     xpath: //input[@class='permalink']/@value
   - name: aggregateRating
@@ -36,10 +36,6 @@ fields:
     singleValue: false
     xpath: //html//div[@class='graco_price']
   - name: manufacturer
-    singleValue: true
-  - name: soldBy
-    singleValue: true
-  - name: rank
     singleValue: true
   - name: endorsementText
     singleValue: true
