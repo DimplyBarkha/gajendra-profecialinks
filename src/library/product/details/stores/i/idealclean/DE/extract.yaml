@@ -48,7 +48,8 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     manualSelector: script[type='application/ld+json']
-    regExp: '(\"availability\"\:\")(\w+.*)"$'
+    regExp: '(\"availability\"\:\")(.*?)",'
+    regExpReplace: $2
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
