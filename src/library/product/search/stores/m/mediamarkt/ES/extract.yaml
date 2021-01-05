@@ -2,33 +2,35 @@ Search:
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@id="sidebar-wrapper"]//div[@id="category"]//li | //body[contains(@class,"responsive page-product")]//div[@itemtype="https://schema.org/Product"]
 fields: 
 - name: id
-  xpath: //div[@class="product-wrapper"]/@data-modelnumber
+  xpath: //div[@class="product-wrapper"]/@data-modelnumber | //dd/span[@itemprop="sku"]
 - name: thumbnail
-  xpath: //a[@class="photo clickable"]/img/@data-original
+  xpath: //a[@class="photo clickable"]/img/@data-original | //div[contains(@class,"preview")]/a/@href
   regExp: (.+)
   regExpReplace: https:$1
 - name: name
-  xpath: //div[@class="product-wrapper"]//div[contains(@class,"content")]/h2
+  xpath: //div[contains(@class,"content")]/h2 | //h1[@itemprop="name"]
 - name: productUrl
-  xpath: //div[@class="product-wrapper"]//div[contains(@class,"content")]/h2/a/@href
-  regExp: (.+)
+  xpath: //div[contains(@class,"content")]/h2/a/@href | //div[contains(@class,"model")]/a/@href
+  regExp: (\/es\/.+)
   regExpReplace: https://www.mediamarkt.es$1
 - name: price
-  xpath: //div[@class="product-wrapper"]//aside[@class="product-price alt"]//div[contains(@class,"price-box")]//div[contains(@class,"price small")]
+  xpath: //aside[@class="product-price alt"]//div[contains(@class,"price-box")]//div[contains(@class,"price small")] | //meta[@itemprop="price"]/@content
 - name: aggregateRating2
-  xpath: //footer//div[contains(@class,'rating rating')]//div/@class
+  xpath: //footer//div[contains(@class,'rating rating')]//div/@class | //span[@itemprop="ratingValue"]
   regExp: (\d+)(-|)(\d+|)
+# - name: aggregateRating
+#   xpath: //span[@itemprop="ratingValue"]
 - name: reviewCount
-  xpath: //footer//ul/div[contains(@class,'rating')]/following-sibling::a
+  xpath: //footer//ul/a | //a[contains(@class,"bv-rating-label bv-text-link bv-focusable")]//span[@itemprop="reviewCount"]
   regExp: (\d+)
 - name: searchUrl
   xpath: //div[@class="product-wrapper"]/@searchurl
 - name: gtin
-  xpath: //ul[@class="products-list"]//li//script[contains(text(),'ean')]
-  regExp: ("ean":)(")(\d+)(")
-  regExpReplace: $3
+  xpath: //script[contains(text(),'ean')] | //div[contains(@class,"loadbee-page")]/div[@id="loadbeeTabContent"]/@data-loadbee-gtin
+  regExp: ((\"ean\"\:\")?(\d{13}))
+  regExpReplace: $1
 - name: manufacturer
-  xpath: //a[@class="manufacturer clickable"]//img/@alt
+  xpath: //a[@class="manufacturer clickable"]//img/@alt | //div[contains(@class,"logo")]//img/@alt

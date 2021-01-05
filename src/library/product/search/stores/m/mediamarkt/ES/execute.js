@@ -5,7 +5,7 @@ module.exports = {
         store: 'mediamarkt',
         domain: 'mediamarkt.es',
         url: 'https://www.mediamarkt.es/es/search.html?query={searchTerms}&searchProfile=onlineshop&channel=mmeses',
-        loadedSelector: 'figure[class="photo-wrapper"]',
+        loadedSelector: null,
         noResultsXPath: '//div[@class="column-left"]',
         zipcode: '',
     },
