@@ -59,7 +59,7 @@ fields:
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: //div[@class='jum-summary-description']/p|//div[@id="secondDesc"]|//section[@class='jum-additional-info row']//li/@bullet
+  xpath: //div[@class='jum-summary-description']/p|//div[@id='secondDesc']|//section[@class='jum-additional-info row']//li/@bullet
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -94,8 +94,7 @@ fields:
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
-  xpath: //section[contains(@class, 'jum-additional-info')]/div[@data-jum-product-details]/@data-jum-product-details
-  regExp: id":"(\w+)",
+  xpath: //section[contains(@class, 'jum-additional-info')]/div[@data-jum-product-details]/@data-jum-product-details | //div[@id="variantId"]
 - name: mpc
   singleValue: true
   description: The manufacturer model code (unique) of the product

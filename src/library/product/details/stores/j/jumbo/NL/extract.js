@@ -45,9 +45,7 @@ module.exports = {
       const firstPartDesc = document.evaluate('//div[@class="jum-summary-description"]/p', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       const secondPartDesc = document.evaluate('//div[contains(@class, "jum-nutritional-info")]/text()', document, null, XPathResult.STRING_TYPE, null).stringValue;
       if (firstPartDesc && secondPartDesc) {
-        if (firstPartDesc.textContent.length !== 0) {
-          firstPartDesc.textContent.includes('||') ? firstPartDesc.textContent = firstPartDesc.textContent.replace(/( )(\|\|)/, ` ${secondPartDesc} $2`) : firstPartDesc.textContent += ` ${secondPartDesc}`;
-        }
+        firstPartDesc.textContent.includes('||') ? firstPartDesc.textContent = firstPartDesc.textContent.replace(/( )(\|\|)/, ` ${secondPartDesc} $2`) : firstPartDesc.textContent += ` ${secondPartDesc}`;
       } else if (secondPartDesc) {
         addHiddenDiv('secondDesc', secondPartDesc);
       }
@@ -60,6 +58,12 @@ module.exports = {
       if (isListPrice) {
         const listPrice = document.evaluate('concat(//span[@class="jum-product-price__old-price"]/span[not(@class="visually-hidden")],//span[@class="jum-price-format-mnemonic"])', document, null, XPathResult.STRING_TYPE, null);
         addHiddenDiv('listPrice', listPrice.stringValue);
+      }
+
+      const variantRegexp = /\/(\d.+)\/$/;
+      const variantMatch = variantRegexp.exec(document.querySelector('link[rel="canonical"]').getAttribute('href'));
+      if (variantMatch[1]) {
+        addHiddenDiv('variantId', variantMatch[1]);
       }
     });
     const dataRef = await context.extract(productDetails, { transform });
@@ -82,8 +86,8 @@ module.exports = {
     reduceInfoToOneField(allergyAdvice);
     reduceInfoToOneField(ingredientsList);
     reduceInfoToOneField(manufacturer);
-    if (dataRef[0].group[0].variantId) {
-      dataRef[0].group[0].variantId[0].text = dataRef[0].group[0].variantId[0].text.match(/:"(\w+)"/)[1];
+    if (dataRef[0].group[0].variantId[0].text.includes(':')) {
+      dataRef[0].group[0].variantId[0].text = dataRef[0].group[0].variantId[0].text.match(/id":"(.+?)"/)[1];
     }
     if (dataRef[0].group[0].variantId) {
       dataRef[0].group[0].sku = [{
