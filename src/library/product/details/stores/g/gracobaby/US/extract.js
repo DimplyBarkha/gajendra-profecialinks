@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'gracobaby',
-    cleanUp,
+    transform: cleanUp,
     domain: 'gracobaby.com',
     zipcode: '',
   },
@@ -98,11 +98,12 @@ module.exports = {
       } catch (error) {
 
       }
+      try {
+        const addavailabilityInfo = getAllXpath("//ul[@id='collapsible-pdp-details-3']/li[contains(text(),'Product')]/text()", 'nodeValue');
+        pipeSeparatorDouble('graco_dimensions', addavailabilityInfo);
+      } catch (error) {
 
-      const addavailabilityInfo = getAllXpath("//ul[@id='collapsible-pdp-details-3']/li[contains(text(),'Product')]/text()", 'nodeValue');
-      pipeSeparatorDouble('graco_dimensions', addavailabilityInfo);
-
-
+      }
       try {
         const sku = getAllXpath('//script[@type="application/ld+json" and contains(text(),"sku")]/text()', 'nodeValue');
         const finalSKU = JSON.parse(sku[0]);
