@@ -5,9 +5,7 @@ recordXPath: //ul[contains(@class,"products-grid")]/li
 fields:
   - name: id
     singleValue: false
-    xpath: //ul[contains(@class,"products-grid")]/li//a[@class="link-wishlist"]/@href
-    regExp: \/(\d+)\/
-    regExpReplace: $1
+    xpath: //ul[contains(@class,"products-grid")]/li/@id
   - name: searchUrl
     singleValue: true
     xpath: ancestor::html//div[@id="searchUrl"][last()]
