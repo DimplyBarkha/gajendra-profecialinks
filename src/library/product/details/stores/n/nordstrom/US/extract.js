@@ -15,12 +15,12 @@ module.exports = {
   ) => {
     await context.evaluate(async function () {
       var checkPriceRange = document.querySelector('span#current-price-string').textContent;
-      if(checkPriceRange.includes('–')) {
-       document.querySelector('ul#size-filter-product-page-option-list li') && document.querySelector('ul#size-filter-product-page-option-list li').click();
-       document.querySelector('ul#product-page-swatches li button') && document.querySelector('ul#product-page-swatches li button').click();
-       document.querySelector('div#size-filter-product-page-anchor') && document.querySelector('div#size-filter-product-page-anchor').click();
-      }else {
-      console.log('not clicked')
+      if (checkPriceRange.includes('–')) {
+        document.querySelector('ul#size-filter-product-page-option-list li') && document.querySelector('ul#size-filter-product-page-option-list li').click();
+        document.querySelector('ul#product-page-swatches li button') && document.querySelector('ul#product-page-swatches li button').click();
+        document.querySelector('div#size-filter-product-page-anchor') && document.querySelector('div#size-filter-product-page-anchor').click();
+      } else {
+        console.log('not clicked');
       }
       function timeout (ms) {
         return new Promise((resolve) => setTimeout(resolve, ms));
@@ -101,7 +101,10 @@ module.exports = {
             varinatInformation.push(varinatInfo);
           }
         }
+        const brand = document.querySelector('h2 span[itemprop="name"]');
+        const name = document.querySelector('h1[itemprop="name"]');
 
+        const totalname = `${brand ? brand.textContent : ''} ${name ? name.textContent : ''}`;
         console.log(varinatInformation);
         if (varinatInformation.length) {
           const table = document.createElement('table');
@@ -132,10 +135,16 @@ module.exports = {
               listPrice.setAttribute('listprice', varinatInformation[index].listPrice);
               newlink.appendChild(listPrice);
             }
+
             const variant = document.createElement('td');
             variant.setAttribute('class', 'variant');
             variant.textContent = varinatInformation[index].value;
             newlink.appendChild(variant);
+
+            const nameExtended = document.createElement('td');
+            nameExtended.setAttribute('class', 'nameextended');
+            nameExtended.textContent = `${totalname} ${varinatInformation[index].value}`;
+            newlink.appendChild(nameExtended);
 
             const image = document.createElement('td');
             image.setAttribute('class', 'images');
@@ -157,6 +166,10 @@ module.exports = {
           const tr = document.createElement('tr');
           tr.setAttribute('class', 'append_variant');
           tBody.appendChild(tr);
+          const nameExtended = document.createElement('td');
+          nameExtended.setAttribute('class', 'nameextended');
+          nameExtended.textContent = `${totalname}`;
+          tr.appendChild(nameExtended);
         }
       } catch (error) {
         console.log(error.message);

@@ -7,17 +7,18 @@
 const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
-      if (row.nameExtended) {
-        let text = '';
-        row.nameExtended.forEach(item => {
-          text = row.nameExtended.map(elm => elm.text).reverse().join(' - ');
-        });
-        row.nameExtended = [
-          {
-            text: text,
-          },
-        ];
-      }
+      // if (row.nameExtended) {
+      //   let text = '';
+      //   row.nameExtended.forEach(item => {
+      //     text = row.nameExtended.map(elm => elm.text).reverse().join(' ');
+      //   });
+      //   row.nameExtended = [
+      //     {
+      //       text: text,
+      //     },
+      //   ];
+      // }
+
       if (row.promotion) {
         let text = '';
         row.promotion.forEach(item => {

@@ -7,13 +7,12 @@ fields:
     xpath: ancestor::html//img[contains(@name,"gallery-image")]/@src
     regExp: (.+)&w=(.+)&h=
     regExpReplace: $1&w=780&h=1196
-    singleValue: true
   - name: alternateImages
     xpath: ancestor::html//ul[@class="slider-list"]//li[1]//button[position()>1]//img/@src | //ul[@class="slider-list"]//li[2]//button//img/@src
     regExp: (.+jpeg)(\?.+)
     regExpReplace: $1
   - name: nameExtended
-    xpath: ancestor::html//section//span[@itemprop="name"] | //h1[@itemprop="name"]
+    xpath: //table/tbody/tr[@class="append_variant"]//td[@class="nameextended"]
   - name: listPrice
     xpath: //table/tbody/tr[@class="append_variant"]//td[@class='listprice']/@listprice
   - name: price
@@ -26,7 +25,6 @@ fields:
     defaultValue: Out of Stock
   - name: description
     xpath:  ancestor::html//div[contains(text(),"Details & Care")]/following-sibling::div[1] |  ancestor::html//div[contains(text(),"Details & Care")]/following-sibling::ul/li
-    singleValue: false
   - name: descriptionBullets
     xpath: count(//div[contains(text(),"Details & Care")]/following-sibling::ul/li)
   - name: brandText
@@ -35,7 +33,7 @@ fields:
     xpath: ancestor::html//section//span[@itemprop="name"]/parent::a/@href
     regExp: (.+)
     regExpReplace: https://www.nordstrom.com$1
-  - name: variantId 
+  - name: variantId
     xpath: //table/tbody/tr[@class="append_variant"]//@variant_id
   - name: ratingCount
     xpath: ancestor::html//span[@itemprop="reviewCount"]/@content
@@ -59,7 +57,6 @@ fields:
     xpath: ancestor::html//div[contains(text(),"Details & Care")]//following-sibling::ul//li/span[contains(text(),'warranty')]
   - name: specifications
     xpath: ancestor::html//div[contains(text(),"Details & Care")]//following-sibling::ul//li/span[contains(text(),' x') or contains(text(),'cord')]
-    singleValue: true
   - name: weightNet
     xpath: ancestor::html//div[contains(text(),"Details & Care")]//following-sibling::ul//li/span[contains(text(),' lb.')]
   - name: mpc
@@ -79,19 +76,15 @@ fields:
   - name: productDescriptionIm
   - name: imageAlt
     xpath: ancestor::html//section[contains(@id,"product-page-thumbnail-gallery")]//div//img//@alt
-    singleValue: true
   - name: firstVariant
     xpath: ancestor::html//ul//li//span[@class="UI69S"] | ancestor::html//ul[@id="product-page-swatches"]/li/button/img/@alt
     regExp: selected\s(.+)\scolor
     regExpReplace: $1
-    singleValue: true
   - name: variantCount
     xpath: count(//table/tbody/tr[@class="append_variant"]/@variant_id)
   - name: quantity
-    xpath: ancestor::html//ul[@id="size-filter-product-page-option-list"]/li | ancestor::html//button[@class="_1oaUx"]
-    singleValue: false
+    xpath: //table/tbody/tr[@class="append_variant"]//td[@class="variant"]
   - name: color
     xpath: ancestor::html//ul[@id="product-page-swatches"]//li/button/img/@alt
-    singleValue: false
   - name: variantInformation
     xpath: //table/tbody/tr[@class="append_variant"]//td[@class="variant"]
