@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'bigw.com.au',
     prefix: null,
-    url: null,
+    url: 'https://www.bigw.com.au/product/p/{id}/',
     country: 'AU',
     store: 'bigw',
     zipcode: "''",

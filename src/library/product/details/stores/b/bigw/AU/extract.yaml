@@ -11,6 +11,7 @@ fields:
     xpath: //div[contains(@class,"img-thumbnail")]//a[contains(@class,"MagicZoomPlus")]//img/@alt
   - name: alternateImages
     singleValue: false
+    xpath: //div[@class="slick-track"]//div[contains(@class,"slick-slide slick-active") and contains(@index,"1")]//a[contains(@class,"mZoomSlickThumb MagicThumb-swap")]//@href
   - name: category
     singleValue: false
     xpath: //ul[contains(@class,"breadcrumb hidden-xs hidden-is nvt-bdsm")]//li
@@ -25,10 +26,9 @@ fields:
     xpath: concat(//span[@id="product_online_price"]//span[@itemprop="price"],' ',//span[@id="product_online_price"]//span[@class="priceSuffix"])
   - name: availabilityText
     singleValue: false
-    defaultValue: In Stock
   - name: description 
     singleValue: false
-    xpath: //div[contains(@class,"tab-pane active")]//div[@class="panel-body"]//div[@class="contentList"]
+    xpath: //div[contains(@class,"tab-pane active")]//div[@class="panel-body"]//div[@class="contentList"]//span | //div[contains(@class,"tab-pane active")]//div[@class="panel-body"]//div[@class="contentList"]//ul/li
   - name: specifications
     singleValue: false  
     xpath: //div[@class='tab-Specification']//ul[contains(@class,"unstyled dividedList")]//li
@@ -64,3 +64,6 @@ fields:
   - name: Image360Present
     singleValue: false
     defaultValue: 'yes'
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[contains(@class,"tab-pane active")]//div[@class="panel-body"]//div[@class="contentList"]//p//strong[contains(text(),"Ingredients:")]/parent::*//following-sibling::p

@@ -42,10 +42,16 @@ const transform = (data) => {
             });
           }
           if (row.quantity) {
+            var quantityArr = [];
             row.quantity.forEach(item => {
-              item.text = item.text.match(/\d\d+.*/)[0];
+              item.text = item.text.match(/\d\d+.*/);
+              quantityArr.push(item.text);
             });
-  
+            if (quantityArr.length) {
+              row.quantity = [{ "text": quantityArr , 'xpath': row.quantity[0].xpath }];
+            } else {
+              delete row.quantity;
+            }
           }
           if (row.description) {
             let description_ar = [];
