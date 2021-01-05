@@ -60,7 +60,7 @@ module.exports = {
     zipcode: '',
   },
   dependencies: {
-      variants: 'extraction:product/details/stores/a/amazon/SA/variantsExtract',
+      variants: 'extraction:product/details/stores/a/amazon/CA/variantsExtract',
       Helpers: 'module:helpers/helpers',
       AmazonHelp: 'module:helpers/amazonHelp',
   },

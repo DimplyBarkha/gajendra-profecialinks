@@ -59,10 +59,5 @@ module.exports = {
     domain: 'amazon.sa',
     zipcode: '',
   },
-  dependencies: {
-      variants: 'extraction:product/details/stores/a/amazon/SA/variantsExtract',
-      Helpers: 'module:helpers/helpers',
-      AmazonHelp: 'module:helpers/amazonHelp',
-  },
   implementation,
 };
