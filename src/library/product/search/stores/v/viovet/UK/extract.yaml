@@ -5,9 +5,6 @@ recordXPath: //li[@itemtype="http://schema.org/Product"]
 fields:
   - name: id
     singleValue: false
-    xpath: //li[@itemtype="http://schema.org/Product"]//a/@href
-    regExp: c(\d+)
-    regExpReplace: $1
   - name: searchUrl
     singleValue: true
     xpath: ancestor::html//div[@id="searchUrl"][last()]
