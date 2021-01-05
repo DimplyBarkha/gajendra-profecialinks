@@ -521,7 +521,7 @@ fields:
     defaultValue: No
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //div[@id="bestsales"]//div[@class="homeGallery_item"]//div[@class="homeGallery_itemText"]//div[@class="homeGallery_itemTitle"]
+    xpath: //div[@id="bestsales"]//div[@class="homeGallery_itemTitle"] | //div[@id="lastSeen"]//div[@class="lastSeen_text"] | //div[starts-with(@id,"unInterruptedPDP-")]
   - name: inTheBoxText
     singleValue: false
     manualSelector: div[id^="inTheBoxText-"]

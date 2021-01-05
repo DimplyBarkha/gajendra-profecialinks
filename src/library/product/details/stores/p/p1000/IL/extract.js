@@ -10,7 +10,9 @@ module.exports = {
     zipcode: '',
   },
 
-  implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
+    
+    async function setprices() {
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -141,6 +143,7 @@ module.exports = {
             for (let i = 0; i < getAllProducts.length; i++) {
                 if(getAllProducts[i].textContent.includes("מה בקופסא") || getAllProducts[i].textContent.includes("אביזר לפינות ומסילות") || getAllProducts[i].textContent.includes("מה מגיע בערכה")){
                   takeTextFlag=true;
+                  console.log("Match found111.............");
                 }else if(takeTextFlag){
                   if(getAllProducts[i].textContent!="")
                   addElementToDocument(`inTheBoxText-${i}`, getAllProducts[i].textContent);
@@ -151,10 +154,12 @@ module.exports = {
               const getInTheBox2 = document.querySelector('#MainContent_Properties_pFreeText').childNodes;
               if(getInTheBox2){
                 let brCountFlag=0;
+                let tempArray=[];
                 const getAllProducts2 = Array.from(getInTheBox2).filter(elem=>elem.nodeType===3 || elem.nodeType===1)
                 for (let i = 0; i < getAllProducts2.length; i++) {
-                  if(getAllProducts2[i].textContent.includes("אביזרים נלווים:") || getAllProducts2[i].textContent.includes('אביזר ייבוש: מכין את השיער לעיצוב') || getAllProducts2[i].textContent.includes("הערכה כוללת:") || getAllProducts2[i].textContent.includes("אביזרים")){
+                  if(getAllProducts2[i].textContent.includes("אביזרים נלווים:") || getAllProducts2[i].textContent.includes("אביזרי העיצוב של ™Dyson AirWrap") || getAllProducts2[i].textContent.includes("הערכה כוללת:") || (getAllProducts2[i].textContent.includes("אביזרים") && getAllProducts2[i].textContent.trim()=="אביזרים")){
                     takeTextFlag=true;
+                    console.log("Match found22222222.............");
                   }else if(takeTextFlag){
                     if(getAllProducts2[i].textContent.trim().endsWith(":")){
                       takeTextFlag=false;
@@ -164,7 +169,8 @@ module.exports = {
                         takeTextFlag=false;
                       }else if(getAllProducts2[i].textContent!=""){
                         brCountFlag=0;
-                        addElementToDocument(`inTheBoxText-${i}`, getAllProducts2[i].textContent);
+                        tempArray=getAllProducts2[i].textContent.split(":");
+                        addElementToDocument(`inTheBoxText-${i}`, tempArray[0]);
                       }else{
                         brCountFlag++;
                       }
@@ -177,8 +183,128 @@ module.exports = {
             }
         }
 
+
     });
-    await context.extract(productDetails, { transform: transformParam });
+  }
+    //Nar Code Start
+
+    const link = await context.evaluate(function () {
+      return window.location.href;
+    });
+
+    try{
+      //await context.waitForSelector('div[id^="ws_widget_video"] > .ws_widget_iframe');
+      await context.waitForSelector('div[id^="ws_widget_video"] > .ws_widget_iframe');
+    }catch(e){
+      console.log("Catch section:",e);
+    }
+    
+
+    /*const src = await context.evaluate(async function () {
+      //const iframe = document.querySelector('div[id^="ws_widget_video"] > .ws_widget_iframe');
+      const iframe = document.querySelector('iframe[id="__ws0"]');
+      // const src = iframe ? (iframe.src||iframe._src) : '';
+      let src = '';
+      if (iframe) {
+          if (iframe.hasAttribute('src')) {
+              src = iframe.getAttribute('src');
+          } else if (iframe.hasAttribute('_src')) {
+              src = iframe.getAttribute('_src');
+          } else {
+              console.log('we do not have any src in iframe');
+          }
+      } else {
+          console.log('we do not have the iframe');
+      }
+      console.log('iframe src to go to - ' + src);
+      
+      return src;
+    });*/
+
+    //New function to get valid iframe
+    const src = await context.evaluate(async function () {
+      const iframeAll = document.querySelectorAll('div[id^="ws_widget_video"] > .ws_widget_iframe');
+      let iframe=iframeAll[iframeAll.length-1];
+      let src = '';
+      if (iframe) {
+          if (iframe.hasAttribute('src')) {
+              src = iframe.getAttribute('src');
+          } else if (iframe.hasAttribute('_src')) {
+              src = iframe.getAttribute('_src');
+          } else {
+              console.log('we do not have any src in iframe');
+          }
+      } else {
+          console.log('we do not have the iframe');
+      }
+      console.log('iframe src to go to - ' + src);
+      
+      return src;
+    });
+
+    if (src) {
+      try {
+
+          await context.goto(src, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
+          await context.waitForSelector('div.container-fluid', { timeout: 5000 });
+          const witbData = await context.evaluate(async () => {
+              const getunInterruptedPDP = document.querySelector('#news-container div.descr p:first-child');
+              var unInterruptedPDPText = [];
+              console.log("getunInterruptedPDP:", !!getunInterruptedPDP);
+              if (getunInterruptedPDP) {
+                  const getAllProducts = document.querySelectorAll('#news-container div.descr');
+                  console.log("getAllProducts length:",getAllProducts.length);
+                  for (let i = 0; i < getAllProducts.length; i++) {
+                    unInterruptedPDPText.push(getAllProducts[i].querySelector('p:first-child').innerText);
+                  }
+              }
+              return { unInterruptedPDPText };
+          });
+          await new Promise(resolve => setTimeout(resolve, 30000));
+          await context.goto(link, { timeout: 5000 });
+
+          await context.waitForSelector('div.pageContent', { timeout: 5000 });
+          await context.evaluate(async (witbData) => {
+            function addHiddenDiv (id, content) {
+              const newDiv = document.createElement('div');
+              newDiv.id = id;
+              newDiv.textContent = content;
+              newDiv.style.display = 'none';
+              document.body.appendChild(newDiv);
+            }
+
+            const {unInterruptedPDPText=[]} = witbData;
+            for(let i=0;i<unInterruptedPDPText.length;i++){
+              addHiddenDiv(`unInterruptedPDP-${i}`, unInterruptedPDPText[i]);
+            }
+          },witbData);
+          //await context.waitForSelector('div#main-section', { timeout: 45000 });
+
+
+      } catch (error) {
+          try {
+
+              console.log("try block.....................");
+              await setprices();
+              await context.extract(productDetails, { transform });
+              await context.evaluate(async function (src) {
+                  window.location.assign(src);
+              }, src);
+              await context.waitForSelector('div.container-fluid');
+              return await context.extract(productDetails, { type: 'MERGE_ROWS', transform });
+          } catch (err) {
+              console.log(err);
+          }
+      }
+      // return await context.extract(productDetails, { transform });
+    } else {
+        console.log('we do not have the src for iframe');
+    }
+    //Nar Code end
+    
+    await new Promise(resolve => setTimeout(resolve, 10000));
+    await setprices();
+    await context.extract(productDetails, { transform });
   },
 
 };
