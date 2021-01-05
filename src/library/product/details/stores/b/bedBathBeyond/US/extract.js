@@ -8,7 +8,6 @@ async function implementation (
   dependencies,
 ) {
   try {
-
     function getAPI () {
       if (!window.location.pathname.includes('/product/')) {
         return false;
@@ -17,7 +16,7 @@ async function implementation (
       const API = `${window.location.origin}/apis/stateless/v1.0/sku/product?product=${productId}#[!opt!]{"type":"json"}[/!opt!]`;
       return API;
     }
-  
+
     async function addRating () {
       if (!window.location.pathname.includes('/product/')) {
         return false;
@@ -68,17 +67,17 @@ async function implementation (
       });
       return data;
     }
-  
+
     function generateDynamicTable (jsonData) {
       const dataLength = jsonData.length;
-  
+
       if (dataLength > 0) {
         const table = document.createElement('table');
         table.style.width = '50%';
         table.setAttribute('border', '1');
         table.setAttribute('cellspacing', '0');
         table.setAttribute('cellpadding', '5');
-  
+
         const col = [];
         for (let i = 0; i < dataLength; i++) {
           for (const key in jsonData[i]) {
@@ -89,7 +88,7 @@ async function implementation (
         }
         const tHead = document.createElement('thead');
         const hRow = document.createElement('tr');
-  
+
         for (let i = 0; i < col.length; i++) {
           const th = document.createElement('th');
           th.innerHTML = col[i];
@@ -97,9 +96,9 @@ async function implementation (
         }
         tHead.appendChild(hRow);
         table.appendChild(tHead);
-  
+
         const tBody = document.createElement('tbody');
-  
+
         for (let i = 0; i < dataLength; i++) {
           const bRow = document.createElement('tr');
           for (let j = 0; j < col.length; j++) {
@@ -113,7 +112,7 @@ async function implementation (
           tBody.appendChild(bRow);
         }
         table.appendChild(tBody);
-  
+
         const container = document.createElement('div');
         container.setAttribute('id', 'product-detail-api');
         container.setAttribute('style', 'overflow:auto;');
@@ -122,7 +121,7 @@ async function implementation (
         document.body.append(container);
       }
     }
-  
+
     async function closePopUp () {
       let popUpSelector = 'button[data-click="close"]';
       let popUp = await context.evaluate((selector) => !!document.querySelectorAll(selector), popUpSelector);
@@ -136,7 +135,7 @@ async function implementation (
       } else {
         console.log('we do not have pop up');
       }
-  
+
       popUpSelector = 'a[data-click="close"][class="bx-close bx-close-link bx-close-inside"]';
       popUp = await context.evaluate((selector) => !!document.querySelectorAll(selector), popUpSelector);
       if (popUp) {
@@ -150,7 +149,7 @@ async function implementation (
         console.log('we do not have pop up');
       }
     }
-  
+
     await context.evaluate(() => {
       if (!document.querySelector('meta[property="og:type"]') || document.querySelector('meta[property="og:type"]') &&
           document.querySelector('meta[property="og:type"]').getAttribute('content') !== 'product') {
@@ -178,9 +177,9 @@ async function implementation (
       await context.click(showMoreSelector3);
       await context.waitForNavigation({ waitUntil: 'load' });
     }
-  
+
     await closePopUp();
-  
+
     const variantSelector = '#sizeSelect ul[aria-label="options"] > li:not(.selected) > button, [id*="swatches"] ul[aria-label="options"] > li:not(.selected) > button';
     const variant = await context.evaluate((selector) => !!document.querySelector(selector), variantSelector);
     if (variant) {
@@ -213,7 +212,7 @@ async function implementation (
       document.body.setAttribute('producturl', window.location.href);
     });
     await context.evaluate(addRating);
-   
+
     async function addSpecification () {
       await context.evaluate(async function () {
         window.scrollTo(0, document.body.scrollHeight);
@@ -245,7 +244,7 @@ async function implementation (
         }
       });
     }
-  
+
     // For the Additional Fields
     await context.evaluate(() => {
       const syndiPowerpage = document.querySelector('.syndi_powerpage');
@@ -278,23 +277,20 @@ async function implementation (
           hasComparisonTable = 'Yes';
         }
       } else {
-
-
         const table = document.querySelector('div[class*="comparison-table"] table');
         if (table) {
           hasComparisonTable = 'Yes';
         }
-      
-       const inTheBoxEls1 = Array.from(document.querySelectorAll('[data-section-tag*="in-the-box"] > div> div> ul >li,[data-section-caption*="In the box"] > div> div> ul >li , [data-section-caption*="In The Box"] > div> div> ul >li'));
-       
+
+        const inTheBoxEls1 = Array.from(document.querySelectorAll('[data-section-tag*="in-the-box"] > div> div> ul >li,[data-section-caption*="In the box"] > div> div> ul >li , [data-section-caption*="In The Box"] > div> div> ul >li'));
+
         const inTheBoxEls2 = Array.from(document.querySelectorAll('div[data-section-caption="In the box"] ul>li , div[data-section-caption="In The Box"] ul>li'));
-      
-        let inTheBoxEls = []
-        if(inTheBoxEls1){
-          inTheBoxEls =  inTheBoxEls1
-        }
-        else{
-          inTheBoxEls = inTheBoxEls2
+
+        let inTheBoxEls = [];
+        if (inTheBoxEls1) {
+          inTheBoxEls = inTheBoxEls1;
+        } else {
+          inTheBoxEls = inTheBoxEls2;
         }
         inTheBoxEls.forEach(el => {
           const image = el.querySelector('img').getAttribute('src');
@@ -309,46 +305,48 @@ async function implementation (
       document.body.setAttribute('in-the-box-url', inTheBoxUrl);
     });
 
-  //   await context.evaluate(async () => {
-  //     await new Promise((resolve) => setTimeout(resolve, 2000));
+    //   await context.evaluate(async () => {
+    //     await new Promise((resolve) => setTimeout(resolve, 2000));
 
-  //     async function infiniteScroll() {
-  //         let prevScroll = document.documentElement.scrollTop;
-  //         while (true) {
-  //             window.scrollBy(0, document.documentElement.clientHeight);
-  //             await new Promise(resolve => setTimeout(resolve, 2000));
-  //             const currentScroll = document.documentElement.scrollTop;
-  //             if (currentScroll === prevScroll) {
-  //                 break;
-  //             }
-  //             prevScroll = currentScroll;
-  //         }
-  //     }
-  //     await infiniteScroll();
-  //     await new Promise((resolve) => setTimeout(resolve, 5000));
-  // });
+    //     async function infiniteScroll() {
+    //         let prevScroll = document.documentElement.scrollTop;
+    //         while (true) {
+    //             window.scrollBy(0, document.documentElement.clientHeight);
+    //             await new Promise(resolve => setTimeout(resolve, 2000));
+    //             const currentScroll = document.documentElement.scrollTop;
+    //             if (currentScroll === prevScroll) {
+    //                 break;
+    //             }
+    //             prevScroll = currentScroll;
+    //         }
+    //     }
+    //     await infiniteScroll();
+    //     await new Promise((resolve) => setTimeout(resolve, 5000));
+    // });
 
-   await context.evaluate(async function () {
-   while (!document.querySelector('[certonaidentifier="recommendation_pdp_fbw"] [data-locator="certona_rightnavigationicon"]>[disabled]')) {
-     if(document.querySelector('[certonaidentifier="recommendation_pdp_fbw"] [data-locator="certona_rightnavigationicon"]> button')){
-     //@ts-ignore  
-     document.querySelector('[certonaidentifier="recommendation_pdp_fbw"] [data-locator="certona_rightnavigationicon"]> button').click();
-     }
-      await new Promise((resolve, reject) => setTimeout(resolve, 1000));
-    }
-  })
-
-  await context.evaluate(async function () {
-    while (!document.querySelector('[certonaidentifier="recommendation_pdp_cav"] [data-locator="certona_rightnavigationicon"] >[disabled]')) {
-      if( document.querySelector('[certonaidentifier="recommendation_pdp_cav"] [data-locator="certona_rightnavigationicon"] >button')){
-      //@ts-ignore
-      document.querySelector('[certonaidentifier="recommendation_pdp_cav"] [data-locator="certona_rightnavigationicon"] >button').click();
+    await context.evaluate(async function () {
+      while (!document.querySelector('[certonaidentifier="recommendation_pdp_fbw"] [data-locator="certona_rightnavigationicon"]>[disabled]')) {
+        if (document.querySelector('[certonaidentifier="recommendation_pdp_fbw"] [data-locator="certona_rightnavigationicon"]> button')) {
+          // @ts-ignore
+          document.querySelector('[certonaidentifier="recommendation_pdp_fbw"] [data-locator="certona_rightnavigationicon"]> button').click();
+        }
+        await new Promise((resolve, reject) => setTimeout(resolve, 1000));
       }
-      await new Promise((resolve, reject) => setTimeout(resolve, 1000));
-    }
-  })
+    });
 
- 
+    await context.evaluate(async function () {
+      let attempts = 0;
+      while (!document.querySelector('[certonaidentifier="recommendation_pdp_cav"] [data-locator="certona_rightnavigationicon"] >[disabled]')) {
+        if (document.querySelector('[certonaidentifier="recommendation_pdp_cav"] [data-locator="certona_rightnavigationicon"] >button')) {
+          // @ts-ignore
+          document.querySelector('[certonaidentifier="recommendation_pdp_cav"] [data-locator="certona_rightnavigationicon"] >button').click();
+        }
+        await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+        attempts += 1;
+        if (attempts > 5) break;
+      }
+    });
+
     // let promotionText='';
     // let priceDivs=document.querySelectorAll('div[class*="PDPPrice-inline"]');
     // for(let i=0;i<priceDivs.length;i++)
@@ -367,15 +365,13 @@ async function implementation (
     //   document.body.appendChild(newDiv);
     //   }
     //   addHiddenDiv('promotionText',promotionText);
-  
+
     const { transform } = parameters;
     const { productDetails } = dependencies;
     return await context.extract(productDetails, { transform });
-
-  } catch(err) {
-    console.log("we got some error - ", err.message);
+  } catch (err) {
+    console.log('we got some error - ', err.message);
   }
-  
 }
 
 module.exports = {

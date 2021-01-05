@@ -16,7 +16,7 @@ module.exports = {
     await context.setJavaScriptEnabled(true);
     await context.setAntiFingerprint(false);
     // await context.setUseRelayProxy(false);
-    const response =  await context.goto(url, { timeout: timeout, waitUntil: 'load'})
+    const response = await context.goto(url, { timeout: timeout, waitUntil: 'load' });
     const errorPage = await context.evaluate(() => {
       if ((document.body && document.body.innerText.length === 0) || document.querySelector('#ctl00_InvalidRequest') || document.title === 'Bed Bath & Beyond Canada GEO Error Page') {
         return true;
