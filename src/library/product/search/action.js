@@ -17,12 +17,6 @@ module.exports = {
       description: 'to set location',
       optional: true,
     },
-    {
-      name: 'storeID',
-      description: 'Id of the store',
-      type: 'string',
-      optional: true,
-    },
   ],
   inputs: [
     {
@@ -66,7 +60,6 @@ module.exports = {
     const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
     const resultsReturned = await execute({
-      ...inputs,
       keywords: inputKeywords,
       zipcode: inputs.zipcode || zipcode,
     });

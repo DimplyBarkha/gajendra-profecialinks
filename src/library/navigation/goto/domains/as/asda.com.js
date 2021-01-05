@@ -5,6 +5,5 @@ module.exports = {
     country: 'GB',
     domain: 'asda.com',
     store: 'asda',
-    timeout: 50000,
   },
 };
