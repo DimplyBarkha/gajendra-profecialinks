@@ -18,7 +18,7 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     # type: NUMBER
-    xpath: (//div[contains(@data-comp,"ReviewsStats")]//div//div[contains(.,"/")])[1]|//div[contains(@data-comp,"ReviewsStats")]//img//preceding-sibling::span[@data-comp="StyledComponent BaseComponent "]
+    xpath: //h1/@rating
     # xpath: //a[contains(@data-comp,"RatingsSummary")]//@aria-label
   - name: manufacturer
     singleValue: true
@@ -40,8 +40,7 @@ fields:
   - name: nameExtended
     singleValue: false
     description: The product name
-    xpath: //div[@id="ii_nameExtended"]
-    # xpath: //h1[contains(@data-comp,"DisplayName")]//text()
+    xpath: //h1[contains(@data-comp,"DisplayName")]//text()
   - name: quantity
     singleValue: true
     xpath: (//div[@id="ii_quantity"]|//div[contains(@data-comp,"SwatchDescription")]//span//span|//div[contains(@data-comp,"SwatchDescription")]//text())
@@ -78,8 +77,8 @@ fields:
     xpath: >-
       //div[contains(@data-comp,"CallToActions")]//button[not(@disabled)][not(@data-at="unloved")]
     regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: "Out of Stock"
+    regExpReplace: In stock
+    defaultValue: "Out of stock"
   - name: promotion
     regExp: (.*)
     regExpReplace: Sale

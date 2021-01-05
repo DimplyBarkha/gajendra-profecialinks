@@ -82,16 +82,27 @@ const transform = (data, context) => {
           row.aggregateRating[0].text = splits[0];
         }
 
-        if (row.nameExtended) {
-          const newName = [];
-          const text = row.nameExtended.forEach(name => {
-            newName.push(name.text);
-            name.text = '';
-          });
-          const joins = newName.join(' ');
-          row.nameExtended = [{ text: joins }];
-        }
+        // if (row.nameExtended) {
+        //   const newName = [];
+        //   const text = row.nameExtended.forEach(name => {
+        //     newName.push(name.text);
+        //     name.text = '';
+        //   });
+        //   const joins = newName.join(' ');
+        //   row.nameExtended = [{ text: joins }];
+        // }
 
+        if (row.nameExtended) {
+          let text = '';
+          row.nameExtended.forEach(item => {
+            text = row.nameExtended.map(elm => elm.text).join(' ');
+          });
+          row.nameExtended = [
+            {
+              text: text,
+            },
+          ];
+        } 
         if (row.additionalDescBulletInfo) {
           row.additionalDescBulletInfo.forEach(bullet => {
             const text = bullet.text.replace(/- /g, '');

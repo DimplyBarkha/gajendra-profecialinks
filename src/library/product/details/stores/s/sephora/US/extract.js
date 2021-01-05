@@ -206,8 +206,12 @@ module.exports = {
         });
         return fetched;
       }
+      function timeout(ms) {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+      }
       for (let i = 0; i < videoIdForUrl.length; i++) {
         const fetchTry = await fetchRetry(`https://edge.api.brightcove.com/playback/v1/accounts/6072792324001/videos/${videoIdForUrl[i]}`, 5);
+        await timeout(2000);
         if (fetchTry !== 'Nothing Found') {
           srcArray.push(JSON.parse(fetchTry));
         }
@@ -324,21 +328,25 @@ module.exports = {
         }
       }
 
-      const nameExtended = '//h1[contains(@data-comp,"DisplayName")]//text()';
-      var eName = document.evaluate(nameExtended, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-      const nameArray = [];
-      if (eName.snapshotLength > 0) {
-        for (let i = 0; i < eName.snapshotLength; i++) {
-          const name = eName.snapshotItem(i).textContent;
-          nameArray.push(name);
-        }
-        variantArr.forEach(info => {
-          nameArray.push(info);
-        });
-        const fullName = nameArray.join(' - ');
-        addHiddenDiv('ii_nameExtended', fullName);
-      }
+      // const nameExtended = '//h1[contains(@data-comp,"DisplayName")]//text()';
+      // var eName = document.evaluate(nameExtended, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      // const nameArray = [];
+      // if (eName.snapshotLength > 0) {
+      //   for (let i = 0; i < eName.snapshotLength; i++) {
+      //     const name = eName.snapshotItem(i).textContent;
+      //     nameArray.push(name);
+      //   }
+      //   variantArr.forEach(info => {
+      //     nameArray.push(info);
+      //   });
+      //   const fullName = nameArray.join(' - ');
+      //   addHiddenDiv('ii_nameExtended', fullName);
+      // }
     }, parentInput, html);
+    await context.evaluate(function () {
+      const rating =  Sephora.mboxAttrs.productRating.toFixed(1);
+      document.querySelector('h1').setAttribute('rating',rating);
+     })
 
     await new Promise(resolve => setTimeout(resolve, 5000));
 
