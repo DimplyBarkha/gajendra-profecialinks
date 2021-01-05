@@ -40,7 +40,6 @@ fields:
     defaultValue: FR
   - name: helpful
     singleValue: true
-    type: NUMBER
     description: Number of people who said the review was helpful
     defaultValue: 0
   - name: verifiedPurchase
@@ -83,6 +82,7 @@ fields:
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
+    xpath: ancestor::html//meta[@itemprop='gtin13']/@content
   - name: manufacturerResponse
     singleValue: false
     description: The response of the manufacturer (if any)
