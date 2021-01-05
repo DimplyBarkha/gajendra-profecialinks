@@ -7,7 +7,7 @@ module.exports = {
     domain: 'blu.com',
     url: 'https://www.blu.com/de/DE/deutschland/search?q={searchTerms}',
     loadedSelector: 'div.search-result__headerbox',
-    noResultsXPath: null,
+    noResultsXPath: '//li[@class="active"]//div[@class="search-result__headerbox"]//h3[contains(text(),"0 Ergebnisse")]',
     zipcode: '',
   },
 };

@@ -9,11 +9,11 @@ fields:
   xpath: ancestor::html//h1[@data-testid="details-product-title"]
 - name: commentCount
 - name: reviewDate
-  xpath: //span[@class="sc-1tgo8i-29 sc-1tgo8i-30 caTpNQ"]
+  xpath: //div[@class="sc-1tgo8i-4 erWTkr"]/span/text()
 - name: user
   xpath: //span[contains(@class,"fSWjYM"]
 - name: brand
-  defaultValue:  'Blu'
+  defaultValue: 'Blu'
 - name: productRange
 - name: productFamily
 - name: colour
@@ -37,6 +37,7 @@ fields:
   regExp: (.*) von 5 Sternen
   regExpReplace: $1
 - name: pageTitle
-  xpath: ancestor::html//title/text()
+  xpath: ancestor::html//title
+  singleValue: true
 - name: sourceUrl
   xpath: ancestor::html//link[@rel="canonical"]/@href

@@ -1,3 +1,5 @@
+const { transform } = require('../shared');
+
 async function implementation (
   inputs,
   parameters,
@@ -13,14 +15,16 @@ async function implementation (
   const extractvar = await context.extract(productReviews);
   return extractvar;
 }
+
 module.exports = {
   implements: 'product/reviews/extract',
   parameterValues: {
     country: 'DE',
     store: 'blu',
-    transform: null,
+    transform,
     domain: 'blu.com',
     zipcode: '',
   },
-  implementation,
+  // implementation,
 };
+
