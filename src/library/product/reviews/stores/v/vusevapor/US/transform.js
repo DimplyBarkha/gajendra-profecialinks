@@ -20,6 +20,15 @@ const transform = (data, context) => {
         }
       }
 
+      if (row.reviewDate) {
+        const dateArr = row.reviewDate[0].text.split('/');
+        const year = '20' + dateArr[2];
+        const month = dateArr[0];
+        const day = dateArr[1];
+
+        row.reviewDate = [{ text: `${year}-${month}-${day}` }];
+      }
+
       if (row.rating) {
         const percent = row.rating[0].text;
         const percentArray = ['20%', '40%', '60%', '80%', '100%'];

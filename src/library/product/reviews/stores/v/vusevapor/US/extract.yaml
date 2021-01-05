@@ -6,6 +6,9 @@ fields:
   - name: location
     singleValue: false
     defaultValue: USA
+  - name: reviewDate
+    singleValue: false
+    xpath: //p[@class="review-date"]/time/@datetime
   - name: sku
     singleValue: false
     description: The store-specific product identifier
@@ -22,7 +25,6 @@ fields:
   - name: productFamily
     singleValue: false
     xpath: ancestor::html//ul[@class="items"]/li[@class="item home"] | ancestor::html//ul[@class="items"]/li[@class="item category"]/a/text() | ancestor::html//ul[@class="items"]/li[@class="item product"]
-    # xpath: ancestor::html//ul[@class="items"]/li
   - name: colour
     singleValue: false
     xpath: ancestor::html//div[contains(@class,"swatch-option color")]/@option-label
@@ -54,10 +56,6 @@ fields:
   - name: name
     singleValue: false
     description: The product name
-  - name: reviewDate
-    singleValue: false
-    type: DATETIME
-    description: Date the review was made
   - name: reviewRating
     type: NUMBER
     singleValue: false
