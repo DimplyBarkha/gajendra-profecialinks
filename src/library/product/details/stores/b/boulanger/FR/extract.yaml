@@ -91,12 +91,14 @@ fields:
 - name: sku
   singleValue: true
   description: The store-specific product identifier
-  xpath: //span[@itemprop='sku']
+  xpath: //link[@rel='canonical']/@href
+  regExp: '[^\/]*$'
 - name: variantId
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
-  xpath: //span[@itemprop='sku']
+  xpath: //link[@rel='canonical']/@href
+  regExp: '[^\/]*$'
 - name: mpc
   singleValue: true
   description: The manufacturer model code (unique) of the product
@@ -168,7 +170,7 @@ fields:
   xpath: //div[@class='pb-left']//p[@class='fix-price']
 - name: asin
   singleValue: true
-  description: 
+  description:
 - name: coupon
   singleValue: true
   description: Text of any coupon offer
@@ -204,10 +206,10 @@ fields:
   description: See image - top section hero area
 - name: heroQuickPromoImageUrl
   singleValue: true
-  description: 
+  description:
 - name: heroQuickPromoUrl
   singleValue: true
-  description: 
+  description:
 - name: pasin
   singleValue: true
   description: Parent asin
@@ -216,19 +218,19 @@ fields:
   xpath: //div[@itemprop='description']//video/@duration
 - name: ingredientImagePresent
   singleValue: true
-  description: 
+  description:
 - name: factImagePresent
   singleValue: true
-  description: 
+  description:
 - name: largeImageCount
   singleValue: true
-  description: 
+  description:
 - name: variantAsins
   singleValue: true
-  description: 
+  description:
 - name: primeFlag
   singleValue: true
-  description: 
+  description:
 - name: lbb
   singleValue: true
   description: Check Lost by Box Requirements (just for Amazon and a couple of other
@@ -236,33 +238,33 @@ fields:
     Amazon Website) - even though Amazon has the product "in Stock"
 - name: lbbPrice
   singleValue: true
-  description: 
+  description:
 - name: featureBullets
   singleValue: false
-  description: 
+  description:
 - name: otherSellersName
   singleValue: false
-  description: 
+  description:
 - name: otherSellersPrime
   singleValue: false
 - name: otherSellersPrice
   singleValue: false
-  description: 
+  description:
 - name: otherSellersShipping
   singleValue: false
-  description: 
+  description:
 - name: secondaryImageTotal
   singleValue: true
-  description: 
+  description:
 - name: news
   singleValue: true
-  description: 
+  description:
 - name: addonItem
   singleValue: true
-  description: 
+  description:
 - name: fastTrack
   singleValue: true
-  description: 
+  description:
 - name: ingredientsList
   singleValue: true
   description: List of Ingredients from site - can be string of data if no discernible
@@ -394,7 +396,7 @@ fields:
   description: Unit of Measure Data for Salt
 - name: dietaryInformation
   singleValue: true
-  description: 
+  description:
 - name: specifications
   singleValue: false
   description: The physical dimensions of the product including packaging.
@@ -462,13 +464,13 @@ fields:
     between variants, this will need analysis
 - name: variants
   singleValue: false
-  description: 
+  description:
 - name: additionalDescBulletInfo
   singleValue: false
   xpath: //ul[@class='bestpoints-list']
 - name: prop65Warning
   singleValue: true
-  description: 
+  description:
 - name: ageSuitability
   singleValue: true
   description: Recommended age displayed on the product page. https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
