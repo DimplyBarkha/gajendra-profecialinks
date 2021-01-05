@@ -110,11 +110,11 @@ fields:
     singleValue: false
     #xpath: //div[contains(@class,'inpage_selector_InTheBox')]//img/@srcset
     #xpath: //div[contains(@class,'flix-std-table')]//div/img/@srcset
-    xpath: //div[contains(@class,'inpage_selector_InTheBox')]//img/@data-flixsrcset
+    xpath: //div[contains(@class,'inpage_selector_InTheBox')]//img/@data-flixsrcset | //div[contains(@class,"product-tab-wrapper")]//h5[contains(.,'In the Box')]/following-sibling::div[@class="clearfix"]//img[@class="img-responsive"]
     regExp: (.+)
     regExpReplace: https:$1
   - name: inTheBoxText
-    xpath: //div[contains(@class,'InTheBox')]//span
+    xpath: //div[contains(@class,'InTheBox')]//span | //div[contains(@class,"product-tab-wrapper")]//h5[contains(.,'In the Box')]/following-sibling::div[@class="clearfix"]//h5
     #xpath: //div[contains(@class,'inpage_selector_InTheBox')]//img/ancestor::div[1]//following-sibling::div[1]//span
   - name: hasComparisonTable
     xpath: (//li[contains(@class,"flix-comp-item")])[1]
