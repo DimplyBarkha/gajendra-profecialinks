@@ -144,14 +144,14 @@ fields:
     singleValue: false 
     xpath: //strong[contains(text(), "Energieklasse")]//..//following-sibling::td
     # xpath: //strong[contains(text(), "Classe énergétique")]//..//following-sibling::*
-  # - name: mpc
-  #   singleValue: false
-  #   xpath: (//strong[contains(text(), "Modell")]//..//following-sibling::td)[1]
+  - name: mpc
+    singleValue: false
+    xpath: (//strong[contains(text(), "Modell")]//..//following-sibling::td)[1]
     # xpath: //*[contains(text(), "Modell")]//..//following-sibling::*
     # xpath: //*[contains(text(), "Modèle")]//..//following-sibling::*
-  # - name: countryOfOrigin
-  #   singleValue: false
-  #   xpath: //strong[contains(text(), "Produkttypologie")]//..//following-sibling::td
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //strong[contains(text(), "Produkttypologie")]//..//following-sibling::td
     # xpath: //*[contains(text(), "Produkttypologie")]//..//following-sibling::*
     # xpath: //*[contains(text(), "Typologie du produit")]//..//following-sibling::*
   - name: packSize
@@ -178,7 +178,7 @@ fields:
   - name: manufacturerImages
     singleValue: false
     manualSelector: div#ii_img 
-  - name: promotion
-    singleValue: false
-    xpath: //div[@class="priceInfos"]//*[@class="reduc-info"]//*[@class="reduc"]
+  # - name: promotion
+  #   singleValue: false
+  #   xpath: //div[@class="priceInfos"]//*[@class="reduc-info"]//*[@class="reduc"]
   
