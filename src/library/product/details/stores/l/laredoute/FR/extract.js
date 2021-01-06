@@ -101,6 +101,24 @@ async function implementation(
     }
   });
   await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+  await context.evaluate(async function () {
+    function addHiddenDiv (id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+    const desc = document.querySelector("div#mainProductDescription");
+    if (desc) {
+      const specDesc = desc.innerText;
+      if (specDesc.includes('Dans la boîte')) {
+        let inTheBoxText = specDesc.match(/Dans la boîte\s:(.+)/gm) ? specDesc.match(/Dans la boîte\s:(.+)/gm)[0] : '';
+        inTheBoxText = inTheBoxText.replace(/Dans la boîte\s:/gm, '');
+        addHiddenDiv('ii_inTheBoxText', inTheBoxText);
+      }
+    }
+  });
 
   const enhancedContent = await context.evaluate(async function () {
     function addHiddenDiv (id, content) {
