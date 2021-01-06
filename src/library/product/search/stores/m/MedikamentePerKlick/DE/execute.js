@@ -6,8 +6,8 @@ module.exports = {
     store: 'MedikamentePerKlick',
     domain: 'medikamenteperklick.de',
     url: 'https://www.medikamente-per-klick.de/keywordsearch/searchitem={searchTerms}',
-    loadedSelector: 'body',
-    noResultsXPath: null,
+    loadedSelector: 'div.productsList',
+    noResultsXPath: '//div[@id="searchList" and contains(text()[5],"Keine Ergebnisse gefunden")]',
     zipcode: '',
   },
 };

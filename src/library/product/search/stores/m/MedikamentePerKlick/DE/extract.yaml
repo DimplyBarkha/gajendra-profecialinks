@@ -1,43 +1,46 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]
 fields:
-  - name: _url
-    description: The URL for the product details page
-    type: URL
-    # xpath: //meta[@itemprop="target"]/@content
-  - name: productUrl
-    type: URL
-    xpath: //div[@class='productsList']//div[@class="figure"]/a[not(contains(@onclick,"hitSearchCampaign('12180')"))]/@href
-  - name: thumbnail
-    description: The URL for the product thumbnail image
-    xpath: //div[@class='productsList']//div[@class="figure"]/a[not(contains(@onclick,"hitSearchCampaign('12180')"))]/img/@src
-    regExp: (.+)
-    regExpReplace: https://www.medikamente-per-klick.de$1
-  - name: name
-    type: TEXT
-    xpath: //div[@class='productsList']//div[@class="figure"]/a[not(contains(@onclick,"hitSearchCampaign('12180')"))]/img/@title
   - name: id
-    description: The store-specific product identifier
-    type: TEXT
-    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//dd[@itemprop="productID"]//text()
+    singleValue: false
+    xpath: //dd[@itemprop="productID"]
+  - name: rankOrganic
+    singleValue: false
+    xpath: //div[starts-with(@id,'ii_rank')]
+  - name: name
+    singleValue: false
+    xpath: //span[@itemprop="name"]
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@itemprop="url"]/@href
   - name: gtin
-    manualSelector: script[type='text/plain']
-    regExp: '(gtin: ")(\d+)'
-    regExpReplace: $2
+    singleValue: false
+    xpath: //form/@name
+    regExp: cart(\w+)_.*
+    regExpReplace: $1
+  - name: thumbnail
+    singleValue: false
+    xpath: //img[@itemprop="image" and @class="lazy photo"]/@data-original|//img[@itemprop="image" and @class="photo"]/@src
+    regExp: (.*)
+    regExpReplace: https://www.medikamente-per-klick.de$1
   - name: price
-    type: CURRENCY
-    # xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//span[@itemprop="price"]/@content
-    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//dd[@class="price lowPrice"]//text()
+    singleValue: false
+    xpath: //div[starts-with(@id,'ii_price')]
   - name: aggregateRating
-    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//span[@itemprop='ratingValue']//text()
+    singleValue: false
+    xpath: //span[@itemprop="ratingValue"]
   - name: reviewCount
-    type: NUMBER
-    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//span[@itemprop='reviewCount']//text()
-  - name: Availability
-    # xpath: //div[@class='productsList']//meta[@itemprop="availability"]/@content
-    xpath: //div[@class='productsList']//form[not(contains(@name,'theform'))]/dl[@class="productAvailability"]//dd/span/@title
+    singleValue: false
+    xpath: //span[@class="reviewers"]
   - name: manufacturer
-    type: TEXT
-    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//dd[@itemprop="brand"]//text()
+    singleValue: false
+    xpath: //div[@id='pd_manufacturer']
+  - name: soldBy
+    singleValue: false
+  - name: rank
+    singleValue: false
+    xpath: //div[starts-with(@id,'ii_rank')]
+  - name: endorsementText
+    singleValue: false
