@@ -85,3 +85,12 @@ fields:
     xpath: //div[@id='mm_shippingDimensions']
   - name: imageZoomFeaturePresent
     xpath: //div[@id='mm_imageZoomFeaturePresent']
+  - name: unInterruptedPDP
+    xpath: //li[@class="prodrel-item"]//h3/a
+  - name: inTheBoxUrl
+    singleValue: false
+    description: Must include image url to show the accessories/tools which come with the product
+  - name: inTheBoxText
+    singleValue: false
+  - name: hasComparisonTable
+    defaultValue: No
