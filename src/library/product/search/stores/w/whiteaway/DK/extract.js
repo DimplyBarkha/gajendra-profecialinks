@@ -30,7 +30,7 @@ async function implementation(
 
       }
     let scrollTop = 0;
-    while (scrollTop !== 50000) {
+    while (scrollTop !== 10000) {
       scrollTop += 1000;
       window.scroll(0, scrollTop);
       await stall(1000);
