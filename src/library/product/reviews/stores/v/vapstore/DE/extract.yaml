@@ -22,7 +22,7 @@ fields:
   - name: sku
     singleValue: false
     description: The store-specific product identifier
-    xpath: ancestor::html//div[@class='product-headline']//span[contains(@class, sublime)][2]
+    xpath: ancestor::html//div[@class='real-h1 list-title']//h1
   - name: reviewText
     singleValue: false
     description: The text of the review
@@ -41,7 +41,6 @@ fields:
     defaultValue: DE
   - name: helpful
     singleValue: true
-    type: NUMBER
     description: Number of people who said the review was helpful
     xpath: //span[@itemprop='bestRating']
   - name: verifiedPurchase
@@ -64,7 +63,7 @@ fields:
   - name: name
     singleValue: false
     description: The product name
-    xpath: ancestor::html//div[@class='product-headline']//span[contains(@class, sublime)][2]
+    xpath: ancestor::html//div[@class='real-h1 list-title']//h1
   - name: commentCount
     singleValue: false
     type: NUMBER
