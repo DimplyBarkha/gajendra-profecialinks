@@ -27,7 +27,7 @@ module.exports = {
         catElement.style.display = 'none';
         document.querySelector('body div#productPage').appendChild(catElement);
       }
-      const availability = document.querySelector('div#productPage div.product-display__add-to-basket button[title="Add to basket"]') ? 'In Stock' : 'Out of Stock';
+      const availability = document.querySelector('div#productPage div.product-display__add-to-basket button[title="Add to basket"]') ? 'In Stock' : 'Out Of Stock';
       addElementToDocument('availability', availability);
       const pdfPresent = document.querySelector('div#productPage a.product-attachments-table__link') ? 'Yes' : 'No';
       addElementToDocument('pdfPresent', pdfPresent);
