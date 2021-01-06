@@ -172,6 +172,11 @@ const transform = (data) => {
         row.alternateImages = row.alternateImages1;
         row.secondaryImageTotal = [{ text: row.alternateImages1.length }];
       }
+      if (row.alternateImages) {
+        row.alternateImages.forEach(item => {
+          item.text = !item.text.startsWith('https') ? `https://www.lowes.ca${item.text}` : item.text;
+        });
+      }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
