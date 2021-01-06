@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'gracobaby',
     domain: 'gracobaby.com',
-    loadedSelector: null,
+    loadedSelector: 'div[id="maincontent"]',
     noResultsXPath: null,
     zipcode: '',
   },

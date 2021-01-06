@@ -1,18 +1,18 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@id="maincontent"]
 fields:
   - name: image
     singleValue: true
     xpath: //button[contains(@aria-label,'1 of ')]/img/@src
-    regExp: (.*\?)
-  # - name: imageAlt
-  #   singleValue: true
-  #   xpath: //button[contains(@aria-label,'1 of ')]/img/@alt
+    # regExp: (.*\?)
+  - name: imageAlt
+    singleValue: true
+    xpath: //button[contains(@aria-label,'1 of ')]/img/@alt
   - name: alternateImages
     singleValue: false
-    regExp: (.*\?)
+    # regExp: (.*\?)
     xpath: //button[@class="carousel-img-wrap"]/parent::div[not(contains(@class,'active'))]/button/img/@src
   - name: metaKeywords
     singleValue: true
@@ -25,7 +25,7 @@ fields:
     xpath: //html//div[@class="addProductDescInfo"]
   - name: price
     singleValue: true
-    xpath: //span[@class='price-tag']/span/span
+    xpath: //html//div[@class="price"]
   - name: availabilityText
     singleValue: true
     regExp: (.+)

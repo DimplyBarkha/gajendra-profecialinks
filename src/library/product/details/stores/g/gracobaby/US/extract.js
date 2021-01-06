@@ -16,7 +16,9 @@ module.exports = {
         newDiv.className = id;
         newDiv.textContent = content;
         newDiv.style.display = 'none';
-        document.body.appendChild(newDiv);
+        const originalDiv = document.querySelectorAll("div[class='container product-detail product-wrapper user-selected']")[0];
+        originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+        // document.body.appendChild(newDiv);
       }
       // Method to Retrieve Xpath content of a Multiple Nodes
       const getAllXpath = (xpath, prop) => {
@@ -115,6 +117,16 @@ module.exports = {
         const availability = getAllXpath('//script[@type="application/ld+json" and contains(text(),"InStock")]/text()', 'nodeValue');
         if (availability.length > 0) {
           addHiddenDiv('graco_availability', 'graco_availability');
+        }
+      } catch (error) {
+
+      }
+      try {
+        const price = getAllXpath('//div[@class="row  prices-add-mobile d-md-none "]//span[@class="price-tag"]/span/span', 'nodeValue');
+        console.log('price');
+        console.log(price[0]);
+        if (price[0].length > 0) {
+          addHiddenDiv('price', price[0]);
         }
       } catch (error) {
 
