@@ -1,4 +1,4 @@
-const { cleanUp } = require('../../../../shared');
+const { cleanUp } = require('./shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
@@ -53,7 +53,7 @@ module.exports = {
         document.body.setAttribute('shipping', shipping.textContent.replace(/\s+/g, ' '));
       }
       const productSpecification = document.querySelector("div.product-details-tables-holder.sel-characteristics-table");
-      if(productSpecification){
+      if (productSpecification) {
         document.body.setAttribute('productspecification', productSpecification.textContent.replace(/\s+/g, ' '));
       }
     });
