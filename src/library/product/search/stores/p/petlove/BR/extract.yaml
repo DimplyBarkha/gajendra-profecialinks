@@ -1,11 +1,13 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: div[class='catalog-list-item']
-recordXPath: null
+recordSelector: null
+recordXPath: //div[@class='catalog-list-item']
 fields:
   - name: id
     singleValue: false
-    xpath: //span[@itemprop="sku"]
+    xpath: //a[@title]/@href
+    regExp: sku=(.+)$
+    regExpReplace: $1
   - name: searchUrl
     singleValue: false
     xpath: //div[@class='catalog-list-item']/@searchurl

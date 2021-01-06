@@ -2,45 +2,33 @@ input:
   keywords: Mingau
   _url: http://petlove.com.br
 extractions:
-  - html: https://workbench.import.io/html/run=30452399-cfa3-4082-80d4-f447663e58d3/task=0d91afb4-2037-41c4-bac5-d8abe05ddb23/2c44942f-a27c-4762-b16b-3944215e6ae1.html
+  - html: https://workbench.import.io/html/run=c09b130b-1c96-4ba1-bc24-9908a7fbd519/task=e6efbe48-666f-469e-8e05-8000ee1d4f6d/9c3d599e-e588-43c2-a652-345551093f9d.html
     extractionConfigId: product/search/stores/p/petlove/BR/extract
     data:
       - group:
           - id:
-              - text: "1577271"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]
+              - text: 3102596-1
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=Mingau
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/@searchurl
             name:
               - text: Bilisko Mingau Barrinhas Carne para Gatos - 45 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/mingau-alimentos-para-gatos-45-gr-frigorifico-cardeal-102596/p?sku=3102596-1
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
-            gtin:
-              - text: "1577271"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/a[1]/h3[1]
             thumbnail:
               - text: https://www.petlove.com.br/images/products/189631/small/IMG_30062017_162838_0.png?1556450393
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]/div[1]/img[1]/@data-src
-            manufacturer:
-              - text: Bilisko
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/a[1]/div[1]/div[1]/img[1]/@data-src
           - id:
-              - text: "3102596"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]/a[1]/span[1]
+              - text: 3102596-2
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[2]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=Mingau
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[2]/@searchurl
             name:
               - text: Bilisko Mingau Barrinhas Peixe para Gatos - 45 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/bilisko-mingau-barrinhas-peixe-para-gatos/p?sku=3102596-2
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/a[1]/@href
-            gtin:
-              - text: "3102596"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]/a[1]/span[1]
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/a[1]/h3[1]
             thumbnail:
               - text: https://www.petlove.com.br/images/products/189632/small/IMG_30062017_165522_0.png?1556446474
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/a[1]/div[1]/div[1]/img[1]/@data-src
-            manufacturer:
-              - text: Bilisko
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/span[1]
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[2]/a[1]/div[1]/div[1]/img[1]/@data-src
         xpath: /html
-    timestamp: 1606397897976
+    timestamp: 1609915622422

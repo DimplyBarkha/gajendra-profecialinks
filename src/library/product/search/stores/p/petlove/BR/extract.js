@@ -12,7 +12,7 @@ async function implementation (inputs, parameters, context, dependencies) {
         scrollSelector.scrollIntoView();
         await new Promise((resolve) => setTimeout(resolve, 1000));
         scrollSelector = document.querySelector('a#show-more-products');
-      } while (scrollSelector.getAttribute('style') === null);
+      } while (scrollSelector.getAttribute('style') === null && document.querySelectorAll('div[class="catalog-list-item"]').length < 150);
     }
   });
 

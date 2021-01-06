@@ -2,324 +2,219 @@ input:
   keywords: Sopa
   _url: http://petlove.com.br
 extractions:
-  - html: https://workbench.import.io/html/run=30452399-cfa3-4082-80d4-f447663e58d3/task=6b7942c8-b141-4f22-913c-162545eaf76d/36a03d16-df26-460c-ba0d-84084311ac98.html
+  - html: https://workbench.import.io/html/run=c09b130b-1c96-4ba1-bc24-9908a7fbd519/task=8e1f2175-caa7-467c-a98b-dab563293fe6/81004f56-9e7c-445a-a799-a8771695c9b1.html
     extractionConfigId: product/search/stores/p/petlove/BR/extract
     data:
       - group:
           - id:
-              - text: "2319419"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]
-            name:
-              - text: Molho Especial para Ração Ipet Tasty Churrasco para Cães - 250 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/molho-especial-para-racao-ipet-tasty-churrasco-para-caes/p?sku=2319639
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
-            gtin:
-              - text: "2319419"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]
-            thumbnail:
-              - text: https://www.petlove.com.br/images/products/208504/small/Molho_Especial_para_Ra%C3%A7%C3%A3o_Ipet_Tasty_Churrasco_para_C%C3%A3es_-_260_mL_2319639.jpg?1559149735
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]/div[1]/img[1]/@data-src
-            aggregateRating2:
-              - text: "4.5"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/@ratingvalue
-            price:
-              - text: R$6,99
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/a[2]/div[1]/div[1]
-            manufacturer:
-              - text: Ipet
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
-          - id:
-              - text: "2319418"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]/a[1]/span[1]
+              - text: "2319638"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=Sopa
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/@searchurl
             name:
               - text: Molho Especial para Ração Ipet Tasty Carne para Cães - 250 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/molho-especial-para-racao-ipet-tasty-carne-para-caes/p?sku=2319638
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/a[1]/@href
-            gtin:
-              - text: "2319418"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]/a[1]/span[1]
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/a[1]/h3[1]
             thumbnail:
               - text: https://www.petlove.com.br/images/products/213871/small/Molho_Especial_para_Ra%C3%A7%C3%A3o_Ipet_Tasty_Carne_para_C%C3%A3es_-_250_g_2319638_1.jpg?1569529762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/a[1]/div[1]/div[1]/img[1]/@data-src
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/a[1]/div[1]/div[1]/img[1]/@data-src
             aggregateRating2:
-              - text: "4.5"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/@ratingvalue
+              - text: 4,5
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/@ratingvalue
             price:
               - text: R$6,99
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]/a[2]/div[1]/div[1]
-            manufacturer:
-              - text: Ipet
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/span[1]
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/a[2]/div[1]/div[1]
           - id:
-              - text: "2319421"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]/a[1]/span[1]
+              - text: "2319641"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[2]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=Sopa
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[2]/@searchurl
             name:
               - text: Molho Especial para Ração Ipet Tasty Frango para Cães - 250 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/molho-especial-para-racao-ipet-tasty-frango-para-caes/p?sku=2319641
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/a[1]/@href
-            gtin:
-              - text: "2319421"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]/a[1]/span[1]
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/a[1]/h3[1]
             thumbnail:
               - text: https://www.petlove.com.br/images/products/213876/small/Molho_Especial_para_Ra%C3%A7%C3%A3o_Ipet_Tasty_Frango_para_C%C3%A3es_-_250_g_2319641.jpg?1569530612
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/a[1]/div[1]/div[1]/img[1]/@data-src
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[2]/a[1]/div[1]/div[1]/img[1]/@data-src
             aggregateRating2:
-              - text: "4.5"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/@ratingvalue
+              - text: 4,5
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[2]/@ratingvalue
             price:
               - text: R$6,99
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]/a[2]/div[1]/div[1]
-            manufacturer:
-              - text: Ipet
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/span[1]
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/a[2]/div[1]/div[1]
           - id:
-              - text: "2319423"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[5]/div[1]/a[1]/span[1]
-            name:
-              - text: Molho Barbecão Original Ipet Churrasco para Cães - 250 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[5]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/molho-barbecao-original-ipet-churrasco-para-caes/p?sku=2319643
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[5]/a[1]/@href
-            gtin:
-              - text: "2319423"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[5]/div[1]/a[1]/span[1]
-            thumbnail:
-              - text: https://www.petlove.com.br/images/products/208508/small/Molho_Barbec%C3%A3o_Original_Ipet_Churrasco_para_C%C3%A3es_-_250_g_2319643.jpg?1559150586
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[5]/a[1]/div[1]/div[1]/img[1]/@data-src
-            aggregateRating2:
-              - text: "5"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[5]/@ratingvalue
-            price:
-              - text: R$7,99
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[5]/div[1]/a[2]/div[1]/div[1]
-            manufacturer:
-              - text: Ipet
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[5]/div[1]/div[1]/span[1]
-          - id:
-              - text: "2319420"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[6]/div[1]/a[1]/span[1]
+              - text: "2319640"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[3]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=Sopa
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[3]/@searchurl
             name:
               - text: Molho Especial para Ração Ipet Tasty Carne com Vegetais para Cães - 250 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[6]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/molho-especial-para-racao-ipet-tasty-carne-com-vegetais-para-caes/p?sku=2319640
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[6]/a[1]/@href
-            gtin:
-              - text: "2319420"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[6]/div[1]/a[1]/span[1]
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/a[1]/h3[1]
             thumbnail:
               - text: https://www.petlove.com.br/images/products/213869/small/Molho_Especial_para_Ra%C3%A7%C3%A3o_Ipet_Tasty_Carne_com_Vegetais_para_C%C3%A3es_-_250_g_2319640_1.jpg?1569529687
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[6]/a[1]/div[1]/div[1]/img[1]/@data-src
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[3]/a[1]/div[1]/div[1]/img[1]/@data-src
             aggregateRating2:
-              - text: "3.5"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[6]/@ratingvalue
+              - text: 3,5
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[3]/@ratingvalue
             price:
-              - text: R$6,99
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[6]/div[1]/a[2]/div[1]/div[1]
-            manufacturer:
-              - text: Ipet
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[6]/div[1]/div[1]/span[1]
+              - text: R$6,79
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/a[2]/div[1]/div[1]
           - id:
-              - text: "2319427"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[7]/div[1]/a[1]/span[1]
+              - text: "2319647"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[5]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=Sopa
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[5]/@searchurl
             name:
               - text: Molho Especial para Ração Ipet Tasty Carne para Gatos - 250 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[7]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/molho-especial-para-racao-ipet-tasty-carne-para-gatos/p?sku=2319647
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[7]/a[1]/@href
-            gtin:
-              - text: "2319427"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[7]/div[1]/a[1]/span[1]
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/a[1]/h3[1]
             thumbnail:
               - text: https://www.petlove.com.br/images/products/208512/small/Molho_Especial_para_Ra%C3%A7%C3%A3o_Ipet_Tasty_Carne_para_Gatos_-_260_mL_2319647.jpg?1559150944
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[7]/a[1]/div[1]/div[1]/img[1]/@data-src
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[5]/a[1]/div[1]/div[1]/img[1]/@data-src
             aggregateRating2:
-              - text: "2.5"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[7]/@ratingvalue
+              - text: 2,5
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[5]/@ratingvalue
             price:
               - text: R$6,99
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[7]/div[1]/a[2]/div[1]/div[1]
-            manufacturer:
-              - text: Ipet
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[7]/div[1]/div[1]/span[1]
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/a[2]/div[1]/div[1]
           - id:
-              - text: "2319424"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[8]/div[1]/a[1]/span[1]
-            name:
-              - text: Molho Especial para Ração Ipet Tasty Peixe para Gatos - 250 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[8]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/molho-especial-para-racao-ipet-tasty-peixe-para-gatos/p?sku=2319644
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[8]/a[1]/@href
-            gtin:
-              - text: "2319424"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[8]/div[1]/a[1]/span[1]
-            thumbnail:
-              - text: https://www.petlove.com.br/images/products/208509/small/Molho_Especial_para_Ra%C3%A7%C3%A3o_Ipet_Tasty_Peixe_para_Gatos_-_260_mL_2319644.jpg?1559150646
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[8]/a[1]/div[1]/div[1]/img[1]/@data-src
-            aggregateRating2:
-              - text: "3"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[8]/@ratingvalue
-            price:
-              - text: R$6,99
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[8]/div[1]/a[2]/div[1]/div[1]
-            manufacturer:
-              - text: Ipet
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[8]/div[1]/div[1]/span[1]
-          - id:
-              - text: "2319422"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[9]/div[1]/a[1]/span[1]
-            name:
-              - text: Molho Cãotchup Original Ipet para Cães - 250 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[9]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/molho-caotchup-original-ipet-para-caes/p?sku=2319642
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[9]/a[1]/@href
-            gtin:
-              - text: "2319422"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[9]/div[1]/a[1]/span[1]
-            thumbnail:
-              - text: https://www.petlove.com.br/images/products/208507/small/Molho_C%C3%A3otchup_Original_Ipet_para_C%C3%A3es_-_250_g_2319642.jpg?1559150536
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[9]/a[1]/div[1]/div[1]/img[1]/@data-src
-            price:
-              - text: R$7,99
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[9]/div[1]/a[2]/div[1]/div[1]
-            manufacturer:
-              - text: Ipet
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[9]/div[1]/div[1]/span[1]
-          - id:
-              - text: "1255493"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[10]/div[1]/a[1]/span[1]
-            name:
-              - text: Molho de Ração Padaria Pet para Cachorro Sabor Churrasco - 240 mL
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[10]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/molho-de-racao-padaria-pet-para-cachorro-sabor-churrasco/p?sku=1255493
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[10]/a[1]/@href
-            gtin:
-              - text: "1255493"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[10]/div[1]/a[1]/span[1]
-            thumbnail:
-              - text: https://www.petlove.com.br/images/products/186684/small/PadariaPet_molho_cao_Ra%C3%A7%C3%A3o_Dog_churrasco_1255493.jpg?1556441234
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[10]/a[1]/div[1]/div[1]/img[1]/@data-src
-            aggregateRating2:
-              - text: "3.5"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[10]/@ratingvalue
-            price:
-              - text: R$10,90
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[10]/div[1]/a[2]/div[1]/div[1]
-            manufacturer:
-              - text: Padaria Pet
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[10]/div[1]/div[1]/span[1]
-          - id:
-              - text: "2319645"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[11]/div[1]/a[1]/span[1]
-            name:
-              - text: Molho Catchup Original Ipet para Gatos - 250 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[11]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/molho-catchup-original-ipet-para-gatos/p?sku=2319645
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[11]/a[1]/@href
-            gtin:
-              - text: "2319645"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[11]/div[1]/a[1]/span[1]
-            thumbnail:
-              - text: https://www.petlove.com.br/images/products/208510/small/Molho_Catchup_Original_Ipet_para_Gatos_-_250_g_2319645.jpg?1559150693
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[11]/a[1]/div[1]/div[1]/img[1]/@data-src
-            aggregateRating2:
-              - text: "1"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[11]/@ratingvalue
-            price:
-              - text: R$6,39
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[11]/div[1]/a[2]/div[1]/div[2]
-            manufacturer:
-              - text: Ipet
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[11]/div[1]/div[1]/span[1]
-          - id:
-              - text: "2319646"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[12]/div[1]/a[1]/span[1]
-            name:
-              - text: Molho Barbecat Original Ipet Churrasco para Gatos - 250 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[12]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/molho-barbecat-original-ipet-churrasco-para-gatos/p?sku=2319646
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[12]/a[1]/@href
-            gtin:
-              - text: "2319646"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[12]/div[1]/a[1]/span[1]
-            thumbnail:
-              - text: https://www.petlove.com.br/images/products/208511/small/Molho_Barbecat_Original_Ipet_Churrasco_para_Gatos_-_250_g_2319646.jpg?1559150845
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[12]/a[1]/div[1]/div[1]/img[1]/@data-src
-            aggregateRating2:
-              - text: "3"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[12]/@ratingvalue
-            price:
-              - text: R$7,99
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[12]/div[1]/a[2]/div[1]/div[1]
-            manufacturer:
-              - text: Ipet
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[12]/div[1]/div[1]/span[1]
-          - id:
-              - text: "2497392"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[13]/div[1]/a[1]/span[1]
+              - text: "2497393"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[6]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=Sopa
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[6]/@searchurl
             name:
               - text: Molho Barbecão Original Ipet Sachê Churrasco para Cães - 7 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[13]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/molho-barbecao-original-ipet-sache-churrasco-para-caes/p?sku=2497393
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[13]/a[1]/@href
-            gtin:
-              - text: "2497392"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[13]/div[1]/a[1]/span[1]
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[6]/div[1]/a[1]/h3[1]
             thumbnail:
               - text: https://www.petlove.com.br/images/products/223794/small/Molho_Barbec%C3%A3o_Original_Ipet_Sach%C3%AA_Churrasco_para_C%C3%A3es_2497392.jpg?1589299344
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[13]/a[1]/div[1]/div[1]/img[1]/@data-src
-            manufacturer:
-              - text: Ipet
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[13]/div[1]/div[1]/span[1]
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[6]/a[1]/div[1]/div[1]/img[1]/@data-src
+            price:
+              - text: R$0,50
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[6]/div[1]/a[2]/div[1]/div[1]
           - id:
-              - text: "2497390"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[14]/div[1]/a[1]/span[1]
+              - text: "2497391"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[7]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=Sopa
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[7]/@searchurl
             name:
               - text: Molho Especial Ipet Tasty Sachê Carne para Cães - 7 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[14]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/molho-especial-ipet-tasty-sache-carne-para-caes/p?sku=2497391
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[14]/a[1]/@href
-            gtin:
-              - text: "2497390"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[14]/div[1]/a[1]/span[1]
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[7]/div[1]/a[1]/h3[1]
             thumbnail:
               - text: https://www.petlove.com.br/images/products/223790/small/Molho_Especial_Ipet_Tasty_Sach%C3%AA_Carne_para_C%C3%A3es_2497390.jpg?1589297969
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[14]/a[1]/div[1]/div[1]/img[1]/@data-src
-            manufacturer:
-              - text: Ipet
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[14]/div[1]/div[1]/span[1]
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[7]/a[1]/div[1]/div[1]/img[1]/@data-src
+            price:
+              - text: R$0,58
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[7]/div[1]/a[2]/div[1]/div[1]
           - id:
-              - text: "2497394"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[15]/div[1]/a[1]/span[1]
+              - text: "1255493"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[8]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=Sopa
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[8]/@searchurl
+            name:
+              - text: Molho de Ração Padaria Pet para Cachorro Sabor Churrasco - 240 mL
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[8]/div[1]/a[1]/h3[1]
+            thumbnail:
+              - text: https://www.petlove.com.br/images/products/186684/small/PadariaPet_molho_cao_Ra%C3%A7%C3%A3o_Dog_churrasco_1255493.jpg?1556441234
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[8]/a[1]/div[1]/div[1]/img[1]/@data-src
+            aggregateRating2:
+              - text: 3,5
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[8]/@ratingvalue
+            price:
+              - text: R$10,58
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[8]/div[1]/a[2]/div[1]/div[1]
+          - id:
+              - text: "2319646"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[9]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=Sopa
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[9]/@searchurl
+            name:
+              - text: Molho Barbecat Original Ipet Churrasco para Gatos - 250 g
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[9]/div[1]/a[1]/h3[1]
+            thumbnail:
+              - text: https://www.petlove.com.br/images/products/208511/small/Molho_Barbecat_Original_Ipet_Churrasco_para_Gatos_-_250_g_2319646.jpg?1559150845
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[9]/a[1]/div[1]/div[1]/img[1]/@data-src
+            aggregateRating2:
+              - text: "3"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[9]/@ratingvalue
+            price:
+              - text: R$7,99
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[9]/div[1]/a[2]/div[1]/div[1]
+          - id:
+              - text: "2319639"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[10]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=Sopa
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[10]/@searchurl
+            name:
+              - text: Molho Especial para Ração Ipet Tasty Churrasco para Cães - 250 g
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[10]/div[1]/a[1]/h3[1]
+            thumbnail:
+              - text: https://www.petlove.com.br/images/products/208504/small/Molho_Especial_para_Ra%C3%A7%C3%A3o_Ipet_Tasty_Churrasco_para_C%C3%A3es_-_260_mL_2319639.jpg?1559149735
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[10]/a[1]/div[1]/div[1]/img[1]/@data-src
+          - id:
+              - text: "2319643"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[11]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=Sopa
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[11]/@searchurl
+            name:
+              - text: Molho Barbecão Original Ipet Churrasco para Cães - 250 g
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[11]/div[1]/a[1]/h3[1]
+            thumbnail:
+              - text: https://www.petlove.com.br/images/products/208508/small/Molho_Barbec%C3%A3o_Original_Ipet_Churrasco_para_C%C3%A3es_-_250_g_2319643.jpg?1559150586
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[11]/a[1]/div[1]/div[1]/img[1]/@data-src
+          - id:
+              - text: "2319644"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[12]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=Sopa
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[12]/@searchurl
+            name:
+              - text: Molho Especial para Ração Ipet Tasty Peixe para Gatos - 250 g
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[12]/div[1]/a[1]/h3[1]
+            thumbnail:
+              - text: https://www.petlove.com.br/images/products/208509/small/Molho_Especial_para_Ra%C3%A7%C3%A3o_Ipet_Tasty_Peixe_para_Gatos_-_260_mL_2319644.jpg?1559150646
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[12]/a[1]/div[1]/div[1]/img[1]/@data-src
+          - id:
+              - text: "2319642"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[13]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=Sopa
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[13]/@searchurl
+            name:
+              - text: Molho Cãotchup Original Ipet para Cães - 250 g
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[13]/div[1]/a[1]/h3[1]
+            thumbnail:
+              - text: https://www.petlove.com.br/images/products/208507/small/Molho_C%C3%A3otchup_Original_Ipet_para_C%C3%A3es_-_250_g_2319642.jpg?1559150536
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[13]/a[1]/div[1]/div[1]/img[1]/@data-src
+          - id:
+              - text: "2497395"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[14]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=Sopa
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[14]/@searchurl
             name:
               - text: Molho Especial Ipet Tasty Sachê Carne para Gatos - 7 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[15]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/molho-especial-ipet-tasty-sache-carne-para-gatos/p?sku=2497395
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[15]/a[1]/@href
-            gtin:
-              - text: "2497394"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[15]/div[1]/a[1]/span[1]
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[14]/div[1]/a[1]/h3[1]
             thumbnail:
               - text: https://www.petlove.com.br/images/products/223788/small/Molho_Especial_Ipet_Tasty_Sach%C3%AA_Carne_para_Gatos_2497394.jpg?1589297496
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[15]/a[1]/div[1]/div[1]/img[1]/@data-src
-            manufacturer:
-              - text: Ipet
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[15]/div[1]/div[1]/span[1]
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[14]/a[1]/div[1]/div[1]/img[1]/@data-src
+          - id:
+              - text: "2319645"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[15]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=Sopa
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[15]/@searchurl
+            name:
+              - text: Molho Catchup Original Ipet para Gatos - 250 g
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[15]/div[1]/a[1]/h3[1]
+            thumbnail:
+              - text: https://www.petlove.com.br/images/products/208510/small/Molho_Catchup_Original_Ipet_para_Gatos_-_250_g_2319645.jpg?1559150693
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[15]/a[1]/div[1]/div[1]/img[1]/@data-src
         xpath: /html
-    timestamp: 1606397900884
+    timestamp: 1609915625908

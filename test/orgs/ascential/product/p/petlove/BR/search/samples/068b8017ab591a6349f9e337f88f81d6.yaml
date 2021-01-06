@@ -2,636 +2,444 @@ input:
   keywords: nuts
   _url: http://petlove.com.br
 extractions:
-  - html: https://workbench.import.io/html/run=30452399-cfa3-4082-80d4-f447663e58d3/task=2f1211c2-9b8b-42de-a883-70c13e84c6e4/01a03fd6-7e8e-497b-a0b2-0b36f1bb74ce.html
+  - html: https://workbench.import.io/html/run=c09b130b-1c96-4ba1-bc24-9908a7fbd519/task=9b28c2c3-5097-4792-93ec-17db11e88852/0da5c28c-e0f6-490f-8181-527df7399e46.html
     extractionConfigId: product/search/stores/p/petlove/BR/extract
     data:
       - group:
           - id:
-              - text: "1995836"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]
+              - text: "1995850"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=nuts&page=2
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/@searchurl
             name:
               - text: Bifinho Natural Nats NatDigest para Cães - 300 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/bifinho-natural-nats-natdigest-para-caes/p?sku=1995850
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
-            gtin:
-              - text: "1995836"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/a[1]/h3[1]
             thumbnail:
               - text: https://www.petlove.com.br/images/products/200756/small/Bifinho_Natural_Nats_NatDigest_para_C%C3%A3es_-_300_g_1995850.jpg?1556472561
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]/div[1]/img[1]/@data-src
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/a[1]/div[1]/div[1]/img[1]/@data-src
             aggregateRating2:
               - text: "5"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/@ratingvalue
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/@ratingvalue
             price:
               - text: R$26,49
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/a[2]/div[1]/div[1]
-            manufacturer:
-              - text: Nats
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/a[2]/div[1]/div[2]
           - id:
-              - text: "1995841"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]/a[1]/span[1]
+              - text: "2387857"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[2]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=nuts&page=2
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[2]/@searchurl
             name:
               - text: Bifinho Natural Nats NatDerm para Cães - 300 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/bifinho-natural-nats-natderm-para-caes/p?sku=2387857
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/a[1]/@href
-            gtin:
-              - text: "1995841"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]/a[1]/span[1]
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/a[1]/h3[1]
             thumbnail:
               - text: https://www.petlove.com.br/images/products/212648/small/Bifinho_Natural_Nats_NatDerm_para_C%C3%A3es_-_300_g_2387857.jpg?1565870053
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/a[1]/div[1]/div[1]/img[1]/@data-src
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[2]/a[1]/div[1]/div[1]/img[1]/@data-src
             aggregateRating2:
               - text: "5"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/@ratingvalue
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[2]/@ratingvalue
             price:
-              - text: R$27,49
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]/a[2]/div[1]/div[1]
-            manufacturer:
-              - text: Nats
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/span[1]
+              - text: R$28,99
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/a[2]/div[1]/div[1]
           - id:
-              - text: "1995837"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]/a[1]/span[1]
+              - text: "1995852"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[3]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=nuts&page=2
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[3]/@searchurl
             name:
               - text: Bifinho Natural Nats NatShape para Cães - 300 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/bifinho-natural-nats-natshape-para-caes/p?sku=1995852
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/a[1]/@href
-            gtin:
-              - text: "1995837"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]/a[1]/span[1]
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/a[1]/h3[1]
             thumbnail:
               - text: https://www.petlove.com.br/images/products/200762/small/Bifinho_Natural_Nats_NatShape_para_C%C3%A3es_-_300_g_1995852.jpg?1556467896
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/a[1]/div[1]/div[1]/img[1]/@data-src
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[3]/a[1]/div[1]/div[1]/img[1]/@data-src
             aggregateRating2:
-              - text: "4.5"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/@ratingvalue
+              - text: 4,5
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[3]/@ratingvalue
             price:
-              - text: R$27,49
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]/a[2]/div[1]/div[1]
-            manufacturer:
-              - text: Nats
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/span[1]
+              - text: R$28,99
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/a[2]/div[1]/div[1]
           - id:
-              - text: "2271087"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[5]/div[1]/a[1]/span[1]
+              - text: "2271098"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[5]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=nuts&page=2
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[5]/@searchurl
             name:
               - text: Snacks Nats Super Premium NatAllergy Almôndegas para Cães Sensíveis - 65 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[5]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/petisco-nats-snacks-sabor-almondegas-de-cordeiro-natallergy-para-caes/p?sku=2271098
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[5]/a[1]/@href
-            gtin:
-              - text: "2271087"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[5]/div[1]/a[1]/span[1]
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/a[1]/h3[1]
             thumbnail:
               - text: https://www.petlove.com.br/images/products/206371/small/Petisco_Nats_Snacks_Sabor_Alm%C3%B4ndegas_de_Cordeiro_Natallergy_para_C%C3%A3es_-_65_g_2271098.jpg?1556483710
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[5]/a[1]/div[1]/div[1]/img[1]/@data-src
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[5]/a[1]/div[1]/div[1]/img[1]/@data-src
             aggregateRating2:
               - text: "5"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[5]/@ratingvalue
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[5]/@ratingvalue
             price:
-              - text: R$10,49
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[5]/div[1]/a[2]/div[1]/div[1]
-            manufacturer:
-              - text: Nats
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[5]/div[1]/div[1]/span[1]
+              - text: R$11,99
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/a[2]/div[1]/div[1]
           - id:
-              - text: "2271088"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[6]/div[1]/a[1]/span[1]
-            name:
-              - text: Snacks Nats Super Premium NatRenall Almôndegas para Cães - 65 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[6]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/petisco-nats-snacks-sabor-almondegas-de-frango-natrenal-para-caes/p?sku=2271100
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[6]/a[1]/@href
-            gtin:
-              - text: "2271088"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[6]/div[1]/a[1]/span[1]
-            thumbnail:
-              - text: https://www.petlove.com.br/images/products/206372/small/Petisco_Nats_Snacks_Sabor_Alm%C3%B4ndegas_de_Frango_Natrenal_para_C%C3%A3es_-_65_g_2271100.jpg?1556479210
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[6]/a[1]/div[1]/div[1]/img[1]/@data-src
-            aggregateRating2:
-              - text: "4.5"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[6]/@ratingvalue
-            price:
-              - text: R$9,49
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[6]/div[1]/a[2]/div[1]/div[1]
-            manufacturer:
-              - text: Nats
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[6]/div[1]/div[1]/span[1]
-          - id:
-              - text: "1995842"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[7]/div[1]/a[1]/span[1]
+              - text: "1995858"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[6]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=nuts&page=2
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[6]/@searchurl
             name:
               - text: Bifinho Natural Nats NatDetox para Cães - 60 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[7]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/bifinho-natural-nats-natdetox-para-caes/p?sku=1995858
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[7]/a[1]/@href
-            gtin:
-              - text: "1995842"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[7]/div[1]/a[1]/span[1]
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[6]/div[1]/a[1]/h3[1]
             thumbnail:
               - text: https://www.petlove.com.br/images/products/200754/small/Bifinho_Natural_Nats_NatDetox_para_C%C3%A3es_-_60_g_1995842.jpg?1556474079
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[7]/a[1]/div[1]/div[1]/img[1]/@data-src
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[6]/a[1]/div[1]/div[1]/img[1]/@data-src
             aggregateRating2:
-              - text: "4.5"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[7]/@ratingvalue
+              - text: 4,5
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[6]/@ratingvalue
             price:
-              - text: R$7,90
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[7]/div[1]/a[2]/div[1]/div[1]
-            manufacturer:
-              - text: Nats
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[7]/div[1]/div[1]/span[1]
+              - text: R$7,85
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[6]/div[1]/a[2]/div[1]/div[1]
           - id:
-              - text: "1995848"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[8]/div[1]/a[1]/span[1]
+              - text: "1995865"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[7]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=nuts&page=2
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[7]/@searchurl
             name:
               - text: Ramas Naturais Nats NatDried Miúdos Bovinos para Cães - 25 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[8]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/ramas-naturais-nats-natdried-miudos-bovinos-para-caes/p?sku=1995865
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[8]/a[1]/@href
-            gtin:
-              - text: "1995848"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[8]/div[1]/a[1]/span[1]
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[7]/div[1]/a[1]/h3[1]
             thumbnail:
               - text: https://www.petlove.com.br/images/products/200765/small/Ramas_Naturais_Nats_NatDried_Mi%C3%BAdos_Bovinos_para_C%C3%A3es_-_25_g_1995848.jpg?1556474031
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[8]/a[1]/div[1]/div[1]/img[1]/@data-src
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[7]/a[1]/div[1]/div[1]/img[1]/@data-src
             aggregateRating2:
-              - text: "4.5"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[8]/@ratingvalue
+              - text: 4,5
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[7]/@ratingvalue
             price:
-              - text: R$10,89
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[8]/div[1]/a[2]/div[1]/div[1]
-            manufacturer:
-              - text: Nats
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[8]/div[1]/div[1]/span[1]
+              - text: R$9,90
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[7]/div[1]/a[2]/div[1]/div[2]
           - id:
               - text: "1995859"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[9]/div[1]/a[1]/span[1]
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[8]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=nuts&page=2
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[8]/@searchurl
             name:
               - text: Cookies Nats NatDigest Carne e Cereais para Cães - 65 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[9]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/cookies-nats-natdigest-carne-e-cereais-para-caes/p?sku=1995859
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[9]/a[1]/@href
-            gtin:
-              - text: "1995859"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[9]/div[1]/a[1]/span[1]
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[8]/div[1]/a[1]/h3[1]
             thumbnail:
               - text: https://www.petlove.com.br/images/products/200764/small/Cookies_Nats_NatDigest_Carne_e_Cereais_para_C%C3%A3es_-_65_g_1995843.jpg?1556472990
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[9]/a[1]/div[1]/div[1]/img[1]/@data-src
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[8]/a[1]/div[1]/div[1]/img[1]/@data-src
             aggregateRating2:
               - text: "4"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[9]/@ratingvalue
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[8]/@ratingvalue
             price:
-              - text: R$8,49
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[9]/div[1]/a[2]/div[1]/div[2]
-            manufacturer:
-              - text: Nats
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[9]/div[1]/div[1]/span[1]
+              - text: R$8,24
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[8]/div[1]/a[2]/div[1]/div[2]
           - id:
               - text: "1995855"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[10]/div[1]/a[1]/span[1]
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[9]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=nuts&page=2
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[9]/@searchurl
             name:
               - text: Bifinho Natural Nats NatRelax para Cães - 60 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[10]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/bifinho-natural-nats-natrelax-para-caes/p?sku=1995855
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[10]/a[1]/@href
-            gtin:
-              - text: "1995855"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[10]/div[1]/a[1]/span[1]
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[9]/div[1]/a[1]/h3[1]
             thumbnail:
               - text: https://www.petlove.com.br/images/products/200759/small/Bifinho_Natural_Nats_NatRelax_para_C%C3%A3es_-_60_g_1995855.jpg?1556468487
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[10]/a[1]/div[1]/div[1]/img[1]/@data-src
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[9]/a[1]/div[1]/div[1]/img[1]/@data-src
             aggregateRating2:
-              - text: "4.5"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[10]/@ratingvalue
+              - text: 4,5
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[9]/@ratingvalue
             price:
-              - text: R$7,39
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[10]/div[1]/a[2]/div[1]/div[2]
-            manufacturer:
-              - text: Nats
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[10]/div[1]/div[1]/span[1]
+              - text: R$7,17
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[9]/div[1]/a[2]/div[1]/div[2]
           - id:
-              - text: "2510186"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[11]/div[1]/a[1]/span[1]
+              - text: "2510187"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[10]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=nuts&page=2
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[10]/@searchurl
             name:
               - text: Sticks Recheados Nats Cream Relax-Pro para Cães - 120 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[11]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/sticks-recheados-nats-cream-relax-pro-para-caes/p?sku=2510187
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[11]/a[1]/@href
-            gtin:
-              - text: "2510186"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[11]/div[1]/a[1]/span[1]
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[10]/div[1]/a[1]/h3[1]
             thumbnail:
               - text: https://www.petlove.com.br/images/products/224986/small/Sticks_Recheados_Nats_Cream_Relax-Pro_para_C%C3%A3es.jpg?1593010363
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[11]/a[1]/div[1]/div[1]/img[1]/@data-src
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[10]/a[1]/div[1]/div[1]/img[1]/@data-src
             aggregateRating2:
               - text: "5"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[11]/@ratingvalue
-            price:
-              - text: R$11,90
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[11]/div[1]/a[2]/div[1]/div[1]
-            manufacturer:
-              - text: Nats
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[11]/div[1]/div[1]/span[1]
-          - id:
-              - text: "2510180"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[12]/div[1]/a[1]/span[1]
-            name:
-              - text: Bifinhos Rechados Nats Cream Anti-Ox para Cães - 120 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[12]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/bifinhos-rechados-nats-cream-anti-ox-para-caes/p?sku=2510185
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[12]/a[1]/@href
-            gtin:
-              - text: "2510180"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[12]/div[1]/a[1]/span[1]
-            thumbnail:
-              - text: https://www.petlove.com.br/images/products/224985/small/Bifinhos_Rechados_Nats_Cream_Anti-Ox_para_C%C3%A3es.jpg?1593010290
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[12]/a[1]/div[1]/div[1]/img[1]/@data-src
-            aggregateRating2:
-              - text: "4.5"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[12]/@ratingvalue
-            price:
-              - text: R$11,90
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[12]/div[1]/a[2]/div[1]/div[1]
-            manufacturer:
-              - text: Nats
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[12]/div[1]/div[1]/span[1]
-          - id:
-              - text: "1995853"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[13]/div[1]/a[1]/span[1]
-            name:
-              - text: Bifinho Natural Nats NatLife para Cães - 60 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[13]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/bifinho-natural-nats-natlife-para-caes/p?sku=1995853
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[13]/a[1]/@href
-            gtin:
-              - text: "1995853"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[13]/div[1]/a[1]/span[1]
-            thumbnail:
-              - text: https://www.petlove.com.br/images/products/200757/small/Bifinho_Natural_Nats_NatLife_para_C%C3%A3es_-_60_g_1995853.jpg?1556468171
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[13]/a[1]/div[1]/div[1]/img[1]/@data-src
-            aggregateRating2:
-              - text: "5"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[13]/@ratingvalue
-            price:
-              - text: R$7,39
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[13]/div[1]/a[2]/div[1]/div[2]
-            manufacturer:
-              - text: Nats
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[13]/div[1]/div[1]/span[1]
-          - id:
-              - text: "1995856"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[14]/div[1]/a[1]/span[1]
-            name:
-              - text: Bifinho Natural Nats NatRelax para Cães - 300 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[14]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/bifinho-natural-nats-natrelax-para-caes/p?sku=1995856
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[14]/a[1]/@href
-            gtin:
-              - text: "1995856"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[14]/div[1]/a[1]/span[1]
-            thumbnail:
-              - text: https://www.petlove.com.br/images/products/200760/small/Bifinho_Natural_Nats_NatRelax_para_C%C3%A3es_-_300_g_1995856.jpg?1556468545
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[14]/a[1]/div[1]/div[1]/img[1]/@data-src
-            aggregateRating2:
-              - text: "4.5"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[14]/@ratingvalue
-            price:
-              - text: R$26,49
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[14]/div[1]/a[2]/div[1]/div[1]
-            manufacturer:
-              - text: Nats
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[14]/div[1]/div[1]/span[1]
-          - id:
-              - text: "1995851"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[15]/div[1]/a[1]/span[1]
-            name:
-              - text: Bifinho Natural Nats NatShape para Cães - 60 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[15]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/bifinho-natural-nats-natshape-para-caes/p?sku=1995851
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[15]/a[1]/@href
-            gtin:
-              - text: "1995851"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[15]/div[1]/a[1]/span[1]
-            thumbnail:
-              - text: https://www.petlove.com.br/images/products/200761/small/Bifinho_Natural_Nats_NatShape_para_C%C3%A3es_-_60_g_1995851.jpg?1556467838
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[15]/a[1]/div[1]/div[1]/img[1]/@data-src
-            aggregateRating2:
-              - text: "4.5"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[15]/@ratingvalue
-            price:
-              - text: R$7,39
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[15]/div[1]/a[2]/div[1]/div[2]
-            manufacturer:
-              - text: Nats
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[15]/div[1]/div[1]/span[1]
-          - id:
-              - text: "1995857"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[16]/div[1]/a[1]/span[1]
-            name:
-              - text: Bifinho Natural Nats NatDerm para Cães - 60 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[16]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/bifinho-natural-nats-natderm-para-caes/p?sku=1995857
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[16]/a[1]/@href
-            gtin:
-              - text: "1995857"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[16]/div[1]/a[1]/span[1]
-            thumbnail:
-              - text: https://www.petlove.com.br/images/products/200753/small/Bifinho_Natural_Nats_NatDerm_para_C%C3%A3es_-_60_g_1995841.jpg?1556468466
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[16]/a[1]/div[1]/div[1]/img[1]/@data-src
-            aggregateRating2:
-              - text: "5"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[16]/@ratingvalue
-            price:
-              - text: R$7,39
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[16]/div[1]/a[2]/div[1]/div[2]
-            manufacturer:
-              - text: Nats
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[16]/div[1]/div[1]/span[1]
-          - id:
-              - text: "1995849"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[17]/div[1]/a[1]/span[1]
-            name:
-              - text: Bifinho Natural Nats NatDigest para Cães - 60 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[17]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/bifinho-natural-nats-natdigest-para-caes/p?sku=1995849
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[17]/a[1]/@href
-            gtin:
-              - text: "1995849"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[17]/div[1]/a[1]/span[1]
-            thumbnail:
-              - text: https://www.petlove.com.br/images/products/200755/small/Bifinho_Natural_Nats_NatDigest_para_C%C3%A3es_-_60_g_1995849.jpg?1556472487
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[17]/a[1]/div[1]/div[1]/img[1]/@data-src
-            aggregateRating2:
-              - text: "5"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[17]/@ratingvalue
-            price:
-              - text: R$7,39
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[17]/div[1]/a[2]/div[1]/div[2]
-            manufacturer:
-              - text: Nats
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[17]/div[1]/div[1]/span[1]
-          - id:
-              - text: "1995854"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[18]/div[1]/a[1]/span[1]
-            name:
-              - text: Bifinho Natural Nats NatLife para Cães - 300 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[18]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/bifinho-natural-nats-natlife-para-caes/p?sku=1995854
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[18]/a[1]/@href
-            gtin:
-              - text: "1995854"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[18]/div[1]/a[1]/span[1]
-            thumbnail:
-              - text: https://www.petlove.com.br/images/products/200758/small/Bifinho_Natural_Nats_NatLife_para_C%C3%A3es_-_300_g_1995854.jpg?1556468203
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[18]/a[1]/div[1]/div[1]/img[1]/@data-src
-            aggregateRating2:
-              - text: "5"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[18]/@ratingvalue
-            price:
-              - text: R$26,49
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[18]/div[1]/a[2]/div[1]/div[1]
-            manufacturer:
-              - text: Nats
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[18]/div[1]/div[1]/span[1]
-          - id:
-              - text: "2510197"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[19]/div[1]/a[1]/span[1]
-            name:
-              - text: Snacks Oral Fresh Nats para Cães de Raças Médias e Grandes - 190 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[19]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/snacks-oral-fresh-nats-para-caes-de-racas-medias-e-grandes/p?sku=2510198
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[19]/a[1]/@href
-            gtin:
-              - text: "2510197"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[19]/div[1]/a[1]/span[1]
-            thumbnail:
-              - text: https://www.petlove.com.br/images/products/224989/small/Snacks_Oral_Fresh_Nats_para_C%C3%A3es_de_Ra%C3%A7as_M%C3%A9dias_e_Grandes.jpg?1593010651
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[19]/a[1]/div[1]/div[1]/img[1]/@data-src
-            price:
-              - text: R$22,49
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[19]/div[1]/a[2]/div[1]/div[1]
-            manufacturer:
-              - text: Nats
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[19]/div[1]/div[1]/span[1]
-          - id:
-              - text: "2510195"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[20]/div[1]/a[1]/span[1]
-            name:
-              - text: Snacks Oral Fresh Nats para Cães de Raças Pequenas - 70 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[20]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/snacks-oral-fresh-nats-para-caes-de-racas-pequenas/p?sku=2510196
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[20]/a[1]/@href
-            gtin:
-              - text: "2510195"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[20]/div[1]/a[1]/span[1]
-            thumbnail:
-              - text: https://www.petlove.com.br/images/products/224988/small/Snacks_Oral_Fresh_Nats_para_C%C3%A3es_de_Ra%C3%A7as_Pequenas.jpg?1593010575
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[20]/a[1]/div[1]/div[1]/img[1]/@data-src
-            aggregateRating2:
-              - text: "5"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[20]/@ratingvalue
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[10]/@ratingvalue
             price:
               - text: R$11,49
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[20]/div[1]/a[2]/div[1]/div[1]
-            manufacturer:
-              - text: Nats
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[20]/div[1]/div[1]/span[1]
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[10]/div[1]/a[2]/div[1]/div[1]
           - id:
-              - text: "2271107"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[21]/div[1]/a[1]/span[1]
-            name:
-              - text: Snacks Nats Super Premium NatHairball Minibits para Gatos - 15 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[21]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/petisco-nats-snacks-minibits-sabor-malte-valeriana-nathaiball-para-gatos/p?sku=2271107
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[21]/a[1]/@href
-            gtin:
-              - text: "2271107"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[21]/div[1]/a[1]/span[1]
-            thumbnail:
-              - text: https://www.petlove.com.br/images/products/206374/small/Petisco_Nats_Snacks_Minibits_Sabor_Malte___Valeriana_Nathaiball_para_Gatos_-_15_g_2271107.jpg?1556483814
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[21]/a[1]/div[1]/div[1]/img[1]/@data-src
-            aggregateRating2:
-              - text: "3.5"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[21]/@ratingvalue
-            price:
-              - text: R$3,99
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[21]/div[1]/a[2]/div[1]/div[1]
-            manufacturer:
-              - text: Nats
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[21]/div[1]/div[1]/span[1]
-          - id:
-              - text: "2271106"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[23]/div[1]/a[1]/span[1]
-            name:
-              - text: Snacks Nats Super Premium NatRenal Minibits para Gatos - 15 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[23]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/petisco-nats-snacks-minibits-sabor-frango-com-cranberry-e-cenoura-natrenal-para-gatos/p?sku=2271106
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[23]/a[1]/@href
-            gtin:
-              - text: "2271106"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[23]/div[1]/a[1]/span[1]
-            thumbnail:
-              - text: https://www.petlove.com.br/images/products/206373/small/Petisco_Nats_Snacks_Minibits_Sabor_Frango_com_Cranberry_e_Cenoura_Natrenal_para_Gatos_-_15_g_2271106.jpg?1556479182
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[23]/a[1]/div[1]/div[1]/img[1]/@data-src
-            aggregateRating2:
-              - text: "3.5"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[23]/@ratingvalue
-            price:
-              - text: R$3,99
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[23]/div[1]/a[2]/div[1]/div[1]
-            manufacturer:
-              - text: Nats
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[23]/div[1]/div[1]/span[1]
-          - id:
-              - text: "1995861"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[24]/div[1]/a[1]/span[1]
-            name:
-              - text: Barrinha Nats NatRelax Carne e Cereais para Cães - 25 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[24]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/barrinha-nats-natrelax-carne-e-cereais-para-caes/p?sku=1995861
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[24]/a[1]/@href
-            gtin:
-              - text: "1995861"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[24]/div[1]/a[1]/span[1]
-            thumbnail:
-              - text: https://www.petlove.com.br/images/products/200751/small/Barrinha_Nats_NatRelax_Carne_e_Cereais_para_C%C3%A3es_-_25_g_1995844.jpg?1556474336
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[24]/a[1]/div[1]/div[1]/img[1]/@data-src
-            aggregateRating2:
-              - text: "5"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[24]/@ratingvalue
-            price:
-              - text: R$3,49
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[24]/div[1]/a[2]/div[1]/div[1]
-            manufacturer:
-              - text: Nats
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[24]/div[1]/div[1]/span[1]
-          - id:
-              - text: "1995862"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[25]/div[1]/a[1]/span[1]
-            name:
-              - text: Barrinha Nats NatShape Carne e Cereais para Cães - 25 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[25]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/barrinha-nats-natshape-carne-e-cereais-para-caes/p?sku=1995862
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[25]/a[1]/@href
-            gtin:
-              - text: "1995862"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[25]/div[1]/a[1]/span[1]
-            thumbnail:
-              - text: https://www.petlove.com.br/images/products/200752/small/Barrinha_Nats_NatShape_Carne_e_Cereais_para_C%C3%A3es_-_25_g_1995846.jpg?1556474177
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[25]/a[1]/div[1]/div[1]/img[1]/@data-src
-            aggregateRating2:
-              - text: "5"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[25]/@ratingvalue
-            price:
-              - text: R$3,49
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[25]/div[1]/a[2]/div[1]/div[1]
-            manufacturer:
-              - text: Nats
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[25]/div[1]/div[1]/span[1]
-          - id:
-              - text: "1995864"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[26]/div[1]/a[1]/span[1]
-            name:
-              - text: Chips Naturais Nats NatDried Frango com Alecrim para Cães - 25 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[26]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/chips-naturais-nats-natdried-frango-com-alecrim-para-caes/p?sku=1995864
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[26]/a[1]/@href
-            gtin:
-              - text: "1995864"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[26]/div[1]/a[1]/span[1]
-            thumbnail:
-              - text: https://www.petlove.com.br/images/products/200763/small/Chips_Naturais_Nats_NatDried_Frango_com_Alecrim_para_C%C3%A3es_-_25_g_1995847.jpg?1556473138
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[26]/a[1]/div[1]/div[1]/img[1]/@data-src
-            aggregateRating2:
-              - text: "4.5"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[26]/@ratingvalue
-            price:
-              - text: R$9,89
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[26]/div[1]/a[2]/div[1]/div[2]
-            manufacturer:
-              - text: Nats
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[26]/div[1]/div[1]/span[1]
-          - id:
-              - text: "2271091"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[27]/div[1]/a[1]/span[1]
-            name:
-              - text: Snacks Nats Super Premium NatDerm Minibits para Gatos - 15 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[27]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/petisco-nats-snacks-minibits-sabor-linhaca-oleo-de-coco-colageno-natderm-para-gatos/p?sku=2271119
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[27]/a[1]/@href
-            gtin:
-              - text: "2271091"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[27]/div[1]/a[1]/span[1]
-            thumbnail:
-              - text: https://www.petlove.com.br/images/products/206375/small/Petisco_Nats_Snacks_Minibits_Sabor_Linha%C3%A7a__%C3%93leo_de_Coco___Col%C3%A1geno_Natderm_para_Gatos_-_15_g_2271119.jpg?1556482870
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[27]/a[1]/div[1]/div[1]/img[1]/@data-src
-            manufacturer:
-              - text: Nats
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[27]/div[1]/div[1]/span[1]
-          - id:
-              - text: "2510188"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[28]/div[1]/a[1]/span[1]
+              - text: "2510194"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[11]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=nuts&page=2
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[11]/@searchurl
             name:
               - text: Mini-Brownies Nats Cream Balance para Cães - 120 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[28]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/mini-brownies-nats-cream-balance-para-caes/p?sku=2510194
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[28]/a[1]/@href
-            gtin:
-              - text: "2510188"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[28]/div[1]/a[1]/span[1]
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[11]/div[1]/a[1]/h3[1]
             thumbnail:
               - text: https://www.petlove.com.br/images/products/224987/small/Mini-Brownies_Nats_Cream_Balance_para_C%C3%A3es.jpg?1593010516
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[28]/a[1]/div[1]/div[1]/img[1]/@data-src
-            manufacturer:
-              - text: Nats
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[28]/div[1]/div[1]/span[1]
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[11]/a[1]/div[1]/div[1]/img[1]/@data-src
+            aggregateRating2:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[11]/@ratingvalue
+            price:
+              - text: R$11,49
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[11]/div[1]/a[2]/div[1]/div[1]
           - id:
-              - text: "2271120"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[29]/div[1]/a[1]/span[1]
+              - text: "2510185"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[12]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=nuts&page=2
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[12]/@searchurl
             name:
-              - text: Snacks Nats Super Premium NatDried Minichips Naturais para Gatos - 10 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[29]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/petisco-nats-snacks-minichips-sabor-frango-com-alecrim-natried-para-gatos/p?sku=2271120
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[29]/a[1]/@href
-            gtin:
-              - text: "2271120"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[29]/div[1]/a[1]/span[1]
+              - text: Bifinhos Rechados Nats Cream Anti-Ox para Cães - 120 g
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[12]/div[1]/a[1]/h3[1]
             thumbnail:
-              - text: https://www.petlove.com.br/images/products/206376/small/Petisco_Nats_Snacks_Minichips_Sabor_Frango_com_Alecrim__Natried_para_Gatos_-_10_g_2271120.jpg?1556482902
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[29]/a[1]/div[1]/div[1]/img[1]/@data-src
-            manufacturer:
-              - text: Nats
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[29]/div[1]/div[1]/span[1]
+              - text: https://www.petlove.com.br/images/products/224985/small/Bifinhos_Rechados_Nats_Cream_Anti-Ox_para_C%C3%A3es.jpg?1593010290
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[12]/a[1]/div[1]/div[1]/img[1]/@data-src
+            aggregateRating2:
+              - text: 4,5
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[12]/@ratingvalue
+            price:
+              - text: R$11,49
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[12]/div[1]/a[2]/div[1]/div[1]
+          - id:
+              - text: "1995853"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[13]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=nuts&page=2
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[13]/@searchurl
+            name:
+              - text: Bifinho Natural Nats NatLife para Cães - 60 g
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[13]/div[1]/a[1]/h3[1]
+            thumbnail:
+              - text: https://www.petlove.com.br/images/products/200757/small/Bifinho_Natural_Nats_NatLife_para_C%C3%A3es_-_60_g_1995853.jpg?1556468171
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[13]/a[1]/div[1]/div[1]/img[1]/@data-src
+            aggregateRating2:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[13]/@ratingvalue
+            price:
+              - text: R$7,85
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[13]/div[1]/a[2]/div[1]/div[1]
+          - id:
+              - text: "1995856"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[14]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=nuts&page=2
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[14]/@searchurl
+            name:
+              - text: Bifinho Natural Nats NatRelax para Cães - 300 g
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[14]/div[1]/a[1]/h3[1]
+            thumbnail:
+              - text: https://www.petlove.com.br/images/products/200760/small/Bifinho_Natural_Nats_NatRelax_para_C%C3%A3es_-_300_g_1995856.jpg?1556468545
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[14]/a[1]/div[1]/div[1]/img[1]/@data-src
+            aggregateRating2:
+              - text: 4,5
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[14]/@ratingvalue
+            price:
+              - text: R$25,70
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[14]/div[1]/a[2]/div[1]/div[2]
+          - id:
+              - text: "1995851"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[15]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=nuts&page=2
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[15]/@searchurl
+            name:
+              - text: Bifinho Natural Nats NatShape para Cães - 60 g
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[15]/div[1]/a[1]/h3[1]
+            thumbnail:
+              - text: https://www.petlove.com.br/images/products/200761/small/Bifinho_Natural_Nats_NatShape_para_C%C3%A3es_-_60_g_1995851.jpg?1556467838
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[15]/a[1]/div[1]/div[1]/img[1]/@data-src
+            aggregateRating2:
+              - text: 4,5
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[15]/@ratingvalue
+            price:
+              - text: R$7,17
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[15]/div[1]/a[2]/div[1]/div[2]
+          - id:
+              - text: "1995857"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[16]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=nuts&page=2
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[16]/@searchurl
+            name:
+              - text: Bifinho Natural Nats NatDerm para Cães - 60 g
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[16]/div[1]/a[1]/h3[1]
+            thumbnail:
+              - text: https://www.petlove.com.br/images/products/200753/small/Bifinho_Natural_Nats_NatDerm_para_C%C3%A3es_-_60_g_1995841.jpg?1556468466
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[16]/a[1]/div[1]/div[1]/img[1]/@data-src
+            aggregateRating2:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[16]/@ratingvalue
+            price:
+              - text: R$7,39
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[16]/div[1]/a[2]/div[1]/div[2]
+          - id:
+              - text: "1995849"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[17]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=nuts&page=2
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[17]/@searchurl
+            name:
+              - text: Bifinho Natural Nats NatDigest para Cães - 60 g
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[17]/div[1]/a[1]/h3[1]
+            thumbnail:
+              - text: https://www.petlove.com.br/images/products/200755/small/Bifinho_Natural_Nats_NatDigest_para_C%C3%A3es_-_60_g_1995849.jpg?1556472487
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[17]/a[1]/div[1]/div[1]/img[1]/@data-src
+            aggregateRating2:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[17]/@ratingvalue
+            price:
+              - text: R$7,17
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[17]/div[1]/a[2]/div[1]/div[2]
+          - id:
+              - text: "1995854"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[18]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=nuts&page=2
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[18]/@searchurl
+            name:
+              - text: Bifinho Natural Nats NatLife para Cães - 300 g
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[18]/div[1]/a[1]/h3[1]
+            thumbnail:
+              - text: https://www.petlove.com.br/images/products/200758/small/Bifinho_Natural_Nats_NatLife_para_C%C3%A3es_-_300_g_1995854.jpg?1556468203
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[18]/a[1]/div[1]/div[1]/img[1]/@data-src
+            aggregateRating2:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[18]/@ratingvalue
+            price:
+              - text: R$25,70
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[18]/div[1]/a[2]/div[1]/div[2]
+          - id:
+              - text: "2510198"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[19]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=nuts&page=2
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[19]/@searchurl
+            name:
+              - text: Snacks Oral Fresh Nats para Cães de Raças Médias e Grandes - 190 g
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[19]/div[1]/a[1]/h3[1]
+            thumbnail:
+              - text: https://www.petlove.com.br/images/products/224989/small/Snacks_Oral_Fresh_Nats_para_C%C3%A3es_de_Ra%C3%A7as_M%C3%A9dias_e_Grandes.jpg?1593010651
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[19]/a[1]/div[1]/div[1]/img[1]/@data-src
+            price:
+              - text: R$21,49
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[19]/div[1]/a[2]/div[1]/div[2]
+          - id:
+              - text: "2510196"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[20]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=nuts&page=2
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[20]/@searchurl
+            name:
+              - text: Snacks Oral Fresh Nats para Cães de Raças Pequenas - 70 g
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[20]/div[1]/a[1]/h3[1]
+            thumbnail:
+              - text: https://www.petlove.com.br/images/products/224988/small/Snacks_Oral_Fresh_Nats_para_C%C3%A3es_de_Ra%C3%A7as_Pequenas.jpg?1593010575
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[20]/a[1]/div[1]/div[1]/img[1]/@data-src
+            aggregateRating2:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[20]/@ratingvalue
+            price:
+              - text: R$10,49
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[20]/div[1]/a[2]/div[1]/div[2]
+          - id:
+              - text: "1995861"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[21]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=nuts&page=2
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[21]/@searchurl
+            name:
+              - text: Barrinha Nats NatRelax Carne e Cereais para Cães - 25 g
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[21]/div[1]/a[1]/h3[1]
+            thumbnail:
+              - text: https://www.petlove.com.br/images/products/200751/small/Barrinha_Nats_NatRelax_Carne_e_Cereais_para_C%C3%A3es_-_25_g_1995844.jpg?1556474336
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[21]/a[1]/div[1]/div[1]/img[1]/@data-src
+            aggregateRating2:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[21]/@ratingvalue
+            price:
+              - text: R$3,29
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[21]/div[1]/a[2]/div[1]/div[2]
+          - id:
+              - text: "1995862"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[23]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=nuts&page=2
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[23]/@searchurl
+            name:
+              - text: Barrinha Nats NatShape Carne e Cereais para Cães - 25 g
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[23]/div[1]/a[1]/h3[1]
+            thumbnail:
+              - text: https://www.petlove.com.br/images/products/200752/small/Barrinha_Nats_NatShape_Carne_e_Cereais_para_C%C3%A3es_-_25_g_1995846.jpg?1556474177
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[23]/a[1]/div[1]/div[1]/img[1]/@data-src
+            aggregateRating2:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[23]/@ratingvalue
+            price:
+              - text: R$3,39
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[23]/div[1]/a[2]/div[1]/div[1]
+          - id:
+              - text: "2271106"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[24]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=nuts&page=2
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[24]/@searchurl
+            name:
+              - text: Snacks Nats Super Premium NatRenal Minibits para Gatos - 15 g
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[24]/div[1]/a[1]/h3[1]
+            thumbnail:
+              - text: https://www.petlove.com.br/images/products/206373/small/Petisco_Nats_Snacks_Minibits_Sabor_Frango_com_Cranberry_e_Cenoura_Natrenal_para_Gatos_-_15_g_2271106.jpg?1556479182
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[24]/a[1]/div[1]/div[1]/img[1]/@data-src
+            aggregateRating2:
+              - text: 3,5
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[24]/@ratingvalue
+            price:
+              - text: R$4,29
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[24]/div[1]/a[2]/div[1]/div[1]
+          - id:
+              - text: "1995864"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[25]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=nuts&page=2
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[25]/@searchurl
+            name:
+              - text: Chips Naturais Nats NatDried Frango com Alecrim para Cães - 25 g
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[25]/div[1]/a[1]/h3[1]
+            thumbnail:
+              - text: https://www.petlove.com.br/images/products/200763/small/Chips_Naturais_Nats_NatDried_Frango_com_Alecrim_para_C%C3%A3es_-_25_g_1995847.jpg?1556473138
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[25]/a[1]/div[1]/div[1]/img[1]/@data-src
+            aggregateRating2:
+              - text: 4,5
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[25]/@ratingvalue
+            price:
+              - text: R$10,76
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[25]/div[1]/a[2]/div[1]/div[1]
+          - id:
+              - text: "2271100"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[26]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=nuts&page=2
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[26]/@searchurl
+            name:
+              - text: Snacks Nats Super Premium NatRenall Almôndegas para Cães - 65 g
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[26]/div[1]/a[1]/h3[1]
+            thumbnail:
+              - text: https://www.petlove.com.br/images/products/206372/small/Petisco_Nats_Snacks_Sabor_Alm%C3%B4ndegas_de_Frango_Natrenal_para_C%C3%A3es_-_65_g_2271100.jpg?1556479210
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[26]/a[1]/div[1]/div[1]/img[1]/@data-src
+          - id:
+              - text: "2271119"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[27]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=nuts&page=2
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[27]/@searchurl
+            name:
+              - text: Snacks Nats Super Premium NatDerm Minibits para Gatos - 15 g
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[27]/div[1]/a[1]/h3[1]
+            thumbnail:
+              - text: https://www.petlove.com.br/images/products/206375/small/Petisco_Nats_Snacks_Minibits_Sabor_Linha%C3%A7a__%C3%93leo_de_Coco___Col%C3%A1geno_Natderm_para_Gatos_-_15_g_2271119.jpg?1556482870
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[27]/a[1]/div[1]/div[1]/img[1]/@data-src
         xpath: /html
-    timestamp: 1606397900123
+    timestamp: 1609915629265

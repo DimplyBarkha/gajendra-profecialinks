@@ -2,33 +2,27 @@ input:
   keywords: Wafer
   _url: http://petlove.com.br
 extractions:
-  - html: https://workbench.import.io/html/run=30452399-cfa3-4082-80d4-f447663e58d3/task=f0072ddf-ebf3-440b-9b83-a2dd7843051a/0a33e967-0b6e-4a2d-8b0b-e8f0496ed6d0.html
+  - html: https://workbench.import.io/html/run=c09b130b-1c96-4ba1-bc24-9908a7fbd519/task=1401bb34-2fa7-46f0-b835-483a74187ddc/2428bee6-20ec-46d5-b62c-03c1f591a12e.html
     extractionConfigId: product/search/stores/p/petlove/BR/extract
     data:
       - group:
           - id:
               - text: "3105674"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=Wafer
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/@searchurl
             name:
-              - text: Ração Tetra Veggie Multi Wafers - 105 g - 105 g
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.petlove.com.br/racao-tetra-veggie-multi-wafers---105gr-3105674/p?sku=3105674
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
-            gtin:
-              - text: "3105674"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]
+              - text: Ração Tetra Veggie Multi Wafers - 105 g
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/a[1]/h3[1]
             thumbnail:
               - text: https://www.petlove.com.br/images/products/162004/small/Tetra-Veggie-Multi--Wafers-250ml-105g_2.jpg?1556417876
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]/div[1]/img[1]/@data-src
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/a[1]/div[1]/div[1]/img[1]/@data-src
             aggregateRating2:
               - text: "5"
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/@ratingvalue
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/@ratingvalue
             price:
-              - text: R$101,99
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/a[2]/div[1]/div[1]
-            manufacturer:
-              - text: Tetra
-                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+              - text: R$98,94
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/a[2]/div[1]/div[1]
         xpath: /html
-    timestamp: 1606397902796
+    timestamp: 1609915625716
