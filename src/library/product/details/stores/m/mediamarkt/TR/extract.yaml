@@ -240,7 +240,7 @@ fields:
   - name: inTheBoxUrl
     singleValue: false
     xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset
-    regExp: '^[^\s]+'
+    regExp: (.+)(\s200w)
     regExpReplace: https:$1
     description: Must include image url to show the accessories/tools which come with the product
   - name: inTheBoxText
