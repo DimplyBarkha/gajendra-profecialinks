@@ -42,6 +42,8 @@ const transform = (data) => {
         else gr.quantity = [];
         if (gr && gr.specifications && gr.specifications.length) gr.specifications[0].text = cleanText(gr.specifications[0].text);
         if (gr && gr.aggregateRating && gr.aggregateRating.length) {
+          // const end = gr.aggregateRating[0].text.indexOf(' ');
+          // gr.aggregateRating[0].text = +gr.aggregateRating[0].text.slice(0, end);
           const agRating = gr.aggregateRating[0].text;
           if(agRating.match(/\d.\d* /gm)[0]){
             gr.aggregateRating[0].text = agRating.match(/\d.\d* /gm)[0].replace(/ /, '');

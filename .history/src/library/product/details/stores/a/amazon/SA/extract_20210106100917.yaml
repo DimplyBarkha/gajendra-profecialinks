@@ -18,8 +18,6 @@ fields:
   - name: price
     singleValue: true
     xpath: //span[@id='priceblock_ourprice']
-  - name: listPrice
-    xpath: //span[contains(@class, 'priceBlockStrikePriceString')]
   - name: availabilityText
     singleValue: true
     xpath: //div[@id='Availability']
@@ -31,7 +29,7 @@ fields:
     xpath: //a[@id='bylineInfo']
   - name: asin
     singleValue: false
-    xpath: //input[@id="ASIN"]/@value
+    xpath: //div[@id='detailBullets_feature_div']/ul/li/span[@class='a-list-item'] || //input[@id="ASIN"]/@value
   - name: shippingDimensions
     singleValue: false
     xpath: //div[@id='detailBullets_feature_div']/ul/li/span[@class='a-list-item']
