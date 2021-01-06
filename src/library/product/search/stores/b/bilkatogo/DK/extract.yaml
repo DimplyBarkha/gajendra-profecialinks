@@ -12,20 +12,23 @@ fields:
     singleValue: true
   - name: name
     description: The product name
-    xpath: //div[contains(@class, 'product-card__text') and not (contains(@class, 'description'))]
+    # xpath: //div[contains(@class, 'product-card__text') and not (contains(@class, 'description'))]
+    xpath: //div[contains(@class, 'row') ]/child::p[@class="name font-weight-bold text-uppercase"]
     singleValue: false
   - name: productUrl
     description: The URL for the product details page
-    xpath: //a[contains(@class, 'product-card__link')]/@producturl
+    # xpath: //a[contains(@class, 'product-card__link')]/@producturl
+    xpath: //a[contains(@class, 'product-card__link')]/@href
     singleValue: false
   - name: gtin
     description: GTIN code (includes UPC/EAN)
     singleValue: false
   - name: thumbnail
+    # singleValue: false
     description: The URL for the product thumbnail image
-    xpath: //div[contains(@class, 'product-card__image')]/img/@src
-    regExp: http.*
-    singleValue: false
+    # xpath: //div[contains(@class, 'product-card__image')]/img/@src
+    xpath: //div[contains(@class, 'd-flex flex-column')]//img/@src
+    # regExp: http.*
   - name: aggregateRating
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
