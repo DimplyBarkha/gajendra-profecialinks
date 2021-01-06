@@ -56,6 +56,7 @@ const transform = (data) => {
         });
       }
       if (row.alternateImages) {
+        row.alternateImages.splice(0, 1);
         row.alternateImages.forEach(item => {
           item.text = 'https://www.fust.ch' + item.text;
         });
