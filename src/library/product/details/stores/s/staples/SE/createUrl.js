@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'staples.se',
     prefix: null,
-    url: null,
+    url: 'https://www.staples.se/search?keywords={id}',
     country: 'SE',
     store: 'staples',
     zipcode: '',
