@@ -115,6 +115,9 @@ fields:
   - name: videos
     singleValue: false
     xpath: //div[contains(@id,"ii_video_")] | //img[contains(@class,"wc-video")]/@wcobj
+  - name: galleryVideos
+    singleValue: false
+    xpath: //div[contains(@id,"ii_video_")] | //img[contains(@class,"wc-video")]/@wcobj
   - name: name
     singleValue: false
     manualSelector: div.sku-title
