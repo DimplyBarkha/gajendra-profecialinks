@@ -22,6 +22,39 @@ module.exports = {
         return newDiv;
       }
 
+      function extractNutritionInfo () {
+        // column position in table data where nutrition data per 100 g/ml is stored
+        const columnPosition = document.evaluate('count(//thead/tr//th[contains(.,"100")]/preceding-sibling::th)', document, null, XPathResult.STRING_TYPE, null).stringValue;
+        const servingSize = document.evaluate(`//thead/tr/th[@class="jum-nutiriton-heading"][${columnPosition}]`, document, null, XPathResult.STRING_TYPE, null).stringValue;
+        const caloriesPerServing = document.evaluate(`//th[contains(translate(., "Energie", "energie"), "energie")]/parent::tr/following-sibling::tr[1]/th[not(text())]/following-sibling::td[${columnPosition}] | //th[contains(translate(., "Energie", "energie"), "energie")]/following-sibling::td[${columnPosition}][contains(text(),"kcal")] | //th[contains(translate(., "Kcal", "kcal"), "kcal")]/following-sibling::td[${columnPosition}][contains(text(),"kcal")]`, document, null, XPathResult.STRING_TYPE, null).stringValue;
+        const totalFatPerServing = document.evaluate(`//th[contains(translate(., "Vet", "vet"), "vet")]/following-sibling::td[${columnPosition}]`, document, null, XPathResult.STRING_TYPE, null).stringValue;
+        const saturatedFatPerServing = document.evaluate(`//th[contains(translate(., 'Verzadigd', 'verzadigd'), 'verzadigd')]/following-sibling::td[${columnPosition}]`, document, null, XPathResult.STRING_TYPE, null).stringValue;
+        const sodiumPerServing = document.evaluate(`//th[contains(translate(., 'Natrium', 'natrium'), 'natrium')]/following-sibling::td[${columnPosition}]`, document, null, XPathResult.STRING_TYPE, null).stringValue;
+        const totalCarbPerServing = document.evaluate(`//th[contains(translate(., 'Koolhydraten', 'koolhydraten'), 'koolhydraten')]/following-sibling::td[${columnPosition}]`, document, null, XPathResult.STRING_TYPE, null).stringValue;
+        const dietaryFibrePerServing = document.evaluate(`//th[contains(translate(., 'Vezels', 'vezels'), 'vezels')]/following-sibling::td[${columnPosition}]`, document, null, XPathResult.STRING_TYPE, null).stringValue;
+        const totalSugarsPerServing = document.evaluate(`//th[contains(translate(., 'Suiker', 'suiker'), 'suiker')]/following-sibling::td[${columnPosition}]`, document, null, XPathResult.STRING_TYPE, null).stringValue;
+        const proteinPerServing = document.evaluate(`//th[contains(translate(., 'Eiwit', 'eiwit'), 'eiwit')]/following-sibling::td[${columnPosition}] | //th[contains(translate(., 'Proteïnen', 'proteïnen'), 'proteïnen')]/following-sibling::td[${columnPosition}] | //th[contains(translate(., 'Protein', 'protein'), 'protein')]/following-sibling::td[${columnPosition}]`, document, null, XPathResult.STRING_TYPE, null).stringValue;
+        const vitaminAPerServing = document.evaluate(`//th[contains(translate(., 'Vitamine A', 'vitamine a'), 'vitamine a')]/following-sibling::td[${columnPosition}]`, document, null, XPathResult.STRING_TYPE, null).stringValue;
+        const vitaminCPerServing = document.evaluate(`//th[contains(translate(., 'Vitamine C', 'vitamine c'), 'vitamine c')]/following-sibling::td[${columnPosition}]`, document, null, XPathResult.STRING_TYPE, null).stringValue;
+        const calciumPerServing = document.evaluate(`//th[contains(translate(., 'Calcium', 'calcium'), 'calcium')]/following-sibling::td[${columnPosition}]`, document, null, XPathResult.STRING_TYPE, null).stringValue;
+        const magnesiumPerServing = document.evaluate(`//th[contains(translate(., 'Magnesium', 'magnesium'), 'magnesium')]/following-sibling::td[${columnPosition}]`, document, null, XPathResult.STRING_TYPE, null).stringValue;
+        const saltPerServing = document.evaluate(`//th[contains(translate(., 'Zout', 'zout'), 'zout')]/following-sibling::td[${columnPosition}]`, document, null, XPathResult.STRING_TYPE, null).stringValue;
+        addHiddenDiv('servingSize', servingSize);
+        addHiddenDiv('caloriesPerServing', caloriesPerServing);
+        addHiddenDiv('totalFatPerServing', totalFatPerServing);
+        addHiddenDiv('saturatedFatPerServing', saturatedFatPerServing);
+        addHiddenDiv('sodiumPerServing', sodiumPerServing);
+        addHiddenDiv('totalCarbPerServing', totalCarbPerServing);
+        addHiddenDiv('dietaryFibrePerServing', dietaryFibrePerServing);
+        addHiddenDiv('totalSugarsPerServing', totalSugarsPerServing);
+        addHiddenDiv('proteinPerServing', proteinPerServing);
+        addHiddenDiv('vitaminAPerServing', vitaminAPerServing);
+        addHiddenDiv('vitaminCPerServing', vitaminCPerServing);
+        addHiddenDiv('calciumPerServing', calciumPerServing);
+        addHiddenDiv('magnesiumPerServing', magnesiumPerServing);
+        addHiddenDiv('saltPerServing', saltPerServing);
+      }
+      extractNutritionInfo();
       const categories = document.evaluate('//a[contains(@href,"categorieen")]/@href', document, null, XPathResult.STRING_TYPE, null).stringValue;
       if (categories) {
         const categoriesArray = categories.match(/categorieen\/(.+)/)[1].split('/');
@@ -99,7 +132,9 @@ module.exports = {
         text: dataRef[0].group[0].description[0].text.match(/(\|\|.+)/)[0],
       }];
     }
-
+    if (dataRef[0].group[0].category) {
+      console.log(dataRef[0].group[0].category[0].text.replace(/(-)/g, ''));
+    }
     return dataRef;
   },
 };
