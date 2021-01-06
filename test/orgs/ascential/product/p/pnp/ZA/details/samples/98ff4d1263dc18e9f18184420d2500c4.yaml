@@ -2,7 +2,7 @@ input:
   _url: http://pnp.co.za
   URL: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Beverages/Cold-Drinks/Carbonated-Soft-Drinks/SPARLETTA-CREME-SODA-CAN-300ML/p/000000000000773097_CS
 extractions:
-  - html: https://workbench.import.io/html/run=be80494f-8449-4343-a040-9422e264b9f0/task=484be28c-0287-4c4b-ad7c-4ba1f02d42a3/3b5ac27c-3314-4c51-999a-d09d571362b0.html
+  - html: https://workbench.import.io/html/run=ce906da8-6bdf-4470-9ef0-7e04ef0eac9d/task=f1389f8f-2b48-4bab-8507-23eab39bf562/1c90e4c3-1f6c-4ff4-a152-1945ab642f51.html
     extractionConfigId: product/details/stores/p/pnp/ZA/extract
     data:
       - group:
@@ -15,14 +15,6 @@ extractions:
             nameExtended:
               - text: Sparletta Creme Soda 300ml Can x 6
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[1]/h1[1]
-            description:
-              - text: >-
-                  DESCRIPTION:
-                   
-                   
-                   
-                   Low kilojoule soft drink with sugar & non nutritive sweetners.
-                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]
             brandText:
               - text: Sparletta
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[1]/h1[1]
@@ -41,6 +33,10 @@ extractions:
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[6]
+            description:
+              - text: "DESCRIPTION: Low kilojoule soft drink with sugar & non nutritive
+                  sweetners."
+                xpath: /html/body/div[7]
             variantCount:
               - text: "0"
             price:
@@ -54,4 +50,4 @@ extractions:
             caloriesPerServing:
               - text: " "
         xpath: /html/body
-    timestamp: 1609855945457
+    timestamp: 1609936965981

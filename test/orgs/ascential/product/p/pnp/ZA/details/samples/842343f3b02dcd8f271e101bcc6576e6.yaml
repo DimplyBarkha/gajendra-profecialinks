@@ -2,29 +2,11 @@ input:
   _url: http://pnp.co.za
   URL: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Beverages/Cold-Drinks/Carbonated-Soft-Drinks/COCA-COLA-NON-RET-1L/p/000000000000148832_EA
 extractions:
-  - html: https://workbench.import.io/html/run=be80494f-8449-4343-a040-9422e264b9f0/task=ee98cec2-ad2c-4338-9d5b-7f126b3aa300/271c4337-75f9-4186-a08d-d9cb9af181a2.html
+  - html: https://workbench.import.io/html/run=ce906da8-6bdf-4470-9ef0-7e04ef0eac9d/task=8f87c1cd-43e1-4de3-97b7-758c7eba9e42/49726133-8426-4915-a4fa-dc6eb8d2f807.html
     extractionConfigId: product/details/stores/p/pnp/ZA/extract
     data:
       - group:
-          - sodiumPerServing:
-              - text: "7"
-                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[2]/td[2]/text()[1]
-            sodiumPerServingUom:
-              - text: mg
-                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[2]/td[4]/text()[1]
-            totalCarbPerServing:
-              - text: "11"
-                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[3]/td[2]/text()[1]
-            totalCarbPerServingUom:
-              - text: g
-                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[3]/td[4]/text()[1]
-            totalSugarsPerServing:
-              - text: "10.6"
-                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[4]/td[2]/text()[1]
-            totalSugarsPerServingUom:
-              - text: g
-                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[4]/td[4]/text()[1]
-            image:
+          - image:
               - text: https://cdn-prd-02.pnp.co.za/sys-master/images/hd0/h0e/10063518302238/silo-product-image-v2-19Nov2020-180127-5449000054227-front-476322-900_400Wx400H
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
             imageAlt:
@@ -33,14 +15,6 @@ extractions:
             nameExtended:
               - text: Coca-Cola 1l
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[1]/h1[1]
-            description:
-              - text: >-
-                  DESCRIPTION:
-                   
-                   
-                   
-                   At The Coca-Cola Company, we are a diverse, global community of people who thirst for more. Together, we are growing and learning, building on our iconic past to make an impact.
-                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]
             brandText:
               - text: Coca-Cola
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[1]/h1[1]
@@ -59,12 +33,35 @@ extractions:
             servingSize:
               - text: "100"
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/thead[1]/tr[1]/th[2]/div[1]/font[1]/text()[1]
+            sodiumPerServing:
+              - text: "7"
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[2]/td[2]/text()[1]
+            sodiumPerServingUom:
+              - text: mg
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[2]/td[4]/text()[1]
+            totalCarbPerServing:
+              - text: "11"
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[3]/td[2]/text()[1]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[3]/td[4]/text()[1]
+            totalSugarsPerServing:
+              - text: "10.6"
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[4]/td[2]/text()[1]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[4]/td[4]/text()[1]
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[6]
             promotion:
               - text: Buy any 8 for R100.00 (Smart Price)
                 xpath: /html/body/div[7]
+            description:
+              - text: "DESCRIPTION: At The Coca-Cola Company, we are a diverse, global community
+                  of people who thirst for more. Together, we are growing and
+                  learning, building on our iconic past to make an impact."
+                xpath: /html/body/div[8]
             variantCount:
               - text: "0"
             price:
@@ -77,5 +74,5 @@ extractions:
               - text: caffeine, caramel, carbonated water, flavouring, phosphoric acid, sugar
             caloriesPerServing:
               - text: 180 kJ
-        xpath: /html
-    timestamp: 1609855948086
+        xpath: /html/body
+    timestamp: 1609936968624

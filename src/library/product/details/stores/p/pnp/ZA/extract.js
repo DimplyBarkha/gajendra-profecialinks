@@ -24,14 +24,24 @@ module.exports = {
       for (let i = 0; i < numOfTabs.length; i++) {
         numOfTabs[i].click();
       }
-      const listPrice = document.querySelector('div.oldprice') ? document.querySelector('div.oldprice').innerText : '';
+      const listPrice = document.querySelector('div.oldprice') ? document.querySelector('div.oldprice').textContent : '';
       if (listPrice) addElementToDocument('listPrice', listPrice.replace(/(.*)(\d{2})/g, '$1,$2'));
-      const availability = document.querySelector('button#addToCartButton') ? 'In Stock' : 'Out of Stock';
+      const availability = document.querySelector('button#addToCartButton') ? 'In Stock' : 'Out Of Stock';
       addElementToDocument('availability', availability);
-      const savings = document.querySelector('div.savings') ? document.querySelector('div.savings').innerText : '';
+      const savings = document.querySelector('div.savings') ? document.querySelector('div.savings').textContent : '';
       if (savings) addElementToDocument('promotion', `SAVE ${savings.replace(/(.*)(\d{2})/g, '$1,$2')}`);
-      const promotion = document.querySelector('div[class*=product-details-price-promo] p') ? document.querySelector('div[class*=product-details-price-promo] p').innerText : '';
+      const promotion = document.querySelector('div[class*=product-details-price-promo] p') ? document.querySelector('div[class*=product-details-price-promo] p').textContent : '';
       if (promotion) addElementToDocument('promotion', promotion);
+
+      const descriptionNode = document.evaluate('//div[@class="headline"][contains(text(),"DESCRIPTION")]/../..', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const description = descriptionNode ? descriptionNode.textContent : '';
+      const featuresNode = document.evaluate('//div[@class="headline"][contains(text(),"FEATURES")]/../..', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const features = featuresNode ? featuresNode.textContent : '';
+      addElementToDocument('div_description', `${description} ${features}`);
+
+      const directionsNode = document.evaluate('//div[@class="headline"][contains(text(),"USAGE")]/../..', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const directions = directionsNode ? directionsNode.textContent : '';
+      addElementToDocument('div_directions', directions);
     });
     await context.extract(productDetails, { transform });
   },

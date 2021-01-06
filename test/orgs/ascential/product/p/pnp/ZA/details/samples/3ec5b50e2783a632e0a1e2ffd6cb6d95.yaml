@@ -2,7 +2,7 @@ input:
   _url: http://pnp.co.za
   URL: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Beverages/Cold-Drinks/Carbonated-Soft-Drinks/COCA-COLA-ZERO-1L/p/000000000000378532_EA
 extractions:
-  - html: https://workbench.import.io/html/run=be80494f-8449-4343-a040-9422e264b9f0/task=c194da74-092a-4dd0-b22b-84cc3e590c0f/27db5016-dab1-4b6f-8228-ed7cf81a308b.html
+  - html: https://workbench.import.io/html/run=ce906da8-6bdf-4470-9ef0-7e04ef0eac9d/task=298dd47d-d1f5-419f-b1c4-b5085fd98876/d2fb5da7-170b-4b23-88d5-0c25bac9ce86.html
     extractionConfigId: product/details/stores/p/pnp/ZA/extract
     data:
       - group:
@@ -63,14 +63,6 @@ extractions:
             nameExtended:
               - text: Coca-Cola Zero Plastic Bottle 1l
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[1]/h1[1]
-            description:
-              - text: |-
-                  DESCRIPTION:
-                   
-                   
-                   
-                   GREAT COCA-COLA TASTE, ZERO SUGAR, LOW KILOJULE
-                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]
             brandText:
               - text: Coca-Cola
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[1]/h1[1]
@@ -95,6 +87,9 @@ extractions:
             promotion:
               - text: Buy any 2 for R25.00
                 xpath: /html/body/div[7]
+            description:
+              - text: "DESCRIPTION: GREAT COCA-COLA TASTE, ZERO SUGAR, LOW KILOJULE"
+                xpath: /html/body/div[8]
             variantCount:
               - text: "0"
             price:
@@ -108,4 +103,4 @@ extractions:
             caloriesPerServing:
               - text: 2014 kJ
         xpath: /html
-    timestamp: 1609855944171
+    timestamp: 1609936965371

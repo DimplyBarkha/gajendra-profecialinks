@@ -50,11 +50,12 @@ fields:
     is no availability but the product can be added to cart, this field should be
     "In Stock"
   xpath: //div[@id='availability']
+  defaultValue: 'Out Of Stock'
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: //div[@class="headline"][contains(text(),'DESCRIPTION') or contains(text(),'FEATURES')]/../..
+  xpath: //div[@id='div_description']
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -104,7 +105,7 @@ fields:
 - name: directions
   singleValue: true
   description: Content under "directions" header
-  xpath: //div[@class="headline"][contains(text(),'USAGE')]/../..
+  xpath: //div[@id='div_directions']
 - name: warnings
   singleValue: true
   description: Content under "warnings" header
