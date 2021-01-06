@@ -1,6 +1,6 @@
 const { transform } = require('../shared');
 
-async function implementation (
+async function implementation(
   // @ts-ignore
   // @ts-ignore
   // @ts-ignore
@@ -18,7 +18,7 @@ async function implementation (
     let descriptionTab = document.querySelector('h2[id="description"]');
     // @ts-ignore
     descriptionTab = descriptionTab ? descriptionTab.click() : '';
-    function addElementToDocument (key, value) {
+    function addElementToDocument(key, value) {
       const catElement = document.createElement('div');
       catElement.id = key;
       catElement.textContent = value;
@@ -35,7 +35,7 @@ async function implementation (
       description = description ? description.replace(/<li>/gm, ' || ').replace(/<.*?>/gm, '').replace(/\n/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').replace('Description du produit', '').replace(/La marque vous parle/g, '').trim() : '';
     }
     addElementToDocument('description', description);
-    function findJsonData (scriptSelector, startString, endString) {
+    function findJsonData(scriptSelector, startString, endString) {
       const xpath = `//script[contains(.,'${scriptSelector}')]`;
       const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       // @ts-ignore
@@ -61,6 +61,79 @@ module.exports = {
     domain: 'conforama.ch',
     zipcode: '',
   },
-  // implementation,
+  implementation: async ({ url }, { country, domain, transform }, context, { productDetails }) => {
+    try {
+      const locationUrl = await context.evaluate(async () => {
+        return window.location.href;
+      });
+      var iframe = await context.evaluate(async () => {
+        const element = document.querySelector('div.loadbee-inpage div.loadbeeTabContent');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+          await new Promise((resolve) => setTimeout(resolve, 10000));
+        }
+        iframe = document.querySelector('div.loadbee-inpage div.loadbeeTabContent iframe') ? document.querySelector('div.loadbee-inpage div.loadbeeTabContent iframe').getAttribute('src') : null;
+        // iframe = iframe && 'https:' + iframe;
+        return iframe;
+      });
+      if (iframe) {
+        console.log('iframe: ', iframe);
+        await context.goto(iframe);
+        await new Promise((resolve) => setTimeout(resolve, 10000));
+        const manufactDes = await context.evaluate(async () => {
+          let descArr = [];
+          const desc1 = document.querySelector("div.lb-introtext") ? document.querySelector("div.lb-introtext") : '';
+          if (desc1) {
+            console.log('desc1: ', desc1);
+            // @ts-ignore
+            descArr.push(desc1.innerText)
+          }
+          const desc2 = document.querySelector("div.panel.descriptions.productdescriptionComplete") ? document.querySelector("div.panel.descriptions.productdescriptionComplete") : '';
+          if (desc2) {
+            console.log('desc2: ', desc2);
+            // @ts-ignore
+            descArr.push(desc2.innerText)
+            console.log('descArr: ', descArr);
+          }
+          const desc = descArr.join('');
+          // @ts-ignore
+          console.log('desc: ', desc);
+          const iframeFooter = document.querySelector('div.panel');
+          if (iframeFooter) {
+            iframeFooter.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+            await new Promise((resolve) => setTimeout(resolve, 10000));
+          }
+          if (desc) {
+            // @ts-ignore
+            return desc;
+          }
+        });
+        const manufactImg = await context.evaluate(() => {
+          const arrImgSel = document.querySelectorAll("div[class*='container-fluid main-container'] img[src]") ? Array.from(document.querySelectorAll("div[class*='container-fluid main-container'] img[src]")) : '';
+          // @ts-ignore
+          const img = arrImgSel.map((imgSelector) => imgSelector && imgSelector.src ? imgSelector.src : '');
+          const imgURL = img.join(' | ');
+          return imgURL;
+        });
+        await context.goto(locationUrl, { timeout: 60000 });
+        await context.evaluate((manufactDes, manufactImg) => {
+          addHiddenDiv('ii_manu', manufactDes);
+          addHiddenDiv('ii_img', manufactImg);
+          function addHiddenDiv(id, content) {
+            const newDiv = document.createElement('div');
+            newDiv.id = id;
+            newDiv.textContent = content;
+            newDiv.style.display = 'none';
+            document.body.appendChild(newDiv);
+          }
+        // }, manufactDes);
+        }, manufactDes, manufactImg);
+        return await context.extract(productDetails, { transform }, { type: 'APPEND' });
+      }
+    } catch (e) {
+      console.log(e);
+    }
+    return await context.extract(productDetails, { transform });
+  },
 };
 

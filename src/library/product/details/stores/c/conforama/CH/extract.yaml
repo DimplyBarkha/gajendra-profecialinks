@@ -170,6 +170,15 @@ fields:
     singleValue: false
     defaultValue: Yes
   - name: termsAndConditions
-    singleValue: flase
+    singleValue: false
     defaultValue: Yes
+  - name: manufacturerDescription
+    singleValue: false
+    manualSelector: div#ii_manu
+  - name: manufacturerImages
+    singleValue: false
+    manualSelector: div#ii_img 
+  - name: promotion
+    singleValue: false
+    xpath: //div[@class="priceInfos"]//*[@class="reduc-info"]//*[@class="reduc"]
   
