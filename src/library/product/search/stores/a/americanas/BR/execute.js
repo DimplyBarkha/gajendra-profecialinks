@@ -5,7 +5,7 @@ module.exports = {
     country: 'BR',
     store: 'americanas',
     domain: 'americanas.com.br',
-    url: 'https://www.americanas.com.br/busca/{searchTerms}',
+    url: 'https://www.americanas.com.br/busca?conteudo={searchTerms}',
     loadedSelector: 'div[class*=StyledGrid]',
     noResultsXPath: '//div[contains(@class,"src__Container")]//span[contains(@class,"src__Text")][contains(text(),"Ops!")]',
     zipcode: '',
