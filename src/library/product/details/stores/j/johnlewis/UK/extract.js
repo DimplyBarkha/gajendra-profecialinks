@@ -174,14 +174,6 @@ module.exports = {
         }
       }
 
-      const recentlyViewedItems = document.querySelectorAll('.recently-viewed-container .recently-viewed-item__title');
-
-      for (const item of recentlyViewedItems) {
-        if (item.innerText) {
-          updpItems.push(item.innerText);
-        }
-      }
-
       for (const item of updpItems) {
         const newEl = document.createElement('import-updp');
         newEl.innerText = item;
