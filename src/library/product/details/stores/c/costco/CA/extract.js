@@ -76,7 +76,6 @@ module.exports = {
           let info = element.replace('\n', '');
           info = info.replace('\t', '');
           info = info.trim();
-
           if (info.length > 0) {
             tabDescInfoNew.push(info);
           }
@@ -88,7 +87,6 @@ module.exports = {
       }
 
       let finalDescInfo;
-
       if (featureDescInfo !== null && featureDescInfo.length > 0) {
         addElementToDocument('featureBullets', featureDescInfo);
         finalDescInfo = 'Features: ||' + featureDescInfo + ' ||' + boldText[0] + ' ||' + tabDescInfo[1];
@@ -97,7 +95,6 @@ module.exports = {
         addElementToDocument('additionalDescBulletInfo', bulletsInfo);
         finalDescInfo = finalDescInfo + bulletsInfo;
       }
-
       if (boldText.length > 0 && boldText[2] !== null) {
         if (!boldText[2].includes('★')) {
           finalDescInfo = finalDescInfo + ' ||' + boldText[2];
@@ -137,11 +134,13 @@ module.exports = {
       const specXpath = '//div[contains(@class,"product-info-specs")]//div[@class="row"]';
       const specValue = getAllXpath(specXpath, 'innerText');
       let specVal = '';
-      specValue.forEach(function (element) {
-        specVal = specVal + ' ' + element;
-      });
-      if (specVal.length > 0) {
-        addElementToDocument('added_specValue', specVal);
+      if (specValue != null) {
+        specValue.forEach(function (element) {
+          specVal = specVal + ' ' + element;
+        });
+        if (specVal != null && specVal !== '') {
+          addElementToDocument('added_specValue', specVal);
+        }
       }
 
       // xpath for specificationValue
@@ -174,33 +173,44 @@ module.exports = {
       }
 
       // xpath for availabilityText
+      const availXpath = '//input[@id="add-to-cart-btn"]/@value';
+      const availValue = getXpath(availXpath, 'nodeValue');
       const altAvailXpath = '//script[@type="text/javascript"][contains(text(),"Viewed Product")]';
       const altAvailValue = getXpath(altAvailXpath, 'innerText');
       const idObj = JSON.stringify(altAvailValue);
       var idArr = idObj.split(',');
       let availabilityText;
-
-      if (idArr[10].includes('In stock')) {
-        availabilityText = 'In Stock';
-      } else if (idArr[9].includes('Out of stock')) {
-        availabilityText = 'Out of Stock';
+      if (availValue != null) {
+        if (availValue.includes('Add to Cart')) {
+          availabilityText = 'In Stock';
+        } else {
+          availabilityText = 'Out of Stock';
+        }
+      } else {
+        if (idArr[10].includes('In stock')) {
+          availabilityText = 'In Stock';
+        } else if (idArr[9].includes('Out of stock')) {
+          availabilityText = 'Out of Stock';
+        }
       }
       addElementToDocument('availabilityText', availabilityText);
 
       // xpath for priceValue
-      let priceValue;
+      const priceXpath = '//div[contains(@id,"pull-right-price")]/span';
+      const priceValue = getAllXpath(priceXpath, 'innerText');
       let priceNew;
-      if (idArr[6].includes('price:')) {
-        // priceNew = idArr[6].substring(18, 23);
-        priceNew = idArr[6].substring(idArr[6].indexOf("'") + 1, idArr[6].lastIndexOf("'"));
-
-        priceValue = '$' + '' + priceNew;
-      } else if (idArr[5].includes('price:')) {
-        priceNew = idArr[5].substring(idArr[5].indexOf("'") + 1, idArr[5].lastIndexOf("'"));
-
-        priceValue = '$' + '' + priceNew;
+      if (priceValue.length > 0 && !priceValue[0].includes('- -.- -')) {
+        priceNew = [priceValue[1] + '' + priceValue[0]];
+      } else {
+        if (idArr[6].includes('price:')) {
+          const priceValue1 = idArr[6].substring(idArr[6].indexOf("'") + 1, idArr[6].lastIndexOf("'"));
+          priceNew = '$' + '' + priceValue1;
+        } else if (idArr[5].includes('price:')) {
+          const priceValue2 = idArr[5].substring(idArr[5].indexOf("'") + 1, idArr[5].lastIndexOf("'"));
+          priceNew = '$' + '' + priceValue2;
+        }
       }
-      addElementToDocument('priceValue', priceValue);
+      addElementToDocument('priceValue', priceNew);
 
       addElementToDocument('added_variantCount', 0);
 
