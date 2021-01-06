@@ -55,7 +55,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[@class="features-container form-group"] | //div[@id="manufacturer-desc"]
+    xpath: //div[@class="features-container form-group"] | //div[@id="manufacturer-desc"] | //div[@id="addDesc"]
     # | (//div[@class="product-info-description"])[1]//*[not(contains(@class,'wc-json-data'))] 
     # //ul[@class="pdp-features"]/li 
   - name: myDescription
@@ -91,14 +91,14 @@ fields:
   - name: sku
     singleValue: false
     # xpath: //span[contains(@class,"model-number")]//span | //p[contains(@id,"product-body-model-number")]//span | //p[contains(@id,"product-body-model-number")]
-    xpath: //p[@class="model-number "] | //p[contains(@id,"product-body-model-number")]
+    xpath: //p[@class="model-number "] | //p[contains(@id,"product-body-model-number")] | //div[contains(@class,'product-info-specs')]//div[contains(text(),'Model')]/following::div[1]
   - name: variantId
     singleValue: false
     xpath: //p[@id="product-body-item-number"]/span | //p[@class="item-number"]
   #   regExp: (\d+)
   - name: mpc
     singleValue: false
-    xpath: //p[@class="model-number "] | //p[contains(@id,"product-body-model-number")]
+    xpath: //p[@class="model-number "] | //p[contains(@id,"product-body-model-number")] | //div[contains(@class,'product-info-specs')]//div[contains(text(),'Model')]/following::div[1]
   # - name: packSize
   #   singleValue: false
   #   xpath: //div[@class="row"]//div[contains(.,'Package Quantity (Count)')]/../div[2]

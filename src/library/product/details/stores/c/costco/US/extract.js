@@ -188,11 +188,40 @@ module.exports = {
         }
         const listPrice = Array.from(document.querySelectorAll('div[class="online-price active"] span[class*="op-value"], div[class="online-price active"] span[class*="currency"]'));
         const myPrice = Array.from(document.querySelectorAll('div[class="math-table"] div[id="pull-right-price"] span[class="value"], div[class="math-table"] div[id="pull-right-price"] span[class="currency"]'));
-        if (listPrice && listPrice.length > 0 && myPrice && myPrice.length) {
+        if (listPrice && listPrice.length > 0 && myPrice && myPrice.length > 0) {
           const newListPrice = listPrice[0].innerHTML + listPrice[1].innerHTML;
           const newMyPrice = myPrice[0].innerHTML + myPrice[1].innerHTML;
           if (newListPrice !== newMyPrice && (newMyPrice.includes('-') === false)) {
             addHiddenDiv('listPrice', newListPrice);
+          }
+        }
+      });
+    } catch (e) {
+      console.log(e);
+    };
+
+    try {
+      await context.evaluate(async () => {
+        function addHiddenDiv (id, content) {
+          const newDiv = document.createElement('div');
+          newDiv.id = id;
+          newDiv.textContent = content;
+          newDiv.style.display = 'none';
+          document.body.appendChild(newDiv);
+        }
+        const description = document.querySelector('div[class="features-container form-group"]');
+        const manufacturerDesc = document.querySelector('div.product-info-description div#wc-aplus');
+        const desc = description && description.innerHTML ? description.innerHTML : '';
+        const manuDesc = manufacturerDesc && manufacturerDesc.innerHTML ? manufacturerDesc.innerHTML : '';
+        console.log('description->', desc);
+        console.log('manudescription->', manuDesc);
+        if (!desc && desc.length === 0 && !manuDesc && manuDesc.length === 0) {
+          const newDescription = Array.from(document.querySelectorAll('div[class*="product-info-description"]'));
+          const newDesc = newDescription && newDescription.length > 0 ? newDescription[0].innerText : '';
+          console.log('array->', newDescription[0].innerHTML);
+          if (newDesc && newDesc.length > 0) {
+            console.log('newDesc', newDesc);
+            addHiddenDiv('addDesc', newDesc);
           }
         }
       });

@@ -20,6 +20,19 @@ const transform = (data) => {
   console.log('transform called now');
   for (const { group } of data) {
     for (const row of group) {
+      console.log('row.specifications->', row.specifications);
+      console.log('row.manufacturerImages->', row.manufacturerImages);
+      console.log('row.allergyAdvice->', row.allergyAdvice);
+      console.log('row.videos->', row.videos);
+      console.log('row.myDescription->', row.myDescription);
+      console.log('row.variantId->', row.variantId);
+      console.log('row.variantInformation->', row.variantInformation);
+      console.log('row.sku->', row.sku);
+      console.log('row.mpc->', row.mpc);
+      console.log('row.myPrice->', row.myPrice);
+      console.log('row.description->', row.description);
+      console.log('row.price->', row.price);
+      console.log('row.manufacturerDescription->', row.manufacturerDescription);
       if (row.specifications) {
         console.log('transform specs now');
         let text = '';
@@ -49,7 +62,7 @@ const transform = (data) => {
         });
         row.manufacturerImages = variantIds;
       }
-      if (row.allergyAdvice) {
+      if (row.allergyAdvice && row.allergyAdvice.length > 0) {
         let text = '';
         row.allergyAdvice.forEach(item => {
           text += item.text.replace(/\n/g, '');
@@ -70,13 +83,13 @@ const transform = (data) => {
       }
 
       let myDesc = '';
-      if (row.myDescription) {
+      if (row.myDescription && row.myDescription.length > 0) {
         for (const item of row.myDescription) {
           myDesc += clean(item.text);
         }
       }
 
-      if (row.variantId) {
+      if (row.variantId && row.variantId.length > 0) {
         for (const item of row.variantId) {
           const arr = item.text.split(' ');
           if (arr.length > 1) {
@@ -96,28 +109,32 @@ const transform = (data) => {
         } else {
           row.variantInformation = [{ text: '' }];
         }
-        row.variants = [
-          {
-            text: row.variantId[0].text,
-          },
-        ];
+        if (row.variantId && row.variantId.length > 0) {
+          row.variants = [
+            {
+              text: row.variantId[0].text,
+            },
+          ];
+        }
       }
 
-      if (row.sku) {
+      if (row.sku && row.sku.length > 0) {
         for (const item of row.sku) {
           item.text = item.text.replace('Model ', '');
         }
+        row.sku = row.sku.filter((thing, index, self) => self.findIndex(t => t.text === thing.text) === index);
       }
-      if (row.mpc) {
+      if (row.mpc && row.mpc.length > 0) {
         for (const item of row.mpc) {
           item.text = item.text.replace('Model ', '');
         }
+        row.mpc = row.mpc.filter((thing, index, self) => self.findIndex(t => t.text === thing.text) === index);
       }
 
-      if (row.myPrice) {
+      if (row.myPrice && row.myPrice.length > 0) {
         row.price = row.myPrice;
       } else {
-        if (row.price && row.price.length) {
+        if (row.price && row.price.length > 0) {
           let text = '';
           row.price.forEach(item => {
             text = text + item.text;
@@ -128,12 +145,14 @@ const transform = (data) => {
 
       if (row.description) {
         let text = '';
+        row.description = row.description.filter((item) => item.text !== myDesc);
         row.description.forEach(item => {
           text += item.text.replace(/\n \n/g, ' || ');
         });
+        text = text + ' ' + myDesc;
         row.description = [
           {
-            text: text + ' ' + myDesc,
+            text: text.trim(),
           },
         ];
       }
@@ -163,6 +182,7 @@ const transform = (data) => {
         });
         row.specifications = nDesc;
       }
+      console.log('myDesc->', myDesc);
     //   if (row.listPrice && row.listPrice.length) {
     //     let text = '';
     //     row.listPrice.forEach(item => {
