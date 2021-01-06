@@ -66,7 +66,7 @@ async function implementation(
       content.images = [];
       content.videos = [];
 
-      const imagesNodes = document.querySelectorAll('div[class*=feature-image] img');
+      const imagesNodes = document.querySelectorAll('img[class*=flix-img]');
       imagesNodes.forEach(q => {
         if(q.hasAttribute('data-flixsrcset')) {
           let matches = q.getAttribute('data-flixsrcset').match(/[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/g)[0]; //url regex
