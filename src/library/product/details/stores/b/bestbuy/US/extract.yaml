@@ -108,7 +108,7 @@ fields:
     xpath: //div[contains(@class,"hover-name")] | //div[div[contains(@class,"row-title") and contains(.,'Color')]]/following-sibling::div[contains(@class,'row-value')]
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id="wc-power-page"] | //div[@class="c-accordion-content  c-accordion-content-active  c-accordion-content-complete"]
+    xpath: //div[contains(@id='manuData')] | //div[@id="wc-power-page"] | //div[@class="c-accordion-content  c-accordion-content-active  c-accordion-content-complete"]
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@id="wc-power-page"]//img/@src | //div[contains(@id,"aplusImg_")]
