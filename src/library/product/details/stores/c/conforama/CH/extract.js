@@ -82,17 +82,19 @@ module.exports = {
         await new Promise((resolve) => setTimeout(resolve, 10000));
         const manufactDes = await context.evaluate(async () => {
           let descArr = [];
-          const desc1 = document.querySelector("div.lb-introtext") ? document.querySelector("div.lb-introtext") : '';
+          let desc1 = document.querySelector("div.lb-introtext") ? document.querySelector("div.lb-introtext") : '';
           if (desc1) {
             console.log('desc1: ', desc1);
             // @ts-ignore
-            descArr.push(desc1.innerText)
+            desc1 = desc1.innerHTML ? desc1.innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').trim() : '';
+            descArr.push(desc1);
           }
-          const desc2 = document.querySelector("div.panel.descriptions.productdescriptionComplete") ? document.querySelector("div.panel.descriptions.productdescriptionComplete") : '';
+          let desc2 = document.querySelector("div.panel.descriptions.productdescriptionComplete") ? document.querySelector("div.panel.descriptions.productdescriptionComplete") : '';
           if (desc2) {
             console.log('desc2: ', desc2);
             // @ts-ignore
-            descArr.push(desc2.innerText)
+            desc2 = desc2.innerHTML ? desc2.innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').trim() : '';
+            descArr.push(desc2);
             console.log('descArr: ', descArr);
           }
           const desc = descArr.join('');
