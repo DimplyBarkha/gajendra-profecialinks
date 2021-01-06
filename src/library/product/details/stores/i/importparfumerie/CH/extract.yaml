@@ -8,7 +8,7 @@ fields:
     xpath: //div[contains(@class,"owl-stage-outer")]//div[contains(@class,"owl-item active")]//div[contains(@class,"responsive-image ") and position()=1]//img/@alt
   - name: nameExtended 
     singleValue: false 
-    xpath: //meta[@name="description"]/@content
+    xpath: //div[contains(@class,"owl-stage-outer")]//div[contains(@class,"owl-item active")]//div[contains(@class,"responsive-image ") and position()=1]//img/@alt
   - name: image
     singleValue: false
     xpath: //meta[@property="og:image"]/@content
@@ -73,10 +73,16 @@ fields:
     xpath: //ul[contains(@class,"product-variant-switch product-variant-switch--horizontal")]//li[1]//span[contains(@class,"product-variant-switch__size")]
   - name: variantInformation
     singleValue: false
-    xpath: //ul[contains(@class,"product-variant-switch product-variant-switch--horizontal")]//li//span[contains(@class,"product-variant-switch__switch-item__option")]
+    xpath: //ul[contains(@class,"product-variant-switch product-variant-switch--horizontal")]//li[1]//span[contains(@class,"product-variant-switch__size")]
   - name: firstVariant
     singleValue: false
     xpath: //div[contains(@class,"product-detail-price__item product-detail-price__item__buttons")]//div/@data-productid
   - name: variants
     singleValue: false
     xpath: //ul[contains(@class,"product-variant-switch product-variant-switch--horizontal")]//li//a/@data-product-variant-switch-trigger-id
+  - name: promotion 
+    singleValue: false
+    xpath: //div[@id="detail-gallery"]//div[contains(@class,"flag")][1]
+  - name: videos 
+    singleValue: false
+    xpath: //div[@id="detail-gallery"]//div[@class="owl-item"]//a[contains(@class,"image-gallery__main__image image-gallery__main__image--video")]/@data-galleryitem-video-src
