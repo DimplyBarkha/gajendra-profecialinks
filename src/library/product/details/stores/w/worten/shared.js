@@ -95,6 +95,18 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.inTheBoxUrl) {
+        row.inTheBoxUrl.forEach(item => {
+          if (item.text.includes('200w')) {
+            item.text = item.text.match(/^.*(?=\s200w)/gm) ? item.text.match(/^.*(?=\s200w)/gm)[0] : ''
+          }
+          if (!(item.text.startsWith('http'))) {
+            const img = item.text;
+            const imgText = 'https:' + img;
+            item.text = imgText;
+          }
+        });
+      }
     }
   }
   return data;
