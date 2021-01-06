@@ -31,12 +31,10 @@ fields:
     singleValue: true
     description: Is sponsored/paid
     type: BOOLEAN    
-
-#  Should these be source specific formulas or in the extractor? 
   - name: id
     description: Unique id (within this extractor)
     xpath: //picture[@class="ws-product-vertical__image"]//img/@src
-    regExp: (.+)(Product/)(\d+)(.jpg)
+    regExp: (.+)(Product/)(\d+)(\.)(\w+)
     regExpReplace: $3
   - name: nameExtended
     singleValue: true

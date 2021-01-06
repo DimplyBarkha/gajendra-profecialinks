@@ -199,10 +199,10 @@ module.exports = {
     name: 'offset',
     description: 'offset (0 indexed)',
   }],
-  get path () {
-    const actionjsPath = preCompileFunctions.getRobotTemplateName();
-    return `${actionjsPath}/stores/\${store[0:1]}/\${store}/\${country}/paginate`;
-  },
+  // get path () {
+  //   const actionjsPath = preCompileFunctions.getRobotTemplateName();
+  //   return `${actionjsPath}/stores/\${store[0:1]}/\${store}/\${country}/paginate`;
+  // },
   dependencies: {
     helperLib: 'action:navigation/navigationHelperLibrary',
     pager: 'action:navigation/paginate/pager',
