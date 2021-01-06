@@ -28,9 +28,7 @@ fields:
   - name: aggregateRating2
     type: STRING
     singleValue: false
-    xpath: //div[contains(@class, "ProductRating")]/@aria-label
-    regExp: (\d)(\.)(\d+)
-    regExpReplace: $1,$3
+    xpath: //div[contains(@class, "ProductRating")]/@ratingFormatted
   - name: reviewCount
     singleValue: false
     xpath: //div[contains(@class,"Rating")]//span

@@ -23,7 +23,26 @@ const implementation = async (inputs, parameters, context, dependencies) => {
     });
   }
   await autoScroll();
-
+  const addRating = async function (cotnext) {
+    await context.evaluate(async function () {
+      const productList = document.querySelectorAll(
+        '.ProductFlexBox__StyledListItem-sc-1xuegr7-0.cBIIIT .ProductRating__StyledWrapper-q99jve-0.bkeRRU[aria-label]',
+      );
+      productList.forEach((product) => {
+        const ratingText = product.getAttribute('aria-label');
+        const regexFloat = /(\d)(\.)(\d)/;
+        const regexInteger = /(\d)(?= von)/;
+        const ratingFloat = ratingText.match(regexFloat);
+        const ratingInteger = ratingText.match(regexInteger);
+        if (ratingFloat) {
+          const rating = ratingFloat[0].replace('.', ',');
+          product.setAttribute('ratingFormatted', rating);
+        } else {
+          product.setAttribute('ratingFormatted', ratingInteger[0]);
+        }
+      });
+    });
+  };
   const addSearchUrl = async function (context) {
     await context.evaluate(async function () {
       const productList = document.querySelectorAll(
@@ -34,7 +53,7 @@ const implementation = async (inputs, parameters, context, dependencies) => {
     });
   };
   await addSearchUrl(context);
-
+  await addRating(context);
   return await context.extract(productDetails, { transform });
 };
 
