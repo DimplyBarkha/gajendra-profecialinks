@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'tmall.ru',
     prefix: null,
-    url: null,
+    url: 'https://aliexpress.ru/item/{id}.html',
     country: 'RU',
     store: 'tmall',
     zipcode: '',
