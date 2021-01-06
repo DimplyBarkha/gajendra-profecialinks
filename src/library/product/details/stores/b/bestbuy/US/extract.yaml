@@ -108,10 +108,10 @@ fields:
     xpath: //div[contains(@class,"hover-name")] | //div[div[contains(@class,"row-title") and contains(.,'Color')]]/following-sibling::div[contains(@class,'row-value')]
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[contains(@id='syndi_powerpage')] | //div[@id="wc-power-page"] | //div[@class="c-accordion-content  c-accordion-content-active  c-accordion-content-complete"]
+    xpath: //div[@id="pd_manu_desc"]
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="wc-power-page"]//img/@src | //div[contains(@id,"aplusImg_")]
+    xpath: //div[@id="wc-power-page"]//img/@src | //div[contains(@id,"aplusImg_")] | //div[contains(@id,"aplus_img")]
   - name: videos
     singleValue: false
     xpath: //div[contains(@id,"ii_video_")] | //img[contains(@class,"wc-video")]/@wcobj

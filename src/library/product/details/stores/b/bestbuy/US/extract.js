@@ -14,7 +14,47 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  const mainUrl = await context.evaluate(async function () {
+    return window.location.href;
+  });
 
+  const iFrameSrc = await context.evaluate(async function () {
+    const manuf = document.querySelector('button[data-track*="From the Manufacturer');
+    if (manuf) {
+      manuf.click();
+      await new Promise(resolve => setTimeout(resolve, 5000));
+    }
+    const iFrameSrc = document.querySelector('iframe.manufacturer-content-iframe') && document.querySelector('iframe.manufacturer-content-iframe').getAttribute('src');
+    return iFrameSrc;
+  });
+  let manufacturerData = '';
+  if (iFrameSrc) {
+    const timeout = parameters.timeout ? parameters.timeout : 130000;
+    await context.goto(iFrameSrc);
+    await context.waitForSelector('div#syndi_powerpage div[class*="syndigo-shadowed-powerpage"]');
+    manufacturerData = await context.evaluate(async function () {
+      const manuData = document.querySelector('div#syndi_powerpage div[class*="syndigo-shadowed-powerpage"]');
+      const getShadowDomHtml = (manuData) => {
+        let shadowText = '';
+        const shadowImage = [];
+        if (manuData && manuData.shadowRoot) {
+          let imagesHtml = manuData.shadowRoot.childNodes[0];
+          for (const el of manuData.shadowRoot.childNodes) {
+            shadowText += el.innerText;
+          }
+          imagesHtml = imagesHtml.querySelectorAll('img') || '';
+          if (imagesHtml && imagesHtml.length) {
+            imagesHtml.forEach(element => {
+              shadowImage.push(element.src);
+            });
+          }
+        }
+        return { shadowText: shadowText.trim(), shadowImage };
+      };
+      return getShadowDomHtml(manuData);
+    });
+    await context.goto(mainUrl, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: true });
+  }
   try {
     // await context.captureRequests();
     // try{
@@ -158,10 +198,6 @@ async function implementation (
       }
     }, Array.from(videos));
 
-    const iFrameSrc = await context.evaluate(async function () {
-      const iFrameSrc = document.querySelector('iframe.manufacturer-content-iframe') && document.querySelector('iframe.manufacturer-content-iframe').getAttribute('src');
-      return iFrameSrc;
-    });
     await context.evaluate(async function () {
       document.querySelector('button.has-text.image-button') ? document.querySelector('button.has-text.image-button').click() : document.querySelector('button.see-more-images-button') ? document.querySelector('button.see-more-images-button').click() : '';
       function addHiddenDiv (id, content) {
@@ -180,46 +216,25 @@ async function implementation (
         }
       }
     });
-    await context.extract(productDetails, { transform });
-
-    if (iFrameSrc) {
-      await context.goto(iFrameSrc);
-      await context.evaluate(async function () {
-        const manuData = document.querySelector('div#syndi_powerpage') && document.querySelector('div#syndi_powerpage').innerText;
-        function addHiddenDiv (id, content) {
-          const newDiv = document.createElement('div');
-          newDiv.id = id;
-          newDiv.textContent = content;
-          newDiv.style.display = 'none';
-          document.body.appendChild(newDiv);
-        }
-        // Returns HTML of given shadow DOM.
-        const getShadowDomHtml = (shadowRoot) => {
-          let shadowHTML = '';
-          for (const el of shadowRoot.childNodes) {
-            shadowHTML += el.nodeValue || el.outerHTML;
-          }
-          return shadowHTML;
-        };
-
-        // Recursively replaces shadow DOMs with their HTML.
-        const replaceShadowDomsWithHtml = (rootElement) => {
-          for (const el of rootElement.querySelectorAll('*')) {
-            if (el.shadowRoot) {
-              replaceShadowDomsWithHtml(el.shadowRoot);
-              el.innerHTML += getShadowDomHtml(el.shadowRoot);
-            }
-          }
-        };
-
-        replaceShadowDomsWithHtml(document.body);
-        addHiddenDiv('manuData', manuData);
-      });
-    }
+    // await context.extract(productDetails, { transform });
   } catch (error) {
     console.log(error);
   }
-  return await context.extract(productDetails, { type: 'MERGE_ROWS', transform });
+  await context.evaluate(async function (manufacturerData) {
+    function addHiddenDiv (id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+    console.log('---------->', manufacturerData);
+    manufacturerData.shadowText && addHiddenDiv('pd_manu_desc', manufacturerData.shadowText);
+    manufacturerData.shadowImage && manufacturerData.shadowImage.length && manufacturerData.shadowImage.forEach(element => {
+      addHiddenDiv('aplus_img', element);
+    });
+  }, manufacturerData);
+  return await context.extract(productDetails, { transform });
 }
 
 module.exports = {
