@@ -11,7 +11,7 @@ fields:
     xpath: //div[contains(@class,"img-thumbnail")]//a[contains(@class,"MagicZoomPlus")]//img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class="slick-track"]//div[contains(@class,"slick-slide slick-active") and contains(@index,"1")]//a[contains(@class,"mZoomSlickThumb MagicThumb-swap")]//@href
+    xpath: //div[@class="slick-track"]//div[contains(@class,"slick-slide slick-") and not(contains(position(),"1"))]//a[contains(@class,"mZoomSlickThumb MagicThumb-swap")]//@href
   - name: category
     singleValue: false
     xpath: //ul[contains(@class,"breadcrumb hidden-xs hidden-is nvt-bdsm")]//li
@@ -26,6 +26,7 @@ fields:
     xpath: concat(//span[@id="product_online_price"]//span[@itemprop="price"],' ',//span[@id="product_online_price"]//span[@class="priceSuffix"])
   - name: availabilityText
     singleValue: false
+    xpath: //div[contains(@class,"addCartSection")]//button[contains(@id,"addToCartButtonNew")]/@class
   - name: description 
     singleValue: false
     xpath: //div[contains(@class,"tab-pane active")]//div[@class="panel-body"]//div[@class="contentList"]//span | //div[contains(@class,"tab-pane active")]//div[@class="panel-body"]//div[@class="contentList"]//ul/li
@@ -66,4 +67,4 @@ fields:
     defaultValue: 'yes'
   - name: ingredientsList
     singleValue: false
-    xpath: //div[contains(@class,"tab-pane active")]//div[@class="panel-body"]//div[@class="contentList"]//p//strong[contains(text(),"Ingredients:")]/parent::*//following-sibling::p
+    xpath: //div[contains(@class,"tab-pane active")]//div[@class="panel-body"]//div[@class="contentList"]//p//strong[contains(text(),"Ingredients:")]/parent::*//following-sibling::p | //div[contains(@class,"tab-pane active")]//div[@class="panel-body"]//div[@class="contentList"]//p//strong[contains(text(),"Ingredients:")]/parent::* | //div[contains(@class,"tab-pane active")]//div[@class="panel-body"]//div[@class="contentList"]//p[contains(text(),"Ingredients:")]/parent::*//following-sibling::p[2] | //div[contains(@class,"tab-pane active")]//div[@class="panel-body"]//div[@class="contentList"]//ul//li[contains(text(),"Ingredients")]

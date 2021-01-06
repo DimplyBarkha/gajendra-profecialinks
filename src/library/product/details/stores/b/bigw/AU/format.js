@@ -41,6 +41,21 @@ const transform = (data) => {
               item.text = item.text.replace(/\.$/, '');
             });
           }
+          if (row.ingredientsList) {
+            row.ingredientsList.forEach(item => {
+              item.text = item.text.replace(/\s*/, '');
+              item.text = item.text.replace('Ingredients:', '');
+            });
+          }
+          if(row.availabilityText){
+            row.availabilityText.forEach(item => {
+              if (item.text != 'addToCartButtonNew btn btn-orange'){
+                row.availabilityText = [{"text": 'Out of Stock', "xpath": row.availabilityText[0].xpath}]
+              }else{
+                row.availabilityText = [{"text": 'In Stock', "xpath": row.availabilityText[0].xpath}]
+              }
+            })
+          }
           if (row.quantity) {
             var quantityArr = [];
             row.quantity.forEach(item => {
