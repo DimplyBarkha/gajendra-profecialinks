@@ -30,16 +30,14 @@ const transform = (data) => {
         ];
       }
 
-      if (row.price) {
-        let text = '';
-        row.price.forEach(item => {
-          text = row.price.map(elm => elm.text).join('.');
-        });
-        row.price = [
-          {
-            text: text,
-          },
-        ];
+      if (row.price && row.price[0] && row.price[1]) {
+        if (!row.price[0].text.includes(".")) {
+          row.price = [
+            {
+              text: `${row.price[0].text}.${row.price[1].text}`
+            },
+          ];
+        }
       }
 
       if (row.quantity) {
@@ -102,13 +100,16 @@ const transform = (data) => {
         ];
       }
 
-      if (row.additionalDescBulletInfo){
+      if (row.additionalDescBulletInfo) {
         row.additionalDescBulletInfo.forEach(bullet => {
-          if(bullet.text.includes('Item')){
+          if (bullet.text.includes('Item')) {
             const numsOnly = new RegExp(/\d+/);
             row.sku = [{ text: bullet.text.match(numsOnly)[0] }];
+            if (!row.variantId) {
+              row.variantId = row.sku;
+            }
           }
-        })
+        });
       }
 
       let text = '';

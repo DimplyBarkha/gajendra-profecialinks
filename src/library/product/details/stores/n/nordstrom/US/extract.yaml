@@ -16,7 +16,7 @@ fields:
   - name: listPrice
     xpath: ancestor::html//section[@id="product-page-price-lockup"]//span[contains(@id,"original-price")]/span[last()]
   - name: price
-    xpath: ancestor::html//span[@id="current-price-string"] | //span[@id="current-price-string"]/following-sibling::sup
+    xpath: ancestor::html//span[@id="current-price-string"] | ancestor::html//span[@id="current-price-string"]/following-sibling::sup
     regExp: ^[^–]+
   - name: availabilityText
     xpath: ancestor::html//span[contains(text(),'Add to Bag')]

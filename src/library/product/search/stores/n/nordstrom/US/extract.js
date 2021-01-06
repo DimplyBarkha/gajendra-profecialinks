@@ -52,4 +52,4 @@ module.exports = {
   //   await context.evaluate(addProductCode);
   //   return await context.extract(productDetails, { transform });
   // },
-}
+};

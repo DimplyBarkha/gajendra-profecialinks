@@ -116,12 +116,12 @@ module.exports = {
         tBody.appendChild(tr);
       }
     });
-    await context.waitForXPath('//span[contains(text(),"Item \#")]',{ timeout:15000 })
+    await context.waitForXPath('//span[contains(text(),"Item \#")]', { timeout: 15000 });
     // scroll to get recommended products to load:
-    await context.evaluate(async()=>{
+    await context.evaluate(async () => {
       window.scrollTo(0, document.body.scrollHeight);
-      await new Promise(res=>setTimeout(res,5000))
-    })
+      await new Promise(res => setTimeout(res, 5000));
+    });
 
     const { transform } = parameters;
     const { productDetails } = dependencies;
