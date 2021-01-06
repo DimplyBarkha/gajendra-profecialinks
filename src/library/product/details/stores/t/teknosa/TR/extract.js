@@ -9,5 +9,4 @@ module.exports = {
     domain: 'teknosa.com',
     zipcode: '',
   },
- 
 };

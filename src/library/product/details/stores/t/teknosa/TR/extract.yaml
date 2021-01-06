@@ -52,7 +52,7 @@ fields:
     description:
       Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[contains(@class,'tab-details')]//p/font/font/text() | //div[contains(@class,'tab-details')]//p/text()
+    xpath: //div[contains(@class,'tab-details')]//p/font/font/text() | //div[contains(@class,'tab-details')]//p/text() | //h2
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -129,8 +129,9 @@ fields:
     singleValue: true
     description: Shipping information for the product
   - name: shippingDimensions
-    singleValue: true
+    singleValue: false
     description: Stated shipping dimensions
+    xpath: //div[text() = 'Ağırlık & Boyutlar']/following-sibling::table[1]//tr/td
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
@@ -148,14 +149,25 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
+    xpath: //div[@id="inpage_container"]
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[@class='tab-container'][1]//img[not(contains(@src, 'data:image'))]/@src
+    xpath: //div[@class='tab-container'][1]//img[not(contains(@src, 'data:image'))]/@data-flixsrcset
+    regExp: (.+)(\s\d+w,\s)(\/\/media.+)(\s\d+w)$
+    regExpReplace: $3
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //img[@class='video-img-pdp-play']/@src
+    xpath: //a[@class="flix_jw_videoid"]/@data-jw | //input[@class="flix-jw"]/@value
+    regExp: (media.flixcar.com|content.jwplatform.com)(.*?mp4)
+    regExpReplace: //$1$2
+  - name: galleryVideos
+    singleValue: false
+    description: URLs of videos on page
+    xpath: //a[@class="flix_jw_videoid"]/@data-jw | //input[@class="flix-jw"]/@value
+    regExp: (media.flixcar.com|content.jwplatform.com)(.*?mp4)
+    regExpReplace: //$1$2
   - name: name
     singleValue: true
     description: The product name
@@ -253,9 +265,7 @@ fields:
     singleValue: true
     description: null
     type: NUMBER
-    xpath: (count(//div[@class='slick-track']/div//img[@class='product-detail-image']/@src) - 1)
-    regExp: -1
-    regExpReplace: 0
+    xpath: (count(//div[@class="slick-track"]//div[contains(@class,'thumbnail')])-1)
   - name: news
     singleValue: true
     description: null
@@ -468,6 +478,7 @@ fields:
   - name: promotion
     singleValue: true
     description: promotion text on product page
+    xpath: //div[@class="product-detail-main"]//div[contains(@class,'discount-rate-tag')]
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
