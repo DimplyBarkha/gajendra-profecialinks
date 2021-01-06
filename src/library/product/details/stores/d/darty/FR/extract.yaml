@@ -32,7 +32,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[@class="strong-points"] | //div[contains(@id, 'product_description')]
+    xpath: //div[contains(@id, 'product_description')]
     #xpath: //div[contains(@class,"product_bloc_content")]
     #manualSelector: div.product_bloc_content
   - name: descriptionBullets
@@ -62,7 +62,7 @@ fields:
     regExpReplace: $1
   - name: shippingInfo
     singleValue: false
-    xpath: //meta[@itemprop="seller"]/@content
+    xpath: //button[contains(@class, 'product__mkp-seller')]/b
     #manualSelector: span.product-mkp-seller
   - name: shippingDimensions
     singleValue: false
@@ -71,6 +71,9 @@ fields:
     singleValue: false
     xpath: //div[@id="product_caracteristics"]//tr[contains(translate(string(), 'Couleur', 'Couleur'), 'Couleur')]/td
   - name: videos
+    singleValue: false
+    xpath: //div[contains(@class,"no_flag_picture")]//iframe/@src | //input[@class="flix-jw"]/@value
+  - name: galleryVideos
     singleValue: false
     xpath: //div[contains(@class,"no_flag_picture")]//iframe/@src | //input[@class="flix-jw"]/@value
   - name: name
