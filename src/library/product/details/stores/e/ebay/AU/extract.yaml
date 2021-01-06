@@ -1,5 +1,21 @@
-extends: ../shared
+extends: ./shared
 fields:
   - name: price
     singleValue: false
     xpath: //span[@id="prcIsum"]
+  - name: unInterruptedPDP
+    xpath: //div[contains(@id,'nume_html') and not(contains(.,'Verkäufers'))]//div[contains(@class,"mfe-reco")]//li[contains(@class,"mfe-reco-ct")]
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //h1[contains(.,"In the box")]/..//span[@class="p-title"]
+    # xpath: //h1[text()="Dans la boîte"]/following::div[contains(@class,"p-container")]/div/span[@class="p-title"]
+  - name: inTheBoxUrl
+    singleValue: false
+    xpath: //h1[contains(.,"In the box")]/..//span[@class="p-img"]//img/@src
+    # xpath: //h1[text()="Dans la boîte"]/following::div[contains(@class,"p-container")]/div/span[@class="p-image"]/img/@src
+  - name: hasComparisonTable
+    singleValue: false
+    xpath: //div[@class="aplus-module-wrapper"]//table[@class="apm-tablemodule-table"]/@class
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No

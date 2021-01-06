@@ -31,31 +31,31 @@ async function implementation(
   }
   await scrollToRec();
 
-  async function checkUPDP() {
-    await context.evaluate(async () => {
-      function addElementToDocument(key, value) {
-        const catElement = document.createElement('div');
-        catElement.className = key;
-        catElement.textContent = value;
-        catElement.style.display = 'none';
-        document.body.appendChild(catElement);
-      }
-      try {
-        var updp = document.querySelectorAll('div.mfe-recos-container div.mfe-title.container-truncate span');
-        if (updp) {
-          updp.forEach(item => {
-            addElementToDocument('updp_item', item.innerText);
-          });
-          await new Promise((resolve) => {
-            setTimeout(resolve, 5000);
-          });
-        }
-      } catch (e) {
-        console.log('unInterruptedPDP not found');
-      }
-    });
-  }
-  await checkUPDP();
+  // async function checkUPDP() {
+  //   await context.evaluate(async () => {
+  //     function addElementToDocument(key, value) {
+  //       const catElement = document.createElement('div');
+  //       catElement.className = key;
+  //       catElement.textContent = value;
+  //       catElement.style.display = 'none';
+  //       document.body.appendChild(catElement);
+  //     }
+  //     try {
+  //       var updp = document.querySelectorAll('div.mfe-recos-container div.mfe-title.container-truncate span');
+  //       if (updp) {
+  //         updp.forEach(item => {
+  //           addElementToDocument('updp_item', item.innerText);
+  //         });
+  //         await new Promise((resolve) => {
+  //           setTimeout(resolve, 5000);
+  //         });
+  //       }
+  //     } catch (e) {
+  //       console.log('unInterruptedPDP not found');
+  //     }
+  //   });
+  // }
+  // await checkUPDP();
 
   await context.extract(productDetails, { transform });
   if (src) {

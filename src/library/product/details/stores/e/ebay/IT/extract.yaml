@@ -3,3 +3,18 @@ fields:
   - name: decimalSeperator
     singleValue: false
     defaultValue: EU
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //p[contains(.,'In the Box')]/..//ul//li | //h1[contains(.,'In the box')]/..//span[@class="title"] | //div[contains(@class,'inthebox')]//span | //div[@id='inTheBoxText'] | //td[contains(text(),'Included Accessories')]/following-sibling::td[1] | //h2[text()="Nella scatola"]/parent::*/parent::*/following::*/div[@id="gallery"]//span[@class="thumbTitle"] | //p/strong[text()="Contiene"]/following::ul/li/text()[following::p/strong[text()="Misure"]]
+  - name: inTheBoxUrl
+    singleValue: false
+    xpath: //h1[contains(.,'In the box')]/..//span[@class="image"]//img/@src | //div[contains(@class,'inthebox')]//img/@src | //div[@id='inTheBoxUrl'] | //h2[text()="Nella scatola"]/parent::*/parent::*/following::*//img/@src
+  - name: hasComparisonTable
+    singleValue: false
+    xpath: //div[@class="aplus-module-wrapper"]//table[@class="apm-tablemodule-table"]/@class | //div[@id="dysonCompare"]/@class
+    regExp: (.+)
+    regExpReplace: Yes
+    default: No
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //div[contains(@id,'nume_html') and not(contains(.,'from this seller'))]//div[contains(@class,"mfe-reco")]//li//p[@class="mfe-title container-truncate"] | //div[@class="updp_item"] | //div[@class="similaritems"]//h3[@class="title"] | //h2[text()="Prodotto più venduto in Aspirapolvere"]/parent::*/following::*//ul/li//img/@alt | //h2[text()="Risparmia su Aspirapolvere"]/parent::*/following::*//ul/li//img/@alt | //h2[text()="Altri oggetti che ti potrebbero interessare"]/parent::*/following::*//ul/li//img/@alt | //div[@id="dysonAdditional"]//h2[text()="Altri prodotti Dyson"]/parent::div/parent::div/following::*//a[contains(@id,"hitem_")]//div[@class="froopromotitle"]

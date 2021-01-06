@@ -7,7 +7,8 @@ module.exports = {
     domain: 'ebay.de',
     url: 'http://www.ebaystores.de/Dyson-Deutschland/_i.html?_nkw={searchTerms}',
     loadedSelector: 'div.tpgv',
-    noResultsXPath: '//div[@class="trc"]/span[contains(text(), " 0 ")]',
+    // noResultsXPath: '//div[@class="trc"]/span[contains(text(), " 0 ")]',
+    noResultsXPath: '//div[@class="trc"]/span[@class="cnt"][text()="0"]',
     zipcode: '',
   },
 };

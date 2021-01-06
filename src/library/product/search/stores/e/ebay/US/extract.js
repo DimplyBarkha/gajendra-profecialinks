@@ -1,5 +1,5 @@
-const { transform } = require('../format')
-const { implementation } = require('../shared')
+const { transform } = require('../format');
+const { implementation } = require('../shared');
 
 module.exports = {
   implements: 'product/search/extract',

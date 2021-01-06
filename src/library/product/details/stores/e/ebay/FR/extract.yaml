@@ -3,3 +3,18 @@ fields:
   - name: decimalSeperator
     singleValue: false
     defaultValue: EU
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //h1[text()="Dans la boîte"]/following::div[contains(@class,"p-container")]/div/span[@class="p-title"]
+  - name: inTheBoxUrl
+    singleValue: false
+    xpath: //h1[text()="Dans la boîte"]/following::div[contains(@class,"p-container")]/div/span[@class="p-image"]/img/@src
+  - name: hasComparisonTable
+    singleValue: false
+    xpath: //div[@class="aplus-module-wrapper"]//table[@class="apm-tablemodule-table"]/@class
+    regExp: (.+)
+    regExpReplace: Yes
+    default: No
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //div[contains(@id,'nume_html') and not(contains(.,'from this seller'))]//div[contains(@class,"mfe-reco")]//li//p[@class="mfe-title container-truncate"]|//div[@class="updp_item"] | //div[@class="similaritems"]//h3[@class="title"] | //h2[text()="Prodotto più venduto in Aspirapolvere"]/parent::*/following::*//ul/li//img/@alt | //h2[text()="Risparmia su Aspirapolvere"]/parent::*/following::*//ul/li//img/@alt | //h2[text()="Altri oggetti che ti potrebbero interessare"]/parent::*/following::*//ul/li//img/@alt

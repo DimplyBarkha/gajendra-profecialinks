@@ -64,6 +64,32 @@ const transform = (data) => {
       if (row.aggregateRating && row.decimalSeperator && row.decimalSeperator[0].text === 'EU') {
         row.aggregateRating[0].text = row.aggregateRating[0].text.replace('.', ',');
       }
+      console.log(row.inTheBoxUrl + ' IS INBOX URL');
+      console.log(row.inTheBoxText + ' IS INBOX text');
+      let spliceUrl = true;
+      let spliceText = true;
+      if (row.inTheBoxUrl == null) { spliceUrl = false; }
+      if (row.inTheBoxText == null) { spliceText = false; }
+      console.log(spliceUrl + ' and ' + spliceText);
+      if (spliceUrl === true) {
+        for (let i = 0; i < row.inTheBoxUrl.length; i++) {
+          try {
+            if (row.inTheBoxUrl[i] !== undefined) {
+              if (row.inTheBoxUrl[i].text.includes('stores.ebay.co')) { row.inTheBoxUrl.splice(i, 1); }
+              if (!row.inTheBoxUrl[i].text.includes('/')) { row.inTheBoxUrl.splice(i, 1); }
+            }
+          } catch (e) {}
+        }
+      }
+      if (spliceText === true) {
+        for (let i = 0; i < row.inTheBoxText.length; i++) {
+          try {
+            if (row.inTheBoxText[i] !== undefined) {
+              if (row.inTheBoxText[i].text.includes('https://')) { row.inTheBoxText.splice(i, 1); }
+            }
+          } catch (e) {}
+        }
+      }
       // row.hasComparisonTable = row.hasComparisonTable ? [{ text: 'Yes' }] : [{ text: 'No' }]
     }
   }
