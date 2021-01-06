@@ -24,65 +24,47 @@ const transform = (data) => {
 
   for (const { group } of data) {
     for (const row of group) {
-      if (row.specifications) {
+      if (row.additionalDescBulletInfo) {
         let text = '';
-        row.specifications.forEach(item => {
-          text += item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim();
+        row.additionalDescBulletInfo.forEach(item => {
+          text += ` || ${item.text.replace(/\n \n/g, ':')}`;
         });
-        // row.specifications = [
-        //   {
-        //     text: text,
-        //   },
-        // ];
+        row.additionalDescBulletInfo = [{ text }];
       }
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
           text += item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim();
         });
+        if (row.additionalDescBulletInfo) {
+          row.additionalDescBulletInfo.forEach(item => {
+            text += `${item.text}`;
+          });
+        }
         row.description = [
           {
             text: text,
           },
         ];
       }
-      if (row.variantUrl) {        
+      if (row.variantUrl) {
         const variantUrls = [];
-        let dupUrl = "";
+        let dupUrl = '';
         let urls = [];
         row.variantUrl.forEach(item => {
           console.log('item:: ', item.text);
-         urls =  row.variantUrl.filter(it => item.text === it.text);
-        if(urls && urls.length === 1 ){
-          variantUrls.push(item);
-        }else{
-          if(dupUrl !== item.text){
-            dupUrl =  item.text;
+          urls = row.variantUrl.filter(it => item.text === it.text);
+          if (urls && urls.length === 1) {
             variantUrls.push(item);
+          } else {
+            if (dupUrl !== item.text) {
+              dupUrl = item.text;
+              variantUrls.push(item);
+            }
           }
-        }
         });
         row.variantUrl = variantUrls;
       }
-
-      // if (row.variantId) {        
-      //   const variantIds = [];
-      //   let dup = "";
-      //   let urls = [];
-      //   row.variantId.forEach(item => {
-      //     // console.log('item:: ', item.text);
-      //    urls =  row.variantId.filter(it => item.text === it.text);
-      //   if(urls && urls.length === 1 ){
-      //     variantIds.push(item);
-      //   }else{
-      //     if(dup !== item.text){
-      //       dup =  item.text;
-      //       variantIds.push(item);
-      //     }
-      //   }
-      //   });
-      //   row.variantId = variantIds;        
-      // }
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {
@@ -91,28 +73,6 @@ const transform = (data) => {
         row.manufacturerDescription = [
           {
             text: text,
-          },
-        ];
-      }
-      if (row.caloriesPerServing) {
-        let text = '';
-        row.caloriesPerServing.forEach(item => {
-          text += item.text.replace(/(.*kJ)(.*)/g, '$1/$2');
-        });
-        row.caloriesPerServing = [
-          {
-            text: text,
-          },
-        ];
-      }
-      if (row.description) {
-        let text = '';
-        row.description.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')} || `;
-        });
-        row.description = [
-          {
-            text: text.slice(0, -4),
           },
         ];
       }
@@ -138,17 +98,6 @@ const transform = (data) => {
           },
         ];
       }
-      if (row.additionalDescBulletInfo) {
-        let text = '';
-        row.additionalDescBulletInfo.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')} || `;
-        });
-        row.additionalDescBulletInfo = [
-          {
-            text: text.slice(0, -4),
-          },
-        ];
-      }
       if (row.allergyAdvice) {
         let text = '';
         row.allergyAdvice.forEach(item => {
@@ -160,13 +109,6 @@ const transform = (data) => {
           },
         ];
       }
-      // if (row.videos) {
-      //   for (const item of row.videos) {
-      //     if (item.text.includes('.hls.m3u8')) {
-      //       item.text = item.text.replace('.hls.m3u8', '.mp4.480.mp4');
-      //     }
-      //   }
-      // }
     }
   }
   return data;

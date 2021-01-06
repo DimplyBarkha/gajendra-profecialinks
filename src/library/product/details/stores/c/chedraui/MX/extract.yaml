@@ -5,16 +5,15 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: (//a//img[@class="lazyOwl"]/@src)[position()=1]
+    xpath: //div[@class="zoomImg"]/img/@src
     regExp: (.+)
     regExpReplace: https://www.chedraui.com.mx$1
   - name: imageAlt
     singleValue: false
     xpath: //div[contains(@class,"product-details-name")]/text()
-    # xpath: //div[@class="owl-item"]/a/img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: (//a//img[@class="lazyOwl"]/@src)[position()>1]
+    xpath: //div[@class="owl-item loading"]/div[@class="item"]//img[@class="lazyOwl"]/@data-src
     regExp: (.+)
     regExpReplace: https://www.chedraui.com.mx$1
   - name: metaKeywords
@@ -39,11 +38,11 @@ fields:
     singleValue: false
     xpath: //form[@class="add_to_cart_form js-pharaAddToCart"]//button[contains(text(),"Sin Inventario")]
     regExp: (.+)
-    regExpReplace: Out of Stock 
-    defaultValue: In Stock
+    regExpReplace: Out of stock
+    defaultValue: In stock
   - name: description
     singleValue: false
-    xpath: //div[@class="tab-details"]//p//text() | //div[@class="description-body"]/p/text() | //div[@class="description-body"]//ul//li/text()
+    xpath: //div[@class="tab-details"]//p//text() | //div[@class="description-body"]/p/text() | //div[@class="description-body"]/h5
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[@class="description-body"]//ul//li/text())
@@ -58,14 +57,14 @@ fields:
     xpath: //span[@class="product-details_attribute_value"]/a/@href
     regExp: (.+)
     regExpReplace: https://www.chedraui.com.mx$1
+  - name: quantity
+    singleValue: false
+    xpath: //div[contains(@class,"product-details-name")]/text()
+    regExp: \d{1,}\.*\d*\s*(g|G|L|l|Kg|kg|KG|Mg|mg|MG|Ml|ml|ML|Oz|oz|OZ)
   - name: weightNet
     singleValue: false
     xpath: //div[contains(@class,"product-details-name")]/text()
-    regExp: \d{1,}(g|G|L|Kg|Mg|Ml|ml|Oz)
-    # regExpReplace: $1
-    # xpath: //table[@class="table"]//tr//td[contains(text(),"Peso del producto")]//following-sibling::td//text() | //div[contains(@class,"product-details-name")]/text()
-    # regExp: \b(\w+)$
-    # regExpReplace: $1
+    regExp: \d{1,}\.*\d*\s*(g|G|L|l|Kg|kg|KG|Mg|mg|MG|Ml|ml|ML|Oz|oz|OZ)
   - name: weightGross
     singleValue: false
     xpath: //table[@class="table"]//tr//td[contains(text(),"Peso Embalaje")]//following-sibling::td//text()
@@ -128,7 +127,6 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
-    # xpath: //div[@class="description-body"]//p//text() | //div[@class="description-body"]//ul//li/text()
     xpath: //div[@class="col-md-6 description"]//text() | //div[@class="col-md-4 ng-scope"]//text() | //div[@class="fichaDescripcion"]//text()
   - name: additionalDescBulletInfo
     singleValue: false
@@ -142,15 +140,9 @@ fields:
   - name: name
     singleValue: false
     xpath: //div[contains(@class,"product-details-name")]/text()
-  # - name: size
-  #   singleValue: false
-  #   xpath: //div[contains(@class,"product-details-name")]/text()
-  #   regExp: \b(\w+)$(g|G|L|Kg|Mg|Ml|ml|Oz)
-  #   regExpReplace: $1
   - name: secondaryImageTotal
     singleValue: false
-    xpath: count((//div[@class="owl-item"]//a//img/@src)[position()>1])
-    type: NUMBER
+    xpath: count(//div[@class="owl-item loading"]/div[@class="item"]//img[@class="lazyOwl"]/@data-src)
   - name: ingredientsList
     singleValue: false
     xpath: //table[@class="table"]//tr//td[contains(text(),"Ingredientes")]//following-sibling::td//text()
@@ -167,16 +159,16 @@ fields:
   - name: numberOfServingsInPackage
     singleValue: false
     xpath: //table[@class="table"]//tr//td[contains(text(),"Porciones por Envase")]//following-sibling::td//text()
-    regExp: \d+
+    regExp: \d+\.\d+
   - name: caloriesPerServing
     singleValue: false
     description: Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
+    xpath: //div[@class="product-classifications"]//table[@class="table"]//tr//td[contains(text(),"Energía")]//following-sibling::td//text()
   - name: caloriesFromFatPerServing
     singleValue: false
     description: Nutritional Information for Calories From Fat content - Usually
       based on per 100g serving
-    type: NUMBER
   - name: totalFatPerServing
     singleValue: false
     xpath: //div[@class="product-classifications"]//table[@class="table"]//tr//td[contains(text(),"Grasa Total")]//following-sibling::td//text()
@@ -220,7 +212,6 @@ fields:
     xpath: //div[@class="product-classifications"]//table[@class="table"]//tr//td[contains(text(),"Azúcares Totales")]//following-sibling::td//text()
   - name: totalSugarsPerServingUom
     singleValue: false
-    # xpath: //div[@class="product-classifications"]//table[@class="table"]//tr//td[contains(text(),"Azúcares Totales")]//following-sibling::td//text()
   - name: proteinPerServing
     singleValue: false
     xpath: //div[@class="product-classifications"]//table[@class="table"]//tr//td[contains(text(),"Proteínas")]//following-sibling::td//text()
@@ -229,15 +220,6 @@ fields:
     xpath: //div[@class="product-classifications"]//table[@class="table"]//tr//td[contains(text(),"Proteínas")]//following-sibling::td//text()
     regExp: ([a-z])
     regExpReplace: $1
-  # - name: vitaminAPerServing
-  #   singleValue: false
-  #   xpath: //div[@class="product-classifications"]//table[@class="table"]//tr//td[contains(text(),"Vitaminas")]//following-sibling::td//text()
-  # - name: vitaminAPerServingUom
-  #   singleValue: false
-  #   description: Unit of Measure Data for Vitamin A
-  # - name: vitaminCPerServing
-  #   singleValue: false
-  #   xpath: //div[@class="product-classifications"]//table[@class="table"]//tr//td[contains(text(),"Vitaminas")]//following-sibling::td//text()
   - name: specifications
     singleValue: false
     xpath: //div[@class="product-classifications"]//table[@class="table"]//tr
