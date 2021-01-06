@@ -3,6 +3,8 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: videos
+    xpath: //div[contains(@class,"m-productgallery__thumbnails")]//div[contains(@itemtype,"VideoObject")]/meta[@itemprop='contentURL']/@content | //div[@id="videolink"] | //div[@class="flix-videodiv"]/iframe/@src
   - name: price
     singleValue: false
     xpath: //div[@class="productpricecomponent js-price-section"]/div/span
@@ -30,7 +32,9 @@ fields:
     xpath: //html//div[@id='desc']
   - name: color
     singleValue: false
-    xpath: //span[@class='m-productcolorselect-v-2__selector-title']
+    # xpath: //span[@class='m-productcolorselect-v-2__selector-title']
+    xpath: //span[contains(text(),"Farbe")]/../text()
+    defaultValue: " "
   - name: availabilityText
     singleValue: false
     regExp: (.+)
@@ -45,13 +49,18 @@ fields:
     xpath: //span[@itemprop='ratingValue']
   - name: manufacturerImages
     singleValue: false
-    xpath: //img[@class="m-productdescription__logo lazy"]/@src
+    # xpath: //img[@class="m-productdescription__logo lazy"]/@src
+    xpath: //div[@id="inpage_container"]//img/@srcset
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: brandLink
     singleValue: false
     xpath: //a[@class="m-productdescription__url"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.manor.ch$1
   - name: sku
-    singleValue: false
-    xpath: //div[@data-t-name="ProductdetailV2"]/@data-productid
+    # xpath: //div[@data-t-name="ProductdetailV2"]/@data-productid
+    xpath: //div[@id="skuvalue"]
   - name: warranty
     singleValue: false
     xpath: //div[@class='m-productfacts_single_values']//span[contains(text(),'Garantie')]
@@ -60,7 +69,8 @@ fields:
     xpath: //html//div[@id='variants']
   - name: variantInformation
     singleValue: false
-    xpath: normalize-space(//span[@class="m-productcolorselect-v-2__selector-title"]/text()[last()])
+    # xpath: normalize-space(//span[@class="m-productcolorselect-v-2__selector-title"]/text()[last()])
+    xpath: //span[contains(text(),"Farbe")]/../text()
   - name: brandText
     singleValue: false
     xpath: //div[contains(@class,"m-productdetailareaa__areaA__title-line")]//h2
@@ -76,14 +86,14 @@ fields:
   - name: firstVariant
     singleValue: false
     xpath: //span[@class="m-productcolorselect-v-2__selector-title"]
-  - name: quantity
-    singleValue: false
-    xpath: //a[@class='m-productsizeselect-v-2__variant m-productsizeselect-v-2__variant__title js-size-selector-title']
+  # - name: quantity
+  #   singleValue: false
+  #   xpath: //a[@class='m-productsizeselect-v-2__variant m-productsizeselect-v-2__variant__title js-size-selector-title']
+  #   defaultValue: " "
   - name: name
     singleValue: false
     xpath: //html//div[@id='nameEmpty']
   - name: nameExtended
-    singleValue: false
     xpath: //html//div[@id='name']
   - name: countryOfOrigin
     singleValue: false
@@ -112,11 +122,17 @@ fields:
     singleValue: true
     defaultValue: Yes
   - name: quantity
-    singleValue: true
-    xpath: //html//div[@id='size']
+    xpath: //div[contains(@class,"productsizeselect")]/div/div/a[contains(@class,"select ")] | //span[contains(text(),"Grösse")]/../text() | //span[contains(text(),"Inhalt")]/parent::span/text()
+    defaultValue: " "
   - name: promotion
     xpath: //div[contains(@class, 'js-productdetail')]//span[@class='m-productpricev-2__percentage']
   - name: listPrice
     xpath: normalize-space(//div[contains(@class, 'productpricecomponent')]/div[count(*)=1]/span/span | //div[contains(@class, 'productpricecomponent')]/div[count(*)>1]/*[last()]/span[1])
     regExp: (\d.*)
     regExpReplace: $1
+  - name: secondaryImageTotal
+    xpath: //div[@id="totalalternateimages"]
+  - name: ingredientsList
+    xpath: //span[contains(text(),"Zutaten")]/following-sibling::div/span
+  - name: manufacturerDescription
+    xpath: //div[@id="inpage_container"]//div/text()

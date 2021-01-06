@@ -1,10 +1,10 @@
-
+const { cleanUp } = require('./shared')
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'CH',
     store: 'manor',
-    transform: null,
+    transform: cleanUp,
     domain: 'manor.ch',
     zipcode: '',
   },
@@ -72,31 +72,68 @@ async function implementation(
     } catch (error) {
 
     }
-    try {
-      // @ts-ignore
-      let size = document.querySelector('span[class="m-productsizeselect-v-2__title"]').outerText.replace(/INHALT: /g, '')
-      if (size !== null && size.length > 0 && !size.includes('INHALT')) {
-        finalName.push(size);
-        addElementToDocument('size', size);
+    // try {
+    //   // @ts-ignore
+    //   let size = document.querySelector('span[class="m-productsizeselect-v-2__title"]').outerText.replace(/INHALT: /g, '')
+    //   if (size !== null && size.length > 0 && !size.includes('INHALT')) {
+    //     finalName.push(size);
+    //     addElementToDocument('size', size);
+    //   }
+    //   else {
+    //     // @ts-ignore
+    //     size = document.querySelector('a[class="m-productsizeselect-v-2__variant m-productsizeselect-v-2__variant__title js-size-selector-title"]').outerText
+    //     if (size !== null && size.length > 0) {
+    //       finalName.push(size);
+    //       addElementToDocument('size', size);
+    //     }
+    //   }
+    // } catch (error) {
+    // }
+    // try {
+    //   // @ts-ignore
+    //   const color = document.querySelector('span[class="m-productcolorselect-v-2__selector-title').outerText.replace(/FARBE: /g, '')
+    //   if (color !== null && color.length > 0 && !color.includes('FARBE')) {
+    //     finalName.push(color);
+    //   }
+    // } catch (error) {
+    // }
+    //code for getting the videos
+    const apiData = await fetch("https://edge.api.brightcove.com/playback/v1/accounts/4358179163001/videos/6154651500001", {
+      "headers": {
+        "accept": "application/json;pk=BCpkADawqM1Emn-upEqSOSGmefJhZeS_QE6heAREPKh1LSd6zhlO-LZ9NU1cQw40wO4v9U6o5JsLL4cDay2fgvbxi2wcIo4elibH9zUJeCgx_42lUlARg_v6WYl5A8Wm5CAxAlIi37MaYuEZ",
+        "accept-language": "en-US,en;q=0.9",
+        "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-fetch-dest": "empty",
+        "sec-fetch-mode": "cors",
+        "sec-fetch-site": "cross-site"
+      },
+      "referrer": "https://www.manor.ch/",
+      "referrerPolicy": "strict-origin-when-cross-origin",
+      "body": null,
+      "method": "GET",
+      "mode": "cors",
+      "credentials": "omit"
+    });
+    const jsonData = apiData && await apiData.json();
+    const assetId = jsonData && jsonData.sources && jsonData.sources.find((element) => {
+      if (element.container == 'MP4') {
+        return element.asset_id;
       }
-      else {
-        // @ts-ignore
-        size = document.querySelector('a[class="m-productsizeselect-v-2__variant m-productsizeselect-v-2__variant__title js-size-selector-title"]').outerText
-        if (size !== null && size.length > 0) {
-          finalName.push(size);
-          addElementToDocument('size', size);
-        }
-      }
-    } catch (error) {
+    })
+    const assetID = assetId && assetId.asset_id;
+    const videoId = document.evaluate('//div[@id="videoPlayer"]/@data-video-id', document).iterateNext() && document.evaluate('//div[@id="videoPlayer"]/@data-video-id', document).iterateNext().textContent;
+    const accountId = document.evaluate('//div[@id="videoPlayer"]/@data-account', document).iterateNext() && document.evaluate('//div[@id="videoPlayer"]/@data-account', document).iterateNext().textContent;
+    const videoUrl = `http://f1.media.brightcove.com/4/${accountId}/${accountId}_${assetID}_${videoId}.mp4`
+    if (videoId !== null && accountId !== null && accountId !== null) {
+      addElementToDocument('videolink', videoUrl)
     }
-    try {
-      // @ts-ignore
-      const color = document.querySelector('span[class="m-productcolorselect-v-2__selector-title').outerText.replace(/FARBE: /g, '')
-      if (color !== null && color.length > 0 && !color.includes('FARBE')) {
-        finalName.push(color);
-      }
-    } catch (error) {
-    }
+
+
+
+    const url = window.location.href;
+    const sku = url && url.replace(/(.+)(\/p\/)(.+)/g, '$3')
+    addElementToDocument('skuvalue', sku)
     spaceSeparatorSingle('name', finalName);
     let alternateImages = [];
     let temp;
@@ -118,6 +155,7 @@ async function implementation(
     for (let k = 1; k < alternateImages.length; k++) {
       addElementToDocument('alternateImages', alternateImages[k]);
     }
+    addElementToDocument('totalalternateimages', alternateImages.length - 1);
   });
   return await context.extract(productDetails, { transform });
 }
