@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //*[div[@class="_3liAhj" or @class="_1UoZlX"]]
+recordXPath: //div[@data-tkid][a[@rel="noopener noreferrer"]]
 fields:
   - name: id
     description: Unique id (within this extractor)
@@ -20,7 +20,7 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //div[@id='image']
+    xpath: //a[@selector="productLink"]/@imgUrl
   - name: aggregateRating2
     description: The stated aggregate rating normalized to be out of 5
     xpath: //span/div[@class="hGSR34"]
