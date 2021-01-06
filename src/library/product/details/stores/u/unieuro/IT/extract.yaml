@@ -110,17 +110,15 @@ fields:
     xpath: count(//div[@id='ii_variantCount'])
     defaultValue: 0
   - name: videos
-    xpath: //body/@video 
-    
+    xpath: //body/@video | //body/@manVideo   
   - name: galleryVideos
-    xpath: //body/@video
-    
+    xpath: //body/@video    
   - name: shippingWeight
     xpath: //span[contains(.,"Peso dell'imballo")]/../span[2]
   - name: manufacturerDescription
-    xpath: //div[@class='dyson_shop_description flix-d-h5']/text() | //div[@class='flix-d-p']/text() | //div[@class="fl1xcarousel-wrapper"]
+    xpath: //div[@id="flix-std-inpage"]
   - name: manufacturerImages
-    xpath: //div[@class='flix-background-image']/img/@srcset | //div[@class='flix-background-image inpage_wowimg']/img/@srcset | //div[@class= 'inpage_ftgridimg']/img/@srcset | //div[@class="fl1xcarousel-wrapper"]//img/@srcset
+    xpath: //body/@aplus-img
   - name: secondaryImageTotal
     xpath: count(//div[@class="product-image-container"]//img[@itemprop="image"][position()>1]/@data-src)
   - name: dimensionsProduct
