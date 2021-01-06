@@ -37,6 +37,9 @@ module.exports = {
 
     let content = null;
     let image = null;
+    let inBoxText = null;
+    let inBoxUrls = null;
+    let comparisionText = null;
 
     const link = await context.evaluate(async function () {
       return window.location.href;
@@ -62,13 +65,28 @@ module.exports = {
 
     console.log('apiManufCall');
     console.log(apiManufCall);
+    // async goToiFrameLink (apiManufCall, link, imgSelector, getAttrImgSrc, vidSelector, getAttrVidSrc, inBoxSelector, comparisionTableSelector) {
+
 
     if (apiManufCall) {
-      const obj = await sharedhelpers.goToiFrameLink(apiManufCall, link, 'body img', 'src');
+      const obj = await sharedhelpers.goToiFrameLink(apiManufCall, link, 'body img', 'src','','','body div.in-the-box','body div.table-wrapper table');
       image = obj.image;
       content = obj.content;
+      inBoxText = obj.inBoxText;
+      inBoxUrls = obj. inBoxUrls;
+      comparisionText = obj.comparisionText;
+
+
+      await sharedhelpers.addHiddenInfo('ii_inTheBoxText',inBoxText.join(' || ').replace(/,/g, '||'));
+
+      await sharedhelpers.addHiddenInfo('ii_inTheBoxUrl', inBoxUrls.join(' || ').replace(/,/g, '||'));
+
+      if(comparisionText){
+      await sharedhelpers.addHiddenInfo('ii_hasComparisionTable',comparisionText);
+      }
 
       await sharedhelpers.addHiddenInfo('ii_manufContent', content);
+
       if (image) {
         await sharedhelpers.addHiddenArrayList('ii_manufImg', image);
       }

@@ -382,3 +382,13 @@ fields:
   - name: uninterruptedPDP
     singleValue: false
     xpath: //div[contains(@class, "accessories product-accessories")]//div[contains(@class, "products-carousel")]//ul[@class="products-grid"]//li//div[contains(@class, "base-info")]//*[self::div[contains(@class, "info-wrapper")] or self::h3]
+  - name: inTheBoxUrl
+    singleValue: false
+    xpath: //*[@id="ii_inTheBoxUrl"]
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //*[@id="ii_inTheBoxText"]
+  - name: hasComparisonTable
+    singleValue: true
+    xpath: //*[@id="ii_hasComparisionTable"]
+

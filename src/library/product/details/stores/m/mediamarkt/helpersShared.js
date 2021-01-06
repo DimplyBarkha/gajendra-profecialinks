@@ -103,7 +103,7 @@ class SharedHelpers {
     console.log(inBoxText);
     content = text;
 
-    await this.context.waitForSelector(imgSelector, { timeout: 30000 });
+    await this.context.waitForSelector(imgSelector, { timeout: 300000 });
     const images = await this.context.evaluate(async function (imgSelector, getAttrImgSrc) {
       const images = document.querySelectorAll(imgSelector);
       const backImgs = [...document.querySelectorAll('*[style*="background-image"]')];

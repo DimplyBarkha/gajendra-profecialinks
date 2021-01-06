@@ -30,6 +30,26 @@ const transform = (data, context) => {
           },
         ];
       }
+
+      if (row.inTheBoxUrl) {
+        console.log(row.inTheBoxUrl);
+        row.inTheBoxUrl.forEach(item => {
+          if (item.text.includes(",")) {
+            item.text.replace(/,/g, '||');
+          }
+        });
+      }
+
+
+      if (row.inTheBoxText) {
+        console.log(row.inTheBoxText);
+        row.inTheBoxText.forEach(item => {
+          if (item.text.includes(",")) {
+            item.text.replace(/,/g, '||');
+          }
+        });
+      }
+
       if (row.promotion) {
         const text = [];
         row.promotion.forEach(item => {
