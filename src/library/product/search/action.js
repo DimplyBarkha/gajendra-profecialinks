@@ -83,10 +83,13 @@ module.exports = {
 
     let collected = length(pageOne);
 
-    console.log('Got initial number of results', collected);
+    console.log(`Got initial number of results: ${collected}`);
 
     // check we have some data
-    if (collected === 0) return;
+    if (collected === 0) {
+      console.log('Was not able to collect any data on the first page');
+      return;
+    }
 
     let page = 2;
     while (collected < results && await paginate({ keywords: inputKeywords, page, offset: collected })) {

@@ -44,16 +44,16 @@ module.exports = {
     const { url, zipcode, storeId } = inputs;
     await context.goto(url, { timeout, waitUntil: 'load', checkBlocked: true });
     console.log('==============')
-    
     console.log(`jsonToTable: ${jsonToTable}`)
     console.log(parameters)
     console.log('==============')
+    await new Promise((resolve) => setTimeout(resolve, 3000));
     if (jsonToTable && url.split('[!opt!]')[1] && url.split('[!opt!]')[1].includes('"type":"json"')) {
       let isTableReady = true;
       await context.waitForXPath('//table//tbody//td', timeout)
-        .catch(() => { isTableReady = false; });
+        .catch(() => { console.log('got caught'); isTableReady = false; });
         console.log('==============')
-        console.log(isTableReady)
+        console.log(`isTableReady: ${isTableReady}`);
         console.log('==============')
       if (!isTableReady) {
       // load the json into a table manually
@@ -94,7 +94,7 @@ module.exports = {
       }
     }
 
-    console.log(zipcode);
+    console.log(`zipcode: ${zipcode}`);
     if (zipcode || storeId) {
       await dependencies.setZipCode(inputs);
     }
