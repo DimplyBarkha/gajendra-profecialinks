@@ -282,6 +282,9 @@ const transform = (data, context) => {
           row.packSize = [{ text: packText[2] }];
         }
       }
+      if(row.videos) {
+        row.galleryVideos = row.videos;
+      }
       if (row.manufacturerVideos) {
         if (!row.videos || row.videos[0].text === '') {
           row.videos = row.manufacturerVideos;

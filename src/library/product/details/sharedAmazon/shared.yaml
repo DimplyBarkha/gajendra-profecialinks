@@ -68,7 +68,7 @@ fields:
     xpath: count(//*[@id='feature-bullets']//ul/li[not(@id)] | //div[@id="productDescription"]/ul/li)
   - name: backupBrand
     singleValue: false
-    xpath: //a[@id="bylineInfo"]/text() | //div[contains(@id,"bylineInfo") and not(//a[@id="bylineInfo"]/text())] | //a[@id="brandteaser"]/img/@alt
+    xpath: //a[@id="bylineInfo"]/text() | //div[contains(@id,"bylineInfo") and not(//a[@id="bylineInfo"]/text())] | //a[@id="brandteaser"]/img/@alt | //*[@id="brand"]
     regExp: '(Brand:\s+(.+)$|Visit the (.+) Store|by\s+(.+)$|^(.+)$)'
     regExpReplace: $2$3$4$5
   - name: brandText
@@ -80,7 +80,7 @@ fields:
     # xpath: //th[contains(text(), 'Manufacturer') and not(contains(text(), "Discontinue")) and not(contains(text(),  "Part"))]/following-sibling::*[1]
   - name: quantity
     singleValue: false
-    xpath: //div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //*[starts-with(@name,"dropdown_selected_size_name")]/option[@class="dropdownSelect"]
+    xpath: //div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //*[starts-with(@name,"dropdown_selected_size_name")]/option[@class="dropdownSelect"] | //*[normalize-space(text())="Net Quantity" or normalize-space(text())="Net Quantity :"]/following-sibling::*[1][contains(text(),"count") or contains(text(),"Count")]
   - name: weightNet
     singleValue: false
     xpath: //*[contains(normalize-space(text()),"Product Dimensions")]/following-sibling::*[1][contains(.,';')] | //*[normalize-space(text())="Item Weight"]/following-sibling::*[1] | //*[normalize-space(text())="Item Weight"]/following-sibling::*[1] | //*[normalize-space(text())="Item Weight :"]/following-sibling::*[1]
@@ -426,8 +426,9 @@ fields:
     xpath: //div[@id="productDescription"]/p[b[contains(text(),"Warranty Information")]]/text()
   - name: storage
     #singleValue: true
-    xpath: //*[normalize-space(text())="Storage"]/following-sibling::*[1]
-
+    xpath: //*[normalize-space(text())="Storage" or normalize-space(text())="Storage Instructions"]/following-sibling::*[1] | //*[normalize-space(text())="Storage" or normalize-space(text())="Storage Instructions"]/following-sibling::*[1] | //div[@id="productDescription"]/p[starts-with(normalize-space(text()),"Storage Instructions")]
+    regExp: '^(Storage Instructions:\s*)?(.+)'
+    regExpReplace: $2
   - name: countryOfOrigin
     #singleValue: true
     xpath: //li[contains(.,"Origin:")] | //*[normalize-space(text())="Country of origin"]/following-sibling::*[1] | //*[contains(text(),"Country of Origin")]/following-sibling::*[1]
