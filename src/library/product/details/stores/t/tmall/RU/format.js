@@ -38,7 +38,7 @@ const transform = (data) => {
         row.variantId.forEach(item => {
           var arr=item.text.split("/item/");
           var arr1=arr[1].split(".");
-          item.text=arr1[0];
+          item.text="ru"+arr1[0];
         });
       }
       if(row.ratingCount){
