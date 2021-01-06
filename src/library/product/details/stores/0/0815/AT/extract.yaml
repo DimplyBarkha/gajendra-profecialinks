@@ -120,16 +120,16 @@ fields:
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
-    xpath: //script[contains(@type,'application')]
-    regExp: ratingValue([":\s]+)(\d).?(\d)(",)
-    regExpReplace: $2.$3
+    xpath: //div[@itemprop="ratingValue"]
+    # regExp: ratingValue([":\s]+)(\d).?(\d)(",)
+    # regExpReplace: $2.$3
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
-    xpath: //script[contains(@type,'application')]
-    regExp: ratingValue([":\s]+)(\d).?(\d)(",)
-    regExpReplace: $2,$3
+    xpath: //div[@itemprop="ratingValue"]
+    # regExp: ratingValue([":\s]+)(\d).?(\d)(",)
+    # regExpReplace: $2,$3
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
