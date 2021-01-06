@@ -2,138 +2,129 @@ input:
   id: 120093399
   _url: http://teknosa.com
 extractions:
-  - html: https://workbench.import.io/html/run=724db7d7-2a0b-4a89-bee6-643538568703/task=82ff6d10-97b3-41f6-a877-a88bda4a7a84/8c73e36e-a0a2-42d7-b98b-008bdc2a584c.html
+  - html: https://workbench.import.io/html/run=a5b7ad09-505c-44ab-a80e-8aa9f3595245/task=061b1919-b047-430b-834f-91de00eddfee/3cdb592c-80a7-4c11-b613-74c914e808a5.html
     extractionConfigId: product/details/stores/t/teknosa/TR/extract
     data:
       - group:
           - image:
               - text: https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/600/600/productimage/120093399/120093399_0_MC/41129836.jpg
-                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             imageAlt:
               - text: Altis Plastik Dambıl Set 10,5 Kg
-                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
-            alternateImages:
-              - text: https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/600/600/productimage/120093399/120093399_0_MC/41129836.jpg
-                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
             category:
-              - text: Ana Sayfa
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/text()[1]
               - text: Spor ve Outdoor
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/text()[1]
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]
               - text: Spor ve Fitness
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/text()[1]
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]
               - text: Dambıl
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/text()[1]
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]
+              - text: ALTİS Dambıl
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]
             nameExtended:
               - text: Altis Plastik Dambıl Set 10,5 Kg
-                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/h1[1]/text()[1]
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/h1[1]/text()[1]
             listPrice:
               - text: 169 TL
-                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/text()[1]
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]
             price:
               - text: 139 TL
-                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/text()[1]
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/text()[2]
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/text()[2]
             description:
+              - text: Altis Plastik Dambıl Set 10,5 Kg
+                xpath: /html/body/div[2]/section[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/h2[1]
               - text: 1.25 kg x 4 adet; 2.50 kg x 2 adet
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[2]/div[1]/div[1]/div[1]/p[1]/text()[1]
+                xpath: /html/body/div[2]/section[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[2]/div[1]/div[1]/div[1]/p[1]/text()[1]
               - text: 1 adet 25 x 400 mm bar(sıkma aparatlı)
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[2]/div[1]/div[2]/div[1]/p[1]/text()[1]
+                xpath: /html/body/div[2]/section[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[2]/div[1]/div[2]/div[1]/p[1]/text()[1]
               - text: El anatomisine uygun olarak tasarlanan dambıl set, vücudunuzun
                   kol,omuz,bilek,göğüs ve sırt kaslarını çalıştırmanıza yardımcı
                   olur
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[2]/div[1]/div[3]/div[1]/p[1]/text()[1]
+                xpath: /html/body/div[2]/section[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[2]/div[1]/div[3]/div[1]/p[1]/text()[1]
               - text: Kol altı selülitlerini yok etmek için dambıl set kullanın,böylece farkı
                   hissedeceksiniz
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[2]/div[1]/div[4]/div[1]/p[1]/text()[1]
+                xpath: /html/body/div[2]/section[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[2]/div[1]/div[4]/div[1]/p[1]/text()[1]
               - text: Dambıl set hem fonksiyonel hem kaliteyi aynı anda yaşamanızı sağlayacak
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[2]/div[1]/div[5]/div[1]/p[1]/text()[1]
+                xpath: /html/body/div[2]/section[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[2]/div[1]/div[5]/div[1]/p[1]/text()[1]
               - text: DS10 Plastik Dambil Set 10.5 Kg
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/p[1]/text()[1]
+                xpath: /html/body/div[2]/section[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/p[1]/text()[1]
             brandText:
               - text: ALT
-                xpath: /html/head[1]/script[4]/text()[1]
-            manufacturer:
-              - text: ALT
-                xpath: /html/head[1]/script[4]/text()[1]
+                xpath: /html/head[1]/script[18]/text()[1]
             quantity:
               - text: "1"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[3]/tbody[1]/tr[1]/td[2]/span[1]
+                xpath: /html/body/div[2]/section[1]/div[1]/div[9]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[3]/tbody[1]/tr[1]/td[2]/span[1]
               - text: adet
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[3]/tbody[1]/tr[1]/td[2]/span[2]
+                xpath: /html/body/div[2]/section[1]/div[1]/div[9]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[3]/tbody[1]/tr[1]/td[2]/span[2]
             weightGross:
               - text: 10500 g
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[4]/tbody[1]/tr[2]/td[2]
+                xpath: /html/body/div[2]/section[1]/div[1]/div[9]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[4]/tbody[1]/tr[2]/td[2]
             gtin:
               - text: "8680562435193"
-                xpath: /html/head[1]/script[4]/text()[1]
+                xpath: /html/head[1]/script[18]/text()[1]
             sku:
               - text: "120093399"
-                xpath: /html/head[1]/script[4]/text()[1]
+                xpath: /html/head[1]/script[18]/text()[1]
             variantId:
               - text: "120093399"
-                xpath: /html/head[1]/script[4]/text()[1]
+                xpath: /html/head[1]/script[18]/text()[1]
+            mpc:
+              - text: "120093399"
+                xpath: /html/head[1]/script[18]/text()[1]
             ratingCount:
               - text: "0"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/a[1]/text()[1]
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/a[1]/text()[1]
                 type: NUMBER
                 raw: Yorumlar (0)
                 locale: tr
                 value: 0
             aggregateRatingText:
               - text: "0"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/span[1]/text()[1]
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/span[1]/text()[1]
             aggregateRating:
               - text: "0"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/span[1]/text()[1]
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/span[1]/text()[1]
+            shippingDimensions:
+              - text: Paket başına miktar
+                xpath: /html/body/div[2]/section[1]/div[1]/div[9]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[4]/tbody[1]/tr[1]/td[1]
+              - text: 1 adet
+                xpath: /html/body/div[2]/section[1]/div[1]/div[9]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[4]/tbody[1]/tr[1]/td[2]
+              - text: Ağırlık
+                xpath: /html/body/div[2]/section[1]/div[1]/div[9]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[4]/tbody[1]/tr[2]/td[1]
+              - text: 10500 g
+                xpath: /html/body/div[2]/section[1]/div[1]/div[9]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[4]/tbody[1]/tr[2]/td[2]
             color:
               - text: Siyah
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]/span[1]
-            manufacturerDescription:
-              - text: 1.25 kg x 4 adet; 2.50 kg x 2 adet
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[2]/div[1]/div[1]/div[1]/p[1]/text()[1]
-              - text: 1 adet 25 x 400 mm bar(sıkma aparatlı)
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[2]/div[1]/div[2]/div[1]/p[1]/text()[1]
-              - text: El anatomisine uygun olarak tasarlanan dambıl set, vücudunuzun
-                  kol,omuz,bilek,göğüs ve sırt kaslarını çalıştırmanıza yardımcı
-                  olur
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[2]/div[1]/div[3]/div[1]/p[1]/text()[1]
-              - text: Kol altı selülitlerini yok etmek için dambıl set kullanın,böylece farkı
-                  hissedeceksiniz
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[2]/div[1]/div[4]/div[1]/p[1]/text()[1]
-              - text: Dambıl set hem fonksiyonel hem kaliteyi aynı anda yaşamanızı sağlayacak
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[2]/div[1]/div[5]/div[1]/p[1]/text()[1]
-              - text: DS10 Plastik Dambil Set 10.5 Kg
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/p[1]/text()[1]
-            manufacturerImages:
-              - text: https://reimg-teknosa-cloud-static-p.mncdn.com/_ui/responsive/theme-teknosa/images/teknosa-banner-thumbs.png
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://reimg-teknosa-cloud-static-p.mncdn.com/_ui/responsive/theme-teknosa/images/teknosa-banner-thumbs.png
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/img[1]/@src
-              - text: https://reimg-teknosa-cloud-static-p.mncdn.com/_ui/responsive/theme-teknosa/images/teknosa-banner-thumbs.png
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/img[1]/@src
-              - text: https://reimg-teknosa-cloud-static-p.mncdn.com/_ui/responsive/theme-teknosa/images/teknosa-banner-thumbs.png
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/img[1]/@src
-              - text: https://reimg-teknosa-cloud-static-p.mncdn.com/_ui/responsive/theme-teknosa/images/teknosa-banner-thumbs.png
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[5]/div[1]/div[1]/img[1]/@src
-              - text: https://reimg-teknosa-cloud-static-p.mncdn.com/_ui/responsive/theme-teknosa/images/teknosa-banner-thumbs.png
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[1]/div[1]/img[1]/@src
-              - text: https://reimg-teknosa-cloud-static-p.mncdn.com/_ui/responsive/theme-teknosa/images/teknosa-banner-thumbs.png
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/section[1]/div[1]/div[9]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]/span[1]
             name:
               - text: Altis Plastik Dambıl Set 10,5 Kg
-                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/h1[1]/text()[1]
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/h1[1]/text()[1]
             specifications:
+              - text: Tip
+                xpath: /html/body/div[2]/section[1]/div[1]/div[9]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]
+              - text: Ayarlanabilir halter
+                xpath: /html/body/div[2]/section[1]/div[1]/div[9]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]
+              - text: Ürün rengi
+                xpath: /html/body/div[2]/section[1]/div[1]/div[9]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
+              - text: Siyah
+                xpath: /html/body/div[2]/section[1]/div[1]/div[9]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
               - text: Paket başına miktar
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[4]/tbody[1]/tr[1]/td[1]
+                xpath: /html/body/div[2]/section[1]/div[1]/div[9]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[4]/tbody[1]/tr[1]/td[1]
               - text: 1 adet
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[4]/tbody[1]/tr[1]/td[2]
+                xpath: /html/body/div[2]/section[1]/div[1]/div[9]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[4]/tbody[1]/tr[1]/td[2]
               - text: Ağırlık
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[4]/tbody[1]/tr[2]/td[1]
+                xpath: /html/body/div[2]/section[1]/div[1]/div[9]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[4]/tbody[1]/tr[2]/td[1]
               - text: 10500 g
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[4]/tbody[1]/tr[2]/td[2]
+                xpath: /html/body/div[2]/section[1]/div[1]/div[9]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[4]/tbody[1]/tr[2]/td[2]
+            promotion:
+              - text: |-
+                  %18
+                   
+                  İNDİRİM
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -159,4 +150,4 @@ extractions:
                 locale: tr
                 value: 0
         xpath: /
-    timestamp: 1607332711066
+    timestamp: 1609932730912

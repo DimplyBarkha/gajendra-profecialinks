@@ -161,7 +161,7 @@ fields:
     description: URLs of videos on page
     xpath: //a[@class="flix_jw_videoid"]/@data-jw | //input[@class="flix-jw"]/@value
     regExp: (media.flixcar.com|content.jwplatform.com)(.*?mp4)
-    regExpReplace: //$1$2
+    regExpReplace: https://$1$2
   - name: galleryVideos
     singleValue: false
     description: URLs of videos on page
