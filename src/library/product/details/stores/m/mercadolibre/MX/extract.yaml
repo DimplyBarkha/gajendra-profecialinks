@@ -11,8 +11,10 @@ fields:
     singleValue: false
     xpath: //span[@class='ui-pdp-gallery__wrapper']/label/div/div/img[@class='ui-pdp-image']/@src
   - name: _pageTimestamp
-  - name: url
-    xpath: //div[@id='url']
+#  - name: url
+#    xpath: //div[@id='url']
+  - name: _url
+    singleValue: true
   - name: category
     singleValue: false
     xpath: //ul[@class='andes-breadcrumb']/li[@class='andes-breadcrumb__item']/a[@class='andes-breadcrumb__link']
@@ -39,7 +41,8 @@ fields:
   - name: packSize
     xpath: //span[@class='ui-pdp-buybox__quantity__selected']
   - name: gtin
-    xpath: //div[@class='ui-pdp-description']/p[@class='ui-pdp-description__content']
+#    xpath: //div[@class='ui-pdp-description']/p[@class='ui-pdp-description__content']
+    xpath: //p[@class='ui-pdp-description__content']
   - name: ratingCount
     xpath: //script[@type='application/ld+json']
   - name: aggregateRating
