@@ -30,12 +30,15 @@ const transform = (data, context) => {
         row.aggregateRating[0].text = aggregateRating[0].replace(',', '.');
       }
       if(row.helpful){
-      	const help = row.helpful[0].raw;
-      	if(help=='Une personne a trouvé cela utile'){
+      	const help = row.helpful[0].text;
+      	if(row.helpful[0].raw=='Une personne a trouvé cela utile'){
       		row.helpful[0].text = 1;
       		delete row.helpful[0].error;
       		row.helpful[0].value = 1;
       	}
+        else if(help.includes("personnes ont trouvé cela utile")){
+          row.helpful[0].text = help.replace('personnes ont trouvé cela utile','');
+        }
       }	
       if (row.sourceUrl) {
         let sourceUrl = row.sourceUrl[0].text;
@@ -51,6 +54,38 @@ const transform = (data, context) => {
   return data;
 };
 
+async function implementation (
+  inputs,
+  parameters,
+  context,
+  dependencies,
+) {
+  const { productReviews } = dependencies;
+  const { transform } = parameters;
+
+  const onReviewsPage = await context.evaluate(() => {
+    return window.location.href.includes('/product-reviews');
+  });
+
+  if (onReviewsPage) {
+    await context.waitForSelector('li[class="a-last"]', { timeout: 7000 })
+      .catch(() => console.log('On last page'));
+  }
+
+  if (!onReviewsPage) {
+    // await context.clickAndWaitForNavigation('a[data-hook="see-all-reviews-link-foot"]', { timeout: 15000 }, { waitUntil: 'load' });
+    const reviewSuffix = await context.evaluate(() => {
+      return document.querySelector('a[data-hook="see-all-reviews-link-foot"]').getAttribute('href');
+    });
+    await context.goto(`https://www.amazon.fr${reviewSuffix}`, { timeout: 20000, waitUntil: 'load' });
+  }
+
+  const data = await context.extract(productReviews, { transform });
+
+  return data;
+}
+
+
 module.exports = {
   implements: 'product/reviews/extract',
   parameterValues: {
@@ -60,4 +95,5 @@ module.exports = {
     domain: 'amazon.fr',
     zipcode: "''",
   },
+  implementation,
 };
