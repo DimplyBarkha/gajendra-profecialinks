@@ -9,9 +9,9 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
   async function getVideoLinks () {
-    const iframe = document.querySelector('div.videoContainer iframe');
+    const iframe = document.querySelector('div.videoContainer iframe, div[class*=video-container] iframe');
     if (!iframe) return;
-    const response = await fetch(document.querySelector('div.videoContainer iframe').src);
+    const response = await fetch(document.querySelector('div.videoContainer iframe, div[class*=video-container] iframe').src);
     const html = await response.text();
     const doc = new DOMParser().parseFromString(html, 'text/html');
     const videoElements = Array.from(doc.querySelectorAll('[id^=isitetv_nav_item_nav_ul] > li > a'));
