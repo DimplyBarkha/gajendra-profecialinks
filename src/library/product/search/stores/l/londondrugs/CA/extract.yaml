@@ -24,11 +24,11 @@ fields:
   - name: ratingCount
     description: The number of ratings
     xpath: //span[@class="bv-rating-label"]
-    regExp: (\d+)
+    regExp: \d+
   - name: reviewCount
     description: The number of reviews
     xpath: //span[@class="bv-rating-label"]
-    regExp: (\d+)
+    regExp: \d+
   - name: price
     description: The offered price for the product
     xpath: //li[contains(@class, "markdown-price")]

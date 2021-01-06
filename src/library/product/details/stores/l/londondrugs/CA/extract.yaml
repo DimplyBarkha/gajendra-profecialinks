@@ -43,7 +43,7 @@ fields:
     description:
       Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@itemprop="description"]/div[not(@id)]/b | //div[@itemprop="description"]/div[not(@id)]/text() | //div[@itemprop="description"]/div[not(@id)]/p | //div[@itemprop="description"]/div[not(@id)]/span
+    xpath: //div[@itemprop="description"]/div[not(@id)]/b | //div[@itemprop="description"]/div[not(@id)]/text() | //div[@itemprop="description"]/div[not(@id)]/p | //div[@itemprop="description"]/div[not(@id)]/span | //div[@itemprop="description"]/div/div
   - name: moreDescription
     xpath: //div[@id="ccs-ext-spec"]//ul/text()
   - name: descriptionBullets
@@ -58,9 +58,8 @@ fields:
   - name: manufacturer
     description: Product manufacturer
   - name: quantity
-    description: Quantity as described on the page
-    xpath: //h1[@itemprop="name"]
-    regExp: (.*)-(.*)
+    xpath: //*[contains(text(), 'addtocartClick')]
+    regExp: (.*)"dimension6":"(.*?)"(.*)
     regExpReplace: $2
   - name: weightNet
     description: Net weight as described on the page
@@ -442,3 +441,14 @@ fields:
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     xpath: //body/@zoom
     defaultValue: No
+  - name: productUrl
+    singleValue: true
+    xpath: //link[@rel='canonical']/@href
+    regExp: ^(.*)
+    regExpReplace: 'https://www.londondrugs.com$1'
+  - name: inTheBoxUrl
+  - name: inTheBoxText
+  - name: hasComparisonTable
+    defaultValue: No
+  - name: unInterruptedPDP
+    xpath: //div[contains(@id,'recomm_slot')]//div[contains(@class, 'slick-list')]//div[contains(@class, 'slick-slide') and not(contains(@class, 'slick-cloned'))]//h3
