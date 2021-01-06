@@ -16,7 +16,7 @@ module.exports = {
     if (zipcode || storeId) {
       await dependencies.setZipCode(inputs);
     }
-    
+
     try {
       const cssOverLay = 'body.body--modal-overflow-hidden div.modal__content-main a.js-modal-close span';
       await context.waitForFunction((selector) => {
@@ -26,8 +26,7 @@ module.exports = {
       console.log('Overlay Found!!!');
       await context.click(cssOverLay);
       await new Promise((resolve, reject) => setTimeout(resolve, 2000));
-    }
-    catch (error) {
+    } catch (error) {
       console.log('Overlay NOT Found');
     }
   },

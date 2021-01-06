@@ -11,9 +11,9 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { keywords,query } = inputs;
+  const { keywords, query } = inputs;
   console.log(url);
-  let destinationUrl = url.indexOf('{queryParams}') > -1 ? url.replace('{queryParams}', query): url;
+  let destinationUrl = url.indexOf('{queryParams}') > -1 ? url.replace('{queryParams}', query) : url;
   destinationUrl = destinationUrl.replace('{searchTerms}', encodeURIComponent(keywords));
   await dependencies.goto({ ...inputs, url: destinationUrl });
 
