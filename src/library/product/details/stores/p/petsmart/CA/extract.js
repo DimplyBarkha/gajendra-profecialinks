@@ -102,6 +102,27 @@ module.exports = {
         }
       }
 
+      function getElementsByXPath(xpath, parent) {
+          let results = '';
+          let query = document.evaluate(xpath, parent || document,
+              null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+          for (let i = 0, length = query.snapshotLength; i < length; ++i) {
+              results += query.snapshotItem(i).textContent;
+          }
+          return results;
+      }      
+      
+      let productDescription = document.evaluate(`//div[@class="react-tabs" and contains(.,'Description')]//div[@id="react-tabs-1"]//div[contains(@class, "react-tabs__tab-content")]//p[not(contains(.,'Key Benefits'))]`, document).iterateNext();
+      if(productDescription) { 
+        let productDescriptionText = getElementsByXPath(`//div[@class="react-tabs" and contains(.,'Description')]//div[@id="react-tabs-1"]//div[contains(@class, "react-tabs__tab-content")]//p[not(contains(.,'Key Benefits'))]`,document)
+              document.body.setAttribute('productDescription', productDescriptionText);
+      } else {
+        productDescription = document.evaluate(`//div[@class="react-tabs" and contains(.,'Description')]//div[@id="react-tabs-1"]//div[contains(@class, "react-tabs__tab-content")]`, document).iterateNext();
+        if(productDescription){
+           document.body.setAttribute('productDescription', productDescription.textContent);
+        }
+      }
+
     });
 
     var dataRef = await context.extract(productDetails, { transform });
