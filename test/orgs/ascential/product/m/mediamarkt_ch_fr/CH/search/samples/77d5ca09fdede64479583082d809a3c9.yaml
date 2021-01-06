@@ -2,51 +2,51 @@ input:
   keywords: Limonade
   _url: http://mediamarkt.ch
 extractions:
-  - html: https://workbench.import.io/html/run=ab11dad1-7542-4e2e-a89e-a67add99876b/task=c75e5e91-714a-4da6-87be-1438c6b6f51f/fba07dda-a1a2-45ee-bf58-b9b5e7e8a39f.html
+  - html: https://workbench.import.io/html/run=aa11f0b0-57ce-44ea-8398-257077540f84/task=630189bd-2c0c-4bf8-9cf0-cbc569adbe65/dd3fa56f-915c-4150-b67d-6193c52ffe77.html
     extractionConfigId: product/search/stores/m/mediamarkt_ch_fr/CH/extract
     data:
       - group:
           - id:
-              - text: MMCH1110398
-                xpath: /html/body/div[2]/div[1]/ul[2]/li[2]/div[1]/@data-reco-pid
+              - text: "1896007"
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[2]/div[1]/@data-modelnumber
             name:
-              - text: CAFFE CHICCO DORO Caffitaly The Limone - Capsules de thé
+              - text: BRITA fill&go Active Limone - Filtre à Eau Bouteille (Jaune/Noir)
                 xpath: /html/body/div[2]/div[1]/ul[2]/li[2]/div[1]/div[1]/h2[1]/a[1]
             productUrl:
-              - text: https://www.mediamarkt.ch/fr/product/_caffe-chicco-doro-caffitaly-the-limone-1110398.html
+              - text: https://www.mediamarkt.ch/fr/product/_brita-fill-go-active-limone-1896007.html
                 xpath: /html/body/div[2]/div[1]/ul[2]/li[2]/div[1]/div[1]/h2[1]/a[1]/@product-url
             thumbnail:
-              - text: https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-77803652/fee_240_148_png/CAFFE-CHICCO-DORO-Caffitaly-The-Limone---Capsules-de-th%C3%A9
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-77294317/fee_240_148_png/BRITA-fill%26go-Active-Limone---Filtre-%C3%A0-Eau-Bouteille-%28Jaune-Noir%29
                 xpath: /html/body/div[2]/div[1]/ul[2]/li[2]/@product-picture
             aggregateRating2:
               - text: "0"
                 xpath: /html/body/div[2]/div[1]/ul[2]/li[2]/@product-rating
             price:
-              - text: 4.30 CHF
+              - text: 17.95 CHF
                 xpath: /html/body/div[2]/div[1]/ul[2]/li[2]/@product-price
             manufacturer:
-              - text: CAFFE CHICCO DORO
+              - text: BRITA
                 xpath: /html/body/div[2]/div[1]/ul[2]/li[2]/script[1]
           - id:
-              - text: MMCH1896007
-                xpath: /html/body/div[2]/div[1]/ul[2]/li[4]/div[1]/@data-reco-pid
+              - text: "1110398"
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[4]/div[1]/@data-modelnumber
             name:
-              - text: BRITA fill&go Active Limone - Filtre à Eau Bouteille (Jaune/Noir)
+              - text: CAFFE CHICCO DORO Caffitaly The Limone - Capsules de thé
                 xpath: /html/body/div[2]/div[1]/ul[2]/li[4]/div[1]/div[1]/h2[1]/a[1]
             productUrl:
-              - text: https://www.mediamarkt.ch/fr/product/_brita-fill-go-active-limone-1896007.html
+              - text: https://www.mediamarkt.ch/fr/product/_caffe-chicco-doro-caffitaly-the-limone-1110398.html
                 xpath: /html/body/div[2]/div[1]/ul[2]/li[4]/div[1]/div[1]/h2[1]/a[1]/@product-url
             thumbnail:
-              - text: https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-77294317/fee_240_148_png/BRITA-fill%26go-Active-Limone---Filtre-%C3%A0-Eau-Bouteille-%28Jaune-Noir%29
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-77803652/fee_240_148_png/CAFFE-CHICCO-DORO-Caffitaly-The-Limone---Capsules-de-th%C3%A9
                 xpath: /html/body/div[2]/div[1]/ul[2]/li[4]/@product-picture
             aggregateRating2:
               - text: "0"
                 xpath: /html/body/div[2]/div[1]/ul[2]/li[4]/@product-rating
             price:
-              - text: 17.95 CHF
+              - text: 4.30 CHF
                 xpath: /html/body/div[2]/div[1]/ul[2]/li[4]/@product-price
             manufacturer:
-              - text: BRITA
+              - text: CAFFE CHICCO DORO
                 xpath: /html/body/div[2]/div[1]/ul[2]/li[4]/script[1]
         xpath: /html
-    timestamp: 1606479584922
+    timestamp: 1609929009965
