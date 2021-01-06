@@ -115,13 +115,12 @@ const transform = (data, context) => {
         });
       }
 
-      // if (row.alternateImages) {
-      //   const baseUrl = row.alternateImages[0].text.match(/url\("([^?]+)/)[1];
-      //   row.alternateImages = row.alternateImages.slice(1).map((elm, index) => {
-      //     elm.text = `${baseUrl}_${index + 1}?wid=1920&hei=1080&op_sharpen=1`;
-      //     return { text: clean(elm.text) };
-      //   });
-      // }
+      if (row.alternateImages) {
+        row.alternateImages = row.alternateImages.slice(1).map((elm, index) => {
+          elm.text = elm.text.replace(/wid=(\d*)&hei=(\d*)/, 'wid=1920&hei=1080');
+          return { text: clean(elm.text) };
+        });
+      }
 
       row.secondaryImageTotal = [
         {
