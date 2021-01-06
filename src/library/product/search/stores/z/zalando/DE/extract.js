@@ -31,13 +31,19 @@ async function implementation (inputs, parameters, context, dependencies) {
   await new Promise((resolve) => setTimeout(resolve, 1500));
 
   await context.evaluate(() => {
+    const url = window.location.href;
+    //   ? document.querySelector('link[rel="alternate"][hreflang]').getAttribute('href') : '';
     const names = document.querySelectorAll('header div[class*="hPW"]')
       ? document.querySelectorAll('header div[class*="hPW"]') : [];
     names.forEach(e => e.setAttribute('name', e.innerText.replace('- -', '')));
+    const price = document.querySelectorAll('span[class*="cMfkVL"]')
+      ? document.querySelectorAll('span[class*="cMfkVL"]') : [];
+    price.forEach(e => e.setAttribute('price', e.innerText.split('ab').pop().trim()));
 
     const allProducts = document.querySelectorAll('div[class*="DvypSJ"]');
     allProducts.forEach((product, index) => {
       product.setAttribute('rank', `${index + 1}`);
+      if (url.includes('p=2') && index > 65) product.setAttribute('trim', '');
     });
     const sponsoredProducts = document.querySelectorAll('div[class*="weHhRC"]');
     // @ts-ignore
@@ -62,7 +68,13 @@ async function implementation (inputs, parameters, context, dependencies) {
       element.setAttribute('href', prefix.concat(element.getAttribute('href')));
     });
   });
+  // var dataRef = await context.extract(productDetails, { transform });
 
+  // if (dataRef[1] !== undefined && dataRef[1].group.length > 66) {
+  //   dataRef[1].group = dataRef[1].group.slice(0, 66);
+  // }
+
+  // return dataRef;
   return await context.extract(productDetails, { transform });
 }
 module.exports = {

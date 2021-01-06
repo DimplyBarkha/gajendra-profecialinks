@@ -1,11 +1,11 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,'DvypSJ')]
+recordXPath: //div[contains(@class,'DvypSJ')][not(@trim)]
 fields:
   - name: id
     singleValue: false
-    xpath: //article/a/@href
+    xpath: //div[contains(@class,'DvypSJ')]//article/a/@href
     regExp: \-(.{13}).html
     regExpReplace: $1 
   - name: searchUrl
@@ -32,7 +32,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //span[contains(@class, 'cMfkVL')]
+    xpath: //@price
   - name: manufacturer
     # singleValue: true
     xpath: //span[contains(@class, 'EKabf7')]
