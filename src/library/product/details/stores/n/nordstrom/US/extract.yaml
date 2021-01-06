@@ -93,4 +93,4 @@ fields:
   - name: hasComparisonTable
     defaultValue: No
   - name: unInterruptedPDP
-    xpath: //div[contains(@id,"product-recommendations")]//section//ul//li/div/a/div/div[1]
+    xpath: ancestor::html//div[contains(@id,"product-recommendations")]//section//ul//li/div/a/div/div[1]/text()

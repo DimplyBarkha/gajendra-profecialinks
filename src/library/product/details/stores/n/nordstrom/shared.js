@@ -102,13 +102,13 @@ const transform = (data) => {
         ];
       }
 
-      // if (row.unInterruptedPDP) {
-      //   let text = '';
-      //   row.unInterruptedPDP.forEach(item => {
-      //     text = text + (text ? ' || ' : ' ') + item.text;
-      //   });
-      //   row.unInterruptedPDP = [{ text }];
-      // }
+      if (row.unInterruptedPDP) {
+        let text = '';
+        row.unInterruptedPDP.forEach(item => {
+          text = text + (text ? ' || ' : ' ') + item.text;
+        });
+        row.unInterruptedPDP = [{ text }];
+      }
 
       let text = '';
       text = [String(row.nameExtended && row.nameExtended[0].text), String(row.firstVariant && row.firstVariant[0].text), String(row.quantity && row.quantity[0].text)].filter(e => e !== 'undefined').join(' - ');
@@ -135,6 +135,7 @@ const transform = (data) => {
 
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
     el.text = clean(el.text);
+    el.text = el.text.trim();
   }))));
 
   return data;
