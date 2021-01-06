@@ -63,7 +63,7 @@ module.exports = {
         const query = document.evaluate(xpath, parent || document,
           null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         for (let i = 0, length = query.snapshotLength; i < length; ++i) {
-          const node = query.snapshotItem(i) && query.snapshotItem(i).textContent && query.snapshotItem(i).textContent.replace(/(.+)(videos.+)(-(\d+))(-thumb.+)/g, 'https://$2.mp4').trim();
+          const node = query.snapshotItem(i) && query.snapshotItem(i).textContent && query.snapshotItem(i).textContent.replace(/(.+)(.com\/\w+\/\w+\/\w+\/\w+)(.+)/g, 'https://videos.demoup$2.mp4').trim();
           results.push(node);
         }
         return results.filter(e => e);
