@@ -142,6 +142,41 @@ module.exports = {
         }
         addElementToDocument('ii_inTheBoxData', inTheBoxData.join(' || '));
       }
+
+      const similarItems = document.querySelectorAll('.recommendations-oos-container jl-recommendations-panel');
+      const updpItems = [];
+
+      for (const similarItem of similarItems) {
+        const itemsEl = similarItem.shadowRoot.querySelector('[data-test="recommendations-panel"]');
+        if (itemsEl) {
+          const items = itemsEl.querySelectorAll('.slick-slide');
+
+          for (const el of items) {
+            let title = el.querySelector('h2[class*="title_title"]') ? el.querySelector('h2[class*="title_title"]').innerText : null;
+            if (title) {
+              updpItems.push(title);
+            }
+          }
+        }
+      }
+
+      const customerAlsoBoughtItemEls = document.querySelectorAll('.standard-product-column-full jl-recommendations-panel');
+
+      for (const customerAlsoBoughtItemEl of customerAlsoBoughtItemEls) {
+        const items = customerAlsoBoughtItemEl.shadowRoot.querySelectorAll('.slick-list h2[class*="title_title"]');
+
+        for (const el of items) {
+            if (el.innerText) {
+              updpItems.push(el.innerText);
+            }
+        }
+      }
+
+      for (const item of updpItems) {
+        const newEl = document.createElement('import-updp');
+        newEl.innerText = item;
+        document.body.appendChild(newEl);
+      }
     });
     await context.extract(productDetails, { transform: transformParam });
   },

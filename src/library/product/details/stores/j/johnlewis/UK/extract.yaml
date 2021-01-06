@@ -67,7 +67,8 @@ fields:
     xpath: //dl[@class="product-specifications-list"]/dt[contains(text(),'Manufacturer Part Number (MPN)')]/following-sibling::dd[1]/text()
     # xpath: //div[@id="store-stock-app"]/@data-sku-id
   - name: packSize
-    description: The number of packs in the product offer (if stated separately on
+    description:
+      The number of packs in the product offer (if stated separately on
       the site to quantity)
   - name: countryOfOrigin
     xpath: //dl[@class="product-specifications-list"]/dt[contains(text(),'Country of Origin')]/following-sibling::dd[1]/text()
@@ -184,8 +185,10 @@ fields:
   - name: hasComparisonTable
     defaultValue: No
     description: Compare the range table or matrix must be present for all vacuum cleaners & air treatment. This is not required for personal care or lighting. As a minimum the comparison table will compare against 1 additional Dyson product.
+  # - name: unInterruptedPDP
+  #   singleValue: false
+  #   xpath: //div[@id='ii_recommended_products']|//li[@data-carousel="recentlyViewedCarousel"]//h3 | (//div[@class="swogo-box"])[1]//div[contains(@class,"swogo-product")]//div[@class="swogo-product-title"]
+  # xpath: (//div[@class="swogo-box"])[1]//div[contains(@class,"swogo-product")]//div[@class="swogo-product-title"]
   - name: unInterruptedPDP
-    singleValue: false
-    xpath: //div[@id='ii_recommended_products']|//li[@data-carousel="recentlyViewedCarousel"]//h3 | (//div[@class="swogo-box"])[1]//div[contains(@class,"swogo-product")]//div[@class="swogo-product-title"]
-    # xpath: (//div[@class="swogo-box"])[1]//div[contains(@class,"swogo-product")]//div[@class="swogo-product-title"]
+    xpath: //import-updp
     description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
