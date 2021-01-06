@@ -39,6 +39,21 @@ module.exports = {
       await infiniteScroll();
     });
 
+    async function scrollToRec (node) {
+      await context.evaluate(async (node) => {
+        const element = document.querySelector(node) || null;
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+          await new Promise((resolve) => {
+            setTimeout(resolve, 5000);
+          });
+        }
+      }, node);
+    }
+    await scrollToRec('footer#main-footer');
+    await scrollToRec('div.w-section__wrapper');
+    await scrollToRec('div.w-cards-block.w-section__block.w-section-content__box');
+
     await context.evaluate(function () {
       console.log('Scrolling to the bottom of page.');
       if (document.querySelector('.footer__bar')) {
@@ -57,7 +72,19 @@ module.exports = {
     } catch (err) {
       console.log('Enhanced content video did not load');
     }
+    await context.evaluate(function () {
+      // document.body.setAttribute("ii_url", window.location.href);
 
+      function addHiddenDiv (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+
+      addHiddenDiv('ii_CTR', !!document.querySelector('div#flix-comp'));
+    });
     await context.extract(productDetails, { transform });
   },
 };

@@ -108,14 +108,16 @@ fields:
     description: The physical dimensions of the product including packaging.
     xpath: //div[@class="w-product-details__column"]
   - name: inTheBoxUrl
-    xpath: //div[contains(@class,'InTheBox')]//div[@class="flix-background-image"]//img/@src
-    regExp: (.+)
+    xpath: //div[contains(@class,'InTheBox')]//div[@class="flix-background-image"]//img/@data-flixsrcset
+    regExp: ^(.+)\s200w
     regExpReplace: https:$1
   - name: inTheBoxText
     xpath: //div[contains(@class,'InTheBox')]//div[@class="flix-std-content"]
   - name: hasComparisonTable
     singleValue: true
-    xpath: boolean(//div[contains(@class,"flix-compare")])
+    xpath: //div[@id="ii_CTR"]
+    # regExp: >-
+    #   (.+)
     # regExpReplace: Yes
-    defaultValue: No
+    # defaultValue: No
   - name: unInterruptedPDP
