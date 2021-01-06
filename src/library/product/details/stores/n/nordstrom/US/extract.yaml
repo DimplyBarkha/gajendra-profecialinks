@@ -24,7 +24,7 @@ fields:
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
-    xpath:  ancestor::html//div[contains(text(),"Details & Care")]/following-sibling::div[1] |  ancestor::html//div[contains(text(),"Details & Care")]/following-sibling::ul/li
+    xpath: ancestor::html//div[contains(text(),"Details & Care")]/following-sibling::div[1] |  ancestor::html//div[contains(text(),"Details & Care")]/following-sibling::ul/li
   - name: descriptionBullets
     xpath: count(//div[contains(text(),"Details & Care")]/following-sibling::ul/li)
   - name: brandText
@@ -88,3 +88,9 @@ fields:
     xpath: ancestor::html//ul[@id="product-page-swatches"]//li/button/img/@alt
   - name: variantInformation
     xpath: //table/tbody/tr[@class="append_variant"]//td[@class="variant"]
+  - name: inTheBoxUrl
+  - name: inTheBoxText
+  - name: hasComparisonTable
+    defaultValue: No
+  - name: unInterruptedPDP
+    xpath: //div[contains(@id,"product-recommendations")]//section//ul//li/div/a/div/div[1]
