@@ -90,10 +90,14 @@ module.exports = {
           sku.setAttribute('sku', varinatInformation[index].sku);
           newlink.appendChild(sku);
 
-          const variant = document.createElement('td');
-          variant.setAttribute('class', 'variant');
-          variant.textContent = varinatInformation[index].value;
-          newlink.appendChild(variant);
+          try {
+            const variant = document.createElement('td');
+            variant.setAttribute('class', 'variant');
+            variant.textContent = varinatInformation[index].value;
+            newlink.appendChild(variant);
+          } catch (err) {
+            console.log('does not have variants');
+          }
 
           const image = document.createElement('td');
           image.setAttribute('class', 'images');
