@@ -213,14 +213,22 @@ module.exports = {
         const manufacturerDesc = document.querySelector('div.product-info-description div#wc-aplus');
         const desc = description && description.innerHTML ? description.innerHTML : '';
         const manuDesc = manufacturerDesc && manufacturerDesc.innerHTML ? manufacturerDesc.innerHTML : '';
-        console.log('description->', desc);
-        console.log('manudescription->', manuDesc);
+        // console.log('description->', desc);
+        // console.log('manudescription->', manuDesc);
         if (!desc && desc.length === 0 && !manuDesc && manuDesc.length === 0) {
           const newDescription = Array.from(document.querySelectorAll('div[class*="product-info-description"]'));
           const newDesc = newDescription && newDescription.length > 0 ? newDescription[0].innerText : '';
-          console.log('array->', newDescription[0].innerHTML);
+          console.log('array->', newDescription[0].innerText);
           if (newDesc && newDesc.length > 0) {
-            console.log('newDesc', newDesc);
+            // console.log('newDesc', newDesc);
+            addHiddenDiv('addDesc', newDesc);
+          }
+        } else if (desc && desc.length > 0) {
+          const newDescription = Array.from(document.querySelectorAll('div[class*="product-info-description"]'));
+          const newDesc = newDescription && newDescription.length > 0 ? description.innerText + newDescription[0].innerText : '';
+          // console.log('array->', newDescription[0].innerText);
+          if (newDesc && newDesc.length > 0) {
+            // console.log('newDesc', newDesc);
             addHiddenDiv('addDesc', newDesc);
           }
         }

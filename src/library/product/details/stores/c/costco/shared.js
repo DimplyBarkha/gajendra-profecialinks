@@ -20,19 +20,19 @@ const transform = (data) => {
   console.log('transform called now');
   for (const { group } of data) {
     for (const row of group) {
-      console.log('row.specifications->', row.specifications);
-      console.log('row.manufacturerImages->', row.manufacturerImages);
-      console.log('row.allergyAdvice->', row.allergyAdvice);
-      console.log('row.videos->', row.videos);
-      console.log('row.myDescription->', row.myDescription);
-      console.log('row.variantId->', row.variantId);
-      console.log('row.variantInformation->', row.variantInformation);
-      console.log('row.sku->', row.sku);
-      console.log('row.mpc->', row.mpc);
-      console.log('row.myPrice->', row.myPrice);
-      console.log('row.description->', row.description);
-      console.log('row.price->', row.price);
-      console.log('row.manufacturerDescription->', row.manufacturerDescription);
+      // console.log('row.specifications->', row.specifications);
+      // console.log('row.manufacturerImages->', row.manufacturerImages);
+      // console.log('row.allergyAdvice->', row.allergyAdvice);
+      // console.log('row.videos->', row.videos);
+      // console.log('row.myDescription->', row.myDescription);
+      // console.log('row.variantId->', row.variantId);
+      // console.log('row.variantInformation->', row.variantInformation);
+      // console.log('row.sku->', row.sku);
+      // console.log('row.mpc->', row.mpc);
+      // console.log('row.myPrice->', row.myPrice);
+      // console.log('row.description->', row.description);
+      // console.log('row.price->', row.price);
+      // console.log('row.manufacturerDescription->', row.manufacturerDescription);
       if (row.specifications) {
         console.log('transform specs now');
         let text = '';
@@ -123,12 +123,22 @@ const transform = (data) => {
           item.text = item.text.replace('Model ', '');
         }
         row.sku = row.sku.filter((thing, index, self) => self.findIndex(t => t.text === thing.text) === index);
+        let text1 = '';
+        row.sku.forEach(item => {
+          text1 += item.text + ' | ';
+        });
+        row.sku = [{ text: text1.slice(0, -2).trim() }];
       }
       if (row.mpc && row.mpc.length > 0) {
         for (const item of row.mpc) {
           item.text = item.text.replace('Model ', '');
         }
         row.mpc = row.mpc.filter((thing, index, self) => self.findIndex(t => t.text === thing.text) === index);
+        let text1 = '';
+        row.mpc.forEach(item => {
+          text1 += item.text + ' | ';
+        });
+        row.mpc = [{ text: text1.slice(0, -2).trim() }];
       }
 
       if (row.myPrice && row.myPrice.length > 0) {
