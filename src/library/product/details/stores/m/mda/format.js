@@ -81,6 +81,23 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.inTheBoxText) {
+        let inTheBoxText = '';
+        row.inTheBoxText.forEach((item,i) => {
+    
+          if(i!=row.inTheBoxText.length-1){
+             inTheBoxText += item.text + ","
+          }else{
+            inTheBoxText += item.text
+          }
+        
+        });
+        row.inTheBoxText = [
+          {
+            text: inTheBoxText.replace(/,/g, " || ")
+          },
+        ];
+      }
     }
   }
 
