@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'thebay.com',
     prefix: null,
-    url: null,
+    url: 'https://www.thebay.com/product/c-{id}.html',
     country: 'CA',
     store: 'thebay',
     zipcode: '',
