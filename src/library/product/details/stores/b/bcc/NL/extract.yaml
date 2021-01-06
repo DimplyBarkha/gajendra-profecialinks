@@ -396,3 +396,7 @@ fields:
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
     xpath: substring('Yes', 1, string-length(//div[@class='galleryzoom__fog']/@class))
+  - name: unInterruptedPDP
+    xpath: //section[@id="wfinance-terms"]//table//a[@href]/div[1]/text()
+  - name: hasComparisonTable
+    defaultValue: No
