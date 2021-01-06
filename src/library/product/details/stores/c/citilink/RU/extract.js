@@ -51,6 +51,7 @@ module.exports = {
 
     let desList;
     let desc = document.querySelectorAll('div.AboutTab__description-text');
+    let des1 = document.querySelectorAll('div.specification_view.product_view h2')
     if(desc) {
       desc.forEach((element) => {
         element.childNodes.forEach((ele) => {
@@ -60,7 +61,27 @@ module.exports = {
       });
       addHiddenDiv('desList', desList);
 
-    } 
+    } else 
+    {
+      let desList2;
+
+      if(des1) {
+        des1.forEach((element) => {
+          console.log(element.innerText , 'd');
+          if(element.innerText.includes('Описание')) {
+            desList2 = element.nextSibling.textContent
+          }
+        });
+        let add_ext = document.querySelector('span.pseudo.expandable_control.for_product-card-info-error__container')
+        if(add_ext) {
+          desList2 = add_ext.textContent
+  
+        }
+        addHiddenDiv('desList2', desList2);
+  
+      } 
+    }
+    
     // let categoryList = [];
     // let cate = document.querySelectorAll('div.Breadcrumbs')
     // if(cate) {

@@ -37,7 +37,7 @@ fields:
     xpath: //table[@class = "product_features"]//span[contains(text(), "Страна производитель")]/parent::th/following-sibling::td
   - name: description
     singleValue: false
-    xpath: //div[@id="desList"]
+    xpath: //div[@id="desList"] | //div[@id='desList2']
   - name: image
     singleValue: false
     xpath: (//div[@class ='ImageGallery__content']//img/@src)[2] | //li/img[@itemprop="contentUrl"]/@src | //meta[@property="og:image"]/@content
