@@ -62,6 +62,7 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ url }, { country, domain, transform }, context, { productDetails }) => {
+    await new Promise((resolve) => setTimeout(resolve, 10000));
     try {
       const locationUrl = await context.evaluate(async () => {
         return window.location.href;
