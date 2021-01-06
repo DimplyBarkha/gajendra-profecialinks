@@ -86,3 +86,6 @@ fields:
   - name: inTheBoxText
     singleValue: false
     xpath: //li[contains(text(),'included:')]/text() | //p/font[contains(text(),'contains')]/text()[2] | //p/font[contains(text(),'In the box')]/text()
+  - name: promotion
+    description: promotion text on product page
+    xpath: //div[@class="product__details"]//p[@class="reduction_tag_wrapper"]

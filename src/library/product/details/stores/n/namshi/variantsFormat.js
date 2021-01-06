@@ -10,7 +10,7 @@ const transform = (data) => {
       if (row.variantId) {
         row.variantId.forEach(item => {
           const vData = JSON.parse(item.text);
-          if (vData.variations && vData.variations.length > 0) {
+          if (vData.variations) {
             vData.variations.forEach(variation => {
               const tmpVariations = {};
               tmpVariations.variantId = [];
@@ -22,23 +22,15 @@ const transform = (data) => {
               variations.push(tmpVariations);
             });
           } else {
-            const tmpVariations = {};
-            tmpVariations.variantId = [];
-            tmpVariations.variantUrl = [];
-            tmpVariations.variant = [];
-            tmpVariations.variantId.push({ text: vData.sku, xpath: item.xpath });
-            tmpVariations.variantUrl.push({ text: 'https://en-ae.namshi.com/' + vData.link, xpath: item.xpath });              
-            variations.push(tmpVariations);
+            delete row.variantId;
           }
         });
       }
     }
-    
   }
   if (variations.length) {
     data[0].group = variations;
   }
-  
   return data;
 };
 
