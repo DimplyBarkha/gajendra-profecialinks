@@ -502,7 +502,14 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  - name: uninterruptedPDP
-    singleValue: false
   - name: galleryVideos
     xpath: //video/@src|//div[contains(@class, "m-slider_item")]//iframe/@src|//div[@id="description"]//a/@href | (//div[@data-media="yt"]/@data-yt)[1]
+  - name: unInterruptedPDP
+    xpath: //div[contains(@class,"sets_itemPrd")]//div[contains(@class,"productName")]|//div[contains(@class,"accessories")]//div[contains(@class,"m-prdSlider_nameWrapper")]//a
+  - name: inTheBoxUrl
+    singleValue: false
+    description: Must include image url to show the accessories/tools which come with the product
+  - name: inTheBoxText
+    singleValue: false
+  - name: hasComparisonTable
+    defaultValue: No
