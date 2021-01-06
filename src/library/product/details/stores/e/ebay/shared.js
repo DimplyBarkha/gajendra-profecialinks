@@ -18,18 +18,18 @@ async function implementation(
     return src;
   });
 
-  async function scrollToRec() {
-    await context.evaluate(async () => {
-      var element = (document.querySelector('#rpdCntId, .prodDetailDesc')) ? document.querySelector('#rpdCntId, .prodDetailDesc') : null;
+  async function scrollToRec(node) {
+    await context.evaluate(async (node) => {
+      var element = document.querySelector(node);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
         await new Promise((resolve) => {
           setTimeout(resolve, 5000);
         });
       }
-    });
+    }, node);
   }
-  await scrollToRec();
+  await scrollToRec('#rpdCntId, .prodDetailDesc');
 
   async function checkUPDP() {
     await context.evaluate(async () => {
@@ -63,6 +63,14 @@ async function implementation(
       await context.setBypassCSP(true);
       await context.goto(src, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
       await context.waitForSelector('div#ds_div');
+      try {
+        await context.waitForSelector('div#inthebox');
+      } catch (error) {
+        console.log('No inthebox');
+      }
+      await scrollToRec('div#inthebox');
+      await scrollToRec('div.inthebox');
+      await scrollToRec('div#footer-wrapper');
       return await context.extract(productDetails, { type: 'MERGE_ROWS', transform });
     } catch (error) {
       try {
