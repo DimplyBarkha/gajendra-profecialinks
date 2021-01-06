@@ -66,25 +66,29 @@ module.exports = {
       const tabDescInfoNew = [];
       // let model;
       let flag = false;
-      tabDescInfo.forEach(function (element) {
-        if (element.includes('Model')) {
-          flag = true;
-          modelInfo = element.replace('Model: ', '');
-        }
+      if (tabDescInfo.length > 0) {
+        tabDescInfo.forEach(function (element) {
+          if (element.includes('Model')) {
+            flag = true;
+            modelInfo = element.replace('Model: ', '');
+          }
 
-        let info = element.replace('\n', '');
-        info = info.replace('\t', '');
-        info = info.trim();
+          let info = element.replace('\n', '');
+          info = info.replace('\t', '');
+          info = info.trim();
 
-        if (info.length > 0) {
-          tabDescInfoNew.push(info);
+          if (info.length > 0) {
+            tabDescInfoNew.push(info);
+          }
+        });
+
+        if (!flag) {
+          tabDescInfoNew.push('Model: ' + modelInfo);
         }
-      });
-      if (!flag) {
-        tabDescInfoNew.push('Model: ' + modelInfo);
       }
 
       let finalDescInfo;
+
       if (featureDescInfo !== null && featureDescInfo.length > 0) {
         addElementToDocument('featureBullets', featureDescInfo);
         finalDescInfo = 'Features: ||' + featureDescInfo + ' ||' + boldText[0] + ' ||' + tabDescInfo[1];
@@ -93,7 +97,8 @@ module.exports = {
         addElementToDocument('additionalDescBulletInfo', bulletsInfo);
         finalDescInfo = finalDescInfo + bulletsInfo;
       }
-      if (boldText[2] !== null) {
+
+      if (boldText.length > 0 && boldText[2] !== null) {
         if (!boldText[2].includes('★')) {
           finalDescInfo = finalDescInfo + ' ||' + boldText[2];
         }
@@ -151,6 +156,7 @@ module.exports = {
             const weight = specArray[i].replace('Weight:', '');
             addElementToDocument('weightValue', weight);
           }
+
           if (specArray[i].includes('in') || specArray[i].includes('cm')) {
             const dimensions = specArray[i].replace('Dimensions (L × W × H): ', '');
             addElementToDocument('dimensionValue', dimensions);
@@ -161,34 +167,40 @@ module.exports = {
       // xpath for colorValue
       const colorXpath = '//div[@class="product-info-description"]//ul//li[position()=1]';
       let colorValue = getXpath(colorXpath, 'innerText');
+
       if (colorValue !== null && colorValue.length > 0 && colorValue.includes('Colour')) {
         colorValue = colorValue.replace('Colour:', '');
         addElementToDocument('colorValue', colorValue);
       }
 
-      // xpath for priceValue
-      const priceXpath = '//div[contains(@id,"pull-right-price")]/span';
-      const priceValue = getAllXpath(priceXpath, 'innerText');
-      let priceNew;
-      if (priceValue.length > 0 && !priceValue[0].includes('- -.- -')) {
-        priceNew = [priceValue[1] + '' + priceValue[0]];
-        addElementToDocument('priceValue', priceNew);
-      } else {
-        addElementToDocument('priceValue', priceValue[1]);
-      }
-
       // xpath for availabilityText
-      const availXpath = '//meta[@property="og:availability"]/@content';
-      const availValue = getXpath(availXpath, 'nodeValue');
+      const altAvailXpath = '//script[@type="text/javascript"][contains(text(),"Viewed Product")]';
+      const altAvailValue = getXpath(altAvailXpath, 'innerText');
+      const idObj = JSON.stringify(altAvailValue);
+      var idArr = idObj.split(',');
       let availabilityText;
-      if (availValue != null) {
-        if (availValue.includes('in')) {
-          availabilityText = 'In Stock';
-        } else {
-          availabilityText = 'Out of Stock';
-        }
-        addElementToDocument('availabilityText', availabilityText);
+
+      if (idArr[10].includes('In stock')) {
+        availabilityText = 'In Stock';
+      } else if (idArr[9].includes('Out of stock')) {
+        availabilityText = 'Out of Stock';
       }
+      addElementToDocument('availabilityText', availabilityText);
+
+      // xpath for priceValue
+      let priceValue;
+      let priceNew;
+      if (idArr[6].includes('price:')) {
+        // priceNew = idArr[6].substring(18, 23);
+        priceNew = idArr[6].substring(idArr[6].indexOf("'") + 1, idArr[6].lastIndexOf("'"));
+
+        priceValue = '$' + '' + priceNew;
+      } else if (idArr[5].includes('price:')) {
+        priceNew = idArr[5].substring(idArr[5].indexOf("'") + 1, idArr[5].lastIndexOf("'"));
+
+        priceValue = '$' + '' + priceNew;
+      }
+      addElementToDocument('priceValue', priceValue);
 
       addElementToDocument('added_variantCount', 0);
 
