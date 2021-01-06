@@ -1,5 +1,8 @@
 extends: ./shared
 fields:
+  - name: productUrl
+    singleValue: false
+    xpath: //link[@rel="canonical"]/@href
   - name: price
     singleValue: false
     xpath: //span[@id="prcIsum"]

@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: nameExtended
     singleValue: false
-    xpath: concat(//h1[@id="itemTitle"]/text()[1],//h1[@id="itemTitle"]/text()[2],//h1[@class="product-title"])
+    xpath: //h1[@id="itemTitle"]/text()|//h1[@class="product-title"]
   - name: metaKeywords
     singleValue: false
     xpath: //meta[contains(@name,"keyword")]/@content
