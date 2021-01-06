@@ -143,7 +143,7 @@ async function implementation(inputs, parameters, context, dependencies) {
     // @ts-ignore
     if (color.match(regexColor)) addElementToDocument('color', color.match(regexColor)[1]);
 
-    const description1 = document.querySelector('span[itemprop="description"]') ? document.querySelector('span[itemprop="description"]').textContent : '';
+    const description1 = document.querySelector('span[itemprop="description"]') ? document.querySelector('span[itemprop="description"]').innerText : '';
     const description2 = document.querySelectorAll('span[itemprop="description"] ul li') ? document.querySelectorAll('span[itemprop="description"] ul li') : null;
     if (description2) {
       console.log(description2);
