@@ -20,8 +20,8 @@ async function implementation (
     // try{
     //   await new Promise(resolve => setTimeout(resolve, 2000));
     // await context.waitForSelector('button[data-track*="From the Manufacturer"]')
-    await context.click('button[data-track*="From the Manufacturer"]')
-    await context.waitForSelector('iframe.manufacturer-content-iframe')
+    // await context.click('button[data-track*="From the Manufacturer"]')
+    // await context.waitForSelector('iframe.manufacturer-content-iframe')
     // const ifr = document.querySelector('iframe.manufacturer-content-iframe')
     // if(ifr){
     //   const aplusImg = ifr.contentDocument.body.querySelectorAll('img.wc-media');
@@ -158,7 +158,7 @@ async function implementation (
       }
     }, Array.from(videos));
 
-    const iFrameSrc = await context.evaluate(async function() {
+    const iFrameSrc = await context.evaluate(async function () {
       const iFrameSrc = document.querySelector('iframe.manufacturer-content-iframe') && document.querySelector('iframe.manufacturer-content-iframe').getAttribute('src');
       return iFrameSrc;
     });
@@ -180,24 +180,46 @@ async function implementation (
         }
       }
     });
-    // if (iFrameSrc) {
-    //   await context.goto(iFrameSrc);
-    //   await context.evaluate(async function () {
-    //     let manuData = document.querySelector('body.wc-no-focus') && document.querySelector('body.wc-no-focus').innerText;
-    //     function addHiddenDiv (id, content) {
-    //       const newDiv = document.createElement('div');
-    //       newDiv.id = id;
-    //       newDiv.textContent = content;
-    //       newDiv.style.display = 'none';
-    //       document.body.appendChild(newDiv);
-    //     }
-    //     addHiddenDiv('manuData', manuData)
-    //   });
-    // }
+    await context.extract(productDetails, { transform });
+
+    if (iFrameSrc) {
+      await context.goto(iFrameSrc);
+      await context.evaluate(async function () {
+        const manuData = document.querySelector('div#syndi_powerpage') && document.querySelector('div#syndi_powerpage').innerText;
+        function addHiddenDiv (id, content) {
+          const newDiv = document.createElement('div');
+          newDiv.id = id;
+          newDiv.textContent = content;
+          newDiv.style.display = 'none';
+          document.body.appendChild(newDiv);
+        }
+        // Returns HTML of given shadow DOM.
+        const getShadowDomHtml = (shadowRoot) => {
+          let shadowHTML = '';
+          for (const el of shadowRoot.childNodes) {
+            shadowHTML += el.nodeValue || el.outerHTML;
+          }
+          return shadowHTML;
+        };
+
+        // Recursively replaces shadow DOMs with their HTML.
+        const replaceShadowDomsWithHtml = (rootElement) => {
+          for (const el of rootElement.querySelectorAll('*')) {
+            if (el.shadowRoot) {
+              replaceShadowDomsWithHtml(el.shadowRoot);
+              el.innerHTML += getShadowDomHtml(el.shadowRoot);
+            }
+          }
+        };
+
+        replaceShadowDomsWithHtml(document.body);
+        addHiddenDiv('manuData', manuData);
+      });
+    }
   } catch (error) {
     console.log(error);
   }
-  return await context.extract(productDetails, { transform });
+  return await context.extract(productDetails, { type: 'MERGE_ROWS', transform });
 }
 
 module.exports = {
