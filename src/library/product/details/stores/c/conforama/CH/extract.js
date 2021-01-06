@@ -97,7 +97,7 @@ module.exports = {
             descArr.push(desc2);
             console.log('descArr: ', descArr);
           }
-          const desc = descArr.join('');
+          const desc = descArr.join(' | ');
           // @ts-ignore
           console.log('desc: ', desc);
           const iframeFooter = document.querySelector('div.panel');
