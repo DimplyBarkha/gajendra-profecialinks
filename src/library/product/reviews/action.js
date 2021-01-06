@@ -12,14 +12,14 @@ async function implementation (
   context,
   dependencies,
 ) {
-  let { URL, RPC, SKU, date = null, days = 30, results = Infinity } = inputs;
+  let { URL, RPC, SKU, date = null, days = 30, results = Infinity, Brands } = inputs;
   const { execute, extract, paginate } = dependencies;
   const { mergeType, zipcode } = parameters;
   const url = URL;
   const id = (RPC) || ((SKU) || inputs.id);
   const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
-  const resultsReturned = await execute({ url, id, zipcode, date, days, context });
+  const resultsReturned = await execute({ url, id, zipcode, date, days, context, Brands });
   if (!resultsReturned) {
     console.log('No results were returned');
     return;
@@ -112,6 +112,11 @@ module.exports = {
       name: 'days',
       description: 'reviews from last number of days',
       type: 'number',
+      optional: true,
+    },
+    {
+      name: 'Brands',
+      type: 'string',
       optional: true,
     },
   ],
