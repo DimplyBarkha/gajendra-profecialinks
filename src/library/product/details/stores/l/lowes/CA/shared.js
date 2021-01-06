@@ -34,6 +34,13 @@ const transform = (data) => {
           row.image = row.nameExtended;
         }
       }
+      if (row.availabilityText) {
+        row.availabilityText = [{ text: 'In Stock' }];
+      } else {
+        if (!row.availabilityText && row.nameExtended && row.nameExtended[0]) {
+          row.availabilityText = [{ text: 'Out of Stock' }];
+        }
+      }
       if (row.specifications) {
         let text = '';
         row.specifications.forEach(item => {
@@ -96,7 +103,7 @@ const transform = (data) => {
         });
         row.manufacturerDescription = [
           {
-            text: text.replace(/^\d+\s/, ''),
+            text: text.replace(/^\d+\s/, '').trim(),
           },
         ];
       }

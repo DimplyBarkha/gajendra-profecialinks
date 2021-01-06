@@ -34,9 +34,6 @@ fields:
   - name: availabilityText
     singleValue: false
     xpath: //div[@id="product-header"]//div[contains(@class,"add-to-cart")]/button
-    regExp: Add to Cart
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
   - name: description
     singleValue: false
     xpath: //div[contains(@class,"product-overview") or contains(@id,"productOverview")]//div[contains(@class,"product-description") or contains(@class,"romance-copy")]
