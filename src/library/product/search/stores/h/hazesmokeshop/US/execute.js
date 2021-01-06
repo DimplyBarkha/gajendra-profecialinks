@@ -5,9 +5,9 @@ module.exports = {
     country: 'US',
     store: 'hazesmokeshop',
     domain: 'hazesmokeshop.ca',
-    url: 'https://hazesmokeshop.ca/?s={searchTerms}&post_type=product',
+    url: 'https://hazesmokeshop.ca/brand/{searchTerms}/',
     loadedSelector: 'div.shop-loop-head',
-    noResultsXPath: null,
+    noResultsXPath: '//h3[text()="Not Found"]',
     zipcode: '',
   },
 };
