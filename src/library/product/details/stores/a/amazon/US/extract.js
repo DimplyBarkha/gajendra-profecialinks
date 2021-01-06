@@ -56,6 +56,7 @@ async function implementation (
     let totalCount = 0;
     while (notLastPage) {
       const response = await fetch(api);
+      if(response.status !== 200) return false;
       const html = await response.text();
       const doc = new DOMParser().parseFromString(html, 'text/html');
       if (page === 1) {
@@ -155,8 +156,15 @@ async function implementation (
   const colorXpath = '//div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")]';
   await helpers.getAndAddElem(colorXpath, 'added-color'); */
   try {
-    await context.evaluate(getOtherSellerInfo);
+    const data = await context.evaluate(getOtherSellerInfo);
+    if(data === false) {
+      const error = new Error();
+      error.name = 'response-error';
+      error.message = 'Seller API Incorrect response.';
+      throw error
+    };
   } catch (err) {
+    if(err.name === 'response-error') throw err;
     console.log('Error while adding other seller info. Error: ', err);
   }
   await context.evaluate(() => {
