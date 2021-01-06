@@ -75,9 +75,9 @@ const transform = (data) => {
 
       if (row.description) {
         // row.description[0].text = `|| ${row.description[0].text}`;
-        for (let i = 0; i < row.description.length; i++) {
-          row.description[i].text = `|| ${row.description[i].text}`;
-        }
+        // for (let i = 0; i < row.description.length; i++) {
+        //   row.description[i].text = `|| ${row.description[i].text}`;
+        // }
 
         if (row.descriptionChunck) {
           row.description[row.description.length - 1].text = `${row.description[row.description.length - 1].text} ${row.descriptionChunck[0].text}`;
@@ -85,9 +85,9 @@ const transform = (data) => {
 
         if (row.descriptionliChunck) {
           let liChunk = row.descriptionliChunck;
-          for (let i = 0; i < liChunk.length; i++) {
-            liChunk[i].text = `|| ${liChunk[i].text}`;
-          }
+          // for (let i = 0; i < liChunk.length; i++) {
+          //   liChunk[i].text = `|| ${liChunk[i].text}`;
+          // }
           row.description = row.description.concat(liChunk);
         }
       }
@@ -116,15 +116,15 @@ const transform = (data) => {
         if (row.nameExtendedPrefix) {
           const prefix = row.nameExtendedPrefix[0].text;
           if (!nameExtended.toLowerCase().includes(prefix.toLowerCase())) {
-            nameExtended = `${prefix} - ${nameExtended}`;
+            nameExtended = `${prefix} ${nameExtended}`;
           } 
         }
         
 
         if (row.variantInformation) {
-          nameExtended += ` - ${row.variantInformation[0].text}`;
+          nameExtended += ` ${row.variantInformation[0].text}`;
         } else if (row.quantity) {
-          nameExtended += ` - ${row.quantity[0].text}`;
+          nameExtended += ` ${row.quantity[0].text}`;
         };
         row.nameExtended = [{ text: nameExtended }];
       }
