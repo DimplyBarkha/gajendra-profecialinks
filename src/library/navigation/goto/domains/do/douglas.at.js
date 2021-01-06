@@ -12,16 +12,17 @@ module.exports = {
     const timeout = parameters.timeout ? parameters.timeout : 10000;
     await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
     try {
-      await context.waitForSelector('.uc-banner-content', { timeout: 10000 });
-      const cookieBanner = await context.evaluate(() => {
-        return document.querySelector('.uc-banner-content');
-      });
-      if (cookieBanner) {
-        await context.click('#uc-btn-accept-banner');
-        console.log('Cookies accepted.');
-      }
+      await context.waitForSelector('.uc-banner-content', { timeout });
+      await context.click('#uc-btn-accept-banner');
+      console.log('Cookies accepted.');
     } catch (e) {
-      console.log(e.message);
+      try {
+        await context.waitForSelector('.uc-overlay', { timeout });
+        await context.click('.uc-overlay button[class*="primary"]');
+        console.log('Cookies accepted.');
+      } catch (e) {
+        console.log('No cookie banner present');
+      }
     }
   },
 };

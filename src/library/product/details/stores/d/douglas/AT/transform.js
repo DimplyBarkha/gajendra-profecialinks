@@ -11,6 +11,32 @@ const cleanUp = (data, context) => {
           item.text = item.text.replace('.', ',');
         });
       }
+      if (row.nameExtended) {
+        let text = '';
+        row.nameExtended.forEach(item => {
+          text = text + (text ? ' ' : '') + item.text;
+        });
+        if (row.variantInformation) {
+          text = text + ' ' + row.variantInformation[0].text;
+        }
+        row.nameExtended = [{ text }];
+      }
+      if (row.name) {
+        let text = '';
+        row.name.forEach(item => {
+          text = text + (text ? ' ' : '') + item.text;
+        });
+        row.name = [{ text }];
+      }
+      if (row.variantInformation) {
+        let text = '';
+        if (row.name && row.sku) {
+          text = row.name[0].text + ' ' + row.variantInformation[0].text + ' ' + row.sku[0].text;
+        } else {
+          text = row.variantInformation[0].text;
+        }
+        row.variantInformation = [{ text }];
+      }
     }
   }
   const clean = text => text.toString()

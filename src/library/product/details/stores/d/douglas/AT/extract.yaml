@@ -21,7 +21,7 @@ fields:
   - name: nameExtended
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //div[@class="breadcrumb"]//span[@class="breadcrumb__entry"][last()]
+    xpath: //div[contains(@class,"product-detail-header__second-line")]/*
   - name: listPrice
     description: The stated undiscounted price for the product
     xpath: '@list-price'
@@ -44,7 +44,7 @@ fields:
   - name: brandText
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //div[@class="product-detail-header__first-line"]
+    xpath: //span[contains(@class, "brand-logo-text")]
   - name: manufacturer
     description: Product manufacturer
   - name: quantity
@@ -75,19 +75,20 @@ fields:
     description: Content under "legal disclaimer" header
   - name: directions
     description: Content under "directions" header
-    xpath: //span[@class="product-detail-header__name"]/@directions | '@directions'
+    xpath: '@directions'
   - name: warnings
     description: Content under "warnings" header
   - name: ratingCount
     description: The number of ratings
-    type: NUMBER
-    xpath: '@review-count'
+    # xpath: '@review-count'
+    xpath: //div[@class="bv-secondary-summary"]//a[contains(@class,"bv-rating-label")]/text()
+    regExp: '[0-9]+'
   - name: aggregateRatingText
     description: The stated aggregate rating
   - name: aggregateRating
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
-    xpath: '@aggregate-rating'
+    # xpath: '@aggregate-rating'
+    xpath: //div[@class="bv-secondary-summary"]//span[@class="bv-rating"]
   - name: shippingInfo
     description: Shipping information for the product
   - name: shippingDimensions
@@ -111,7 +112,7 @@ fields:
     description: URLs of videos on page
   - name: name
     description: The product name
-    xpath: //div[@class="breadcrumb"]//span[@class="breadcrumb__entry"][last()]
+    xpath: //div[contains(@class,"product-detail-header__second-line")]/*
   - name: coupon
     description: Text of any coupon offer
   - name: secondaryImageTotal
@@ -202,3 +203,8 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: Yes
+
+  - name: unInterruptedPDP
+    xpath: '@updp-info'
+  - name: hasComparisonTable
+    defaultValue: No
