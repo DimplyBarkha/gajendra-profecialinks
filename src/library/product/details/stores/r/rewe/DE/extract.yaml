@@ -47,7 +47,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: string(//div[@class="pdr-AttributeGroup"]/pre[@class="pdr-Attribute"])
+    xpath: //div[@class='pdr-ToggleBox']/div[contains(@class, 'pdr-js-product-description-jumppoint')]/following-sibling::div[@class="pdr-AttributeGroup"]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
