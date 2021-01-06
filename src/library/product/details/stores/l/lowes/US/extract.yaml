@@ -13,7 +13,7 @@ fields:
     singleValue: false
     xpath: (//div[@id="main-section"]//div[@class="tile"]/img/@src)[1]
     regExp: (.*)(\?)(.*)
-    regExpReplace: $1
+    regExpReplace: $1?size=pdhi
   - name: imageAlt
     singleValue: false
     xpath: (//div[@id="main-section"]//div[@class="tile"]/img/@alt)[1]
@@ -36,13 +36,17 @@ fields:
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
-    xpath: //div[@class="content"]//div[@class="romance"]
+    xpath: //section[contains(@id,"main")]//div[@class="romance"]
+  - name: descriptionBulletsLiTags
+    xpath: //section[contains(@id,"main")]//div[@class="specs"]//ul/li
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//div[contains(@class,"product-info")]//ul/li[not(contains(@role,"listitem"))] | //div[@class="content"]//div[@class="specs"]//ul/li[not(contains(@role,"listitem"))])
+    xpath: count(//section[contains(@id,"main")]//div[@class="specs"]//ul/li)
   - name: sku
     singleValue: false
-    xpath: (//div[@id="save-btn-container"]//button[@data-testid="save-btn"]/@data-product-id | //div[@class="buttonWrapper"]//input[@name="productId"]/@value | //div//button[contains(@class,"save pd-save-btn")]/@data-product-id)[1]
+    xpath: //script[contains(@type,"application/ld+json") and  contains(text(),"sku")]
+    regExp: sku":"([^,]+)"
+    regExpReplace: $1
   - name: variantId
     singleValue: false
     xpath: (//div[@class="modelNo"]//span[@aria-hidden="true"])[1]
@@ -82,12 +86,16 @@ fields:
   - name: videos
     singleValue: false
     xpath: //a[@class="videoUrls"]/@href
+  - name: galleryVideos
+    singleValue: false
+    xpath: //a[@class="videoUrls"]/@href
   - name: nameExtended
     singleValue: false
     xpath: //h1/@aria-label
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[contains(@id,"wc-aplus")]/descendant::*[not(contains(@style,"none")) and not(name()='style')]
+    # xpath: //div[contains(@id,"wc-aplus")]/descendant::*[not(contains(@style,"none")) and not(name()='style')]
+    manualSelector: div[id="wc-aplus"]
   - name: manufacturerImages
     singleValue: false
     xpath: //div[contains(@class,"wc-media-inner-wrap") or contains(@class,"wc-rf-banner-image-container")]//img/@src

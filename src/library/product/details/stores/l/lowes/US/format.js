@@ -65,6 +65,28 @@ const transform = (data) => {
       if (row.secondaryImageTotal) {
         if (row.secondaryImageTotal[0].text.toString() === '0') { row.secondaryImageTotal = [{ text: '' }]; }
       }
+      if (row.description) {
+        const description = row.description;
+        let textOne = '';
+        description && description.length && description.forEach(item => {
+          textOne += `${item.text.replace(/\n \n/g, '')}`;
+        });
+        textOne = textOne.trim();
+        let textTwo = '';
+        if (row.descriptionBulletsLiTags) {
+          const descriptionLiTags = row.descriptionBulletsLiTags;
+          descriptionLiTags && descriptionLiTags.length && descriptionLiTags.forEach(item => {
+            textTwo += ` || ${item.text.replace(/\n \n/g, '')}`;
+          });
+          textTwo = textTwo.trim();
+        }
+        const data = [textOne, textTwo];
+        row.description = [
+          {
+            text: data.join(' '),
+          },
+        ];
+      }
       // if (row.description) {
       //   let text = '';
       //   let descTop = '';
