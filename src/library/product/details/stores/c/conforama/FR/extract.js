@@ -49,14 +49,14 @@ module.exports = {
 
       try {
         const xpath = '//script[@type="application/ld+json"][contains(text(),"sku")]';
-          const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-          let jsonStr = element.innerText;
-          let skuArr = jsonStr.match(/("sku": "(\w+)")/g,'$2')
-          let sku = skuArr[0].replace(/"sku": "(\w+)"/g,'$1');
-          addHiddenDiv('added_sku', sku);
-        } catch (error) {
-          console.log(error.message);
-        }
+        const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        let jsonStr = element && element.innerText;
+        let skuArr = jsonStr.match(/("sku": "(\w+)")/g, '$2')
+        let sku = skuArr[0].replace(/"sku": "(\w+)"/g, '$1');
+        addHiddenDiv('added_sku', sku);
+      } catch (error) {
+        console.log(error.message);
+      }
 
       let des = document.querySelector('div[id="tabs-1"]');
       // @ts-ignore
@@ -101,8 +101,8 @@ module.exports = {
         try {
           const xpath = `//script[contains(.,'"brand": {')]`;
           const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-          let jsonStr = element.textContent;
-          jsonStr = jsonStr.trim();
+          let jsonStr = element && element.textContent;
+          jsonStr = jsonStr && jsonStr.trim();
           return JSON.parse(jsonStr);
         } catch (error) {
           console.log(error.message);

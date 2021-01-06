@@ -82,7 +82,7 @@ fields:
     # xpath: //script[contains(text(), '"sku":')]
     # regExp: \"sku\"\:\s\"(.*)\"\,\s
     # regExpReplace: $1
-    xpath: //div[@id='added_sku']
+    xpath: //div[@id='added_sku'] | //form[@id="productSheet"]/@data-product
   - name: ratingCount
     singleValue: false
     description: The number of ratings
