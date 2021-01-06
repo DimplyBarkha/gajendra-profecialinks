@@ -26,7 +26,7 @@ fields:
     xpath: //h1[@itemprop='name']
   - name: availabilityText
     singleValue: false
-    xpath: //link[@itemprop='availability' and contains(@href,'InStock')]
+    xpath: //link[@itemprop='availability' and contains(@href,'InStock')]/@href
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
