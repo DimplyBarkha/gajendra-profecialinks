@@ -13,7 +13,7 @@ const transform = (data) => {
     .replace(/'\s{1,}/g, '"')
     .replace(/\s{1,}'/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
-  // eslint-disable-next-line no-control-regex
+    // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
@@ -22,8 +22,6 @@ const transform = (data) => {
         row.alternateImages.forEach(alternateImagesItem => {
           alternateImagesItem.text = alternateImagesItem.text.replace(/(.*)065x065(.*)/gm, '$1700x700$2');
         });
-        row.image = [row.alternateImages[0]];
-        row.alternateImages.shift();
       }
 
       if (row.sku) {
@@ -32,11 +30,16 @@ const transform = (data) => {
         });
       }
 
-      if (row.videos) {
-        row.videos.forEach(videosItem => {
-          videosItem.text = videosItem.text.replace(/.*?((?:https?:\/\/)?(?:www\.youtube\.com|youtu\.?be).*?) ?'.*/gm, '$1');
-        });
-      }
+      //   if (row.videos) {
+      //     const allVideos = row.videos.map(videosItem => {
+      //       if (videosItem.text.includes('VideoObject')) {
+      //         return videosItem.text.replace(/url":"([^,]+)"/g, '$1');
+      //       } else {
+      //         return videosItem.text;
+      //       }
+      //     });
+      //     row.videos = allVideos;
+      //   }
 
       if (row.shippingInfo) {
         row.shippingInfo.forEach(item => {
@@ -44,8 +47,14 @@ const transform = (data) => {
         });
       }
 
-      if (row.name && row.brandText) {
-        row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.name[0].text }];
+      if (row.name) {
+        row.nameExtended = [{ text: row.name[0].text }];
+      }
+
+      if (row.price) {
+        row.price.forEach(item => {
+          item.text = item.text.replace('.', ',');
+        });
       }
 
       if (row.listPrice) {
@@ -77,8 +86,16 @@ const transform = (data) => {
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
-          text = row.description.map(elm => elm.text).join(' ').replace(/\n \n/g, ' ').replace(/\n/g, ' || ').replace(/●/g, '|| ');
+          if (item.xpath.includes('/li')) {
+            text += `|| ${item.text} `;
+          } else {
+            text += `${item.text} `;
+          }
         });
+        // let text = '';
+        // row.description.forEach(item => {
+        //   text = row.description.map(elm => elm.text).join(' ').replace(/\n \n/g, ' ').replace(/\n/g, ' || ').replace(/●/g, '|| ');
+        // });
         row.description = [
           {
             text: text,

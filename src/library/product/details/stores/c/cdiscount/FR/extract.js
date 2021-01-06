@@ -46,16 +46,24 @@ async function implementation (
     // If images are present in description then add to manufacturerDescription else add to description
     let manufacturerImageFlag = document.querySelector('div[id="inpage_container"] img');
     manufacturerImageFlag = manufacturerImageFlag || document.querySelector('div[id*="presContent"] img');
-    let descriptionSelector = document.querySelector('div[id="inpage_container"]');
-    descriptionSelector = descriptionSelector || document.querySelector('div[id*="presContent"]');
-    let description = descriptionSelector ? descriptionSelector.innerText : '';
-    description = description ? description.replace(/(\n\s*){1,}/g, ' || ') : '';
-
+    const descriptionSelector = document.querySelectorAll('div[id="inpage_container"], div[id*="presContent"]');
+    let description = '';
+    descriptionSelector && descriptionSelector.forEach(element => {
+      // @ts-ignore
+      description += element.innerText;
+    });
+    try {
+      // @ts-ignore
+      const video = JSON.parse(document.evaluate('//script[contains(@type,"application/ld+json") and contains(text(),"VideoObject")] ', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.innerText);
+      video && video.url && addHiddenDiv('pd_video', video.url);
+    } catch (error) {
+      console.log('videos not present');
+    }
     // description = description ? description.replace(/\|\| Key Features/gm, 'Key Features') : '';
     if (manufacturerImageFlag) {
-      addHiddenDiv('added-manufacturerDesc', description);
+      description && addHiddenDiv('added-manufacturerDesc', description);
     } else {
-      addHiddenDiv('added-description', description);
+      description && addHiddenDiv('added-description', description);
     }
   });
   await new Promise(resolve => setTimeout(resolve, 10000));

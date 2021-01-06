@@ -10,17 +10,18 @@ fields:
     xpath: //h1[@itemprop="name"]
   - name: price
     singleValue: false
-    xpath : //span[@itemprop="price" and contains(@class, "hideFromPro")]
-    regExp: ^(\d+)(.*?)(\d+)
-    regExpReplace: $1,$3 $2
+    xpath : //script[contains(@type,"application/ld+json") and contains(text(),'@type":"Product')]
+    regExp: price":([^,]+)
+    regExpReplace: $1
   - name: shippingInfo
     singleValue: false
     xpath : concat((//div[@id="fpSellBy"]//div//text())[1], (//div[@id="fpSellBy"]//div[contains(text(), "Vendu")]/a)[1] | (//div[@id="fpSellBy"]//span[contains(@class, "noWrap")]))
   - name: image
     singleValue: false
+    xpath: //img[@id="picture0"]/@src
   - name: imageAlt
     singleValue: false
-    xpath: //*[@id="picture0"]/@alt
+    xpath: //img[@id="picture0"]/@alt
   - name: category
     singleValue: false
     xpath: //*[@id="bc"]//ul/li[position() > 2]
@@ -67,7 +68,10 @@ fields:
     xpath: //meta[@name="keywords"]/@content
   - name: availabilityText
     singleValue: false
-    xpath: //p[@class="fpProductAvailability"]
+    xpath: //script[contains(@type,"application/ld+json") and contains(text(),'@type":"Product')]
+    regExp: InStock
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
   - name: weightNet
     singleValue: false
     xpath: //*[@id="descContent"]//td[text()="Poids"]/following-sibling::*
@@ -79,7 +83,7 @@ fields:
     xpath: count(//div[@class="fpBulletPointReadMore"]//ul/li)
   - name: description
     singleValue: false
-    xpath: concat(//div[@id="descContent"]//p[@class="fpMb"]," ",//div[@class="fpBulletPointReadMore"]//ul)
+    xpath: //div[@class="fpBulletPointReadMore"]/p[@itemprop="description"] | //div[@class="fpBulletPointReadMore"]//ul//li | //div[@id="presContent"] | //div[@id="descContent"]//p[@class="fpMb"] 
   - name: manufacturer
     singleValue: false
   - name: specifications
@@ -99,7 +103,7 @@ fields:
     xpath: //div[@id="inpage_container"]//img/@srcset | //div[@id="presContent"]//img/@src
   - name: gtin
     singleValue: false
-    xpath: //div[@data-loadbee-manufacturer="EAN"]/@data-loadbee-product
+    xpath: //div[@data-loadbee-manufacturer="EAN"]/@data-loadbee-product | //@data-flix-ean
   - name: ratingCount
     singleValue: false
     xpath: //a[@class="fpCusto"]
@@ -110,7 +114,7 @@ fields:
     xpath: //div[@class="topMainRating"]//span[@class="mainTit"]
   - name: videos
     singleValue: false
-    xpath: //ul[@class="smallPic"]//li[not(@class)]/@onclick
+    xpath: //div[@id="inpage_container"]//div[contains(@class,"flix-videodiv")]//iframe/@src | //div[@id="presContent"]//div[contains(@class,"flix-videodiv")]//iframe/@src | //div[@id="pd_video"] 
   - name: variantId
     singleValue: false
     xpath: //link[contains(@rel,"canonical")]//@href
@@ -139,3 +143,6 @@ fields:
     xpath: //*[@id="descContent"]//td[contains(text(), "Age")]//following-sibling::*
     regExp: (\d+)
     regExpReplace: $1
+  - name: promotion
+    singleValue: false
+    xpath: //div[contains(@class,"fpPromoText")]
