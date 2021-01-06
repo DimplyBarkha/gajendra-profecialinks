@@ -28,7 +28,7 @@ fields:
     xpath: //ol[contains(@class,"beans-breadcrumb__list")]/li
   - name: description
     singleValue: true
-    xpath: concat(//div[contains(@id,'product-description')]//ul,' ',//div[contains(@id,'product-marketing')]//ul,' ',//div[contains(@id,'other-information')]//ul,' ',//div[contains(@id,'features')]//ul,' ',//div[contains(@id,'pack-size')]//ul)
+    xpath: //body/@additional-desc
   - name: price
     singleValue: true
     xpath: //div[@class="product-details-tile"]//div[contains(@class,"price-per-sellable-unit")]|(//div[@data-auto="product-controls"]//div[contains(@class,'price-details--wrapper')]/div//span[@data-auto="price-value"])[1]
