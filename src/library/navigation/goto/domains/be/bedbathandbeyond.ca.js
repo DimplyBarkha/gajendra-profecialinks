@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'bedbathandbeyond.ca',
-    timeout: 90000,
+    timeout: 120000,
     country: 'CA',
     store: 'bedBathBeyond',
     zipcode: '',
