@@ -1,0 +1,36 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //*[@id='plp-product-list']//ul[contains(@class,'product-grids')]/li
+fields:
+  - name: brand
+    singleValue: false
+    xpath: //div[@class='product-grids__copy']/div[position()=1][contains(@class,'product-grids__copy-item--bold')]
+  - name: name
+    singleValue: false
+    xpath: //div[@class='product-grids__copy']/div[position()=2][contains(@class,'product-grids__copy-item')]
+  - name: productUrl
+    singleValue: false
+    xpath: //a[contains(@class,'product-grids__link')]/@href
+    regExp: (.+)
+    regExpReplace: https://www.fwrd.com$1
+  - name: sku
+    singleValue: false
+    xpath: //a[contains(@class,'product-grids__link')]/div[@data-code]/@data-code
+  - name: category
+    singleValue: false
+    xpath: ancestor::body//nav[@aria-label="Breadcrumb"]//ol/li
+  - name: rank
+    singleValue: true
+  - name: id
+    singleValue: true
+  - name: nameExtended
+    singleValue: true
+
+
+#brand|category|id|name|nameExtended|productUrl|rank|sku
+
+
+
+
+
