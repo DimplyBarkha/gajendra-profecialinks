@@ -134,13 +134,15 @@ module.exports = {
         addElementToDocument('spec', final);
       }
 
-      const inTheBoxData = getAllXpath('//dt[contains(.,"Accessories Included")]/following-sibling::dd[1]/text()|//b[contains(text(), "In the box")]/ancestor::p/following-sibling::ul//li/text()', 'nodeValue');
+      let inTheBoxData = getAllXpath('//dt[contains(.,"Accessories Included")]/following-sibling::dd[1]/text()|//b[contains(text(), "In the box")]/ancestor::p/following-sibling::ul//li/text()', 'nodeValue');
 
       if (inTheBoxData != null) {
         for (let i = 0; i < inTheBoxData.length; i++) {
+          inTheBoxData[i] = inTheBoxData[i].replace('|| ', '')
           inTheBoxData[i] = inTheBoxData[i].replace(/,/gm, ' || ');
         }
-        addElementToDocument('ii_inTheBoxData', inTheBoxData.join(' || '));
+        inTheBoxData = inTheBoxData.join(' || ');
+        addElementToDocument('ii_inTheBoxData', inTheBoxData);
       }
 
       const similarItems = document.querySelectorAll('.recommendations-oos-container jl-recommendations-panel');
@@ -169,6 +171,14 @@ module.exports = {
             if (el.innerText) {
               updpItems.push(el.innerText);
             }
+        }
+      }
+
+      const recentlyViewedItems = document.querySelectorAll('.recently-viewed-container .recently-viewed-item__title');
+
+      for (const item of recentlyViewedItems) {
+        if (item.innerText) {
+          updpItems.push(item.innerText);
         }
       }
 
