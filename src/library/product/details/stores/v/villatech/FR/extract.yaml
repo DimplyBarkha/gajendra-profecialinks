@@ -128,7 +128,7 @@ fields:
 
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //div[contains(@class,'row accordion-body')]//article[@itemprop="itemListElement"]//span[@itemprop="name"]
+    xpath: //div[contains(@class,'row accordion-body')]//article[@itemprop="itemListElement"]//span[@itemprop="name"] |//div[contains(@class,'row accordion-body')]//article[@itemprop="itemListElement"]//span[@itemprop="name"] | //h2[@class="product-list-name"]
 
   - name: inTheBoxText
     xpath: //tr[preceding-sibling::tr[th][1][contains(.,"EQUIPEMENTS")]][td[2][contains(.,"Oui")]]/td[1] | //tr[preceding-sibling::tr[th][1][contains(.,"ACCESSOIRES")]][td[2][contains(.,"Oui")]]/td[1]
