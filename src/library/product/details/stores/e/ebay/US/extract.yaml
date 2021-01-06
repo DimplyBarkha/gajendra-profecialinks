@@ -2,7 +2,7 @@ extends: ../shared
 fields:
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //div[contains(@class,'item-info__title clearfix')]//following-sibling::text() | //div[contains(@class,'txt-wrp')]//a
+    xpath: //div[contains(@class,'item-info__title clearfix')]//following-sibling::text() | //div[contains(@class,'txt-wrp')]//a | //div[contains(@class, "mfe-title")]
   - name: inTheBoxText
     singleValue: false
     xpath: //div[contains(@class,'inthebox')]//span[contains(@class,'title')]
