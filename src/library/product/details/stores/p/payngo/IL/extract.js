@@ -20,7 +20,7 @@ module.exports = {
       }
 
       //const getInTheBox = document.querySelector('#MainContent_Properties_productDetails').childNodes;
-      let getInTheBox=document.evaluate('//div/p[*[contains(text(),"?? ????? ")]] | //div/p[*[contains(text(),"??????? ??????")]] | //div[*[contains(text(),"?? ?????")]] | //div[*[contains(text(),"????? ?????:")]] ',document,null,XPathResult.FIRST_ORDERED_NODE_TYPE).singleNodeValue;
+      let getInTheBox=document.evaluate('//div/p[*[contains(text(),"?? ????? ")]] | //div/p[*[contains(text(),"??????? ??????")]] | //div[*[contains(text(),"?? ?????")]] | //div[*[contains(text(),"????? ?????:")]] | //div/p[*[contains(text(),"אביזרים נלווים")]] | //div/p[*[contains(text(),"מה בערכה")]] | //div/p[*[contains(text(),"הערכה כוללת")]]',document,null,XPathResult.FIRST_ORDERED_NODE_TYPE).singleNodeValue;
       console.log("getInTheBox:",!!getInTheBox);
         if (getInTheBox) {
             let getInTheBoxNodes=getInTheBox.childNodes;
@@ -32,7 +32,7 @@ module.exports = {
             for (let i = 0; i < getAllProducts.length; i++) {
                 console.log("brCountFlag:",brCountFlag);
                 
-                if(getAllProducts[i].textContent.trim().includes("?? ?????") || getAllProducts[i].textContent.trim().includes("??????? ??????") || getAllProducts[i].textContent.trim().includes("?? ?????") || getAllProducts[i].textContent.trim().includes("????? ?????:")){
+                if(getAllProducts[i].textContent.trim().includes("?? ?????") || getAllProducts[i].textContent.trim().includes("??????? ??????") || getAllProducts[i].textContent.trim().includes("?? ?????") || getAllProducts[i].textContent.trim().includes("????? ?????:") || getAllProducts[i].textContent.trim().includes("אביזרים נלווים") || getAllProducts[i].textContent.trim().includes("מה בערכה") || getAllProducts[i].textContent.trim().includes("הערכה כוללת")) {
                   console.log("Found matche.....................");
                   brCountFlag=0;
                   takeTextFlag=true;
