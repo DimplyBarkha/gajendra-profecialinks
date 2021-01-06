@@ -15,7 +15,7 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //img[@class='img-fluid']/@src
+    xpath: //div[contains(@class,"image-container")]//img/@src
     regExp: http.*
   - name: imageAlt
     singleValue: true
@@ -48,12 +48,16 @@ fields:
     description: Availability as described on page for the selected variant. If there
       is no availability but the product can be added to cart, this field should be
       "In Stock"
-    xpath: //div[contains(@id, 'stockInfo')]
+   #xpath: //div[contains(@id, 'stockInfo')]
+    xpath: //div[@class='add-to-basket-btn']//span[contains(text(),'Læg i kurv')]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out Of Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class='product-description']
+    xpath: normalize-space(//h1[@class='product-title'])
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -62,7 +66,7 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name, e.g.
       "Visit the Gillette Store"
-    xpath: //div[@id='product_brand']
+    xpath: //div[@id='product_brand']/text()
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -79,24 +83,26 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: //div[@id='details']//text()[contains(., 'EAN:')]
-    regExp: ([0-9]+$)
+    xpath: //span[contains(text(),'EAN')]/../div
+    #regExp: ([0-9]+$)
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //div[@id='details']//text()[contains(., 'Varenummer:')]
-    regExp: ([0-9]+$)
+    xpath: //span[contains(text(),'PID')]/../div
+    #regExp: ([0-9]+$)
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same
       sku
-    xpath: //div[@id='details']//text()[contains(., 'Varenummer:')]
-    regExp: ([0-9]+$)
+    xpath: //span[contains(text(),'PID')]/../div
+    #regExp: ([0-9]+$)
   - name: mpc
-    singleValue: tru
+    singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: //div[@id='details']//text()[contains(., 'ID:')]
-    regExp: ([0-9]+$)
+    #xpath: //div[@id='details']//text()[contains(., 'ID:')]
+    xpath: //span[contains(text(),'Article')]/../div
+    # regExp: (Article)\s(\d+)
+    # regExpReplace : $2
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on the
@@ -257,12 +263,12 @@ fields:
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
-    xpath: //div[@class='product-page__box bg-white h-100']/h3[contains(text(), "Næringsindhold")]
+    xpath: //h3[contains(text(), "Næringsindhold")]
     regExp: ([0-9]+)
   - name: servingSizeUom
     singleValue: true
     description: Unit of measure of serving
-    xpath: //div[@class='product-page__box bg-white h-100']/h3[contains(text(), "Næringsindhold")]
+    xpath: //h3[contains(text(), "Næringsindhold")]
     regExp: ([^\ ]+$)
   - name: numberOfServingsInPackage
     singleValue: true
@@ -271,7 +277,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
-    xpath: //div[@class='product-page__box bg-white h-100']//strong[contains(text(), "Kcal")]
+    xpath: //div[@class="expansion-panel open"]//div[contains(text(), "Kcal")]
   - name: caloriesFromFatPerServing
     singleValue: true
     description: Nutritional Information for Calories From Fat content - Usually based
@@ -280,23 +286,22 @@ fields:
     singleValue: true
     description: Nutritional Information for Total Fat content - Usually based on per
       100g serving
-    xpath: //div[@class='product-page__box bg-white h-100']/div[contains(text(), "Fedt")]//strong
-    regExp: \d\,\d+
+    xpath: //span[contains(text(),'Fedt')]/../div
   - name: totalFatPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Fat content
-    xpath: //div[@class='product-page__box bg-white h-100']/div[contains(text(), "Fedt")]//strong
+    xpath: //span[contains(text(),'Fedt')]/../div
     regExp: "[a-zA-Z]+"
   - name: saturatedFatPerServing
     singleValue: true
     description: Nutritional Information for Saturated Fat content - Usually based on
       per 100g serving
-    xpath: //div[@class='product-page__box bg-white h-100']/div[contains(text(), "heraf mættede fedtsyrer")]//strong
+    xpath: //span[contains(text(),'heraf mættede fedtsyrer')]/../div
     regExp: \d\,\d+
   - name: saturatedFatPerServingUom
     singleValue: true
     description: Unit of Measure Data for Saturated Fat content
-    xpath: //div[@class='product-page__box bg-white h-100']/div[contains(text(), "heraf mættede fedtsyrer")]//strong
+    xpath: //span[contains(text(),'heraf mættede fedtsyrer')]/../div
     regExp: "[a-zA-Z]+"
   - name: transFatPerServing #
     singleValue: true
@@ -323,45 +328,43 @@ fields:
     singleValue: true
     description: Nutritional Information for Total Carbohydrate content - Usually based
       on per 100g serving
-    xpath: //div[@class='product-page__box bg-white h-100']/div[contains(text(), "Kulhydrater")]//strong
-    regExp: \d\,\d+
+    xpath: //span[contains(text(),'Kulhydrater')]/../div
   - name: totalCarbPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Carbohydrate content
-    xpath: //div[@class='product-page__box bg-white h-100']/div[contains(text(), "Kulhydrater")]//strong
+    xpath: //span[contains(text(),'Kulhydrater')]/../div
     regExp: "[a-zA-Z]+"
   - name: dietaryFibrePerServing
     singleValue: true
     description: Nutritional Information for Dietary Fibre content - Usually based on
       per 100g serving
-    xpath: //div[@class='product-page__box bg-white h-100']/div[contains(text(), "Kostfibre")]//strong
+    xpath: //span[contains(text(),'Kostfibre')]/../div
     regExp: \d\,\d+
   - name: dietaryFibrePerServingUom
     singleValue: true
     description: Unit of Measure Data for Dietary Fibre content
-    xpath: //div[@class='product-page__box bg-white h-100']/div[contains(text(), "Kostfibre")]//strong
+    xpath: //span[contains(text(),'Kostfibre')]/../div
     regExp: "[a-zA-Z]+"
   - name: totalSugarsPerServing
     singleValue: true
     description: Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
-    xpath: //div[@class='product-page__box bg-white h-100']/div[contains(text(), "heraf sukkerarter")]//strong
-    regExp: \d\,\d+
+    xpath: //span[contains(text(),'- heraf sukkerarter')]/../div
   - name: totalSugarsPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Sugar content
-    xpath: //div[@class='product-page__box bg-white h-100']/div[contains(text(), "heraf sukkerarter")]//strong
+    xpath: //span[contains(text(),'- heraf sukkerarter')]/../div
     regExp: "[a-zA-Z]+"
   - name: proteinPerServing
     singleValue: true
     description: Nutritional Information for Protein content - Usually based on per
       100g serving
-    xpath: //div[@class='product-page__box bg-white h-100']/div[contains(text(), "Protein")]//strong
+    xpath: //span[contains(text(),'Protein')]/../div
     regExp: \d\,\d+
   - name: proteinPerServingUom
     singleValue: true
     description: Unit of Measure Data for Protein
-    xpath: //div[@class='product-page__box bg-white h-100']/div[contains(text(), "Protein")]//strong
+    xpath: //span[contains(text(),'Protein')]/../div
     regExp: "[a-zA-Z]+"
   - name: vitaminAPerServing
     singleValue: true
@@ -417,12 +420,12 @@ fields:
     singleValue: true
     description: Nutritional Information for Salt content - Usually based on per 100g
       serving
-    xpath: //div[@class='product-page__box bg-white h-100']/div[contains(text(), "Salt")]//strong
+    xpath: //span[contains(text(),'Salt')]/../div
     regExp: \d\,\d+
   - name: saltPerServingUom
     singleValue: true
     description: Unit of Measure Data for Salt
-    xpath: //div[@class='product-page__box bg-white h-100']/div[contains(text(), "Salt")]//strong
+    xpath: //span[contains(text(),'Salt')]/../div
     regExp: "[a-zA-Z]+"
   - name: dietaryInformation
     singleValue: true
@@ -462,6 +465,8 @@ fields:
     singleValue: true
     description: The unit of measurement used in price_per_unit
     xpath: //div[@id='pricePerUnitUom']
+    regExp: (.+)(/)(.+)
+    regExpReplace: $3
   - name: promotion
     singleValue: true
     description: promotion text on product page
@@ -469,8 +474,7 @@ fields:
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
-    xpath: //div[@id='details']/h1[@class='product-title']
-    regExp: (\d+\.?\,?\d*\%)
+    xpath: //span[contains(text(),'Alkoholprocent')]/../div
   - name: newVersion
     singleValue: true
     description: In product page, information about a new version of the product (https://www.amazon.es/DODOT-Sensitive-Pa%C3%B1ales-Talla-240/dp/B01ELA8U0Q/ref=sr_1_4?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=dodot%2B-%2Bpa%C3%B1ales%2Bpara%2Bni&qid=1589984387&sr=8-4&th=1)
