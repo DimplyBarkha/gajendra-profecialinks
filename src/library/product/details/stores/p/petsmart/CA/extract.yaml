@@ -46,7 +46,7 @@ fields:
   #   defaultValue: Out of stock
   - name: description
     singleValue: false
-    xpath: //div[@class="react-tabs" and contains(.,'Description')]//div[@id="react-tabs-1"]//div[contains(@class, "react-tabs__tab-content")]//p[not(contains(.,'Key Benefits'))]
+    xpath: //body/@productDescription
   - name: descriptionBullets
     singleValue: true
     xpath: count(//div[contains(@class, "react-tabs__tab-content")]/li)
