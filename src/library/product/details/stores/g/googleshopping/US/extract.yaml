@@ -160,7 +160,7 @@ fields:
     xpath: //div[contains(@id, "mybox-txt-")]  
   - name: unInterruptedPDP 
     singleValue: false
-    xpath: //div[@class="sh-dc__carousel"]//div[@class="YmbeHb"]/text() | //div[@class="uHBBRe"]/text()
+    xpath: //section[@id="related"]//div[@class="rCPp0c"][not(contains(text(), "from Dyson"))]/ancestor::section//div[@class="sh-dc__carousel"]//div[@class="YmbeHb"]/text() | //div[@class="uHBBRe"]/text() | //div[@class="rCPp0c"][(contains(text(), "People also bought"))]/ancestor::section//div[@class="sh-dc__carousel"]//div[@class="YmbeHb"]/text()
   - name: hasComparisonTable
     defaultValue: No
   - name: inTheBoxUrl
