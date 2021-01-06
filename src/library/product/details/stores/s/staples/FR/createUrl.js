@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'jpg.fr',
     prefix: null,
-    url: null,
+    url: 'https://www.jpg.fr/INTERSHOP/web/WFS/RAJA-JPG-Site/fr_FR/-/EUR/ViewParametricSearch-SimpleOfferSearch?SearchTerm={id}',
     country: 'FR',
     store: 'staples',
     zipcode: '',
