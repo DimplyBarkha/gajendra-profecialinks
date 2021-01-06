@@ -24,7 +24,7 @@ module.exports = {
 
       function extractNutritionInfo () {
         // column position in table data where nutrition data per 100 g/ml is stored
-        const columnPosition = document.evaluate('count(//thead/tr//th[contains(.,"100")]/preceding-sibling::th)', document, null, XPathResult.STRING_TYPE, null).stringValue;
+        const columnPosition = document.evaluate('count(//thead/tr//th[contains(.,"100")][1]/preceding-sibling::th)', document, null, XPathResult.STRING_TYPE, null).stringValue;
         const servingSize = document.evaluate(`//thead/tr/th[@class="jum-nutiriton-heading"][${columnPosition}]`, document, null, XPathResult.STRING_TYPE, null).stringValue;
         const caloriesPerServing = document.evaluate(`//th[contains(translate(., "Energie", "energie"), "energie")]/parent::tr/following-sibling::tr[1]/th[not(text())]/following-sibling::td[${columnPosition}] | //th[contains(translate(., "Energie", "energie"), "energie")]/following-sibling::td[${columnPosition}][contains(text(),"kcal")] | //th[contains(translate(., "Kcal", "kcal"), "kcal")]/following-sibling::td[${columnPosition}][contains(text(),"kcal")]`, document, null, XPathResult.STRING_TYPE, null).stringValue;
         const totalFatPerServing = document.evaluate(`//th[contains(translate(., "Vet", "vet"), "vet")]/following-sibling::td[${columnPosition}]`, document, null, XPathResult.STRING_TYPE, null).stringValue;
@@ -133,7 +133,7 @@ module.exports = {
       }];
     }
     if (dataRef[0].group[0].category) {
-      console.log(dataRef[0].group[0].category[0].text.replace(/(-)/g, ''));
+      dataRef[0].group[0].category[0].text = dataRef[0].group[0].category[0].text.replace(/(-)/g, '');
     }
     return dataRef;
   },

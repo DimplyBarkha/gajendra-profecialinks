@@ -15,15 +15,15 @@ fields:
 - name: image
   singleValue: true
   description: URL of the main product image
-  xpath: //div[@analytics-tag='product image']/ul/li[1]/a/img/@src
+  xpath: //img[@class="jum-pdp-card__image d-block"]/@src
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
-  xpath: //div[@analytics-tag='product image']/img/@alt
+  xpath: //img[@class="jum-pdp-card__image d-block"]/@alt
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
-  xpath: //div[@analytics-tag='product image']/ul/li/following-sibling::li/a/img/@src
+  xpath: //div[@analytics-tag='product image']/ul/li/a/img[@class='jum-pdp-card__thumbnail d-block mt inactive']
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
@@ -53,8 +53,8 @@ fields:
     "In Stock"
   xpath: //div[@analytics-tag="add to cart"]//span[contains(.,"In winkelmandje")]
   regExp: (.+)
-  regExpReplace: In stock
-  defaultValue: Out of stock
+  regExpReplace: In Stock
+  defaultValue: Out Of Stock
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
