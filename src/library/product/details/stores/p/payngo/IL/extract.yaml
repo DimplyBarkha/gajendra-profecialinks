@@ -91,4 +91,5 @@ fields:
     description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
   - name: inTheBoxText
     singleValue: false
-    manualSelector: div[id^="inTheBoxText-"]|
+    xpath: //div[contains(@id, "inTheBoxText-")]
+    # manualSelector: div[id^="inTheBoxText-"]|
