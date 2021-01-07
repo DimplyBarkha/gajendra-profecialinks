@@ -171,7 +171,7 @@ const transform = (data) => {
             const startIdx = text.indexOf('vikt');
             if (startIdx > -1) {
               weight = text.split('vikt:')[1];
-              weightRec[0].text = weight.trim();
+              weightRec[0].text = weight ? weight.trim() : '';
             }
           });
           row.weightNet = weightRec;
