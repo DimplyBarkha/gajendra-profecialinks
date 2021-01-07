@@ -107,8 +107,10 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     description: The extended description of the product supplied by the lister
+    xpath: //div[contains(@data-title,"Productinformatie") and contains(@class,"expander__content")]
   - name: manufacturerImages
     description: Images within the third party description
+    xpath: //div[contains(@class, 'productimages__navigation')]//a[contains(@class, 'gallerybar__thumbnail')][not(contains(@class, 'gallerybar--active'))]/@data-imageurl-zoom
   - name: videos
     description: URLs of videos on page
     xpath: //section//a[contains(@class, 'gallerybar__video')]/@data-videourl
