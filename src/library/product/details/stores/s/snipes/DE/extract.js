@@ -32,6 +32,12 @@ module.exports = {
         addElementToDocument('ab', ab);
       }
 
+      var desc = getAllXpath("//div[@class='b-details-content']/ul/li/text()", 'nodeValue');
+      if (desc != null) {
+        var specs = desc.join(' || ');
+        addElementToDocument('specs', specs);
+      }
+
       // Method to Retrieve Xpath content of a Multiple Nodes
 
       var getXpath = (xpath, prop) => {

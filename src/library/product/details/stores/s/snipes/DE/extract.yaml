@@ -36,7 +36,8 @@ fields:
     regExpReplace: $1.$2
   - name: description
     singleValue: false
-    xpath: //div[@class='b-details-content']
+    # xpath: //div[@class='b-details-content']
+    xpath: //html//div[@id='specs']
   - name: ratingCount
     singleValue: false
     xpath: //div[@class='b-product-review-count']
