@@ -154,6 +154,10 @@ const transform = (data, context) => {
           },
         ];
       }
+      if (row.backupDescription) {
+        let fullDesc = row.description.concat(row.backupDescription);
+        row.description = fullDesc;
+      }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));

@@ -55,7 +55,12 @@ fields:
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
-    xpath: ancestor::html//*[@id="estore_product_longdesc"]//div[@dir="ltr"]
+    xpath: ancestor::html//*[@id="estore_product_longdesc"]//div[@dir="ltr"]//p[not(contains(span, 'How to use'))]
+    description:
+      Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+  - name: backupDescription
+    xpath: ancestor::html//*[@id="estore_product_longdesc"]//div[@dir="ltr"]//ul//li
     description:
       Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
