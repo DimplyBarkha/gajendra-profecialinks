@@ -25,23 +25,19 @@ async function implementation(inputs, parameters, context, dependencies) {
   .catch(() => { });
   await context.evaluate(async () => {
   const specXpath = document.evaluate('//div[@class="_2aFJJAOXlE"]//text() | //div[@class="_3_bNW20rUd"]//text()', document, null, XPathResult.ANY_TYPE);
-  let spec_new = document.querySelector('div.b_E8vloAGwWm');
-if(spec_new === undefined) {
-  if(specXpath) {
-    var specificationList;
-    let specification = '';
-  
-    specificationList = document.querySelectorAll('div.b_3_bNW20rUd');
-    specificationList.forEach((element) => {
-      specification +=
-        element.children[0].innerText+':'+element.children[2].innerText+'||';
-    });
-    const specifications = [];
-     specifications.push(specification.slice(0 , -1))
-    sessionStorage.setItem("Specifications", JSON.stringify(specifications));
-  }  
-}
+if(specXpath) {
+  var specificationList;
+  let specification = '';
 
+  specificationList = document.querySelectorAll('div.b_3_bNW20rUd');
+  specificationList.forEach((element) => {
+    specification +=
+      element.children[0].innerText+':'+element.children[2].innerText+'||';
+  });
+  const specifications = [];
+   specifications.push(specification.slice(0 , -1))
+  sessionStorage.setItem("Specifications", JSON.stringify(specifications));
+}  
 });  
 await context.waitForSelector('div.b_D2rV3eJmpM a')
 .catch(() => { });
@@ -349,7 +345,7 @@ await context.evaluate(async () => {
     // ).singleNodeValue;
    
     let spec = document.querySelector('div.b_2TiXwODAcc');
-if(spec != undefined) {
+if(spec === null) {
   var specificationList;
   let specification2 = '';
 
@@ -360,18 +356,17 @@ if(spec != undefined) {
   });
   addHiddenDiv('specification_2', specification2);
 }
-let spec_new = document.querySelectorAll('div[data-auto="sku-specs"]')[0];
-if(spec_new) {
+let spec2 = document.querySelector('div.b_E8vloAGwWm');
+if(spec2) {
   var specificationList1;
   let specification1 = '';
 
-  specificationList1 = spec_new.querySelectorAll('div.b_E8vloAGwWm');
+  specificationList1 = document.querySelectorAll('div.b_E8vloAGwWm');
   specificationList1.forEach((element, index, array) => {
     specification1 +=
       element.children[0].innerText +':'+element.children[2].innerText+'||';
   });
   addHiddenDiv('specification_alt', specification1);
-
 }
 
     let variantInfo = document.querySelectorAll('span.b_orEV9DcwNt');
