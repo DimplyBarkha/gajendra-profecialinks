@@ -35,6 +35,11 @@ module.exports = {
       console.log('video iframe is not present');
     }
     await context.evaluate(async function () {
+      const enhacedContentTab = document.querySelector("a[data-template='ProductMoreInformationTab']");
+      if (enhacedContentTab) {
+        // @ts-ignore
+        enhacedContentTab.click();
+      }
       const videoIframe = document.querySelector('iframe[id*="quchbox-videolist"]');
       try {
         if (videoIframe) {

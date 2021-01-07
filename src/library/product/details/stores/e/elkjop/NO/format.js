@@ -76,7 +76,7 @@ const transform = (data) => {
         row.manufacturerDescription.forEach(desc => {
           manufacturerDesc += `${desc.text} `;
         });
-        row.manufacturerDescription = [{ text: manufacturerDesc.replace('Les merProduktinformasjon', '') }];
+        row.manufacturerDescription = [{ text: manufacturerDesc.replace('Les merProduktinformasjon', '').replace('Mer informasjon', '') }];
       }
 
       if (row.largeImage) {

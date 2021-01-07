@@ -87,7 +87,7 @@ fields:
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
-    xpath: //meta[@itemprop="gtin8"]/@content
+    xpath: //meta[@itemprop='productID']/@content
   - name: sku
     singleValue: false
     description: The store-specific product identifier
@@ -131,7 +131,7 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    manualSelector: div[class*="product-inspiration-wrapper"], div[class*="product-more-info"] p
+    xpath: //div[contains(@class, 'product-more-info')] | //section[contains(@class, 'product-inspiration')]//div[contains(@class, 'inspiration-content')]//div[contains(@class, 'article-text')]
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
@@ -216,3 +216,5 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: "No"
+  - name: currencyOverride
+    xpath: NOK
