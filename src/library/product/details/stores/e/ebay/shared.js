@@ -41,6 +41,11 @@ async function implementation(
   } catch (error) {
     console.log('No glbfooter');
   }
+  try {
+    await context.waitForSelector('div.mfe-reco', { timeout: 45000 });
+  } catch (error) {
+    console.log('No recommendation products');
+  }
 
   async function checkUPDP() {
     await context.evaluate(async () => {
