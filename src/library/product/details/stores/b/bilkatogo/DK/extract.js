@@ -86,16 +86,19 @@ module.exports = {
       //   const unitPriceUomRegex = /[^\.]+\.$/g;
       //   const unitPriceString = unitPriceRegex.exec(unitPrice)[1] + ' DKK';
       //   const unitPriceUomString = unitPriceUomRegex.exec(unitPrice)[0];
-      let pricePerUnit = document.querySelector('div[class="product-sub-title"]');
-      let pricePerUnitSliced = '', pricePerUnitUOM = '';
-      let pricePerUnitTxt = pricePerUnit.innerText;
-      let strt = 0, end = 0, endUOM = 0;
+      const pricePerUnit = document.querySelector('div[class="product-sub-title"]');
+      let pricePerUnitSliced = '';
+      let pricePerUnitUOM = '';
+      const pricePerUnitTxt = pricePerUnit ? pricePerUnit.innerText : '';
+      let strt = 0;
+      let end = 0;
+      let endUOM = 0;
       for (let i = 0; i < pricePerUnitTxt.length; i++) {
-        if (pricePerUnitTxt.charAt(i) === '/' && strt === 0)
+        if (pricePerUnitTxt.charAt(i) === '/' && strt === 0) {
           strt = i;
-        else if (pricePerUnitTxt.charAt(i) === '/' && end === 0)
+        } else if (pricePerUnitTxt.charAt(i) === '/' && end === 0) {
           end = i;
-        else if (pricePerUnitTxt.charAt(i) === 'L' && end !== 0) {
+        } else if (pricePerUnitTxt.charAt(i) === 'L' && end !== 0) {
           endUOM = i;
           break;
         }
@@ -105,18 +108,19 @@ module.exports = {
       pricePerUnitUOM = pricePerUnitTxt.substring(strt + 1, endUOM + 1).trim();
       addElementToDocument('pricePerUnit', pricePerUnitSliced);
       addElementToDocument('pricePerUnitUom', pricePerUnitUOM);
-      let brandText = '', index = 0;
+      let brandText = '';
+      let index = 0;
       for (let i = pricePerUnitTxt.length; i >= 0; i--) {
         if (pricePerUnitTxt.charAt(i) == '/') { index = i; break; }
       }
       brandText = pricePerUnitTxt.substring(index, pricePerUnitTxt.length);
-      if(brandText.length > 4){
+      if (brandText.length > 4) {
         addElementToDocument('product_brand', brandText);
-      } 
+      }
 
-      let expansionPanels = document.querySelectorAll('div.expansion-panel');
+      const expansionPanels = document.querySelectorAll('div.expansion-panel');
       if (document.querySelectorAll('div.expansion-panel')) {
-        let expansionPanels = document.querySelectorAll('div.expansion-panel');
+        const expansionPanels = document.querySelectorAll('div.expansion-panel');
         for (let i = 0; i < expansionPanels.length; i++) {
           expansionPanels[i].querySelector('div.header-button').click();
         }
