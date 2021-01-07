@@ -24,12 +24,18 @@ async function implementation(
     await context.evaluate(async function() {
 
         window.scrollTo(0, 700);
-        await stall(5000);
+        await stall(1000);
+        window.scrollTo(0, 1000);
+        await stall(3000);
+        window.scrollTo(0, 300);
+        await stall(1000);
+        window.scrollTo(0, 700);
+        await stall(3000);
 
         let scrollTop = 0;
         while (scrollTop <= 20000) {
             await stall(500);
-            scrollTop += 500;
+            scrollTop += 1000;
             window.scroll(0, scrollTop);
             if (scrollTop === 20000) {
                 await stall(1000);

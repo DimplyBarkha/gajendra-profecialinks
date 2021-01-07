@@ -4,7 +4,7 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    xpath: //img[@id='slick-slide10']/@src
+    xpath: (//img[contains(@id,'slick-slide1')]/@src)[1]
     description: URL of the main product image
   - name: imageAlt
     xpath: //div[@class="product-image-container"]//img[@itemprop="image"][position()=1]/@alt
