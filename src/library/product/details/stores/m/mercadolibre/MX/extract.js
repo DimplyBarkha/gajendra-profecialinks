@@ -30,15 +30,25 @@ module.exports = {
       // addElementToDocument('url', location.href);
 
       const el = document.querySelector('div.ui-pdp-container__col.col-1.ui-pdp-container--column-right.mt-16.pr-16 > div.ui-pdp-container__row.ui-pdp-component-list.pr-16.pl-16 > div > div.ui-pdp-container__row.ui-pdp-container__row--main-actions > form > div > button.andes-button.andes-button--quiet > span');
+      const alternativeEl = document.querySelector('div > div.ui-pdp-container__row.ui-pdp-container__row--main-actions > form > div > button > span');
+      const isNotAvalible = document.querySelector('div.ui-pdp-container__row.ui-pdp-container__row--item-status-short-description-message > div');
       console.log(el);
-      if (el) {
+      if (isNotAvalible) {
+        addElementToDocument('isStock', 'Out of Stock');
+      } else if (el) {
         const innerText = el.innerText;
         if (innerText === 'Agregar al carrito') {
           addElementToDocument('isStock', 'In Stock');
         }
         console.log(innerText);
+      } else if (alternativeEl) {
+        const innerText2 = alternativeEl.innerText;
+        if (innerText2 === 'Agregar al carrito') {
+          addElementToDocument('isStock', 'In Stock');
+          console.log(innerText2);
+        }
       } else {
-        addElementToDocument('isStock', 'Out of Stock');
+        addElementToDocument('isStock', '');
         console.log('not in stock');
       }
       // addElementToDocument('url', location.href);
