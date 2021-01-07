@@ -52,7 +52,7 @@ fields:
   - name: price
     singleValue: false
     description: The offered price for the product
-    xpath: //div[@class="sale_price"]
+    xpath: //div[@class="sale_price"] | //div[@class="price"]/span
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
