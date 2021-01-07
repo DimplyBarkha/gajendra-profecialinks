@@ -14,7 +14,7 @@ fields:
     xpath: (//*[contains(@class,"product-carousel-item")]//img/@src)[position()>1]
   - name: alternateImages1
     singleValue: false
-    xpath: (//ul[contains(@class,"gal-thumbnail")]//button[contains(@aria-label,"arrow down")]//img/@src)[position()>2]
+    xpath: (//ul[contains(@class,"gal-thumbnail")]//button[contains(@aria-label,"arrow down")]//img/@src)[position()>2] | (//*[contains(@class,"owl-item")]//img/@src)[position()>1]
   - name: metaKeywords
     singleValue: false
     xpath: //meta[contains(@name, "keywords")]/@content
