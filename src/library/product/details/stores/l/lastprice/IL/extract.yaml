@@ -24,28 +24,29 @@ fields:
     description: The categories (e.g. from breadcrumbs)
     xpath: //ol[@class='breadcrumb container']/li[position()>1]/a/text()
   - name: nameExtended
-    singleValue: true
+    singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
     xpath: //div[contains(@class,'prodDesc')]//h1/text()
   - name: listPrice
-    singleValue: true
+    singleValue: false
     description: The stated undiscounted price for the product
     xpath: //h2[@class='price']//div[@class='old-price']/text()
   - name: price
-    singleValue: true
+    singleValue: false
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: (//h2[contains(@class,'price')]/span/following-sibling::text())[1] | (//h2[contains(@class,'price')]/text())[1]
     regExp: (\d+(,)?(\d+)?)
     regExpReplace: $1
   - name: availabilityText
-    singleValue: true
+    singleValue: false
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     xpath: //script[@type='application/ld+json']/text()
-    regExp: (InStock)
+    regExp: .*(InStock|OnlineOnly)
+    regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
     singleValue: false
