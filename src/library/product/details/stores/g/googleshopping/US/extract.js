@@ -141,7 +141,7 @@ async function implementation (inputs, parameters, context, dependencies) {
         }
       } catch (err) { }
 
-      const boxImgSel = '(//span[contains(.,"In the Box")])[2]/../../..//img | (//span[contains(.,"In the box")])[2]/../../..//img';
+      const boxImgSel = '(//span[contains(.,"In the Box")])[2]/../../..//img | (//span[contains(.,"In the box")])[2]/../../..//img | (//span[contains(.,"In The Box")])[2]/../../..//img';
       const boxImgs = [];
       try {
         const boxImgIterator = document.evaluate(boxImgSel, document, null, XPathResult.ANY_TYPE, null);
@@ -152,7 +152,7 @@ async function implementation (inputs, parameters, context, dependencies) {
         }
       } catch (err) { }
       /// start
-      const boxTxtSel = '//div[@id="sg-product__pdp-container"]//div/span[contains(.,"In the Box")]/../following-sibling::div/div/div | //div[@id="sg-product__pdp-container"]//div/span[contains(.,"In the box")]/../following-sibling::div/div/div';
+      const boxTxtSel = '//div[@id="sg-product__pdp-container"]//div/span[contains(.,"In the Box")]/../following-sibling::div/div/div | //div[@id="sg-product__pdp-container"]//div/span[contains(.,"In the box")]/../following-sibling::div/div/div | //div[@id="sg-product__pdp-container"]//div/span[contains(.,"In The Box")]/../following-sibling::div/div/div';
       const boxTxts = [];
       try {
         const boxTxtIterator = document.evaluate(boxTxtSel, document, null, XPathResult.ANY_TYPE, null);
