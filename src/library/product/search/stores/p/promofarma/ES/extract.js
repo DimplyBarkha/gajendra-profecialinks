@@ -33,8 +33,8 @@ module.exports = {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
-        newDiv.style.display = 'none';
-        document.body.appendChild(newDiv);
+        const originalDiv = document.querySelectorAll('a[class="link GA_coupon_name "] h3')[index];
+        originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
@@ -54,8 +54,13 @@ module.exports = {
 
       }
       const url = window.location.href;
-      addHiddenDiv1('added-searchurl', url);
+      const search = document.querySelectorAll('a[class="link GA_coupon_name "] h3')
+      for (let i = 0; i <search.length; i++){
+        addHiddenDiv1('added-searchurl', url, i);
 
+      }
+      
+     
     });
     return await context.extract(productDetails, { transform });
   },
