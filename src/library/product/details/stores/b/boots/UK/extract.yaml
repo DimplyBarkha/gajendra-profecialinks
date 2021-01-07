@@ -55,12 +55,12 @@ fields:
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
-    xpath: ancestor::html//*[@id="estore_product_longdesc"]//div[@dir="ltr"]//p[not(contains(span, 'How to use'))]
+    xpath: ancestor::html//*[@id="estore_product_longdesc"]//div[@dir="ltr"]//p[not(contains(span, 'How to use'))] | ancestor::html//*[@id="estore_product_longdesc"]//div[@dir="ltr"]/text()[not(preceding-sibling::span[1][contains(text(),"Hazardous") or contains(text(),"Ingredients") or contains(text(),"to use")])]
     description:
       Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: backupDescription
-    xpath: ancestor::html//*[@id="estore_product_longdesc"]//div[@dir="ltr"]//ul//li
+    xpath: ancestor::html//*[@id="estore_product_longdesc"]//div[@dir="ltr"]//ul[not(preceding-sibling::span[1][contains(text(),"How to")])]//li
     description:
       Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
