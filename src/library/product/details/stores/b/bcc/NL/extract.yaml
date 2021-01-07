@@ -52,7 +52,7 @@ fields:
     xpath: //a[contains(@class, 'brandlogo')]/img/@alt
   - name: quantity
     description: Quantity as described on the page
-    xpath: 
+    xpath:
   - name: weightNet
     description: Net weight as described on the page
     xpath: //div[contains(@class, 'expander__content')]//table[contains(@class, 'productspecifications')]//th[text() = 'Gewicht']/following-sibling::td
@@ -107,10 +107,10 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     description: The extended description of the product supplied by the lister
-    xpath: //div[contains(@data-title,"Productinformatie") and contains(@class,"expander__content")]
+    xpath: //div[@class='col-xs-12 col-md-6 expander']
   - name: manufacturerImages
     description: Images within the third party description
-    xpath: //div[contains(@class, 'productimages__navigation')]//a[contains(@class, 'gallerybar__thumbnail')][not(contains(@class, 'gallerybar--active'))]/@data-imageurl-zoom
+    xpath: //img/@src
   - name: videos
     description: URLs of videos on page
     xpath: //section//a[contains(@class, 'gallerybar__video')]/@data-videourl
