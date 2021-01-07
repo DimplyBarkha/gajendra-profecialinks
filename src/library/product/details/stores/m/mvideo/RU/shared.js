@@ -18,24 +18,28 @@ const cleanUp = (data, context) => {
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
     for (const row of group) {
-      if (row.aggregaterating) {
-        let text = row.aggregaterating[0].text;
-        row.aggregaterating = [{ text }]
+      if (row.aggregateRating) {
+        let text = row.aggregateRating[0].text.replace(',', '.');
+        row.aggregateRating = [{ text }]
       }
-      if (row.aggregaterating2) {
-        let text = row.aggregaterating2[0].text;
-        row.aggregaterating2 = [{ text }]
-      }
-      if (row.quantity) {
-        row.quantity[0].text.replace('/\"/g', '')
+      if (row.aggregateRating2) {
+        row.aggregateRating2 = [{ text: row.aggregateRating2[0].text.replace(',', '.') }]
       }
       if (row.nameExtended && row.quantity) {
         let text = `${row.nameExtended[0].text} ${row.quantity[0].text}`;
-        row.nameExtended = [{ text }]
+        row.nameExtended = [{ text: text.trim() }]
       }
       if (row.shippingDimensions) {
         let text = `${row.shippingDimensions[0].text} Bec`
         row.shippingDimensions = [{ text }]
+      }
+      if (row.description) {
+        let text = row.description[0].text;
+        row.description = [{ text }]
+      }
+      if (row.availabilityText) {
+        let text = row.availabilityText[0].text.includes('OutOfStock') ? 'Out of Stock' : 'In Stock'
+        row.availabilityText = [{ text }]
       }
     }
   }
