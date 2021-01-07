@@ -122,4 +122,4 @@ fields:
     regExpReplace: Yes
     defaultValue: No
   - name: unInterruptedPDP
-    xpath: //div[@data-at="product_carousel"]//div[@role="tabpanel"]/div
+    xpath: //div[@data-at="product_carousel"]//div[@role="tabpanel"]//div[contains(@data-comp, 'ProductDisplayName')] | //ul[@class="products_expanded"]/li//div[@name="product2"]/a/p
