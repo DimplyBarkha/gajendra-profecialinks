@@ -38,6 +38,13 @@ module.exports = {
         const appendDiv = document.querySelector('div');
         appendDiv.className = 'variantinfo';
         appendDiv.setAttribute('varianturl', window.location.href);
+        const defaultUrl = window.location.href;
+        let skuId = defaultUrl && defaultUrl.match(/(skuId=)(\d+)/g) && defaultUrl.match(/(skuId=)(\d+)/g)[0];
+        if(skuId== undefined || skuId== null ){
+          skuId = defaultUrl.match(/p\/\d+/g)[0];
+        }
+          let id = skuId && skuId.match(/(\d+)/g) && skuId.match(/(\d+)/g)[0];
+          appendDiv.setAttribute('variantid', id);
       }else{
         const variantId = [];
         wholeVariants.forEach((element) => {
