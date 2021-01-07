@@ -46,7 +46,6 @@ async function implementation (
       document.body.appendChild(newDiv);
     }
 
-
     function getXpath (xpath, prop) {
       const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
       let result;
@@ -207,23 +206,22 @@ async function implementation (
     }
 
     var extraWTBText = getXpath('//span[@class="title"][contains(text(), "Included")]/following-sibling::span', 'innerText');
-    const widgetWTBText = document.querySelectorAll('div[data-section-tag="in-the-box"] h3, div[data-section-caption="In The Box"] h3');    ;
+    const widgetWTBText = document.querySelectorAll('div[data-section-tag="in-the-box"] h3, div[data-section-caption="In The Box"] h3'); ;
     if (widgetWTBText && widgetWTBText.length) {
       [...widgetWTBText].forEach((element) => {
         addHiddenDiv('ii_extraWTBText', element.innerText);
       });
-    }
-    else if (extraWTBText != null) {
+    } else if (extraWTBText != null) {
       extraWTBText = extraWTBText.replace(/\s-\s/gm, ' || ');
       addHiddenDiv('ii_extraWTBText', extraWTBText);
     }
 
-    let udpd = document.querySelectorAll('div.product_desc div.top');
+    const udpd = document.querySelectorAll('div.product_desc div.top');
     [...udpd].forEach((element) => {
       const brand = element.querySelector('div.product_manufacturer') ? element.querySelector('div.product_manufacturer').innerText : '';
       const title = element.querySelector('div.product_name') ? element.querySelector('div.product_name').innerText : '';
       addHiddenDiv('ii_UDPD', brand + ' ' + title);
-    })
+    });
   });
 
   return await context.extract(productDetails, { transform });
