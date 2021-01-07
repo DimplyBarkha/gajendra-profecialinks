@@ -23,7 +23,7 @@ module.exports = {
         variants.forEach((element) => {
           element.click();
           variantColorArr.push(window.location.href);
-        })
+        });
       }
       const sizeVariants = document.querySelectorAll('div[class*="sizes"]>ul>li>label>span');
       const sizeArr = [];
@@ -31,36 +31,40 @@ module.exports = {
         sizeVariants.forEach((element) => {
           element.click();
           sizeArr.push(window.location.href);
-        })
+        });
       }
       const wholeVariants = [...variantColorArr, ...sizeArr];
-      if(wholeVariants.length==0){
-        const appendDiv = document.querySelector('div');
+      console.log(variantColorArr)
+      console.log(sizeArr)
+      console.log(wholeVariants)
+      if (wholeVariants.length == 0) {
+        const appendDiv = document.createElement('div');
         appendDiv.className = 'variantinfo';
         appendDiv.setAttribute('varianturl', window.location.href);
         const defaultUrl = window.location.href;
         let skuId = defaultUrl && defaultUrl.match(/(skuId=)(\d+)/g) && defaultUrl.match(/(skuId=)(\d+)/g)[0];
-        if(skuId== undefined || skuId== null ){
+        if (skuId == undefined || skuId == null) {
           skuId = defaultUrl.match(/p\/\d+/g)[0];
         }
-          let id = skuId && skuId.match(/(\d+)/g) && skuId.match(/(\d+)/g)[0];
-          appendDiv.setAttribute('variantid', id);
-      }else{
+        const id = skuId && skuId.match(/(\d+)/g) && skuId.match(/(\d+)/g)[0];
+        appendDiv.setAttribute('variantid', id);
+        document.querySelector('body').appendChild(appendDiv);
+      } else {
         const variantId = [];
         wholeVariants.forEach((element) => {
-          let skuId = element.match(/(skuId=)(\d+)/g)[0];
-          let id = skuId.match(/(\d+)/g)[0];
+          const skuId = element.match(/(skuId=)(\d+)/g)[0];
+          const id = skuId.match(/(\d+)/g)[0];
           variantId.push(id);
-        })
+        });
         variantId.forEach((element, index) => {
-          const appendDiv = document.querySelector('div');
+          const appendDiv = document.createElement('div');
           appendDiv.className = 'variantinfos';
           appendDiv.setAttribute('variantid', variantId[index]);
           appendDiv.setAttribute('varianturl', wholeVariants[index]);
           document.body.append(appendDiv);
-        })
+        });
       }
     });
-    return await context.extract(variants , { transform });
-  }
+    return await context.extract(variants, { transform });
+  },
 };
