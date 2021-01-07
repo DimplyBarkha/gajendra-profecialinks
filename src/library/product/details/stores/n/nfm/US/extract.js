@@ -82,52 +82,54 @@ module.exports = {
       }
       addHiddenDiv('videosExtracted', src);
 
+
       const inTheBoxNode = document.querySelector('div.syndi_powerpage');
-      let inTheWITB = false;
 
       if (inTheBoxNode) {
         const inTheBox = inTheBoxNode.shadowRoot ? inTheBoxNode.shadowRoot : null;
         if (inTheBox) {
+
+          const comparisonTables = inTheBox.querySelector('div.wc-pct-header-column-wrapper');
+          if (comparisonTables){
+              console.log("tt is there");
+               addHiddenDiv('hasComparisonTable', "Yes");
+
+
+          }
+          else{
+            console.log("tt is absent");
+            addHiddenDiv('hasComparisonTable', "No");
+
+          }
+
           [...inTheBox.querySelectorAll('h2.syndigo-widget-section-header')].forEach(element => {
             const ifInTheBoxTitle = element ? (element.innerText.includes('In the Box') || element.innerText.includes('In The Box')) : false;
             if (ifInTheBoxTitle) {
-              const inTheBoxContent = element.parentElement.querySelector('div.syndigo-featureset-layout');
+              const inTheBoxContent = element.parentElement.querySelector('div.syndigo-featureset-layout,div.syndigo-featureset');
               const inTheBoxImg = inTheBoxContent.querySelectorAll('img');
               [...inTheBoxImg].forEach((element) => {
                 addHiddenDiv('ii_inTheBoxUrls', element.src);
               });
               const inTheBoxText = inTheBoxContent.querySelectorAll('h3.syndigo-featureset-feature-caption');
               [...inTheBoxText].forEach((element) => {
+                console.log('BOX TEXT',element.innerText);
                 if (element.innerText.length) {
-                  let inTheWITB = true;
-
                   addHiddenDiv('ii_inTheBoxText', element.innerText);
-                  console.log("here the output uddp.....",element.innerText)
                 }
               });
-
-            if (inTheWITB){
-
-
-              const all_h3 = document.querySelector('#DT_Features').children;
-              let start = false
-              for(let i =0; i< all_h3.length; i++)
-              {
-                 if( all_h3[i].textContent.includes('In The Box:') )
-                 {
-                    start = true;
-                 }
-                 if (start)
-                 {
-                    addHiddenDiv('iii_inTheBoxText', all_h3[i].textContent);
-
-                 }
-
-              }
             }
 
-
-            }
+            /*
+             const comparisonTables = element.parentElement.querySelector('div.wc-pct-header-column-wrapper');
+             console.log("here is comparison table", comparisonTables);
+             if(comparisonTables){
+                 addHiddenDiv('hasComparisonTable', element.innerText);
+                 console.log("here i am in to comparison");
+             } */
+            /* else{
+                    console.log("comparison table absent");
+                     addHiddenDiv('hasComparisonTable', element.innerText);
+             }  */
           });
         }
       }

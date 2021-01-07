@@ -140,9 +140,11 @@ fields:
     defaultValue: No
   - name: inTheBoxText
     singleValue: false
-    xpath:  //p[@id="DT_Include"]/li|//div[@id='ii_inTheBoxText'] | //div[@id='iii_inTheBoxText']
-    #xpath: //h3[contains(text(),"In The Box")]//following-sibling::li | //p[@id="DT_Include"]/li|//div[@id='ii_inTheBoxText']
+    xpath: //div[@id='ii_inTheBoxText']
     description: Must include text to show the accessories/tools which come with the product
+  - name: inTheBoxText2
+    singleValue: false
+    xpath: //h3[contains(text(),"In The Box")]//following-sibling::li
   - name: inTheBoxUrl
     singleValue: false
     xpath: //div[@id='ii_inTheBoxUrls']
@@ -151,6 +153,8 @@ fields:
     singleValue: false
     description: Compare the range table or matrix must be present for all vacuum cleaners & air treatment. This is not required for personal care or lighting. As a minimum the comparison table will compare against 1 additional Dyson product.
     defaultValue: No
+    xpath: //div[@id='hasComparisonTable']
+    # xpath: //boolean(//div[@class='wc-pct-header-column-wrapper'])
   - name: unInterruptedPDP
     singleValue: false
     xpath: //div[@id="collectionProductsContainer"]//a

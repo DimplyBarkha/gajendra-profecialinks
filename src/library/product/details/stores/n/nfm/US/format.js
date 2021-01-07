@@ -46,6 +46,9 @@ const transform = (data) => {
           },
         ];
       }
+
+
+
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {
@@ -89,6 +92,31 @@ const transform = (data) => {
             text: cleanUp(text.slice(0, -4)),
           },
         ];
+      }
+      if (row.inTheBoxText || row.inTheBoxText2) {
+        // console.log('BOX DATA', row.inTheBoxText)
+        var arr = [];
+        if (row.inTheBoxText.length > 0) {
+          row.inTheBoxText.forEach(item => {
+            arr.push(item.text)
+
+          })
+          let uniq = [...new Set(arr)];
+          console.log('+++++++++++++++++++++++', uniq);
+          row.inTheBoxText.text = uniq.join(" || ")
+        }
+        else if (row.inTheBoxText2.length > 0) {
+          row.inTheBoxText2.forEach(item => {
+            arr.push(item.text)
+
+          })
+          let uniq = [...new Set(arr)];
+          console.log('+++++++++++++++++++++++', uniq);
+          row.inTheBoxText.text = uniq.join(" || ")
+
+        }
+
+
       }
       if (row.aggregateRatingText) {
         let ag = row.aggregateRatingText[0].text;
@@ -136,7 +164,39 @@ const transform = (data) => {
           },
         ];
       }
+     /* if(row.hasComparisonTable){
+    var arr = [] ;
+    var text = '';
+        row.hasComparisonTable.forEach(item =>{
+          console.log("here is loggggg....",item);
+         arr.push(item.text);
+
+        arr.forEach(item =>{
+          console.log("here is arr",arr);
+          if(item.text ==='Comparison Chart'){
+            console.log("here is my items",item.text )
+            row.hasComparisonTable= [
+              {
+                text: "Yes"
+              }
+            ]
+
+          }
+          else{
+            row.hasComparisonTable= [
+              {
+                text: "No"
+              }
+            ]
+          }
+        })
+        })
+
+
+      }*/
     }
+
+
   }
   return data;
 };
