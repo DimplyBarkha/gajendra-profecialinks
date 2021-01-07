@@ -343,7 +343,7 @@ async function implementation (
         }
         await new Promise((resolve, reject) => setTimeout(resolve, 1000));
         attempts += 1;
-        if (attempts > 5) break;
+        if (attempts > 3) break;
       }
     });
 
@@ -365,6 +365,30 @@ async function implementation (
     //   document.body.appendChild(newDiv);
     //   }
     //   addHiddenDiv('promotionText',promotionText);
+
+    const enhancedContent = await context.evaluate(() => {
+      return document.querySelector('#syndi_powerpage>div');
+    });
+
+    if (enhancedContent) {
+      await context.evaluate(() => {
+        // @ts-ignore
+        const img = [...document.querySelector('#syndi_powerpage>div').shadowRoot.querySelectorAll('div[class*="syndigo"] img')];
+        const images = [];
+        for (let i = 0; i < img.length; i++) {
+          images.push(img[i].getAttribute('src'));
+        }
+        document.querySelector('body').setAttribute('manu-imgs', images.join(' | '));
+        const desc = [...document.querySelector('#syndi_powerpage>div').shadowRoot.querySelectorAll('div[class*="syndigo"]')];
+        const description = [];
+        for (let i = 0; i < desc.length; i++) {
+          if (desc[i].innerText) {
+            description.push(desc[i].innerText);
+          }
+        }
+        document.querySelector('body').setAttribute('manu-desc', description[0]);
+      });
+    }
 
     const { transform } = parameters;
     const { productDetails } = dependencies;

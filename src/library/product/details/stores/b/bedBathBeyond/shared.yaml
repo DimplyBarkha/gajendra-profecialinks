@@ -97,11 +97,11 @@ fields:
     xpath: td[@class="colorGroup"]
     description: A textual description of the colour
   - name: manufacturerDescription
-    xpath: ancestor::html//div[@id="webcollage"]
+    xpath: ancestor::html//div[@id="webcollage"] | ancestor::html//body/@manu-desc
     singleValue: false
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
-    xpath: ancestor::html//div[@id="webcollage"]//img/@src
+    xpath: ancestor::html//div[@id="webcollage"]//img/@src | ancestor::html//body/@manu-imgs
     singleValue: false
     description: Images within the third party description
   - name: name
