@@ -34,25 +34,32 @@ module.exports = {
         } else {
           console.log('cannot find the cookie button - either not present or need to update the xpath');
         }
-
       } catch (err) {
         console.log(err);
       }
 
       await context.evaluate(async function () {
-        function preFetchProductDetails() {
+        let prodNum = null;
+        if (document.querySelector('section.page__product') && document.querySelector('section.page__product').hasAttribute('data-pid')) { prodNum = document.querySelector('section.page__product').getAttribute('data-pid'); }
+        if (prodNum !== null) {
+          const jsonData = document.querySelector('script[type="application/json"]').innerText;
+          const jsonFormatData = JSON.parse(jsonData);
+          const brandText = jsonFormatData.products.itemsByPid[prodNum].brand.name;
+          addEleToDoc('brandText', brandText);
+        }
+        function preFetchProductDetails () {
           let productInfo = findProductDetails('//script[@type="application/ld+json"]');
           productInfo = JSON.parse(productInfo.textContent);
           return productInfo;
         }
 
-        function findProductDetails(xpath) {
+        function findProductDetails (xpath) {
           const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
           const productDetails = element;
           return productDetails;
         }
 
-        function addEleToDoc(key, value) {
+        function addEleToDoc (key, value) {
           const prodEle = document.createElement('div');
           prodEle.id = key;
           prodEle.textContent = value;
@@ -164,18 +171,17 @@ module.exports = {
         }, cssSelector);
       };
 
-      let inTheBox = await context.evaluate(async () => {
-
-        let selector = document.querySelector("section.description-container__full-text > div> ul")
-        let inTheBoxText = ''
+      const inTheBox = await context.evaluate(async () => {
+        const selector = document.querySelector('section.description-container__full-text > div> ul');
+        let inTheBoxText = '';
 
         if (selector) {
-          let temp = document.querySelector("section.description-container__full-text > div> ul").innerText
+          const temp = document.querySelector('section.description-container__full-text > div> ul').innerText;
 
           if (temp) {
-            let inTheBoxTextTemp = temp.split('Mukana:')
+            const inTheBoxTextTemp = temp.split('Mukana:');
             if (inTheBoxTextTemp[1]) {
-              inTheBoxText = inTheBoxTextTemp[1].replace(/,/g, ' || ')
+              inTheBoxText = inTheBoxTextTemp[1].replace(/,/g, ' || ');
             }
           }
         }
@@ -192,9 +198,9 @@ module.exports = {
         await context.waitForSelector('section.product-details', { timeout: 55000 });
       }
 
-      let brandText = await context.evaluate(async () => {
+      const brandText = await context.evaluate(async () => {
         let brandTextStr = '';
-        let brandTextElm = document.querySelectorAll("tr[class*='product-details-row'] td[class*='product-details-row__value'] a");
+        const brandTextElm = document.querySelectorAll("tr[class*='product-details-row'] td[class*='product-details-row__value'] a");
         if (brandTextElm.length > 0) {
           console.log('we have some brand text');
           if (brandTextElm[0] && brandTextElm[0].innerText) {
@@ -207,11 +213,10 @@ module.exports = {
         return brandTextStr;
       });
 
-
-      let mpcExt = await context.evaluate(async () => {
+      const mpcExt = await context.evaluate(async () => {
         let mpc = '';
-        let mpcXpath = '//section[contains(@class,"product-details")]/div[1]/table/tbody//tr[contains(@class,"product-details-row")][contains(.,"Tuotekoodi")]/td[contains(@class,"product-details-row__value")]';
-        let mpcElm = document.evaluate(mpcXpath, document, null, 7, null);
+        const mpcXpath = '//section[contains(@class,"product-details")]/div[1]/table/tbody//tr[contains(@class,"product-details-row")][contains(.,"Tuotekoodi")]/td[contains(@class,"product-details-row__value")]';
+        const mpcElm = document.evaluate(mpcXpath, document, null, 7, null);
         if (mpcElm.snapshotLength > 0) {
           mpc = mpcElm.snapshotItem(0).textContent.trim();
           console.log('we have the mpc extracted as - ' + mpc);
@@ -221,10 +226,10 @@ module.exports = {
         return mpc;
       });
 
-      let shippingDim = await context.evaluate(async () => {
+      const shippingDim = await context.evaluate(async () => {
         let shippingDimText = '';
-        let sdXpath = '//td[contains(text(), "Pakkauksen koko")]/following::td[1]'
-        let sdElm = document.evaluate(sdXpath, document, null, 7, null);
+        const sdXpath = '//td[contains(text(), "Pakkauksen koko")]/following::td[1]';
+        const sdElm = document.evaluate(sdXpath, document, null, 7, null);
         if (sdElm.snapshotLength > 0) {
           shippingDimText = sdElm.snapshotItem(0).textContent.trim();
           console.log('we have the shipping dim extracted as - ' + shippingDimText);
@@ -234,10 +239,10 @@ module.exports = {
         return shippingDimText;
       });
 
-      let shippingWeight = await context.evaluate(async () => {
+      const shippingWeight = await context.evaluate(async () => {
         let shippingWeightText = '';
-        let swXpath = '//td[contains(text(), "Pakkauksen paino")]/following::td[1]'
-        let swElm = document.evaluate(swXpath, document, null, 7, null);
+        const swXpath = '//td[contains(text(), "Pakkauksen paino")]/following::td[1]';
+        const swElm = document.evaluate(swXpath, document, null, 7, null);
         if (swElm.snapshotLength > 0) {
           shippingWeightText = swElm.snapshotItem(0).textContent.trim();
           console.log('we have the shipping weight extracted as - ' + shippingWeightText);
@@ -247,10 +252,10 @@ module.exports = {
         return shippingWeightText;
       });
 
-      let warranty = await context.evaluate(async () => {
+      const warranty = await context.evaluate(async () => {
         let warrantyText = '';
-        let warrantyXpath = '//td[contains(text(), "Takuuaika")]/following::td[1]'
-        let warrantyElm = document.evaluate(warrantyXpath, document, null, 7, null);
+        const warrantyXpath = '//td[contains(text(), "Takuuaika")]/following::td[1]';
+        const warrantyElm = document.evaluate(warrantyXpath, document, null, 7, null);
         if (warrantyElm.snapshotLength > 0) {
           warrantyText = warrantyElm.snapshotItem(0).textContent.trim();
           console.log('we have the warranty extracted as - ' + warrantyText);
@@ -260,11 +265,11 @@ module.exports = {
         return warrantyText;
       });
 
-      let specification = []; //div[contains(@class,"product-details__category")]
+      let specification = []; // div[contains(@class,"product-details__category")]
       specification = await context.evaluate(async () => {
-        let specificationArr = [];
-        let specificationXpath = '//div[contains(@class,"product-details__category")]';
-        let specificationElms = document.evaluate(specificationXpath, document, null, 7, null);
+        const specificationArr = [];
+        const specificationXpath = '//div[contains(@class,"product-details__category")]';
+        const specificationElms = document.evaluate(specificationXpath, document, null, 7, null);
         if (specificationElms.snapshotLength > 0) {
           console.log('we have a total of ' + specificationElms.snapshotLength + ' specs elms');
           console.log('specs are as follows');
@@ -284,13 +289,11 @@ module.exports = {
         return specificationArr;
       });
 
-
-
       // production fixes
       const aa = await context.evaluate(() => {
         return Boolean(document.querySelector('nav[role="tablist"]'));
       });
-      
+
       if (aa) {
         try {
           await context.evaluate(() => {
@@ -303,9 +306,8 @@ module.exports = {
         }
       }
 
-    
       await context.evaluate(async () => {
-        async function addHiddenInfo(elementID, content) {
+        async function addHiddenInfo (elementID, content) {
           const newDiv = document.createElement('div');
           newDiv.id = elementID;
           newDiv.textContent = content;
@@ -313,14 +315,12 @@ module.exports = {
           document.body.appendChild(newDiv);
         }
         const youtubeVideo = document.querySelectorAll('li[class*="product-description-links__item"] a[class*="product-description-links-item--youtube"]');
-        let youtubeVideosArr = [];
+        const youtubeVideosArr = [];
         if (youtubeVideo.length > 0) {
           for (let i = 0; i < youtubeVideo.length; i++) {
             if (youtubeVideo[i].hasAttribute('href') && !(youtubeVideosArr.includes(youtubeVideo[i].getAttribute('href')))) {
-
               youtubeVideosArr.push(youtubeVideo[i].getAttribute('href'));
               console.log(youtubeVideo[i].getAttribute('href'));
-
             } else {
               console.log('we do not have src in this iframe');
             }
@@ -335,7 +335,7 @@ module.exports = {
         }
       });
 
-      async function addHiddenInfoAsync(elementID, content) {
+      async function addHiddenInfoAsync (elementID, content) {
         await context.evaluate(async function (elementID, content) {
           const newDiv = document.createElement('div');
           newDiv.id = elementID;
@@ -345,22 +345,17 @@ module.exports = {
         }, elementID, content);
       }
 
-      
       try {
         await context.waitForSelector('#tabs-page-select-tab0', { timeout: 50000 });
       } catch (err) {
         console.log(err);
       }
-        try {
-         
-          await context.click('#tabs-page-select-tab0');
-          await context.waitForSelector('div[class*="AspectRatio"]', { timeout: 5000 });
-        } catch (err) {
-          console.log('No Enhanced Content');
-        }
-      
-
-
+      try {
+        await context.click('#tabs-page-select-tab0');
+        await context.waitForSelector('div[class*="AspectRatio"]', { timeout: 5000 });
+      } catch (err) {
+        console.log('No Enhanced Content');
+      }
 
       addHiddenInfoAsync('brand-text', brandText);
       addHiddenInfoAsync('mpc-ext', mpcExt);
@@ -376,7 +371,7 @@ module.exports = {
       //     newDiv.id = elementID;
       //     newDiv.textContent = content;
       //     newDiv.style.display = 'none';
-      //     document.body.appendChild(newDiv);   
+      //     document.body.appendChild(newDiv);
       //   }
 
       //   for(let i = 0; i < specification.length; i++) {
@@ -389,6 +384,5 @@ module.exports = {
     } catch (err) {
       console.log('we got some error - ', err.message);
     }
-
   },
 };

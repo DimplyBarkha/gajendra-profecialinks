@@ -73,7 +73,8 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: (//tr[contains(@class,'product-details-row')]//td[contains(@class,'product-details-row__value')]/a | //div[contains(@id,'brand-text')])[1]
+    # xpath: (//tr[contains(@class,'product-details-row')]//td[contains(@class,'product-details-row__value')]/a | //div[contains(@id,'brand-text')])[1]
+    xpath: //div[@id='brandText']/text()
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
