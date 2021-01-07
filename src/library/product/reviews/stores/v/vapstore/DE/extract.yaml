@@ -22,7 +22,7 @@ fields:
   - name: sku
     singleValue: false
     description: The store-specific product identifier
-    xpath: ancestor::html//div[@class='real-h1 list-title']//h1
+    xpath: ancestor::html//input[@name='ndArtNr[0]']/@value
   - name: reviewText
     singleValue: false
     description: The text of the review
