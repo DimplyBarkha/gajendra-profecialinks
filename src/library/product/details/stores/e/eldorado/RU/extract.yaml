@@ -103,7 +103,7 @@ fields:
     xpath: //meta[@itemprop="brand"]/@content
   - name: inTheBoxUrl
     singleValue: false
-    xpath: //table[@class="complection"]//tr/td//img//@src | //div[contains(@class,'pul-left-up')]//img//@src
+    xpath: //table[@class="complection"]//tr/td//img//@src | //div[contains(@class,'pul-left-up')]//img//@data-src
     regExp: (.+)
     regExpReplace: https://www.eldorado.ru$1
   - name: inTheBoxText
