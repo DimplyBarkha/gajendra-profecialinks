@@ -314,13 +314,13 @@ const transform = (data) => {
       if (row.inTheBoxText && row.inTheBoxText[0]) {
         row.inTheBoxText.forEach(item => { item = item.text.replace('-', ''); });
       }
-      if (row.coupon) {
-        let text = '';
-        row.coupon.forEach(item => {
-          text += text ? ` || ${item.text}` : item.text;
-        });
-        row.coupon = [{ text }];
-      }
+      // if (row.coupon) {
+      //   let text = '';
+      //   row.coupon.forEach(item => {
+      //     text += text ? ` || ${item.text}` : item.text;
+      //   });
+      //   row.coupon = [{ text }];
+      // }
 
       if (row.variantCount) {
         row.variantCount.forEach(item => {
