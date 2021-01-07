@@ -33,7 +33,7 @@ module.exports = {
         const totalCarbPerServing = document.evaluate(`//th[contains(translate(., 'Koolhydraten', 'koolhydraten'), 'koolhydraten')]/following-sibling::td[${columnPosition}]`, document, null, XPathResult.STRING_TYPE, null).stringValue;
         const dietaryFibrePerServing = document.evaluate(`//th[contains(translate(., 'Vezels', 'vezels'), 'vezels')]/following-sibling::td[${columnPosition}]`, document, null, XPathResult.STRING_TYPE, null).stringValue;
         const totalSugarsPerServing = document.evaluate(`//th[contains(translate(., 'Suiker', 'suiker'), 'suiker')]/following-sibling::td[${columnPosition}]`, document, null, XPathResult.STRING_TYPE, null).stringValue;
-        const proteinPerServing = document.evaluate(`//th[contains(translate(., 'Eiwit', 'eiwit'), 'eiwit')]/following-sibling::td[${columnPosition}] | //th[contains(translate(., 'Proteïnen', 'proteïnen'), 'proteïnen')]/following-sibling::td[${columnPosition}] | //th[contains(translate(., 'Protein', 'protein'), 'protein')]/following-sibling::td[${columnPosition}]`, document, null, XPathResult.STRING_TYPE, null).stringValue;
+        const proteinPerServing = document.evaluate(`//th[contains(translate(., 'Eiwit', 'eiwit'), 'eiwit')]/following-sibling::td[${columnPosition}] | //th[contains(translate(., 'Proteïn', 'proteïn'), 'proteïn')]/following-sibling::td[${columnPosition}] | //th[contains(translate(., 'Protein', 'protein'), 'protein')]/following-sibling::td[${columnPosition}]`, document, null, XPathResult.STRING_TYPE, null).stringValue;
         const vitaminAPerServing = document.evaluate(`//th[contains(translate(., 'Vitamine A', 'vitamine a'), 'vitamine a')]/following-sibling::td[${columnPosition}]`, document, null, XPathResult.STRING_TYPE, null).stringValue;
         const vitaminCPerServing = document.evaluate(`//th[contains(translate(., 'Vitamine C', 'vitamine c'), 'vitamine c')]/following-sibling::td[${columnPosition}]`, document, null, XPathResult.STRING_TYPE, null).stringValue;
         const calciumPerServing = document.evaluate(`//th[contains(translate(., 'Calcium', 'calcium'), 'calcium')]/following-sibling::td[${columnPosition}]`, document, null, XPathResult.STRING_TYPE, null).stringValue;
@@ -76,7 +76,7 @@ module.exports = {
       });
 
       const firstPartDesc = document.evaluate('//div[@class="jum-summary-description"]/p', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-      const secondPartDesc = document.evaluate('//div[contains(@class, "jum-nutritional-info")]/text()', document, null, XPathResult.STRING_TYPE, null).stringValue;
+      const secondPartDesc = document.evaluate('//div[contains(@class, "jum-nutritional-info")]/h3[.="Productomschrijving"]/following-sibling::text()', document, null, XPathResult.STRING_TYPE, null).stringValue;
       if (firstPartDesc && secondPartDesc) {
         firstPartDesc.textContent.includes('||') ? firstPartDesc.textContent = firstPartDesc.textContent.replace(/( )(\|\|)/, ` ${secondPartDesc} $2`) : firstPartDesc.textContent += ` ${secondPartDesc}`;
       } else if (secondPartDesc) {
@@ -93,18 +93,38 @@ module.exports = {
         addHiddenDiv('listPrice', listPrice.stringValue);
       }
 
-      const variantRegexp = /\/(\d.+)\/$/;
-      const variantMatch = variantRegexp.exec(document.querySelector('link[rel="canonical"]').getAttribute('href'));
-      if (variantMatch[1]) {
-        addHiddenDiv('variantId', variantMatch[1]);
+      const priceWholes = document.evaluate('//span[@class="jum-product-price__current-price--larger"]', document, null, XPathResult.STRING_TYPE, null);
+      const priceFractions = document.evaluate('//span[@class="jum-product-price__current-price--larger"]/following-sibling::span', document, null, XPathResult.STRING_TYPE, null);
+      if (priceWholes.stringValue.length > 0) {
+        addHiddenDiv('price', `${priceWholes.stringValue},${priceFractions.stringValue}€`);
       }
+
+      const variantRegexp = /\/(\d.+)\/$/;
+      const variantIdLinkElement = document.querySelector('link[rel="canonical"]');
+      if (variantIdLinkElement) {
+        const variantMatch = variantRegexp.exec(variantIdLinkElement.getAttribute('href'));
+        if (variantMatch[1]) {
+          addHiddenDiv('variantId', variantMatch[1]);
+        }
+      } else {
+        const bodyVariantId = document.querySelector('body').getAttribute('class');
+        addHiddenDiv('variantId', bodyVariantId);
+      }
+
+      const htmlJsonElement = document.querySelector('body>section[class="jum-additional-info row"]>div[data-jum-product-details]');
+      if (htmlJsonElement) {
+        const jsonObj = JSON.parse(htmlJsonElement.getAttribute('data-jum-product-details'));
+        addHiddenDiv('nameExtended', jsonObj.name);
+        addHiddenDiv('price', String(jsonObj.price).replace('.', ',') + '€');
+      }
+
+      addHiddenDiv('url', window.location.href);
     });
     const dataRef = await context.extract(productDetails, { transform });
     function reduceInfoToOneField (field, separator = ' ') {
       if (field && field.length > 1) {
         let fieldText = '';
         field.forEach(element => {
-          console.log(element.text);
           fieldText += element.text + separator;
         });
         field[0].text = fieldText.slice(0, -separator.length);
@@ -113,6 +133,10 @@ module.exports = {
     }
     const ingredientsList = dataRef[0].group[0].ingredientsList;
     const description = dataRef[0].group[0].description;
+    // making sure that description is before bullet points
+    if (description && !description[description.length - 1].text.includes('||')) {
+      description.unshift(description.pop());
+    }
     const allergyAdvice = dataRef[0].group[0].allergyAdvice;
     const manufacturer = dataRef[0].group[0].manufacturer;
     reduceInfoToOneField(description);
