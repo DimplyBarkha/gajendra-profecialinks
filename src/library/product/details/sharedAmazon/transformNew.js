@@ -203,7 +203,9 @@ const transform = (data, context) => {
 
       if (row.variantInformation) {
         const json = JSON.parse(row.variantInformation[0].text.trim());
-        const text = Object.entries(json).map(prop => prop.map(elm => elm.replace('_name', '')).join(':')).join(' | ');
+        // const text = Object.entries(json).map(prop => prop.map(elm => elm.replace('_name', '')).join(':')).join(' | ');
+        // Update done based on callout on Amazon TR.
+        const text = Object.values(json).map(elm => elm.trim()).join(' | ');
         row.variantInformation = [{ text }];
         if (!row.color || row.color[0].text.length === 0) {
           if (json.color_name) {
