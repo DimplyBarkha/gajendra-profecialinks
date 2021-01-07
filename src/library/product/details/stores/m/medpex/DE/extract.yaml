@@ -7,7 +7,7 @@ fields:
     singleValue: true 
   - name: image
     singleValue: true
-    xpath: //a[@id="product-image-link"]/img/@src
+    xpath: //a[@id="product-image-link"]/img/@src | //img[@id="product-image"]/@src
   - name: imageAlt
     singleValue: true
     xpath: //a[@id="product-image-link"]/img/@alt
@@ -20,26 +20,29 @@ fields:
   - name: _pageTimestamp
     singleValue: true
     xpath: //div[@id="pd_pageTimestamp"]
-  - name: url
-    singleValue: true
-    xpath: //meta[@itemprop="item"]/@content
   - name: category
     singleValue: false
     xpath: //ol[@class="breadcrumb"]//li//a//span[not(contains(., 'Online Apotheke Startseite'))]
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[@id="more-images"]//a[position()>1])
   - name: nameExtended
     singleValue: true
     xpath: //b[@itemprop="name"]
   - name: listPrice
     singleValue: true
-    type: CURRENCY
-    xpath: //div[@class="prices"]/span[@class="sp2p normal-price-crossedout"]
+    # type: CURRENCY
+    xpath: //html//div[@id="newlistprice"]
   - name: price
     singleValue: true
-    type: CURRENCY
-    xpath: //div[@itemprop="offers"]/span[@class="normal-price"]
+    # type: CURRENCY
+    xpath: //html//div[@id="price"]
   - name: availabilityText
     singleValue: true
     xpath:  //div[@class="stock stock--available"]/text()
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out Of Stock
   - name: description
     singleValue: true
     xpath:  //div[@class="content content--productDescription"]
@@ -48,7 +51,10 @@ fields:
     xpath: count(//div[@class="content content--productDescription"]/ul/li)
   - name: brandText
     singleValue: true
-    xpath: //span[@itemprop="brand"]/text()
+    xpath: //html//div[@id="brand1"]
+  - name: promotion
+    singleValue: true
+    xpath: //div[@class="bargain"]//text()
   - name: manufacturer
     singleValue: true
     #xpath: //span[@itemprop="brand"]
@@ -77,7 +83,7 @@ fields:
     singleValue: false
   - name: directions
     singleValue: false
-    xpath: //div[@id="pd_directions"]
+    xpath: //p//strong[contains(text(),"Anwendung:")]//following::p
   - name: warnings
     singleValue: true
   - name: ratingCount
@@ -87,7 +93,7 @@ fields:
     singleValue: true
   - name: aggregateRating
     singleValue: true
-    xpath: //meta[@itemprop="ratingValue"]
+    xpath: //meta[@itemprop="ratingValue"]/@content
   - name: shippingInfo
     singleValue: true
   - name: shippingDimensions
