@@ -57,67 +57,8 @@ module.exports = {
         random_move_mouse: true,
       });
     } else {
-      // const noProductsFound = await context.evaluate(function () {
-      //   const noResults = document.querySelector('div.dbk-search-empty');
-      //   const bool = noResults ? true : false;
-      //   return bool;
-      // });
-      // if (noProductsFound) {
-      //   throw new Error('Product not found');
-      // }
-      // throw new Error('Product not found');
       return false;
     }
-    // const searchUrl = `https://www.debijenkorf.nl/product-lister-page.html?SearchTerm=${inputs.id}`;
-    // await context.goto(searchUrl, {
-    //   timeout: 30000,
-    //   waitUntil: 'load',
-    //   checkBlocked: true,
-    //   js_enabled: true,
-    //   css_enabled: false,
-    //   random_move_mouse: true,
-    // });
-    // const productDetailsLink = await context.evaluate(async function (inputs) {
-    //   const productList = document.querySelectorAll('ul.productlist__list > li a');
-    //   for (let i = 0; i < productList.length; i++) {
-    //     const productRpc = productList[i].getAttribute('name');
-    //     if (productRpc.includes(inputs.id) || productList.length === 1) {
-    //       return productList[i].getAttribute('href');
-    //     }
-    //   }
-    //   return null;
-    // }, inputs);
-    // console.log('product details link');
-    // console.log(productDetailsLink);
-    // if (productDetailsLink) {
-    //   const url = productDetailsLink;
-    //   await context.goto(url, {
-    //     timeout: 30000,
-    //     waitUntil: 'load',
-    //     checkBlocked: true,
-    //     js_enabled: true,
-    //     css_enabled: false,
-    //     random_move_mouse: true,
-    //   });
-    // } else {
-    //   // const noProductsFound = await context.evaluate(function () {
-    //   //   const noResults = document.querySelector('div.dbk-search-empty');
-    //   //   const bool = noResults ? true : false;
-    //   //   return bool;
-    //   // });
-    //   // if (noProductsFound) {
-    //   //   throw new Error('Product not found');
-    //   // }
-    //   // throw new Error('Product not found');
-    //   return false;
-    // }
-
-    // if (parameters.loadedSelector) {
-    //   await context.waitForFunction(function (sel, xp) {
-    //     return document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
-    //   }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
-    // }
-
     return await context.evaluate(function (xp) {
       const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
       console.log(xp, r);

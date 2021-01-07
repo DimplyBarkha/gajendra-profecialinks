@@ -18,7 +18,12 @@ const transform = (data) => {
       // }
       if (row.brandText) {
         let nameExtended = `${row.brandText[0].text}`;
-        if (row.variantInformation) {
+        if (row.nameSuffix) {
+          nameExtended = `${nameExtended} ${row.nameSuffix[0].text}`;
+        }
+        if (row.variantInformationFromMatt) {
+          nameExtended = `${nameExtended}  ${row.variantInformationFromMatt[0].text}`;
+        } else if (row.variantInformation) {
           nameExtended = `${nameExtended}  ${row.variantInformation[0].text}`;
         } else if (row.singleProductVariantInformation) {
           nameExtended = `${nameExtended}  ${row.singleProductVariantInformation[0].text}`;
@@ -27,11 +32,34 @@ const transform = (data) => {
       }
 
       if (row.directions) {
-        row.directions[0].text = row.directions[0].text.replace('Gebruikstips:', '');
+        let directionsText = row.directions[0].text;
+        directionsText = directionsText.substr(directionsText.indexOf('Gebruikstips:'), directionsText.length);
+        row.directions[0].text = directionsText.replace('Gebruikstips:', '').trim();
+        if (row.directions[0].text.trim().length === 0) {
+          delete row.directions;
+        }
       }
 
       if (!row.directions && row.directionsFromFollowingP) {
         row.directions = row.directionsFromFollowingP;
+        row.directions[0].text = row.directions[0].text.trim();
+      }
+
+      if (!row.directions && row.directionsFromStrong) {
+        let directionsText = row.directionsFromStrong[0].text;
+        directionsText = directionsText.substr(directionsText.indexOf('Gebruikstips:'), directionsText.length);
+        directionsText = directionsText.replace('Gebruikstips:', '');
+        row.directions = [{ text: directionsText }];
+      }
+
+      if (row.directions) {
+        let directionsStr = '';
+        if (row.directions.length > 1) {
+          for (let i = 0; i < row.directions.length; i++) {
+            directionsStr += ` ${row.directions[i].text}`;
+          }
+          row.directions = [{ text: directionsStr }];
+        }
       }
 
       if (row.specifications) {
@@ -44,6 +72,10 @@ const transform = (data) => {
 
       if (!row.image && row.singleProductimage) {
         row.image = row.singleProductimage;
+      }
+
+      if (row.variantInformationFromMatt) {
+        row.variantInformation = row.variantInformationFromMatt;
       }
 
       if (!row.variantInformation && row.singleProductVariantInformation) {
@@ -92,6 +124,18 @@ const transform = (data) => {
 
       if (row.availabilityText && row.availabilityText[0].text === 'Out of stock' && row.singleProdAvailabilityText) {
         row.availabilityText = row.singleProdAvailabilityText;
+      }
+
+      if (!row.quantity && row.variantInformationFromMatt) {
+        row.quantity = row.variantInformationFromMatt;
+      }
+
+      if (!row.quantity && row.variantInformation) {
+        row.quantity = [{ text: row.variantInformation[0].text }];
+      }
+
+      if (!row.quantity && row.singleProductVariantInformation) {
+        row.quantity = [{ text: row.singleProductVariantInformation[0].text }];
       }
 
       row.imageZoomFeaturePresent = [{ text: 'Yes' }];
