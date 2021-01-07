@@ -218,3 +218,11 @@ fields:
     defaultValue: "No"
   - name: currencyOverride
     xpath: NOK
+  - name: inTheBoxUrl
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //div[contains(@class, 'tab-slot')]//p/text()[preceding-sibling::strong[1][contains(text(),"Inkludert i pakken:")]]
+  - name: hasComparisonTable
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //div[contains(@class, 'mini-product-content')]//a[contains(@class, "product-name")]//span
