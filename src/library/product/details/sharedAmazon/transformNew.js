@@ -282,7 +282,7 @@ const transform = (data, context) => {
           row.packSize = [{ text: packText[2] }];
         }
       }
-      if(row.videos) {
+      if (row.videos) {
         row.galleryVideos = row.videos;
       }
       if (row.manufacturerVideos) {
@@ -314,18 +314,18 @@ const transform = (data, context) => {
         row.availabilityText = row.availabilityTextFreshUnavailable;
         delete row.availabilityTextFreshUnavailable;
       }
-      if(row.availabilityText) {
+      if (row.availabilityText) {
         // Added the regex for different locale which say Usually ships in etc.
         const usuallyShipsRegex = /(Usually|Genellikle)/gi;
         const availabilityMap = {
           usually: 'In Stock',
-          genellikle: 'Stokta var'
-        }
+          genellikle: 'Stokta var',
+        };
         const match = row.availabilityText[0].text.match(usuallyShipsRegex);
-        if(match) {
+        if (match) {
           row.availabilityText[0].text = availabilityMap[match[0].toLowerCase()];
         }
-        row.availabilityText[0].text.replace(/\.$/,'');
+        row.availabilityText[0].text = row.availabilityText[0].text.trim().replace(/\.$/, '');
       }
       if (row.gtin) {
         // Getting only 10 UPCs.
