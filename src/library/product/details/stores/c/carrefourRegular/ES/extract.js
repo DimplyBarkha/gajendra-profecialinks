@@ -84,24 +84,30 @@ module.exports = {
           const imgText2 = inBoxVideoText[i].innerText;
           imgText2 && inBoxTextVideoArray.push(imgText2);
         }
+
         const inBoxImgVideoArray = [];
         const inBoxImgVideo = document.querySelectorAll('div.tns-inner > div.my-slider>div.eky-relative-wrapper.tns-normal video');
         for (let i = 0; i < inBoxImgVideo.length; i++) {
-          const imgUrl2 = "https://media.flixfacts.com/eyekandy/dyson/v11/es/" + inBoxImgVideo[i].getAttribute('src');
+          // const imgUrl2 = "https://media.flixfacts.com/eyekandy/dyson/v11/es/" + inBoxImgVideo[i].getAttribute('src');
+          const imgUrl2 = "https:" + inBoxImgVideo[i].getAttribute('src');
           imgUrl2 && inBoxImgVideoArray.push(imgUrl2);
         }
+
         const inBoxTextArray = [];
         const inBoxImageText = document.querySelectorAll('div.eky-accesory-title');
         for (let i = 0; i < inBoxImageText.length; i++) {
           const imgText = inBoxImageText[i].innerText;
           imgText && inBoxTextArray.push(imgText);
         }
+
         const inBoxImageArray = [];
         const inBoxImagesList = document.querySelectorAll('div.eky-accessory img');
         for (let i = 0; i < inBoxImagesList.length; i++) {
-          const imgUrl1 = "https://media.flixfacts.com/eyekandy/dyson/v11/es/" + inBoxImagesList[i].getAttribute('src');
+          // const imgUrl1 = "https://media.flixfacts.com/eyekandy/dyson/v11/es/" + inBoxImagesList[i].getAttribute('src');
+          const imgUrl1 =  inBoxImagesList[i].getAttribute('src');
           imgUrl1 && inBoxImageArray.push(imgUrl1);
         }
+
         return { inBoxTextVideoArray, inBoxImgVideoArray, inBoxImageArray, inBoxTextArray };
       });
     }
@@ -146,6 +152,7 @@ module.exports = {
       if (inBoxText.length > 0) {
         for (let i = 0; i < inBoxText.length; i++) {
           inBoxArray.push(inBoxText[i].innerText);
+          console.log('checking >>>>>>>>> ', inBoxArray);
         }
       } else {
         const inBoxText = document.querySelectorAll('div.product-details > div.product-details__features > div.product-details__feature-container > dl.product-details__section-contents > dt.product-details__content-title');
@@ -160,10 +167,11 @@ module.exports = {
 
     let inTheBoxImage = await context.evaluate(async function () {
       let inBoxImageArray = [];
-      const inBoxImage = document.querySelectorAll('div.inpage_selector_InTheBox img[srcset]');
+      const inBoxImage = document.querySelectorAll('div.inpage_selector_InTheBox div.flix-background-image img');
       if (inBoxImage) {
         for (let i = 0; i < inBoxImage.length; i++) {
-          inBoxImageArray.push(inBoxImage[i].srcset);
+          inBoxImageArray.push(inBoxImage[i].getAttribute('srcset'));
+          console.log('checking image >>>>>>>>> ', inBoxImageArray);
         }
       }
       return inBoxImageArray;
