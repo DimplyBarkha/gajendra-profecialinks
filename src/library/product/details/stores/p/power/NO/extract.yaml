@@ -269,9 +269,11 @@ fields:
     xpath: //div[@class="inpage_selector_InTheBox"]//div[@class="flix-std-content"]
   - name: inTheBoxUrl
     singleValue: false
-    xpath: //div[@class="inpage_selector_InTheBox"]//div[@class="flix-background-image"]//img//@srcset
-    regExp: (.+)
+    xpath: //div[@class="inpage_selector_InTheBox"]//div[@class="flix-background-image"]//img//@data-flixsrcset
+    regExp: ^(.+)\s200w
     regExpReplace: https:$1
   - name: unInterruptedPDP
     singleValue: false
     xpath: //div[contains(@class,"popular-product-container")]//span[@class="product-name"]
+  - name: hasComparisonTable
+    defaultValue: No
