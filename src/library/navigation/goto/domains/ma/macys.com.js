@@ -24,8 +24,8 @@ module.exports = {
         use_relay_proxy: false
       },
       anti_fingerprint: false,
-      first_request_timeout: 10000,
-      goto_timeout: 10000,
+      first_request_timeout: 30000,
+      goto_timeout: 30000,
       random_move_mouse: false,
     });
   },

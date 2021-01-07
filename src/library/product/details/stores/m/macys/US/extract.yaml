@@ -70,7 +70,7 @@ fields:
     regExpReplace: $2
   - name: manufacturerImages
     singleValue: true
-    xpath: //body//@enhancedcontent
+    xpath: //body//@enhancedcontent | //div[@id="mfgCont"]//h1
   - name: sponsoredProductUrls
     singleValue: false
     xpath: //div[@class="sponsored-item-top-container"]//a/@href | //div[@class="componentCarousel horizontal"]//div[@class="carousel-content"]//li//div[@class="productThumbnailImage"]//a//@href
