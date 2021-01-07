@@ -20,34 +20,24 @@ module.exports = {
     });
     // add video information
     await context.evaluate(async function () {
-      const addElementToDOM = (id, link, title) => {
+      const addElementToDOM = (id, link) => {
         const element = document.createElement('a');
         element.id = id;
         element.href = link;
-        element.title = title;
         element.style.display = 'none';
         document.body.appendChild(element);
       };
-      const videoArray = document.querySelectorAll('div[class="videoThumb"]');
-      if (videoArray.length !== 0) {
-        if (videoArray.length === 1) {
-          const link = document.querySelector('div[class="ssmp-container"] video').src ? document.querySelector('div[class="ssmp-container"] video').src : '';
-          const time = document.querySelector('span[class="vjs-duration-display"]').innerText ? document.querySelector('span[class="vjs-duration-display"]').innerText : '';
-          addElementToDOM('videoInfo', link, time);
-        }
-        if (videoArray.length !== 1) {
-          for (let i = 0; i < videoArray.length; i++) {
-            videoArray[i].click();
-            await new Promise((resolve) => setTimeout(resolve, 5000));
-            const link = document.querySelector('div[class="ssmp-container"] video').src ? document.querySelector('div[class="ssmp-container"] video').src : '';
-            const time = document.querySelector('span[class="vjs-duration-display"]').innerText ? document.querySelector('span[class="vjs-duration-display"]').innerText : '';
-            addElementToDOM('videoInfo', link, time);
+      const videoInfo = document.querySelector('script[id="mediaJSON"]') ? JSON.parse(document.querySelector('script[id="mediaJSON"]').textContent) : '';
+      if (videoInfo.video !== undefined && videoInfo.video.length !== 0) {
+        for (let i = 0; i < videoInfo.video.length; i++) {
+          if (videoInfo.video[i].encodings[i] !== undefined){
+            addElementToDOM('videoInfo', videoInfo.video[i].encodings[0].url);
           }
         }
       }
     });
 
-    const dataConversion = (data, sku = null, availability = null) => {
+    const dataConversion = (data, sku = null, availability = null, variantInfo = null) => {
       for (let k = 0; k < data.length; k++) {
         for (let i = 0; i < data[k].group.length; i++) {
           if ('ingredientsList' in data[k].group[i]) {
@@ -57,10 +47,16 @@ module.exports = {
             data[k].group[i].ingredientsList = data[k].group[i].ingredientsList.slice(0, 1);
           }
           if ('description' in data[k].group[i]) {
+            if (data[k].group[i].directions[0].text.includes('How do I use it:')){
+              data[k].group[i].description[0].text = data[k].group[i].description[0].text.split('How do I use it:')[0].trim();
+            }
             data[k].group[i].description[0].text = data[k].group[i].description[0].text.replace(/[\r\n]+/g, ' ').replace(/\s\s+/g, ' ');
           }
           if (sku !== null && 'variantId' in data[k].group[i]) {
             data[k].group[i].variantId[0].text = sku;
+          }
+          if (variantInfo !== null && 'variantInformation' in data[k].group[i]) {
+            data[k].group[i].variantInformation[0].text = variantInfo;
           }
           if (availability !== null && 'availabilityText' in data[k].group[i]) {
             if (availability === 'OutofStock') {
@@ -71,7 +67,9 @@ module.exports = {
             }
           }
           if ('directions' in data[k].group[i]) {
-            data[k].group[i].directions[0].text = 'How do I use it:' + data[k].group[i].directions[0].text.split('How do I use it:')[1];
+            if (data[k].group[i].directions[0].text.includes('How do I use it:')){
+              data[k].group[i].directions[0].text = 'How do I use it: ' + data[k].group[i].directions[0].text.split('How do I use it:')[1].split('From')[0].trim();
+            }
           }
         }
       }
@@ -79,6 +77,13 @@ module.exports = {
     };
 
     const variants = await context.evaluate(() => { return document.querySelectorAll('ul[role="radiogroup"] li').length; });
+    const variantInfo = await context.evaluate(() => {
+      let variantInfo = [];
+      for (let i = 0; i < document.querySelectorAll('ul[role="radiogroup"] li').length; i++) {
+        variantInfo.push(document.querySelectorAll('ul[role="radiogroup"] li')[i].dataset.originalTitle)
+      } 
+      return variantInfo;
+    });
     if (variants !== 0) {
       for (let i = 0; i < variants; i++) {
         await context.evaluate((i) => {
@@ -86,7 +91,7 @@ module.exports = {
         }, i);
         // wait for extraction
         await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-        dataConversion(await context.extract(productDetails, { transform }), info.offers[i].sku, info.offers[i].availability);
+        dataConversion(await context.extract(productDetails, { transform }), info.offers[i].sku, info.offers[i].availability, variantInfo[i]);
       };
     }
     if (variants === 0) {
