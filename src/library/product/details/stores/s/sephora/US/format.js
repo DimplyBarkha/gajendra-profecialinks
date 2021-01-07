@@ -60,21 +60,21 @@ const transform = (data, context) => {
           row.quantity[0].text = text.replace(/(\(|\))/gm, '');
         }
 
-        if (row.alternateImages) {
-          const imageArray = [];
-          if (row.alternateImages.length > 1) {
-            for (let i = 0; i < row.alternateImages.length; i++) {
-              const text = row.alternateImages[i].text;
-              const splits = text.split('?');
-              imageArray.push(`https://sephora.com${splits[0]}`);
-            }
-            const oneLess = imageArray.slice(1);
-            const joins = oneLess.join(' | ');
-            row.alternateImages = [{ text: joins }];
-          } else {
-            row.alternateImages = [{ text: '' }];
-          }
-        }
+        // if (row.alternateImages) {
+        //   const imageArray = [];
+        //   if (row.alternateImages.length > 1) {
+        //     for (let i = 0; i < row.alternateImages.length; i++) {
+        //       const text = row.alternateImages[i].text;
+        //       const splits = text.split('?');
+        //       imageArray.push(`https://sephora.com${splits[0]}`);
+        //     }
+        //     const oneLess = imageArray.slice(1);
+        //     const joins = oneLess.join(' | ');
+        //     row.alternateImages = [{ text: joins }];
+        //   } else {
+        //     row.alternateImages = [{ text: '' }];
+        //   }
+        // }
 
         if (row.aggregateRating) {
           const text = row.aggregateRating[0].text;

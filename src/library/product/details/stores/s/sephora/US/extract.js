@@ -93,7 +93,7 @@ module.exports = {
     }
 
     await context.evaluate(async function () {
-      function addHiddenDiv (id, content) {
+      function addHiddenDiv(id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
@@ -113,13 +113,26 @@ module.exports = {
     });
 
     const videos = await context.evaluate(function () {
-      const videoClicks = document.querySelectorAll('div[data-comp*="Carousel"] img[src*="VideoImagesNEW"]');
-      const videos = [];
-      for (let i = 0; i < videoClicks.length; i++) {
-        const link = videoClicks[i].getAttribute('src');
-        if (!videos.includes(link)) { videos.push(link); }
+      // const videoClicks = document.querySelectorAll('div[data-comp*="Carousel"] img[src*="VideoImagesNEW"]');
+      // const videos = [];
+      // for (let i = 0; i < videoClicks.length; i++) {
+      //   const link = videoClicks[i].getAttribute('src');
+      //   if (!videos.includes(link)) { videos.push(link); }
+      // }
+      // return videos;
+
+
+      const getScriptTag = document.querySelector('script#linkStore');
+      if (getScriptTag) {
+        const  scriptText = JSON.parse(getScriptTag.textContent);
+        const videosObj = scriptText.page.product.productVideos;
+        const videoIds = [];
+        videosObj.forEach(e => {
+          videoIds.push(e.videoUrl);
+        });
+        console.log(videoIds);
+        return videoIds;
       }
-      return videos;
     });
 
     var reqAccept = 'application/json;pk=BCpkADawqM2Q0u_EMhwh6sG-XavxnNSGgRmPVZqaQsilEjLYeUK24ofKhllzQeA8owqhzPCRuGbPh9FkCBxnD8mYW4RHulG2uVuwr363jOYU8lRht0dPdw7n31iz7t3LvGdQWkUrxdxrXrqk';
@@ -183,10 +196,10 @@ module.exports = {
       return videoIdForUrl;
     });
 
-    const html = await context.evaluate(async function getEnhancedContent (videoIdForUrl, acceptHeader) {
+    const html = await context.evaluate(async function getEnhancedContent(videoIdForUrl, acceptHeader) {
       const srcArray = [];
-      async function fetchRetry (url, n) {
-        function handleErrors (response) {
+      async function fetchRetry(url, n) {
+        function handleErrors(response) {
           if (response.status === 200) {
             return response;
           } else {
@@ -220,7 +233,7 @@ module.exports = {
     }, videoIdArray, reqAccept);
 
     await context.evaluate(function (parentInput, html) {
-      function addHiddenDiv (id, content) {
+      function addHiddenDiv(id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
@@ -344,9 +357,20 @@ module.exports = {
       // }
     }, parentInput, html);
     await context.evaluate(function () {
-      const rating =  Sephora.mboxAttrs.productRating.toFixed(1);
-      document.querySelector('h1').setAttribute('rating',rating);
-     })
+      const rating = Sephora.mboxAttrs.productRating.toFixed(1);
+      document.querySelector('h1').setAttribute('rating', rating);
+
+      const altImage = JSON.parse(document.querySelector('script#linkStore').textContent);
+      const arrImage = altImage["page"] && altImage["page"].product && altImage["page"].product.currentSku && altImage["page"].product.currentSku.alternateImages;
+      if (arrImage && arrImage.length) {
+        arrImage.map(e => {
+          let newlink = document.createElement('a');
+          newlink.setAttribute('class', 'append_image');
+          newlink.setAttribute('href', e.imageUrl.replace(/(.+)/g, 'https://sephora.com$1'));
+          document.body.appendChild(newlink);
+        });
+      }
+    })
 
     await new Promise(resolve => setTimeout(resolve, 5000));
 
