@@ -50,7 +50,7 @@ fields:
     add to basket this is the price they would be charged
 - name: availabilityText
   singleValue: true
-  defaultValue: "Out of stock"
+  defaultValue: "Out Of Stock"
   type: STRING
   xpath: //p[@class="status instock" and contains(@style, 'block')]
   description: Availability as described on page for the selected variant. If there
@@ -107,7 +107,8 @@ fields:
   singleValue: false
   description: Content under "legal disclaimer" header
 - name: directions
-  singleValue: true
+  singleValue: 
+  xpath: //div[contains(@class, "accLongDesc")]//div[@class="accordionText"]
   description: Content under "directions" header
 - name: warnings
   singleValue: true
@@ -428,6 +429,7 @@ fields:
   description: The unit of measurement used in price_per_unit
 - name: promotion
   singleValue: true
+  xpath: //div[@class="mt-savings"]
   description: promotion text on product page
 - name: alcoholContent
   singleValue: true

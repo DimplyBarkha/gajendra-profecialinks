@@ -14,7 +14,7 @@ module.exports = {
       const buttonIngredients = document.querySelector('div[class*="accIngredients"] a[role="button"]');
       if (buttonIngredients) buttonIngredients.click();
     });
-    const sku = await context.evaluate(async function () {
+    const info = await context.evaluate(async function () {
       const info = document.querySelector('div[class="hidden"] script[type="application/ld+json"]') ? JSON.parse(document.querySelector('div[class="hidden"] script[type="application/ld+json"]').textContent) : '';
       return info;
     });
@@ -47,7 +47,7 @@ module.exports = {
       }
     });
 
-    const dataConversion = (data, sku = null) => {
+    const dataConversion = (data, sku = null, availability = null) => {
       for (let k = 0; k < data.length; k++) {
         for (let i = 0; i < data[k].group.length; i++) {
           if ('ingredientsList' in data[k].group[i]) {
@@ -62,12 +62,26 @@ module.exports = {
           if (sku !== null && 'variantId' in data[k].group[i]) {
             data[k].group[i].variantId[0].text = sku;
           }
+          if (availability !== null && 'availabilityText' in data[k].group[i]) {
+            if (availability === 'OutofStock') {
+              data[k].group[i].availabilityText[0].text = 'Out Of Stock';
+            }
+            if (availability === 'InStock') {
+              data[k].group[i].availabilityText[0].text = 'In Stock';
+            }
+          }
+          if ('directions' in data[k].group[i]) {
+            let direct =  data[k].group[i].directions[0].text;
+            direct = direct.split('How do I use it:')[1].split('From')[0];
+            data[k].group[i].directions[0].text = 'How do I use it:' + direct;
+            data[k].group[i].directions[0].text = data[k].group[i].directions[0].text.trim();
+          }
         }
       }
       return data;
     };
 
-    const variants = await context.evaluate(() => { return document.querySelectorAll('ul[role="radiogroup"] li:not([state="disabled"])').length; });
+    const variants = await context.evaluate(() => { return document.querySelectorAll('ul[role="radiogroup"] li').length; });
     if (variants !== 0) {
       for (let i = 0; i < variants; i++) {
         await context.evaluate((i) => {
@@ -75,7 +89,7 @@ module.exports = {
         }, i);
         // wait for extraction
         await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-        dataConversion(await context.extract(productDetails, { transform }), sku.offers[i].sku);
+        dataConversion(await context.extract(productDetails, { transform }), info.offers[i].sku, info.offers[i].availability);
       };
     }
     if (variants === 0) {
