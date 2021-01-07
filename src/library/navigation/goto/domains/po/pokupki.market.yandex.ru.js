@@ -2,7 +2,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'pokupki.market.yandex.ru',
-    timeout: 150000,
+    timeout: 20000,
     country: 'RU',
     store: 'beru',
     zipcode: '',

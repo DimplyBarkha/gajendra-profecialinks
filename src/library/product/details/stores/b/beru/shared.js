@@ -103,17 +103,19 @@ const transform = (data) => {
         });
       }
 
-      // if (row.variantInformation) {
-      //   let text = '';
-      //   row.variantInformation.forEach(item => {
-      //     text += item.text+'|';
-      //   });
-      //   row.variantInformation = [
-      //     {
-      //       text: text.slice(0 , -1),
-      //     },
-      //   ];
-      // }
+      if (row.aggregateRating) {
+        let text = '';
+        row.aggregateRating.forEach(item => {
+          if(item.text.includes(',')) {
+            text = item.text.replace(',','.')
+          }
+        });
+        row.aggregateRating = [
+          {
+            text: text
+          },
+        ];
+      }
       if (row.specifications) {
         let text = '';
         row.specifications.forEach((item) => {

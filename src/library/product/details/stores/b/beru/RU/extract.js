@@ -21,21 +21,27 @@ async function implementation(inputs, parameters, context, dependencies) {
   .catch(() => { });
   await context.clickAndWaitForNavigation("div.b_2TiXwODAcc a")
   .catch(() => { });
+  await context.waitForSelector('div.b_3_bNW20rUd')
+  .catch(() => { });
   await context.evaluate(async () => {
   const specXpath = document.evaluate('//div[@class="_2aFJJAOXlE"]//text() | //div[@class="_3_bNW20rUd"]//text()', document, null, XPathResult.ANY_TYPE);
-if( specXpath) {
-  var specificationList;
-  let specification = '';
+  let spec_new = document.querySelector('div.b_E8vloAGwWm');
+if(spec_new === undefined) {
+  if(specXpath) {
+    var specificationList;
+    let specification = '';
+  
+    specificationList = document.querySelectorAll('div.b_3_bNW20rUd');
+    specificationList.forEach((element) => {
+      specification +=
+        element.children[0].innerText+':'+element.children[2].innerText+'||';
+    });
+    const specifications = [];
+     specifications.push(specification.slice(0 , -1))
+    sessionStorage.setItem("Specifications", JSON.stringify(specifications));
+  }  
+}
 
-  specificationList = document.querySelectorAll('div.b_3_bNW20rUd');
-  specificationList.forEach((element) => {
-    specification +=
-      element.children[0].innerText+':'+element.children[2].innerText+'||';
-  });
-  const specifications = [];
-   specifications.push(specification.slice(0 , -1))
-  sessionStorage.setItem("Specifications", JSON.stringify(specifications));
-}  
 });  
 await context.waitForSelector('div.b_D2rV3eJmpM a')
 .catch(() => { });
@@ -132,8 +138,29 @@ await context.evaluate(async () => {
       // secondaryImageCount.setAttribute('sum', alternateImagesCount);
       // document.body.appendChild(secondaryImageCount);
     }
+    console.log(images, 'ss');
+    let image_alt = document.querySelectorAll('div.b_2BHljydmvn.b_2qkQHl2AeT picture img')
+    const alternateImagesCount_alt = image_alt ? image_alt.length : null;
+    console.log(image_alt, 'alternateImagesCount');
+    if (image_alt) {
+      image_alt.forEach((element) => {
+        const secondaryImageLink = document.createElement('a');
+        secondaryImageLink.setAttribute('class', 'alternateImages_alt');
+        secondaryImageLink.setAttribute('href', element.src.replace('orig', '1hq'));
+        document.body.appendChild(secondaryImageLink);
+      });
+      // const secondaryImageCount = document.createElement('div');
+      // secondaryImageCount.setAttribute('class', 'alternateImagesCountTotal');
+      // // @ts-ignore
+      // secondaryImageCount.setAttribute('sum', alternateImagesCount);
+      // document.body.appendChild(secondaryImageCount);
+    }
     if (alternateImagesCount >= 1) {
       addHiddenDiv('alternateImagesCount', alternateImagesCount - 1);
+    }
+    if(alternateImagesCount_alt >= 1) {
+      addHiddenDiv('alternateImagesCount_alt', alternateImagesCount_alt - 1);
+
     }
     let shippingInfo = document.querySelector('div.b_3S10tsnVL- a');
     let shippingInfoText = '';
@@ -320,17 +347,31 @@ await context.evaluate(async () => {
     // XPathResult.FIRST_ORDERED_NODE_TYPE,
     // null
     // ).singleNodeValue;
-    let spec = document.querySelectorAll('div#import_specs');
-if(spec.length === 0) {
+   
+    let spec = document.querySelector('div.b_2TiXwODAcc');
+if(spec != undefined) {
   var specificationList;
-  let specification = '';
+  let specification2 = '';
 
   specificationList = document.querySelectorAll('div.b_3_bNW20rUd');
   specificationList.forEach((element, index, array) => {
-    specification +=
+    specification2 +=
       element.children[0].innerText +':'+element.children[2].innerText+'||';
   });
-  addHiddenDiv('specification', specification);
+  addHiddenDiv('specification_2', specification2);
+}
+let spec_new = document.querySelectorAll('div[data-auto="sku-specs"]')[0];
+if(spec_new) {
+  var specificationList1;
+  let specification1 = '';
+
+  specificationList1 = spec_new.querySelectorAll('div.b_E8vloAGwWm');
+  specificationList1.forEach((element, index, array) => {
+    specification1 +=
+      element.children[0].innerText +':'+element.children[2].innerText+'||';
+  });
+  addHiddenDiv('specification_alt', specification1);
+
 }
 
     let variantInfo = document.querySelectorAll('span.b_orEV9DcwNt');
@@ -339,7 +380,7 @@ if(variantInfo) {
   variantInfo.forEach((element, index, array) => {
     variantList +=  element.innerText +' | ';
   });
-  addHiddenDiv('variantList', variantList.slice(0 , -1));
+  addHiddenDiv('variantList', variantList.slice(0 , -2));
 }
 
 

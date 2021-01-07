@@ -18,7 +18,7 @@ fields:
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
-    xpath: //a[@class='alternateImages'][position()>1]/@href
+    xpath: //a[@class='alternateImages'][position()>1]/@href | //a[@class='alternateImages_alt'][position()>1]/@href
     description: Other product images (not in manufacturer description)
   - name: metaKeywords
     singleValue: false
@@ -118,7 +118,7 @@ fields:
     description: Content under "warnings" header
   - name: aggregateRating
     singleValue: false
-    xpath: //meta[@itemprop="ratingValue"]/@content
+    xpath: //meta[@itemprop="ratingValue"]/@content | //span[@class='b_3C0DxleA0I']
   - name: reviewCount
     singleValue: false
     xpath: //div[@itemprop="aggregateRating"]//meta[@itemprop="reviewCount"]/@content
@@ -244,7 +244,7 @@ fields:
     description: null
   - name: secondaryImageTotal
     singleValue: false
-    xpath: //div[@id="alternateImagesCount"]
+    xpath: //div[@id="alternateImagesCount"] | //div[@id='alternateImagesCount_alt']
   - name: news
     singleValue: false
     description: null
@@ -397,7 +397,7 @@ fields:
   - name: specifications
     singleValue: false
     description: The physical dimensions of the product including packaging.
-    xpath: //div[@id='specification'] | //div[@id='specification_added'] | //div[@id='import_specs']
+    xpath: //div[@id='specification'] //div[@id='specification_2'] | //div[@id='specification_alt'] | //div[@id='import_specs']
   - name: warranty
     singleValue: false
     description: Guarantee associated with the product
