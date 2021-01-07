@@ -22,10 +22,24 @@ async function implementation (inputs, parameters, context, dependencies) {
     // add search url
     const searchUrl = window.location.href;
     addElementToDocument('searchUrl', searchUrl);
-    console.log(document.querySelectorAll('ul[class="product_list grid row"] div.product-container a.product-name').length + ' products found');
     // convert percentage rating to number and then to string
-    document.querySelectorAll('div.product-container div.ratingWrapper').forEach((element) => {
-      const ratingNode = element.querySelector('div.ratingInner');
+    const elementsArr = document.querySelectorAll('ul.product_list div.product-container');
+    for (let i = 0; i < elementsArr.length; i++) {
+      const element = elementsArr[i];
+      let prodId = element.querySelector('a[data-id-product]') ? element.querySelector('a[data-id-product]').getAttribute('data-id-product') : '';
+      if (!prodId) {
+        try {
+          console.log('Product id unavailable. Fetching product page to get the id');
+          const prodUrl = element.querySelector('a.product-name').getAttribute('href');
+          const prodPage = await fetch(prodUrl).then(resp => resp.text());
+          prodId = prodPage.match(/id_product = (\d+)/) ? prodPage.match(/id_product = (\d+)/)[1] : '';
+          console.log(prodId);
+        } catch (e) {
+          console.log('Error extracting product id');
+        }
+      }
+      element.setAttribute('added-prod-id', prodId);
+      const ratingNode = element.querySelector('div.ratingWrapper div.ratingInner');
       // @ts-ignore
       const reviewsTitle = element.parentNode ? element.parentNode.getAttribute('title') : '';
       const reviewsNum = reviewsTitle && reviewsTitle.match(/(\d+) avis/)
@@ -34,7 +48,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       const regArray = ratingNode ? ratingNode.getAttribute('style').match(/\d+\.?(\d+)?%/gm) : [];
       const value = regArray.length ? (parseInt(regArray[0]) * 5) / 100 : null;
       if (value) element.setAttribute('rating', value.toString().replace('.', ','));
-    });
+    }
   });
 
   return await context.extract(productDetails, { transform });

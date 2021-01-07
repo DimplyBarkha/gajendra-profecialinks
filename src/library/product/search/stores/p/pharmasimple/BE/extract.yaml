@@ -5,7 +5,7 @@ recordXPath: //ul[@class="product_list grid row"]//div[@class="product-container
 fields:
   - name: id
     singleValue: false
-    xpath: //a/@data-id-product
+    xpath: //@added-prod-id
   - name: searchUrl
     singleValue: true
     xpath: ancestor::html//div[@id="searchUrl"][last()]
@@ -24,11 +24,11 @@ fields:
     singleValue: false
   - name: aggregateRating2
     singleValue: false
-    xpath: //div[@class="ratingWrapper"]/@rating
+    xpath: //@rating
     type: STRING
   - name: reviewCount
     singleValue: false
-    xpath: //div[@class="ratingWrapper"]/@reviews-num
+    xpath: //@reviews-num
   - name: ratingCount
     singleValue: false
   - name: price
