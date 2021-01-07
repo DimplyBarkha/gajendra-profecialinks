@@ -95,6 +95,39 @@ const transform = (data) => {
           },
         ];
       }
+
+      // if (row.inTheBoxUrl) {
+
+      //   row.inTheBoxUrl.forEach(image => {
+      //     console.log("image.text",image.text);
+      //     let count = 10;
+      //     const allImages = image.text.split(', ').map(img => img.trim());
+      //     let mainImage;
+      //     mainImage = allImages[0].replace(/(.*?)\s.*/, '$1').trim();
+      //     image.text = mainImage;
+		  //     console.log("image.text",image.text)
+      //     console.log("here i am ", count);
+      //   });
+      // }
+
+
+      // if(row.inTheBoxUrl){
+      //   console.log("inTheBoxUrl",row.inTheBoxUrl);
+      //   let imageArray = [];
+      //   if(row.inTheBoxUrl.length > 0){
+      //     for(let i = 0; i < row.inTheBoxUrl.length; i++){
+      //       let text = row.inTheBoxUrl[i].text;
+      //       let splits = text.split(",");
+      //       imageArray.push(`${splits[0]}`);
+      //     }
+      //     // let oneLess = imageArray;
+      //     let joins =  imageArray.join(" || ");
+      //     row.inTheBoxUrl = [{text: joins}]
+      //   }
+      // }
+
+
+
       if (row.productOtherInformation) {
         let text = '';
         row.productOtherInformation.forEach((item, index) => {
@@ -134,3 +167,5 @@ const transform = (data) => {
 };
 
 module.exports = { transform };
+
+

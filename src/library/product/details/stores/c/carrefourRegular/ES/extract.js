@@ -88,8 +88,8 @@ module.exports = {
         const inBoxImgVideoArray = [];
         const inBoxImgVideo = document.querySelectorAll('div.tns-inner > div.my-slider>div.eky-relative-wrapper.tns-normal video');
         for (let i = 0; i < inBoxImgVideo.length; i++) {
-          // const imgUrl2 = "https://media.flixfacts.com/eyekandy/dyson/v11/es/" + inBoxImgVideo[i].getAttribute('src');
-          const imgUrl2 = "https:" + inBoxImgVideo[i].getAttribute('src');
+          const imgUrl2 = "https://media.flixfacts.com/eyekandy/dyson/v11/es/" + inBoxImgVideo[i].getAttribute('src');
+
           imgUrl2 && inBoxImgVideoArray.push(imgUrl2);
         }
 
@@ -103,8 +103,7 @@ module.exports = {
         const inBoxImageArray = [];
         const inBoxImagesList = document.querySelectorAll('div.eky-accessory img');
         for (let i = 0; i < inBoxImagesList.length; i++) {
-          // const imgUrl1 = "https://media.flixfacts.com/eyekandy/dyson/v11/es/" + inBoxImagesList[i].getAttribute('src');
-          const imgUrl1 =  inBoxImagesList[i].getAttribute('src');
+          const imgUrl1 = "https://media.flixfacts.com/eyekandy/dyson/v11/es/" + inBoxImagesList[i].getAttribute('src');
           imgUrl1 && inBoxImageArray.push(imgUrl1);
         }
 
@@ -140,6 +139,7 @@ module.exports = {
             addHiddenDivForIframe('added-inBox-Text', onlyText.join('  || '));
           }
           if (inTheBoxImage) {
+            // addHiddenDivForIframe('added-inBox-images', inTheBoxImage.join('  || '));
             addHiddenDivForIframe('added-inBox-images', inTheBoxImage.join('  || '));
           }
         }
@@ -167,14 +167,28 @@ module.exports = {
 
     let inTheBoxImage = await context.evaluate(async function () {
       let inBoxImageArray = [];
+      let imageArray5 = [];
       const inBoxImage = document.querySelectorAll('div.inpage_selector_InTheBox div.flix-background-image img');
       if (inBoxImage) {
         for (let i = 0; i < inBoxImage.length; i++) {
-          inBoxImageArray.push(inBoxImage[i].getAttribute('srcset'));
-          console.log('checking image >>>>>>>>> ', inBoxImageArray);
+          imageArray5.push(inBoxImage[i].getAttribute('data-flixsrcset'));
+          console.log('checking image >>>>>>>>> ', imageArray5);
         }
+          if(imageArray5.length > 0){
+            for(let i = 0; i < imageArray5.length; i++){
+              let text = imageArray5[i];
+              let splits = text.split(",");
+              let splits1  = `${splits[0]}`;
+              console.log("splits1",splits1);
+              let splits2 = splits1.replace('200w','').trim();
+              inBoxImageArray.push(splits2);
+            }
+          }
+          console.log(' imageArray5 ',  inBoxImageArray);
+        // }
       }
-      return inBoxImageArray;
+        return inBoxImageArray;
+
     });
 
     const iframeContentLink = await checkIframeContent();
