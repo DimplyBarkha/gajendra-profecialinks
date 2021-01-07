@@ -1,16 +1,16 @@
 extends: ./shared
 fields:
-  - name: productUrl
-    singleValue: false
-    xpath: //link[@rel="canonical"]/@href
   - name: price
     singleValue: false
     xpath: //span[@id="prcIsum"]
   - name: unInterruptedPDP
-    xpath: //div[contains(@id,'nume_html') and not(contains(.,'Verkäufers'))]//div[contains(@class,"mfe-reco")]//li[contains(@class,"mfe-reco-ct")]
+    singleValue: false
+    manualSelector: div.mfe-recos-container div.mfe-title.container-truncate span, div.mfe-recos-slider-container a[class*="mfe-reco"]>p, ul.carousel__list div[class*="item-info__title"], div.featured-products p
+    # xpath: //div[@class="updp_item"] | //div[@class="updp1_item"] | //div[@class="featured-products"]//p | //div[@class="updp2_item"]
+    # xpath: //div[contains(@id,'nume_html') and not(contains(.,'Verkäufers'))]//div[contains(@class,"mfe-reco")]//li[contains(@class,"mfe-reco-ct")]//p[contains(@class, "mfe-title")]
   - name: inTheBoxText
     singleValue: false
-    xpath: //h1[contains(.,"In the box")]/..//span[@class="p-title"]
+    xpath: //h1[contains(.,"In the box")]/..//span[@class="p-title"] | //section[@class = "product-spectification"]//li/div[contains(text(), "Included Accessories")]/following-sibling::div
     # xpath: //h1[text()="Dans la boîte"]/following::div[contains(@class,"p-container")]/div/span[@class="p-title"]
   - name: inTheBoxUrl
     singleValue: false
