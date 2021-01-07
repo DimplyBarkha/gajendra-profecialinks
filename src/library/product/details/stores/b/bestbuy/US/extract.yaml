@@ -36,7 +36,7 @@ fields:
     # regExpReplace: $1
   - name: alternateImages2
     singleValue: false
-    xpath: //div[contains(@class,"image-thumbnail-wrapper")]//li[@class="thumbnail-content" and position()>1]//img/@src
+    xpath: //ul[contains(@class,"thumbnail-list")]//li[@class="image-thumbnail" and position()>1]//img/@src
     regExp: (.+?);.*
     regExpReplace: $1
   - name: metaKeywords

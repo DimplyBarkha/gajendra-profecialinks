@@ -26,10 +26,12 @@ const transform = (data, context) => {
       //     text: row.additionalDescBulletInfo.length,
       //   }];
       // }
-      if (row.alternateImages2) {
-        row.alternateImages = [...row.alternateImages2];
+      if (!(row.alternateImages)) {
+        if (row.alternateImages2) {
+          row.alternateImages = [...row.alternateImages2];
+        }
       }
-      if(row.secondaryImageTotal && row.alternateImages){
+      if (row.secondaryImageTotal && row.alternateImages) {
         row.secondaryImageTotal[0].text = row.alternateImages.length;
       }
       if (row.warranty) {
@@ -38,10 +40,9 @@ const transform = (data, context) => {
         }];
       }
       if (row.variants) {
-       
         row.variantCount = [{
-          text: row.variants.length + 1
-        }]
+          text: row.variants.length + 1,
+        }];
         if (row.firstVariant[0].text.includes('button')) {
           row.firstVariant = [{
             text: row.variantId[0].text,
@@ -54,10 +55,27 @@ const transform = (data, context) => {
         row.variants = [{
           text: row.variants.reduce((item, currItem) => item ? `${item} | ${currItem.text}` : currItem.text, '') + ' | ' + row.sku[0].text,
         }];
-       
+      }
+      if (row.videos) {
+        const seen = new Set();
+        const filteredArr = row.videos.filter(el => {
+          const duplicate = seen.has(el.text);
+          seen.add(el.text);
+          return !duplicate;
+        });
+        row.videos = filteredArr;
+      }
+      if (row.galleryVideos) {
+        const seen = new Set();
+        const filteredArr = row.galleryVideos.filter(el => {
+          const duplicate = seen.has(el.text);
+          seen.add(el.text);
+          return !duplicate;
+        });
+        row.galleryVideos = filteredArr;
       }
       // console.log("row.variantInformation:: ",row.variantInformation);
-      if(row.variantInformation){
+      if (row.variantInformation) {
         row.variantInformation = [{
           text: row.variantInformation.reduce((item, currItem) => item ? `${item} | ${currItem.text.replace(/\.$/, '')}` : currItem.text.replace(/\.$/, ''), ''),
         }];
@@ -80,11 +98,9 @@ const transform = (data, context) => {
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   data.forEach(obj => obj.group.forEach(row => {
-    if (!(row.nameExtended)) {
-      Object.keys(row).forEach(header => row[header].forEach(el => {
-        el.text = clean(el.text);
-      }));
-    }
+    Object.keys(row).forEach(header => row[header].forEach(el => {
+      el.text = clean(el.text);
+    }));
   }));
   return data;
 };

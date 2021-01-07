@@ -135,7 +135,7 @@ async function implementation (
       // console.log("imgSel:::: ", imgSel);
       if (imgSel) {
         imgSel.click();
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        await new Promise(resolve => setTimeout(resolve, 4000));
       }
       const imgEle = document.querySelectorAll('li.thumbnail-content button');
       // console.log("imgEle:: ", imgEle);
@@ -143,17 +143,13 @@ async function implementation (
         document.querySelector('li.image-more-thumbnail button').click();
       }
 
-      // if (imgEle && imgEle.length > 0) {
-      //   for (let i = 0; i < imgEle.length; i++ ) {
-
-      //     imgEle[i].click()
-      //     await new Promise(resolve => setTimeout(resolve, 1000));
-
-      //     const imgUrl = document.querySelector('img.primary-image.zoomable.high-resolution.loaded').getAttribute('src');
-      //     console.log("imgUrl:: ", imgUrl);
-      //     addHiddenDiv(`thumbnail_${i}`, imgUrl);
-      //     }
-      // }
+      if (imgEle && imgEle.length > 0) {
+        for (let i = 1; i < imgEle.length; i++) {
+          const imgUrl = imgEle[i].querySelector('img').getAttribute('src');
+          console.log("imgUrl:: ", imgUrl);
+          addHiddenDiv('secImages', imgUrl.replace(';maxHeight=150;maxWidth=150', ''));
+        }
+      }
       // return videos;
     });
 
