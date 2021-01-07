@@ -48,7 +48,10 @@ fields:
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
-  xpath: //p[@class="product-is-in-stock icon"]
+  defaultValue: "In Stock"
+  xpath: //p[@class="product-is-available icon"][contains(., 'derzeit nicht verfügbar')][1]
+  regExp: '(.*)'
+  regExpReplace: "Out of Stock"
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
@@ -79,8 +82,10 @@ fields:
   singleValue: true
   description: Gross weight as described on the page
 - name: gtin
-  singleValue: true
+  singleValue: false
   description: GTIN code (includes UPC/EAN)
+  xpath: //h2[@class='product-description-ean']
+  regExp: '[1-9].*'
 - name: sku
   singleValue: false
   description: The store-specific product identifier
@@ -502,8 +507,9 @@ fields:
   description: In product page, information about a new version of the product - new
     desription info
 - name: variantInformation
-  singleValue: true
+  singleValue: false
   description: colour / scent / flavour / other
+  xpath: //div[contains(@class , "selected-row")]/descendant::div[@itemprop="name"]
 - name: firstVariant
   singleValue: true
   description: Unique identifier for a collection of variants. For a subset of core
