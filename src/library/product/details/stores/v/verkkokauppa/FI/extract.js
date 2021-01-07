@@ -41,12 +41,12 @@ module.exports = {
       await context.evaluate(async function () {
         let prodNum = null;
         if (document.querySelector('section.page__product') && document.querySelector('section.page__product').hasAttribute('data-pid')) { prodNum = document.querySelector('section.page__product').getAttribute('data-pid'); }
-        if (prodNum !== null) {
-          const jsonData = document.querySelector('script[type="application/json"]').innerText;
-          const jsonFormatData = JSON.parse(jsonData);
-          const brandText = jsonFormatData.products.itemsByPid[prodNum].brand.name;
-          addEleToDoc('brandText', brandText);
-        }
+        // if (prodNum !== null) {
+        //   const jsonData = document.querySelector('script[type="application/json"]').innerText;
+        //   const jsonFormatData = JSON.parse(jsonData);
+        //   const brandText = jsonFormatData.products.itemsByPid[prodNum].brand.name;
+        //   addEleToDoc('brandText', brandText);
+        // }
         function preFetchProductDetails () {
           let productInfo = findProductDetails('//script[@type="application/ld+json"]');
           productInfo = JSON.parse(productInfo.textContent);
