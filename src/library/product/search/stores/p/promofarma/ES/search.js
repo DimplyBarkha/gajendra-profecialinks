@@ -6,5 +6,6 @@ module.exports = {
     store: 'promofarma',
     domain: 'promofarma.com',
     zipcode: '',
+    storeID: null,
   },
 };

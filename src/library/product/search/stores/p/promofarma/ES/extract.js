@@ -4,17 +4,11 @@ module.exports = {
   parameterValues: {
     country: 'ES',
     store: 'promofarma',
-    transform: transform,
+    transform,
     domain: 'promofarma.com',
     zipcode: '',
   },
-  implementation: async (inputs,
-    parameters,
-    context,
-    dependencies,
-  ) => {
-    const { transform } = parameters;
-    const { productDetails } = dependencies;
+  implementation: async ({ url }, { country, domain, transform }, context, { productDetails }) => {
     await context.evaluate(async () => {
       try {
         // @ts-ignore

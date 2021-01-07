@@ -6,8 +6,8 @@ module.exports = {
     store: 'promofarma',
     domain: 'promofarma.com',
     url: 'https://www.promofarma.com/es/search?q={searchTerms}',
-    loadedSelector: 'body',
-    noResultsXPath: "//div[@class='box-white not-found-box my-2 text-center']/h3/text()",
+    // loadedSelector: 'body',
+    noResultsXPath: "//div[@class='box-white not-found-box mb-2']",
     zipcode: '',
   },
 };
