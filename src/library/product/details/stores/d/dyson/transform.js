@@ -18,12 +18,12 @@ const transform = (data) => {
       }
 
       if(row.image){
-        console.log('rowimage is ',row.image[0].text[0]);
+        // console.log('rowimage is ',row.image[0].text[0]);
         if(row.image[0].text.substring(0,5)==='/data') row.image[0].text='https://shop.dyson.ru'+row.image[0].text;
       }
       if (row.nameExtended) {
         if (!row.nameExtended[0].text.match(/[dD]yson/g)) {
-          if (row.brandText) {
+          if (row.brandText && row.name) {
             row.nameExtended = [
               { text: row.brandText[0].text + ' - ' + row.name[0].text },
             ];
