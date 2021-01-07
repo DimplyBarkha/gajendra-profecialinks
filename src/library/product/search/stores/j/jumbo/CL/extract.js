@@ -22,7 +22,10 @@ async function implementation (
       document.querySelectorAll(selector)[iterator].setAttribute(propName, value);
     }
 
-    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: 'smooth',
+    });
     await new Promise((resolve, reject) => setTimeout(resolve, 2000));
 
     const searchUrl = window.location.href;
@@ -30,10 +33,21 @@ async function implementation (
 
     const allProducts = document.querySelectorAll('li.shelf-item');
     const productUrls = document.querySelectorAll('a[class*="shelf-product-title"]');
-
+    const viewMoreBtns = document.querySelectorAll('li[class=\'shelf-item\'] button[class*=\'view-more\']');
+    let productCode;
     for (let i = 0; i < allProducts.length; i++) {
       allProducts[i].scrollIntoView();
       await new Promise((resolve, reject) => setTimeout(resolve, 500));
+      if (viewMoreBtns[i]) {
+        viewMoreBtns[i].click();
+        await new Promise((resolve, reject) => setTimeout(resolve, 500));
+        productCode = document.evaluate('//div[contains(@class, \'brand-code\')]//span[contains(@class, \'product-preview-code\')]/text()[2]', document, null, XPathResult.STRING_TYPE, null).stringValue;
+        addProp('li.shelf-item', i, 'product_code', productCode);
+        const closePreview = document.querySelector('i[class*=\'close-preView\']');
+        if (closePreview) {
+          closePreview.click();
+        }
+      }
       addProp('li.shelf-item', i, 'productUrl', 'https://www.jumbo.cl' + productUrls[i].getAttribute('href'));
     }
   });

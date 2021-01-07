@@ -5,9 +5,7 @@ recordXPath: //li[@class='shelf-item']
 fields:
   - name: id
     singleValue: false
-    xpath: //a[contains(@class, 'shelf-product-title')]/@href
-    regExp: \/(.*)\/
-    regExpReplace: $1
+    xpath: //li[@class='shelf-item']/@product_code
   - name: searchUrl
     singleValue: true
     xpath: ancestor::html//div[@id="searchUrl"][last()]
