@@ -43,5 +43,5 @@ module.exports = {
         await context.click(storeSearchBtn);
       }
     };
-}
+  },
 };

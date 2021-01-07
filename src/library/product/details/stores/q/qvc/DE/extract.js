@@ -1,5 +1,5 @@
 const { transform } = require('./shared');
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -11,9 +11,7 @@ async function implementation(
     return (document.querySelectorAll("ul[aria-label='Auswahl'] li:not([state='disabled'])")) ? document.querySelectorAll("ul[aria-label='Auswahl'] li:not([state='disabled'])").length : 0;
   });
   console.log('Length', variantLength);
-  async function preparePage(index, variantLength) {
-
-
+  async function preparePage (index, variantLength) {
     // const checkExistance = async (selector) => {
     //   return await context.evaluate(async (currentSelector) => {
     //     return await Boolean(document.querySelector(currentSelector));
@@ -21,14 +19,20 @@ async function implementation(
     // };
 
     const productUrl = await context.evaluate(async () => {
-      let url = window.location.href;
+      const url = window.location.href;
       return url;
     });
 
-
-    let iframeLink = await context.evaluate(async () => {
+    const iframeLink = await context.evaluate(async () => {
+      function stall (ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
       let iframeLink = null;
-      let accordionTitles = document.querySelectorAll('a[class*="accordionTitle"]');
+      const accordionTitles = document.querySelectorAll('a[class*="accordionTitle"]');
       let contentAccordion = null;
       for (let i = 0; i < accordionTitles.length; i++) {
         if (accordionTitles[i].textContent.includes('Produktdetails von')) contentAccordion = accordionTitles[i];
@@ -37,7 +41,8 @@ async function implementation(
         return null;
       }
       contentAccordion.click();
-      let iframeSelector = document.querySelector('iframe#loadbeeIframeId');
+      await stall(3500);
+      const iframeSelector = document.querySelector('iframe#loadbeeIframeId');
       if (iframeSelector) {
         iframeLink = iframeSelector.getAttribute('src');
       }
@@ -45,8 +50,8 @@ async function implementation(
       return iframeLink;
     });
 
-    let manufacturerDesc = [], manufacturerImages = [];
-    let manufacturerVideo=[];
+    let manufacturerDesc = []; let manufacturerImages = [];
+    let manufacturerVideo = [];
     let inBoxUrls = [];
     let inBoxText = [];
     let hasComparisionTable = await context.evaluate(() => !!document.querySelector('[alt="Dyson Vergleichstabelle"]'));
@@ -55,20 +60,19 @@ async function implementation(
       await context.goto(iframeLink, { timeout: 50000, waitUntil: 'networkidle0', checkBlocked: true });
       await context.waitForXPath('//img');
 
-
       manufacturerDesc = await context.evaluate(async (manufacturerDesc) => {
-        let textSelector1 = document.querySelector('div[class="header-title"] span');
-        let textSelector2 = document.querySelectorAll('div[class="pic-text"] div:nth-child(2)');
-        let textSelector3 = document.querySelectorAll('table[class="table table-striped"] tr td');
-        if (textSelector1) {
+        if (document.querySelector('div[class="header-title"] span')) {
+          const textSelector1 = document.querySelector('div[class="header-title"] span');
           manufacturerDesc.push(textSelector1.innerText);
         }
-        if (textSelector2) {
+        if (document.querySelectorAll('div[class="pic-text"] div:nth-child(2)')) {
+          const textSelector2 = document.querySelectorAll('div[class="pic-text"] div:nth-child(2)');
           for (let i = 0; i < textSelector2.length; i++) {
             manufacturerDesc.push(textSelector2[i].innerText);
           }
         }
-        if (textSelector3) {
+        if (document.querySelectorAll('table[class="table table-striped"] tr td')) {
+          const textSelector3 = document.querySelectorAll('table[class="table table-striped"] tr td');
           for (let i = 0; i < textSelector3.length; i++) {
             manufacturerDesc.push(textSelector3[i].innerText);
           }
@@ -76,9 +80,8 @@ async function implementation(
         return manufacturerDesc;
       }, manufacturerDesc);
 
-
       manufacturerImages = await context.evaluate(async (manufacturerImages) => {
-        let imageSelector = document.querySelectorAll('img');
+        const imageSelector = document.querySelectorAll('img');
         for (let i = 0; i < imageSelector.length; i++) {
           manufacturerImages.push(imageSelector[i].getAttribute('src'));
         }
@@ -98,32 +101,33 @@ async function implementation(
         }
         return { inBoxText, inBoxUrls };
       });
-      manufacturerVideo= await context.evaluate(async function(){
-        let manufacturerVideosArray=[...document.querySelectorAll('div.play-btn.centered')];
-        let manufacturerVideoArray=[];
-        for(let i=0;i<manufacturerVideosArray.length;i++){
+      manufacturerVideo = await context.evaluate(async function () {
+        const manufacturerVideosArray = [...document.querySelectorAll('div.play-btn.centered')];
+        let manufacturerVideoArray = [];
+        for (let i = 0; i < manufacturerVideosArray.length; i++) {
           manufacturerVideoArray.push(manufacturerVideosArray[i].getAttribute('data-video'));
         }
-        manufacturerVideoArray=[...new Set(manufacturerVideoArray)];
-      return manufacturerVideoArray;
+        manufacturerVideoArray = [...new Set(manufacturerVideoArray)];
+        return manufacturerVideoArray;
       });
 
       inBoxText = witbData.inBoxText;
       inBoxUrls = witbData.inBoxUrls;
-      if(!hasComparisionTable)
-      hasComparisionTable = await context.evaluate(async () => {
-        if(document.querySelector('img[alt="Dyson Vergleichstabelle"]')) return true;
-        return (!!document.querySelector('.compare-headline') && document.querySelector('.compare-headline').offsetHeight > 0 && document.querySelector('.compare-headline').offsetWidth) > 0;
-      });
+      if (!hasComparisionTable) {
+        hasComparisionTable = await context.evaluate(async () => {
+          if (document.querySelector('img[alt="Dyson Vergleichstabelle"]')) return true;
+          return (!!document.querySelector('.compare-headline') && document.querySelector('.compare-headline').offsetHeight > 0 && document.querySelector('.compare-headline').offsetWidth) > 0;
+        });
+      }
     }
 
     await context.goto(productUrl, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
 
-    await context.evaluate(async (index, variantLength, manufacturerDesc, manufacturerImages, inBoxUrls, inBoxText, hasComparisionTable,manufacturerVideo) => {
+    await context.evaluate(async (index, variantLength, manufacturerDesc, manufacturerImages, inBoxUrls, inBoxText, hasComparisionTable, manufacturerVideo) => {
       console.log('index of variant', index);
 
       try {
-        function addHiddenDiv(id, content) {
+        function addHiddenDiv (id, content) {
           const newDiv = document.createElement('div');
           newDiv.id = id;
           newDiv.textContent = content;
@@ -132,35 +136,29 @@ async function implementation(
         }
 
         if (manufacturerDesc.length !== 0) {
-          let enhancedContent = "";
+          let enhancedContent = '';
           for (let i = 0; i < manufacturerDesc.length; i++) {
-            if (i !== manufacturerDesc.length - 1)
-              enhancedContent += manufacturerDesc[i] + " || ";
-            else
-              enhancedContent += manufacturerDesc[i];
+            if (i !== manufacturerDesc.length - 1) { enhancedContent += manufacturerDesc[i] + ' || '; } else { enhancedContent += manufacturerDesc[i]; }
           }
           addHiddenDiv('enhancedContent', enhancedContent);
         }
         if (manufacturerImages.length !== 0) {
-          let aplusImages = "";
+          let aplusImages = '';
           for (let i = 0; i < manufacturerImages.length; i++) {
-            if (i !== manufacturerImages.length - 1)
-              aplusImages += manufacturerImages[i] + " || ";
-            else
-              aplusImages += manufacturerImages[i];
+            if (i !== manufacturerImages.length - 1) { aplusImages += manufacturerImages[i] + ' || '; } else { aplusImages += manufacturerImages[i]; }
           }
           addHiddenDiv('aplusImages', aplusImages);
         }
-        if(manufacturerVideo!==null){
-          let mvideo= manufacturerVideo.join(' || ');
-          addHiddenDiv('manufacturerVideo',mvideo);
+        if (manufacturerVideo !== null) {
+          const mvideo = manufacturerVideo.join(' || ');
+          addHiddenDiv('manufacturerVideo', mvideo);
         }
 
         inBoxUrls.forEach((element) => {
           addHiddenDiv('ii_inBoxUrls', element);
         });
         inBoxText.forEach((element) => {
-            addHiddenDiv('ii_inBoxText', element);
+          addHiddenDiv('ii_inBoxText', element);
         });
         addHiddenDiv('ii_comparisionText', hasComparisionTable);
         // Video API call
@@ -196,11 +194,11 @@ async function implementation(
           skuNumber && addHiddenDiv('ii_sku', skuNumber);
         }
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
-    }, index, variantLength, manufacturerDesc, manufacturerImages, inBoxUrls, inBoxText, hasComparisionTable,manufacturerVideo);
+    }, index, variantLength, manufacturerDesc, manufacturerImages, inBoxUrls, inBoxText, hasComparisionTable, manufacturerVideo);
   }
-  async function scrollToImg() {
+  async function scrollToImg () {
     await context.evaluate(async () => {
       var element = (document.querySelector("div[data-component-type='LARGE_STATIC_IMAGE'] img[class*='largeDisplayImage']")) ? document.querySelector("div[data-component-type='LARGE_STATIC_IMAGE'] img[class*='largeDisplayImage']") : null;
       if (element) {
@@ -228,7 +226,6 @@ async function implementation(
     } catch (err) {
       console.log(err);
     }
-
   }
   await scrollToImg();
   if (variantLength) {
@@ -236,8 +233,7 @@ async function implementation(
   } else {
     await preparePage(0, 0);
   }
-  if (variantLength <= 1)
-    return await context.extract(productDetails, { transform });
+  if (variantLength <= 1) { return await context.extract(productDetails, { transform }); }
 }
 
 module.exports = {
