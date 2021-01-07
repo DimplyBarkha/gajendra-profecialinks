@@ -146,14 +146,15 @@ fields:
     # xpath: //*[contains(text(), 'Garantie')]
     # regExp: (Garantie.*?)<
     # regExpReplace: $1
-
   - name: unInterruptedPDP
-    xpath: //div[contains(@class,"catalog-block")]//div[contains(@class,"lslide")]/div
+    xpath: //div[contains(@class,"catalog-block")]//div[contains(@class,"lslide")]//div[contains(@class,"product-info")]
+    # regExp: .+(?=à partir de)
   - name: hasComparisonTable
     defaultValue: No
   - name: inTheBoxText
-    xpath: //div[contains(@class,"InTheBox")]//div[@class="flix-std-content"]
+    # xpath: //div[contains(@class,"InTheBox")]//div[@class="flix-std-content"]
+    xpath: //div[contains(@class,"InTheBox")]//div[@class="flix-std-content"]|//b[contains(text(), "Contenu du carton")]/ancestor::tr//following-sibling::tr//td[contains(text(), "Livré avec")]/following-sibling::td|//div[@id="ii_inTheBoxText"]
   - name: inTheBoxUrl
-    xpath: //div[contains(@class,"InTheBox")]//div[@class="flix-background-image"]//img/@data-flixsrcset
-    regExp: (.+)(\s?200w)(.+)
-    regExpReplace: https:$1
+    xpath: //div[contains(@class,"InTheBox")]//div[@class="flix-background-image"]//img/@srcset
+    #regExp: (.+)(\s?200w)(.+)
+    #regExpReplace: https:$1

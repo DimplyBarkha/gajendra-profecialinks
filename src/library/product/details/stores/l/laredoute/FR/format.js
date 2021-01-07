@@ -124,6 +124,11 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.unInterruptedPDP) {
+        row.unInterruptedPDP.forEach(item => {
+          item.text = item.text.replace(/\n/gm, ' ').replace(/(?<=€)(.*)/gm, '').trim();
+        });
+      }
     }
   }
   return data;
