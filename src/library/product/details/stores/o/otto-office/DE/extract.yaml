@@ -12,8 +12,8 @@ fields:
   - name: price
     singleValue: true
     xpath: //div[@class="preis_gelb_links"]/p/span[1] | //div[@class="oo-pricelabel_price"]/p/span[1]/span[position()>1 and position()<4]
-    regExp: (\d),(\d.+)
-    regExReplace: $1,$2
+    # regExp: (\d),(\d.+)
+    # regExReplace: $1,$2
     type: CURRENCY
   - name: description
     singleValue: false
