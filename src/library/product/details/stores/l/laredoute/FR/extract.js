@@ -20,7 +20,15 @@ async function implementation(
         document.querySelector(popUpSelector).click();
       }
     });
-    
+    const frenchPopUp = await context.evaluate(async function() {
+      return !!document.querySelector('#btn-close');
+    });
+
+    if (frenchPopUp) {
+      await context.click('#btn-close');
+      await context.waitForNavigation({ timeout: 35000 });
+    }
+
     await context.evaluate(async function () {
       let scrollTop = 0;
       while (scrollTop !== 20000) {
