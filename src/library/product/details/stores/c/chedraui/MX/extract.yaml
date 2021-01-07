@@ -42,7 +42,7 @@ fields:
     defaultValue: In stock
   - name: description
     singleValue: false
-    xpath: //div[@class="tab-details"]//p//text() | //div[@class="description-body"]/p/text() | //div[@class="description-body"]/h5
+    xpath: //div[@class="tab-details"]//p//text() | //div[@class="description-body"]/p/text() | //div[@class="description-body"]/h5 | //div[@class="description-body"]/text()
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[@class="description-body"]//ul//li/text())
