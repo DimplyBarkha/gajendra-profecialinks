@@ -1,0 +1,15 @@
+robot: product/details
+parameters:
+  country: US
+  zipcode: ""
+  store: net-a-porter
+  domain: net-a-porter.com
+proxy:
+  zone: USA
+  type: DATA_CENTER
+policy:
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 60
+  backoffPolicy: LINEAR
+  retryWithResidentialProxyAfter: 99
