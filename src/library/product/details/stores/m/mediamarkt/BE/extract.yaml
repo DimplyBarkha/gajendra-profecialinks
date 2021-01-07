@@ -388,6 +388,9 @@ fields:
   - name: inTheBoxText
     singleValue: false
     xpath: //*[@id="ii_inTheBoxText"]
+  - name: backUpInTheBoxText
+    singleValue: false
+    xpath: (//dl[@class="specification"]//dt[(text()="Verpakkingsinhoud:")]//following-sibling::dd)[1]
   - name: hasComparisonTable
     singleValue: true
     xpath: //*[@id="ii_hasComparisionTable"]

@@ -40,7 +40,6 @@ const transform = (data, context) => {
         });
       }
 
-
       if (row.inTheBoxText) {
         console.log(row.inTheBoxText);
         row.inTheBoxText.forEach(item => {
@@ -48,6 +47,14 @@ const transform = (data, context) => {
             item.text.replace(/,/g, '||');
           }
         });
+      }
+
+      if (!row.inTheBoxText && row.backUpInTheBoxText) {
+        console.log(row.backUpInTheBoxText);
+        row.backUpInTheBoxText.forEach(item => {
+          item.text = item.text.replace(/\//g, '||');
+        });
+        row.inTheBoxText = row.backUpInTheBoxText;
       }
 
       if (row.promotion) {
