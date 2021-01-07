@@ -44,17 +44,13 @@ const transform = (data, context) => {
           }
 
           if (row.description) {
-            let text = '';
+            let info = [];
             row.description.forEach(item => {
-                text += item.text+"||"; 
+                info.push(item.text.replace(/(\s*\n\s*)+/g, ' | ').trim());
             });
-            text= text.substring(0,text.length-2);
-            row.description = [
-              {
-                text: text,
-              },
-            ];
+            row.description = [{'text':info.join(' | '),'xpath':row.description[0].xpath}];
           }
+
 
           if (row.specifications) {
             let text = '';
@@ -89,6 +85,16 @@ const transform = (data, context) => {
             let size = ratingcount.length -2 ;
 
             row.ratingCount = [{'text': ratingcount[size],'xpath':row.ratingCount[0].xpath}];
+          }
+
+          if(row.secondaryImageTotal){
+            let count = 0;
+
+            row.secondaryImageTotal.forEach(item => {
+              count++;
+            });
+
+            row.secondaryImageTotal = [{'text': count,'xpath':row.secondaryImageTotal[0].xpath}];
           }
 
         //   if (row.manufacturerDescription) {

@@ -14,6 +14,10 @@ fields:
     xpath: //div[@class='slick-track']/li/a/img/@src
     regExp: ^(.+)$
     regExpReplace: https://www.davidjones.com$1
+  - name: secondaryImageTotal
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath: //div[@class='slick-track']/li/a/img/@src  
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name="Keywords"]/@content
@@ -34,7 +38,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[@class='content long-description']//li
+    xpath: //div[@class='content long-description']
   - name: descriptionBullets
     singleValue: true
     type: NUMBER
@@ -153,6 +157,9 @@ fields:
   - name: ratingCount
     singleValue: false
     xpath: //button[@id='ratings-summary']//@aria-label  
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[@class="content long-description"]//p[text()="Ingredients"]/br[last()]/following-sibling::text()    
  
 
     
