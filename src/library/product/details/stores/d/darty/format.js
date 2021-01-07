@@ -22,21 +22,29 @@ const transform = (data) => {
   }))));
   for (const { group } of data) {
     for (const row of group) {
-      if (row.description) {
+      if (row.description || row.additionalDescBulletInfo) {
         let text = '';
         if (row.additionalDescBulletInfo) {
           text = row.additionalDescBulletInfo.reduce((item, currentItem) => `${item} || ${currentItem.text}`, '').trim();
         }
-        if (text) {
+        if (text !== '' && row.description && row.description[0]) {
           row.description = [{
             text: text + ' | ' + row.description[0].text.replace(/\s*\n\s*/g, ' '),
           },
           ];
         } else {
-          row.description = [{
-            text: row.description[0].text.replace(/\s*\n\s*/g, ' '),
-          },
-          ];
+          if (row.description && row.description[0]) {
+            row.description = [{
+              text: row.description[0].text.replace(/\s*\n\s*/g, ' '),
+            },
+            ];
+          } else {
+            if (text) {
+              row.description = [{
+                text: text,
+              }];
+            }
+          }
         }
       }
       // if (row.description) {
@@ -47,6 +55,25 @@ const transform = (data) => {
       // }
       if (row.manufacturerDescription) {
         row.manufacturerDescription[0].text = row.manufacturerDescription[0].text.replace(/\s*\n\s*/g, ' ');
+      }
+      if (row.manufacturerImages) {
+        row.manufacturerImages.forEach(item => {
+          if (item.text.match(/(\/\/)(.*?)(,?)/g)) {
+            item.text = item.text.replace(/(\/\/)(.*?)(,?)/g, 'https:$1$2');
+          }
+          item.text = item.text.replace(/\s200w/g, '').replace(/\s400w/g, '').replace(/\s600w/g, '').replace(/\s800w/g, '').replace(/\s1000w/g, '');
+          item.text = item.text.startsWith('https:') ? item.text : `https:${item.text}`;
+        });
+      }
+      if (row.manufacturerImages1 && !row.manufacturerImages) {
+        row.manufacturerImages1.forEach(item => {
+          if (item.text.match(/(\/\/)(.*?)(,?)/g)) {
+            item.text = item.text.replace(/(\/\/)(.*?)(,?)/g, 'https:$1$2');
+          }
+          item.text = item.text.replace(/\s200w/g, '').replace(/\s400w/g, '').replace(/\s600w/g, '').replace(/\s800w/g, '').replace(/\s1000w/g, '');
+          item.text = item.text.startsWith('https:') ? item.text : `https:${item.text}`;
+        });
+        row.manufacturerImages = row.manufacturerImages1;
       }
       if (row.videos) {
         row.videos.forEach(video => {
