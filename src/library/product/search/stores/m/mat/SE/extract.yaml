@@ -8,8 +8,8 @@ fields:
     xpath: //html//div[@id='name']
   - name: id
     singleValue: false
-    xpath: //div[@class="productImagesBox"]/a/img/@src
-    regExp: (\d{4,18})
+    xpath: //li[@bindonce="product"]/@data-product
+    # regExp: (\d{4,18})
   - name: productUrl
     singleValue: false
     xpath: //div[@class="description"]/a/@href
