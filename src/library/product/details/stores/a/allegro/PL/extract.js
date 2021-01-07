@@ -56,20 +56,20 @@ module.exports = {
         });
       };
       await applyScroll(context);
-      const stopExtraction = await context.evaluate(async function () {
-        if (document.querySelector('div.opbox-listing p')) {
-        // @ts-ignore
-          if (document.querySelector('div.opbox-listing p').innerText.includes('Czy na pewno szukasz')) {
-            return true;
-          }
+    }
+    const stopExtraction = await context.evaluate(async function () {
+      if (document.querySelector('div.opbox-listing p')) {
+      // @ts-ignore
+        if (document.querySelector('div.opbox-listing p').innerText.includes('Czy na pewno szukasz')) {
+          return true;
         }
-        return false;
-      });
-      if (stopExtraction !== true) {
-        return await context.extract(productDetails, { transform: transformParam });
-      } else {
-        throw new Error('Not a product page');
       }
+      return false;
+    });
+    if (stopExtraction !== true) {
+      return await context.extract(productDetails, { transform: transformParam });
+    } else {
+      throw new Error('Not a product page');
     }
   },
 };
