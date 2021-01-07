@@ -31,7 +31,7 @@ module.exports = {
       const videoArray = document.querySelectorAll('div[class="videoThumb"]');
       if (videoArray.length !== 0) {
         if (videoArray.length === 1) {
-          const link = document.querySelector('div[class="ssmp-container"] video').src ? document.querySelector('div[class="ssmp-container"] video').src : '';;
+          const link = document.querySelector('div[class="ssmp-container"] video').src ? document.querySelector('div[class="ssmp-container"] video').src : '';
           const time = document.querySelector('span[class="vjs-duration-display"]').innerText ? document.querySelector('span[class="vjs-duration-display"]').innerText : '';
           addElementToDOM('videoInfo', link, time);
         }
@@ -71,10 +71,7 @@ module.exports = {
             }
           }
           if ('directions' in data[k].group[i]) {
-            let direct =  data[k].group[i].directions[0].text;
-            direct = direct.split('How do I use it:')[1].split('From')[0];
-            data[k].group[i].directions[0].text = 'How do I use it:' + direct;
-            data[k].group[i].directions[0].text = data[k].group[i].directions[0].text.trim();
+            data[k].group[i].directions[0].text = 'How do I use it:' + data[k].group[i].directions[0].text.split('How do I use it:')[1];
           }
         }
       }
