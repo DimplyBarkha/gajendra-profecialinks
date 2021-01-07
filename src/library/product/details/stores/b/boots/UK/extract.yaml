@@ -102,7 +102,7 @@ fields:
   - name: legalDisclaimer
     description: Content under "legal disclaimer" header
   - name: directions
-    xpath: ancestor::html//*[@id="product_how_to_use"]/following-sibling::* | ancestor::html//*[@id="estore_product_longdesc"]//text()[preceding-sibling::span[1][contains(text(),"How to")]] | ancestor::html//*[@id="estore_product_longdesc"]//ul[preceding-sibling::span[1][contains(text(),"How to")]] | ancestor::html//*[@id="estore_product_longdesc"]//ul[preceding::span[1][contains(text(),"How to")]]
+    xpath: ancestor::html//*[@id="product_how_to_use"]/following-sibling::* | ancestor::html//*[@id="estore_product_longdesc"]//text()[preceding-sibling::span[1][contains(text(),"How to")]] | ancestor::html//*[@id="estore_product_longdesc"]//ul[preceding-sibling::span[1][contains(text(),"How to")]]//li | ancestor::html//*[@id="estore_product_longdesc"]//ul[preceding::span[1][contains(text(),"How to")]]//li
     description: Content under "directions" header
   - name: warnings
     xpath: ancestor::html//*[@id="product_hazardous"]/following-sibling::* | ancestor::html//*[@id="estore_product_longdesc"]//text()[preceding-sibling::span[1][contains(text(),"Hazardous")]]
@@ -473,7 +473,7 @@ fields:
       new desription info
   - name: variantInformation
     description: colour / scent / flavour / other
-    xpath: ancestor::html//li[@id="size_combo_button_pdp_1"]//div[@class="productVarient"]//label//div//span
+    xpath: //div[@id="colorName"]| //td[@class="colorName"] | ancestor::html//li[@id="size_combo_button_pdp_1"]//div[@class="productVarient"]//label//div//span
   - name: firstVariant
     xpath: ancestor::html//input[contains(@id, 'cvosSkuID')]/@value
     description: Unique identifier for a collection of variants. For a subset of
