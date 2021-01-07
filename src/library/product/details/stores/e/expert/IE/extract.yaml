@@ -14,7 +14,8 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: (//div[contains(@class, "fotorama__thumb")]//img/@src)[position()>1]
+    # xpath: (//div[contains(@class, "fotorama__thumb")]//img/@src)[position()>1]
+    xpath: //div[@id='alternateImages']/text()
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name="keywords"]/@content  
