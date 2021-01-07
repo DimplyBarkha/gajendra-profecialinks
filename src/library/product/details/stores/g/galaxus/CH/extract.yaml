@@ -5,10 +5,10 @@ recordXPath: null
 fields:
   - name: name
     singleValue: false
-    xpath: //h1[contains(@class,"productHeaderTitle__Title-gtvrqo-0")]
+    xpath: //h1[contains(@class,"productHeaderTitle__Title-")]
   - name: nameExtended
     singleValue: false
-    xpath: //h1[contains(@class,"productHeaderTitle__Title-gtvrqo-0")]
+    xpath: //h1[contains(@class,"productHeaderTitle__Title-")]
   - name: image
     singleValue: false 
     xpath: //meta[@property="og:image"]/@content
@@ -17,9 +17,13 @@ fields:
     xpath:  concat(//meta[@property="og:brand"]/@content,' ',//meta[@property="og:title"]/@content)
   - name: category
     singleValue: false
-    xpath:  //div[contains(@class,"Z1ac")]//div[contains(@class,"Z1d")]//a
+    xpath:  //span[contains(@class,"Z1")]//div[contains(@class,"Z1")]//div[contains(@class,"Z1")]//a
   - name: alternateImages
-    singleValue: false 
+    singleValue: false
+    xpath: //picture[contains(@class,"mediaPicture Z1")]//img/@src
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//picture[contains(@class,"mediaPicture Z1")]//img/@src)  
   - name: brandText
     singleValue: false  
     xpath: //meta[@property="og:brand"]/@content
@@ -28,10 +32,10 @@ fields:
     xpath: //meta[@property="og:brand"]/@content
   - name: description
     singleValue: false
-    xpath: //div[contains(@class,"maxCharLimiter__MaxCharLimiter-sc-1xjt5g2-0")]//span[not(@class)]
+    xpath: //div[contains(@class,"maxCharLimiter__MaxCharLimiter-sc-1")]//span[not(@class)]
   - name: specifications
     singleValue: false
-    xpath: //div[contains(@class,"expandablePanel__ExpandedPanelContent-sc-16ywo0m-2 kfiLNS fade__Fade-e3sx8n-0")]//table//tr
+    xpath: //div[contains(@class,"expandablePanel__ExpandedPanelContent-sc-")]//table//tr
   - name: availabilityText
     singleValue: false
     xpath: //meta[@property="og:availability"]/@content
@@ -69,6 +73,9 @@ fields:
   - name: gtin
     singleValue: false
     xpath: //meta[@property="gtin"]/@content
+  - name: quantity
+    singleValue: false
+    xpath: //div[contains(@class,"productDetail ")]//span[contains(@class,"productHeaderTitle__Properties-")]
   - name: variantCount
     singleValue: false
     xpath: count(//span[contains(@class,"volumeDiscountPrices__SaleStyled-iu7k2d-1")])
@@ -83,3 +90,6 @@ fields:
   - name: variantInformation
     singleValue: false
     xpath: //div[contains(@class,'volumeDiscountPrices__VolumePricesStyled-iu7k2d-0')]//button[contains(@class,'styled__DeprecatedStyledButton-sc-17ihqnc-1')] 
+  - name: shippingInfo
+    singleValue: false
+    xpath: //div[@data-test="offerFrom"]//div[not(@class)]//a[contains(@class,"styled__StyledLink-sc-5q25ol-0")]/parent::*
