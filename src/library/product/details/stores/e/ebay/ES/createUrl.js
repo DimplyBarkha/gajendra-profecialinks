@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'ebay.es',
     prefix: null,
-    url: null,
+    url: 'https://www.ebay.es/itm/{id}',
     country: 'ES',
     store: 'ebay',
     zipcode: '',

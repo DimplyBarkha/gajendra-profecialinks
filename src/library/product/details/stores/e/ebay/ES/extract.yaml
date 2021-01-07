@@ -3,3 +3,15 @@ fields:
   - name: decimalSeperator
     singleValue: false
     defaultValue: EU
+  - name: unInterruptedPDP
+    singleValue: false
+    manualSelector: div.mfe-recos-container div[class*="mfe-title"] span
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //div[@id = "inthebox"]//div[@class = "inthebox intheboxmain" and string-length(@data-title) > 0]//span[@class="title"] | //div[@id="vi-desc-maincntr"]//div[@class="section"]//td[contains(text(), "InTheBox")]/../td[2]
+  - name: inTheBoxUrl
+    singleValue: false
+    xpath: //div[@id = "inthebox"]//div[@class = "inthebox intheboxmain" and string-length(@data-title) > 0]//span[@class="image"]//img/@src
+  - name: hasComparisonTable
+    singleValue: false
+    defaultValue: No       
