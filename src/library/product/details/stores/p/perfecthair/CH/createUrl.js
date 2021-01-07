@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'perfecthair.ch',
     prefix: null,
-    url: "https://www.perfecthair.ch/en/search?sSearch={id}",
+    url: null,
     country: 'CH',
     store: 'perfecthair',
     zipcode: '',
