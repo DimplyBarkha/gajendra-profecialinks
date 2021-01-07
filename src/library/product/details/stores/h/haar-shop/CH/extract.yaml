@@ -84,3 +84,6 @@ fields:
   - name: quantity
     singleValue: false
     xpath: //div[contains(@class,'swatch-attribute groesse_ml')]//div[contains(@class,'swatch-option text')]
+  - name: directions
+    singleValue: false
+    xpath: //div[@class='cs-container__inner']//h2[@class='cs-product-details__headline-title' and contains(text(),'Anwendung')]//parent::*/following-sibling::div[@class='cs-product-details__content']
