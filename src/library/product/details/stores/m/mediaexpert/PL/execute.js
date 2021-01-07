@@ -17,7 +17,7 @@ module.exports = {
   ) {
     const searchUrl = `https://www.mediaexpert.pl/search?query[menu_item]=&query[querystring]=${inputs.id}`;
     await context.goto(searchUrl, {
-      timeout: 30000,
+      timeout: 50000,
       waitUntil: 'load',
       checkBlocked: true,
       js_enabled: true,

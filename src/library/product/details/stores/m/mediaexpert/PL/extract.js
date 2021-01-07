@@ -91,7 +91,12 @@ module.exports = {
         }
       }, videoSelector);
     }
-
+    // const pdp = 'div.c-group.is-container.is-offerGrid > div > div.is-carouselContainer';
+    // try{
+    //   await context.waitForSelector(pdp, { timeout: 90000 });
+    // } catch (error) {
+    //   console.log(error.message);
+    // }
     return await context.extract(productDetails, { transform: transformParam });
   },
 };

@@ -125,3 +125,16 @@ fields:
     xpath: //script[contains(., 'gtin')]
     regExp: gtin13":\s\"([A-Z] |\w+)",
     regExpReplace: $1
+  - name: unInterruptedPDP
+    xpath: //div[contains(@class, 'is-container is-offerGrid')]//div[@class="is-carouselContainer"]/div/div//div[@class="c-offerBox_data"]
+  - name: inTheBoxUrl
+    xpath: //div[contains(@class, 'description-dyson-opis-row')]//div[contains(@class, 'description-dyson-opis-col-md-3')]/img/@src|//div[contains(@class, 'description_dyson-col-md')]/div[contains(@class, 'description_dyson-row')]/div[contains(@class, 'description_dyson-col-md-3')]/img/@src|//div[contains(@class, 'description-col-md-12')]/div[contains(@class, 'description-row')]/div[contains(@class, 'description-col-md-3')]/img/@src|//div[contains(@class, 'description-col-md')]/div[contains(@class, 'description-row')]/div[contains(@class, 'description-col-md-4')]/img/@src
+    regExp: (.+)
+    regExpReplace: https://mediaexpert.pl$1 
+  - name: inTheBoxText
+    xpath: //div[contains(@class, 'description-dyson-opis-row')]//div[contains(@class, 'description-dyson-opis-col-md-3')]/p[contains(@class, 'description-dyson-opis-para-3')]|//div[contains(@class, 'description_dyson-col-md')]/div[contains(@class, 'description_dyson-row')]/div[contains(@class, 'description_dyson-col-md-3')]/p[contains(@class, 'description_dyson-para-3')]|//div[contains(@class, 'description-col-md-12')]/div[contains(@class, 'description-row')]/div[contains(@class, 'description-col-md-3')]/p[contains(@class, 'description')]|//div[contains(@class, 'description-col-md')]/div[contains(@class, 'description-row')]/div[contains(@class, 'description-col-md-4')]/p[contains(@class, 'description')]
+  - name: hasComparisonTable
+    xpath: //div[@class="description_dyson-container"]//div[@class='table-responsve']/table
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
