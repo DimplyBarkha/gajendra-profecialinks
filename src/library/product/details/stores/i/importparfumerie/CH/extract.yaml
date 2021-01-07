@@ -24,8 +24,8 @@ fields:
   - name: manufacturer
     singleValue: false
   - name: category
-    singleValue: false
-    xpath: //ul[contains(@class,"list--horizontal list--chevron")]//li[contains(@class,"crumb-trail__item")]//a
+    singleValue: false 
+    xpath: //div[contains(@class,"crumb-trail desktop-only-md spacing-bottom-10 screen-hide-for-mobile")]//ul[contains(@class,"list--horizontal list--chevron")]//li[contains(@class,"crumb-trail__item")]//a
   - name: price
     singleValue: false
     xpath: //span[@itemprop="priceSpecification"]//span[@itemprop="price"]
@@ -56,6 +56,7 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //div[@itemprop="aggregateRating"]//span[@itemprop="ratingValue"]
+    defaultValue: '0.0'
   - name: variantCount
     singleValue: false
     xpath: count(//ul[contains(@class,"product-variant-switch product-variant-switch--horizontal")]//li)
