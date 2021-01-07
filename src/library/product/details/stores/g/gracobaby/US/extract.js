@@ -38,17 +38,12 @@ module.exports = {
 
       // Comma Concatenation
       const commaSeparatorDouble = (id, data) => {
-        var doubleSeparatorText = data.join(' , ');
+        var doubleSeparatorText = data.join(',');
         addHiddenDiv(id, doubleSeparatorText);
       };
-      // > Concatenation
-      const angelSeparatorDouble = (id, data) => {
-        var doubleSeparatorText = data.join(' > ');
-        addHiddenDiv(id, doubleSeparatorText);
-      };
-      // - Concatenation
-      const hiphenSeparatorDouble = (id, data) => {
-        var doubleSeparatorText = data.join(' - ');
+      // Space Concatenation
+      const spaceSeparatorDouble = (id, data) => {
+        var doubleSeparatorText = data.join(' ');
         addHiddenDiv(id, doubleSeparatorText);
       };
       try {
@@ -63,12 +58,36 @@ module.exports = {
       } catch (error) {
 
       }
+      var descFinal = [];
+      const pushFunction = function (data) {
+        for (let i = 0; i < data.length; i++) {
+          descFinal.push(data[i]);
+        }
+      }
+
       try {
-        const adddescriptionInfo = getAllXpath("//div[@id='collapsible-pdp-details-1']/text() | //ul[@id='collapsible-pdp-details-2']/li/text()", 'nodeValue');
-        commaSeparatorDouble('adddescriptionInfo', adddescriptionInfo);
+        const mainDesc = getAllXpath("//div[@id='collapsible-pdp-details-1']/text()", 'nodeValue');
+        pushFunction(mainDesc);
       } catch (error) {
 
       }
+
+      for (let i = 0; i < descFinal.length; i++) {
+        console.log(descFinal[i]);
+      }
+      try {
+        const upperDesc = getAllXpath("//div[@class='details']//li/text()", 'nodeValue');
+        pushFunction(upperDesc);
+      } catch (error) {
+
+      }
+      try {
+        const belowLI = getAllXpath("//ul[@id='collapsible-pdp-details-2']/li/text()", 'nodeValue');
+        pushFunction(belowLI);
+      } catch (error) {
+
+      }
+      commaSeparatorDouble('adddescriptionInfo', descFinal)
       try {
         const addwarningInfo = getAllXpath("//ul[@id='collapsible-pdp-details-4']/li/text()", 'nodeValue');
         commaSeparatorDouble('addwarningInfo', addwarningInfo);
@@ -82,8 +101,9 @@ module.exports = {
 
       }
       try {
-        const addProductDescInfo = getAllXpath("//div[@class='d-md-none col-sm-12']/h5/text()|//span[@class='color-display-value order-3 ml-1']/text()", 'nodeValue');
-        hiphenSeparatorDouble('addProductDescInfo', addProductDescInfo);
+        const addProductDescInfo = getAllXpath("//div[@class='d-md-none col-sm-12']/h5/text()|//div[@role='radio' and contains(@class,'color-attribute')]/span[contains(@class,'selected')]/@data-attr-value", 'nodeValue');
+        addProductDescInfo.splice(0, 0, 'Graco');
+        spaceSeparatorDouble('addProductDescInfo', addProductDescInfo);
       } catch (error) {
 
       }
@@ -101,15 +121,24 @@ module.exports = {
 
       }
       try {
-        const addavailabilityInfo = getAllXpath("//ul[@id='collapsible-pdp-details-3']/li[contains(text(),'Product')]/text()", 'nodeValue');
-        pipeSeparatorDouble('graco_dimensions', addavailabilityInfo);
+        let finalspecifications = '';
+        const specifications = getAllXpath("//h5[@class='title d-none d-lg-block' and contains(text(),'Specifications')]/following-sibling::ul/li/text()", 'nodeValue');
+        for (let i = 0; i < specifications.length; i++) {
+          if (specifications[i].includes('Color')) {
+            finalspecifications = finalspecifications + specifications[i];
+          }
+          if (specifications[i].includes('Model')) {
+            finalspecifications = finalspecifications + specifications[i];
+          }
+        }
+        addHiddenDiv('finalspecifications', finalspecifications);
       } catch (error) {
 
       }
       try {
         const sku = getAllXpath('//script[@type="application/ld+json" and contains(text(),"sku")]/text()', 'nodeValue');
         const finalSKU = JSON.parse(sku[0]);
-        addHiddenDiv('sku', finalSKU.sku);
+        addHiddenDiv('sku', finalSKU.sku.replace('SAP_', ''));
       } catch (error) {
 
       }
@@ -122,12 +151,9 @@ module.exports = {
 
       }
       try {
-        const price = getAllXpath('//div[@class="row  prices-add-mobile d-md-none "]//span[@class="price-tag"]/span/span', 'nodeValue');
-        console.log('price');
-        console.log(price[0]);
-        if (price[0].length > 0) {
-          addHiddenDiv('price', price[0]);
-        }
+        const price = getAllXpath('//script[@type="application/ld+json" and contains(text(),"availability")]/text()', 'nodeValue');
+        let finalprice = JSON.parse(price[0]);
+        addHiddenDiv('price', '$' + finalprice.offers.price);
       } catch (error) {
 
       }

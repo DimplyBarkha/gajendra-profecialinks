@@ -4,55 +4,55 @@ recordSelector: null
 recordXPath: //div[@id="maincontent"]
 fields:
   - name: image
-    singleValue: true
+    singleValue: false
     xpath: //button[contains(@aria-label,'1 of ')]/img/@src
     # regExp: (.*\?)
   - name: imageAlt
-    singleValue: true
+    singleValue: false
     xpath: //button[contains(@aria-label,'1 of ')]/img/@alt
   - name: alternateImages
     singleValue: false
     # regExp: (.*\?)
     xpath: //button[@class="carousel-img-wrap"]/parent::div[not(contains(@class,'active'))]/button/img/@src
   - name: metaKeywords
-    singleValue: true
+    singleValue: false
     xpath: //meta[@name="keywords"]/@content
   - name: category
     singleValue: false
     xpath: //ol[@class="breadcrumb"]/li/a[not(text()="Home")]
   - name: nameExtended
-    singleValue: true
+    singleValue: false
     xpath: //html//div[@class="addProductDescInfo"]
-  - name: price
-    singleValue: true
-    xpath: //html//div[@class="price"]
   - name: availabilityText
-    singleValue: true
+    singleValue: false
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out Of Stock
     xpath: //html//div[@class="graco_availability"]
+  - name: price
+    singleValue: false
+    xpath: //html//div[@class="price"]
   - name: description
     singleValue: false
     xpath: //html//div[@class="adddescriptionInfo"]
   - name: descriptionBullets
-    singleValue: true
-    xpath: count(//ul[@id='collapsible-pdp-details-2']/li | //ul[@id='collapsible-pdp-details-4']/li)
+    singleValue: false
+    xpath: count(//div[@class="details"]//li | //h5[@class="title d-none d-lg-block" and contains(text(),'Description')]/parent::div//li)
   - name: brandText
-    singleValue: true
+    singleValue: false
     xpath: (//button[@class='title btn text-left btn-block d-sm-none'])[1]/text()
   - name: gtin
-    singleValue: true
+    singleValue: false
     xpath: (//div[@class="wc-fragment"])[1]/@data-gtin
   - name: sku
-    singleValue: true
-    regExp: ([^_]*$)
-    xpath: //html//div[@class='sku']
+    singleValue: false
+    # regExp: ([^_]*$)
+    xpath: //html//div[@class="sku"]
   - name: mpc
-    singleValue: true
+    singleValue: false
     xpath: (//span[@class="manufacturer-sku-id"]/@data-manufacturersku)[1]
   - name: legalDisclaimer
-    singleValue: true
+    singleValue: false
     xpath: //div[@class='container text14']/text()
   - name: directions
     singleValue: false
@@ -61,64 +61,67 @@ fields:
     singleValue: false
     xpath: //html//div[@class="addwarningInfo"]
   - name: ratingCount
-    singleValue: true
+    singleValue: false
     xpath: (//meta[@itemprop="reviewCount"]/@content)[1]
   - name: aggregateRating
-    singleValue: true
+    singleValue: false
     xpath: (//div[@itemprop='ratingValue'])[1]/text()
   - name: specifications
-    singleValue: true
-    xpath: //html//div[@class="graco_dimensions"]
+    singleValue: false
+    xpath: //html//div[@class="finalspecifications"]
   - name: color
-    singleValue: true
+    singleValue: false
     xpath: //span[@class='color-display-value order-3 ml-1']/text()
   - name: manufacturerDescription
     singleValue: false
     xpath: //html//div[@class="addManufacturerDescInfo"]
   - name: name
-    singleValue: true
+    singleValue: false
     xpath: //div[@class="d-md-none col-sm-12"]/h5/text()
   - name: additionalDescBulletInfo
-    singleValue: true
+    singleValue: false
     xpath: //html//div[@class="addDescBulletInfo"]
   - name: variantInformation
-    singleValue: true
+    singleValue: false
     xpath: //html//div[@class="addvariantInfo"]
   - name: promotion
-    singleValue: true
+    singleValue: false
     xpath: (//div[@class="carousel-item  active "]//span[contains(@style,'color')]/text())[1]
   - name: technicalInformationPdfPresent
-    singleValue: true
+    singleValue: false
     defaultValue: Yes
   - name: termsAndConditions
-    singleValue: true
+    singleValue: false
     defaultValue: No
   - name: privacyPolicy
-    singleValue: true
+    singleValue: false
     defaultValue: No
   - name: customerServiceAvailability
-    singleValue: true
+    singleValue: false
     defaultValue: Yes
   - name: materials
-    singleValue: true
+    singleValue: false
   - name: Image360Present
-    singleValue: true
+    singleValue: false
     defaultValue: No
   - name: imageZoomFeaturePresent
-    singleValue: true
+    singleValue: false
     defaultValue: Yes
   - name: manufacturerImages
     singleValue: false
     xpath: //img[@class="wc-media wc-image"]/@src
   - name: firstVariant
-    singleValue: true
+    singleValue: false
     xpath: (//div[contains(@class,'color-attribute')]/@aria-describedby)[1]
   - name: variantCount
-    singleValue: true
+    singleValue: false
     xpath: count(//div[contains(@class,'color-attribute')]/span[contains(@class,'js-nonretail')]/@data-attr-value)
   - name: variants
-    singleValue: true
+    singleValue: false
     xpath: count(//div[contains(@class,'color-attribute')]/span[contains(@class,'js-nonretail')]/@data-attr-value)
   - name: video
     singleValue: false
     xpath: //html//div[@class="addvideoInfo"]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class="prices-add-to-cart-actions mobile d-md-none "]//span[contains(@class,'strike-through')]/span/text()
