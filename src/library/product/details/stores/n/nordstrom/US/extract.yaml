@@ -15,14 +15,18 @@ fields:
     xpath: ancestor::html//section//span[@itemprop="name"] | //h1[@itemprop="name"]
   - name: listPrice
     xpath: ancestor::html//section[@id="product-page-price-lockup"]//span[contains(@id,"original-price")]/span[last()]
+    singleValue: true
   - name: price
-    xpath: ancestor::html//span[@id="current-price-string"] | ancestor::html//span[@id="current-price-string"]/following-sibling::sup
-    regExp: ^[^–]+
+    #xpath: ancestor::html//span[@id="current-price-string"] | ancestor::html//span[@id="current-price-string"]/following-sibling::sup
+    singleValue: true
+    xpath: ancestor::html//span[@itemprop="price"]/@content
+    #regExp: ^[^–]+
   - name: availabilityText
     xpath: ancestor::html//span[contains(text(),'Add to Bag')]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
+    singleValue: true
   - name: description
     xpath:  ancestor::html//div[contains(text(),"Details & Care")]/following-sibling::div[1] |  ancestor::html//div[contains(text(),"Details & Care")]/following-sibling::ul/li
     singleValue: false
