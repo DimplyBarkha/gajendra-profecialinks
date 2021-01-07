@@ -18,7 +18,7 @@ async function implementation (
 		}
     var url = window.location.href;
     var query = url.split('/');
-		  addHiddenDiv("custon_sku", 'leclercdrive_' + query[query.length-1].replace(/\D/g,''));
+		  addHiddenDiv("custon_sku", query[query.length-1].replace(/\D/g,''));
     	addHiddenDiv("product_custom_url", url);
     });
   return await context.extract(productDetails, { transform });
