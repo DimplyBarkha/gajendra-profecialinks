@@ -25,6 +25,8 @@ fields:
     description: Alt text of the main product image
   - name: alternateImages
     xpath: ancestor::html//div[@class="s7thumb"]/@style
+    regExp: background-image:\s*url\(\"(.+?)\"
+    regExpReplace: $1
     description: Other product images (not in manufacturer description)
   - name: metaKeywords
     xpath: ancestor::html//meta[@name="keywords"]/@content

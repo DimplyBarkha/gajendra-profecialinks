@@ -116,9 +116,8 @@ const transform = (data, context) => {
       }
 
       if (row.alternateImages) {
-        const baseUrl = row.alternateImages[0].text.match(/url\("([^?]+)/)[1];
         row.alternateImages = row.alternateImages.slice(1).map((elm, index) => {
-          elm.text = `${baseUrl}_${index + 1}?wid=1920&hei=1080&op_sharpen=1`;
+          elm.text = elm.text.replace(/wid=(\d*)&hei=(\d*)/, 'wid=1920&hei=1080');
           return { text: clean(elm.text) };
         });
       }
@@ -130,15 +129,15 @@ const transform = (data, context) => {
           value: (row.alternateImages && row.alternateImages.length) || 0,
         },
       ];
-      if (row.color) {
-        const text = row.nameExtended[0].text + ' - ' + row.color[0].text;
-        row.nameExtended = [
-          {
-            text: text,
-            xpath: row.color[0].xpath,
-          },
-        ];
-      }
+      // if (row.color) {
+      //   const text = row.nameExtended[0].text + ' - ' + row.color[0].text;
+      //   row.nameExtended = [
+      //     {
+      //       text: text,
+      //       xpath: row.color[0].xpath,
+      //     },
+      //   ];
+      // }
       if (row.directions) {
         let text = '';
         row.directions.forEach(item => {

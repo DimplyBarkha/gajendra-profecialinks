@@ -18,6 +18,12 @@ module.exports = {
       optional: true,
     },
     {
+      name: 'storeID',
+      description: 'Id of the store',
+      type: 'string',
+      optional: true,
+    },
+    {
       name: 'defaultResults',
       description: 'default results value.',
       optional: true,
@@ -65,6 +71,7 @@ module.exports = {
     const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
     const resultsReturned = await execute({
+      ...inputs,
       keywords: inputKeywords,
       zipcode: inputs.zipcode || zipcode,
     });
