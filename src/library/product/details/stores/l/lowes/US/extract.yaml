@@ -12,8 +12,6 @@ fields:
   - name: image
     singleValue: false
     xpath: (//div[@id="main-section"]//div[@class="tile"]/img/@src)[1]
-    regExp: (.*)(\?)(.*)
-    regExpReplace: $1?size=pdhi
   - name: imageAlt
     singleValue: false
     xpath: (//div[@id="main-section"]//div[@class="tile"]/img/@alt)[1]
@@ -31,10 +29,10 @@ fields:
     xpath: //span[@class="aPrice large"]
   - name: availabilityText
     singleValue: false
-    xpath: //div[@class="buttonWrapper"]
-    regExp: Add to Cart
+    xpath: //form[@id="add-to-cart-form"]//div[@class="buttonWrapper"]
+    regExp: (.+)
     regExpReplace: In Stock
-    defaultValue: Out of Stock
+    defaultValue: Out Of Stock
   - name: description
     xpath: //section[contains(@id,"main")]//div[@class="romance"]
   - name: descriptionBulletsLiTags
@@ -67,7 +65,7 @@ fields:
     regExpReplace: $1
   - name: specifications
     singleValue: false
-    xpath: //div[@id="Specifications-section"]//div[contains(@class,"tr")]
+    xpath: //div[@id="preview-specifications"]//div[contains(@class,"tr")]
   - name: warranty
     singleValue: false
     xpath: (//div[contains(.,"Warranty")]/following-sibling::div[@class="value"])[1]
@@ -76,7 +74,7 @@ fields:
     xpath: //div[@class="pvsLabel"]//h3[@class="met-pvs-swatch-selection"]
   - name: promotion
     singleValue: false
-    xpath: //span[@class="offer"]//span
+    xpath: //div[contains(@class,"style__ProductDescDeskWrapper-PDP")]//span[@class="offer"]//span
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//a[@class="alternateImages"]/@href)

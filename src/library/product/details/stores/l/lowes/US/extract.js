@@ -14,7 +14,6 @@ module.exports = {
     context,
     dependencies,
   ) => {
-    await new Promise(resolve => setTimeout(resolve, 10000));
     await context.evaluate(async function () {
       let scrollSelector = document.querySelector('div#footerApp');
       let scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
@@ -24,14 +23,16 @@ module.exports = {
         window.scrollTo(0, yPos);
         scrollSelector = document.querySelector('div#footerApp');
         scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
-        await new Promise(resolve => setTimeout(resolve, 3500));
+        await new Promise(resolve => setTimeout(resolve, 1000));
+      }
+      try {
+        const button = document.querySelector('div[id="preview-specifications"] div[class*="preview-btn"] button');
+        // @ts-ignore
+        button && button.click();
+      } catch (error) {
+        console.log('failed to click view all spec');
       }
     });
-    try {
-      await context.waitForSelector('div#wc-aplus');
-    } catch (error) {
-      console.log('Manufacturer content not loaded');
-    }
     await context.evaluate(async function () {
       const images = JSON.parse(document.evaluate('//script[contains(text(),"__PRELOADED_STATE__")]', document).iterateNext().textContent &&
         document.evaluate('//script[contains(text(),"__PRELOADED_STATE__")]', document).iterateNext().textContent.match(/"additionalImages":([^\]]+])/) &&

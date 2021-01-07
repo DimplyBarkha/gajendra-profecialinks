@@ -24,6 +24,17 @@ const transform = (data) => {
 
   for (const { group } of data) {
     for (const row of group) {
+      if (row.image) {
+        const image = [];
+        row.image.forEach(item => {
+          if (item.text.includes('http')) {
+            image.push({ text: item.text });
+          } else {
+            image.push({ text: `https:${item.text}` });
+          }
+        });
+        row.image = image;
+      }
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {
@@ -47,7 +58,7 @@ const transform = (data) => {
         const specificationsArr = row.specifications.map((item) => {
           return typeof (item.text) === 'string' ? item.text.replace(/\n/, ' : ') : '';
         });
-        row.specifications = [{ text: specificationsArr.join('||'), xpath: row.specifications[0].xpath }];
+        row.specifications = [{ text: specificationsArr.join(' || '), xpath: row.specifications[0].xpath }];
       }
       if (row.additionalDescBulletInfo) {
         const additionalDescBulletInfoArr = row.additionalDescBulletInfo.map((item) => {
@@ -65,13 +76,15 @@ const transform = (data) => {
       if (row.secondaryImageTotal) {
         if (row.secondaryImageTotal[0].text.toString() === '0') { row.secondaryImageTotal = [{ text: '' }]; }
       }
-      if (row.description) {
-        const description = row.description;
+      if (row.description || row.descriptionBulletsLiTags) {
         let textOne = '';
-        description && description.length && description.forEach(item => {
-          textOne += `${item.text.replace(/\n \n/g, '')}`;
-        });
-        textOne = textOne.trim();
+        if (row.description) {
+          const description = row.description;
+          description && description.length && description.forEach(item => {
+            textOne += `${item.text.replace(/\n \n/g, '')}`;
+          });
+          textOne = textOne.trim();
+        }
         let textTwo = '';
         if (row.descriptionBulletsLiTags) {
           const descriptionLiTags = row.descriptionBulletsLiTags;
@@ -83,7 +96,7 @@ const transform = (data) => {
         const data = [textOne, textTwo];
         row.description = [
           {
-            text: data.join(' '),
+            text: data.join(' ').trim(),
           },
         ];
       }
