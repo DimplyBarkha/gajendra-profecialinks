@@ -108,6 +108,11 @@ const transform = (data) => {
           },
         ];
       }
+      if(row.unInterruptedPDP) {
+        row.unInterruptedPDP.forEach(item => {
+          item.text = cleanUp(item.text);
+        });
+      }
       if (row.shippingInfo) {
         let text = '';
         row.shippingInfo.forEach(item => {
