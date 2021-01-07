@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'verkkokauppa.com',
-    timeout: 30000,
+    timeout: 50000,
     country: 'FI',
     store: 'verkkokauppa',
     zipcode: '',
