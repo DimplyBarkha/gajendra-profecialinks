@@ -108,3 +108,6 @@ fields:
     xpath: //div[@id="ds_div"]//img[contains(@src,"http")]/@src
   - name: termsAndConditions
     singleValue: false
+  - name: productUrl
+    singleValue: true
+    xpath: //link[@rel='canonical']/@href
