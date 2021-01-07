@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'stockmann.com',
     prefix: null,
-    url: 'https://www.stockmann.com/{id}.html',
+    url: 'https://www.stockmann.com/haku?q={id}',
     country: 'FI',
     store: 'stockmann',
     zipcode: '',
