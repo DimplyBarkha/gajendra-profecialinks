@@ -82,6 +82,11 @@ fields:
     xpath: (//*[@id="schema-offer"]/div[2]/p[1]/text())[1]
     #regExp: \€(.+)\*(.*)
     #regExpReplace: $1$2
+  - name: pricePerUnitUom
+    singleValue: true
+    xpath: //html//div[@id='perunit']
+    #regExp: \/(.*)
+    #regExpReplace: $1 
   - name: imageAlt
     singleValue: true
     xpath: //*[@id="article-primary-image"]/div/img[1]/@alt
