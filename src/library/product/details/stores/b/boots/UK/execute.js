@@ -17,6 +17,7 @@ async function implementation (
   // document.querySelector('div.login-details input.input-login').click();
   await context.click('.product_name_link');
   await new Promise((resolve, reject) => setTimeout(resolve, 50000));
+  // await context.waitForNavigation('div[id="item_page.rec1rrContainer"]',{timeout:10000});
   return await context.evaluate((xpath) => !document.evaluate(xpath, document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue, parameters.noResultsXPath);
 }
 module.exports = {
