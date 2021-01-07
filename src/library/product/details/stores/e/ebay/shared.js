@@ -30,6 +30,17 @@ async function implementation(
     }, node);
   }
   await scrollToRec('#rpdCntId, .prodDetailDesc');
+  try {
+    await context.waitForSelector('#glbfooter');
+  } catch (error) {
+    console.log('No glbfooter');
+  }
+  await scrollToRec('#glbfooter, footer');
+  try {
+    await context.waitForSelector('#FootPanel');
+  } catch (error) {
+    console.log('No glbfooter');
+  }
 
   async function checkUPDP() {
     await context.evaluate(async () => {
