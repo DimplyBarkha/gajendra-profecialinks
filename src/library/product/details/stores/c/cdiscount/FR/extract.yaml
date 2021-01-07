@@ -15,7 +15,7 @@ fields:
     regExpReplace: $1
   - name: shippingInfo
     singleValue: false
-    xpath : //div[@id="fpSellBy"]/div/text()[1] | //div[@id="fpSellBy"]/div/span  |  //div[@id="fpSellBy"]//span[contains(@class, "noWrap")] 
+    xpath : //div[@id="fpSellBy"]/div/text()[1] | //div[@id="fpSellBy"]/div/span  |  //div[@id="fpSellBy"]//span[contains(@class, "noWrap") and not(contains(.,"/5"))]  | //div[@id="fpSellBy"]//a[contains(@class,"fpSellerName")]
   - name: image
     singleValue: false
     xpath: //img[@id="picture0"]/@src

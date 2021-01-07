@@ -83,11 +83,6 @@ const transform = (data) => {
       }
       row.additionalDescBulletInfo = [{ text: additionalDescBulletInfoArray.join(' || ') }];
 
-      if (row.availabilityText) {
-        row.availabilityText = [{ text: 'In Stock' }];
-      } else {
-        row.availabilityText = [{ text: 'Out Of Stock' }];
-      }
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
