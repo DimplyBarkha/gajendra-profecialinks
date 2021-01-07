@@ -2,7 +2,7 @@ input:
   _url: http://new.tennentsdirect.com
   URL: https://tennentsdirect.com/Catalogue/Search?term=KNO001
 extractions:
-  - html: https://workbench.import.io/html/run=f386f051-1c9d-489d-995e-7e41d7575416/task=f870bcac-a51f-41c0-b858-2a8662990ed9/77f0dc2e-7fd4-4a53-8542-bc16808c37fb.html
+  - html: https://workbench.import.io/html/run=b997b9e9-0df9-4be2-9873-0ec5e52712f6/task=b926bbf5-e0c1-4785-aaca-0ff5389a5480/f394ab3e-6c7d-4f6f-b0fa-339d8d579400.html
     extractionConfigId: product/details/stores/t/tennents/UK/extract
     data:
       - group:
@@ -16,10 +16,6 @@ extractions:
               - text: ",Knockando,12,Year,Old,Malt,Whisky,43.0%,70cl,,"
                 xpath: /html/head[1]/meta[6]/@content
             category:
-              - text: Home
-                xpath: /html/body/form[1]/div[5]/div[5]/div[1]/div[3]/div[1]/a[1]
-              - text: All Products
-                xpath: /html/body/form[1]/div[5]/div[5]/div[1]/div[3]/div[1]/span[1]/a[1]
               - text: Spirits
                 xpath: /html/body/form[1]/div[5]/div[5]/div[1]/div[3]/div[1]/span[1]/a[2]
               - text: Whisky
@@ -33,7 +29,7 @@ extractions:
               - text: --
                 xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[2]/input[1]/@value
             availabilityText:
-              - text: Out of stock
+              - text: Out Of Stock
                 xpath: /html/body/@availability
             description:
               - text: Charming and delicate, this 12-year-old single malt by Knockando has a
@@ -78,4 +74,4 @@ extractions:
             descriptionBullets:
               - text: "0"
         xpath: /
-    timestamp: 1609330787146
+    timestamp: 1610007227487

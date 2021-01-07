@@ -2,7 +2,7 @@ input:
   _url: http://new.tennentsdirect.com
   URL: https://tennentsdirect.com/Catalogue/Search?term=LAG001
 extractions:
-  - html: https://workbench.import.io/html/run=f386f051-1c9d-489d-995e-7e41d7575416/task=0c7a06cc-f870-407b-9209-bc1c20243052/b8fbf5a5-f4b8-49ab-82be-77cb57d36347.html
+  - html: https://workbench.import.io/html/run=b997b9e9-0df9-4be2-9873-0ec5e52712f6/task=8dcf58a7-bcf4-4a72-8749-46963f731b79/d7e858e8-bc52-4628-8265-d78b71d9f947.html
     extractionConfigId: product/details/stores/t/tennents/UK/extract
     data:
       - group:
@@ -16,10 +16,6 @@ extractions:
               - text: ",Lagavulin,16,Year,Old,Malt,Whisky,43.0%,70cl,,"
                 xpath: /html/head[1]/meta[6]/@content
             category:
-              - text: Home
-                xpath: /html/body/form[1]/div[5]/div[5]/div[1]/div[3]/div[1]/a[1]
-              - text: All Products
-                xpath: /html/body/form[1]/div[5]/div[5]/div[1]/div[3]/div[1]/span[1]/a[1]
               - text: Spirits
                 xpath: /html/body/form[1]/div[5]/div[5]/div[1]/div[3]/div[1]/span[1]/a[2]
               - text: Whisky
@@ -33,7 +29,7 @@ extractions:
               - text: --
                 xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[2]/input[1]/@value
             availabilityText:
-              - text: Out of stock
+              - text: Out Of Stock
                 xpath: /html/body/@availability
             description:
               - text: Lagavulin 16-year-old is a single malt from southern Islay. Very smoky and
@@ -78,4 +74,4 @@ extractions:
             descriptionBullets:
               - text: "0"
         xpath: /
-    timestamp: 1609330786232
+    timestamp: 1610007224221

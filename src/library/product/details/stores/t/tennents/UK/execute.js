@@ -4,8 +4,9 @@ module.exports = {
     country: 'UK',
     store: 'tennents',
     domain: 'new.tennentsdirect.com',
-    loadedSelector: 'div.ProductTitleBar_Title',
-    noResultsXPath: '//div[@class="spinner-wrap"][contains(@style, "block")] | //h1[@class="not-found"]',
+    loadedSelector: 'div.ProductTitleBar_Title, div.spinner-wrap',
+    noResultsXPath: null,
+    // noResultsXPath: '//div[@class="spinner-wrap"][contains(@style, "block")] | //h1[@class="not-found"]',
     zipcode: '',
   },
   implementation: async (
@@ -52,6 +53,7 @@ module.exports = {
     await context.waitForNavigation();
     await dependencies.goto({ ...inputs, url: searchUrl });
     await context.waitForNavigation();
+    await context.waitForXPath('//div[contains(@class, "product-card")]//img | //h1[@class="not-found"] | //div[@class="spinner-wrap"][contains(@style, "block")]');
     const productUrl = await context.evaluate(async () => {
       const productLinkElement = document.querySelector('div.product-card a.product-image');
       return productLinkElement ? productLinkElement.getAttribute('href') : null;

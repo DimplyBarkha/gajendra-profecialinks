@@ -15,11 +15,15 @@ module.exports = {
     context,
     dependencies,
   ) => {
-    const { url } = inputs;
+    const { url, id } = inputs;
     const { domain } = parameters;
-    if (!url) throw new Error('No id provided');
-    const productId = url.match(/=(.+)/) ? url.match(/=(.+)/)[1] : '';
-    const gotoUrl = productId ? `https://${domain}/products/kw/${productId}` : url;
+    let gotoUrl = '';
+    if (url) {
+      const productId = url.match(/=(.+)/) ? url.match(/=(.+)/)[1] : '';
+      gotoUrl = productId ? `https://${domain}/products/kw/${productId}` : url;
+    } else if (id) {
+      gotoUrl = `https://${domain}/products/kw/${id}`;
+    } else throw new Error('No id or url provided');
 
     return gotoUrl;
   },

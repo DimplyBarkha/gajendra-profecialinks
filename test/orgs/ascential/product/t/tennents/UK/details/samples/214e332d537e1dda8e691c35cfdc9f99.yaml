@@ -2,7 +2,7 @@ input:
   _url: http://new.tennentsdirect.com
   URL: https://tennentsdirect.com/Catalogue/Search?term=NAS005
 extractions:
-  - html: https://workbench.import.io/html/run=f386f051-1c9d-489d-995e-7e41d7575416/task=b977cd6b-1fcf-40f4-8fd4-d2401ae29349/6a33ace6-2457-4093-84ac-d8a78c0541fb.html
+  - html: https://workbench.import.io/html/run=b997b9e9-0df9-4be2-9873-0ec5e52712f6/task=538233ae-3d11-4b1f-af57-0aaa594f0456/a0eca8d0-5794-4fb6-8cfd-a7c4fe2a752a.html
     extractionConfigId: product/details/stores/t/tennents/UK/extract
     data:
       - group:
@@ -16,10 +16,6 @@ extractions:
               - text: ",Peroni,Red,4.7%,24,x,330ml,NRB,,"
                 xpath: /html/head[1]/meta[6]/@content
             category:
-              - text: Home
-                xpath: /html/body/form[1]/div[5]/div[5]/div[1]/div[3]/div[1]/a[1]
-              - text: All Products
-                xpath: /html/body/form[1]/div[5]/div[5]/div[1]/div[3]/div[1]/span[1]/a[1]
               - text: Beer
                 xpath: /html/body/form[1]/div[5]/div[5]/div[1]/div[3]/div[1]/span[1]/a[2]
               - text: Packaged Beer
@@ -33,7 +29,7 @@ extractions:
               - text: --
                 xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[2]/input[1]/@value
             availabilityText:
-              - text: Out of stock
+              - text: Out Of Stock
                 xpath: /html/body/@availability
             description:
               - text: Peroni Red is a slightly darker colour, and more malty and hoppy in
@@ -78,4 +74,4 @@ extractions:
             descriptionBullets:
               - text: "0"
         xpath: /
-    timestamp: 1609330792339
+    timestamp: 1610007244821

@@ -2,7 +2,7 @@ input:
   _url: http://new.tennentsdirect.com
   URL: https://tennentsdirect.com/Catalogue/Search?term=STE006
 extractions:
-  - html: https://workbench.import.io/html/run=f386f051-1c9d-489d-995e-7e41d7575416/task=46701e67-d3c1-4a3e-9cb5-8efbfd52573e/684d0fc0-a4e9-4a72-bee5-8022f081a987.html
+  - html: https://workbench.import.io/html/run=b997b9e9-0df9-4be2-9873-0ec5e52712f6/task=a5a4147a-44fc-4c0f-b1f7-695fb5aec645/509109a3-cf7b-4caf-b704-ee888643229a.html
     extractionConfigId: product/details/stores/t/tennents/UK/extract
     data:
       - group:
@@ -16,10 +16,6 @@ extractions:
               - text: ",Stella,Artois,4.0%,50L,KEG,,"
                 xpath: /html/head[1]/meta[6]/@content
             category:
-              - text: Home
-                xpath: /html/body/form[1]/div[5]/div[5]/div[1]/div[3]/div[1]/a[1]
-              - text: All Products
-                xpath: /html/body/form[1]/div[5]/div[5]/div[1]/div[3]/div[1]/span[1]/a[1]
               - text: Beer
                 xpath: /html/body/form[1]/div[5]/div[5]/div[1]/div[3]/div[1]/span[1]/a[2]
               - text: Draught Beer
@@ -33,7 +29,7 @@ extractions:
               - text: --
                 xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[2]/input[1]/@value
             availabilityText:
-              - text: Out of stock
+              - text: Out Of Stock
                 xpath: /html/body/@availability
             description:
               - text: Brewed to perfection using the original Stella Artois yeast and only the
@@ -80,4 +76,4 @@ extractions:
             descriptionBullets:
               - text: "0"
         xpath: /
-    timestamp: 1609330781951
+    timestamp: 1610007221595
