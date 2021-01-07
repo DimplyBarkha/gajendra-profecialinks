@@ -136,7 +136,7 @@ fields:
     regExp: ^[^\s]+
   - name: shippingInfo
     singleValue: false
-    xpath:  //body/@shipping-info | //*[@id="shipsFromSoldByInsideBuyBox_feature_div"][not(ancestor::html/body[not(@shipping-info)])] | //div[contains(@id,"freshShipsFromSoldBy")][not(ancestor::html/body[not(@shipping-info)])] | //span[contains(@class,"buybox") and contains(text(),"Ships from")]//parent::td//following-sibling::td/span/span[not(@aria-hidden="true")][not(ancestor::html/body[not(@shipping-info)])] | //div[contains(@id,"shipsFromSoldBy")]/div[@id="merchant-info"][not(ancestor::html/body[not(@shipping-info)])] | //*[@id="sellerProfileTriggerId"][not(ancestor::html/body[not(@shipping-info)])]/..
+    xpath:  //body/@shipping-info | //*[@id="shipsFromSoldByInsideBuyBox_feature_div"][not(ancestor::html/body[@shipping-info])] | //div[contains(@id,"freshShipsFromSoldBy")][not(ancestor::html/body[@shipping-info])] | //span[not(ancestor::html/body[@shipping-info])][contains(@class,"buybox") and contains(text(),"Ships from")]//parent::td//following-sibling::td/span/span[not(@aria-hidden="true")] | //div[not(ancestor::html/body[@shipping-info])][contains(@id,"shipsFromSoldBy")]/div[@id="merchant-info"] | //*[@id="sellerProfileTriggerId"][not(ancestor::html/body[@shipping-info])]/..
   - name: shippingDimensions
     singleValue: false
     xpath: //*[contains(normalize-space(text()),"Package Dimensions") or contains(normalize-space(text()),"Shipping Dimensions") or contains(normalize-space(text()),"Parcel Dimensions")]/following-sibling::*[1] | //*[normalize-space(text())="Item Package Dimensions"]/following-sibling::*[1]
