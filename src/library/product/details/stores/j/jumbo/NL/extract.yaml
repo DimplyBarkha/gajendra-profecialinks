@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //body
+recordXPath: //html
 fields:
 - name: _input
   singleValue: false
@@ -155,7 +155,7 @@ fields:
 - name: name
   singleValue: false
   description: The product name
-  xpath: //meta[@name="description"]/@content
+  xpath: //meta[@name="description"]/@content | //div[@id="nameExtended"]
 - name: inStorePrice
   singleValue: false
   description: Price in the selected store
