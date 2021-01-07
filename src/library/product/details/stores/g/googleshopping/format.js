@@ -93,9 +93,11 @@ const transform = (data) => {
         });
         console.log('params:', params);
         console.log('vars:', vars);
-        vars.forEach(item => {
-          item.text = params.join('|');
-        });
+        if(vars){
+          vars.forEach(item => {
+            item.text = params.join('|');
+          });
+        }
         row.variants = vars;
       }
       if (row.variantId) {
@@ -134,9 +136,11 @@ const transform = (data) => {
           params[cnt] = item.text;
           cnt++;
         });
-        vars.forEach(item => {
-          item.text = params.join('|');
-        });
+        if(vars){
+          vars.forEach(item => {
+            item.text = params.join('|');
+          });
+        }
         row.shippingInfo = vars;
       }
 
