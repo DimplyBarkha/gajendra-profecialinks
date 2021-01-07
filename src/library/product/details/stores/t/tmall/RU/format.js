@@ -47,12 +47,6 @@ const transform = (data) => {
           item.text=ratingCountArr[0];
         });
       }
-      if (row.nameExtended) {
-        row.nameExtended.forEach(item=>{
-          if(brandTextStr!='')
-            item.text=brandTextStr+" - "+item.text;
-        })
-      }
       if(row.coupon){
         row.coupon.forEach(item=>{
           item.text = item.text.replace('\n','');
@@ -66,7 +60,14 @@ const transform = (data) => {
         row.specifications=[{"text":specificationsAr.join(' || ')}]
       }
       if(row.aggregateRating){
-        row.aggregateRating=[{"text":row.aggregateRating[0]['text'].replace('.',',')}]
+        row.aggregateRating.forEach(element => {
+          let tmp=element.text;
+          if(tmp.length==1){
+            element.text=element.text+",0";
+          }else{
+            element.text=element.text.replace('.',',');
+          }
+        });
       }
       row.variantCount = [{ "text": 0 }];
       if(row.sku){

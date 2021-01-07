@@ -20,6 +20,13 @@ async function implementation (
   }
   await dependencies.goto({ url, zipcode, storeId });
   await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+
+  try {
+    await context.waitForSelector('div#product-detail li[ae_button_type="tab_specs"]',{timeout:1500});
+    await context.click('div#product-detail li[ae_button_type="tab_specs"]',{timeout:1000});
+  }catch (e) {
+    console.log(e);
+  }
   
   try{
     const deleteiFrame=await context.evaluate(async function(){
@@ -28,13 +35,6 @@ async function implementation (
     })
   }catch(e){
 
-  }
-
-  try {
-    await context.waitForSelector('div#product-detail li[ae_button_type="tab_specs"]',{timeout:1000});
-    await context.click('div#product-detail li[ae_button_type="tab_specs"]',{timeout:1500});
-  }catch (e) {
-    console.log(e);
   }
 
   if (parameters.loadedSelector) {

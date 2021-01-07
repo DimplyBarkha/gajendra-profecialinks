@@ -49,6 +49,8 @@ fields:
   - name: availabilityText
     singleValue: false
     xpath: //div[@class="next-message-content"]
+    regExp: (.+)
+    regExpReplace: 'Out of Stock'
     defaultValue: 'In Stock'
   - name: shippingInfo
     singleValue: false
@@ -77,3 +79,12 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: false
     defaultValue: Yes
+  - name: promotion
+    singleValue: false
+    xpath: //div[@class="product-price-original"]/span
+  - name: description
+    singleValue: false
+    xpath: //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]/div/p[1] | //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]//div[@class="detail-desc-decorate-richtext"]/p[1] | //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]/div/div[@class="detailmodule_text"]/p[1]
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]/div/p[1]/following::* | //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]//div[@class="detail-desc-decorate-richtext"]/p[1]/following::* | //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]/div/div[@class="detailmodule_text"]/p[1]/following::*
