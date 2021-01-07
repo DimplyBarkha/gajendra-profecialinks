@@ -49,7 +49,7 @@ fields:
 - name: availabilityText
   singleValue: false
   type: STRING
-  xpath: //button[@data-origincomponent="AddToTrolley"]/@data-shortdescription
+  xpath: //button[@data-origincomponent="AddToTrolley" and not(contains(@class, "disabled___2lKtc"))]/@type
   defaultValue: 'Out Of Stock'
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be

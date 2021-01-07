@@ -6,7 +6,7 @@ module.exports = {
     prefix: null,
     country: 'UK',
     store: 'waitrose',
-    url: 'https://www.waitrose.com/ecom/shop/search?&searchTerm={id}',
+    url: 'https://www.google.com/search?q=site:/www.waitrose.com%20{id}',
     zipcode: '',
   },
 };

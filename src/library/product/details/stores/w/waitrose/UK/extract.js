@@ -21,16 +21,6 @@ module.exports = {
       if (cookies) cookies.click();
     });
 
-    var detailsPage = await context.evaluate(async () => {
-      if (document.querySelector('a[data-origincomponent="ProductPod"]') != null) {
-        var productLink = document.querySelector('a[data-origincomponent="ProductPod"]').getAttribute('href');
-      }
-      return productLink;
-    });
-    if (detailsPage) {
-      await context.goto('https://www.waitrose.com' + detailsPage);
-      await context.waitForNavigation();
-    }
     await context.evaluate(async () => {
       // add productUrl
       var productUrl = window.location.href;
@@ -61,7 +51,7 @@ module.exports = {
           }
           data[k].group[i].nameExtended = data[k].group[i].nameExtended.slice(0, 1);
         }
-        if ('availabilityText' in data[k].group[i] && data[k].group[i].availabilityText[0].text !== 'Out of Stock') {
+        if ('availabilityText' in data[k].group[i] && data[k].group[i].availabilityText[0].text !== 'Out Of Stock') {
           data[k].group[i].availabilityText[0].text = 'In Stock';
         }
         if ('pricePerUnitUom' in data[k].group[i]) {
