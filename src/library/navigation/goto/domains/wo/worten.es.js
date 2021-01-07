@@ -15,18 +15,18 @@ module.exports = {
     await context.setLoadImages(true);
     await context.setJavaScriptEnabled(true);
     await context.setAntiFingerprint(false);
-    // await context.setUseRelayProxy(false); 
+    // await context.setUseRelayProxy(false);
     // const URL = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
     const URL = url;
-    await context.goto(URL, { timeout: 50000, waitUntil: 'load' });
-    await context.waitForNavigation({ timeout: 50000, waitUntil: 'networkidle0' });
+    await context.goto(URL, { timeout: 50000, waitUntil: 'networkidle0', checkBlocked: false });
+    // await context.waitForNavigation({ timeout: 50000, waitUntil: 'networkidle0' });
 
     const captchaFrame = "h2[data-translate='why_captcha_headline']";
 
     try {
       await context.waitForSelector(captchaFrame);
       await context.waitForSelector('iframe[sandbox="allow-same-origin allow-scripts"]');
-    } catch(e) {
+    } catch (e) {
       console.log("Didn't find Captcha.");
     }
 
@@ -37,7 +37,7 @@ module.exports = {
     };
 
     let isCaptchaFramePresent = await checkExistance(captchaFrame);
-    console.log("isCaptcha:"+ isCaptchaFramePresent);
+    console.log('isCaptcha:' + isCaptchaFramePresent);
 
     const solveCaptcha = async () => {
       console.log('isCaptcha', true);
