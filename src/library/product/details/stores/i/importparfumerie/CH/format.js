@@ -80,6 +80,11 @@ const transform = (data) => {
             item.text =  item.text.replace('.', '.').trim();
           });
         }
+        if (row.nameExtended) {
+          row.nameExtended.forEach(item => {
+            item.text = item.text.replace('', '').trim();
+          });
+        }
         if (row.gtin) {
           row.gtin.forEach(item => {
             item.text = item.text.replace(/\s*/g, '').trim();

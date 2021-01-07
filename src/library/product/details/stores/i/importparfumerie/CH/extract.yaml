@@ -8,7 +8,7 @@ fields:
     xpath: //div[contains(@class,"owl-stage-outer")]//div[contains(@class,"owl-item active")]//div[contains(@class,"responsive-image ") and position()=1]//img/@alt
   - name: nameExtended 
     singleValue: false 
-    xpath: //div[contains(@class,"owl-stage-outer")]//div[contains(@class,"owl-item active")]//div[contains(@class,"responsive-image ") and position()=1]//img/@alt
+    xpath: concat(//h1[contains(@class,"product-detail-metadata__headings__heading")]//span[@itemprop="name"],'',//h2[@itemprop="description"])
   - name: image
     singleValue: false
     xpath: //meta[@property="og:image"]/@content
@@ -74,7 +74,7 @@ fields:
     xpath: //ul[contains(@class,"product-variant-switch product-variant-switch--horizontal")]//li[1]//span[contains(@class,"product-variant-switch__size")]
   - name: variantInformation
     singleValue: false
-    xpath: //ul[contains(@class,"product-variant-switch product-variant-switch--horizontal")]//li[1]//span[contains(@class,"product-variant-switch__size")]
+    xpath: //ul[contains(@class,"product-variant-switch product-variant-switch--horizontal")]//li[1]//span[contains(@class,"product-variant-switch__size")] | //div[@class="select-placeholder"]
   - name: firstVariant
     singleValue: false
     xpath: //div[contains(@class,"product-detail-price__item product-detail-price__item__buttons")]//div/@data-productid
