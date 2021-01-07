@@ -458,15 +458,13 @@ fields:
     singleValue: true
     description: List of additives in the product
   - name: pricePerUnit
-    singleValue: true
     description: Price of the product split into certain units
     xpath: //div[@id='pricePerUnit']
   - name: pricePerUnitUom
-    singleValue: true
     description: The unit of measurement used in price_per_unit
     xpath: //div[@id='pricePerUnitUom']
-    regExp: (.+)(/)(.+)
-    regExpReplace: $3
+    # regExp: (.*)(/)(.*)
+    # regExpReplace: $3
   - name: promotion
     singleValue: true
     description: promotion text on product page

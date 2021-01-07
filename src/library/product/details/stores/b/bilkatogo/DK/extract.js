@@ -89,6 +89,7 @@ module.exports = {
       const pricePerUnit = document.querySelector('div[class="product-sub-title"]');
       let pricePerUnitSliced = '';
       let pricePerUnitUOM = '';
+      let pricePerUnitUom1 = '';
       const pricePerUnitTxt = pricePerUnit ? pricePerUnit.innerText : '';
       let strt = 0;
       let end = 0;
@@ -98,7 +99,7 @@ module.exports = {
           strt = i;
         } else if (pricePerUnitTxt.charAt(i) === '/' && end === 0) {
           end = i;
-        } else if (pricePerUnitTxt.charAt(i) === 'L' && end !== 0) {
+        } else if (end !== 0) {
           endUOM = i;
           break;
         }
@@ -106,8 +107,11 @@ module.exports = {
 
       pricePerUnitSliced = pricePerUnitTxt.substring(strt + 1, end).trim();
       pricePerUnitUOM = pricePerUnitTxt.substring(strt + 1, endUOM + 1).trim();
+      console.log('price per unit uom is:',pricePerUnitUOM);
+      pricePerUnitUom1= pricePerUnitUOM.replace(/(.*)(\/)(.*)/g,'$3');
+      console.log('price per unit uom is:',pricePerUnitUom1);
       addElementToDocument('pricePerUnit', pricePerUnitSliced);
-      addElementToDocument('pricePerUnitUom', pricePerUnitUOM);
+      addElementToDocument('pricePerUnitUom', pricePerUnitUom1);
       let brandText = '';
       let index = 0;
       for (let i = pricePerUnitTxt.length; i >= 0; i--) {
