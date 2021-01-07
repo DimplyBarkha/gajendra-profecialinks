@@ -67,19 +67,60 @@ module.exports = {
       const locationUrl = await context.evaluate(async () => {
         return window.location.href;
       });
-      var iframe = await context.evaluate(async () => {
+      var iframeObj = await context.evaluate(async () => {
         const element = document.querySelector('div.loadbee-inpage div.loadbeeTabContent');
         if (element) {
           element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
           await new Promise((resolve) => setTimeout(resolve, 10000));
         }
-        iframe = document.querySelector('div.loadbee-inpage div.loadbeeTabContent iframe') ? document.querySelector('div.loadbee-inpage div.loadbeeTabContent iframe').getAttribute('src') : null;
-        // iframe = iframe && 'https:' + iframe;
-        return iframe;
+       let apikey = document.querySelector('div.loadbee-inpage div.loadbeeTabContent') ? document.querySelector('div.loadbee-inpage div.loadbeeTabContent').getAttribute('data-loadbee-apikey') : null;
+       let gtin = document.querySelector('div.loadbee-inpage div.loadbeeTabContent') ? document.querySelector('div.loadbee-inpage div.loadbeeTabContent').getAttribute('data-loadbee-gtin') : null;
+       let iframeObj = {};
+       iframeObj.apikey = apikey;
+       iframeObj.gtin = gtin;
+      return iframeObj;
       });
-      if (iframe) {
-        console.log('iframe: ', iframe);
-        await context.goto(iframe);
+      if(iframeObj){
+        console.log('iframeObj:---------------------------------- ', iframeObj);
+        var iframeApiResUrl = await context.evaluate(async function (iframeObj1) {
+          console.log('iframeObj1: ', iframeObj1);
+         let apiKey = iframeObj1.apikey;
+         console.log('apiKey: ', apiKey);
+        let gtin = iframeObj1.gtin;
+        console.log('gtin: ', gtin);
+        async function getData (url = '') {
+          const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          });
+          console.log('response.json:------------------------------- ', response.json);
+          return response.json();
+          
+        };
+        let url = `https://availability.loadbee.com/v3/EAN/${gtin}/de_CH?template=default&apiKey=${apiKey}`
+        console.log('url: ', url);
+        const iframeApiRes = await getData(url);
+        console.log('iframeApiRes: ', iframeApiRes);
+        let urlIframe = iframeApiRes ? iframeApiRes.url : null;
+        console.log('urlIframe: ', urlIframe);
+        return urlIframe;
+      }, iframeObj);
+      }
+      // var iframe = await context.evaluate(async () => {
+      //   const element = document.querySelector('div.loadbee-inpage div.loadbeeTabContent');
+      //   if (element) {
+      //     element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+      //     await new Promise((resolve) => setTimeout(resolve, 10000));
+      //   }
+      //  let iframe = document.querySelector('div.loadbee-inpage div.loadbeeTabContent iframe') ? document.querySelector('div.loadbee-inpage div.loadbeeTabContent iframe').getAttribute('src') : null;
+      //   return iframe;
+      // });
+     
+      if (iframeApiResUrl) {
+        console.log('iframe: ', iframeApiResUrl);
+        await context.goto(iframeApiResUrl,{ timeout: 60000 });
         await new Promise((resolve) => setTimeout(resolve, 10000));
         const manufactDes = await context.evaluate(async () => {
           let descArr = [];
@@ -98,7 +139,16 @@ module.exports = {
             descArr.push(desc2);
             console.log('descArr: ', descArr);
           }
-          const desc = descArr.join(' | ');
+          let desc3 = document.querySelector('div#mainWrapper') ? document.querySelector('div#mainWrapper') : '';
+          if (desc3) {
+            // @ts-ignore
+            console.log('desc3: ', desc3.innerText);
+            // @ts-ignore
+            desc3 = desc3.innerHTML ? desc3.innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').trim() : '';
+            descArr.push(desc3);
+            console.log('descArr: ', descArr);
+          }
+          const desc = descArr.join(' | ').trim();
           // @ts-ignore
           console.log('desc: ', desc);
           const iframeFooter = document.querySelector('div.panel');
@@ -112,13 +162,21 @@ module.exports = {
           }
         });
         const manufactImg = await context.evaluate(() => {
-          const arrImgSel = document.querySelectorAll("div[class*='container-fluid main-container'] img[src]") ? Array.from(document.querySelectorAll("div[class*='container-fluid main-container'] img[src]")) : '';
+          // const arrImgSel1 = document.querySelectorAll("div[class*='container-fluid main-container'] img[src]") ? Array.from(document.querySelectorAll("div[class*='container-fluid main-container'] img[src]")) : '';
+          // console.log('arrImgSel1: ', arrImgSel1);
+          // // @ts-ignore
+          // const img1 = arrImgSel1.map((imgSelector) => imgSelector && imgSelector.src ? imgSelector.src : '');
+          // console.log('img1: ', img1);
+          const arrImgSel2 = document.querySelectorAll("div[id='mainWrapper'] img[src]") ? Array.from(document.querySelectorAll("div[id='mainWrapper'] img[src]")) : '';
+          console.log('arrImgSel2: ', arrImgSel2);
           // @ts-ignore
-          const img = arrImgSel.map((imgSelector) => imgSelector && imgSelector.src ? imgSelector.src : '');
-          const imgURL = img.join(' | ');
-          return imgURL;
+          const img2 = arrImgSel2.map((imgSelector) => imgSelector && imgSelector.src ? imgSelector.src : '');
+          console.log('img2: ', img2);
+          let imgUrlArr = img2.concat(img2)
+          let arr = imgUrlArr.join(' | ')
+          return arr;
         });
-        await context.goto(locationUrl, { timeout: 60000 });
+        await context.goto(locationUrl, { timeout: 90000 });
         await context.evaluate((manufactDes, manufactImg) => {
           addHiddenDiv('ii_manu', manufactDes);
           addHiddenDiv('ii_img', manufactImg);
