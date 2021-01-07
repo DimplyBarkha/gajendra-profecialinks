@@ -30,7 +30,7 @@ module.exports = {
       const videoInfo = document.querySelector('script[id="mediaJSON"]') ? JSON.parse(document.querySelector('script[id="mediaJSON"]').textContent) : '';
       if (videoInfo.video !== undefined && videoInfo.video.length !== 0) {
         for (let i = 0; i < videoInfo.video.length; i++) {
-          if (videoInfo.video[i].encodings[i] !== undefined){
+          if (videoInfo.video[i].encodings[i] !== undefined) {
             addElementToDOM('videoInfo', videoInfo.video[i].encodings[0].url);
           }
         }
@@ -47,7 +47,7 @@ module.exports = {
             data[k].group[i].ingredientsList = data[k].group[i].ingredientsList.slice(0, 1);
           }
           if ('description' in data[k].group[i]) {
-            if (data[k].group[i].directions[0].text.includes('How do I use it:')){
+            if (data[k].group[i].directions[0].text.includes('How do I use it:')) {
               data[k].group[i].description[0].text = data[k].group[i].description[0].text.split('How do I use it:')[0].trim();
             }
             data[k].group[i].description[0].text = data[k].group[i].description[0].text.replace(/[\r\n]+/g, ' ').replace(/\s\s+/g, ' ');
@@ -78,10 +78,10 @@ module.exports = {
 
     const variants = await context.evaluate(() => { return document.querySelectorAll('ul[role="radiogroup"] li').length; });
     const variantInfo = await context.evaluate(() => {
-      let variantInfo = [];
+      const variantInfo = [];
       for (let i = 0; i < document.querySelectorAll('ul[role="radiogroup"] li').length; i++) {
-        variantInfo.push(document.querySelectorAll('ul[role="radiogroup"] li')[i].dataset.originalTitle)
-      } 
+        variantInfo.push(document.querySelectorAll('ul[role="radiogroup"] li')[i].dataset.originalTitle);
+      }
       return variantInfo;
     });
     if (variants !== 0) {
