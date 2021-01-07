@@ -3,17 +3,17 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
 
   // strategies can  be  turned on and off
   const fillRateStrategies = {
-    variantAPIAppendData: gotoInput.variantAPIAppendData ? gotoInput.variantAPIAppendData : true,
-    nonVariantReload: gotoInput.nonVariantReload ? gotoInput.nonVariantReload : true,
-    variantReload: gotoInput.variantReload ? gotoInput.variantReload : true,
+    variantAPIAppendData: gotoInput.variantAPIAppendData ? gotoInput.variantAPIAppendData : false,
+    nonVariantReload: gotoInput.nonVariantReload ? gotoInput.nonVariantReload : false,
+    variantReload: gotoInput.variantReload ? gotoInput.variantReload : false,
     acceptCookies: gotoInput.acceptCookies ? gotoInput.acceptCookies : true,
     // missingDataRetry has dependants
-    missingDataRetry: gotoInput.missingDataRetry ? gotoInput.missingDataRetry : true,
+    missingDataRetry: gotoInput.missingDataRetry ? gotoInput.missingDataRetry : false,
     // dependant on missingDataRetry
-    cleanCookieRetry: gotoInput.cleanCookieRetry ? gotoInput.cleanCookieRetry : true,
+    cleanCookieRetry: gotoInput.cleanCookieRetry ? gotoInput.cleanCookieRetry : false,
     // dependant on missingDataRetry
-    salesRankBadgeRetry: gotoInput.salesRankBadgeRetry ? gotoInput.salesRankBadgeRetry : true,
-    hourlyRetryLimit: gotoInput.hourlyRetryLimit ? gotoInput.hourlyRetryLimit : true,
+    salesRankBadgeRetry: gotoInput.salesRankBadgeRetry ? gotoInput.salesRankBadgeRetry : false,
+    hourlyRetryLimit: gotoInput.hourlyRetryLimit ? gotoInput.hourlyRetryLimit : false,
   };
   console.log('fillRateStrategies: ', fillRateStrategies);
 
@@ -119,7 +119,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
     const apiZipChange = await context.evaluate(async (zipcode, csrf) => {
       const country = document.querySelector('[lang]').lang.match(/[^-]+$/)[0].toUpperCase();
       let body;
-      if (zipcode) {
+      if(zipcode) {
         body = `locationType=LOCATION_INPUT&zipCode=${zipcode}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`;
       } else {
         body = `locationType=COUNTRY&countryCode=${country}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`;
@@ -138,7 +138,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
       });
       return response.status === 200;
     }, zipcode, csrf);
-    if (zipcode) {
+    if(zipcode) {
       const onCorrectZip = await context.evaluate((zipcode) => {
         const zipText = document.querySelector('div#glow-ingress-block');
         return zipText ? zipText.textContent.includes(zipcode) : false;

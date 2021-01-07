@@ -183,7 +183,7 @@ fields:
     xpath: //div[@id='added-url']
   - name: asin
     #singleValue: true
-    xpath: //div[@id='added-asin'] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'ASIN')]/../../text()
+    xpath: //div[@id='added-asin'] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'ASIN')]/../../text() | //*[normalize-space(text())="ASIN"]/following-sibling::*[1]
     regExp: ^\w+
   - name: sku
   - name: coupon
