@@ -20,6 +20,7 @@ fields:
     xpath: //div[@class="productImagesBox"]/a/img/@src
   - name: price
     singleValue: false
-    xpath: //span[@class="ordinary-pris ng-binding"]/text()
-    regExp: (\d+),?(\d+).+
-    regExpReplace: $1.$2
+    xpath: //html//div[@id='price']
+    # type: CURRENCY
+  #   regExp: (\d+),?(\d+).+
+  #   regExpReplace: $1.$2
