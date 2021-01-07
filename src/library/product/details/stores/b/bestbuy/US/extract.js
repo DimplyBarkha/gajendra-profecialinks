@@ -53,7 +53,7 @@ async function implementation (
       };
       return getShadowDomHtml(manuData);
     });
-    await context.goto(mainUrl, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: true });
+    await context.goto(`${mainUrl}&intl=nosplash#[!opt!]{"block_ads":false,"anti_fingerprint":false,"first_request_timeout":60,"load_timeout":30,"load_all_resources":true,"enable_cache":false,"discard_CSP_header":true}[/!opt!]`, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: true });
   }
   try {
     // await context.captureRequests();
@@ -213,6 +213,21 @@ async function implementation (
         for (let i = 1; i < secondaryImages.length; i++) {
           secondaryImagesArr.push(secondaryImages[i].src);
           addHiddenDiv('secImages', secondaryImagesArr[i]);
+        }
+      }
+      document.querySelector('button#product-videos-tab') && document.querySelector('button#product-videos-tab').click();
+      const videos = [];
+      const videoElem = document.querySelectorAll('div.video-thumbnail-wrapper li button');
+      // console.log("videoElems:::::::::", videoElem);
+      if (videoElem && videoElem.length > 0) {
+        for (let i = 0; i < videoElem.length; i++) {
+          videoElem[i].click();
+          await new Promise(resolve => setTimeout(resolve, 1000));
+
+          const videoUrl = document.querySelector('video source').getAttribute('src');
+          // console.log("videoUrl:: ", videoUrl);
+          videos.push(videoUrl);
+          addHiddenDiv(`ii_video_${i}`, videoUrl);
         }
       }
     });
