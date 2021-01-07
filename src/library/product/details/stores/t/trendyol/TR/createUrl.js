@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'trendyol.com',
     prefix: null,
-    url: 'https://www.trendyol.com/dyson/c-p-{id}',
+    url: null,
     country: 'TR',
     store: 'trendyol',
     zipcode: '',
