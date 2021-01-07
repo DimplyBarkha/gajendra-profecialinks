@@ -95,7 +95,7 @@ module.exports = {
     if (collected === 0) return;
 
     let page = 2;
-    while (collected < results && await paginate({ keywords: inputKeywords, page, offset: collected })) {
+    while (collected < results && await paginate({ keywords: inputKeywords, page, offset: collected, query })) {
       const data = await extract({});
       const count = length(data);
       if (count === 0) break; // no results

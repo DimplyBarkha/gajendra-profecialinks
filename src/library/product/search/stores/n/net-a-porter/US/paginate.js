@@ -5,7 +5,6 @@ module.exports = {
     template: null,
     country: 'US',
     store: 'net-a-porter',
-    // nextLinkSelector: 'div[class*="nextCopy"]:not([class*="disabled"])',
     nextLinkSelector: null,
     nextLinkXpath: null,
     mutationSelector: null,
@@ -16,7 +15,7 @@ module.exports = {
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: 'div[itemprop="item"]',
     openSearchDefinition: {
-      template: 'https://www.net-a-porter.com/en-us/shop/search/{searchTerms}?pageNumber={page}',
+      template: 'https://www.net-a-porter.com/en-us/shop/search/{queryParams}&pageNumber={page}',
     },
     zipcode: '',
     domain: 'net-a-porter.com',

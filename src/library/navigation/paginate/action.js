@@ -29,7 +29,7 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { id, date, keywords, page, offset } = inputs;
+  const { id, date, keywords, page, offset, query } = inputs;
   const { stopConditionSelectorOrXpath, nextLinkSelector, loadedSelector, noResultsXPath, mutationSelector, loadedXpath, resultsDivSelector, spinnerSelector, openSearchDefinition, nextLinkXpath } = parameters;
 
   let nextLink;
@@ -95,6 +95,7 @@ async function implementation (
     const pageNb = page + pageStartNb - 1;
     url = template
       .replace(/{searchTerms}/g, encodeURIComponent(keywords))
+      .replace(/{queryParams}/g, query)
       .replace(/{id}/g, encodeURIComponent(id))
       .replace(/{date}/g, encodeURIComponent(date))
       .replace(/{page}/g, (pageNb + (pageOffset || 0)).toString())
