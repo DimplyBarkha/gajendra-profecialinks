@@ -1,0 +1,110 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:  
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[@itemprop = "aggregateRating"]//meta[@itemprop = "ratingValue"]//@content    
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class, "image-slider--thumbnails-slide")]//a[position()>1]/@href
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[contains(@class, "image-slider--thumbnails-slide")]//a[position()>1]/@href)
+  - name: availabilityText
+    singleValue: false
+    xpath: //link[@itemprop = "availability"]//@href
+    regExp: http:\/\/schema\.org\/(.*)
+    regExpReplace: $1
+  - name: brandText
+    singleValue: false
+    xpath: //span[contains(@class, "supplier--name")]//h2
+  - name: category
+    singleValue: false
+    xpath: //ul[@class = "breadcrumb--list"]//span[@class = "breadcrumb--title"]
+  - name: color
+    singleValue: false
+    xpath: //td[contains(@class, "product--properties-label")]//h4[contains(text(), "colour:")]//parent::td//following-sibling::td  
+  - name: description
+    singleValue: false
+    xpath: concat(//div[@class='content--description']//div[@class='content--title']//h3,' ',//div[contains(@class, "product--description")]//p[1])
+  - name: gtin
+    singleValue: false
+    xpath: //div[@id="import_product_ean"]
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class, "product--image-container")]//img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: (//div[contains(@class, "product--image-container")]//img)[1]/@alt
+  - name: legalDisclaimer
+    singleValue: false
+    xpath: //a[@class = "navigation--link" and contains(@title, "Disclaimer")]/@href
+  - name: listPrice
+    singleValue: false
+    xpath: //span[contains(@class, "price--line-through")]
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[contains(@class, "product-slider--container")]//div[contains(@class, "blog--box-description-short")]  
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name = "keywords"]/@content
+  - name: name
+    singleValue: false
+    xpath: //h1[@itemprop = "name"]/text()
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@itemprop = "name"]/text()  
+  - name: price
+    singleValue: false
+    xpath: //span[contains(@class, "price--content")]/.    
+  - name: quantity
+    singleValue: false
+    xpath: //div[@class='product--configurator']//div[@class='variant--option is--button is--active']/label[@class='option--label']
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[@class = "rating--count"]  
+  - name: sku
+    singleValue: false
+    xpath: //span[@itemprop = "sku"]
+  - name: specifications
+    singleValue: false
+    xpath: //table[contains(@class, "product--properties-table")]//tr[@class = "product--properties-row"]  
+  - name: variantCount
+    singleValue: false
+    defaultValue: "0"
+  - name: variantId
+    singleValue: false
+    xpath: //meta[@itemprop = "productID"]/@content  
+  - name: videos
+    singleValue: false
+    xpath: //iframe[contains(@src, "youtube")]/@src
+  - name: weightNet
+    singleValue: false
+    xpath: //li[contains(text(), "Gewicht:")]
+    regExp: (.*):\s(.*)
+    regExpReplace: $2
+  - name: gtin
+    singleValue: false
+    xpath: //script[contains(text(),'"productEAN"')]/text()
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[@class="color-card-variants"]//a)
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@class="color-card-variants"]//a//div[@class='color-image']/@style
+    regExp: background-color:\s*(.*)
+    regExpReplace: $1
+  - name: firstVariant
+    singleValue: false
+    xpath: //meta[@itemprop = "productID"]/@content
+  - name: termsAndConditions
+    singleValue: false
+    defaultValue: Yes
+  - name: directions
+    singleValue: false
+    xpath: //div[contains(@class, "product--description")]//p//strong[contains(text(),'Directions of use')]/parent::p/following-sibling::p[1]
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: Yes
