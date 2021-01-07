@@ -125,6 +125,11 @@ const transform = (data) => {
         });
         row.inTheBoxText = specs;
       }
+      if ((!row.inTheBoxText || !row.inTheBoxText.length) && row.inTheBoxTxt1) {
+        console.log('inTheBoxText1',row.inTheBoxTxt1);
+        row.inTheBoxText = row.inTheBoxTxt1;
+        console.log("inTheBoxText", row.inTheBoxText);
+      }
       if (row.shippingInfo) {
         const vars = [];
         let cnt = 0;
@@ -145,6 +150,7 @@ const transform = (data) => {
           item.text = item.text.split(',')[0];
         });
       }
+      
 
       // if (row.inTheBoxText) {
       //   const info = [];
