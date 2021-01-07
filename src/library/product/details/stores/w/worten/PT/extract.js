@@ -8,12 +8,52 @@ module.exports = {
     domain: 'worten.pt',
     zipcode: '',
   },
+  // dependencies: {
+  //   productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
+  //   goto: 'action:navigation/goto',
+  // },
   implementation: async (inputs, { country, domain, transform }, context, { productDetails }) => {
+    // async function loadContent() {
+    //   try {
+    //     await context.evaluate(() => {
+    //       if (document.querySelector('.footer__bar')) {
+    //         document.querySelector('.footer__bar').scrollIntoView({
+    //           behavior: 'smooth',
+    //         });
+    //       }
+    //     });
+    //     await context.waitForNavigation({ waitUntil: 'networkidle0' });
+    //     await context.waitForSelector('div#flixmediaInsert');
+    //     return true;
+    //   } catch (err) {
+    //     return false;
+    //   }
+    // }
+
+    // const MAX_TRIES = 3;
+    // let counter = 1;
+    // let loaded = false;
+    // const pageUrl = await context.evaluate(() => window.location.href);
+    // do {
+    //   loaded = await loadContent();
+    //   if (!loaded) {
+    //     await goto({ url: pageUrl });
+    //   }
+    //   counter++;
+    // } while (!loaded && counter <= MAX_TRIES);
+    // if (!loaded) {
+    //   console.log('Product detail not loaded.');
+    // }
+
     try {
+      function timeout(ms) {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+      }
       await context.waitForSelector('.w-cookies-popup__wrapper .w-button-primary', { timeout: 10000 });
-      await context.evaluate(function () {
+      await context.evaluate(async function () {
         console.log('Clicking on button.');
         document.querySelector('.w-cookies-popup__wrapper .w-button-primary').click();
+        await timeout(2000);
       });
     } catch (er) {
       console.log('Error while accepting cookies button.', er);
@@ -21,19 +61,26 @@ module.exports = {
 
     await context.waitForNavigation({ timeout: 50000, waitUntil: 'networkidle0' });
     await context.evaluate(async function () {
+      console.log('Scrolling to the bottom of page.');
+      if (document.querySelector('.footer__bar')) {
+        document.querySelector('.footer__bar').scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+        console.log('Scrolling is done waiting for 2 sec');
+        await timeout(2000);
+      }
+
+      try {
+        await context.waitForSelector('div.inpage_selector_info', { timeout: 60000 });
+      } catch (err) {
+        console.log('Enhanced content did not load');
+      }
       const rating = document.evaluate('//script[@type="application/ld+json"][1][contains(text(),"ratingValue")]', document, null, XPathResult.ANY_TYPE, null).iterateNext() && document.evaluate('//script[@type="application/ld+json"][1][contains(text(),"ratingValue")]', document, null, XPathResult.ANY_TYPE, null).iterateNext().textContent && document.evaluate('//script[@type="application/ld+json"][1][contains(text(),"ratingValue")]', document, null, XPathResult.ANY_TYPE, null).iterateNext().textContent.replace(/(.+ratingValue":"([^"]+).+)/g, '$2');
       if (rating) {
         const Frating = Number(rating).toFixed(1).replace('.', ',');
         document.body.setAttribute('rating', Frating);
       }
-      console.log('Scrolling to the bottom of page.');
-      if (document.querySelector('.footer__bar')) {
-        document.querySelector('.footer__bar').scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
-      }
-
       const descEl = document.querySelector('#flix-inpage');
-      const paginationText =  document.querySelector('p.fl1xcarousel-pagination')
-      if(paginationText){
+      const paginationText = document.querySelector('p.fl1xcarousel-pagination')
+      if (paginationText) {
         paginationText.remove();
       }
       if (descEl) {
@@ -77,7 +124,7 @@ module.exports = {
         let removeDuplicatevideos = [...new Set(videoUrls)];
         const videos = removeDuplicatevideos.join(' | ')
         console.log(videos);
-        document.querySelector('h1').setAttribute('videos', videos);
+        document.querySelector('h1') && document.querySelector('h1').setAttribute('videos', videos);
       }
 
       const youtubeVideos = getElementsByXPath('//img/@data-plyr-embed-id');
@@ -88,21 +135,16 @@ module.exports = {
       });
 
       const allYoutubeVideos = youtubeVideosArr.join(' | ');
-      document.querySelector('h1').setAttribute('youtube-videos', allYoutubeVideos);
+      document.querySelector('h1') && document.querySelector('h1').setAttribute('youtube-videos', allYoutubeVideos);
 
       const bulletCount = document.querySelector('div.w-product-about-container') && document.querySelector('div.w-product-about-container').innerHTML.replace(/<br> -/g, ' || ').replace(/(<([^>]+)>)/ig, '').trim().split('||').length - 1;
-
       if (bulletCount) {
         const bullets = bulletCount.toString();
-        document.querySelector('h1').setAttribute('bullet-point', bullets);
+        document.querySelector('h1') && document.querySelector('h1').setAttribute('bullet-point', bullets);
       }
     });
 
-    try {
-      await context.waitForSelector('div#flixmediaInsert', { timeout: 60000 });
-    } catch (err) {
-      console.log('Enhanced content did not load');
-    }
+
     await context.evaluate(async function () {
       const enhanceContentVideos = [];
       const getVideoList = document.querySelector('div.fullJwPlayerWarp input');
@@ -117,7 +159,7 @@ module.exports = {
         }
       }
       const allVideos = enhanceContentVideos.join(' | ');
-      document.querySelector('h1').setAttribute('enhance-videos', allVideos);
+      document.querySelector('h1') && document.querySelector('h1').setAttribute('enhance-videos', allVideos);
     })
     await context.extract(productDetails, { transform });
   },
