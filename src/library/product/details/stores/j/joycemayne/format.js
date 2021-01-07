@@ -31,14 +31,17 @@ const transform = (data) => {
         let manuImages = row.inTheBoxUrl;
         row.inTheBoxUrl = [];
         manuImages.forEach(ele => {
+       
           let extractfirsturl = ele.text.split(',');
           var obj = {};
           let extracturlbeforeExtn = extractfirsturl[0].split(" ");          
           obj.text = extracturlbeforeExtn[0];     
+
           if(obj.text.startsWith("//media")){
+            obj.text = 'https:'+extracturlbeforeExtn[0];
             row.inTheBoxUrl.push(obj);
           }else{
-            obj.text = extracturlbeforeExtn[0];
+            obj.text = 'https://media.flixfacts.com/eyekandy/dyson/v11/au/'+extracturlbeforeExtn[0]
             row.inTheBoxUrl.push(obj);           
           }
           

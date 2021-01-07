@@ -143,11 +143,15 @@ async function implementation (
     return src;
   });
   // let content = null;
+
+  
   if (src) {
     try {
       await context.goto(src, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
 
+    
       const witbData = await context.evaluate(async () => {
+       
         const getInTheBox = document.querySelector('div.eky-accesory-container img');
         // const getInTheBoxWB = document.querySelector('div.inpage_selector_InTheBox');
         const getInTheBoxVideo = document.querySelector('div.eky-container-full');
@@ -177,7 +181,7 @@ async function implementation (
         return { inBoxText, inBoxUrls };
       });
 
-      await context.goto(link, { timeout: 5000 });
+      await context.goto(link, { timeout: 50000 });
       await context.waitForSelector('#product-view-container', { timeout: 5000 });
 
       await context.evaluate(async (witbData) => {
