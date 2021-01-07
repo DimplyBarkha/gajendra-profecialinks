@@ -14,7 +14,9 @@ fields:
   - name: thumbnail
     xpath: //img[starts-with(@class,'GA')]/@src | //img[starts-with(@class,' GA')]/@src | //a[@class="link"]/img/@data-retina 
   - name: aggregateRating  
-    xpath: //div[@id='aggregateRating']  
+    xpath: //div[@id='aggregateRating'] 
+  - name: searchUrl
+    xpath: ancestor::html//div[@id='added-searchurl'] 
   - name: reviewCount
     xpath: //span[@class="text-container left-spacer-small pf-color-gray"]/span
   - name: name
