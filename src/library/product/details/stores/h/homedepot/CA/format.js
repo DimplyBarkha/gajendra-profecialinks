@@ -40,6 +40,7 @@ const transform = (data) => {
           if (item.text.match(/(.*).jpg 200w,(.*)/)) {
             item.text = item.text.replace(/(.*).jpg 200w,(.*)/, '$1.jpg');
           }
+          item.text = item.text.replace(/\s200w/g, '').replace(/\s400w/g, '').replace(/\s600w/g, '').replace(/\s800w/g, '').replace(/\s1000w/g, '');
           item.text = item.text.startsWith('https:') ? item.text : `https:${item.text}`;
         });
       }
