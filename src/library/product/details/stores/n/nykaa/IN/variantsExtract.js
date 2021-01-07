@@ -34,8 +34,11 @@ module.exports = {
         });
       }
       const wholeVariants = [...variantColorArr, ...sizeArr];
+      console.log(variantColorArr)
+      console.log(sizeArr)
+      console.log(wholeVariants)
       if (wholeVariants.length == 0) {
-        const appendDiv = document.querySelector('div');
+        const appendDiv = document.createElement('div');
         appendDiv.className = 'variantinfo';
         appendDiv.setAttribute('varianturl', window.location.href);
         const defaultUrl = window.location.href;
@@ -45,6 +48,7 @@ module.exports = {
         }
         const id = skuId && skuId.match(/(\d+)/g) && skuId.match(/(\d+)/g)[0];
         appendDiv.setAttribute('variantid', id);
+        document.querySelector('body').appendChild(appendDiv);
       } else {
         const variantId = [];
         wholeVariants.forEach((element) => {
@@ -53,7 +57,7 @@ module.exports = {
           variantId.push(id);
         });
         variantId.forEach((element, index) => {
-          const appendDiv = document.querySelector('div');
+          const appendDiv = document.createElement('div');
           appendDiv.className = 'variantinfos';
           appendDiv.setAttribute('variantid', variantId[index]);
           appendDiv.setAttribute('varianturl', wholeVariants[index]);
