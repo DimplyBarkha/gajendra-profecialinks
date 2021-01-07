@@ -66,6 +66,28 @@ async function implementation (
       description && addHiddenDiv('added-description', description);
     }
   });
+  await context.evaluate(async function () {
+    function addHiddenDiv (id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+    const manuData = document.querySelector('div[id="syndi_powerpage"]  div[class*="syndigo-shadowed-powerpage"]');
+    const getShadowDomHtml = (manuData) => {
+      if (manuData && manuData.shadowRoot) {
+        let imagesHtml = manuData.shadowRoot.childNodes[0];
+        imagesHtml = imagesHtml.querySelectorAll('img') || '';
+        if (imagesHtml && imagesHtml.length) {
+          imagesHtml.forEach(element => {
+            addHiddenDiv('manu_img', element.src);
+          });
+        }
+      }
+    };
+    getShadowDomHtml(manuData);
+  });
   await new Promise(resolve => setTimeout(resolve, 10000));
   return await context.extract(productDetails, { transform });
 }

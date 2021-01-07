@@ -4,18 +4,21 @@
 * @returns {ImportIO.Group[]}
 */
 const transform = (data) => {
-  const cleanUp = text => text.toString()
+  const clean = text => text.toString()
     .replace(/\r\n|\r|\n/g, ' ')
     .replace(/&amp;nbsp;/g, ' ')
     .replace(/&amp;#160/g, ' ')
     .replace(/\u00A0/g, ' ')
     .replace(/\s{2,}/g, ' ')
-    .replace(/'\s{1,}/g, '"')
-    .replace(/\s{1,}'/g, '"')
+    .replace(/"\s{1,}/g, '"')
+    .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+  data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+    el.text = clean(el.text);
+  }))));
   for (const { group } of data) {
     for (const row of group) {
       if (row.alternateImages) {
@@ -42,9 +45,11 @@ const transform = (data) => {
       //   }
 
       if (row.shippingInfo) {
+        let text = '';
         row.shippingInfo.forEach(item => {
-          item.text = cleanUp(item.text);
+          text += ` ${item.text}`;
         });
+        row.shippingInfo = [{ text: text.trim() }];
       }
 
       if (row.name) {
@@ -65,7 +70,7 @@ const transform = (data) => {
 
       if (row.legalDisclaimer) {
         row.legalDisclaimer.forEach(item => {
-          item.text = cleanUp(item.text);
+          item.text = clean(item.text);
         });
       }
 
@@ -87,9 +92,9 @@ const transform = (data) => {
         let text = '';
         row.description.forEach(item => {
           if (item.xpath.includes('/li')) {
-            text += `|| ${item.text} `;
+            text += `|| ${item.text.trim()} `;
           } else {
-            text += `${item.text} `;
+            text += `${item.text.trim()}`;
           }
         });
         // let text = '';
@@ -103,10 +108,10 @@ const transform = (data) => {
         ];
       }
       if (row.warnings) {
-        cleanUp(row.warnings);
+        clean(row.warnings);
       }
       if (row.directions) {
-        cleanUp(row.directions);
+        clean(row.directions);
       }
 
       const specificationsArray = [];
@@ -144,13 +149,20 @@ const transform = (data) => {
           shippingWeightItem.text = shippingWeightItem.text.replace(/(\n\s*){1,}/g, ' : ');
         });
       }
-
       if (row.manufacturerImages) {
         row.manufacturerImages.forEach((manufacturerImagesItem) => {
           if (!manufacturerImagesItem.text.toLowerCase().includes('http')) {
             manufacturerImagesItem.text = 'https:' + manufacturerImagesItem.text;
           }
         });
+      }
+
+      if (row.manufacturerDescription) {
+        let text = '';
+        row.manufacturerDescription.forEach(item => {
+          text = text + (text ? ' ' : '') + item.text;
+        });
+        row.manufacturerDescription = [{ text }];
       }
     }
   }

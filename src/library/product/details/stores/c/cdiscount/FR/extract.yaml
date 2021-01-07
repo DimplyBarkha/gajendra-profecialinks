@@ -15,7 +15,7 @@ fields:
     regExpReplace: $1
   - name: shippingInfo
     singleValue: false
-    xpath : concat((//div[@id="fpSellBy"]//div//text())[1], (//div[@id="fpSellBy"]//div[contains(text(), "Vendu")]/a)[1] | (//div[@id="fpSellBy"]//span[contains(@class, "noWrap")]))
+    xpath : //div[@id="fpSellBy"]/div/text()[1] | //div[@id="fpSellBy"]/div/span  |  //div[@id="fpSellBy"]//span[contains(@class, "noWrap")] 
   - name: image
     singleValue: false
     xpath: //img[@id="picture0"]/@src
@@ -51,7 +51,9 @@ fields:
     xpath: //*[@class="fpLegacy"]
   - name: brandText
     singleValue: false
-    xpath: //span[@class="fpBrand"]
+    xpath: //script[contains(@type,"application/ld+json") and contains(text(),'@type":"Product')]
+    regExp: brand":{"@type":"Organization","name":"([^,]+)"}
+    regExpReplace: $1
   - name: quantity
     singleValue: false
   - name: shippingDimensions
@@ -68,8 +70,8 @@ fields:
     xpath: //meta[@name="keywords"]/@content
   - name: availabilityText
     singleValue: false
-    xpath: //script[contains(@type,"application/ld+json") and contains(text(),'@type":"Product')]
-    regExp: InStock
+    xpath: //script[contains(@type,"application/ld+json") and contains(text(),'"availability":"InStock"')]
+    regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: weightNet
@@ -91,16 +93,16 @@ fields:
     xpath: //table[contains(@class, "fpDescTb")]//tr[not(.//descendant::th)]
   - name: storage
     singleValue: false
-    xpath: //div[@id="presContent"]/font/font
+    xpath: //div[@id="presContent"]/font/font | //div[@id="descContent"]//table[contains(@class,"fpDescTbPub")]//tr[contains(.,'conservation')]/td[2]
   - name: weightGross
     singleValue: false
     xpath: //*[@id="descContent"]//td[text()="Poids (Expédition)"]/parent::tr
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id="added-manufacturerDesc"]
+    xpath: //*[@id="presContent"] | //*[@id="descContent"]
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="inpage_container"]//img/@srcset | //div[@id="presContent"]//img/@src
+    xpath: //div[@id="manu_img"]
   - name: gtin
     singleValue: false
     xpath: //div[@data-loadbee-manufacturer="EAN"]/@data-loadbee-product | //@data-flix-ean
@@ -145,4 +147,12 @@ fields:
     regExpReplace: $1
   - name: promotion
     singleValue: false
-    xpath: //div[contains(@class,"fpPromoText")]
+    xpath: normalize-space(//*[@id="addForm"]//div[contains(@class,"hideFromPro") and contains(@class,"jsEcoBlk")]) 
+  - name: allergyAdvice
+    singleValue: false
+    xpath: //div[@id="descContent"]//table[contains(@class,"fpDescTbPub")]//tr[contains(.,'Ingrédients')]/td[2]/text()[2]
+    regExp: ALLERGENES\s*:\s*(.+)
+    regExpReplace: $1
+  - name: productOtherInformation
+    singleValue: false
+    xpath: //div[@id="descContent"]//table[contains(@class,"fpDescTbPub")]//tr[contains(.,'Notes')]/td[2]
