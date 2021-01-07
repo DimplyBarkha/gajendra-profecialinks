@@ -81,6 +81,9 @@ const transform = (data) => {
         row.videos = [{ text: row.videos2[0].text }];
         delete row.videos2;
       }
+      if (row.videos) {
+        row.galleryVideos = row.videos;
+      }
       if (row.unInterruptedPDP) {
         var arrTemp = [];
         row.unInterruptedPDP.forEach(item => {

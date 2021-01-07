@@ -107,6 +107,8 @@ fields:
     singleValue: false
     # Get videos inside manufacturerDescription
     xpath: //a[@class='flix_jw_videoid']/@data-jw
+  - name: galleryVideos
+    singleValue: false
   - name: energyEfficiency
     singleValue: false
     xpath: //table[contains(@class,'speci_area')]//tr//th[contains(normalize-space(),'Energy Rating')]//following-sibling::td
