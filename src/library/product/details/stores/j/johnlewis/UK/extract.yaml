@@ -39,9 +39,7 @@ fields:
     xpath: count(//div[contains(@class, "product-detail__description")]//li)
     type: NUMBER
   - name: brandText
-    xpath: (//span[@id="brand-link-app"]/@data-brand-name | /html[not(//span[@id="brand-link-app"]/@data-brand-name)]//*[@type="application/json"][contains(text(),"brandName")])[1]
-    regExp: brandName":\s*"([^"]+)|(.+)
-    regExpReplace: $1$2
+    xpath: (//span[@id="brand-link-app"]/@data-brand-name | //body/@brandName)[1]
   - name: manufacturer
     description: Product manufacturer
   - name: quantity
@@ -62,7 +60,8 @@ fields:
     # regExp: productId":"(.*?)"
     # regExpReplace: $1
   - name: variantId
-    xpath: //div[@id="store-stock-app"]/@data-product-code
+    singleValue: true
+    xpath: //body/@varinatId | //div[@id="store-stock-app"]/@data-product-code
   - name: mpc
     xpath: //dl[@class="product-specifications-list"]/dt[contains(text(),'Manufacturer Part Number (MPN)')]/following-sibling::dd[1]/text()
     # xpath: //div[@id="store-stock-app"]/@data-sku-id

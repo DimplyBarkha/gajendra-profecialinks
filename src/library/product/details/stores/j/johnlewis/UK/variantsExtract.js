@@ -40,7 +40,10 @@ async function implementation (
       id = id.includes('?') ? id.split('?')[0] : id;
       return id;
     }
+
+    const url = window.location.href;
     const nodes = document.querySelectorAll('ul.size-list li.size-small-item, ul.swatch-list li.swatch-list-item');
+    const differentNodes = document.querySelectorAll('ul[data-cy="size-selector-list"] li input');
     if (nodes.length) {
       [...nodes].forEach((element) => {
         const prodUrl = element.querySelector('a') ? element.querySelector('a').href : null;
@@ -50,8 +53,15 @@ async function implementation (
           addHiddenDiv('ii_variant', id);
         }
       });
+    } else if (differentNodes.length) {
+      Array.from(differentNodes).forEach(el => {
+        const id = el.getAttribute('id').replace(/\s/g, '-');
+        const prodUrl = `${url}?size=${id}`;
+        const prodId = getId(url) + id;
+        addHiddenDiv('ii_variantUrl', prodUrl);
+        addHiddenDiv('ii_variant', prodId);
+      });
     } else {
-      const url = window.location.href;
       addHiddenDiv('ii_variantUrl', url);
       const id = getId(url);
       addHiddenDiv('ii_variant', id);

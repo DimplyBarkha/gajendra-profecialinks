@@ -179,6 +179,15 @@ module.exports = {
         newEl.innerText = item;
         document.body.appendChild(newEl);
       }
+
+      try {
+        const productId = window.__NEXT_DATA__.props.pageProps.productId;
+        document.body.setAttribute('varinatId', productId);
+        const brandName = window.__NEXT_DATA__.props.pageProps.currentSku.brandName;
+        document.body.setAttribute('brandName', brandName);
+      } catch (e) {
+        console.log('ID not found');
+      }
     });
     await context.extract(productDetails, { transform: transformParam });
   },
