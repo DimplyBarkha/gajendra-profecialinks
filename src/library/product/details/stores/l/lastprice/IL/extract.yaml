@@ -539,3 +539,6 @@ fields:
     defaultValue: No
   - name: unInterruptedPDP
     xpath: //div[@class="owl-wrapper"]/div[contains(@class,'owl-item')]//div[contains(@class,"description")]//h4
+  - name: productUrl
+    singleValue: No
+    xpath: //link[@rel='canonical']/@href
