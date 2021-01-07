@@ -7,7 +7,7 @@ module.exports = {
     domain: 'kohls.com',
     url: 'https://www.kohls.com/search.jsp?submit-search=web-regular&search="{searchTerms}"',
     loadedSelector: 'ul.products',
-    noResultsXPath: '//div[@class="frame_no_results"]|//div[@class="pdp-content"]',
+    noResultsXPath: '//div[@class="frame_no_results"]|//div[@class="pdp-content"]|//body[not(.//ul[@class="products"])]',
     zipcode: '',
   },
 };
