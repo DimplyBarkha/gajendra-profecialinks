@@ -110,6 +110,44 @@ const transform = (data) => {
         row.variantId = variantIds;
       }
 
+      if (row.unInterruptedPDP) {
+        const unInterruptedPDPs = [];
+        let dup = '';
+        let urls = [];
+        row.varianunInterruptedPDPtId.forEach(item => {
+          // console.log('item:: ', item.text);
+          urls = row.unInterruptedPDP.filter(it => item.text === it.text);
+          if (urls && urls.length === 1) {
+            unInterruptedPDPs.push(item);
+          } else {
+            if (dup !== item.text) {
+              dup = item.text;
+              unInterruptedPDPs.push(item);
+            }
+          }
+        });
+        row.unInterruptedPDP = unInterruptedPDPs;
+      }
+
+      if (row.variantId) {
+        const variantIds = [];
+        let dup = '';
+        let urls = [];
+        row.variantId.forEach(item => {
+          // console.log('item:: ', item.text);
+          urls = row.variantId.filter(it => item.text === it.text);
+          if (urls && urls.length === 1) {
+            variantIds.push(item);
+          } else {
+            if (dup !== item.text) {
+              dup = item.text;
+              variantIds.push(item);
+            }
+          }
+        });
+        row.variantId = variantIds;
+      }
+
       if (row.specifications) {
         let text = '';
         row.specifications.forEach(item => {
