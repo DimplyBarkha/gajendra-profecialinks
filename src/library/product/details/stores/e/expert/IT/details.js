@@ -7,4 +7,4 @@ module.exports = {
     domain: 'expertonline.it',
     zipcode: '',
   },
-};
+}

@@ -257,7 +257,7 @@ await context.goto(productUrl, { timeout: 50000, waitUntil: 'load', checkBlocked
     }
     addHiddenDiv('ex_description', finalDes);
   });
-  await context.waitForSelector('#flix-comp', { timeout: 45000 });
+ // await context.waitForSelector('#flix-comp', { timeout: 45000 });
 
   try {
     await context.waitForSelector('#flix-comp', { timeout: 45000 });
@@ -274,8 +274,11 @@ await context.goto(productUrl, { timeout: 50000, waitUntil: 'load', checkBlocked
     var elmt = document.getElementById("flix-comp-mainTitle");
     elmt && elmt.scrollIntoView(true);
   });
-  
+  try {
   await context.waitForSelector('div.flix-comp-mainTitle');
+  } catch (error) {
+    console.log(error);
+  }
   await context.evaluate(() => {
     const imgSelelctor = document.querySelector('div.flix-comp-mainTitle');
     console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~', !!imgSelelctor);
