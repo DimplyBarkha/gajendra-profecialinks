@@ -9,6 +9,13 @@ fields:
   - name: image
     singleValue: false
     description: URL of the main product image
+    xpath: (ancestor::html//div[contains(@class,"thumbnailImage")]//img/@src)[position()=1]
+  - name: inventoryText
+    singleValue: false
+    xpath: //text()
+    regExp: >-
+      \((.+)\)
+    regExpReplace: $1
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
@@ -28,6 +35,7 @@ fields:
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
+    xpath: ancestor::html//s[contains(@class,"wasPrice")]
   - name: price
     singleValue: false
     description: The offered price for the selected product variant - if a user
@@ -35,12 +43,7 @@ fields:
     xpath: //meta[@itemprop="price"]/@content
   - name: availability
     singleValue: false
-    # defaultValue: true
     xpath: //link[@itemprop="availability"]/@href
-    # xpath: boolean(//div[contains(@class,"SizeSelect")]//ul/li//link[@itemprop="availability" and contains(@href,"SoldOut")])
-    # regExp: >-
-    #   (.+)
-    # regExpReplace: false
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -49,10 +52,11 @@ fields:
     singleValue: false
     description: Number of ul > li tags in the description
     type: NUMBER
-  - name: brandText
+  - name: brand
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: ancestor::html//h1[@itemprop="brand"]
   - name: manufacturer
     singleValue: false
     description: Product manufacturer
@@ -135,6 +139,7 @@ fields:
   - name: name
     singleValue: false
     description: The product name
+    xpath: ancestor::html//meta[@itemprop="name" and not(ancestor::h1)]/@content
   - name: inStorePrice
     singleValue: false
     description: Price in the selected store
