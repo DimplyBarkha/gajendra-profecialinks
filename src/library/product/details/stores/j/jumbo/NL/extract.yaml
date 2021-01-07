@@ -23,7 +23,7 @@ fields:
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
-  xpath: //div[@analytics-tag='product image']/ul/li/a/img[@class='jum-pdp-card__thumbnail d-block mt inactive']
+  xpath: //div[@analytics-tag='product image']/ul/li/a/img[@class='jum-pdp-card__thumbnail d-block mt inactive']/@src
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
