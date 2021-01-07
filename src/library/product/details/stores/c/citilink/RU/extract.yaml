@@ -22,7 +22,7 @@ fields:
     xpath: //span[@itemprop = "brand"]/@content
   - name: category
     singleValue: false
-    xpath: //div[@class="Breadcrumbs"]/@data-breadcrumb-name
+    xpath: //div[@class="Breadcrumbs"]/@data-breadcrumb-name | //div[@class="breadcrumbs"]/span[@data-category-path='1']/@data-breadcrumb-name
   # - name: subCategory
   #   singleValue: false
   #   xpath: //div[@class = "Breadcrumbs" and position() > 1]//a//span/text()
@@ -79,7 +79,7 @@ fields:
     xpath: //span[@itemprop = "sku"]/@content
   - name: specifications
     singleValue: false
-    xpath: //div[@id="import_product_specs"]
+    xpath: //div[@id="import_product_specs"] | //div[@id='specificationList_alt']
   - name: variantCount
     singleValue: false
     xpath: '0'

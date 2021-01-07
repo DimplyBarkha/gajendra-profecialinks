@@ -1,3 +1,4 @@
+const { Context } = require("mocha");
 
 module.exports = {
   implements: 'navigation/goto',
@@ -16,7 +17,8 @@ module.exports = {
     await context.setAntiFingerprint(false);
     await context.setUseRelayProxy(false);
     const timeout = parameters.timeout ? parameters.timeout : 10000;
-    await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
+    await context.goto(url, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: true });
+    // await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
     console.log(zipcode);
     if (zipcode) {
       await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });

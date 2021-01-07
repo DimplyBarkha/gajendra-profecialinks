@@ -93,6 +93,17 @@ module.exports = {
     //   addHiddenDiv('categoryList', categoryList);
 
     // } 
+    let specificationList;
+    let specList= document.querySelectorAll('table.product_features tr:not(.header_row)')
+    if(specList) {
+      specList.forEach(element => {
+        element.childNodes.forEach(element => {
+          specificationList += element.childNodes[0].childNodes[0].innerText + ' : ' + element.childNodes[1].innerText.replace('"','') + ' | '
+        });
+      });
+    }
+    addHiddenDiv('specificationList_alt', specificationList);
+
     let name = document.querySelector('h1.Heading.Heading_level_1.ProductHeader__title')
     let proName;
     if(name) {
@@ -100,23 +111,6 @@ module.exports = {
       console.log(proName , 'ssss');
     } 
     addHiddenDiv('name', proName);
-    let images = document.querySelectorAll('div.Breadcrumbs');
-    console.log(images, 'ss');
-    const category = images ? images.length : null;
-    if (category) {
-      images.forEach((element) => {
-        const categoryLink = document.createElement('div');
-        categoryLink.setAttribute('class', 'category');
-        categoryLink.setAttribute('href', element.innerText);
-        document.body.appendChild(categoryLink);
-      });
-      // const secondaryImageCount = document.createElement('div');
-      // secondaryImageCount.setAttribute('class', 'alternateImagesCountTotal');
-      // // @ts-ignore
-      // secondaryImageCount.setAttribute('sum', alternateImagesCount);
-      // document.body.appendChild(secondaryImageCount);
-    }
-    // addHiddenDiv('alternateImagesCount', alternateImagesCount);
 
   });
 
