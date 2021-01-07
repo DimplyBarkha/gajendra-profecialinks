@@ -11,7 +11,7 @@ fields:
     xpath: //h1[contains(.,'In the box')]/..//span[@class="image"]//img/@src | //div[contains(@class,'inthebox')]//img/@src | //div[@id='inTheBoxUrl'] | //h2[text()="Nella scatola"]/parent::*/parent::*/following::*//img/@src
   - name: hasComparisonTable
     singleValue: false
-    xpath: //div[@class="aplus-module-wrapper"]//table[@class="apm-tablemodule-table"]/@class | //div[@id="dysonCompare"]/@class
+    xpath: boolean(//div[@class="aplus-module-wrapper"]//table[@class="apm-tablemodule-table"]/@class | //div[@id="dysonCompare"]/@class)
     regExp: (.+)
     regExpReplace: Yes
     default: No
