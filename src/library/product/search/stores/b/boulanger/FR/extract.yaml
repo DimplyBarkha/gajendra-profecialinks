@@ -6,7 +6,8 @@ fields:
   - name: id
     singleValue: false
     xpath: //div[@class='maskABinterne']
-    regExp: (\d+)
+    regExp: '[0]+(\d+)'
+    regExpReplace: $1
   - name: searchUrl
     singleValue: false
     xpath: //div[@class='productListe']/div/@href
