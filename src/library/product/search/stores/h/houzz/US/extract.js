@@ -1,9 +1,10 @@
+const { transform } = require("../../../../shared");
 module.exports = {
   implements: "product/search/extract",
   parameterValues: {
     country: "US",
     store: "houzz",
-    transform: null,
+    transform: transform,
     domain: "houzz.com",
     zipcode: "",
   },
