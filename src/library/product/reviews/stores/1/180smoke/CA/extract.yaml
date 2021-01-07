@@ -3,7 +3,7 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //div[@class="page-product-view--review--content--item"]
 - name: aggregateRating
-  xpath: ancestor::html//div[@class="summary-inner"]//div[@class="star-rating"]/span/strong/text()
+  defaultValue:  'N/A'
 - name: name
   xpath: ancestor::html//h1[@class="page-product-view--title"]
 - name: commentCount
@@ -12,7 +12,7 @@ recordXPath: //div[@class="page-product-view--review--content--item"]
 - name: user
   xpath: //p[@class="mb-0"]/strong/text()
 - name: brand
-  xpath: ancestor::html//div[@class="wb-posted_in"]/a
+  xpath: ancestor::html//h1[@class="page-product-view--title"]
 - name: productRange
 - name: productFamily
 - name: colour
@@ -31,7 +31,7 @@ recordXPath: //div[@class="page-product-view--review--content--item"]
   defaultValue:  'N/A'
 - name: verifiedPurchase
 - name: rating
-  xpath: //div[@class="comment-text"]//strong[@class="rating"]
+  defaultValue:  'N/A'
 - name: pageTitle
   xpath: ancestor::html//meta[@property="og:title"]/@content
 - name: sourceUrl

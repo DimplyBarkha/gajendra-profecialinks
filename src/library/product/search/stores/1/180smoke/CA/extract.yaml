@@ -4,4 +4,7 @@ recordSelector: null
 recordXPath: //div[contains(@class,"h-100")]
 fields:
   - name: productUrl
+    type: STRING
     xpath: //div[contains(@class,"h-100")]/a/@href
+    regExp: (.+)
+    regExpReplace: 'https://www.180smoke.ca$1'

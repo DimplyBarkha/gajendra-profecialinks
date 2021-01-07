@@ -7,7 +7,7 @@ module.exports = {
     domain: '180smoke.ca',
     url: 'https://www.180smoke.ca/search?q={searchTerms}',
     loadedSelector: 'div.product-list',
-    noResultsXPath: null,
+    noResultsXPath: '//div[contains(text(),"Sorry, no results for this search.")]',
     zipcode: '',
   },
 };
