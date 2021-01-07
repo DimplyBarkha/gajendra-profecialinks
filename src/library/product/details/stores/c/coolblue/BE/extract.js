@@ -13,7 +13,7 @@ module.exports = {
       const productUrlSelector = 'div.product-card div.product-card__title a';
       const prodUrlNode = document.querySelector(productUrlSelector);
       if(prodUrlNode && prodUrlNode.hasAttribute('href')) {
-        return `https://www.coolblue.be`+prodUrlNode.getAttribute('href');
+        return prodUrlNode.getAttribute('href').includes('https://www.coolblue.be') ? prodUrlNode.getAttribute('href') : `https://www.coolblue.be`+prodUrlNode.getAttribute('href');
       } else {
         return null;
       }
