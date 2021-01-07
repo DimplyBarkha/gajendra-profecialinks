@@ -135,6 +135,13 @@ const transform = (data) => {
                   },
                 ];
             }
+            if (row.manufacturerDescription) {
+                let info = [];
+                row.manufacturerDescription.forEach(item => {
+                info.push(item.text.replace(/(\s*\n\s*)+/g, ' ').trim());
+                });
+                row.manufacturerDescription = [{'text':info.join(' '),'xpath':row.manufacturerDescription[0].xpath}];
+            }
         }
     }
     return cleanUp(data);
