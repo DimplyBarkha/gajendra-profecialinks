@@ -6,6 +6,6 @@ module.exports = {
     store: 'nykaa',
     domain: 'nykaa.com',
     loadedSelector: 'body.nykaa',
-    noResultsXPath: '//div[contains(text(),"No results found ")]',
+    noResultsXPath: '//div[contains(text(),"No results found ")] | //div[@class="message-content"]//p',
   },
 };

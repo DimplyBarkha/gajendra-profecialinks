@@ -518,7 +518,7 @@ fields:
   - name: category
     xpath: //ol[contains(@class,"breadcrumb product_des-breadcrumb")]//li[position()>1]
   - name: nameExtended
-    xpath: //h1[@itemprop="name"]
+    xpath: //div/h1/text()
   - name: listPrice
     xpath: //div[@class="m-content__product-des__details"]//span[@class="mrp-price"]
   - name: price
@@ -531,7 +531,9 @@ fields:
   - name: brandText
     xpath: //body/@brand
   - name: manufacturer
-    xpath: //body/@brand
+    xpath: //*[@class="pdp-description-tab-item description-expand"]//p[contains(text(),"Name of")]/text()
+    regExp: (.+):(.+)
+    regExpReplace: $2
   - name: weightNet
     xpath: //dd[contains(text(),'Weight')]
     regExp: (\d+).(\d+)\s?\w+
@@ -542,9 +544,9 @@ fields:
     # regExp: p/(\d+)
     regExpReplace: $1
   - name: variantId
-    xpath: //link[@rel="canonical"]/@href
-    regExp: p/(\d+)
-    regExpReplace: $1
+    xpath: //div[contains(@class,"post-card__img-wrap1")]//img/@rpcvalue
+    # regExp: p/(\d+)
+    # regExpReplace: $1
   - name: ratingCount
     xpath: //div[@data-target="review-target"]/span[contains(text(),'Review')]
     regExp: (\d+)
@@ -552,7 +554,7 @@ fields:
     type: NUMBER
     xpath: //div[@itemprop="aggregateRating"]//meta[@itemprop="ratingValue"]/@content
   - name: shippingInfo
-    xpath: //span[@title="Nykaa"]
+    xpath: //span[contains(text(),"SOLD BY")]/following-sibling::span[1]
   - name: manufacturerImages
     xpath: //*[contains(@class,"pdp-description-tab-item")]//img[not(contains(@src,'mob'))][1]//@src
   - name: videos
@@ -574,13 +576,13 @@ fields:
   - name: privacyPolicy
     defaultValue: No
   - name: customerServiceAvailability
-    defaultValue: No
+    defaultValue: Yes
   - name: materials
   - name: Image360Present
     defaultValue: No
   - name: imageZoomFeaturePresent
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    defaultValue: Yes
   - name: specifications
     xpath: //b[contains(text(),"Specifications")]/parent::p/following::dd
   - name: directions
@@ -595,9 +597,10 @@ fields:
     xpath: //p[contains(.,'Additional Information')] | //p[contains(.,'Additional Information')]//following-sibling::p[1]
     regExp: (\d+)(-Years)
     regExpReplace: $1-Years
-  - name: description
-    xpath: //div[contains(@class,"pdp-description-tab-item description")]/div/*[not(self::div)][not(self::style)]
+  - name: description 
+    xpath: //div[contains(@class,"pdp-description-tab-item description")]/div/p[following-sibling::ul] 
     singleValue: false
+    defaultValue: " "
   - name: quantity
     description: Quantity as described on the page
     xpath: //span[@class="shade-txt"]
@@ -607,10 +610,10 @@ fields:
     regExpReplace: $2
   - name: additionalDescBulletInfo
     description: null
-    xpath: //div[@class="pdp-description-tab-item description-expand"]//ul//li
+    xpath: //div[contains(@class,"pdp-description-tab-item description")]/div/ul/li
+    defaultValue: " "
   - name: secondaryImageTotal
     description: null
-    type: NUMBER
     xpath: count(//div[@class="slick-thumb"]//div[@class="slick-track"]/div[position()>1]//img/@src)
   - name: descriptionBullets
     xpath: count(//div[@class="pdp-description-tab-item description-expand"]//ul//li)
@@ -619,8 +622,18 @@ fields:
     xpath: //div[contains(@class,'pdp-description-tab-item')]//p[contains(.,'Additional')]/text()
   - name: manufacturerDescription
     description: The extended description of the product supplied by the lister
-    xpath: //div[@class="AzIndex"] | //div[@class="pdp-description-tab-item description-expand"]//p[contains(.,'Explore')]
+    xpath: //div[@class="AzIndex"] | //div[@class="pdp-description-tab-item description-expand"]//p[contains(.,'Explore')] | //div[@class="pdp-description-tab-item description-expand"]/div/p[1] | //div[@class="pdp-description-tab-item description-expand"]/div/strong[1]
   - name: ingredientsList
     description: List of Ingredients from site - can be string of data if no discernible start/end point
     xpath: //div[contains(@class,"post-card__img-wrap1")]//img/@finalinagredientdata
-    
+  - name: promotion
+    description: promotion text on product page
+    xpath: //div[contains(@class,"product-des__details")]//div[@class="discount-info"]/span
+  - name: secondparagraph
+    xpath: //div[contains(@class,"pdp-description-tab-item description")]/div/p[preceding-sibling::ul]
+    defaultValue: " "
+  - name: thirdparagraph
+    xpath: //div[contains(@class,"pdp-description-tab-item description")]/div
+    defaultValue: " "
+  
+  

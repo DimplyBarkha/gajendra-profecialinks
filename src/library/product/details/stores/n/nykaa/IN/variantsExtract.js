@@ -34,20 +34,32 @@ module.exports = {
         })
       }
       const wholeVariants = [...variantColorArr, ...sizeArr];
-
-      const variantId = [];
-      wholeVariants.forEach((element) => {
-        let skuId = element.match(/(skuId=)(\d+)/g)[0];
-        let id = skuId.match(/(\d+)/g)[0];
-        variantId.push(id);
-      })
-      variantId.forEach((element, index) => {
+      if(wholeVariants.length==0){
         const appendDiv = document.querySelector('div');
-        appendDiv.className = 'variantinfos';
-        appendDiv.setAttribute('variantid', variantId[index]);
-        appendDiv.setAttribute('varianturl', wholeVariants[index]);
-        document.body.append(appendDiv);
-      })
+        appendDiv.className = 'variantinfo';
+        appendDiv.setAttribute('varianturl', window.location.href);
+        const defaultUrl = window.location.href;
+        let skuId = defaultUrl && defaultUrl.match(/(skuId=)(\d+)/g) && defaultUrl.match(/(skuId=)(\d+)/g)[0];
+        if(skuId== undefined || skuId== null ){
+          skuId = defaultUrl.match(/p\/\d+/g)[0];
+        }
+          let id = skuId && skuId.match(/(\d+)/g) && skuId.match(/(\d+)/g)[0];
+          appendDiv.setAttribute('variantid', id);
+      }else{
+        const variantId = [];
+        wholeVariants.forEach((element) => {
+          let skuId = element.match(/(skuId=)(\d+)/g)[0];
+          let id = skuId.match(/(\d+)/g)[0];
+          variantId.push(id);
+        })
+        variantId.forEach((element, index) => {
+          const appendDiv = document.querySelector('div');
+          appendDiv.className = 'variantinfos';
+          appendDiv.setAttribute('variantid', variantId[index]);
+          appendDiv.setAttribute('varianturl', wholeVariants[index]);
+          document.body.append(appendDiv);
+        })
+      }
     });
     return await context.extract(variants , { transform });
   }
