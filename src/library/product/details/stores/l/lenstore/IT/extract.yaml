@@ -1,15 +1,16 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class="o-outer c-main-wrapper"]
 fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //picture[@class="c-product__figure"]/img/@src
+    xpath: //html//div[@id="image"]
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
+    xpath: //html//div[@id="image_alt"]
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
@@ -19,12 +20,13 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //form[@class="js-add-to-basket-form"]/p/a[position()>1]
+    xpath: //html//div[@id="cat"]
+    # //form[@class="js-add-to-basket-form"]/p/a[position()>1]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //div[@class="o-columns__item c-product u-half"]/h1/text()
+    xpath: //html//div[@id="nameExtended"]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -32,13 +34,16 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[@id="purchaseBoxPricing"]/p/span/text()
+    xpath: //html//div[@id="price"]
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    # xpath: //html//div[@id="zz"]
+    xpath: //html//div[@id="availability"]
+    # regExp: (.+)
+    # regExpReplace: Out Of Stock
+    # defaultValue: In Stock
   - name: description
     singleValue: true
     description: Product description supplied by website - may be concatenanted from
@@ -47,12 +52,13 @@ fields:
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
-    type: NUMBER
+    # type: NUMBER
+    xpath: //html//div[@id="bullet"]
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: (//strong[contains(text(),' Marca ')]/parent::td/following::td/a/text())[1]
+    xpath: //html//div[@id="brand"]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -98,14 +104,14 @@ fields:
     singleValue: true
     description: The number of ratings
     type: NUMBER
-    xpath: //p[@class="aggregateReviews"]/span[@class="aggrCount"]/span/text()
+    xpath: //html//div[@id="ratingCount"]
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //p[@class="aggregateReviews"]/span[@class="aggrRating"]/text()
+    xpath: //html//div[@id="aggregateRating"]
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -137,7 +143,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
-    xpath: //div[@class="o-columns__item c-product u-half"]/h1/text()
+    xpath: //html//div[@id="name"]
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -251,7 +257,8 @@ fields:
   - name: numberOfServingsInPackage
     singleValue: true
     description: Suggested number of servings of the product.
-    type: NUMBER
+    # type: NUMBER
+    xpath: //html//div[@id="numberOfServingsInPackage"]
   - name: caloriesPerServing
     singleValue: true
     description: Nutritional Information for Calories Per Serving content - Usually
@@ -390,6 +397,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
+    xpath: //html//div[@id="specification"]
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -492,7 +500,7 @@ fields:
     singleValue: true
     description: Materials used to make the product
     example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
-    xpath: //strong[contains(text(),'Materiale ')]/parent::td/following::td[1]
+    xpath: //html//div[@id="material"]
   - name: Image360Present
     singleValue: true
     description: If 360 image is present in the carousel ['Yes','No']
