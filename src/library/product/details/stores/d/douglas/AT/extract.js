@@ -33,14 +33,6 @@ async function implementation (
           }
           document.querySelector(selectors.target).setAttribute('availability', text);
         }
-        // if (data.numberOfReviews) {
-        //   document.querySelector(selectors.target).setAttribute('review-count', data.numberOfReviews);
-        // }
-        // if (data.averageRating) {
-        //   let aggregateRating = data.averageRating.toString();
-        //   aggregateRating = aggregateRating.replace('.', ',');
-        //   document.querySelector(selectors.target).setAttribute('aggregate-rating', aggregateRating);
-        // }
         if (data.ean) {
           document.querySelector(selectors.target).setAttribute('gtin', data.ean);
         }
@@ -143,9 +135,26 @@ async function implementation (
   // });
 
   try {
-    await context.waitForSelector('.bv-stars-container');
+    await context.waitForSelector('.bv-rating-ratio');
   } catch (e) {
-    console.log('Reviews container is not present');
+    try {
+      await context.evaluate(async (selectors) => {
+        const sku = document.querySelector(selectors.target).getAttribute('sku');
+        console.log(sku);
+        const res = await fetch(`https://www.douglas.at/api/v2/products/${sku}`);
+        const data = await res.json();
+        if (data.numberOfReviews) {
+          document.querySelector(selectors.target).setAttribute('review-count', data.numberOfReviews);
+        }
+        if (data.averageRating) {
+          let aggregateRating = data.averageRating.toString();
+          aggregateRating = aggregateRating.replace('.', ',');
+          document.querySelector(selectors.target).setAttribute('aggregate-rating', aggregateRating);
+        }
+      }, selectors);
+    } catch (e) {
+      console.log(e.message);
+    }
   }
 
   try {

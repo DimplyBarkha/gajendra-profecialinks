@@ -80,15 +80,13 @@ fields:
     description: Content under "warnings" header
   - name: ratingCount
     description: The number of ratings
-    # xpath: '@review-count'
-    xpath: //div[@class="bv-secondary-summary"]//a[contains(@class,"bv-rating-label")]/text()
+    xpath: '@review-count | //div[@class="bv-secondary-summary"]//a[contains(@class,"bv-rating-label")]/text()'
     regExp: '[0-9]+'
   - name: aggregateRatingText
     description: The stated aggregate rating
   - name: aggregateRating
     description: The stated aggregate rating normalized to be out of 5
-    # xpath: '@aggregate-rating'
-    xpath: //div[@class="bv-secondary-summary"]//span[@class="bv-rating"]
+    xpath: '@aggregate-rating | //div[@class="bv-secondary-summary"]//span[@class="bv-rating"]'
   - name: shippingInfo
     description: Shipping information for the product
   - name: shippingDimensions
