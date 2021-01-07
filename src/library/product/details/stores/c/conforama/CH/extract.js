@@ -162,17 +162,17 @@ module.exports = {
           }
         });
         const manufactImg = await context.evaluate(() => {
-          // const arrImgSel1 = document.querySelectorAll("div[class*='container-fluid main-container'] img[src]") ? Array.from(document.querySelectorAll("div[class*='container-fluid main-container'] img[src]")) : '';
-          // console.log('arrImgSel1: ', arrImgSel1);
-          // // @ts-ignore
-          // const img1 = arrImgSel1.map((imgSelector) => imgSelector && imgSelector.src ? imgSelector.src : '');
-          // console.log('img1: ', img1);
+          const arrImgSel1 = document.querySelectorAll("div[class*='container-fluid main-container'] img[src]") ? Array.from(document.querySelectorAll("div[class*='container-fluid main-container'] img[src]")) : '';
+          console.log('arrImgSel1: ', arrImgSel1);
+          // @ts-ignore
+          const img1 = arrImgSel1.map((imgSelector) => imgSelector && imgSelector.src ? imgSelector.src : '');
+          console.log('img1: ', img1);
           const arrImgSel2 = document.querySelectorAll("div[id='mainWrapper'] img[src]") ? Array.from(document.querySelectorAll("div[id='mainWrapper'] img[src]")) : '';
           console.log('arrImgSel2: ', arrImgSel2);
           // @ts-ignore
           const img2 = arrImgSel2.map((imgSelector) => imgSelector && imgSelector.src ? imgSelector.src : '');
           console.log('img2: ', img2);
-          let imgUrlArr = img2.concat(img2)
+          let imgUrlArr = img2.concat(img1)
           let arr = imgUrlArr.join(' | ')
           return arr;
         });
