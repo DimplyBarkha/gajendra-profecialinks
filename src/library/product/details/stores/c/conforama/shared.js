@@ -120,7 +120,8 @@ const transform = (data, context) => {
         console.log('text: ', text);
         row.specifications = [
           {
-            text: text.slice(0, -3),
+            // text: text.slice(0, -3)
+            text: text.slice(0, -3).trim(),
           },
         ];
       }
