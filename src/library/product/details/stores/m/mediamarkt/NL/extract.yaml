@@ -92,5 +92,8 @@ fields:
     description: Must include image url to show the accessories/tools which come with the product
   - name: inTheBoxText
     singleValue: false
+    xpath: //article[@id="omschrijving"]/p[last()]
+    regExp: In de verpakking:\s(.+)
+    regExpReplace: $1
   - name: hasComparisonTable
     defaultValue: No
