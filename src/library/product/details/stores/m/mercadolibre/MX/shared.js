@@ -13,7 +13,7 @@ const transform = (data) => {
         }
         if (gr && gr.brandText) {
           const mainInfo = JSON.parse(gr.brandText[0].text);
-          gr.brandText = [{ text: mainInfo.brand }];
+          gr.brandText = [{ text: mainInfo.brand.replace("'", ' ') }];
           gr.sku = [{ text: mainInfo.sku }];
           gr.variantId = [{ text: mainInfo.productID }];
           gr.weightNet = [{ text: mainInfo.weight }];
@@ -31,7 +31,7 @@ const transform = (data) => {
 
         if (gr.gtin) {
           try {
-            gr.gtin[0].text = gr.gtin[0].text.match(/SKU: \d*/)[0].replace(/[^0-9]/g, '');
+            gr.gtin[0].text = gr.gtin[0].text.match(/SKU: .*/)[0].replace('SKU: ', '');
           } catch (e) {
             gr.gtin = [];
           }
