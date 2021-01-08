@@ -1,56 +1,57 @@
-singleRecord: true
+singleRecord: false
 regionsSelector: null
-recordSelector: null
+recordSelector: ul#color-list-mobile > li, ul#size-list-container > li
 recordXPath: null
 fields:
   - name: image
     description: URL of the main product image
-    xpath: (//li[@class="img-viewer"]/img/@src)[1]
+    xpath: //img/@src
   - name: imageAlt
     description: Alt text of the main product image
-    xpath: (//li[@class="img-viewer"]/img/@alt)[1]
+    xpath: (ancestor::html//li[@class="img-viewer"]/img/@alt)[1]
   - name: alternateImages
     description: Other product images (not in manufacturer description)
-    xpath: (//div[not(contains(@class,'pzlvideo'))]/img[@class='pdpthumb lazyloaded']/@src)[position()>1]
+    xpath: //img/@altImg
   - name: metaKeywords
     description: The <meta> keywords content
   - name: category
     description: The categories (e.g. from breadcrumbs)
-    xpath: //a[@class="a-breadcrumb__label"][not(contains(text(),'Home'))]
+    xpath: ancestor::html//a[@class="a-breadcrumb__label"][not(contains(text(),'Home'))]
   - name: nameExtended
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: (//h1[@class="a-product__information--title"]/text())[1]
+    xpath: (ancestor::html//h1[@class="a-product__information--title"])[1]
   - name: listPrice
     description: The stated undiscounted price for the product
-    xpath: concat(//p[starts-with(@class,'a-product__paragraphRegularPrice')]/text()[1],'.',//p[starts-with(@class,'a-product__paragraphRegularPrice')]//sup//text())
+    xpath: concat(ancestor::html//p[starts-with(@class,'a-product__paragraphRegularPrice')]/text()[1],'.',ancestor::html//p[starts-with(@class,'a-product__paragraphRegularPrice')]//sup//text())
   - name: price
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: concat(//p[starts-with(@class,'a-product__paragraphDiscountPrice')]/text()[1],'.',//p[starts-with(@class,'a-product__paragraphDiscountPrice')]//sup//text())
+    xpath: concat(ancestor::html//p[starts-with(@class,'a-product__paragraphDiscountPrice')]/text()[1],'.',ancestor::html//p[starts-with(@class,'a-product__paragraphDiscountPrice')]//sup//text())
   - name: availabilityText
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
+    xpath: ancestor::html//button[@id='opc_pdp_buyNowButton']
     regExp: (.+)
     regExpReplace: In Stock
-    defaultValue: In Stock
+    defaultValue: Out of Stock
   - name: description
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //meta[@name='description']/@content
+    xpath: ancestor::html//meta[@name='description']/@content
   - name: descriptionBullets
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: (//td[contains(., 'Marca')]/following-sibling::*)[1] | (//li[contains(.,'Marca:')])[1]
+    xpath: (ancestor::html//td[contains(., 'Marca')]/following-sibling::*)[1] | (ancestor::html//li[contains(.,'Marca:')])[1]
   - name: manufacturer
     description: Product manufacturer
   - name: quantity
     description: Quantity as described on the page
-    xpath: (//td[contains(.,'Contenido')]/following-sibling::td)[1] | (//li[contains(.,'Capacidad:')])[1]
+    xpath: (ancestor::html//td[contains(.,'Contenido') and not(contains(.,'Compartir'))]/following-sibling::td)[1] | (ancestor::html//li[contains(.,'Capacidad:')])[1]
   - name: weightNet
     description: Net weight as described on the page
   - name: weightGross
@@ -59,67 +60,69 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     description: The store-specific product identifier
-    xpath: //p[@class="m-product__information--code"]//span
-    # xpath: //button[@class="a-btn a-btn--actionpdp active"]/@data-skuid
+    xpath: //img/@id
   - name: variantId
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //p[@class="m-product__information--code"]//span
+    xpath: ancestor::html//p[@class="m-product__information--code"]//span
   - name: mpc
     description: The manufacturer model code (unique) of the product
-    xpath: //p[@class="m-product__information--code"]//span
+    xpath: ancestor::html//p[@class="m-product__information--code"]//span
   - name: variantInformation
-    xpath: concat(//div[@class="m-product__colors"]//p[contains(text(),'Color')]//span/text(),//div[starts-with(@class,'m-product__size')]//li//button)
+    xpath: //img/@title
   - name: firstVariant
-    xpath: concat(//div[@class="m-product__colors"]//p[contains(text(),'Color')]//span/text(),//div[starts-with(@class,'m-product__size')]//li//button)
+    xpath: (ancestor::html//ul[@id='color-list-mobile']/li//img/@id)[1] | (ancestor::html//ul[@id='size-list-container']/li//img/@id)[1]
   - name: variants
-    xpath: concat(//div[@class="m-product__colors"]//p[contains(text(),'Color')]//span/text(),//div[starts-with(@class,'m-product__size')]//li//button)
+    xpath: ancestor::html//ul[@id='color-list-mobile']/li//img/@id | ancestor::html//ul[@id='size-list-container']/li//img/@id
   - name: variantCount
-    xpath: count(//ul[@class="p-0 m-0 m-product__size dBlock -noScroll"])
+    xpath: count(ancestor::html//ul[contains(@id,'color-list-mobile') or contains(@id,'size-list-container')]/li//img/@id)
   - name: specifications
-    xpath: //div[@data-tab='description']//table[@class='table a-product__paragraphProductSpecs']//tr
+    xpath: ancestor::html//div[@data-tab='description']//table[@class='table a-product__paragraphProductSpecs']//tr
   - name: promotion
     description: promotion text on product page
-    xpath: //div[contains(@class,'m-product__productPromoContent')]/ul/li
+    xpath: ancestor::html//div[contains(@class,'m-product__productPromoContent')]/ul/li
   - name: videos
     description: URLs of videos on page
-    xpath: //input[contains(@value,'/videos')]/@value
+    xpath: ancestor::html//input[contains(@value,'/videos')]/@value
     regExp: content.jwplatform.com\\\/videos\\\/(.+).mp4
     regExpReplace: //content.jwplatform.com/videos/$1.mp4
   - name: directions
     description: Content under "directions" header
-    xpath: (//td[contains(.,'Recomendaciones')]/following-sibling::td)[1]
+    xpath: (ancestor::html//td[contains(.,'Recomendaciones')]/following-sibling::td)[1]
   - name: ingredientsList
     description: List of Ingredients from site - can be string of data if no discernible start/end point
-    xpath: (//td[contains(.,'Ingredientes')]/following-sibling::td)[1] | (//li[contains(.,'Ingredientes:')])[1]
+    xpath: (ancestor::html//td[contains(.,'Ingredientes')]/following-sibling::td)[1] | (ancestor::html//li[contains(.,'Ingredientes:')])[1]
   - name: packSize
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
-    xpath: (//td[contains(.,'Número de piezas')]/following-sibling::td)[1] | (//li[contains(.,'Número de piezas:')])[1]
+    xpath: (ancestor::html//td[contains(.,'Número de piezas')]/following-sibling::td)[1] | (ancestor::html//li[contains(.,'Número de piezas:')])[1]
   - name: ratingCount
     description: The number of ratings
-    xpath: //a[contains(@class,'TTreadReviews')]
+    xpath: ancestor::html//a[contains(@class,'TTreadReviews')]
     type: NUMBER
   - name: aggregateRating
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //script[contains(.,'"ratingValue"')]
+    xpath: (ancestor::html//meta[@itemprop='ratingValue'])[1]/@content
+  - name: aggregateRatingOptional
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: ancestor::html//script[contains(.,'"ratingValue"')]
     regExp: \"ratingValue\":\"(.+)\",\"reviewCount
     regExpReplace: $1
   - name: shippingInfo
     description: Shipping information for the product
-    xpath: //div[@class="m-product__freeShipping"]/p/text()
+    xpath: ancestor::html//div[@class="m-product__freeShipping"]/p/text()
     # xpath: concat(//p[@class="a-productInfo_selledBy"]//text(),//p[@class="a-productInfo_selledBy"]//a/text())
   - name: shippingDimensions
     description: Stated shipping dimensions
   - name: color
     description: A textual description of the colour
     type: TEXT
-    xpath: //p[contains(text(),'Color')]/span
+    xpath: ancestor::html//p[contains(text(),'Color')]/span
   - name: name
     description: The product name
-    xpath: (//h1[@class="a-product__information--title"]/text())[1]
+    xpath: (ancestor::html//h1[@class="a-product__information--title"]/text())[1]
   - name: secondaryImageTotal
     description: null
-    xpath: count((//div[not(contains(@class,'pzlvideo'))]/img[@class='pdpthumb lazyloaded']/@src)[position()>1])
+    xpath: //img/@altImgCount
     type: NUMBER
   - name: warranty
     description: Guarantee associated with the product

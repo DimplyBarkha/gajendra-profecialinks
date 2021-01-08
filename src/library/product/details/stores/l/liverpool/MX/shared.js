@@ -19,6 +19,34 @@ const cleanUp = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       try {
+        if (row.image) {
+          row.image = [{ text: row.image[0].text.replace('/sh/', '/xl/') }];
+        }
+
+        if (row.quantity && row.quantity[0].text.match('Capacidad:(.+).')) {
+          row.quantity = [{
+            text: row.quantity[0].text.match('Capacidad:(.+).')[1].trim(),
+          }];
+        }
+
+        if (row.nameExtended) {
+          if (row.variantInformation) {
+            row.nameExtended = [{
+              text: `${row.nameExtended[0].text} ${row.variantInformation[0].text}`,
+            }];
+
+            if (row.quantity) {
+              row.nameExtended = [{
+                text: `${row.nameExtended[0].text} ${row.quantity[0].text}`,
+              }];
+            }
+          }
+        }
+
+        if (!row.aggregateRating && row.aggregateRatingOptional) {
+          row.aggregateRating = [{ text: parseFloat(row.aggregateRatingOptional[0].text).toFixed(1) }];
+        }
+
         if (row.aggregateRating) {
           row.aggregateRating = [{ text: parseFloat(row.aggregateRating[0].text).toFixed(1) }];
         }
@@ -59,12 +87,6 @@ const cleanUp = (data, context) => {
           ];
         }
 
-        if (row.quantity && row.quantity[0].text.match('Capacidad:(.+).')) {
-          row.quantity = [{
-            text: row.quantity[0].text.match('Capacidad:(.+).')[1].trim(),
-          }];
-        }
-
         if (row.brandText && row.brandText[0].text.match('Marca:(.+).')) {
           row.brandText = [{
             text: row.brandText[0].text.match('Marca:(.+).')[1].trim(),
@@ -81,6 +103,25 @@ const cleanUp = (data, context) => {
           row.packSize = [{
             text: row.packSize[0].text.match('Número de piezas:(.+).')[1].trim(),
           }];
+        }
+        if (row.variants) {
+          let text = '';
+          row.variants.forEach(item => {
+            text += `${item.text} | `;
+          });
+          row.variants = [
+            {
+              text: text.slice(0, -3),
+            },
+          ];
+        }
+
+        if (row.price && row.price[0].text === '.') {
+          delete row.price;
+        }
+
+        if (row.listPrice && row.listPrice[0].text === '.') {
+          delete row.listPrice;
         }
       } catch (err) {
         console.log('Error while applying transformations');
