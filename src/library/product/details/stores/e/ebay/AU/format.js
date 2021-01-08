@@ -24,6 +24,18 @@ const transform = (data) => {
       //   console.log(`uniqArr size: ${uniqArr.length} vs. set size: ${set.size}`);
       //   row.unInterruptedPDP = uniqArr;
       // }
+      if (row.productURL) {
+        const set = new Set();
+        row.productURL.forEach(item => {
+          set.add(item.text);
+        });
+        const uniqArr = [];
+        set.forEach(txt => {
+          uniqArr.push({ text: txt });
+        });
+        console.log(`uniqArr size: ${uniqArr.length} vs. set size: ${set.size}`);
+        row.productURL = uniqArr;
+      }
       if (row.image && !row.image[0].text.includes('l500')) {
         row.image[0].text = row.image[0].text.replace(/(.+\/s-)l.*?(\..*)/, '$1l500$2');
       }
