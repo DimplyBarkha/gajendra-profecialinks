@@ -81,7 +81,7 @@ fields:
   - name: variants
     xpath: //div[@id="ii_variants"]
   - name: variantInformation
-    xpath: (//span[@data-at="item_variation_type"]//text()[2])[1]
+    xpath: //span[@data-at="item_variation_type"][not(contains(.,'COLOR:')) and not(contains(.,'SIZE:'))]/text() | (//span[@data-at="item_variation_type"]//text()[2])[1][not(contains(text(),'-'))]
   - name: sku
     xpath: //div[@id='ii_sku']|//div[@id='ii_url']
     regExp: ([0-9]+$)
