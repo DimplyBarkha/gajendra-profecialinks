@@ -23,10 +23,10 @@ fields:
   - name: ratingCount
     description: The number of ratings
     type: NUMBER
-    xpath: (//div[contains(@data-comp,"ReviewsStats")]//img//parent::div//following-sibling::span|//div[contains(@data-comp,"ReviewsStats")]//div[contains(.,"review")]|//span[contains(@data-at, "number_of_reviews")])[1]
+    xpath: //p[@id="reviewsDescription"]/following-sibling::div[contains(@data-comp,"ReviewsStats")]//span[contains(.,'review')]
   - name: ratingCount2
     type: NUMBER
-    xpath: (//div[contains(@data-comp,"ReviewsStats")]//img//parent::div//following-sibling::span|//div[contains(@data-comp, "ReviewsStats")]//span[contains(@data-comp, "Text Box StyledComponent BaseComponent")])[1]
+    xpath: //p[@id="reviewsDescription"]/following-sibling::div[contains(@data-comp,"ReviewsStats")]//span[contains(.,'review')]
   - name: videos
     description: URLs of videos on page
     xpath: //a[@class="video"]/@href
