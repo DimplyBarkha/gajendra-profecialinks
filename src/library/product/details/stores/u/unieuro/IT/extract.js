@@ -8,59 +8,31 @@ async function implementation(
 ) {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-
     await context.evaluate(async function() {
-        try {
-            if (document.querySelector('section[class*="hits"] section:first-child')) {
-                document.querySelector('section[class*="hits"] section:first-child div[class*="title product-tile__title"] >a').click();
-            }
-        } catch (err) {
-            console.log(err);
-        }
-    });
-
-    await context.waitForSelector('.container', { timeout: 60000 });
-
-    await context.evaluate(async function() {
-
         window.scrollTo(0, 700);
-        await stall(1000);
-        window.scrollTo(0, 1000);
-        await stall(3000);
-        window.scrollTo(0, 300);
-        await stall(1000);
-        window.scrollTo(0, 700);
-        await stall(3000);
+        await  new  Promise((resolve)  =>  setTimeout(resolve, 8000));
+        await new Promise((resolve, reject) => {
+            var totalHeight = 0;
+            var distance = 100;
+            var timer = setInterval(() => {
+                var scrollHeight = document.body.scrollHeight;
+                window.scrollBy(0, distance);
+                totalHeight += distance;
 
-        let scrollTop = 0;
-        while (scrollTop <= 20000) {
-            await stall(500);
-            scrollTop += 1000;
-            window.scroll(0, scrollTop);
-            if (scrollTop === 20000) {
-                await stall(1000);
-                break;
-            }
-        }
-
-        function stall(ms) {
-            return new Promise(resolve => {
-                setTimeout(() => {
+                if (totalHeight >= scrollHeight) {
+                    clearInterval(timer);
                     resolve();
-                }, ms);
-            });
-        }
+                }
+            }, 500);
+        });
+
         const vidArr = document.querySelectorAll('iframe[class*="youtube-container"]');
-        let str;
+        let str = [];
         vidArr.forEach(ele => {
-            if (!str) {
-                str = ele.getAttribute('src');
-            } else {
-                str += ' | ' + ele.getAttribute('src');
-            }
+            str.push(ele.getAttribute('src'))
         });
         if (str) {
-            document.body.setAttribute('video', str);
+            document.body.setAttribute('video', str.join(' | '));
         }
         let arrstr = [];
         const manVid = document.querySelectorAll('input[class="flix-jw"]');
