@@ -112,127 +112,10 @@ module.exports = {
       }
     });
 
-    const videos = await context.evaluate(function () {
-      // const videoClicks = document.querySelectorAll('div[data-comp*="Carousel"] img[src*="VideoImagesNEW"]');
-      // const videos = [];
-      // for (let i = 0; i < videoClicks.length; i++) {
-      //   const link = videoClicks[i].getAttribute('src');
-      //   if (!videos.includes(link)) { videos.push(link); }
-      // }
-      // return videos;
 
+   
 
-      const getScriptTag = document.querySelector('script#linkStore');
-      if (getScriptTag) {
-        const  scriptText = JSON.parse(getScriptTag.textContent);
-        const videosObj = scriptText.page.product.productVideos;
-        const videoIds = [];
-        videosObj.forEach(e => {
-          videoIds.push(e.videoUrl);
-        });
-        console.log(videoIds);
-        return videoIds;
-      }
-    });
-
-    var reqAccept = 'application/json;pk=BCpkADawqM2Q0u_EMhwh6sG-XavxnNSGgRmPVZqaQsilEjLYeUK24ofKhllzQeA8owqhzPCRuGbPh9FkCBxnD8mYW4RHulG2uVuwr363jOYU8lRht0dPdw7n31iz7t3LvGdQWkUrxdxrXrqk';
-    if (videos && videos.length) {
-      for (let i = 0; i < videos.length; i++) {
-        // Click a link on the page
-        var selectorCheck = await context.evaluate(function (videos, i) {
-          const ticks = videos[i].replace(/'/g, '"');
-          const selectorVid = document.querySelector(`img[src='${ticks}']`);
-          if (selectorVid) {
-            return true;
-          } else {
-            return false;
-          }
-        }, videos, i);
-        if (selectorCheck) {
-          await context.click(`img[src='${videos[i]}']`);
-          // await context.click('#tabItem_ogt_3_0 > button.css-snmyc5.e65zztl0[type="button"] > div.css-38q71r > div.css-5ix92y.e65zztl0 > div.css-16g8jcx.e65zztl0 > div.css-10aokas.e65zztl0 > div.css-1u6gbn2.e65zztl0 > svg.css-1a5s7yv.e65zztl0');
-          console.log(`img[src='${videos[i]}']`);
-          console.log('finished click');
-          // Clicking a link caused a page reload, this function waits for the page to finish loading.
-          // await context.waitForPage();
-          await new Promise(resolve => setTimeout(resolve, 5000));
-          console.log('finished waiting for page');
-          const req = await context.searchAllRequests('edge.api.brightcove.com/playback/v1/accounts/6072792324001/videos/');
-
-          if (req) {
-            if (req[0]) {
-              reqAccept = req[0].requestHeaders.Accept;
-            }
-          }
-        }
-      }
-    }
-
-    const videoIdArray = await context.evaluate(function () {
-      const videoEle = document.querySelector('#linkJSON');
-      const videoIdForUrl = [];
-      if (videoEle) {
-        const videoObj = JSON.parse(videoEle.innerText);
-        if (videoObj[4] || videoObj[1]) {
-          let videoIds = [];
-          if (videoObj[4] && videoObj[4].props.currentProduct) {
-            const partialVideo = videoObj[4].props.currentProduct;
-            if (partialVideo) {
-              videoIds = videoObj[4].props.currentProduct.productVideos;
-            }
-          } else if (videoObj[1] && videoObj[1].props.product) {
-            const partialVideo = videoObj[1].props.product.product;
-            if (partialVideo) {
-              videoIds = partialVideo.productVideos;
-            }
-          }
-          if (videoIds) {
-            videoIds.forEach(obj => {
-              videoIdForUrl.push(obj.videoUrl);
-            });
-          }
-        }
-      }
-      return videoIdForUrl;
-    });
-
-    const html = await context.evaluate(async function getEnhancedContent(videoIdForUrl, acceptHeader) {
-      const srcArray = [];
-      async function fetchRetry(url, n) {
-        function handleErrors(response) {
-          if (response.status === 200) {
-            return response;
-          } else {
-            console.log('FETCH FAILED');
-            if (n === 1) return 'Nothing Found';
-            return fetchRetry(url, n - 1);
-          }
-        }
-        const fetched = fetch(url, {
-          headers: {
-            accept: acceptHeader,
-          },
-        }).then(handleErrors).then(response => response.text()).catch(() => {
-          console.log('FETCH FAILED');
-          if (n === 1) return 'Nothing Found';
-          return fetchRetry(url, n - 1);
-        });
-        return fetched;
-      }
-      function timeout(ms) {
-        return new Promise((resolve) => setTimeout(resolve, ms));
-      }
-      for (let i = 0; i < videoIdForUrl.length; i++) {
-        const fetchTry = await fetchRetry(`https://edge.api.brightcove.com/playback/v1/accounts/6072792324001/videos/${videoIdForUrl[i]}`, 5);
-        await timeout(2000);
-        if (fetchTry !== 'Nothing Found') {
-          srcArray.push(JSON.parse(fetchTry));
-        }
-      }
-      return srcArray;
-    }, videoIdArray, reqAccept);
-
-    await context.evaluate(function (parentInput, html) {
+    await context.evaluate(function (parentInput) {
       function addHiddenDiv(id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
@@ -287,15 +170,7 @@ module.exports = {
         i++;
       }
 
-      html.forEach(obj => {
-        if (obj.sources) {
-          const videoSrc = obj.sources[2];
-          if (videoSrc) {
-            addHiddenDiv('ii_video', videoSrc.src);
-          }
-        }
-      });
-
+ 
       const sizeInfo = '//div[contains(@data-comp,"SizeAndItemNumber")]';
       var sInfo = document.evaluate(sizeInfo, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
       if (sInfo.snapshotLength > 0) {
@@ -355,8 +230,8 @@ module.exports = {
       //   const fullName = nameArray.join(' - ');
       //   addHiddenDiv('ii_nameExtended', fullName);
       // }
-    }, parentInput, html);
-    await context.evaluate(function () {
+    }, parentInput);
+    await context.evaluate(async function () {
       const rating = Sephora.mboxAttrs.productRating.toFixed(1);
       document.querySelector('h1').setAttribute('rating', rating);
 
@@ -370,6 +245,42 @@ module.exports = {
           document.body.appendChild(newlink);
         });
       }
+      async function getVideo() {
+        async function getObj() {
+            const response = await fetch(window.location.href);
+            const html = await response.text();
+            const doc = new DOMParser().parseFromString(html, 'text/html');
+            const json = JSON.parse(doc.querySelector("#linkJSON").innerText);
+            return json;
+        }
+        const dataObj = await getObj();
+        if (dataObj) {
+            const videoIds = dataObj.find(elm => elm.props.product) && dataObj.find(elm => elm.props.product).props.product.product.productVideos && dataObj.find(elm => elm.props.product) && dataObj.find(elm => elm.props.product).props.product.product.productVideos.map(elm => elm.videoUrl);
+            const accountID = document.querySelector('[src^="//players.brightcove.net/"]') && document.querySelector('[src^="//players.brightcove.net/"]').src && document.querySelector('[src^="//players.brightcove.net/"]').src.match(/players.brightcove.net\/([^\/]+)/)[1];
+            const apis = videoIds && videoIds.map(elm => `https://edge.api.brightcove.com/playback/v1/accounts/${accountID}/videos/${elm}`);
+            const promises = apis && apis.map(elm => fetch(elm, {
+                "headers": {
+                    "accept": "application/json;pk=BCpkADawqM2Q0u_EMhwh6sG-XavxnNSGgRmPVZqaQsilEjLYeUK24ofKhllzQeA8owqhzPCRuGbPh9FkCBxnD8mYW4RHulG2uVuwr363jOYU8lRht0dPdw7n31iz7t3LvGdQWkUrxdxrXrqk",
+                }
+            }))
+            if (promises) {
+                const responses = await Promise.all(promises);
+                const json = await Promise.all(responses.map(elm => elm.json()));
+                const videoUrls = json.map(elm => elm.sources.find(elm => elm.container === "MP4").src);
+                console.log(videoUrls);
+                return videoUrls;
+            }
+        }
+    }
+      var video = await getVideo();
+    if(video && video.length) {
+      video.map(e=>{
+        let newlink = document.createElement('a');
+          newlink.setAttribute('class', 'video');
+          newlink.href = e;
+          document.body.appendChild(newlink);
+      });
+    }
     })
 
     await new Promise(resolve => setTimeout(resolve, 5000));

@@ -29,7 +29,7 @@ fields:
     xpath: (//div[contains(@data-comp,"ReviewsStats")]//img//parent::div//following-sibling::span|//div[contains(@data-comp, "ReviewsStats")]//span[contains(@data-comp, "Text Box StyledComponent BaseComponent")])[1]
   - name: videos
     description: URLs of videos on page
-    xpath: //div[@id="ii_video"]
+    xpath: //a[@class="video"]/@href
   - name: nameExtended
     description: The product name
     xpath: //h1[contains(@data-comp,"DisplayName")]//text()
