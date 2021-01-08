@@ -505,11 +505,15 @@ fields:
   - name: galleryVideos
     xpath: //video/@src|//div[contains(@class, "m-slider_item")]//iframe/@src|//div[@id="description"]//a/@href | (//div[@data-media="yt"]/@data-yt)[1]
   - name: unInterruptedPDP
-    xpath: //div[contains(@class,"sets_itemPrd")]//div[contains(@class,"productName")]|//div[contains(@class,"accessories")]//div[contains(@class,"m-prdSlider_nameWrapper")]//a
   - name: inTheBoxUrl
-    singleValue: false
+    xpath: //div[contains(@class,"py5")]//div[contains(@class,"row")]//h3[contains(text(),"W pudełku")]/following::div[contains(@class,"row")]/div/img[contains(@class,"description")]/@src|//div[contains(@class,"py5")]//div[contains(@class,"row")]//h3[contains(text(),"Zawartość")]/following::div[contains(@class,"row")]//div/img[contains(@class,"description")]/@src
+    regExp: (.+)
+    regExpReplace: https:$1
     description: Must include image url to show the accessories/tools which come with the product
   - name: inTheBoxText
-    singleValue: false
+    xpath: //div[contains(@class,"py5")]//div[contains(@class,"row")]//h3[contains(text(),"pudełku")]/following::div[contains(@class,"row")]//div/img/following-sibling::p|//div[contains(@class,"py5")]//div[contains(@class,"row")]//h3[contains(text(),"Zawartość")]/following::div[contains(@class,"row")]//div/img/following-sibling::p
   - name: hasComparisonTable
+    xpath: //div[@class="container"]//div[@class="table-responsve"]/table//tbody/tr[1]//td[1]
+    regExp: (.+)
+    regExpReplace: Yes
     defaultValue: No
