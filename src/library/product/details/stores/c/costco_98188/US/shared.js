@@ -7,9 +7,9 @@ const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
       var bulletsText = '';
-      var bulletsCount = 0;
+      // var bulletsCount = 0;
       if (row.additionalDescBulletInfo && row.additionalDescBulletInfo.length) {
-        bulletsCount = row.additionalDescBulletInfo.length;
+        // bulletsCount = row.additionalDescBulletInfo.length;
         row.additionalDescBulletInfo.forEach((ele) => {
           if (ele.text) {
             bulletsText += '||' + ele.text.trim();
@@ -19,9 +19,31 @@ const transform = (data) => {
           {
             text: bulletsText,
           }];
+        // }
+        // if (row.descriptionBullets && bulletsCount) {
+        //   row.descriptionBullets[0].text = bulletsCount;
       }
-      if (row.descriptionBullets && bulletsCount) {
-        row.descriptionBullets[0].text = bulletsCount;
+
+      if (row.descriptionBullets) {
+        const dups = [];
+        row.descriptionBullets = row.descriptionBullets.filter(function (el) {
+          // If it is not a duplicate, return true
+          if (dups.indexOf(el.text) === -1) {
+            dups.push(el.text);
+            return true;
+          }
+          return false;
+        });
+      }
+      if (row.descriptionBullets) {
+        let counter = 0;
+        for (let i = 0; i < row.descriptionBullets.length; i++) {
+          if (row.descriptionBullets[i].text !== null) counter++;
+        }
+        row.descriptionBullets = [
+          {
+            text: counter,
+          }];
       }
       if (row.specifications) {
         var specText = '';
@@ -38,6 +60,23 @@ const transform = (data) => {
           return e;
         });
       }
+      if (row.manufacturerImages) {
+        const variantIds = [];
+        let dup = '';
+        let urls = [];
+        row.manufacturerImages.forEach(item => {
+          urls = row.manufacturerImages.filter(it => item.text === it.text);
+          if (urls && urls.length === 1) {
+            variantIds.push(item);
+          } else {
+            if (dup !== item.text) {
+              dup = item.text;
+              variantIds.push(item);
+            }
+          }
+        });
+        row.manufacturerImages = variantIds;
+      }
       if (row.alternateImages && row.alternateImages.length) {
         row.alternateImages = row.alternateImages.map((e) => {
           e.text = e.text.replace('recipeId=735', 'recipeId=728');
@@ -46,18 +85,21 @@ const transform = (data) => {
       }
       if (row.price && (!row.price[0].text.includes('$'))) {
         row.price[0].text = '$'.concat(row.price[0].text);
-        if (row.price[0].text.includes('-')) {
-          row.price[0].text = '';
-        }
+        // if (row.price[0].text.includes('-')) {
+        //   row.price[0].text = '';
+        // }
       }
       if (row.listPrice && (!row.listPrice[0].text.includes('$'))) {
         row.listPrice[0].text = '$'.concat(row.listPrice[0].text);
-        if (row.price[0].text.includes('-')) {
-          row.price[0].text = '';
+        if (row.listPrice[0].text.includes('-')) {
+          row.listPrice[0].text = '';
         }
         if (row.price[0].text === row.listPrice[0].text) {
           delete row.listPrice;
         }
+      }
+      if (row.price[0] === ('-')) {
+        row.price[0].text = row.listPrice[0].text;
       }
       if (row.termsAndConditions) {
         row.termsAndConditions[0].text = row.termsAndConditions[0].text === 'No' ? 'No' : 'Yes';
@@ -87,13 +129,6 @@ const transform = (data) => {
           row.pricePerUnit[0].text = '';
         }
       }
-      if (row.videos) {
-        row.videos.forEach(item => {
-          if (item.text.includes('.hls.m3u8')) {
-            item.text = item.text.replace('.hls.m3u8', '.mp4.480.mp4');
-          }
-        });
-      }
       if (row.fastTrack) {
         var fastText = '';
         row.fastTrack.forEach((ele) => {
@@ -107,18 +142,6 @@ const transform = (data) => {
         row.ratingCount.forEach(item => {
           item.text = item.text.replace(/s/, '').trim();
         });
-      }
-
-      if (row.description) {
-        let text = '';
-        row.description.forEach(item => {
-          text += item.text.replace(/\n \n/g, ' || ');
-        });
-        row.description = [
-          {
-            text: text,
-          },
-        ];
       }
     }
   }

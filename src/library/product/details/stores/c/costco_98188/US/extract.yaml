@@ -33,9 +33,10 @@ fields:
     singleValue: false
     xpath: //ul[@class="pdp-features"]//li | //div[@class="product-info-description"]/ul/li
   - name: description
-    xpath: //div[@class="features-container form-group"] | //div[@id="manufacturer-descr"]
+    xpath: //div[@id='costco-product-desc']
   - name: descriptionBullets
-    xpath: count(//ul[@class="pdp-features"]//li)
+    # xpath: count(//ul[@class="pdp-features"]//li)
+    xpath: //ul[contains(@class,'pdp-features')]//li |  //div[@id='nav-pdp-tab-header-3']//div[@class='panel-body col-xs-12']//div[@class='product-info-description']/ul/li
   - name: brandText
     xpath: //div[@itemprop="brand"]
   - name: manufacturer
@@ -70,9 +71,10 @@ fields:
   - name: manufacturerDescription
     xpath: //div[@id="descriptionMenu"]
   - name: manufacturerImages
-    xpath: //div[@class="wc-reset"]//ul//li//img[@data-asset-type="image"]/@src
+    # xpath: //div[@class="wc-reset"]//ul//li//img[@data-asset-type="image"]/@src
+    xpath: //div[contains(@id,"manuf-images")] | //div[@class="product-info-description"]//img//@srcset | //div[@class="wc-aplus-body"]//img/@src | //div[@class="product-info-description"]//img//@src[contains(.,'img/') or (contains(.,'http') and contains(.,'.jpg'))]
   - name: videos
-    xpath: //div[@class="wc-player-outer-wrap wc-vp"]//video/@src | //meta[@itemprop="contentUrl"]/@content | //body/@videos | //meta//@content[contains(.,'.mp4')] | //head/@*[contains(.,'http')] | //head/@video | //head/@*[contains(.,'http')]
+    xpath: //div[@id='product-video']
   - name: name
     xpath: //h1[@itemprop="name"]
   - name: inStorePrice

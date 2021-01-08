@@ -27,6 +27,9 @@ module.exports = {
     // await context.goto(URL, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
 
     await context.goto(url, { first_request_timeout: 90000, timeout, waitUntil: 'load', checkBlocked: true });
+    if (zipcode) {
+      await dependencies.setZipCode({ url: url, zipcode: zipcode });
+    }
   },
   // implementation: async ({ url, zipcode }, parameters, context, dependencies) => {
   //   if (zipcode) {

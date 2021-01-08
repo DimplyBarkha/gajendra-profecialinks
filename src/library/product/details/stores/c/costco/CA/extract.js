@@ -12,6 +12,8 @@ module.exports = {
 
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     await context.evaluate(async function () {
+      console.log('waiting for page to load');
+      await new Promise(resolve => setTimeout(resolve, 50000));
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
@@ -66,11 +68,15 @@ module.exports = {
       const tabDescInfoNew = [];
       // let model;
       let flag = false;
-      if (tabDescInfo.length > 0) {
+      if (tabDescInfo != null && tabDescInfo.length > 0) {
         tabDescInfo.forEach(function (element) {
-          if (element.includes('Model')) {
-            flag = true;
-            modelInfo = element.replace('Model: ', '');
+          element = element.trim();
+          if (element !== null && element.length > 0) {
+            if (element.includes('Model')) {
+              //      console.log('element include true ', element);
+              flag = true;
+              modelInfo = element.replace('Model: ', '');
+            }
           }
 
           let info = element.replace('\n', '');
@@ -87,25 +93,40 @@ module.exports = {
       }
 
       let finalDescInfo;
+      finalDescInfo = 'Features: ';
       if (featureDescInfo !== null && featureDescInfo.length > 0) {
         addElementToDocument('featureBullets', featureDescInfo);
-        finalDescInfo = 'Features: ||' + featureDescInfo + ' ||' + boldText[0] + ' ||' + tabDescInfo[1];
+        finalDescInfo = finalDescInfo + ' ||' + featureDescInfo;
       }
-      if (bulletsInfo !== null && bulletsInfo.length > 0) {
+      if (boldText[0] && boldText.length > 0) {
+        finalDescInfo = finalDescInfo + ' ||' + boldText[0];
+      }
+      if (boldText[1] && boldText.length > 0) {
+        finalDescInfo = finalDescInfo + ' ||' + boldText[1];
+      }
+      if (tabDescInfo[1] && tabDescInfo.length > 0) {
+        finalDescInfo = finalDescInfo + ' ||' + tabDescInfo[1]; ;
+      }
+      if (bulletsInfo && bulletsInfo.length > 0) {
         addElementToDocument('additionalDescBulletInfo', bulletsInfo);
         finalDescInfo = finalDescInfo + bulletsInfo;
       }
-      if (boldText.length > 0 && boldText[2] !== null) {
+      if (boldText[2] && boldText.length > 0 && boldText[2] !== null) {
         if (!boldText[2].includes('★')) {
           finalDescInfo = finalDescInfo + ' ||' + boldText[2];
         }
       }
-      tabDescInfo[2] = tabDescInfo[2].trim();
-      if (tabDescInfo[2].length > 0) {
-        finalDescInfo = finalDescInfo + ' ||' + tabDescInfo[2];
+      if (tabDescInfo[2] && tabDescInfo.length > 0) {
+        tabDescInfo[2] = tabDescInfo[2].trim();
+        if (tabDescInfo[2].length > 0) {
+          finalDescInfo = finalDescInfo + ' ||' + tabDescInfo[2];
+        }
+      }
+      if (tabDescInfo[6] && tabDescInfo.length > 0) {
+        finalDescInfo = finalDescInfo + ' ||' + tabDescInfo[6];
       }
 
-      if (finalDescInfo !== null && finalDescInfo.length > 0) {
+      if (finalDescInfo && finalDescInfo.length > 0) {
         finalDescInfo = finalDescInfo.replace('\n', ' ');
         addElementToDocument('added_descriptionText', finalDescInfo);
       }
@@ -198,6 +219,7 @@ module.exports = {
       // xpath for priceValue
       const priceXpath = '//div[contains(@id,"pull-right-price")]/span';
       const priceValue = getAllXpath(priceXpath, 'innerText');
+     // console.log('priceValue:', priceValue);
       let priceNew;
       if (priceValue.length > 0 && !priceValue[0].includes('- -.- -')) {
         priceNew = [priceValue[1] + '' + priceValue[0]];
