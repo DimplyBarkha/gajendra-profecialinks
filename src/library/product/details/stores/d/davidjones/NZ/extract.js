@@ -62,34 +62,56 @@ module.exports = {
           XPathResult.FIRST_ORDERED_NODE_TYPE,
           null
         ).singleNodeValue.textContent;
-        const specificationsXpath = `//div[contains(@class,"long-description")]//strong[contains(.,"Specifications") or contains(.,"specifications")]//following-sibling::text()[not(preceding-sibling::strong[contains(.,"${specsEndString}")])]`;
-        const specificationsArray = document.evaluate(
-          specificationsXpath,
-          document,
-          null,
-          XPathResult.ANY_TYPE,
-          null
-        );
 
-        let spec = specificationsArray.iterateNext();
-        let finalSpecificationsArray = [];
-        let finalSpecifications;
+        if (specsEndString.length === 0) {
+          try {
+            const specsEndString2 = document.evaluate(
+              `//div[contains(@class,"long-description")]//strong[contains(.,"Specifications") or contains(.,"specifications")]//following-sibling::strong/strong[1]`,
+              document,
+              null,
+              XPathResult.FIRST_ORDERED_NODE_TYPE,
+              null
+            ).singleNodeValue.textContent;
 
-        while (spec) {
-          if (spec.textContent) finalSpecificationsArray.push(spec.textContent);
-          spec = specificationsArray.iterateNext();
+            addSpecifications(specsEndString2);
+          } catch (err) {
+            console.log(err)
+          }
+        } else {
+          addSpecifications(specsEndString);
         }
 
-        if(finalSpecificationsArray.length > 0) finalSpecifications = finalSpecificationsArray.join(' | ');
 
-        const htmlString = `<span style="display:none" id="productSpecifications" ></span>`;
-        const root = document.body;
-        root.insertAdjacentHTML('beforeend', htmlString);
-        // const innerHTML =
-        //   finalSpecifications.reduce((acc, val) => {
-        //     return `${acc}<li>${val}</li>`;
-        //   }, '<ul>') + '</ul>';
-        document.querySelector('#productSpecifications').innerHTML = finalSpecifications;
+        function addSpecifications(specsEndString) {
+          const specificationsXpath = `//div[contains(@class,"long-description")]//strong[contains(.,"Specifications") or contains(.,"specifications")]//following-sibling::text()[not(preceding-sibling::strong[contains(.,"${specsEndString}")])]`;
+          const specificationsArray = document.evaluate(
+            specificationsXpath,
+            document,
+            null,
+            XPathResult.ANY_TYPE,
+            null
+          );
+
+          let spec = specificationsArray.iterateNext();
+          let finalSpecificationsArray = [];
+          let finalSpecifications;
+
+          while (spec) {
+            if (spec.textContent) finalSpecificationsArray.push(spec.textContent);
+            spec = specificationsArray.iterateNext();
+          }
+
+          if (finalSpecificationsArray.length > 0) finalSpecifications = finalSpecificationsArray.join(' | ');
+
+          const htmlString = `<span style="display:none" id="productSpecifications" ></span>`;
+          const root = document.body;
+          root.insertAdjacentHTML('beforeend', htmlString);
+          // const innerHTML =
+          //   finalSpecifications.reduce((acc, val) => {
+          //     return `${acc}<li>${val}</li>`;
+          //   }, '<ul>') + '</ul>';
+          document.querySelector('#productSpecifications').innerHTML = finalSpecifications;
+        }
       });
     } catch (e) {
       console.log(e);
