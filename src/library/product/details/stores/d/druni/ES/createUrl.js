@@ -7,6 +7,6 @@ module.exports = {
     country: 'ES',
     store: 'druni',
     zipcode: '',
-    url: 'https://www.druni.es/{id}'
+    url:'https://www.druni.es/{id}',
   },
 };

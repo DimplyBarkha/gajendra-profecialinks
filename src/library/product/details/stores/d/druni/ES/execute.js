@@ -7,7 +7,6 @@ module.exports = {
     domain: 'druni.es',
     loadedSelector: 'body',
     noResultsXPath: null,
-    url: 'https://www.druni.es/{id}',
     zipcode: '',
   },
 };

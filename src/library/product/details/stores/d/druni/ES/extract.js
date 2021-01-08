@@ -7,6 +7,5 @@ module.exports = {
     transform: transform,
     domain: 'druni.es',
     zipcode: '',
-    url: 'https://www.druni.es/{id}',
   },
 };
