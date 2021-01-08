@@ -8,15 +8,27 @@ const transform = (data) => {
     el.group.forEach((gr, index) => {
       try {
         // gr['_url'] = gr.url;
+        // if (gr.image) {
+        //   gr.image[0].text = gr.image[0].text.replace(/ 2x/g, '');
+        // }
         if (gr && gr.description) {
           gr.description[0].text = gr.description[0].text.replace(/(\n \n \n \n|\n \n \n|\n \n|\r\n|\n|\r)/gm, ' ');
         }
+
+        if (gr.alternateImages) {
+          gr.alternateImages.shift();
+          // gr.alternateImages = gr.alternateImages.map(item => ({
+          //   text: item.text.replace(/ 2x/g, ''),
+          //   xpath: item.xpath,
+          // }));
+        }
+
         if (gr && gr.brandText) {
           const mainInfo = JSON.parse(gr.brandText[0].text);
-          gr.brandText = [{ text: mainInfo.brand.replace("'", ' ') }];
+          gr.brandText = [{ text: mainInfo.brand ? mainInfo.brand.replace("'", ' ') : '' }];
           gr.sku = [{ text: mainInfo.sku }];
           gr.variantId = [{ text: mainInfo.productID }];
-          gr.weightNet = [{ text: mainInfo.weight }];
+          gr.weightNet = [{ text: mainInfo.weight ? mainInfo.weight : '' }];
           try {
             gr.ratingCount = [{ text: mainInfo.aggregateRating.reviewCount }];
           } catch (e) {
@@ -25,15 +37,15 @@ const transform = (data) => {
           try {
             gr.aggregateRating = [{ text: mainInfo.aggregateRating.ratingValue }];
           } catch (e) {
-            gr.aggregateRating = [];
+            gr.aggregateRating = [{ text: 0 }];
           }
         }
 
         if (gr.gtin) {
           try {
-            gr.gtin[0].text = gr.gtin[0].text.match(/SKU: .*/)[0].replace('SKU: ', '');
+            gr.gtin[0].text = gr.gtin[0].text.match(/SKU .*|SKU: .*/)[0].replace(/SKU |SKU: /, '').trim();
           } catch (e) {
-            gr.gtin = [];
+            gr.gtin[0].text = '';
           }
         }
         // if (gr && gr.gtin) {
@@ -51,8 +63,6 @@ const transform = (data) => {
         //     gr.gtin = [];
         //   }
         // }
-
-
       } catch (e) {
         console.log(e);
       }

@@ -4,12 +4,13 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    xpath: //span[@class='ui-pdp-gallery__wrapper'][1]/label/div/div/img[@class='ui-pdp-image']/@src
+    singleValue: true
+    xpath: //*[@id="root-app"]/div/div/div/div[1]/div[1]/div/div/div/div[2]/span/figure/img/@src
   - name: imageAlt
     xpath: //span[@class='ui-pdp-gallery__wrapper'][1]/label/div/div/img[@class='ui-pdp-image']/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //span[@class='ui-pdp-gallery__wrapper']/label/div/div/img[@class='ui-pdp-image']/@src
+    xpath: //*[@id="root-app"]/div/div/div/div[1]/div[1]/div/div/div/div[2]/span/figure/img/@data-zoom
   - name: _pageTimestamp
 #  - name: url
 #    xpath: //div[@id='url']

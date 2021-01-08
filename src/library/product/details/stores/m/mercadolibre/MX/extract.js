@@ -43,7 +43,7 @@ module.exports = {
         console.log(innerText);
       } else if (alternativeEl) {
         const innerText2 = alternativeEl.innerText;
-        if (innerText2 === 'Agregar al carrito') {
+        if (innerText2 === 'Agregar al carrito' || innerText2 === 'Comprar ahora') {
           addElementToDocument('isStock', 'In Stock');
           console.log(innerText2);
         }
