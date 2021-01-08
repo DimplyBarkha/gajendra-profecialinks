@@ -8,7 +8,7 @@ fields:
 - name: _url
   singleValue: false
 - name: productUrl
-  singleValue: false
+  singleValue: true
   xpath: //link[@rel="canonical"]/@href
 - name: _pageTimeStamp
   singleValue: false
@@ -157,6 +157,7 @@ fields:
 - name: videos
   singleValue: false
   description: URLs of videos on page
+  xpath: //article[@id="produktbeschreibung"]//div[@class="inner-video"]
 - name: name
   singleValue: true
   description: The product name
@@ -280,11 +281,11 @@ fields:
   singleValue: true
   description: Suggested number of servings of the product.
 - name: caloriesPerServing
-  singleValue: true
+  singleValue: false
   description: Nutritional Information for Calories Per Serving content - Usually
     based on per 100g serving
-  xpath: //div[@id="features"]//dt[contains(text(), "Brennwert") and contains(text(), "kcal")]/following-sibling::dd[1]
-  regExp: ([\d.,]+)
+  xpath: //div[@id="features"]//dt[contains(text(), "Brennwert")]/following-sibling::dd[1]
+  # regExp: ([\d.,]+)
 - name: caloriesFromFatPerServing
   singleValue: true
   description: Nutritional Information for Calories From Fat content - Usually based
