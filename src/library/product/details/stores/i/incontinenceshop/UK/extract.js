@@ -18,24 +18,26 @@ module.exports = {
         document.body.appendChild(catElement);
       }
       // Method to Retrieve Xpath content of a Multiple Nodes
-      const getAllXpath = (xpath, prop) => {
+      const getAllXpath = (xpath) => {
         const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         const result = [];
         for (let index = 0; index < nodeSet.snapshotLength; index++) {
-          const element = nodeSet.snapshotItem(index);
-          if (element) result.push(prop ? element[prop] : element.nodeValue);
+          const rawelement = nodeSet.snapshotItem(index);
+          // @ts-ignore
+          const element = rawelement.innerText;
+          if (element) result.push(element);
         }
         return result;
       };
-      var finalDescText;
+      var finalDescText = '';
       // Double Pipe Concatenation
       const pipeSeparatorDouble = (id, data) => {
-        var doubleSeparatorText = data.join(' || ');
+        var doubleSeparatorText = data.join('||');
         finalDescText = doubleSeparatorText;
         addElementToDocument(id, doubleSeparatorText);
       };
       // XPATH Data Extraction For Additional Description Bullet
-      const addDescBulletInfo = getAllXpath("//div[@class='product attribute description wysiwyg-content']/div/ul/li/text()", 'nodeValue');
+      const addDescBulletInfo = getAllXpath("//div[@class='product attribute description wysiwyg-content']/div/ul/li");
       pipeSeparatorDouble('addDescBulletInfo', addDescBulletInfo);
 
       // Method to Retrieve Xpath content of a Single Node
@@ -63,9 +65,14 @@ module.exports = {
       const spaceSeparatorDouble = (data) => {
         spaceText = data.join(' ');
       };
-      const addDescInfo = getAllXpath("//div[@class='product attribute description wysiwyg-content']/div/p/text()", 'nodeValue');
+      const addDescInfo = getAllXpath("//div[@class='product attribute description wysiwyg-content']/div/p");
       spaceSeparatorDouble(addDescInfo);
-      addElementToDocument('description', spaceText + ' || ' + finalDescText);
+      if (finalDescText.length > 0) {
+        addElementToDocument('description', spaceText + '||' + finalDescText);
+      } else {
+        addElementToDocument('description', spaceText);
+      }
+
       // @ts-ignore
       const mpnRaw = document.querySelectorAll("script[type='application/ld+json']")[0].innerText;
       const parsedmpnRaw = JSON.parse(mpnRaw);
