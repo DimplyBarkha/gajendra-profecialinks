@@ -5,5 +5,6 @@ module.exports = {
     domain: 'bjs.com',
     country: 'US',
     store: 'bjs',
+    timeout: 50000,
   },
 };

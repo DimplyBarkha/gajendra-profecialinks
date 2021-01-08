@@ -59,7 +59,7 @@ fields:
     type: NUMBER
   - name: brandText
     singleValue: true
-    xpath: //script[@_ngcontent-bjs-universal-app-c166=""]/@data-flix-brand
+    xpath: //script[@_ngcontent-bjs-universal-app-c166=""]/@data-flix-brand | //script//@data-flix-brand
     description:
       Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
