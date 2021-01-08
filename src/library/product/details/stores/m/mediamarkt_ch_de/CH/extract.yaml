@@ -26,8 +26,6 @@ fields:
   singleValue: false
   description: Other product images (not in manufacturer description)
   xpath: (//aside[@id="product-sidebar"]//ul[@class="thumbs"]//img/@src)[position() > 1]
-  regExp: (.+)
-  regExpReplace: https:$1
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
@@ -92,6 +90,12 @@ fields:
   xpath: //body/script[contains(text(), "ean")]
   regExp: (\"ean\":)\"(.*?)\"
   regExpReplace: $2
+- name: eangtin
+  singleValue: true
+  description: GTIN code (includes UPC/EAN)
+  xpath: //body/script[contains(text(), "ean")]
+  regExp: (\"ean\":)\"(.*?)\"
+  regExpReplace: $2
 - name: sku
   singleValue: true
   description: The store-specific product identifier
@@ -115,6 +119,7 @@ fields:
 - name: directions
   singleValue: true
   description: Content under "directions" header
+  xpath: //div[@id="features"]//dt[contains(text(), "Verwendung")]/following-sibling::dd[1]
 - name: warnings
   singleValue: true
   description: Content under "warnings" header
@@ -151,13 +156,17 @@ fields:
 - name: manufacturerDescription
   singleValue: false
   description: The extended description of the product supplied by the lister
+  xpath: //div[@id="inpage_container"]//div[contains(@class, "flix-Body")]
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
+  xpath: //div[@id="inpage_container"]//img/@srcset
+  regExp: (.+)
+  regExpReplace: https:$1
 - name: videos
   singleValue: false
   description: URLs of videos on page
-  xpath: //article[@id="produktbeschreibung"]//div[@class="inner-video"]
+  xpath: //article[@id="produktbeschreibung"]//div[@class="inner-video"]/iframe/@src
 - name: name
   singleValue: true
   description: The product name
@@ -253,6 +262,7 @@ fields:
 - name: secondaryImageTotal
   singleValue: true
   description: 
+  xpath: count((//aside[@id="product-sidebar"]//ul[@class="thumbs"]//img/@src)[position() > 1])
 - name: news
   singleValue: true
   description: 

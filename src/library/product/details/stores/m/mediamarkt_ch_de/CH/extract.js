@@ -17,14 +17,41 @@ module.exports = {
       productUrl[0].text = productUrl[0].text.replace('/fr/', '/de/');
     }
 
+    var image = extractedData[0].group[0].image;
+    if (image) {
+      image[0].text = image[0].text.replace('325_225', '786_587');
+    }
+
+    var alternateImages = extractedData[0].group[0].alternateImages;
+    if (alternateImages) {
+      alternateImages.forEach(image => {
+        image.text = 'https:' + image.text.replace('52_41', '786_587');
+      });
+    }
+
     var descriptions = extractedData[0].group[0].description;
     if (descriptions && descriptions.length > 1) {
       let fullDescription = '';
       descriptions.forEach(description => {
-        fullDescription += description.text + ' | ';
+        fullDescription += description.text + ' ';
       });
       descriptions[0].text = fullDescription;
       descriptions.splice(1);
+    }
+
+    var manufacturerDescription = extractedData[0].group[0].manufacturerDescription;
+    if (manufacturerDescription && manufacturerDescription.length > 1) {
+      let fullDescription = '';
+      manufacturerDescription.forEach(description => {
+        fullDescription += description.text + ' ';
+      });
+      manufacturerDescription[0].text = fullDescription;
+      manufacturerDescription.splice(1);
+    }
+
+    var availability = extractedData[0].group[0].availabilityText;
+    if (availability) {
+      availability[0].text = availability[0].text === 'InStock' ? 'In Stock' : 'Out of Stock';
     }
 
     var servingSize = extractedData[0].group[0].servingSize;
