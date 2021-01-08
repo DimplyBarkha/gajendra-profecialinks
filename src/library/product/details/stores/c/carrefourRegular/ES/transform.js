@@ -105,7 +105,7 @@ const transform = (data) => {
       //     let mainImage;
       //     mainImage = allImages[0].replace(/(.*?)\s.*/, '$1').trim();
       //     image.text = mainImage;
-		  //     console.log("image.text",image.text)
+      //     console.log("image.text",image.text)
       //     console.log("here i am ", count);
       //   });
       // }
@@ -125,6 +125,14 @@ const transform = (data) => {
       //     row.inTheBoxUrl = [{text: joins}]
       //   }
       // }
+
+      if (row.UPDP) {
+        let arr = [];
+        row.UPDP.forEach(item => {
+          arr.push(item.text);
+        })
+        row.UPDP = arr.join('||');
+      }
 
 
 
