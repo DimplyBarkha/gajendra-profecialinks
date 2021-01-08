@@ -5,9 +5,8 @@ recordXPath: //div[@class='productListe']/div
 fields:
   - name: id
     singleValue: false
-    xpath: //div[@class='maskABinterne']
-    regExp: '[0]+(\d+)'
-    regExpReplace: $1
+    xpath: //div[@class='productListe']/div//div[@class='designations']/h2/a/@href
+    regExp: \d+$
   - name: searchUrl
     singleValue: false
     xpath: //div[@class='productListe']/div/@href
@@ -50,12 +49,10 @@ fields:
   - name: rank
     singleValue: false
     description: search/listing rank
-    xpath: //div[@class='productListe']/div/@count
     type: NUMBER
   - name: rankOrganic
     singleValue: false
     description: The position (rank) within the list excluding sponsored/paid results
-    xpath: //div[@class='productListe']/div/@count
     type: NUMBER
   - name: sponsored
     singleValue: false

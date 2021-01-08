@@ -16,14 +16,6 @@ async function implementation (
       divSelector.remove();
       document.querySelector('div#privacy-container').remove();
     }
-    // Creating searchUrl and rank/rankOrganic
-    const allProducts = document.querySelectorAll('div.productListe > div');
-    let x;
-    for (x = 0; allProducts.length - 1 >= x; x++) {
-      const locationHref = window.location.href;
-      allProducts[x].setAttribute('count', `${x + 1}`);
-      allProducts[x].setAttribute('href', locationHref);
-    }
     // Creating aggregateRating
     const ratingSelector = document.querySelectorAll('p.rating.orange');
     if (ratingSelector) {
