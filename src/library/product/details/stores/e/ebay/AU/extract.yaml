@@ -5,7 +5,7 @@ fields:
     xpath: //span[@id="prcIsum"]
   - name: unInterruptedPDP
     singleValue: false
-    manualSelector: div.mfe-recos-container div.mfe-title.container-truncate span, div.mfe-recos-slider-container a[class*="mfe-reco"]>p, ul.carousel__list div[class*="item-info__title"], div.featured-products p
+    manualSelector: div.mfe-recos-container div.mfe-title.container-truncate span, div.mfe-recos-slider-container a[class*="mfe-reco"]>p,div.mfe-recos-container div.mfe-title.container-truncate span, li.rtxt~li, span.title-text>span, h3.offer-title span, ul.carousel__list div[class*="item-info__title"], div.featured-products p
     # xpath: //div[@class="updp_item"] | //div[@class="updp1_item"] | //div[@class="featured-products"]//p | //div[@class="updp2_item"]
     # xpath: //div[contains(@id,'nume_html') and not(contains(.,'Verkäufers'))]//div[contains(@class,"mfe-reco")]//li[contains(@class,"mfe-reco-ct")]//p[contains(@class, "mfe-title")]
   - name: inTheBoxText

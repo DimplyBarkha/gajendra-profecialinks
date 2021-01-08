@@ -57,7 +57,7 @@ async function implementation (
         document.body.appendChild(catElement);
       }
       try {
-        var updp = document.querySelectorAll('div.mfe-recos-container div.mfe-title.container-truncate span');
+        var updp = document.querySelectorAll('div.mfe-recos-container div.mfe-title.container-truncate span, li.rtxt~li, span.title-text>span, h3.offer-title span');
         if (updp) {
           updp.forEach(item => {
             addElementToDocument('updp_item', item.innerText);
