@@ -16,15 +16,14 @@ const transform = (data) => {
       el.text = clean(el.text);
     }))));
     return data;
-  };  
+  };
   for (const { group } of data) {
     for (const row of group) {
-     
       if (row.productUrl) {
-        row.productUrl.forEach(item => {          
-          item.text = 'https://www.juul.com'+ item.text
+        row.productUrl.forEach(item => {
+          item.text = 'https://www.juul.com' + item.text;
         });
-      }  
+      }
     }
   }
   return cleanUp(data);
