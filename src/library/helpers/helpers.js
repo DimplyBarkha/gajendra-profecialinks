@@ -7,9 +7,6 @@ dependencies: {
     helperModule: 'module:helpers/helpers',
   },
 
-// within the code of your implementation add the following
-const { Helpers } = require('../../../../../../helpers/helpers') // make sure this is the correct path
-
 //inside the implementation function
   const { helperModule: { Helpers } } = dependencies;
   const helper = new Helpers(context);
