@@ -102,7 +102,7 @@ fields:
     xpath: //*[@id="presContent"] | //*[@id="descContent"]
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="manu_img"]
+    xpath: //div[@id="manu_img"] | //div[@id="inpage_container"]//img/@srcset | //div[@id="presContent"]//img/@src
   - name: gtin
     singleValue: false
     xpath: //div[@data-loadbee-manufacturer="EAN"]/@data-loadbee-product | //@data-flix-ean
