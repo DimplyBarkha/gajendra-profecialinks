@@ -181,7 +181,7 @@ fields:
     singleValue: false
     description: URLs of videos on page
   - name: manufacturerVideos
-    xpath: ancestor::html//body/@video
+    xpath: ancestor::html//body/@video |  ancestor::html//body/@manu-videos
     # Salsify
   - name: shownImages
     singleValue: false
