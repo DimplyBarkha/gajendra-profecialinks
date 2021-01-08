@@ -11,6 +11,7 @@ module.exports = {
   },
 
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
+     await new Promise(resolve => setTimeout(resolve, 50000));
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -66,11 +67,15 @@ module.exports = {
       const tabDescInfoNew = [];
       // let model;
       let flag = false;
-      if (tabDescInfo.length > 0) {
+      if (tabDescInfo != null && tabDescInfo.length > 0) {
         tabDescInfo.forEach(function (element) {
-          if (element.includes('Model')) {
-            flag = true;
-            modelInfo = element.replace('Model: ', '');
+          element = element.trim();
+          if (element !== null && element.length > 0) {
+            if (element.includes('Model')) {
+              //      console.log('element include true ', element);
+              flag = true;
+              modelInfo = element.replace('Model: ', '');
+            }
           }
 
           let info = element.replace('\n', '');
@@ -87,22 +92,47 @@ module.exports = {
       }
 
       let finalDescInfo;
+   /*   console.log('featureDescInfo:', featureDescInfo);
+      console.log('boldText:', boldText);
+      console.log('boldText[0]:', boldText[0]);
+      console.log('tabDescInfo:', tabDescInfo);
+      console.log('tabDescInfo[1]:', tabDescInfo[1]);
+      console.log('bulletsInfo:', bulletsInfo);
+      console.log('boldText[2]:', boldText[2]);
+      console.log('tabDescInfo[2]:', tabDescInfo[2]); */
+      finalDescInfo = 'Features: ';
       if (featureDescInfo !== null && featureDescInfo.length > 0) {
         addElementToDocument('featureBullets', featureDescInfo);
-        finalDescInfo = 'Features: ||' + featureDescInfo + ' ||' + boldText[0] + ' ||' + tabDescInfo[1];
+        finalDescInfo = finalDescInfo + ' ||' + featureDescInfo;
+      }
+      if (boldText[0] !== null && boldText.length > 0) {
+        finalDescInfo = finalDescInfo + ' ||' + boldText[0];
+      }
+      if (boldText[1] !== null && boldText.length > 0) {
+        finalDescInfo = finalDescInfo + ' ||' + boldText[1];
+      }
+      if (tabDescInfo[1] !== null && tabDescInfo.length > 0) {
+        finalDescInfo = finalDescInfo + ' ||' + tabDescInfo[1]; ;
       }
       if (bulletsInfo !== null && bulletsInfo.length > 0) {
         addElementToDocument('additionalDescBulletInfo', bulletsInfo);
         finalDescInfo = finalDescInfo + bulletsInfo;
       }
       if (boldText.length > 0 && boldText[2] !== null) {
+     //   console.log('boldText[2] inside');
         if (!boldText[2].includes('★')) {
+      //    console.log('boldText[2] inside include');
           finalDescInfo = finalDescInfo + ' ||' + boldText[2];
         }
       }
-      tabDescInfo[2] = tabDescInfo[2].trim();
-      if (tabDescInfo[2].length > 0) {
-        finalDescInfo = finalDescInfo + ' ||' + tabDescInfo[2];
+      if (tabDescInfo[2] !== null && tabDescInfo.length > 0) {
+        tabDescInfo[2] = tabDescInfo[2].trim();
+        if (tabDescInfo[2].length > 0) {
+          finalDescInfo = finalDescInfo + ' ||' + tabDescInfo[2];
+        }
+      }
+      if (tabDescInfo[6] !== null && tabDescInfo.length > 0) {
+        finalDescInfo = finalDescInfo + ' ||' + tabDescInfo[6];
       }
 
       if (finalDescInfo !== null && finalDescInfo.length > 0) {
@@ -198,6 +228,7 @@ module.exports = {
       // xpath for priceValue
       const priceXpath = '//div[contains(@id,"pull-right-price")]/span';
       const priceValue = getAllXpath(priceXpath, 'innerText');
+     // console.log('priceValue:', priceValue);
       let priceNew;
       if (priceValue.length > 0 && !priceValue[0].includes('- -.- -')) {
         priceNew = [priceValue[1] + '' + priceValue[0]];
