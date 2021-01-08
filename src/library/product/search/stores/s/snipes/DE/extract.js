@@ -18,14 +18,14 @@ module.exports = {
     await context.evaluate(async function () {
       try {
         // @ts-ignore
-        document.querySelector('button[class="f-button f-button--primary f-button--big js-localization-submit b-localization-submit-button"]').click();
+        document.querySelector('span[class="i-close-thin"]').click();
         // eslint-disable-next-line promise/param-names
         await new Promise(r => setTimeout(r, 6000));
       } catch (error) {
       }
       try {
         // @ts-ignore
-        document.querySelector('button[class="js-close-btn a-modal-close-button close"]').click();
+        document.querySelector('span[class="i-close-thin"]').click();
         // eslint-disable-next-line promise/param-names
         await new Promise(r => setTimeout(r, 6000));
       } catch (error) {
