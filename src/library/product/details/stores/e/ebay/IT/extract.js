@@ -12,7 +12,7 @@ module.exports = {
   },
   implementation,
 };
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -32,7 +32,7 @@ async function implementation(
     return src;
   });
 
-  async function scrollToRec() {
+  async function scrollToRec () {
     await context.evaluate(async () => {
       var element = (document.querySelector('#rpdCntId, .prodDetailDesc')) ? document.querySelector('#rpdCntId, .prodDetailDesc') : null;
       if (element) {
@@ -45,9 +45,9 @@ async function implementation(
   }
   await scrollToRec();
 
-  async function checkUPDP() {
+  async function checkUPDP () {
     await context.evaluate(async () => {
-      function addElementToDocument(key, value) {
+      function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
         catElement.className = key;
         catElement.textContent = value;

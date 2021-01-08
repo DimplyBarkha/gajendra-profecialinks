@@ -148,8 +148,7 @@ module.exports = {
     //   }
     // });
 
-
-    //Extracting data from product page
+    // Extracting data from product page
     await context.extract(productDetails, { transform });
 
     const src = await context.evaluate(async function () {
@@ -161,21 +160,20 @@ module.exports = {
     // await context.extract(productDetails, { transform });
     if (src) {
       try {
-
-       //navigating to iframe src
-        console.log(`in the box url is :${src}`)
+        // navigating to iframe src
+        console.log(`in the box url is :${src}`);
         await context.setBypassCSP(true);
         await context.goto(src, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
         await context.waitForSelector('div#ds_div');
-        let inTheBoxUrl = await context.evaluate(async function () {
-          let imgArray = document.querySelectorAll('div.lieferleft img');
-          let inTheBoxUrlArray = [];
+        const inTheBoxUrl = await context.evaluate(async function () {
+          const imgArray = document.querySelectorAll('div.lieferleft img');
+          const inTheBoxUrlArray = [];
           let i = 0;
           for (i = 0; i < imgArray.length; i++) {
             inTheBoxUrlArray.push(imgArray[i].src);
           }
-          let textArray = document.querySelectorAll('div.lieferleft p');
-          let inTheBoxText = [];
+          const textArray = document.querySelectorAll('div.lieferleft p');
+          const inTheBoxText = [];
           for (i = 0; i < textArray.length; i++) {
             inTheBoxText.push(textArray[i].innerText);
           }
@@ -185,7 +183,7 @@ module.exports = {
         });
         if (inTheBoxUrl !== null) {
           await context.evaluate(async function (inTheBoxUrl) {
-            function addHiddenDiv(id, content) {
+            function addHiddenDiv (id, content) {
               const newDiv = document.createElement('div');
               newDiv.id = id;
               newDiv.textContent = content;
@@ -193,32 +191,32 @@ module.exports = {
               document.body.appendChild(newDiv);
             }
 
-            function getNodesFromxpath(STR_XPATH, context) {
+            function getNodesFromxpath (STR_XPATH, context) {
               var xresult = document.evaluate(
-                  STR_XPATH,
-                  context,
-                  null,
-                  XPathResult.ANY_TYPE,
-                  null
+                STR_XPATH,
+                context,
+                null,
+                XPathResult.ANY_TYPE,
+                null,
               );
               var xnodes = [];
               var xres;
               while ((xres = xresult.iterateNext())) {
-                  xnodes.push(xres);
+                xnodes.push(xres);
               }
               return xnodes;
             }
-            let compareTableXpath = `//p[contains(.,"Vergleich")]`;
-            if(getNodesFromxpath(compareTableXpath, document)) {
-                addHiddenDiv('hasComparisionTable', "Yes");
+            const compareTableXpath = '//p[contains(.,"Vergleich")]';
+            if (getNodesFromxpath(compareTableXpath, document)) {
+              addHiddenDiv('hasComparisionTable', 'Yes');
             }
             inTheBoxUrl.inTheBoxUrlArray.forEach(elm => {
               addHiddenDiv('inTheBoxUrl', elm);
             });
             inTheBoxUrl.inTheBoxText.forEach(elm => {
-              addHiddenDiv('inTheBoxText', elm)
+              addHiddenDiv('inTheBoxText', elm);
             });
-          }, inTheBoxUrl)
+          }, inTheBoxUrl);
         }
         console.log('inTheBox code execution completed');
         return await context.extract(productDetails, { type: 'MERGE_ROWS', transform });

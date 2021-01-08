@@ -1,6 +1,6 @@
 const { transform } = require('./format');
 
-const implementation =  async (inputs,
+const implementation = async (inputs,
   parameters,
   context,
   dependencies,
@@ -47,12 +47,12 @@ const implementation =  async (inputs,
   } catch (err) {
     console.log('manufacturer contents not loaded or unavailable');
   }
-  const {src, productPage} = await context.evaluate(async function () {
+  const { src, productPage } = await context.evaluate(async function () {
     const iframe = document.querySelector('iframe#desc_ifr');
-    const productPage = window.location.href
+    const productPage = window.location.href;
     // @ts-ignore
     const src = iframe ? iframe.src : '';
-    return {src, productPage};
+    return { src, productPage };
   });
   const redirect = await context.evaluate(async function () {
     let redirect = false;
@@ -63,7 +63,7 @@ const implementation =  async (inputs,
   });
 
   if (redirect === true) {
-    const url = prodUrl? prodUrl : productPage
+    const url = prodUrl || productPage;
     await context.goto(url, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
   }
   if (src) {
@@ -94,7 +94,7 @@ const implementation =  async (inputs,
     await context.waitForSelector('div#CenterPanelInternal');
   }
   return await context.extract(productDetails, { type: 'MERGE_ROWS', transform });
-}
+};
 
 module.exports = {
   implements: 'product/details/extract',

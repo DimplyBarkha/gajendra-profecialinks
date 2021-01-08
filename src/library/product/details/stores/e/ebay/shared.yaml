@@ -34,7 +34,7 @@ fields:
     xpath: //div[contains(@class,"itemAttr")]//table//tr[td[contains(@class,"attrLabels")]] | //div[@id="ProductDetails"]//li
   - name: availabilityText
     singleValue: false
-    xpath: //*[contains(@id,"binBtn_btn")]/@class | //div[@class='item-action']/a[1]
+    xpath: (//*[contains(@id,"binBtn_btn")]/@class)[1] | (//div[@class='item-action']/a)[1]
     regExp: (.+)
     regExpReplace: 'In Stock'
     defaultValue: 'Out of Stock'

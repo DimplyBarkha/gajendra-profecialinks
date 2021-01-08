@@ -15,5 +15,5 @@ module.exports = {
     await context.setLoadImages(true);
     await context.setFirstRequestTimeout(60000);
     await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
-    },
+  },
 };

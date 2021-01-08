@@ -1,4 +1,4 @@
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -18,7 +18,7 @@ async function implementation(
     return src;
   });
 
-  async function scrollToRec(node) {
+  async function scrollToRec (node) {
     await context.evaluate(async (node) => {
       var element = document.querySelector(node);
       if (element) {
@@ -47,9 +47,9 @@ async function implementation(
     console.log('No recommendation products');
   }
 
-  async function checkUPDP() {
+  async function checkUPDP () {
     await context.evaluate(async () => {
-      function addElementToDocument(key, value) {
+      function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
         catElement.className = key;
         catElement.textContent = value;

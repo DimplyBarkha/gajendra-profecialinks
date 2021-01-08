@@ -15,7 +15,7 @@ module.exports = {
     console.log(zipcode);
     if (zipcode) {
       await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
-    await context.setLoadAllResources(true);  
+      await context.setLoadAllResources(true);
     }
-  },    
+  },
 };
