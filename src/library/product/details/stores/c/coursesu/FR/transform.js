@@ -13,7 +13,7 @@ const transform = (data) => {
     .replace(/"\s{1,}/g, '"')
     .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
-  // eslint-disable-next-line no-control-regex
+    // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
 
@@ -63,16 +63,16 @@ const transform = (data) => {
       //     },
       //   ];
       // }
-      if (row.availabilityText){
+      if (row.availabilityText) {
         row.availabilityText.forEach(item => {
-        item.text="In Stock"
-      });
-    }
-    else {
-     row.availabilityText.forEach(item => {
-        item.text="Out of Stock"
-      });
-    }
+          item.text = "In Stock"
+        });
+      }
+      else {
+        row.availabilityText.forEach(item => {
+          item.text = "Out of Stock"
+        });
+      }
       if (row.aggregateRating) {
         let rating;
         if (row.aggregateRating[0].text) {
@@ -105,8 +105,8 @@ const transform = (data) => {
         });
       }
 
-      if (row.shownimages) {
-        row.shownimages.forEach(item => {
+      if (row.shownImages) {
+        row.shownImages.forEach(item => {
           item.text = item.text.replace('250', '800').trim();
           item.text = item.text.replace('250', '800').trim();
         });
@@ -119,15 +119,14 @@ const transform = (data) => {
         });
       }
 
-       if (row.caloriesPerServing) {
+      if (row.caloriesPerServing) {
         let text3 = '';
         row.caloriesPerServing.forEach(item => {
-         const  text2 = item.text.split("|");
-          const  text1 = `${text2[1]}`;
-          text3 = text1.replace('~','');
-
+          const text2 = item.text.split("|");
+          const text1 = `${text2[1]}`;
+          text3 = text1.replace('~ ', '');
         });
-          row.caloriesPerServing = [
+        row.caloriesPerServing = [
           {
             text: cleanUp(text3),
           },
@@ -137,17 +136,17 @@ const transform = (data) => {
 
 
 
-    //  if (row.servingSize) {
-    //     let text = '';
-    //     row.servingSize.forEach(item => {
-    //       text = item.text.replace('servingSize', '');
-    //     });
-    //       row.weightNet = [
-    //       {
-    //         text: cleanUp(text),
-    //       },
-    //     ];
-    //   }
+      //  if (row.servingSize) {
+      //     let text = '';
+      //     row.servingSize.forEach(item => {
+      //       text = item.text.replace('servingSize', '');
+      //     });
+      //       row.weightNet = [
+      //       {
+      //         text: cleanUp(text),
+      //       },
+      //     ];
+      //   }
     }
   }
 

@@ -281,7 +281,8 @@ fields:
     description: Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
     # xpath: //div[contains(@class,'value')]//font[2]//text()
-    xpath: //*[contains(text(), 'Energie')] | //*[contains(text(), 'Valeurs énergetiques')]/following-sibling::*
+    # xpath: //*[contains(text(), 'Energie')] | //*[contains(text(), 'Valeurs énergetiques')]/following-sibling::*
+    xpath: //section[@class='info-table']/div[@class='info-row clearfix']//div[contains(.,'Valeurs énergetiques')]//following-sibling::div
   - name: caloriesFromFatPerServing
     singleValue: false
     description: Nutritional Information for Calories From Fat content - Usually
@@ -552,7 +553,7 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
-  - name: shownimages
+  - name: shownImages
     singleValue: false
     xpath: //li//picture//img//@src
   - name: highQualityImages
