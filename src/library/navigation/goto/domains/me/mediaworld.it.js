@@ -13,6 +13,7 @@ module.exports = {
     await context.setAntiFingerprint(false);
     await context.setLoadAllResources(true);
     await context.setBlockAds(false);
+    await context.setLoadImages(true);
     await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
     console.log(zipcode);
     if (zipcode) {
