@@ -125,17 +125,18 @@ fields:
     xpath: //div[@id='tab-details']//table//tr//th[contains(text(),'Packaged Weight')]//following-sibling::td
   - name: videos1
     singleValue: false
-    # youtube videos
-    xpath: //iframe[contains(@src,'youtube')]/@src
+    xpath: //a[@class='flix_jw_videoid']/@data-jw 
   - name: videos2
     singleValue: false
+    # youtube videos
+    xpath: //iframe[contains(@src,'youtube')]/@src
+  - name: videos
+    singleValue: false
     # flix videos 
-    xpath: //a[@class='flix_jw_videoid']/@data-jw
+    xpath: //div[@id="iframe_video_url"]/@url
   # - name: videos3
   #   singleValue: false    
   #   xpath: //input[@class='flix-jw']/@value
-  - name: videos
-    singleValue: false
   - name: energyEfficiency
     singleValue: false
     xpath: //div[@id='tab-details']//table//tr//th[contains(text(),'Energy star rating')]//following-sibling::td

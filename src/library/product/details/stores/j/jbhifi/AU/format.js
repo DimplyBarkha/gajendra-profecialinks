@@ -61,7 +61,9 @@ const transform = (data) => {
         });
       }
       if (row.videos1) {
-        row.videos = [];
+        if (!(row.videos)) {
+          row.videos = [];
+        }
         row.videos1.forEach(item => {
           if (item.text.indexOf('http') < 0) {
             item.text = 'https:' + item.text;
