@@ -13,7 +13,7 @@ fields:
   - name: flavour
     description: Product flavour
     xpath: ancestor::html//div[@class='swatches-container']//ul[@class='options options-large']//li//a
-  - name: helpfulCount
+  - name: helpful
     type: NUMBER
     description: Number of people who said the review was helpful
     xpath: //div[@class='stamped-review-vote']//a[@data-votes][1]
@@ -59,7 +59,6 @@ fields:
     type: NUMBER
     description: Number of comments on the review
   - name: reviewDate
-    type: DATETIME
     description: Date the review was made
     xpath: //span[@class='spr-review-header-byline']//strong[2]
   - name: user
