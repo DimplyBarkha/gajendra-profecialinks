@@ -240,7 +240,7 @@ fields:
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
     xpath: //h3[contains(., 'Ingrédients')]/../div/p
-    regExp: (Ingrédients:\s|Ingrédients\s:\s)(.+)
+    regExp: (Ingrédients:\sIngrédients\s:\s|Ingrédients:\s|Ingrédients\s:\s)(.+)
     regExpReplace: $2
   - name: servingSize
     singleValue: true
