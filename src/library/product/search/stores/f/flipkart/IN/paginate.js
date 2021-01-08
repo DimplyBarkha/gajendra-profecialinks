@@ -4,8 +4,8 @@ module.exports = {
   parameterValues: {
     country: 'IN',
     store: 'flipkart',
-    nextLinkSelector: 'nav.yFHi8N > a:last-child[class = _1LKTO3 ]',//null,
-    nextLinkXpath: null,
+    nextLinkSelector: null,//null,
+    nextLinkXpath: '//a[span[contains(text(), "Next")]]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div._3LxdjL._3NzWOH' ,
