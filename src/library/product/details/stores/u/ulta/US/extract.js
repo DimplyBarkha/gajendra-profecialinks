@@ -24,16 +24,16 @@ async function implementation(
     }
     const descContent = (document.querySelector('div.ProductDetail__productContent')) ? document.querySelector('div.ProductDetail__productContent').innerHTML.replace(/<li>/gm, ' || ').replace(/<.*?>/gm, '').replace(/\n/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').trim() : '';
     descContent && addHiddenDiv('ii_description', descContent);
-    document.querySelectorAll('iframe[title*="Videos"]').forEach((frame, index) => {
-      frame.querySelectorAll('video').forEach((video, index1) => {
-        addHiddenDiv(`video_${index}_${index1}`, video.src);
-      });
-    });
+    // document.querySelectorAll('iframe[title*="Videos"]').forEach((frame, index) => {
+    //   frame.querySelectorAll('video').forEach((video, index1) => {
+    //     addHiddenDiv(`video_${index}_${index1}`, video.src);
+    //   });
+    // });
     const manufacturerContent = document.querySelector('div#wc-power-page')
     if (manufacturerContent) {
       manufacturerContent.scrollIntoView({behavior: "smooth"})
-      await new Promise(resolve => setTimeout(resolve, 5000))
-      manufacturerContent.innerHTML = manufacturerContent.innerHTML.replace(/<div\s*class="wc-json-data".*?<\/div>/g, ' ');
+      await new Promise(resolve => setTimeout(resolve, 20000))
+      //manufacturerContent.innerHTML = manufacturerContent.innerHTML.replace(/<div\s*class="wc-json-data".*?<\/div>/g, ' ');
     }
   });
   return await context.extract(productDetails, { transform });

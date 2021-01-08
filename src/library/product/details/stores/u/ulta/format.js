@@ -37,13 +37,18 @@ const transform = (data) => {
     if (row.price) {
         row.price.forEach(item => {
           item.text = item.text.replace('$', ' ').trim();
-          console.log("test",item.text);
+          //console.log("test",item.text);
         });
       }
       if (row.listPrice) {
         row.listPrice.forEach(item => {
           item.text = item.text.replace('$', ' ').trim();
         });
+      }
+      if(row.variantInformation){
+        row.variantInformation.forEach(item => {
+          item.text = item.text.replace(" selected", '');
+        })
       }
       if (row.nameExtended) {
         row.nameExtended.forEach(item => {
@@ -56,7 +61,11 @@ const transform = (data) => {
       }
       if (row.quantity) {
         row.quantity.forEach(item => {
-          item.text = item.text.slice(5);
+          if(item.text.indexOf(":")){
+            item.text = item.text.slice(6);
+          }else{
+            item.text = item.text.slice(5);
+          }
         });
       }
       if (row.description) {
