@@ -1,5 +1,6 @@
-
-const { transform } = require('../shared');
+const {
+  transform
+} = require('../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
@@ -10,13 +11,21 @@ module.exports = {
     zipcode: '',
   },
 
-  implementation: async (inputs, { country, domain, transform }, context, { productDetails }) => {
+  implementation: async (inputs, {
+    country,
+    domain,
+    transform
+  }, context, {
+    productDetails
+  }) => {
 
     try {
       function timeout(ms) {
         return new Promise((resolve) => setTimeout(resolve, ms));
       }
-      await context.waitForSelector('.w-cookies-popup__wrapper .w-button-primary', { timeout: 10000 });
+      await context.waitForSelector('.w-cookies-popup__wrapper .w-button-primary', {
+        timeout: 10000
+      });
       await context.evaluate(async function () {
         console.log('Clicking on button.');
         document.querySelector('.w-cookies-popup__wrapper .w-button-primary').click();
@@ -26,11 +35,18 @@ module.exports = {
       console.log('Error while accepting cookies button.', er);
     }
 
-    await context.waitForNavigation({ timeout: 50000, waitUntil: 'networkidle0' });
+    await context.waitForNavigation({
+      timeout: 50000,
+      waitUntil: 'networkidle0'
+    });
     await context.evaluate(async function () {
       console.log('Scrolling to the bottom of page.');
       if (document.querySelector('.footer__bar')) {
-        document.querySelector('.footer__bar').scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+        document.querySelector('.footer__bar').scrollIntoView({
+          behavior: 'smooth',
+          block: 'end',
+          inline: 'nearest'
+        });
         console.log('Scrolling is done waiting for 2 sec');
         await timeout(2000);
       }
@@ -63,6 +79,7 @@ module.exports = {
       if (addPipeTospecs.length) {
         addPipeTospecs.forEach(e => e.textContent = ` || ${e.textContent} : `);
       }
+
       function timeout(ms) {
         return new Promise((resolve) => setTimeout(resolve, ms));
       }
@@ -107,6 +124,52 @@ module.exports = {
     });
 
 
+    async function addEnhancedContent() {
+      const jsApi = document.querySelector('[src*="ws.cnetcontent.com"]') && document.querySelector('[src*="ws.cnetcontent.com"]').src;
+      let jsApi2 = document.querySelector('#flix-minisite no-script, #flix-inpage > script') && document.querySelector('#flix-minisite no-script, #flix-inpage > script').getAttribute('src');  
+      if (jsApi) {
+        const clean = text => text.toString()
+          .replace(/\r\n|\r|\n/g, ' ')
+          .replace(/&amp;nbsp;/g, ' ')
+          .replace(/&amp;#160/g, ' ')
+          .replace(/\u00A0/g, ' ')
+          .replace(/\s{2,}/g, ' ')
+          .replace(/"\s{1,}/g, '"')
+          .replace(/\s{1,}"/g, '"')
+          .replace(/^ +| +$|( )+/g, ' ')
+          // eslint-disable-next-line no-control-regex
+          .replace(/[\x00-\x1F]/g, '')
+          .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+        const response = await fetch(jsApi);
+        const text = await response.text();
+        const text2 = clean(text);
+        const array = text2.match(/"htmlBlocks"\s*:\s*(\[.+])\s*,\s*"sites"/)[1];
+        const html = unescape(array.match(/ccs-inline-content","html":"(.+)"/)[1].replace(/\\n/g, '')).replace(/\\"/g, '"').replace(/\\'/g, "'");
+        const div = document.createElement('div');
+        div.id = 'enhanced-content';
+        div.innerHTML = html;
+        document.body.append(div);
+      } else {
+        const sku = document.querySelector('script[type="application/ld+json"]') && document.querySelector('script[type="application/ld+json"]').textContent.replace(/(.+sku":")(\w+)(","gtin.+)/g,'$2');
+        const ean = document.querySelector('script[type="application/ld+json"]') && document.querySelector('script[type="application/ld+json"]').textContent.replace(/(.+gtin13":")(\w+)(","url.+)/g,'$2');
+        jsApi2 = jsApi2 || `https://media.flixcar.com/delivery/js/inpage/620/pt/mpn/${sku}/ean/${ean}`;
+        let response = await fetch(jsApi2);
+        const js = await response.text();
+        eval(js);
+        const id = flixJsCallbacks.pid;
+        response = await fetch(`https://media.flixcar.com/delivery/inpage/show/620/pt/${id}/json`);
+        const html = JSON.parse((await response.text()).match(/^\((.+)\)$/)[1]).html;
+        const div = document.createElement('div');
+        div.id = 'enhanced-content';
+        div.innerHTML = html;
+        document.body.append(div);
+      }
+    }
+    try {
+      await context.evaluate(addEnhancedContent);
+    } catch (error) {
+      console.log('Enhance content not loaded. Error: ', error);
+    }
     await context.evaluate(async function () {
       const enhanceContentVideos = [];
       const getVideoList = document.querySelector('div.fullJwPlayerWarp input');
@@ -123,54 +186,9 @@ module.exports = {
       const allVideos = enhanceContentVideos.join(' | ');
       document.querySelector('h1') && document.querySelector('h1').setAttribute('enhance-videos', allVideos);
     })
-    async function add() {
-      const jsApi = document.querySelector('#flix-minisite no-script, #flix-inpage > script') && document.querySelector('#flix-minisite no-script, #flix-inpage > script').getAttribute('src');
-      const jsApi2 = document.querySelector('[src*="ws.cnetcontent.com"]') && document.querySelector('[src*="ws.cnetcontent.com"]').src;
-      if (jsApi) {
-        let response = await fetch(jsApi);
-        const js = await response.text();
-        eval(js);
-        const id = flixJsCallbacks.pid;
-        response = await fetch(`https://media.flixcar.com/delivery/inpage/show/620/pt/${id}/json`);
-        const html = JSON.parse((await response.text()).match(/^\((.+)\)$/)[1]).html;
-        const div = document.createElement('div');
-        div.id = 'enhanced-content';
-        div.innerHTML = html;
-        document.body.append(div);
-      }
-      
- 
-      if(jsApi2) {
-        const clean = text => text.toString()
-        .replace(/\r\n|\r|\n/g, ' ')
-        .replace(/&amp;nbsp;/g, ' ')
-        .replace(/&amp;#160/g, ' ')
-        .replace(/\u00A0/g, ' ')
-        .replace(/\s{2,}/g, ' ')
-        .replace(/"\s{1,}/g, '"')
-        .replace(/\s{1,}"/g, '"')
-        .replace(/^ +| +$|( )+/g, ' ')
-        // eslint-disable-next-line no-control-regex
-        .replace(/[\x00-\x1F]/g, '')
-        .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');  
-    const response = await fetch(document.querySelector('[src*="ws.cnetcontent.com"]').src);
-            const text = await response.text();
-           const  text2 = clean(text);
-            const array = text2.match(/"htmlBlocks"\s*:\s*(\[.+])\s*,\s*"sites"/)[1];
-            const  html = unescape(array.match(/ccs-inline-content","html":"(.+)"/)[1].replace(/\\n/g,'')).replace(/\\"/g,'"').replace(/\\'/g,"'");
-            const div = document.createElement('div');
-            div.id = 'enhanced-content';
-            div.innerHTML = html;
-            document.body.append(div);
-      }
-    }
-try {
-  await context.evaluate(add);
-} catch (error) {
-  console.log(error);
-  console.log('enhnace content not loaded');
-}
-    
-    await context.extract(productDetails, { transform });
+
+    await context.extract(productDetails, {
+      transform
+    });
   },
 };
