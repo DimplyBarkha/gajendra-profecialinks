@@ -10,8 +10,8 @@ const cleanUp = (data, context) => {
     .replace(/&amp;#160/g, ' ')
     .replace(/\u00A0/g, ' ')
     .replace(/\s{2,}/g, ' ')
-    .replace(/"\s{1,}/g, '"')
-    .replace(/\s{1,}"/g, '"')
+    .replace(/"\s{1,}/g, '" ')
+    .replace(/\s{1,}"/g, ' "')
     .replace(/^ +| +$|( )+/g, ' ')
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
@@ -29,6 +29,12 @@ const cleanUp = (data, context) => {
           }];
         }
 
+        if (row.brandText && row.brandText[0].text.match('Marca:(.+).')) {
+          row.brandText = [{
+            text: row.brandText[0].text.match('Marca:(.+).')[1].trim(),
+          }];
+        }
+
         if (row.nameExtended) {
           if (row.variantInformation) {
             row.nameExtended = [{
@@ -40,6 +46,11 @@ const cleanUp = (data, context) => {
                 text: `${row.nameExtended[0].text} ${row.quantity[0].text}`,
               }];
             }
+          }
+          if (row.brandText) {
+            row.nameExtended = [{
+              text: `${row.brandText[0].text} ${row.nameExtended[0].text}`,
+            }];
           }
         }
 
@@ -74,7 +85,13 @@ const cleanUp = (data, context) => {
             },
           ];
         }
-
+        if (row.description) {
+          let text = '';
+          row.description.forEach(item => {
+            text = row.description.map(elm => elm.text).join(' ').replace(/•/g, ' ||');
+          });
+          row.description = [{ text }];
+        }
         if (row.videos) {
           let text = '';
           row.videos.forEach(item => {
@@ -85,12 +102,6 @@ const cleanUp = (data, context) => {
               text: text.slice(0, -3),
             },
           ];
-        }
-
-        if (row.brandText && row.brandText[0].text.match('Marca:(.+).')) {
-          row.brandText = [{
-            text: row.brandText[0].text.match('Marca:(.+).')[1].trim(),
-          }];
         }
 
         if (row.ingredientsList && row.ingredientsList[0].text.match('Ingredientes:(.+).')) {
