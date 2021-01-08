@@ -13,6 +13,12 @@ module.exports = {
     context,
     dependencies,
   ) => {
+    await context.evaluate(() => {
+      if (document.querySelector("#data-plp_produits")) {
+        throw new Error('ERROR: Not a product Page');
+      }
+    });
+    
     await context.evaluate(async function () {
       // @ts-ignore
       const productData = window.ONECF_INITIAL_STATE;

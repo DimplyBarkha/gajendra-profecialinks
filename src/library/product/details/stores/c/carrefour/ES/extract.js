@@ -12,6 +12,12 @@ module.exports = {
     context,
     dependencies,
   ) => {
+    await context.evaluate(() => {
+      if (document.querySelector("div.product-card-list") || document.querySelector("div.home-view__main")) {
+        throw new Error('ERROR: Not a product Page');
+      }
+    });
+    
     await context.evaluate(async function () {
       const clickOnImages = async function () {
         function timeout(ms) {

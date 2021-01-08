@@ -240,6 +240,8 @@ fields:
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
     xpath: //h3[contains(., 'Ingrédients')]/../div/p
+    regExp: (Ingrédients:\s|Ingrédients\s:\s)(.+)
+    regExpReplace: $2
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
@@ -530,9 +532,9 @@ fields:
   - name: productUrl
     xpath: //link[@rel='canonical']/@href
   - name: sku
-    xpath: //link[@rel='canonical']/@href
-    regExp: (.*)\/p\/(.*)-(\d+)
-    regExpReplace: $3
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+    xpath: //meta[@itemprop='gtin13']/@content
   - name: featureBullets
     singleValue: false
   - name: shownImages
