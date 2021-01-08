@@ -123,11 +123,11 @@ fields:
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
-  xpath: (//div[@class='BVRRRatingNormalOutOf'])[1]
+  xpath: (//div[@id='BVRRQuickTakeContentContainerID']//div[@class='BVRRRatingNormalOutOf'])[1]
 - name: aggregateRating
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
-  xpath: (//div[@class='BVRRRatingNormalOutOf']/span[@class='BVRRNumber BVRRRatingNumber'])[1]
+  xpath: (//div[@id='BVRRQuickTakeContentContainerID']//div[@class='BVRRRatingNormalOutOf']/span[@class='BVRRNumber BVRRRatingNumber'])[1]
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
@@ -159,7 +159,7 @@ fields:
 - name: videos
   singleValue: false
   description: URLs of videos on page
-  xpath: //div[@itemprop='description']//video/@src | //div[@class='jp-type-single']//video/@src
+  xpath: //div[@itemprop='description']//video/@src | //div[@class='jp-type-single']//video/@src | //div[@class='video_grid_thumb_cell']/div/@data-video-asset-name
 - name: name
   singleValue: true
   description: The product name
@@ -254,8 +254,9 @@ fields:
   singleValue: false
   description:
 - name: secondaryImageTotal
-  singleValue: true
+  singleValue: false
   description:
+  xpath: count((//div[@class='s7thumb']/@style)[position()>1])
 - name: news
   singleValue: true
   description:
@@ -404,7 +405,7 @@ fields:
 - name: warranty
   singleValue: false
   description: Guarantee associated with the product
-  xpath: //span[contains(text(), 'Durée de la garantie')]/ancestor::td/text()
+  xpath: //div[@class='warranty-content']/p
 - name: storage
   singleValue: true
   description: Suggested storage location for product

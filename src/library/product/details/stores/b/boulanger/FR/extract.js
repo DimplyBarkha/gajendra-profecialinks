@@ -20,11 +20,38 @@ module.exports = {
           document.body.setAttribute('brandhref', `https://www.boulanger.com${linkBrand}`);
         }
       }
+      // Create gtin13 if there is not span containing it
+      const gtin = document.querySelector('span[itemprop=gtin13]');
+      if (!gtin) {
+        const imageGtin = document.querySelector('meta[property="og:image"]');
+        if (imageGtin) {
+          const regex = /\/(\d+)/;
+          // @ts-ignore
+          const matched = imageGtin.content.match(regex);
+          if (matched[1]) {
+            const span = document.createElement('span');
+            span.setAttribute('itemprop', 'gtin13');
+            span.innerHTML = matched[1];
+            document.body.appendChild(span);
+          }
+        }
+      }
       // Click video selector to load video itself
       const videoClick = document.querySelector('td#H5V_Video');
       if (videoClick) {
         // @ts-ignore
         videoClick.click();
+        const moreVideos = document.querySelectorAll('div.video_grid_thumb_cell');
+        if (moreVideos) {
+          moreVideos.forEach(element => {
+            const regex = /^Boulanger/;
+            const urlSelector = element.querySelector('div').dataset.videoAssetName;
+            const match = urlSelector.match(regex);
+            if (match) {
+              element.querySelector('div').setAttribute('data-video-asset-name', `https://boulanger.scene7.com/is/content/${urlSelector}`);
+            }
+          });
+        }
       }
 
       // Create videos duration
