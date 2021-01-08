@@ -93,7 +93,7 @@ fields:
   - name: inTheBoxText
     singleValue: false
     xpath: //article[@id="omschrijving"]/p[last()]
-    regExp: In de verpakking:\s(.+)
-    regExpReplace: $1
+    regExp: In de verpakking:\s(.+) | Dit krijg je erbij:(.+)
+    regExpReplace: $2
   - name: hasComparisonTable
     defaultValue: No
