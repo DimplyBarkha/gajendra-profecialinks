@@ -1,0 +1,120 @@
+input:
+  _url: http://bol.com
+  URL: https://www.bol.com/nl/p/my-size-condooms-maat-47-3-stuks/9200000009405505/
+extractions:
+  - html: https://workbench.import.io/html/run=4c7d8a97-c86d-4c44-83ec-cec4b661cc8f/task=95c511bb-8442-41c1-97fb-d73e7acb2a6a/f912af22-e21c-484e-a192-eea868f84468.html
+    extractionConfigId: product/details/stores/b/bol/NL/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.bol.com/nl/p/my-size-condooms-maat-47-3-stuks/9200000009405505/
+                xpath: /html/head[1]/link[7]/@href
+            image:
+              - text: https://media.s-bol.com/7pgD0GVBnwP8/550x292.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@src
+            imageAlt:
+              - text: My.Size Condooms maat 47 - 3 stuks
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@alt
+            alternateImages:
+              - text: https://media.s-bol.com/qxKD236jGlgk/550x580.jpg
+                xpath: /html/body/ol[1]/li[1]
+              - text: https://media.s-bol.com/qxKD236xNGok/550x583.jpg
+                xpath: /html/body/ol[1]/li[2]
+              - text: https://media.s-bol.com/6B3YNEKAmvZL/550x298.jpg
+                xpath: /html/body/ol[1]/li[3]
+              - text: https://media.s-bol.com/7pgD0GVBnwP8/550x292.jpg
+                xpath: /html/body/ol[1]/li[4]
+            category:
+              - text: Erotiek
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/ul[1]/li[2]/span[1]/a[1]/span[1]
+              - text: Condooms
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/ul[1]/li[3]/span[1]/a[1]/span[1]
+            nameExtended:
+              - text: My.Size Condooms maat 47 - 3 stuks
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[1]/h1[1]/span[1]
+            price:
+              - text: € 4,95
+                xpath: /html/body/div[4]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/a[1]
+            description:
+              - text: "De condooms van het Duitse merk MySize worden gemaakt in diverse maten,
+                  zodat u altijd een perfect passend condoom kunt vinden. Het
+                  dragen van een goed passend condoom draagt niet alleen veel
+                  prettiger, maar verhoogt ook de veiligheid tijdens het
+                  gebruik. Deze condooms met een breedtemaat van 47 mm zijn
+                  strakkere condooms met de volgende afmeting:Nominale breedte:
+                  47 mmVoor omtrek penis: tot 10 cmLengte: 160 mmEigenschappen
+                  Condoom:Smaak: NeutraalGlijmiddel: NormaalKleur:
+                  TransparantStructuur: GladGrootte: StrakkerNominale breedte:
+                  47 mmDikte: NormaalAantal per verpakking: 3Merk: MySize"
+                xpath: /html/body/div[7]
+            brandText:
+              - text: My.Size
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]
+            weightNet:
+              - text: 0 kg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/dl[1]/dd[2]
+            variantId:
+              - text: "9200000009405505"
+                xpath: /html/body/ol[2]/@selected_variant_id
+            directions:
+              - text: Geslacht Voor mannen
+                xpath: /html/body/div[11]
+            color:
+              - text: Transparant
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[2]
+            manufacturerDescription:
+              - text: Voor mannen || Zonder smaak || 3 stuk(s)
+                xpath: /html/body/div[12]
+            manufacturerImages:
+              - text: https://s.s-bol.com/imgbase0/imagebase3/regular/FC/0/2/2/1/7901220.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            name:
+              - text: My.Size Condooms maat 47 - 3 stuks
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[1]/h1[1]/span[1]
+            inStorePrice:
+              - text: € 4,95
+                xpath: /html/body/div[4]
+            specifications:
+              - text: "Verpakking breedte: 73 mm | Verpakking hoogte: 22 mm | Verpakking lengte:
+                  81 mm"
+                xpath: /html/body/div[9]
+            pricePerUnit:
+              - text: 1,65
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/wsp-visibility-switch[1]/section[1]/div[1]/span[1]/span[1]
+            pricePerUnitUom:
+              - text: stuk
+                xpath: /html/body/div[6]
+            variantInformation:
+              - text: "3"
+                xpath: /html/body/ol[2]/@selected_variant_name
+            firstVariant:
+              - text: "9200000009405505"
+                xpath: /html/body/ol[2]/li[1]/@variant_id
+            variants:
+              - text: "9200000009405505"
+                xpath: /html/body/ol[2]/li[1]/@variant_id
+              - text: "9200000009405499"
+                xpath: /html/body/ol[2]/li[2]/@variant_id
+              - text: "9200000009405445"
+                xpath: /html/body/ol[2]/li[3]/@variant_id
+            termsAndConditions:
+              - text: Yes
+            privacyPolicy:
+              - text: Yes
+            customerServiceAvailability:
+              - text: Yes
+            imageZoomFeaturePresent:
+              - text: Yes
+            gtin:
+              - text: "4025838820114"
+            shippingInfo:
+              - text: Topdrogist
+            variantCount:
+              - text: "3"
+            secondaryImageTotal:
+              - text: "4"
+        xpath: /
+    timestamp: 1610107563921

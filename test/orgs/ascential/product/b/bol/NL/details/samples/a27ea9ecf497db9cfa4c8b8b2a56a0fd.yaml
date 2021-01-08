@@ -2,7 +2,7 @@ input:
   _url: http://bol.com
   URL: https://www.bol.com/nl/p/dove-nourishing-oil-care-conditioner-6-x-200ml-voordeelverpakking/9200000055835720/
 extractions:
-  - html: https://workbench.import.io/html/run=806d550a-2058-4460-8558-ec92b64a47c2/task=723c2372-cd44-4540-9046-fcca5ec46dbd/d1770da0-30e9-4518-9dbf-61269807ccd2.html
+  - html: https://workbench.import.io/html/run=4c7d8a97-c86d-4c44-83ec-cec4b661cc8f/task=450c1fca-535f-4059-8c13-12ece93acedd/8913452d-a721-470d-9e0e-2b626f35a25a.html
     extractionConfigId: product/details/stores/b/bol/NL/extract
     data:
       - group:
@@ -10,24 +10,24 @@ extractions:
               - text: https://www.bol.com/nl/p/dove-nourishing-oil-care-conditioner-6-x-200ml-voordeelverpakking/9200000055835720/
                 xpath: /html/head[1]/link[7]/@href
             image:
-              - text: https://media.s-bol.com/qZjYrMg251Rp/550x577.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@src
+              - text: https://media.s-bol.com/OP66YggLD4yr/310x840.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@src
             imageAlt:
               - text: Dove Nourishing Oil & Care Conditioner - 6 x 200ml - Voordeelverpakking
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@alt
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@alt
             alternateImages:
-              - text: https://media.s-bol.com/JQZq2749y6Bg/124x90.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[2]/img[1]/@src
-              - text: https://media.s-bol.com/JQZq27Bl6JMg/124x124.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[3]/img[1]/@src
-              - text: https://media.s-bol.com/4QX1vkYnLvQ2/124x87.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[4]/img[1]/@src
-              - text: https://media.s-bol.com/qlxRQvO6BqW7/124x90.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[5]/img[1]/@src
-              - text: https://media.s-bol.com/x2LLk66VGJ1B/56x155.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[6]/img[1]/@src
-              - text: https://media.s-bol.com/OP66YggLD4yr/57x155.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[7]/img[1]/@src
+              - text: https://media.s-bol.com/JQZq2749y6Bg/550x401.jpg
+                xpath: /html/body/ol[1]/li[1]
+              - text: https://media.s-bol.com/JQZq27Bl6JMg/550x550.jpg
+                xpath: /html/body/ol[1]/li[2]
+              - text: https://media.s-bol.com/4QX1vkYnLvQ2/550x387.jpg
+                xpath: /html/body/ol[1]/li[3]
+              - text: https://media.s-bol.com/qlxRQvO6BqW7/550x400.jpg
+                xpath: /html/body/ol[1]/li[4]
+              - text: https://media.s-bol.com/x2LLk66VGJ1B/306x840.jpg
+                xpath: /html/body/ol[1]/li[5]
+              - text: https://media.s-bol.com/OP66YggLD4yr/310x840.jpg
+                xpath: /html/body/ol[1]/li[6]
             category:
               - text: Persoonlijke verzorging
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/ul[1]/li[2]/span[1]/a[1]/span[1]
@@ -47,8 +47,8 @@ extractions:
               - text: € 11,67
                 xpath: /html/body/div[4]
             availabilityText:
-              - text: Op voorraad
-                xpath: /html/body/div[5]
+              - text: In Stock
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/a[1]
             description:
               - text: "Dove Conditioner Hair Therapy Nourishing Oil Care Speciaal samengesteld
                   om droog haar te voeden met met waardevolle arganolie, rijk
@@ -114,33 +114,29 @@ extractions:
             weightNet:
               - text: 1,4 kg
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/dl[1]/dd[1]
-            gtin:
-              - text: "8712561968126"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[4]/dl[1]/dd[1]
             variantId:
               - text: "9200000055835720"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/a[1]/@data-product-id
+                xpath: /html/body/ol[2]/@selected_variant_id
+            directions:
+              - text: Voor haartype Voor haartype Geeft aan voor welk haartype dit product het
+                  meest geschikt is. Bijvoorbeeld; het meest geschikt voor lang,
+                  dun of krullend haar. Tooltip Droog & beschadigd haar
+                xpath: /html/body/div[12]
             ratingCount:
-              - text: "103"
+              - text: "102"
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[6]/div[1]/div[2]/div[2]/div[1]/div[2]/strong[1]
             aggregateRating:
               - text: 4,5
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/@rating
+                xpath: /html/body/div[14]
+            manufacturerDescription:
+              - text: Voor droog & beschadigd haar Voor droog & beschadigd haar Geeft aan voor
+                  welk haartype dit product het meest geschikt is. Bijvoorbeeld;
+                  het meest geschikt voor lang, dun of krullend haar. Tooltip ||
+                  1200 ml
+                xpath: /html/body/div[13]
             manufacturerImages:
-              - text: https://media.s-bol.com/qZjYrMg251Rp/550x577.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
-              - text: https://media.s-bol.com/JQZq2749y6Bg/550x401.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
-              - text: https://media.s-bol.com/JQZq27Bl6JMg/550x550.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
-              - text: https://media.s-bol.com/4QX1vkYnLvQ2/550x387.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
-              - text: https://media.s-bol.com/qlxRQvO6BqW7/550x400.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
-              - text: https://media.s-bol.com/x2LLk66VGJ1B/306x840.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[6]/div[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
-              - text: https://media.s-bol.com/OP66YggLD4yr/310x840.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[7]/div[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+              - text: https://media.s-bol.com/NOExv2Xn5XW8/130x79.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             name:
               - text: Dove Nourishing Oil & Care Conditioner - 6 x 200ml - Voordeelverpakking
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[1]/h1[1]/span[1]
@@ -148,18 +144,8 @@ extractions:
               - text: € 11,67
                 xpath: /html/body/div[4]
             specifications:
-              - text: Siliconenvrij Nee || Gewicht 1,4 kg || Voor haartype Voor haartype Geeft
-                  aan voor welk haartype dit product het meest geschikt is.
-                  Bijvoorbeeld; het meest geschikt voor lang, dun of krullend
-                  haar. Tooltip Droog & beschadigd haar || EAN 8712561968126 ||
-                  Aantal dispensers 6 stuk(s) || Doelgroep Volwassenen ||
-                  Haarkleur Alle haarkleuren || Inhoud 1200 ml || Inhoud per
-                  dispenser 200 ml || Verpakking breedte 180 mm || Verpakking
-                  hoogte 68 mm || Verpakking lengte 255 mm || Categorieën
-                  Conditioners || Serie Dove Hair Therapy || Merk Dove || Voor
-                  haartype Droog & beschadigd haar || Korting vanaf 50%, vanaf
-                  30%, vanaf 20% || Snelle bezorgopties Vandaag Bezorgd, Vandaag
-                  Ophalen, Avondbezorging, Zondagbezorging, Gratis verzending ||
+              - text: "Verpakking breedte: 180 mm | Verpakking hoogte: 68 mm | Verpakking
+                  lengte: 255 mm"
                 xpath: /html/body/div[10]
             pricePerUnit:
               - text: 1,95
@@ -184,9 +170,13 @@ extractions:
               - text: Yes
             imageZoomFeaturePresent:
               - text: Yes
+            gtin:
+              - text: "8712561968126"
             shippingInfo:
-              - text: Verkoop door bol.com
+              - text: Pak-jedeal
             variantCount:
               - text: "0"
+            secondaryImageTotal:
+              - text: "6"
         xpath: /
-    timestamp: 1609837818679
+    timestamp: 1610107569059

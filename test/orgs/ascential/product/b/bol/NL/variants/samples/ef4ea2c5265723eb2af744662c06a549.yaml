@@ -1,0 +1,19 @@
+input:
+  _url: http://bol.com
+  URL: https://www.bol.com/nl/p/my-size-condooms-maat-47-3-stuks/9200000009405505/
+extractions:
+  - html: https://workbench.import.io/html/run=8b9a0bda-ea87-4d91-8a9d-948716327f27/task=f4e75c16-26fc-4b48-a228-d852be125085/62164be9-d290-4b94-a3fc-4546b7c56e35.html
+    extractionConfigId: product/details/stores/b/bol/NL/variantsExtract
+    data:
+      - group:
+          - variantUrl:
+              - text: https://www.bol.com/nl/p/my-size-condooms-maat-47-3-stuks/9200000009405505/?s2a=#productTitle
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+          - variantUrl:
+              - text: https://www.bol.com/nl/p/my-size-condooms-maat-47-10-stuks/9200000009405499/?s2a=#productTitle
+                xpath: /html/body/ol[1]/li[2]/@variant_url
+          - variantUrl:
+              - text: https://www.bol.com/nl/p/my-size-condooms-maat-47-36-stuks/9200000009405445/?s2a=#productTitle
+                xpath: /html/body/ol[1]/li[3]/@variant_url
+        xpath: /html
+    timestamp: 1609941288346

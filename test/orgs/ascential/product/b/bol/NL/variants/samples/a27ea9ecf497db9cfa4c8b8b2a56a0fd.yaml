@@ -1,0 +1,13 @@
+input:
+  _url: http://bol.com
+  URL: https://www.bol.com/nl/p/dove-nourishing-oil-care-conditioner-6-x-200ml-voordeelverpakking/9200000055835720/
+extractions:
+  - html: https://workbench.import.io/html/run=8b9a0bda-ea87-4d91-8a9d-948716327f27/task=59782e01-d871-4920-bcb2-c5df2c25c1ca/b4105136-df9d-4e28-b276-e1f38beaf8a3.html
+    extractionConfigId: product/details/stores/b/bol/NL/variantsExtract
+    data:
+      - group:
+          - variantUrl:
+              - text: https://www.bol.com/nl/p/dove-nourishing-oil-care-conditioner-6-x-200ml-voordeelverpakking/9200000055835720/?country=NL&approved=true&language=nl-NL
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+        xpath: /html
+    timestamp: 1609941292991

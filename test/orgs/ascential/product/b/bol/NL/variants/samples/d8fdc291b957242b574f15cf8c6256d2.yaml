@@ -1,0 +1,22 @@
+input:
+  _url: http://bol.com
+  URL: https://www.bol.com/nl/p/krups-nescafe-dolce-gusto-piccolo-xs-kp1a0110-koffiecupmachine-wit/9200000119890739/
+extractions:
+  - html: https://workbench.import.io/html/run=8b9a0bda-ea87-4d91-8a9d-948716327f27/task=1a2c42b1-62b0-479f-9083-0e68e017c626/c009f7b6-18c2-45ab-9c1c-787be428d574.html
+    extractionConfigId: product/details/stores/b/bol/NL/variantsExtract
+    data:
+      - group:
+          - variantUrl:
+              - text: https://www.bol.com/nl/p/krups-nescafe-dolce-gusto-piccolo-xs-kp1a08-koffiecupmachine-zwart-blauw/9200000119890747/?s2a=#productTitle
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+          - variantUrl:
+              - text: https://www.bol.com/nl/p/krups-nescafe-dolce-gusto-piccolo-xs-kp1a0510-koffiecupmachine-rood/9200000119890735/?s2a=#productTitle
+                xpath: /html/body/ol[1]/li[2]/@variant_url
+          - variantUrl:
+              - text: https://www.bol.com/nl/p/krups-nescafe-dolce-gusto-piccolo-xs-kp1a0110-koffiecupmachine-wit/9200000119890739/?s2a=#productTitle
+                xpath: /html/body/ol[1]/li[3]/@variant_url
+          - variantUrl:
+              - text: https://www.bol.com/nl/p/krups-nescafe-dolce-gusto-piccolo-xs-kp1a3b-koffiecupmachine-zwart/9300000004962240/?s2a=#productTitle
+                xpath: /html/body/ol[1]/li[4]/@variant_url
+        xpath: /html
+    timestamp: 1609941291236

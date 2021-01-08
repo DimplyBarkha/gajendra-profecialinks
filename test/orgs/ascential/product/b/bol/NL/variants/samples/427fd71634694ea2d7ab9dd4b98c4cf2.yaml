@@ -1,0 +1,16 @@
+input:
+  _url: http://bol.com
+  URL: https://www.bol.com/nl/p/andrelon-oil-care-3-x-180-ml-1-minuut-haarmasker-voordeelverpakking/9200000077019379/
+extractions:
+  - html: https://workbench.import.io/html/run=8b9a0bda-ea87-4d91-8a9d-948716327f27/task=96c49c64-c33c-455a-ac7b-1930eb1e2258/67b213e5-1c52-44fe-941c-8ddd633d87d3.html
+    extractionConfigId: product/details/stores/b/bol/NL/variantsExtract
+    data:
+      - group:
+          - variantUrl:
+              - text: https://www.bol.com/nl/p/andrelon-oil-care-3-x-180-ml-1-minuut-haarmasker-voordeelverpakking/9200000077019379/?s2a=#productTitle
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+          - variantUrl:
+              - text: https://www.bol.com/nl/p/andrelon-oil-care-6-x-180-ml-1-minuut-haarmasker-voordeelverpakking/9200000033357420/?s2a=#productTitle
+                xpath: /html/body/ol[1]/li[2]/@variant_url
+        xpath: /html
+    timestamp: 1609941289007
