@@ -1,26 +1,43 @@
-
 module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'mediamarkt.de',
-    timeout: 35000,
+    timeout: 30000,
     country: 'DE',
     store: 'mediamarkt',
-    zipcode: '',
+    zipcode: "''",
   },
-  implementation: async ({ url }, parameters, context, dependencies) => {
-    await context.setBlockAds(false);
+  implementation: async (inputs, parameterValues, context, dependencies) => {
+    const url = inputs.url;
 
-    const lastResponseData = await context.goto(url, {
-      timeout: 100000,
+    await context.goto(url, {
+      timeout: 30000,
       waitUntil: 'load',
       checkBlocked: true,
-      js_enabled: true,
-      css_enabled: false,
-      random_move_mouse: true,
-      anti_fingerprint: true,
-      discard_CSP_header: false,
     });
+    const navigation = async function (context, inputs) {
+      let url = inputs.url;
+
+      async function checkUrlForCategoryOrBrand () {
+        return await context.evaluate(function () {
+          const currentUrl = document.location.href;
+          if (currentUrl.includes('shop/marke/') || currentUrl.includes('de/category/')) {
+            return true;
+          }
+          return false;
+        });
+      }
+
+      const categoryOrBrandInUrl = await checkUrlForCategoryOrBrand();
+
+      if (categoryOrBrandInUrl) {
+        const searchTerm = url.match(/(?<=query=).*?(?=&page|$)/)[0];
+        url = url.replace(searchTerm, `%27${searchTerm}%27`);
+        await context.goto(url, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
+      }
+    };
+    await navigation(context, inputs);
+    await context.setBlockAds(false);
 
     const memory = {};
     const backconnect = !!memory.backconnect;
@@ -65,7 +82,7 @@ module.exports = {
       if (await isCaptcha() === 'true') {
         if (!benchmark) {
           console.log('We failed to solve the CAPTCHA');
-          return context.reportBlocked(lastResponseData.code, 'Blocked: Could not solve CAPTCHA, attempts=' + captchas);
+          return context.reportBlocked('Blocked: Could not solve CAPTCHA, attempts=' + captchas);
         }
         return false;
       }
