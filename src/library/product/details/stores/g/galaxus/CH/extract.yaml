@@ -20,7 +20,7 @@ fields:
     xpath:  //span[contains(@class,"Z1")]//div[contains(@class,"Z1")]//div[contains(@class,"Z1")]//a
   - name: alternateImages
     singleValue: false
-    xpath: //picture[contains(@class,"mediaPicture Z1")]//img/@src
+    xpath: //picture[contains(@class,"mediaPicture Z1") ]//source[1]/@srcset
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//picture[contains(@class,"mediaPicture Z1")]//img/@src)  
