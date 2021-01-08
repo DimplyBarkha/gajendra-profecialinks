@@ -53,7 +53,7 @@ fields:
     xpath: //span[@class='supplier-styleId']
   - name: variantId
     singleValue: false
-    xpath: //ul[@class='colors-shadeList colors-shadeListDesktop']//li//a/@href
+    xpath: //ul[@class='colors-shadeList colors-shadeListDesktop']//li//a/@href | //span[@class='supplier-styleId']
     regExp: \/(\d+)
     regExpReplace: $1
   - name: firstVariant
