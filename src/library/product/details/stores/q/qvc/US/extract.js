@@ -67,7 +67,7 @@ module.exports = {
             }
           }
           if ('directions' in data[k].group[i]) {
-            if (data[k].group[i].directions[0].text.includes('How do I use it:')){
+            if (data[k].group[i].directions[0].text.includes('How do I use it:')) {
               data[k].group[i].directions[0].text = 'How do I use it: ' + data[k].group[i].directions[0].text.split('How do I use it:')[1].split('From')[0].trim();
             }
           }
