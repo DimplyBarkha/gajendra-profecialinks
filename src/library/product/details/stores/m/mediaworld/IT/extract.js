@@ -9,6 +9,7 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
+    // for RPC ID:z-30592816
     const productUrl = await context.evaluate(async function () {
       const getXpath = (xpath, prop) => {
         const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
@@ -26,7 +27,7 @@ module.exports = {
         await context.setLoadAllResources(true);
         await context.setBlockAds(false);
         await context.setLoadImages(true);
-        await context.goto('https://www.mediaworld.it' + productUrl);
+        await context.goto('https://www.mediaworld.it' + productUrl, { timeout: 1000000, waitUntil: 'load', checkBlocked: true });
       } catch (error) {
         console.log('No record');
       }
@@ -44,7 +45,7 @@ module.exports = {
       await context.click('div .thumb-media-container a.thumb-media-item', {}, { timeout: 50000 });
     }
     try {
-      await new Promise(resolve => setTimeout(resolve, 5000));
+      // await new Promise(resolve => setTimeout(resolve, 5000));
       await context.waitForSelector('ul[class="productDetailsTabs"] li[class="productDetails-tab active"]', {}, { timeout: 100000 });
       await context.waitForXPath("//div[@id='flix-inpage']//img/@srcset | //div[@id='flix-inpage']//img/@data-img-src|//div[@id='flix-inpage']//img/@data-srcset", {}, { timeout: 100000 });
       await context.waitForSelector('div[id="flix-inpage"] img', {}, { timeout: 100000 });
@@ -140,7 +141,6 @@ module.exports = {
                   }
                 }
               } else {
-                console.log('data is coming data is coming data is coming');
                 const ratingXPath = getXpath('//div[@id="alaTestSnippet"]//div[@class="star_rating"]//div/@class', 'nodeValue');
                 if (ratingXPath) {
                   var ratingXPathString = ratingXPath.replace(/r/g, '');
