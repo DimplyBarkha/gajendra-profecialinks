@@ -1,11 +1,11 @@
-const { transform } = require('../../../../shared');
+const { cleanUp } = require('../../../../shared');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'UK',
     store: 'lookfantastic',
-    transform: transform,
+    transform: cleanUp,
     domain: 'lookfantastic.com',
   },
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
@@ -23,6 +23,23 @@ module.exports = {
         }
         return null;
       }
+      function addElementToDocument (key, value) {
+        const catElement = document.createElement('div');
+        catElement.id = key;
+        catElement.textContent = value;
+        catElement.style.display = 'none';
+        document.body.appendChild(catElement);
+      }
+      const getXpath = (xpath, prop) => {
+        const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+        let result;
+        if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+        else result = elem ? elem.singleNodeValue : '';
+        return result && result.trim ? result.trim() : result;
+      };
+      const variantInformation = getXpath("//h1[@class='productName_title']//text()", 'nodeValue');
+    var VI = variantInformation.split(" ");
+    addElementToDocument('variantInformation', VI[VI.length-1]);
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
@@ -103,6 +120,7 @@ module.exports = {
       }
       if (directions) addHiddenDiv('ii_directions', directions);
     });
+    
     await context.extract(productDetails, { transform: transformParam });
   },
   

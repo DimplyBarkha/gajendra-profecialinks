@@ -6,9 +6,6 @@ fields:
   - name: image
     singleValue: true
     xpath: //div[@id='ii_image']
-  - name: url
-    singleValue: true
-    xpath: //link[@rel="canonical"]/@href
   - name: metaKeywords
     singleValue: true
     xpath: //meta[contains(@name,"Keyword")]/@content
@@ -20,6 +17,9 @@ fields:
   - name: price
     singleValue: true
     xpath: //p[@class='productPrice_price']
+  - name: promotion
+    singleValue: true
+    xpath: //p[@class="productPrice_savingAmount"]//text()
   - name: availabilityText
     singleValue: true
     xpath: //div[@id='ii_availabilityText']
@@ -113,3 +113,12 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: false
     defaultValue: Yes
+  - name: variantInformation
+    singleValue: true
+    xpath: //html//div[@id="variantInformation"]
+  - name: ingredientsList
+    singleValue: true
+    xpath: (//div[@data-information-component="ingredients"]//p)[1]//text()
+  - name: secondaryImageTotal
+    singleValue: true
+    xpath: count(//ul[@class="productImageCarousel_thumbnailContainer"]//li[position()>1]) 
