@@ -222,3 +222,5 @@ fields:
     xpath: //div[contains(@class, 'more-sell-bundle')]//div[contains(@class, 'product-name')] | //div[contains(@class, 'more-sell-bundle')]//a[contains(@class, 'product-name')] | //div[contains(@class, 'recommendSlider')]//a[contains(@class, 'product-name')]
   - name: inTheBoxText
     xpath: //strong[contains(., 'Inkludert i pakken') or contains(., 'Inkludert i esken:')]/following-sibling::text() | //strong[contains(., 'Inkludert i pakken') ]/../..//ul/li
+  - name: hasComparisonTable
+    defaultValue: "No"

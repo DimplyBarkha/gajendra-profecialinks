@@ -8,6 +8,7 @@ module.exports = {
   },
   implementation: async ({ url }, parameters, context, dependencies) => {
     url = `${url}#[!opt!]{"first_request_timeout":50000, "force200": true}[/!opt!]`;
+    await context.setLoadAllResources(true);
     await context.goto(url, {
       block_ads: false,
       load_all_resources: true,
