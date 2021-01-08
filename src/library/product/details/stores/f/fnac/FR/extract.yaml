@@ -99,9 +99,26 @@ fields:
     xpath: //dt[contains(text(), "Dimensions")]//following-sibling::*
   - name: manufacturer
     singleValue: false
+    xpath: //div[@class='f-productHeader-additionalInformation f-productHeader-subTitle']//span[@class='f-productHeader-subTitleLabel']/a
   - name: promotion
     singleValue: false
+    xpath: //div[@class='f-productOffer-commercialOperation']
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@class='inpage_selector_info flix-temp-abcd']//div[@class='flix-std-info']
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@class='inpage_selector_info flix-temp-abcd']//div[@class='flix-std-info']//div[contains(@class,'flix-std-info-picture')]//img/@srcset
+  - name: warnings
+    singleValue: false
+    xpath: //div[@class='characteristicsStrate__lists']//dl//dt[contains(text(),'Avertissement de sécurité')]/parent::dl/dd    
+  - name: productOtherInformation
+    singleValue: false
+    xpath: //div[@class='characteristicsStrate__lists']//dl[@class='characteristicsStrate__item']
   - name: videos
+    singleValue: false  
+    xpath: //div[contains(@class, "f-productVisuals-main")]//div[contains(@class, "VideoPlayer")]//video[contains(@id, "video")]/@src
+  - name: galleryVideos
     singleValue: false  
     xpath: //div[contains(@class, "f-productVisuals-main")]//div[contains(@class, "VideoPlayer")]//video[contains(@id, "video")]/@src
   - name: variantId

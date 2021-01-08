@@ -71,6 +71,28 @@ const transform = (data) => {
           }
         });
       }
+      if (row.manufacturerDescription) {
+        var arrTemp = [];
+        row.manufacturerDescription.forEach(item => {
+          arrTemp.push(item.text);
+        });
+        row.manufacturerDescription = [{ text: arrTemp.join(' ') }];
+      }
+      if (row.productOtherInformation) {
+        var arrInfo = [];
+        row.manufacturerDescription.forEach(item => {
+          item.text.replace(/\n\s*\n/, ' : ');
+          arrInfo.push(item.text);
+        });
+        row.manufacturerDescription = [{ text: arrInfo.join(' | ') }];
+      }
+      if (row.manufacturerImages) {
+        var arrImg = [];
+        row.manufacturerImages.forEach(item => {
+          arrImg.push(item.text);
+        });
+        row.manufacturerImages = [{ text: arrImg.join(' | ') }];
+      }
       if (row.warranty) {
         row.warranty.forEach(warrantyItem => {
           warrantyItem.text = warrantyItem.text.replace('Garantie', '').trim();
