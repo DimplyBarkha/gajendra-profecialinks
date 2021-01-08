@@ -449,6 +449,7 @@ fields:
   - name: inTheBoxUrl
   - name: inTheBoxText
   - name: hasComparisonTable
+    xpath: //div[contains(@class, 'comparison-table')]
     defaultValue: No
   - name: unInterruptedPDP
     xpath: //div[contains(@id,'recomm_slot')]//div[contains(@class, 'slick-list')]//div[contains(@class, 'slick-slide') and not(contains(@class, 'slick-cloned'))]//h3
