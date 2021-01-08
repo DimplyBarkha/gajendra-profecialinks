@@ -46,7 +46,13 @@ module.exports = {
     if (doesPopupExist) {
       await context.click('ul.c-tabs__menu-list> li:nth-child(2) > a');
       // await new Promise((resolve, reject) => setTimeout(resolve, 6000));
-      await context.waitForSelector('div[class="product-details-tables-holder sel-characteristics-table"]>table', { timeout: 30000 })
+      try {
+        await context.waitForSelector('div[class="product-details-tables-holder sel-characteristics-table"]>table', { timeout: 30000 })
+        console.log('specification loaded successfully')
+      } catch (e) {
+        console.log('specification loaded successfully')
+      }
+
     }
     await context.evaluate(async function () {
       const shipping = document.evaluate(`//h3[contains(text(),'Габаритные размеры')]/following::table[1]`, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;

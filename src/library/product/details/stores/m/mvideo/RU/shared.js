@@ -37,10 +37,10 @@ const cleanUp = (data, context) => {
         let text = row.description[0].text;
         row.description = [{ text }]
       }
-      if (row.availabilityText) {
-        let text = row.availabilityText[0].text.includes('OutOfStock') ? 'Out of Stock' : 'In Stock'
-        row.availabilityText = [{ text }]
-      }
+      // if (row.availabilityText) {
+      //   let text = row.availabilityText[0].text.includes('OutOfStock') ? 'Out of Stock' : 'In Stock'
+      //   row.availabilityText = [{ text }]
+      // }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {

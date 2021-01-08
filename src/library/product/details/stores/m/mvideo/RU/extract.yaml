@@ -47,7 +47,10 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //link[contains(@itemprop,"availability")]/@href
+    xpath: //input[contains(@value,"Добавить в корзину")][@type="submit"][@data-init="addToBasket"]/@value
+    regExp: (.+)
+    regExpReplace: "In Stock"
+    defaultValue: Out Of Stock
   - name: description
     description:
       Product description supplied by website - may be concatenanted from
