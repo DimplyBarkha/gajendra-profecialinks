@@ -10,6 +10,7 @@ fields:
   - name: brand
     singleValue: false
     description: The brand name
+    defaultValue: 'none'
     xpath: //span[contains(@class,"designer-enhancement")]
   - name: category
     singleValue: false
@@ -36,7 +37,7 @@ fields:
   - name: productId
     singleValue: false
     description: The store-specific product identifier
-    xpath: //@id
+    # xpath: //@id
   - name: mpc
     singleValue: false
     description: The model code of the product
