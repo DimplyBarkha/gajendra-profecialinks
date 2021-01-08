@@ -181,4 +181,10 @@ fields:
   # - name: promotion
   #   singleValue: false
   #   xpath: //div[@class="priceInfos"]//*[@class="reduc-info"]//*[@class="reduc"]
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //tr/td[contains(.,'Zubehör inklusive')]/following-sibling::td
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //div[contains(@class,'swiper-container')]/div[contains(@class,'swiper-wrapper')]/div[contains(@class,'swiper-slide')]//h4
   
