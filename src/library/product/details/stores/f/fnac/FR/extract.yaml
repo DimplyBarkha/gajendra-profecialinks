@@ -84,7 +84,10 @@ fields:
     xpath: //div[@class="characteristicsStrate__item  characteristicsStrate__item--long "]//dt[contains(text(), "Mention Légale")]//following-sibling::*
   - name: sku
     singleValue: false
-    xpath: //div[@id="added_sku"]
+    xpath: //script[contains(text(),'sku')]
+    #"sku":"9172525",
+    regExp: "sku":"(.+?)"
+    regExpReplace: $1
   - name: gtin
     singleValue: false
     xpath: //div[contains(@class, "f-productPage")]/@data-ean13
