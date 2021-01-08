@@ -25,16 +25,10 @@ module.exports = {
       addElementToDocument('searchUrl', searchUrl);
 
       const elementWithIDs = document.evaluate('//script[contains(.,"Search Results")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-      const products = document.querySelectorAll('ul.products-grid>li');
-      const idRegex = /"id":"(\d+)/g;
-      const idArray = [];
-      let match = idRegex.exec(elementWithIDs.textContent);
-      while (match != null) {
-        idArray.push(match[1]);
-        match = idRegex.exec(elementWithIDs.textContent);
-      }
-      products.forEach(product => {
-        product.setAttribute('id', idArray.shift());
+      const productsElements = document.querySelectorAll('ul.products-grid>li');
+      const productsArray = JSON.parse(`${elementWithIDs.textContent.match(/\((.+)\)/)[1]}`).ecommerce.impressions;
+      productsElements.forEach(product => {
+        product.setAttribute('id', productsArray.shift().id);
       });
     });
     return await context.extract(productDetails, { transform });
