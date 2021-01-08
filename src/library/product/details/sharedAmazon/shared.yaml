@@ -223,7 +223,7 @@ fields:
     xpath: //div[contains(@id,"heroQuickPromo") and contains(@id, "feature_div")]//img/@src
   - name: heroQuickPromoUrl
     singleValue: false
-    xpath: (//div[contains(@id,"heroQuickPromo") and contains(@id, "feature_div")]//area | //div[contains(@id,"heroQuickPromo") and contains(@id, "feature_div")]//a[contains(@title,  "Learn")])[1] | //div[contains(@id,"heroQuickPromo")]
+    xpath: (//div[contains(@id,"heroQuickPromo") and contains(@id, "feature_div")]//img | //div[contains(@id,"heroQuickPromo") and contains(@id, "feature_div")]//area | //div[contains(@id,"heroQuickPromo") and contains(@id, "feature_div")]//a[contains(@title,  "Learn")])[1] | //div[contains(@id,"heroQuickPromo")]
     type: LINK
   - name: ingredientImagePresent
     #singleValue: true
