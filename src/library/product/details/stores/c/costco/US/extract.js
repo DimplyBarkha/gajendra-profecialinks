@@ -232,6 +232,48 @@ module.exports = {
             addHiddenDiv('addDesc', newDesc);
           }
         }
+
+        const similarItemsList = document.querySelectorAll('#mbox-recommend .hl-product');
+        let hasComparisionTable = false;
+        const updpList = [];
+
+        if (similarItemsList.length) {
+          hasComparisionTable = true;
+
+          for (const item of similarItemsList) {
+            const title = item.querySelector('.caption .description') ? item.querySelector('.caption .description').innerText : null;
+
+            if (title) {
+              updpList.push(title);
+            }
+          }
+        }
+
+        const recommendedProducts = document.querySelectorAll('#viewItem-Carousel .hl-product');
+
+        for (const item of recommendedProducts) {
+          const title = item.querySelector('.caption .description') ? item.querySelector('.caption .description').innerText : null;
+
+            if (title) {
+              updpList.push(title);
+            }
+        }
+
+        for (const item of updpList) {
+          const newEl = document.createElement('import-updp');
+          newEl.innerText = item;
+          document.body.appendChild(newEl);
+        }
+
+        document.body.setAttribute('import-comparision-table', hasComparisionTable ? 'Yes' : 'No');
+
+        const descEl = document.querySelector('.syndi_powerpage');
+
+        if (descEl) {
+          const newEl = document.createElement('import-custom-description');
+          newEl.appendChild(descEl.shadowRoot);
+          document.body.appendChild(newEl);
+        }
       });
     } catch (e) {
       console.log(e);
