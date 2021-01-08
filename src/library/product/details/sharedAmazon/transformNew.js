@@ -351,6 +351,10 @@ const transform = (data, context) => {
         const rankCategory = row.salesRankCategory.map(elm => elm.text.trim());
         row.salesRankCategory = [...new Set(rankCategory)].map(elm => ({ text: elm }));
       }
+      if (row.price) {
+        const price = row.price.find(elm => elm.text.match(/\d+/));
+        row.price = price ? [price] : row.price;
+      }
       Object.keys(row).forEach(header => {
         row[header].forEach(el => {
           el.text = clean(el.text);
