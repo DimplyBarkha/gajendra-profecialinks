@@ -6,8 +6,9 @@ async function implementation (
   dependencies,
 ) {
   console.log('params', parameters);
-  await context.goto(parameters.url, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
-  await context.waitForSelector('#app-content');
+  const url = parameters.url.replace(/{searchTerms}/g, encodeURIComponent(inputs.keywords));
+
+  await context.goto(url, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
   // Check if cookies pop-up appeared
   const doesPopupExist = await context.evaluate(function () {
     return Boolean(document.querySelector('div.privacy-prompt-footer > a'));
@@ -15,18 +16,6 @@ async function implementation (
 
   if (doesPopupExist) {
     await context.click('div.privacy-prompt-footer > a');
-  }
-
-  try {
-    await context.setInputValue('#searchTerm', inputs.keywords);
-  } catch (err) {
-    console.log('Set input value, error - ' + err);
-  }
-
-  try {
-    await context.clickAndWaitForNavigation('form > button[type="submit"]', {}, { timeout: 50000 });
-  } catch (err) {
-    console.log('Click & Navigation error' + err);
   }
 
   const doesShopAllLinkExist = await context.evaluate(function () {
@@ -61,7 +50,7 @@ module.exports = {
     country: 'UK',
     store: 'argos',
     domain: 'argos.co.uk',
-    url: 'https://www.argos.co.uk/',
+    url: 'https://www.argos.co.uk/search/{searchTerms}/category:800160/',
     loadedSelector: '#findability > div > div.search > div',
     noResultsXPath: '//h2[contains(@data-test,"no-results-suggestions-heading")]',
   },
