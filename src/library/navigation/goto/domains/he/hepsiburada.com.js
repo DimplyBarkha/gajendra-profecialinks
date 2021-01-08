@@ -8,6 +8,7 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ url }, parameters, context, dependencies) => {
+    await new Promise((resolve, reject) => setTimeout(resolve, 30000));
     const timeout = parameters.timeout ? parameters.timeout : 10000;
     async function getHtml(url) {
       const element = document.querySelectorAll('div.flix-std-table div.flix-std-content');
@@ -21,12 +22,13 @@ module.exports = {
     }
 
     async function inBoxUrl(url) {
-      await new Promise((resolve, reject) => setTimeout(resolve, 30000));
+      //const inBoxImageSelector = 'div.inpage_selector_InTheBox div.flix-background-image img';
       const element = document.querySelectorAll('div.inpage_selector_InTheBox div.flix-background-image img');
+      //const element = document.querySelectorAll(inBoxImageSelector);
       let inBox = [];
       if (element) {
         for (let i = 0; i < element.length; i++) {
-          inBox.push(element[i].srcset);
+          inBox.push(element[i].dataset.flixsrcset.match(/^(\/\/)(.+)(.jpg)(.200w)/)[2]);
         }
       }
       return inBox;
@@ -61,8 +63,10 @@ module.exports = {
           timeout,
           waitUntil: 'load',
           checkBlocked: true,
+          block_ads: false,
         });
         await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+        await context.waitForSelector('div.inpage_selector_InTheBox div.flix-background-image img', { timeout: 90000 });
         const html = await context.evaluate(getHtml, enhancedContentLink);
         const inBoxManufactureUrl = await context.evaluate(inBoxUrl, enhancedContentLink);
         await context.goto(url);

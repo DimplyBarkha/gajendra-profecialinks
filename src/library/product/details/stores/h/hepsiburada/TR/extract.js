@@ -36,7 +36,7 @@ module.exports = {
         for (let index = 0; index < inBoxUrlArr.length; index++) {
           const newlink = document.createElement('tr');
           newlink.setAttribute('class', 'in_boxurl');
-          newlink.setAttribute('inboxurl', 'https:' + inBoxUrlArr[index]);
+          newlink.setAttribute('inboxurl', 'https://' + inBoxUrlArr[index] + '.jpg');
           tBody.appendChild(newlink);
         }
       }
