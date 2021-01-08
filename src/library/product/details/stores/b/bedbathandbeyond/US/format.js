@@ -117,13 +117,20 @@ const transform = (data) => {
           row.specifications = [{'text':info.join(' || '),'xpath':row.specifications[0].xpath}];          
         }
         let ad_dec_data = '';
-        if(row.additionalDescBulletInfo){
-          let arr_info = [];
-          row.additionalDescBulletInfo.forEach(item=>{
-            arr_info.push(item.text);
-          });            
-          row.additionalDescBulletInfo = [{'text':'|| '+arr_info.join(' || ')}];
-          ad_dec_data = '|| '+arr_info.join(' || ');
+        // if(row.additionalDescBulletInfo){
+        //   let arr_info = [];
+        //   row.additionalDescBulletInfo.forEach(item=>{
+        //     arr_info.push(item.text);
+        //   });            
+        //   row.additionalDescBulletInfo = [{'text':'|| '+arr_info.join(' || ')}];
+        //   ad_dec_data = '|| '+arr_info.join(' || ');
+        // }
+        if (row.additionalDescBulletInfo) {
+          let info = [];
+          row.additionalDescBulletInfo.forEach(item => {
+              info.push(item.text.replace(/(\s*\n\s*)+/g, ' || ').trim());
+          });
+          row.additionalDescBulletInfo = [{'text':info.join(' || '),'xpath':row.additionalDescBulletInfo[0].xpath}];
         }
         if (row.description) {
           let info = [];          
@@ -138,6 +145,22 @@ const transform = (data) => {
             arr_info.push(item.text);
           });            
           row.variantInformation = [{'text':arr_info.join(' | ')}];
+        }
+        if (row.manufacturerDescription) {
+          let info = [];          
+          row.manufacturerDescription.forEach(item => {
+            info.push(item.text.replace(/(\s*\n\s*)+/g, ' ').trim());            
+          });
+          row.manufacturerDescription = [{'text':info.join(' '),'xpath':row.manufacturerDescription[0].xpath}];            
+        }
+        if (row.category) {        
+          row.category.forEach(item => {
+            if (item.text == "Team Spirit") {
+              item.text = "";
+            }else{
+              item.text = item.text;
+            }
+          });            
         }
       }
     }

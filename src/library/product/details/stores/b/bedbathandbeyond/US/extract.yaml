@@ -35,7 +35,7 @@ fields:
     xpath: //title
   - name: category
     SingleValue: false
-    xpath: //ul[@data-locator='Breadcrumbs']//li[@itemprop='itemListElement']//a[@itemprop='item']//span[@itemprop='name']
+    xpath: //ul[contains(@class, "Breadcrumbs-inline")]//li/a/@title
   - name: brandText
     SingleValue: false
     xpath: //a[@itemprop='brand']//span[@itemprop='name']
@@ -80,7 +80,7 @@ fields:
     xpath: '0'
   - name: manufacturerDescription
     SingleValue: false
-    xpath: //div[@id='wc-aplus']
+    xpath: //div[@id='productDetails']//*[self::div or self::li]
   - name: videos
     SingleValue: false
     xpath: //div[@id='rclModal']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li//button/img[@alt='Video']/@src
