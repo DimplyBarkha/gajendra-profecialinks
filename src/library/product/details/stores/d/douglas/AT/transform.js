@@ -17,7 +17,7 @@ const cleanUp = (data, context) => {
           text = text + (text ? ' ' : '') + item.text;
         });
         if (row.variantInformation) {
-          text = text + ' ' + row.variantInformation[0].text;
+          text = text + ' - ' + row.variantInformation[0].text;
         }
         row.nameExtended = [{ text }];
       }
