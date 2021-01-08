@@ -51,6 +51,7 @@ const transform = (data) => {
               item.text = item.text.replace('1x', '');
               item.text = 'I'+ item.text;
               item.text = item.text.slice(1, -1);
+              item.text = item.text.replace(/\?.*/, '');
           });
           if (row.alternateImages.length) {
             row.alternateImages.splice(0, 1);
