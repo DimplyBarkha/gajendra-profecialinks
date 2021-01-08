@@ -12,12 +12,20 @@ fields:
   - name: id
     singleValue: false
     xpath: //div[@class="SearchResultsGrid-ListAddToCartAction"]//input[@name="productCodePost"]/@value
+  - name: id1
+    singleValue: false
+    xpath: //a[contains(@class,"product-tile-inner__img")]/@href
+    regExp: (.*)\/p\/(.*)
+    regExpReplace: $2
   - name: thumbnail
     singleValue: false
     xpath: //a[contains(@class,"product-tile-inner__img")]/img/@data-src
   - name: price
     singleValue: false
     xpath: //div[@class="SearchResultsGrid-ListAddToCartAction"]//input[@name="productPostPrice"]/@value
+  - name: price1
+    singleValue: false
+    xpath: //div[contains(@class,"_analytics")]//input/@value
   - name: aggregateRating
     singleValue: false
     xpath: //div[contains(@class,"rating-stars")]/@data-rating

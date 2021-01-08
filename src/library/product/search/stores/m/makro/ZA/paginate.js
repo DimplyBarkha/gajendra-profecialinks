@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'ZA',
     store: 'makro',
-    nextLinkSelector: 'div.plp-control-hideMobile i.mak-icon-rightarrow',
+    nextLinkSelector: 'div[class*="pagination-bar top"] li[class*="pagination-next"] a',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div#mak-body-content',
