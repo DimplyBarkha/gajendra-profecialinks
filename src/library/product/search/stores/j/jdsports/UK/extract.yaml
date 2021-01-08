@@ -20,9 +20,9 @@ fields:
     description: The store-specific product identifier
     xpath: //ul[@id='productListMain']//span[@class='itemOverlay ']/@data-productsku
   - name: aggregateRating2
-    # xpath: //ul[@id='productListMain']//div[@class='pr-snippet-rating-decimal']//text()
+    xpath: //ul[@id='productListMain']//div[@class='pr-snippet-rating-decimal']//text()
   - name: reviewCount
-    # xpath: //ul[@id='productListMain']//span[@class='pr-snippet-review-count']//text()
+    xpath: //ul[@id='productListMain']//span[@class='pr-snippet-review-count']//text()
   - name: price
     description: The offered price for the product
     type: CURRENCY
