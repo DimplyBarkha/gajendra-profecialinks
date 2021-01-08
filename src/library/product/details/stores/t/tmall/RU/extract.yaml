@@ -81,10 +81,10 @@ fields:
     xpath: //div[@class="product-price-original"]/span
   - name: description
     singleValue: false
-    xpath: //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]/div/p[1] | //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]//div[@class="detail-desc-decorate-richtext"]/p[1] | //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]/div/div[@class="detailmodule_text"]/p[1]
+    xpath: //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]//div[@class="detail-desc-decorate-richtext"] | //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]/div/div[@class="detailmodule_text"]
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]/div/p | //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]//div[@class="detail-desc-decorate-richtext"]/p | //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]/div/div[@class="detailmodule_text"]/p[1]
+    xpath: //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]//div[@class="detail-desc-decorate-richtext"]/p | //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]/div/div[@class="detailmodule_text"]/p
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]//div[@class="detailmodule_dynamic"]//p/img/@src
+    xpath: //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]//div[@class="detailmodule_dynamic"]//p/img/@src | //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]//table//td//img/@src
