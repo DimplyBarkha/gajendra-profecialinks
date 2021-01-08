@@ -39,6 +39,7 @@ module.exports = {
       if (enhacedContentTab) {
         // @ts-ignore
         enhacedContentTab.click();
+        await new Promise((resolve, reject) => setTimeout(resolve, 2000));
       }
       const videoIframe = document.querySelector('iframe[id*="quchbox-videolist"]');
       try {

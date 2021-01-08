@@ -141,7 +141,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath:  //ul[contains(@class,"b-video-list")]/li//@data-videoid | //div[contains(@class,"product-inspiration-wrapper")]//video/@src
+    xpath:  //ul[contains(@class,"b-video-list")]/li//@data-videoid | //div[contains(@class,"product-inspiration-wrapper")]//video/@src | //video/source/@src | //div[contains(@class,"article-text article-free-html")]//video/source/@src
   - name: name
     singleValue: false
     description: The product name
@@ -217,4 +217,8 @@ fields:
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: "No"
   - name: currencyOverride
-    xpath: NOK
+    defaultValue: NOK
+  - name: unInterruptedPDP
+    xpath: //div[contains(@class, 'more-sell-bundle')]//div[contains(@class, 'product-name')] | //div[contains(@class, 'more-sell-bundle')]//a[contains(@class, 'product-name')] | //div[contains(@class, 'recommendSlider')]//a[contains(@class, 'product-name')]
+  - name: inTheBoxText
+    xpath: //strong[contains(., 'Inkludert i pakken') or contains(., 'Inkludert i esken:')]/following-sibling::text() | //strong[contains(., 'Inkludert i pakken') ]/../..//ul/li
