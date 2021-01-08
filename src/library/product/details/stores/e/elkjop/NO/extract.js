@@ -34,6 +34,45 @@ module.exports = {
     } catch (error) {
       console.log('video iframe is not present');
     }
+
+    const applyScroll = async function (context) {
+      await context.evaluate(async function () {
+        let scrollTop = 0;
+        let documentScrollHeight = document.body.scrollHeight;
+        while (scrollTop < documentScrollHeight) {
+          await stall(2000);
+          scrollTop += 500;
+          window.scroll(0, scrollTop);
+          documentScrollHeight = document.body.scrollHeight;
+        }
+        function stall(ms) {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve();
+            }, ms);
+          });
+        }
+      });
+    };
+
+    await applyScroll(context);
+    async function scrollToRec(node) {
+      await context.evaluate(async (node) => {
+        const element = document.querySelector(node) || null;
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+          await new Promise((resolve) => {
+            setTimeout(resolve, 5000);
+          });
+        }
+      }, node);
+    }
+    await scrollToRec('footer');
+    try {
+      await context.waitForSelector('section.related-products div.recommended-products', { timeout: 45000 });
+    } catch (error) {
+      console.log('recommended products is not present');
+    }
     await context.evaluate(async function () {
       const enhacedContentTab = document.querySelector("a[data-template='ProductMoreInformationTab']");
       if (enhacedContentTab) {
