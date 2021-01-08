@@ -29,7 +29,7 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { id, date, keywords, page, offset } = inputs;
+  const { id, date, keywords, page, offset, query } = inputs;
   const { stopConditionSelectorOrXpath, nextLinkSelector, loadedSelector, noResultsXPath, mutationSelector, loadedXpath, resultsDivSelector, spinnerSelector, openSearchDefinition, nextLinkXpath } = parameters;
 
   let nextLink;
@@ -95,6 +95,7 @@ async function implementation (
     const pageNb = page + pageStartNb - 1;
     url = template
       .replace(/{searchTerms}/g, encodeURIComponent(keywords))
+      .replace(/{queryParams}/g, query)
       .replace(/{id}/g, encodeURIComponent(id))
       .replace(/{date}/g, encodeURIComponent(date))
       .replace(/{page}/g, (pageNb + (pageOffset || 0)).toString())
@@ -111,7 +112,7 @@ async function implementation (
   if (loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 10000 }, loadedSelector, noResultsXPath);
+    }, { timeout: 20000 }, loadedSelector, noResultsXPath);
   }
   if (loadedXpath) {
     await context.waitForFunction(function (sel, xp) {
