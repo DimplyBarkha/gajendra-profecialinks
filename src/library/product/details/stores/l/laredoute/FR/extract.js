@@ -136,8 +136,10 @@ async function implementation(
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
+    const isVisible = (element) => document.querySelector(element) ? !!(document.querySelector(element).offsetWidth || document.querySelector(element).offsetHeight) : false;
+
     let content = {};
-    content.description = document.querySelector("#inpage_container") ? document.querySelector("#inpage_container").innerText : "";
+    content.description = document.querySelector("#inpage_container") && isVisible(document.querySelector("#inpage_container")) ? document.querySelector("#inpage_container").innerText : "";
     addHiddenDiv('manufacturerDescription', content.description);
     content.images = [];
     let imagesNodes = document.querySelectorAll("#inpage_container img");
