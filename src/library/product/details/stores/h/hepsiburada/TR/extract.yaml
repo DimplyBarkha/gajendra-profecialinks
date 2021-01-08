@@ -103,6 +103,8 @@ fields:
     defaultValue: Yes
   - name: otherSellersName
     xpath: //a[contains(@class,'merchant-name')]
+  - name: unInterruptedPDP
+    xpath: //div[contains(@class,'RecommendationProducts')][contains(.,'Bu kategorinin') or contains(.,'Sıklıkla birlikte alınanlar') or contains(.,'Bu ürüne bakanların')]//div[contains(@class,"owl-stage")]//div[contains(@class,'owl-item')]//a/span
   - name: otherSellersPrice
     xpath: //tr//span[contains(@class,'product-price')] | //td//div[@class="price-value"]
   - name: firstVariant
@@ -121,3 +123,9 @@ fields:
     xpath: //span[@class="seller"]
   - name: quantity
     xpath: //span[@class="fit-variant-name"][contains(.,'miktar')]/../following-sibling::div//label[position()=last()]
+  - name: inTheBoxText
+    xpath: //p[contains(.,'Kutu İçeriği')]//following::ul[1]//li | //table//tr//@inboxtext
+  - name: inTheBoxUrl
+    xpath: //table//tr//@inboxurl
+  - name: hasComparisonTable
+    xpath: //div[contains(@class,'title')][contains(.,'Karşılaştır')]
