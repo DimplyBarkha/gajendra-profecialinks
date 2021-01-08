@@ -153,10 +153,25 @@ async function implementation(
       }
     }
   });
+  async function scrollToRec(node) {
+    await context.evaluate(async (node) => {
+      const element = document.querySelector(node) || null;
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+        await new Promise((resolve) => {
+          setTimeout(resolve, 5000);
+        });
+      }
+    }, node);
+  }
+  await scrollToRec('div.child-product-container');
+  try {
+    await context.waitForSelector('#inpage_container]', { timeout: 30000 });
+  } catch (er) {
+    console.log("Couldn't find the enhanced content expand button");
+  }
 
- 
-
-  const enhancedContent = await context.evaluate(async function () {
+  await context.evaluate(async function () {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
@@ -185,7 +200,6 @@ async function implementation(
         addHiddenDiv('videos', q.getAttribute('src'));
       }
     });
-    
   });
 
   return await context.extract(productDetails, { transform });
