@@ -1,11 +1,11 @@
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('../shared');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'FI',
     store: 'verkkokauppa',
-    transform: cleanUp,
+    transform: transform,
     domain: 'verkkokauppa.com',
     zipcode: '',
   },

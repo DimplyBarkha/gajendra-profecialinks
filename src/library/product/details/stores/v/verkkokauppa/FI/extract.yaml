@@ -563,7 +563,7 @@ fields:
     xpath: //div[@class="container"]/ol/li |  //div[@class="container"]/ol/ul/li/div[1]
   - name: inTheBoxText
     singleValue: false
-    xpath: //section[contains(@class,"description")]//p[contains(.,'Pakkaus sisältää')]//following-sibling::ul[1]//li | //p[contains(.,'Pakkauksen sisältö')]/following-sibling::ul[1]//li | //div[contains(@id,'inTheBox_')]
+    xpath: //section[contains(@class,"description")]//p[contains(.,'Pakkaus sisältää')]//following-sibling::ul[1]//li | //p[contains(.,'Pakkauksen sisältö')]/following-sibling::ul[1]//li | //div[contains(@id,'inTheBox_')] 
     description: Must include text to show the accessories/tools which come with the product
   - name: hasComparisonTable
     defaultValue: No

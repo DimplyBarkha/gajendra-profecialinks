@@ -59,7 +59,7 @@ const transform = (data) => {
           };
         });
       }
-      console.log('box item.text ==  @@@@@@@@@@@@@@@@@@@@@');
+      console.log('box item.text ==  @@@@@@@@@@@@@@@@@@@@@', row.inTheBoxText);
       if (row.inTheBoxText) {
         row.inTheBoxText.forEach(item => {
           // if (row.inTheBoxText && row.inTheBoxText[0]) {
