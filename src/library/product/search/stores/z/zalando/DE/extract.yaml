@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,'DvypSJ')][not(@trim)]
+recordXPath: //div[contains(@class,'JT3_zV DvypSJ')][not(@trim)]
 fields:
   - name: id
     singleValue: false
@@ -13,7 +13,7 @@ fields:
     xpath: (//ancestor::html//link[@rel='alternate'][@hreflang]//@href)[position()=1]
   - name: name
     singleValue: false
-    xpath: //header/div[contains(@class,'hPW')]/@name
+    xpath: //header/div[contains(@class,'hPW')]
   - name: productUrl
     singleValue: false
     xpath: //article/a/@href  
@@ -32,7 +32,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //@price
+    xpath: //span[contains(@class, 'cMfkVL')]
   - name: manufacturer
     # singleValue: true
     xpath: //span[contains(@class, 'EKabf7')]

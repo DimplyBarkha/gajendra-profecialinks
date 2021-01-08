@@ -7,7 +7,7 @@ module.exports = {
     domain: 'zalando.de',
     url: 'https://zalando.de/herren/?q={searchTerms}',
     loadedSelector: 'div[class*="cat_catalog"]',
-    noResultsXPath: '//div[contains(@class, "noSearch")]//span[contains(text(), "Du hast gesucht nach")] | //div[contains(@class, "404")] | //div[contains(@class, "error")]',
+    noResultsXPath: '//div[contains(@class, "noSearch")]//text()[contains(., "Du hast")] | //div[contains(@class, "404")] | //div[contains(@class, "error-page")]',
     zipcode: '',
   },
 };
