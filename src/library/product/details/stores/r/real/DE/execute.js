@@ -5,7 +5,7 @@ module.exports = {
     country: 'DE',
     store: 'real',
     domain: 'real.de',
-    loadedSelector: null,
+    loadedSelector: 'div[class="rd-product-detail"]',
     noResultsXPath: null,
     zipcode: '',
   },

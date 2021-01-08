@@ -77,9 +77,6 @@ fields:
   - name: shippingWeight
     singleValue: true
     xpath: //html//div[@id='shippingWeight']
-  - name: specifications
-    singleValue: true
-    xpath: //div[@class="rd-product-description__text"]/div/p/strong[contains(text(),'Spezifikationen')]/parent::p
   - name: shippingDimensions
     singleValue: true
     xpath: //html//div[@id='shippingDimensions']
@@ -104,10 +101,6 @@ fields:
   - name: alcoholContent
     singleValue: true
     xpath: (//div[@class="rd-product-information-cell"]/div[contains(text(),'Alkoholgehalt')]/following::div[@class="rd-product-information-cell__value-data"])[1]/a | (//div[@class="rd-product-information-cell"]/div[contains(text(),'Alkoholgehalt')]/following::div[@class="rd-product-information-cell__value-data"])[1]/span | //html//div[@id='Alcohol']
-  - name: ageSuitability
-    singleValue: true
-    example: 4 - 99 years
-    xpath: //div[@class="rd-product-buybox__age-restriction rd-age-restriction-message"]
   - name: technicalInformationPdfPresent
     singleValue: true
     defaultValue: No
