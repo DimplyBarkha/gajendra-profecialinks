@@ -430,3 +430,10 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: Yes
+  - name: inTheBoxUrl
+    xpath: 
+  - name: inTheBoxText
+    xpath: 
+  - name: unInterruptedPdp
+    xpath: //div[@class="related-products-carousel"]//div[contains(@class, 'gallery-content accessories-new')]//ul/li//div[contains(@class, 'product-tile__title-wrapper')]/h4|//div[@class='c-pdp-recommended-accessories']//a[contains(@class, 'c-pdp-recommended-accessories__title')]|//div[@class="accessories-carousel-wrapper"]//ul/li//h4
+  - name: hasComparisonTable
