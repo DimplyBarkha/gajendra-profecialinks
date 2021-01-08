@@ -251,7 +251,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: false
     description: null
-    xpath: count(//div[@class='owl-item']//div[@class='productDetail__image  j-carouselItem']/img/@src)
+    xpath: count(//div[@class='owl-item']//div[contains(@class, 'productDetail__image')]/img/@src)
     type: NUMBER
   - name: news
     singleValue: true
