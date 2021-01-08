@@ -107,16 +107,18 @@ async function implementation (
     fetchVariants();
     fetchColor();
 
-    let secImage = document.evaluate('//div[@class="slick-track"]/div[not(contains(@class,"video")) and not(@data-index="1")]//img/@src', document, null, XPathResult.ANY_TYPE, null);
+    const secImage = document.evaluate('//div[@class="slick-track"]/div[not(contains(@class,"video")) and not(@data-index="1")]//img/@src', document, null, XPathResult.ANY_TYPE, null);
+    let mainImage = document.evaluate(' (//div[@id="divImageGallery"]//figure//img//@src)[1]', document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+    mainImage = mainImage ? mainImage.singleNodeValue.nodeValue : false;
     let thisImage = secImage.iterateNext();
     const allImages = [];
     while (thisImage) {
-      const imageUrl = thisImage.textContent.replace('=XXS','=XL');
+      const imageUrl = thisImage.textContent.replace('=XXS', '=XL');
       allImages.push(imageUrl);
       thisImage = secImage.iterateNext();
     }
     //@ts-ignore.
-    const imageArray = [...new Set(allImages)];
+    const imageArray = [...new Set(allImages)].filter(u => u !== mainImage);
     document.querySelector('body').setAttribute('sec-images', imageArray.join(' | '));
   });
 
