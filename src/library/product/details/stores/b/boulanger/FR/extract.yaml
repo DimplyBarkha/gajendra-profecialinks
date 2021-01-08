@@ -97,11 +97,11 @@ fields:
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
-  xpath: //link[@rel='canonical']/@href
-  regExp: '[^\/]*$'
+  xpath: //span[@itemprop='gtin13']
 - name: mpc
-  singleValue: true
+  singleValue: false
   description: The manufacturer model code (unique) of the product
+  xpath: //img[@itemprop='image']/@alt
 - name: packSize
   singleValue: true
   description: The number of packs in the product offer (if stated separately on the
@@ -159,7 +159,7 @@ fields:
 - name: videos
   singleValue: false
   description: URLs of videos on page
-  xpath: //div[@itemprop='description']//video/@src
+  xpath: //div[@itemprop='description']//video/@src | //div[@class='jp-type-single']//video/@src
 - name: name
   singleValue: true
   description: The product name
@@ -433,8 +433,9 @@ fields:
   singleValue: true
   description: The unit of measurement used in price_per_unit
 - name: promotion
-  singleValue: true
+  singleValue: false
   description: promotion text on product page
+  xpath: //div[@class='informations']//span[@class='priceDiscount on']
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information

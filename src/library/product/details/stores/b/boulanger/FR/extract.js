@@ -20,8 +20,15 @@ module.exports = {
           document.body.setAttribute('brandhref', `https://www.boulanger.com${linkBrand}`);
         }
       }
+      // Click video selector to load video itself
+      const videoClick = document.querySelector('td#H5V_Video');
+      if (videoClick) {
+        // @ts-ignore
+        videoClick.click();
+      }
+
       // Create videos duration
-      const videosSelector = document.querySelectorAll('video.s7Video');
+      const videosSelector = document.querySelectorAll('video.s7Video, video#jp_video_0');
       videosSelector.forEach(element => {
         // @ts-ignore
         const videoLenght = element.duration;
