@@ -44,6 +44,11 @@ const implementation = async (inputs,
   }
   try {
     await context.waitForSelector('iframe#desc_ifr');
+    try {
+      await context.waitForSelector('section#p-carousel-browse_related');
+    } catch (error) {
+      console.log('You may also like does not exist');
+    }
   } catch (err) {
     console.log('manufacturer contents not loaded or unavailable');
   }
