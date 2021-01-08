@@ -6,7 +6,7 @@ module.exports = {
     store: 'sharafdg',
     domain: 'sharafdg.com',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="no-results-container"]',
     zipcode: '',
   },
 };

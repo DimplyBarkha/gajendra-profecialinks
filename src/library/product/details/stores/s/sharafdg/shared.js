@@ -20,11 +20,12 @@ const transform = (data) => {
       .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
     data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
       el.text = clean(el.text);
+      el.text = el.text.trim();
     }))));
     return data;
   };
   for (const { group } of data) {
-    for (let row of group) {
+    for (const row of group) {
       if (row.category) {
         if (row.category.length) {
           row.category.splice(0, 1);
@@ -55,14 +56,18 @@ const transform = (data) => {
         });
       }
       if (row.specifications) {
-        var specificationsArr = [];
-        row.specifications.forEach(item => {
-          specificationsArr.push(item.text.replace('\n', ' : '));
-        });
-        if (specificationsArr.length) {
-          row.specifications = [{ "text": specificationsArr.join(" || ") }];
+        let text = '';
+        for (let i = 0; i < row.specifications.length; i++) {
+          text += `${row.specificationsLabel[i].text} : ${row.specifications[i].text} || `;
         }
+        row.specifications = [
+          {
+            text: text.slice(0, -4),
+          },
+        ];
+        delete row.specificationsLabel;
       }
+
       if (row.variantId) {
         row.variantId.forEach(item => {
           var myRegexp = /\?p=(.+)/g;
@@ -73,7 +78,7 @@ const transform = (data) => {
             }
           }
         });
-      }      
+      }
     }
   }
   return cleanUp(data);

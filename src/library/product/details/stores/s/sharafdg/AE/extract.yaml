@@ -4,103 +4,94 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: true
     xpath: //div[contains(@class,'mainproduct-slider')]//div[contains(@class,'slick-active')]//img/@src
+  - name: productUrl
+    xpath: //link[@rel="canonical"]/@href
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: metaKeywords
-    singleValue: true
     xpath: //meta[contains(@name,'keywords')]/@content
   - name: category
-    singleValue: false
     xpath: //ul[contains(@itemprop,'breadcrumb')]//li
   - name: nameExtended
-    singleValue: true
     xpath: //div[contains(@class,'product-title')]//h1
   - name: name
-    singleValue: true
-    xpath: //div[contains(@class,'product-title')]//h1    
+    xpath: //div[contains(@class,'product-title')]//h1
   - name: availabilityText
-    singleValue: false
-    xpath: //button[@class="button btn btn-secondary alt" and text()="Buy Now"]
+    xpath: //button[contains(@class,"add_to_cart_button")]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: alternateImages
-    singleValue: false
-    xpath: //div[contains(@class,' slick-vertical')]//div[contains(@class,'slick-track')]//div[contains(@class,'slick-slide') and not(contains(@class,'slick-cloned')) and not(contains(@class,'slick-current'))]//img/@src
+    xpath: //div[contains(@class,' slick-vertical')]//div[contains(@class,'slick-track')]//div[contains(@class,'slick-slide')][not(contains(@class,'slick-cloned'))][not(contains(@class,'youtube'))][not(contains(@class,'slick-current'))]//img/@src
+  - name: secondaryImageTotal
+    xpath: count(//div[contains(@class,' slick-vertical')]//div[contains(@class,'slick-track')]//div[contains(@class,'slick-slide')][not(contains(@class,'slick-cloned'))][not(contains(@class,'youtube'))][not(contains(@class,'slick-current'))]//img/@src)
   - name: listPrice
-    singleValue: true
     xpath: //div[contains(@class,'quick-right')]//div[contains(@class,'cross-price')]
   - name: ratingCount
-    singleValue: true
     xpath: //span[@itemprop='reviewCount']
   - name: aggregateRating
-    singleValue: true
     xpath: //div[contains(@class,'product-title')]//span[@itemprop='ratingValue']
     regExp: ([\d\.]+)
     regExpReplace: $1
   - name: imageAlt
-    singleValue: true
     xpath: //div[contains(@class,'mainproduct-slider')]//div[contains(@class,'slick-active')]//img/@alt
   - name: promotion
-    singleValue: true
     xpath: //div[contains(@class,'quick-right')]//div[contains(@class,'discount-holder')]//div[contains(@class,'product-disc')]
   - name:  description
-    singleValue: false
     xpath: //div[@id="prodcut-tab1"]
-  - name:  specifications
-    singleValue: false
-    xpath: //div[contains(@class,'detailspecbox')]//table[contains(@itemprop,'description')]//tr[not(./th)]    
+  - name: specificationsLabel
+    xpath: //table[@class="product-spec"]//tbody//td[@class="specs-heading"]
+  - name: specifications
+    xpath: //table[@class="product-spec"]//tbody//td[@class="specs-heading"]/following-sibling::td
   - name: price
-    singleValue: false
     xpath: //div[contains(@itemprop,'offers')]//div[@class='price']
   - name: price2
-    singleValue: false
-    xpath: //div[@class='price no-marign']    
+    xpath: //div[@class='price no-marign']
   - name: brandText
-    singleValue: true
     xpath: //td[contains(@itemprop,'brand')]
   - name: weightNet
-    singleValue: true
     xpath: //td[contains(text(),' Weight ')]//following-sibling::td
   - name: weightGross
-    singleValue: true
     xpath: //td[contains(text(),' Package weight ')]//following-sibling::td
   - name: sku
-    singleValue: true
     xpath: //div[@class='sku-wrap']//strong[contains(text(),'SKU:')]//following-sibling::span
   - name: variantId
-    singleValue: true
     xpath: //link[@rel="shortlink"]/@href
   - name: shippingDimensions
-    singleValue: true
     xpath: //td[contains(text(),' Dimensions ')]//following-sibling::td
   - name: countryOfOrigin
-    singleValue: true
     xpath: //td[contains(text(),' Country ')]//following-sibling::td
   - name: specifications
-    singleValue: false
     xpath: //div[@id='inpage_selector_specification']//div[contains(@class,'flix-tech-spacs-contents')]//div[contains(@class,'flix-dl')]
   - name: mpc
-    singleValue: true
     xpath: //div[@class='sku-wrap']//strong[contains(text(),'Model:')]//following-sibling::span
   - name: videos
-    singleValue: false
-    xpath: //video[contains(@class,'jw-video')]/@src
+    xpath: //video[contains(@class,'jw-video')]/@src | //iframe[contains(@data-src,"youtube")]/@data-src
+  - name: galleryVideos
+    xpath: //video[contains(@class,'jw-video')]/@src | //iframe[contains(@data-src,"youtube")]/@data-src
   - name: shippingInfo
-    singleValue: true
     xpath: //div[contains(@class,'quick-right')]//span[contains(@class,'sold-by')]//a//b
   - name: gtin
-    singleValue: false
     xpath: //script/@data-flix-ean
   - name: manufacturerImages
-    singleValue: false
-    xpath: //div[@id="prodcut-tab1"]//div[contains(@class,"flix-feature-image")]//img/@srcset
+    xpath: //div[@id="prodcut-tab1"]//div[contains(@class,"flix")]//img/@data-flixsrcset
+    regExp: (.+\s)(.+)(\s.+)
+    regExpReplace: https:$2
   - name: manufacturerDescription
-    singleValue: false
     xpath: //div[@id="prodcut-tab1"]//div[@class="inpage_selector_feature"]
   - name: warranty
-    singleValue: false
     xpath: //div[contains(@class,'quick-right')]//i[contains(@class,'dg-warranty') or contains(@class,'sh-warranty')]//parent::div/parent::div
   - name: energyEfficiency
-    singleValue: false
     xpath: //td[contains(text(),' Energy Rating ')]//following-sibling::td
+  - name: inTheBoxUrl
+    xpath: //div[contains(@class,"inpage_selector_InTheBox")]//img/@data-flixsrcset
+    regExp: (.+\s)(.+)(\s.+)
+    regExpReplace: https:$2
+  - name: inTheBoxText
+  - name: hasComparisonTable
+    defaultValue: No
+  - name: unInterruptedPDP
+    xpath: //h3[contains(.,"People also")]/parent::div[@class="product-container"]//div[@class="slick-track"]//div[contains(@class,"slick-slide")][not(contains(@class,"slick-cloned"))]//a//h4
+  - name: variantCount
+    defaultValue: 0
