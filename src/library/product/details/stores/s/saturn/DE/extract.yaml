@@ -420,17 +420,8 @@ fields:
   - name: unInterruptedPDP
     xpath: //div[contains(@class,"ProductCarouselstyled__CarouselWrapper-sc-1if4ltg-2 cEJjoI")]//ul//li//p[@data-test="product-title"]
   - name: hasComparisonTable
-<<<<<<< HEAD
     xpath: //input[@type="Number"]/@value
     defaultValue: No
-=======
-    singleValue: true
-    defaultValue: 'No'
-    xpath: //div[@class="table-wrapper"]/table[@class="table table-striped"]
-    regExp: >-
-      (.*)
-    regExpReplace: 'Yes'
->>>>>>> 9ec19d912eec4ed8cda282cdadfc7fc17e065250
   - name: inTheBoxText
     xpath: //div[contains(@class,"in-the-box")]//p/b
   - name: inTheBoxUrl
