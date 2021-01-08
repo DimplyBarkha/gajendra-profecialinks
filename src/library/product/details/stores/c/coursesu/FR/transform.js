@@ -52,17 +52,17 @@ const transform = (data) => {
           },
         ];
       }
-      if (row.caloriesPerServing) {
-        let text = '';
-        row.caloriesPerServing.forEach(item => {
-          if (item.text.includes('_url')) { text = ''; } else text = item.text.replace(/~/g, '').trim();
-        });
-        row.caloriesPerServing = [
-          {
-            text: cleanUp(text),
-          },
-        ];
-      }
+      // if (row.caloriesPerServing) {
+      //   let text = '';
+      //   row.caloriesPerServing.forEach(item => {
+      //     if (item.text.includes('_url')) { text = ''; } else text = item.text.replace(/~/g, '').trim();
+      //   });
+      //   row.caloriesPerServing = [
+      //     {
+      //       text: cleanUp(text),
+      //     },
+      //   ];
+      // }
       if (row.availabilityText){
         row.availabilityText.forEach(item => {
         item.text="In Stock"
@@ -98,17 +98,56 @@ const transform = (data) => {
           },
         ];
       }
-     if (row.servingSize) {
-        let text = '';
+
+      if (row.servingSize) {
         row.servingSize.forEach(item => {
-          text = item.text.replace(': ', '');
+          item.text = item.text.replace('Pour', '').trim();
         });
-          row.weightNet = [
+      }
+
+      if (row.shownimages) {
+        row.shownimages.forEach(item => {
+          item.text = item.text.replace('250', '800').trim();
+          item.text = item.text.replace('250', '800').trim();
+        });
+      }
+
+      if (row.highQualityImages) {
+        row.highQualityImages.forEach(item => {
+          item.text = item.text.replace('250', '800').trim();
+          item.text = item.text.replace('250', '800').trim();
+        });
+      }
+
+       if (row.caloriesPerServing) {
+        let text3 = '';
+        row.caloriesPerServing.forEach(item => {
+         const  text2 = item.text.split("|");
+          const  text1 = `${text2[1]}`;
+          text3 = text1.replace('~','');
+
+        });
+          row.caloriesPerServing = [
           {
-            text: cleanUp(text),
+            text: cleanUp(text3),
           },
         ];
       }
+
+
+
+
+    //  if (row.servingSize) {
+    //     let text = '';
+    //     row.servingSize.forEach(item => {
+    //       text = item.text.replace('servingSize', '');
+    //     });
+    //       row.weightNet = [
+    //       {
+    //         text: cleanUp(text),
+    //       },
+    //     ];
+    //   }
     }
   }
 

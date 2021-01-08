@@ -50,11 +50,10 @@ fields:
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
-  - name: description
-    singleValue: false
-    description: Product description supplied by website - may be concatenanted from
-      multiple places; specifically not the manufacturer description
-    xpath: //div[contains(@id, 'panel1') and contains(@class, 'tab-content')]/p[1]
+  # - name: description
+  #   singleValue: false
+  #   description: Product description supplied by website - may be concatenanted from
+  #     multiple places; specifically not the manufacturer description
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
@@ -266,9 +265,10 @@ fields:
   - name: servingSize
     singleValue: false
     description: The size of serving Nutritional information is based on.
-    xpath: //*[contains(text(), 'Pour')]
-    regExp: Pour (.*?)
-    regExpReplace: $1
+    # xpath: //*[contains(text(), 'Pour')]
+    # regExp: Pour (.*?)
+    # regExpReplace: $1
+    xpath: //div[@class='nutritional-information nutritional-information--tabel']/header[@class='info-row header clearfix active']
   - name: servingSizeUom
     singleValue: false
     description: Unit of measure of serving
@@ -280,8 +280,8 @@ fields:
     singleValue: false
     description: Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
-    xpath: //div[contains(@class,'value')]//font[2]//text()
-      #xpath: //*[contains(text(), 'Energie')] | //*[contains(text(), 'Valeurs énergetiques')]/following-sibling::*
+    # xpath: //div[contains(@class,'value')]//font[2]//text()
+    xpath: //*[contains(text(), 'Energie')] | //*[contains(text(), 'Valeurs énergetiques')]/following-sibling::*
   - name: caloriesFromFatPerServing
     singleValue: false
     description: Nutritional Information for Calories From Fat content - Usually
@@ -511,10 +511,9 @@ fields:
   - name: prop65Warning
     singleValue: false
     description: null
-  - name: ageSuitability
+  - name: nutritionInfo
     singleValue: false
-    description: Recommended age displayed on the product page.
-      https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
+    xpath: //section[@class='info-table']
     example: 4 - 99 years
   - name: energyEfficiency
     singleValue: false
@@ -559,9 +558,9 @@ fields:
   - name: highQualityImages
     singleValue: false
     xpath: //li//picture//img//@src
-  - name: servingSize
-    singleValue: false
-    description: Net weight as described on the page
-    xpath: //*[contains(text(), 'Poids net')]
-    regExp: net(.+)
-    regExpReplace: $1
+  # - name: servingSize
+  #   singleValue: false
+  #   description: Net weight as described on the page
+  #   xpath: //*[contains(text(), 'Poids net')]
+  #   regExp: net(.+)
+  #   regExpReplace: $1
