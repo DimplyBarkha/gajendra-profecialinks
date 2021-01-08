@@ -440,7 +440,8 @@ fields:
     xpath: //*[@itemprop="lowPrice"]/../following-sibling::div//span[contains(text(),'₹')]/following-sibling::span
     regExp: (\d+)
   - name: promotionAddText
-    xpath: //*[@itemprop="lowPrice"]/../following-sibling::div//span[contains(text(),'₹')]/following-sibling::span/../following-sibling::div[not(contains(.,'Price Breakup'))]
+    # xpath: //*[@itemprop="lowPrice"]/../following-sibling::div//span[contains(text(),'₹')]/following-sibling::span/../following-sibling::div[not(contains(.,'Price Breakup'))]
+    xpath: //*[@itemprop="lowPrice"]/../following-sibling::div//span[contains(text(),'₹')]/following-sibling::span/../following-sibling::div[not(contains(.,'Price Breakup')) and not(contains(.,'Apply coupon'))]
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
