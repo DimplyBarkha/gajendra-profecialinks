@@ -506,7 +506,7 @@ fields:
     xpath: //video/@src|//div[contains(@class, "m-slider_item")]//iframe/@src|//div[@id="description"]//a/@href | (//div[@data-media="yt"]/@data-yt)[1]
   - name: unInterruptedPDP
   - name: inTheBoxUrl
-    xpath: //div[contains(@class,"py5")]//div[contains(@class,"row")]//h3[contains(text(),"W pudełku")]/following::div[contains(@class,"row")]/div/img[contains(@class,"description")]/@src|//div[contains(@class,"py5")]//div[contains(@class,"row")]//h3[contains(text(),"Zawartość")]/following::div[contains(@class,"row")]//div/img[contains(@class,"description")]/@src
+    xpath: //div[contains(@class,"py5")]//div[contains(@class,"row")]//h3[contains(text(),"pudełku")]/following::div[contains(@class,"row")]/div/img[contains(@class,"description")]/@src|//div[contains(@class,"py5")]//div[contains(@class,"row")]//h3[contains(text(),"Zawartość")]/following::div[contains(@class,"row")]//div/img[contains(@class,"description")]/@src
     regExp: (.+)
     regExpReplace: https:$1
     description: Must include image url to show the accessories/tools which come with the product
