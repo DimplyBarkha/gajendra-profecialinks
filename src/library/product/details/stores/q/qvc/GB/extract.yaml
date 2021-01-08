@@ -108,7 +108,7 @@ fields:
     description: Text of any coupon offer
   - name: specifications
     singleValue: false
-    xpath: //div[contains(@class,'accordion')]//h2[contains(.,'Technical')]/following-sibling::div//li
+    xpath: //div[contains(@class,'accordion')]//h2[contains(.,'Technical')]/following-sibling::div//div[@class="accordionText"]/*
     description: The physical dimensions of the product including packaging.
   # - name: warranty
   #   singleValue: true
