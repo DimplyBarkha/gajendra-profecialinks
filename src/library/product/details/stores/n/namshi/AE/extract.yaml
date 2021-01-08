@@ -40,12 +40,13 @@ fields:
     xpath: //span[@class="ratings-stat__avg-rating"]
   - name: description
     singleValue: false
-    # xpath: //div[contains(@class,"product_description")]//div[contains(@class,"info_shortdescription")]//li
+    xpath: //div[contains(@class,"product_description")]//div[contains(@class,"info_shortdescription")]//li
     # xpath: concat(//h1[@class="product__name"]/text(),' ',//meta[@property="product:color"]/@content,' ',//ul[@id="product_size"]//label[contains(@class,'available')]//span/text())
     xpath: //div[@id='currentDiv']/text()
   - name: nameExtended
     # xpath: concat(//h1[@class="product__name"]/text(),' ',//meta[@property="product:color"]/@content)
-    xpath: concat(//meta[@property="product:color"]/@content,' ',//div[@id='currentDiv']/text())
+    # xpath: concat(//meta[@property="product:color"]/@content,' ',//div[@id='currentDiv']/text())
+    xpath: concat(//div[@id='currentDiv']/text(),' ', //meta[@property="product:color"]/@content,' ',//div[@id='currentDiv']/@size)
     regExp: (.+\s)(.+\s)([a-z]+)$
     regExpReplace: $1$3 $2
   - name: additionalDescBulletInfo
@@ -66,9 +67,10 @@ fields:
     singleValue: false
     xpath: //div[@class="info_content"]
   - name: variantInformation
-    xpath: concat(//meta[@property="product:color"]/@content,' ',//div[@id='currentDiv']/text())
-    regExp: ^([a-z]+)(\s.+\s)(.+)
-    regExpReplace: $1 $3
+    xpath: concat(//meta[@property="product:color"]/@content,' ',//div[@id='currentDiv']/@size)
+    # xpath: concat(//meta[@property="product:color"]/@content,' ',//div[@id='currentDiv']/text())
+    # regExp: ^([a-z]+)(\s.+\s)(.+)
+    # regExpReplace: $1 $3
   - name: variantId
     singleValue: false
     xpath: //div[@id='currentDiv']/@retailerProdCode
@@ -78,8 +80,9 @@ fields:
     xpath: //div[@id='currentDiv']/@availability
   - name: quantity
     singleValue: false
-    xpath: //div[@id='currentDiv']/text()
-    regExp: '[a-z,A-Z,/]+$'
+    xpath: //div[@id='currentDiv']/@size
+    # xpath: //div[@id='currentDiv']/text()
+    # regExp: '[a-z,A-Z,/]+$'
   - name: unInterruptedPDP
     singleValue: false
     xpath: //div[@class="recommendations"]//h4[@class="product-name"]

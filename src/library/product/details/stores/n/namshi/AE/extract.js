@@ -1,5 +1,5 @@
 const { transform } = require('../format');
-async function implementation (
+async function implementation(
   // @ts-ignore
   inputs,
   parameters,
@@ -9,13 +9,14 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
   const sizeOfDiv = await context.evaluate(function () {
-    function addHiddenDiv (id, content, availability, itemNo, rpc) {
+    function addHiddenDiv(id, content, availability, itemNo, rpc, size) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
       newDiv.textContent = content;
       newDiv.setAttribute('availability', availability);
       newDiv.setAttribute('itemNo', itemNo);
       newDiv.setAttribute('rpc', rpc);
+      newDiv.setAttribute('size', size);
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
@@ -29,22 +30,23 @@ async function implementation (
     const rpcArray = serverObj.simples;
     for (let i = 0; i < rpcArray.length; i++) {
       let prodFullName = brandName + ' ' + prodName;
-      prodFullName += ' ' + rpcArray[i].size;
+      //prodFullName += ' ' + rpcArray[i].size;
       const rpc = rpcArray[i].sku;
-      if (rpcArray[i].quantity !== 0) addHiddenDiv('descDiv', prodFullName, 'In Stock', i, rpc);
-      else addHiddenDiv('descDiv', prodFullName, 'Out Of Stock', i, rpc);
+      if (rpcArray[i].quantity !== 0) addHiddenDiv('descDiv', prodFullName, 'In Stock', i, rpc, rpcArray[i].size);
+      else addHiddenDiv('descDiv', prodFullName, 'Out Of Stock', i, rpc, rpcArray[i].size);
     }
     return rpcArray.length;
   });
   if (sizeOfDiv !== 0) {
     for (let i = 0; i < sizeOfDiv; i++) {
       await context.evaluate(function (i) {
-        function addHiddenDiv (id, content, availability, rpc) {
+        function addHiddenDiv(id, content, availability, rpc, size) {
           const newDiv = document.createElement('div');
           newDiv.id = id;
           newDiv.textContent = content;
           newDiv.setAttribute('availability', availability);
           newDiv.setAttribute('retailerProdCode', rpc);
+          newDiv.setAttribute('size', size);
           newDiv.style.display = 'none';
           document.body.appendChild(newDiv);
         }
@@ -53,7 +55,8 @@ async function implementation (
         const content = currentDivSelector.innerText;
         const availability = currentDivSelector.getAttribute('availability');
         const rpc = currentDivSelector.getAttribute('rpc');
-        addHiddenDiv('currentDiv', content, availability, rpc);
+        const size = currentDivSelector.getAttribute('size');
+        addHiddenDiv('currentDiv', content, availability, rpc, size);
       }, i);
       await context.extract(productDetails, { transform });
       await context.evaluate(function () {
