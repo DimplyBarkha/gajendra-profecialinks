@@ -32,7 +32,6 @@ const transform = (data) => {
         row.additionalDescBulletInfo = [{ text: arrBullets.join(' || ') }];
         row.descriptionBullets = [{ text: arrBullets.length }];
       }
-      
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
