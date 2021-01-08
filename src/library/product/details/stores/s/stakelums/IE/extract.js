@@ -69,6 +69,7 @@ module.exports = {
       }
       const specificationsXpath = "//table[@class='flix-std-specs-table']/tbody/tr/td";
       var specificationsStr = getAllXpath(specificationsXpath, 'innerText').join(' || ');
+      addHiddenDiv('added_specifications', specificationsStr);
       // check Weight from Specification
       const weightSpecification = document.querySelectorAll('.inpage_selector_specification .flix-std-table .flix-std-specs-table .flix-title');
       let weight = '';
