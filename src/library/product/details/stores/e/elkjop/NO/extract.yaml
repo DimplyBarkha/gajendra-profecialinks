@@ -222,8 +222,10 @@ fields:
   - name: inTheBoxText
     singleValue: false
     xpath: //div[contains(@class, 'tab-slot')]//p/text()[preceding-sibling::strong[1][contains(text(),"Inkludert i")]]
+    regExp: '^(-\s*)?(.+)'
+    regExpReplace: $2
   - name: hasComparisonTable
     defaultValue: "No"
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //div[contains(@class, 'mini-product-content')]//a[contains(@class, "product-name")]//span
+    xpath: //div[contains(@class,"slick-active")]//div[contains(@class, 'mini-product-content')]//a[contains(@class, "product-name")]//span
