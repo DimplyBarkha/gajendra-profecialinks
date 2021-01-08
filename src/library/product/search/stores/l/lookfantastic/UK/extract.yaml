@@ -6,9 +6,6 @@ fields:
   - name: id
     singleValue: false
     xpath: //div[@class="productBlock "]//span/@data-product-id
-  - name: rankOrganic
-    singleValue: false
-    #xpath: //span[@class="js-enhanced-ecommerce-data hidden"]/@data-product-position
   - name: name
     singleValue: false
     xpath: //h3[contains(@class,'productBlock_productName')]
@@ -35,10 +32,10 @@ fields:
     singleValue: true
   - name: soldBy
     singleValue: true
-  - name: rank
-    singleValue: false
-    #xpath: //span[@class="js-enhanced-ecommerce-data hidden"]/@data-product-position
   - name: endorsementText
     singleValue: true
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id="pd_url"]  
 
     
