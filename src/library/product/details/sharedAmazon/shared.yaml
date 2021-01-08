@@ -14,7 +14,7 @@ fields:
     regExpReplace: $1
   - name: imageAlt
     #singleValue: true
-    xpath: (//img[@id="landingImage"])[1]/@alt | //div[@id="img-canvas"]/img[1]/@alt |  | //div[@id="ebooks-img-canvas"]//img[starts-with(@id,"ebooksIm")]/@alt
+    xpath: (//img[@id="landingImage"])[1]/@alt | //div[@id="img-canvas"]/img[1]/@alt | //div[@id="ebooks-img-canvas"]//img[starts-with(@id,"ebooksIm")]/@alt
   - name: alternateImages
     singleValue: false
     xpath: //li[contains(@class, "imageThumbnail")][position()>1]//img/@src | //img[contains(@class,"ig-thumb-inner") and not(contains(@class,"selected"))]/@src | (//span[@data-action="thumb-action"]//img/@src)[position()>1]
