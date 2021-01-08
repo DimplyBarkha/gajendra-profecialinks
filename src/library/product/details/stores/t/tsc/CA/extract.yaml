@@ -110,10 +110,10 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
-    xpath: (//div[contains(@id, "tab")]//h3[not(contains(text(), "About the"))]//parent::div)[1]
+    xpath: //div[contains(@id, 'tab')]//h3[(contains(text(), 'Features'))]
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[contains(@id, "tab")]//h3[not(contains(text(), "About the"))]//parent::div//img[not(contains(@src, 'gif'))]/@src
+    xpath: //div[contains(@id, 'tab')]//h3[(contains(text(), 'Features'))]//parent::div//img[not(contains(@src, 'gif'))]/@src
   - name: videos
     singleValue: false
     xpath: //div[contains(@class, 'videolink') and contains(@class, 'slick-active')]//@data-video
