@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'snipes',
-    nextLinkSelector: null,
+    nextLinkSelector: 'a[class="f-button f-button--primary js-show-more-products"]',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
+    loadedSelector: 'div[class="b-product-grid js-product-grid"]',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'snipes.com',
