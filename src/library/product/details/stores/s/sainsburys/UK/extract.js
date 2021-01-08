@@ -13,7 +13,7 @@ async function implementation(
       newDiv.className = elementID;
       newDiv.textContent = content;
       newDiv.style.display = 'none';
-      const element = document.querySelector('div.ln-c-card.ln-c-card--soft')
+      const element = document.querySelector('body')
       element.appendChild(newDiv);
     }
 
