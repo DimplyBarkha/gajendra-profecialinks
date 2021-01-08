@@ -69,7 +69,7 @@ fields:
     xpath: //p[contains(text(),"Características Físicas")]/following-sibling::ul//li//span[contains(text(),'Cor')]/../span[position()>last()-1]
   - name: manufacturerDescription
     description: The extended description of the product supplied by the lister
-    xpath: //div[@id="flix-inpage"]
+    xpath: //div[@id="enhanced-content"]
   - name: manufacturerImages
     description: Images within the third party description
     xpath: //div[@id="flix-std-inpage"]//img//@srcset | //div[@id="inpage_container"]//img//@srcset
