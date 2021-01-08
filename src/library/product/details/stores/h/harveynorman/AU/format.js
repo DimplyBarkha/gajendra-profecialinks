@@ -142,33 +142,6 @@ const transform = (data) => {
                 });
                 row.manufacturerDescription = [{'text':info.join(' '),'xpath':row.manufacturerDescription[0].xpath}];
             }
-
-
-// let tmp_desc = '';
-
-// if (row.manufacturerDescription1) {
-//     let info = [];
-//     row.manufacturerDescription1.forEach(item => {
-//         info.push(item.text);
-//     });
-//     tmp_desc = info.join(' ');
-//     delete row.manufacturerDescription1;
-// }
-
-
-
-// if (row.manufacturerDescription) {
-//     let info = [];
-//     row.manufacturerDescription.forEach(item => {
-//         info.push(item.text.replace(/(\s*\n\s*)+/g, ' ').trim());
-//     });
-//     if(tmp_desc != ''){
-//         info.push(tmp_desc);
-//     }
-//     row.manufacturerDescription = [{'text':info.join(' '),'xpath':row.manufacturerDescription[0].xpath}];
-// }
-
-
         }
     }
     return cleanUp(data);
