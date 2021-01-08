@@ -138,7 +138,7 @@ async function implementation (inputs, parameters, context, dependencies) {
 
   await gDelay(2000);
   await context.waitForNavigation({ timeout: 15000, waitUntil: 'networkidle0' });
-  
+
   // await context.searchForRequest('https://mycliplister.com/jplist.*', 'GET');
   // const requests = await context.searchAllRequests('https://mycliplister.com/jplist.*', 'GET');
   // // console.log(request);
