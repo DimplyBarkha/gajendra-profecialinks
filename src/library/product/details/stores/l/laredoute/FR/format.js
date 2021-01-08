@@ -108,6 +108,22 @@ const transform = (data) => {
           },
         ];
       }
+
+      if (row.inTheBoxUrl) {
+        let manuImages = row.inTheBoxUrl;
+        row.inTheBoxUrl = [];
+        manuImages.forEach(ele => {
+          let extractfirsturl = ele.text.split(',');
+          var obj = {};
+          let extracturlbeforeExtn = extractfirsturl[0].split(" ");          
+          obj.text = extracturlbeforeExtn[0];     
+          if(obj.text.startsWith("//media")){
+            row.inTheBoxUrl.push(obj);
+          }
+          
+        });
+        
+        }
       if(row.unInterruptedPDP) {
         row.unInterruptedPDP.forEach(item => {
           item.text = cleanUp(item.text);

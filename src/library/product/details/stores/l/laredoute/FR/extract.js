@@ -8,6 +8,32 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+
+  const link = await context.evaluate(function () {
+    return window.location.href;
+  });
+  try{
+  await context.evaluate(async () => {
+    await new Promise((resolve, reject) => setTimeout(resolve, 30000));
+    const showmore = document.querySelector('div.productDescriptionShowMore-container');
+   
+    if(showmore){
+      document.querySelector('div.productDescriptionShowMore-container>button').click();
+    }
+    if(document.querySelector('flixmedia_expandBtn flixmedia_expandBtn--more')){
+      document.querySelector('flixmedia_expandBtn flixmedia_expandBtn--more').click();
+    }
+    
+    
+  });
+  //await context.goto(link, { timeout: 80000 });
+ 
+  //await context.waitForSelector('div.flix-std-table-cell>div.flix-background-image img', { timeout: 50000 });
+
+}catch(error){
+  console.log(error);
+}
+
   const applyScroll = async function (context) {
     //pop up is not allowing us to scroll.
     try {
@@ -127,6 +153,8 @@ async function implementation(
       }
     }
   });
+
+ 
 
   const enhancedContent = await context.evaluate(async function () {
     function addHiddenDiv (id, content) {
