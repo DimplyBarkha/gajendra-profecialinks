@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'bestbuy.com.mx',
-    timeout: null,
+    timeout: 100000,
     country: 'MX',
     store: 'bestbuy',
     zipcode: '',
