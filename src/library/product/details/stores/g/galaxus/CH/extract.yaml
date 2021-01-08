@@ -23,7 +23,7 @@ fields:
     xpath: //picture[contains(@class,"mediaPicture Z1") ]//source[1]/@srcset
   - name: secondaryImageTotal
     singleValue: false
-    xpath: count(//picture[contains(@class,"mediaPicture Z1")]//img/@src)  
+    xpath: count(//picture[contains(@class,"mediaPicture Z1") ]//source[1]/@srcset)  
   - name: brandText
     singleValue: false  
     xpath: //meta[@property="og:brand"]/@content
