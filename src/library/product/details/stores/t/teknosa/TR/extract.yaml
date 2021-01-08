@@ -32,12 +32,12 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //div[@class="prices"]//div[@class="price-tag old-price font-size-fourth"]
+    xpath: //script[@id='schemaJSON']/@correctlistprice
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[@class='prices']/div[@class = 'price-tag new-price font-size-fifth normal-discount-price '] | //div[@class='prices']//div[@class="price-tag default-price font-size-fifth"]
+    xpath: //script[@id='schemaJSON']/@correctprice
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -161,13 +161,13 @@ fields:
     description: URLs of videos on page
     xpath: //a[@class="flix_jw_videoid"]/@data-jw | //input[@class="flix-jw"]/@value
     regExp: (media.flixcar.com|content.jwplatform.com)(.*?mp4)
-    regExpReplace: https://$1$2
+    regExpReplace: http://$1$2
   - name: galleryVideos
     singleValue: false
     description: URLs of videos on page
     xpath: //a[@class="flix_jw_videoid"]/@data-jw | //input[@class="flix-jw"]/@value
     regExp: (media.flixcar.com|content.jwplatform.com)(.*?mp4)
-    regExpReplace: https://$1$2
+    regExpReplace: http://$1$2
   - name: name
     singleValue: true
     description: The product name
