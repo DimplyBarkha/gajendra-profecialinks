@@ -28,31 +28,50 @@ async function implementation (
     return iFrameSrc;
   });
   let manufacturerData = '';
+  const timeout = parameters.timeout ? parameters.timeout : 130000;
   if (iFrameSrc) {
-    const timeout = parameters.timeout ? parameters.timeout : 130000;
-    await context.goto(iFrameSrc);
-    await context.waitForSelector('div#syndi_powerpage div[class*="syndigo-shadowed-powerpage"]');
-    manufacturerData = await context.evaluate(async function () {
-      const manuData = document.querySelector('div#syndi_powerpage div[class*="syndigo-shadowed-powerpage"]');
-      const getShadowDomHtml = (manuData) => {
-        let shadowText = '';
-        const shadowImage = [];
-        if (manuData && manuData.shadowRoot) {
-          let imagesHtml = manuData.shadowRoot.childNodes[0];
-          for (const el of manuData.shadowRoot.childNodes) {
-            shadowText += el.innerText;
+    try {
+      await context.goto(`${iFrameSrc}#[!opt!]{"block_ads":false,"anti_fingerprint":false,"first_request_timeout":60,"load_timeout":30,"load_all_resources":true,"enable_cache":false,"discard_CSP_header":true}[/!opt!]`);
+    } catch (error) {
+      console.log('Enhanced content navigation error', error);
+    }
+    try {
+      // await context.waitForSelector('div#syndi_powerpage div[class*="syndigo-shadowed-powerpage"]');
+      manufacturerData = await context.evaluate(async function () {
+        const manuData = document.querySelector('div#syndi_powerpage div[class*="syndigo-shadowed-powerpage"]');
+        const getShadowDomHtml = (manuData) => {
+          let shadowText = '';
+          const shadowImage = [];
+          if (manuData && manuData.shadowRoot) {
+            let imagesHtml = manuData.shadowRoot.childNodes[0];
+            for (const el of manuData.shadowRoot.childNodes) {
+              shadowText += el.innerText;
+            }
+            imagesHtml = imagesHtml.querySelectorAll('img') || '';
+            if (imagesHtml && imagesHtml.length) {
+              imagesHtml.forEach(element => {
+                shadowImage.push(element.src);
+              });
+            }
+          } else {
+            manuData = document.querySelector('div.ccs-cc-inline.ccs-cc-block-inline');
+            if (manuData) {
+              shadowText = manuData.innerText;
+              const imagesHtml = manuData.querySelectorAll('img') || '';
+              if (imagesHtml && imagesHtml.length) {
+                imagesHtml.forEach(element => {
+                  shadowImage.push(element.src);
+                });
+              }
+            }
           }
-          imagesHtml = imagesHtml.querySelectorAll('img') || '';
-          if (imagesHtml && imagesHtml.length) {
-            imagesHtml.forEach(element => {
-              shadowImage.push(element.src);
-            });
-          }
-        }
-        return { shadowText: shadowText.trim(), shadowImage };
-      };
-      return getShadowDomHtml(manuData);
-    });
+          return { shadowText: shadowText.trim(), shadowImage };
+        };
+        return getShadowDomHtml(manuData);
+      });
+    } catch (error) {
+      console.log('Enhanced content not loaded', error);
+    }
     await context.goto(`${mainUrl}&intl=nosplash#[!opt!]{"block_ads":false,"anti_fingerprint":false,"first_request_timeout":60,"load_timeout":30,"load_all_resources":true,"enable_cache":false,"discard_CSP_header":true}[/!opt!]`, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: true });
   }
   try {
@@ -146,7 +165,7 @@ async function implementation (
       if (imgEle && imgEle.length > 0) {
         for (let i = 1; i < imgEle.length; i++) {
           const imgUrl = imgEle[i].querySelector('img').getAttribute('src');
-          console.log("imgUrl:: ", imgUrl);
+          console.log('imgUrl:: ', imgUrl);
           addHiddenDiv('secImages', imgUrl.replace(';maxHeight=150;maxWidth=150', ''));
         }
       }
