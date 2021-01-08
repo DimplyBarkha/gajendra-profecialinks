@@ -25,8 +25,10 @@ fields:
   xpath: (//section[@id="productSheetCont"]//span[@id="price"])[1]
 - name: availabilityText
   singleValue: true
-  xpath: //div[@itemprop="offers"]/meta[@itemprop="availability"]/@content
-  regExp: (\w+$)
+  xpath: (//div[@class="price-container-desktop"]//button[@name="add-to-cart"])[1]
+  regExp: (.+)
+  regExpReplace: In Stock
+  defaultValue: OutOfStock
 - name: description
   singleValue: true
   xpath: //html//div[@id='manu']
@@ -41,10 +43,10 @@ fields:
   xpath: //div[@class='product-info']/p[@class='volume']
 - name: directions
   singleValue: true  
-  xpath: concat(//div[@class='box-white']//h3[contains(text(),'Modo de empleo')]//following-sibling::ul,//div[@class='box-white']//h3[contains(text(),'Modo de empleo')]//following-sibling::p)
+  xpath: //html//div[@id='direction']
 - name: alternateImages
   singleValue: false  
-  xpath: //a[@data-zoom-id="product-img"]/img/@src
+  xpath: (//a[@data-zoom-id="product-img"]//@href)[position()>1]
 - name: sku
   singleValue: true
   xpath: //meta[@itemprop="sku"]/@content
