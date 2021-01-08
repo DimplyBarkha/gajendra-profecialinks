@@ -25,6 +25,11 @@ const transform = (data) => {
     for (const { group } of data) {
       for (let row of group) {        
         
+        if (row.inTheBoxText) {
+          row.inTheBoxText.forEach(item => {
+            item.text = item.text.replace(/\n/g, ' | ').trim();
+          });
+        }
         if (row.aggregateRating) {
           row.aggregateRating.forEach(item => {
             item.text = item.text.replace(/(\s*\.\s*)+/g, ',').trim();

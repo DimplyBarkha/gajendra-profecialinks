@@ -108,3 +108,11 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: false
     defaultValue: Yes
+  # custom fields
+  - name: inTheBoxUrl 
+  - name: inTheBoxText
+    xpath: //div[@itemprop="description"]//*[contains(text(), 'Dieses Set enthält:')]/..
+  - name: hasComparisonTable
+    defaultValue: No
+  - name: unInterruptedPDP
+    xpath: //div[contains(@class, 'cross-selling')]//div[@class="tab--container-list"]/div[position() < 4]//a[@class="product--title"]
