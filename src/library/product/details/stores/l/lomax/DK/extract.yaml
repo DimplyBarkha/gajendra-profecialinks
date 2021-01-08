@@ -19,13 +19,13 @@ fields:
     xpath: //link[@rel="canonical"]/@href  
   - name: category
     singleValue: false
-    xpath: //div[@class="container productcard"]/@data-gtm-category
+    xpath: //div[@class="container"]/nav/ol/li[2]/a/text()
   - name: nameExtended
     singleValue: true
-    xpath: //meta[@itemprop="description"]/@content  
+    xpath: //div[@class="d-inline-block float-left order-2 order-lg-1"]/h1/text() 
   - name: price
     singleValue: true
-    xpath: //div[@class="text-right price-container"]/span/text()
+    xpath: //div[@class="text-right price-container"]/span
   - name: availabilityText
     singleValue: true
     xpath: //div[@class="container productcard"]/@data-gtm-stock-status  
