@@ -203,7 +203,9 @@ const transform = (data, context) => {
 
       if (row.variantInformation) {
         const json = JSON.parse(row.variantInformation[0].text.trim());
-        const text = Object.entries(json).map(prop => prop.map(elm => elm.replace('_name', '')).join(':')).join(' | ');
+        // const text = Object.entries(json).map(prop => prop.map(elm => elm.replace('_name', '')).join(':')).join(' | ');
+        // Update done based on callout on Amazon TR.
+        const text = Object.values(json).map(elm => elm.trim()).join(' | ');
         row.variantInformation = [{ text }];
         if (!row.color || row.color[0].text.length === 0) {
           if (json.color_name) {
@@ -282,6 +284,9 @@ const transform = (data, context) => {
           row.packSize = [{ text: packText[2] }];
         }
       }
+      if (row.videos) {
+        row.galleryVideos = row.videos;
+      }
       if (row.manufacturerVideos) {
         if (!row.videos || row.videos[0].text === '') {
           row.videos = row.manufacturerVideos;
@@ -311,7 +316,21 @@ const transform = (data, context) => {
         row.availabilityText = row.availabilityTextFreshUnavailable;
         delete row.availabilityTextFreshUnavailable;
       }
+      if (row.availabilityText) {
+        // Added the regex for different locale which say Usually ships in etc.
+        const usuallyShipsRegex = /(Usually|Genellikle)/gi;
+        const availabilityMap = {
+          usually: 'In Stock',
+          genellikle: 'Stokta var',
+        };
+        const match = row.availabilityText[0].text.match(usuallyShipsRegex);
+        if (match) {
+          row.availabilityText[0].text = availabilityMap[match[0].toLowerCase()];
+        }
+        row.availabilityText[0].text = row.availabilityText[0].text.trim().replace(/\.$/, '');
+      }
       if (row.gtin) {
+        // Getting only 10 UPCs.
         const text = row.gtin.slice(0, 10).map(elm => elm.text).join(' ');
         row.gtin = [{ text }];
       }

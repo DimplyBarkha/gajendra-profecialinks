@@ -5,7 +5,7 @@ recordXPath: /html[//div[@id="a-page"]]
 fields:
   - name: image
     #singleValue: true
-    xpath: (//*[@id="detailImg"] | //img[@id="landingImage"] | //div[@id="img-canvas"]/img)[1]/@src | //*[@id="altImages"][ancestor::html[not((//*[@id="detailImg"] | //img[@id="landingImage"] | //div[@id="img-canvas"]/img)[1]/@src)]]/ul/li[contains(@class,"item")]//img/@src
+    xpath: (//*[@id="detailImg"] | //img[@id="landingImage"] | //div[@id="img-canvas"]/img)[1]/@src | //*[@id="altImages"][ancestor::html[not((//*[@id="detailImg"] | //img[@id="landingImage"] | //div[@id="img-canvas"]/img)[1]/@src)]]/ul/li[contains(@class,"item")]//img/@src | //div[@id="ebooks-img-canvas"]//img[starts-with(@id,"ebooksIm")]/@src
     regExp: (.+)\.[^\.]*(\.[^\.]+$)
     regExpReplace: $1$2
   - name: imageFallback
@@ -14,7 +14,7 @@ fields:
     regExpReplace: $1
   - name: imageAlt
     #singleValue: true
-    xpath: (//img[@id="landingImage"])[1]/@alt | //div[@id="img-canvas"]/img[1]/@alt
+    xpath: (//img[@id="landingImage"])[1]/@alt | //div[@id="img-canvas"]/img[1]/@alt |  | //div[@id="ebooks-img-canvas"]//img[starts-with(@id,"ebooksIm")]/@alt
   - name: alternateImages
     singleValue: false
     xpath: //li[contains(@class, "imageThumbnail")][position()>1]//img/@src | //img[contains(@class,"ig-thumb-inner") and not(contains(@class,"selected"))]/@src | (//span[@data-action="thumb-action"]//img/@src)[position()>1]
@@ -68,7 +68,7 @@ fields:
     xpath: count(//*[@id='feature-bullets']//ul/li[not(@id)] | //div[@id="productDescription"]/ul/li)
   - name: backupBrand
     singleValue: false
-    xpath: //a[@id="bylineInfo"]/text() | //div[contains(@id,"bylineInfo") and not(//a[@id="bylineInfo"]/text())] | //a[@id="brandteaser"]/img/@alt
+    xpath: //a[@id="bylineInfo"]/text() | //div[contains(@id,"bylineInfo") and not(//a[@id="bylineInfo"]/text())] | //a[@id="brandteaser"]/img/@alt | //*[@id="brand"]
     regExp: '(Brand:\s+(.+)$|Visit the (.+) Store|by\s+(.+)$|^(.+)$)'
     regExpReplace: $2$3$4$5
   - name: brandText
@@ -80,7 +80,7 @@ fields:
     # xpath: //th[contains(text(), 'Manufacturer') and not(contains(text(), "Discontinue")) and not(contains(text(),  "Part"))]/following-sibling::*[1]
   - name: quantity
     singleValue: false
-    xpath: //div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //*[starts-with(@name,"dropdown_selected_size_name")]/option[@class="dropdownSelect"]
+    xpath: //div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //*[starts-with(@name,"dropdown_selected_size_name")]/option[@class="dropdownSelect"] | //*[normalize-space(text())="Net Quantity" or normalize-space(text())="Net Quantity :"]/following-sibling::*[1][contains(text(),"count") or contains(text(),"Count")]
   - name: weightNet
     singleValue: false
     xpath: //*[contains(normalize-space(text()),"Product Dimensions")]/following-sibling::*[1][contains(.,';')] | //*[normalize-space(text())="Item Weight"]/following-sibling::*[1] | //*[normalize-space(text())="Item Weight"]/following-sibling::*[1] | //*[normalize-space(text())="Item Weight :"]/following-sibling::*[1]
@@ -136,7 +136,7 @@ fields:
     regExp: ^[^\s]+
   - name: shippingInfo
     singleValue: false
-    xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"] | //div[contains(@id,"freshShipsFromSoldBy")] | //span[contains(@class,"buybox") and contains(text(),"Ships from")]//parent::td//following-sibling::td/span/span[not(@aria-hidden="true")] | //div[contains(@id,"shipsFromSoldBy")]/div[@id="merchant-info"] | //body/@shipping-info | //*[@id="sellerProfileTriggerId"]/..
+    xpath:  //body/@shipping-info | //*[@id="shipsFromSoldByInsideBuyBox_feature_div"][not(ancestor::html/body[@shipping-info])] | //div[contains(@id,"freshShipsFromSoldBy")][not(ancestor::html/body[@shipping-info])] | //span[not(ancestor::html/body[@shipping-info])][contains(@class,"buybox") and contains(text(),"Ships from")]//parent::td//following-sibling::td/span/span[not(@aria-hidden="true")] | //div[not(ancestor::html/body[@shipping-info])][contains(@id,"shipsFromSoldBy")]/div[@id="merchant-info"] | //*[@id="sellerProfileTriggerId"][not(ancestor::html/body[@shipping-info])]/..
   - name: shippingDimensions
     singleValue: false
     xpath: //*[contains(normalize-space(text()),"Package Dimensions") or contains(normalize-space(text()),"Shipping Dimensions") or contains(normalize-space(text()),"Parcel Dimensions")]/following-sibling::*[1] | //*[normalize-space(text())="Item Package Dimensions"]/following-sibling::*[1]
@@ -183,7 +183,7 @@ fields:
     xpath: //div[@id='added-url']
   - name: asin
     #singleValue: true
-    xpath: //div[@id='added-asin'] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'ASIN')]/../../text()
+    xpath: //div[@id='added-asin'] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'ASIN')]/../../text() | //*[normalize-space(text())="ASIN"]/following-sibling::*[1]
     regExp: ^\w+
   - name: sku
   - name: coupon
@@ -426,8 +426,9 @@ fields:
     xpath: //div[@id="productDescription"]/p[b[contains(text(),"Warranty Information")]]/text()
   - name: storage
     #singleValue: true
-    xpath: //*[normalize-space(text())="Storage"]/following-sibling::*[1]
-
+    xpath: //*[normalize-space(text())="Storage" or normalize-space(text())="Storage Instructions"]/following-sibling::*[1] | //*[normalize-space(text())="Storage" or normalize-space(text())="Storage Instructions"]/following-sibling::*[1] | //div[@id="productDescription"]/p[starts-with(normalize-space(text()),"Storage Instructions")]
+    regExp: '^(Storage Instructions:\s*)?(.+)'
+    regExpReplace: $2
   - name: countryOfOrigin
     #singleValue: true
     xpath: //li[contains(.,"Origin:")] | //*[normalize-space(text())="Country of origin"]/following-sibling::*[1] | //*[contains(text(),"Country of Origin")]/following-sibling::*[1]
