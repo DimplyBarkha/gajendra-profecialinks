@@ -166,7 +166,7 @@ async function implementation(
   }
   await scrollToRec('div.child-product-container');
   try {
-    await context.waitForSelector('#inpage_container]', { timeout: 30000 });
+    await context.waitForSelector('#inpage_container', { timeout: 30000 });
   } catch (er) {
     console.log("Couldn't find the enhanced content expand button");
   }
