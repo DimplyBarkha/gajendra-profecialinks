@@ -37,6 +37,19 @@ async function implementation(
         addHiddenDiv("ii_" + outputName, result.label);
       }
     }
+
+    var content = document.getElementsByClassName("hzui-tabs__content")[0].innerText
+    var updated_content  = content.replace(/(\r\n|\n|\r)/gm, "").replace("See All SpecificationsReport incorrect information or image")
+    if (updated_content != null){
+      addHiddenDiv("ii_content",updated_content)
+    }
+
+
+    var title = document.getElementsByClassName("hz-view-product-title")[0].innerText
+    var updated_title  = title.replace(/(\r\n|\n|\r)/gm, "")
+    if (updated_title != null){
+      addHiddenDiv("ii_title",updated_title)
+    }
     // @ts-ignore
     const jsonString = document.querySelector(
       "script[type='application/ld+json']"
