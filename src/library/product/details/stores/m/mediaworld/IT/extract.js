@@ -201,13 +201,22 @@ module.exports = {
       if (manufactureXpath.length > 0) {
         addElementToDocument('added_manufacture', manufactureXpath.join('|').replace(paginationPath, ' '));
       }
-      const manufactureImageXpath = getAllXpath("//div[@id='flix-inpage']//img/@srcset | //div[@id='flix-inpage']//img/@data-img-src|//div[@id='flix-inpage']//img/@data-srcset", 'nodeValue');
-      if (manufactureImageXpath.length > 0) {
-        const manufactureImages = [];
-        manufactureImageXpath.forEach(item => {
-          manufactureImages.push('http:' + item);
-        });
-        addElementToDocument('added_manufactureImage', manufactureImages.join(' | '));
+      const manufactureImageXpath = getAllXpath("//div[@id='flix-inpage']//img/@srcset | //div[@id='flix-inpage']//img/@data-img-src|//div[@id='flix-inpage']//img/@data-srcset|//div[@id='flix-inpage']//img/@data-flixsrcset", 'nodeValue');
+      try {
+        if (manufactureImageXpath.length > 0) {
+          const manufactureImages = [];
+          manufactureImageXpath.forEach(item => {
+            if (item.includes(',')) {
+              const ImagesSetPath = item.split(',');
+              const imageStr = ImagesSetPath[0];
+              item = imageStr.substr(0, imageStr.lastIndexOf(' '));
+            }
+            manufactureImages.push('http:' + item);
+          });
+          addElementToDocument('added_manufactureImage', manufactureImages.join(' | '));
+        }
+      } catch (error) {
+        console.log(error);
       }
       const variantXpath = getAllXpath('//div[@data-component="productDetailInfo"]//ul[@class="variant-list"]//li[position()>1]//a/@title', 'nodeValue');
       if (variantXpath.length > 0) {
