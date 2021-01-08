@@ -21,6 +21,7 @@ fields:
   xpath: //section[@id='productSheetCont']/h1[@class='h3 font-weight-normal px-4 pt-2 mb-3']
 - name: price
   singlevalue: true
+  type: CURRENCY
   xpath: (//section[@id="productSheetCont"]//span[@id="price"])[1]
 - name: availabilityText
   singleValue: true
@@ -76,6 +77,7 @@ fields:
   xpath: count(//div[@id="content-description"]//ul/li)
 - name: listPrice
   singleValue: true
+  type: CURRENCY
   xpath: (//div[1]/del[@class='old-price pr-1 pr-sm-2 mt-1 mt-sm-2'])[1] 
 - name: variantCount
   singleValue: true
