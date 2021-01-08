@@ -125,7 +125,7 @@ fields:
     xpath: //span[contains(.,"Larghezza")]/../span[2] | //span[contains(.,"Altezza")]/../span[2] | //span[contains(.,"Profondità")]/../span[2]
   - name: inTheBoxUrl
     singleValue: false
-    xpath: //div[contains(@class,"flix-specs-box")]//img/@srcset | //div[contains(@class,"flix-box-image")]//img/@src
+    xpath: //div[contains(@class,"flix-specs-box")]//img/@srcset | //div[@class="flix-std-clmn-lg-4 flix-std-clmn-xs-12 flix-std-table-cell flix-box-image"]/div/img/@srcset
     regExp: (.+)
     regExpReplace: https:$1
   - name: inTheBoxText
