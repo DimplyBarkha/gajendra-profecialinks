@@ -41,6 +41,9 @@ const transform = (data, context) => {
         videos = Array.from(new Set(videos)).map(elm => ({ text: elm }));
         row.videos = videos;
       }
+      if (row.hasComparisonTable) {
+        row.hasComparisonTable[0].text = row.hasComparisonTable[0].text.replace('4', 'Yes');
+    }
       // if (row.unInterruptedPDP) {
       //   for (let i = 0; i < row.unInterruptedPDP.length; i++) {
       //   row.unInterruptedPDP[i].text = `|| ${row.unInterruptedPDP[i].text}`;

@@ -420,8 +420,8 @@ fields:
   - name: unInterruptedPDP
     xpath: //div[contains(@class,"ProductCarouselstyled__CarouselWrapper-sc-1if4ltg-2 cEJjoI")]//ul//li//p[@data-test="product-title"]
   - name: hasComparisonTable
-    xpath: //div[@class="table-wrapper"]/table[@class="table table-striped"]
-    defaultValue: False
+    xpath: //input[@type="Number"]/@value
+    defaultValue: No
   - name: inTheBoxText
     xpath: //div[contains(@class,"in-the-box")]//p//text()
   - name: inTheBoxUrl

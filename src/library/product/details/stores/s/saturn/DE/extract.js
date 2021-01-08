@@ -190,6 +190,20 @@ async function implementation (inputs, parameters, context, dependencies) {
   } catch (error) {
     console.log('Not loading the recomended page');
   }
+  await context.evaluate(async () => {
+    let check = document.querySelector('table[class="table table-striped"] > tbody >tr:nth-child(1) > td:nth-child(4)')
+    let check2 = document.querySelector('div[class*="in-the-box"] img')
+    if(check && check2 !==null){
+    let x = document.createElement("INPUT");
+    x.setAttribute("type","Number");
+    x.setAttribute("value","4");
+    document.body.appendChild(x)
+    }
+    else{
+      console.log("element not found")
+    }
+//   window.getComputedStyle(element).display
+});
   return await context.extract(productDetails, { transform });
 }
 
