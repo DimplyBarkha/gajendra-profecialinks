@@ -29,7 +29,7 @@ module.exports = {
       console.log('No result found');
     }
 
-    async function scrollToRec (node) {
+    async function scrollToRec(node) {
       await context.evaluate(async function (node) {
         var element = (document.querySelector(node)) ? document.querySelector(node) : null;
         if (element) {
@@ -49,7 +49,7 @@ module.exports = {
     await context.evaluate(async () => {
       await new Promise((resolve) => setTimeout(resolve, 5000));
 
-      async function infiniteScroll () {
+      async function infiniteScroll() {
         let prevScroll = document.documentElement.scrollTop;
         while (true) {
           window.scrollBy(0, document.documentElement.clientHeight);
@@ -64,7 +64,7 @@ module.exports = {
       await infiniteScroll();
     });
     await context.evaluate(async function () {
-      function addElementToDocument (key, value) {
+      function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -168,9 +168,9 @@ module.exports = {
         const items = customerAlsoBoughtItemEl.shadowRoot.querySelectorAll('.slick-list h2[class*="title_title"]');
 
         for (const el of items) {
-            if (el.innerText) {
-              updpItems.push(el.innerText);
-            }
+          if (el.innerText) {
+            updpItems.push(el.innerText);
+          }
         }
       }
 
@@ -181,9 +181,9 @@ module.exports = {
       }
 
       try {
-        const productId = window.__NEXT_DATA__.props.pageProps.productId;
-        document.body.setAttribute('varinatId', productId);
-        const brandName = window.__NEXT_DATA__.props.pageProps.currentSku.brandName;
+        const productId = window.__NEXT_DATA__ ? window.__NEXT_DATA__.props.pageProps.productId : '';
+        if (productId) document.body.setAttribute('varinatId', productId);
+        const brandName = window.__NEXT_DATA__ ? window.__NEXT_DATA__.props.pageProps.currentSku.brandName : window.jlData.page.productPages.brand;
         document.body.setAttribute('brandName', brandName);
       } catch (e) {
         console.log('ID not found');
