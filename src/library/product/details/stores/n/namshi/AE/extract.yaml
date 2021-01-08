@@ -40,9 +40,10 @@ fields:
     xpath: //span[@class="ratings-stat__avg-rating"]
   - name: description
     singleValue: false
-    xpath: //div[contains(@class,"product_description")]//div[contains(@class,"info_shortdescription")]//li
+    # xpath: //div[contains(@class,"product_description")]//div[contains(@class,"info_shortdescription")]//li
     # xpath: concat(//h1[@class="product__name"]/text(),' ',//meta[@property="product:color"]/@content,' ',//ul[@id="product_size"]//label[contains(@class,'available')]//span/text())
-    xpath: //div[@id='currentDiv']/text()
+    # xpath: //div[@id='currentDiv']/text()
+    xpath: //div[@id='prodDesc']/text()
   - name: nameExtended
     # xpath: concat(//h1[@class="product__name"]/text(),' ',//meta[@property="product:color"]/@content)
     # xpath: concat(//meta[@property="product:color"]/@content,' ',//div[@id='currentDiv']/text())

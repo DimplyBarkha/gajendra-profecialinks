@@ -1,5 +1,5 @@
 const { transform } = require('../format');
-async function implementation(
+async function implementation (
   // @ts-ignore
   inputs,
   parameters,
@@ -9,7 +9,7 @@ async function implementation(
   const { transform } = parameters;
   const { productDetails } = dependencies;
   const sizeOfDiv = await context.evaluate(function () {
-    function addHiddenDiv(id, content, availability, itemNo, rpc, size) {
+    function addHiddenDiv (id, content, availability, itemNo, rpc, size) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
       newDiv.textContent = content;
@@ -20,6 +20,16 @@ async function implementation(
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
+    if (document.querySelectorAll('div[class*="product_description"] div[class*="info_shortdescription"] li')) {
+      let prodDesc = '';
+      const descRows = document.querySelectorAll('div[class*="product_description"] div[class*="info_shortdescription"] li');
+      for (let i = 0; i < descRows.length; i++) {
+        prodDesc += descRows[i].innerText + ' || ';
+      }
+      console.log('prod desc is ' + prodDesc);
+      addHiddenDiv('prodDesc', prodDesc);
+    }
+    // div[contains(@class,"product_description")]//div[contains(@class,"info_shortdescription")]//li
     let sku = document.URL.substring(document.URL.lastIndexOf('-'), document.URL.length);
     sku = sku.replace(/(-)(.+)(.html)/g, '$2');
     addHiddenDiv('skuDiv', sku);
@@ -29,8 +39,8 @@ async function implementation(
     const serverObj = JSON.parse(serverData.innerText.trim());
     const rpcArray = serverObj.simples;
     for (let i = 0; i < rpcArray.length; i++) {
-      let prodFullName = brandName + ' ' + prodName;
-      //prodFullName += ' ' + rpcArray[i].size;
+      const prodFullName = brandName + ' ' + prodName;
+      // prodFullName += ' ' + rpcArray[i].size;
       const rpc = rpcArray[i].sku;
       if (rpcArray[i].quantity !== 0) addHiddenDiv('descDiv', prodFullName, 'In Stock', i, rpc, rpcArray[i].size);
       else addHiddenDiv('descDiv', prodFullName, 'Out Of Stock', i, rpc, rpcArray[i].size);
@@ -40,7 +50,7 @@ async function implementation(
   if (sizeOfDiv !== 0) {
     for (let i = 0; i < sizeOfDiv; i++) {
       await context.evaluate(function (i) {
-        function addHiddenDiv(id, content, availability, rpc, size) {
+        function addHiddenDiv (id, content, availability, rpc, size) {
           const newDiv = document.createElement('div');
           newDiv.id = id;
           newDiv.textContent = content;
