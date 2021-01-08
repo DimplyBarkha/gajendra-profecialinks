@@ -109,15 +109,14 @@ async function implementation (
 
     let secImage = document.evaluate('//div[@class="slick-track"]/div[not(contains(@class,"video")) and not(@data-index="1")]//img/@src', document, null, XPathResult.ANY_TYPE, null);
     let thisImage = secImage.iterateNext();
-    let images = "";
+    const allImages = [];
     while (thisImage) {
-      let imageUrl = thisImage.textContent.replace('=XXS','=XL');
-      images += imageUrl + "\n";
+      const imageUrl = thisImage.textContent.replace('=XXS','=XL');
+      allImages.push(imageUrl);
       thisImage = secImage.iterateNext();
     }
-    let imageArray = images.split('\n');
     //@ts-ignore.
-    imageArray = [...new Set(imageArray)];
+    const imageArray = [...new Set(allImages)];
     document.querySelector('body').setAttribute('sec-images', imageArray.join(' | '));
   });
 
