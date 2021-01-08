@@ -1,4 +1,4 @@
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -10,7 +10,7 @@ async function implementation (
   const allResults = [];
 
   await context.evaluate(async function () {
-    function stall (ms) {
+    function stall(ms) {
       return new Promise(resolve => {
         setTimeout(() => {
           resolve();
@@ -18,7 +18,7 @@ async function implementation (
       });
     }
 
-    function addHiddenDiv (el, id, text) {
+    function addHiddenDiv(el, id, text) {
       const div = document.createElement('div');
       div.innerHTML = text;
       div.classList.add(id);
@@ -32,44 +32,56 @@ async function implementation (
       await stall(250);
     }
 
-    let count = 0;
-    if (document.querySelector('.card__inner')) {
-      document.querySelectorAll('.card__inner').forEach((el, ind) => {
+    const getPageDOM = async (url, domParser) => {
+      try {
+        const response = await fetch(url);
+        const text = await response.text;
+        debugger
+        return domParser.parseFromString(text, 'text/html');
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    const extractData = (dataArr) => {
+      const domParser = new DOMParser();
+      let count = 0;
+
+      dataArr.forEach(async el => {
         if (count >= 150) {
           return;
         }
-        if (el.querySelector('h3')) {
+        if (el.querySelector('div[itemprop="name"]')) {
           el.classList.add('productInfo');
           const name = el.querySelector('h3').innerText;
           const thumbnail = el.querySelector('img').getAttribute('src');
           const url = el.querySelector('a').getAttribute('href');
+          const detailPage = await getPageDOM(url, domParser);
+          const id = detailPage.querySelector(`meta[itemprop = "productID sku"]`)
+            && detailPage.querySelector(`meta[itemprop = "productID sku"]`).content
+            || (detailPage.querySelector(`div[data-bv-show="inline_rating"]`)
+              && detailPage.querySelector(`div[data-bv-show="inline_rating"]`).dataset.bvProductId);
+
           const splitURL = url.split('-');
           addHiddenDiv(el, 'name', name);
-          addHiddenDiv(el, 'id', splitURL[splitURL.length - 2] + '-' + splitURL[splitURL.length - 1]);
-          addHiddenDiv(el, 'thumbnail', thumbnail);
-          addHiddenDiv(el, 'url', url);
-          count++;
-        }
-      });
-    } else {
-      document.querySelectorAll('.g-wrap').forEach((el, ind) => {
-        if (count >= 150) {
-          return;
-        }
-        if (el.querySelector('h3')) {
-          el.classList.add('productInfo');
-          const name = el.querySelector('h3').innerText;
-          const thumbnail = el.querySelector('img').getAttribute('src');
-          const url = el.querySelector('a').getAttribute('href');
-          const splitURL = url.split('-');
-          addHiddenDiv(el, 'name', name);
-          addHiddenDiv(el, 'id', splitURL[splitURL.length - 2] + '-' + splitURL[splitURL.length - 1]);
+          addHiddenDiv(el, 'id', id);
           addHiddenDiv(el, 'thumbnail', thumbnail);
           addHiddenDiv(el, 'url', url);
           count++;
         }
       });
     }
+
+
+    const cssInnerCardType = '.card__inner';
+    const cssGWrap = '.g-wrap';
+    let allProducts = document.querySelectorAll(cssInnerCardType);
+    if (allProducts.length) {
+    } else {
+      allProducts = document.querySelectorAll(cssGWrap);
+    }
+
+    allProducts.length ? extractData(allProducts) : console.log(`No products found, css: ${cssInnerCardType} and ${cssGWrap} both returned 0 products`);
   });
   const extract = await context.extract(productDetails, { transform });
   allResults.push(extract);
