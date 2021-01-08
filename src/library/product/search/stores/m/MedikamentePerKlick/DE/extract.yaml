@@ -1,46 +1,44 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]
+recordXPath: null
 fields:
-  - name: id
-    singleValue: false
-    xpath: //dd[@itemprop="productID"]
-  - name: rankOrganic
-    singleValue: false
-    xpath: //div[starts-with(@id,'ii_rank')]
-  - name: name
-    singleValue: false
-    xpath: //span[@itemprop="name"]
   - name: productUrl
-    singleValue: false
-    xpath: //a[@itemprop="url"]/@href
+    xpath: //div[@class='productsList']//div[@class="h3"]/a[not(contains(@onclick,"hitSearchCampaign('12181')"))]/@href
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    xpath: //div[@class='productsList']//div[@class="figure"]/a[not(contains(@onclick,"hitSearchCampaign('12181')"))]/img/@src
+    regExp: (.+)
+    regExpReplace: https://www.medikamente-per-klick.de$1
+  - name: name
+    type: TEXT
+    xpath: //div[@class='productsList']//div[@class="figure"]/a[not(contains(@onclick,"hitSearchCampaign('12181')"))]/img/@title
+  - name: id
+    description: The store-specific product identifier
+    type: TEXT
+    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//dd[@itemprop="productID"]//text()
+  # - name: gtin
+    # manualSelector: script[type='text/plain']
+    # regExp: '(gtin: ")(\d+)'
+    # regExpReplace: $2
   - name: gtin
     singleValue: false
     xpath: //form/@name
     regExp: cart(\w+)_.*
     regExpReplace: $1
-  - name: thumbnail
-    singleValue: false
-    xpath: //img[@itemprop="image" and @class="lazy photo"]/@data-original|//img[@itemprop="image" and @class="photo"]/@src
-    regExp: (.*)
-    regExpReplace: https://www.medikamente-per-klick.de$1
   - name: price
-    singleValue: false
-    xpath: //div[starts-with(@id,'ii_price')]
+    type: CURRENCY
+    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//dd[@class="price lowPrice"]//text()
   - name: aggregateRating
-    singleValue: false
-    xpath: //span[@itemprop="ratingValue"]
+    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//span[@itemprop='ratingValue']//text()
   - name: reviewCount
-    singleValue: false
-    xpath: //span[@class="reviewers"]
+    type: NUMBER
+    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//span[@itemprop='reviewCount']//text()
+  - name: Availability
+    xpath: //div[@class='productsList']//form[not(contains(@name,'theform'))]/dl[@class="productAvailability"]//dd/span/@title
+    defaultValue: In stock
+    regExp: out_of_stock
+    regExpReplace: Out of Stock
   - name: manufacturer
-    singleValue: false
-    xpath: //div[@id='pd_manufacturer']
-  - name: soldBy
-    singleValue: false
-  - name: rank
-    singleValue: false
-    xpath: //div[starts-with(@id,'ii_rank')]
-  - name: endorsementText
-    singleValue: false
+    type: TEXT
+    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//dd[@itemprop="brand"]//text()
