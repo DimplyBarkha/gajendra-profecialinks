@@ -2,6 +2,12 @@ function addDynamicTable(jsonData, appendSelector) {
   function generateDynamicTable(jsonData) {
     const dataLength = jsonData.length;
 
+    jsonData = jsonData.map((elm) => {
+      if (typeof elm !== "object") {
+        return { item: elm };
+      }
+      return elm;
+    });
     if (dataLength > 0) {
       const table = document.createElement("table");
       table.style.width = "100%";
@@ -65,7 +71,6 @@ function addDynamicTable(jsonData, appendSelector) {
       return table;
     }
   }
-
   const table = generateDynamicTable(jsonData);
   const container = document.createElement("div");
   container.setAttribute("id", "added-table");
@@ -74,6 +79,7 @@ function addDynamicTable(jsonData, appendSelector) {
   container.appendChild(table);
   document.querySelector(appendSelector).append(container);
 }
+
 
 async function getData () {
   async function getPartnerDetails (sku) {

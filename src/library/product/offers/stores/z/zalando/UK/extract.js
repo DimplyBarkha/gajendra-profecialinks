@@ -8,6 +8,12 @@ async function implementation (inputs, parameters, context, dependencies) {
     function generateDynamicTable(jsonData) {
       const dataLength = jsonData.length;
   
+      jsonData = jsonData.map((elm) => {
+        if (typeof elm !== "object") {
+          return { item: elm };
+        }
+        return elm;
+      });
       if (dataLength > 0) {
         const table = document.createElement("table");
         table.style.width = "100%";
@@ -71,7 +77,6 @@ async function implementation (inputs, parameters, context, dependencies) {
         return table;
       }
     }
-  
     const table = generateDynamicTable(jsonData);
     const container = document.createElement("div");
     container.setAttribute("id", "added-table");
@@ -80,6 +85,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     container.appendChild(table);
     document.querySelector(appendSelector).append(container);
   }
+  
   
   async function getData () {
     async function getPartnerDetails (sku) {
