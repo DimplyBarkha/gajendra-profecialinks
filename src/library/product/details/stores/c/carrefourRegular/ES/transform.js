@@ -126,15 +126,14 @@ const transform = (data) => {
       //   }
       // }
 
-      if (row.UPDP) {
+      if (row.unInterruptedPDP) {
         let arr = [];
-        row.UPDP.forEach(item => {
+        let text = '';
+        row.unInterruptedPDP.forEach(item => {
           arr.push(item.text);
         })
-        row.UPDP = arr.join('||');
+        row.unInterruptedPDP.text = arr.join('||');
       }
-
-
 
       if (row.productOtherInformation) {
         let text = '';
