@@ -117,6 +117,13 @@ const transform = (data) => {
           ];
         }
       }
+      if (row.videos && row.videos.length > 0) {
+        row.videos.forEach(item => {
+          if (item.text.includes('player.liveclicker.com')) {
+            item.text = 'https:' + item.text;
+          }
+        });
+      }
 
       if (row.sku && row.sku.length > 0) {
         for (const item of row.sku) {
@@ -128,6 +135,22 @@ const transform = (data) => {
           text1 += item.text + ' | ';
         });
         row.sku = [{ text: text1.slice(0, -2).trim() }];
+        if (row.sku1 && row.sku1.length > 0) {
+          if (row.sku1[0].text.length > row.sku[0].text.length) {
+            row.sku[0].text = row.sku1[0].text;
+          }
+        }
+      }
+      if (!row.sku || row.sku.length <= 0) {
+        if (row.sku1 && row.sku1.length > 0) {
+          row.sku1 = row.sku1.filter((thing, index, self) => self.findIndex(t => t.text === thing.text) === index);
+          let text1 = '';
+          row.sku1.forEach(item => {
+            text1 += item.text + ' | ';
+          });
+          row.sku1 = [{ text: text1.slice(0, -2).trim() }];
+          row.sku = row.sku1;
+        }
       }
       if (row.mpc && row.mpc.length > 0) {
         for (const item of row.mpc) {
@@ -139,6 +162,22 @@ const transform = (data) => {
           text1 += item.text + ' | ';
         });
         row.mpc = [{ text: text1.slice(0, -2).trim() }];
+        if (row.mpc1 && row.mpc1.length > 0) {
+          if (row.mpc1[0].text.length > row.mpc[0].text.length) {
+            row.mpc[0].text = row.mpc1[0].text;
+          }
+        }
+      }
+      if (!row.mpc || row.mpc.length <= 0) {
+        if (row.mpc1 && row.mpc1.length > 0) {
+          row.mpc1 = row.mpc1.filter((thing, index, self) => self.findIndex(t => t.text === thing.text) === index);
+          let text1 = '';
+          row.mpc1.forEach(item => {
+            text1 += item.text + ' | ';
+          });
+          row.mpc1 = [{ text: text1.slice(0, -2).trim() }];
+          row.mpc = row.mpc1;
+        }
       }
 
       if (row.myPrice && row.myPrice.length > 0) {
@@ -192,7 +231,45 @@ const transform = (data) => {
         });
         row.specifications = nDesc;
       }
-      console.log('myDesc->', myDesc);
+      if (!row.storage) {
+        if (row.manufacturerDescription && row.manufacturerDescription.length > 0 && row.manufacturerDescription[0].text.includes('Storage instructions:')) {
+          var test = '';
+          var demo = row.manufacturerDescription[0].text;
+          var regExString = new RegExp('(?:' + 'Storage instructions:' + ')(.[\\s\\S]*)(?:' + ' For questions,' + ')');
+          test = regExString.exec(demo);
+          test = test[1].replace(/\n-/, '').replace(/\n-/g, ' ').trim();
+          row.storage = [{ text: test }];
+        }
+      }
+      if (!row.warnings) {
+        if (row.manufacturerDescription && row.manufacturerDescription.length > 0 && (row.manufacturerDescription[0].text.includes('KEEP OUT OF REACH OF CHILDREN.') || row.manufacturerDescription[0].text.includes('Keep out of reach of children.'))) {
+          if (row.manufacturerDescription[0].text.includes('Warning:')) {
+            var test1 = '';
+            var demo1 = row.manufacturerDescription[0].text;
+            var regExString1 = new RegExp('(?:' + 'Warning:' + ')(.[\\s\\S]*)(?:' + ' Note:' + ')');
+            test1 = regExString1.exec(demo1);
+            test1 = test1[1].replace(/\n-/, '').replace(/\n-/g, ' ').trim();
+            row.warnings = [{ text: test1 }];
+          } else if (row.manufacturerDescription[0].text.includes('Keep out of reach of children.') && row.manufacturerDescription[0].text.includes('away.')) {
+            var test2 = '';
+            var demo2 = row.manufacturerDescription[0].text;
+            var regExString2 = new RegExp('(?:' + 'Keep out of reach of children.' + ')(.[\\s\\S]*)(?:' + 'away.' + ')');
+            test2 = regExString2.exec(demo2);
+            test2 = test2[1].replace(/\n-/, '').replace(/\n-/g, ' ').trim();
+            test2 = 'Keep out of reach of children. ' + test2 + ' away.';
+            row.warnings = [{ text: test2 }];
+          } else if (row.manufacturerDescription[0].text.includes('Keep out of reach of children.') && row.manufacturerDescription[0].text.includes('immune-compromising condition.')) {
+            var test3 = '';
+            var demo3 = row.manufacturerDescription[0].text;
+            var regExString3 = new RegExp('(?:' + 'Keep out of reach of children.' + ')(.[\\s\\S]*)(?:' + ' immune-compromising condition.' + ')');
+            test3 = regExString3.exec(demo3);
+            test3 = test3[1].replace(/\n-/, '').replace(/\n-/g, ' ').trim();
+            test3 = 'Keep out of reach of children. ' + test3 + ' immune-compromising condition.';
+            row.warnings = [{ text: test3 }];
+          }
+        }
+      }
+    // console.log('myDesc->', myDesc);
     //   if (row.listPrice && row.listPrice.length) {
     //     let text = '';
     //     row.listPrice.forEach(item => {

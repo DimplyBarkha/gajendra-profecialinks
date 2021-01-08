@@ -60,7 +60,7 @@ module.exports = {
       }
       try {
         const descNode1 = document.querySelector('div.syndi_powerpage');
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        await new Promise(resolve => setTimeout(resolve, 4000));
         if (descNode1 && descNode1.shadowRoot) {
           const fetchNode = descNode1.shadowRoot.firstChild;
           let text = fetchNode.innerText;
@@ -154,6 +154,64 @@ module.exports = {
             addHiddenDiv('videos', arr[0]);
           }
         }
+      } catch (err) {}
+    });
+    await context.evaluate(async function () {
+      function addHiddenDiv (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+      try {
+        const vidImage = Array.from(document.querySelectorAll('img[id*="videoOverlay"]'));
+        console.log('vidImage--->',vidImage);
+        const vidArray = [];
+        for (let item = 0; item < vidImage.length; item++) {
+          vidImage[item].click();
+          await new Promise(resolve => setTimeout(resolve, 3000));
+          // const element = document.evaluate('//form[contains(@action,"video-player")]/@action', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+          // console.log('element--->',element);
+          // let videoSrc = element ? element.getAttribute('action') : '';
+          // console.log('videoSrc--->',videoSrc);
+          // videoSrc = 'https:' + videoSrc;
+          // vidArray.push(videoSrc);
+          // console.log('vidArray--->',vidArray);
+          // await new Promise(resolve => setTimeout(resolve, 1000));
+        }
+
+        // const videos = vidArray.join(' | ');
+        // addHiddenDiv('formVideos', videos);
+        // const iframe = document.querySelector('[title="Product Videos"]');
+        // if (iframe) {
+        //   const video = iframe.contentWindow.document.getElementsByTagName('video');
+        //   const videoUrls = [...video].map(elm => elm.src);
+        //   document.querySelector('head').setAttribute('video', videoUrls.join(''));
+        // } else {
+        // let id = document.querySelector('p[id="product-body-item-number"]') ? document.querySelector('p[id="product-body-item-number"]').textContent.match(/(\d+)/g) : '';
+        // id = id[0];
+        // const url = 'https://cors-anywhere.herokuapp.com/https://sc.liveclicker.net/service/api?method=liveclicker.widget.getList&account_id=69&dim5=' + id + '&format=json';
+        // // const url = `https://cors-anywhere.herokuapp.com/https://sc.liveclicker.net/service/api?method=liveclicker.widget.getList&account_id=69&dim5=${id}&format=json`;
+        // const data = await fetch(url);
+        // if (data.status === 200) {
+        //   const json = await data.json();
+
+        //   const arr = [];
+        //   const array = json.widgets.widget;
+        //   array.forEach(item => {
+        //     const val = item.asset_id;
+        //     const url = `https://d2vxgxvhgubbj8.cloudfront.net/videos/69/${val}_1_liveclicker.mp4`;
+        //     arr.push(url);
+        //   });
+        //   let count = 0;
+        //   arr.forEach(item => {
+        //     document.querySelector('head').setAttribute(`vid${count}`, item);
+        //     count++;
+        //   });
+        //   addHiddenDiv('videos', arr[0]);
+        // }
+        // }
       } catch (err) {}
     });
 
