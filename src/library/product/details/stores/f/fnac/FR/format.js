@@ -80,11 +80,11 @@ const transform = (data) => {
       }
       if (row.productOtherInformation) {
         var arrInfo = [];
-        row.manufacturerDescription.forEach(item => {
+        row.productOtherInformation.forEach(item => {
           item.text.replace(/\n\s*\n/, ' : ');
           arrInfo.push(item.text);
         });
-        row.manufacturerDescription = [{ text: arrInfo.join(' | ') }];
+        row.productOtherInformation = [{ text: arrInfo.join(' | ') }];
       }
       if (row.manufacturerImages) {
         var arrImg = [];
