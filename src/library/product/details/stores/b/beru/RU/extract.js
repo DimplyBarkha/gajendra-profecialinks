@@ -10,12 +10,11 @@ module.exports = {
   },
   implementation,
 };
-async function implementation(inputs, parameters, context, dependencies) {
+async function implementation(inputs, parameters, context, dependencies ) {
+  const url = `${inputs.url}`;
+
   const { transform } = parameters;
   const { productDetails } = dependencies;
-
- 
-  
 
   await context.waitForSelector('div.b_2TiXwODAcc a')
   .catch(() => { });
@@ -38,12 +37,23 @@ if(specXpath) {
    specifications.push(specification.slice(0 , -1))
   sessionStorage.setItem("Specifications", JSON.stringify(specifications));
 }  
-});  
-await context.waitForSelector('div.b_D2rV3eJmpM a')
-.catch(() => { });
-await context.clickAndWaitForNavigation("div.b_D2rV3eJmpM a")
-.catch(() => { });
-       
+
+}); 
+
+  await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
+
+// await context.waitForSelector('div.b_D2rV3eJmpM a')
+// .catch(() => { });
+// await context.clickAndWaitForNavigation("div.b_D2rV3eJmpM a")
+// .catch(() => { });
+
+// await context.evaluate(async () => {
+// // let clickNew = document.querySelector('div.b_D2rV3eJmpM')
+// // if(clickNew) {
+//   console.log(mainUrl , 'Code:');
+
+// // }
+// });
 await context.evaluate(async () => {
 
   function addHiddenDiv(id, content) {
