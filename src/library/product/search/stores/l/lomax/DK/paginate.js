@@ -6,7 +6,7 @@ module.exports = {
     country: 'DK',
     store: 'lomax',
     nextLinkSelector: null,
-    nextLinkXpath: null,
+    nextLinkXpath: '(//nav[@aria-label="orders products pages"]/ul/li/a/@href)[2]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'body',
