@@ -339,7 +339,7 @@ module.exports = {
         await context.evaluate(async function (elementID, content) {
           const newDiv = document.createElement('div');
           newDiv.id = elementID;
-          newDiv.textContent = content;
+          newDiv.innerText = content;
           newDiv.style.display = 'none';
           document.body.appendChild(newDiv);
         }, elementID, content);
@@ -365,7 +365,22 @@ module.exports = {
       addHiddenInfoAsync('specs', specification.join(' || '));
       addHiddenInfoAsync('inTheBox_', inTheBox);
 
-      // await context.evaluate(async (specification) => {
+      await context.evaluate(async (specification) => {
+        async function addHiddenInfo (elementID, content) {
+          const newDiv = document.createElement('div');
+          newDiv.id = elementID;
+          newDiv.textContent = content;
+          newDiv.style.display = 'none';
+          document.body.appendChild(newDiv);
+        }
+
+        for(let i = 0; i < specification.length; i++) {
+          await addHiddenInfo(`specification-${i + 1}`, specification[i]);
+          console.log('added the spec - ' + specification[i]);
+        }
+      }, specification);
+
+      // await context.evaluate(async (specification, brandText, mpcExt, shippingDim, shippingWeight, warranty, inTheBox) => {
       //   async function addHiddenInfo (elementID, content) {
       //     const newDiv = document.createElement('div');
       //     newDiv.id = elementID;
@@ -378,7 +393,15 @@ module.exports = {
       //     await addHiddenInfo(`specification-${i + 1}`, specification[i]);
       //     console.log('added the spec - ' + specification[i]);
       //   }
-      // }, specification);
+
+      //   await addHiddenInfo('brand-text', brandText);
+      //   await addHiddenInfo('mpc-ext', mpcExt);
+      //   await addHiddenInfo('shipping-dim', shippingDim);
+      //   await addHiddenInfo('shipping-weight', shippingWeight);
+      //   await addHiddenInfo('warranty', warranty);
+      //   await addHiddenInfo('specs', specification.join(' || '));
+      //   await addHiddenInfo('inTheBox_', inTheBox);
+      // }, specification, brandText, mpcExt, shippingDim, shippingWeight, warranty, inTheBox);
 
       return await context.extract(productDetails, { transform: transformParam });
     } catch (err) {
