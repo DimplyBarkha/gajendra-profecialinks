@@ -66,17 +66,32 @@ module.exports = {
         if ('warnings' in data[k].group[i]) {
           data[k].group[i].warnings[0].text = data[k].group[i].warnings[0].text.replace(/<br>/g, ' ');
         }
+        if ('description' in data[k].group[i]) {
+          data[k].group[i].description[0].text = data[k].group[i].description[0].text.trim();
+        }
+        if ('promotion' in data[k].group[i]) {
+          data[k].group[i].promotion[0].text = data[k].group[i].promotion[0].text.replace(/\.$/, "");
+        }
         if ('price' in data[k].group[i] && data[k].group[i].price[0].text.includes('p')) {
           data[k].group[i].price[0].text = (Number(data[k].group[i].price[0].text.replace(/p/g, '')) / 100).toFixed(2).toString();
         }
         if ('pricePerUnit' in data[k].group[i] && data[k].group[i].pricePerUnit[0].text.includes('p')) {
           data[k].group[i].pricePerUnit[0].text = (Number(data[k].group[i].pricePerUnit[0].text.replace(/p/g, '')) / 100).toFixed(2).toString();
         }
+        if ('ingredientsList' in data[k].group[i] && data[k].group[i].ingredientsList.length !== 0) {
+          for (let j = 1; j < data[k].group[i].ingredientsList.length; j++) {
+            data[k].group[i].ingredientsList[0].text += ' ' + data[k].group[i].ingredientsList[j].text;
+          }
+          data[k].group[i].ingredientsList.splice(1, data[k].group[i].ingredientsList.length - 1);
+        }
         if ('recyclingInformation' in data[k].group[i]) {
           for (let j = 0; j < data[k].group[i].recyclingInformation.length; j++) {
             data[k].group[i].recyclingInformation[k].text += ', ' + data[k].group[i].recyclingInformation[j].text;
           }
           data[k].group[i].recyclingInformation.splice(1, data[k].group[i].recyclingInformation.length - 1);
+        }
+        if ('saturatedFatPerServing' in data[k].group[i]) {
+          data[k].group[i].saturatedFatPerServing[0].text = data[k].group[i].saturatedFatPerServing[0].text.replace(/[a-z]+/, '');
         }
       }
     }

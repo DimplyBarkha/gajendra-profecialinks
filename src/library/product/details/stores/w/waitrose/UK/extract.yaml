@@ -104,6 +104,7 @@ fields:
   description: Content under "legal disclaimer" header
 - name: directions
   singleValue: true
+  xpath: //h3[text()="Preparation and Usage"]/following-sibling::p
   description: Content under "directions" header
 - name: warnings
   singleValue: true
@@ -122,7 +123,9 @@ fields:
 - name: aggregateRating
   singleValue: true
   type: STRING
-  xpath: //tr[@class="bv-secondary-rating-summary-stars"]//span[@class="bv-secondary-rating-summary-rating"]
+  xpath: //script[contains(text(), "averageRating")]/text()
+  regExp: (\"averageRating\":)(.+)(,"reviewCount")
+  regExpReplace: $2
   description: The stated aggregate rating normalized to be out of 5
 - name: shippingInfo
   singleValue: true
@@ -256,7 +259,7 @@ fields:
   singleValue: true
   description: 
 - name: ingredientsList
-  singleValue: true
+  singleValue: false
   xpath: //div[@class="ingredientsText___Ztpzh"]
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
@@ -297,7 +300,6 @@ fields:
 - name: saturatedFatPerServing
   singleValue: true
   xpath: //th[text()="Of which Saturates"]/following-sibling::td[1]
-  regExp: \W?\d+.?\d+
   description: Nutritional Information for Saturated Fat content - Usually based on
     per 100g serving
 - name: saturatedFatPerServingUom
