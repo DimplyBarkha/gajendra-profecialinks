@@ -729,5 +729,5 @@ fields:
     defaultValue: False
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //div[contains(@class,"customer-also-viewed")]/div//img/@alt | //div[contains(@id,"thematic-highly_rated")]//a/@title | //div[contains(@class,"sponsored-products-truncator")]/../@title
+    xpath: //div[contains(@class,"customer-also-viewed")]/div//img/@alt | //div[contains(@id,"thematic-highly_rated")]//a/@title | //div[contains(@class,"sponsored-products-truncator")]/../@title | //li[@role="listitem"]//div[contains(@class,"p13n-sc-truncated")]
     
