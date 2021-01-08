@@ -76,6 +76,7 @@ fields:
     description: Gross weight as described on the page
   - name: gtin
     singleValue: false
+    type: TEXT
     description: GTIN code (includes UPC/EAN)
     manualSelector: script[type='text/javascript']
     regExp: '(upc: ")(\d+)'
