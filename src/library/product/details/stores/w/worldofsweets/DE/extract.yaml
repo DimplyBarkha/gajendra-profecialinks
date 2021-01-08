@@ -22,6 +22,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
+    xpath: //ol[contains(@class,'breadcrumb')]/li[position()>1]//span
   - name: nameExtended
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -40,15 +41,18 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: boolean(//div[contains(@class,'product-action-form')]//button)
-  - name: descriptionBullets
+    xpath: //div[contains(@class,'product-action-form')]//button
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out Of Stock
+  - name: nutritionInfo
     singleValue: true
-    description: Number of ul > li tags in the description
-    type: NUMBER
+    xpath: //div[contains(@class,'nutrition-table')]//div[contains(.,'Nährwerte pro 100g')]/following-sibling::div[1]/text()
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: //div[@class='js-suggest-group suggest-group suggest-group-brand']//text()
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -68,14 +72,17 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: //div[contains(@class,'details-toggle-content')]//div//div[3]//span[2]
+    # xpath: //div[contains(@class,'details-toggle-content')]//div//div[3]//span[2]
+    xpath: //div[contains(@class,'row details-add-info-container')]//div[@class='additional-info-item']//span[contains(.,'EAN')]//following-sibling::span
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //div[contains(@class,'details-toggle-content')]//div//div[4]//span[2]
+    # xpath: //div[contains(@class,'details-toggle-content')]//div//div[4]//span[2]
+    xpath: //div[contains(@class,'row details-add-info-container')]//div[@class='additional-info-item']//span[contains(.,'Art.-Nr')]//following-sibling::span
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //div[contains(@class,'row details-add-info-container')]//div[@class='additional-info-item']//span[contains(.,'Art.-Nr')]//following-sibling::span
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -94,18 +101,14 @@ fields:
     description: Content under "warnings" header
     xpath: //div[contains(@class,'nutrition-text col-xxs-12 col-sm-6')]/p[2]/font[3]
   - name: ratingCount
-    singleValue: true
-    description: The number of ratings
-    xpath: //*[@id="content"]/div/div[2]/div[3]/div/div[1]/div/div
-    type: NUMBER
+    singleValue: false
+    xpath: //a[contains(@class,'write-review')]//small
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
   - name: aggregateRating
-    singleValue: true
-    description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
-    xpath: //div[contains(@class,'star-ratings margin-bottom')]//div//div//span
+    singleValue: false
+    xpath: //span[contains(@class,'product-rating-stars')]/@class
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -243,7 +246,8 @@ fields:
     singleValue: true
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
-    xpath: //div[contains(@class,'nutrition-text col-xxs-12 col-sm-6')]/p[2]/font[1]
+    # xpath: //div[contains(@class,'nutrition-text col-xxs-12 col-sm-6')]/p[2]/font[1]
+    xpath: //div[contains(@id,'nutrition')]//div[contains(@class,'row nutrition-info-container')]//div[contains(@class,'nutrition-text col')]/p[contains(.,'Zutaten')]//following-sibling::p  | (//div[contains(@class,'nutrition-table')]//div[contains(.,'Zutaten')])[2]//text()
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
