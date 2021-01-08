@@ -1,11 +1,11 @@
-const { transfrom } = require('../../../../shared');
+const { transform } = require('../../../../shared');
 
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'CH',
     store: 'mediamarkt_ch_de',
-    transform: transfrom,
+    transform: transform,
     domain: 'mediamarkt.ch',
     zipcode: '',
   },
@@ -16,12 +16,6 @@ module.exports = {
     await context.evaluate(async () => {
       const currentUrl = window.location.href;
       document.querySelector('body').setAttribute('searchurl', currentUrl);
-
-      // rank
-      const products = document.querySelectorAll('div.product-wrapper');
-      products.forEach((product, index) => {
-        product.setAttribute('rankorganic', `${index + 1}`);
-      });
     });
 
     var extractedData = await context.extract(productDetails, { transform });
