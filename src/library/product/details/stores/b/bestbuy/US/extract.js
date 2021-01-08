@@ -208,7 +208,7 @@ async function implementation (
       if (secondaryImages) {
         for (let i = 1; i < secondaryImages.length; i++) {
           secondaryImagesArr.push(secondaryImages[i].src);
-          addHiddenDiv('secImages', secondaryImagesArr[i]);
+          addHiddenDiv('secImages', secondaryImages[i].src.replace(';maxHeight=150;maxWidth=150', ''));
         }
       }
       document.querySelector('button#product-videos-tab') && document.querySelector('button#product-videos-tab').click();
