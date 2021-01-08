@@ -44,6 +44,9 @@ fields:
     xpath: //div[@class='product-info']//p[contains(@class,'review-summary__info')]//span[@class='review-summary__info-prefix']/strong
   - name: availabilityText
     xpath: //div[@class='product-add-to-cart']//button[@class='product-add-to-cart__add']/@class
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
   - name: description
     xpath: //div[@itemprop='description']
   - name: additionalDescBulletInfo
