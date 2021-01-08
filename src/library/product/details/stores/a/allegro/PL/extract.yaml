@@ -27,7 +27,8 @@ fields:
     xpath: //small[contains(@class, 'asi-offer__offer-id')]
     regExp: (\d+)
   - name: description
-    xpath: //div[@data-box-name="Parameters"] | //dl[contains(@class, 'asi-attributes__list')]
+    # xpath: //div[@data-box-name="Parameters"] | //dl[contains(@class, 'asi-attributes__list')]
+    xpath: //main[contains(@class,'description__main')]//p
   - name: brandText
     xpath: //li//div[contains(text(), "Marka")]/following-sibling::div[1] | //dt[contains(., 'Marka') or contains(., 'marka')]/following-sibling::dd
   - name: variantId
@@ -55,8 +56,8 @@ fields:
     xpath: //span[contains(., 'Sprzedane przez')]
     regExp: (.+)\"(.+)\"
     regExpReplace: $2
-  - name: manufacturerDescription
-    xpath: //a[@name='description']/following-sibling::div//text() | //div[@class='description']//text()
+  # - name: manufacturerDescription
+  #   xpath: //a[@name='description']/following-sibling::div//text() | //div[@class='description']//text()
   - name: secondaryImageTotal
     xpath: count(//div[@class='_b8e15_aMJ-v' and position() > 1]/img | //li[contains(@class, 'si-gallery__thumbnail') and not(contains(@class, 'is-active'))]//img)
   - name: brandLink
