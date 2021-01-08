@@ -95,16 +95,30 @@ const transform = (data, context) => {
       //   });
       //   row.gtin = variantIds;
       // }
-      if (row.description) {
+      if (row.description || row.additionalDescBulletInfo) {
         let text = '';
-        row.description.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')} `;
-        });
-        row.description = [
-          {
-            text: text.slice(0, -1),
+        if (row.additionalDescBulletInfo) {
+          text = row.additionalDescBulletInfo.reduce((item, currentItem) => `${item} || ${currentItem.text}`, '').trim();
+        }
+        if (text !== '' && row.description && row.description[0]) {
+          row.description = [{
+            text: text + ' | ' + row.description[0].text.replace(/\s*\n\s*/g, ' '),
           },
-        ];
+          ];
+        } else {
+          if (row.description && row.description[0]) {
+            row.description = [{
+              text: row.description[0].text.replace(/\s*\n\s*/g, ' '),
+            },
+            ];
+          } else {
+            if (text) {
+              row.description = [{
+                text: text,
+              }];
+            }
+          }
+        }
       }
       if (row.specifications) {
         let text = '';
