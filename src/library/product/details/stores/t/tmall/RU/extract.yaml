@@ -67,9 +67,6 @@ fields:
   - name: videos
     singleValue: false
     xpath: //video/@src
-  - name: manufacturerDescription
-    singleValue: false
-    xpath: //div[@class="detail-desc-decorate-richtext"]/div/div/img/@src
   - name: countryOfOrigin
     singleValue: false
     xpath: //div[@class="product-specs"]/ul[contains(@class,"product-specs-list")]/li/span[@class="property-title" and text()="Происхождение"]/parent::*/span[contains(@class,"property-desc")]
@@ -87,4 +84,7 @@ fields:
     xpath: //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]/div/p[1] | //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]//div[@class="detail-desc-decorate-richtext"]/p[1] | //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]/div/div[@class="detailmodule_text"]/p[1]
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]/div/p[1]/following::* | //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]//div[@class="detail-desc-decorate-richtext"]/p[1]/following::* | //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]/div/div[@class="detailmodule_text"]/p[1]/following::*
+    xpath: //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]/div/p | //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]//div[@class="detail-desc-decorate-richtext"]/p | //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]/div/div[@class="detailmodule_text"]/p[1]
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]//div[@class="detailmodule_dynamic"]//p/img/@src

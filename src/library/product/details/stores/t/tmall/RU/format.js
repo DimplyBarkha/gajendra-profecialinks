@@ -79,6 +79,13 @@ const transform = (data) => {
         });
         row.sku=[{"text":skuStr}];
       }
+      if(row.manufacturerDescription){
+        let inf=[];
+        row.manufacturerDescription.forEach(item => {
+          inf.push(item.text);
+        });
+        row.manufacturerDescription=[{"text":inf.join(' ')}];
+      }
     }
   }
   return cleanUp(data);
