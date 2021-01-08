@@ -1,14 +1,17 @@
-const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'ES',
     store: 'promofarma',
-    transform: cleanUp,
+    transform: null,
     domain: 'promofarma.com',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async (inputs,
+    parameters,
+    context,
+    dependencies,
+  ) => {
     await context.evaluate(async function () {
       try {
         // @ts-ignore
@@ -132,7 +135,9 @@ module.exports = {
     
     
     });
-    await context.extract(productDetails);
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
+    await context.extract(productDetails, { transform });
   },
-};
 
+};
