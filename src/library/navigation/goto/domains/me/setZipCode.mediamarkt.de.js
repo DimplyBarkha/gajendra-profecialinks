@@ -5,6 +5,6 @@ module.exports = {
     country: 'DE',
     domain: 'mediamarkt.de',
     store: 'mediamarkt',
-    zipcode: '',
+    zipcode: "''",
   },
 };

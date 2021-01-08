@@ -235,3 +235,19 @@ fields:
     regExp: (.+)
     regExpReplace: Yes
     defaultValue: No
+
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //div[contains(@class, "base-info")]//h3//a
+  - name: inTheBoxUrl
+    singleValue: false
+    xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset
+    regExp: (.+)(\s200w)
+    regExpReplace: https:$1
+    description: Must include image url to show the accessories/tools which come with the product
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")]
+  - name: hasComparisonTable
+    xpath: boolean(//div[@class="containerron"]/following-sibling::img[contains(@src,"chart_SE")]/@src)
+   
