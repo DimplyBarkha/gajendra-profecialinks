@@ -5,9 +5,9 @@ recordXPath: null
 fields:
   - name: id
     singleValue: false
-    xpath: //div[@class="wishlist"]/a/@onclick
-    regExp: \d{5,12}', '(\d{5,12})
-    regExpReplace: $1
+    xpath: //html//div[@id="id"]
+    # regExp: \d{5,12}', '(\d{5,12})
+    # regExpReplace: $1
   - name: rankOrganic
     singleValue: true
     # xpath: //li//meta[@itemprop="position"]//@content
