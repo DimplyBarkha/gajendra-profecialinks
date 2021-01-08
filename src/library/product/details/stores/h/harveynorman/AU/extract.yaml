@@ -70,7 +70,8 @@ fields:
     defaultValue: 1
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id='productDescription']//div[contains(@class,'product-long-description')]//img//@src
+    xpath: //div[contains(@id,'flix-inpage')]//img//@src
+      # //div[@id='productDescription']//div[contains(@class,'product-long-description')]//img//@src
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[@id='productDescription']//div[contains(@class,'product-long-description')]//ul//li)
@@ -107,4 +108,8 @@ fields:
     xpath: //div[contains(@class,'interest-free-strip')]//div[contains(@class,'ge-text')]//p
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[contains(@class,'product-long-description')]//div[contains(@class,'col-xs-12 col-sm-8 col-md-7')]
+    xpath: //div[contains(@class,'product-long-description')]//div[contains(@class,'row')]
+  
+
+
+    
