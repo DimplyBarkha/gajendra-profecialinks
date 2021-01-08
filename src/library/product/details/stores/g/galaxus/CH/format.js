@@ -52,6 +52,10 @@ const transform = (data) => {
               item.text = 'I'+ item.text;
               item.text = item.text.slice(1, -1);
           });
+          if (row.alternateImages.length) {
+            row.alternateImages.splice(0, 1);
+            row.alternateImages.splice(row.alternateImages.length , 1);
+          }
        }
         if (row.description) {
             let description_ar = [];
