@@ -47,6 +47,9 @@ const transform = (data) => {
       }
       if (row.nameExtended) {
         row.nameExtended.forEach(item => {
+          if (item.text.includes('|')) {
+            item.text = item.text.replace(/(.*?)\s*\|.*/,'$1');
+          }
           if(row.variantInformation){
             if(row.variantInformation[0].text != ''){
               item.text = item.text + ' - ' + row.variantInformation[0].text;

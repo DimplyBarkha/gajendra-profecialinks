@@ -7,7 +7,7 @@ fields:
     singleValue: false
     xpath: //div[@id="scene7Container0_container_inner"]//div[@class= 's7staticimage']//img/@src
     regExp: (.*)\?.*
-    regExpReplace: $1  
+    regExpReplace: $1
   - name: alternateImages
     singleValue: false
     xpath: (//div[@class='s7staticimage']//img/@src)[position() > 1]
@@ -21,8 +21,6 @@ fields:
   - name: nameExtended
     singleValue: false
     manualSelector: html[data-triggered] > head >title
-    regExp: (.*?)\s*\|
-    regExpReplace: $1
   - name: price
     singleValue: false
     xpath: (//div[contains(@class,"ProductPricingPanel")]//span[not(contains(@class,"Text--line-through"))])[1]/text()
@@ -58,7 +56,7 @@ fields:
     xpath: //div[@class="ProductMainSection__productName"]//span
   # - name: shippingInfo
   #   singleValue: false
-  #   xpath: //div[@id="ShippingBanner"]//a 
+  #   xpath: //div[@id="ShippingBanner"]//a
   - name: variants
     singleValue: false
     xpath: //div[@class="ProductSwatches__Cell"]//div[@class=""]//img/@src
@@ -81,7 +79,7 @@ fields:
     singleValue: false
     manualSelector: div.ProductMainSection__itemNumber
     regExp: Item\s*(.*)
-    regExpReplace: $1 
+    regExpReplace: $1
   - name: variantId
     singleValue: false
     manualSelector: div.ProductMainSection__itemNumber
@@ -89,7 +87,7 @@ fields:
     regExpReplace: $1
   - name: variantCount
     singleValue: false
-    defaultValue: '0'
+    defaultValue: "0"
   - name: mpc
     singleValue: false
     xpath: //div[@data-mpn]/@data-mpn
@@ -101,23 +99,23 @@ fields:
     singleValue: false
     manualSelector: span.pr-snippet-review-count
     regExp: (\d+)
-    regExpReplace: $1 
+    regExpReplace: $1
   - name: color
-    singleValue: false  
+    singleValue: false
     xpath: //meta[@property="product:color"]/@content
   - name: variantInformation
-    singleValue: false  
-    xpath: //div[@class="ProductSwatches__Cell"]//img[contains(@alt,'selected')]/@alt | //div[@class="ProductSwatches__Cell"]//div[contains(@class,'ProductSwatchImage__Rectangle--selected')]/span/text()
+    singleValue: false
+    xpath: //div[@class="ProductSwatches__Cell"]//img[contains(@alt,'selected')]/@alt | //div[@class="ProductSwatches__Cell"]//div[contains(@class,'ProductSwatchImage__Rectangle--selected')]/span/text() | //div[@class='ProductDetail__colorPanel']/span[not(contains(@class,"Text--bold"))]
     #regExp: ([^\s]+)(\s.*)?
-    #regExpReplace: $1 
+    #regExpReplace: $1
   - name: directions
-    singleValue: false  
+    singleValue: false
     manualSelector: div.ProductDetail__howToUse > div.Collapsible
   - name: specifications
-    singleValue: false 
-    manualSelector: div.wc-specifications-responsive >  table > tbody > tr 
+    singleValue: false
+    manualSelector: div.wc-specifications-responsive >  table > tbody > tr
   - name: quantity
-    singleValue: false 
+    singleValue: false
     xpath: //div[@class="ProductMainSection__itemNumber"]/p[contains(.,'Size')]/text() | //div[@class="ProductDetail__colorPanel"]
   - name: ingredientsList
     singleValue: false
