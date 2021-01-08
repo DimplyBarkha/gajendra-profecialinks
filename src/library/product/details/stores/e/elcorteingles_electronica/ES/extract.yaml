@@ -8,7 +8,7 @@ fields:
     regExp: (.*)
     regExpReplace: https:$&
   - name: imageAlt
-    xpath:
+    
   - name: alternateImages
     xpath: (//div[@class="image-layout-slides-group"]/div[not(div[@class="play-video-button"])]/img/@data-zoom)[position() > 1]
     regExp: (.+)
@@ -47,15 +47,15 @@ fields:
   - name: variantId
     xpath: //div[@id="retailer_product_code"]
   - name: mpc
-    xpath: //div[contains(@class,"product_model")]
-    regExp: (.+)(\:)(.+)
-    regExpReplace: $3
+    xpath: //div[contains(@class, 'js-media-holder')]/script/@data-flix-mpn
+    # regExp: (\w+)$
+    # regExpReplace: $1
   - name: directions
     xpath : //div[@class="infoGroup"]//dt[contains(text(),"Modo de aplicación")]/following-sibling::dd |//div[contains(@class,"product_detail-description-in-image")]//strong[contains(text(),"Modo de aplicación")]//following-sibling::p
   - name: videos
     singleValue: false
     # xpath : //div[@id="videos"]|//div[contains(@class,'video-slides')]/@data-url
-    xpath: //div[@class="image-layout-slides-group"]//img/@data-url | //div[@id="video"] | //div[@id="allVidLinks"]
+    xpath: //div[@class="image-layout-slides-group"]//img/@data-url | //div[@id="video"] | //div[@id="allVidLinks"]|//div[@id="flix_hotspots"]/*[@id='flix_product_video']/@src
     # xpath: //div[contains(@class,'video-slides')]/@data-url
   - name: name
     xpath : //meta[@name="twitter:title"]/@content
@@ -118,7 +118,6 @@ fields:
     xpath:
   - name: warnings
     xpath:
-  - name: mpc
   - name: packSize
     xpath:
   - name: legalDisclaimer
@@ -133,7 +132,7 @@ fields:
   - name: galleryVideos
     singleValue: false
     # xpath : //div[@id="videos"]|//div[contains(@class,'video-slides')]/@data-url
-    xpath: //div[@id="galleryVideo"]
+    xpath: //div[@id="flix_hotspots"]/*[@id='flix_product_video']/@src
     # xpath: //div[@class="image-layout-slides-group"]//img/@data-url | 
   - name: inTheBoxUrl
     xpath: //div[contains(@class,'InTheBox')]//img/@src
