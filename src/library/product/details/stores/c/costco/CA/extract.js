@@ -11,8 +11,9 @@ module.exports = {
   },
 
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
-     await new Promise(resolve => setTimeout(resolve, 50000));
     await context.evaluate(async function () {
+      console.log('waiting for page to load');
+      await new Promise(resolve => setTimeout(resolve, 50000));
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
@@ -92,50 +93,40 @@ module.exports = {
       }
 
       let finalDescInfo;
-   /*   console.log('featureDescInfo:', featureDescInfo);
-      console.log('boldText:', boldText);
-      console.log('boldText[0]:', boldText[0]);
-      console.log('tabDescInfo:', tabDescInfo);
-      console.log('tabDescInfo[1]:', tabDescInfo[1]);
-      console.log('bulletsInfo:', bulletsInfo);
-      console.log('boldText[2]:', boldText[2]);
-      console.log('tabDescInfo[2]:', tabDescInfo[2]); */
       finalDescInfo = 'Features: ';
       if (featureDescInfo !== null && featureDescInfo.length > 0) {
         addElementToDocument('featureBullets', featureDescInfo);
         finalDescInfo = finalDescInfo + ' ||' + featureDescInfo;
       }
-      if (boldText[0] !== null && boldText.length > 0) {
+      if (boldText[0] && boldText.length > 0) {
         finalDescInfo = finalDescInfo + ' ||' + boldText[0];
       }
-      if (boldText[1] !== null && boldText.length > 0) {
+      if (boldText[1] && boldText.length > 0) {
         finalDescInfo = finalDescInfo + ' ||' + boldText[1];
       }
-      if (tabDescInfo[1] !== null && tabDescInfo.length > 0) {
+      if (tabDescInfo[1] && tabDescInfo.length > 0) {
         finalDescInfo = finalDescInfo + ' ||' + tabDescInfo[1]; ;
       }
-      if (bulletsInfo !== null && bulletsInfo.length > 0) {
+      if (bulletsInfo && bulletsInfo.length > 0) {
         addElementToDocument('additionalDescBulletInfo', bulletsInfo);
         finalDescInfo = finalDescInfo + bulletsInfo;
       }
-      if (boldText.length > 0 && boldText[2] !== null) {
-     //   console.log('boldText[2] inside');
+      if (boldText[2] && boldText.length > 0 && boldText[2] !== null) {
         if (!boldText[2].includes('★')) {
-      //    console.log('boldText[2] inside include');
           finalDescInfo = finalDescInfo + ' ||' + boldText[2];
         }
       }
-      if (tabDescInfo[2] !== null && tabDescInfo.length > 0) {
+      if (tabDescInfo[2] && tabDescInfo.length > 0) {
         tabDescInfo[2] = tabDescInfo[2].trim();
         if (tabDescInfo[2].length > 0) {
           finalDescInfo = finalDescInfo + ' ||' + tabDescInfo[2];
         }
       }
-      if (tabDescInfo[6] !== null && tabDescInfo.length > 0) {
+      if (tabDescInfo[6] && tabDescInfo.length > 0) {
         finalDescInfo = finalDescInfo + ' ||' + tabDescInfo[6];
       }
 
-      if (finalDescInfo !== null && finalDescInfo.length > 0) {
+      if (finalDescInfo && finalDescInfo.length > 0) {
         finalDescInfo = finalDescInfo.replace('\n', ' ');
         addElementToDocument('added_descriptionText', finalDescInfo);
       }
