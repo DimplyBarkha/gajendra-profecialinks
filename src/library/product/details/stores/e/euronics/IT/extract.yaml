@@ -148,7 +148,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //iframe[contains(@id, 'flix-iframe')]/@src | //*[contains(@class, 'flix_jw_videoid')]/@data-jw
+    xpath: concat("https://content.jwplatform.com/videos/", substring-before(substring-after(//input[@class="flix-jw"]/@value , '\/videos\/'), '",'))
   - name: name
     singleValue: true
     description: The product nameexit
