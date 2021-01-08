@@ -709,8 +709,6 @@ fields:
   - name: shippingPrice
     singleValue: false
     xpath: //body/@shipping-price-main
-
-
   - name: sellerId
     xpath: //body/@seller-id-main
   - name: otherSellerId
@@ -729,9 +727,4 @@ fields:
     defaultValue: False
   - name: unInterruptedPDP
     singleValue: false
-<<<<<<< HEAD
-    xpath: //div[contains(@class,"customer-also-viewed")]/div//img/@alt | //div[contains(@id,"thematic-highly_rated")]//a/@title | //div[contains(@class,"sponsored-products-truncator")]/../@title | //li[@role="listitem"]//div[contains(@class,"p13n-sc-truncated")] | //*[contains(@id,"sp_detail")]/a/@title | //*[contains(@id,'similarities-sims-feature')]//li[@role="listitem"]//div[contains(@class,'p13n-sc-truncated')]
-=======
-    xpath: //div[contains(@class,"customer-also-viewed")]/div//img/@alt | //div[contains(@id,"thematic-highly_rated")]//a/@title | //div[contains(@class,"sponsored-products-truncator")]/../@title | //li[@role="listitem"]//div[contains(@class,"p13n-sc-truncated")]
-    
->>>>>>> a9242021c31f860e83666c527b8c889fa4600b3d
+    xpath: //div[contains(@class,"customer-also-viewed")]/div//img/@alt | //div[contains(@id,"thematic-highly_rated")]//a/@title | //div[contains(@class,"sponsored-products-truncator")]/../@title | //li[@role="listitem"]//div[contains(@class,"p13n-sc-truncated")] | //*[contains(@id,"sp_detail")]/a/@title | //*[contains(@id,'similarities-sims-feature')]//li[@role="listitem"]//div[contains(@class,'p13n-sc-truncated')] | //li[@role="listitem"]//div[contains(@class,"p13n-sc-truncated")] 
