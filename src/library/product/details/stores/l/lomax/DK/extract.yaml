@@ -11,7 +11,7 @@ fields:
     xpath: //div[@class="owl-item active center"]/div/img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class="owl-thumbs"]/div/img/@src
+    xpath: //div[@class="owl-thumb-item"]/img/@src
   - name: metaKeywords
     singleValue: true
   - name: url
@@ -37,6 +37,7 @@ fields:
     xpath: //meta[@name="description"]/@content 
   - name: descriptionBullets
     singleValue: true
+    xpath: count(//div[@class="col-lg-7 my-3 productdesc order-3"]/div/ul/li)
     type: NUMBER
   - name: brandText
     singleValue: true
@@ -103,3 +104,6 @@ fields:
   - name: name
     singleValue: true
     xpath: //div[@class="container productcard"]/@data-rr-product-name
+  - name: secondaryImageTotal
+    singleValue: true
+    xpath: count(//div[@class="owl-thumb-item"]/img/@src)
