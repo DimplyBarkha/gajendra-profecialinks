@@ -41,6 +41,15 @@ const transform = (data) => {
             });
             row.description = [{'text':info.join(' | '),'xpath':row.description[0].xpath}];          
           }
+
+          if (row.price) {      
+            let info = [];  
+            row.price.forEach(item => {      
+              info  = item.text.split(" ");
+            });         
+            row.price = [{'text':info[0],'xpath':row.price[0].xpath}];
+          }
+
         }
     }
     return cleanUp(data);
