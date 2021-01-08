@@ -142,3 +142,7 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: Yes
+  - name: inTheBoxText
+    xpath: ancestor::html//div[@class="wrapper_table"]//tr/td[contains(.,'Accesorios Incluidos')]//following-sibling::td
+  - name: unInterruptedPDP
+    xpath: ancestor::html//div[@class="slick-track"]/div[contains(@class,'slick-slide')]//a//p[contains(@class,'description')]
