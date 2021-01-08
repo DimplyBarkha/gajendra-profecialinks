@@ -37,7 +37,7 @@ const transform = (data) => {
         let cnt = 0;
         row.specifications.forEach(item => {
           specs[0] = item;
-          item.text = item.text.replace(/(\s?\n)+/g, ' ');
+          item.text = item.text.replace(/(\s?\n)+/g, ' : ');
           if (cnt > 0) newTxt = newTxt + ' || ' + item.text;
           else newTxt = newTxt + item.text;
           cnt++;
@@ -83,6 +83,25 @@ const transform = (data) => {
           }
         });
         row.videos = video;
+      }
+
+      if (row.galleryVideos) {
+        const galleryvideo = [];
+        let dupUrl = '';
+        let urls = [];
+        row.galleryVideos.forEach(item => {
+          console.log('item:: ', item.text);
+          urls = row.galleryVideos.filter(it => item.text === it.text);
+          if (urls && urls.length === 1) {
+            galleryvideo.push(item);
+          } else {
+            if (dupUrl !== item.text) {
+              dupUrl = item.text;
+              galleryvideo.push(item);
+            }
+          }
+        });
+        row.galleryVideos = galleryvideo;
       }
 
       if (row.manufacturerDescription) {

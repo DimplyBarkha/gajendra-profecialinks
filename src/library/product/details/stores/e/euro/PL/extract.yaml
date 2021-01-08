@@ -11,6 +11,8 @@ fields:
     #xpath: //div[@class='product-photos']//li[1]//following-sibling::li//a/@href
     #//div[@class='product-photos']//li/a/@href
     xpath: //div[@id='miniatures-list']//li[contains(@class, 'miniatures-photo')][position() > 1]/a/@href
+  - name: productUrl
+    xpath: //link[@rel="canonical"]/@href
   - name: metaKeywords
     xpath: //meta[contains(@name,"keyword")]/@content
   - name: description
@@ -48,7 +50,7 @@ fields:
     regExpReplace: $2,$3
   - name: availabilityText
     xpath: //script[@type='application/ld+json'][contains(., 'offers')]
-    regExp: availability". "http:\/\/schema.org\/(InStock|Instock|InStore)
+    regExp: availability". "http:\/\/schema.org\/(InStock|Instock|InStore|InStoreOnly)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   # - name: descriptionBullets
@@ -84,12 +86,12 @@ fields:
     xpath: normalize-space(//a[contains(text(),'Klasa energetyczna')]//..//following-sibling::td)
   - name: videos
     # xpath: //div[@id="description-videos"]//iframe/@src | //a[contains(@class,"ytp-title-link")]/@href | //div[@class="ytp-title-expanded-heading"]//a/@href | //button[contains(@class,'video-preview')]/@data-src | //h2[@class="ytp-title-expanded-title"]//a/@href | //div[@class="video-container"]/iframe/@src
-    xpath: //import-video/@data | //div[@class="description-content-inner"]//a[contains(@href,"youtube")]/@href
+    xpath: //import-video/@data | //div[@class="description-content-inner"]//a[contains(@href,"youtube")]/@href | //iframe[contains(@src,"youtube")]/@src
     regExp: (\/\/.*)
     regExpReplace: https:$1
     # //button[@class='video-preview js-video-preview']/@data-src
   - name: galleryVideos
-    xpath: //import-video/@data
+    xpath: //import-video/@data | //div[@class="description-content-inner"]//a[contains(@href,"youtube")]/@href | //iframe[contains(@src,"youtube")]/@src
     regExp: (\/\/.*)
     regExpReplace: https:$1
   - name: weightNet
@@ -99,7 +101,7 @@ fields:
     # //div[@class="col-img"]/img/@src | //div[@class="description-py5"][2]//following-sibling::div//img/@src |
     # //div[@class='margin-t-lg-32']//div[@class='tct']//img[@class='lazy loaded']/@src
     regExp: (.+)
-    regExpReplace: https://www.euro.com.pl$1
+    regExpReplace: https:$1
   - name: variantCount
     xpath: count(//div[contains(@class,"variant-list js-variant-list")]/a)
   - name: mpc
@@ -126,3 +128,9 @@ fields:
     defaultValue: PLN
   - name: quantity
     xpath: //div[contains(@class,"variant-wrapper")]//a[contains(@class,"active-item")]
+  - name: inTheBoxUrl
+  - name: inTheBoxText
+  - name: hasComparisonTable
+    defaultValue: No
+  - name: unInterruptedPDP
+    xpath: //section[@id="recommended-products"]//ul//li//div[@class="product-box"]//h3
