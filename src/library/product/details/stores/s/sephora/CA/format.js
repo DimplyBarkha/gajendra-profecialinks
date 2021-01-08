@@ -25,25 +25,32 @@ const transform = (data) => {
   for (const { group } of data) {
     let tmpSku='';
     for (let row of group) {
-      let fstImg='',fstImgAlt='',restImg=[];
-      if(row.sku){
-        row.sku.forEach(item=>{
+      let fstImg='',fstImgAlt='',restImg=[],skuArr=[],skuStr='';
+      if(row.variantId){
+        row.variantId.forEach(item=>{
           if(item.text.indexOf('ITEM')==-1){
 
           }else{
             tmpSku=item.text.replace('ITEM ','');
           }
         })
-        row.sku=[{"text":tmpSku}];
         row.variantId=[{"text":tmpSku}];
         row.firstVariant=[{"text":tmpSku}];
       }
       if(row.image){
         row.image.forEach(item=>{
-          if(fstImg=='')
+          if(fstImg==''){
+            skuArr=item.text.replace('/productimages/sku/s','').split('-main-zoom.');
+            if(skuArr.length>1){
+              skuStr=skuArr[0];
+            }
             fstImg="https://www.sephora.com"+item.text;
+          }
         });
         row.image=[{"text":fstImg}];
+        if(skuStr!=''){
+          row.sku=[{"text":skuStr}];
+        }
       }
       if(row.imageAlt){
         row.imageAlt.forEach(item=>{

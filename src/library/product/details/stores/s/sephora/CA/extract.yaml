@@ -29,7 +29,7 @@ fields:
     defaultValue: In Stock
   - name: description
     singleValue: false
-    xpath: //div[@data-at="product_tabs_section"]/div[@role="tabpanel" and @id="tabpanel0"]/div/b[contains(text(),"What it is")]/following-sibling::text()[1]
+    xpath: //div[@data-at="product_tabs_section"]/div[@role="tabpanel" and @id="tabpanel0"]/div
   - name: brandText
     singleValue: false
     xpath: //h1[@class="css-1wd4e6l e65zztl0"]/a/span
@@ -38,7 +38,7 @@ fields:
     xpath: //div[@data-at="sku_size"]/text()[1]
   - name: sku
     singleValue: false
-    xpath: //div[@data-at="sku_size"]/text()
+    xpath: //script[contains(text(),"defaultSkuId:")]/text()
   - name: variantId
     singleValue: false
     xpath: //div[@data-at="sku_size"]/text()
@@ -47,7 +47,9 @@ fields:
     xpath: //div[@data-at="product_tabs_section"]/div[@id="tabpanel1"]/div
   - name: ratingCount
     singleValue: false
-    xpath: //span[@data-at="number_of_reviews"]
+    xpath: //div[contains(@data-comp,"ReviewsStats")]/div/span
+    regExp: ([^,]+) reviews
+    regExpReplace: $1
   - name: aggregateRating
     singleValue: false
     xpath: //a[@class="css-fv3lde e65zztl0"]/div[@class="css-jp4jy6"]/@aria-label
