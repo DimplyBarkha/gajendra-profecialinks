@@ -89,11 +89,12 @@ module.exports.Helpers = class {
   }
 
   // Function which checks if the provided object of selectors is there then navigate and click
-  async checkAndClick (selector, type, timeout, input) {
+  async checkAndClick (selector, type, timeoutOrOptions, input) {
     if (!this.checkSelector(selector, type)) return;
+    const options = typeof timeoutOrOptions === 'number' ? { timeout: timeoutOrOptions } : timeoutOrOptions;
     await Promise.all([
-      this.context.waitForNavigation({ timeout }),
-      !input ? this.context.click(selector) : this.context.setInputValue(selector, input),
+      this.context.waitForNavigation(options),
+      !input ? this.ifThereClickOnIt(selector) : this.context.setInputValue(selector, input),
     ]).catch(e => {});// do nothing if an error arise
   }
 
