@@ -169,8 +169,8 @@ module.exports = {
       }
       addElementToDocument('descBulletInfo', descBulletInfo.join(' || '));
 
-      const manufacturerDesc = document.querySelector('div#product-tab-description')
-        ? document.querySelector('div#product-tab-description').innerText : '';
+      const manufacturerDesc = document.querySelector('#flix-inpage')
+        ? document.querySelector('#flix-inpage').innerText : '';
       if (manufacturerDesc) addElementToDocument('manufacturerDesc', manufacturerDesc.replace(/\n{2,}/g, '').replace(/\s{2,}/g, ' '));
 
       const legal = document.querySelector('*#footer-site div.e-maerket-notice.marg')
