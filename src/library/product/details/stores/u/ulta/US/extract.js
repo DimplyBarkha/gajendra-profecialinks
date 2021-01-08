@@ -38,7 +38,6 @@ async function implementation(inputs, parameters, context, dependencies) {
         });
       });
     const manufacturerContent = document.querySelector("div#wc-power-page");
-    console.log('...........................',!!manufacturerContent);
     if (manufacturerContent) {
       manufacturerContent.scrollIntoView({ behavior: "smooth" });
       await new Promise((resolve) => setTimeout(resolve, 5000));
