@@ -155,6 +155,6 @@ fields:
     # xpath: //div[contains(@class,"InTheBox")]//div[@class="flix-std-content"]
     xpath: //div[contains(@class,"InTheBox")]//div[@class="flix-std-content"]|//b[contains(text(), "Contenu du carton")]/ancestor::tr//following-sibling::tr//td[contains(text(), "Livré avec")]/following-sibling::td|//div[@id="ii_inTheBoxText"]
   - name: inTheBoxUrl
-    xpath: //div[contains(@class,"InTheBox")]//div[@class="flix-background-image"]//img/@srcset
+    xpath: //div[contains(@class,"inpage_selector_InTheBox")]//div[@class="flix-std-container-fluid"]//div[@class="flix-std-table"]//div[contains(@class,"flix-box-modules")]//div[@class="flix-background-image"]//img/@data-flixsrcset|//div[contains(@class,"inpage_selector_InTheBox")]//div[@class="flix-std-container-fluid"]//div[@class="flix-std-table"]//div[contains(@class,"flix-box-image")]//div[@class="flix-background-image"]//img/@data-flixsrcset
     #regExp: (.+)(\s?200w)(.+)
     #regExpReplace: https:$1
