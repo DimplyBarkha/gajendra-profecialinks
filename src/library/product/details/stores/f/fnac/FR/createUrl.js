@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'fnac.com',
     prefix: null,
-    url: 'https://www.fnac.com/a{id}',
+    url: 'https://www.fnac.com/SearchResult/ResultList.aspx?Search={id}',
     country: 'FR',
     store: 'fnac',
     zipcode: '',

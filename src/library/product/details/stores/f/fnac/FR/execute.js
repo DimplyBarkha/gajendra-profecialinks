@@ -19,11 +19,13 @@ async function implementation (
     url = await dependencies.createUrl({ id });
   }
   await dependencies.goto({ url, zipcode, storeId });
-  try {
-    await context.waitForSelector('div .articleList div.Article-item article.Article-itemGroup');
-    await context.clickAndWaitForNavigation('div .articleList div.Article-item article.Article-itemGroup');
-  } catch (e) {
-    console.log(e);
+  if (id) {
+    try {
+      await context.waitForSelector('div .articleList div.Article-item article.Article-itemGroup div.Article-itemVisual');
+      await context.clickAndWaitForNavigation('div .articleList div.Article-item article.Article-itemGroup div.Article-itemVisual');
+    } catch (e) {
+      console.log(e);
+    }
   }
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {

@@ -81,7 +81,8 @@ const transform = (data) => {
       if (row.productOtherInformation) {
         var arrInfo = [];
         row.productOtherInformation.forEach(item => {
-          item.text.replace(/\n\s*\n/, ' : ');
+          item.text = item.text.replace(/\n\s*\n\s*\n/, ' : ');
+          item.text = item.text.replace(/\n\s*\n/, ' : ');
           arrInfo.push(item.text);
         });
         row.productOtherInformation = [{ text: arrInfo.join(' | ') }];
@@ -89,6 +90,9 @@ const transform = (data) => {
       if (row.manufacturerImages) {
         var arrImg = [];
         row.manufacturerImages.forEach(item => {
+          if (item.text.indexOf('http')) {
+            item.text = 'https:' + item.text;
+          }
           arrImg.push(item.text);
         });
         row.manufacturerImages = [{ text: arrImg.join(' | ') }];
