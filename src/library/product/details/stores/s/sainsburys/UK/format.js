@@ -40,7 +40,7 @@ const url1 = require('url');
           }
           if (row.priceCurrency) {
             row.priceCurrency.forEach(item => {
-              item.text = ((item.text).includes('£'))? 'GBP':'';
+              item.text = item.text.includes('£') ? 'GBP': item.text;
             });
           }
 
