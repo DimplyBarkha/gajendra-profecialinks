@@ -54,9 +54,6 @@ fields:
   - name: name
     singleValue: false
     xpath: //div[@class="ProductMainSection__productName"]//span
-  # - name: shippingInfo
-  #   singleValue: false
-  #   xpath: //div[@id="ShippingBanner"]//a
   - name: variants
     singleValue: false
     xpath: //div[@class="ProductSwatches__Cell"]//div[@class=""]//img/@src
@@ -113,7 +110,7 @@ fields:
     manualSelector: div.ProductDetail__howToUse > div.Collapsible
   - name: specifications
     singleValue: false
-    manualSelector: div.wc-specifications-responsive >  table > tbody > tr
+    manualSelector: div.wc-specifications-responsive > table > tbody > tr
   - name: quantity
     singleValue: false
     xpath: //div[@class="ProductMainSection__itemNumber"]/p[contains(.,'Size')]/text() | //div[@class="ProductDetail__colorPanel"]
@@ -123,3 +120,9 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: false
     defaultValue: Yes
+  - name: promotion
+    singleValue: false
+    xpath: //div[@class='ProductMainSection__offersHeader']
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count((//div[@class='s7staticimage']//img/@src)[position() > 1])

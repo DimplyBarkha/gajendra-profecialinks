@@ -9,7 +9,7 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
-    const timeout = parameters.timeout ? parameters.timeout : 80000;
+    const timeout = parameters.timeout ? parameters.timeout : 90000;
     await context.setBlockAds(false);
     await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true, cookies: [] });
     console.log(zipcode);
