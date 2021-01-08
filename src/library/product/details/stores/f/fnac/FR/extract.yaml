@@ -86,7 +86,7 @@ fields:
     singleValue: false
     xpath: //script[contains(text(),'sku')]
     #"sku":"9172525",
-    regExp: "sku":"(.+?)"
+    regExp: \"sku\"\s*:\s*\"(.+?)\"
     regExpReplace: $1
   - name: gtin
     singleValue: false
