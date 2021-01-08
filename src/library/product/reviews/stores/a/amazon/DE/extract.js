@@ -15,9 +15,9 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.sku) {
-        let sku_code = row.sku[0].text;
-        sku_code = sku_code.split('/');
-        row.sku[0].text = sku_code[sku_code.length - 1];
+        let skuCode = row.sku[0].text;
+        skuCode = skuCode.split('/');
+        row.sku[0].text = skuCode[skuCode.length - 1];
       }
       if (row.rating) {
         let rating = row.rating[0].text;
@@ -29,22 +29,20 @@ const transform = (data, context) => {
         aggregateRating = aggregateRating.split(' ');
         row.aggregateRating[0].text = aggregateRating[0].replace(',', '.');
       }
-      if(row.helpful){
-      	let help = row.helpful[0].text;
-      	if(row.helpful[0].raw=='Eine Person fand diese Informationen hilfreich'){
-      		row.helpful[0].text = 1;
-      		delete row.helpful[0].error;
-      		row.helpful[0].value = 1;
-      	}
-        else if(help.includes("Personen fanden diese Informationen hilfreich")){
-          row.helpful[0].text = help.replace('Personen fanden diese Informationen hilfreich','');
+      if (row.helpful) {
+        const help = row.helpful[0].text;
+        if (row.helpful[0].raw === 'Eine Person fand diese Informationen hilfreich') {
+          row.helpful[0].text = 1;
+          delete row.helpful[0].error;
+          row.helpful[0].value = 1;
+        } else if (help.includes('Personen fanden diese Informationen hilfreich')) {
+          row.helpful[0].text = help.replace('Personen fanden diese Informationen hilfreich', '');
         }
-      }	
+      }
       if (row.sourceUrl) {
-        let sourceUrl = row.sourceUrl[0].text;
+        const sourceUrl = row.sourceUrl[0].text;
         row.sourceUrl[0].text = 'https://www.amazon.de' + sourceUrl;
       }
-      
 
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
@@ -71,8 +69,6 @@ async function implementation (
     await context.waitForSelector('li[class="a-last"]', { timeout: 7000 })
       .catch(() => console.log('On last page'));
   }
-
-  
 
   if (!onReviewsPage) {
     // await context.clickAndWaitForNavigation('a[data-hook="see-all-reviews-link-foot"]', { timeout: 15000 }, { waitUntil: 'load' });

@@ -14,7 +14,6 @@ const transform = (data, context) => {
     .trim();
   for (const { group } of data) {
     for (const row of group) {
-
       if (row.productUrl) {
         const url = row.productUrl[0].text;
         row.productUrl[0].text = 'https://www.amazon.de' + url;
