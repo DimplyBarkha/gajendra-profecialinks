@@ -6,12 +6,6 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { productDetails } = dependencies;
   const { transform } = parameters;
 
-  const nextLink = await context.evaluate(() => {
-    const nextSelector = document.querySelector('div.productGrid.paginationBar.bottom.clearfix>div.right>ul.pagination>li.next>a');
-
-    return nextSelector;
-  });
-
   // manually added clicking in nextLink button
 
   do {
@@ -19,6 +13,8 @@ async function implementation (inputs, parameters, context, dependencies) {
       return document.querySelector('div.cc_css_reboot.cc_dialog.light.interstitial');
     });
     // when the popup is present it returns undefined, when not - null
+    await context.waitForSelector('div[class="cc_css_reboot cc_dialog light interstitial"]');
+
     if (isPopupPresent !== null) {
       await context.evaluate(() => {
         document.querySelector('div.cc_css_reboot.cc_dialog.light.interstitial').remove();
@@ -98,7 +94,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     }) === null || await context.evaluate(() => {
       const page = window.location.href.match('page=([0-9]+)');
       if (page !== null) {
-        if ((parseInt(page[1]) + 1) * 48 <= 150) {
+        if ((parseInt(page[1]) + 1) * 48 <= 200) {
           return false;
         } else {
           return true;
@@ -118,7 +114,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       });
     }
     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-  } while (nextLink !== null);
+  } while (true);
 };
 
 module.exports = {
