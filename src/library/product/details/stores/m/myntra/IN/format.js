@@ -41,9 +41,14 @@ const transform = (data) => {
           if (row.variantId) {
             let info = [];          
             row.variantId.forEach(item => {
-                info.push(item.text.trim());            
+                info.push(item.text.replace(/.*\/(\d+).*/,'$1').trim());            
             });
             row.variantId = [{'text':info.join(' | '),'xpath':row.variantId[0].xpath}];          
+          }
+          if (row.promotion) {
+            row.promotion.forEach(promotion => {
+              promotion.text = promotion.text.replace(/.*discounts":.*?label":"(.*?)".*/,'$1').replace(/\(|\)/g,'')
+            });
           }
           if (row.quantity) {
             let info = [];          

@@ -27,7 +27,7 @@ fields:
     xpath: //p[@class='pdp-discount-container']//span[@class='pdp-mrp']//s
   - name: price
     singleValue: false
-    xpath: //p[@class='pdp-discount-container']//span[@class='pdp-price']//strong      
+    xpath: //p[@class='pdp-discount-container']//span[@class='pdp-price']//strong
   - name: availabilityText
     singleValue: false
     xpath: //div[contains(@class,'pdp-add-to-bag')]//span[contains(@class,'pdp-whiteBag')]/@class
@@ -42,7 +42,7 @@ fields:
     xpath: //div[@class='meta-container']//div[@class='meta-desc']
   - name: brandText
     singleValue: false
-    xpath: //div[@class='pdp-price-info']//h1[@class='pdp-title']  
+    xpath: //div[@class='pdp-price-info']//h1[@class='pdp-title']
   - name: quantity
     singleValue: false
     xpath: //div[@class='pdp-price-info']//h1[@class='pdp-name']
@@ -54,8 +54,6 @@ fields:
   - name: variantId
     singleValue: false
     xpath: //ul[@class='colors-shadeList colors-shadeListDesktop']//li//a/@href | //span[@class='supplier-styleId']
-    regExp: \/(\d+)
-    regExpReplace: $1
   - name: firstVariant
     xpath: //ul[@class='colors-shadeList colors-shadeListDesktop']//li[1]//a/@href
     regExp: \/(\d+)
@@ -65,26 +63,26 @@ fields:
     xpath: //div[@id='detailedRatingContainer']//div[@class='index-countDesc']
   - name: aggregateRating
     singleValue: false
-    xpath: //div[@id='detailedRatingContainer']//div[@class='index-flexRow index-averageRating']//span[not(@class)]    
+    xpath: //div[@id='detailedRatingContainer']//div[@class='index-flexRow index-averageRating']//span[not(@class)]
   - name: shippingInfo
     singleValue: false
     xpath: //span[@class='supplier-productSellerName']
   - name: variantCount
     singleValue: false
     xpath: //ul[@class='colors-shadeList colors-shadeListDesktop']//li//span[@class='colors-shadeName']
-    defaultValue: '0'
+    defaultValue: "0"
   - name: name
     singleValue: false
     xpath: //div[@class='pdp-price-info']//h1[@class='pdp-name']
   - name: coupon
     singleValue: false
-    xpath: //ul[@class='pdp-offers-offerDesc']//li//span[@class='pdp-offers-boldText']  
+    xpath: //ul[@class='pdp-offers-offerDesc']//li//span[@class='pdp-offers-boldText']
   - name: specifications
     singleValue: false
-    xpath: //div[@class='index-tableContainer']//div[@class='index-row']  
+    xpath: //div[@class='index-tableContainer']//div[@class='index-row']
   - name: countryOfOrigin
     singleValue: false
-    xpath: //strong[contains(text(),'Country of origin')]/parent::div/following-sibling::div[@class='supplier-met-values']  
+    xpath: //strong[contains(text(),'Country of origin')]/parent::div/following-sibling::div[@class='supplier-met-values']
   - name: materials
     singleValue: false
     xpath: //div[@class='pdp-sizeFitDesc']//h4[text()='Material & Care']/following-sibling::p[@class='pdp-sizeFitDescContent pdp-product-description-content']
@@ -101,5 +99,8 @@ fields:
     singleValue: false
     defaultValue: Yes
   - name: promotion
+    singleValue: false
+    xpath: //script[contains(text(),'pdpData')]
+  - name: promotion2
     singleValue: false
     xpath: //p[@class='pdp-discount-container']//span[@class='pdp-discount']
