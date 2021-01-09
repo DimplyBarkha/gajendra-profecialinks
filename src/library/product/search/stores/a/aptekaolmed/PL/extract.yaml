@@ -5,24 +5,16 @@ recordXPath: null
 fields:
   - name: productUrl
     description: The URL for the product details page
-    # xpath: (//a[@class="product-name"]/@href | //meta[@property="og:url"]/@content)
-    # regExp: (.+)
-    # regExpReplace: https://www.aptekaolmed.pl$1
+    xpath: (//div[@id="product_url"])
   - name: thumbnail
     description: The URL for the product thumbnail image
-<<<<<<< HEAD
-    xpath: (//a[@class="product-icon align_row"]/div/div/img/@src | (//a[@class="projector_medium_image"]/@href)[1])
-    regExp: (.+)
-    regExpReplace: https://www.aptekaolmed.pl$1
-=======
-    xpath: concat('https://www.aptekaolmed.pl',//a[@class="product-icon align_row"]/div/div/img/@src)
+    xpath: concat('https://www.aptekaolmed.pl',(//a[@class="product-icon align_row"]/div/div/img/@src | (//a[@class="projector_medium_image"]/@href)[1]))
     # regExp: (.+)
     # regExpReplace: https://www.aptekaolmed.pl$1
->>>>>>> 23851c3273e7e14061ac0d45286647109ca5c5d2
     # xpath: concat('https://www.aptekaolmed.pl',//a[@class="product-icon align_row"]/div/div/img/@src)
   - name: name
     description: The product name
-    xpath: (//a[@class="product-name"] | //h1)
+    xpath: (//a[@class="product-name"] | //div[@class="product_info col-md-6 col-xs-12 "]/h1)
   - name: skus
     description: The store-specific product identifiera
     xpath: (//div[@class="product_add_basket"]/a/@data-id | //input[@id="projector_product_hidden"]/@value)
@@ -35,6 +27,7 @@ fields:
   - name: price
     description: The offered price for the product
     xpath: (//span[@class="price"] | //strong[@class="projector_price_value"])
+    # xpath: (//span[@class="price"])
     type: CURRENCY
   - name: rank
     description: search/listing rank
