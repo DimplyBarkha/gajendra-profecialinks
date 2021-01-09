@@ -99,7 +99,9 @@ fields:
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
-    xpath: //script/@data-eky-mpn | //div[contains(@class,"spec-wrap")]//table[contains(@class,"spec-table")]//tr//td[contains(text(),"Modellnavn")]/following-sibling::td
+    xpath: //script/@data-eky-mpn
+  - name: mpcFromDescription
+    xpath: //div[contains(@class,"spec-wrap")]//table[contains(@class,"spec-table")]//tr//td[contains(text(),"Modellnavn")]/following-sibling::td
   - name: warnings
     singleValue: false
     description: Content under "warnings" header
