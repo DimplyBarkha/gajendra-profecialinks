@@ -10,9 +10,15 @@ fields:
     # regExpReplace: https://www.aptekaolmed.pl$1
   - name: thumbnail
     description: The URL for the product thumbnail image
+<<<<<<< HEAD
     xpath: (//a[@class="product-icon align_row"]/div/div/img/@src | (//a[@class="projector_medium_image"]/@href)[1])
     regExp: (.+)
     regExpReplace: https://www.aptekaolmed.pl$1
+=======
+    xpath: concat('https://www.aptekaolmed.pl',//a[@class="product-icon align_row"]/div/div/img/@src)
+    # regExp: (.+)
+    # regExpReplace: https://www.aptekaolmed.pl$1
+>>>>>>> 23851c3273e7e14061ac0d45286647109ca5c5d2
     # xpath: concat('https://www.aptekaolmed.pl',//a[@class="product-icon align_row"]/div/div/img/@src)
   - name: name
     description: The product name
