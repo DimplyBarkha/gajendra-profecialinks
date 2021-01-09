@@ -54,8 +54,9 @@ async function implementation(inputs, parameters, context, dependencies) {
           arrDesc = arrDesc.shadowRoot
           if(arrDesc){
           arrDesc = arrDesc.shadowRoot.querySelectorAll('div.syndigo-featureset-feature')
-          const enhancedContent = [arrDesc].reduce((a, elm) => a + elm.innerText, '');
-          manufacturerContent.innerText = manufacturerContent.innerText + enhancedContent}
+          const enhancedContent = [...arrDesc].reduce((a, elm) => a + elm.innerText, '');
+            manufacturerContent.innerText = manufacturerContent.innerText + enhancedContent
+          }
         }
       }
     }
