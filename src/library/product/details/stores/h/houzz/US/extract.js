@@ -7,6 +7,7 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+
   await context.evaluate(() => {
     document.querySelector("li[class='hzui-tabs__label   ']").click();
   });
@@ -60,7 +61,7 @@ async function implementation(
       findAndInsertLabel(jsonParsed[0], "image", "image");
       findAndInsertLabel(jsonParsed[0], "category", "category");
       findAndInsertLabel(jsonParsed[0], "name", "nameExtended");
-      findAndInsertLabel(jsonParsed[0], "description", "description");
+      findAndInsertLabel("Product Description"+jsonParsed[0], "description", "description");
       findAndInsertLabel(jsonParsed[0], "sku", "sku");
       findAndInsertLabel(jsonParsed[0], "mpn", "mpc");
       findAndInsertLabel(jsonParsed[0], "material", "material");
