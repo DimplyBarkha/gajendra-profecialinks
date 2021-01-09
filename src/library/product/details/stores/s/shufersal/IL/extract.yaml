@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: /html/body
 fields:
   - name: image
     singleValue: false
@@ -11,55 +11,44 @@ fields:
     xpath: //div[contains(@class,"bigImgCarousel")]//div[@class="slick-slide slick-current slick-active"]//img[@itemprop="image"]/@alt
   - name: alternateImages
     singleValue: false
-    description: Other product images (not in manufacturer description)
-  - name: metaKeywords
-    singleValue: true
-    description: The <meta> keywords content
+    xpath: //div[contains(@class,"thumbnailsCarousel")]//div[@class="slick-slide slick-active"]/button[not(@class="icon360")]/img[@itemprop="image"]/@src
   - name: category
     singleValue: false
-    description: The categories (e.g. from breadcrumbs)
+    xpath: //section[contains(@class,"breadcrumbSection")]//li[position()>1]/a
   - name: nameExtended
-    singleValue: true
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per feed)
+    singleValue: false
+    xpath: //h3[@id="modalTitle"] | //h1[@class="mainTitle" and @itemprop="name"]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
   - name: price
-    singleValue: true
-    description: The offered price for the selected product variant - if a user
-      clicks add to basket this is the price they would be charged
+    singleValue: false
+    xpath: //span[@itemprop="price"]
   - name: availabilityText
-    singleValue: true
-    description: Availability as described on page for the selected variant. If
-      there is no availability but the product can be added to cart, this field
-      should be "In Stock"
+    singleValue: false
+    xpath: //div[@class="addToCart initialized"]/button[@class="btn js-add-to-cart js-enable-btn miglog-btn-add"]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    description: Product description supplied by website - may be concatenanted from
-      multiple places; specifically not the manufacturer description
+    xpath: //div[@class="legalNotes"] | //div[@class="desc" and @itemprop="description"]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
-    singleValue: true
-    description: Product brand shown - this may actually NOT be just a brand name,
-      e.g. "Visit the Gillette Store"
+    singleValue: false
+    xpath: //ul[@class="dataList"]/li//div[@class="name" and text()="מותג/יצרן:"]/parent::*/div[contains(@class,"text")]
   - name: manufacturer
-    singleValue: true
-    description: Product manufacturer
+    singleValue: false
+    xpath: //ul[@class="dataList"]/li//div[@class="name" and text()="מותג/יצרן:"]/parent::*/div[contains(@class,"text")]
   - name: quantity
-    singleValue: true
-    description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    singleValue: false
+    xpath: //div[@class="titleContainer"]/h2[@class="subTitle"]/span[1]
   - name: weightNet
-    singleValue: true
-    description: Net weight as described on the page
+    singleValue: false
+    xpath: //ul[@class="dataList"]/li//div[@class="name" and text()="משקל/סוג:"]/parent::*/div[contains(@class,"text")]
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
@@ -67,11 +56,11 @@ fields:
     singleValue: true
     description: GTIN code (includes UPC/EAN)
   - name: sku
-    singleValue: true
-    description: The store-specific product identifier
+    singleValue: false
+    xpath: //ul[@class="dataList"]/li//div[@class="name" and contains(text(),"ט")]/parent::*/div[contains(@class,"text")]
   - name: variantId
-    singleValue: true
-    description: Identifier for a variant from a store where variants share the same sku
+    singleValue: false
+    xpath: //ul[@class="dataList"]/li//div[@class="name" and contains(text(),"ט")]/parent::*/div[contains(@class,"text")]
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -109,8 +98,8 @@ fields:
     singleValue: true
     description: Stated shipping weight
   - name: variantCount
-    singleValue: true
-    description: Number of variants listed
+    singleValue: false
+    defaultValue: '0'
     type: NUMBER
   - name: color
     singleValue: true
@@ -128,8 +117,8 @@ fields:
     singleValue: false
     description: URLs of videos on page
   - name: name
-    singleValue: true
-    description: The product name
+    singleValue: false
+    xpath: //h3[@id="modalTitle"] | //h1[@class="mainTitle" and @itemprop="name"]
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -231,9 +220,8 @@ fields:
     singleValue: true
     description: null
   - name: ingredientsList
-    singleValue: true
-    description: List of Ingredients from site - can be string of data if no
-      discernible start/end point
+    singleValue: false
+    xpath: //div[@class="productContainer"]//div[@class="mainInfo" and text()="רכיבים"]/parent::*/parent::*//div[@class="componentsText"]
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
@@ -389,8 +377,8 @@ fields:
     singleValue: true
     description: Suggested storage location for product
   - name: countryOfOrigin
-    singleValue: true
-    description: The country from which the product originates
+    singleValue: false
+    xpath: //ul[@class="dataList"]/li//div[@class="name" and text()="ארץ ייצור:"]/parent::*/div[contains(@class,"text")]
   - name: allergyAdvice
     singleValue: true
     description: Allergy information associated with the product
@@ -488,10 +476,10 @@ fields:
     singleValue: true
     description: If 360 image is present in the carousel ['Yes','No']
     example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
-    defaultValue: No
+    defaultValue: Yes
   - name: imageZoomFeaturePresent
     singleValue: true
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    defaultValue: True
