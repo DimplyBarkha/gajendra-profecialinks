@@ -1,0 +1,41 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class, "product-grid")]//div[contains(@class, "col-6")]
+fields:
+  - name: brand
+    singleValue: false
+    description: The brand name
+    example: Panasonic
+    xpath: //div[contains(@class, "hover-content")]//h2//a[contains(@class, "product-brand")]
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    example:
+      - Dental Care
+      - Toothbrushes & Accessories
+      - Electric Toothbrushes & Accessories
+      - Electric Toothbrushes
+      - Rotating
+    xpath: ancestor::html//select[@name="sort-order"]//option[@selected]
+  - name: productUrl
+    singleValue: false
+    description: The URL for the product details page
+    xpath: //div[contains(@class, "hover-content")]//h3[contains(@class, "pdp-link")]//a[contains(@class, "link")]/@href
+    regExp: (.*)
+    regExpReplace: https://www.saksfifthavenue.com/$1  
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class, "hover-content")]//h3[contains(@class, "pdp-link")]//a
+    description: The product name
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class, "product-tile")]//span[contains(@class, "product-id")]
+    description: The store-specific product identifier
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: false
+    description: The position (rank) within the list excluding sponsored/paid results
