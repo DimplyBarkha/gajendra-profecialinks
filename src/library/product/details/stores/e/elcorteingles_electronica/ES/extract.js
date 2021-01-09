@@ -9,7 +9,6 @@ module.exports = {
     domain: 'elcorteingles.es',
     zipcode: '',
   },
-
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
 
@@ -20,14 +19,100 @@ module.exports = {
       console.log('main URL');
       return document.URL;
     });
-    let manufacturerDesc = [];
+
+    let manufacturerDescArray = [];
+    const manufacturerImagesArray = [];
     const energyRating = '';
+    const manufacturerDescKey = 'manufacdesc';
+    const manufacturerImagesKey = 'manufacturerImages';
+
+    const getEnhancedContentFromNavTab = async () => {
+      const cssMoreInfoTab = 'div[class *= \'product_detail-attrs\'][data-type="brandTab"]';
+      try {
+        // wait for more info tab to load
+        await context.waitForSelector(cssMoreInfoTab, { timeout: 10000 });
+
+        // get and set manufacturerDesc to DOM if not found from the iframe navigateLink link
+        return await context.evaluate(function (cssMoreInfoTab) {
+          // getting from 'Más sobre el producto' tab
+          const moreInfoTab = document.querySelector(cssMoreInfoTab);
+          const isMoreInfoAvailable = moreInfoTab && moreInfoTab.innerText.toLowerCase().includes('s sobre el producto');
+          console.log('isMoreInfoAvailable: ', isMoreInfoAvailable);
+          if (isMoreInfoAvailable) {
+            // manufacturerDesc
+            const manufacturerDescDiv = document.querySelector('.flix_featdiv');
+            if (manufacturerDescDiv) {
+              return manufacturerDescDiv.innerText;
+            } else {
+              console.log('----- manufacturerDesc not loaded -----');
+              return '';
+            }
+          }
+        }, cssMoreInfoTab);
+      } catch (error) {
+        console.log('MoreInfoTab not laoded: ', cssMoreInfoTab);
+        return '';
+      }
+    };
+
+    const getManufacturerImagesFromNavTab = async () => {
+      return await context.evaluate(async () => {
+        // manufacturerImages
+        const mfImages = document.querySelectorAll('.flix_featdiv img');
+        // @ts-ignore
+        const manufacturerImages = [...mfImages].map(e => e.dataset.flixsrcset.split(',')).flat();
+
+        /**
+         * if we need only one size of image from multiple imageSize available
+         * const manufacturerImages = [...mfImages].map(e => e.dataset.flixsrcset.split(','))[0];
+         */
+
+        return manufacturerImages;
+      });
+    };
+
+    const setValuesInDivToDOM = async (id, value) => {
+      await context.evaluate(async ({ id, value }) => {
+        function addElementToDocument (key, value) {
+          const catElement = document.createElement('div');
+          catElement.id = key;
+          catElement.textContent = value;
+          document.body.appendChild(catElement);
+        }
+
+        addElementToDocument(id, value);
+      }, { id, value });
+    };
+
+    async function enhancedContent () {
+      const manufacturerDescription = await getEnhancedContentFromNavTab();
+      if (manufacturerDescription) {
+        manufacturerDescArray.push(manufacturerDescription);
+      }
+
+      const manufacturerImages = await getManufacturerImagesFromNavTab();
+      if (manufacturerImages) {
+        manufacturerImages.forEach(async (img) => {
+          manufacturerImagesArray.push(img);
+        });
+      }
+    }
+
+    /**
+     * save before navigating to any other page
+     * Sometimes it loads and sometimes it doesn't. But it usually loads at the first place before any navigation
+     */
+    await enhancedContent();
+
     try {
+      // returns additionalInfo iframe src
       const navigateLink = await context.evaluate(function () {
         console.log('getting navlink for Iframe');
         const gtin = document.querySelector('button[data-event=add_to_cart]') && document.querySelector('button[data-event=add_to_cart]').hasAttribute('data-product-gtin') ? document.querySelector('button[data-event=add_to_cart]').getAttribute('data-product-gtin') : '';
         console.log(`gtin: ${gtin}`);
-        return `https://service.loadbee.com/ean/${gtin}/es_ES?css=default&template=default&button=default#bv-wrapper`;
+
+        const iframeSrc = document.querySelector('iframe#loadbeeTabContent') && document.querySelector('iframe#loadbeeTabContent').getAttribute('src');
+        return gtin ? `https://service.loadbee.com/ean/${gtin}/es_ES?css=default&template=default&button=default#bv-wrapper` : iframeSrc;
       });
 
       if (navigateLink) {
@@ -40,30 +125,26 @@ module.exports = {
 
         console.log('In Enhanced content areas');
 
-        let enhancedContentPresent = await context.evaluate(async () => {
-          return !(document.querySelector('body').innerText.includes("isn't any digital profile available"));
-        });
+        const txtNoEnhContAvailable = 'isn\'t any digital profile available';
+        const enhancedContentPresent = await context.evaluate(async (txtNoEnhContAvailable) => {
+          return !(document.querySelector('body').innerText.includes(txtNoEnhContAvailable));
+        }, txtNoEnhContAvailable);
+
         console.log('do we have enhanced content - ' + enhancedContentPresent);
 
-        const otherSellersTable = await context.evaluate(function () {
-          if (document.querySelector('body').innerText.includes("isn't any digital profile available")) {
-            // document.querySelector('h1') ? document.querySelector('h1').innerText.includes("isn't any digital profile available") : true
-            return '';
-          } else {
-            return document.querySelector('body').innerHTML;
-          }
-        });
+        const otherSellersTable = enhancedContentPresent ? await context.evaluate(async () => document.querySelector('body').innerHTML) : '';
 
-        if(enhancedContentPresent) {
-          manufacturerDesc = await context.evaluate(async () => {
-            let manufacDesc = document.querySelectorAll('body>*:not(script)');
-            let arr = [];
-            if((!manufacDesc) || (manufacDesc.length === 0)) {
+        if (enhancedContentPresent) {
+          console.log('got the enhanced content');
+          manufacturerDescArray = await context.evaluate(async () => {
+            const manufacDesc = document.querySelectorAll('body>*:not(script)');
+            const arr = [];
+            if ((!manufacDesc) || (manufacDesc.length === 0)) {
               console.log('we do not have anything in the body');
               return arr;
-            } 
-            
-            for(let i = 0; i < manufacDesc.length; i++) {
+            }
+
+            for (let i = 0; i < manufacDesc.length; i++) {
               console.log(manufacDesc[i].textContent.replace(/^\s*\n/gm, ''));
               arr.push(manufacDesc[i].textContent.replace(/^\s*\n/gm, '').trim());
             }
@@ -71,18 +152,13 @@ module.exports = {
             console.log(manufacDesc);
             return arr;
           });
-        }
-
-        if(enhancedContentPresent) {
-          console.log('got the enhanced content');
         } else {
           console.log('enhanced content is not present - need to check if the video is present in gallery in prod page');
         }
 
-        console.log('Got otherSellersTable here');
+        console.log('mainURL ' + mainURL);
 
-        console.log('mainURL' + mainURL);
-
+        // navigate back to main url
         await context.goto(mainURL, {
           timeout: 10000,
           waitUntil: 'load',
@@ -92,6 +168,17 @@ module.exports = {
           random_move_mouse: true,
         });
 
+        // enhancedContent from MoreInfoTab if enhancedContentPresent = false, i.e was not found earlier on the navigated page
+        if (!enhancedContentPresent) {
+          if (!manufacturerDescArray.length) await getEnhancedContentFromNavTab(); // manufacturerDescArray saving already before navigation
+
+          const manufacturerImages = manufacturerImagesArray.length ? manufacturerImagesArray : await getManufacturerImagesFromNavTab(); // check if we saved already
+          if (manufacturerImages) {
+            manufacturerImages.forEach(async (img) => await setValuesInDivToDOM(manufacturerImagesKey, img));
+          }
+        }
+
+        // set otherSellersTable to DOM
         await context.evaluate(function (eleInnerHtml) {
           const cloneNode = document.createElement('div');
           cloneNode.style.display = 'none';
@@ -179,7 +266,7 @@ module.exports = {
 
             // return await (await fetch(url, options)).json();
             const response = await fetch(url, options);
-            if (response.status != 500) { 
+            if (response.status != 500) {
               return await (response).json();
             } else {
               return;
@@ -188,7 +275,7 @@ module.exports = {
 
           // return await (await fetch(url, options)).text();
           const response = await fetch(url, options);
-          if (response.status != 500) { 
+          if (response.status != 500) {
             return await (response).text();
           } else {
             return;
@@ -355,7 +442,7 @@ module.exports = {
         }
       }
 
-      //addElementToDocument('videos', videos);
+      // addElementToDocument('videos', videos);
       addElementToDocument('apluseImages', apluseImages);
       // Secondry Image
       const alternateImages = [];
@@ -444,7 +531,7 @@ module.exports = {
 
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
-        async function stall ( ms ) {
+        async function stall (ms) {
           return new Promise((resolve, reject) => {
             setTimeout(() => {
               console.log('waiting!!');
@@ -465,45 +552,43 @@ module.exports = {
         }
       });
     };
-    
+
     await applyScroll(context);
 
-    await context.evaluate(async (manufacturerDesc) => {
-
+    // gets videos
+    await context.evaluate(async () => {
       async function addElementToDocumentAsync (key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
         document.body.appendChild(catElement);
       }
-
-      let videoElms = document.querySelectorAll('input[value*="videos"]');
+      const videoElms = document.querySelectorAll('input[value*="videos"]');
       let allVidLinks = [];
-      if(videoElms && (videoElms.length > 0)) {
+      if (videoElms && (videoElms.length > 0)) {
         console.log('we have ' + videoElms.length + ' videos');
-        for(let i = 0; i < videoElms.length; i++) {
+        for (let i = 0; i < videoElms.length; i++) {
           let link = '';
-          if(videoElms[i].hasAttribute('value')) {
-            let videoText = videoElms[i].getAttribute('value');
+          if (videoElms[i].hasAttribute('value')) {
+            const videoText = videoElms[i].getAttribute('value');
             let jsonObj = [];
             try {
               jsonObj = JSON.parse(videoText);
-            } catch(err) {
+            } catch (err) {
               console.log('got some error while parsing string to json - ' + err.message);
             }
-            if(Array.isArray(jsonObj)) {
+            if (Array.isArray(jsonObj)) {
               console.log('nothing can be done');
             } else {
-              let thisObj = {...jsonObj};
-              if(thisObj.hasOwnProperty('playlist') && Array.isArray(thisObj.playlist)) {
-                if(thisObj['playlist'][0].hasOwnProperty('file')) {
-                  link = 'https:' + thisObj['playlist'][0].file;
+              const thisObj = { ...jsonObj };
+              if (thisObj.hasOwnProperty('playlist') && Array.isArray(thisObj.playlist)) {
+                if (thisObj.playlist[0].hasOwnProperty('file')) {
+                  link = 'https:' + thisObj.playlist[0].file;
                   console.log(link);
                   allVidLinks.push(link);
                 } else {
                   console.log('we do not have file');
                 }
-                
               } else {
                 console.log('either we do not have playlist -- or that playlist is not an array anymore');
               }
@@ -512,30 +597,42 @@ module.exports = {
             console.log('we do not have value');
           }
         }
-        let videoJson = document.querySelector('input[value*="videos"]') && document.querySelector('input[value*="videos"]').hasAttribute('value') ? document.querySelector('input[value*="videos"]').getAttribute('value') : null;
-        if(videoJson) {
-          let encodedUri = encodeURIComponent(videoJson);
-          let Produrl = document.URL.replace(/(https:\/\/)(.+)/g, "$2");
-          let gtin = document.querySelector('[data-product-gtin]') && document.querySelector('[data-product-gtin]').hasAttribute('data-product-gtin') ? document.querySelector('[data-product-gtin]').getAttribute('data-product-gtin') : null;
-          let videoUrl = "";
-          if(videoJson && gtin && Produrl) {
+        const videoJson = document.querySelector('input[value*="videos"]') && document.querySelector('input[value*="videos"]').hasAttribute('value') ? document.querySelector('input[value*="videos"]').getAttribute('value') : null;
+        if (videoJson) {
+          const encodedUri = encodeURIComponent(videoJson);
+          const Produrl = document.URL.replace(/(https:\/\/)(.+)/g, '$2');
+          const gtin = document.querySelector('[data-product-gtin]') && document.querySelector('[data-product-gtin]').hasAttribute('data-product-gtin') ? document.querySelector('[data-product-gtin]').getAttribute('data-product-gtin') : null;
+          let videoUrl = '';
+          if (videoJson && gtin && Produrl) {
             videoUrl = `https://media.flixcar.com/delivery/static/jwplayer/jwiframe.html?fjw=${encodedUri}&l=es&ean=${gtin}&sid=&base=//media.flixcar.com&pn=https|dub|for${Produrl}`;
             await addElementToDocumentAsync('galleryVideo', videoUrl);
           } else {
-            console.log("no gallery videos");
+            console.log('no gallery videos');
           }
         } else {
           console.log('we do not have any text in value');
         }
-        
       } else {
         console.log('we do not have any inputs where value attr contains video - hence no video');
       }
-      let videoSet = new Set (allVidLinks);
+      const videoSet = new Set(allVidLinks);
       allVidLinks = Array.from(videoSet);
       await addElementToDocumentAsync('allVidLinks', allVidLinks.join(' || '));
-      await addElementToDocumentAsync('manufacdesc', manufacturerDesc.join(' || '));
-    }, manufacturerDesc);
+    });
+
+    // adds manufacturerDesc to DOM
+    if (manufacturerDescArray.length) {
+      await context.evaluate(async (manufacturerDesc, manufacturerDescKey) => {
+        async function addElementToDocumentAsync (key, value) {
+          const catElement = document.createElement('div');
+          catElement.id = key;
+          catElement.textContent = value;
+          document.body.appendChild(catElement);
+        }
+
+        await addElementToDocumentAsync(manufacturerDescKey, manufacturerDesc.join(' || '));
+      }, manufacturerDescArray, manufacturerDescKey);
+    }
 
     await context.extract(productDetails, { transform });
   },

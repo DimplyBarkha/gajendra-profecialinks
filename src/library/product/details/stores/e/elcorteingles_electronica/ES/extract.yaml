@@ -99,8 +99,9 @@ fields:
   - name: manufacturerDescription
     xpath : //div[@class="inpage_selector_feature"] | //div[@id="manufacdesc"][not(//div[@class="inpage_selector_feature"])]
   - name: manufacturerImages
-    xpath : //div[@class="inpage_selector_feature"]//img//@data-flixsrcset
-    regExp: ((.+)( 200w))
+    xpath : //div[@class="inpage_selector_feature"]//img//@data-flixsrcset | //div[@id='manufacturerImages'][not(//div[@class="inpage_selector_feature"]//img//@data-flixsrcset)]
+    # regExp: ((.+)( 200w)) // it only gets img having 200w at end
+    regExp: ((.+)\s([0-9])+)
     regExpReplace: $2
   - name: termsAndConditions
     xpath :
