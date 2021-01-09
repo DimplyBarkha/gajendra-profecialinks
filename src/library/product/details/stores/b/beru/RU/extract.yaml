@@ -18,7 +18,7 @@ fields:
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
-    xpath: //a[@class='alternateImages'][position()>1]/@href | //a[@class='alternateImages_alt'][position()>1]/@href
+    xpath: //a[@class='alternateImages'][position()>1]/@href | //a[@class='alternateImages_alt'][position()>1]/@href | | //a[@class='alternateImages_alt_1'][position()>1]/@href
     description: Other product images (not in manufacturer description)
   - name: metaKeywords
     singleValue: false
@@ -118,7 +118,9 @@ fields:
     description: Content under "warnings" header
   - name: aggregateRating
     singleValue: false
-    xpath: //meta[@itemprop="ratingValue"]/@content | //span[@class='b_3C0DxleA0I']
+    xpath: //a[@data-auto="all-reviews-link"]//div[@class='b_sEc13pK37d']/@style
+    regExp: width:(.*)%
+    regExpReplace: $1
   - name: reviewCount
     singleValue: false
     xpath: //div[@itemprop="aggregateRating"]//meta[@itemprop="reviewCount"]/@content
@@ -244,7 +246,7 @@ fields:
     description: null
   - name: secondaryImageTotal
     singleValue: false
-    xpath: //div[@id="alternateImagesCount"] | //div[@id='alternateImagesCount_alt']
+    xpath: //div[@id="alternateImagesCount"] | //div[@id='alternateImagesCount_alt'] | //div[@id='alternateImagesCount_alt_1']
   - name: news
     singleValue: false
     description: null

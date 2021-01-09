@@ -104,15 +104,13 @@ const transform = (data) => {
       }
 
       if (row.aggregateRating) {
-        let text = '';
+        let text;
         row.aggregateRating.forEach(item => {
-          if(item.text.includes(',')) {
-            text = item.text.replace(',','.')
-          }
+            text = `${item.text / 20}`;
         });
         row.aggregateRating = [
           {
-            text: text
+            text: text,
           },
         ];
       }
