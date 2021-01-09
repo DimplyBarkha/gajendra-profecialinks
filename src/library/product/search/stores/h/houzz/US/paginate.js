@@ -6,7 +6,7 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: ".hz-image-container img",
+    loadedSelector: "body",
     noResultsXPath: null,
     openSearchDefinition: {
       template: "https://www.houzz.com/products/{searchTerms}/p/{page}",
