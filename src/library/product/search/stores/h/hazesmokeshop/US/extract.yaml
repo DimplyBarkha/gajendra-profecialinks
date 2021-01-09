@@ -1,0 +1,10 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="product-element-top"]
+fields:
+  - name: productUrl
+    type: STRING
+    xpath: //div[@class="product-element-top"]//a[@class="product-image-link"]/@href
+    regExp: (.+)
+    regExpReplace: '$1#tab-reviews'
