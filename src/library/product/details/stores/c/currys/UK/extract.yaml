@@ -153,7 +153,7 @@ fields:
     description: Images within the third party description
   - name: videos
     singleValue: false
-    xpath: //div[@id="video"]//iframe/@src | //*[@id="flix-iframe0"]/@src | //body/@video-src
+    xpath: //div[@id="video"]//iframe/@src | //*[@id="flix-iframe0"]/@src | //body/@video-src | //div[@id="manufacvideos"]
     description: URLs of videos on page
   - name: name
     singleValue: true

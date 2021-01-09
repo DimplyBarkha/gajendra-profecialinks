@@ -38,6 +38,25 @@ const implementation = async (
   };
   const delay = t => new Promise(resolve => setTimeout(resolve, t));
 
+  // check for cookie button - 
+  const cookieBtnSel = 'button[id*="onetrust-accept-btn-handler"]';
+  try {
+    await context.waitForSelector(cookieBtnSel);
+  } catch(err) {
+    console.log('error while waiting for cookie btn', err.message);
+  }
+  let cookieBtnPresent = await checkExistance(cookieBtnSel);
+  if(cookieBtnPresent) {
+    console.log('cookie btn is present');
+    try {
+      await context.click(cookieBtnSel);
+    } catch(err) {
+      console.log('error while clicking the cookies btn', err.message);
+    }
+  } else {
+    console.log('cookie btn is not present');
+  }
+
   const currentUrl = await context.evaluate(() => {
     if (document.querySelector('meta[property="og:url"]')) { return document.querySelector('meta[property="og:url"]').getAttribute('content'); }
   });
@@ -229,6 +248,99 @@ const implementation = async (
     const description = buildDescription();
     addElement('description', description);
   }, parameters.zipcode, parameters.country);
+
+  try {
+    await context.waitForSelector(cookieBtnSel);
+  } catch(err) {
+    console.log('error while waiting for cookie btn', err.message);
+  }
+  cookieBtnPresent = await checkExistance(cookieBtnSel);
+  if(cookieBtnPresent) {
+    console.log('cookie btn is present');
+    try {
+      await context.click(cookieBtnSel);
+    } catch(err) {
+      console.log('error while clicking the cookies btn', err.message);
+    }
+  } else {
+    console.log('cookie btn is not present');
+  }
+  // need to get the videos
+  let manufacturerContentVideoSel = 'iframe[title*="Flix-media-video"]';
+  try {
+    await context.waitForSelector(manufacturerContentVideoSel);
+    console.log('we have the video iframe');
+  } catch(err) {
+    console.log('got some error while waiting for video in manufac-content', err.message);
+    try {
+      await context.waitForSelector(manufacturerContentVideoSel);
+      console.log('we have the video iframe');
+    } catch(err) {
+      console.log('got some error while waiting for video in manufac-content -- again', err.message);
+    }
+  }
+
+  const applyScroll = async function (context) {
+    await context.evaluate(async function () {
+      async function stall ( ms ) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            console.log('waiting!!');
+            resolve();
+          }, ms);
+        });
+      }
+      let scrollTop = 0;
+      while (scrollTop !== 15000) {
+        await stall(1000);
+        scrollTop += 1000;
+        window.scroll(0, scrollTop);
+        console.log('scrolling now!!');
+        if (scrollTop === 15000) {
+          await stall(3000);
+          break;
+        }
+      }
+    });
+  };
+  
+  await applyScroll(context);
+
+  await context.evaluate(async (manufacturerContentVideoSel) => {
+    let videoUrlArr = [];
+    let allVideoElms = document.querySelectorAll(manufacturerContentVideoSel);
+    if((!allVideoElms) || (allVideoElms.length === 0)) {
+      return;
+    }
+
+    for(let i = 0; i < allVideoElms.length; i++) {
+      let thisUrl = '';
+      if(allVideoElms[i].hasAttribute('src')) {
+        thisUrl = allVideoElms[i].getAttribute('src');
+      } else if(allVideoElms[i].hasAttribute('_src')) {
+        thisUrl = allVideoElms[i].getAttribute('_src');
+      } else {
+        console.log('we do not have src or _src for ' + i + 'th iframe');
+      }
+      console.log(thisUrl);
+      videoUrlArr.push(thisUrl);
+    }
+
+    let videoSet = new Set(videoUrlArr);
+    console.log('we got ' + videoSet.size + ' unique elements');
+    videoUrlArr = Array.from(videoSet);
+
+    async function addElementToDocumentAsync (key, value) {
+      const catElement = document.createElement('div');
+      catElement.id = key;
+      catElement.textContent = value;
+      document.body.appendChild(catElement);
+    }
+
+    await addElementToDocumentAsync('manufacvideos', videoUrlArr.join(' || '));
+    return;
+  },
+  manufacturerContentVideoSel);
 
   const { transform } = parameters;
   const { productDetails } = dependencies;
