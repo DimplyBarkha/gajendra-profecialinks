@@ -8,12 +8,14 @@ fields:
     xpath: //div[@class='heading pt-head h5']
   - name: id
     singleValue: false
-    xpath: //a[@class='product-teaser']/@href
-    regExp: -(\d+)\/$
-    regExpReplace: $1
+    # xpath: //div[@class='grid']/div/a/@href
+    xpath: //html//div[@id='RPC']
+    # regExp: -(\d+)\/$
+    # regExpReplace: $1
   - name: productUrl
     singleValue: false
-    xpath: //a[@class='product-teaser']/@href
+    xpath: //div[@class='grid']/div/a/@href
+    # xpath: //html//div[@id='agg']
     regExp: (\/p\/.+)
     regExpReplace: https://www.fressnapf.de$1
   - name: thumbnail
