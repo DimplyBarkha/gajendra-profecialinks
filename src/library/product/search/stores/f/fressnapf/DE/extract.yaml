@@ -12,7 +12,6 @@ fields:
   - name: productUrl
     singleValue: false
     xpath: //div[@class='grid']/div/a/@href
-    # xpath: //html//div[@id='agg']
     regExp: (\/p\/.+)
     regExpReplace: https://www.fressnapf.de$1
   - name: thumbnail
