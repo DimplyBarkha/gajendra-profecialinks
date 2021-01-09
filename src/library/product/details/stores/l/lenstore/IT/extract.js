@@ -70,7 +70,7 @@ module.exports = {
             // addElementToDocument('rpc', rpc);
           }
         }
-      }else{
+      } else {
         var zz = getXpath('//div[@class="o-outer c-main-wrapper"]/form/@data-product-details', 'nodeValue');
         var abc = JSON.parse(zz);
         var av = abc.code;
@@ -121,49 +121,52 @@ module.exports = {
       // 3. value :  //h2[contains(text(),'Descrizione')]/following::ul[1]/li/text()
 
 
+      // Ingredienti  ( for 5 products , one more senario)
+      var five = getXpath("//h4/strong[contains(text(),'Ingredienti')]/text()", 'nodeValue');
+
       var other = "";
       var oth = getXpath("//h2[contains(text(),'Descrizione')]/text()", 'nodeValue');
-      if(oth != null){
+      if (oth != null) {
         other = other + oth;
         var oth11 = getXpath("//h2[contains(text(),'Descrizione')]/following::h3[1]/text()", 'nodeValue');
-      // for 2nd scenario
+        // for 2nd scenario
         var oth12 = getXpath("//h2[contains(text(),'Descrizione')]/following::p[1]/strong[contains(text(),'Vantaggi')]/text()", 'nodeValue');
-        if(oth11 != null || oth12 != null){
-          if(oth12 != null){
-            oth11 = oth12;  
+        if (oth11 != null || oth12 != null) {
+          if (oth12 != null) {
+            oth11 = oth12;
           }
-          
-          other = other + " "+ oth11;
+
+          other = other + " " + oth11;
         }
 
-          //val
-          var oth22 = getAllXpath("//h2[contains(text(),'Descrizione')]/following::ul[1]/li/text()", 'nodeValue');
-          //link
-          var oth33 = getAllXpath("//h2[contains(text(),'Descrizione')]/following::ul[1]/li/strong/text()", 'nodeValue');
-          //for 2nd ser
-          //val
-          var oth23 = getAllXpath("//h2[contains(text(),'Descrizione')]/following::ul[1]/li/text()", 'nodeValue');
-          //link
-          var oth34 = getAllXpath("//h2[contains(text(),'Descrizione')]/following::ul[1]/li/strong/text()", 'nodeValue');
+        //val
+        var oth22 = getAllXpath("//h2[contains(text(),'Descrizione')]/following::ul[1]/li/text()", 'nodeValue');
+        //link
+        var oth33 = getAllXpath("//h2[contains(text(),'Descrizione')]/following::ul[1]/li/strong/text()", 'nodeValue');
+        //for 2nd ser
+        //val
+        var oth23 = getAllXpath("//h2[contains(text(),'Descrizione')]/following::ul[1]/li/text()", 'nodeValue');
+        //link
+        var oth34 = getAllXpath("//h2[contains(text(),'Descrizione')]/following::ul[1]/li/strong/text()", 'nodeValue');
 
-          //3rd sena
+        //3rd sena
 
 
 
-          if(oth22 != null){
-            for(var i=0; i<oth22.length; i++){
-              if(oth33.length >= 1){
-                other = other  + " "+ oth33[i] + oth22[i];
-              }else{
-                other = other  + " "+ oth22[i];
-              }
-            }
-          }else if(oth23 != null){
-            for(var i=0; i<oth23.length; i++){
-              other = other  + " "+ oth34[i] + oth23[i];
+        if (oth22 != null) {
+          for (var i = 0; i < oth22.length; i++) {
+            if (oth33.length >= 1) {
+              other = other + " " + oth33[i] + oth22[i];
+            } else {
+              other = other + " " + oth22[i];
             }
           }
-        
+        } else if (oth23 != null) {
+          for (var i = 0; i < oth23.length; i++) {
+            other = other + " " + oth34[i] + oth23[i];
+          }
+        }
+
       }
 
 
@@ -171,13 +174,19 @@ module.exports = {
       if (desc != null) {
         var str = "";
         for (var i = 0; i < desc.length; i++) {
-          str = str + desc[i] + " ";
+          if (i == desc.length - 1 && five != null) {
+            // if (five != null) {
+              str = str + " " + five + " " + desc[i] + " ";
+            // }
+          } else {
+            str = str + desc[i] + " ";
+          }
         }
         // addHiddenDiv("str", str);
         // addElementToDocument('str', str);
       }
 
-      var final = other+" "+str;
+      var final = other + " " + str;
       addHiddenDiv("str", final);
 
       //price
@@ -189,7 +198,7 @@ module.exports = {
       }
 
       // category
-      var cat = getAllXpath("//strong[contains(text(),'Categorie')]/parent::td/following::td[1]/a/text()", 'nodeValue');             
+      var cat = getAllXpath("//strong[contains(text(),'Categorie')]/parent::td/following::td[1]/a/text()", 'nodeValue');
       if (cat.length > 0) {
         for (var i = 0; i < cat.length; i++) {
           addHiddenDiv("cat", cat[i]);
@@ -213,11 +222,11 @@ module.exports = {
         addHiddenDiv("image", image);
       }
 
-        //image alt text
-        var image_alt = getXpath('//picture[@class="c-product__figure"]/img/@alt', 'nodeValue');
-        if (image_alt != null) {
-          addHiddenDiv("image_alt", image_alt);
-        }
+      //image alt text
+      var image_alt = getXpath('//picture[@class="c-product__figure"]/img/@alt', 'nodeValue');
+      if (image_alt != null) {
+        addHiddenDiv("image_alt", image_alt);
+      }
 
       // nameExtended
       var nameExtended = getXpath('//div[@class="o-columns__item c-product u-half"]/h1/text()', 'nodeValue');
@@ -281,10 +290,10 @@ module.exports = {
       if (condition != null) {
         var specification = keys[0];
         for (var i = 0; i < cat_val.length; i++) {
-          specification = specification + cat_val[i] +", ";
+          specification = specification + cat_val[i] + ", ";
         }
-        specification = specification.slice(0,-2);
-        specification = specification +" "+ keys[1];
+        specification = specification.slice(0, -2);
+        specification = specification + " " + keys[1];
         specification = specification + macra_val;
 
         for (var i = 0; i < 4; i++) {
@@ -299,8 +308,8 @@ module.exports = {
 
       var bullet = getAllXpath('//div[@class="c-product__related-content"]//li/text()', 'nodeValue');
       var bullet_ex = getAllXpath('//div[@class="c-product__related-content"]//li/a/strong/text()', 'nodeValue');
-      if(bullet.length >= 1){
-        if(bullet_ex.length >= 1){
+      if (bullet.length >= 1) {
+        if (bullet_ex.length >= 1) {
           bullet = bullet.concat(bullet_ex);
         }
         addHiddenDiv("bullet", bullet.length);
