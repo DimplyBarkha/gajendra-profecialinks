@@ -63,6 +63,7 @@ const transform = (data) => {
           }
           item.text = item.text.replace(/\s200w/g, '').replace(/\s400w/g, '').replace(/\s600w/g, '').replace(/\s800w/g, '').replace(/\s1000w/g, '');
           item.text = item.text.startsWith('https:') ? item.text : `https:${item.text}`;
+          if (item.text.includes(',')) { item.text = item.text.split(',')[0]; }
         });
       }
       if (row.manufacturerImages1 && !row.manufacturerImages) {
