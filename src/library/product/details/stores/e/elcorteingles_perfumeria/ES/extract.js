@@ -86,19 +86,19 @@ module.exports = {
                 mode: 'no-cors',
                 headers: { 'Content-Type': 'application/json' },
               };
-  
+
               // return await (await fetch(url, options)).json();
               const response = await fetch(url, options);
-              if (response.status != 500) { 
+              if (response.status != 500) {
                 return await (response).json();
               } else {
                 return;
               }
             }
-  
+
             // return await (await fetch(url, options)).text();
             const response = await fetch(url, options);
-            if (response.status != 500) { 
+            if (response.status != 500) {
               return await (response).text();
             } else {
               return;
@@ -267,7 +267,7 @@ module.exports = {
         newUl.id = 'variantsadd';
         targetElement.appendChild(newUl);
         const ul = document.querySelector('#variantsadd');
-        const name = nameExtended();  // same for all variant
+        const name = nameExtended(); // same for all variant
         const variantIds = [];
         variants.forEach(q => {
           if (q.skus && q.skus[0] && q.skus[0].reference_id) {
