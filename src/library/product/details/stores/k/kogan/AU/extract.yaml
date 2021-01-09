@@ -77,7 +77,7 @@ fields:
       should be "In Stock"
     regExpReplace: Out of Stock
     defaultValue: In Stock
-    xpath: //h2[contains(@class,'subscribe-form__header--sold-out')]
+    xpath: //h2[contains(@class,'subscribe-form__header--sold-out')] | //form//h2[contains(text(),'Sold Out')]
     regExp: (.+)
   - name: price
     singleValue: true
