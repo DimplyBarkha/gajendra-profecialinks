@@ -38,8 +38,8 @@ module.exports = {
       console.log('Status :', statusCode);
       console.log('URL :', responseStatus.url);
 
-      return { responseStatus, statusCode }
-    }
+      return { responseStatus, statusCode };
+    };
 
     const checkExistance = async (selector) => {
       return await context.evaluate(async (captchaSelector) => {
@@ -57,7 +57,7 @@ module.exports = {
 
       console.log('status: ', status);
       return status;
-    }
+    };
 
     const isCaptchaSolved = async ({ cssCaptchaHandler }) => {
       await new Promise(resolve => setTimeout(resolve, 5000)); // wait until captch solver starts
@@ -78,7 +78,7 @@ module.exports = {
         throw new Error('Captcha solver failed');
       }
       return true;
-    }
+    };
 
     const solveCaptchIfNecessary = async ({ captchaFrame, cssCaptchaHandler }) => {
       const captchaExists = await checkExistance(captchaFrame);
@@ -92,7 +92,7 @@ module.exports = {
               console.log('Handler found, clicking it');
               handler.click();
             } else {
-              console.log('Handler not found')
+              console.log('Handler not found');
             }
           }, cssCaptchaHandler);
         } catch (e) {
@@ -101,10 +101,10 @@ module.exports = {
         }
       }
 
-      if(!await isCaptchaSolved()){
-        throw new Error('Captch not solved')
+      if (!await isCaptchaSolved()) {
+        throw new Error('Captch not solved');
       }
-    }
+    };
 
     const checkPageLoaded = async () => {
       try {
@@ -112,7 +112,7 @@ module.exports = {
       } catch (e) {
         console.log('No details page');
       }
-    }
+    };
 
     const run = async () => {
       const captchaFrame = "iframe[_src*='captcha']:not([title]), iframe[src*='captcha']:not([title])";
@@ -132,7 +132,7 @@ module.exports = {
         }
       }
       await checkPageLoaded();
-    }
+    };
 
     await run();
   },
