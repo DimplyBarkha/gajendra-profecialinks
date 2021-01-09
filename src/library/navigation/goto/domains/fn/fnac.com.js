@@ -14,31 +14,31 @@ module.exports = {
     dependencies,
   ) => {
     const timeout = parameters.timeout ? parameters.timeout : 60000;
+    await context.setJavaScriptEnabled(true);
+    await context.setCssEnabled(true);
+    await context.setLoadAllResources(true);
+    await context.setLoadImages(true);
+    await context.setBlockAds(false);
 
     const gotoFn = async (url) => {
       console.log('goto url: ', url);
-      await context.setJavaScriptEnabled(true);
-      await context.setCssEnabled(true);
-      await context.setLoadAllResources(true);
-      await context.setLoadImages(true);
-      await context.setBlockAds(false);
-
       const responseStatus = await context.goto(url, {
         antiCaptchaOptions: {
-          provider: 'anti-captcha',
+          provider: 'geetest-captcha-solver',
           type: 'GEETEST',
+          autoSubmit: true,
         },
         firstRequestTimeout: 60000,
         timeout: timeout,
         waitUntil: 'load',
         checkBlocked: false,
-        force200: true,
-        js_enabled: true,
-        embed_iframes: true,
       });
 
-      console.log('Status :', responseStatus.status);
+      const statusCode = responseStatus.status;
+      console.log('Status :', statusCode);
       console.log('URL :', responseStatus.url);
+
+      return { responseStatus, statusCode }
     }
 
     const checkExistance = async (selector) => {
@@ -63,116 +63,77 @@ module.exports = {
       await new Promise(resolve => setTimeout(resolve, 5000)); // wait until captch solver starts
       const maxTimeOut = 100000;
       let time = 0;
-      let statusText = await captchStatus(cssCaptchaHandler);
-      while (statusText === 'solving') {
+      let captchaStatus = await captchStatus(cssCaptchaHandler);
+      while (captchaStatus === 'solving') {
         await new Promise(resolve => setTimeout(resolve, 500));
         time += 500;
         if (time >= maxTimeOut) {
           return false;
         };
-        statusText = await captchStatus(cssCaptchaHandler);
+
+        captchaStatus = await captchStatus(cssCaptchaHandler);
       }
 
-      if(statusText === 'fail') throw new Error('Captcha solver has failed');
+      if (await captchStatus(cssCaptchaHandler) === 'fail') {
+        throw new Error('Captcha solver failed');
+      }
       return true;
     }
 
-    const clickGeetestRadarBtn = async (cssGeetestRadarBtn) => {
-      try {
-        await context.waitForElement(cssGeetestRadarBtn, { timeout: 10000 });
-        await context.evaluateInFrame('iframe', (cssGeetestRadarBtn) => {
-          document.querySelector(cssGeetestRadarBtn) && document.querySelector(cssGeetestRadarBtn).click();
-        }, cssGeetestRadarBtn);
-      } catch (error) {
-        console.log('Geetest Radar Bgdgafaf not loaded: ', cssGeetestRadarBtn);
-        console.log(error);
-      }
-    }
-
-    const solveCaptchIfNecessary = async ({ captchaFrame, cssGeetestRadarBtn, cssCaptchaHandler, cssCaptchaText }) => {
-
-      // wait extra 10 seconds for js redirects
-      await new Promise(resolve => setTimeout(resolve, 15000));
-
+    const solveCaptchIfNecessary = async ({ captchaFrame, cssCaptchaHandler }) => {
       const captchaExists = await checkExistance(captchaFrame);
       if (captchaExists) {
         console.log('isCaptchaFramePresent:', true);
         try {
-          await new Promise(resolve => setTimeout(resolve, 3000)); // check removing if works
-
-          // check if blocked
-          await context.evaluate(async (cssCaptchaText) => {
-            let captchaText = document.querySelector(cssCaptchaText);
-            if (captchaText) {
-              captchaText = captchaText.innerText;
-
-              if (captchaText == 'You have been blocked.') {
-                // @ts-ignore
-                throw new BlockedError('Blocked on Captcha Page')
-              }
-            }
-          }, cssCaptchaText);
-
-          console.log('Lokking For Captcha Handler...');
+          await new Promise(resolve => setTimeout(resolve, 3000));
           await context.evaluateInFrame('iframe', (cssCaptchaHandler) => {
-            const captchaHandler = document.querySelector(cssCaptchaHandler);
-            if (!captchaHandler) {
-              throw new Error('Captcha Handler Not Loaded...')
+            const handler = document.querySelector(cssCaptchaHandler);
+            if (handler) {
+              console.log('Handler found, clicking it');
+              handler.click();
+            } else {
+              console.log('Handler not found')
             }
-            console.log('Handler found, clicking it');
-            captchaHandler.click();
           }, cssCaptchaHandler);
-
-          await new Promise(resolve => setTimeout(resolve, 15000));
-          await context.waitForNavigation({ timeout: 10000 });
-          console.log('Captcha Resolved Succefully...');
-          // await clickGeetestRadarBtn(cssGeetestRadarBtn)
         } catch (e) {
           console.log('Something went wrong while solving captcha');
           console.log(e);
         }
       }
+
+      if(!await isCaptchaSolved()){
+        throw new Error('Captch not solved')
+      }
     }
 
     const checkPageLoaded = async () => {
       try {
-        await context.waitForSelector('div[class~="f-productVisuals-mainIconZoom"]', { timeout: 60000 });
+        await context.waitForSelector('div[class~="f-productVisuals-mainIcon"] img', { timeout: 60000 });
       } catch (e) {
         console.log('No details page');
       }
-      try {
-        await context.waitForSelector('div[class~="Article-itemInfo"] p[class~="Article-desc"]', { timeout: 60000 });
-      } catch (e) {
-        console.log('No details page');
-      }
-    }
-
-    const submitForm = async () => {
-      await new Promise(resolve => setTimeout(resolve, 500));
-      await context.evaluateInFrame('iframe', async () => {
-        const formInputs = document.querySelectorAll(`.geetest_form input`)
-
-        // possibly click all?, since we are not sure which one to click
-        formInputs.forEach(async (ele) => {
-          ele.click();
-          await new Promise(resolve => setTimeout(resolve, 1000));
-        })
-      });
     }
 
     const run = async () => {
       const captchaFrame = "iframe[_src*='captcha']:not([title]), iframe[src*='captcha']:not([title])";
-      const cssGeetestRadarBtn = '.geetest_radar_btn';
       const cssCaptchaHandler = '.captcha-handler';
-      const cssCaptchaText = '.captcha__human__title';
 
-      const cssCaptcha = { captchaFrame, cssGeetestRadarBtn, cssCaptchaHandler, cssCaptchaText };
+      const cssCaptcha = { captchaFrame, cssCaptchaHandler };
+      const { statusCode } = await gotoFn(url);
 
-      await gotoFn(url);
-      await solveCaptchIfNecessary(cssCaptcha);
-      if (await isCaptchaSolved(cssCaptcha)) await submitForm();
+      if (statusCode === 403) {
+        // waiting to load captcha
+        try {
+          await context.waitForSelector(captchaFrame, { timeout: 10000 });
+          await solveCaptchIfNecessary(cssCaptcha); // captcha is being solved, but not getting submitted
+          await context.waitForNavigation({ timeout: 10000 });
+        } catch (error) {
+          console.log(error);
+        }
+      }
       await checkPageLoaded();
     }
+
     await run();
   },
 };
