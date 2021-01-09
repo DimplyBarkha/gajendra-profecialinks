@@ -97,11 +97,12 @@ const transform = (data) => {
                 row.description = [{'text':info.join(' || '),'xpath':row.description[0].xpath}];
             }
             if (row.manufacturerImages) {
-                let info = [];
                 row.manufacturerImages.forEach(item => {
-                info.push(item.text.replace(/(\s*\n\s*)+/g, ' || ').trim());
+                    item.text = item.text.replace(/,.*/, '');
+                    item.text = item.text.replace('200w', '');
+                    item.text = 'I'+ item.text;
+                    item.text = item.text.slice(1, -1);
                 });
-                row.manufacturerImages = [{'text':info.join(' || '),'xpath':row.manufacturerImages[0].xpath}];
             }
             if (row.additionalDescBulletInfo) {
                 let info = [];

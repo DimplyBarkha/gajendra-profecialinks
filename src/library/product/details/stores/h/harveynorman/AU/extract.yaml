@@ -70,7 +70,7 @@ fields:
     defaultValue: 1
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id='productDescription']//div[contains(@class,'product-long-description')]//img//@src
+    xpath: //div[contains(@id,'flix-inpage')]//div[@id='inpage_container']//div[@class='flix-std-container-fluid']//div[contains(@class,'flix-feature-image')]//img//@data-flixsrcset
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[@id='productDescription']//div[contains(@class,'product-long-description')]//ul//li)
