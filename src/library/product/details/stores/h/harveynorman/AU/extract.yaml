@@ -70,7 +70,7 @@ fields:
     defaultValue: 1
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[contains(@id,'flix-inpage')]//div[@id='inpage_container']//div[@class='flix-std-container-fluid']//div[contains(@class,'flix-feature-image')]//img//@data-flixsrcset
+    xpath: //div[contains(@id,'flix-inpage')]//div[@id='inpage_container']//div[@class='flix-std-container-fluid']//div[contains(@class,'flix-feature-image')]//img//@data-flixsrcset | //div[contains(@class,'fl1xcarousel-wrapper')]//div[@class="fl1xcarousel"]//li//img/@data-flixsrcset
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[@id='productDescription']//div[contains(@class,'product-long-description')]//ul//li)
