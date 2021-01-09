@@ -9,7 +9,7 @@ fields:
   - name: id
     singleValue: false
     xpath: //a[@class='product-teaser']/@href
-    regExp: (\d+)\/$
+    regExp: -(\d+)\/$
     regExpReplace: $1
   - name: productUrl
     singleValue: false
