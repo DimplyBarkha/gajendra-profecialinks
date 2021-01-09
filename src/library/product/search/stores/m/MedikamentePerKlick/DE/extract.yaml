@@ -4,16 +4,18 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: productUrl
-    xpath: //div[@class='productsList']//div[@class="h3"]/a[not(contains(@onclick,"hitSearchCampaign('12181')"))]/@href
+    # xpath: //div[@class='productsList']//div[@class="h3"]/a[not(contains(@onclick,"hitSearchCampaign('12181')"))]/@href
+    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//a[@itemprop="url"]/@href
   - name: thumbnail
     description: The URL for the product thumbnail image
     # xpath: //div[@class='productsList']//div[@class="figure"]/a[not(contains(@onclick,"hitSearchCampaign('12181')"))]/img/@src
     xpath: //div[@class='productsList']//div[@class="figure"]//img[@class="photo"]/@src
-    regExp: (.+)
+    regExp: (.*)
     regExpReplace: https://www.medikamente-per-klick.de$1
   - name: name
     type: TEXT
-    xpath: //div[@class='productsList']//div[@class="figure"]/a[not(contains(@onclick,"hitSearchCampaign('12181')"))]/img/@title
+    # xpath: //div[@class='productsList']//div[@class="figure"]/a[not(contains(@onclick,"hitSearchCampaign('12181')"))]/img/@title
+    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//span[@itemprop="name"]//text()
   - name: id
     description: The store-specific product identifier
     type: TEXT
