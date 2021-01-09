@@ -31,7 +31,7 @@ fields:
     manualSelector: span.vi-discount
   - name: specifications
     singleValue: false
-    xpath: //div[contains(@class,"itemAttr")]//table//tr[td[contains(@class,"attrLabels")]] | //div[@id="ProductDetails"]//li
+    xpath: //div[@class='spec'][not(@data-title='')] | //div[contains(@class,'allspecs')]//div[not(@hide-if-empty='')]/p
   - name: availabilityText
     singleValue: false
     xpath: (//*[contains(@id,"binBtn_btn")]/@class)[1] | (//div[@class='item-action']/a)[1]
