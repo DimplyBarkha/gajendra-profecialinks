@@ -61,7 +61,7 @@ module.exports = {
       }
 
       //rpc
-      if (script != null) {
+      if (script.length > 120) {
         if (script.length > 120) {
           var data1 = JSON.parse(script);
           var rpc = data.productID;
@@ -70,7 +70,13 @@ module.exports = {
             // addElementToDocument('rpc', rpc);
           }
         }
+      }else{
+        var zz = getXpath('//div[@class="o-outer c-main-wrapper"]/form/@data-product-details', 'nodeValue');
+        var abc = JSON.parse(zz);
+        var av = abc.code;
+        addHiddenDiv("rpc", av);
       }
+
 
 
       // if(script != null){
@@ -168,7 +174,7 @@ module.exports = {
       //availability
       var aval = getXpath('//span[@class="error u-error"]/text()', 'nodeValue');
       if (aval != null) {
-        var availability = "Out Of Stock"
+        var availability = "Out of Stock"
         addHiddenDiv("availability", availability);
       } else {
         var availability = "In Stock"
