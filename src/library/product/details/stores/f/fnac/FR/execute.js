@@ -27,6 +27,17 @@ async function implementation (
       console.log(e);
     }
   }
+  try {
+    await context.waitForSelector('section#BrandWord div.productStrate__seeMore__container button', { timeout: 1500 });
+    // await context.click('div#product-detail li[ae_button_type="tab_specs"]',{timeout:1000});
+    await context.evaluate(function () {
+      document.querySelector('section#BrandWord div.productStrate__seeMore__container button').click();
+    });
+    await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+  } catch (e) {
+    console.log(e);
+  }
+
   await new Promise((resolve, reject) => setTimeout(resolve, 12000));
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {

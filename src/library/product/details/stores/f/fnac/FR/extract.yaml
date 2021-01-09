@@ -108,7 +108,7 @@ fields:
     xpath: //div[@class='inpage_selector_info flix-temp-abcd']//div[@class='flix-std-info']
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@class='inpage_selector_info flix-temp-abcd']//div[@class='flix-std-info']//div[contains(@class,'flix-std-info-picture')]//img/@srcset
+    xpath: //div[@id='flix-std-inpage']//img/@srcset
   - name: warnings
     singleValue: false
     xpath: //div[@class='characteristicsStrate__lists']//dl//dt[contains(text(),'Avertissement de sécurité')]/parent::dl/dd    
