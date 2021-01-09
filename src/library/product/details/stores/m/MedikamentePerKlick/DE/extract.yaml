@@ -3,7 +3,7 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-- name: _url
+- name: url
   description: URL of the main product page
   xpath: //link[@rel="canonical"]/@href
 - name: image
@@ -48,6 +48,9 @@ fields:
 - name: availabilityText
   singleValue: true
   xpath: //div[@class='wide-6 productInformations offerDetails']//dl[@class="productAvailability"]//span[@class="value-title"]/@title
+  defaultValue: In stock
+  regExp: out_of_stock
+  regExpReplace: Out of Stock
 - name: description
   singleValue: false
   type: TEXT[]
@@ -63,11 +66,11 @@ fields:
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-  type: TEXT
-  xpath: //div[@class="wide-6 productInformations offerDetails"]//dd[@itemprop="brand"]//text()
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
+  type: TEXT
+  xpath: //div[@class="wide-6 productInformations offerDetails"]//dd[@itemprop="brand"]//text()
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
@@ -81,7 +84,7 @@ fields:
 - name: gtin
   singleValue: true
   description: GTIN code (includes UPC/EAN)
-  xpath: //div[@class="wide-6 productInformations offerDetails"]//dd[@itemprop="productID"]//text()
+  xpath: //div[@class="nano"]//input[@name="productId"]/@value
 - name: sku
   singleValue: true
   description: The store-specific product identifier
