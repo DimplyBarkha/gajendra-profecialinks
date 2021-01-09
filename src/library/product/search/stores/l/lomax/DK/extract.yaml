@@ -5,7 +5,8 @@ recordXPath: null
 fields: 
 - name: id
   singleValue: true
-  xpath: //div[@class="product-info border-bottom py-3 "]/@data-product-id
+  xpath: //div[@class="d-block"]/small/text()
+  regExp: (\d+)
 - name: rankOrganic
   singleValue: true
 - name: name
