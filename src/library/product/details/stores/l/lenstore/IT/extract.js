@@ -115,16 +115,70 @@ module.exports = {
       // }
 
       //description
-      // var ab = document.querySelectorAll('#relatedShift');
+      // 1. //h2[contains(text(),'Descrizione')]/text()
+      // 2. //h2[contains(text(),'Descrizione')]/following::h3[1]/text()
+      // 3. link :  //h2[contains(text(),'Descrizione')]/following::ul[1]/li/strong/text()
+      // 3. value :  //h2[contains(text(),'Descrizione')]/following::ul[1]/li/text()
+
+
+      var other = "";
+      var oth = getXpath("//h2[contains(text(),'Descrizione')]/text()", 'nodeValue');
+      if(oth != null){
+        other = other + oth;
+        var oth11 = getXpath("//h2[contains(text(),'Descrizione')]/following::h3[1]/text()", 'nodeValue');
+      // for 2nd scenario
+        var oth12 = getXpath("//h2[contains(text(),'Descrizione')]/following::p[1]/strong[contains(text(),'Vantaggi')]/text()", 'nodeValue');
+        if(oth11 != null || oth12 != null){
+          if(oth12 != null){
+            oth11 = oth12;  
+          }
+          
+          other = other + " "+ oth11;
+        }
+
+          //val
+          var oth22 = getAllXpath("//h2[contains(text(),'Descrizione')]/following::ul[1]/li/text()", 'nodeValue');
+          //link
+          var oth33 = getAllXpath("//h2[contains(text(),'Descrizione')]/following::ul[1]/li/strong/text()", 'nodeValue');
+          //for 2nd ser
+          //val
+          var oth23 = getAllXpath("//h2[contains(text(),'Descrizione')]/following::ul[1]/li/text()", 'nodeValue');
+          //link
+          var oth34 = getAllXpath("//h2[contains(text(),'Descrizione')]/following::ul[1]/li/strong/text()", 'nodeValue');
+
+          //3rd sena
+
+
+
+          if(oth22 != null){
+            for(var i=0; i<oth22.length; i++){
+              if(oth33.length >= 1){
+                other = other  + " "+ oth33[i] + oth22[i];
+              }else{
+                other = other  + " "+ oth22[i];
+              }
+            }
+          }else if(oth23 != null){
+            for(var i=0; i<oth23.length; i++){
+              other = other  + " "+ oth34[i] + oth23[i];
+            }
+          }
+        
+      }
+
+
       var desc = getAllXpath('//div[@class="c-product__related-content"]/p/text()', 'nodeValue');
       if (desc != null) {
         var str = "";
         for (var i = 0; i < desc.length; i++) {
           str = str + desc[i] + " ";
         }
-        addHiddenDiv("str", str);
+        // addHiddenDiv("str", str);
         // addElementToDocument('str', str);
       }
+
+      var final = other+" "+str;
+      addHiddenDiv("str", final);
 
       //price
       var price = getXpath('//div[@id="purchaseBoxPricing"]/p/span/text()', 'nodeValue');
@@ -135,7 +189,7 @@ module.exports = {
       }
 
       // category
-      var cat = getAllXpath("//strong[contains(text(),' Categorie ')]/parent::td/following::td[1]/a/text()", 'nodeValue');
+      var cat = getAllXpath("//strong[contains(text(),'Categorie')]/parent::td/following::td[1]/a/text()", 'nodeValue');             
       if (cat.length > 0) {
         for (var i = 0; i < cat.length; i++) {
           addHiddenDiv("cat", cat[i]);
