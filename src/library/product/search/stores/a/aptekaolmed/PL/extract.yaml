@@ -5,21 +5,21 @@ recordXPath: null
 fields:
   - name: productUrl
     description: The URL for the product details page
-    xpath: //a[@class="product-name"]/@href
-    regExp: (.+)
-    regExpReplace: https://www.aptekaolmed.pl$1
+    # xpath: (//a[@class="product-name"]/@href | //meta[@property="og:url"]/@content)
+    # regExp: (.+)
+    # regExpReplace: https://www.aptekaolmed.pl$1
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //a[@class="product-icon align_row"]/div/div/img/@src
+    xpath: (//a[@class="product-icon align_row"]/div/div/img/@src | (//a[@class="projector_medium_image"]/@href)[1])
     regExp: (.+)
     regExpReplace: https://www.aptekaolmed.pl$1
     # xpath: concat('https://www.aptekaolmed.pl',//a[@class="product-icon align_row"]/div/div/img/@src)
   - name: name
     description: The product name
-    xpath: //a[@class="product-name"]
+    xpath: (//a[@class="product-name"] | //h1)
   - name: skus
     description: The store-specific product identifiera
-    xpath: //div[@class="product_add_basket"]/a/@data-id
+    xpath: (//div[@class="product_add_basket"]/a/@data-id | //input[@id="projector_product_hidden"]/@value)
   - name: ratingCount
     description: The number of ratings
     regExp: (\d+)
@@ -28,23 +28,21 @@ fields:
     regExp: (\d+)
   - name: price
     description: The offered price for the product
-    xpath: //span[@class="price"]
+    xpath: (//span[@class="price"] | //strong[@class="projector_price_value"])
     type: CURRENCY
   - name: rank
     description: search/listing rank
     type: NUMBER
-    xpath: //div[@id='rankOrganic']
   - name: rankOrganic
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
-    xpath: //div[@id='rankOrganic']
   - name: sponsored
     description: Is sponsored/paid
     defaultValue: false
     type: BOOLEAN
   - name: id
     description: Unique id (within this extractor)
-    xpath: //div[@class="product_add_basket"]/a/@data-id
+    xpath: (//div[@class="product_add_basket"]/a/@data-id | //input[@id="projector_product_hidden"]/@value)
   - name: aggregateRating
     type: NUMBER
   - name: hasVariants
