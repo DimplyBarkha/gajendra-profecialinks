@@ -6,7 +6,7 @@ module.exports = {
     store: 'darty',
     domain: 'darty.com',
     url: 'https://www.darty.com/nav/recherche?p=200&s=relevence&text={searchTerms}',
-    loadedSelector: 'div.product_detail',
+    loadedSelector: 'div.product_detail img',
     noResultsXPath: '//h2[@class="title_bloc"]',
     zipcode: '',
   },
