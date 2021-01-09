@@ -97,18 +97,20 @@ const implementation = async (inputs, { loadedSelector, noResultsXPath }, contex
     });
   } else {
     await context.evaluate(async function () {
-      async function awaitElement (selector, ms) {
-        const loadingImgEle = document.querySelector(selector);
-        const loadingImg = loadingImgEle ? loadingImgEle.style.display : '';
-        if (loadingImg !== 'block') {
-          console.log('Resolved, but wait for 500ms more');
-          await new Promise(resolve => setTimeout(resolve, 500));
-          return;
-        }
-        console.log('Waiting');
-        await new Promise(resolve => setTimeout(resolve, ms));
-        await awaitElement(selector, ms);
-      }
+      async function getData (url = '') {
+        const response = await fetch(url, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+        return response.json();
+      };
+
+      const productCodeEle = document.evaluate('//p[@class="m-product__information--code"]//span', document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
+      const productCode = productCodeEle ? productCodeEle.textContent : '';
+
+      const variantsAPIResponse = await getData(`https://www.liverpool.com.mx/tienda/browse/getVariantDetails?productId=${productCode}`);
 
       let variantUlElement;
       let variantCount;
@@ -127,14 +129,6 @@ const implementation = async (inputs, { loadedSelector, noResultsXPath }, contex
       let altImagesLen = 0;
       let firstVariant = '';
       for (let i = 0; i < variantCount; i++) {
-        // Click each li & bind variant info to each li/img
-        // @ts-ignore
-        variantUlElement[i].children[0].click();
-        await new Promise((resolve, reject) => setTimeout(resolve, 1000));
-        await awaitElement('div.loading', 500);
-
-        const variantInfoEle = document.evaluate('//div[@class="m-product__colors"]//p[contains(text(),\'Color\')]//span/text() | (//ul[@id=\'size-list-container\']/li/*[contains(@class,\'active\')])[1]', document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
-        const variantInfo = variantInfoEle ? variantInfoEle.textContent : '';
         // Prepare secondary images for first variant
         if (i === 0) {
           const altImages = document.evaluate("(//div[not(contains(@class,'pzlvideo'))]/img[contains(@class,'pdpthumb')]/@src)[position()>1]", document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
@@ -149,9 +143,13 @@ const implementation = async (inputs, { loadedSelector, noResultsXPath }, contex
         const img = variantUlElement[i].children[0].children[0];
         // Making sure  if img is present, if not create dummy img & bind data-skuid to it & img url
         if (img) {
-          img.setAttribute('title', variantInfo);
           // Replacing the sku id with variant id
           const sku = img.getAttribute('id');
+          if (variantsAPIResponse && variantsAPIResponse.variantsData && variantsAPIResponse.variantsData.skuAttributeMap) {
+            const variantInfo = variantsAPIResponse.variantsData.skuAttributeMap[sku] ? variantsAPIResponse.variantsData.skuAttributeMap[sku].color : '';
+            console.log(`variantInfo from api for sku -  ${sku}` + variantInfo);
+            img.setAttribute('title', variantInfo);
+          }
           if (i === 0) {
             firstVariant = sku;
           }
@@ -171,7 +169,11 @@ const implementation = async (inputs, { loadedSelector, noResultsXPath }, contex
             if (i === 0) {
               firstVariant = sku;
             }
-            dummyImg.setAttribute('title', variantInfo);
+            if (variantsAPIResponse && variantsAPIResponse.variantsData && variantsAPIResponse.variantsData.skuAttributeMap) {
+              const variantInfo = variantsAPIResponse.variantsData.skuAttributeMap[sku] ? variantsAPIResponse.variantsData.skuAttributeMap[sku].size : '';
+              console.log(`variantInfo from api for sku -  ${sku}` + variantInfo);
+              dummyImg.setAttribute('title', variantInfo);
+            }
             dummyImg.setAttribute('id', sku);
             dummyImg.setAttribute('src', imgUrl);
             dummyImg.setAttribute('altImg', images.replace(firstVariant, sku));
@@ -193,7 +195,7 @@ module.exports = {
     store: 'liverpool',
     domain: 'liverpool.mx',
     loadedSelector: 'section.o-product__detail',
-    noResultsXPath: '//h1[@class="a-errorPage-title"]',
+    noResultsXPath: '//h1[@class="a-errorPage-title"] | //section[contains(@class,"o-mainBanner")]',
     zipcode: '',
   },
   implementation,
