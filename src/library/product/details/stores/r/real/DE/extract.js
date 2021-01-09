@@ -8,12 +8,12 @@ module.exports = {
     domain: 'real.de',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
-    await context.waitForFunction(function () {
-      return Boolean(document.querySelector('h1[class="rd-product-detail__title"]') || document.evaluate('//h1[@class="rd-product-detail__title"]', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 90000 });
-
+  implementation: async (inputs, parameters, context, dependencies) => {
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
+    
     await context.evaluate(async function () {
+
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
@@ -59,15 +59,14 @@ module.exports = {
         }
         return result;
       };
-      // Double Pipe Concatenation
-      const pipeSeparatorDouble = (id, data) => {
-        var doubleSeparatorText = data.join(' || ');
-        addElementToDocument(id, doubleSeparatorText);
-      };
-      // XPATH Data Extraction For Description Bullet
-      // @ts-ignore
-      const description = document.querySelector('div[class="rd-product-description"]').innerText
-      addElementToDocument('description', description);
+      try {
+        // @ts-ignore
+        const description = document.querySelector('div[class="rd-product-description"]').innerText
+        addElementToDocument('description', description);
+      } catch (error) {
+
+      }
+
       try {
         var temp;
         const sliceURL = (data) => {
@@ -167,6 +166,6 @@ module.exports = {
       } catch (error) {
       }
     });
-    await context.extract(productDetails);
+    return await context.extract(productDetails, { transform });
   },
 };
