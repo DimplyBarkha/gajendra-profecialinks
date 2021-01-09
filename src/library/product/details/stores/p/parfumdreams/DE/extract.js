@@ -44,7 +44,7 @@ module.exports = {
         if (name.includes("not available")) {
           name = "Out of Stock";
         } else {
-          name = "In stock";
+          name = "In Stock";
         }
         addElementToDocument('name', name);
       }
