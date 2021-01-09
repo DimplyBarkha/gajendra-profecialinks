@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'FI',
     store: 'tokmanni',
-    nextLinkSelector: '#pagnNextString, #pagnNextLink, div#kuPagination2 > a[title=Next]',
+    nextLinkSelector: 'a[title=Next]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'body',

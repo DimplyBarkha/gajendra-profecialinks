@@ -1,10 +1,10 @@
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'FI',
     store: 'tokmanni',
-    transform: cleanUp,
+    transform: transform,
     domain: 'tokmanni.fi',
     zipcode: '',
   },
@@ -34,21 +34,21 @@ module.exports = {
         }
         return result;
       };
-      let rankOrganic;
-      try {
-        rankOrganic = ((window.location.href).indexOf('offset=')) ? Number((window.location.href).replace(/.*offset=(.*)/, '$1')) : 0;
-      }
-      catch (err) {
-      }
-      if (!rankOrganic) {
-        rankOrganic = 1;
-      } else {
-        rankOrganic = rankOrganic + 1;
-      }
-      const urlProduct = document.querySelectorAll("div[class='klevuImgWrap']");
-      for (let i = 0; i < urlProduct.length; i++) {
-        addHiddenDiv('rankOrganic', rankOrganic++, i);
-      }
+      // let rankOrganic;
+      // try {
+      //   rankOrganic = ((window.location.href).indexOf('offset=')) ? Number((window.location.href).replace(/.*offset=(.*)/, '$1')) : 0;
+      // }
+      // catch (err) {
+      // }
+      // if (!rankOrganic) {
+      //   rankOrganic = 1;
+      // } else {
+      //   rankOrganic = rankOrganic + 1;
+      // }
+      // const urlProduct = document.querySelectorAll("div[class='klevuImgWrap']");
+      // for (let i = 0; i < urlProduct.length; i++) {
+      //   addHiddenDiv('rankOrganic', rankOrganic++, i);
+      // }
       const Price1 = getAllXpath("//div[@class='kuSalePrice']/text()", 'nodeValue');
       const Price2 = getAllXpath("//span[@class='ku-coins']/text()", 'nodeValue');
       for (let a = 0; a < Price1.length; a++) {
