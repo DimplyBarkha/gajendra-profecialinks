@@ -22,7 +22,10 @@ fields:
     xpath: //p[@class="productPrice_savingAmount"]//text()
   - name: availabilityText
     singleValue: true
-    xpath: //div[@id='ii_availabilityText']
+    xpath: //button[@class="productAddToBasket productAddToBasket-buyNow js-e2e-add-basket"]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out Of Stock
   - name: brandText
     singleValue: true
     xpath: //div[@id='ii_brandText']
@@ -47,7 +50,7 @@ fields:
     xpath: //div[@id='ii_warnings']
   - name: alternateImages
     singleValue: true
-    xpath: //div[@id='ii_alternateImages']
+    xpath: //ul[@class="productImageCarousel_thumbnailContainer"]//li[position()>1]/button/img/@src
   - name: manufacturerImages
     singleValue: true
   - name: ratingCount
@@ -118,7 +121,7 @@ fields:
     xpath: //html//div[@id="variantInformation"]
   - name: ingredientsList
     singleValue: true
-    xpath: (//div[@data-information-component="ingredients"]//p)[1]//text()
+    xpath: //div[@data-information-component="ingredients"]//p
   - name: secondaryImageTotal
     singleValue: true
     xpath: count(//ul[@class="productImageCarousel_thumbnailContainer"]//li[position()>1]) 
