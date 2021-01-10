@@ -5,9 +5,9 @@ module.exports = {
     country: 'IL',
     store: 'azrieli',
     domain: 'azrieli.com',
-    url: 'https://www.azrieli.com/brand/{searchTerms}',
+    url: 'https://www.azrieli.com/{searchTerms}',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[contains(@class,"homePageTop")] | //div[contains(@class,"notFoundMsg")]',
     zipcode: '',
   },
 };

@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[contains(@class,"homePageTop")] | //div[contains(@class,"notFoundMsg")]',
     openSearchDefinition: null,
     domain: 'azrieli.com',
     zipcode: '',
