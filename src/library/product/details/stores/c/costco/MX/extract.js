@@ -56,6 +56,7 @@ module.exports = {
       const aggregateRating = getXpath("//div[@class='bv_avgRating_component_container notranslate']/text()", 'nodeValue');
       if (aggregateRating) {
         addElementToDocument('added_aggregateRating', aggregateRating.replace('.', ','));
+        // addElementToDocument('added_aggregateRating', aggregateRating);
       }
       addElementToDocument('added_variantCount', 0);
 
