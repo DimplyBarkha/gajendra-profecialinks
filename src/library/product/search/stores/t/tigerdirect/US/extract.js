@@ -19,10 +19,10 @@ async function implementation(
   const { transform } = parameters;
   const { productDetails } = dependencies;
   await context.evaluate(async function () {
-    function addclass(xpathforpagination) {
-      var elems = document.querySelectorAll(xpathforpagination);
-      elems[0].classList.add('pagination');
-    }
+    // function addclass(xpathforpagination) {
+    //   var elems = document.querySelectorAll(xpathforpagination);
+    //   elems[0].classList.add('pagination');
+    // }
     // for rank
     //for rank
     function addHiddenDiv(id, content, index) {
