@@ -35,7 +35,11 @@ async function implementation (
       });
     }
 
-    await context.waitForSelector('.onlyPrice', { timeout: 100000 });
+    try {
+      await context.waitForSelector('.onlyPrice', { timeout: 100000 });
+    } catch (e) {
+      console.error(e);
+    }
   }
 }
 
