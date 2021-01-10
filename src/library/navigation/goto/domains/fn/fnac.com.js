@@ -59,7 +59,7 @@ module.exports = {
       return status;
     };
 
-    const isCaptchaSolved = async ({ cssCaptchaHandler }) => {
+    const isCaptchaSolved = async (cssCaptchaHandler) => {
       await new Promise(resolve => setTimeout(resolve, 5000)); // wait until captch solver starts
       const maxTimeOut = 100000;
       let time = 0;
@@ -101,7 +101,7 @@ module.exports = {
         }
       }
 
-      if (!await isCaptchaSolved()) {
+      if (!await isCaptchaSolved(cssCaptchaHandler)) {
         throw new Error('Captch not solved');
       }
     };
