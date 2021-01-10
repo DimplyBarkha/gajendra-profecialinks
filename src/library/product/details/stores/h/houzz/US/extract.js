@@ -45,6 +45,11 @@ async function implementation(
       addHiddenDiv("ii_content",updated_content)
     }
 
+    var imagesCount = document.getElementsByClassName("alt-images__thumb")
+    if (imagesCount != null){
+      addHiddenDiv("ii_imageCount",imagesCount.length-1)
+    }
+
 
     var title = document.getElementsByClassName("hz-view-product-title")[0].innerText
     var updated_title  = title.replace(/(\r\n|\n|\r)/gm, "")
@@ -69,6 +74,11 @@ async function implementation(
       findAndInsertLabel(jsonParsed[0].weight, "description", "weightNet");
       findAndInsertLabel(jsonParsed[0].manufacturer, "name", "manufacturer");
       findAndInsertLabel(jsonParsed[0], "productID", "variantId");
+      try{
+        addHiddenDiv("ii_bulletcount",jsonParsed[0].description.split("\r\n-").length-1);
+      }catch(err){
+        console.log(err)
+      };
     }
   });
   return await context.extract(productDetails, { transform });
