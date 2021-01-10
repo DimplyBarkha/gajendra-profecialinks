@@ -43,12 +43,16 @@ async function implementation(
         addHiddenDiv("ii_" + outputName, result.label);
       }
     }
-
-    var content = document.getElementsByClassName("hzui-tabs__content")[0].innerText
+    try{
+      var content = document.getElementsByClassName("hzui-tabs__content")[0].innerText;
+    }catch(err){
+      console.log(err)
+    }
+    
     try{
       var updated_content  = content.replace(/(\r\n|\n|\r)/gm, "").replace("See All SpecificationsReport incorrect information or image")
     }catch(err){
-      console.log(err)
+      console.log(err);
     }
     
     if (updated_content != null){
@@ -71,13 +75,11 @@ async function implementation(
       addHiddenDiv("ii_title",updated_title)
     }
     // @ts-ignore
-    try{
-      const jsonString = document.querySelector(
-        "script[type='application/ld+json']"
-      ).innerText;
-    }catch(err){
-      console.log(err)
-    }
+
+    const jsonString = document.querySelector(
+      "script[type='application/ld+json']"
+    ).innerText;
+
 
     let jsonParsed = {};
     if (jsonString && jsonString.trim()) {
