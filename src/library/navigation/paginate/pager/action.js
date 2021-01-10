@@ -39,23 +39,12 @@ async function implementation (
 
   if (mutationSelector) {
     // this may replace the section with a loader
-    // await Promise.all([
-    //   context.click(nextLinkSelector),
+    await Promise.all([
+      context.click(nextLinkSelector),
       // possible race condition if the data returned too fast, but unlikely
-    //   context.waitForMutuation(mutationSelector, { timeout: 20000 }),
-    // ]);
-    await context.evaluate(async () => {
-      const temp_nextLinkSelector = document.querySelector('button[data-testid="reviews-block-page-next"]:enabled');
-      if (temp_nextLinkSelector) {
-        temp_nextLinkSelector.click();
-      }
-      var observer = new MutationObserver(function (mutations) {
-        if (document.querySelector('div.sc-1xuymxc-0.ExfKH')) {
-          observer.disconnect();
-        }
-      });
-      observer.observe(document, { attributes: false, childList: true, characterData: false, subtree: true });
-    });
+      context.waitForMutuation(mutationSelector, { timeout: 20000 }),
+    ]);
+
     return true;
   }
 
