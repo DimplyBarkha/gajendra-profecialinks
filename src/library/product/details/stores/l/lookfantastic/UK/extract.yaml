@@ -41,7 +41,7 @@ fields:
     xpath: (//div[contains(@data-information-component,'volume')])[1]
   - name: directions
     singleValue: true
-    xpath: //div[@id='ii_directions']
+    xpath: //div[@id='ii_directions'] | (//div[@class="productDescription_synopsisContent"]//p)[2]//strong//following::text()[1] | (//div[@class="productDescription_synopsisContent"]//ul//li)[1]
   - name: warnings
     singleValue: true
     xpath: //div[@id='ii_warnings']
