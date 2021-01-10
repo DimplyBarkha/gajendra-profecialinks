@@ -8,9 +8,18 @@ module.exports = {
     domain: 'lomax.dk',
     zipcode: '',
   },
-  implementation: async ({ inputstring }, { country, domain }, context, { productDetails }) => {
-    await context.evaluate(() => {
-      function addElementToDocument(key, value) {
+  implementation,
+};
+async function implementation(
+inputs,
+parameters,
+context,
+dependencies,
+) {
+const { transform } = parameters;
+const { productDetails } = dependencies;
+await context.evaluate(async function () {
+  function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -47,7 +56,9 @@ module.exports = {
         price[i] = price[i].replace(",", ".");
         addHiddenDiv("price", price[i], i);
       }
+
+
+      
     });
-    await context.extract(productDetails);
-  },
-};
+    return await context.extract(productDetails, { transform });
+    };
