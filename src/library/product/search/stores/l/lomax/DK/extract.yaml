@@ -4,23 +4,22 @@ recordSelector: null
 recordXPath: null
 fields: 
 - name: id
-  singleValue: true
-  xpath: //div[@class="d-block"]/small/text()
-  regExp: (\d+)
+  singleValue: false
+  xpath: //div[@class="product-info border-bottom py-3 "]/@data-product-id
 - name: rankOrganic
-  singleValue: true
+  singleValue: false
 - name: name
   singleValue: false
   xpath: //a[@class="product-link"]/h5/text()
 - name: productUrl
-  singleValue: true
-  xpath: //div[@class="img-with-sticker"]/a/@href
-  regExp: (/.+)
-  regExpReplace: https://www.lomax.dk$1 
+  singleValue: false
+  xpath: //div[@class="col-lg-8 col-7"]/a/@href
+  regExp: (rengoering/.*)
+  regExpReplace: https://www.lomax.dk/$1 
 - name: gtin
-  singleValue: true
+  singleValue: false
 - name: thumbnail
-  singleValue: true
+  singleValue: false
   xpath: //div[@class="img-with-sticker"]/a/img/@src
 - name: aggregateRating
   singleValue: false
@@ -30,9 +29,9 @@ fields:
   xpath: //div[@class="product-info border-bottom py-3 "]/@data-gtm-rating-count
 - name: price
   singleValue: false
-  xpath: //div[@class="text-right price-container"]/@data-gtm-price
+  xpath: //html//div[@id="price"]
 - name: manufacturer
-  singleValue: true
+  singleValue: false
 - name: soldBy
   singleValue: true
 - name: rank
