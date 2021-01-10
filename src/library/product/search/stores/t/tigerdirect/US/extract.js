@@ -30,7 +30,7 @@ async function implementation(
       newDiv.id = id;
       newDiv.textContent = content;
       newDiv.style.display = 'none';
-      const originalDiv = document.querySelectorAll('p[class="price"]')[index];
+      const originalDiv = document.querySelectorAll('p[class="price"] sup span[class="priceDecimalMark"]')[index];
       originalDiv.parentNode.insertBefore(newDiv, originalDiv);
     }
     const getAllXpath = (xpath, prop) => {
