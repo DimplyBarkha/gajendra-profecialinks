@@ -49,7 +49,7 @@ fields:
     regExpReplace: $1
   - name: description
     singleValue: true
-    xpath: concat(//div[contains(@id,'product-description')]/ul,' ',//div[contains(@id,'product-marketing')],' ',//div[contains(@id,'brand-marketing')],' ',//div[@id="pack-size"])
+    xpath: concat(//div[contains(@id,'product-description')]/ul,' ',//div[contains(@id,'product-marketing')],' ',//div[contains(@id,'brand-marketing')],' ',//div[contains(@id,'other-information')])
   - name: manufacturerImages
     singleValue: true
   - name: specifications
