@@ -4,6 +4,14 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
+  // If popup comes, click it to close
+  const closePopUpIfRequired = async (cssBtn) => {
+    const isPopUpAvailable = await context.evaluate(async (cssBtn) => {
+      return document.querySelector(cssBtn);
+    }, cssBtn);
+
+    if (isPopUpAvailable) await context.click(cssBtn);
+  };
   // If cookie pop up appears then clicking on accept button
   await context.evaluate(async function () {
     function addHiddenDiv (id, content) {
@@ -54,6 +62,9 @@ async function implementation (inputs, parameters, context, dependencies) {
 
   // css selectors
   const cssManufacturerDescription = 'div.da-premium-main';
+  const cssPopUp = 'a.KameleoonScenarioLayerClose';
+
+  await closePopUpIfRequired(cssPopUp);
 
   const manufacturerDescription = await getManufacturerDescription(cssManufacturerDescription);
   await setValueInDivToDOM('manufacturerDescription', manufacturerDescription);
