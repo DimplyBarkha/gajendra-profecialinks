@@ -38,7 +38,7 @@ module.exports = {
         avl = "In Stock"
         addElementToDocument('avl', avl);
       } else {
-        avl = "Out of Stock"
+        avl = "Out Of Stock"
         addElementToDocument('avl', avl);
       }
       var bull = getAllXpath('//div[@class="mb-content js-extended-description"]/div/text()', 'nodeValue');
