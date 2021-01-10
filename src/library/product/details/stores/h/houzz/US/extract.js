@@ -61,7 +61,12 @@ async function implementation(
 
     var imagesCount = document.getElementsByClassName("alt-images__thumb")
     if (imagesCount != null){
-      addHiddenDiv("ii_imageCount",imagesCount.length-1)
+      if(imagesCount.length != 0){
+        addHiddenDiv("ii_imageCount",imagesCount.length-1)
+      }else{
+        addHiddenDiv("ii_imageCount",0)
+      }
+      
     }
 
     try{
