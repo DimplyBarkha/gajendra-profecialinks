@@ -9,7 +9,12 @@ async function implementation(
   const { productDetails } = dependencies;
 
   await context.evaluate(() => {
-    document.querySelector("li[class='hzui-tabs__label   ']").click();
+    try{
+      document.querySelector("li[class='hzui-tabs__label   ']").click();
+    }catch(err){
+      console.log(err)
+    }
+    
   });
   await context.evaluate(async function () {
     function findLabel(productObj, label) {
@@ -40,7 +45,12 @@ async function implementation(
     }
 
     var content = document.getElementsByClassName("hzui-tabs__content")[0].innerText
-    var updated_content  = content.replace(/(\r\n|\n|\r)/gm, "").replace("See All SpecificationsReport incorrect information or image")
+    try{
+      var updated_content  = content.replace(/(\r\n|\n|\r)/gm, "").replace("See All SpecificationsReport incorrect information or image")
+    }catch(err){
+      console.log(err)
+    }
+    
     if (updated_content != null){
       addHiddenDiv("ii_content",updated_content)
     }
@@ -50,23 +60,32 @@ async function implementation(
       addHiddenDiv("ii_imageCount",imagesCount.length-1)
     }
 
+    try{
+      var title = document.getElementsByClassName("hz-view-product-title")[0].innerText
+      var updated_title  = title.replace(/(\r\n|\n|\r)/gm, "")
+    }catch(err){
+      console.log(err)
+    }
 
-    var title = document.getElementsByClassName("hz-view-product-title")[0].innerText
-    var updated_title  = title.replace(/(\r\n|\n|\r)/gm, "")
     if (updated_title != null){
       addHiddenDiv("ii_title",updated_title)
     }
     // @ts-ignore
-    const jsonString = document.querySelector(
-      "script[type='application/ld+json']"
-    ).innerText;
+    try{
+      const jsonString = document.querySelector(
+        "script[type='application/ld+json']"
+      ).innerText;
+    }catch(err){
+      console.log(err)
+    }
+
     let jsonParsed = {};
     if (jsonString && jsonString.trim()) {
       jsonParsed = JSON.parse(jsonString);
       findAndInsertLabel(jsonParsed[0], "image", "image");
       findAndInsertLabel(jsonParsed[0], "category", "category");
       findAndInsertLabel(jsonParsed[0], "name", "nameExtended");
-      findAndInsertLabel("Product Description"+jsonParsed[0], "description", "description");
+      findAndInsertLabel(jsonParsed[0], "description", "description");
       findAndInsertLabel(jsonParsed[0], "sku", "sku");
       findAndInsertLabel(jsonParsed[0], "mpn", "mpc");
       findAndInsertLabel(jsonParsed[0], "material", "material");
@@ -76,6 +95,11 @@ async function implementation(
       findAndInsertLabel(jsonParsed[0], "productID", "variantId");
       try{
         addHiddenDiv("ii_bulletcount",jsonParsed[0].description.split("\r\n-").length-1);
+      }catch(err){
+        console.log(err)
+      };
+      try{
+        addHiddenDiv("ii_fulldescription","Product Description"+jsonParsed[0].description);
       }catch(err){
         console.log(err)
       };
