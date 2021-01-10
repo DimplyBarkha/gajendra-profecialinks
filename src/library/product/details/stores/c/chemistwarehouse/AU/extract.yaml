@@ -24,8 +24,8 @@ fields:
     singleValue: false
     description: The <meta> keywords content
   - name: category
-    xpath: //div[@class="breadcrumbs"]/a[position()>1]
-    singleValue: true
+    xpath: //*[@id="Left-Content"]/div[@class="breadcrumbs"]/a[position()>1]
+    singleValue: false
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: false
@@ -48,16 +48,16 @@ fields:
       should be "In Stock"
     xpath: //div[@class="button_div"]//img[@id="AddToCartButton"]/@alt
     regExp: (.+)
-    regExpReplace: In Stock
+    regExpReplace: In stock
     defaultValue: Out of Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class="product-info-container"]//section[@class="product-info-section general-info"]//h2[contains(text(), "General Information")]/following-sibling::div[contains(@class, "details")]
+    xpath: //div[@class="product-info-container"]//section[@class="product-info-section general-info "]//h2[contains(text(), "General Information")]/following-sibling::div[contains(@class, "details")]
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//*[@id="Left-Content"]/div[10]/section[2]/div/p[contains(text(),"KEY FEATURES")]/following-sibling::br)
+    xpath: count(//*[@id="Left-Content"]/div/section/div/p[contains(text(),"KEY FEATURES")]/following-sibling::br)
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
@@ -245,6 +245,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: false
     description: null
+    xpath: count(//*[@id="product_images"]/div[contains(@class, "sub_images")]/div[position()>1]/img/@src)
     type: NUMBER
   - name: news
     singleValue: false
@@ -478,7 +479,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
-    xpath: //*[@id="Left-Content"]/div[10]/section[2]/div/p[contains(text(),"KEY FEATURES")]/following-sibling::text()[preceding-sibling::br]
+    xpath: //*[@id="Left-Content"]/div/section/div/p[contains(text(),"KEY FEATURES")]/following-sibling::text()[preceding-sibling::br]
   - name: prop65Warning
     singleValue: false
     description: null
