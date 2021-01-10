@@ -28,6 +28,36 @@ async function implementation (inputs, parameters, context, dependencies) {
     }
   });
 
+  const setValueInDivToDOM = async (id, content) => {
+    console.log(`Adding id: ${id} and content of ${id} to DOM`);
+    console.log('content => ', context);
+
+    await context.evaluate(async (id, content) => {
+      function addHiddenDiv (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+      addHiddenDiv(id, content);
+    }, id, content);
+  };
+
+  const getManufacturerDescription = async (css) => {
+    // manufacturerDescription and manufacturerImages
+    return await context.evaluate(async (css) => {
+      const manufacturerDescriptionNode = document.querySelector(css);
+      return manufacturerDescriptionNode ? manufacturerDescriptionNode.innerText : '';
+    }, css);
+  };
+
+  // css selectors
+  const cssManufacturerDescription = 'div.da-premium-main';
+
+  const manufacturerDescription = await getManufacturerDescription(cssManufacturerDescription);
+  await setValueInDivToDOM('manufacturerDescription', manufacturerDescription);
+
   // await new Promise((resolve) => setTimeout(resolve, 10000));
   return await context.extract(productDetails, { transform });
 }
