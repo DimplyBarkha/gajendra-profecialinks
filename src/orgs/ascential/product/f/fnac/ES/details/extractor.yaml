@@ -1,0 +1,23 @@
+robot: product/details
+parameters:
+  country: ES
+  domain: fnac.es
+  store: fnac
+  zipcode: ""
+proxy:
+  zone: USA
+  type: DATA_CENTER
+policy:
+  numberRetries: 5
+  priority: MEDIUM
+  retryDelay: 60
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 3
+meta:
+  branches:
+    dev:
+      extractor: 4e8b478b-72f1-479a-b107-7cb68a6a0a6c
+      legacyAccountId: 0e78a773-3cff-48d2-902d-473fb46c535b
+    development:
+      extractor: a9044535-dfc9-49fe-9daf-79b5667ecd2f
+      legacyAccountId: b572b6fd-e824-454e-80e3-d5460bf31ad2
