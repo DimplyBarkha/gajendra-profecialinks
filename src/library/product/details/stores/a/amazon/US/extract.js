@@ -90,6 +90,17 @@ async function implementation (
       notLastPage = Number(totalCount) > data.length;
       api = `/gp/aod/ajax?asin=${asin}&pageno=${++page}`;
     }
+
+    if (!data || data.length === 0) {
+      data = Array.from(document.querySelectorAll('#mbc > div.mbc-offer-row')).map(offer => {
+        const sellerPrice = offer.querySelector('span[id^="mbc-price"]') && offer.querySelector('span[id^="mbc-price"]').innerText || '';
+        const sellerName = offer.querySelector('span.mbcMerchantName') && offer.querySelector('span.mbcMerchantName').innerText || '';
+        const shippingPrice = offer.querySelector('span[id^="mbc-shipping-fixed"]') && offer.querySelector('span[id^="mbc-shipping-fixed"]').textContent || '0.00';
+        const sellerId = offer.querySelector('span[data-a-popover]') && offer.querySelector('span[data-a-popover]').getAttribute('data-a-popover');
+        const sellerPrime = offer.querySelector('[target="AmazonHelp"]') && 'YES' || 'NO';
+        return { sellerPrice, sellerName, shippingPrice, sellerPrime, sellerId };
+      });
+    }
     const lbb = data.find(elm => elm.sellerName.includes('Amazon')) ? 'YES' : 'NO';
     document.body.setAttribute('is-llb', lbb);
     const currentSellerId = document.querySelector('[name="merchantID"]') && document.querySelector('[name="merchantID"]').value;
@@ -105,7 +116,7 @@ async function implementation (
     const sellerPrime = data.map(seller => seller.sellerPrime.trim()).join('|');
     const sellerId = data.map(seller => {
       if (seller.sellerId && seller.sellerId.match(/seller=(\w+)/)) {
-        return seller.sellerId.match(/seller=(\w+)/)[1];
+        return seller.sellerId.match(/(seller|&me)=(\w+)/)[2];
       }
     }).join('|');
     document.body.setAttribute('seller-price', sellerPrice);
@@ -156,23 +167,8 @@ async function implementation (
   const colorXpath = '//div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")]';
   await helpers.getAndAddElem(colorXpath, 'added-color'); */
   try {
-    let retry = 5;
-    let noResponse = true;
-    do {
-      const data = await context.evaluate(getOtherSellerInfo);
-      if (data === false) {
-        // const error = new Error();
-        // error.name = 'response-error';
-        // error.message = 'Seller API Incorrect response.';
-        // throw error;
-        noResponse = true;
-      } else {
-        noResponse = false;
-      }
-      retry--;
-    } while (retry && noResponse);
+    await context.evaluate(getOtherSellerInfo);
   } catch (err) {
-    // if (err.name === 'response-error') throw err;
     console.log('Error while adding other seller info. Error: ', err);
   }
   await context.evaluate(() => {
