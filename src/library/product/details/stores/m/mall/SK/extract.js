@@ -61,10 +61,16 @@ module.exports = {
         mat = mat.split(":")[1];
         addElementToDocument('mat', mat.trim());
       }
-      var bull = getAllXpath('//div[@id="product-detail-description"]//ul/li/span/text()', 'nodeValue');
+      var bull = getAllXpath('//div[@id="product-detail-description"]//ul/li/text()', 'nodeValue');
          if(bull != null){
            var bullet = bull.join(" || ")
            addElementToDocument('bullet', bullet);
+         }
+         var des = getAllXpath('//div[@id="product-detail-description"]//ul/li/text() | //div[@class="content-tabs"]//section[@class="panel-inner"]/p', 'nodeValue');
+         if(des != null){
+           var description = des.join(" || ")
+           console.log(description);
+           addElementToDocument('description', description);
          }
     });
     await context.extract(productDetails);
