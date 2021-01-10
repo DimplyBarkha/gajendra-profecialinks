@@ -19,7 +19,7 @@ module.exports = {
       console.log('got some error while for the price div', err);
     }
 
-    async function scrollToRec(node) {
+    async function scrollToRec (node) {
       await context.evaluate(async (node) => {
         const element = document.querySelector(node) || null;
         if (element) {
@@ -36,7 +36,7 @@ module.exports = {
 
     try {
       await context.evaluate(async function () {
-        function addHiddenDiv(id, content) {
+        function addHiddenDiv (id, content) {
           const newDiv = document.createElement('div');
           newDiv.id = id;
           newDiv.textContent = content;
@@ -73,7 +73,7 @@ module.exports = {
       return src;
     });
     await context.evaluate(async function (src) {
-      function addHiddenDiv(id, content) {
+      function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
@@ -99,11 +99,17 @@ module.exports = {
                 const inTheBoxText = inTheBoxContent.querySelectorAll('h3.syndigo-featureset-feature-caption');
                 [...inTheBoxText].forEach((element) => {
                   if (element.innerText.length) {
-
                     addHiddenDiv('ii_inTheBoxText', element.innerText);
                     console.log('here the output uddp.....', element.innerText);
                   }
                 });
+              }
+            }
+            const ifCTRTitle = element ? element.innerText.includes('Comparison Chart') : false;
+            if (ifCTRTitle) {
+              const inCTRContent = element.parentElement.querySelector('style#syndigo-comparisontable');
+              if (inCTRContent) {
+                addHiddenDiv('ii_ctr', 'yes');
               }
             }
           });
