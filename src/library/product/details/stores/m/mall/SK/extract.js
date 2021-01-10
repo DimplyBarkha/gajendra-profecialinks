@@ -53,7 +53,7 @@ module.exports = {
         avl = "In Stock"
         addElementToDocument('avl', avl);
       } else {
-        avl = "Out of Stock"
+        avl = "Out Of Stock"
         addElementToDocument('avl', avl);
       }
       var mat = getXpath("//li[contains(text(), 'Materiál')]/text()", 'nodeValue');

@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //div[@class='gallery__master-region']//div//div//div[1]//div//div[@class='gallery-magnifier gallery__slide gallery-magnifier--vertical-align']/img[1]/@src
+    xpath: //div[@class='gallery__master-region']//div//div//div[1]//div//div[@class='gallery-magnifier gallery__slide gallery-magnifier--vertical-align']/img[1]/@src | (//img[@class="gallery-magnifier__normal"]/@src)[1]
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
