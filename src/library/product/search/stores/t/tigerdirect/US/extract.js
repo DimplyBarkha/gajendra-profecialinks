@@ -37,18 +37,22 @@ async function implementation(
       const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
       const result = [];
       for (let index = 0; index < nodeSet.snapshotLength; index++) {
-      const element = nodeSet.snapshotItem(index);
-      if (element) result.push(prop ? element[prop] : element.nodeValue);
+        const element = nodeSet.snapshotItem(index);
+        if (element) result.push(prop ? element[prop] : element.nodeValue);
       }
       return result;
-      };
-      var p = getAllXpath('//p[@class="price"]/text()', 'nodeValue');
-      var q = getAllXpath('//p[@class="price"]/sup[2]/text()', 'nodeValue');
-      for(var i=0; i<p.length; i++){
-        var price = p[i]+"."+q[i];
-        addHiddenDiv('price', price, i);
+    };
+    var p = getAllXpath('//p[@class="price"]/text()', 'nodeValue');
+    var q = getAllXpath('//p[@class="price"]/sup[2]/text()', 'nodeValue');
+    if (p.length >= 1) {
+      for (var i = 0; i < p.length; i++) {
+        if (p[i] != null) {
+          var price = p[i] + "." + q[i];
+          addHiddenDiv('price', price, i);
+        }
+      }
     }
-    
+
   });
   return await context.extract(productDetails, { transform });
 }
