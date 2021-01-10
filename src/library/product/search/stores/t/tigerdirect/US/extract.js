@@ -1,10 +1,10 @@
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'US',
     store: 'tigerdirect',
-    transform: cleanUp,
+    transform: transform,
     domain: 'tigerdirect.com',
     zipcode: '',
   },
@@ -30,32 +30,25 @@ async function implementation(
       newDiv.id = id;
       newDiv.textContent = content;
       newDiv.style.display = 'none';
-      const originalDiv = document.querySelectorAll('div[class="each-sku"]')[index];
+      const originalDiv = document.querySelectorAll('p[class="price"]')[index];
       originalDiv.parentNode.insertBefore(newDiv, originalDiv);
     }
-    let rankOrganic;
-    let url = window.location.href;
-    let checkPageNumber1 = url.split('?')[1];
-    let checkPageNumber = checkPageNumber1.split('&')[0];
-    try {
-      if (checkPageNumber.startsWith('page=')) {
-        rankOrganic = checkPageNumber.replace('page=', '');
+    const getAllXpath = (xpath, prop) => {
+      const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      const result = [];
+      for (let index = 0; index < nodeSet.snapshotLength; index++) {
+      const element = nodeSet.snapshotItem(index);
+      if (element) result.push(prop ? element[prop] : element.nodeValue);
       }
+      return result;
+      };
+      var p = getAllXpath('//p[@class="price"]/text()', 'nodeValue');
+      var q = getAllXpath('//p[@class="price"]/sup[2]/text()', 'nodeValue');
+      for(var i=0; i<p.length; i++){
+        var price = p[i]+"."+q[i];
+        addHiddenDiv('price', price, i);
     }
-    catch (err) {
-    }
-    var dup = Number(rankOrganic);
-    dup = dup - 1;
-    if (!rankOrganic) {
-      rankOrganic = 1;
-    } else {
-      rankOrganic = (dup * 10) + 1;
-    }
-    const urlProduct = document.querySelectorAll('div[class="each-sku"]');
-    for (let i = 0; i < urlProduct.length; i++) {
-      addHiddenDiv('rankOrganic', rankOrganic++, i);
-    }
+    
   });
-  //rank end
   return await context.extract(productDetails, { transform });
 }
