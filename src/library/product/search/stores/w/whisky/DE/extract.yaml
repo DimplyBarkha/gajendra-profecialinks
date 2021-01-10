@@ -3,6 +3,9 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: _url
+    type: URL
+    xpath: //link[@hreflang="de-DE"]/@href
   - name: productUrl
     description: The URL for the product details page
     xpath: //div[@class='panel-body']//div[@class="article-title"]//a[not(contains(@class,'article-video'))]/@href
