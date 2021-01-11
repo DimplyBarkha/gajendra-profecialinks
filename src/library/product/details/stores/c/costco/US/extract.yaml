@@ -93,7 +93,8 @@ fields:
     xpath: //p[@class="model-number "] | //p[contains(@id,"product-body-model-number")]
   - name: sku1
     singleValue: false
-    xpath: //div[contains(@class,'product-info-specs')]//div[contains(text(),'Model')]/following::div[1]
+    # xpath: //div[contains(@class,'product-info-specs')]//div[contains(text(),'Model')]/following::div[1]
+    xpath: //span[contains(@class,"model-number")]//span
   - name: variantId
     singleValue: false
     xpath: //p[@id="product-body-item-number"]/span | //p[@class="item-number"]
@@ -102,6 +103,13 @@ fields:
     singleValue: false
     xpath: //p[@class="model-number "] | //p[contains(@id,"product-body-model-number")]
   - name: mpc1
+    singleValue: false
+    # xpath: //div[contains(@class,'product-info-specs')]//div[contains(text(),'Model')]/following::div[1]
+    xpath: //span[contains(@class,"model-number")]//span
+  - name: mpcValid
+    singleValue: false
+    xpath: //span[contains(@role,'radiogroup')]
+  - name: mpcforAll
     singleValue: false
     xpath: //div[contains(@class,'product-info-specs')]//div[contains(text(),'Model')]/following::div[1]
   # - name: packSize

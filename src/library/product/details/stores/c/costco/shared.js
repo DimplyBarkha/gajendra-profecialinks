@@ -129,26 +129,23 @@ const transform = (data) => {
         for (const item of row.sku) {
           item.text = item.text.replace('Model ', '');
         }
-        row.sku = row.sku.filter((thing, index, self) => self.findIndex(t => t.text === thing.text) === index);
-        let text1 = '';
-        row.sku.forEach(item => {
-          text1 += item.text + ' | ';
-        });
-        row.sku = [{ text: text1.slice(0, -2).trim() }];
-        if (row.sku1 && row.sku1.length > 0) {
-          if (row.sku1[0].text.length > row.sku[0].text.length) {
-            row.sku[0].text = row.sku1[0].text;
-          }
+        if (row.sku.length > 1) {
+          row.sku = row.sku.filter((thing, index, self) => self.findIndex(t => t.text === thing.text) === index);
+          let text1 = '';
+          row.sku.forEach(item => {
+            text1 += item.text + ' | ';
+          });
+          row.sku = [{ text: text1.slice(0, -2).trim() }];
         }
+        // if (row.sku1 && row.sku1.length > 0) {
+        //   if (row.sku1[0].text.length > row.sku[0].text.length) {
+        //     row.sku[0].text = row.sku1[0].text;
+        //   }
+        // }
       }
       if (!row.sku || row.sku.length <= 0) {
         if (row.sku1 && row.sku1.length > 0) {
           row.sku1 = row.sku1.filter((thing, index, self) => self.findIndex(t => t.text === thing.text) === index);
-          let text1 = '';
-          row.sku1.forEach(item => {
-            text1 += item.text + ' | ';
-          });
-          row.sku1 = [{ text: text1.slice(0, -2).trim() }];
           row.sku = row.sku1;
         }
       }
@@ -156,28 +153,33 @@ const transform = (data) => {
         for (const item of row.mpc) {
           item.text = item.text.replace('Model ', '');
         }
-        row.mpc = row.mpc.filter((thing, index, self) => self.findIndex(t => t.text === thing.text) === index);
-        let text1 = '';
-        row.mpc.forEach(item => {
-          text1 += item.text + ' | ';
-        });
-        row.mpc = [{ text: text1.slice(0, -2).trim() }];
-        if (row.mpc1 && row.mpc1.length > 0) {
-          if (row.mpc1[0].text.length > row.mpc[0].text.length) {
-            row.mpc[0].text = row.mpc1[0].text;
-          }
+        if (row.mpc.length > 1) {
+          row.mpc = row.mpc.filter((thing, index, self) => self.findIndex(t => t.text === thing.text) === index);
+          let text1 = '';
+          row.mpc.forEach(item => {
+            text1 += item.text + ' | ';
+          });
+          row.mpc = [{ text: text1.slice(0, -2).trim() }];
         }
+        // if (row.mpc1 && row.mpc1.length > 0) {
+        //   if (row.mpc1[0].text.length > row.mpc[0].text.length) {
+        //     row.mpc[0].text = row.mpc1[0].text;
+        //   }
+        // }
       }
       if (!row.mpc || row.mpc.length <= 0) {
         if (row.mpc1 && row.mpc1.length > 0) {
           row.mpc1 = row.mpc1.filter((thing, index, self) => self.findIndex(t => t.text === thing.text) === index);
-          let text1 = '';
-          row.mpc1.forEach(item => {
-            text1 += item.text + ' | ';
-          });
-          row.mpc1 = [{ text: text1.slice(0, -2).trim() }];
           row.mpc = row.mpc1;
         }
+      }
+      if (row.mpcValid && row.mpcValid.length > 0 && row.mpcforAll && row.mpcforAll.length > 0) {
+        row.mpcforAll = row.mpcforAll.filter((thing, index, self) => self.findIndex(t => t.text === thing.text) === index);
+        let text1 = '';
+        row.mpcforAll.forEach(item => {
+          text1 += item.text + ' | ';
+        });
+        row.mpc = [{ text: text1.slice(0, -2).trim() }];
       }
 
       if (row.myPrice && row.myPrice.length > 0) {
@@ -239,6 +241,18 @@ const transform = (data) => {
           test = regExString.exec(demo);
           test = test[1].replace(/\n-/, '').replace(/\n-/g, ' ').trim();
           row.storage = [{ text: test }];
+        }
+      }
+      if ((!row.sku || row.sku.length <= 0) && (!row.sku1 || row.sku1.length <= 0)) {
+        if (row.description && row.description.length > 0 && row.description[0].text.includes('Model: ')) {
+          var sku2 = '';
+          var demoSku = row.description[0].text;
+          var regExStringSku = new RegExp('(?:' + 'Model: ' + ')(.[\\s\\S]*)(?:' + '5A' + ')');
+          sku2 = regExStringSku.exec(demoSku);
+          sku2 = sku2[1].replace(/\n-/, '').replace(/\n-/g, ' ').trim();
+          sku2 = sku2 + '5A';
+          row.sku = [{ text: sku2 }];
+          row.mpc = [{ text: sku2 }];
         }
       }
       if (!row.warnings) {

@@ -166,7 +166,7 @@ module.exports = {
       }
       try {
         const vidImage = Array.from(document.querySelectorAll('img[id*="videoOverlay"]'));
-        console.log('vidImage--->',vidImage);
+        console.log('vidImage--->', vidImage);
         const vidArray = [];
         for (let item = 0; item < vidImage.length; item++) {
           vidImage[item].click();
@@ -214,25 +214,94 @@ module.exports = {
         // }
       } catch (err) {}
     });
+    // if (variantLength1 >= 1) {
+    //   try {
+    //     for (let j = 0; j < variantLength1; j++) {
+    //       await context.evaluate(async (j) => {
+    //         return document.querySelectorAll('span[role="radiogroup"] label')[j].click();
+    //       }, j);
+
+    //       // await clickBtn(j);
+    //       console.log('Inside variants', j);
+    //       await new Promise(resolve => setTimeout(resolve, 1000));
+    //       if (j !== variantLength1 - 1) { await context.extract(productDetails, { transform }); }
+    //     }
+    //   } catch (err) {}
+    // }
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    var variantLength1 = await context.evaluate(async () => {
+      return (document.querySelectorAll('span[role="radiogroup"] label')) ? document.querySelectorAll('span[role="radiogroup"] label').length : 0;
+    });
+    console.log('Variant Length1', variantLength1);
 
     await new Promise(resolve => setTimeout(resolve, 1000));
     var variantLength = await context.evaluate(async () => {
       return (document.querySelectorAll('div[id=theSwatches] a')) ? document.querySelectorAll('div[id=theSwatches] a').length : 0;
     });
+
+    // const check = await context.evaluate(async () => {
+    //   return document.querySelector('div[id=theSwatches][class=hide]') ? 1 : 0;
+    // });
     console.log('Variant Length', variantLength);
-    if (variantLength >= 1) {
+    if (variantLength >= 1 && variantLength1 >= 1) {
       try {
         for (let j = 0; j < variantLength; j++) {
           await context.evaluate(async (j) => {
             return document.querySelectorAll('div[id=theSwatches] a>img')[j].click();
           }, j);
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          for (let k = 0; k < variantLength1; k++) {
+            await context.evaluate(async (k) => {
+              return document.querySelectorAll('span[role="radiogroup"] label')[k].click();
+            }, k);
+
+            // await clickBtn(j);
+            console.log('Inside variants', k);
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            if (k !== variantLength1 - 1) {
+              await context.extract(productDetails, { transform });
+            }
+          }
 
           // await clickBtn(j);
           console.log('Inside variants', j);
           await new Promise(resolve => setTimeout(resolve, 1000));
-          if (j !== variantLength - 1) { await context.extract(productDetails, { transform }); }
+          if (j === 0) {
+            await context.extract(productDetails, { transform });
+          }
+          // if (j !== variantLength - 1) { await context.extract(productDetails, { transform }); }
         }
       } catch (err) {}
+    } else {
+      if (variantLength >= 1 && variantLength1 === 0) {
+        for (let k = 0; k < variantLength; k++) {
+          await context.evaluate(async (k) => {
+            return document.querySelectorAll('div[id=theSwatches] a>img')[k].click();
+          }, k);
+
+          // await clickBtn(j);
+          console.log('Inside variants', k);
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          if (k !== variantLength - 1) {
+            await context.extract(productDetails, { transform });
+          }
+        }
+      } else {
+        if (variantLength1 >= 1 && variantLength === 0) {
+          for (let k = 0; k < variantLength1; k++) {
+            await context.evaluate(async (k) => {
+              return document.querySelectorAll('span[role="radiogroup"] label')[k].click();
+            }, k);
+
+            // await clickBtn(j);
+            console.log('Inside variants', k);
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            if (k !== variantLength1 - 1) {
+              await context.extract(productDetails, { transform });
+            }
+          }
+        }
+      }
     }
 
     try {
