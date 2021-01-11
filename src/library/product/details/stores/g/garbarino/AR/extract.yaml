@@ -14,7 +14,8 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //ul[@class="gb-main-detail-gallery-grid-list"]/li/img/@src
+    xpath: //ul[@class="gb-main-detail-gallery-grid-list"]/li[not(@class="gb--video")]/img/@src
+    # xpath: //ul[@class="gb-main-detail-gallery-grid-list"]/li/img/@src
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content
