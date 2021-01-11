@@ -11,7 +11,7 @@ module.exports = {
     spinnerSelector: 'div#loadingPane',
     loadedSelector: null,
     loadedXpath: null,
-    noResultsXPath: '//div[@data-reactroot]/div[contains(.,"Geen producten gevonden")]',
+    noResultsXPath: '//div[@data-reactroot]/div[contains(.,"Aucun résultat trouvé.")]',
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
     openSearchDefinition: null,

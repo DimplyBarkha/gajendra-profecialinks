@@ -1,26 +1,55 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //ul[@id="articleList"]//li 
+recordXPath: //ul[@id="articleList"]/li
 fields:
   - name: id
-    xpath: //input[@data-brand]/@id
-    regExp: \d{3,}
-  - name: manufacturer
-    xpath: //input[@data-brand]/@data-brand
-  - name: name
+    singleValue: false
+    xpath: //ul[@id="articleList"]/li/article/div/input/@id
+    regExp: (\d+)
+  - name: searchUrl
     singleValue: true
-    xpath: //article//header
+  - name: name
+    singleValue: false
+    xpath: //ul[@id="articleList"]//header/h2
   - name: productUrl
-    xpath: //article/div/a/@href
-    # regExp: (.+)
-    # regExpReplace: https://www.elcorteingles.es$1
+    singleValue: false
+    xpath: //ul[@id="articleList"]/li/article/div[@class="product-teaser__top"]/a/@href
+  - name: gtin
+    singleValue: false
   - name: thumbnail
-    xpath: //div[@class="product-teaser__left"]/img/@src
+    singleValue: false
+    xpath: //ul[@id="articleList"]/li//img/@src
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
   - name: price
-    xpath: //div[@class="pricing__new"]
+    singleValue: false
+    xpath: //ul[@id="articleList"]/li//div[@class="pricing"]/div[@class="pricing__new"]
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
   - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
   - name: rankOrganic
-  - name: sponsored    
-    defaultValue: false
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+  # - name: totalRecordCount
+  #   singleValue: true 
+  #   type: NUMBER
 

@@ -6,8 +6,8 @@ module.exports = {
     store: 'farmaline_nl',
     domain: 'farmaline.be',
     url: 'https://www.farmaline.be/apotheek/zoeken/{searchTerms}',
-    loadedSelector: 'ul#articleList',
-    noResultsXPath: '//strong[contains(text(),"Geen producten gevonden.")]',
+    loadedSelector: 'ul.productlist.clearfix',
+    noResultsXPath: '//div[@data-reactroot]/div[contains(.,"Geen producten gevonden")]',
     zipcode: '',
   },
 };

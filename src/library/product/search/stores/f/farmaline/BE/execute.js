@@ -5,9 +5,9 @@ module.exports = {
     country: 'BE',
     store: 'farmaline',
     domain: 'farmaline.be',
-    url: 'https://www.farmaline.be/apotheek/zoeken/{searchTerms}',
+    url: 'https://www.farmaline.be/pharmacie/chercher/{searchTerms}',
     loadedSelector: 'ul.productlist.clearfix',
-    noResultsXPath: '//div[@data-reactroot]/div[contains(.,"Geen producten gevonden")]',
+    noResultsXPath: '//div[@data-reactroot]/div[contains(.,"Aucun résultat trouvé.")]',
     zipcode: '',
   },
 };
