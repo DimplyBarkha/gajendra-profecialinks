@@ -10,6 +10,14 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
+    const addOptionalWait = async (selector) => {
+      try {
+        await context.waitForSelector(selector, { timeout: 2000 });
+        console.log(`${selector}----------loaded successfully`)
+      } catch (e) {
+        console.log(`${selector}---------- did not load at all `)
+      }
+    }
     await context.evaluate(async function () {
       const accCookie = document.querySelector('button.coi-banner__accept');
       if (accCookie) {
@@ -17,18 +25,34 @@ module.exports = {
         accCookie.click();
       }
     });
-    try {
-      await context.waitForSelector('a[id*="tab-more-info-trigger"]', { timeout: 10000 });
-      await context.click('a[id*="tab-more-info-trigger"]');
-    } catch (error) {
-      console.log('more info button click failed!!');
-    }
-    try {
-      await context.waitForSelector('a[id*="tab-specs-trigger"]', { timeout: 10000 });
-      await context.click('a[id*="tab-specs-trigger"]');
-    } catch (error) {
-      console.log('spec button click failed!!');
-    }
+    // try {
+    //   await context.waitForSelector('a[data-template="ProductMoreInformationTab"]', { timeout: 10000 });
+    //   await context.click('a[data-template="ProductMoreInformationTab"]');
+    //   await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+    // } catch (error) {
+    //   console.log('more info button click failed!!');
+    // }
+    // try {
+    //   await context.waitForSelector('a[data-template*="ProductSpecificationTab"]', { timeout: 10000 });
+    //   await context.click('a[data-template*="ProductSpecificationTab"]');
+    //   await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+    // } catch (error) {
+    //   console.log('spec button click failed!!');
+    // }
+    addOptionalWait('a[data-template="ProductMoreInformationTab"]');
+    addOptionalWait('a[data-template*="ProductSpecificationTab"]')
+    await context.evaluate(async () => {
+      const moreInformationTab = document.querySelector('a[data-template="ProductMoreInformationTab"]');
+      if (moreInformationTab) {
+        moreInformationTab.click();
+        await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+      }
+      const specificationTab = document.querySelector('a[data-template*="ProductSpecificationTab"]');
+      if (specificationTab) {
+        specificationTab.click();
+        await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+      }
+    })
     try {
       await context.waitForSelector('iframe[id*="quchbox-videolist"]');
     } catch (error) {
@@ -55,14 +79,14 @@ module.exports = {
       } catch (error) {
         console.log('video not fetched');
       }
-      function addHiddenDiv (vidurl, content) {
+      function addHiddenDiv(vidurl, content) {
         const newDiv = document.createElement('div');
         newDiv.setAttribute('data-vidurl', vidurl);
         newDiv.textContent = content;
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
-      function addElementToDom (id, content) {
+      function addElementToDom(id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
