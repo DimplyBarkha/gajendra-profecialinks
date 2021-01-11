@@ -635,5 +635,10 @@ fields:
   - name: thirdparagraph
     xpath: //div[contains(@class,"pdp-description-tab-item description")]/div
     defaultValue: " "
-  
-  
+  # Custom Fields 
+  - name: unInterruptedPDP
+    xpath: //div[contains(@class,"slick-initialized")]//div[contains(@class,"product-list__title")]/h2
+  - name: inTheBoxUrl
+  - name: inTheBoxText
+    xpath: //div[contains(@class,"pdp-description")]//div/p/b[contains(text(),"box")]/following::dd[not(preceding-sibling::br)]|//div[contains(@class,"pdp-description")]//div/p[@class]/b[@class and contains(text(),"box")]/following::dd[not(preceding-sibling::br)]|//div[contains(@class,"pdp-description")]//div/p[5]/following::dd
+  - name: hasComparisonTable  

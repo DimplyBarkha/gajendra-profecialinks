@@ -73,6 +73,11 @@ const cleanUp = (data, context) => {
                 }
                 row.description = [{ text: text.trim() }];
             }
+            if (row.inTheBoxText) {
+                for (let i = 0; i < row.inTheBoxText.length; i++) {
+                row.inTheBoxText[i].text = row.inTheBoxText[i].text.replace('-', '');
+                }
+            }
 
 
         }
