@@ -50,7 +50,8 @@ fields:
     xpath: //div[@class='prod-code']/h2
   - name: promotion
     singleValue: false
-    xpath: //p[@class='price']/span[@class='offer']
+    # xpath: //p[@class='price']/span[@class='offer']
+    xpath: (//p[@class='price']/span[@class='offer'] | //p[@class='price']/span[contains(@class,"oldPriceWrapper")]/span[@class='offer'])[1]
   - name: shippingWeight
     singleValue: false
     xpath: //ul//p[contains(.,'Packaged Weight')] | //div[@id='ii_weight']
