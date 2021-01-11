@@ -15,7 +15,7 @@ fields:
 - name: image
   singleValue: true
   description: URL of the main product image
-  xpath: //div[@id='H5V_FlyOut']/div/img[1]/@src
+  xpath: //img[@itemprop='image']/@src
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
