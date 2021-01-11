@@ -33,9 +33,43 @@ async function implementation (
     return src;
 });
 //let content = null;
+let backGroundVideoUrls = [];
     if (src) {
         try {
             await context.goto(src, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
+
+            try {
+              await new Promise(resolve => setTimeout(resolve, 5000));
+              const applyScroll = async function (context) {
+                await context.evaluate(async function () {
+                  async function stall ( ms ) {
+                    return new Promise((resolve, reject) => {
+                      setTimeout(() => {
+                        console.log('waiting!!');
+                        resolve();
+                      }, ms);
+                    });
+                  }
+                  let scrollTop = 0;
+                  while (scrollTop !== 15000) {
+                    await stall(1000);
+                    scrollTop += 1000;
+                    window.scroll(0, scrollTop);
+                    console.log('scrolling now!!');
+                    if (scrollTop === 15000) {
+                      await stall(3000);
+                      break;
+                    }
+                  }
+                });
+              };
+              
+              await applyScroll(context);
+            } catch(err) {
+              console.log('some error occured while scrolling', err.message);
+            }
+
+            console.log('done scrolling!!');
 
             const witbData = await context.evaluate(async () => {
                 const getInTheBox = document.querySelector('div.eky-accesory-container img');
@@ -60,6 +94,26 @@ async function implementation (
                 return { inBoxText, inBoxUrls };
             });
 
+            backGroundVideoUrls = await context.evaluate(async (src) => {
+              let allVideosSel = 'div.eky-header-video-container>video';
+              let allVideoElm = document.querySelectorAll(allVideosSel);
+              let allBackgrndVid = [];
+              if(!allVideoElm || (allVideoElm.length === 0)) {
+                return allBackgrndVid;
+              }
+              let regex = /(.+)\/index.html(.+)/g;
+              let prefixUrl = src.replace(regex, "$1");
+              for(let i = 0; i < allVideoElm.length; i++) {
+                if(!allVideoElm[i].parentElement.parentElement.className.includes('tns-item')) {
+                  let thisUrl = prefixUrl + '/' +  allVideoElm[i].getAttribute('src')
+                  allBackgrndVid.push(thisUrl);
+                  console.log(thisUrl);
+                }
+              }
+              return allBackgrndVid;
+            },
+            src);
+
             await context.goto(link, { timeout: 15000 });
             await context.waitForSelector('#inpage_container', { timeout: 10000 });
 
@@ -76,7 +130,7 @@ async function implementation (
 
               for(let i=0;i<inBoxText.length;i++){
                 addHiddenDiv(`inTheBoxText-${i}`, inBoxText[i]);
-                if(inBoxUrls[i]){                 
+                if(inBoxUrls[i]){              
                   addHiddenDiv(`inTheBoxUrl-${i}`, inBoxUrls[i]);
                 }
               }
@@ -101,19 +155,7 @@ async function implementation (
     }
   async function preparePage () {
     document.querySelector("i[class*='popup']") && document.querySelector("i[class*='popup']").click();
-    async function infiniteScroll () {
-      let prevScroll = document.documentElement.scrollTop;
-      while (true) {
-        window.scrollBy(0, document.documentElement.clientHeight);
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        const currentScroll = document.documentElement.scrollTop;
-        if (currentScroll === prevScroll) {
-          break;
-        }
-        prevScroll = currentScroll;
-      }
-    }
-    await infiniteScroll();
+    
     // specifications
     var specsId = document.evaluate("//div[contains(@class,'tab-desc__labels__desc') and contains(.,'Specifiche tecniche')]", document, null, XPathResult.ANY_TYPE, null);
     var element = specsId.iterateNext();
@@ -202,7 +244,54 @@ async function implementation (
       document.body.appendChild(newDiv);
     }
   }
+
+  await context.evaluate(async () => {
+    try {
+      async function infiniteScroll () {
+        let prevScroll = document.documentElement.scrollTop;
+        while (true) {
+          window.scrollBy(0, document.documentElement.clientHeight);
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          const currentScroll = document.documentElement.scrollTop;
+          if (currentScroll === prevScroll) {
+            break;
+          }
+          prevScroll = currentScroll;
+        }
+      }
+      await infiniteScroll();
+      console.log('done scrolling!! on prod page');
+    } catch(err) {
+      console.log('error while scrolling');
+    }
+  });
+
+  try {
+    context.waitForXPath("//div[contains(@class,'fullJwPlayerWarp')]//input");
+    console.log('video input elm loaded');
+  } catch(err) {
+    console.log('error while waiting for video input elm', err.message);
+    console.log('waiting again');
+    try {
+      context.waitForXPath("//div[contains(@class,'fullJwPlayerWarp')]//input");
+      console.log('video input elm loaded');
+    } catch(error) {
+      console.log('error while waiting for video input elm -- again', error.message);
+    }
+  }
   await context.evaluate(preparePage);
+
+  await context.evaluate(async (backGroundVideoUrls) => {
+    async function addElementToDocumentAsync (key, value) {
+      const catElement = document.createElement('div');
+      catElement.id = key;
+      catElement.textContent = value;
+      document.body.appendChild(catElement);
+    }
+
+    await addElementToDocumentAsync('backgrndvideo', backGroundVideoUrls.join(' || '));
+  },
+  backGroundVideoUrls);
   return await context.extract(productDetails, { transform });
 }
 module.exports = {

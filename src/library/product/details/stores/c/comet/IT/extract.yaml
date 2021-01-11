@@ -93,7 +93,7 @@ fields:
     description: Images within the third party description
   - name: videos
     singleValue: false
-    xpath: //div[contains(@class,'fullJwPlayerWarp') and contains(@class,'fullPlaylist')]/input/@value | //iframe[contains(@id,'ytplayer')]/@src
+    xpath: //div[contains(@class,'fullJwPlayerWarp')]//input/@value | //iframe[contains(@id,'ytplayer')]/@src | //div[@id='backgrndvideo']
     description: URLs of videos on page
   - name: name
     xpath: //h1[contains(@class,'prodotto__info') and contains(@class,'title')]

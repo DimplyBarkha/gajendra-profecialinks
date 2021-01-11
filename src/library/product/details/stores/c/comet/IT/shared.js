@@ -71,7 +71,7 @@ const transform = (data) => {
           } else if (item.text.includes('youtube')) {
             item.text = 'https:' + item.text;
           } else {
-            item.text = '';
+            // item.text = '';
           }
         });
       }
