@@ -97,3 +97,13 @@ fields:
     regExpReplace: $2
   - name: hasComparisonTable
     defaultValue: No
+  - name: variants
+    xpath: //div[contains(@class,"product-attributes__group")]//@data-action-id | //div[contains(@class,"product-attributes__group")]//@href
+  - name: firstVariant
+    xpath: (//div[contains(@class,"product-attributes__group")]//@data-action-id | //div[contains(@class,"product-attributes__group")]//@href)[1]
+  - name: variantInformation
+    xpath: //div[contains(@class,"product-attributes__group")]//div[contains(@class, '--active')]//@data-value
+  - name: variantCount
+    xpath: count(//div[contains(@class,"product-attributes__group")]//@data-action-id | //div[contains(@class,"product-attributes__group")]//@href)
+  - name: variantId
+    xpath: //span[@itemprop="sku"]
