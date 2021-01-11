@@ -132,4 +132,4 @@ fields:
     xpath: //div[@id="mainPart"]/div[@class="itemTypeGroupContainer productText"]//*[contains( text(), 'Dietary Information')]/parent::div
   - name: caloriesPerServing
     singleValue: false
-    xpath: //table[@class="nutritionTable"]/tbody/tr/th[contains(text(), 'Energy')]/following-sibling::td
+    xpath: concat(//table[@class="nutritionTable"]/tbody/tr/th[contains(text(), 'Energy')]/following-sibling::td,' ',//table[@class="nutritionTable"]/tbody/tr/th[contains(text(), 'Energy')][@rowspan]/ancestor::tr/following-sibling::tr[1]/td)
