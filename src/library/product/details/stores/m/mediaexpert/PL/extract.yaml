@@ -45,13 +45,13 @@ fields:
   - name: reviewCount
     xpath: //div[contains(@class, 'is-productNameInfobar')]//div[contains(@class, 'c-reviews_count')]
   - name: manufacturerImages
-    xpath: //div[@class='prawa']//img/@src | //div[@class='is-description']//section[contains(@class, 'TFL_section') and not(contains(@class, 'TFL_top'))]//img/@src | //div[@id='description']//table//img[contains(@data-component,"lazyLoad")]/@src | //div[@class='is-description']//img[contains(@class,'is-loaded') and (@alt) and not(contains(@alt,'Ikona'))]/@src | //div[@id='description']//*[contains(@class, 'product-page')]/img/@src | //div[contains(@class, 'is-description')]//div[@class='background-image']/img/@src | //div[contains(@class, 'esm-model-packshot') or contains(@class, 'esm-benefit') or contains(@class, 'esm-banner-section')]//div[contains(@class, 'esm-image')]/img/@src | //div[contains(@class, 'DELL_box') or contains(@class, 'dell_box')]/img/@src | //div[contains(@class, 'Rtable-cell')]/img/@src
+    xpath: //div[@class='prawa']//img/@src | //div[@class='is-description']//section[contains(@class, 'TFL_section') and not(contains(@class, 'TFL_top'))]//img/@src | //div[@id='description']//table//img[contains(@data-component,"lazyLoad")]/@src | //div[@class='is-description']//img[contains(@class,'is-loaded') and (@alt) and not(contains(@alt,'Ikona'))]/@src | //div[@id='description']//*[contains(@class, 'product-page')]/img/@src | //div[contains(@class, 'is-description')]//div[@class='background-image']/img/@src | //div[contains(@class, 'esm-model-packshot') or contains(@class, 'esm-benefit') or contains(@class, 'esm-banner-section')]//div[contains(@class, 'esm-image')]/img/@src | //div[contains(@class, 'DELL_box') or contains(@class, 'dell_box')]/img/@src | //div[contains(@class, 'Rtable-cell')]/img/@src|//div[@class='is-description']//img[@data-component="lazyLoad" and not(contains(@alt,'Ikona'))]/@src
     regExp: (.+)
     regExpReplace: https://www.mediaexpert.pl$1
   - name: aplusImages_fallBack
-    xpath: //div[@class='is-description']//img[@data-component="lazyLoad" and not(contains(@alt,'Ikona'))]/@src
-    regExp: (.+)
-    regExpReplace: https://www.mediaexpert.pl$1
+    xpath: //div[@class='widget text_editor']/div[@class='LG_opis']/div/@style
+    regExp: background(\:) url\('(.+)'\);
+    regExpReplace: https://www.mediaexpert.pl$2
   # - name: manufacturerDescription
   #   xpath: //div[@class='prawa'] | //div[@class='is-description']//section[contains(@class, 'TFL_section TFL_info')] | //div[@id='description']//table//td//img[contains(@data-component,"lazyLoad")]/../.. | //div[@class='is-description']//div[contains(@class, 'pure-u-1')]//p[contains(@class, 'text-justify')] | //div[@id='description']//*[contains(@class, 'product-page')]/div[contains(@class, 'feature-wrap')] |//div[@id='description']//div[@class='display-desktop' or @class='DELL_content' or contains(@class, 'dell_content')] | //div[@id='description']//div[contains(@class, 'Rtable-cell')] | //div[contains(@class, 'esm-benfits-section')]
   - name: manufacturerDescription
@@ -128,13 +128,13 @@ fields:
   - name: unInterruptedPDP
     xpath: //div[contains(@class, 'is-container is-offerGrid')]//div[@class="is-carouselContainer"]/div/div//div[@class="c-offerBox_data"]
   - name: inTheBoxUrl
-    xpath: //div[contains(@class, 'description-dyson-opis-row')]//div[contains(@class, 'description-dyson-opis-col-md-3')]/img/@src|//div[contains(@class, 'description_dyson-col-md')]/div[contains(@class, 'description_dyson-row')]/div[contains(@class, 'description_dyson-col-md-3')]/img/@src|//div[contains(@class, 'description-col-md-12')]/div[contains(@class, 'description-row')]/div[contains(@class, 'description-col-md-3')]/img/@src|//div[contains(@class, 'description-col-md')]/div[contains(@class, 'description-row')]/div[contains(@class, 'description-col-md-4')]/img/@src
+    xpath: //h3[contains(text(),"Zawartość opakowania")]/following::div[@class="description-row" or @class="description_dyson-row"][1]//div[@class="description-col-md-3" or @class="description_dyson-col-md-3"]/img/@src | //h3[contains(text(),"W zestawie")]/following::div[@class="description-row"][1]//div[@class="description-col-md-5" or @class="description-col-md-4"]/img/@src |  //h3[contains(text(),"W pudełku")]/following::div[@class="description-row"][1]//div[@class="description-col-md-3"]/img/@src|//h3[contains(text(),"Zawartość pudełka ")]/following::div[@class="description_dyson-row"]/div[contains(@class, "description_dyson-col-md-")]//img/@src
     regExp: (.+)
     regExpReplace: https://mediaexpert.pl$1 
   - name: inTheBoxText
-    xpath: //div[contains(@class, 'description-dyson-opis-row')]//div[contains(@class, 'description-dyson-opis-col-md-3')]/p[contains(@class, 'description-dyson-opis-para-3')]|//div[contains(@class, 'description_dyson-col-md')]/div[contains(@class, 'description_dyson-row')]/div[contains(@class, 'description_dyson-col-md-3')]/p[contains(@class, 'description_dyson-para-3')]|//div[contains(@class, 'description-col-md-12')]/div[contains(@class, 'description-row')]/div[contains(@class, 'description-col-md-3')]/p[contains(@class, 'description')]|//div[contains(@class, 'description-col-md')]/div[contains(@class, 'description-row')]/div[contains(@class, 'description-col-md-4')]/p[contains(@class, 'description')]
+    xpath: //h3[contains(text(),"Zawartość opakowania")]/following::div[@class="description-row" or @class="description_dyson-row"][1]//div[@class="description-col-md-3" or @class="description_dyson-col-md-3"]/p[contains(@class, 'para')] | //h3[contains(text(),"W zestawie")]/following::div[@class="description-row"][1]//div[@class="description-col-md-5" or @class="description-col-md-4"]/p[contains(@class, 'para')] |  //h3[contains(text(),"W pudełku")]/following::div[@class="description-row"][1]//div[@class="description-col-md-3"]/p[contains(@class, 'para')]|//h3[contains(text(),"Zawartość pudełka ")]/following::div[@class="description_dyson-row"]/div[contains(@class, "description_dyson-col-md-")]//p[contains(@class, 'para')]
   - name: hasComparisonTable
-    xpath: //div[@class="description_dyson-container"]//div[@class='table-responsve']/table
+    xpath: //div[contains(@class, "description_dyson")]//div[@class='table-responsve']/table
     regExp: (.+)
     regExpReplace: Yes
     defaultValue: No

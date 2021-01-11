@@ -91,6 +91,12 @@ module.exports = {
         }
       }, videoSelector);
     }
+    // async function aplusSpecial (){
+    //   const html = await response.text();
+    //   const aImage = html.match(/(style="background: url('=|"url":)"([^"]+)/);
+    //   if (!aImage) return '';
+    //   return aImage[2];
+    // }
     // const pdp = 'div.c-group.is-container.is-offerGrid > div > div.is-carouselContainer';
     // try{
     //   await context.waitForSelector(pdp, { timeout: 90000 });
