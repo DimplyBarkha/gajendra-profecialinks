@@ -1,43 +1,40 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
-recordXPath: //ul//li
-#recordXPath: null
+recordSelector: td.Item.depth_2>table>tbody>tr
+recordXPath: null
 fields:
   - name: id
     singleValue: false
-    xpath: //div[@class="itemId"]
-  - name: rankOrganic
-    singleValue: false
-    xpath: //div[@class="rank"]
+    selector: td.representative_child_part_number.depth_3
   - name: name
     singleValue: false
-    xpath: //div[@class="product-name"]
+    selector: td.title.depth_3
+  - name: sponsored
+    singleValue: false
+    xpath: .//td[@class="is_sponsored_sku depth_3"]
+    regExp: (.+)
+    regExpReplace: true
+    defaultValue: false
   - name: productUrl
     singleValue: false
-    xpath: //a[@data-test="product-title"]/@href
+    xpath: concat('https://www.target.com',.//td[@class="url depth_3"])
   - name: gtin
-    singleValue: true
-  - name: thumbnail
-    singleValue: true
-    xpath: //picture//source/@srcset
-  - name: aggregateRating
     singleValue: false
-    xpath: //div[@data-test="ratings"]//div[@class="h-sr-only"]
+    selector: td.upc
+  - name: thumbnail
+    singleValue: false
+    xpath: concat(.//td[@class="images depth_3"]//td[@class="base_url depth_4"], .//td[@class="images depth_3"]//td[@class="primary depth_4"])
+  - name: aggregateRating2
+    singleValue: false
+    xpath: round(.//td[@class="average_rating depth_3"]*10) div 10
   - name: reviewCount
     singleValue: false
-    xpath: //span[@data-test="product-rating-count"]
+    selector: td.total_reviews.depth_3
   - name: price
     singleValue: false
-    xpath: //span[@data-test="product-price"]
+    selector: td.price td.formatted_current_price
   - name: manufacturer
     singleValue: false
-    xpath: //a[@data-test="itemDetail-brand"]
+    selector: td.brand.depth_3
   - name: soldBy
     singleValue: true
-  - name: rank
-    singleValue: false
-    xpath: //div[@class="rank"]
-  - name: endorsementText
-    singleValue: false
-    xpath: //div[@class="endorsement"]
