@@ -13,9 +13,9 @@ fields:
   xpath: //a[@class="product-link"]/h5/text()
 - name: productUrl
   singleValue: false
-  xpath: //div[@class="col-lg-8 col-7"]/a/@href
-  regExp: (rengoering/.*)
-  regExpReplace: https://www.lomax.dk/$1 
+  xpath: //div[@class="img-with-sticker"]//a/@href
+  regExp: (/.+)
+  regExpReplace: https://www.lomax.dk$1 
 - name: gtin
   singleValue: false
 - name: thumbnail
@@ -29,7 +29,7 @@ fields:
   xpath: //div[@class="product-info border-bottom py-3 "]/@data-gtm-rating-count
 - name: price
   singleValue: false
-  xpath: //html//div[@id="price"]
+  xpath: //div[@class="col-lg-9 result-list-container px-2 pl-sm-0 pr-md-3"]/div/div/@data-gtm-price
 - name: manufacturer
   singleValue: false
 - name: soldBy
