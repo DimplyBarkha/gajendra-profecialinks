@@ -1,81 +1,20 @@
 const { transform } = require('./format');
 
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
   dependencies,
 ) {
   const { transform } = parameters;
-  const { productDetails } = dependencies;
+  const { helperModule: { Helpers }, productDetails } = dependencies;
+  const helper = new Helpers(context);
+  await helper.ifThereClickOnIt('#footer_tc_privacy_button', { wait: 30000, click: 3000 });
+  await helper.ifThereClickOnIt('div.productDescriptionShowMore-container', { wait: 30000, click: 3000 });
+  // pop up is not allowing us to scroll.
+  await helper.ifThereClickOnIt('.popin-btn-close.close', 20000);
+  await helper.ifThereClickOnIt('#btn-close', 35000);
 
-  const link = await context.evaluate(function () {
-    return window.location.href;
-  });
-  try{
-  await context.evaluate(async () => {
-    await new Promise((resolve, reject) => setTimeout(resolve, 30000));
-    const showmore = document.querySelector('div.productDescriptionShowMore-container');
-   
-    // if(showmore){
-    //   document.querySelector('div.productDescriptionShowMore-container>button').click();
-    // }
-    // if(document.querySelector('flixmedia_expandBtn flixmedia_expandBtn--more')){
-    //   document.querySelector('flixmedia_expandBtn flixmedia_expandBtn--more').click();
-    // }
-    
-    
-  });
-  //await context.goto(link, { timeout: 80000 });
- 
-  //await context.waitForSelector('div.flix-std-table-cell>div.flix-background-image img', { timeout: 50000 });
-
-}catch(error){
-  console.log(error);
-}
-
-  const applyScroll = async function (context) {
-    //pop up is not allowing us to scroll.
-    try {
-      await context.waitForSelector('.popin-btn-close.close', {timeout: 20000});
-    } catch(er) {}
-    const clossePopUp = await context.evaluate(async function() {
-      console.log("trying to close pop");
-      const popUpSelector = '.popin-btn-close.close';
-      if(document.querySelector(popUpSelector)) {
-        document.querySelector(popUpSelector).click();
-      }
-    });
-    const frenchPopUp = await context.evaluate(async function() {
-      return !!document.querySelector('#btn-close');
-    });
-
-    if (frenchPopUp) {
-      await context.click('#btn-close');
-      await context.waitForNavigation({ timeout: 35000 });
-    }
-
-    await context.evaluate(async function () {
-      let scrollTop = 0;
-      while (scrollTop !== 20000) {
-        await stall(500);
-        scrollTop += 1000;
-        window.scroll(0, scrollTop);
-        if (scrollTop === 20000) {
-          await stall(5000);
-          break;
-        }
-      }
-      function stall(ms) {
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            resolve();
-          }, ms);
-        });
-      }
-    });
-  };
-  await applyScroll(context);
   const variantArray = await context.evaluate(async function () {
     if (document.querySelector('#productList')) {
       throw new Error('Not a product page');
@@ -93,67 +32,10 @@ async function implementation(
     }
   }
 
-  try {
-    await context.click('button[id*=productDescriptionShowMore]');
-    await new Promise((resolve, reject) => setTimeout(resolve, 5000));
-    await context.click('div.flixmedia_expandBtn.flixmedia_expandBtn--more');
-    await new Promise((resolve, reject) => setTimeout(resolve, 5000));
-  } catch (e) {
-    console.log("some error occurred while clicking show more button")
-  }
+  await helper.ifThereClickOnIt('button[id*=productDescriptionShowMore]', 5000);
+  await helper.ifThereClickOnIt('div.flixmedia_expandBtn.flixmedia_expandBtn--more', 5000);
 
-  await context.evaluate(async function () {
-    let specificationsXpath = `//div[@id='mainProductDescription']//b[contains(text(),'Spécifications') or contains(text(),"Caractéristiques") or contains(text(),'Informations produit')]/following-sibling::text()|//h2[contains(text(),'Caractéristiques détaillées')]/following-sibling::node()|text()|//div[@id='mainProductDescription']//text()[contains(.,"Dimensions")]//following-sibling::text()[not(//div[@id='mainProductDescription']//b[contains(text(),'Spécifications') or contains(text(),"Caractéristiques") or contains(text(),'Informations produit')]/following-sibling::text()|//h2[contains(text(),'Caractéristiques détaillées')]/following-sibling::node()|text())] | //tr[contains(.,"Dimensions")]/following-sibling::tr[following::tr[contains(.,"Contenu du carton")]] | //tr[contains(.,"Dimensions")]`;
-    function _x(STR_XPATH, context) { //gets nodes using xpath
-      var xresult = document.evaluate(
-        STR_XPATH,
-        context,
-        null,
-        XPathResult.ANY_TYPE,
-        null
-      );
-      var xnodes = [];
-      var xres;
-      while ((xres = xresult.iterateNext())) {
-        xnodes.push(xres);
-      }
-      return xnodes;
-    }
-    let specificationsText = [];
-    _x(specificationsXpath, document).forEach(q => { specificationsText.push(q.textContent) });
-    document.body.insertAdjacentHTML("afterbegin", `<div id="specifications" style="display : none">${specificationsText.join(" ")}</div>`)
-  });
-  try {
-    await context.waitForXPath('//div[@id="pdpFlixmediaZone" and not(contains(@style,"none"))]', { timeout: 30000 });
-  } catch (er) {
-    console.log("Couldn't find the enhanced content expand button");
-  }
-  await context.evaluate(async function () {
-    let buttonExpand = document.evaluate('//div[contains(@class,"flixmedia_expandBtn") and contains(.,"Voir plus de contenu")]', document).iterateNext();
-    if (buttonExpand) {
-      buttonExpand.click();
-    }
-  });
-  await new Promise((resolve, reject) => setTimeout(resolve, 6000));
-  await context.evaluate(async function () {
-    function addHiddenDiv (id, content) {
-      const newDiv = document.createElement('div');
-      newDiv.id = id;
-      newDiv.textContent = content;
-      newDiv.style.display = 'none';
-      document.body.appendChild(newDiv);
-    }
-    const desc = document.querySelector("div#mainProductDescription");
-    if (desc) {
-      const specDesc = desc.innerText;
-      if (specDesc.includes('Dans la boîte')) {
-        let inTheBoxText = specDesc.match(/Dans la boîte\s:(.+)/gm) ? specDesc.match(/Dans la boîte\s:(.+)/gm)[0] : '';
-        inTheBoxText = inTheBoxText.replace(/Dans la boîte\s:/gm, '');
-        addHiddenDiv('ii_inTheBoxText', inTheBoxText);
-      }
-    }
-  });
-  async function scrollToRec(node) {
+  async function scrollToRec (node) {
     await context.evaluate(async (node) => {
       const element = document.querySelector(node) || null;
       if (element) {
@@ -164,7 +46,53 @@ async function implementation(
       }
     }, node);
   }
-  await scrollToRec('div.child-product-container');
+  await scrollToRec('#footer');
+
+  await context.evaluate(async function () {
+    const specificationsXpath = '//div[@id=\'mainProductDescription\']//b[contains(text(),\'Spécifications\') or contains(text(),"Caractéristiques") or contains(text(),\'Informations produit\')]/following-sibling::text()|//h2[contains(text(),\'Caractéristiques détaillées\')]/following-sibling::node()|text()|//div[@id=\'mainProductDescription\']//text()[contains(.,"Dimensions")]//following-sibling::text()[not(//div[@id=\'mainProductDescription\']//b[contains(text(),\'Spécifications\') or contains(text(),"Caractéristiques") or contains(text(),\'Informations produit\')]/following-sibling::text()|//h2[contains(text(),\'Caractéristiques détaillées\')]/following-sibling::node()|text())] | //tr[contains(.,"Dimensions")]/following-sibling::tr[following::tr[contains(.,"Contenu du carton")]] | //tr[contains(.,"Dimensions")]';
+    function _x (STR_XPATH, context) { // gets nodes using xpath
+      var xresult = document.evaluate(
+        STR_XPATH,
+        context,
+        null,
+        XPathResult.ANY_TYPE,
+        null,
+      );
+      var xnodes = [];
+      var xres;
+      while ((xres = xresult.iterateNext())) {
+        xnodes.push(xres);
+      }
+      return xnodes;
+    }
+    const specificationsText = [];
+    _x(specificationsXpath, document).forEach(q => { specificationsText.push(q.textContent); });
+    document.body.insertAdjacentHTML('afterbegin', `<div id="specifications" style="display : none">${specificationsText.join(' ')}</div>`);
+  });
+  await context.waitForXPath('//div[@id="pdpFlixmediaZone" and not(contains(@style,"none"))]', { timeout: 30000 })
+    .catch(() => {
+      console.log('===== The enhanced content did not load or is not present.');
+    });
+  await helper.ifThereClickOnIt('div.flixmedia_expandBtn.flixmedia_expandBtn--more', 6000);
+
+  await context.evaluate(async function () {
+    function addHiddenDiv (id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+    const desc = document.querySelector('div#mainProductDescription');
+    if (desc) {
+      const specDesc = desc.innerText;
+      if (specDesc.includes('Dans la boîte')) {
+        let inTheBoxText = specDesc.match(/Dans la boîte\s:(.+)/gm) ? specDesc.match(/Dans la boîte\s:(.+)/gm)[0] : '';
+        inTheBoxText = inTheBoxText.replace(/Dans la boîte\s:/gm, '');
+        addHiddenDiv('ii_inTheBoxText', inTheBoxText);
+      }
+    }
+  });
   try {
     await context.waitForSelector('#inpage_container', { timeout: 30000 });
   } catch (er) {
@@ -181,22 +109,22 @@ async function implementation(
     }
     const isVisible = (element) => document.querySelector(element) ? !!(document.querySelector(element).offsetWidth || document.querySelector(element).offsetHeight) : false;
 
-    let content = {};
-    content.description = document.querySelector("#inpage_container") && isVisible(document.querySelector("#inpage_container")) ? document.querySelector("#inpage_container").innerText : "";
+    const content = {};
+    content.description = document.querySelector('#inpage_container') && isVisible(document.querySelector('#inpage_container')) ? document.querySelector('#inpage_container').innerText : '';
     addHiddenDiv('manufacturerDescription', content.description);
     content.images = [];
-    let imagesNodes = document.querySelectorAll("#inpage_container img");
+    const imagesNodes = document.querySelectorAll('#inpage_container img');
     imagesNodes.forEach(q => {
       if (q.hasAttribute('srcset')) {
-        //content.images.push(q.getAttribute('srcset'));
+        // content.images.push(q.getAttribute('srcset'));
         addHiddenDiv('manfacturerImage', q.getAttribute('srcset'));
       }
     });
     content.videos = [];
-    let videoNodes = document.querySelectorAll("#inpage_container iframe");
+    const videoNodes = document.querySelectorAll('#inpage_container iframe');
     videoNodes.forEach(q => {
       if (q.hasAttribute('src')) {
-        //content.videos.push(q.getAttribute('src'));
+        // content.videos.push(q.getAttribute('src'));
         addHiddenDiv('videos', q.getAttribute('src'));
       }
     });
@@ -215,4 +143,8 @@ module.exports = {
     zipcode: '',
   },
   implementation,
+  dependencies: {
+    productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
+    helperModule: 'module:helpers/helpers',
+  },
 };

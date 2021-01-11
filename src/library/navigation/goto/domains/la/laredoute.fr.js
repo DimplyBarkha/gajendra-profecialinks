@@ -23,9 +23,9 @@ module.exports = {
     await context.setAntiFingerprint(false);
     await context.setUseRelayProxy(false);
 
-    const responseStatus = await context.goto(url, {
-      firstRequestTimeout: 60000,
-      timeout: timeout,
+    const responseStatus = await context.goto(url.split('.aspx#')[0], {
+      firstRequestTimeout: 600,
+      timeout,
       waitUntil: 'load',
       checkBlocked: false,
       antiCaptchaOptions: {
@@ -38,7 +38,7 @@ module.exports = {
     const captchaFrame = "iframe[_src*='captcha']:not([title]), iframe[src*='captcha']:not([title])";
     const maxRetries = 3;
     let numberOfCaptchas = 0;
-    
+
     try {
       await context.waitForSelector(captchaFrame);
     } catch(e) {
