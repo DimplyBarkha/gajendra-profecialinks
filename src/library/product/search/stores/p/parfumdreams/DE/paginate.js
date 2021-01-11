@@ -10,7 +10,7 @@ module.exports = {
     loadedSelector: 'body',
     noResultsXPath: null,
     openSearchDefinition: {
-      template: 'https://en.parfumdreams.de/?m=5&search={searchTerms}&p={page}',
+      template: 'https://www.parfumdreams.de/?m=5&search={searchTerms}&p={page}',
     },
     domain: 'parfumdreams.de',
     zipcode: '',
