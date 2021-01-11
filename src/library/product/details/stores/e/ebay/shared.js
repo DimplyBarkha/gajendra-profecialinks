@@ -6,6 +6,15 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+
+  const notListedItem = await context.evaluate(() => {
+    return document.querySelector('div[class*="nodestar-item"]');
+  });
+
+  if (notListedItem) {
+    await context.click('.nodestar-item-card-details__view>a[href*="www.ebay"]');
+  }
+
   try {
     await context.waitForSelector('iframe#desc_ifr');
   } catch (err) {
