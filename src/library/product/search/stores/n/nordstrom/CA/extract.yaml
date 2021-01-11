@@ -1,0 +1,12 @@
+extends: ../US/extract
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //h1[contains(text(),'You searched for')]/following-sibling::section/div/article
+fields:
+  - name: productUrl
+    singleValue: true
+    xpath: //h3/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.nordstrom.ca$1
+ 

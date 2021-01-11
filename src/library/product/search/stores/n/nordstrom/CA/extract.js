@@ -1,11 +1,11 @@
 const { transform } = require('../../shared');
-
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
-    country: 'US',
+    country: 'CA',
     store: 'nordstrom',
     transform,
     domain: 'nordstrom.com',
+    zipcode: '',
   },
 };
