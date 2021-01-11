@@ -26,8 +26,8 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    type: CURRENCY
-    xpath: //div[@class="price-box price-final_price"]//span[@class="price"]
+    # type: CURRENCY
+    xpath: //html//div[@id='price']
   - name: manufacturer
     singleValue: false
   - name: soldBy
