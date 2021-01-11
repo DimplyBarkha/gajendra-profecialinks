@@ -4,8 +4,8 @@ module.exports = {
   parameterValues: {
     country: 'AU',
     store: 'adoreBeauty',
-    nextLinkSelector: '.ais-InfiniteHits > button:not([disabled])',
-    mutationSelector: 'ol.ais-InfiniteHits-list',
+    nextLinkSelector: null,
+    mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'li.ais-InfiniteHits-item',
     noResultsXPath: '//p[contains(text(),"Found 0 products")]',
