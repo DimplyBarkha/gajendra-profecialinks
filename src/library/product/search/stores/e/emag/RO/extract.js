@@ -23,9 +23,8 @@ async function implementation (inputs, parameters, context, dependencies) {
 
     rating.forEach((element) => {
       var regArray = element.getAttribute('class').match(regex);
-
       if (regArray[0]) {
-        element.setAttribute('rating', regArray[0]);
+        element.setAttribute('rating', regArray[0].replace('.', ','));
       }
     });
   });
