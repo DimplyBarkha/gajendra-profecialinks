@@ -272,7 +272,7 @@ fields:
   singleValue: true
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
-  xpath: //th[text()="Inhaltsstoffe"]/following-sibling::td[1]
+  xpath: //div[@id="description-block"]//h3[contains(text(), "Zutaten")]/following-sibling::p[1] | //th[text()="Inhaltsstoffe"]/following-sibling::td[1] | //div[@id="description-block"]//h3[contains(text(), "Zusammensetzung")]/following-sibling::p[1]
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on
