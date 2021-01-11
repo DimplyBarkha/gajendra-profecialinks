@@ -1,10 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'tracker/categories',
   parameterValues: {
-    country: 'GB',
+    country: 'UK',
     domain: 'asda.com',
     store: 'asda',
-    timeout: 50000,
+    zipcode: '',
   },
 };
