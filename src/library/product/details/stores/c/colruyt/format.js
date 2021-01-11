@@ -161,7 +161,7 @@ const transform = (data) => {
       }
       if (row.description) {
         row.description.forEach((descriptionItem) => {
-          descriptionItem.text = descriptionItem.text.replace(/[*]/gm, ' *').trim();
+          descriptionItem.text = descriptionItem.text.replace(/<br\s*\/?>/gm, ' ').trim();
         });
       }
       if (row.ingredientsList) {

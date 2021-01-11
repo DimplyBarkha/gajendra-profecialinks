@@ -176,6 +176,20 @@ async function implementation (inputs, parameters, context, dependencies) {
     addHiddenDiv('SodiumPerServing_added', SodiumPerServing);
     addHiddenDiv('magnesiumPerServing_added', magnesiumPerServing);
     addHiddenDiv('vitaminAPerServing_added', vitaminAPerServing);
+    let desc = document.querySelector('p.product__details');
+    if (desc) {
+      var descList1;
+      let description1 = '';
+
+      descList1 = document.querySelectorAll('p.product__details');
+      console.log('descList1', descList1);
+      descList1.forEach((element) => {
+        console.log('element', element);
+        description1 +=
+          element.innerHTML + " ";
+      });
+      addHiddenDiv('description_added', description1);
+    }
   }, { totalSugarsPerServing, proteinPerServing, totalCarbPerServing, saturatedFatPerServing, totalFatPerServing, caloriesPerServing, servingSize, legalDisclaimer, ingredientsList, saltPerServing, storage, gtin, quantity, calciumPerServing, SodiumPerServing, magnesiumPerServing, vitaminAPerServing });
 
   return await context.extract(productDetails, { transform });

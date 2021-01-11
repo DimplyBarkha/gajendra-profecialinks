@@ -45,7 +45,7 @@ fields:
     defaultValue: Out Of stock
   - name: description
     singleValue: false
-    xpath: concat(//p[contains(@class,"product__details")],' ',//div[contains(@class,"product__info")]//a)
+    xpath: concat(//div[@id="description_added"],//div[contains(@class,"product__info")]//a)
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets

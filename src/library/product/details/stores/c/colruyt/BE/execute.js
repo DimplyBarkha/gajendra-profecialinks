@@ -5,7 +5,7 @@ module.exports = {
     country: 'BE',
     store: 'colruyt',
     domain: 'colruyt.be',
-    loadedSelector: '#mainContent img',
+    loadedSelector: 'div.product.product--detail',
     noResultsXPath: '//div[contains(@id,"searchResultsContainer")]',
     zipcode: '',
   },
