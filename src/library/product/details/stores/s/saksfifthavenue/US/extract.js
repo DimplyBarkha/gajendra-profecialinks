@@ -25,8 +25,8 @@ module.exports = {
         }
       }
 
-      for (let i = 0; i < document.querySelectorAll('ul.size-attribute li[value="0"]').length; i++) {
-        const element = document.querySelectorAll('ul.size-attribute li[value="0"]')[i];
+      for (let i = 0; i < document.querySelectorAll('ul.size-attribute li').length; i++) {
+        const element = document.querySelectorAll('ul.size-attribute li')[i];
         if (isVisible(element) === true) {
           element.querySelector('a').click();
           await delay(5000);
