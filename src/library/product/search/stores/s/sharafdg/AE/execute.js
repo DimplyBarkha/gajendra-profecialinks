@@ -19,28 +19,22 @@ async function implementation (
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
     }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
-  const applyScroll = async function (context) {
-    await context.evaluate(async function () {
-      let scrollTop = 0;
-      while (scrollTop !== 20000) {
-        await stall(500);
-        scrollTop += 1000;
-        window.scroll(0, scrollTop);
-        if (scrollTop === 20000) {
-          await stall(5000);
+  await context.evaluate(async () => {
+    await new Promise((resolve) => setTimeout(resolve, 6000));
+    async function infiniteScroll () {
+      let prevScroll = document.documentElement.scrollTop;
+      while (true) {
+        window.scrollBy(0, document.documentElement.clientHeight);
+        await new Promise(resolve => setTimeout(resolve, 4000));
+        const currentScroll = document.documentElement.scrollTop;
+        if (currentScroll === prevScroll) {
           break;
         }
+        prevScroll = currentScroll;
       }
-      function stall (ms) {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-        resolve();
-        }, ms);
-        });
-      }
-    });
-  };
-  await applyScroll(context);
+    }
+    await infiniteScroll();
+  });
   console.log('Checking no results', parameters.noResultsXPath);
   return await context.evaluate(function (xp) {
     const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
