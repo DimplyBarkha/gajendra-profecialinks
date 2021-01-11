@@ -3,7 +3,7 @@ module.exports = {
   implements: 'product/search',
   parameterValues: {
     country: 'FR',
-    store: 'marionnaud',
+    store: 'Marionnaud',
     domain: 'marionnaud.fr',
     zipcode: '',
   },

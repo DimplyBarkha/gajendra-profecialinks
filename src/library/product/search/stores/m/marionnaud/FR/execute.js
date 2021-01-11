@@ -7,7 +7,7 @@ module.exports = {
     domain: 'marionnaud.fr',
     url: 'https://www.marionnaud.fr/search/?text={searchTerms}', 
     loadedSelector: 'ul[class="product-listing product-grid"] li',
-    noResultsXPath: '//input[contains(@class,"more-checkbox")]',
+    // noResultsXPath: '//input[contains(@class,"more-checkbox")]',
     zipcode: '',
   },
 };
