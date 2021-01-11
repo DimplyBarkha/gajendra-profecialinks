@@ -1,106 +1,46 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class="container"]
 fields:
   - name: image
-    singleValue: true
-    xpath: (//div[contains(@class,'swiper-slide rd-product-image-gallery__slide')])[1]/img/@src
+    xpath: //div[contains(@class,'swiper-slide') and contains(@class,'active')]/img/@src
   - name: imageAlt
-    singleValue: true
-    xpath: //h1[@class="rd-product-detail__title"]/@title
+    xpath: //h1[@class="rd-title"]
   - name: alternateImages
-    singleValue: false
-    xpath: //html//div[@id='altImages']
+    xpath: //div[contains(@class,'swiper-slide') and not(contains(@class,'active'))]/img/@src
   - name: secondaryImageTotal
-    singleValue: false
-    xpath: count(//html//div[@id='altImages'])
+    xpath: count(//div[contains(@class,'swiper-slide') and not(contains(@class,'active'))]/img/@src)
   - name: category
-    singleValue: false
-    xpath: //nav[@class="rd-product-breadcrumb-navigation"]/a[not(contains(@cs-id,'breadcrumb-level-1-link'))]/text()
+    xpath: //nav[@class="rd-breadcrumb"]/a[not(contains(@cs-id,'breadcrumb-level-1-link'))]/text()
   - name: nameExtended
-    singleValue: true
-    xpath: //h1[@class="rd-product-detail__title"]/@title
+    xpath: //h1[@class="rd-title"]
   - name: price
-    singleValue: true
-    xpath: //meta[@property="product:price:amount"]/@content
-  - name: listPrice
-    singleValue: true
-    xpath: //div[@class="rd-product-buybox__baseprice"]/span
+    xpath: //html//div[@id='price']
   - name: availabilityText
-    singleValue: true
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out Of Stock
-    xpath: //meta[@property="product:availability"]/@content
+    xpath: //html//div[@id='price']
   - name: description
-    singleValue: false
     xpath: //html//div[@id='description']
   - name: descriptionBullets
-    singleValue: false
-    xpath: count(//div[@class="rd-product-description__text"]//ul/li)
+    xpath: count(//div[@class="rd-product-description__top-accordion-content-description"]//ul/li)
   - name: brandText
-    singleValue: true
-    xpath: //meta[@property="product:brand"]/@content
-  - name: weightGross
-    singleValue: true
-    xpath: //html//div[@id='weightGross']
+    xpath: (//span[text()='Hersteller'])[1]/following-sibling::div/div/span
   - name: sku
-    singleValue: true
     xpath: //html//div[@id='sku']
-  - name: variantId
-    singleValue: true
-    xpath: //html//div[@id='sku']
-  - name: manufacturer
-    singleValue: true
-    xpath: //meta[@property="product:brand"]/@content
-  - name: weightNet
-    singleValue: true
-    xpath: (//div[@class="rd-product-information-cell"]/div[contains(text(),'Inhalt')]/following::div[@class="rd-product-information-cell__value-data"])[1]/a | (//div[@class="rd-product-information-cell"]/div[contains(text(),'Inhalt')]/following::div[@class="rd-product-information-cell__value-data"])[1]/span
-  - name: gtin
-    singleValue: true
-    xpath: (//div[@class="rd-product-information-cell"]/div[contains(text(),'EAN')]/following::div[@class="rd-product-information-cell__value-data"])[1]
-  - name: warnings
-    singleValue: true
-    xpath: (//div[contains(text(),'Zusatzinformation')]/following::div)[1]/text()
   - name: ratingCount
-    singleValue: true
     type: NUMBER
-    xpath: //span[@class="rd-link rd-link--secondary rd-review-stars-and-count__review-count"]
+    xpath: //p[@class="rd-review-teaser__text rd-link rd-link--secondary"]
   - name: aggregateRating
-    singleValue: true
-    type: NUMBER
     xpath: //html//div[@id='addedAggregateRating']
-  - name: shippingInfo
-    singleValue: true
-    xpath: //html//div[@id='shipping_details']
-  - name: shippingWeight
-    singleValue: true
-    xpath: //html//div[@id='shippingWeight']
-  - name: shippingDimensions
-    singleValue: true
-    xpath: //html//div[@id='shippingDimensions']
   - name: name
-    singleValue: true
-    xpath: //h1[@class="rd-product-detail__title"]/@title
-  - name: color
-    singleValue: true
-    xpath: (//div[@class="rd-product-information-cell"]/div[contains(text(),'Farbe')]/following::div[@class="rd-product-information-cell__value-data"])[1]/a | (//div[@class="rd-product-information-cell"]/div[contains(text(),'Farbe')]/following::div[@class="rd-product-information-cell__value-data"])[1]/span
-  - name: variants
-    singleValue: true
-    xpath: (//div[@class="rd-product-information-cell"]/div[contains(text(),'Farbe')]/following::div[@class="rd-product-information-cell__value-data"])[1]/a | (//div[@class="rd-product-information-cell"]/div[contains(text(),'Farbe')]/following::div[@class="rd-product-information-cell__value-data"])[1]/span | //html//div[@id='Material']
-  - name: variantInformation
-    singleValue: true
-    xpath: (//div[@class="rd-product-information-cell"]/div[contains(text(),'Farbe')]/following::div[@class="rd-product-information-cell__value-data"])[1]/a | (//div[@class="rd-product-information-cell"]/div[contains(text(),'Farbe')]/following::div[@class="rd-product-information-cell__value-data"])[1]/span | //html//div[@id='Material']
-  - name: storage
-    singleValue: true
-    xpath: (//div[@class="rd-product-information-cell"]/div[contains(text(),'Aufbewahrung und Verwendung')]/following::div[@class="rd-product-information-cell__value-data"])[1]
-  - name: countryOfOrigin
-    singleValue: true
-    xpath: (//div[@class="rd-product-information-cell"]/div[contains(text(),'Herkunft')]/following::div[@class="rd-product-information-cell__value-data"])[1]/a | (//div[@class="rd-product-information-cell"]/div[contains(text(),'Herkunft')]/following::div[@class="rd-product-information-cell__value-data"])[1]/span
+    xpath: //h1[@class="rd-title"]
   - name: alcoholContent
-    singleValue: true
-    xpath: (//div[@class="rd-product-information-cell"]/div[contains(text(),'Alkoholgehalt')]/following::div[@class="rd-product-information-cell__value-data"])[1]/a | (//div[@class="rd-product-information-cell"]/div[contains(text(),'Alkoholgehalt')]/following::div[@class="rd-product-information-cell__value-data"])[1]/span | //html//div[@id='Alcohol']
+    xpath: (//span[text()='Alkoholgehalt'])[1]/following-sibling::div/div/span
+  - name: eangtin
+    xpath: (//span[text()='EAN'])[1]/following-sibling::div/div/span
   - name: technicalInformationPdfPresent
     singleValue: true
     defaultValue: No
@@ -115,14 +55,7 @@ fields:
     defaultValue: No
   - name: Image360Present
     singleValue: true
-    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
     defaultValue: No
   - name: imageZoomFeaturePresent
     singleValue: true
     defaultValue: Yes
-  - name: materials
-    singleValue: true
-    xpath: //html//div[@id='Material']
-  - name: quantity
-    singleValue: true
-    xpath: //html//div[@id='size']
