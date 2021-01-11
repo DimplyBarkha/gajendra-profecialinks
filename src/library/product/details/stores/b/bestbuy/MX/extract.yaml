@@ -114,7 +114,7 @@ fields:
     xpath: //div[@class='product-variations']//ul[@class='tile-group']//li[1]//div[@class='variant-img-box']//img[@class='variant-img']/@data-sku
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id="inpage_container"]//div[contains(@class,"flix-std-content")]
+    xpath: //div[@id="inpage_container"]//div[contains(@class,"flix-std-content")]//text()
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@id="inpage_container"]//img/@data-flixsrcset
