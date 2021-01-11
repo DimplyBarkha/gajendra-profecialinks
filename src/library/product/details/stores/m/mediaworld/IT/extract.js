@@ -32,31 +32,37 @@ module.exports = {
         console.log('No record');
       }
     }
-    const hasShowMore = await context.evaluate(function () {
-      return Boolean(document.evaluate('//div[@id="flix_hotspots"]//svg[@id="flix_key_features"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue);
-    });
-    if (hasShowMore) {
-      await context.click('div[id="flix_hotspots"] svg[id="flix_key_features"]', {}, { timeout: 100000 });
-    }
-    const videoMore = await context.evaluate(function () {
-      return Boolean(document.evaluate('//script[@id="popup-product-detail-main"][contains(text(),"youtube")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue);
-    });
-    if (videoMore) {
-      await context.click('div .thumb-media-container a.thumb-media-item', {}, { timeout: 50000 });
-    }
     try {
-      // await new Promise(resolve => setTimeout(resolve, 5000));
+      await new Promise(resolve => setTimeout(resolve, 5000));
       await context.waitForSelector('ul[class="productDetailsTabs"] li[class="productDetails-tab active"]', {}, { timeout: 100000 });
       await context.waitForXPath("//div[@id='flix-inpage']//img/@srcset | //div[@id='flix-inpage']//img/@data-img-src|//div[@id='flix-inpage']//img/@data-srcset", {}, { timeout: 100000 });
       await context.waitForSelector('div[id="flix-inpage"] img', {}, { timeout: 100000 });
     } catch (error) {
       console.log(error);
     }
+    try {
+      await context.click('div[id="flix_hotspots"] svg[id="flix_key_features"]', {}, { timeout: 100000 });
+    } catch (error) {
+      console.log('error');
+    }
+
+    try {
+      await context.click('div[id="flix_hotspots"] svg[id="flix_product_video"]', {}, { timeout: 100000 });
+    } catch (error) {
+      console.log('error');
+    }
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
         catElement.className = key;
         catElement.textContent = value;
+        catElement.style.display = 'none';
+        document.body.appendChild(catElement);
+      }
+      function addElementToHTML (key, value) {
+        const catElement = document.createElement('div');
+        catElement.className = key;
+        catElement.innerHTML = value;
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
@@ -92,6 +98,37 @@ module.exports = {
         if (scrollTop === 10000) {
           break;
         }
+      }
+
+      /* const categoryXpath = getAllXpath('//div[@class="breadcrumbs"]//ol//li[position()>1 and position() < last()]//a', 'innerText');
+      categoryXpath.forEach(item => {
+        addElementToDocument('added_category', item);
+      }); */
+
+      const categoryXpath = getXpath('//script[contains(text(),"dlInit")]', 'innerText');
+      try {
+        var categoryScript = categoryXpath.replace('var dlInit =', '');
+        var scriptCategoryData = categoryScript.substring(0, categoryScript.length - 1);
+        var scriptCategoryXpathObj = JSON.parse(scriptCategoryData);
+        if (scriptCategoryXpathObj.category) {
+          addElementToDocument('added_category', scriptCategoryXpathObj.category);
+        }
+        if (scriptCategoryXpathObj.dimension9) {
+          addElementToDocument('added_category', scriptCategoryXpathObj.dimension9);
+        }
+        if (scriptCategoryXpathObj.dimension10) {
+          addElementToDocument('added_category', scriptCategoryXpathObj.dimension10);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+
+      const isVideoXpath = getXpath('//script[@id="popup-product-detail-main"][contains(text(),"youtube")]', 'innerText');
+      if (isVideoXpath) {
+        addElementToHTML('added_video_hidden', isVideoXpath);
+        const VideoXpath = getXpath('//div[@class="added_video_hidden"]//img/@data-iframe', 'nodeValue');
+        // VideoXpath.substring(VideoXpath.indexOf('src=') + 4, VideoXpath.indexOf('frameborder'))
+        addElementToDocument('added_video_url', VideoXpath.substring(VideoXpath.indexOf('src=') + 5, VideoXpath.indexOf('frameborder') - 2));
       }
       const name = getXpath("//div[contains(@class,'hidden-tab-up')]//div[@data-component='productDetailInfo']//h1", 'innerText');
       const productDescription = getXpath("//div[contains(@class,'hidden-lg')]//h2[contains(@itemprop,'description')]", 'innerText');
@@ -153,10 +190,6 @@ module.exports = {
           }
         }
       }
-      /* const skuCodePath = getXpath('//div[@class="product-detail-main-container"]//a[contains(@class,"wishlist-btn")]/@data-product-id', 'nodeValue');
-      if (skuCodePath && typeof skuCodePath === 'string') {
-        addElementToDocument('added_sku', skuCodePath);
-      } */
       const specificInfoXpath = getAllXpath("//ul[@class='content__Tech__block']//li[@class='content__Tech__row']", 'innerText');
       addElementToDocument('added_specific_information', specificInfoXpath.join('||'));
       // const videoUrlPath = getXpath("//div[contains(@class,'fullJwPlayerWarp')]//input[@class='flix-jw']/@value", 'nodeValue');
@@ -176,9 +209,17 @@ module.exports = {
           }
         }
       }
-      const videoUrlPath1 = getXpath("//div[contains(@class,'flix_jw_videoid')]/@data-jw", 'nodeValue');
-      if (videoUrlPath1 && typeof videoUrlPath1 === 'string') {
-        addElementToDocument('added_video_url', 'https:' + videoUrlPath1);
+      const videoUrlPath1 = getAllXpath("//div[contains(@class,'flix_jw_videoid')]/@data-jw", 'nodeValue');
+      try {
+        if (videoUrlPath1.length > 0) {
+          for (let i = 0; i < videoUrlPath1.length; i++) {
+            if (videoUrlPath1[i] && typeof videoUrlPath1[i] === 'string') {
+              addElementToDocument('added_video_url', 'https:' + videoUrlPath1[i]);
+            }
+          }
+        }
+      } catch (error) {
+        console.log(error);
       }
       const weightNet = getXpath("//div[@data-target='specifiche']//div/p[contains(text(),'Peso')]/parent::div/following-sibling::div", 'innerText');
       if (weightNet !== null) {
@@ -246,10 +287,10 @@ module.exports = {
       }
       // secondary image Total
       // const videoAlignXpath2 = getXpath("//script[@id='popup-product-detail-main'][contains(text(),'youtube')]", 'innerText');
-      const videoAlignXpath3 = getXpath("//div[@class='video-wrapper']//iframe/@src", 'nodeValue');
-      if (videoAlignXpath3 !== null) {
-        addElementToDocument('added_video_url', videoAlignXpath3);
-      }
+      // const videoAlignXpath3 = getXpath("//div[@class='video-wrapper']//iframe/@src", 'nodeValue');
+      // if (videoAlignXpath3 !== null) {
+      // addElementToDocument('added_video_url', videoAlignXpath3);
+      // }
       // @ts-ignore
       if (document.getElementById('frame_content') != null && document.getElementById('frame_content').contentWindow.document.getElementById('abtabtags_count') !== null) {
         // @ts-ignore
