@@ -2,10 +2,10 @@ singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
-fields:  
+fields:
   - name: aggregateRating
     singleValue: false
-    xpath: //span[@itemprop = "aggregateRating"]//meta[@itemprop = "ratingValue"]//@content    
+    xpath: //span[@itemprop = "aggregateRating"]//meta[@itemprop = "ratingValue"]//@content
   - name: alternateImages
     singleValue: false
     xpath: //div[contains(@class, "image-slider--thumbnails-slide")]//a[position()>1]/@href
@@ -16,7 +16,8 @@ fields:
     singleValue: false
     xpath: //link[@itemprop = "availability"]//@href
     regExp: http:\/\/schema\.org\/(.*)
-    regExpReplace: $1
+    regExpReplace: In Stock
+    defaultValue: Out Of Stock
   - name: brandText
     singleValue: false
     xpath: //span[contains(@class, "supplier--name")]//h2
@@ -25,7 +26,7 @@ fields:
     xpath: //ul[@class = "breadcrumb--list"]//span[@class = "breadcrumb--title"]
   - name: color
     singleValue: false
-    xpath: //td[contains(@class, "product--properties-label")]//h4[contains(text(), "colour:")]//parent::td//following-sibling::td  
+    xpath: //td[contains(@class, "product--properties-label")]//h4[contains(text(), "colour:")]//parent::td//following-sibling::td
   - name: description
     singleValue: false
     xpath: concat(//div[@class='content--description']//div[@class='content--title']//h3,' ',//div[contains(@class, "product--description")]//p[1])
@@ -46,7 +47,7 @@ fields:
     xpath: //span[contains(@class, "price--line-through")]
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[contains(@class, "product-slider--container")]//div[contains(@class, "blog--box-description-short")]  
+    xpath: //div[contains(@class, "product-slider--container")]//div[contains(@class, "blog--box-description-short")]
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name = "keywords"]/@content
@@ -55,28 +56,28 @@ fields:
     xpath: //h1[@itemprop = "name"]/text()
   - name: nameExtended
     singleValue: false
-    xpath: //h1[@itemprop = "name"]/text()  
+    xpath: //h1[@itemprop = "name"]/text()
   - name: price
     singleValue: false
-    xpath: //span[contains(@class, "price--content")]/.    
+    xpath: //span[contains(@class, "price--content")]/.
   - name: quantity
     singleValue: false
     xpath: //div[@class='product--configurator']//div[@class='variant--option is--button is--active']/label[@class='option--label']
   - name: ratingCount
     singleValue: false
-    xpath: //span[@class = "rating--count"]  
+    xpath: //span[@class = "rating--count"]
   - name: sku
     singleValue: false
-    xpath: //span[@itemprop = "sku"]
+    xpath: //span[@itemprop = "sku"] | //div[@data-main-ordernumber]/@data-main-ordernumber
   - name: specifications
     singleValue: false
-    xpath: //table[contains(@class, "product--properties-table")]//tr[@class = "product--properties-row"]  
+    xpath: //table[contains(@class, "product--properties-table")]//tr[@class = "product--properties-row"]
   - name: variantCount
     singleValue: false
     defaultValue: "0"
   - name: variantId
     singleValue: false
-    xpath: //meta[@itemprop = "productID"]/@content  
+    xpath: //meta[@itemprop = "productID"]/@content
   - name: videos
     singleValue: false
     xpath: //iframe[contains(@src, "youtube")]/@src
@@ -104,15 +105,18 @@ fields:
     defaultValue: Yes
   - name: directions
     singleValue: false
-    xpath: //div[contains(@class, "product--description")]//p//strong[contains(text(),'Directions of use')]/parent::p/following-sibling::p[1]
+    # xpath: //div[contains(@class, "product--description")]//p//strong[contains(text(),'Directions of use')]/parent::p/following-sibling::p[1]
+    manualSelector: div#ii_dirToUseText
   - name: imageZoomFeaturePresent
     singleValue: false
     defaultValue: Yes
   # custom fields
-  - name: inTheBoxUrl 
+  - name: inTheBoxUrl
   - name: inTheBoxText
     xpath: //div[@itemprop="description"]//*[contains(text(), 'Dieses Set enthält:')]/..
   - name: hasComparisonTable
     defaultValue: No
   - name: unInterruptedPDP
     xpath: //div[contains(@class, 'cross-selling')]//div[@class="tab--container-list"]/div[position() < 4]//a[@class="product--title"]
+  - name: promotion
+    manualSelector: span.price--discount-percentage

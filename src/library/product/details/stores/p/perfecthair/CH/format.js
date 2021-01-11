@@ -32,7 +32,7 @@ const transform = (data) => {
         }
         if (row.aggregateRating) {
           row.aggregateRating.forEach(item => {
-            item.text = item.text.replace(/(\s*\.\s*)+/g, ',').trim();
+            item.text = item.text.trim()/2;
           });
         }
 
@@ -66,6 +66,12 @@ const transform = (data) => {
         if (row.videos) {
           row.videos = Array.from(new Set(row.videos.map(item => item.text)).values()).map(item => { return { text: item } });
         }
+
+        if (row.promotion) {
+            row.promotion.forEach(promotion => {
+              promotion.text = promotion.text.replace(/\(|\)/g,'')
+            });
+          }
         
         if (row.manufacturerDescription) {
             let info = [];          
