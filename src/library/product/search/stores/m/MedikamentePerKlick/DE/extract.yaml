@@ -6,26 +6,20 @@ fields:
   - name: _url
     xpath: //link[@rel="canonical"]/@href
   - name: productUrl
-    # xpath: //div[@class='productsList']//div[@class="h3"]/a[not(contains(@onclick,"hitSearchCampaign('12181')"))]/@href
     xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//a[@itemprop="url"]/@href
   - name: thumbnail
     description: The URL for the product thumbnail image
-    # xpath: //div[@class='productsList']//div[@class="figure"]/a[not(contains(@onclick,"hitSearchCampaign('12181')"))]/img/@src
-    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//div[@class="figure"]//img[@class="photo"]/@src
-    regExp: (.*)
+    # xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//div[@class="figure"]//img[@class="photo"]/@src
+    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//div[@class="figure"]//img[@itemprop="image"]/@src
+    regExp: (.+)
     regExpReplace: https://www.medikamente-per-klick.de$1
   - name: name
     type: TEXT
-    # xpath: //div[@class='productsList']//div[@class="figure"]/a[not(contains(@onclick,"hitSearchCampaign('12181')"))]/img/@title
     xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//span[@itemprop="name"]//text()
   - name: id
     description: The store-specific product identifier
     type: TEXT
-    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//dd[@itemprop="productID"]//text()
-  # - name: gtin
-    # manualSelector: script[type='text/plain']
-    # regExp: '(gtin: ")(\d+)'
-    # regExpReplace: $2
+    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//dd[@itemprop="productID"]
   - name: gtin
     singleValue: false
     xpath: //form/@name
@@ -35,10 +29,10 @@ fields:
     # xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//dd[@class="price lowPrice"]//text()
     xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//span[@itemprop="price"]/@content
   - name: aggregateRating
-    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//span[@itemprop='ratingValue']//text()
+    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//span[@itemprop='ratingValue']
   - name: reviewCount
     type: NUMBER
-    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//span[@itemprop='reviewCount']//text()
+    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//span[@itemprop='reviewCount']
   - name: Availability
     # xpath: //div[@class='productsList']//form[not(contains(@name,'theform'))]/dl[@class="productAvailability"]//dd/span/@title
     # defaultValue: In stock
