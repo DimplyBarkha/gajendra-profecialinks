@@ -22,7 +22,7 @@ async function implementation (
       const url = window.location.href;
       const urlSplit = url.split('/');
       const itemStr = urlSplit[urlSplit.length - 1];
-      const itemStr1 = itemStr.replace(/[0-9]+[a-z,A_Z]+-/g,'');
+      const itemStr1 = itemStr.replace(/[0-9]+[a-z,A_Z]+-/g, '');
       const apiUrl = `https://www.blu.com/acceleration/eu/api/bazaarvoice-gateway/products/${itemStr1}/reviews?page=${page}&pageSize=10&market=DE&locale=de-DE&sort=hightolow`;
       console.log(`PAGE#:${page}`);
       page++;
@@ -57,7 +57,7 @@ async function implementation (
         const data = await response.json();
         console.log('API called! Adding data..');
         // foundReviews++;
-        if(data){
+        if (data) {
           data.reviews.forEach((review) => {
             addHiddenDiv('my-reviews', review.timeAgoInWords, review.rating, review.title, review.message);
             foundReviews++;
