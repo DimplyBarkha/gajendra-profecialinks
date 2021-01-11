@@ -32,7 +32,8 @@ module.exports = {
         newDiv.id = id;
         newDiv.textContent = content;
         newDiv.style.display = "none";
-        const originalDiv = document.querySelectorAll('div[class="price-box price-final_price"]')[index];
+        const originalDiv = document.querySelectorAll('div[class="product details product-item-details"]')[index];
+        // div[class="price-box price-final_price"]
         originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
       function addElementToDocument(key, value) {
@@ -43,7 +44,7 @@ module.exports = {
         document.body.appendChild(catElement);
       }
       // Method to replace , with .
-      var price = getAllXpath('//div[@class="price-box price-final_price"]//span[@class="price"]/text()',"nodeValue");
+      var price = getAllXpath('//span[@data-price-type="finalPrice"]/span/text()',"nodeValue");
       if (price != null) {
         for (var i = 0; i < price.length; i++) {
           var price1 = price[i].replace("," , ".");
