@@ -15,7 +15,8 @@ fields:
   - name: id
     singleValue: false
     xpath: //ul[@id="ProductList"]/li/@data-ga-id
-    regExp: \d+
+    regExp: (\d+)
+    regExpReplace: lsprod$1
   - name: price
     singleValue: false
     xpath: //html//div[@id="price"]
