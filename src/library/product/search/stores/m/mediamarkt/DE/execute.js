@@ -5,9 +5,9 @@ module.exports = {
     country: 'DE',
     store: 'mediamarkt',
     domain: 'mediamarkt.de',
-    url: 'https://www.mediamarkt.de/de/search.html?&query={searchTerms}',
-    loadedSelector: null,
-    noResultsXPath: '//div[@class="ZeroResultsView__PageSection-sc-15n7m0l-0 cZToiD"]',
+    url: 'https://www.mediamarkt.de/de/search.html?query={searchTerms}',
+    loadedSelector: 'div[class^="ProductsList"], ul[class^="products-list"]',
+    noResultsXPath: '//div[contains(@class, "ZeroResultsView")]|//nav[contains(@class, "dy-nav")]',
     zipcode: '',
   },
 };

@@ -1,21 +1,16 @@
 
 module.exports = {
-  implements: 'navigation/paginate',
+  implements: 'product/search/paginate',
   parameterValues: {
     country: 'DE',
     store: 'mediamarkt',
     nextLinkSelector: null,
-    nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
-    loadedXpath: null,
-    noResultsXPath: '//div[@class="ZeroResultsView__PageSection-sc-15n7m0l-0 cZToiD"]',
-    stopConditionSelectorOrXpath: null,
-    resultsDivSelector: null,
+    noResultsXPath: null,
     openSearchDefinition: {
-      pageStartNb: 1,
-      template: 'https://www.mediamarkt.de/de/search.html?&query={searchTerms}&page={page}',
+      template: 'https://www.mediamarkt.de/de/search.html?page={page}&query={searchTerms}',
     },
     domain: 'mediamarkt.de',
     zipcode: '',
