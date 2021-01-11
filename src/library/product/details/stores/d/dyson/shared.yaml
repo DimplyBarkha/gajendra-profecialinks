@@ -44,10 +44,10 @@ fields:
     xpath: //div[@id='added_price'] | //div[contains(@id,"product_addtocart_form")]//div[contains(@id,'product-price')]/text() | (//div[contains(@id,"product_addtocart_form")]//div[contains(@id,'product-price')]/span)[1]
   - name: currencyOverride
     xpath: //div[@id='added_currency']
-  - name: availabilityText #localedependent    
-    description: Availability as described on page for the selected variant. If
-      there is no availability but the product can be added to cart, this field
-      should be "In Stock"
+  # - name: availabilityText #localedependent    
+  #   description: Availability as described on page for the selected variant. If
+  #     there is no availability but the product can be added to cart, this field
+  #     should be "In Stock"
     # No default value should be added. Being taken care in transform.js
     # xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//form//*[contains(text(),'asket')]//text()| //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//form//*[contains(@class,'add-to-basket')]//text()
     # xpath: //script[contains(@type,"application/ld+json")]

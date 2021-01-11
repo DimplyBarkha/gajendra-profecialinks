@@ -72,11 +72,11 @@ const transform = (data) => {
       //   }
       // // console.log(altImages+' are images transformed');
       // }
-      if (row.availabilityText && row.availabilityText[0] && row.availabilityText[0].text === 'true') {
+      if (row.availabilityText && row.availabilityText[0] && row.availabilityText[0].text && row.availabilityText[0].text !== 'false') {
         row.availabilityText = [
           { text: 'In Stock' },
         ];
-      } else {
+      } else if (!row.availabilityText || row.availabilityText[0].text === 'false') {
         row.availabilityText = [
           { text: 'Out Of Stock' },
         ];
