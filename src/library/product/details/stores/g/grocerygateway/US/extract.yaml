@@ -1,6 +1,3 @@
-extractionGlobals:
-  screenCapture: true
-  screenCaptureType: "png"
 singleRecord: false
 regionsSelector: null
 recordSelector: null
@@ -28,10 +25,7 @@ fields:
     regExpReplace: In stock
     defaultValue: Out of Stock
   - name: description
-    description:
-      Product description supplied by website - may be concatenanted from
-      multiple places; specifically not the manufacturer description
-    xpath: //div[contains(@class, "product_main-infos")]//div[contains(@class,"description")]
+    xpath: //div[@id="description"]
   - name: sku
     xpath: //div[@class="container"]/div[contains(@class,"product")]/@data-sku
   - name: ratingCount
@@ -54,9 +48,9 @@ fields:
   - name: productUrl
     xpath: //div[@class="about-sku-section"]/@producturl
   - name: ingredientsList
-    xpath: normalize-space(//*[contains(text(),"Ingredients:")]/..)
-    regExp: Ingredients:(.*)
-    regExpReplace: $1
+    xpath: //div[@class="about-this-product"]//h3[contains(text(),'Ingredients')]//following::text()[1]
+    # regExp: Ingredients:(.*)
+    # regExpReplace: $1
   - name: servingSize
     description: The size of serving Nutritional information is based on.
     xpath: //p[@class="serving-size"]
