@@ -30,7 +30,8 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //div[@class="hgroup__main-image"]/img/@alt|//h2[@class="hgroup__title "]
+    #xpath: //div[@class="hgroup__main-image"]/img/@alt|//h2[@class="hgroup__title "]
+    xpath: //div[@class="hgroup__main-image"]/img/@alt | //h2[contains(@class,"hgroup__title")] | //h1
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -171,7 +172,8 @@ fields:
   - name: name
     singleValue: true
     description: The product name
-    xpath: //div[@class="hgroup__main-image"]/img/@alt|//h2[@class="hgroup__title "]
+    #xpath: //div[@class="hgroup__main-image"]/img/@alt|//h2[@class="hgroup__title "]
+    xpath: //div[@class="hgroup__main-image"]/img/@alt | //h2[contains(@class,"hgroup__title")] | //h1
   - name: inStorePrice #missing
     singleValue: true
     description: Price in the selected store

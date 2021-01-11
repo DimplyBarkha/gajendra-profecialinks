@@ -50,7 +50,8 @@ async function implementation (
 
     if (!document.getElementById('sku')) {
       document.querySelectorAll('script').forEach(script => {
-        const matches = script.innerText.match(/productSKU: \"[0-9]+\-[0-9]+\"/);
+        //const matches = script.innerText.match(/productSKU: \"[0-9]+\-[0-9]+\"/);
+        const matches = script.innerText.match(/productSKU:\s?"(.+)",/);
         if (matches && matches.length) {
           addHiddenDiv('sku', matches[0].replace('productSKU: ', '').replace(/"/g, ''));
         }
