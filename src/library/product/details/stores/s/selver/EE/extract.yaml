@@ -5,9 +5,14 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //img[@itemprop="image"]/@src
+    xpath: //p[@class="product-image"]/a/@href
     regExp: (.+)
     regExpReplace: https:$1
+  - name: image1
+    singleValue: false
+    xpath: //img[@itemprop="image"]/@src
+    regExp: (.+)
+    regExpReplace: https:$1  
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
@@ -25,10 +30,10 @@ fields:
     xpath: //img[@itemprop="image"]/@title
   - name: listPrice
     singleValue: false
-    description: The stated undiscounted price for the product
+    xpath: //p[@class="old-price left"]//span[@class="price"]/span[1]
   - name: price
     singleValue: false
-    xpath: //span[@itemprop="price"]/span
+    xpath: //span[@itemprop="price"]/span | //span[@itemprop="price"]/@content
   - name: availabilityText
     singleValue: false
     xpath: (//button[@title="Osta"])[1]
@@ -81,10 +86,10 @@ fields:
     description: Content under "legal disclaimer" header
   - name: directions
     singleValue: false
-    description: Content under "directions" header
+    xpath: //div[contains(.,"Säilitamine ja kasutamine")][@class="item"]/div/div[@class="cms-content"]/text()
   - name: warnings
     singleValue: false
-    description: Content under "warnings" header
+    xpath: //div[contains(.,"Hoiatused")][@class="item"]/div/div[@class="cms-content"]/text()
   - name: ratingCount
     singleValue: false
     description: The number of ratings
@@ -381,7 +386,7 @@ fields:
     xpath: //th[contains(text(),"Päritolumaa")]/following-sibling::td
   - name: allergyAdvice
     singleValue: false
-    description: Allergy information associated with the product
+    xpath: //div[contains(.,"Allergeenid")][@class="item"]/div/div[@class="cms-content"]/text() 
   - name: recyclingInformation
     singleValue: false
     description: Recycling information associated with the product

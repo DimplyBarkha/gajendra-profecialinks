@@ -32,6 +32,14 @@ const transform = (data) => {
           row.alternateImages[index].text = text;
         });
       }
+      // if (row.price) {
+      //   let prices = '';
+      //   row.price.forEach(item => {
+      //     if (item.text.indexOf('€') === -1) {
+      //       item.text = `${item.text}€`;
+      //     }
+      //   });
+      // }
 
       if (row.description) {
         let text = '';
@@ -40,7 +48,7 @@ const transform = (data) => {
         });
         row.description = [
           {
-            text: text.slice(0, -4),
+            text: text.slice(0, -3),
           },
         ];
       }
@@ -96,6 +104,23 @@ const transform = (data) => {
       }
       if (row.price && row.price[0]) {
         row.price[0].text = row.price[0].text.replace(',', '.');
+        console.log('row.price[0]::', row.price[0]);
+        if (row.price[0].text.indexOf('€') === -1) {
+          row.price[0].text = `${row.price[0].text} €`;
+          console.log('row.price[0]::', row.price[0]);
+        }
+      }
+      if ((!row.image || !row.image.length) && row.image1) {
+        console.log('image1',row.image1);
+        row.image = row.image1;
+        console.log("image", row.image);
+      }
+      if (row.listPrice && row.listPrice[0]) {
+        row.listPrice[0].text = row.listPrice[0].text.replace(',', '.');
+        if (row.listPrice[0].text.indexOf('€') === -1) {
+          row.listPrice[0].text = `${row.listPrice[0].text} €`;
+          console.log('row.listPrice[0]::', row.listPrice[0]);
+        }
       }
       if (row.variants) {
         let text = '';
