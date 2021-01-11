@@ -59,7 +59,7 @@ module.exports = {
     domain: 'jbhifi.com.au',
     url: 'https://www.jbhifi.com.au/?q={searchTerms}',
     loadedSelector: 'div#quicksearch-search-results div.ais-hits--item',
-    noResultsXPath: '//div[@id="MainContent_products_jbProductListNoResults_noResult"]',
+    noResultsXPath: null,
     zipcode: "''",
   },
   implementation,
