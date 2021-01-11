@@ -69,6 +69,9 @@ fields:
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
+  xpath: //div[@class='fed-pdp-product-details-title']/h1
+  regExp: ^(.+?)\s
+  regExpReplace: $1
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
@@ -76,7 +79,7 @@ fields:
   singleValue: true
   description: Quantity as described on the page
   xpath: //div[@class="fed-pdp-product-details-title"]/h1/text()
-  regExp: \d{1,}(g|G|L|Kg|Mg|Ml|ml|Oz|s|l|EA|GR) 
+  regExp: \d*\.?\d{1,}(kg|Kg|ea|EA|gr|GR|mg|Mg|ml|Ml|oz|Oz|g|G|L|s|l)
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page
