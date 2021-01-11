@@ -17,17 +17,24 @@ module.exports = {
   ) => {
     await context.evaluate(() => {
       const scriptPrice = document.querySelector('#schemaJSON');
+      const addToCart = document.querySelector('#addToCartButton');
       /*eslint-disable */
       const regexPrice = /((?<="lowPrice\"\:\s\").+?(?="))/;
       /*eslint-disable */
       const regexListPrice = /((?<="highPrice\"\:\s\").+?(?="))/;
-      const currency = 'TL';
+      const currency = "TL";
       const price = scriptPrice.innerText.match(regexPrice);
       const listPrice = scriptPrice.innerText.match(regexListPrice);
-      listPrice[0] = listPrice[0].replace('.', ',');
-      scriptPrice.setAttribute('correctPrice', price[0] + ' ' + currency);
-      if (price[0] !== listPrice[0]) {
-        scriptPrice.setAttribute('correctListPrice', listPrice[0] + ' ' + currency);
+      listPrice[0] = listPrice[0].replace(".", ",");
+      price[0] = price[0].replace(".", ",");
+      if (addToCart) {
+        scriptPrice.setAttribute("correctPrice", price[0] + " " + currency);
+        if (price[0] !== listPrice[0]) {
+          scriptPrice.setAttribute(
+            "correctListPrice",
+            listPrice[0] + " " + currency
+          );
+        }
       }
     });
     await context.extract(productDetails, { transform });

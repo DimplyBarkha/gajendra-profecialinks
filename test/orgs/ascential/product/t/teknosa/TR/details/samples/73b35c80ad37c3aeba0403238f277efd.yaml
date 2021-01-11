@@ -2,7 +2,7 @@ input:
   id: 125077495
   _url: http://teknosa.com
 extractions:
-  - html: https://workbench.import.io/html/run=8aa7654a-7a77-4bbd-b95e-a820ff863968/task=dbfdb70b-c73f-4ae2-9759-e4323b9c7ae3/67b94c3f-b38c-48d1-a9ec-19ad7dcec389.html
+  - html: https://workbench.import.io/html/run=806d4e64-1583-4a5e-a25b-ab38bb6413c3/task=ed0ed935-0f2f-4274-a0de-acbc58a7d9e2/fbb1f869-2975-42a5-83eb-b7677a8d2bfb.html
     extractionConfigId: product/details/stores/t/teknosa/TR/extract
     data:
       - group:
@@ -33,6 +33,9 @@ extractions:
             nameExtended:
               - text: Samsung Galaxy A51 White Akıllı Telefon
                 xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/h1[1]/text()[1]
+            price:
+              - text: 3499,00 TL
+                xpath: /html/body/script[4]/@correctprice
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/text()[2]
@@ -2120,4 +2123,4 @@ extractions:
                 locale: tr
                 value: 9
         xpath: /
-    timestamp: 1610010246144
+    timestamp: 1610112047725
