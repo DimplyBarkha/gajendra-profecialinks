@@ -8,24 +8,12 @@ async function implementation(
 ) {
     const { transform } = parameters;
     const { productDetails } = dependencies;
+    try {
+        await context.waitForSelector('div[id="inpage_container"]', { timeout: 10000 });
+    } catch (error) {
+        console.log("Manufacturer Description did not loaded....");
+    }
     await context.evaluate(async function() {
-        window.scrollTo(0, 700);
-        await  new  Promise((resolve)  =>  setTimeout(resolve, 8000));
-        await new Promise((resolve, reject) => {
-            var totalHeight = 0;
-            var distance = 100;
-            var timer = setInterval(() => {
-                var scrollHeight = document.body.scrollHeight;
-                window.scrollBy(0, distance);
-                totalHeight += distance;
-
-                if (totalHeight >= scrollHeight) {
-                    clearInterval(timer);
-                    resolve();
-                }
-            }, 500);
-        });
-
         const vidArr = document.querySelectorAll('iframe[class*="youtube-container"]');
         let str = [];
         vidArr.forEach(ele => {
