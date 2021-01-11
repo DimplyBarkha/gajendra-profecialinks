@@ -5,7 +5,7 @@ module.exports = {
     country: 'DE',
     store: 'hairshop',
     domain: 'hair-shop.com',
-    url: 'https://www.hair-shop.com/en/catalogsearch/result/?q={searchTerms}',
+    url: 'https://www.hair-shop.com/catalogsearch/result/?q={searchTerms}',
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
