@@ -9,16 +9,10 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     xpath: //a/@availability
-    # xpath: boolean(//a//ancestor::li[@class="selectable"])
     defaultValue: 'false'
-    # xpath: true(//button[contains(@class, "add-to-cart btn")][not(@disabled)]/@class)
-    # regExp: (.+)
-    # regExpReplace: In Stock
-    # defaultValue: Out of Stock
   - name: brandText
     singleValue: false
     xpath: (ancestor::html//a[contains(@class, "product-brand")])[1]
-    # xpath: (//a[contains(@class, "product-brand")])[1]
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: designer
@@ -30,11 +24,9 @@ fields:
   - name: image
     singleValue: false
     xpath: ancestor::html//div[@id="primary-image-0"]//img/@src
-    # xpath: //div[@id="primary-image-0"]//img/@src
     description: URL of the main product image
   - name: inventoryText
     xpath: //a/@inventory
-    # xpath: //div[contains(@class, "product-availability")]//ul[contains(@class, "availability-msg")]|//div[@id="waitlist"][not(contains(@class, "d-none"))]//div[contains(@class, "soldout")]
     description: The inventory status of the product, if available
   - name: listPrice
     singleValue: false
@@ -60,7 +52,6 @@ fields:
     singleValue: false
     description: colour / scent / flavour / other
     xpath: //a
-    # xpath: //ul[contains(@class, "size-attribute")]//li
   - name: viewing
     singleValue: false
     description: The number to identify the current views of the product, if available
