@@ -14,6 +14,14 @@ module.exports = {
     context,
     dependencies,
   ) => {
+    let pagePresent= await context.evaluate(function () {
+    if(document.querySelector('div[class*="page-title"] h1')){
+      if(document.querySelector('div[class*="page-title"] h1').innerText.includes('404 Not Found'))
+          return false;
+  }
+  return true;
+  });
+    if(pagePresent===true){
     await context.waitForNavigation({ timeout: 100000, waitUntil: 'networkidle0' });
     await context.evaluate(function () {
       console.log('Scrolling to the bottom of page.');
@@ -49,8 +57,11 @@ module.exports = {
       const videoUrl = video.replace(new RegExp('(.+"file":")(.+.mp4)(.+)', 'g'), '$2').replace(/\\/gi, '').replace(/\/\//gi, '');
       document.body.setAttribute('video', videoUrl);
     });
+    
     const { transform } = parameters;
     const { productDetails } = dependencies;
+    
     return await context.extract(productDetails, { transform });
+  }
   },
 };
