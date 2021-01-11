@@ -1,0 +1,25 @@
+input:
+  keywords: Schoonmaakdoekjes
+  _url: http://farmaline.be
+extractions:
+  - html: https://workbench.import.io/html/run=378d9c2c-8f6d-4b96-b733-71ee559984ac/task=406b340a-da36-4580-bc5f-6c360ccf89a9/c3d4f898-32a7-4396-9cb0-de1a2d3cf74c.html
+    extractionConfigId: product/search/stores/f/farmaline_nl/BE/extract
+    data:
+      - group:
+          - id:
+              - text: "16324"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/article[1]/div[1]/input[1]/@id
+            name:
+              - text: Difrax Fopspeen Schoonmaakdoekjes
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/article[1]/div[1]/a[1]/header[1]/h2[1]
+            productUrl:
+              - text: https://www.farmaline.be/apotheek/bestellen/fopspeen-schoonmaakdoek/
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/article[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://imgcdn.farmaline.be/web/cache/thumbs/2/7/0/9/5/3/3/files/628830_fopspeen-schoonmaakdoek_nl-thumb-1_200x200.webp
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/article[1]/div[1]/a[1]/div[1]/div[1]/img[1]/@src
+            searchUrl:
+              - text: https://www.farmaline.be/apotheek/zoeken/Schoonmaakdoekjes/
+                xpath: /html/body/div[5]
+        xpath: /html
+    timestamp: 1610378487518

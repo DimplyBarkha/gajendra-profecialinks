@@ -9,6 +9,7 @@ fields:
     regExp: (\d+)
   - name: searchUrl
     singleValue: true
+    xpath: ancestor::html//div[@id="searchUrl"][last()]
   - name: name
     singleValue: false
     xpath: //ul[@id="articleList"]//header/h2
