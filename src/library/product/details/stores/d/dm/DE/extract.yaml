@@ -131,11 +131,11 @@ fields:
     regExpReplace: $2
   - name: totalSugarsPerServing
     singleValue: true
-    xpath: //td[text()='Zucker']/following-sibling::td
+    xpath: //td[contains(text(),'Zucker')]/following-sibling::td
     regExp: (?:([\d\.\,]+)\s?)
   - name: totalSugarsPerServingUom
     singleValue: true
-    xpath: //td[text()='Zucker']/following-sibling::td
+    xpath: //td[contains(text(),'Zucker')]/following-sibling::td
     regExp: (?:([\d\.\,]+)\s?)(.*)
     regExpReplace: $2
   - name: totalProtienPerServing
