@@ -18,77 +18,151 @@ async function implementation(inputs, parameters, context, dependencies ) {
 
   await context.waitForSelector('div.b_2TiXwODAcc a')
   .catch(() => { });
-  await context.clickAndWaitForNavigation("div.b_2TiXwODAcc a")
-  .catch(() => { });
-  await context.waitForSelector('div.b_3_bNW20rUd')
-  .catch(() => { });
-  await context.evaluate(async () => {
-  const specXpath = document.evaluate('//div[@class="_2aFJJAOXlE"]//text() | //div[@class="_3_bNW20rUd"]//text()', document, null, XPathResult.ANY_TYPE);
-if(specXpath) {
-  var specificationList;
-  let specification = '';
-
-  specificationList = document.querySelectorAll('div.b_3_bNW20rUd');
-  specificationList.forEach((element) => {
-    specification +=
-      element.children[0].innerText+':'+element.children[2].innerText+'||';
+  const newPage = async () => {
+  return await context.evaluate(async function () {
+    const newPageEl = document.evaluate(
+      "//div[@class='b_2TiXwODAcc']",
+      document,
+      null,
+      XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
+      null
+    );
+    if (newPageEl.snapshotLength) {
+      return 'true';
+    } else {
+      return 'false';
+    }
   });
-  const specifications = [];
-   specifications.push(specification.slice(0 , -1))
-  sessionStorage.setItem("Specifications", JSON.stringify(specifications));
-}  
+};
 
-}); 
 
-  await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
+console.log('*************newPage' ,(await newPage()) === 'true');
+  if((await newPage()) === 'true') {
+    // await context.clickAndWaitForNavigation("div.b_2TiXwODAcc a")
+    // .catch(() => { });
+    const specification_navigate = await context.evaluate(async function () {
+        return document.querySelector('div.b_2TiXwODAcc a').href;
+      });
+    
+    console.log('specification_navigate' , specification_navigate);
+    await context.goto(specification_navigate, { timeout: 5000, waitUntil: 'load', checkBlocked: true });
 
-// await context.waitForSelector('div.b_D2rV3eJmpM a')
-// .catch(() => { });
-// await context.clickAndWaitForNavigation("div.b_D2rV3eJmpM a")
-// .catch(() => { });
+    const memory = {};
+    const backconnect = !!memory.backconnect;
+    console.log('backconnect', backconnect);
+    const benchmark = !!memory.benchmark;
+    console.log('benchmark', benchmark);
+    const start = Date.now();
+    const MAX_CAPTCHAS = 3;
 
-// await context.evaluate(async () => {
-// // let clickNew = document.querySelector('div.b_D2rV3eJmpM')
-// // if(clickNew) {
-//   console.log(mainUrl , 'Code:');
+    // let pageId;
+    let captchas = 0;
+    let hasCaptcha = false;
+    let lastResponseData;
+    // eslint-disable-next-line
+    // const js_enabled = true; // Math.random() > 0.7;
+    // console.log('js_enabled', js_enabled); ;
 
-// // }
-// });
-await context.evaluate(async () => {
+    const isCaptcha = async () => {
+      return await context.evaluate(async function () {
+        const captchaEl = document.evaluate(
+          '//div[contains(@class, "captcha__image")]//img',
+          document,
+          null,
+          XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
+          null
+        );
+        if (captchaEl.snapshotLength) {
+          return 'true';
+        } else {
+          return 'false';
+        }
+      });
+    };
 
-  function addHiddenDiv(id, content) {
-    const newDiv = document.createElement('div');
-    newDiv.id = id;
-    newDiv.textContent = content;
-    newDiv.style.display = 'none';
-    document.body.appendChild(newDiv);
+    const solveCaptcha = async () => {
+      console.log('isCaptcha', true);
+
+      await context.solveCaptcha({
+        type: 'IMAGECAPTCHA',
+        inputElement: 'form input[name="rep"]',
+        imageElement: 'form img',
+        autoSubmit: true,
+      });
+      console.log('solved captcha, waiting for page change');
+      context.waitForNavigation();
+      console.log('Captcha vanished');
+    };
+
+    const solveCaptchaIfNecessary = async () => {
+      console.log('Checking for CAPTCHA');
+      while ((await isCaptcha()) === 'true' && captchas < MAX_CAPTCHAS) {
+        captchas++;
+        if (backconnect) {
+          throw Error('CAPTCHA received');
+        }
+        console.log('Solving a captcha', await isCaptcha(), captchas);
+        await solveCaptcha();
+      }
+      if ((await isCaptcha()) === 'true') {
+        if (!benchmark) {
+          // we failed to solve the CAPTCHA
+          console.log('We failed to solve the CAPTCHA');
+          return context.reportBlocked(
+            lastResponseData.code,
+            'Blocked: Could not solve CAPTCHA, attempts=' + captchas
+          );
+        }
+        return false;
+      }
+      return true;
+    };
+    await solveCaptchaIfNecessary();
+
+    await context.evaluate(async () => {
+    const specXpath = document.evaluate('//div[@class="_2aFJJAOXlE"]//text() | //div[@class="_3_bNW20rUd"]//text()', document, null, XPathResult.ANY_TYPE);
+    if(specXpath) {
+    var specificationList;
+    let specification = '';
+  
+    specificationList = document.querySelectorAll('div.b_3_bNW20rUd');
+    specificationList.forEach((element) => {
+      specification +=
+        element.children[0].innerText+':'+element.children[2].innerText+'||';
+    });
+    const specifications = [];
+    specifications.push(specification.slice(0 , -1))
+    console.log('=====Spec' , JSON.stringify(specifications));
+    sessionStorage.setItem("Specifications", JSON.stringify(specifications));
+  }  
+  
+  }); 
+    await context.setBlockAds(false);
+    await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
+    await solveCaptchaIfNecessary();
+    await context.evaluate(async () => {
+
+      function addHiddenDiv(id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+    
+      const specifications = JSON.parse(sessionStorage.getItem("Specifications"));
+      console.log(specifications ,'specifications');
+      if(specifications) {
+        specifications.forEach(specs => {
+          addHiddenDiv('import_specs', specs);
+        })  
+      }
+    });
   }
 
-  const specifications = JSON.parse(sessionStorage.getItem("Specifications"));
-  console.log(specifications ,'specifications');
-  specifications.forEach(specs => {
-    addHiddenDiv('import_specs', specs);
-  })  
-});
+
   await context.evaluate(async () => {
-    let scrollTop = 0;
-    while (scrollTop !== 20000) {
-      await stall(500);
-      scrollTop += 1000;
-      window.scroll(0, scrollTop);
-      if (scrollTop === 20000) {
-        await stall(5000);
-        break;
-      }
-    }
-    function stall(ms) {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve();
-        }, ms);
-      });
-    }
- 
+
     function addHiddenDiv(id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
@@ -138,11 +212,7 @@ await context.evaluate(async () => {
         secondaryImageLink.setAttribute('href', element.src);
         document.body.appendChild(secondaryImageLink);
       });
-      // const secondaryImageCount = document.createElement('div');
-      // secondaryImageCount.setAttribute('class', 'alternateImagesCountTotal');
-      // // @ts-ignore
-      // secondaryImageCount.setAttribute('sum', alternateImagesCount);
-      // document.body.appendChild(secondaryImageCount);
+
     }
     console.log(images, 'ss');
     let image_alt = document.querySelectorAll('div.b_2BHljydmvn.b_2qkQHl2AeT picture img')
@@ -155,11 +225,7 @@ await context.evaluate(async () => {
         secondaryImageLink.setAttribute('href', element.src.replace('orig', '1hq'));
         document.body.appendChild(secondaryImageLink);
       });
-      // const secondaryImageCount = document.createElement('div');
-      // secondaryImageCount.setAttribute('class', 'alternateImagesCountTotal');
-      // // @ts-ignore
-      // secondaryImageCount.setAttribute('sum', alternateImagesCount);
-      // document.body.appendChild(secondaryImageCount);
+  
     }
     if (alternateImagesCount >= 1) {
       addHiddenDiv('alternateImagesCount', alternateImagesCount - 1);
@@ -214,21 +280,6 @@ await context.evaluate(async () => {
   }
   }
 
-    // var xpath =
-    //   " //span[@class='b_orEV9DcwNt']";
-    // var variantInfoText = document.evaluate(
-    //   xpath,
-    //   document,
-    //   null,
-    //   XPathResult.FIRST_ORDERED_NODE_TYPE,
-    //   null
-    // ).singleNodeValue;
-    // let variantInfo = '';
-    // if (variantInfoText) {
-    //   variantInfo += variantInfoText.textContent+'|';
-    // }
-
-    // addHiddenDiv('variantInfo', variantInfo);
     var xpath =
       "//span[contains(text() , 'Срок годности')]/../following-sibling::div/span";
     var storages = document.evaluate(
@@ -363,18 +414,10 @@ await context.evaluate(async () => {
     }
     addHiddenDiv('ingredients', ingredients);
 
-    // var popUP = document.evaluate(
-    // xpath,
-    // document,
-    // null,
-    // XPathResult.FIRST_ORDERED_NODE_TYPE,
-    // null
-    // ).singleNodeValue;
-   
     let spec = document.querySelector('div.b_2TiXwODAcc');
-if(spec === null) {
-  var specificationList;
-  let specification2 = '';
+    if(spec === null) {
+    var specificationList;
+    let specification2 = '';
 
   specificationList = document.querySelectorAll('div.b_3_bNW20rUd');
   specificationList.forEach((element, index, array) => {
@@ -405,9 +448,6 @@ if(variantInfo) {
   addHiddenDiv('variantList', variantList.slice(0 , -2));
 }
 
-
-  // await context.waitForSelector('[data-zone-name="footer"]', { timeout: 10000 });
-   
   });
   
   return await context.extract(productDetails, { transform });

@@ -18,7 +18,7 @@ fields:
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
-    xpath: //a[@class='alternateImages'][position()>1]/@href | //a[@class='alternateImages_alt'][position()>1]/@href | | //a[@class='alternateImages_alt_1'][position()>1]/@href
+    xpath: //a[@class='alternateImages'][position()>1]/@href | //a[@class='alternateImages_alt'][position()>1]/@href | //a[@class='alternateImages_alt_1'][position()>1]/@href
     description: Other product images (not in manufacturer description)
   - name: metaKeywords
     singleValue: false
@@ -399,7 +399,7 @@ fields:
   - name: specifications
     singleValue: false
     description: The physical dimensions of the product including packaging.
-    xpath: //div[@id='specification'] //div[@id='specification_2'] | //div[@id='specification_alt'] | //div[@id='import_specs']
+    xpath: //div[@id='import_specs'] | //div[@id='specification_2'] | //div[@id='specification_alt'] 
   - name: warranty
     singleValue: false
     description: Guarantee associated with the product
