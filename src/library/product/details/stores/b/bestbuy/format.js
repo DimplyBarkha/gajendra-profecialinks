@@ -31,6 +31,15 @@ const transform = (data, context) => {
           row.alternateImages = [...row.alternateImages2];
         }
       }
+      if (row.alternateImages) {
+        const seen = new Set();
+        const filteredArr = row.alternateImages.filter(el => {
+          const duplicate = seen.has(el.text);
+          seen.add(el.text);
+          return !duplicate;
+        });
+        row.alternateImages = filteredArr;
+      }
       if (row.secondaryImageTotal && row.alternateImages) {
         row.secondaryImageTotal[0].text = row.alternateImages.length;
       }

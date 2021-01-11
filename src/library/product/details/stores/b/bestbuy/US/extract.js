@@ -36,7 +36,11 @@ async function implementation (
       console.log('Enhanced content navigation error', error);
     }
     try {
-      // await context.waitForSelector('div#syndi_powerpage div[class*="syndigo-shadowed-powerpage"]');
+      try {
+        await context.waitForSelector('div#syndi_powerpage div[class*="syndigo-shadowed-powerpage"]');
+      } catch (error) {
+        console.log('Error: syndi_powerpage selector not found');
+      }
       manufacturerData = await context.evaluate(async function () {
         const manuData = document.querySelector('div#syndi_powerpage div[class*="syndigo-shadowed-powerpage"]');
         const getShadowDomHtml = (manuData) => {
@@ -62,6 +66,17 @@ async function implementation (
                 imagesHtml.forEach(element => {
                   shadowImage.push(element.src);
                 });
+              }
+            } else {
+              manuData = document.querySelector('#wc-outter-wrapper');
+              if (manuData) {
+                shadowText = manuData.innerText;
+                const imagesHtml = manuData.querySelectorAll('img') || '';
+                if (imagesHtml && imagesHtml.length) {
+                  imagesHtml.forEach(element => {
+                    shadowImage.push(element.src);
+                  });
+                }
               }
             }
           }
