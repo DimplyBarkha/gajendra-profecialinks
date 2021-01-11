@@ -67,9 +67,13 @@ fields:
   - name: mpc
     xpath: //div[@class='sku-wrap']//strong[contains(text(),'Model:')]//following-sibling::span
   - name: videos
-    xpath: //video[contains(@class,'jw-video')]/@src | //iframe[contains(@data-src,"youtube")]/@data-src
+    xpath: //video[contains(@class,'jw-video')]/@src | //iframe[contains(@data-src,"youtube")]/@data-src | //iframe[contains(@src,"youtube")]/@src | //li[contains(@class,"vidgallery")]//a/@data-jw | //iframe[contains(@src,"player")]/@src
+    regExp: (https:)?(.+)
+    regExpReplace: https:$2
   - name: galleryVideos
-    xpath: //video[contains(@class,'jw-video')]/@src | //iframe[contains(@data-src,"youtube")]/@data-src
+    xpath: //video[contains(@class,'jw-video')]/@src | //iframe[contains(@data-src,"youtube")]/@data-src | //iframe[contains(@src,"youtube")]/@src | //li[contains(@class,"vidgallery")]//a/@data-jw | //iframe[contains(@src,"player")]/@src
+    regExp: (https:)?(.+)
+    regExpReplace: https:$2
   - name: shippingInfo
     xpath: //div[contains(@class,'quick-right')]//span[contains(@class,'sold-by')]//a//b
   - name: gtin

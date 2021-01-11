@@ -42,6 +42,45 @@ const transform = (data) => {
           item.text = item.text.replace('180x180', '600x600');
         });
       }
+
+      if (row.videos) {
+        const video = [];
+        let dupUrl = '';
+        let urls = [];
+        row.videos.forEach(item => {
+          console.log('item:: ', item.text);
+          urls = row.videos.filter(it => item.text === it.text);
+          if (urls && urls.length === 1) {
+            video.push(item);
+          } else {
+            if (dupUrl !== item.text) {
+              dupUrl = item.text;
+              video.push(item);
+            }
+          }
+        });
+        row.videos = video;
+      }
+
+      if (row.galleryVideos) {
+        const galleryvideo = [];
+        let dupUrl = '';
+        let urls = [];
+        row.galleryVideos.forEach(item => {
+          console.log('item:: ', item.text);
+          urls = row.galleryVideos.filter(it => item.text === it.text);
+          if (urls && urls.length === 1) {
+            galleryvideo.push(item);
+          } else {
+            if (dupUrl !== item.text) {
+              dupUrl = item.text;
+              galleryvideo.push(item);
+            }
+          }
+        });
+        row.galleryVideos = galleryvideo;
+      }
+
       if (row.price2) {
         if (!row.price) {
           row.price = [{ text: row.price2[0].text }];
