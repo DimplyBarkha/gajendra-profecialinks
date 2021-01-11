@@ -6,15 +6,20 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //div[contains(@class,'fotorama__stage__frame fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img fotorama__active')]//img/@src
+    xpath:  //div[contains(@class,'fotorama__stage__frame fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img')]/@href
+    #xpath: //div[contains(@class,'fotorama__stage__frame fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img fotorama__active')]//img/@src
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
-    xpath: //div[contains(@class,'fotorama__stage__frame fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img fotorama__active')]//img/@alt
+    xpath: //div[contains(@class,'fotorama__stage__frame fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img fotorama__active')]//img/@alt | //div[contains(@class,'fotorama__nav__frame fotorama__nav__frame--thumb')]//div/img/@src
   - name: alternateImages
-    #singleValue: false
+    singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[contains(@class,'fotorama__nav__shaft fotorama__grab')]//div/img/@src| //div[contains(@class,'fotorama__nav__frame fotorama__nav__frame--thumb')]//div/img/@src
+    xpath: //div[contains(@class,'fotorama__nav__frame fotorama__nav__frame--thumb')]//div[1]/img/@src
+    #xpath:  //div[contains(@class,'column main')]//div/img/@src
+    #xpath: //img[contains(@class,'fotorama__img')]/@src | //div[contains(@class,'fotorama__nav__frame fotorama__nav__frame--thumb')]//div/img/@src
+    #xpath:  //div[contains(@class,'fotorama__thumb fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img')]/img/@src
+    #xpath: //div[contains(@class,'fotorama__nav__shaft fotorama__grab')]//div/img/@src| //div[contains(@class,'fotorama__nav__frame fotorama__nav__frame--thumb')]//div/img/@src
     #xpath: //div[contains(@class,'fotorama__thumb fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img')]/img/@src | //img[contains(@class,'fotorama__img')]/@src
     #xpath: //div[contains(@class,'fotorama__stage')]//img[contains(@class,'fotorama__img')]/@src
     #xpath: //img[contains(@class,'fotorama__img')]/@src
@@ -104,6 +109,7 @@ fields:
   - name: ratingCount
     singleValue: true
     description: The number of ratings
+    xpath: //a[contains(@class,'bv-rating-label bv-text-link bv-focusable')]
     type: NUMBER
   - name: aggregateRatingText
     singleValue: true
