@@ -10,7 +10,19 @@ fields:
       should be "In Stock"
     xpath: //a/@availability
     defaultValue: 'false'
+  - name: availability
+    singleValue: false
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    xpath: //a/@availability
+    defaultValue: 'false'
   - name: brandText
+    singleValue: false
+    xpath: (ancestor::html//a[contains(@class, "product-brand")])[1]
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+  - name: brand
     singleValue: false
     xpath: (ancestor::html//a[contains(@class, "product-brand")])[1]
     description: Product brand shown - this may actually NOT be just a brand name,
