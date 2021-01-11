@@ -24,15 +24,15 @@ fields:
   - name: id
     singleValue: false
     xpath: //div[@class='product-image c d-12']/a/@onclick
-    regExp: \"id\":(.*),\"simpleId\"
+    regExp: simpleId\":\"(.*)\",\"price\"
     regExpReplace: $1
   - name: rankOrganic
     singleValue: false
-    xpath: //div[@class='product-image c d-12']/a/@onclick
-    regExp: \"position\":(.*)},
-    regExpReplace: $1
+    #xpath: //div[@class='product-image c d-12']/a/@onclick
+    #regExp: \"position\":(.*)},
+    #regExpReplace: $1
   - name: rank
     singleValue: false
-    xpath: //div[@class='product-image c d-12']/a/@onclick
-    regExp: \"position\":(.*)},
-    regExpReplace: $1
+    #xpath: //div[@class='product-image c d-12']/a/@onclick
+    #regExp: \"position\":(.*)},
+    #regExpReplace: $1
