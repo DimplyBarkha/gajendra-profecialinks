@@ -10,14 +10,14 @@ fields:
     description: The URL for the product details page
     xpath: //div[@class='panel-body']//div[@class="article-title"]//a[not(contains(@class,'article-video'))]/@href
   - name: thumbnail
+    type: FILE
     description: The URL for the product thumbnail image
     xpath: //div[@class='panel-body']//div[@class="article-left article-thumbnail"]/a//img/@src
   - name: name
-    singleValue: true
     type: TEXT
-    xpath: //div[@class='panel-body']//div[@class="article-title"]//a[not(contains(@class,'article-video'))]//text()
+    # xpath: //div[@class='panel-body']//div[@class="article-title"]//a[not(contains(@class,'article-video'))]//text()
+    xpath:  //div[@class='panel-body']//a[@class="title"]/@title
   - name: id
-    singleValue: true
     description: The store-specific product identifier
     xpath: //div[@class='form-group to-basket-default']//button/@data-datamints-enhancedga-product
     regExp: '(\"id\"\:\ ")([^"]+)'
@@ -30,5 +30,4 @@ fields:
     xpath: //div[@class='panel-body']//span[@class='rating-count']
   - name: price
     description: The offered price for the product
-    type: CURRENCY
-    xpath: //div[@class='article-priceicons article-club-hidden']/following-sibling::span//text()
+    xpath: //div[@class='article-priceicons article-club-hidden']/following-sibling::span

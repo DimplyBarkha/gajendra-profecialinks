@@ -6,7 +6,7 @@ module.exports = {
     store: 'whisky',
     domain: 'whisky.de',
     url: 'http://www.whisky.de/shop/index.php?lang=0&cl=search&searchparam={searchTerms}',
-    loadedSelector:'body',
+    loadedSelector:null,
     noResultsXPath: null,
     zipcode: '',
   },
