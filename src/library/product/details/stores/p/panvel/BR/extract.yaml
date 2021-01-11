@@ -41,12 +41,17 @@ fields:
     # regExpReplace: $1
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//div[@class="item-description__content"]/div/ul[1]/li)
+    xpath: count(//h2[contains(.,"Beneficios") or (contains(.,"Benefícios"))]/../li | (//h2[contains(.,"DESCRIÇÃO")]/..//ul)[1]/li | //h2[contains(.,"Benefícios")]/../li[(following::*[contains(text(),"Modo")])] | //h2[contains(.,"Beneficios") or (contains(.,"Benefícios"))]/following::ul[1]/li)
     type: NUMBER
   - name: brandText
     singleValue: false
     xpath: //script[contains(text(),"productBrandName")]/text()
     regExp: productBrandName\W+([^"]+)
+    regExpReplace: $1
+  - name: brandText1
+    singleValue: false
+    xpath: //div[@class="breadcrumb hide-sm"]/div/a[position()=last()]//text()
+    regExp: \W+(.+)
     regExpReplace: $1
   - name: manufacturer
     singleValue: false
@@ -86,6 +91,11 @@ fields:
   - name: directions
     singleValue: false
     xpath: //strong[contains(text(),"Modo de uso")]/../following-sibling::div/ol/li
+  - name: directions1
+    singleValue: false
+    xpath: //script[contains(text(),"Modo de usar")]/text()
+    regExp: Modo de usar\W+([^"]+)
+    regExpReplace: $1
   - name: warnings
     singleValue: false
     description: Content under "warnings" header
@@ -232,11 +242,13 @@ fields:
   - name: fastTrack
     singleValue: false
     description: null
+  - name: ingredientsList1
+    singleValue: false
+    xpath: //script[contains(text(),"productBrandName")]/text()
+    regExp: Composição\W+([^"]+)
+    regExpReplace: $1
   - name: ingredientsList
     singleValue: false
-    # xpath: //script[contains(text(),"productBrandName")]
-    # regExp: Composição\W+([^"]+)
-    # regExpReplace: $1
     xpath: //strong[contains(text(),"Ingredientes:")]/../following-sibling::td//text() | //strong[contains(text(),"Ingredientes:")]/../../following-sibling::tr//text()
   - name: servingSize
     singleValue: false
@@ -451,8 +463,12 @@ fields:
   - name: variants
     singleValue: false
     description: null
+  # - name: additionalDescBulletInfo1
+  #   singleValue: false
+  #   xpath: //h2[contains(.,"Beneficios") or (contains(.,"Benefícios"))]/../li | (//h2[contains(.,"DESCRIÇÃO")]/..//ul)[1]/li | //h2[contains(.,"Benefícios")]/../li[(following::*[contains(text(),"Modo")])] | //h2[contains(.,"Beneficios") or (contains(.,"Benefícios"))]/following::ul[1]/li
   - name: additionalDescBulletInfo
     singleValue: false
+    # xpath: (//h2[contains(.,"DESCRIÇÃO")]/..//ul)[1]/li | //h2[contains(.,"Benefícios")]/../li[(following::*[contains(text(),"Modo")])] | //h2[contains(.,"Beneficios") or (contains(.,"Benefícios"))]/following::ul[1]/li
     xpath: //div[@class="item-description__content"]/div/ul[1]/li
   - name: prop65Warning
     singleValue: false

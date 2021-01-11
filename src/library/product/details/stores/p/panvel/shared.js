@@ -18,15 +18,29 @@ const transform = (data) => {
           },
         ];
       }
-
+      if ((!row.directions || !row.directions.length) && row.directions1) {
+        console.log('directions1',row.directions1);
+        row.directions = row.directions1;
+        console.log("directions", row.directions);
+      }
+      if ((!row.brandText || !row.brandText.length) && row.brandText1) {
+        console.log('brandText1',row.brandText1);
+        row.brandText = row.brandText1;
+        console.log("brandText", row.brandText);
+      }
+      if ((!row.ingredientsList || !row.ingredientsList.length) && row.ingredientsList1) {
+        console.log('ingredientsList1',row.ingredientsList1);
+        row.ingredientsList = row.ingredientsList1;
+        console.log("ingredientsList", row.ingredientsList);
+      }
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')} || `;
+          text += `${item.text.replace(/\n \n/g, ':')} `;
         });
         row.description = [
           {
-            text: text.slice(0, -3),
+            text: text.slice(0, -1),
           },
         ];
       }
@@ -51,7 +65,28 @@ const transform = (data) => {
           }
         }
       }
-
+      if (row.price) {
+        let text = '';
+        row.price.forEach(item => {
+          text += `${item.text.replace('.', ',')} `;
+        });
+        row.price = [
+          {
+            text: text.slice(0, -1),
+          },
+        ];
+      }
+      if (row.listPrice) {
+        let text = '';
+        row.listPrice.forEach(item => {
+          text += `${item.text.replace('.', ',')} `;
+        });
+        row.listPrice = [
+          {
+            text: text.slice(0, -1),
+          },
+        ];
+      }
       if (row.promotion) {
         for (const item of row.promotion) {
           if (item.text.includes('\n')) {
