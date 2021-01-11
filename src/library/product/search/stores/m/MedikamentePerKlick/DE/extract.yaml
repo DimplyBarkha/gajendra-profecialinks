@@ -3,13 +3,15 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: _url
+    xpath: //link[@rel="canonical"]/@href
   - name: productUrl
     # xpath: //div[@class='productsList']//div[@class="h3"]/a[not(contains(@onclick,"hitSearchCampaign('12181')"))]/@href
     xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//a[@itemprop="url"]/@href
   - name: thumbnail
     description: The URL for the product thumbnail image
     # xpath: //div[@class='productsList']//div[@class="figure"]/a[not(contains(@onclick,"hitSearchCampaign('12181')"))]/img/@src
-    xpath: //div[@class='productsList']//div[@class="figure"]//img[@class="photo"]/@src
+    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//div[@class="figure"]//img[@class="photo"]/@src
     regExp: (.*)
     regExpReplace: https://www.medikamente-per-klick.de$1
   - name: name
@@ -30,7 +32,6 @@ fields:
     regExp: cart(\w+)_.*
     regExpReplace: $1
   - name: price
-    type: CURRENCY
     # xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//dd[@class="price lowPrice"]//text()
     xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//span[@itemprop="price"]/@content
   - name: aggregateRating
@@ -39,10 +40,10 @@ fields:
     type: NUMBER
     xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//span[@itemprop='reviewCount']//text()
   - name: Availability
-    xpath: //div[@class='productsList']//form[not(contains(@name,'theform'))]/dl[@class="productAvailability"]//dd/span/@title
-    defaultValue: In stock
-    regExp: out_of_stock
-    regExpReplace: Out of Stock
+    # xpath: //div[@class='productsList']//form[not(contains(@name,'theform'))]/dl[@class="productAvailability"]//dd/span/@title
+    # defaultValue: In stock
+    # regExp: out_of_stock
+    # regExpReplace: Out of Stock
   - name: manufacturer
     type: TEXT
     xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//dd[@itemprop="brand"]//text()
