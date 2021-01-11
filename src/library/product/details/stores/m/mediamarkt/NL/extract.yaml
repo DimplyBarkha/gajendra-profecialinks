@@ -99,8 +99,12 @@ fields:
     defaultValue: No
   - name: variants
     xpath: //div[contains(@class,"product-attributes__group")]//@data-action-id | //div[contains(@class,"product-attributes__group")]//@href
+    regExp: (.+)
+    regExpReplace: https://www.mediamarkt.nl$1
   - name: firstVariant
     xpath: (//div[contains(@class,"product-attributes__group")]//@data-action-id | //div[contains(@class,"product-attributes__group")]//@href)[1]
+    regExp: (.+)
+    regExpReplace: https://www.mediamarkt.nl$1
   - name: variantInformation
     xpath: //div[contains(@class,"product-attributes__group")]//div[contains(@class, '--active')]//@data-value
   - name: variantCount
