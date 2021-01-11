@@ -3,6 +3,9 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: _url
+    singleValue: true
+    xpath: //link[@rel="canonical"]/@href
   - name: image
     singleValue: true
     description: URL of the main product image
@@ -42,10 +45,11 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //div[@class="estimatedTimeFicha"]
+    # xpath: //div[@class="estimatedTimeFicha"]
+    xpath: //div[@class="BuyCn SingleBuy"]/a[@class="mgp-ajax Button Buy"]
     regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    regExpReplace: Out of Stock
+    defaultValue: In Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
