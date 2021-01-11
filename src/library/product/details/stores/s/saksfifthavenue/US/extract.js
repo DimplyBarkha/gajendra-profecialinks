@@ -10,6 +10,11 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+    try {
+      await context.waitForSelector('ul.size-attribute li[value="0"]', { timeout: 35000 });
+    } catch (error) {
+      console.log('No def for value');
+    }
     await context.evaluate(async function () {
       const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
       const isVisible = (element) => (!!(element).offsetWidth || (element).offsetHeight);
@@ -35,6 +40,12 @@ module.exports = {
         }
       }
     });
+
+    try {
+      await context.waitForSelector('ul.size-attribute li[value="0"]', { timeout: 35000 });
+    } catch (error) {
+      console.log('No def for value');
+    }
     await context.extract(productDetails);
   },
 };
