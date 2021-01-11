@@ -7,7 +7,7 @@ fields:
     singleValue: true
     description: URL of the main product image
     xpath: //section//div[@class="zoomPad"]/img/@src
-  - name: url
+  - name: _url
     singleValue: true
     xpath: //a[@class="itemShare fb"]/@href
     regExp: (.+php\?u=)(.+)
@@ -51,9 +51,10 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
+    xpath: //h3[@class="notifymetitle notifyme-title"]
     regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    regExpReplace: Out of Stock
+    defaultValue: In Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
