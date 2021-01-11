@@ -86,13 +86,13 @@ fields:
     xpath: //div[contains(@class,'productDetailTxtContainer')]//meta[@itemprop='reviewCount']/@content
   - name: aggregateRating
     singleValue: false
-    xpath: //div[contains(@class,'bv_avgRating_component_container')]//button[@itemprop='ratingValue']
+    xpath: //button[@id='ratings-summary']//div[@itemprop='ratingValue']
   - name: weightNet
     singleValue: false
     xpath: //table[contains(@class,'specification')]//tr//td[text()='Gewicht']//following-sibling::td
   - name: videos
     singleValue: false
-    xpath: //div[contains(@class,'demoupUI-playbutton')]//meta[@itemprop='contentURL']/@content
+    xpath: //div[contains(@class,'productDetailyoutube')]//a[@class='youtube']/@href
   - name: shippingDimensions
     singleValue: false
     xpath: //table[contains(@class,'specification')]//tr//td[text()='Dimensionen B x H x T']//following-sibling::td
