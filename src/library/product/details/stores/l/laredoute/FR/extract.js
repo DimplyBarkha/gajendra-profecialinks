@@ -14,6 +14,23 @@ async function implementation (
   // pop up is not allowing us to scroll.
   await helper.ifThereClickOnIt('.popin-btn-close.close', 20000);
   await helper.ifThereClickOnIt('#btn-close', 35000);
+  const applyScroll = async function (timeout) {
+    let loopCounter = 0;
+    let scrollTop = 0;
+    const waitingTime = 500;
+    const limit = Math.ceil(timeout / waitingTime);
+    const increment = 1000;
+    while (loopCounter < limit && scrollTop < 10000) {
+      scrollTop += increment;
+      loopCounter += 1;
+      await context.evaluate((scrollTop) => {
+        window.scroll(0, scrollTop);
+      }, scrollTop);
+      await new Promise(resolve => setTimeout(resolve, waitingTime));
+    }
+  };
+  await applyScroll(10000);
+
 
   const variantArray = await context.evaluate(async function () {
     if (document.querySelector('#productList')) {
@@ -93,6 +110,7 @@ async function implementation (
       }
     }
   });
+  await applyScroll(5000);
   try {
     await context.waitForSelector('#inpage_container', { timeout: 30000 });
   } catch (er) {
@@ -110,7 +128,7 @@ async function implementation (
     const isVisible = (element) => document.querySelector(element) ? !!(document.querySelector(element).offsetWidth || document.querySelector(element).offsetHeight) : false;
 
     const content = {};
-    content.description = document.querySelector('#inpage_container') && isVisible(document.querySelector('#inpage_container')) ? document.querySelector('#inpage_container').innerText : '';
+    content.description = document.querySelector('#inpage_container') && isVisible('#inpage_container') ? document.querySelector('#inpage_container').innerText : '';
     addHiddenDiv('manufacturerDescription', content.description);
     content.images = [];
     const imagesNodes = document.querySelectorAll('#inpage_container img');

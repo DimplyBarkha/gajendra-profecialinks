@@ -9,7 +9,7 @@ module.exports = {
     zipcode: '',
   },
   implementation: async (
-    { url },
+    { url: longUrl },
     parameters,
     context,
     dependencies,
@@ -22,16 +22,18 @@ module.exports = {
     await context.setJavaScriptEnabled(true);
     await context.setAntiFingerprint(false);
     await context.setUseRelayProxy(false);
+    const url = longUrl.split('.aspx#')[0];
 
-    const responseStatus = await context.goto(url.split('.aspx#')[0], {
-      firstRequestTimeout: 600,
+    const gotoOptions = {
+      firstRequestTimeout: 60000,
       timeout,
       waitUntil: 'load',
       checkBlocked: false,
       antiCaptchaOptions: {
         type: 'RECAPTCHA',
       },
-    });
+    };
+    const responseStatus = await context.goto(url, gotoOptions);
     console.log('Status :', responseStatus.status);
     console.log('URL :', responseStatus.url);
 
@@ -52,14 +54,8 @@ module.exports = {
     };
 
     const checkRedirection = async () => {
-      try {
-        await context.waitForSelector('h2.pdp-title', { timeout });
-        console.log('Redirected to another page.');
-        return true;
-      } catch (e) {
-        console.log('Redirection did not happen.');
-        return false;
-      }
+      const newurl = await context.evaluate(() => window.location.href);
+      return !newurl.includes(url);
     };
 
     let isCaptchaFramePresent = await checkExistance(captchaFrame);
@@ -79,17 +75,10 @@ module.exports = {
         const redirectionSuccess = await checkRedirection();
 
         if (redirectionSuccess) {
-          await context.evaluate((url) => {
-            window.location.href = url;
-          }, url);
+          console.log('Page was redirected');
+          await context.goto(url, gotoOptions);
           await context.waitForNavigation({ timeout, waitUntil: 'networkidle0' });
           break;
-        } else {
-          await context.evaluate((url) => {
-            // eslint-disable-next-line no-unused-expressions
-            window.location.reload;
-          });
-          await context.waitForNavigation({ timeout, waitUntil: 'networkidle0' });
         }
 
         isCaptchaFramePresent = await checkExistance(captchaFrame);
