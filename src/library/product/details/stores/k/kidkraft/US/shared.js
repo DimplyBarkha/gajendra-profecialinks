@@ -19,7 +19,11 @@ const transform = (data) => {
 
           item.text = item.text.replace('$','').trim();
         });
-
+         }
+         if (row.countryOfOrigin) {
+        row.countryOfOrigin.forEach(item => {
+          item.text = item.text.replace('Country of Origin:','').trim();
+        });
         row.aggregateRating = [
           {
             text: text,
@@ -65,6 +69,11 @@ const transform = (data) => {
         item.text="Out of Stock"
 
       });
+    }
+    if(row.materials){
+       row.materials.forEach(item => {
+         item.text = item.text.replace('Materials:','').trim();
+       });
     }
        if (row.descriptionBullets) {
         let text = '';

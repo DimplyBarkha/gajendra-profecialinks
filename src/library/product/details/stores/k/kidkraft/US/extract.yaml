@@ -12,9 +12,13 @@ fields:
     description: Alt text of the main product image
     xpath: //div[contains(@class,'fotorama__stage__frame fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img fotorama__active')]//img/@alt
   - name: alternateImages
-    singleValue: false
+    #singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[contains(@class,'fotorama__thumb fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img')]//img/@src
+    xpath: //div[contains(@class,'fotorama__nav__shaft fotorama__grab')]//div/img/@src| //div[contains(@class,'fotorama__nav__frame fotorama__nav__frame--thumb')]//div/img/@src
+    #xpath: //div[contains(@class,'fotorama__thumb fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img')]/img/@src | //img[contains(@class,'fotorama__img')]/@src
+    #xpath: //div[contains(@class,'fotorama__stage')]//img[contains(@class,'fotorama__img')]/@src
+    #xpath: //img[contains(@class,'fotorama__img')]/@src
+    #xpath: //div[contains(@class,'fotorama__nav__shaft fotorama__grab')]//img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -32,7 +36,7 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[contains(@class,'product-info-price soldout-showprice')]//div//span//span//span
+    xpath: //div[contains(@class,'product-info-price soldout-showprice')]//div//span//span//span |//span[contains(@id,'product-price-1455')]//span
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -107,8 +111,9 @@ fields:
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
+    xpath: //dd[contains(@class,'bv-rating-ratio-number')]//span[contains(@class,'bv-rating')]//span
    # xpath: //*[@id="BVRRContainer"]/div/div/div/div/div[1]/div[3]/div/div/div[2]/div[2]/div[1]/span[2]
-    xpath: //dd[contains(@class,'bv-rating-ratio-number')]//span//span/text()
+    #xpath: //dd[contains(@class,'bv-rating-ratio-number')]//span//span/text()
     type: NUMBER
   - name: shippingInfo
     singleValue: true
@@ -520,5 +525,5 @@ fields:
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
   - name: highQualityImages
-    singleValue: false
-    xpath: //div[contains(@class,'fotorama__thumb fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img')]//img/@src
+    xpath: //div[contains(@class,'fotorama__thumb fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img')]/img/@alt| //div[contains(@class,'fotorama__nav__frame fotorama__nav__frame--thumb')]//img/@src
+    #xpath: //div[contains(@class,'fotorama__thumb fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img')]//img/@src
