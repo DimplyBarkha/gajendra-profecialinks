@@ -1,20 +1,24 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //ul[contains(@class, "size-attribute")]//li
 fields:
   - name: availabilityText
-    singleValue: true
+    singleValue: false
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //button[contains(@class, "add-to-cart")][not(@disabled)]/@class
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    xpath: //a/@availability
+    # xpath: boolean(//a//ancestor::li[@class="selectable"])
+    defaultValue: 'false'
+    # xpath: true(//button[contains(@class, "add-to-cart btn")][not(@disabled)]/@class)
+    # regExp: (.+)
+    # regExpReplace: In Stock
+    # defaultValue: Out of Stock
   - name: brandText
-    singleValue: true
-    xpath: (//a[contains(@class, "product-brand")])[1]
+    singleValue: false
+    xpath: (ancestor::html//a[contains(@class, "product-brand")])[1]
+    # xpath: (//a[contains(@class, "product-brand")])[1]
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: designer
@@ -24,42 +28,41 @@ fields:
     singleValue: true
     description: The filter used for the search listing
   - name: image
-    singleValue: true
-    xpath: //div[@id="primary-image-0"]//img/@src
+    singleValue: false
+    xpath: ancestor::html//div[@id="primary-image-0"]//img/@src
+    # xpath: //div[@id="primary-image-0"]//img/@src
     description: URL of the main product image
   - name: inventoryText
-    singleValue: true
-    xpath: //button[contains(@class, "add-to-cart")][not(@disabled)]/@class
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    xpath: //a/@inventory
+    # xpath: //div[contains(@class, "product-availability")]//ul[contains(@class, "availability-msg")]|//div[@id="waitlist"][not(contains(@class, "d-none"))]//div[contains(@class, "soldout")]
     description: The inventory status of the product, if available
   - name: listPrice
-    singleValue: true
-    xpath: //div[@class="row"]//span[contains(@class, "prod-price")]//span[contains(@class, "ormatted_price bfx-price bfx-list-price")]
+    singleValue: false
+    xpath: ancestor::html//div[@class="row"]//span[contains(@class, "prod-price")]//span[contains(@class, "ormatted_price bfx-price bfx-list-price")]
     description: The stated undiscounted price for the product
   - name: name
-    singleValue: true
-    xpath: (//h1[contains(@class, "product-name")])[1]
+    singleValue: false
+    xpath: (ancestor::html//h1[contains(@class, "product-name")])[1]
     description: The product name
   - name: numberHearts
     singleValue: true
     description: The number of likes for the product
   - name: price
-    singleValue: true
-    xpath: //div[@class="row"]//span[contains(@class, "prod-price")]//span[contains(@class, "sales")]
+    singleValue: false
+    xpath: ancestor::html//div[@class="row"]//span[contains(@class, "prod-price")]//span[contains(@class, "sales")]
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: sku
-    singleValue: true
+    singleValue: false
     description: The store-specific product identifier
-    xpath: //div[contains(@class, "tt-top-comment")]/@data-ttsku
+    xpath: ancestor::html//div[contains(@class, "tt-top-comment")]/@data-ttsku
   - name: variantSize
     singleValue: false
     description: colour / scent / flavour / other
-    xpath: //ul[contains(@class, "size-attribute")]//li
+    xpath: //a
+    # xpath: //ul[contains(@class, "size-attribute")]//li
   - name: viewing
-    singleValue: true
+    singleValue: false
     description: The number to identify the current views of the product, if available
   # - name: imageAlt
   #   singleValue: true
