@@ -1,0 +1,14 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class='product-variations']//ul[@class='tile-group']//li
+fields:
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class='variant-img-box']//img[@class='variant-img']/@data-sku
+  - name: variantUrl
+    singleValue: false
+    xpath: //div[@class='variant-img-box']//img[@class='variant-img']/@data-sku
+  - name: variant
+    singleValue: false
+    xpath: //div[@class='variant-img-box']//img[@class='variant-img']/@data-value
