@@ -1,6 +1,3 @@
-externalGlobals:
-  screenCapture: true
-  screenCaptureType: "png"
 singleRecord: false
 regionsSelector: null
 recordSelector: null
@@ -156,10 +153,8 @@ fields:
     singleValue: false
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
-    singleValue: false
     description: Images within the third party description
-    xpath: //body/@import-enhanced-content
-    regExp: true
+    xpath: //div[@id="ccs-inline-content"][1]//img//@data-large | //iframe[@id="salsify-ec-iframe"]//@src
   - name: name
     singleValue: true
     description: The product name
@@ -525,3 +520,5 @@ fields:
     xpath: //import-image/@data
   - name: highQualityImages
     xpath: //import-image/@data
+  - name: shortDescription
+    xpath: (//div[@class="desc-table"]/text())[1]

@@ -9,6 +9,11 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
+    await context.evaluate(() => {
+      if (document.querySelector('div.rightSection')) {
+        throw new Error('Not a product Page');
+      }
+    });
     await context.waitForSelector('.pr-snippet-stars-reco-inline .pr-snippet-rating-decimal');
     await context.waitForSelector('.productimageblock #magic-zoom-id');
     await context.waitForSelector('.pr-snippet-stars-reco-stars');
@@ -170,9 +175,11 @@ module.exports = {
 
       for (const video of videoItems) {
         video.click();
-        await new Promise(resolve => setTimeout(resolve, 3000));
+        await new Promise(resolve => setTimeout(resolve, 10000));
         const videoEl = document.querySelector('video');
+        if(videoEl) {
         videos.push(videoEl.src);
+        }
       }
 
       for (const item of videos) {
@@ -192,6 +199,10 @@ module.exports = {
           imgEl.setAttribute('data', imageUrl);
           document.body.appendChild(imgEl);
         }
+      }
+      const enhancedContent = document.querySelector("#desktopDescriptiontabcontent > div.text-center.pt-2 > button");
+      if(enhancedContent) {
+        enhancedContent.click()
       }
     });
 
