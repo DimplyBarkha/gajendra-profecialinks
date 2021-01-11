@@ -6,15 +6,18 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //div[contains(@class,'image-viewer-hero-wrapper d-flex flex-row align-items-center justify-content-center dcsg-card')]//picture//img/@src
+    xpath: //div[contains(@class,'image-viewer-hero-container')]//picture/img/@src
+   # xpath: //div[contains(@class,'image-viewer-hero-wrapper d-flex flex-row align-items-center justify-content-center dcsg-card')]//picture//img/@src
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
-    xpath: //div[contains(@class,'image-viewer-hero-wrapper d-flex flex-row align-items-center justify-content-center dcsg-card')]//picture//img/@alt
+    xpath: //div[contains(@class,'image-viewer-hero-container')]//picture/img/@alt
+    #xpath: //div[contains(@class,'image-viewer-hero-wrapper d-flex flex-row align-items-center justify-content-center dcsg-card')]//picture//img/@alt
   - name: shownImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@class='image-viewer-swatch-wrapper dcsg-card']//picture/source/@srcset
+    #xpath: //div[@class='image-viewer-swatch-wrapper dcsg-card']//picture/source/@srcset
+    xpath: //div[contains(@class,'image-viewer-swatch-wrapper dcsg-card')]//picture/img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -98,7 +101,7 @@ fields:
   - name: ratingCount
     singleValue: true
     description: The number of ratings
-    xpath: //div[contains(@class,'bv_numReviews_component_container')]//div
+    xpath: //p[contains(@class,'total-reviews')]
     type: NUMBER
   - name: aggregateRatingText
     singleValue: true
@@ -107,7 +110,7 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
-    xpath: //div[contains(@class,'overall-rating')]//p//span[1]
+    xpath: //div[contains(@class,'overall-rating')]//span[contains(@class,'average-rating')]
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -220,7 +223,8 @@ fields:
   - name: featureBullets
     singleValue: false
     description: null
-    xpath: //div[contains(@class,'product-component')]//ul[1]
+   # xpath: //div[contains(@class,'product-component')]//ul[1]
+    xpath: //div[contains(@class,'product-component')]//h3[contains(.,'Product Feature')]//following-sibling::ul[1]/li
   - name: otherSellersName
     singleValue: false
     description: null
