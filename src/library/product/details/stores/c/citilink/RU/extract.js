@@ -51,6 +51,7 @@ module.exports = {
 
     let desList;
     let desc = document.querySelectorAll('div.AboutTab__description-text');
+    let des1 = document.querySelectorAll('div.specification_view.product_view h2')
     if(desc) {
       desc.forEach((element) => {
         element.childNodes.forEach((ele) => {
@@ -60,7 +61,27 @@ module.exports = {
       });
       addHiddenDiv('desList', desList);
 
-    } 
+    } else 
+    {
+      let desList2;
+
+      if(des1) {
+        des1.forEach((element) => {
+          console.log(element.innerText , 'd');
+          if(element.innerText.includes('Описание')) {
+            desList2 = element.nextSibling.textContent
+          }
+        });
+        let add_ext = document.querySelector('span.pseudo.expandable_control.for_product-card-info-error__container')
+        if(add_ext) {
+          desList2 = add_ext.textContent
+  
+        }
+        addHiddenDiv('desList2', desList2);
+  
+      } 
+    }
+    
     // let categoryList = [];
     // let cate = document.querySelectorAll('div.Breadcrumbs')
     // if(cate) {
@@ -72,6 +93,17 @@ module.exports = {
     //   addHiddenDiv('categoryList', categoryList);
 
     // } 
+    let specificationList;
+    let specList= document.querySelectorAll('table.product_features tr:not(.header_row)')
+    if(specList) {
+      specList.forEach(element => {
+        element.childNodes.forEach(element => {
+          specificationList += element.childNodes[0].childNodes[0].innerText + ' : ' + element.childNodes[1].innerText.replace('"','') + ' | '
+        });
+      });
+    }
+    addHiddenDiv('specificationList_alt', specificationList);
+
     let name = document.querySelector('h1.Heading.Heading_level_1.ProductHeader__title')
     let proName;
     if(name) {
@@ -79,23 +111,6 @@ module.exports = {
       console.log(proName , 'ssss');
     } 
     addHiddenDiv('name', proName);
-    let images = document.querySelectorAll('div.Breadcrumbs');
-    console.log(images, 'ss');
-    const category = images ? images.length : null;
-    if (category) {
-      images.forEach((element) => {
-        const categoryLink = document.createElement('div');
-        categoryLink.setAttribute('class', 'category');
-        categoryLink.setAttribute('href', element.innerText);
-        document.body.appendChild(categoryLink);
-      });
-      // const secondaryImageCount = document.createElement('div');
-      // secondaryImageCount.setAttribute('class', 'alternateImagesCountTotal');
-      // // @ts-ignore
-      // secondaryImageCount.setAttribute('sum', alternateImagesCount);
-      // document.body.appendChild(secondaryImageCount);
-    }
-    // addHiddenDiv('alternateImagesCount', alternateImagesCount);
 
   });
 

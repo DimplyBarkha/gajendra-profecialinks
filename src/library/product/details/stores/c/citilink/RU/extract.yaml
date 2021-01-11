@@ -22,7 +22,7 @@ fields:
     xpath: //span[@itemprop = "brand"]/@content
   - name: category
     singleValue: false
-    xpath: //div[@class="Breadcrumbs"]/@data-breadcrumb-name
+    xpath: //div[@class="Breadcrumbs"]/@data-breadcrumb-name | //div[@class="breadcrumbs"]/span[@data-category-path='1']/@data-breadcrumb-name
   # - name: subCategory
   #   singleValue: false
   #   xpath: //div[@class = "Breadcrumbs" and position() > 1]//a//span/text()
@@ -37,7 +37,7 @@ fields:
     xpath: //table[@class = "product_features"]//span[contains(text(), "Страна производитель")]/parent::th/following-sibling::td
   - name: description
     singleValue: false
-    xpath: //div[@id="desList"]
+    xpath: //div[@id="desList"] | //div[@id='desList2']
   - name: image
     singleValue: false
     xpath: (//div[@class ='ImageGallery__content']//img/@src)[2] | //li/img[@itemprop="contentUrl"]/@src | //meta[@property="og:image"]/@content
@@ -55,10 +55,10 @@ fields:
     xpath: //div/@data-flix-mpn
   - name: name
     singleValue: false
-    xpath: //div[@id='name'] | //h1[contains(@class, 'Heading')]
+    xpath: //div[@id='name'] | //h1[contains(@class, 'Heading')] | //div[contains(@class,'product_header')]/h1
   - name: nameExtended
     singleValue: false
-    xpath: //div[@id='name'] | //h1[contains(@class, 'Heading')]
+    xpath: //div[@id='name'] | //h1[contains(@class, 'Heading')] | //div[contains(@class,'product_header')]/h1
   - name: price
     singleValue: false
     xpath: concat(//span[@class = "ProductHeader__price-default_current-price"], //span[contains(@class, "ProductHeader__price-default__rouble")])
@@ -79,7 +79,7 @@ fields:
     xpath: //span[@itemprop = "sku"]/@content
   - name: specifications
     singleValue: false
-    xpath: //div[@id="import_product_specs"]
+    xpath: //div[@id="import_product_specs"] | //div[@id='specificationList_alt']
   - name: variantCount
     singleValue: false
     xpath: '0'
