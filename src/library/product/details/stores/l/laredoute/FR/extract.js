@@ -17,12 +17,12 @@ async function implementation(
     await new Promise((resolve, reject) => setTimeout(resolve, 30000));
     const showmore = document.querySelector('div.productDescriptionShowMore-container');
    
-    if(showmore){
-      document.querySelector('div.productDescriptionShowMore-container>button').click();
-    }
-    if(document.querySelector('flixmedia_expandBtn flixmedia_expandBtn--more')){
-      document.querySelector('flixmedia_expandBtn flixmedia_expandBtn--more').click();
-    }
+    // if(showmore){
+    //   document.querySelector('div.productDescriptionShowMore-container>button').click();
+    // }
+    // if(document.querySelector('flixmedia_expandBtn flixmedia_expandBtn--more')){
+    //   document.querySelector('flixmedia_expandBtn flixmedia_expandBtn--more').click();
+    // }
     
     
   });
