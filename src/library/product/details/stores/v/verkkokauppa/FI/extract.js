@@ -9,17 +9,27 @@ module.exports = {
     domain: 'verkkokauppa.com',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
+  implementation: async (inputs, { country, domain, transform: transformParam }, context, { productDetails }) => {
     try {
-      await context.evaluate(async function () {
-        try {
-          if (document.querySelector('ol[class*="product-list-detailed"] li:first-child')) {
-            document.querySelector('ol[class*="product-list-detailed"] li:first-child div[class*="list-product__info"] >a').click();
+      // console.log(inputs.id+" is prod id");
+      const rpc = inputs.id;
+      await context.evaluate(async function (rpc) {
+        if (document.querySelectorAll('ol[class*="product-list-detailed"]>li')) {
+          const prodList = document.querySelectorAll('ol[class*="product-list-detailed"]>li');
+          // for(let i=0;i<prodList.length;i++){
+          //     if(prodList[i].querySelector('img'))
+          //       prodList[i].querySelector('img').getAttribute('src');
+          // }
+          //           let rpc='486390';
+          for (let i = 0; i < prodList.length; i++) {
+            let prodCode = null;
+            if (prodList[i].querySelector('img')) {
+              prodCode = prodList[i].querySelector('img').getAttribute('src');
+              if (prodCode.includes(rpc)) prodList[i].querySelector('a[class*="list-product"]').click();
+            }
           }
-        } catch (err) {
-          console.log(err);
         }
-      });
+      }, rpc);
 
       try {
         await context.waitForSelector('#tabs-page-select-tab0', { timeout: 50000 });
@@ -374,7 +384,7 @@ module.exports = {
           document.body.appendChild(newDiv);
         }
 
-        for(let i = 0; i < specification.length; i++) {
+        for (let i = 0; i < specification.length; i++) {
           await addHiddenInfo(`specification-${i + 1}`, specification[i]);
           console.log('added the spec - ' + specification[i]);
         }
