@@ -38,13 +38,13 @@ fields:
     singleValue: true
   - name: sku
     singleValue: true
-    xpath: //div[@id='ii_sku']
+    xpath: //div[@id="productReviewsComponent"]/@data-product-id
   - name: quantity
     singleValue: true
     xpath: (//div[contains(@data-information-component,'volume')])[1]
   - name: directions
     singleValue: true
-    xpath: //div[@id='ii_directions'] | (//div[@class="productDescription_synopsisContent"]//p)[2]//strong//following::text()[1] | (//div[@class="productDescription_synopsisContent"]//ul//li)[1]
+    xpath: (//div[@class="productDescription_synopsisContent"]//p)[2]//strong//following::text()[1] | //div[@class="productDescription_synopsisContent"]//ul | //html//div[@id="directions1"] | //div[@id="directions"]
   - name: warnings
     singleValue: true
     xpath: //div[@id='ii_warnings']
@@ -55,7 +55,8 @@ fields:
     singleValue: true
   - name: ratingCount
     singleValue: true
-    xpath: //div[@id='ii_ratingCount']
+    xpath: //span[@class="productReviewStars_numberOfReviews"]//text()
+    type: NUMBER
   - name: shippingDimensions
     singleValue: true
   - name: specifications
@@ -74,10 +75,12 @@ fields:
     xpath: (//img[contains(@class,'productImageCarousel_image')]/@data-alt)[1]
   - name: aggregateRatingText
     singleValue: true
-    xpath: //div[@id='ii_aggregateRatingText']
+    xpath: //div[@id='rating']
+    type: NUMBER
   - name: aggregateRating
     singleValue: true
-    xpath: //div[@id='ii_aggregateRatingText']
+    xpath: //div[@id='rating']
+    type: NUMBER
   - name: name
     singleValue: true
     xpath: //div[@id='ii_nameExtended']
@@ -104,7 +107,7 @@ fields:
     xpath: //div[@id='ii_description']
   - name: variantId
     singleValue: true
-    xpath: //div[@id='ii_sku']
+    xpath: //div[@id="productReviewsComponent"]/@data-product-id
   - name: descriptionBullets
     singleValue: true
     xpath: //div[@id='ii_descriptionBullets']

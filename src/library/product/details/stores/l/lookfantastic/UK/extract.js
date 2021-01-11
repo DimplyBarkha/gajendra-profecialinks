@@ -10,7 +10,7 @@ module.exports = {
   },
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     await context.evaluate(async function () {
-      function findLabel (productObj, label) {
+      function findLabel(productObj, label) {
         const value = productObj[label];
         if (Array.isArray(value)) {
           return {
@@ -23,7 +23,7 @@ module.exports = {
         }
         return null;
       }
-      function addElementToDocument (key, value) {
+      function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -38,20 +38,27 @@ module.exports = {
         return result && result.trim ? result.trim() : result;
       };
       const variantInformation = getXpath("//h1[@class='productName_title']//text()", 'nodeValue');
-    var VI = variantInformation.split(" ");
-    addElementToDocument('variantInformation', VI[VI.length-1]);
-      function addHiddenDiv (id, content) {
+      var VI = variantInformation.split(" ");
+      addElementToDocument('variantInformation', VI[VI.length - 1]);
+      function addHiddenDiv(id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
-      function findAndInsertLabel (obj, labelName, outputName) {
+      function findAndInsertLabel(obj, labelName, outputName) {
         const result = findLabel(obj, labelName);
         if (result != null) {
           addHiddenDiv('ii_' + outputName, result.label);
         }
+      }
+
+      try {
+        var rating = document.querySelector('a[class="productReviewStars"] svg[aria-label]').getAttribute("aria-label");
+        addElementToDocument("rating", rating);
+      } catch (error) {
+
       }
       // @ts-ignore
       const jsonString = document.querySelector("script[type='application/ld+json']").innerText;
@@ -88,7 +95,7 @@ module.exports = {
         listPrice = (document.querySelector('p.productPrice_rrp').innerText).replace(/.*:(.*)/, '$1').trim();
       }
       if (listPrice) addHiddenDiv('ii_listPrice', listPrice);
-  
+
       if (document.querySelectorAll("select[id*='product-variation-dropdown'] option")) {
         let variantCount = document.querySelectorAll("select[id*='product-variation-dropdown'] option").length;
         variantCount = variantCount > 1 ? variantCount - 1 : variantCount;
@@ -119,9 +126,18 @@ module.exports = {
         if (directions) directions = directions.textContent;
       }
       if (directions) addHiddenDiv('ii_directions', directions);
+      try {
+        const obj = JSON.parse(jsonString)
+        var val = obj.description;
+        var response = val.substring(val.indexOf("Directions of use:"));
+        var direction1 = response.replace("Directions of use:", "")
+        addElementToDocument("directions1", direction1)
+      } catch (error) {
+
+      }
     });
-    
+
     await context.extract(productDetails, { transform: transformParam });
   },
-  
+
 };
