@@ -6,11 +6,9 @@ module.exports = {
     store: 'linio',
     mutationSelector: null,
     spinnerSelector: null,
+    // nextLinkXpath: '//ul/li[@class="page-item"][last()]/preceding::li[1]/a/span',
     loadedSelector: 'body',
     noResultsXPath: null,
-    openSearchDefinition: {
-      template: 'https://www.linio.com.pe/search?scroll=&q={searchTerms}&page={page}',
-    },
     domain: 'linio.com',
     zipcode: '',
   },

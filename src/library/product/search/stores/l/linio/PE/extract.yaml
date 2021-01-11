@@ -10,7 +10,7 @@ fields:
     xpath: //div[@class="lowest-price"][1]
   - name: productUrl
     singleValue: false
-    xpath: //div[contains(@class,"catalogue-product")]/a/@href
+    xpath: //div[contains(@class,"catalogue-product")]/a[1]/@href
     regExp: (.+)
     regExpReplace: https://www.linio.com.pe$1
     description: The URL for the product details page
@@ -31,12 +31,9 @@ fields:
     xpath: //meta[@itemprop="reviewCount"]/@content
   - name: rank
     singleValue: false
-    type: NUMBER
-    xpath: //div[@id='rankOrganic']
   - name: rankOrganic
     singleValue: false
-    type: NUMBER
-    xpath: //div[@id='rankOrganic']
+    
 
 
 
