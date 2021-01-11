@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'body',
-    noResultsXPath: null,
+    noResultsXPath: '//div[@data-testid="AhSearchResults_noHitsErrorMessage"]',
     openSearchDefinition: null,
     domain: 'ahlens.se',
     zipcode: '',

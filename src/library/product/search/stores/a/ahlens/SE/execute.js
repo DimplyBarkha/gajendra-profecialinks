@@ -6,8 +6,8 @@ module.exports = {
     store: 'ahlens',
     domain: 'ahlens.se',
     url: "https://www.ahlens.se/INTERSHOP/web/WFS/Ahlens-AhlensSE-Site/sv_SE/-/SEK/ViewParametricSearch-StaticPage?search=true&SearchTerm={searchTerms}",
-    loadedSelector: 'body',
-    noResultsXPath: "//div[contains(text(),'Inga produkter hittades för:')]",
+    //loadedSelector: 'body',
+    noResultsXPath: '//div[@data-testid="AhSearchResults_noHitsErrorMessage"]',
     zipcode: '',
   },
 };
