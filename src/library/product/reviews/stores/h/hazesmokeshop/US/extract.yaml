@@ -1,0 +1,38 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="comment_container"]
+fields:
+- name: aggregateRating
+  xpath: ancestor::html//div[@class="summary-inner"]//div[@class="star-rating"]/span/strong/text()
+- name: name
+  xpath: ancestor::html//h1[@itemprop="name"]
+- name: commentCount
+- name: reviewDate
+  xpath: //time[@class="woocommerce-review__published-date"]/@datetime
+- name: user
+  xpath: //strong[@class="woocommerce-review__author"]
+- name: brand
+  xpath: ancestor::html//div[@class="wb-posted_in"]/a
+- name: productRange
+- name: productFamily
+  xpath: ancestor::html//a[@class="breadcrumb-link breadcrumb-link-last"]
+- name: colour
+- name: flavour
+- name: sku
+  xpath: ancestor::html//span[@class="sku"]
+- name: reviewText
+  xpath: //div[@class="description"]/p/text()
+- name: reviewTitle
+- name: mediaURL
+  xpath: ancestor::html//figure[@class="woocommerce-product-gallery__image"]/a/@href
+- name: location
+  defaultValue: US
+- name: helpful
+- name: verifiedPurchase
+- name: rating
+  xpath: //div[@class="comment-text"]//strong[@class="rating"]
+- name: pageTitle
+  xpath: ancestor::html//title
+- name: sourceUrl
+  xpath: ancestor::html//link[@rel="canonical"]/@href
