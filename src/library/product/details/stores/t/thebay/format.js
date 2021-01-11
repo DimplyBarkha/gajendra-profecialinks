@@ -27,13 +27,6 @@ const transform = (data) => {
 
     for (const { group } of data) {
         for (let row of group) {          
-            if (row.variantId) {
-                let  varientId = [];
-                row.variantId.forEach(item => {
-                    variantId = item.text.split(":");
-                });
-                row.variantId = [{'text': variantId[1].trim(),'xpath':row.variantId[0].xpath}];
-            }
             if (row.description) {
                 let info = [];
                 row.description.forEach(item => {
@@ -53,6 +46,20 @@ const transform = (data) => {
 
                 row.ratingCount = [{'text':rating_count[0],'xpath':row.ratingCount[0].xpath}];
             }
+            
+            if (row.variantId) {
+                row.variantId.forEach(item => {
+                  item.text = item.text.replace(/(\s*)+/g, '').trim();
+                  item.text = item.text.replace('StyleCode:', '').trim();
+                });
+              }
+
+              if (row.sku) {
+                row.sku.forEach(item => {
+                  item.text = item.text.replace(/(\s*)+/g, '').trim();
+                  item.text = item.text.replace('StyleCode:', '').trim();
+                });
+              }
 
             if (row.aggregateRating) {  
                 let counter = 0;                 
@@ -140,21 +147,7 @@ const transform = (data) => {
                  }
               });      
             }
-            if (row.sku) {
-                let data=[];
-                row.sku.forEach(item => {
-                    data = item.text.split("= ");
-                    item.text = data[1].replace(";",'').trim();
-                    let data1 = JSON.parse(item.text);
-                    if(data1['products']){
-                        if(data1['products'][0]['skus']){
-                            item.text = data1['products'][0]['skus'][0]['sku'];
-                        }
-                    }else{
-                        item.text = "";
-                    }           
-                });
-            }
+            
             if (row.firstVariant) {
                 let data=[];
                 row.firstVariant.forEach(item => {

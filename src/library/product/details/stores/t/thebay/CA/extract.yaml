@@ -39,7 +39,7 @@ fields:
     xpath: //div[@class='price']//span[@class='price']//span[@class='list strike-through ']//span[contains(@class,'formatted_price')]
   - name: sku
     singleValue: false
-    xpath: //script[@type="text/javascript" and contains(text(),'pageDataObj =')]
+    xpath: //div[@class='value content']//div[@class='product-detail-id']
   - name: ratingCount
     singleValue: false
     xpath: //div[contains(@class,'product-number-rating')]//a

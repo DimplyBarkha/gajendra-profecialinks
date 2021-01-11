@@ -5,7 +5,7 @@ module.exports = {
     country: 'CA',
     store: 'thebay',
     domain: 'thebay.com',
-    loadedSelector: 'div.primary-image.active img',
+    loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
   },
