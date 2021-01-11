@@ -160,6 +160,16 @@ module.exports = {
     var dataRef = await context.extract(productDetails, { transform });
 
     dataRef[0].group.forEach((row) => {
+      if (row.pricePerUnit) {
+        row.pricePerUnit.forEach(item => {
+          item.text = item.text ? item.text.split('/').shift().trim().split('€').join(' €') : '';
+        });
+      }
+      if (row.pricePerUnitUom) {
+        row.pricePerUnitUom.forEach(item => {
+          item.text = item.text ? item.text.split('/').pop().trim() : '';
+        });
+      }
       if (row.brandText) {
         row.brandText.forEach(item => {
           item.text = item.text ? item.text.split('|').shift().trim() : '';
@@ -170,16 +180,12 @@ module.exports = {
           item.text = item.text ? item.text.split('|').shift().trim() : '';
         });
       }
-      if (row.description) {
-        row.description.forEach(item => {
-          if (item.text.includes('En savoir')) {
-            item.text = item.text ? item.text.split('En savoir + ').pop() : '';
-          }
-          if (item.text.includes('Réf')) {
-            item.text = item.text ? item.text.split(' Réf').shift() : '';
-          }
+      if (row.videos) {
+        row.videos.forEach(item => {
+          item.text = item.text ? 'https://www.youtube.com/embed/'.concat(item.text.split('=').pop()) : '';
         });
       }
+
       if (row.sku) {
         row.sku.forEach(item => {
           item.text = item.text ? item.text.replace(/^0+/, '') : '';
@@ -188,6 +194,11 @@ module.exports = {
       if (row.variantId) {
         row.variantId.forEach(item => {
           item.text = item.text ? item.text.replace(/^0+/, '') : '';
+        });
+      }
+      if (row.variantCount) {
+        row.variantCount.forEach(item => {
+          item.text = item.text === '1' ? '0' : item.text;
         });
       }
       if (row.ratingCount) {

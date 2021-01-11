@@ -34,7 +34,7 @@ fields:
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
-  xpath: concat(//div[contains(@class,"prdct__designation")]//h1[@class='prdct__maintitle'], ' ', //div[contains(@class, 'prdct__sku-selected')]//span[@class='prdct__sku-name'] | //div[contains(@class, 'prdct__sku-selected')]//span[@class='prdct__sku-name'] | //span[contains(@class, 'prdct__bullets-link active')]/text())  
+  xpath: concat(//div[contains(@class,"prdct__designation")]//h1[@class='prdct__maintitle'], ' ', //div[contains(@class,'prdct__sku-selected')]//span[@class='prdct__sku-name'] | //span[contains(@class,'prdct__bullets-link active')])  
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
@@ -52,7 +52,7 @@ fields:
   defaultValue: "In Stock"
   xpath: //div[contains(@class, 'nomore') or contains(@class, 'nostock')] 
   regExp: .+
-  regExpReplace: "Out of Stock" 
+  regExpReplace: "Out Of Stock" 
 - name: description
   singleValue: true
   description: Product description supplied by website - may be concatenanted from
@@ -113,6 +113,7 @@ fields:
 - name: ratingCount
   singleValue: true
   description: The number of ratings
+  defaultValue: "0"
   xpath: //meta[@itemprop='reviewCount']/@content | //div[@class='bv-control-bar bv-control-bar-filter-offset']//span[@role][@aria-live] | //div[@class='bv_numReviews_text'] | //div[contains(@class,'histogram-ratings-score')]/span[not(contains(text(), '0'))]
 - name: aggregateRatingText
   singleValue: true
@@ -151,7 +152,6 @@ fields:
   singleValue: false
   description: URLs of videos on page
   xpath: //body/@video-src
-  # xpath: //link[(@rel='canonical') and contains(@href, 'youtube')]/@href
 - name: name
   singleValue: true
   description: The product name
@@ -423,9 +423,11 @@ fields:
 - name: pricePerUnit
   singleValue: true
   description: Price of the product split into certain units
+  xpath: //div[contains(@class, 'prdct__pce-content')]
 - name: pricePerUnitUom
   singleValue: true
   description: The unit of measurement used in price_per_unit
+  xpath: //div[contains(@class, 'prdct__pce-content')]
 - name: promotion
   singleValue: true
   description: promotion text on product page
