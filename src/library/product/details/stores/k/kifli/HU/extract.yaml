@@ -76,7 +76,7 @@ fields:
     xpath: //div[@class="ckContent"]/p[contains(.,"Forgalmazó")]/following-sibling::p[1]
   - name: name
     singleValue: true
-    xpath: //a[@class="redirect_link disabled"]
+    xpath: //a[@class="redirect_link disabled"]/text()
   - name: inStorePrice
     singleValue: true
     xpath: //span[@class='currentPrice']
