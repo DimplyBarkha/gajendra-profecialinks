@@ -1,4 +1,4 @@
-const { cleanUp } = require('../../../../shared');
+const { cleanUp } = require("./variantShared");
 module.exports = {
   implements: 'product/details/variants/variantsExtract',
   parameterValues: {

@@ -4,7 +4,7 @@ recordSelector: null
 recordXPath: //div[contains(@class,"variantinfo")]
 fields:
   - name: variantId
-    xpath: //div[contains(@class,"variantinfos")]/@variantid 
+    xpath: //div[contains(@class,"variantinfos")]/@variantid | //div[contains(@class,"variantinfo")]/@variantid
     # regExpReplace: $2
   - name: variantUrl 
     xpath: //div[contains(@class,"variantinfos")]/@varianturl | //div[contains(@class,"variantinfo")]/@varianturl 

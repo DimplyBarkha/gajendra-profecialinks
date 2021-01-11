@@ -17,6 +17,21 @@ module.exports = {
   ) {
     const { transform } = parameters;
     const { productDetails } = dependencies;
+    const check = async ()=>{
+      return await context.evaluate(()=>{
+       const isPresent = document.querySelector('p[class="sorry-text"]');
+       if(isPresent){
+         return true;
+       }else{
+         return false;
+       }
+      })
+    }
+    const noResultXpathCheck = await check();
+    if(noResultXpathCheck){
+      console.log('noResultXpath found');
+      return
+    }
     const currentSelector = 'div.pdp-description-tab-readmore';
     const result = await context.evaluate((currentSelector) => {
       return Boolean(document.querySelector(currentSelector));
@@ -109,6 +124,8 @@ module.exports = {
         let temp = link.match(/p\/\d+/g) && link.match(/p\/\d+/g)[0]
         finalRpc = temp && temp.match(/\d+/g) && temp.match(/\d+/g)[0]
       }
+      // const link = window.location.href
+      // let finalRpc = link.match(/(p\/)(\d+)/g)[0].match(/\d+/g)[0];
       appendElement.setAttribute('rpcvalue', finalRpc);
 
     });
