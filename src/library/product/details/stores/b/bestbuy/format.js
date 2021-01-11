@@ -39,7 +39,16 @@ const transform = (data) => {
         if (row.promotion) {            
             row.promotion.forEach(item => {
                 item.text = item.text.replace(/(\s*AHORRA\s*)+/isg, '').trim();
+                item.text = 'AHORRA ' + item.text;
             });
+        }
+        if (row.manufacturerImages) {
+          row.manufacturerImages.forEach(item => {
+              item.text = item.text.replace(/,.*/, '');
+              item.text = item.text.replace('200w', '');
+              item.text = 'I'+ item.text;
+              item.text = item.text.slice(1, -1);
+          });
         }
         if (row.videos) {            
             row.videos.forEach(item => {
@@ -47,6 +56,13 @@ const transform = (data) => {
                 item.text = item.text.replace(/(\s*\/vi\/\s*)+/isg, '/watch?v=').trim();
                 item.text = item.text.replace(/(\s*\/mqdefault.jpg\s*)+/isg, '').trim();
             });
+        }
+        if (row.galleryVideos) {            
+          row.galleryVideos.forEach(item => {
+              item.text = item.text.replace(/(\s*img.youtube\s*)+/isg, 'youtube').trim();
+              item.text = item.text.replace(/(\s*\/vi\/\s*)+/isg, '/watch?v=').trim();
+              item.text = item.text.replace(/(\s*\/mqdefault.jpg\s*)+/isg, '').trim();
+          });
         }
         if (row.description2) {
             let info = [];          
@@ -67,6 +83,11 @@ const transform = (data) => {
             row.ratingCount.forEach(item => {
                 item.text = item.text.replace(/(\s*\(|\)\s*)+/isg, '').trim();
             });
+        }
+        if (row.aggregateRating) {
+          row.aggregateRating.forEach(item => {
+            item.text = item.text.replace('.', ',').trim();
+          });
         }
         if (row.specifications) {
             let info = [];          

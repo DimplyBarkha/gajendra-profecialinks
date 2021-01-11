@@ -11,7 +11,7 @@ fields:
     xpath: //title
   - name: category
     singleValue: false
-    xpath: //ol[@id='breadcrumb-list']//li[position()>1]/a
+    xpath: //ol[@id='breadcrumb-list']//li/a
   - name: nameExtended
     singleValue: false
     xpath: //div[@id='sku-title']//h1
@@ -57,6 +57,9 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //div[@class='image-carousel-wrapper']//ol[@class='carousel-indicate']//li[@class='thumbnail-image-wrapper carousel-item visible']//img/@src
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[@class='image-carousel-wrapper']//ol[@class='carousel-indicate']//li[@class='thumbnail-image-wrapper carousel-item visible']//img/@src)
   - name: ratingCount
     singleValue: false
     xpath: //li[@class='customer-rating']//span[@class='c-reviews']//span[@class='c-total-reviews']
@@ -84,10 +87,16 @@ fields:
   - name: promotion
     singleValue: false
     xpath: //div[@class='price-block ']//div[@class='product-savings']
+  - name: weightNet
+    singleValue: false
+    xpath: //table[@class="specifications-table"]//td[text()="Peso Producto"]/parent::tr/td[2]
   - name: mpc
     singleValue: false
     xpath: //li[@class='model-number']//span[@id='model-value']
   - name: videos
+    singleValue: false
+    xpath: //div[@class='video-carousel-wrapper']//ol[@class='carousel-indicate']//li[@class='video-item-wrapper']//img[@class='video-thumbnail']/@src
+  - name: galleryVideos
     singleValue: false
     xpath: //div[@class='video-carousel-wrapper']//ol[@class='carousel-indicate']//li[@class='video-item-wrapper']//img[@class='video-thumbnail']/@src
   - name: variantCount
@@ -103,3 +112,9 @@ fields:
   - name: firstVariant
     singleValue: false
     xpath: //div[@class='product-variations']//ul[@class='tile-group']//li[1]//div[@class='variant-img-box']//img[@class='variant-img']/@data-sku
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@id="inpage_container"]//div[contains(@class,"flix-std-content")]
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id="inpage_container"]//img/@data-flixsrcset
