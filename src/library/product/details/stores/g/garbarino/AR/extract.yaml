@@ -244,7 +244,8 @@ fields:
     singleValue: false
     description: null
     type: NUMBER
-    xpath: count(//ul[@class="gb-main-detail-gallery-grid-list"]/li/img/@src)
+    # xpath: count(//ul[@class="gb-main-detail-gallery-grid-list"]/li/img/@src)
+    xpath: count(//ul[@class="gb-main-detail-gallery-grid-list"]/li[not(@class="gb--video")]/img/@src)
   - name: news
     singleValue: false
     description: null
