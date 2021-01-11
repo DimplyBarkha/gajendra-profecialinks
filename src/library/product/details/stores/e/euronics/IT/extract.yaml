@@ -520,3 +520,16 @@ fields:
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
     xpath: substring('Yes', 1, string-length(//div[@class='galleryzoom__fog']/@class))
+  # Custom Fields 
+  - name: unInterruptedPDP
+    xpath: //section[contains(@class,"product__otherSlider ")]//div[contains(@class,"productCards")]//h3[@class="productCard__name"]
+  - name: inTheBoxUrl
+    xpath: //div[contains(@class,"InTheBox")]//div[contains(@class,"table")]//div[@class="flix-background-image"]/img/@srcset
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: inTheBoxText
+    xpath: //div[contains(@class,"InTheBox")]//div[contains(@class,"table")]//div[@class="flix-std-content"]//span
+  - name: hasComparisonTable  
+    xpath: //div[contains(@class,"comparison")]//div[contains(@class,"mainTitle")]/div
+    regExp: (.+)
+    regExpReplace: Yes
