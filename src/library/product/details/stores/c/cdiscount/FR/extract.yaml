@@ -156,3 +156,19 @@ fields:
   - name: productOtherInformation
     singleValue: false
     xpath: //div[@id="descContent"]//table[contains(@class,"fpDescTbPub")]//tr[contains(.,'Notes')]/td[2]
+  - name: inTheBoxUrl
+    singleValue: false
+    xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset
+    regExp: (.+800w,\s)(.+(.png|.jpg))(.+)
+    regExpReplace: $2
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")]
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //div[contains(@class,"carouAnimcoContainer")]//ul//li[contains(@class,'cPdtItem jsPdtItem')]/a/img/@title
+  - name: hasComparisonTable
+    xpath: //div[contains(@class,"inpage_selector_comparison")]//div[contains(@class,"flix-comp-h2")]
+    regExp: (.+)
+    regExpReplace: "Yes"
+    defaultValue: No
