@@ -2,7 +2,7 @@ input:
   id: 67591
   _url: http://alcampo.es
 extractions:
-  - html: https://workbench.import.io/html/run=12d17e0a-a74e-461d-811c-d9c29587c1dc/task=d4d0a7fd-f212-4592-adee-7f668264445f/ed7f4f7d-9680-414f-853c-e26bc0ffb80a.html
+  - html: https://workbench.import.io/html/run=740e75a8-6f9b-443e-a520-b6cd6038fe3e/task=7c315d4d-7e11-42a9-84f0-0f535156133d/43588b3b-75b4-433f-80cf-2b9ea01293ae.html
     extractionConfigId: product/details/stores/a/alcampo/ES/extract
     data:
       - group:
@@ -30,8 +30,11 @@ extractions:
               - text: Pizza prosciutto DR. OETKER Ristorante 330 g.
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[2]/div[1]/h1[1]
             price:
-              - text: 2,95 €
+              - text: 2,99 €
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[8]/div[1]/div[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/@availability
             brandText:
               - text: DR. OETKER
                 xpath: /html/head[1]/script[6]
@@ -41,9 +44,12 @@ extractions:
             weightNet:
               - text: 330g
                 xpath: /html/body/div[4]/div[2]/div[8]/section[1]/div[1]/div[7]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[1]/span[2]
-            variantId:
+            sku:
               - text: "67591"
                 xpath: /html/head[1]/link[2]/@href
+            variantId:
+              - text: "10546612371486"
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             directions:
               - text: "1-Precalentar el horno (Eléctrico: 220 °C). 2-Retirar el envoltorio.
                   3-Colocar la pizza congelada en la rejilla, introducir la
@@ -64,9 +70,6 @@ extractions:
             servingSizeUom:
               - text: ml/g
                 xpath: /html/body/@servingunit
-            caloriesPerServing:
-              - text: 229.0 Kcal
-                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/span[1]
             totalFatPerServing:
               - text: "9.9"
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[11]/div[1]/div[1]/div[2]/span[2]
@@ -107,13 +110,11 @@ extractions:
               - text: Congelador *** (-18°C). No congelar de nuevo tras la descongelación.
                 xpath: /html/body/div[4]/div[2]/div[8]/section[1]/div[1]/div[5]/div[1]/div[1]
             pricePerUnit:
-              - text: 8,93 €
+              - text: 9,06 €
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/span[1]/span[1]
             pricePerUnitUom:
               - text: Kg
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[8]/div[1]/div[1]/span[1]/span[1]
-            availabilityText:
-              - text: In Stock
             variantCount:
               - text: 1
             technicalInformationPdfPresent:
@@ -132,5 +133,7 @@ extractions:
               - text: "0"
             secondaryImageTotal:
               - text: "0"
+            caloriesPerServing:
+              - text: 958.0 KJ | 229.0 Kcal
         xpath: /
-    timestamp: 1608194680060
+    timestamp: 1610370882420

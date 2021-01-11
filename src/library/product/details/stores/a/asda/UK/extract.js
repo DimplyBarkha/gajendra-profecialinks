@@ -41,7 +41,7 @@ module.exports = {
       console.log('navigation complete!!');
     }
 
-    await context.evaluate(async function () {
+    await context.evaluate(async function (inputs) {
       async function postData (url = '', data = {}) {
         const response = await fetch(url, {
           method: 'POST',
@@ -49,6 +49,16 @@ module.exports = {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(data),
+        });
+        return response.json();
+      };
+
+      async function getData (url = '') {
+        const response = await fetch(url, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
         });
         return response.json();
       };
@@ -64,6 +74,10 @@ module.exports = {
       };
 
       const productDetails = await postData('https://groceries.asda.com/api/items/catalog', requestBody);
+      const productImageDetails = await getData(`https://groceries.asda.com/api/items/search?keyword=${inputs.id}`);
+      console.log('productImageDetails : ' + JSON.stringify(productImageDetails));
+      const productImage = productImageDetails && productImageDetails.items && productImageDetails.items[0] && productImageDetails.items[0].imageURL;
+      const productGTIN = productImageDetails && productImageDetails.items && productImageDetails.items[0] && productImageDetails.items[0].scene7AssetId;
 
       const item = (productDetails.data.uber_item && productDetails.data.uber_item.items.length && productDetails.data.uber_item.items[0]) || false;
 
@@ -91,7 +105,25 @@ module.exports = {
           document.body.appendChild(packagingElem);
         }
       }
-    });
+
+      if (productImage) {
+        const imageElem = document.createElement('div');
+
+        imageElem.id = 'productImage';
+        imageElem.innerText = productImage;
+
+        document.body.appendChild(imageElem);
+      }
+
+      if (productGTIN) {
+        const gtinElem = document.createElement('div');
+
+        gtinElem.id = 'productGTIN';
+        gtinElem.innerText = productGTIN;
+
+        document.body.appendChild(gtinElem);
+      }
+    }, inputs);
 
     const { transform } = parameters;
     const { productDetails } = dependencies;

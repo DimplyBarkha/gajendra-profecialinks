@@ -2,7 +2,7 @@ input:
   id: 549549
   _url: http://alcampo.es
 extractions:
-  - html: https://workbench.import.io/html/run=12d17e0a-a74e-461d-811c-d9c29587c1dc/task=3d04d851-4888-4ba6-9a73-88588b3a7aa5/5beff0c3-e7cb-40e7-a43b-3a4401c6054c.html
+  - html: https://workbench.import.io/html/run=740e75a8-6f9b-443e-a520-b6cd6038fe3e/task=bc976ab4-31ec-4144-8312-b26320f0c704/19646cbf-0532-4600-a0c8-0e95987e072c.html
     extractionConfigId: product/details/stores/a/alcampo/ES/extract
     data:
       - group:
@@ -30,6 +30,9 @@ extractions:
             price:
               - text: 1,66 €
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[8]/div[1]/div[1]/span[1]
+            availabilityText:
+              - text: Out Of Stock
+                xpath: /html/body/@availability
             brandText:
               - text: BREWDOG
                 xpath: /html/head[1]/script[6]
@@ -39,9 +42,12 @@ extractions:
             weightNet:
               - text: 33cl
                 xpath: /html/body/div[4]/div[2]/div[8]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[1]/span[2]
-            variantId:
+            sku:
               - text: "549549"
                 xpath: /html/head[1]/link[2]/@href
+            variantId:
+              - text: "10519350018078"
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             name:
               - text: Cerveza rubia Punk Ipa BREWDOG 33 cl.
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[2]/div[1]/h1[1]
@@ -59,8 +65,6 @@ extractions:
             pricePerUnitUom:
               - text: Litro
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[8]/div[1]/div[1]/span[1]/span[1]
-            availabilityText:
-              - text: In Stock
             variantCount:
               - text: 1
             technicalInformationPdfPresent:
@@ -79,5 +83,7 @@ extractions:
               - text: "0"
             secondaryImageTotal:
               - text: "0"
+            caloriesPerServing:
+              - text: ""
         xpath: /
-    timestamp: 1608194677646
+    timestamp: 1610370879998

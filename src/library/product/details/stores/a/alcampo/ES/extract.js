@@ -24,9 +24,26 @@ module.exports = {
         body.setAttribute('servingsize', '100');
         body.setAttribute('servingunit', 'ml/g');
       }
+
+      const addToCartButton = document.querySelector('div.addToCartDetail button[class*="big-button red-button"]');
+      if (addToCartButton) {
+        const isDisabled = addToCartButton.getAttribute('disabled');
+        const availabilityValue = isDisabled ? 'Out Of Stock' : 'In Stock';
+        body.setAttribute('availability', availabilityValue);
+      }
     });
 
     var extractedData = await context.extract(productDetails, { transform });
+
+    const rpc = extractedData[0].group[0].variantId;
+    if (rpc) {
+      rpc[0].text = rpc[0].text.replace(/\.(.+)/g, '');
+    }
+
+    const calories = extractedData[0].group[0].caloriesPerServing;
+    if (calories && calories[0].text === ' | ') {
+      calories[0].text = '';
+    }
 
     const formatMineralPerServing = (path, regex) => {
       if (path) {

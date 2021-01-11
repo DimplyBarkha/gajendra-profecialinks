@@ -2,7 +2,7 @@ input:
   id: 475213
   _url: http://alcampo.es
 extractions:
-  - html: https://workbench.import.io/html/run=12d17e0a-a74e-461d-811c-d9c29587c1dc/task=598e5e60-b48a-469d-9368-cc9730f39b19/47ad58fb-bcef-478a-a67c-6ca6ecde5d03.html
+  - html: https://workbench.import.io/html/run=740e75a8-6f9b-443e-a520-b6cd6038fe3e/task=1fe8548e-ba69-40fd-a3ec-ca5b2c0700b4/f4f32826-f954-483c-ab9b-2e96f8f8ef8a.html
     extractionConfigId: product/details/stores/a/alcampo/ES/extract
     data:
       - group:
@@ -31,6 +31,9 @@ extractions:
             price:
               - text: 1,89 €
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[8]/div[1]/div[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/@availability
             brandText:
               - text: ALPRO
                 xpath: /html/head[1]/script[6]
@@ -40,9 +43,12 @@ extractions:
             weightNet:
               - text: 400g
                 xpath: /html/body/div[4]/div[2]/div[8]/section[1]/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[1]/span[2]
-            variantId:
+            sku:
               - text: "475213"
                 xpath: /html/head[1]/link[2]/@href
+            variantId:
+              - text: "9750920560670"
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             ratingCount:
               - text: "1"
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[4]/div[1]/a[2]
@@ -64,9 +70,6 @@ extractions:
             servingSizeUom:
               - text: ml/g
                 xpath: /html/body/@servingunit
-            caloriesPerServing:
-              - text: 68.0 Kcal
-                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/span[1]
             totalFatPerServing:
               - text: "3.3"
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[11]/div[1]/div[1]/div[2]/span[2]
@@ -115,8 +118,6 @@ extractions:
             pricePerUnitUom:
               - text: Kg
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[8]/div[1]/div[1]/span[1]/span[1]
-            availabilityText:
-              - text: In Stock
             variantCount:
               - text: 1
             technicalInformationPdfPresent:
@@ -135,5 +136,7 @@ extractions:
               - text: "0"
             secondaryImageTotal:
               - text: "0"
+            caloriesPerServing:
+              - text: 283.0 KJ | 68.0 Kcal
         xpath: /
-    timestamp: 1608194678146
+    timestamp: 1610370878606
