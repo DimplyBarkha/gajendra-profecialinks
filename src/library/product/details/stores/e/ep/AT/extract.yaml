@@ -12,7 +12,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@class='slick-list']/div[@class='slick-track']/div[@class='product-image slick-slide slick-active']/a[@class='product-image-btn']/span[@class='product-image-zoom']/img[@class='product-image-thumb']/@src
+    xpath: //div[@class='slick-list']//div[contains(@class,'product-image')][not(contains(@class,'images-panel'))]//img/@src
   - name: metaKeywords
     description: The <meta> keywords content
     xpath: //head/meta[@name='keywords']
