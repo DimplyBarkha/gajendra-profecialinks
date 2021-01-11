@@ -156,7 +156,7 @@ module.exports = {
       // @ts-ignore
       if (openIngredients !== undefined && openIngredients !== null) openIngredients.click();
     });
-    // await context.extract(productDetails, { transform });
+
     var dataRef = await context.extract(productDetails, { transform });
 
     dataRef[0].group.forEach((row) => {
