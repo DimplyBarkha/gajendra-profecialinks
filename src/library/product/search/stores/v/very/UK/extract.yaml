@@ -30,6 +30,8 @@ fields:
     xpath: //a[@class="productRating"]/span
     regExp: \d\.?\d?
   - name: reviewCount
+    xpath: //div[@class="bvReviewsNumber"]/a[@class="productRating"]
+    regExp: \d+
     singleValue: false
   - name: ratingCount
     singleValue: false
