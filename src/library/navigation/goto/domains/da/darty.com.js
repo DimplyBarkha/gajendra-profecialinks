@@ -21,7 +21,7 @@ module.exports = {
     await context.setBlockAds(false);
     await context.setAntiFingerprint(false);
 
-    const responseStatus = await context.goto(`${url}#[!opt!]{"block_ads":false,"anti_fingerprint":false,"first_request_timeout":60,"load_timeout":30,"load_all_resources":true,"enable_cache":false,"discard_CSP_header":true}[/!opt!]`, {
+    const responseStatus = await context.goto(`${url}`, {
       antiCaptchaOptions: {
         type: 'GEETEST',
       },
@@ -67,7 +67,7 @@ module.exports = {
     try {
       await context.waitForSelector('#produit > div.product_head');
     } catch (error) {
-      const responseStatus = await context.goto(`${url}#[!opt!]{"block_ads":false,"anti_fingerprint":false,"first_request_timeout":60,"load_timeout":30,"load_all_resources":true,"enable_cache":false,"discard_CSP_header":true}[/!opt!]`, {
+      const responseStatus = await context.goto(`${url}`, {
         antiCaptchaOptions: {
           type: 'GEETEST',
         },
