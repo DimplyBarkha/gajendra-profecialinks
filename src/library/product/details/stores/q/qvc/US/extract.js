@@ -68,14 +68,6 @@ module.exports = {
             }
             data[k].group[i].ingredientsList = data[k].group[i].ingredientsList.slice(0, 1);
           }
-          // if ('description' in data[k].group[i]) {
-          //   if (data[k].group[i].directions[0].text.includes('How do I use it:')) {
-          //     data[k].group[i].description[0].text = 
-          //       data[k].group[i].description[0].text.split('How do I use it:')[0].trim() 
-          //       + 'From' + data[k].group[i].description[0].text.split('From')[1];
-          //   }
-            // data[k].group[i].description[0].text = data[k].group[i].description[0].text.replace(/[\r\n]+/g, ' ').replace(/\s\s+/g, ' ');
-          // }
           if (sku !== null && 'variantId' in data[k].group[i]) {
             data[k].group[i].variantId[0].text = sku;
           }
@@ -96,6 +88,8 @@ module.exports = {
           if ('directions' in data[k].group[i]) {
             if (data[k].group[i].directions[0].text.includes('How do I use it:')) {
               data[k].group[i].directions[0].text = 'How do I use it: ' + data[k].group[i].directions[0].text.split('How do I use it:')[1].split('From')[0].trim();
+            } else {
+              data[k].group[i].directions[0].text = '';
             }
           }
         }
