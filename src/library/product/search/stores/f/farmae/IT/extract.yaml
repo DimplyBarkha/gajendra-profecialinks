@@ -30,7 +30,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //div[@class="price-box"]/p[@class="special-price"]/span[@class="price"]
+    xpath: //div[@class="price-box"]/p[@class="special-price"]/span[@class="price"] | //div[@class="price-box"]/span[@class="regular-price"]/span[@class="price"]
   - name: manufacturer
     singleValue: true
   - name: soldBy

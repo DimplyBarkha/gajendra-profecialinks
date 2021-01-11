@@ -23,11 +23,20 @@ module.exports = {
       }
       const searchUrl = window.location.href;
       addElementToDocument('searchUrl', searchUrl);
+      function stall (ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
 
+      // waits for script loaded
+      await stall(4000);
       const elementWithIDs = document.evaluate('//script[contains(.,"Search Results")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       const productsElements = document.querySelectorAll('ul.products-grid>li');
       const productsArray = JSON.parse(`${elementWithIDs.textContent.match(/\((.+)\)/)[1]}`).ecommerce.impressions;
-      productsElements.forEach(product => {
+      productsElements.forEach((product) => {
         product.setAttribute('id', productsArray.shift().id);
       });
     });
