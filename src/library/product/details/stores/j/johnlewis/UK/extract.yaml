@@ -189,5 +189,5 @@ fields:
   #   xpath: //div[@id='ii_recommended_products']|//li[@data-carousel="recentlyViewedCarousel"]//h3 | (//div[@class="swogo-box"])[1]//div[contains(@class,"swogo-product")]//div[@class="swogo-product-title"]
   # xpath: (//div[@class="swogo-box"])[1]//div[contains(@class,"swogo-product")]//div[@class="swogo-product-title"]
   - name: unInterruptedPDP
-    xpath: //import-updp
+    xpath: //import-updp | //li[@data-carousel="recentlyViewedCarousel"]//h3
     description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
