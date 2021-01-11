@@ -50,6 +50,9 @@ fields:
   - name: description
     singleValue: true
     xpath: concat(//div[contains(@id,'product-description')]/ul,' ',//div[contains(@id,'product-marketing')],' ',//div[contains(@id,'brand-marketing')],' ',//div[contains(@id,'other-information')])
+  - name: shortDescription
+    singleValue: false
+    xpath: concat(//div[contains(@id,'product-description')]/ul,' ',//div[contains(@id,'product-marketing')],' ',//div[contains(@id,'brand-marketing')],' ',//div[contains(@id,'other-information')])
   - name: manufacturerImages
     singleValue: true
   - name: specifications
@@ -235,9 +238,3 @@ fields:
     singleValue: true
     description: Unit of Measure Data for Salt
     xpath: //table[@class='product__info-table']/tbody//td[contains(.,"Salt ")]/following-sibling::td[1]
-
-
-
-
-
-
