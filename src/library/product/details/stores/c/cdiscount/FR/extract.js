@@ -43,10 +43,7 @@ async function implementation (
     await scrollToLoadAplusImages();
     console.log('scrolling code execution complete.....');
 
-    // If images are present in description then add to manufacturerDescription else add to description
-    let manufacturerImageFlag = document.querySelector('div[id="inpage_container"] img');
-    manufacturerImageFlag = manufacturerImageFlag || document.querySelector('div[id*="presContent"] img');
-    const descriptionSelector = document.querySelectorAll('div[id="inpage_container"], div[id*="presContent"]');
+    const descriptionSelector = document.querySelectorAll('div[id="inpage_container"], div[id="presContent"] , div[id="descContent"]');
     let description = '';
     descriptionSelector && descriptionSelector.forEach(element => {
       // @ts-ignore
@@ -60,11 +57,7 @@ async function implementation (
       console.log('videos not present');
     }
     // description = description ? description.replace(/\|\| Key Features/gm, 'Key Features') : '';
-    if (manufacturerImageFlag) {
-      description && addHiddenDiv('added-manufacturerDesc', description);
-    } else {
-      description && addHiddenDiv('added-description', description);
-    }
+    description && addHiddenDiv('added-manufacturerDesc', description);
   });
   await context.evaluate(async function () {
     function addHiddenDiv (id, content) {

@@ -99,7 +99,7 @@ fields:
     xpath: //*[@id="descContent"]//td[text()="Poids (Expédition)"]/parent::tr
   - name: manufacturerDescription
     singleValue: false
-    xpath: //*[@id="presContent"] | //*[@id="descContent"]
+    xpath: //div[@id="added-manufacturerDesc"]
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@id="manu_img"] | //div[@id="inpage_container"]//img/@srcset | //div[@id="presContent"]//img/@src
