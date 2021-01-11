@@ -19,7 +19,9 @@ const transform = (data, context) => {
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
 
   for (const { group } of data) {
+
     for (const row of group) {
+      console.log("hello format.js");
       try {
         if (row.description) {
           let desc = '';

@@ -5,11 +5,9 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //div[@id='ii_image']
     description: URL of the main product image
   - name: imageAlt
     singleValue: true
-    xpath: //div[@id='ii_imageAlt']
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
@@ -21,11 +19,13 @@ fields:
     description: The <meta> keywords content
   - name: category
     singleValue: false
-    xpath: //ol[contains(@class,'breadcrumb')]//li[position()>1]
+    # xpath: //ol[contains(@class,'breadcrumb')]//li[position()>1]
+    xpath: //ol[contains(@class,'breadcrumb')]//li
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: true
-    xpath: //div[@id='ii_nameExtended']
+    # xpath: //div[@id='ii_nameExtended']
+    xpath: //div[contains(@class,'product-details_headerContainer')]/h1[contains(@class,'product-details_productName')]
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
@@ -42,13 +42,15 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //button[contains(@data-automation-id,'add-button')] | //button[contains(@data-automation-id,'buy-now-button')]
+    # xpath: //button[contains(@data-automation-id,'add-button')] | //button[contains(@data-automation-id,'buy-now-button')]
+    xpath: //div[contains(@class,'product-details_addToCartContainer')]//button[contains(@class,'add-to-cart_addToCartButton')]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[@id='ii_desc']
+    # xpath: //div[@id='ii_desc']
+    xpath: //div[contains(@class,'product-features_seoDescription')]//p
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
@@ -57,7 +59,8 @@ fields:
     description: Number of ul > li tags in the description
   - name: brandText
     singleValue: true
-    xpath: //h2[contains(@class,'brand-name_brandName')]/a
+    # xpath: //h2[contains(@class,'brand-name_brandName')]/a
+    xpath: //div[contains(@class,'product-details_headerContainer')]/h2[contains(@class,'brand-name_brandName')]
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: weightNet
@@ -87,11 +90,11 @@ fields:
     description: Number of variants listed
   - name: color
     singleValue: true
-    xpath: //div[contains(@class,'product-description_characteristics') and contains(.,'Color')]//p[2]
+    xpath: //div[@data-testid="product-variants"]//span[contains(@class,'variant_selectedVarianceValue')]
+    # xpath: //div[contains(@class,'product-description_characteristics') and contains(.,'Color')]//p[2]
     description: A textual description of the colour
   - name: name
     singleValue: true
-    xpath: //div[@id='ii_name']
     description: The product name
   - name: lbb
     singleValue: true
@@ -106,7 +109,7 @@ fields:
     description: null
   - name: specifications
     singleValue: false
-    xpath: //div[contains(@data-automation-id,'characteristics-body')]/div/p
+    # xpath: //div[contains(@data-automation-id,'characteristics-body')]/div/p
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: true
@@ -131,3 +134,25 @@ fields:
     singleValue: false
     xpath: //div[@id='ii_video']
     description: null
+  - name: shownImages
+    singleValue: false
+    xpath: //div[contains(@class,'image-picker_thumb')]//img[contains(@itemprop,'image')]/@src
+  - name: highQualityImages
+    singleValue: false
+    xpath: //div[contains(@class,'image-picker_thumb')]//img[contains(@itemprop,'image')]/@src
+  - name: shortDescription
+    singleValue: false
+    xpath: //div[contains(@class,'product-features_seoDescription')]//p
+  - name: featureBullets
+    singleValue: false
+    xpath: //div[@data-automation-id="characteristics-body"]//div
+  - name: productUrl
+    singleValue: true
+    xpath: //link[@rel="canonical"]/@href
+  - name: sku
+    singleValue: true
+    xpath: //meta[contains(@itemprop,'productID')]/@content
+    description: Identifier for a variant from a store where variants share the same sku
+
+
+
