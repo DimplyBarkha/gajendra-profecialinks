@@ -57,34 +57,34 @@ module.exports = {
       return false;
     }
 
-    await context.evaluate(async function () {
-      if (document.querySelector('span[data-at^="number_of_reviews"]')) {
-        document.querySelector('span[data-at^="number_of_reviews"]').click();
-      }
-    });
+    // await context.evaluate(async function () {
+    //   if (document.querySelector('span[data-at^="number_of_reviews"]')) {
+    //     document.querySelector('span[data-at^="number_of_reviews"]').click();
+    //   }
+    // });
 
-    try {
-      await context.waitForSelector('div#ratings-reviews-container div#ratings-reviews', { timeout: 20000 });
-    } catch (error) {
-      const reviewButtonExists = await context.evaluate(async function () {
-        return !!document.querySelector('span[data-at^="number_of_reviews"]');
-      });
-      if (reviewButtonExists) {
-        await context.click('span[data-at^="number_of_reviews"]');
-      }
-      console.log('Loading ratings and reviews');
-    }
+    // try {
+    //   await context.waitForSelector('div#ratings-reviews-container div#ratings-reviews', { timeout: 20000 });
+    // } catch (error) {
+    //   const reviewButtonExists = await context.evaluate(async function () {
+    //     return !!document.querySelector('span[data-at^="number_of_reviews"]');
+    //   });
+    //   if (reviewButtonExists) {
+    //     await context.click('span[data-at^="number_of_reviews"]');
+    //   }
+    //   console.log('Loading ratings and reviews');
+    // }
 
-    try {
-      await context.waitForSelector('div[data-comp~="ReviewsStats"]  span[data-comp^="Text Box StyledComponent BaseComponent"]', { timeout: 20000 });
-    } catch (error) {
-      await context.evaluate(async function () {
-        if (document.querySelector('span[data-at^="number_of_reviews"]')) {
-          document.querySelector('span[data-at^="number_of_reviews"]').click();
-        }
-      });
-      console.log('Loading ratings and reviews');
-    }
+    // try {
+    //   await context.waitForSelector('div[data-comp~="ReviewsStats"]  span[data-comp^="Text Box StyledComponent BaseComponent"]', { timeout: 20000 });
+    // } catch (error) {
+    //   await context.evaluate(async function () {
+    //     if (document.querySelector('span[data-at^="number_of_reviews"]')) {
+    //       document.querySelector('span[data-at^="number_of_reviews"]').click();
+    //     }
+    //   });
+    //   console.log('Loading ratings and reviews');
+    // }
 
     try {
       await context.waitForSelector('div[data-comp~="StyledComponent"] h2, div#tabpanel0', { timeout: 20000 });
@@ -113,7 +113,7 @@ module.exports = {
     });
 
 
-   
+
 
     await context.evaluate(function (parentInput) {
       function addHiddenDiv(id, content) {
@@ -170,7 +170,7 @@ module.exports = {
         i++;
       }
 
- 
+
       const sizeInfo = '//div[contains(@data-comp,"SizeAndItemNumber")]';
       var sInfo = document.evaluate(sizeInfo, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
       if (sInfo.snapshotLength > 0) {
@@ -232,8 +232,28 @@ module.exports = {
       // }
     }, parentInput);
     await context.evaluate(async function () {
+      var heading = document.querySelector('h1');
       const rating = Sephora.mboxAttrs.productRating.toFixed(1);
-      document.querySelector('h1').setAttribute('rating', rating);
+      if (heading) {
+        heading.setAttribute('rating', rating);
+      }
+      async function getReviewCount() {
+        var productId = Sephora.mboxAttrs.productId;
+        const response = await fetch(`https://api.bazaarvoice.com/data/reviews.json?Filter=contentlocale%3Aen*&Filter=ProductId%3A${productId}&Sort=SubmissionTime%3Adesc&Limit=30&Offset=0&Include=Products%2CComments&Stats=Reviews&passkey=rwbw526r2e7spptqd2qzbkp7&apiversion=5.4&Locale=en_US`);
+        return response.json();
+
+      }
+      var count = await getReviewCount();
+      var reviewCount = count.Includes.Products
+      var totalReviewCount = reviewCount[Object.keys(reviewCount)[0]].TotalReviewCount;
+      var description = reviewCount[Object.keys(reviewCount)[0]].Description.replace(/-\s/g,' || ');
+      if (heading) {
+        heading.setAttribute('review-count', totalReviewCount);
+        heading.setAttribute('description', description);
+      }
+
+
+
 
       const altImage = JSON.parse(document.querySelector('script#linkStore').textContent);
       const arrImage = altImage["page"] && altImage["page"].product && altImage["page"].product.currentSku && altImage["page"].product.currentSku.alternateImages;
@@ -247,40 +267,40 @@ module.exports = {
       }
       async function getVideo() {
         async function getObj() {
-            const response = await fetch(window.location.href);
-            const html = await response.text();
-            const doc = new DOMParser().parseFromString(html, 'text/html');
-            const json = JSON.parse(doc.querySelector("#linkJSON").innerText);
-            return json;
+          const response = await fetch(window.location.href);
+          const html = await response.text();
+          const doc = new DOMParser().parseFromString(html, 'text/html');
+          const json = JSON.parse(doc.querySelector("#linkJSON").innerText);
+          return json;
         }
         const dataObj = await getObj();
         if (dataObj) {
-            const videoIds = dataObj.find(elm => elm.props.product) && dataObj.find(elm => elm.props.product).props.product.product.productVideos && dataObj.find(elm => elm.props.product) && dataObj.find(elm => elm.props.product).props.product.product.productVideos.map(elm => elm.videoUrl);
-            const accountID = document.querySelector('[src^="//players.brightcove.net/"]') && document.querySelector('[src^="//players.brightcove.net/"]').src && document.querySelector('[src^="//players.brightcove.net/"]').src.match(/players.brightcove.net\/([^\/]+)/)[1];
-            const apis = videoIds && videoIds.map(elm => `https://edge.api.brightcove.com/playback/v1/accounts/${accountID}/videos/${elm}`);
-            const promises = apis && apis.map(elm => fetch(elm, {
-                "headers": {
-                    "accept": "application/json;pk=BCpkADawqM2Q0u_EMhwh6sG-XavxnNSGgRmPVZqaQsilEjLYeUK24ofKhllzQeA8owqhzPCRuGbPh9FkCBxnD8mYW4RHulG2uVuwr363jOYU8lRht0dPdw7n31iz7t3LvGdQWkUrxdxrXrqk",
-                }
-            }))
-            if (promises) {
-                const responses = await Promise.all(promises);
-                const json = await Promise.all(responses.map(elm => elm.json()));
-                const videoUrls = json.map(elm => elm.sources.find(elm => elm.container === "MP4").src);
-                console.log(videoUrls);
-                return videoUrls;
+          const videoIds = dataObj.find(elm => elm.props.product) && dataObj.find(elm => elm.props.product).props.product.product.productVideos && dataObj.find(elm => elm.props.product) && dataObj.find(elm => elm.props.product).props.product.product.productVideos.map(elm => elm.videoUrl);
+          const accountID = document.querySelector('[src^="//players.brightcove.net/"]') && document.querySelector('[src^="//players.brightcove.net/"]').src && document.querySelector('[src^="//players.brightcove.net/"]').src.match(/players.brightcove.net\/([^\/]+)/)[1];
+          const apis = videoIds && videoIds.map(elm => `https://edge.api.brightcove.com/playback/v1/accounts/${accountID}/videos/${elm}`);
+          const promises = apis && apis.map(elm => fetch(elm, {
+            "headers": {
+              "accept": "application/json;pk=BCpkADawqM2Q0u_EMhwh6sG-XavxnNSGgRmPVZqaQsilEjLYeUK24ofKhllzQeA8owqhzPCRuGbPh9FkCBxnD8mYW4RHulG2uVuwr363jOYU8lRht0dPdw7n31iz7t3LvGdQWkUrxdxrXrqk",
             }
+          }))
+          if (promises) {
+            const responses = await Promise.all(promises);
+            const json = await Promise.all(responses.map(elm => elm.json()));
+            const videoUrls = json.map(elm => elm.sources.find(elm => elm.container === "MP4").src);
+            console.log(videoUrls);
+            return videoUrls;
+          }
         }
-    }
+      }
       var video = await getVideo();
-    if(video && video.length) {
-      video.map(e=>{
-        let newlink = document.createElement('a');
+      if (video && video.length) {
+        video.map(e => {
+          let newlink = document.createElement('a');
           newlink.setAttribute('class', 'video');
           newlink.href = e;
           document.body.appendChild(newlink);
-      });
-    }
+        });
+      }
     })
 
     await new Promise(resolve => setTimeout(resolve, 5000));

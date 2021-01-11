@@ -31,11 +31,11 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       try {
-        if (row.description) {
-          const text = row.description[0].text;
-          const bulletReplace = text.replace(/ - /g, ' || ');
-          row.description[0].text = bulletReplace;
-        }
+        // if (row.description) {
+        //   const text = row.description[0].text;
+        //   const bulletReplace = text.replace(/ - /g, ' || ');
+        //   row.description[0].text = bulletReplace;
+        // }
         if (row.ingredientsList) {
           const text = row.ingredientsList[0].text;
           const bulletReplace = text.replace(/ - /g, ' || ');

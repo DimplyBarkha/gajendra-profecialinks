@@ -23,10 +23,10 @@ fields:
   - name: ratingCount
     description: The number of ratings
     type: NUMBER
-    xpath: //p[@id="reviewsDescription"]/following-sibling::div[contains(@data-comp,"ReviewsStats")]//span[contains(.,'review')]
+    xpath: //h1/@review-count
   - name: ratingCount2
     type: NUMBER
-    xpath: //p[@id="reviewsDescription"]/following-sibling::div[contains(@data-comp,"ReviewsStats")]//span[contains(.,'review')]
+    xpath: //h1/@review-count
   - name: videos
     description: URLs of videos on page
     xpath: //a[@class="video"]/@href
@@ -47,7 +47,7 @@ fields:
     #  [+-]?\d+(,d{3})*(\.\d+)?(e[+-]?\d+)?
     xpath: //div[contains(@data-comp,"Price Box")]/span[last()]|(//p[contains(@data-comp,"Price")]//span[contains(@data-comp,"Rflex")]//span)[1]
   - name: description
-    xpath: //div[@id="ii_Details"]|//div[contains(@data-comp,"RegularProduct")]//h2[contains(text(), "About the Product")]//following-sibling::div[1]//div//div[@data-comp="StyledComponent BaseComponent "]|//div[contains(@data-comp,"Box StyledComponent BaseComponent")]//div[@id="tabpanel0"]
+    xpath: //h1/@description
   - name: brandText
     xpath: //h1/a[contains(@data-comp, "Link Box")]/span|//h1[contains(@data-comp, "DisplayName")]/a
   - name: brandLink
