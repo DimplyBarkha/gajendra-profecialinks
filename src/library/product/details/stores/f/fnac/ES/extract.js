@@ -38,7 +38,7 @@ async function implementation (inputs, parameters, context, dependencies) {
 
   const setValueInDivToDOM = async (id, content) => {
     console.log(`Adding id: ${id} and content of ${id} to DOM`);
-    console.log('content => ', context);
+    console.log('content => ', content);
 
     await context.evaluate(async (id, content) => {
       function addHiddenDiv (id, content) {
