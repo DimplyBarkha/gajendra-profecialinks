@@ -95,3 +95,5 @@ fields:
   - name: weightNet
     singleValue: false
     xpath: //div[@id="import_product_weight"]
+  - name: unInterruptedPDP
+    xpath: //div[contains(@class,"SimilarSlider__container js--SimilarSlider__container ProductsSlider__container ProductsSlider__container_bottom-padding")]//div[contains(@class,"product_data__gtm-js product_data__pageevents-js ProductCardVertical js--ProductCardInListing ProductCardVertical_normal ProductCardVertical_shadow-hover ProductCardVertical_short")]//div[contains(@class,"ProductCardVertical__description ")] /a[contains(@class," ProductCardVertical__name  Link js--Link Link_type_default")] | //div[contains(@class,"product_data__gtm-js product_data__pageevents-js  RecentlyViewedProductCard ProductCardVertical js--ProductCardInListing ProductCardVertical_viewed-product ProductCardVertical_not-available")]//div[contains(@class,"ProductCardVertical__description ProductCardVertical_overlay")]
