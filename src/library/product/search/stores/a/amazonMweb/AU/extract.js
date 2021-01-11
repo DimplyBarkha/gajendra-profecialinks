@@ -4,18 +4,13 @@ const { implementation } = require('../../amazon/shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
-    country: 'DE',
-    store: 'amazonPrimeNow',
+    country: 'AU',
+    store: 'amazonMweb',
     transform,
-    domain: 'primenow.amazon.de',
-    zipcode: '10115',
+    domain: 'amazon.com.au',
   },
   implementation,
 };
-
-
-
-
 
 
 
