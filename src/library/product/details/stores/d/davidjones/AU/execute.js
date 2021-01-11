@@ -5,8 +5,8 @@ module.exports = {
     country: 'AU',
     store: 'davidjones',
     domain: 'davidjones.com',
-    loadedSelector: "#page-content",
-    noResultsXPath: "p.lead",
+    loadedSelector: '#page-content',
+    noResultsXPath: 'p.lead',
     zipcode: '',
   },
 };
