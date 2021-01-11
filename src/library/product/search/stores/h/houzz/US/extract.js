@@ -50,46 +50,46 @@ module.exports = {
           break;
         }
       }
-      function addHiddenDiv(id, content, index) {
-        const newDiv = document.createElement("div");
-        newDiv.id = id;
-        newDiv.textContent = content;
-        newDiv.style.display = "none";
-        const originalDiv = document.querySelectorAll(
-          ".hz-product-card__image-container"
-        )[index];
-        originalDiv.parentNode.insertBefore(newDiv, originalDiv);
-      }
-      const product = document.querySelectorAll(
-        ".hz-product-card__image-container"
-      );
-      let rank = document.querySelector(".hz-pagination-link--selected")
-        .innerText;
-      console.log(rank);
+      // function addHiddenDiv(id, content, index) {
+      //   const newDiv = document.createElement("div");
+      //   newDiv.id = id;
+      //   newDiv.textContent = content;
+      //   newDiv.style.display = "none";
+      //   const originalDiv = document.querySelectorAll(
+      //     ".hz-product-card__image-container"
+      //   )[index];
+      //   originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+      // }
+      // const product = document.querySelectorAll(
+      //   ".hz-product-card__image-container"
+      // );
+      // let rank = document.querySelector(".hz-pagination-link--selected")
+      //   .innerText;
+      // console.log(rank);
 
-      const jsonString = document.querySelectorAll(
-        "script[type='application/ld+json']"
-      )[1];
-      var Manufacture_list = document.getElementsByClassName(
-        "hz-product-manufacturer hz-product-card__manufacturer hz-color-link hz-color-link--static hz-color-link--enabled "
-      );
-      const jsonParsed = JSON.parse(jsonString.innerText);
-      const json_list = jsonParsed.itemListElement;
+      // const jsonString = document.querySelectorAll(
+      //   "script[type='application/ld+json']"
+      // )[1];
+      // var Manufacture_list = document.getElementsByClassName(
+      //   "hz-product-manufacturer hz-product-card__manufacturer hz-color-link hz-color-link--static hz-color-link--enabled "
+      // );
+      // const jsonParsed = JSON.parse(jsonString.innerText);
+      // const json_list = jsonParsed.itemListElement;
 
-      for (let i = 0; i < product.length; i++) {
-        console.log("Loop is working");
-        try {
-          var new_manuf = Manufacture_list[i].innerText.replace(/by/g, "");
-          addHiddenDiv("ii_manufacture", new_manuf, i);
-        } catch (err) {
-          console.log(err);
-        }
+      // for (let i = 0; i < product.length; i++) {
+      //   console.log("Loop is working");
+      //   try {
+      //     var new_manuf = Manufacture_list[i].innerText.replace(/by/g, "");
+      //     addHiddenDiv("ii_manufacture", new_manuf, i);
+      //   } catch (err) {
+      //     console.log(err);
+      //   }
 
-        var single_obj = json_list[i];
-        var url_web = single_obj.url;
+      //   var single_obj = json_list[i];
+      //   var url_web = single_obj.url;
 
-        addHiddenDiv("ii_produrl", url_web, i);
-      }
+      //   addHiddenDiv("ii_produrl", url_web, i);
+      // }
     });
     return await context.extract(productDetails, { transform });
   },
