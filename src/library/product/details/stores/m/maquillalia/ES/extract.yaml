@@ -6,6 +6,9 @@ fields:
   - name: _url
     singleValue: true
     xpath: //link[@rel="canonical"]/@href
+  - name: productUrl
+    singleValue: true
+    xpath: //link[@rel="canonical"]/@href
   - name: image
     singleValue: true
     description: URL of the main product image
@@ -48,7 +51,7 @@ fields:
     # xpath: //div[@class="estimatedTimeFicha"]
     xpath: //div[@class="BuyCn SingleBuy"]/a[@class="mgp-ajax Button Buy"]
     regExp: (.+)
-    regExpReplace: Out of Stock
+    regExpReplace: Out of stock
     defaultValue: In Stock
   - name: description
     singleValue: false
