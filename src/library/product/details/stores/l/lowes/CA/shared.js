@@ -25,14 +25,17 @@ const transform = (data) => {
           if (item.text.match(/(.*)_l.jpg/)) {
             item.text = item.text.replace(/(.*)_l.jpg/, '$1.jpg');
           }
-          if (!item.text.startsWith('https') && row.nameExtended && row.nameExtended[0]) {
-            item.text = row.nameExtended[0].text;
-          }
+          item.text = !item.text.startsWith('https') ? `https://www.lowes.ca${item.text}` : item.text;
         });
-      } else {
-        if (!row.image && row.nameExtended && row.nameExtended[0]) {
-          row.image = row.nameExtended;
-        }
+      }
+      if (row.image1 && !row.image) {
+        row.image1.forEach(item => {
+          if (item.text.match(/(.*)_l.jpg/)) {
+            item.text = item.text.replace(/(.*)_l.jpg/, '$1.jpg');
+          }
+          item.text = !item.text.startsWith('https') ? `https://www.lowes.ca${item.text}` : item.text;
+        });
+        row.image = row.image1;
       }
       if (row.availabilityText) {
         row.availabilityText = [{ text: 'In Stock' }];

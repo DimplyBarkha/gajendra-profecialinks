@@ -6,6 +6,9 @@ fields:
   - name: image
     singleValue: false
     xpath: //button[contains(@class,'product-image') or contains(@class,'imgWrapper')]//img/@src
+  - name: image1
+    singleValue: false
+    xpath: //div[contains(@class,"product-carousel-item active")]//img/@src | //div[contains(@class,"product-image")]//img/@src
   - name: imageAlt
     singleValue: false
     xpath: //h1[contains(@class,'product-name') or contains(@class,'Heading')]
