@@ -73,6 +73,17 @@ const transform = (data, context) => {
               }
             }
           });
+  if (row.shownImages) {
+        row.shownImages.forEach(item => {
+          item.text = item.text.replace('450', '900').trim();
+        });
+      }
+ if (row.highQualityImages) {
+        row.highQualityImages.forEach(item => {
+          item.text = item.text.replace('450', '900').trim();
+        });
+      }
+
 
           // row.manufacturerImages.forEach(item => {
           //   const imageUrl = item.text;
