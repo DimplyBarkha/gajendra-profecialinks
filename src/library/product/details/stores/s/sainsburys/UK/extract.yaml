@@ -1,23 +1,23 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
   - name: nameExtended
-    singleValue: true
+    singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
     xpath: //h1[@class="pd__header"]
   - name: name
-    singleValue: true
+    singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
     xpath: //h1[@class="pd__header"]
   - name: otherSellersName
-    singleValue: true
+    singleValue: false
     defaultValue: Sainsburys
   - name: listPrice
-    singleValue: true
+    singleValue: false
     description: The stated undiscounted price for the product
     xpath: //div[@class='pd__cost']/div[contains(@class,'pd__cost__total')]
   - name: price
@@ -30,31 +30,31 @@ fields:
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     defaultValue: GBP
-    xpath: //div[@class='pd__cost']/div[contains(@class,'pd__cost__total')]
   - name: availabilityText
-    singleValue: true
+    singleValue: false
     defaultValue: Out of Stock
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     xpath: //div[@class='pt-button']/button[contains(@class,'pt__add-button')]
   - name: description
-    singleValue: true
+    singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
     xpath: //div[@class="itemTypeGroupContainer productText"]/h3[contains(text(),'Description')]/following-sibling::div[@class='itemTypeGroup']
   - name: shortDescription
-    singleValue: true
+    singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
     xpath: //div[@class="itemTypeGroupContainer productText"]/h3[contains(text(),'Description')]/following-sibling::div[@class='itemTypeGroup']
   - name: product_enhanced_content_available
-    singleValue: true
+    singleValue: false
     defaultValue: false
   - name: featureBullets
     singleValue: false
     xpath: //div[contains(@class,"itemTypeGroupContainer")]/div[@class="memo"]/p | //div[contains(@class,"longTextItems")]/p
   - name: product_features
+    singleValue: false
     xpath: //div[@class='pd__description']
   - name: category
     singleValue: false
@@ -69,67 +69,67 @@ fields:
     description: Other product images (not in manufacturer description)
     xpath: //div[@class="pd__additional__container"]/img/@srcset
   - name: ratingCount
-    singleValue: true
+    singleValue: false
     description: The stated aggregate rating
     xpath: //div[@class="pd__reviews"]/a[@class="star-rating-link"]/span[@class="pd__reviews__read"]
   - name: aggregateRating
-    singleValue: true
+    singleValue: false
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
     xpath: //div[@class="pd__reviews"]/a[@class="star-rating-link"]/span[@class="pd__reviews__write"]/@aria-label
   - name: sku
-    singleValue: true
+    singleValue: false
     description: The store-specific product identifier
     xpath: //div[@class="custom_sku"]
   - name: brandText
-    singleValue: true
+    singleValue: false
   - name: manufacturer
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@class,"itemTypeGroupContainer productText")]/h3[text()="Manufacturer"]/parent::*/div[@class="itemTypeGroup"]//p
   - name: countryOfOrigin
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@class,"itemTypeGroupContainer productText")]/h3[text()="Country of Origin"]/parent::*/div[@class="itemTypeGroup"]
   - name: packaging
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@class,"itemTypeGroupContainer productText")]/h3[text()="Packaging"]/parent::*/div[@class="itemTypeGroup"]
-  - name: product_grocery_ingredients
-    singleValue: true
-    xpath: //div[contains(@class,"itemTypeGroupContainer productText")]//ul[@class="productIngredients"]//li
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[contains(@class,"itemTypeGroupContainer productText")]//ul[@class="productIngredients"]
   - name: storage
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@class,"itemTypeGroupContainer productText")]/h3[text()="Storage"]/parent::*/div[@class="itemTypeGroup"]//p
   - name: variantId
-    singleValue: true
+    singleValue: false
     xpath: //p[@class="pd__item-code"]//span[@id="productSKU"]
   - name: caloriesFromFatPerServing
-    singleValue: true
+    singleValue: false
     xpath: //table[@class="nutritionTable"]//th[text()="Fat "]/parent::tr/td
     type: NUMBER
   - name: totalFatPerServing
-    singleValue: true
+    singleValue: false
     xpath: //table[@class="nutritionTable"]//th[text()="Fat "]/parent::tr/td
     type: NUMBER
   - name: saturatedFatPerServing
-    singleValue: true
+    singleValue: false
     xpath: //table[@class="nutritionTable"]//th[contains(text(),"of which saturates")]/parent::tr/td
     type: NUMBER
   - name: saltPerServing
-    singleValue: true
+    singleValue: false
     xpath: //table[@class="nutritionTable"]//th[text()="Salt "]/parent::tr/td
     type: NUMBER
   - name: totalCarbPerServing
-    singleValue: true
+    singleValue: false
     xpath: //table[@class="nutritionTable"]//th[contains(text(),"Carbohydrate")]/parent::tr/td
     type: NUMBER
   - name: legalDisclaimer
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@class,"ln-c-card pd__disclaimer ln-c-card--soft")]//following-sibling::p
   - name: productUrl
-    singleValue: true
+    singleValue: false
     xpath: //div[@class="product_custom_url"]
   - name: allergens
-    singleValue: true
+    singleValue: false
     xpath: //div[@id="mainPart"]/div[@class="itemTypeGroupContainer productText"]//*[contains( text(), 'Dietary Information')]/parent::div
   - name: caloriesPerServing
-    singleValue: true
+    singleValue: false
     xpath: //table[@class="nutritionTable"]/tbody/tr/th[contains(text(), 'Energy')]/following-sibling::td

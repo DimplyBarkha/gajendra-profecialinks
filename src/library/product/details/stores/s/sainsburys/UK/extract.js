@@ -13,7 +13,7 @@ async function implementation(
       newDiv.className = elementID;
       newDiv.textContent = content;
       newDiv.style.display = 'none';
-      const element = document.querySelector('body')
+      const element = document.querySelector('div.ln-o-page__body')
       element.appendChild(newDiv);
     }
 

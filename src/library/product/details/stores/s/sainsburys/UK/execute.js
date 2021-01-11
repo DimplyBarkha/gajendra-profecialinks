@@ -35,7 +35,7 @@ module.exports = {
     country: 'UK',
     store: 'sainsburys',
     domain: 'sainsburys.co.uk',
-    loadedSelector: 'div.ln-c-card.ln-c-card--soft',
+    loadedSelector:'div.product-details-page',
     noResultsXPath: null,
     zipcode: '',
   },

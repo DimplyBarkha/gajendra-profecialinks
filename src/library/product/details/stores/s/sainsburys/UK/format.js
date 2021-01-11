@@ -82,7 +82,8 @@ const url1 = require('url');
           }
           if (row.aggregateRating) {
             row.aggregateRating.forEach(item => {
-              item.text = parseFloat( item.text.replace(/[^\d.-]/g, '') );
+              let text = parseFloat( item.text.replace(/[^\d.-]/g, '') ).toFixed(1);
+              item.text = text;
             });
           }
           if (row.ratingCount ) {
@@ -106,6 +107,15 @@ const url1 = require('url');
               item.text = item.text.split('/')[1];
             });
           }
+          if (row.legalDisclaimer ) {
+            let arrDisclaimer = [];
+            row.legalDisclaimer.forEach(item => {
+              arrDisclaimer.push( item.text);
+            });
+            let disclaimer = arrDisclaimer.join(' ');
+            row.legalDisclaimer = [{ text: disclaimer }];
+          }
+
         }
     }
     return data;
