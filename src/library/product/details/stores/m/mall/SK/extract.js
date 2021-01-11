@@ -62,17 +62,27 @@ module.exports = {
         addElementToDocument('mat', mat.trim());
       }
       var bull = getAllXpath('//div[@id="product-detail-description"]//ul/li/text()', 'nodeValue');
-         if(bull != null){
-           var bullet = bull.join(" || ")
-           addElementToDocument('bullet', bullet);
-         }
-         var des = getAllXpath('//div[@id="product-detail-description"]//ul/li/text() | //div[@class="content-tabs"]//section[@class="panel-inner"]/p', 'nodeValue');
-         if(des != null){
-           var description = des.join(" || ")
-           console.log(description);
-           addElementToDocument('description', description);
-         }
-    });
-    await context.extract(productDetails);
-  },
+      if (bull != null) {
+        var bullet = bull.join(" || ")
+        addElementToDocument('bullet', bullet);
+      }
+      var script = getAllXpath('//div[@id="product-detail-description"]//ul/li/text()', 'nodeValue');
+      var final = "";
+    if (script.length >= 1) {
+      for (var i = 0; i < script.length; i++) {
+        final = final + script[i] + " || ";
+      }
+    } else {
+      var script1 = getAllXpath('//div[@class="content-tabs"]//section[@class="panel-inner"]/p/text()', 'nodeValue');
+      for (var i = 0; i < script1.length; i++) {
+        final = final + script1[i];
+      }
+    }
+    if (final.length>=1)
+    {
+      addElementToDocument('descrip',final);
+    }
+  });
+  await context.extract(productDetails);
+},
 };
