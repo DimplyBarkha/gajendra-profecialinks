@@ -84,7 +84,7 @@ async function implementation(
         scrollTop += 3000;
         await stall(2000);
         window.scroll(0, scrollTop);
-        if (scrollTop >= 80000 || productsCount > 160) {
+        if (scrollTop >= 80000) {
           await stall(2000);
           break;
         }
