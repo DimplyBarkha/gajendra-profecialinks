@@ -89,12 +89,6 @@ module.exports = {
         var url_web = single_obj.url;
 
         addHiddenDiv("ii_produrl", url_web, i);
-        if (rank == 1) {
-          addHiddenDiv("ii_rankOrganic", single_obj.position, i);
-        } else {
-          var rrank = 36 * (rank - 1);
-          addHiddenDiv("ii_rankOrganic", rrank + single_obj.position, i);
-        }
       }
     });
     return await context.extract(productDetails, { transform });

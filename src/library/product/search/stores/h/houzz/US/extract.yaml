@@ -56,7 +56,7 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //span[@class="hz-product-price hz-product-price--v2 hz-product-price--strikethrough"]/del/span
+    xpath: //div[@class="product-prices hz-product-card__prices"]/span/span[@class="hz-product-price hz-product-price--v2 hz-product-price--strikethrough"]/del/span
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
