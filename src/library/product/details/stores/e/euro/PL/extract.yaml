@@ -129,8 +129,15 @@ fields:
   - name: quantity
     xpath: //div[contains(@class,"variant-wrapper")]//a[contains(@class,"active-item")]
   - name: inTheBoxUrl
+    xpath: //h3[contains(.,'Zawartość opakowania')]//ancestor::div/following-sibling::div[contains(@class,'description-row')]//img/@src
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: inTheBoxText
+    xpath: //h3[contains(.,'Zawartość opakowania')]//ancestor::div/following-sibling::div[contains(@class,'description-row')]//img/following-sibling::p
   - name: hasComparisonTable
     defaultValue: No
+    xpath: //div[@id='description-content']//table//tbody/tr[1]/td[1]
+    regExp: (.+)
+    regExpReplace: Yes
   - name: unInterruptedPDP
     xpath: //section[@id="recommended-products"]//ul//li//div[@class="product-box"]//h3

@@ -42,8 +42,6 @@ module.exports = {
       if (productDescAvailable) {
         await context.click(cssProductDetails);
         await context.waitForNavigation({ timeout: 10000, waitUntil: 'load' });
-        // await context.waitForSelector(cssProductDetails);
-        // const productDetailsAvailable = await isSelectorAvailable(cssProductDetails);
         console.log(`productDescAvailable: ${productDescAvailable}`);
         if (!productDescAvailable) {
           //  throw new Error('ERROR: Failed to load product details page');
@@ -53,6 +51,12 @@ module.exports = {
     }
 
     await context.evaluate(async () => {
+      const loadMoreEle = document.querySelector("button[data-read-more='Rozwiń pełny opis']");
+      if (loadMoreEle) {
+        // @ts-ignore
+        loadMoreEle.click();
+      }
+
       const descEl = document.querySelector('.description-content-inner');
 
       if (descEl) {
