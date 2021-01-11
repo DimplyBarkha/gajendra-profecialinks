@@ -147,7 +147,7 @@ fields:
     # regExp: (Garantie.*?)<
     # regExpReplace: $1
   - name: unInterruptedPDP
-    xpath: //div[contains(@class,"catalog-block")]//div[contains(@class,"lslide")]//div[contains(@class,"product-info")] | //div[contains(text(),"Egalement consultés")]/..//div//div[@data-cerberus='detail_product_name']/text()|//div[@class="carousel"]//div[@class="product-info"]
+    xpath: //div[contains(@class,"catalog-block")]//div[contains(@class,"lslide")]//div[contains(@class,"product-info")] | //div[contains(text(),"Egalement consultés")]/..//div//div[@data-cerberus='detail_product_name']/text()|//div[@class="carousel"]//div[@class="product-brand text-ellipsis"]
     # regExp: .+(?=à partir de)
   - name: hasComparisonTable
     defaultValue: No
