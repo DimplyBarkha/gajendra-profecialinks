@@ -153,10 +153,25 @@ async function implementation(
       }
     }
   });
+  async function scrollToRec(node) {
+    await context.evaluate(async (node) => {
+      const element = document.querySelector(node) || null;
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+        await new Promise((resolve) => {
+          setTimeout(resolve, 5000);
+        });
+      }
+    }, node);
+  }
+  await scrollToRec('div.child-product-container');
+  try {
+    await context.waitForSelector('#inpage_container', { timeout: 30000 });
+  } catch (er) {
+    console.log("Couldn't find the enhanced content expand button");
+  }
 
- 
-
-  const enhancedContent = await context.evaluate(async function () {
+  await context.evaluate(async function () {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
@@ -164,8 +179,10 @@ async function implementation(
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
+    const isVisible = (element) => document.querySelector(element) ? !!(document.querySelector(element).offsetWidth || document.querySelector(element).offsetHeight) : false;
+
     let content = {};
-    content.description = document.querySelector("#inpage_container") ? document.querySelector("#inpage_container").innerText : "";
+    content.description = document.querySelector("#inpage_container") && isVisible(document.querySelector("#inpage_container")) ? document.querySelector("#inpage_container").innerText : "";
     addHiddenDiv('manufacturerDescription', content.description);
     content.images = [];
     let imagesNodes = document.querySelectorAll("#inpage_container img");
@@ -183,7 +200,6 @@ async function implementation(
         addHiddenDiv('videos', q.getAttribute('src'));
       }
     });
-    
   });
 
   return await context.extract(productDetails, { transform });
