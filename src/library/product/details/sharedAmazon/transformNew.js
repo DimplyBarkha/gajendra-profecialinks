@@ -355,6 +355,19 @@ const transform = (data, context) => {
             if (row.unInterruptedPDP) {
                 const getUnInterruptedPDP = row.unInterruptedPDP.map(elm => elm.text.trim());
                 row.unInterruptedPDP = [...new Set(getUnInterruptedPDP)].map(elm => ({ text: elm }));
+                let updp= [];
+                let text = '' ;
+                for(let i=0 ; i<row.unInterruptedPDP.length ; i++){
+                if(row.unInterruptedPDP[i].text.includes('…')){
+                    continue;
+                }
+                updp[i]=row.unInterruptedPDP[i].text;
+                }
+                text=updp.join(' || ');
+                text=text.replace(/(\s?\|\|\s?){1,}/g , ' || ');
+                row.unInterruptedPDP=[{text}];
+                const updpLength = text.split(' || ').length;
+                console.log(updpLength);
             }
 
             if (row.price) {
