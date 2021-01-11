@@ -22,7 +22,7 @@ fields:
     xpath: //*[@class="buttons"]//*[@class="video"]/@data-title | //*[contains(@class,"video") and contains(@for,"toggleVideo")]/@hideifempty
   - name: price
     singleValue: false
-    manualSelector: span#prcIsum, span#prcIsum_bidPrice, span#mm-saleDscPrc
+    manualSelector: span#prcIsum, span#prcIsum_bidPrice, span#mm-saleDscPrc,div[class*="display-price"] 
   - name: listPrice
     singleValue: false
     manualSelector: span.vi-originalPrice, span#mm-saleOrgPrc
@@ -31,7 +31,7 @@ fields:
     manualSelector: span.vi-discount
   - name: specifications
     singleValue: false
-    xpath: //div[contains(@class,"itemAttr")]//table//tr[td[contains(@class,"attrLabels")]] | //div[@id="ProductDetails"]//li
+    xpath: //div[@class='spec'][not(@data-title='')] | //div[contains(@class,'allspecs')]//div[not(@hide-if-empty='')]/p | //div[contains(@class,"section")]//table | //section[@class="product-spectification"]//div[@class="spec-row"]//ul//li
   - name: availabilityText
     singleValue: false
     xpath: (//*[contains(@id,"binBtn_btn")]/@class)[1] | (//div[@class='item-action']/a)[1]
@@ -99,7 +99,7 @@ fields:
     xpath: normalize-space(//td[contains(text(), 'Box Weight:')]/following-sibling::td)
   - name: color
     singleValue: false
-    xpath: normalize-space(//td[contains(translate(text(),'COLOR','color'),'color')]/following-sibling::td | //td[contains(translate(text(),'COLOUR','colour'),'colour')]/following-sibling::td | //td[contains(text(),'Farbe')]/following-sibling::td)
+    xpath: normalize-space(//td[contains(translate(text(),'COLOR','color'),'color')]/following-sibling::td | //td[contains(translate(text(),'COLOUR','colour'),'colour')]/following-sibling::td | //td[contains(text(),'Farbe')]/following-sibling::td | //div[contains(text(),'Colour')]//following-sibling::div)
   - name: warranty
     singleValue: false
     xpath: normalize-space(//td[contains(translate(text(),'WARRANTY','warranty'),'warranty')]/following-sibling::td | //h2[contains(@id, 'subTitle') and contains(text(),'Warranty')])

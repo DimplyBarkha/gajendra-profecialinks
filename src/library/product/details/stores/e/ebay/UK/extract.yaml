@@ -3,3 +3,7 @@ fields:
   - name: unInterruptedPDP
     singleValue: false
     xpath: //div[contains(@class,"mfe-reco")]//li[contains(@class,"mfe-reco-ct") ]//div[contains(@class, "mfe-title")]
+  - name: price
+    singleValue: false
+    regExp: (£)(.+)
+    regExpReplace: $2  
