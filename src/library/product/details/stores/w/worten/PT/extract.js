@@ -13,6 +13,25 @@ module.exports = {
   //   goto: 'action:navigation/goto',
   // },
   implementation: async (inputs, { country, domain, transform }, context, { productDetails }) => {
+    // await context.evaluate(async () => {
+    //   async function add() {
+    //     const jsApi = document.querySelector('#flix-minisite no-script #flix-inpage > script') && document.querySelector('#flix-minisite no-script #flix-inpage > script').getAttribute('src');
+    //     let response = await fetch(jsApi);
+    //     const js = await response.text();
+    //     eval(js);
+    //     const enhanceContentId = flixJsCallbacks.pid;
+    //     response = await fetch(`https://media.flixcar.com/delivery/inpage/show/620/pt/${enhanceContentId}/json`);
+    //     const html = JSON.parse((await response.text()).match(/^\((.+)\)$/)[1]).html;
+    //     let newlink = document.createElement('div');
+    //     newlink.setAttribute('class', 'enhance-content');
+    //     newlink.innerHTML = html;
+    //     document.body.appendChild(newlink);
+    //   }
+    //   await add();
+    //   await timeout(2000);
+    // });
+
+
     // async function loadContent() {
     //   try {
     //     await context.evaluate(() => {
@@ -44,7 +63,7 @@ module.exports = {
     // if (!loaded) {
     //   console.log('Product detail not loaded.');
     // }
-
+   
     try {
       function timeout(ms) {
         return new Promise((resolve) => setTimeout(resolve, ms));
@@ -68,18 +87,18 @@ module.exports = {
         await timeout(2000);
       }
 
-      try {
-        await context.waitForSelector('div.inpage_selector_info', { timeout: 60000 });
-      } catch (err) {
-        console.log('Enhanced content did not load');
-      }
+      // try {
+      //   await context.waitForSelector('div.inpage_selector_info', { timeout: 60000 });
+      // } catch (err) {
+      //   console.log('Enhanced content did not load');
+      // }
       const rating = document.evaluate('//script[@type="application/ld+json"][1][contains(text(),"ratingValue")]', document, null, XPathResult.ANY_TYPE, null).iterateNext() && document.evaluate('//script[@type="application/ld+json"][1][contains(text(),"ratingValue")]', document, null, XPathResult.ANY_TYPE, null).iterateNext().textContent && document.evaluate('//script[@type="application/ld+json"][1][contains(text(),"ratingValue")]', document, null, XPathResult.ANY_TYPE, null).iterateNext().textContent.replace(/(.+ratingValue":"([^"]+).+)/g, '$2');
       if (rating) {
         const Frating = Number(rating).toFixed(1).replace('.', ',');
         document.body.setAttribute('rating', Frating);
       }
-      const descEl = document.querySelector('#flix-inpage');
-      const paginationText = document.querySelector('p.fl1xcarousel-pagination')
+      const descEl = document.querySelector('div.enhance-content');
+      const paginationText = document.querySelector('div.enhance-content p.fl1xcarousel-pagination')
       if (paginationText) {
         paginationText.remove();
       }
@@ -146,6 +165,27 @@ module.exports = {
 
 
     await context.evaluate(async function () {
+
+      async function add() {
+        // Change selector, sometimes when not loaded in debugger you can see it in no-script.
+       const jsApi = document.querySelector('#flix-minisite no-script, #flix-inpage > script') && document.querySelector('#flix-minisite no-script, #flix-inpage > script').getAttribute('src');
+       let response = await fetch(jsApi);
+       const js = await response.text();
+       eval(js);
+       const enhanceContentId =  flixJsCallbacks.pid;
+        // You should find something similar like below, though this worked on some other website too.
+        response = await fetch(`https://media.flixcar.com/delivery/inpage/show/620/pt/${enhanceContentId}/json`);
+        console.log('responce',response);
+        const html = JSON.parse((await response.text()).match(/^\((.+)\)$/)[1]).html;
+        // Create a div and append.
+        let newlink = document.createElement('div');
+        newlink.setAttribute('class', 'enhance-content');
+        newlink.innerHTML =  html
+        document.body.appendChild(newlink);
+      }
+  
+      await add();
+
       const enhanceContentVideos = [];
       const getVideoList = document.querySelector('div.fullJwPlayerWarp input');
       if (getVideoList) {
@@ -160,6 +200,8 @@ module.exports = {
       }
       const allVideos = enhanceContentVideos.join(' | ');
       document.querySelector('h1') && document.querySelector('h1').setAttribute('enhance-videos', allVideos);
+
+
     })
     await context.extract(productDetails, { transform });
   },
