@@ -43,8 +43,8 @@ fields:
   - name: upc
     xpath: //div[@class="about-sku-section"]/text()
     regExp: (\d+)
-  - name: priceCurrency
-    xpath: //div[@class="about-sku-section"]/@pricecurrency
+  # - name: priceCurrency
+  #   xpath: //div[@class="about-sku-section"]/@pricecurrency
   - name: productUrl
     xpath: //div[@class="about-sku-section"]/@producturl
   - name: ingredientsList
@@ -54,8 +54,8 @@ fields:
   - name: servingSize
     description: The size of serving Nutritional information is based on.
     xpath: //p[@class="serving-size"]
-    regExp: .+\((.+)\)
-    regExpReplace: $1
+    regExp: .+\((.+)\)|Serving\sSize\s(.+)
+    regExpReplace: $1$2
   - name: caloriesPerServing
     description:
       Nutritional Information for Calories Per Serving content - Usually
@@ -63,5 +63,5 @@ fields:
     xpath: //strong[contains(text(),"Calories")]/../text()
   - name: legalDisclaimer
     xpath: //div[contains(@class, "nutrition-disclaimer-section")]
-  - name: otherSellersName
-    defaultValue: Grocery Gateway
+  - name: nutritionInfo
+    xpath: //section[@class="performance-facts"]
