@@ -6,18 +6,16 @@ async function implementation (
 ) {
   const { productReviews } = dependencies;
   await context.evaluate(async () => {
-    if (document.querySelector('button#age-gate-confirmation')) {
-      document.querySelector('select#age-gate-states').click();
-      await context.waitForSelector('option[title="Alabama"]');
-
-      document.querySelector('option[title="Alabama"]').click();
-      await context.waitForSelector('button#age-gate-confirmation');
-
-      document.querySelector('button#age-gate-confirmation').click();
+    try {
+      if (document.querySelector('button#age-gate-confirmation')) {
+        document.getElementById('age-gate-states').options[1].selected = true;
+        document.querySelector('button#age-gate-confirmation').click();
+      }
+    } catch (e) {
+      console.log('error is age verification');
     }
   });
-  const extractvar = await context.extract(productReviews);
-  return extractvar;
+  return await context.extract(productReviews);
 }
 
 module.exports = {
