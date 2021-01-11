@@ -134,7 +134,7 @@ fields:
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
-  xpath: normalize-space(//div[contains(@class,"product-seller")]//a)
+  xpath: normalize-space(//div[@class="buy-block"]//div[contains(@class,"product-seller")]//a)
 - name: shippingDimensions
   singleValue: true
   description: Stated shipping dimensions
@@ -447,7 +447,7 @@ fields:
 - name: promotion
   singleValue: true
   description: promotion text on product page
-  xpath: //div[@data-test="discount"] | //div[@class="multibundle__discount"]
+  xpath: //div[@data-test="price-discount"] | //div[@data-test="discount"] | //div[@class="multibundle__discount"]
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information

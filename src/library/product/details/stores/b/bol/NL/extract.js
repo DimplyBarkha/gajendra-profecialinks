@@ -48,6 +48,28 @@ const implementation = async (inputs, { transform }, context, { productDetails }
       document.body.appendChild(div);
     };
 
+    /** Function used to extract all paragraph's text between two given titles.
+     * If no 'startTitle' provided, it starts adding from the beginning.
+     * If no 'stopTitle' provided, it doesn't stop and adds everything to the end
+     * @param {object} node Parent node of all elements we want to iterate over
+     * @param {string} startTitle Paragraph's textContent that once we meet we start adding following paragraph's text
+     * @param {string} stopTitle Paragraph's textContent that once we meet we stop adding following paragraph's text
+     */
+    const addFollowingParagraphs = (node, startTitle, stopTitle) => {
+      const allElements = node.childNodes;
+      let result = '';
+      let reading;
+      for (let i = 0; i < allElements.length; i++) {
+        const element = allElements[i];
+        if (!startTitle || element.textContent.trim().startsWith(startTitle)) reading = true;
+        if (stopTitle && element.textContent.trim().startsWith(stopTitle)) reading = false;
+        if (reading) {
+          result = result.length > 0 ? `${result}${element.textContent.trim()}\n` : `${element.textContent.trim()}\n`;
+        }
+      }
+      return result.trim().replace(/\n+/g, '\n');
+    };
+
     // autoclick
     var moreButtons = document.querySelectorAll('a.show-more__button');
     moreButtons.forEach(async (element) => {
@@ -135,28 +157,64 @@ const implementation = async (inputs, { transform }, context, { productDetails }
     addElementToDom(pricePerUnitUom, 'pricePerUnitUom');
 
     // add nutrients informations
-    const isNutrientsAvail = document.evaluate(
+    const nutrientsElem = document.evaluate(
       '//dt[normalize-space(text())="Voedingswaarde"]/following-sibling::dd[1]',
       document,
       null,
       XPathResult.FIRST_ORDERED_NODE_TYPE,
       null,
-    );
-    if (isNutrientsAvail.singleNodeValue) {
-      const nutrientsText = isNutrientsAvail.singleNodeValue.textContent;
-      const nutrientsList = nutrientsText.split(',');
+    ).singleNodeValue;
+    if (nutrientsElem) {
+      let energy;
+      let fiber;
+      let sugars;
+      let protein;
 
-      nutrientsList.forEach((element) => {
-        if (element.includes('Energie')) {
-          addElementToDom(element, 'energy');
-        } else if (element.includes('Vezels')) {
-          addElementToDom(element, 'fiber');
-        } else if (element.includes('suikers')) {
-          addElementToDom(element, 'sugars');
-        } else if (element.includes('Eiwitten')) {
-          addElementToDom(element, 'protein');
-        }
-      });
+      const nutrientsText = nutrientsElem.textContent.trim();
+      let nutrientsList = nutrientsText.split('|');
+      if (nutrientsList.length <= 1) nutrientsList = nutrientsText.split(', ');
+
+      if (nutrientsList.length > 1) {
+        nutrientsList.forEach((element) => {
+          if (element.includes('Energie')) {
+            energy = element.replace('Energie', '');
+          } else if (element.includes('Vezels')) {
+            fiber = element.replace('Vezels', '');
+          } else if (element.includes('suikers')) {
+            if (element.match(/suikers ([\d.,]+.+?g)/)) {
+              sugars = element.match(/suikers ([\d.,]+.+?g)/)[1];
+            } else {
+              addElementToDom(element, 'sugars');
+            }
+          } else if (element.includes('Eiwitten')) {
+            protein = element.replace('Eiwitten', '');
+          }
+        });
+      }
+      if (!energy) {
+        energy = nutrientsText.match(/Energie\s([\d.,]+\s?k(j|cal))/i)
+          ? nutrientsText.match(/Energie\s([\d.,]+\s?k(j|cal))/i)[1]
+          : '';
+      }
+      if (!fiber) {
+        fiber = nutrientsText.match(/Vezels?\s([\d.,]+\s?\w?g)/i)
+          ? nutrientsText.match(/Vezels?\s([\d.,]+\s?\w?g)/i)[1]
+          : '';
+      }
+      if (!sugars) {
+        sugars = nutrientsText.match(/suikers\s([\d.,]+\s?\w?g)/i)
+          ? nutrientsText.match(/suikers\s([\d.,]+\s?\w?g)/i)[1]
+          : '';
+      }
+      if (!protein) {
+        protein = nutrientsText.match(/Eiwitten\s([\d.,]+\s?\w?g)/i)
+          ? nutrientsText.match(/Eiwitten\s([\d.,]+\s?\w?g)/i)[1]
+          : '';
+      }
+      addElementToDom(energy, 'energy');
+      addElementToDom(fiber, 'fiber');
+      addElementToDom(sugars, 'sugars');
+      addElementToDom(protein, 'protein');
     }
 
     // descrption modification and bullets
@@ -221,6 +279,19 @@ const implementation = async (inputs, { transform }, context, { productDetails }
       XPathResult.STRING_TYPE,
       null,
     ).stringValue;
+    if (!ingredientsText) {
+      ingredientsText = document.evaluate(
+        '//dt[normalize-space(text())="Voedingswaarde"]/following-sibling::dd[1]',
+        document,
+        null,
+        XPathResult.STRING_TYPE,
+        null,
+      ).stringValue;
+    }
+    if (!ingredientsText) {
+      const descriptionElem = document.querySelector('div[data-test="description"]');
+      if (descriptionElem) ingredientsText = addFollowingParagraphs(descriptionElem, 'Ingrediënten');
+    }
     ingredientsText = ingredientsText.replace(/<.+?>/g, '').trim();
     ingredientsText = ingredientsText.match(/\w+/) ? ingredientsText : '';
     addElementToDom(ingredientsText, 'ingredients_list');
