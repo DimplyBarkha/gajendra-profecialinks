@@ -25,14 +25,17 @@ module.exports = {
             // @ts-ignore
             storeButton.click();
           }
-          await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+        });
+        await context.waitForSelector('ul[class*="styles__StoreListWrapper"] li button[class*="variant--primary"]');
+        await context.evaluate(async function () {
           const inputElement = document.querySelector('input[class*="type--text incomplete"]');
           inputElement && inputElement.setAttribute('value', "Burbank Lowe's");
-          //   await new Promise((resolve, reject) => setTimeout(resolve, 2000));
           const formButton = document.querySelector('form button[class*="variant--primary"]');
           // @ts-ignore
           formButton && formButton.click();
-          await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+        });
+        await context.waitForSelector('ul[class*="styles__StoreListWrapper"] li button[class*="variant--primary"]');
+        await context.evaluate(async function () {
           const selectButton = document.querySelector('ul[class*="styles__StoreListWrapper"] li button[class*="variant--primary"]');
           // @ts-ignore
           selectButton && selectButton.click();
