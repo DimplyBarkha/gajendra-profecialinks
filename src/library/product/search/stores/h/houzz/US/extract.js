@@ -95,9 +95,9 @@ module.exports = {
         console.log("Loop is working");
         if (link[i].href != ""){
         const searchURL = window.location.href.split("?")[0]
-        addHiddenDiv("ii_produrl", searchURL, i);
-      }
+        addHiddenDiv("ii_searchURL", searchURL, i);
+      }}
     });
     return await context.extract(productDetails, { transform });
-  },
-};
+  }
+}
