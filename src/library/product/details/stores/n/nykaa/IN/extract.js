@@ -47,10 +47,15 @@ module.exports = {
       urlEle.className = 'currentProductURL';
       let currentUrlVariantId = null;
       let matchingString = 'skuid=';
-      let variantsArray = productUrl.substring(productUrl.lastIndexOf(matchingString) + 6, productUrl.length).match(/(\d+)/g);
-      currentUrlVariantId = variantsArray && variantsArray.length > 0 ? variantsArray[0] : null;
-      if (currentUrlVariantId === null) {
+      let variantsArray = [];
+      if (productUrl.includes(matchingString)) {
+        variantsArray = productUrl.substring(productUrl.lastIndexOf(matchingString) + 6, productUrl.length).match(/(\d+)/g);
+        currentUrlVariantId = variantsArray && variantsArray.length > 0 ? variantsArray[0] : null;
+      } else {
+        variantsArray = [];
         matchingString = 'p/';
+      }
+      if (currentUrlVariantId === null && productUrl.includes(matchingString)) {
         variantsArray = productUrl.substring(productUrl.lastIndexOf(matchingString) + 2, productUrl.length).match(/(\d+)/g);
         currentUrlVariantId = variantsArray && variantsArray.length > 0 ? variantsArray[0] : null;
       }
@@ -93,7 +98,7 @@ module.exports = {
       document.body.setAttribute('how_to_use', howToUse);
       let brand = document.evaluate('//*[@class="pdp-description-tab-item description-expand"]//p[contains(text(),"Name of")]', document).iterateNext() && document.evaluate('//*[@class="pdp-description-tab-item description-expand"]//p[contains(text(),"Name of")]', document).iterateNext().textContent.replace(/(.+):(.+)/g, '$2');
       if (!brand) {
-        brand = obj && obj.productReducer && obj.productReducer.product && obj.productReducer.product.brand_name[0];
+        brand = obj && obj.productReducer && obj.productReducer.product && obj.productReducer.product.brand_name && obj.productReducer.product.brand_name[0];
       }
       document.body.setAttribute('brand', brand);
       const scrpt = document.querySelectorAll('script');
@@ -122,24 +127,18 @@ module.exports = {
       } else {
         sku = id1;
       }
-      var appendElement = document.querySelector('div[class*="post-card__img-wrap1"] img');
-      appendElement.setAttribute('sku', sku);
+      const skuEle = document.createElement('div');
+      skuEle.className = 'productSku';
+      skuEle.setAttribute('sku', sku);
+      document.body.appendChild(skuEle);
 
       const ingredientData = obj && obj.productReducer && obj.productReducer.product && obj.productReducer.product.product_ingredients;
-      const finalInagredientData = ingredientData.replace(/<p>(.+)<\/p>/g, '$1');
+      const finalIngrediantsList = ingredientData.replace(/<p>(.+)<\/p>/g, '$1');
 
-      var appendElement = document.querySelector('div[class*="post-card__img-wrap1"] img');
-      appendElement.setAttribute('finalInagredientData', finalInagredientData);
-      const link = window.location.href;
-      const rpc = link.match(/skuId=\d+/g) && link.match(/skuId=\d+/g)[0];
-      let finalRpc = rpc && rpc.match(/\d+/g) && rpc.match(/\d+/g)[0];
-      if (rpc == null) {
-        const temp = link.match(/p\/\d+/g) && link.match(/p\/\d+/g)[0];
-        finalRpc = temp && temp.match(/\d+/g) && temp.match(/\d+/g)[0];
-      }
-      // const link = window.location.href
-      // let finalRpc = link.match(/(p\/)(\d+)/g)[0].match(/\d+/g)[0];
-      appendElement.setAttribute('rpcvalue', finalRpc);
+      const appendElement = document.createElement('div');
+      appendElement.className = 'finalIngrediantsList';
+      appendElement.setAttribute('ingrediantsData', finalIngrediantsList);
+      document.body.appendChild(appendElement);
     }, inputs);
 
     return await context.extract(productDetails, { transform });

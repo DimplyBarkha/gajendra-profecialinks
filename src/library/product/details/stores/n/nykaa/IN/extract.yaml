@@ -538,7 +538,7 @@ fields:
     xpath: //dd[contains(text(),'Weight')]
     regExp: (\d+).(\d+)\s?\w+
   - name: sku
-    xpath: //div[contains(@class,"post-card__img-wrap1")]//img/@sku
+    xpath: //div[contains(@class, 'productSku')]/@sku
     regExp: ([\w-\d]+)
     # xpath: //link[@rel="canonical"]/@href
     # regExp: p/(\d+)
@@ -627,7 +627,7 @@ fields:
     xpath: //div[@class="AzIndex"] | //div[@class="pdp-description-tab-item description-expand"]//p[contains(.,'Explore')] | //div[@class="pdp-description-tab-item description-expand"]/div/p[1] | //div[@class="pdp-description-tab-item description-expand"]/div/strong[1]
   - name: ingredientsList
     description: List of Ingredients from site - can be string of data if no discernible start/end point
-    xpath: //div[contains(@class,"post-card__img-wrap1")]//img/@finalinagredientdata
+    xpath: //div[contains(@class,"finalIngrediantsList")]/@ingrediantsData
   - name: promotion
     description: promotion text on product page
     xpath: //div[contains(@class,"product-des__details")]//div[@class="discount-info"]/span
