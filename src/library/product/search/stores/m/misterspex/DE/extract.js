@@ -20,7 +20,7 @@ module.exports = {
     await context.setJavaScriptEnabled(true);
     await context.setLoadAllResources(true);
     await context.setLoadImages(true);
-    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 5000));
     context.evaluate(async() => {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -38,6 +38,8 @@ module.exports = {
         cardsItems.forEach(item => {
           item.setAttribute('ms-input', pageUrl);
           item.setAttribute('ms-url', pageUrl);
+          const thumbSrc =  item.querySelector('img').getAttribute('data-src');
+          item.setAttribute('ms-thumb', thumbSrc);
         });
       }
       addElementToDocument('pageUrl', pageUrl);

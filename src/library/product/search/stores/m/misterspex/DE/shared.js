@@ -60,18 +60,18 @@ const transform = (data, context) => {
     data.forEach(dataObj => {
         dataObj.group.forEach((fieldName, index) => {
             // _input
-            fieldName['_input'] = inputFieldValue;
-            if(fieldName['_input']){
-                let inputText = fieldName['_input'][0].text;
-                if(inputText.match(/SearchTerm=\w{0,}/g) && inputText.match(/SearchTerm=.{0,}/g)[0]) {
-                    inputText = inputText.match(/SearchTerm=.{0,}/g)[0]
-                        .replace(/\%20/g, ' ')
-                        .replace(/SearchTerm=/g, '');
-                    fieldName['_input'][0].text = inputText;
-                }
-            }
-            // _url
-            fieldName['_url'] = urlFieldValue;
+            // fieldName['_input'] = inputFieldValue;
+            // if(fieldName['_input']){
+            //     let inputText = fieldName['_input'][0].text;
+            //     if(inputText.match(/SearchTerm=\w{0,}/g) && inputText.match(/SearchTerm=.{0,}/g)[0]) {
+            //         inputText = inputText.match(/SearchTerm=.{0,}/g)[0]
+            //             .replace(/\%20/g, ' ')
+            //             .replace(/SearchTerm=/g, '');
+            //         fieldName['_input'][0].text = inputText;
+            //     }
+            // }
+            // // _url
+            // fieldName['_url'] = urlFieldValue;
 
             if(fieldName.name){
                 fieldName.name[0].text = cleanText(fieldName.name[0].text);
