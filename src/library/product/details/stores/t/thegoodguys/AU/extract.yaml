@@ -121,6 +121,9 @@ fields:
   - name: inTheBoxText
     singleValue: false  
     xpath: //div[@class='inpage_selector_InTheBox']//div[@class='flix-std-table']//div[contains(@class,'content')]//span
+  - name: promotion
+    singleValue: false  
+    xpath: //div[contains(@class,'bg-clearance')]//span[@class='labl-prod-title']/p
   - name: hasComparisonTable
     defaultValue: Yes
   - name: unInterruptedPDP
