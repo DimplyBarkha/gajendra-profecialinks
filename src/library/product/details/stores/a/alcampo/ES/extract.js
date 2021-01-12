@@ -9,12 +9,7 @@ module.exports = {
     domain: 'alcampo.es',
     zipcode: '',
   },
-  implementation: async (
-    { inputString },
-    { country, domain, transform },
-    context,
-    { productDetails },
-  ) => {
+  implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     await new Promise(resolve => setTimeout(resolve, 1000));
     await context.evaluate(async () => {
       const body = document.querySelector('body');
@@ -40,6 +35,11 @@ module.exports = {
       rpc[0].text = rpc[0].text.replace(/\.(.+)/g, '');
     }
 
+    const ingredientsList = extractedData[0].group[0].ingredientsList;
+    if (ingredientsList) {
+      ingredientsList[0].text = ingredientsList[0].text.replace('Ingredientes:', '').trim();
+    }
+
     const calories = extractedData[0].group[0].caloriesPerServing;
     if (calories && calories[0].text === ' | ') {
       calories[0].text = '';
@@ -50,8 +50,20 @@ module.exports = {
         path[0].text = path[0].text.match(regex) ? path[0].text.match(regex)[2] : '';
       }
     };
+    const addUomFieldToMinerals = (valuePath, uomFieldName) => {
+      if (valuePath) {
+        extractedData[0].group[0][uomFieldName] = [
+          {
+            text: 'mg/L',
+          },
+        ];
+      }
+    };
     formatMineralPerServing(extractedData[0].group[0].sodiumPerServing, '([Ss]odio.+?)([0-9][0-9,.]+)');
     formatMineralPerServing(extractedData[0].group[0].calciumPerServing, '([Cc]alcio.+?)([0-9][0-9,.]+)');
     formatMineralPerServing(extractedData[0].group[0].magnesiumPerServing, '([Mm]agnesio.+?)([0-9][0-9,.]+)');
+    addUomFieldToMinerals(extractedData[0].group[0].sodiumPerServing, 'sodiumPerServingUom');
+    addUomFieldToMinerals(extractedData[0].group[0].calciumPerServing, 'calciumPerServingUom');
+    addUomFieldToMinerals(extractedData[0].group[0].magnesiumPerServing, 'magnesiumPerServingUom');
   },
 };
