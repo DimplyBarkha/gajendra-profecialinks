@@ -21,6 +21,16 @@ module.exports = {
       });
     });
 
-    return await context.extract(productDetails, { transform });
+    var extractedData = await context.extract(productDetails, { transform });
+
+    extractedData.forEach(page => {
+      page.group.forEach(row => {
+        if (row.thumbnail) {
+          row.thumbnail[0].text = row.thumbnail[0].text.replace('tn', 'lr');
+        }
+      });
+    });
+
+    return extractedData;
   },
 };
