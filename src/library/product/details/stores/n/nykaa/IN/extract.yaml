@@ -543,10 +543,12 @@ fields:
     # xpath: //link[@rel="canonical"]/@href
     # regExp: p/(\d+)
     regExpReplace: $1
-  - name: variantId
-    xpath: //div[contains(@class,"post-card__img-wrap1")]//img/@rpcvalue
+    #- name: variantId
+    # xpath: //div[contains(@class,"post-card__img-wrap1")]//img/@rpcvalue
     # regExp: p/(\d+)
     # regExpReplace: $1
+  - name: variantId
+    xpath: //div[contains(@class, 'currentProductURL')]
   - name: ratingCount
     xpath: //div[@data-target="review-target"]/span[contains(text(),'Review')]
     regExp: (\d+)
