@@ -107,7 +107,7 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     # xpath: //div[contains(@id,'inpage_container')]
-    xpath: //div[@id='manufacturerDesc']
+    xpath: //div[@id='manufacturerDesc'] | //div[@class='manufacturerDescText']
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false

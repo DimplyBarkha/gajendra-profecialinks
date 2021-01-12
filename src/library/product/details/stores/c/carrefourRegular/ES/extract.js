@@ -36,6 +36,12 @@ module.exports = {
       }
       await infiniteScroll();
 
+      try {
+        await context.waitForSelector('div.product-details > div.product-details__features', { timeout: 7000 });
+      } catch (e) {
+        console.log('manufacturerDesc selector not found');
+      }
+
       const manufacturerDesc = document.querySelector('div.product-details > div.product-details__features')
         ? document.querySelector('div.product-details > div.product-details__features').innerText : '';
       if (manufacturerDesc) addHiddenDiv('manufacturerDesc', manufacturerDesc.replace(/\n{2,}/g, '').replace(/\s{2,}/g, ' '));
@@ -84,7 +90,14 @@ module.exports = {
           const imgText2 = inBoxVideoText[i].innerText;
           imgText2 && inBoxTextVideoArray.push(imgText2);
         }
-
+        const manufacturerDescTextArray = [];
+        const manufacturerDescDOM = document.querySelectorAll('div.eky-row.eky-header-row');
+        if (manufacturerDescDOM) { 
+          for (let i = 0; i < manufacturerDescDOM.length; i++) {
+            const imgText1 = manufacturerDescDOM[i].innerText;
+            imgText1 && manufacturerDescTextArray.push(imgText1.replace(/\n{2,}/g, '').replace(/\s{2,}/g, ' '));
+          }
+        }
         const inBoxImgVideoArray = [];
         const inBoxImgVideo = document.querySelectorAll('div.tns-inner > div.my-slider>div.eky-relative-wrapper.tns-normal video');
         for (let i = 0; i < inBoxImgVideo.length; i++) {
@@ -107,7 +120,7 @@ module.exports = {
           imgUrl1 && inBoxImageArray.push(imgUrl1);
         }
 
-        return { inBoxTextVideoArray, inBoxImgVideoArray, inBoxImageArray, inBoxTextArray };
+        return { inBoxTextVideoArray, inBoxImgVideoArray, inBoxImageArray, inBoxTextArray, manufacturerDescTextArray };
       });
     }
 
@@ -132,6 +145,9 @@ module.exports = {
           }
           for (let i = 0; i < manContentObj.inBoxTextVideoArray.length; i++) {
             addHiddenDivForIframe('added-inBox-Text-for-Video', manContentObj.inBoxTextVideoArray[i]);
+          }
+          for (let i = 0; i< manContentObj.manufacturerDescTextArray.length; i++) {
+            addHiddenDivForIframe('manufacturerDescText',manContentObj.manufacturerDescTextArray)
           }
         }
         else {
