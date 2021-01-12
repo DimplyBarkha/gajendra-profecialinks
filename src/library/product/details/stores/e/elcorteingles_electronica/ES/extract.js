@@ -156,7 +156,7 @@ module.exports = {
     const extractEnhancedContent = async () => {
       // manufacturerDescription
       manufacturerDescArray = await context.evaluate(async () => {
-        const manufacDesc = document.querySelectorAll('body>*:not(script)');
+        const manufacDesc = document.querySelectorAll('body div[class*="eky-row"]');
         const arr = [];
         if ((!manufacDesc) || (manufacDesc.length === 0)) {
           console.log('we do not have anything in the body');
