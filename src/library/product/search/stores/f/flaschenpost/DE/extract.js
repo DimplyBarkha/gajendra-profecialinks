@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'flaschenpost',
-    transform: transform,
+    transform,
     domain: 'flaschenpost.de',
   },
   implementation: async (inputs,
@@ -18,7 +18,7 @@ module.exports = {
       try {
         const usernameElements = document.querySelectorAll('[id=validZipcode]');
       // @ts-ignore
-      usernameElements.forEach(username => username.value = "28199");
+      usernameElements.forEach(username => username.value = "28203");
       // @ts-ignore
       document.querySelector('div[class="fp-modal_input"]>button').click()
       await new Promise(r => setTimeout(r, 10000));

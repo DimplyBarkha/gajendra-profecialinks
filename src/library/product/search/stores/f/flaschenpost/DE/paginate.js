@@ -11,6 +11,6 @@ module.exports = {
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'flaschenpost.de',
-    zipcode: '28199',
+    zipcode: '28203',
   },
 };
