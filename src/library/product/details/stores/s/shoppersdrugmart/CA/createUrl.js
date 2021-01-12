@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'shoppersdrugmart.ca',
     prefix: null,
-    url: 'https://shop.shoppersdrugmart.ca/p/{id}',
+    url: 'https://shop.shoppersdrugmart.ca/search?text={id}',
     country: 'CA',
     store: 'shoppersdrugmart',
     zipcode: '',
