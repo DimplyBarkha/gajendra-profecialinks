@@ -71,8 +71,6 @@ async function implementation (
         document.body.appendChild(catElement1);
       }
     }
-    document.querySelector('#flix_product_video') && document.querySelector('#flix_product_video').dispatchEvent(new Event('click'));
-    await new Promise(resolve => setTimeout(resolve, 500));
   });
   return await context.extract(productDetails, { transform });
 }
