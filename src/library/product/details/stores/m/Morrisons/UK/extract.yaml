@@ -281,8 +281,7 @@ fields:
   singleValue: true
   description: Suggested number of servings of the product.
 - name: caloriesPerServing
-  # xpath: concat(//td[contains(text(), "Energy")]/following::td[1],"/", //tr[./td[contains(text(), "Energy")]]/following-sibling::tr[1]/td[starts-with(text(),"kcal") or starts-with(text(), "") and not(starts-with(text(), "Fat"))]/following-sibling::td[1])
-  xpath: concat(//td[contains(text(), "Energy")]/following::td[1],//a[@href="/"][//body//tr[./td[contains(text(), "Energy")]]/following-sibling::tr[1]/td[1][.=""]/following-sibling::td[1]]/@href,//tr[./td[contains(text(), "Energy")]]/following-sibling::tr[1]/td[1][.=""]/following-sibling::td[1])
+  xpath: //div[@id='caloriesValue']/@content
   singleValue: true
   description: Nutritional Information for Calories Per Serving content - Usually
     based on per 100g serving
