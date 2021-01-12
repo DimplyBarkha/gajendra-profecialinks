@@ -5,6 +5,12 @@ recordXPath: //div[@id="product"]
 fields:
   - name: product
     xpath: //text()
+  - name: FilterType
+    xpath: ancestor::html//div[@id="FilterType"]
+  - name: SortType
+    xpath: ancestor::html//div[@id="apiUrl"]
+    regExp: >-
+      (?<=sort=)(.+)
   - name: paid
     singleValue: true
     description: Whether this is a sponsored/paid result

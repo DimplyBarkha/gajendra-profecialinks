@@ -42,6 +42,9 @@ async function implementation (
       console.log('Api call successful, appending data..');
       const data = await response.json();
 
+      addDiv('FilterType', data.htmlProperties.metaDescription);
+      addDiv('apiUrl', apiUrl);
+
       data.products.forEach(product => {
         addDiv('product', JSON.stringify(product));
       });

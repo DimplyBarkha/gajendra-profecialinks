@@ -15,51 +15,47 @@ const transform = (data, context) => {
   let orgRankCounter = state.orgRankCounter || 0;
   let rankCounter = state.rankCounter || 0;
   const productCodes = state.productCodes || [];
-  
+
   for (const { group } of data) {
-      for (const row of group) {
-          
-          if (row.product){
-              const productObj = JSON.parse(row.product[0].text);
-              
-              const setRow = (fieldName,keyName) => {
-                  if (productObj[keyName]){
-                      row[fieldName] = [{ text: productObj[keyName] }];
-                  }
-              }
+    for (const row of group) {
+      if (row.product) {
+        const productObj = JSON.parse(row.product[0].text);
 
-              setRow('sku','id');
-              setRow('listPrice','priceLabel');
-              setRow('name','unbrandedName');
-              setRow('NumberHearts','favoriteCount');
-              setRow('productUrl','clickUrl')
+        const setRow = (fieldName, keyName) => {
+          if (productObj[keyName]) {
+            row[fieldName] = [{ text: productObj[keyName] }];
+          }
+        };
 
-              if (productObj.salePriceLabel){
-                  setRow('price','salePriceLabel');
-              } else {
-                  setRow('price','priceLabel');
-              }
+        setRow('sku', 'id');
+        setRow('Price', 'priceLabel');
+        setRow('Style', 'unbrandedName');
+        setRow('NumberHearts', 'favoriteCount');
+        setRow('productUrl', 'clickUrl');
 
-              row.brand = [{ text: productObj.brand.name }];
-              row.image = [{ text: productObj.image.sizes.Best.url }];
-
-              let categoriesArr = [];
-              productObj.categories.forEach(cat => {
-                  categoriesArr.push({ text: cat.name });
-              })
-              row.category = categoriesArr;
-
-              delete row.product;
+        if (productObj.salePriceLabel) {
+          setRow('SalePrice', 'salePriceLabel');
         }
 
+        row.Brand = [{ text: productObj.brand.name }];
+        row.StoreName = [{ text: productObj.retailer.name }];
+        row.ImageUrl = [{ text: productObj.image.sizes.Best.url }];
 
+        const categoriesArr = [];
+        productObj.categories.forEach(cat => {
+          categoriesArr.push({ text: cat.name });
+        });
+        row.category = categoriesArr;
+
+        delete row.product;
+      }
 
       rankCounter += 1;
       if (!row.sponsored) {
         orgRankCounter += 1;
         row.rankOrganic = [{ text: orgRankCounter }];
       }
-      row.rank = [{ text: rankCounter }];
+      row.ProductRank = [{ text: rankCounter }];
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
