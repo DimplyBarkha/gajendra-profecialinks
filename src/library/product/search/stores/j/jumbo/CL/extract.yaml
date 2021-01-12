@@ -1,0 +1,56 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //li[@class='shelf-item']
+fields:
+  - name: id
+    singleValue: false
+    xpath: //li[@class='shelf-item']/@product_code
+  - name: searchUrl
+    singleValue: true
+    xpath: ancestor::html//div[@id="searchUrl"][last()]
+  - name: name
+    singleValue: false
+    xpath: //a[contains(@class, 'shelf-product-title')]/@title
+  - name: productUrl
+    singleValue: false
+    xpath: //li[@class='shelf-item']/@producturl
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class, 'lazy-image-wrap')]/img/@src
+    regExp: (.*)(150-150)(.*)
+    regExpReplace: $1750-750$3
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    xpath: //div[@class='product-single-price-container']/text()[1] | //div[@class='price-product-content']/span[contains(@class, 'price-product-best') and not(descendant::span)] | //span[contains(@class, 'price-product-prom')]/text()[contains(., '%')]/../following-sibling::text()
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: false
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+  # - name: totalRecordCount
+  #   singleValue: true
+  #   type: NUMBER
