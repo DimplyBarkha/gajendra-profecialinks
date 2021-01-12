@@ -5,8 +5,9 @@ fields:
     regExp: (.+)(\?.+)
     regExpReplace : $1
   - name: imageFromAPi
-    singleValue: false
-    xpath: //div[@id="productImage"]
+    singleValue: true
+    manualSelector: script#productDetailsJSON
+    jq: .item.images.scene7_host + .item.images.scene7_id
   - name: metaKeywords
     singleValue: true
   - name: _pageTimestamp
@@ -59,7 +60,8 @@ fields:
     xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Ingredients')]]//div[contains(@class,'content')]
   - name: brandText
     singleValue: false
-    manualSelector: div#brandName
+    manualSelector: script#productDetailsJSON
+    jq: .item.brand
   - name: manufacturer
     singleValue: false
     xpath: //div[contains(.,"Manufacturer Address")][@class="pdp-description-reviews__product-details-title"]/following-sibling::div[1]
@@ -257,9 +259,13 @@ fields:
     singleValue: true
   - name: gtin
     singleValue: false
-    xpath: (//div[@id="productGTIN"] | //*[@id='s7viewer_container_inner']//div[contains(@class,'s7staticimage')]//img[1]/@src)[1]
+    xpath: //*[@id='s7viewer_container_inner']//div[contains(@class,'s7staticimage')]//img[1]/@src)[1]
     regExp: (?:asdagroceries\/(\d+))
     regExpReplace: $1
+  - name: jsonGtin
+    singleValue: true
+    manualSelector: script#productDetailsJSON
+    jq: .inventory.upc
   - name: storage
     singleValue: false
     xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Storage Type')]]//div[contains(@class,'content')]
@@ -292,7 +298,8 @@ fields:
     singleValue: true
   - name: packaging
     singleValue: true
-    manualSelector: div#packInfo
+    manualSelector: script#productDetailsJSON
+    jq: .item_enrichment.enrichment_info.packaging
   - name: additives
     singleValue: false
     xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Additives')]]//div[contains(@class,'content')]
