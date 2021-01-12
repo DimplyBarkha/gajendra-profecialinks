@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'CA',
     store: 'lowes',
-    nextLinkSelector: 'ul li[class~="next-item"] a',
+    nextLinkSelector: 'ul li[class~="next-item"]:not([disabled]) a',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[class="tab-products-wrapper"] > ul > li , span[itemprop="name"]',
