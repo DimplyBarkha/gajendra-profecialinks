@@ -5,8 +5,8 @@ module.exports = {
     country: 'DE',
     store: 'worldofsweets',
     domain: 'worldofsweets.de',
-    loadedSelector: null,
-    noResultsXPath: "//div[contains(@class,'content is--fixed')]//div//div/p/text()",
+    loadedSelector: 'div#content',
+    noResultsXPath: '//div[@class="content is--fixed"]//a',
     zipcode: "''",
   },
 };

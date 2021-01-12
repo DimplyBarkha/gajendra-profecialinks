@@ -4,6 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'worldofsweets',
+    timeout: 20000,
     domain: 'worldofsweets.de',
     zipcode: "''",
   },

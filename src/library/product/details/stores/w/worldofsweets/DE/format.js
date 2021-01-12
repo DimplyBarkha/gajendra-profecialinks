@@ -55,8 +55,24 @@ const transform = (data) => {
           console.log(" item.text", item.text)
         });
       }
+
+      if (row.availabilityText) {
+        row.availabilityText.forEach(item => {
+          if (item.text == "true"){
+
+            item.text = "In Stock";
+
+          }
+          else{
+             item.text = "Out Of Stock";
+
+          }
+
+        })
+      }
     }
-  }
+
+}
   return cleanUp(data);
 };
 
