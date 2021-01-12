@@ -126,13 +126,13 @@ fields:
     regExp: gtin13":\s\"([A-Z] |\w+)",
     regExpReplace: $1
   - name: unInterruptedPDP
-    xpath: //div[contains(@class, 'is-container is-offerGrid')]//div[@class="is-carouselContainer"]/div/div//div[@class="c-offerBox_data"]
+    xpath: //div[@id="accessoriesCarousel"]//div[@data-event="OFFERBOX_CLICK"]//a[@data-analytics-on="click"]
   - name: inTheBoxUrl
-    xpath: //h3[contains(text(),"Zawartość opakowania")]/following::div[@class="description-row" or @class="description_dyson-row"][1]//div[@class="description-col-md-3" or @class="description_dyson-col-md-3"]/img/@src | //h3[contains(text(),"W zestawie")]/following::div[@class="description-row"][1]//div[@class="description-col-md-5" or @class="description-col-md-4"]/img/@src |  //h3[contains(text(),"W pudełku")]/following::div[@class="description-row"][1]//div[@class="description-col-md-3"]/img/@src|//h3[contains(text(),"Zawartość pudełka ")]/following::div[@class="description_dyson-row"]/div[contains(@class, "description_dyson-col-md-")]//img/@src
+    xpath: //div[@class="description-py5"][contains(.,'W pudełku')]//img[@data-component="lazyLoad"]/@src | //div[@class="description_dyson-py5"][contains(.,'Zawartość pudełka')]//img/@src | //div[contains(.,'W zestawie')]//p[contains(@class,'description-para')]/preceding-sibling::img/@src | //div[@class="description_dyson-py5"][contains(.,'Zawartość opakowania')]//img[@data-component="lazyLoad"]/@src | //div[@class="description-py5"][contains(.,'Zawartość opakowania')]//img[@data-component="lazyLoad"]/@src
     regExp: (.+)
     regExpReplace: https://mediaexpert.pl$1 
   - name: inTheBoxText
-    xpath: //h3[contains(text(),"Zawartość opakowania")]/following::div[@class="description-row" or @class="description_dyson-row"][1]//div[@class="description-col-md-3" or @class="description_dyson-col-md-3"]/p[contains(@class, 'para')] | //h3[contains(text(),"W zestawie")]/following::div[@class="description-row"][1]//div[@class="description-col-md-5" or @class="description-col-md-4"]/p[contains(@class, 'para')] |  //h3[contains(text(),"W pudełku")]/following::div[@class="description-row"][1]//div[@class="description-col-md-3"]/p[contains(@class, 'para')]|//h3[contains(text(),"Zawartość pudełka ")]/following::div[@class="description_dyson-row"]/div[contains(@class, "description_dyson-col-md-")]//p[contains(@class, 'para')]
+    xpath: //div[@class="description-py5"][contains(.,'W pudełku')]//p[contains(@class,'description-para')] | //div[@class="description_dyson-py5"][contains(.,'Zawartość pudełka')]//p[contains(@class,'description_dyson-para')] | //div[contains(.,'W zestawie')]//p[contains(@class,'description-para')]/preceding-sibling::img/following-sibling::p | //div[@class="description_dyson-py5"][contains(.,'Zawartość opakowania')]//img/following-sibling::p[contains(@class,'description_dyson-para')] | //div[@class="description-py5"][contains(.,'Zawartość opakowania')]//img/following-sibling::p[contains(@class,'description-para')]
   - name: hasComparisonTable
     xpath: //div[contains(@class, "description_dyson")]//div[@class='table-responsve']/table
     regExp: (.+)
