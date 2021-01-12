@@ -30,13 +30,24 @@ async function implementation(inputs, parameters, context, dependencies) {
           .trim()
       : "";
     descContent && addHiddenDiv("ii_description", descContent);
-    document
-      .querySelectorAll('iframe[title*="Videos"]')
-      .forEach((frame, index) => {
-        frame.querySelectorAll("video").forEach((video, index1) => {
+    await new Promise((resolve) => setTimeout(resolve, 15000));
+    try{
+      var myFrames = document.querySelectorAll('iframe[title="Product Videos"]')
+      console.log(myFrames)
+      myFrames.forEach((frame, index) => {
+        console.log("Inside frame loop" + frame)
+        var myFrameDoc = frame.contentDocument
+        console.log(myFrameDoc)
+        var videos = myFrameDoc.querySelectorAll("video")
+        console.log(videos)
+        videos.forEach((video, index1) => {
+          console.log('Found video' + `video_${index}_${index1}`+ video.src)
           addHiddenDiv(`video_${index}_${index1}`, video.src);
         });
       });
+    }catch(e){
+      console.log("Video error" + e)
+    }
     const manufacturerContent = document.querySelector("div#wc-power-page");
     if (manufacturerContent) {
       manufacturerContent.scrollIntoView({ behavior: "smooth" });
@@ -61,6 +72,7 @@ async function implementation(inputs, parameters, context, dependencies) {
       }
     }
   });
+  // await context.evaluate(() => {});
   return await context.extract(productDetails, { transform });
 }
 

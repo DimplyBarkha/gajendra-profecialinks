@@ -22,12 +22,28 @@ const transform = (data) => {
           }, '').slice(3),
         }];
       }
+      if(row.availabilityText){
+        row.availabilityText.forEach(item => {
+          if(item.text === 'In Stock'){
+            item.text = 'In stock'
+          }else if(item.text === 'Out of Stock'){
+            item.text = 'Out of stock'
+          }
+        })
+      }
       if (row.specifications) {
         row.specifications = [{
           text: row.specifications.reduce((item, currentitem) => {
             return `${item} || ${currentitem.text}`;
           }, '').slice(4),
         }];
+      }
+      if (row.manufacturerImages) {
+        const uniqueImgs = Array.from(new Set(row.manufacturerImages.map(img => img.text)))
+         .map(Text => {
+           return row.manufacturerImages.find(img => img.text === Text)
+         })
+         row.manufacturerImages = uniqueImgs;
       }
       if (row.additionalDescBulletInfo) {
         row.descriptionBullets = [{
