@@ -45,10 +45,11 @@ fields:
   - name: ratingCount
     singleValue: true
     description: The number of ratings
+
   - name: reviewCount
     singleValue: true
     description: The number of reviews
-
+    xpath: //a[@href]/div/div/span/span[@class="star-rating__review-text"]
   - name: price
     singleValue: true
     description: The offered price for the product
@@ -95,3 +96,5 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     xpath: //a[@href]/div/div/span[@class="star-rating hz-product-card__review-stars"]/@aria-label
+  - name: _url
+    singleValue: true
