@@ -10,6 +10,7 @@ module.exports = {
     zipcode: '',
   },
   implementation: async (inputs, { transform }, context, { productDetails: data }) => {
+
     const url = await context.evaluate(async function () {
       return window.location.href;
     });
@@ -111,9 +112,15 @@ module.exports = {
       console.log(proName , 'ssss');
     } 
     addHiddenDiv('name', proName);
-
+    
   });
-
+  await context.evaluate(async function (context) {
+    const seeAllSelector = document.querySelector('li[data-tabname="accessories"] > a');
+    if (seeAllSelector) {
+    seeAllSelector.click();
+    }
+    });
+    await context.waitForSelector('section[class="GroupGrid js--GroupGrid GroupGrid_has-column-gap GroupGrid_has-row-gap"]',{timeout:6000});
     return await context.extract(data, { transform });
   },
   
