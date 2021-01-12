@@ -37,13 +37,13 @@ module.exports = {
       await infiniteScroll();
 
       try {
-        await context.waitForSelector('div.product-details > div.product-details__features', { timeout: 7000 });
+        await context.waitForSelector('span[class*=inpage-data]', { timeout: 30000 });
       } catch (e) {
         console.log('manufacturerDesc selector not found');
       }
 
-      const manufacturerDesc = document.querySelector('div.product-details > div.product-details__features')
-        ? document.querySelector('div.product-details > div.product-details__features').innerText : '';
+      const manufacturerDesc = document.querySelector('div#inpage_container')
+        ? document.querySelector('div#inpage_container').innerText : '';
       if (manufacturerDesc) addHiddenDiv('manufacturerDesc', manufacturerDesc.replace(/\n{2,}/g, '').replace(/\s{2,}/g, ' '));
       const manufactureImage = [];
       let finalImages = [];
