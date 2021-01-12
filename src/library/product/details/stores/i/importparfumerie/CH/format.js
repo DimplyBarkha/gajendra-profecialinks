@@ -39,6 +39,15 @@ const transform = (data) => {
             item.text =  Number(item.text);
           });
         }
+        if(row.availabilityText){
+          row.availabilityText.forEach(item => {
+            if (item.text == 'In den Warenkorb'){
+              row.availabilityText = [{"text": 'In Stock', "xpath": row.availabilityText[0].xpath}]
+            }else{
+              row.availabilityText = [{"text": 'Out of Stock', "xpath": row.availabilityText[0].xpath}]
+            }
+          })
+        }
         if (row.description) {
             let description_ar = [];
             row.description.forEach(item => {
