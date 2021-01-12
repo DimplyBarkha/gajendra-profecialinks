@@ -43,16 +43,22 @@ module.exports = {
           document.body.appendChild(element);
         });
       }
+
       try {
         const varinatInformation = [];
         const id = document.querySelector('meta[property="og:url"]').getAttribute('content');
         const pId = id.match(/\d+$/g) && id.match(/\d+$/g)[0];
-        const styleDetails = window.__INITIAL_CONFIG__.stylesById.data[pId];
-        let types = styleDetails.filterOptions;
+        const styleDetails = window.__INITIAL_CONFIG__.sellingEssentials[`product-page-${pId}`];
+        const alternateStyleDetails = window.__INITIAL_CONFIG__.stylesById.data[pId];
+        let types = Object.keys(styleDetails.filterSelections).length ? Object.keys(styleDetails.filterSelections) : styleDetails.filterAvailabilityById;
         if (types.length === 0) {
           types = ['color'];
+        } // for steve madden extractor
+        else if (types.includes('size')) {
+          types = ['size'];
         }
-        const filters = styleDetails.filters;
+        const filters = styleDetails.filterAvailabilityById;
+        const alternateFilters = alternateStyleDetails.filters;
         for (const type of types) {
           const ids = filters[type].allIds;
 
@@ -62,23 +68,25 @@ module.exports = {
             const priceSku = [];
             priceSku.push(variant.relatedSkuIds[0]);
             for (const val of priceSku) {
-              var data = styleDetails.price.bySkuId[val];
+              var data = alternateStyleDetails.price.bySkuId[val];
             }
             Object.assign(varinatInfo, {
               media: [],
               variantId: variant.id,
               sku: variant.relatedSkuIds[0],
               value: variant.value,
-              price: data.priceString,
-              listPrice: data.originalPriceString,
+              price: data ? data.priceString : '',
+              listPrice: data ? data.originalPriceString : '',
+              avail: variant.isAvailable,
+              inventory: variant.optionThirdTextArea,
             });
-            const mediaIds = filters[type].byId[varId].styleMediaIds;
+            const mediaIds = alternateFilters[type].byId[varId].styleMediaIds;
             if (!mediaIds) {
-              if (styleDetails.filters.color.byId[94727]) {
-                const stMediaIds = styleDetails.filters.color.byId[94727].styleMediaIds;
+              if (alternateStyleDetails.filters.color.byId[varId]) {
+                const stMediaIds = alternateStyleDetails.filters.color.byId[varId].styleMediaIds;
                 if (stMediaIds) {
                   for (var stMediaId of stMediaIds) {
-                    var media = styleDetails.styleMedia.byId[stMediaId];
+                    var media = alternateStyleDetails.styleMedia.byId[stMediaId];
                     varinatInfo.media.push({
                       mediaType: media.mediaType,
                       imageMediaUri: media.imageMediaUri.maxLargeDesktop,
@@ -92,7 +100,7 @@ module.exports = {
             }
 
             for (const mediaId of mediaIds) {
-              const media = styleDetails.styleMedia.byId[mediaId];
+              const media = alternateStyleDetails.styleMedia.byId[mediaId];
               varinatInfo.media.push({
                 mediaType: media.mediaType,
                 imageMediaUri: media.imageMediaUri.maxLargeDesktop,
@@ -150,6 +158,17 @@ module.exports = {
             const image = document.createElement('td');
             image.setAttribute('class', 'images');
             newlink.appendChild(image);
+
+            const avail = document.createElement('td');
+            avail.setAttribute('class', 'avail');
+            avail.textContent = varinatInformation[index].avail;
+            newlink.appendChild(avail);
+
+            const inventory = document.createElement('td');
+            inventory.setAttribute('class', 'inventory');
+            inventory.textContent = varinatInformation[index].inventory;
+            newlink.appendChild(inventory);
+
             if (varinatInformation[index].media) {
               for (let j = 0; j < varinatInformation[index].media.length; j++) {
                 const img = document.createElement('img');

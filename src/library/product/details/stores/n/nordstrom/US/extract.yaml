@@ -23,16 +23,29 @@ fields:
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
+  - name: availability
+    xpath: //td[@class="avail"]
   - name: description
     xpath: ancestor::html//div[contains(text(),"Details & Care")]/following-sibling::div[1] |  ancestor::html//div[contains(text(),"Details & Care")]/following-sibling::ul/li
   - name: descriptionBullets
     xpath: count(//div[contains(text(),"Details & Care")]/following-sibling::ul/li)
   - name: brandText
     xpath: ancestor::html//section//span[@itemprop="name"]
+  - name: brand
+    xpath: ancestor::html//section//span[@itemprop="name"]
   - name: brandLink
     xpath: ancestor::html//section//span[@itemprop="name"]/parent::a/@href
     regExp: (.+)
     regExpReplace: https://www.nordstrom.com$1
+  - name: designer
+    singleValue: true
+    description: Populate if product has a designer label
+  - name: filterType
+    singleValue: true
+    description: The filter used for the search listing
+  - name: inventoryText
+    xpath: //td[@class="inventory"]
+    description: The inventory status of the product, if available
   - name: variantId
     xpath: //table/tbody/tr[@class="append_variant"]//@variant_id
   - name: ratingCount
@@ -47,6 +60,16 @@ fields:
     xpath: ancestor::html//h1[@itemprop="name"]
   - name: sku
     xpath: //table/tbody/tr[@class="append_variant"]//td[@class='sku']/@sku
+  - name: numberHearts
+    singleValue: true
+    description: The number of likes for the product
+  - name: variantSize
+    singleValue: false
+    description: colour / scent / flavour / other
+    xpath: //@variant_id
+  - name: viewing
+    singleValue: false
+    description: The number to identify the current views of the product, if available
   - name: variants
     xpath: ancestor::html//table/tbody/tr[@class="append_variant"]//td[@class='sku']/@sku
   - name: additionalDescBulletInfo
