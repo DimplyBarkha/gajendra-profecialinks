@@ -65,6 +65,11 @@ module.exports = {
       if (document.querySelector('div[class^="ProductFeatures"] a[class^="Linkstyled"]')) {
         document.querySelector('div[class^="ProductFeatures"] a[class^="Linkstyled"]').click();
       }
+
+      if (document.querySelector('[data-test="mms-th-gallery"] [direction="next"]')) {
+        document.querySelector('[data-test="mms-th-gallery"] [direction="next"]').click()
+      }
+
     });
 
 
