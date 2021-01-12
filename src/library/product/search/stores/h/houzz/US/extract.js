@@ -93,10 +93,9 @@ module.exports = {
       // }
       for (let i = 0; i < link.length; i++) {
         console.log("Loop is working");
-        if (link[i].href != ""){
         const searchURL = window.location.href.split("?")[0]
         addHiddenDiv("ii_searchURL", searchURL, i);
-      }}
+      }
     });
     return await context.extract(productDetails, { transform });
   }

@@ -11,7 +11,7 @@ fields:
     singleValue: true
     description: The brand name
     example: Panasonic
-    xpath: //a[@href]/div/div[@class="hz-product-card__meta"]/span[2]/span[@class="hz-color-link__text "]
+    xpath: //a/div/div[@class="hz-product-card__meta"]/span[2]/span[@class="hz-color-link__text "]
   - name: productUrl
     singleValue: true
     description: The URL for the product details page
@@ -23,15 +23,15 @@ fields:
   - name: thumbnail
     singleValue: true
     description: The URL for the product thumbnail image
-    xpath: //a[@href]/div/div/div/picture[@class=" hz-image-container"]/source/@srcset  | //a[@href]/div/div/picture[@class=" hz-image-container"]/source/@srcset
+    xpath: //a/div/div/div/picture[@class=" hz-image-container"]/source/@srcset  | //a/div/div/picture[@class=" hz-image-container"]/source/@srcset
   - name: name
     singleValue: true
     description: The product name
-    xpath: //a[@href]/div/div[@class="hz-product-card__meta"]/span[@data-compid="title"]/span
+    xpath: //a/div/div[@class="hz-product-card__meta"]/span[@data-compid="title"]/span
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //a[@href]/parent::div[@class="hz-product-card hz-track-me hz-product-card--medium hz-br-container--three-grid hz-product-card__browse-redesign"]/@data-objid
+    xpath: //a/parent::div[@class="hz-product-card hz-track-me hz-product-card--medium hz-br-container--three-grid hz-product-card__browse-redesign"]/@data-objid
   - name: mpc
     singleValue: true
     description: The model code of the product
@@ -41,7 +41,7 @@ fields:
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
-    xpath: //a[@href]/div/div/span[@class="star-rating hz-product-card__review-stars"]/@aria-label
+    xpath: //a/div/div/span[@class="star-rating hz-product-card__review-stars"]/@aria-label
   - name: ratingCount
     singleValue: true
     description: The number of ratings
@@ -49,19 +49,19 @@ fields:
   - name: reviewCount
     singleValue: true
     description: The number of reviews
-    xpath: //a[@href]/div/div/span/span[@class="star-rating__review-text"]
+    xpath: //a/div/div/span/span[@class="star-rating__review-text"]
   - name: price
     singleValue: true
     description: The offered price for the product
-    xpath: //a[@href]/div/div/div/div/span[@class="hz-product-card__prices hz-color-link hz-color-link--static hz-color-link--enabled "]/span/span
+    xpath: //a/div/div/div/div/span[@class="hz-product-card__prices hz-color-link hz-color-link--static hz-color-link--enabled "]/span/span
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //a[@href]/div/div/div/div[@class="product-prices hz-product-card__prices"]/span/span[@class="hz-product-price hz-product-price--v2 hz-product-price--strikethrough"]/del/span
+    xpath: //a/div/div/div/div[@class="product-prices hz-product-card__prices"]/span/span[@class="hz-product-price hz-product-price--v2 hz-product-price--strikethrough"]/del/span
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //a[@href]/div/div[@class="hz-product-card__meta"]/span[2]/span[@class="hz-color-link__text "]
+    xpath: //a/div/div[@class="hz-product-card__meta"]/span[2]/span[@class="hz-color-link__text "]
 
   - name: soldBy
     singleValue: true
@@ -85,18 +85,17 @@ fields:
   - name: id
     singleValue: true
     description: Unique id (within this extractor)
-    xpath: //a[@href]/parent::div[@class="hz-product-card hz-track-me hz-product-card--medium hz-br-container--three-grid hz-product-card__browse-redesign"]/@data-objid
+    xpath: //a/parent::div[@class="hz-product-card hz-track-me hz-product-card--medium hz-br-container--three-grid hz-product-card__browse-redesign"]/@data-objid
   - name: nameExtended
     singleValue: true
     description:
       The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per extractor)
-    xpath: //a[@href]/div/div[@class="hz-product-card__meta"]/span[@data-compid="title"]/span
+    xpath: //a/div/div[@class="hz-product-card__meta"]/span[@data-compid="title"]/span
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //a[@href]/div/div/span[@class="star-rating hz-product-card__review-stars"]/@aria-label
+    xpath: //a/div/div/span[@class="star-rating hz-product-card__review-stars"]/@aria-label
   - name: searchUrl
     singleValue: false
-    type: URL
     xpath: //div[@id="ii_searchURL"]
