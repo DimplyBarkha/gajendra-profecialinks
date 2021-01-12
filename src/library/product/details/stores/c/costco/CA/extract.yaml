@@ -168,6 +168,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
+    xpath: //h1[contains(@itemprop,'name')]/text()
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
