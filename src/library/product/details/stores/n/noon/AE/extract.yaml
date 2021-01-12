@@ -93,6 +93,8 @@ fields:
     # xpath: //div[contains(@class,'variantContainer')]//div[contains(@class,'mediaContainer')]//img/@src
     xpath: //div[@class='section']/div/header/following-sibling::ul/li//img/@src
     defaultValue: '0'
+  - name: manufacturerImages
+    xpath: //div[contains(@class,'siteWidthContainer bannerModule')]//div[contains(@class,'bannerModule featureBanner')]//div[@class='lazyload-wrapper']//img/@src
   - name: availabilityText
     singleValue: false
     # xpath: //p[contains(@class,"notAvailableNote")]

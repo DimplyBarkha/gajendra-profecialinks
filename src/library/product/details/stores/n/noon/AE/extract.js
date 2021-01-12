@@ -62,6 +62,10 @@ module.exports = {
         }
       }
       addHiddenDiv('specsText', specsText);
+      // document.querySelector('div[class*="richContent"]').scrollIntoView({ behavior: 'smooth' });
+      if (document.querySelector('button#Overview')) { document.querySelector('button#Overview').click(); console.log('button present'); }
+
+      if (document.querySelector('footer')) { document.querySelector('footer').scrollIntoView({ behavior: 'smooth' }); await stall(2000); }
     });
     return await context.extract(productDetails, { transform });
   },
