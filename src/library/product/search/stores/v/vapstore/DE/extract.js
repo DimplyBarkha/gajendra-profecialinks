@@ -14,13 +14,12 @@ const transform = (data, context) => {
     .trim();
   for (const { group } of data) {
     for (const row of group) {
-
       if (row.productUrl) {
         let url = row.productUrl[0].text;
         url = url.replace(/-en([^-en]*)$/, '$1');
-        row.productUrl[0].text = 'https://www.vapstore.de/' + url +'?ratings_nItemsPerPage=-1&ratings_nSortByDir=0#tab-votes';
+        row.productUrl[0].text = 'https://www.vapstore.de/' + url + '?ratings_nItemsPerPage=-1&ratings_nSortByDir=0#tab-votes';
       }
-      
+
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
@@ -71,5 +70,5 @@ module.exports = {
     domain: 'vapstore.de',
     zipcode: "''",
   },
-   implementation,
+  implementation,
 };
