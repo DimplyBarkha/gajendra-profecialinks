@@ -19,7 +19,11 @@ const transform = (data) => {
     // ingredientsList
     for (const { group }  of data) {
         for (const row of group) {
-
+            if (row.sku) {
+                row.sku.forEach(item => {
+                    item.text =  item.text.replace( /\D+/g, '');
+                });
+            }
             if (row.brandLink) {
                 row.brandLink.forEach(item => {
                     item.text = 'https://shop.rewe.de' + item.text.trim();
@@ -40,13 +44,13 @@ const transform = (data) => {
 
             if (row.ingredientsList) {
                 row.ingredientsList.forEach(item => {
-                    item.text = item.text.replace('Zutaten:');
+                    item.text = item.text.replace('Zutaten:', '');
                 });
             }
 
             if (row.allergens) {
                 row.allergens.forEach(item => {
-                    item.text = item.text.replace('Allergenhinweise:');
+                    item.text = item.text.replace('Allergenhinweise:', '');
                 });
             }
             
@@ -63,6 +67,15 @@ const transform = (data) => {
                     nutritionInfo.push( item.text );
                 });
                 row.nutritionInfo = [ { text: nutritionInfo.join(' ') } ]
+            }
+            if (row.caloriesPerServing) {
+                let caloriesPerServing = '';
+                // row.caloriesPerServing.forEach(item => {
+                //     caloriesPerServing.push( item.text );
+                // });
+                caloriesPerServing = row.caloriesPerServing[row.caloriesPerServing.length-1].text
+                // row.caloriesPerServing = 
+                row.caloriesPerServing = [ { text: caloriesPerServing } ]
             }
 
         }
