@@ -34,6 +34,13 @@ async function implementation (
       popup.click();
     }
   });
+  // await context.evaluate(async function () {
+  //   const surveryPopup = document.querySelector('button.promotionModalClose.icon-close.c-modal-close.u-pos--absolute.ico.ico-close.ico-lg');
+  //   if (promoClose) {
+  //     // @ts-ignore
+  //     promoClose.click();
+  //   }
+  // });
 
   async function scrollToRec(node) {
     await context.evaluate(async (node) => {
@@ -52,18 +59,18 @@ async function implementation (
     });
   }
 
-  let pageNextExists = await paginationNext();
-  console.log('pageNextExists!@');
-  console.log(pageNextExists);
-  while (pageNextExists === false) {
-    await scrollToRec('footer.footer-content');
-    await new Promise((resolve) => {
-      setTimeout(resolve, 5000);
-    });
-    console.log('pageNextExists!2');
-    console.log(pageNextExists);
-    pageNextExists = await paginationNext();
-  }
+  // let pageNextExists = await paginationNext();
+  // console.log('pageNextExists!@');
+  // console.log(pageNextExists);
+  // while (pageNextExists === false) {
+  //   await scrollToRec('footer.footer-content');
+  //   await new Promise((resolve) => {
+  //     setTimeout(resolve, 5000);
+  //   });
+  //   console.log('pageNextExists!2');
+  //   console.log(pageNextExists);
+  //   pageNextExists = await paginationNext();
+  // }
   console.log('totalll!@');
   async function prod () {
     return await context.evaluate(async () => {
