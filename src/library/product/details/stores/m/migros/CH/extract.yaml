@@ -11,13 +11,13 @@ fields:
     xpath: //aside[@class='product-detail-image']/div[@class='square']/div[@class=' ng-star-inserted ng-lazyloaded']/@style
   - name: category
     singleValue: false
-    xpath: //div[@class='migros_category']
+    xpath: //ol[contains(@class,'breadcrumb')]/li
   - name: nameExtended
     singleValue: false
-    xpath: //div[@class='migros_name']
+    xpath: //div[@class='hgroup']//h1[contains(@id,'name')]
   - name: description
     singleValue: false
-    xpath: //div[@class='migros_description']
+    xpath: //div[@class='hgroup']//h2[contains(@id,'description')]
   - name: ingredientsList
     singleValue: false
     xpath: //dd[contains(@id,'ingredients')]
@@ -26,7 +26,7 @@ fields:
     xpath: //dd[contains(@id,'-allergens')]
   - name: nutritionInfo
     singleValue: false
-    xpath: //div[@class='migros_nutrition']
+    xpath: //dd[contains(@id,'nutrients')]//table//tbody
   - name: storage
     singleValue: false
     xpath: //dd[contains(@id,'-conservation')]
@@ -42,30 +42,15 @@ fields:
   - name : sku
     singleValue: false
     xpath: //dd[@class='pid']/text()
-  - name: additional_description
-    singleValue: false
-    xpath: //div[@class="migros_addescription"]
   - name: servingSize
     singleValue: false
-    xpath: //dd[@id='product-detail-50817-nutrients']//tr/th[3]
+    xpath: //dd[contains(@id,'nutrients')]//table//thead/tr//th[2]
   - name: productUrl
     singleValue: false
     xpath: //div[@class="product_url"]
-  - name : caloriesFromEnergyPerServing
-    singleValue: false
-    xpath: //div[@class="migros_energy"]
-  - name : caloriesFromFatPerServing
-    singleValue: false
-    xpath: //div[@class="migros_fats"]
   - name : caloriesPerServing
     singleValue: false
-    xpath: concat(//div[@class="migros_energy"],"  ",//div[@class='migros_lipids'],"  ",//div[@class="migros_fats"],"  ",//div[@class="migros_carbohydrates"],"  ",//div[@class="migros_sugar"],"   ",//div[@class="migros_sodium"],"  ",//div[@class="migros_salt"])
-  - name : caloriesFromCarbohydratesPerServing
-    singleValue: false
-    xpath: //div[@class="migros_carbohydrates"]
-  - name : caloriesFromSugarPerServing
-    singleValue: false
-    xpath: //div[@class="migros_sugar"]
+    xpath: //dd[contains(@id,'nutrients')]//table//tbody//tr//td[contains(.,'Energy')]/following-sibling::td[1]
   - name: availabilityText
     singleValue: false
     xpath: (//div[@class='add-to-basket-container']/button)[1]
