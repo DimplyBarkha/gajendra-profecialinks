@@ -21,18 +21,18 @@ module.exports = {
     });
 
     let manufacturerDescArray = [];
-    const manufacturerImagesArray = [];
+    let manufacturerImagesArray = [];
     const energyRating = '';
     const manufacturerDescKey = 'manufacdesc';
     const manufacturerImagesKey = 'manufacturerImages';
 
     const getEnhancedContentFromNavTab = async () => {
-      const cssMoreInfoTab = 'div[class *= \'product_detail-attrs\'][data-type="brandTab"]';
+      const cssMoreInfoTab = `div[class *= 'product_detail-attrs'][data-type="brandTab"]`;
       try {
         // wait for more info tab to load
         await context.waitForSelector(cssMoreInfoTab, { timeout: 10000 });
 
-        // get and set manufacturerDesc to DOM if not found from the iframe navigateLink link
+        // get and set manufacturerDesc to DOM
         return await context.evaluate(function (cssMoreInfoTab) {
           // getting from 'Más sobre el producto' tab
           const moreInfoTab = document.querySelector(cssMoreInfoTab);
@@ -71,20 +71,20 @@ module.exports = {
       });
     };
 
-    const setValuesInDivToDOM = async (id, value) => {
-      await context.evaluate(async ({ id, value }) => {
-        function addElementToDocument (key, value) {
+    const setValuesInDivToDOM = async (key, value) => {
+      await context.evaluate(async ({ key, value }) => {
+        function addElementToDocument(key, value) {
           const catElement = document.createElement('div');
           catElement.id = key;
           catElement.textContent = value;
           document.body.appendChild(catElement);
         }
 
-        addElementToDocument(id, value);
-      }, { id, value });
+        addElementToDocument(key, value);
+      }, { key, value });
     };
 
-    async function enhancedContent () {
+    async function enhancedContent() {
       const manufacturerDescription = await getEnhancedContentFromNavTab();
       if (manufacturerDescription) {
         manufacturerDescArray.push(manufacturerDescription);
@@ -104,17 +104,84 @@ module.exports = {
      */
     await enhancedContent();
 
-    try {
-      // returns additionalInfo iframe src
-      const navigateLink = await context.evaluate(function () {
-        console.log('getting navlink for Iframe');
-        const gtin = document.querySelector('button[data-event=add_to_cart]') && document.querySelector('button[data-event=add_to_cart]').hasAttribute('data-product-gtin') ? document.querySelector('button[data-event=add_to_cart]').getAttribute('data-product-gtin') : '';
-        console.log(`gtin: ${gtin}`);
+    const getIframeUrl = async () => {
+      const cssIframe = 'iframe#loadbeeTabContent,iframe#eky-dyson-iframe';
 
-        const iframeSrc = document.querySelector('iframe#loadbeeTabContent') && document.querySelector('iframe#loadbeeTabContent').getAttribute('src');
-        return gtin ? `https://service.loadbee.com/ean/${gtin}/es_ES?css=default&template=default&button=default#bv-wrapper` : iframeSrc;
+      // wait for iframe load
+      try {
+        await context.waitForSelector(cssIframe, { timeout: 10000 });
+      } catch (error) {
+        console.log('Iframe not loaded, css => ', cssIframe);
+      }
+
+      // returns additionalInfo iframe src
+      const navigateLink = await context.evaluate(function (cssIframe) {
+        console.log('getting navlink for Iframe');
+
+        // gtin
+        let gtin = '';
+
+        // check if iframe loaded, get nav link
+
+        const iframe = document.querySelector(cssIframe);
+        const iframeSrc = iframe && iframe.getAttribute('src') || '';
+
+        // if iframeSrc not available, we can generate iframe url using gtin
+        if (!iframeSrc) {
+          // check if gtin available in add to cart button
+          const cssAddToCartButton = 'button[data-event=add_to_cart]';
+          const cssAttrRequiredFromButton = 'data-product-gtin';
+
+          const addToCartButton = document.querySelector(cssAddToCartButton);
+          gtin = addToCartButton && addToCartButton.getAttribute(cssAttrRequiredFromButton) || '';
+          console.log('gtin from Add to cart button: ', gtin);
+
+          // check if gtin available in iframe sibling div
+          if (!gtin) {
+            const cssIframeSiblingDiv = 'data-product-gtin';
+            const cssAttrRequired = 'data-loadbee-product';
+
+            const iframeSiblingDiv = document.querySelector(cssIframeSiblingDiv);
+            gtin = iframeSiblingDiv && iframeSiblingDiv.getAttribute(cssAttrRequired) || '';
+            console.log('gtin from iframe sibling div: ', gtin);
+          }
+        }
+
+        return iframeSrc ? iframeSrc : `https://service.loadbee.com/ean/${gtin}/es_ES?css=default&template=default&button=default#bv-wrapper`;
+      }, cssIframe);
+
+      return navigateLink;
+    }
+
+    const extractEnhancedContent = async () => {
+      // manufacturerDescription
+      manufacturerDescArray = await context.evaluate(async () => {
+        const manufacDesc = document.querySelectorAll('body>*:not(script)');
+        const arr = [];
+        if ((!manufacDesc) || (manufacDesc.length === 0)) {
+          console.log('we do not have anything in the body');
+          return arr;
+        }
+
+        for (let i = 0; i < manufacDesc.length; i++) {
+          console.log(manufacDesc[i].textContent.replace(/^\s*\n/gm, ''));
+          arr.push(manufacDesc[i].textContent.replace(/^\s*\n/gm, '').trim());
+        }
+        console.log('manufacturerDesc is as follows - ');
+        console.log(manufacDesc);
+        return arr;
       });
 
+      // manufacturerImages
+      manufacturerImagesArray = await context.evaluate(async () => {
+        const allImagesFromEnhancedContent = document.querySelectorAll('img');
+        // @ts-ignore
+        return [...allImagesFromEnhancedContent].filter(image => image.getAttribute('src')).map(image => image.src) // use of double map is an hack to avoid certail things
+      });
+    }
+
+    try {
+      const navigateLink = await getIframeUrl();
       if (navigateLink) {
         console.log(navigateLink, 'Iframe Details');
         console.log('Nagivating to Enahnced content');
@@ -136,22 +203,7 @@ module.exports = {
 
         if (enhancedContentPresent) {
           console.log('got the enhanced content');
-          manufacturerDescArray = await context.evaluate(async () => {
-            const manufacDesc = document.querySelectorAll('body>*:not(script)');
-            const arr = [];
-            if ((!manufacDesc) || (manufacDesc.length === 0)) {
-              console.log('we do not have anything in the body');
-              return arr;
-            }
-
-            for (let i = 0; i < manufacDesc.length; i++) {
-              console.log(manufacDesc[i].textContent.replace(/^\s*\n/gm, ''));
-              arr.push(manufacDesc[i].textContent.replace(/^\s*\n/gm, '').trim());
-            }
-            console.log('manufacturerDesc is as follows - ');
-            console.log(manufacDesc);
-            return arr;
-          });
+          await extractEnhancedContent();
         } else {
           console.log('enhanced content is not present - need to check if the video is present in gallery in prod page');
         }
@@ -170,12 +222,7 @@ module.exports = {
 
         // enhancedContent from MoreInfoTab if enhancedContentPresent = false, i.e was not found earlier on the navigated page
         if (!enhancedContentPresent) {
-          if (!manufacturerDescArray.length) await getEnhancedContentFromNavTab(); // manufacturerDescArray saving already before navigation
-
-          const manufacturerImages = manufacturerImagesArray.length ? manufacturerImagesArray : await getManufacturerImagesFromNavTab(); // check if we saved already
-          if (manufacturerImages) {
-            manufacturerImages.forEach(async (img) => await setValuesInDivToDOM(manufacturerImagesKey, img));
-          }
+          await enhancedContent();
         }
 
         // set otherSellersTable to DOM
@@ -206,7 +253,7 @@ module.exports = {
       }
 
       // function to append the elements to DOM
-      function addElementToDocument (key, value) {
+      function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -215,7 +262,7 @@ module.exports = {
       }
       addElementToDocument('energyRating', energyRating);
       // function to get the json data from the string
-      function findJsonData (scriptSelector, startString, endString) {
+      function findJsonData(scriptSelector, startString, endString) {
         try {
           const xpath = `//script[contains(.,'${scriptSelector}')]`;
           const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -238,7 +285,7 @@ module.exports = {
       }
 
       // function to get the json data from the textContent
-      function findJsonObj (scriptSelector, video) {
+      function findJsonObj(scriptSelector, video) {
         if (video) {
           var result = document.evaluate(video, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
           return result;
@@ -405,7 +452,7 @@ module.exports = {
         }
       }
 
-      function getPathDirections (xpathToExecute) {
+      function getPathDirections(xpathToExecute) {
         var result = [];
         var nodesSnapshot = document.evaluate(xpathToExecute, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         for (var i = 0; i < nodesSnapshot.snapshotLength; i++) {
@@ -414,7 +461,7 @@ module.exports = {
         return result;
       }
 
-      function videoData (data) {
+      function videoData(data) {
         if (data[0].playlist.length > 1) {
           return data[0].playlist.map(e => { return 'https:' + e.file; }).join(' | ');
         }
@@ -481,7 +528,7 @@ module.exports = {
       }
 
       // Get the ratingCount
-      function ratingFromDOM () {
+      function ratingFromDOM() {
         const reviewsCount = document.querySelector('div.bv-content-pagination-pages-current');
         let ratingCount;
         if (reviewsCount) {
@@ -506,7 +553,7 @@ module.exports = {
         }
       }
 
-      function allergyAdvice () {
+      function allergyAdvice() {
         const xpath = '//*[contains(text(),"Ingredientes y alérgensos")]/../ul/li';
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         if (element) {
@@ -517,7 +564,7 @@ module.exports = {
       } allergyAdvice();
 
       // Function to remove the `\n` from the textContent
-      function textContent (element, attributeName) {
+      function textContent(element, attributeName) {
         const text = (element && element.innerText.trim()
           .split(/[\n]/)
           .filter((ele) => ele)
@@ -531,7 +578,7 @@ module.exports = {
 
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
-        async function stall (ms) {
+        async function stall(ms) {
           return new Promise((resolve, reject) => {
             setTimeout(() => {
               console.log('waiting!!');
@@ -557,7 +604,7 @@ module.exports = {
 
     // gets videos
     await context.evaluate(async () => {
-      async function addElementToDocumentAsync (key, value) {
+      async function addElementToDocumentAsync(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -632,6 +679,25 @@ module.exports = {
 
         await addElementToDocumentAsync(manufacturerDescKey, manufacturerDesc.join(' || '));
       }, manufacturerDescArray, manufacturerDescKey);
+    }
+
+    // adds manufacturerDesc to DOM
+    if (manufacturerImagesArray.length) {
+      // @ts-ignore
+      const uniqueImages = [...new Set(manufacturerImagesArray)];
+      
+      await context.evaluate(async (manufacturerImagesArray, manufacturerImagesKey) => {
+        async function addElementToDocument (key, value) {
+          const catElement = document.createElement('div');
+          catElement.id = key;
+          catElement.textContent = value;
+          document.body.appendChild(catElement);
+        }
+
+        manufacturerImagesArray.forEach((image) => {
+          addElementToDocument(manufacturerImagesKey, image.replace(/([0-9w])+$/, '')); // removes 800w | 400w | 200w etc from image if available
+        });
+      }, uniqueImages, manufacturerImagesKey);
     }
 
     await context.extract(productDetails, { transform });
