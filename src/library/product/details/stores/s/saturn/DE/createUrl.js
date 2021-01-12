@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'saturn.de',
     prefix: null,
-    url: null,
+    url: 'https://www.saturn.de/de/product/*-{id}.html',
     country: 'DE',
     store: 'saturn',
     zipcode: '',

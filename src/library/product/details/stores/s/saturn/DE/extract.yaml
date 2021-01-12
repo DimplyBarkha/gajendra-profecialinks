@@ -103,13 +103,11 @@ fields:
     description: Content under "warnings" header
   - name: ratingCount
     description: The number of ratings
-    xpath: //body/@rating-count
+    xpath: //div[contains(@class,'AverageRating')]//p[contains(@class,'Info')]
+    regExp: \d+
     type: NUMBER
-  - name: aggregateRatingText
-    xpath: translate(//div[contains(@class,"StyledAverageRating")]//span[contains(@class,"AverageRatingSummary")],'.',',')
-    description: The stated aggregate rating
   - name: aggregateRating
-    xpath: translate(//div[contains(@class,"StyledAverageRating")]//span[contains(@class,"AverageRatingSummary")],'.',',')
+    xpath: //div[contains(@class,'AverageRating')]//span[contains(@class,'AverageRating')]
     description: The stated aggregate rating normalized to be out of 5
   - name: shippingInfo
     description: Shipping information for the product
