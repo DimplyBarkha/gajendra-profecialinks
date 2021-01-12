@@ -102,3 +102,9 @@ fields:
   - name: manufacturer
     singleValue: false
     xpath: //h1[contains(@itemprop,'name')]/span
+  - name: inTheBoxUrl
+    xpath: //div[contains(.,'Lieferumfang') and contains(@class,'title')]/following-sibling::div//img/@srcset
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: inTheBoxText
+    xpath: //div[contains(.,'Lieferumfang') and contains(@class,'title')]/following-sibling::div//img/parent::div/following-sibling::div
