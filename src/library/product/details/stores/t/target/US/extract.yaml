@@ -288,7 +288,11 @@ fields:
   - name: technicalInformationPdfPresent
     singleValue: false
     xpath: //div[@class="pdf"]
+  - name: inTheBoxText
+    xpath: ancestor::html//body/@in-the-box-text
+  - name: inTheBoxUrl
+    xpath: ancestor::html//body/@in-the-box-url  
   - name: unInterruptedPDP
     xpath: ancestor::html//div[@data-test="pdpBottomOfTheFoldContent"]//ul//li[contains(@class,"FilmstripItem")] | ancestor::html//div[@data-test="pdpBottomOfTheFoldContent"]//ul//li[contains(@class,"FilmstripItem")] | //h3[contains(.,'Featured products')]/..//ul//li
   - name: hasComparisonTable
-    defaultValue: No
+    xpath: ancestor::html//body/@has-comparison-table
