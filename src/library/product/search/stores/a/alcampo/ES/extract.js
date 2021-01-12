@@ -94,7 +94,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     }) === null || await context.evaluate(() => {
       const page = window.location.href.match('page=([0-9]+)');
       if (page !== null) {
-        if ((parseInt(page[1]) + 1) * 48 <= 200) {
+        if ((parseInt(page[1]) + 1) * 48 <= 99) {
           return false;
         } else {
           return true;
