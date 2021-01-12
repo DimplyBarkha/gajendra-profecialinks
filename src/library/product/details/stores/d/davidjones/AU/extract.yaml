@@ -19,7 +19,7 @@ fields:
   - name: category
     xpath: //ul[contains(@class, 'breadcrumb')]//li[position()>1 and position()<last()]
   - name: nameExtended
-    xpath: concat(//*[@class="brand"]//span,'-',//h1[@itemprop='name'])
+    xpath: concat(//*[@class="brand"]//span,' ',//h1[@itemprop='name'])
   - name: price
     xpath: (//p[(@class='price now')]//span[(@class='price-display')]|//p[(@class='price')]//span[(@class='price-display')])
   - name: availabilityText
@@ -45,7 +45,7 @@ fields:
   - name: sku
     xpath: //@data-product-sku
   - name: variantId
-    xpath: //li[contains(@class,"main top-product")]/@data-colour
+    xpath: //li[contains(@class,"main top-product")]/@data-product
   - name: variantInformation
     xpath: //div[@class='selected']//span[@class='colour-label']
   - name: mpc
