@@ -6,7 +6,7 @@ module.exports = {
     country: 'MX',
     store: 'mercadolibre',
     // nextLinkSelector: 'li.andes-pagination__button.andes-pagination__button--next',
-    nextLinkXpath: "//div[@class='ui-search-pagination']/ul/li[last()]/a",
+    nextLinkXpath: "//li[@class='andes-pagination__button andes-pagination__button--next']/a[@class='andes-pagination__link ui-search-link']",
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,

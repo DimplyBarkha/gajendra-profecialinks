@@ -23,12 +23,15 @@ fields:
     xpath: //img[@class='ui-search-result-image__element']/@src
   - name: price
     singleValue: true
-    xpath: //div[@class='ui-search-price__second-line']/span[@class='price-tag ui-search-price__part']
+    xpath: //div[@class="ui-search-result__content-columns"]//div[@class='ui-search-price__second-line']/span[@class='price-tag ui-search-price__part']
   - name: soldBy
     singleValue: true
     xpath: //div[@class='ui-search-item__group ui-search-item__group--title']/a/p
   - name: id
     singleValue: true
     xpath: //input[@name='itemId']/@value
+  - name: sponsored
+    type: BOOLEAN
+    xpath: //div[@class="ui-search-item__ad-container"]
 
 
