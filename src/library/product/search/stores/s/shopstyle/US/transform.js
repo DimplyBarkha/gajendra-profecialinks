@@ -27,23 +27,23 @@ const transform = (data, context) => {
           }
         };
 
-        setRow('ProductId', 'id');
-        setRow('Price', 'priceLabel');
-        setRow('Style', 'unbrandedName');
-        setRow('NumberHearts', 'favoriteCount');
-        setRow('DetailUrl', 'clickUrl');
+        setRow('sku', 'id');
+        setRow('price', 'priceLabel');
+        setRow('style', 'unbrandedName');
+        setRow('numberHearts', 'favoriteCount');
+        setRow('detailUrl', 'clickUrl');
 
         if (productObj.salePriceLabel) {
-          setRow('SalePrice', 'salePriceLabel');
+          setRow('salePrice', 'salePriceLabel');
         }
 
-        row.Brand = [{ text: productObj.brand.name }];
-        row.StoreName = [{ text: productObj.retailer.name }];
-        row.ImageUrl = [{ text: productObj.image.sizes.Best.url }];
-        row.Availability = [{ text: true }];
+        row.brand = [{ text: productObj.brand.name }];
+        row.storeName = [{ text: productObj.retailer.name }];
+        row.imageUrl = [{ text: productObj.image.sizes.Best.url }];
+        row.availability = [{ text: true }];
 
-        setRow('PageRank', 'rank');
-        setRow('VariantSize', 'mySize');
+        setRow('pageRank', 'rank');
+        setRow('variantSize', 'mySize');
 
         delete row.product;
       }

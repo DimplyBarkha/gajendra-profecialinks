@@ -5,9 +5,9 @@ recordXPath: //div[@id="product"]
 fields:
   - name: product
     xpath: //text()
-  - name: FilterType
+  - name: filterType
     xpath: ancestor::html//div[@id="FilterType"]
-  - name: SortType
+  - name: sortType
     xpath: ancestor::html//div[@id="apiUrl"]
     regExp: >-
       (?<=sort=)(.+)
