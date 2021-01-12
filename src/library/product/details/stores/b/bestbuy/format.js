@@ -67,16 +67,16 @@ const transform = (data) => {
         if (row.description2) {
             let info = [];          
             row.description2.forEach(item => {
-              info.push(item.text.replace(/(\s*\n\s*)+/g, ' | ').trim());            
+              info.push(item.text.replace(/(\s*\n\s*)+/g, '').trim());            
             });
             row.descriptionBullets = [{'text': info.length}];
-            tmp_desc = info.join(' || ');
+            tmp_desc = info.join('');
             delete row.description2;
         }
         if (row.description && tmp_desc != '') {            
             row.description.forEach(item => {
-                item.text = item.text.replace(/(\s*\n\s*)+/g, ' | ').trim();
-                item.text = item.text + " || " + tmp_desc;
+                item.text = item.text.replace(/(\s*\n\s*)+/g, '').trim();
+                item.text = item.text + tmp_desc;
             });
         }
         if (row.ratingCount) {            
