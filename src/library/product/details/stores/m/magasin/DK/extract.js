@@ -23,7 +23,7 @@ module.exports = {
       addEleToDoc('tempSkuId', productInfo['sku']);
       const manuDescription = document.querySelector('.content-asset section') ? document.querySelector('.content-asset section').innerText : ""; 
       addEleToDoc("manuDesc", manuDescription)
-      let video = document.evaluate('(//li//a[contains(@class,"product-carousel__thumb")]//img[contains(@data-src,"youtube")]//@data-src)[1]',document).iterateNext();
+      let video = document.evaluate('(//li//a[contains(@class,"product-carousel__thumb")]//img[contains(@data-src,"youtube")]//@data-src)[1] | //div[contains(@class,"content-banner")]//div[contains(@class,"poster")]//@style',document).iterateNext();
       if(video) {
         let youTubeUrl = video.textContent.replace(/(.+)(vi\/)(.+)(\/)(.+)/g, "https://www.youtube.com/watch?v=$3");
         addEleToDoc("videoUrl", youTubeUrl);
