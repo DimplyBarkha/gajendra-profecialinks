@@ -31,6 +31,7 @@ async function implementation (
     await context.waitForSelector('#onetrust-accept-btn-handler', { timeout: 10000 });
     await context.evaluate(function () {
       document.querySelector('#onetrust-accept-btn-handler').click();
+      console.log('clicked the cookie btn');
     });
   } catch (err) {
     console.log('Accepting cookies failed');

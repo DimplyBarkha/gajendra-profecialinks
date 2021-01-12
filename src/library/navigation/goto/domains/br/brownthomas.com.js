@@ -13,6 +13,7 @@ module.exports = {
     const newUrl = await context.evaluate(function (url) {
       const isSelector = document.querySelector('div[id="primary"] div.slot-panels-container div.asset:nth-last-child(1) a.asset-link');
       if (isSelector) {
+        console.log('got the selector - div[id="primary"] div.slot-panels-container div.asset:nth-last-child(1) a.asset-link');
         return 'https://www.brownthomas.com/brands/dyson/shop-all/';
       }
     }, url);

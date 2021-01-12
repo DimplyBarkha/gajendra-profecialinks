@@ -14,19 +14,37 @@ async function implementation (
   console.log('params', parameters);
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
   await dependencies.goto({ url, zipcode: inputs.zipcode });
-  if (parameters.loadedSelector) {
-    await context.waitForFunction(function (sel, xp) {
-      return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
+  try {
+    if (parameters.loadedSelector) {
+      await context.waitForFunction(function (sel, xp) {
+        return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
+      }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
+    }
+    console.log('Checking no results', parameters.noResultsXPath);
+    return await context.evaluate(function (xp) {
+      const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
+      console.log(xp, r);
+      const e = r.iterateNext();
+      console.log(e);
+      return !e;
+    }, parameters.noResultsXPath);
+  } catch(err) {
+    console.log('got this error while checking for search page or no search result page', err.message);
+    console.log('need to cheek if it is a producat details page or not!!');
+    let detailsPageSelector = 'h1[itemprop="name"]';
+    let isDetailsPage = await context.evaluate(async (detailsPageSelector) => {
+      let elm = document.querySelectorAll(detailsPageSelector);
+      if(elm && elm.length > 0) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    detailsPageSelector);
+    console.log('do we have the product details page - ' + isDetailsPage);
+    return !isDetailsPage;
   }
-  console.log('Checking no results', parameters.noResultsXPath);
-  return await context.evaluate(function (xp) {
-    const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
-    console.log(xp, r);
-    const e = r.iterateNext();
-    console.log(e);
-    return !e;
-  }, parameters.noResultsXPath);
+  
 }
 
 module.exports = {
