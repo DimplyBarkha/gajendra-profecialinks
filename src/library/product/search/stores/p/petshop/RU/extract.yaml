@@ -36,7 +36,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //*[@itemprop='price']/span
+    xpath: //li[contains(@class, 'product-item')][not(contains(@class, 'slide'))]//*[contains(@itemprop,'offer')][1]//span[not(@class)]
   - name: manufacturer
     singleValue: false
     xpath: //a[contains(@class, 'j_product-brand')]
