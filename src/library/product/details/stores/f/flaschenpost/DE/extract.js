@@ -1,10 +1,10 @@
-const { cleanUp } = require('../../../../shared');
+
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'DE',
     store: 'flaschenpost',
-    transform: cleanUp,
+    transform: null,
     domain: 'flaschenpost.de',
     zipcode: '28199',
   },
@@ -19,7 +19,7 @@ module.exports = {
       try {
         const usernameElements = document.querySelectorAll('#validZipcode');
       // @ts-ignore
-      usernameElements.forEach(username => username.value = "28199");
+      usernameElements.forEach(username => username.value = "28203");
       // @ts-ignore
       document.querySelector('div[class="fp-modal_input"]>button').click()
       await new Promise(r => setTimeout(r, 6000));

@@ -7,6 +7,6 @@ module.exports = {
     url: null,
     country: 'DE',
     store: 'flaschenpost',
-    zipcode: '28199',
+    zipcode: '28203',
   },
 };
