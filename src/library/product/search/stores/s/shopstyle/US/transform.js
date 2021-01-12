@@ -27,11 +27,11 @@ const transform = (data, context) => {
           }
         };
 
-        setRow('sku', 'id');
+        setRow('ProductId', 'id');
         setRow('Price', 'priceLabel');
         setRow('Style', 'unbrandedName');
         setRow('NumberHearts', 'favoriteCount');
-        setRow('productUrl', 'clickUrl');
+        setRow('DetailUrl', 'clickUrl');
 
         if (productObj.salePriceLabel) {
           setRow('SalePrice', 'salePriceLabel');
@@ -40,10 +40,10 @@ const transform = (data, context) => {
         row.Brand = [{ text: productObj.brand.name }];
         row.StoreName = [{ text: productObj.retailer.name }];
         row.ImageUrl = [{ text: productObj.image.sizes.Best.url }];
-        row.availability = [{ text: true }];
+        row.Availability = [{ text: true }];
 
-        setRow('ProductRank', 'rank');
-        setRow('variantSize', 'mySize');
+        setRow('PageRank', 'rank');
+        setRow('VariantSize', 'mySize');
 
         delete row.product;
       }
