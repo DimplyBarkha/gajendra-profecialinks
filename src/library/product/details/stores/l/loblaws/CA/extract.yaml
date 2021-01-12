@@ -46,7 +46,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[contains(@class,"product-details-page-description__body")]
+    xpath: //div[@class="product-description-text product-description-text--product-details-page"]//p/text()
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
@@ -65,6 +65,11 @@ fields:
     description: Quantity as described on the page
     regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     regExpReplace: $1$2$3$4
+  - name: shortDescription
+    singleValue: false
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    xpath: //div[@class="product-description-text product-description-text--product-details-page"]//p/text()
   - name: weightNet
     singleValue: false
     xpath: //div[contains(@class,"page-details")]//span[contains(@class,"package-size")]
@@ -513,6 +518,6 @@ fields:
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
   - name: shownImages
-    xpath: //div[contains(@class,"product-image-list--product-details-page")]//div[contains(@class,"product-image-list__item")]//img/@src | //div[@class="product-image-list"]//div[@class="slick-track"]//div[contains(@class,"slick-slide")][not(contains(@class,"slick-cloned"))]//img/@src 
+    xpath: //div[@class="product-image-list"]//div[@class="slick-slider slick-initialized"]//div[@class="slick-slide slick-active slick-current"]//img//@src| //div[@class="product-image-list"]//div[@class="slick-slider slick-initialized"]//div[@class="slick-slide"]//img//@src | //div[contains(@class,"product-image-list--product-details-page")]//div[contains(@class,"product-image-list__item")]//img/@src | //div[@class="product-image-list"]//div[@class="slick-slider product-image-list-slider product-image-list-slider--product-details-page slick-initialized"]//div[@class="slick-slide slick-active slick-current"]//img//@src| //div[@class="product-image-list"]//div[@class="slick-slider product-image-list-slider product-image-list-slider--product-details-page slick-initialized"]//div[@class="slick-slide"]//img//@src
   - name: highQualityImages
-    xpath: //div[contains(@class,"product-image-list--product-details-page")]//div[contains(@class,"product-image-list__item")]//img/@src | //div[@class="product-image-list"]//div[@class="slick-track"]//div[contains(@class,"slick-slide")][not(contains(@class,"slick-cloned"))]//img/@src 
+    xpath: //div[@class="product-image-list"]//div[@class="slick-slider slick-initialized"]//div[@class="slick-slide slick-active slick-current"]//img//@src| //div[@class="product-image-list"]//div[@class="slick-slider slick-initialized"]//div[@class="slick-slide"]//img//@src | //div[contains(@class,"product-image-list--product-details-page")]//div[contains(@class,"product-image-list__item")]//img/@src | //div[@class="product-image-list"]//div[@class="slick-slider product-image-list-slider product-image-list-slider--product-details-page slick-initialized"]//div[@class="slick-slide slick-active slick-current"]//img//@src| //div[@class="product-image-list"]//div[@class="slick-slider product-image-list-slider product-image-list-slider--product-details-page slick-initialized"]//div[@class="slick-slide"]//img//@src
