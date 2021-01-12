@@ -4,10 +4,9 @@ module.exports = {
   parameterValues: {
     country: 'NZ',
     store: 'trademe',
-    nextLinkSelector: 'li#o-pagination__nav-item ng-star-inserted',
-    mutationSelector: 'h3#tm-search-header-result-count__heading ng-star-inserted',
+    nextLinkSelector: 'li[class*="pagination__nav-item--last"] a',
     spinnerSelector: null,
-    loadedSelector:'div#tm-marketplace-search-results__container',
+    loadedSelector: '.tm-search-results__container',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'trademe.co.nz',
