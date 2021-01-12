@@ -96,7 +96,7 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     xpath: //a[@href]/div/div/span[@class="star-rating hz-product-card__review-stars"]/@aria-label
-  - name: url
-    singleValue: true
+  - name: searchUrl
+    singleValue: false
     type: URL
     xpath: //div[@id="ii_searchURL"]
