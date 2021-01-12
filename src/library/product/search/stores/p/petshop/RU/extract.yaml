@@ -1,11 +1,11 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //li[contains(@class, 'product-item')]
+recordXPath: //li[contains(@class, 'product-item')][not(contains(@class, 'slide'))]
 fields:
   - name: id
     singleValue: false
-    xpath: //li[contains(@class, 'product-item')]/@data-id
+    xpath: //li[contains(@class, 'product-item')]//div[contains(@class,'offer-item')][position()=1]/@data-artnumber
   - name: searchUrl
     singleValue: true
     xpath: ancestor::html//div[@id="searchUrl"][last()]
