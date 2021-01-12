@@ -27,7 +27,7 @@ async function implementation (
 
     console.log('page is loaded successfully....executing scrolling code');
     // Scrolling till specifications as manufacturer images are loaded on website after scrolling down
-    await new Promise(resolve => setTimeout(resolve, 10000));
+    await new Promise(resolve => setTimeout(resolve, 5000));
     async function scrollToLoadAplusImages () {
       let scrollSelector = document.querySelector('div[id="presContent"]');
       let scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
@@ -37,7 +37,7 @@ async function implementation (
         window.scrollTo(0, yPos);
         scrollSelector = document.querySelector('div[id="descContent"]');
         scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
-        await new Promise(resolve => setTimeout(resolve, 3500));
+        await new Promise(resolve => setTimeout(resolve, 500));
       }
     }
     await scrollToLoadAplusImages();
@@ -81,7 +81,6 @@ async function implementation (
     };
     getShadowDomHtml(manuData);
   });
-  await new Promise(resolve => setTimeout(resolve, 10000));
   return await context.extract(productDetails, { transform });
 }
 
