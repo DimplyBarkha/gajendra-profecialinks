@@ -517,9 +517,6 @@ fields:
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
   defaultValue: Yes
-- name: inTheBoxText
-  singleValue: false
-  xpath: //span[contains(text(), 'Livré avec')]/ancestor::td/text()
 - name: unInterruptedPDP
   singleValue: false
   xpath: //div[@class="owl-item"]//a[@class="title-product"]
