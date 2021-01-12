@@ -23,14 +23,31 @@ const transform = (data, context) => {
               const productObj = JSON.parse(row.product[0].text);
               
               const setRow = (fieldName,keyName) => {
-                  row[fieldName] = [{ text: productObj[keyName] }];
+                  if (productObj[keyName]){
+                      row[fieldName] = [{ text: productObj[keyName] }];
+                  }
               }
 
               setRow('sku','id');
               setRow('listPrice','priceLabel');
               setRow('name','unbrandedName');
+              setRow('NumberHearts','favoriteCount');
+              setRow('productUrl','clickUrl')
+
+              if (productObj.salePriceLabel){
+                  setRow('price','salePriceLabel');
+              } else {
+                  setRow('price','priceLabel');
+              }
 
               row.brand = [{ text: productObj.brand.name }];
+              row.image = [{ text: productObj.image.sizes.Best.url }];
+
+              let categoriesArr = [];
+              productObj.categories.forEach(cat => {
+                  categoriesArr.push({ text: cat.name });
+              })
+              row.category = categoriesArr;
 
               delete row.product;
         }
