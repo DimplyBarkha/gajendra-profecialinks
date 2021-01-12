@@ -64,6 +64,15 @@ const transform = (data) => {
       if (row.aggregateRating && row.decimalSeperator && row.decimalSeperator[0].text === 'EU') {
         row.aggregateRating[0].text = row.aggregateRating[0].text.replace('.', ',');
       }
+      if(row.videos){
+        let vids=[];
+        vids=row.videos;
+        for(let i=0;i<vids.length;i++)
+          {
+            if(vids[i].text.includes('undefined'))
+              row.videos.splice(i,i+1);
+          }
+        }
       // row.hasComparisonTable = row.hasComparisonTable ? [{ text: 'Yes' }] : [{ text: 'No' }]
     }
   }
