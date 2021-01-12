@@ -58,7 +58,7 @@ fields:
     description: The number of ratings
     xpath: //div[@class="panel-rating-stats-at-top"]/h2/text()
     type: NUMBER
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     xpath: //html//div[@id="agr"]
@@ -109,3 +109,11 @@ fields:
   - name: manufacturerImages
     singleValue: true
     xpath: //div[@id="product-detail-description"]//p[@class="ql-align-center"]/img/@data-src
+  - name: _input
+    singleValue: true
+    xpath: //div[@class="container redesign"]/article/@data-variantid
+  - name: ingredientsList
+    singleValue: true
+    xpath: //div[@class="container redesign"]/article/@data-variantid
+
+
