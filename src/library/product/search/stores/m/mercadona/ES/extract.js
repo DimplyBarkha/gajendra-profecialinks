@@ -71,6 +71,8 @@ module.exports = {
       const products = document.querySelectorAll('.product-cell');
       console.log(products);
       products.forEach((product, index) => {
+        addHiddenDiv('helper-price', response[index].price_instructions.unit_price, product);
+        addHiddenDiv('helper-rank', index + 1, product);
         addHiddenDiv('helper-id', response[index].id, product);
         addHiddenDiv('helper-productUrl', productUrl + response[index].id, product);
       });

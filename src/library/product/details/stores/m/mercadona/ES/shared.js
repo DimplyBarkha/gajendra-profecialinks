@@ -17,21 +17,21 @@ const transform = (data) => {
             gr['secondaryImageTotal'] = [{ text: gr.alternateImages.length }];
           };
 
-          if (gr.unitPrice) {
-            const unitPriceFormat = gr.unitPrice[0].text.includes('/100')
-              ? `€${gr.unitPrice[0].text.replace(/[^0-9,/]/g, '')}`.replace(',', '.')
-              : `€${gr.unitPrice[0].text.replace(/[^0-9,]/g, '').replace(',', '.')}`;
-            gr['pricePerUnit'] = [
-              {
-                text: unitPriceFormat,
-              },
-            ];
-            gr['pricePerUnitUom'] = [
-              {
-                text: gr.unitPrice[0].text.replace(/[^a-zA-Z]/g, ''),
-              },
-            ];
-          }
+          // if (gr.unitPrice) {
+          //   const unitPriceFormat = gr.unitPrice[0].text.includes('/100')
+          //     ? `€${gr.unitPrice[0].text.replace(/[^0-9,/]/g, '')}`.replace(',', '.')
+          //     : `€${gr.unitPrice[0].text.replace(/[^0-9,]/g, '').replace(',', '.')}`;
+          //   gr['pricePerUnit'] = [
+          //     {
+          //       text: unitPriceFormat,
+          //     },
+          //   ];
+          //   gr['pricePerUnitUom'] = [
+          //     {
+          //       text: gr.unitPrice[0].text.replace(/[^a-zA-Z]/g, ''),
+          //     },
+          //   ];
+          // }
         };
       } catch (e) {
         console.log(e);

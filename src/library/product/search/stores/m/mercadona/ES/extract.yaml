@@ -19,10 +19,14 @@ fields:
     xpath: //div[@class='product-cell__image-wrapper']/img/@src
   - name: price
     singleValue: true
-    xpath: //p[@class='product-price__unit-price subhead1-b']
+    xpath: //div[@class='helper-price']
   - name: id
     singleValue: true
     xpath: //div[@class='helper-id']
   - name: productUrl
     singleValue: true
     xpath: //div[@class='helper-productUrl']
+  - name: rankOrganic
+    xpath: //div[@class='helper-rank']
+  - name: rank
+    xpath: //div[@class='helper-rank']

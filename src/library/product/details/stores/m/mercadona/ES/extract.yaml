@@ -11,8 +11,8 @@ fields:
     xpath: //div[@class='image-zoomer__source']/img/@alt
   - name: price
     singleValue: true
-    xpath: //p[@class='product-price__unit-price large-b']
-    type: CURRENCY
+    xpath: //div[@class='helper-price']
+#    type: CURRENCY
   - name: alternateImages
     singleValue: false
     xpath: //div[@class='thumbnail__container']/button/img/@src
@@ -24,14 +24,14 @@ fields:
     xpath: //button[@class='button button-rounded product-quantity-button__add']/span[@class='button__text']
   - name: _pageTimestamp
     singleValue: true
-  - name: unitPrice
-    singleValue: true
-    xpath: //div[@class='price-per-unit']
-  - name: packSize
+#  - name: unitPrice
+#    singleValue: true
+#    xpath: //div[@class='price-per-unit']
+  - name: quantity
     singleValue: true
     xpath: //div[@class='helper-pack-size']
-  - name: _url
-    singleValue: true
+#  - name: _url
+#    singleValue: true
   - name: _input
     singleValue: true
   - name: _pageTimestamp
@@ -39,3 +39,11 @@ fields:
   - name: sku
     singleValue: true
     xpath: //div[@class='helper-sku']
+  - name: pricePerUnit
+    xpath: //div[@class='helper-reference_price']
+  - name: pricePerUnitUom
+    xpath: //div[@class='helper-reference_format']
+  - name: eangtin
+    xpath: //div[@class='helper-ean']
+  - name: brandText
+    xpath: //div[@class='helper-brand']

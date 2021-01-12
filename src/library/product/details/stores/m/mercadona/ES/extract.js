@@ -28,11 +28,22 @@ module.exports = {
     }
 
     await context.waitForSelector('.private-product-detail');
-    await context.evaluate(() => {
+    await context.evaluate(async () => {
       const currentProduct = document.querySelector('.private-product-detail__content');
       const headLinesOfProduct = document.querySelectorAll('.headline1-r');
       const pricePerUnit = headLinesOfProduct[headLinesOfProduct.length - 1];
 
+      const skuNumber = location.href.match(/\/product\/(.*?)\//)[1];
+      const requestUrl = `https://tienda.mercadona.es/api/products/${skuNumber}/?lang=es&wh=vlc1`;
+
+      const response = await fetch(requestUrl).then(res => res.json());
+      const { price_instructions } = response;
+      const { brand } = response.details;
+      console.log(brand);
+
+      console.log(price_instructions);
+
+      console.log(response);
       function addHiddenDiv (className, content, node) {
         const newDiv = document.createElement('div');
         newDiv.className = className;
@@ -43,25 +54,32 @@ module.exports = {
       }
 
       function getPackSize () {
-        const pack = headLinesOfProduct[headLinesOfProduct.length - 2]
-          .textContent
-          .match(/\d{0,} ud./);
-
-        const packSelector = document.querySelector('p.product-price__extra-price.title1-r').textContent;
-        if (packSelector.includes('/pack')) {
-          return parseInt(headLinesOfProduct[0].textContent);
-        };
-        if (pack) {
-          return pack[0].replace(/[^0-9]/g, '');
-        };
+        if (price_instructions.total_units) {
+          console.log(price_instructions.total_units);
+          return price_instructions.total_units;
+        }
 
         return 'null';
       }
+
+      // function getPackSize () {
+      //   const pack = headLinesOfProduct[headLinesOfProduct.length - 2]
+      //     .textContent
+      //     .match(/\d{0,} ud./);
+      //
+      //   const packSelector = document.querySelector('p.product-price__extra-price.title1-r').textContent;
+      //   if (packSelector.includes('/pack')) {
+      //     return parseInt(headLinesOfProduct[0].textContent);
+      //   };
+      //   if (pack) {
+      //     return pack[0].replace(/[^0-9]/g, '');
+      //   };
+      //
+      //   return 'null';
+      // }
       // const packSize = headLinesOfProduct[headLinesOfProduct.length - 2]
       //   .textContent
       //   .match(/\d{0,} ud./);
-
-      const skuNumber = location.href.match(/\/product\/(.*?)\//)[1];
 
       if (currentProduct) {
         // if (packSize) {
@@ -71,10 +89,16 @@ module.exports = {
         //   addHiddenDiv('helper-pack-size', 'null', currentProduct);
         // }
         const size = getPackSize();
+        // const mainUrl = 'https://tienda.mercadona.es/product/';
         addHiddenDiv('helper-pack-size', size, currentProduct);
-        addHiddenDiv('helper-product-url', location.href, currentProduct);
-        addHiddenDiv('price-per-unit', pricePerUnit.textContent, currentProduct);
+        // addHiddenDiv('helper-product-url', mainUrl + skuNumber, currentProduct);
+        // addHiddenDiv('price-per-unit', pricePerUnit.textContent, currentProduct);
         addHiddenDiv('helper-sku', skuNumber, currentProduct);
+        addHiddenDiv('helper-price', `€${price_instructions.unit_price}`, currentProduct);
+        addHiddenDiv('helper-reference_price', `${price_instructions.reference_price}`, currentProduct);
+        addHiddenDiv('helper-reference_format', `${price_instructions.reference_format}`, currentProduct);
+        addHiddenDiv('helper-ean', response.ean, currentProduct);
+        addHiddenDiv('helper-brand', brand, currentProduct);
       }
     });
 
