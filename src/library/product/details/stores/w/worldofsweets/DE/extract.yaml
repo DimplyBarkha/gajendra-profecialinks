@@ -14,7 +14,8 @@ fields:
   - name: shownImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[contains(@class,'morepics-container js-morepics-container')]//ul//li//img/@src
+    xpath: //div[contains(@class,'morepics-container js-morepics-container')]//ul//li//a/img/@src
+   # xpath: //div[contains(@class,'morepics-container js-morepics-container')]//ul//li//img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
