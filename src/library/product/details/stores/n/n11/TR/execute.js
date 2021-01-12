@@ -5,8 +5,8 @@ module.exports = {
     country: 'TR',
     store: 'n11',
     domain: 'n11.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: "//div[@class='header']/div[@class='resultText']",
+    noResultsXPath: "//div[@class='notFoundContent']/h1",
     zipcode: '',
   },
 };

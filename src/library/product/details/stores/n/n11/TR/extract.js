@@ -1,4 +1,4 @@
-const { transform } = require('./shared');
+const {transform} = require('./shared');
 
 module.exports = {
   implements: 'product/details/extract',
@@ -15,20 +15,14 @@ module.exports = {
     context,
     dependencies,
   ) => {
-    const { transform } = parameters;
-    const { productDetails } = dependencies;
-    await context.waitForSelector('#view');
-    await context.clickAndWaitForNavigation(`#p-${inputs.id}`, {}, {});
-    await context.evaluate(() => {
-      function addElementToDocument (key, value) {
-        const catElement = document.createElement('div');
-        catElement.id = key;
-        catElement.textContent = value;
-        catElement.style.display = 'none';
-        document.body.appendChild(catElement);
-      };
-      addElementToDocument('url', location.href);
-    });
-    return await context.extract(productDetails, { transform });
+    const {transform} = parameters;
+    const {productDetails} = dependencies;
+    try {
+      await context.waitForSelector(`#p-${inputs.id}`);
+      await context.clickAndWaitForNavigation(`#p-${inputs.id} h3`, {}, {});
+      return await context.extract(productDetails, {transform});
+    } catch (e) {
+      return await context.extract(productDetails, {transform});
+    }
   },
 };

@@ -1,52 +1,53 @@
-
 /**
  *
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
-  function onlyNumbersAndDot (string) {
-    return string.replace(',', '.').replace(/[^\d\.]/g, '').replace(/\./, 'x').replace(/\./g, '').replace(/x/, ".");string = Math.round( parseFloat(string) * 100) / 100;
+  function onlyNumbersAndDot(string) {
+    return string.replace(',', '.').replace(/[^\d\.]/g, '').replace(/\./, 'x').replace(/\./g, '').replace(/x/, ".");
+    string = Math.round(parseFloat(string) * 100) / 100;
   }
-  function cleanText (str) {
+
+  function cleanText(str) {
     return str.replace(/(\r\n|\n|\r)/gm, '').replace(/\s+/g, ' ').trim();
   }
+
+  function findField(entryPoint, fieldName) {
+    return JSON.parse(entryPoint.find(e => e.text.includes(fieldName)).text)[fieldName]
+  }
+
   data.forEach(el => {
     el.group.forEach(gr => {
       try {
-        gr.price[0].text = gr.price[0].text.replace(',', '.');
-        gr.listPrice[0].text = gr.listPrice[0].text.replace(',', '.');
-        gr['_url'] = gr.url;
-        gr['_input'] = gr.input;
-        if (gr && gr.category && gr.category.length) gr.category.shift();
-        if (gr && gr.brandText && gr.brandText.length) {
-          let info;
+        if (gr.alternativeImages) gr.alternativeImages.shift();
+        if (gr.category) gr.category.shift();
+        if (gr.secondaryImageTotal) gr.secondaryImageTotal = [{text: gr.secondaryImageTotal.length - 1}];
+        if (gr.brandText) {
           try {
-            info = JSON.parse(gr.brandText.find(e => e.text.includes('brand')).text);
+            gr.brandText = [{text: findField(gr.brandText, 'brand')}]
           } catch (e) {
-            info = {};
+            gr.promotion = []
+            gr.imageZoomFeaturePresent = []
+            gr.customerServiceAvailability = []
+            gr.privacyPolicy = []
+            gr.termsAndConditions = []
+            gr.availabilityText = []
+            gr.brandText = []
           }
-          if (info && info.brand && info.brand.length) gr.brandText = [{ text: info.brand }];
-          else gr.brandText = [];
-          if (info && info.description && info.description.length) gr.name = [{ text: cleanText(info.description) }];
-          else gr.name = [];
         }
-        if (gr && gr.aggregateRating && gr.aggregateRating.length) gr.aggregateRating[0].text = onlyNumbersAndDot(gr.aggregateRating[0].text);
-        if (gr && gr.variantCount && gr.variantCount.length) gr.variantCount = [{ text: gr.variantCount.length }];
-        if (gr && gr.secondaryImageTotal && gr.secondaryImageTotal.length) gr.secondaryImageTotal = [{ text: gr.secondaryImageTotal.length - 1 }];
-        try {
-          if (gr && gr.specifications && gr.specifications.length) {
-            gr.specifications.forEach(el => {
-              el.text = el.text.replace(/\s+/g, ' ').trim();
-            });
-          };
-          if (gr && gr.aggregateRatingText && gr.aggregateRatingText.length) {
-            const numbers = gr.aggregateRatingText.map(e => +onlyNumbersAndDot(e.text));
-            gr.aggregateRatingText = [{ text: numbers.reduce((a, b) => a + b, 0) }];
-          }
-        } catch (e) {
-          gr.specifications = [];
-          gr.aggregateRatingText = [];
+        ;
+        if (gr.aggregateRating) {
+          gr.aggregateRating = [{text: onlyNumbersAndDot(gr.aggregateRating[0].text)}];
+          gr['aggregateRating2'] = gr.aggregateRating
+          gr.aggregateRating2[0].text = gr.aggregateRating2[0].text.replace('.', ',')
+        }
+        if (!gr.promotion) gr['promotion'] = [{text: '%0 İndirim 0 TL Kazanç'}];
+        if (gr.manufacturerDescription) gr.manufacturerDescription = [{text: cleanText(gr.manufacturerDescription[0].text)}]
+        if (gr.specifications) {
+          gr.specifications.forEach(e => {
+            e.text = cleanText(e.text);
+          })
         }
       } catch (e) {
         console.log(e);
@@ -56,4 +57,4 @@ const transform = (data) => {
   return data;
 };
 
-module.exports = { transform };
+module.exports = {transform};
