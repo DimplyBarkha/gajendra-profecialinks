@@ -2,7 +2,7 @@ input:
   id: 606282
   _url: http://brack.ch
 extractions:
-  - html: https://workbench.import.io/html/run=0e98f35a-00da-40d6-8d6c-5369ca2ed1d2/task=567475b4-3bfa-4d88-aca8-8d043b2aa687/897b104b-a461-4746-93ca-7f3248427816.html
+  - html: https://workbench.import.io/html/run=24cc7c4d-bf0f-4d5c-a78f-c7dab0cac601/task=eb8fa0a3-ae10-4e06-84e0-889df2fa8db9/71659f8d-4504-4645-9b42-319c4506a91e.html
     extractionConfigId: product/details/stores/b/brack/CH/extract
     data:
       - group:
@@ -30,34 +30,32 @@ extractions:
               - text: CHF 12.45
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[5]/p[1]
             availabilityText:
-              - text: "-2"
-                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[1]/em[1]/span[1]
+              - text: Out Of Stock
+                xpath: /html/body/article[1]/div[2]/script[1]
             description:
-              - text: |-
-                  Sauberkeit und frischer Frühlingsduft für Teppiche und Polster
-                  1,5 Liter (1500 ml)
-                  2x konzentriert (ergibt 3 Liter Reinigungsflüssigkeit)
-                  Für die Verwendung mit vollwertigen Teppichreinigungsgeräten
-                  Deodoriert und erfrischt
-                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[2]
+              - text: "||Sauberkeit und frischer Frühlingsduft für Teppiche und Polster||1,5
+                  Liter (1500 ml)||2x konzentriert (ergibt 3 Liter
+                  Reinigungsflüssigkeit)||Für die Verwendung mit vollwertigen
+                  Teppichreinigungsgeräten||Deodoriert und
+                  erfrischt|Fleckenentferner und Geruchsreiniger"
+                xpath: /html/body/@description
             brandText:
               - text: BISSELL
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/a[1]/span[1]
             manufacturer:
               - text: BISSELL
                 xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[3]/tr[2]/td[1]
-            gtin:
-              - text: 1078N
-                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
             sku:
               - text: "606282"
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[6]/input[1]/@value
             variantId:
               - text: 1078N
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
+                type: STRING
             mpc:
               - text: 1078N
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
+                type: STRING
             videos:
               - text: https://www.youtube.com/embed/xTi3Up-oJJQ?rel=0&modestbranding=1&enablejsapi=1
                 xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/iframe[1]/@src
@@ -67,6 +65,47 @@ extractions:
             warranty:
               - text: 24 Monate
                 xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[3]/tr[4]/td[1]
+            unInterruptedPDP:
+              - text: Fleckenentferner Wash & Protect Pet 1.5 l
+                xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Fleckenentferner Wash & Protect Pro .1.5 l
+                xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Bodenreiniger Wash & Shine Hard Floor 1 l
+                xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Bodenreiniger Zitrone & Ingwer 0.739 l
+                xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Bodenreiniger Stein & Fliesen, 1 l
+                xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Bodenreiniger Stein & Fliesen, 0,5 l
+                xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Bodenreiniger 3-in-1 1 l
+                xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Fleckenentferner Wash & Protect 1.5 l
+                xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[8]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Bodenreiniger Patio & Deck Konzentrat 500 ml
+                xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[9]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Bodenreiniger Kraftreiniger 1 l
+                xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[10]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Bodenreiniger Parkettpflege 1 l
+                xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[11]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Bodenreiniger Parkett, 1 l
+                xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[12]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Bodenreiniger Putzseife, 1 l
+                xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[13]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Bodenreiniger Multi Surface Floor 1 l
+                xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[14]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Bodenreiniger Glanzreiniger 1 l
+                xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[15]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Bodenreiniger Wiwax 1 l
+                xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[16]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Bodenreiniger Laminat, 1 l
+                xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[17]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Bodenreiniger Multisurface Formula PET
+                xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[18]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Bodenreiniger Parkett 1 l
+                xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[19]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Bodenreiniger Universal 0.5 l
+                xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[20]/div[1]/div[3]/div[2]/a[2]/span[1]
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -79,6 +118,8 @@ extractions:
               - text: No
             imageZoomFeaturePresent:
               - text: No
+            hasComparisonTable:
+              - text: No
             nameExtended:
               - text: BISSELL Fleckenentferner Wash & Refresh Febreze 3 l
             descriptionBullets:
@@ -88,4 +129,4 @@ extractions:
             secondaryImageTotal:
               - text: "0"
         xpath: /
-    timestamp: 1607930518015
+    timestamp: 1610455076884

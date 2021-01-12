@@ -98,9 +98,11 @@ fields:
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
+  type: STRING
   xpath: //th[text()="Herstellernummer"]/following-sibling::td[1]
 - name: mpc
   singleValue: true
+  type: STRING
   description: The manufacturer model code (unique) of the product
   xpath: //th[text()="Herstellernummer"]/following-sibling::td[1]
 - name: packSize

@@ -79,7 +79,7 @@ module.exports = {
 
     // checking if extractor is on a search results page
     const isOnSearchResultsPage = await context.evaluate(async () => {
-      return window.location.href.includes('search?');
+      return document.querySelectorAll('div#searchResultContainer ul.productList > li.product-card').length > 0;
     });
     if (isOnSearchResultsPage) {
       const sameRpcProductUrls = await context.evaluate(async () => {

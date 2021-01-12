@@ -2,7 +2,7 @@ input:
   id: 4015600368890-KIT
   _url: http://brack.ch
 extractions:
-  - html: https://workbench.import.io/html/run=0e98f35a-00da-40d6-8d6c-5369ca2ed1d2/task=b6d5b8db-3fa5-4782-bb16-9bb12f0e56c8/9a17afd7-e1ed-470e-97cf-19f260d79c82.html
+  - html: https://workbench.import.io/html/run=24cc7c4d-bf0f-4d5c-a78f-c7dab0cac601/task=6bf22a35-0593-496e-9466-e94aced30653/cdedbca4-158d-4a2f-9269-cbc35eb29369.html
     extractionConfigId: product/details/stores/b/brack/CH/extract
     data:
       - group:
@@ -16,7 +16,7 @@ extractions:
               - text: Meister Proper - Allzweckreiniger Citrus Febreze Tücher 3 x 60 Stück
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@alt
             alternateImages:
-              - text: https://cdn.competec.ch/images2/3/3/2/56215233/56215233_xxl.jpg
+              - text: https://cdn.competec.ch/images2/3/3/2/56215233/56215233_xs3.jpg
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/img[1]/@data-src
             category:
               - text: Supermarkt & Drogerie
@@ -33,16 +33,17 @@ extractions:
               - text: CHF 9.95
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[4]/div[1]/div[5]/p[1]
             availabilityText:
-              - text: "145"
-                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[1]/em[1]/span[1]
+              - text: In Stock
+                xpath: /html/body/article[1]/div[2]/script[1]
             description:
-              - text: |-
-                  Feuchte Reinigunstücher für glänzende Sauberkeit
-                  Wiederverschliessbare Packung
-                  Inhalt: 3 Packungen à 60 Stück
-                  Citrus-Duftnote
-                  Reinigt ohne Putzsstreifen zu hinterlassen
-                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[2]
+              - text: "||Feuchte Reinigunstücher für glänzende Sauberkeit||Wiederverschliessbare
+                  Packung||Inhalt: 3 Packungen à 60
+                  Stück||Citrus-Duftnote||Reinigt ohne Putzsstreifen zu
+                  hinterlassen|Packung à 60 Stück Diese feuchten Reinigunstücher
+                  von Meister Proper riechen nach Citrus und reinigen gründlich
+                  ohne Putzstreifen zu hinterlassen. Die Nachfüllpackung ist
+                  wiederverschliessbar."
+                xpath: /html/body/@description
             brandText:
               - text: Meister Proper
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/a[1]/span[1]
@@ -52,23 +53,17 @@ extractions:
             quantity:
               - text: 180 Stück
                 xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[2]/td[1]
-            gtin:
-              - text: 4015600368890-KIT
-                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
             sku:
               - text: "1026523"
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[4]/div[1]/div[6]/input[1]/@value
             variantId:
               - text: 4015600368890-KIT
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
+                type: STRING
             mpc:
               - text: 4015600368890-KIT
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
-            manufacturerDescription:
-              - text: Diese feuchten Reinigunstücher von Meister Proper riechen nach Citrus und
-                  reinigen gründlich ohne Putzstreifen zu hinterlassen. Die
-                  Nachfüllpackung ist wiederverschliessbar.
-                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[1]/div[1]/@productdesc
+                type: STRING
             name:
               - text: Allzweckreiniger Citrus Febreze Tücher 3 x 60 Stück
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/h1[1]
@@ -86,6 +81,47 @@ extractions:
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]
               - text: 180 Stück
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]
+            unInterruptedPDP:
+              - text: Allzweckreiniger Granatapfel Tücher 60 Stück
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Allzweckreiniger Tücher Limette & Minze 60 Stück
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Allzweckreiniger Cif Professional Tücher 100 Stk.
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Allzweckreiniger Citrus 1 l
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Allzweckreiniger Citrus 1 l
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Allzweckreiniger Frühlingserwachen 1 l
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Allzweckreiniger Reine Frische 1 l
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Allzweckreiniger Ultra Power Citrusfrische 700 ml
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[8]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Allzweckreiniger 500 ml
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[9]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Allzweckreiniger Strahlmittel 25 kg
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[10]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Allzweckreiniger Set 500 ml
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[11]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Allzweckreiniger Bio 1 l
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[12]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Allzweckreiniger Orangen 500 ml
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[13]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Allzweckreiniger Citronfrisch 5 l
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[14]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Allzweckreiniger Limettenfrische 1 l
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[15]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Allzweckreiniger Soda 500 ml
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[16]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Allzweckreiniger Lavendel 1 l
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[17]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Allzweckreiniger Orange 500 ml
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[18]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Allzweckreiniger Frischeduft 1 l
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[19]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Allzweckreiniger Alfa Neutral 5 l
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[20]/div[1]/div[3]/div[2]/a[2]/span[1]
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -98,6 +134,8 @@ extractions:
               - text: No
             imageZoomFeaturePresent:
               - text: No
+            hasComparisonTable:
+              - text: No
             nameExtended:
               - text: Meister Proper Allzweckreiniger Citrus Febreze Tücher 3 x 60 Stück
             descriptionBullets:
@@ -107,4 +145,4 @@ extractions:
             secondaryImageTotal:
               - text: "1"
         xpath: /
-    timestamp: 1607930512796
+    timestamp: 1610455073503

@@ -1,0 +1,183 @@
+input:
+  id: 556891
+  _url: http://brack.ch
+extractions:
+  - html: https://workbench.import.io/html/run=24cc7c4d-bf0f-4d5c-a78f-c7dab0cac601/task=fb305cea-1825-41b5-8da0-b8e1968a2fbe/c2ca2bcc-58a4-4d57-b3e5-e29378afb490.html
+    extractionConfigId: product/details/stores/b/brack/CH/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.brack.ch/delonghi-nespressomaschine-expert-en350g-anthrazit-556891
+                xpath: /html/head[1]/link[10]/@href
+            image:
+              - text: https://cdn.competec.ch/images2/3/5/6/58049653/58049653_xxl.jpg
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: De'Longhi - Nespressomaschine Expert EN350G Anthrazit
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@alt
+            alternateImages:
+              - text: https://cdn.competec.ch/images2/7/0/1/52771107/52771107_xs3.jpg
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/img[1]/@data-src
+              - text: https://cdn.competec.ch/images2/8/1/0/53571018/53571018_xs3.jpg
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[3]/img[1]/@data-src
+              - text: https://cdn.competec.ch/images2/8/2/1/52771128/52771128_xs3.jpg
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[4]/img[1]/@data-src
+              - text: https://cdn.competec.ch/images2/7/9/7/52681797/52681797_xs3.jpg
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[5]/img[1]/@data-src
+            category:
+              - text: Haushalt & Wohnen
+                xpath: /html/body/article[1]/div[1]/div[1]/nav[1]/p[1]/span[2]/a[1]
+              - text: Haushalt Kleingeräte
+                xpath: /html/body/article[1]/div[1]/div[1]/nav[1]/p[1]/span[3]/a[1]
+              - text: Kaffee & Tee
+                xpath: /html/body/article[1]/div[1]/div[1]/nav[1]/p[1]/span[4]/a[1]
+              - text: Kaffee
+                xpath: /html/body/article[1]/div[1]/div[1]/nav[1]/p[1]/span[5]/a[1]
+              - text: Kaffeemaschinen
+                xpath: /html/body/article[1]/div[1]/div[1]/nav[1]/p[1]/span[6]/a[1]
+              - text: Portionskaffeemaschine
+                xpath: /html/body/article[1]/div[1]/div[1]/nav[1]/p[1]/span[7]/a[1]
+            price:
+              - text: CHF 219.00
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[5]/p[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/article[1]/div[2]/script[1]
+            description:
+              - text: "||Kaffeeart: Nespresso||Wassertank: 1.1 l||Milchbehälter: Nein,
+                  Milchschaumdüse: Nein||Farbe: Anthrazit||Drei verschiedene
+                  Temperaturen|Kompakte und funktionelle
+                  Design-Kapselkaffeemaschine Schaffen Sie mit der
+                  Nespressomaschine Expert von DeLonghi einen echten optischen
+                  Blickfang in Ihrer Küche. Die Kapselkaffeemaschine lässt sich
+                  bequem übers Handy steuern und besitzt ein extravagantes
+                  Design. Drei verschiedene Temperaturen sorgen für den
+                  optimalen Brühvorgang, sodass jede Tasse zum wahren Genuss
+                  wird. Einzeln verpackte Kaffeeportionen Kapseln wurden nach
+                  Eigenangaben von Nestlé ab dem Jahre 1970 hergestellt und 1976
+                  patentiert. Heute existieren viele unterschiedliche
+                  Kapselsysteme, die mehr oder weniger verbreitet und
+                  grösstenteils jeweils auf eine Marke von Kaffeemaschinen
+                  beschränkt sind. Sie enthalten in der Regel die Menge an
+                  Kaffeepulver für eine Tasse und gelten daher als
+                  Einwegprodukte. Um Kapseln zu verwenden, benötigen Sie eine
+                  spezielle Maschine. Abgesehen vom zusätzlichen Abfall und
+                  Verpackungsmaterial, bieten Kapseln vor allem für
+                  Gelegenheitskaffeetrinker viele Vorteile. Sie können Ihre
+                  Kapseln lange aufbewahren und bereiten Ihren Kaffee schnell
+                  und einfach zu. Teezubereitungssystem Das
+                  Teezubereitungssystem verleiht Ihrer Kaffeemaschine noch das
+                  Pünktchen auf dem i. Mit dem Teezubereitungssystem können Sie
+                  komfortabel und vollautomatisch per Knopfdruck einen Tee
+                  zubereiten. Die Auswahl an Teekapseln ist sehr vielfältig."
+                xpath: /html/body/@description
+            brandText:
+              - text: De'Longhi
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/a[1]/span[1]
+            manufacturer:
+              - text: De'Longhi
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[8]/tr[2]/td[1]
+            weightNet:
+              - text: 4.4 kg
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[6]/td[1]
+            sku:
+              - text: "556891"
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[6]/input[1]/@value
+            variantId:
+              - text: "0132191734"
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
+                type: STRING
+            mpc:
+              - text: "0132191734"
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
+                type: STRING
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/span[2]
+            aggregateRating:
+              - text: "5.0"
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1]
+            color:
+              - text: Anthrazit
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[4]/tr[2]/td[1]
+            videos:
+              - text: https://www.youtube.com/embed/defDvr7ZeHU?rel=0&modestbranding=1&enablejsapi=1
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/iframe[1]/@src
+              - text: https://www.youtube.com/embed/dGTxdpz4QTE?rel=0&modestbranding=1&enablejsapi=1
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/iframe[1]/@src
+              - text: https://www.youtube.com/embed/ppjmJZy0Pxg?rel=0&modestbranding=1&enablejsapi=1
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/iframe[1]/@src
+            name:
+              - text: Nespressomaschine Expert EN350G Anthrazit
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/h1[1]
+            warranty:
+              - text: 24 Monate
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[8]/tr[4]/td[1]
+            energyEfficiency:
+              - text: A
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[7]/tr[2]/td[1]
+            unInterruptedPDP:
+              - text: Nespressomaschine Expert&Milk EN355.GAE Anthrazit
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Nespressomaschine Citiz EN167.B Schwarz
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Nespressomaschine Citiz&Milk EN267 Schwarz
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Nespressomaschine Lattissima Touch EN560 Schwarz
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Nespressomaschine Essenza Mini EN85.B Schwarz
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Nespressomaschine Lattissima Pro EN 750.MB Silber
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Nespressomaschine Pixie EN124 Rot/Schwarz
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Nespressomaschine Citiz&Milk EN267 Weiss
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[8]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Nespressomaschine Essenza Mini EN85.R Rot
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[9]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Nespressomaschine Gran Lattissima EN650.B Schwarz
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[10]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Nespressomaschine Essenza Plus Schwarz
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[11]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Nespressomaschine Dolce Gusto MiniMe Schwarz/Grau
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[12]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Nespressomaschine Lattissima One EN500.W Weiss
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[13]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Nespressomaschine Creatista Uno Schwarz
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[14]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Nespressomaschine Atelier XN8908, Schwarz
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[15]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Nespressomaschine XN741B Citiz Silber
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[16]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Nespressomaschine XN7415 Citiz Rot
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[17]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Nespressomaschine XN1108 Essenza Mini Schwarz
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[18]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Nespressomaschine XN741C Citiz Chrom
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[19]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Nespressomaschine Dolce Gusto Genio S Plus EDG315 Schwarz
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[20]/div[1]/div[3]/div[2]/a[2]/span[1]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: Yes
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            hasComparisonTable:
+              - text: No
+            nameExtended:
+              - text: De'Longhi Nespressomaschine Expert EN350G Anthrazit
+            descriptionBullets:
+              - text: "5"
+            variantCount:
+              - text: "0"
+            secondaryImageTotal:
+              - text: "4"
+        xpath: /
+    timestamp: 1610455078413

@@ -2,7 +2,7 @@ input:
   id: 973849
   _url: http://brack.ch
 extractions:
-  - html: https://workbench.import.io/html/run=0e98f35a-00da-40d6-8d6c-5369ca2ed1d2/task=7bbb2a44-fb76-4c51-bc53-5c32ce33cd98/0ea1491e-ae8b-404b-8412-370ece07a582.html
+  - html: https://workbench.import.io/html/run=24cc7c4d-bf0f-4d5c-a78f-c7dab0cac601/task=133ba6e1-ff5a-4eb0-a757-f8dd58b21d24/441fee43-1446-492e-96ef-b4f9de36e815.html
     extractionConfigId: product/details/stores/b/brack/CH/extract
     data:
       - group:
@@ -30,17 +30,19 @@ extractions:
               - text: CHF 8.40
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[5]/p[1]
             availabilityText:
-              - text: "52"
-                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[1]/em[1]/span[1]
+              - text: In Stock
+                xpath: /html/body/article[1]/div[2]/script[1]
             description:
-              - text: |-
-                  Einsatzzeit: Ab dem 4. Monat
-                  Mit Vitaminen A, B1 und C
-                  Ohne Palmöl und Zuckerzusatz
-                  Glutenfrei
-                  Sättigend und leicht verdaulich
-                  Wird mit Wasser zubereitet
-                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[2]
+              - text: "||Einsatzzeit: Ab dem 4. Monat||Mit Vitaminen A, B1 und C||Ohne Palmöl
+                  und Zuckerzusatz||Glutenfrei||Sättigend und leicht
+                  verdaulich||Wird mit Wasser zubereitet|Baby Cereals
+                  Milchgriess, 1 x 450 g Als Grundpfeiler einer
+                  abwechslungsreichen Ernährung hat Getreide eine Vielzahl
+                  ungeahnter Eigenschaften zu bieten. Sie liefern wertvolle
+                  Nährstoffe und die nötige Energie für Babys Wachstum. Die
+                  glatte Textur der Baby Cereals Milchgriess eignet sich ideal
+                  für die Einführung der Beikost."
+                xpath: /html/body/@description
             brandText:
               - text: NESTLE
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/a[1]/span[1]
@@ -50,31 +52,23 @@ extractions:
             quantity:
               - text: 450 g
                 xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[3]/tr[2]/td[1]
-            gtin:
-              - text: "12403159"
-                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
             sku:
               - text: "973849"
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[6]/input[1]/@value
             variantId:
               - text: "12403159"
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
+                type: STRING
             mpc:
               - text: "12403159"
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
+                type: STRING
             directions:
               - text: Frisches Trinkwasser zum Kochen bringen und auf ca. 45° C abkühlen lassen.
                   Geben Sie die entsprechende Menge Nestlé Baby Cereals in einen
                   Teller. Unter ständigem Rühren angegebene Wassermenge
                   hinzufügen. Dem Baby sofort mit einem sauberen Löffel geben.
                 xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/p[3]
-            manufacturerDescription:
-              - text: Als Grundpfeiler einer abwechslungsreichen Ernährung hat Getreide eine
-                  Vielzahl ungeahnter Eigenschaften zu bieten. Sie liefern
-                  wertvolle Nährstoffe und die nötige Energie für Babys
-                  Wachstum. Die glatte Textur der Baby Cereals Milchgriess
-                  eignet sich ideal für die Einführung der Beikost.
-                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[1]/div[1]/@productdesc
             name:
               - text: Milchgriess Baby Cereals 450g
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/h1[1]
@@ -154,6 +148,50 @@ extractions:
             ageSuitability:
               - text: 4 Monate
                 xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[2]/td[1]
+            inTheBoxText:
+              - text: -1x Baby Cereals Milchgriess 450g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[1]
+            unInterruptedPDP:
+              - text: Getreidebrei Baby Cereals Biscuit 450g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Getreidebrei Baby Cereals Apfel Pflaumen 250g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Getreidebrei Baby Cereals Erdbeer Banane 250g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Getreidebrei Baby Cereals Natur Joghurt 250g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Getreidebrei Baby Cereals Pyjama 5 Korn 250g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Griessbrei Bio 250g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Milchbrei Bio Mais 280g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Getreidebrei Bircher Müesli 400g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[8]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Getreidebrei Bio Reisflocken 180g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[9]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Getreidebrei Bio Vollkornflocken 180g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[10]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Milchbrei Hirse Bio 250g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[11]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Milchbrei Dinkel Bio 250g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[12]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Getreidebrei Bio-Kindermüesli 500g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[13]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Getreidebrei Bio-Babymüesli 500g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[14]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Getreidebrei Baby Cereals Pyjama Apfel-Birne 250g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[15]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Milchbrei Bio-Banane 250g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[16]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Griessbrei Vanille 4 x 100g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[17]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Getreidebrei Bio-Vollkorngetreidebrei Banane 250g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[18]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Milchbrei Guten Morgen Waldbeere 400g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[19]/div[1]/div[3]/div[2]/a[2]/span[1]
+              - text: Milchbrei 3-Korn 280g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[20]/div[1]/div[3]/div[2]/a[2]/span[1]
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -166,6 +204,8 @@ extractions:
               - text: No
             imageZoomFeaturePresent:
               - text: No
+            hasComparisonTable:
+              - text: No
             nameExtended:
               - text: NESTLE Milchgriess Baby Cereals 450g
             descriptionBullets:
@@ -175,4 +215,4 @@ extractions:
             secondaryImageTotal:
               - text: "0"
         xpath: /
-    timestamp: 1607930518863
+    timestamp: 1610455073565
