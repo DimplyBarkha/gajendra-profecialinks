@@ -57,7 +57,13 @@ const transform = (data) => {
                     item.text = servingSize[servingSize.length - 1]
                 });
             }
-            
+            if (row.nutritionInfo) {
+                let nutritionInfo = [];
+                row.nutritionInfo.forEach(item => {
+                    nutritionInfo.push( item.text );
+                });
+                row.nutritionInfo = [ { text: nutritionInfo.join(' ') } ]
+            }
 
         }
     }
