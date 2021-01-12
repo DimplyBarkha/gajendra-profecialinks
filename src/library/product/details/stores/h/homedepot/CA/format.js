@@ -19,6 +19,9 @@ const transform = (data) => {
 
   for (const { group } of data) {
     for (const row of group) {
+      if (!row.price && row.price1) {
+        row.price = row.price1;
+      }
       if (row.aggregateRating) {
         row.aggregateRating.forEach(item => {
           item.text = (+item.text).toFixed(1);

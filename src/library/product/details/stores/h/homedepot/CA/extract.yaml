@@ -116,7 +116,10 @@ fields:
     xpath: //dt[contains(text(), "Pack Size")]/following-sibling::dd[1]
   - name: price
     singleValue: false
-    xpath: //div[@id="pd_price"] | //div[contains(@evtperfname,"product-localized-price-component")]//p//span[contains(@class,"price-value")]
+    xpath: //div[@id="pd_price"]
+  - name: price1
+    singleValue: false
+    xpath: //div[contains(@evtperfname,"product-localized-price-component")]//p//span[contains(@class,"price-value")]
   - name: productOtherInformation
     singleValue: false
   - name: promotion
