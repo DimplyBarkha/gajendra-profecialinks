@@ -21,7 +21,7 @@ module.exports = {
     await new Promise((resolve, reject) => setTimeout(resolve, 5000));
     await context.evaluate(async function () {
       document.querySelector('#product-information-tabs > div:nth-child(1) > div > i').click();
-      function addElementToDocument (key, value) {
+      function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -29,11 +29,11 @@ module.exports = {
         document.body.appendChild(catElement);
       }
 
-      function getElementByXpath (path) {
+      function getElementByXpath(path) {
         return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       }
 
-      function timeout (ms) {
+      function timeout(ms) {
         return new Promise((resolve) => setTimeout(resolve, ms));
       }
 
@@ -184,6 +184,10 @@ module.exports = {
           }
         });
       }
+
+      const videoId = document.evaluate("//div[contains(@class,'flix-videocontainer')]//input/@value", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const video = videoId && videoId.textContent.replace(/(.*){"file":"\\\/\\\/(.+)(.mp4)"(.*)/g, 'https://$2$3');
+      addElementToDocument('added_video', video);
 
       const cookies = document.querySelector('button#cookie-notification-accept');
       if (cookies) {
