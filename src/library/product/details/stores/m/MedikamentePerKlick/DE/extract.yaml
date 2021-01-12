@@ -39,12 +39,12 @@ fields:
   singleValue: true
   description: The stated undiscounted price for the product
   type: CURRENCY
-  xpath: //div[@class="wide-6 productInformations offerDetails"]//dd[@class="listPrice"]//text()
+  xpath: //div[@class="wide-6 productInformations offerDetails"]//dd[@class="listPrice"]
 - name: price
   type: CURRENCY
   description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-  xpath: //div[@class="wide-6 productInformations offerDetails"]//dd[@class="yourPrice"]//text()
+  xpath: //div[@class="wide-6 productInformations offerDetails"]//dd[@class="yourPrice"]
 - name: availabilityText
   singleValue: true
   xpath: //div[@class='wide-6 productInformations offerDetails']//dl[@class="productAvailability"]//span[@class="value-title"]/@title
