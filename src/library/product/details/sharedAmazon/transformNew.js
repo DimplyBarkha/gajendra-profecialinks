@@ -355,20 +355,29 @@ const transform = (data, context) => {
             if (row.unInterruptedPDP) {
                 const getUnInterruptedPDP = row.unInterruptedPDP.map(elm => elm.text.trim());
                 row.unInterruptedPDP = [...new Set(getUnInterruptedPDP)].map(elm => ({ text: elm }));
-                let updp= [];
-                let text = '' ;
-                for(let i=0 ; i<row.unInterruptedPDP.length ; i++){
-                if(row.unInterruptedPDP[i].text.includes('…')){
-                    continue;
+                let updp = [];
+                let text = '';
+                for (let i = 0; i < row.unInterruptedPDP.length; i++) {
+                    if (row.unInterruptedPDP[i].text.includes('…')) {
+                        continue;
+                    }
+                    updp[i] = row.unInterruptedPDP[i].text;
+
                 }
-                updp[i]=row.unInterruptedPDP[i].text;
+                text = updp.join(' || ');
+                text = text.replace(/(\s?\|\|\s?){1,}/g, ' || ').replace(/^(\|\|)/g, '').replace(/(\|\|)$/g, '');
+                while (text.charAt(0) === '|' || text.charAt(0) === ' ') {
+                    text = text.substring(1);
                 }
-                text=updp.join(' || ');
-                text=text.replace(/(\s?\|\|\s?){1,}/g , ' || ');
-                row.unInterruptedPDP=[{text}];
+                row.unInterruptedPDP = [{ text }];
                 const updpLength = text.split(' || ').length;
                 console.log(updpLength);
             }
+            Object.keys(row).forEach(header => {
+                row[header].forEach(el => {
+                    el.text = clean(el.text);
+                });
+            });
 
             if (row.price) {
                 const price = row.price.find(elm => elm.text.match(/\d+/));
