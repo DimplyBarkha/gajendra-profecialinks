@@ -47,7 +47,7 @@ fields:
   singleValue: true
   description: The stated undiscounted price for the product
 - name: price
-  xpath: //h2[contains(@class, "bop-price__current ")]//text()
+  xpath: //meta[@itemprop="price"]/@content
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
@@ -58,7 +58,7 @@ fields:
     is no availability but the product can be added to cart, this field should be
     "In Stock"
 - name: description
-  xpath: //div[@class="gn-accordionElement__wrapper"]
+  xpath: //div[contains(@class, "bop-productDetails")]//div[@class="gn-accordionElement"][1]//div[@class="gn-accordionElement__wrapper"]
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
@@ -117,7 +117,7 @@ fields:
   singleValue: true
   description: Content under "directions" header
 - name: warnings
-  xpath: //div[@class="bop-info__content"]/text()[starts-with(.,"Safety Warning")]/following-sibling::text()[1]
+  xpath: //div[@id="warnings"]
   singleValue: false
   description: Content under "warnings" header
 - name: ratingCount
@@ -129,7 +129,7 @@ fields:
   singleValue: true
   description: The stated aggregate rating
 - name: aggregateRating
-  defaultValue: null
+  defaultValue: "0"
   xpath: //span[@itemprop="ratingValue"]/text()
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5

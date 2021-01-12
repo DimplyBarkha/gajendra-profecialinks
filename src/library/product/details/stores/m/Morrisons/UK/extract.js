@@ -17,13 +17,18 @@ async function implementation(inputs, parameters, context, dependencies) {
       document.body.appendChild(catElement);
     };
 
+
+    let warningParentDiv = document.querySelector('div.gn-accordionElement__wrapper div.gn-content:last-child');
+    let warningDiv = warningParentDiv.querySelector("div").innerText;
+    addElementToDocument('warnings', warningDiv.match(/(Safety Warning:)([\s\S]+)Origin/)[2]);
+
     const isAvailable = document.querySelector('li > div.basketControls__wrapper > button.gn-button--buy')
       ? document.querySelector('li > div.basketControls__wrapper > button.gn-button--buy') : null;
     // @ts-ignore
     if (isAvailable !== null && isAvailable.textContent === 'Add to trolley') {
       addElementToDocument('isAvailable', 'In Stock', 'Yes');
     } else if (document.querySelector('div.bop-outOfStock')) {
-      addElementToDocument('isAvailable', 'Out of Stock', 'No');
+      addElementToDocument('isAvailable', 'Out Of Stock', 'No');
     } else {
       addElementToDocument('isAvailable', '', 'No');
     }
@@ -34,6 +39,11 @@ async function implementation(inputs, parameters, context, dependencies) {
   const dataRef = await context.extract(productDetails, { transform });
   if (dataRef[0].group[0].caloriesPerServing[0].text === "") {
     delete dataRef[0].group[0].caloriesPerServing;
+  }
+  if (dataRef[0].group[0].alcoholContent == undefined) {
+    delete dataRef[0].group[0].alcoholContent
+  } else if (dataRef[0].group[0].alcoholContent[0]) {
+    dataRef[0].group[0].alcoholContent[0].text = dataRef[0].group[0].alcoholContent[0].text + "% | " + dataRef[0].group[0].alcoholContent[0].text;
   }
   return dataRef;
 };
