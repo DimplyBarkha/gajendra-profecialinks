@@ -6,15 +6,9 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-
-  const notListedItem = await context.evaluate(() => {
-    return document.querySelector('div[class*="nodestar-item"]');
+  let productUrl = await context.evaluate(async function(){
+    return window.location.href;
   });
-
-  if (notListedItem) {
-    await context.click('.nodestar-item-card-details__view>a[href*="www.ebay"]');
-  }
-
   try {
     await context.waitForSelector('iframe#desc_ifr');
   } catch (err) {
@@ -88,6 +82,22 @@ async function implementation (
       await context.setBypassCSP(true);
       await context.goto(src, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
       await context.waitForSelector('div#ds_div');
+      
+      await context.evaluate(async function(){
+      function addHiddenDiv (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+        }
+          let aplusImage = document.evaluate(`//div[@id="features"]//span[@class="image"]/img/@src`,document).iterateNext().textContent
+          console.log(aplusImage);
+          let manufacturercDesc= document.querySelector('div#ds_div .container.threes').innerText.trim();
+          if(aplusImage){
+            addHiddenDiv('manufacturercDesc',manufacturercDesc);
+          }
+        });
       try {
         await context.waitForSelector('div#inthebox');
       } catch (error) {
@@ -108,6 +118,7 @@ async function implementation (
       }
     }
   }
+
 }
 
 module.exports = { implementation };

@@ -19,7 +19,7 @@ fields:
     # regExpReplace: $1l500$2
   - name: videos
     singleValue: false
-    xpath: //*[@class="buttons"]//*[@class="video"]/@data-title | //*[contains(@class,"video") and contains(@for,"toggleVideo")]/@hideifempty|//video//source/@src
+    xpath: //*[@class="buttons"]//*[@class="video"]/@data-title | //*[contains(@class,"video") and contains(@for,"toggleVideo")]/@hideifempty
   - name: price
     singleValue: false
     manualSelector: span#prcIsum, span#prcIsum_bidPrice, span#mm-saleDscPrc,div[class*="display-price"] 
@@ -82,7 +82,7 @@ fields:
     defaultValue: '0'
   - name: gtin
     singleValue: false
-    xpath: //td[contains(text(), 'EAN')]/following-sibling::td | //td[contains(text(), 'GTIN')]/following-sibling::td | //h2[contains(@itemprop,'gtin')]
+    xpath: //td[contains(text(), 'EAN')]/following-sibling::td | //td[contains(text(), 'GTIN')]/following-sibling::td
   - name: upc
     singleValue: false
     xpath: //td[contains(text(), 'EAN')]/following-sibling::td | //div[contains(text(), 'EAN')]/following-sibling::div
@@ -93,7 +93,8 @@ fields:
     singleValue: false
   - name: manufacturerDescription
     singleValue: false
-    manualSelector: div#ds_div
+    # manualSelector: div#ds_div
+    xpath: //div[@id="manufacturercDesc"]
   - name: shippingWeight
     singleValue: false
     xpath: normalize-space(//td[contains(text(), 'Box Weight:')]/following-sibling::td)
@@ -105,7 +106,7 @@ fields:
     xpath: normalize-space(//td[contains(translate(text(),'WARRANTY','warranty'),'warranty')]/following-sibling::td | //h2[contains(@id, 'subTitle') and contains(text(),'Warranty')])
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="ds_div"]//img[contains(@src,"http")]/@src
+    xpath: //div[@id="features"]//span[@class="image"]/img/@src
   - name: termsAndConditions
     singleValue: false
   - name: productUrl
