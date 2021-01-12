@@ -203,3 +203,16 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: false
     defaultValue: Yes
+  - name: inTheBoxUrl
+    xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset
+    regExp: (.+800w,\s)(.+(.png|.jpg))(.+)
+    regExpReplace: $2
+  - name: inTheBoxText
+    xpath: //div[contains(text(),'Accessories')]/following-sibling::ul/li
+  - name: unInterruptedPDP
+    xpath: //h2[contains(text(),'Customers Who Viewed this Item Bought')]/following-sibling::div//a[contains(@class,'hdca-product-box__main-info-label')] | //h2[contains(text(),'Related Products')]/following-sibling::div//h4 
+  - name: hasComparisonTable
+    xpath: //h2[contains(text(),'Induction Cooktop Step-Up Chart')]
+    regExp: (.+)
+    regExpReplace: Yes
+    DefaultValue: No 
