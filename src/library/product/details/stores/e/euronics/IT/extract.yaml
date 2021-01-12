@@ -14,7 +14,8 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[contains(@class, 'productDetail__image')]/img/@src
+    #xpath: //div[contains(@class, 'productDetail__image')]/img/@src
+    xpath: //div[@class='owl-item']//div[contains(@class, 'productDetail__image')]/img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -251,7 +252,8 @@ fields:
   - name: secondaryImageTotal
     singleValue: false
     description: null
-    xpath: count(//div[@class='owl-item']//div[contains(@class, 'productDetail__image')]/img/@src)
+    #xpath: count(//div[@class='owl-item']//div[contains(@class, 'productDetail__image')]/img/@src)
+    xpath: //div[@id="imagetotal"]
     type: NUMBER
   - name: news
     singleValue: true

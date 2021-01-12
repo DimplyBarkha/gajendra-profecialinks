@@ -38,11 +38,14 @@ module.exports = {
         document.body.appendChild(div);
       }
 
+
+      var imagetotal=$('.productDetails .owl-item').length-1;
+      addHiddenDiv('imagetotal', imagetotal);
+
       const metaAvailability = document.querySelector('#log_availabilityType');
       if (metaAvailability && metaAvailability.value == 'available') {
         addHiddenDiv('stock', 'In Stock');
       }
-
       document.querySelector('.productDetail__image').click();
       document.querySelectorAll('script').forEach(el => {
         const match = el.innerHTML.match(/\[\'upcean\'\, \'[0-9]+\'\]/);
