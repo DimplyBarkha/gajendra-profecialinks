@@ -26,12 +26,12 @@ const transform = (data) => {
       }
       if (row.servingSize) {
         row.servingSize.forEach((servingSizeItem) => {
-          servingSizeItem.text = servingSizeItem.text.replace('Quantité moyenne de minéraux par 100g/100ml', '100ml').replace(/[^\d]/gm, '').trim();
+          servingSizeItem.text = servingSizeItem.text.replace(/^(.*)&nbsp;/g, '').replace('ml', '').trim();
         });
       }
       if (row.servingSizeUom) {
         row.servingSizeUom.forEach((servingSizeUomItem) => {
-          servingSizeUomItem.text = servingSizeUomItem.text.replace('Valeur nutritive moyenne par', '').replace('Quantité moyenne de minéraux par 100g/100ml', '100ml').replace(/[\d.]/gm, '').trim();
+          servingSizeUomItem.text = servingSizeUomItem.text.replace(/^(.*)&nbsp;/g, '').replace('Valeur nutritive moyenne par', '').replace('Quantité moyenne de minéraux par 100g/100ml', '100ml').replace(/[\d.]/gm, '').replace('g/ml', 'ml').trim();
         });
       }
       if (row.sodiumPerServing) {
@@ -76,7 +76,7 @@ const transform = (data) => {
       }
       if (row.totalFatPerServing) {
         row.totalFatPerServing.forEach((totalFatPerServingItem) => {
-          totalFatPerServingItem.text = totalFatPerServingItem.text.replace(/[A-Za-z]/gm, '').replace('<', '').trim();
+          totalFatPerServingItem.text = totalFatPerServingItem.text.replace(/[A-Za-z]/gm, '').trim();
         });
       }
       if (row.totalFatPerServingUom) {
@@ -86,7 +86,7 @@ const transform = (data) => {
       }
       if (row.saturatedFatPerServing) {
         row.saturatedFatPerServing.forEach((saturatedFatPerServingItem) => {
-          saturatedFatPerServingItem.text = saturatedFatPerServingItem.text.replace(/[A-Za-z]/gm, '').replace('<', '').trim();
+          saturatedFatPerServingItem.text = saturatedFatPerServingItem.text.replace(/[A-Za-z]/gm, '').trim();
         });
       }
       if (row.saturatedFatPerServingUom) {
@@ -126,7 +126,7 @@ const transform = (data) => {
       }
       if (row.saltPerServing) {
         row.saltPerServing.forEach((saltPerServingItem) => {
-          saltPerServingItem.text = saltPerServingItem.text.replace(/[A-Za-z]/gm, '').replace('<', '').trim();
+          saltPerServingItem.text = saltPerServingItem.text.replace(/[A-Za-z]/gm, '').trim();
         });
       }
       if (row.saltPerServingUom) {

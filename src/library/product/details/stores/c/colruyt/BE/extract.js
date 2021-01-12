@@ -92,7 +92,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     });
     servingSize = await context.evaluate(() => {
       const servingSizeSelector = document.evaluate('(//div[contains(@class,"value-left")]//p[contains(@class,"subtitle")])[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-      return servingSizeSelector ? servingSizeSelector.innerText : '';
+      return servingSizeSelector ? servingSizeSelector.innerHTML : '';
     });
     legalDisclaimer = await context.evaluate(() => {
       const legalDisclaimerSelector = document.evaluate('//div[contains(@id,"disclaimer")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
