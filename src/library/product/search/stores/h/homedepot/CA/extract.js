@@ -22,33 +22,26 @@ async function implementation (
   } catch (error) {
     console.log('no button found');
   }
-  const response1 = await context.evaluate(async function ({ keywords }) {
-    if (keywords) {
-      return await fetch(`https://www.homedepot.ca/api/search/v1/search?q=${keywords}&store=7077&page=1&pageSize=100&lang=en`)
-        .then(response => response.json())
-        .catch(error => console.error('Error:', error));
-    }
-  }, { keywords });
-  await new Promise(resolve => setTimeout(resolve, 20000));
-  let response2 = {};
-  if (response1 && response1.searchReport && response1.searchReport.totalProducts > 100) {
-    response2 = await context.evaluate(async function ({ keywords }) {
+  let totalProducts = 1;
+  const response = [];
+  for (let i = 1; totalProducts <= results; i++) {
+    const response1 = await context.evaluate(async function ({ keywords, i }) {
       if (keywords) {
-        return await fetch(`https://www.homedepot.ca/api/search/v1/search?q=${keywords}&store=7077&page=2&pageSize=100&lang=en`)
+        return await fetch(`https://www.homedepot.ca/api/search/v1/search?q=${keywords}&store=7077&page=${i}&pageSize=100&lang=en`)
           .then(response => response.json())
           .catch(error => console.error('Error:', error));
       }
-    }, { keywords });
-  }
-  await new Promise(resolve => setTimeout(resolve, 20000));
-  let response = [];
-  if (response1 && response1.products && response2 && response2.products) {
-    response = [...response1.products, ...response2.products];
-  } else {
-    if (response1 && response1.products) {
-      response = response1.products;
+    }, { keywords, i });
+    await new Promise(resolve => setTimeout(resolve, 500));
+    if (response1 && response1.products && response1.searchReport && response1.searchReport.totalProducts > 100) {
+      response.push(...response1.products);
+      totalProducts = response.length;
+    } else {
+      response1.products && response.push(...response1.products);
+      break;
     }
   }
+  await new Promise(resolve => setTimeout(resolve, 500));
   if (response) {
     const products = response;
     await context.evaluate(async function ({ products, keywords, results }) {
