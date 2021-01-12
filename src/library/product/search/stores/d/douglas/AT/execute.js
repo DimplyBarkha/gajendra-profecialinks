@@ -32,7 +32,7 @@ module.exports = {
     country: 'AT',
     store: 'douglas',
     domain: 'douglas.at',
-    noResultsXPath: null,
+    noResultsXPath: '//div[contains(@class,"grid search-page search-page--empty")] | //div[@class="grid error-404-component"]',
     url: 'https://www.douglas.at/de/search?q={searchTerms}&page=1',
     zipcode: '',
   },

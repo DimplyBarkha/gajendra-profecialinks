@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: '',
-    noResultsXPath: null, 
+    noResultsXPath: '//div[contains(@class,"grid search-page search-page--empty")] | //div[@class="grid error-404-component"]', 
     openSearchDefinition: {
       template: 'https://www.douglas.at/de/search?q={searchTerms}&page={page}',
     },

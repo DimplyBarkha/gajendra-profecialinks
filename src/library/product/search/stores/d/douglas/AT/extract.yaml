@@ -9,8 +9,12 @@ fields:
     xpath: td[@class="code"]
   - name: thumbnail
     xpath: td[@class="url"]
+    regExp: (.+)
+    regExpReplace: https://www.douglas.at$1
   - name: price
     xpath: td[@class="price"]//td[@class="formattedValue"]
+    regExp: €\s(\d+\,\d+)
+    regExpReplace: $1
   - name: searchUrl
     xpath: ancestor::html//@current-url
   - name: productUrl
