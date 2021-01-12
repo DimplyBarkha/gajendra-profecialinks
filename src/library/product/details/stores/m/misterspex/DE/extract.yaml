@@ -17,7 +17,7 @@ fields:
     xpath: //div[@class="spex-productImageWithTitle__imageContainer"]//img[@class="spex-productImageWithTitle__image"]/@alt
   - name: alternateImages
     singleValue: false 
-    # xpath: //img/@src
+    xpath: //div[@id='Order']/form[@id='DirectOrder']/div[@class='use43D']/button[@class='button50er twoLines green floatRight addToCart']
   - name: category
     singleValue: false
     xpath: //div[contains(@class,'grid breadcrumb noFloat')]//ol//li[not(contains(@class,'home')) and not(contains(position(),last()))]//a
