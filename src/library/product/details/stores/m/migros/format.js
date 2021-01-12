@@ -53,6 +53,20 @@ const transform = (data) => {
       });
     }
 
+    // if (row.nutritionInfo) {
+    //   row.nutritionInfo.forEach(item => {
+    //     if(item.text.includes("Double Lait : 100g: ")){
+    //       item.text = item.text.replace('Double Lait : 100g: ', ' ').trim();
+    //     }
+    //     if(item.text.includes("100")){
+    //       item.text = item.text.replace('100g', ' ').trim();
+    //     }
+    //     console.log("item.text",item.text);
+    //   });
+    // }
+
+
+
     }
   }
   return cleanUp(data);
