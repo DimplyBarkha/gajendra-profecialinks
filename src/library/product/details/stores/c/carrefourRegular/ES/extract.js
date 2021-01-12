@@ -91,11 +91,11 @@ module.exports = {
           imgText2 && inBoxTextVideoArray.push(imgText2);
         }
         const manufacturerDescTextArray = [];
-        const manufacturerDescDOM = document.querySelectorAll('div.eky-row.eky-header-row');
+        const manufacturerDescDOM = document.querySelectorAll('div.eky-container-full');
         if (manufacturerDescDOM) { 
           for (let i = 0; i < manufacturerDescDOM.length; i++) {
             const imgText1 = manufacturerDescDOM[i].innerText;
-            imgText1 && manufacturerDescTextArray.push(imgText1.replace(/\n{2,}/g, '').replace(/\s{2,}/g, ' '));
+            imgText1 && manufacturerDescTextArray.push(imgText1);
           }
         }
         const inBoxImgVideoArray = [];
