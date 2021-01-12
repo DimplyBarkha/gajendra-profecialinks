@@ -82,7 +82,7 @@ fields:
     defaultValue: '0'
   - name: gtin
     singleValue: false
-    xpath: //td[contains(text(), 'EAN')]/following-sibling::td | //td[contains(text(), 'GTIN')]/following-sibling::td
+    xpath: //td[contains(text(), 'EAN')]/following-sibling::td | //td[contains(text(), 'GTIN')]/following-sibling::td | //h2[contains(@itemprop,'gtin')]
   - name: upc
     singleValue: false
     xpath: //td[contains(text(), 'EAN')]/following-sibling::td | //div[contains(text(), 'EAN')]/following-sibling::div
