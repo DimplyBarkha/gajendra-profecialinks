@@ -57,7 +57,7 @@ module.exports = {
         const price = getAllXpath('//div[@class="rd-buybox__price"]/text()', 'nodeValue');
         const cents = getAllXpath('//div[@class="rd-buybox__price"]/@cents', 'nodeValue');
         const finalPrice = price[0].replace(/\s|[,]/g, '');
-        addElementToDocument('price', '€ ' + finalPrice + '.' + cents);
+        addElementToDocument('price', '€ ' + finalPrice + ',' + cents);
       } catch (error) {
 
       }

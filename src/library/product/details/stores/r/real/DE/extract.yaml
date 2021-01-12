@@ -4,7 +4,7 @@ recordSelector: null
 recordXPath: //div[@class="container"]
 fields:
   - name: image
-    xpath: //div[contains(@class,'swiper-slide') and contains(@class,'active')]/img/@src
+    xpath: //meta[@property="og:image"]/@content
   - name: imageAlt
     xpath: //h1[@class="rd-title"]
   - name: alternateImages
