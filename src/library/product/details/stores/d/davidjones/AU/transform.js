@@ -100,7 +100,7 @@ const transform = (data, context) => {
         let text = '';
         row.inTheBoxText.forEach(item => {
           if (item.text.toLowerCase().includes('s in the box')) {
-            text = item.text.replace(/(.*?)(What’s in the box:|What's in the Box)(.*?)(Warranty:)(.*)/g, '$3');
+            text = item.text.replace(/(.*?)(s in the box|s in the Box)(.*?)(Warranty:)(.*)/g, '$3');
           }
         });
         row.inTheBoxText = [{ text: text.trim() }];
