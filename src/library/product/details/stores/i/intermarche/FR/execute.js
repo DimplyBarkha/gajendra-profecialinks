@@ -1,5 +1,5 @@
 
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -17,7 +17,7 @@ async function implementation(
   console.log(`Request: ${request}`);
   if (request && request[0]) {
     if (request[0].status == 404) {
-      console.log('Page not found')
+      console.log('Page not found');
       return false;
     }
   }
@@ -27,12 +27,10 @@ async function implementation(
         return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
       }, { timeout: 60000 }, parameters.loadedSelector, parameters.noResultsXPath);
     }
+  } catch (exception) {
+    console.log('Page not loaded');
   }
-  catch (exception) {
-    console.log('Page not loaded')
-  } 
 }
-
 
 module.exports = {
   implements: 'product/details/execute',
@@ -40,9 +38,9 @@ module.exports = {
     country: 'FR',
     store: 'intermarche',
     domain: 'intermarche.com',
-    loadedSelector: 'div[class*="ProductV2__ProductWrapper"]',
+    loadedSelector: 'div[class*="ProductWrapper"] img[class*="ProductImage"]',
     noResultsXPath: '',
     zipcode: '',
   },
-  implementation
+  implementation,
 };
