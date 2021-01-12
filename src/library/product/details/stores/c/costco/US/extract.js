@@ -381,9 +381,9 @@ module.exports = {
         for (const item of recommendedProducts) {
           const title = item.querySelector('.caption .description') ? item.querySelector('.caption .description').innerText : null;
 
-            if (title) {
-              updpList.push(title);
-            }
+          if (title) {
+            updpList.push(title);
+          }
         }
 
         for (const item of updpList) {
