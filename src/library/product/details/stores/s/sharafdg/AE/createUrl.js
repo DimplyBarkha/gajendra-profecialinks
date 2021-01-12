@@ -14,22 +14,21 @@ async function implementation (
   }
   const noResults = await context.evaluate(() => {
     if (document.querySelector('div.no-results-container')) {
-      return false;
-    } else {
       return true;
     }
   });
 
   if (noResults) return url;
   const prodUrl = await context.evaluate(() => {
-    return document.querySelector('div.search-results div.product-items div.carousel-details a') ? document.querySelector('div.search-results div.product-items div.carousel-details a').href : false;
+    return document.querySelector('div.search-results div.product-items div.carousel-details a') ? document.querySelector('div.search-results div.product-items div.carousel-details a').getAttribute('href').replace(/^(.+)/g, 'https:$1') : false;
   });
+
   if (prodUrl) {
     await goto({ url: prodUrl });
   } else {
     return url;
   }
-  return (await context.evaluate(id)) || url;
+  return prodUrl;
 }
 
 module.exports = {

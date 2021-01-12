@@ -11,6 +11,11 @@ module.exports = {
   },
   implementation: async ({ inputs }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     await context.evaluate(async function () {
+      // Accepting cookies
+      const isCookies = document.querySelector('div.cookies btn.btn-white.icon-close');
+      if (isCookies) {
+        isCookies.click();
+      }
       const descTab = document.querySelector('li.prd-desc a');
       try {
         descTab.click();
