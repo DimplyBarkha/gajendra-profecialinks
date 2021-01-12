@@ -224,25 +224,25 @@ module.exports = {
     }
     await context.evaluate(async function () {
 
-      async function add() {
-        // Change selector, sometimes when not loaded in debugger you can see it in no-script.
-       const jsApi = document.querySelector('#flix-minisite no-script, #flix-inpage > script') && document.querySelector('#flix-minisite no-script, #flix-inpage > script').getAttribute('src');
-       let response = await fetch(jsApi);
-       const js = await response.text();
-       eval(js);
-       const enhanceContentId =  flixJsCallbacks.pid;
-        // You should find something similar like below, though this worked on some other website too.
-        response = await fetch(`https://media.flixcar.com/delivery/inpage/show/620/pt/${enhanceContentId}/json`);
-        console.log('responce',response);
-        const html = JSON.parse((await response.text()).match(/^\((.+)\)$/)[1]).html;
-        // Create a div and append.
-        let newlink = document.createElement('div');
-        newlink.setAttribute('class', 'enhance-content');
-        newlink.innerHTML =  html
-        document.body.appendChild(newlink);
-      }
+      // async function add() {
+      //   // Change selector, sometimes when not loaded in debugger you can see it in no-script.
+      //  const jsApi = document.querySelector('#flix-minisite no-script, #flix-inpage > script') && document.querySelector('#flix-minisite no-script, #flix-inpage > script').getAttribute('src');
+      //  let response = await fetch(jsApi);
+      //  const js = await response.text();
+      //  eval(js);
+      //  const enhanceContentId =  flixJsCallbacks.pid;
+      //   // You should find something similar like below, though this worked on some other website too.
+      //   response = await fetch(`https://media.flixcar.com/delivery/inpage/show/620/pt/${enhanceContentId}/json`);
+      //   console.log('responce',response);
+      //   const html = JSON.parse((await response.text()).match(/^\((.+)\)$/)[1]).html;
+      //   // Create a div and append.
+      //   let newlink = document.createElement('div');
+      //   newlink.setAttribute('class', 'enhance-content');
+      //   newlink.innerHTML =  html
+      //   document.body.appendChild(newlink);
+      // }
   
-      await add();
+      // await add();
 
       const enhanceContentVideos = [];
       const getVideoList = document.querySelector('div.fullJwPlayerWarp input');

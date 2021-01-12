@@ -69,7 +69,7 @@ fields:
     xpath: //p[contains(text(),"Características Físicas")]/following-sibling::ul//li//span[contains(text(),'Cor')]/../span[position()>last()-1]
   - name: manufacturerDescription
     description: The extended description of the product supplied by the lister
-    xpath: //div[@class='enhance-content']
+    xpath: //div[@id="enhanced-content"]
   - name: manufacturerImages
     description: Images within the third party description
     xpath: //div[@class="enhance-content"]//div[@id="flix-std-inpage"]//img//@srcset | //div[@class="enhance-content"]//div[@id="inpage_container"]//img//@srcset
@@ -118,13 +118,13 @@ fields:
   - name: shippingDimensions
     xpath: //span[contains(text(),'Altura')]/following-sibling::span[1] | //span[contains(text(),'Largura')]/following-sibling::span[1] | //span[contains(text(),'Profundidade')]/following-sibling::span[1]
   - name: inTheBoxUrl
-    xpath: //div[@class="enhance-content"]//div[contains(@class, "InTheBox")]//img/@data-flixsrcset
+    xpath: //div[contains(@id, "enhanced-content")]//div[contains(@class, "InTheBox")]//img/@data-flixsrcset
     regExp: (.+800w,\s)(.+(.png|.jpg))(.+)
     regExpReplace: https:$2
   - name: inTheBoxText
-    xpath: //div[@class="enhance-content"]//div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")]
+    xpath: //div[contains(@id, "enhanced-content")]//div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")]
   - name: hasComparisonTable
-    xpath: //div[@class="enhance-content"]//div[contains(@class,'flix-comp-h2')][contains(text(), "Tabela de comparação")]
+    xpath: //div[contains(@id, "enhanced-content")]//div[contains(@class,'flix-comp-h2')][contains(text(), "Tabela de comparação")]
     regExp: (.+)
     regExpReplace: Yes
     defaultValue: No
