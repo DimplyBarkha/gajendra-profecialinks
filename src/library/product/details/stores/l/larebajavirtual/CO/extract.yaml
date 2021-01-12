@@ -64,7 +64,7 @@ fields:
   #   description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: true
-    xpath: (//button[@class='col-md-3 min']/@data-id)[1]|(//button[@class=' min']/@data-id)[1]
+    xpath: (//button[@class='col-md-3 min']/@data-producto)[1]|(//button[@class=' min']/@data-producto)[1]
     description: The store-specific product identifier
   - name: variantId
     singleValue: true
