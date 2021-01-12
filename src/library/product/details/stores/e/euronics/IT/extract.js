@@ -46,7 +46,7 @@ module.exports = {
       if (metaAvailability && metaAvailability.value == 'available') {
         addHiddenDiv('stock', 'In Stock');
       }
-      document.querySelector('.productDetail__image').click();
+      // document.querySelector('.productDetail__image').click();
       document.querySelectorAll('script').forEach(el => {
         const match = el.innerHTML.match(/\[\'upcean\'\, \'[0-9]+\'\]/);
         if (match && match.length) {
