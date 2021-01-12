@@ -50,7 +50,11 @@ module.exports = {
         const jsonObj = JSON.parse(jsonStr);
         var availabilityText = jsonObj.offers.availability;
         //console.log("availability: ",availabilityText.split('/')[3]);
-        addElementToDocument('added_availability_text',availabilityText.split('/')[3]);
+        if((availabilityText.split('/')[3]) === "InStock"){
+          var text = "In Stock";
+        }
+        //console.log("Text:  ", text);
+        addElementToDocument('added_availability_text',text);
       }
 
       const quantityxpath = getXpath("//div[@class='c-singleProduct__details']//ul[@class='c-singleProduct__options']/li[2]", 'innerText');
