@@ -2,11 +2,14 @@ input:
   id: 3105657-2
   _url: http://petlove.com.br
 extractions:
-  - html: https://workbench.import.io/html/run=993a31f1-01cb-4185-9b43-951f05b3787e/task=c5f1f98b-ab80-48b0-b0db-d59bcff023f2/5cd0780f-053f-4ccb-9f19-7c5677aefa36.html
+  - html: https://workbench.import.io/html/run=d6b24f94-ef1b-42b9-9863-a4269a4fdf78/task=a8665f66-a66a-430e-8992-977197a0b7e1/016294d3-3ebc-4d0d-83eb-3c68eb31751d.html
     extractionConfigId: product/details/stores/p/petlove/BR/extract
     data:
       - group:
-          - image:
+          - productUrl:
+              - text: https://www.petlove.com.br/brinquedo-interativo-kong-puppy-teething-stick-com-dispenser-para-racao-ou-petisco---rosa-3105657/p?sku=3105657-2
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/@product_url
+            image:
               - text: https://www.petlove.com.br/images/products/142370/large/Brinquedo-Interativo-Kong-Puppy-Teething-Stick-Kp23-com-Dispenser-para-Racao-ou-Petisco---Medio_2.jpg?1556321365
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/ol[1]/li[1]/@image
             imageAlt:
@@ -108,4 +111,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1606203514998
+    timestamp: 1606913685787

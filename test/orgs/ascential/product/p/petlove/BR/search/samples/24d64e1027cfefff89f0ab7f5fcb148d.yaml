@@ -1,0 +1,28 @@
+input:
+  keywords: Wafer
+  _url: http://petlove.com.br
+extractions:
+  - html: https://workbench.import.io/html/run=c09b130b-1c96-4ba1-bc24-9908a7fbd519/task=1401bb34-2fa7-46f0-b835-483a74187ddc/2428bee6-20ec-46d5-b62c-03c1f591a12e.html
+    extractionConfigId: product/search/stores/p/petlove/BR/extract
+    data:
+      - group:
+          - id:
+              - text: "3105674"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=Wafer
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/@searchurl
+            name:
+              - text: Ração Tetra Veggie Multi Wafers - 105 g
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/a[1]/h3[1]
+            thumbnail:
+              - text: https://www.petlove.com.br/images/products/162004/small/Tetra-Veggie-Multi--Wafers-250ml-105g_2.jpg?1556417876
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/a[1]/div[1]/div[1]/img[1]/@data-src
+            aggregateRating2:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/@ratingvalue
+            price:
+              - text: R$98,94
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/a[2]/div[1]/div[1]
+        xpath: /html
+    timestamp: 1609915625716

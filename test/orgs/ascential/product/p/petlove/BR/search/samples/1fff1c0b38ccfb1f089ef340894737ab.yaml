@@ -1,0 +1,34 @@
+input:
+  keywords: Mingau
+  _url: http://petlove.com.br
+extractions:
+  - html: https://workbench.import.io/html/run=c09b130b-1c96-4ba1-bc24-9908a7fbd519/task=e6efbe48-666f-469e-8e05-8000ee1d4f6d/9c3d599e-e588-43c2-a652-345551093f9d.html
+    extractionConfigId: product/search/stores/p/petlove/BR/extract
+    data:
+      - group:
+          - id:
+              - text: 3102596-1
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=Mingau
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/@searchurl
+            name:
+              - text: Bilisko Mingau Barrinhas Carne para Gatos - 45 g
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/a[1]/h3[1]
+            thumbnail:
+              - text: https://www.petlove.com.br/images/products/189631/small/IMG_30062017_162838_0.png?1556450393
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/a[1]/div[1]/div[1]/img[1]/@data-src
+          - id:
+              - text: 3102596-2
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[2]/a[1]/@href
+            searchUrl:
+              - text: https://www.petlove.com.br/busca?q=Mingau
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[2]/@searchurl
+            name:
+              - text: Bilisko Mingau Barrinhas Peixe para Gatos - 45 g
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/a[1]/h3[1]
+            thumbnail:
+              - text: https://www.petlove.com.br/images/products/189632/small/IMG_30062017_165522_0.png?1556446474
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[2]/a[1]/div[1]/div[1]/img[1]/@data-src
+        xpath: /html
+    timestamp: 1609915622422

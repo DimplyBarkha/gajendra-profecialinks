@@ -7,10 +7,10 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null, // 'div[id="catalog-desktop"]',
-    noResultsXPath: null, // '//div[@class="container container--limited"]',
+    loadedSelector: 'div#shelf-loop > div.catalog-list-item',
+    noResultsXPath: '//div[@class="empty-page"]',
     openSearchDefinition: null,
     domain: 'petlove.com.br',
-    zipcode: "''",
+    zipcode: '',
   },
 };
