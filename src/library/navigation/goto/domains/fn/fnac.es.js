@@ -74,7 +74,7 @@ module.exports = {
         captchaStatus = await captchStatus(cssCaptchaHandler);
       }
 
-      if (await captchStatus(cssCaptchaHandler) === 'fail') {
+      if (captchaStatus == 'fail') {
         throw new Error('Captcha solver failed');
       }
       return true;
