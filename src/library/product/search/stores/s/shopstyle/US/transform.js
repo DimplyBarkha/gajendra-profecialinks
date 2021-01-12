@@ -12,8 +12,8 @@ const transform = (data, context) => {
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   const state = context.getState();
-  let orgRankCounter = state.orgRankCounter || 0;
-  let rankCounter = state.rankCounter || 0;
+  const orgRankCounter = state.orgRankCounter || 0;
+  const rankCounter = state.rankCounter || 0;
   const productCodes = state.productCodes || [];
 
   for (const { group } of data) {
@@ -40,22 +40,14 @@ const transform = (data, context) => {
         row.Brand = [{ text: productObj.brand.name }];
         row.StoreName = [{ text: productObj.retailer.name }];
         row.ImageUrl = [{ text: productObj.image.sizes.Best.url }];
+        row.availability = [{ text: true }];
 
-        const categoriesArr = [];
-        productObj.categories.forEach(cat => {
-          categoriesArr.push({ text: cat.name });
-        });
-        row.category = categoriesArr;
+        setRow('ProductRank', 'rank');
+        setRow('variantSize', 'mySize');
 
         delete row.product;
       }
 
-      rankCounter += 1;
-      if (!row.sponsored) {
-        orgRankCounter += 1;
-        row.rankOrganic = [{ text: orgRankCounter }];
-      }
-      row.ProductRank = [{ text: rankCounter }];
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));

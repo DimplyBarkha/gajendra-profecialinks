@@ -45,8 +45,13 @@ async function implementation (
       addDiv('FilterType', data.htmlProperties.metaDescription);
       addDiv('apiUrl', apiUrl);
 
-      data.products.forEach(product => {
-        addDiv('product', JSON.stringify(product));
+      data.products.forEach((product, rankIndex) => {
+        const allSizes = product.sizes.map(size => size.name);
+        product.rank = rankIndex + 1;
+        for (let i = 0; i < allSizes.length; i++) {
+          product.mySize = allSizes[i];
+          addDiv('product', JSON.stringify(product));
+        }
       });
     }
   }, apiUrl);
