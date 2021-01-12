@@ -50,16 +50,17 @@ module.exports = {
           break;
         }
       }
-      // function addHiddenDiv(id, content, index) {
-      //   const newDiv = document.createElement("div");
-      //   newDiv.id = id;
-      //   newDiv.textContent = content;
-      //   newDiv.style.display = "none";
-      //   const originalDiv = document.querySelectorAll(
-      //     ".hz-product-card__image-container"
-      //   )[index];
-      //   originalDiv.parentNode.insertBefore(newDiv, originalDiv);
-      // }
+      function addHiddenDiv(id, content, index) {
+        const newDiv = document.createElement("div");
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = "none";
+        const originalDiv = document.querySelectorAll(
+          ".hz-product-card__image-container"
+        )[index];
+        originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+      }
+      var link = document.getElementsByClassName("hz-product-card__link")
       // const product = document.querySelectorAll(
       //   ".hz-product-card__image-container"
       // );
@@ -90,6 +91,12 @@ module.exports = {
 
       //   addHiddenDiv("ii_produrl", url_web, i);
       // }
+      for (let i = 0; i < link.length; i++) {
+        console.log("Loop is working");
+        if (link[i].href != ""){
+        const searchURL = window.location.href.split("?")[0]
+        addHiddenDiv("ii_produrl", searchURL, i);
+      }
     });
     return await context.extract(productDetails, { transform });
   },
