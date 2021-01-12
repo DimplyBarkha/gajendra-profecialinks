@@ -13,6 +13,17 @@ async function implementation (
     }
   });
   await context.evaluate(async () => {
+    function addHiddenDiv (id, reviewDate, rating, title, text) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.setAttribute('reviewDate', reviewDate);
+      newDiv.setAttribute('rating', rating);
+      newDiv.setAttribute('reviewTitle', title);
+      newDiv.setAttribute('reviewText', text);
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+
     let moreReviews = true;
     const reviewString = document.querySelector('div.sc-1tgc0g2-2.ipFJnx > span').textContent;
     const totalReviewsCount = Number(reviewString.match(/\d+/g)[0]);
@@ -44,16 +55,6 @@ async function implementation (
       if (!response || response.status !== 200 || foundReviews === totalReviewsCount) {
         moreReviews = false;
       } else {
-        function addHiddenDiv (id, reviewDate, rating, title, text) {
-          const newDiv = document.createElement('div');
-          newDiv.id = id;
-          newDiv.setAttribute('reviewDate', reviewDate);
-          newDiv.setAttribute('rating', rating);
-          newDiv.setAttribute('reviewTitle', title);
-          newDiv.setAttribute('reviewText', text);
-          newDiv.style.display = 'none';
-          document.body.appendChild(newDiv);
-        }
         const data = await response.json();
         console.log('API called! Adding data..');
         // foundReviews++;
