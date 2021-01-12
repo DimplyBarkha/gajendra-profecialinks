@@ -45,15 +45,16 @@ module.exports = {
         addElementToDocument('brandLink', '', fullBrandLink);
       }
 
-      const pricePerUnit = document.querySelector('div[class*="05d-less"]')
-        ? document.querySelector('div[class*="05d-less"]').textContent.split('/')[0] : '';
-      addElementToDocument('pricePerUnit', pricePerUnit);
+      const pricePerUnit = document.querySelector('div[class*="ba0e6-less"]');
+      if (pricePerUnit !== null) addElementToDocument('pricePerUnit', pricePerUnit.textContent.split('/')[0]);
 
-      const pricePerUnitUom = document.querySelector('div[class*="05d-less"]')
-        ? document.querySelector('div[class*="05d-less"]').textContent.split('/')[1] : '';
-      if (pricePerUnitUom.indexOf('(')) {
-        addElementToDocument('pricePerUnitUom', pricePerUnitUom.split('(')[0]);
-      } else addElementToDocument('pricePerUnitUom', pricePerUnitUom);
+      const pricePerUnitUom = document.querySelector('div[class*="ba0e6-less"]');
+      if (pricePerUnitUom !== null) {
+        const unit = pricePerUnitUom.textContent.split('/')[1];
+        if (unit.indexOf('(')) {
+          addElementToDocument('pricePerUnitUom', unit.split('(')[0]);
+        } else addElementToDocument('pricePerUnitUom', unit);
+      }
 
       const promotion = document.querySelector('div[class*="05d-less"]')
         ? document.querySelector('div[class*="05d-less"]').textContent : '';
@@ -62,14 +63,11 @@ module.exports = {
         promotion.lastIndexOf(')'),
       ));
 
-      const isAvailable = document.querySelector('section[class*="73e-less"] h2')
-        ? document.querySelector('section[class*="73e-less"] h2') : null;
-      // @ts-ignore
-      if (isAvailable !== null && isAvailable.textContent === 'Out of Stock') {
-        addElementToDocument('isAvailable', 'Out of Stock', 'No');
-      } else {
-        addElementToDocument('isAvailable', 'In Stock', 'Yes');
-      }
+      const isAvailable = document.querySelector('section[class*="73e-less"] h2');
+
+      if (isAvailable !== null && isAvailable.textContent === 'Out of Stock') addElementToDocument('isAvailable', 'Out Of Stock', 'No');
+      if (isAvailable === null) addElementToDocument('isAvailable', 'In Stock', 'Yes');
+
       const sku = document.querySelector('meta#meta-og-url')
         ? document.querySelector('meta#meta-og-url').getAttribute('content') : '';
       const regex = /\/(\d+)\//;
@@ -101,10 +99,12 @@ module.exports = {
         policy.setAttribute('policy', 'Yes');
       } else policy.setAttribute('policy', 'No');
 
-      const couponText = document.querySelector('div[id*="couponId"] div[class*="e594"]')
-        ? document.querySelector('div[id*="couponId"] div[class*="e594"]') : null;
+      const variantOptions = document.querySelectorAll('div[class*="g-form-option"] span[class*="c98d-less"]');
       // @ts-ignore
-      if (couponText !== null) couponText.setAttribute('coupon', couponText.textContent.split(' ').filter(e => e !== 'Details').join(' '));
+      if (variantOptions.length > 1) variantOptions[0].setAttribute('variantinfo', variantOptions[0].innerText);
+      const couponText = document.querySelector('div[id*="couponId"] div[class*="e594"]');
+      // @ts-ignore
+      if (couponText !== null) couponText.setAttribute('coupon', couponText.innerText);
     });
 
     await context.extract(productDetails);
