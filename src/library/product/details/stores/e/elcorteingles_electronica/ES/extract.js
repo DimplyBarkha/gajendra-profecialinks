@@ -27,7 +27,7 @@ module.exports = {
     const manufacturerImagesKey = 'manufacturerImages';
 
     const getEnhancedContentFromNavTab = async () => {
-      const cssMoreInfoTab = `div[class *= 'product_detail-attrs'][data-type="brandTab"]`;
+      const cssMoreInfoTab = 'div[class *= \'product_detail-attrs\'][data-type="brandTab"]';
       try {
         // wait for more info tab to load
         await context.waitForSelector(cssMoreInfoTab, { timeout: 10000 });
@@ -73,7 +73,7 @@ module.exports = {
 
     const setValuesInDivToDOM = async (key, value) => {
       await context.evaluate(async ({ key, value }) => {
-        function addElementToDocument(key, value) {
+        function addElementToDocument (key, value) {
           const catElement = document.createElement('div');
           catElement.id = key;
           catElement.textContent = value;
@@ -84,7 +84,7 @@ module.exports = {
       }, { key, value });
     };
 
-    async function enhancedContent() {
+    async function enhancedContent () {
       const manufacturerDescription = await getEnhancedContentFromNavTab();
       if (manufacturerDescription) {
         manufacturerDescArray.push(manufacturerDescription);
@@ -147,11 +147,11 @@ module.exports = {
           }
         }
 
-        return iframeSrc ? iframeSrc : `https://service.loadbee.com/ean/${gtin}/es_ES?css=default&template=default&button=default#bv-wrapper`;
+        return iframeSrc || `https://service.loadbee.com/ean/${gtin}/es_ES?css=default&template=default&button=default#bv-wrapper`;
       }, cssIframe);
 
       return navigateLink;
-    }
+    };
 
     const extractEnhancedContent = async () => {
       // manufacturerDescription
@@ -176,9 +176,9 @@ module.exports = {
       manufacturerImagesArray = await context.evaluate(async () => {
         const allImagesFromEnhancedContent = document.querySelectorAll('img');
         // @ts-ignore
-        return [...allImagesFromEnhancedContent].filter(image => image.getAttribute('src')).map(image => image.src) // use of double map is an hack to avoid certail things
+        return [...allImagesFromEnhancedContent].filter(image => image.getAttribute('src')).map(image => image.src); // use of double map is an hack to avoid certail things
       });
-    }
+    };
 
     try {
       const navigateLink = await getIframeUrl();
@@ -253,7 +253,7 @@ module.exports = {
       }
 
       // function to append the elements to DOM
-      function addElementToDocument(key, value) {
+      function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -262,7 +262,7 @@ module.exports = {
       }
       addElementToDocument('energyRating', energyRating);
       // function to get the json data from the string
-      function findJsonData(scriptSelector, startString, endString) {
+      function findJsonData (scriptSelector, startString, endString) {
         try {
           const xpath = `//script[contains(.,'${scriptSelector}')]`;
           const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -285,7 +285,7 @@ module.exports = {
       }
 
       // function to get the json data from the textContent
-      function findJsonObj(scriptSelector, video) {
+      function findJsonObj (scriptSelector, video) {
         if (video) {
           var result = document.evaluate(video, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
           return result;
@@ -452,7 +452,7 @@ module.exports = {
         }
       }
 
-      function getPathDirections(xpathToExecute) {
+      function getPathDirections (xpathToExecute) {
         var result = [];
         var nodesSnapshot = document.evaluate(xpathToExecute, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         for (var i = 0; i < nodesSnapshot.snapshotLength; i++) {
@@ -461,7 +461,7 @@ module.exports = {
         return result;
       }
 
-      function videoData(data) {
+      function videoData (data) {
         if (data[0].playlist.length > 1) {
           return data[0].playlist.map(e => { return 'https:' + e.file; }).join(' | ');
         }
@@ -528,7 +528,7 @@ module.exports = {
       }
 
       // Get the ratingCount
-      function ratingFromDOM() {
+      function ratingFromDOM () {
         const reviewsCount = document.querySelector('div.bv-content-pagination-pages-current');
         let ratingCount;
         if (reviewsCount) {
@@ -553,7 +553,7 @@ module.exports = {
         }
       }
 
-      function allergyAdvice() {
+      function allergyAdvice () {
         const xpath = '//*[contains(text(),"Ingredientes y alérgensos")]/../ul/li';
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         if (element) {
@@ -564,7 +564,7 @@ module.exports = {
       } allergyAdvice();
 
       // Function to remove the `\n` from the textContent
-      function textContent(element, attributeName) {
+      function textContent (element, attributeName) {
         const text = (element && element.innerText.trim()
           .split(/[\n]/)
           .filter((ele) => ele)
@@ -578,7 +578,7 @@ module.exports = {
 
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
-        async function stall(ms) {
+        async function stall (ms) {
           return new Promise((resolve, reject) => {
             setTimeout(() => {
               console.log('waiting!!');
@@ -604,7 +604,7 @@ module.exports = {
 
     // gets videos
     await context.evaluate(async () => {
-      async function addElementToDocumentAsync(key, value) {
+      async function addElementToDocumentAsync (key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -685,7 +685,7 @@ module.exports = {
     if (manufacturerImagesArray.length) {
       // @ts-ignore
       const uniqueImages = [...new Set(manufacturerImagesArray)];
-      
+
       await context.evaluate(async (manufacturerImagesArray, manufacturerImagesKey) => {
         async function addElementToDocument (key, value) {
           const catElement = document.createElement('div');
