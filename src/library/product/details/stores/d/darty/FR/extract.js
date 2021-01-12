@@ -40,6 +40,9 @@ async function implementation (
       });
     }
 
+    document.querySelector('#flix_product_video') && document.querySelector('#flix_product_video').dispatchEvent(new Event('click'));
+    await new Promise(resolve => setTimeout(resolve, 500));
+
     const allMeta = document.querySelectorAll('meta');
     let ean = '';
     let brand = '';
