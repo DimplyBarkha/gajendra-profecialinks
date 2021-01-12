@@ -3,12 +3,14 @@ module.exports = {
   parameterValues: {
     country: "US",
     store: "houzz",
-    nextLinkSelector: ".hz-pagination-next-page",
+    nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: "body",
     noResultsXPath: null,
-    openSearchDefinition: null,
+    openSearchDefinition: {
+      template: 'https://www.houzz.com/products/{searchTerms}/p/{page}'
+    },
     domain: "houzz.com",
     zipcode: "",
   },
