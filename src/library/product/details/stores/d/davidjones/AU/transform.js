@@ -99,22 +99,12 @@ const transform = (data, context) => {
       if (row.inTheBoxText) {
         let text = '';
         row.inTheBoxText.forEach(item => {
-          text = item.text.replace(/(.+What’s in the box:|.+What's in the Box)(.+)(Warranty:.+)/g, '$2').trim();
+          if (item.text.toLowerCase().includes('s in the box')) {
+            text = item.text.replace(/(.*?)(What’s in the box:|What's in the Box)(.*?)(Warranty:)(.*)/g, '$3');
+          }
         });
-        row.inTheBoxText = [{ text }];
+        row.inTheBoxText = [{ text: text.trim() }];
       }
-
-      //   if (row.manufacturerDescription) {
-      //     let text = '';
-      //     row.manufacturerDescription.forEach(item => {
-      //       text += item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim();
-      //     });
-      //     row.manufacturerDescription = [
-      //       {
-      //         text: text,
-      //       },
-      //     ];
-      //   }
     }
   }
   return data;
