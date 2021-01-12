@@ -1,11 +1,11 @@
 const { cleanUp } = require('../../../../shared');
 
-async function implementation(inputs, parameters, context, dependencies) {
+async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
   await context.evaluate(async () => {
-    function addElementToDocument(id, value, key) {
+    function addElementToDocument (id, value, key) {
       const catElement = document.createElement('div');
       catElement.id = id;
       catElement.innerText = value;
@@ -14,9 +14,8 @@ async function implementation(inputs, parameters, context, dependencies) {
       document.body.appendChild(catElement);
     }
 
-
-    let warningParentDiv = document.querySelector('div.gn-accordionElement__wrapper div.gn-content:last-child');
-    let warningDiv = warningParentDiv.querySelector("div").innerText;
+    const warningParentDiv = document.querySelector('div.gn-accordionElement__wrapper div.gn-content:last-child');
+    const warningDiv = warningParentDiv.querySelector('div').innerText;
     if (warningDiv.match(/(Safety Warning:)([\s\S]+)Origin/) != null) {
       addElementToDocument('warnings', warningDiv.match(/(Safety Warning:)([\s\S]+)Origin/)[2]);
     }
@@ -33,7 +32,7 @@ async function implementation(inputs, parameters, context, dependencies) {
     }
 
     const addCalories = async () => {
-      let table = document.querySelector('.bop-nutritionData__origin > table')
+      const table = document.querySelector('.bop-nutritionData__origin > table');
       if (table) {
         const energyHeadings = document.evaluate(
           '//td[contains(., "Energy")]',
@@ -69,13 +68,11 @@ async function implementation(inputs, parameters, context, dependencies) {
 
   // return await context.extract(productDetails, { transform });
   const dataRef = await context.extract(productDetails, { transform });
-  if (dataRef[0].group[0].caloriesPerServing[0].text === '') {
-    delete dataRef[0].group[0].caloriesPerServing;
-  }
-  if (dataRef[0].group[0].alcoholContent == undefined) {
-    delete dataRef[0].group[0].alcoholContent
+
+  if (dataRef[0].group[0].alcoholContent === undefined) {
+    delete dataRef[0].group[0].alcoholContent;
   } else if (dataRef[0].group[0].alcoholContent[0]) {
-    dataRef[0].group[0].alcoholContent[0].text = dataRef[0].group[0].alcoholContent[0].text + "% | " + dataRef[0].group[0].alcoholContent[0].text;
+    dataRef[0].group[0].alcoholContent[0].text = dataRef[0].group[0].alcoholContent[0].text + '% | ' + dataRef[0].group[0].alcoholContent[0].text;
   }
   return dataRef;
 }
