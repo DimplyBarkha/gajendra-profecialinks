@@ -60,14 +60,12 @@ fields:
   singleValue: true
   description: Number of ul > li tags in the description
 - name: brandText
-  singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
   xpath: ancestor::html//div[@class="tituloProdutoDetalhe"]
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
-  xpath: ancestor::html//div[@class="tituloProdutoDetalhe"]
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
@@ -81,6 +79,7 @@ fields:
 - name: gtin
   singleValue: true
   description: GTIN code (includes UPC/EAN)
+  xpath: "@ean"
 - name: sku
   description: The store-specific product identifier
   xpath: "@variant-id"
@@ -102,6 +101,7 @@ fields:
 - name: directions
   singleValue: true
   description: Content under "directions" header
+  xpath: ancestor::html//div[@id="comoAplicar-prod"]
 - name: warnings
   singleValue: true
   description: Content under "warnings" header
@@ -148,6 +148,7 @@ fields:
 - name: videos
   singleValue: false
   description: URLs of videos on page
+  xpath: ancestor::html//div[@class="slick-slide"]//iframe[@title="embeded video"]/@src
 - name: name
   singleValue: true
   description: The product name
@@ -389,7 +390,7 @@ fields:
 - name: promotion
   singleValue: true
   description: promotion text on product page
-  xpath: ancestor::html//div[@class="card-oferta"]
+  xpath: "@promotion"
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information
@@ -407,6 +408,7 @@ fields:
 - name: variantInformation
   singleValue: true
   description: colour / scent / flavour / other
+  xpath: //@variant-info
 - name: firstVariant
   singleValue: true
   description: Unique identifier for a collection of variants. For a subset of core

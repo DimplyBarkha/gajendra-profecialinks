@@ -2,7 +2,7 @@ input:
   id: 3614272508323
   _url: http://perfumesecompanhia.pt
 extractions:
-  - html: https://workbench.import.io/html/run=37f5f124-9d61-4044-aacd-8c8a29d05681/task=8e37c109-74d1-4f7d-a04e-daea09485e83/15c17cbf-4dbd-4fe1-971c-f626801f14f5.html
+  - html: https://workbench.import.io/html/run=0e9fbabc-1103-4418-bac6-c9fb469092a4/task=6144cb32-e6f3-40bf-9bb1-48993adc78fc/9723583c-ef9e-4d1d-b0a6-844c9c3e78a9.html
     extractionConfigId: product/details/stores/p/perfumesecompanhia/PT/extract
     data:
       - group:
@@ -16,7 +16,7 @@ extractions:
               - text: Sì Giorgio Armani Fiori Eau de Parfum 30 ml
                 xpath: /html/body/div[12]/@thumbnail-alt
             alternateImages:
-              - text: https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_2.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_2.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_3.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_3.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_4.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_4.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_5.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_5.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_6.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_6.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_7.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_7.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_8.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_8.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_9.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_9.jpg
+              - text: https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_2.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_3.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_4.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_5.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_6.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_7.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_8.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_9.jpg
                 xpath: /html/body/div[15]
             category:
               - text: Início
@@ -34,10 +34,10 @@ extractions:
               - text: € 63,50
                 xpath: /html/body/div[12]/@list-price
             price:
-              - text: € 48,90
+              - text: € 50,80
                 xpath: /html/body/div[12]/@price
             availabilityText:
-              - text: Disponíbilidade imediata
+              - text: In Stock
                 xpath: /html/body/div[12]/@availability
             description:
               - text: Descubra a fragrância de Giorgio Armani para mulheres, Sì Fiori. Sì é um
@@ -50,15 +50,26 @@ extractions:
                   chique, sensual, intenso e suave. O segredo do seu poder? Ousa
                   dizer Sì.
                 xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/div[6]/div[2]/p[1]
+            brandText:
+              - text: Giorgio Armani
+                xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/h1[1]/div[1]
             quantity:
               - text: 30ml
                 xpath: /html/body/div[12]/@quantity
+            gtin:
+              - text: "3614272508217"
+                xpath: /html/body/div[12]/@ean
             sku:
               - text: "42730"
                 xpath: /html/body/div[12]/@variant-id
             variantId:
               - text: "42730"
                 xpath: /html/body/div[12]/@variant-id
+            directions:
+              - text: Aplicar nas zonas específicas de maior temperatura tais como pescoço e
+                  pulso para criar uma envolvência mais concentrada e elegante
+                  da sua fragrância.
+                xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/div[6]/div[5]
             ratingCount:
               - text: "0"
                 xpath: /html/body/div[17]
@@ -76,13 +87,16 @@ extractions:
                 raw: "3"
                 locale: pt
                 value: 3
+            videos:
+              - text: https://www.youtube.com/embed/yJWx1hz5xac?rel=0
+                xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/iframe[1]/@src
             secondaryImageTotal:
-              - text: "16"
+              - text: "8"
                 xpath: /html/body/div[16]
                 type: NUMBER
-                raw: "16"
+                raw: "8"
                 locale: pt
-                value: 16
+                value: 8
             ingredientsList:
               - text: ALCOHOL ?PARFUM / FRAGRANCE ?AQUA / WATER ?BENZYL SALICYLATE ?BENZYL
                   ALCOHOL ?LINALOOL ?BUTYL METHOXYDIBENZOYLMETHANE ?LIMONENE
@@ -101,6 +115,9 @@ extractions:
                   pulso para criar uma envolvência mais concentrada e elegante
                   da sua fragrância.
                 xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/div[6]/div[5]
+            promotion:
+              - text: -20%
+                xpath: /html/body/div[12]/@promotion
             variants:
               - text: 30ml,50ml,100ml
                 xpath: /html/body/div[20]
@@ -117,7 +134,7 @@ extractions:
               - text: Sì Giorgio Armani Fiori Eau de Parfum 50 ml
                 xpath: /html/body/div[13]/@thumbnail-alt
             alternateImages:
-              - text: https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_2.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_2.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_3.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_3.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_4.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_4.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_5.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_5.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_6.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_6.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_7.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_7.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_8.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_8.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_9.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_9.jpg
+              - text: https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_2.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_3.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_4.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_5.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_6.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_7.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_8.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_9.jpg
                 xpath: /html/body/div[15]
             category:
               - text: Início
@@ -135,10 +152,10 @@ extractions:
               - text: € 90,80
                 xpath: /html/body/div[13]/@list-price
             price:
-              - text: € 69,92
+              - text: € 72,64
                 xpath: /html/body/div[13]/@price
             availabilityText:
-              - text: Disponíbilidade imediata
+              - text: In Stock
                 xpath: /html/body/div[13]/@availability
             description:
               - text: Descubra a fragrância de Giorgio Armani para mulheres, Sì Fiori. Sì é um
@@ -151,15 +168,26 @@ extractions:
                   chique, sensual, intenso e suave. O segredo do seu poder? Ousa
                   dizer Sì.
                 xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/div[6]/div[2]/p[1]
+            brandText:
+              - text: Giorgio Armani
+                xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/h1[1]/div[1]
             quantity:
               - text: 50ml
                 xpath: /html/body/div[13]/@quantity
+            gtin:
+              - text: "3614272508224"
+                xpath: /html/body/div[13]/@ean
             sku:
               - text: "42731"
                 xpath: /html/body/div[13]/@variant-id
             variantId:
               - text: "42731"
                 xpath: /html/body/div[13]/@variant-id
+            directions:
+              - text: Aplicar nas zonas específicas de maior temperatura tais como pescoço e
+                  pulso para criar uma envolvência mais concentrada e elegante
+                  da sua fragrância.
+                xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/div[6]/div[5]
             ratingCount:
               - text: "0"
                 xpath: /html/body/div[17]
@@ -177,13 +205,16 @@ extractions:
                 raw: "3"
                 locale: pt
                 value: 3
+            videos:
+              - text: https://www.youtube.com/embed/yJWx1hz5xac?rel=0
+                xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/iframe[1]/@src
             secondaryImageTotal:
-              - text: "16"
+              - text: "8"
                 xpath: /html/body/div[16]
                 type: NUMBER
-                raw: "16"
+                raw: "8"
                 locale: pt
-                value: 16
+                value: 8
             ingredientsList:
               - text: ALCOHOL ?PARFUM / FRAGRANCE ?AQUA / WATER ?BENZYL SALICYLATE ?BENZYL
                   ALCOHOL ?LINALOOL ?BUTYL METHOXYDIBENZOYLMETHANE ?LIMONENE
@@ -202,6 +233,9 @@ extractions:
                   pulso para criar uma envolvência mais concentrada e elegante
                   da sua fragrância.
                 xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/div[6]/div[5]
+            promotion:
+              - text: -20%
+                xpath: /html/body/div[13]/@promotion
             variants:
               - text: 30ml,50ml,100ml
                 xpath: /html/body/div[20]
@@ -218,7 +252,7 @@ extractions:
               - text: Sì Giorgio Armani Fiori Eau de Parfum 100 ml
                 xpath: /html/body/div[14]/@thumbnail-alt
             alternateImages:
-              - text: https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_2.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_2.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_3.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_3.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_4.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_4.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_5.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_5.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_6.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_6.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_7.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_7.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_8.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_8.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_9.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_9.jpg
+              - text: https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_2.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_3.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_4.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_5.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_6.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_7.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_8.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3614272508224_9.jpg
                 xpath: /html/body/div[15]
             category:
               - text: Início
@@ -236,10 +270,10 @@ extractions:
               - text: € 123,50
                 xpath: /html/body/div[14]/@list-price
             price:
-              - text: € 95,10
+              - text: € 98,80
                 xpath: /html/body/div[14]/@price
             availabilityText:
-              - text: Disponíbilidade imediata
+              - text: In Stock
                 xpath: /html/body/div[14]/@availability
             description:
               - text: Descubra a fragrância de Giorgio Armani para mulheres, Sì Fiori. Sì é um
@@ -252,15 +286,26 @@ extractions:
                   chique, sensual, intenso e suave. O segredo do seu poder? Ousa
                   dizer Sì.
                 xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/div[6]/div[2]/p[1]
+            brandText:
+              - text: Giorgio Armani
+                xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/h1[1]/div[1]
             quantity:
               - text: 100ml
                 xpath: /html/body/div[14]/@quantity
+            gtin:
+              - text: "3614272508323"
+                xpath: /html/body/div[14]/@ean
             sku:
               - text: "42732"
                 xpath: /html/body/div[14]/@variant-id
             variantId:
               - text: "42732"
                 xpath: /html/body/div[14]/@variant-id
+            directions:
+              - text: Aplicar nas zonas específicas de maior temperatura tais como pescoço e
+                  pulso para criar uma envolvência mais concentrada e elegante
+                  da sua fragrância.
+                xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/div[6]/div[5]
             ratingCount:
               - text: "0"
                 xpath: /html/body/div[17]
@@ -278,13 +323,16 @@ extractions:
                 raw: "3"
                 locale: pt
                 value: 3
+            videos:
+              - text: https://www.youtube.com/embed/yJWx1hz5xac?rel=0
+                xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/iframe[1]/@src
             secondaryImageTotal:
-              - text: "16"
+              - text: "8"
                 xpath: /html/body/div[16]
                 type: NUMBER
-                raw: "16"
+                raw: "8"
                 locale: pt
-                value: 16
+                value: 8
             ingredientsList:
               - text: ALCOHOL ?PARFUM / FRAGRANCE ?AQUA / WATER ?BENZYL SALICYLATE ?BENZYL
                   ALCOHOL ?LINALOOL ?BUTYL METHOXYDIBENZOYLMETHANE ?LIMONENE
@@ -303,6 +351,9 @@ extractions:
                   pulso para criar uma envolvência mais concentrada e elegante
                   da sua fragrância.
                 xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/div[6]/div[5]
+            promotion:
+              - text: -20%
+                xpath: /html/body/div[14]/@promotion
             variants:
               - text: 30ml,50ml,100ml
                 xpath: /html/body/div[20]
@@ -310,4 +361,4 @@ extractions:
               - text: Yes
                 xpath: /html/body/div[19]
         xpath: /html
-    timestamp: 1607505187569
+    timestamp: 1610538757716

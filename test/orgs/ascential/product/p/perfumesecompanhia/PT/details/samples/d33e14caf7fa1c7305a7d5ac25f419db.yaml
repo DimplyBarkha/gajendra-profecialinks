@@ -2,11 +2,14 @@ input:
   id: 3605533303252
   _url: http://perfumesecompanhia.pt
 extractions:
-  - html: https://workbench.import.io/html/run=37f5f124-9d61-4044-aacd-8c8a29d05681/task=5e5c9d5c-efd7-43b6-826a-d55810abe277/f20abc8e-676e-4d28-821a-67cd4c6ef660.html
+  - html: https://workbench.import.io/html/run=0e9fbabc-1103-4418-bac6-c9fb469092a4/task=3a8da084-861a-4d42-adbb-fd7810d52ddf/d143e7dd-ce4a-4df4-8709-27dd5c6239d3.html
     extractionConfigId: product/details/stores/p/perfumesecompanhia/PT/extract
     data:
       - group:
-          - productUrl:
+          - variantInformation:
+              - text: 01 - Black
+                xpath: /html/body/div[12]/@variant-info
+            productUrl:
               - text: https://www.perfumesecompanhia.pt/pt/catalogo/maquilhagem/olhos/mascaras/mascara-lancme-23700/
                 xpath: /html/head[1]/link[2]/@href
             image:
@@ -16,7 +19,7 @@ extractions:
               - text: Lancôme Grandiose 01-Deep intense black
                 xpath: /html/body/div[12]/@thumbnail-alt
             alternateImages:
-              - text: https://www.perfumesecompanhia.pt/fotos/produtos/3605533303252-back.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3605533303252-back.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3605533303252-side.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3605533303252-side.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3605533303252-extra1.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3605533303252-extra1.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3605533303252-extra2.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3605533303252-extra2.jpg
+              - text: https://www.perfumesecompanhia.pt/fotos/produtos/3605533303252-back.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3605533303252-side.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3605533303252-extra1.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3605533303252-extra2.jpg
                 xpath: /html/body/div[13]
             metaKeywords:
               - text: Lancôme Grandiose Maquilhagem Olhos Máscaras perfumes e companhia,
@@ -38,10 +41,10 @@ extractions:
               - text: € 36,30
                 xpath: /html/body/div[12]/@list-price
             price:
-              - text: € 27,95
+              - text: € 29,04
                 xpath: /html/body/div[12]/@price
             availabilityText:
-              - text: Disponíbilidade imediata
+              - text: In Stock
                 xpath: /html/body/div[12]/@availability
             description:
               - text: Grandiôse é um encontro entre a inovação e o sonho da precisão técnica e
@@ -54,12 +57,24 @@ extractions:
                   pigmentos preto escuro oferecem um olhar intenso e brilhante e
                   o extrato de células de rosa cuida das suas pestanas.
                 xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/div[4]/div[2]/p[1]
+            brandText:
+              - text: Lancôme
+                xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/h1[1]/div[1]
+            gtin:
+              - text: "3605533303252"
+                xpath: /html/body/div[12]/@ean
             sku:
               - text: "23701"
                 xpath: /html/body/div[12]/@variant-id
             variantId:
               - text: "23701"
                 xpath: /html/body/div[12]/@variant-id
+            directions:
+              - text: A escova curva da Grandiôse deverá ser deslizada ao longo da pestana e
+                  seguindo a anatomia natural do olho, assim acaba por conseguir
+                  chegar a todas as pestanas, desde a raíz das pestanas até à
+                  ponta onde acabam.
+                xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/div[4]/div[4]
             ratingCount:
               - text: "7"
                 xpath: /html/body/div[15]
@@ -81,12 +96,12 @@ extractions:
               - text: 01 - Black
                 xpath: /html/body/div[12]/@color
             secondaryImageTotal:
-              - text: "8"
+              - text: "4"
                 xpath: /html/body/div[14]
                 type: NUMBER
-                raw: "8"
+                raw: "4"
                 locale: pt
-                value: 8
+                value: 4
             ingredientsList:
               - text: AQUA / WATER ? PARAFFIN ? POTASSIUM CETYL PHOSPHATE ? ACRYLATES COPOLYMER
                   ? CERA ALBA / BEESWAX ? COPERNICIA CERIFERA CERA / CARNAUBA
@@ -105,6 +120,9 @@ extractions:
                   chegar a todas as pestanas, desde a raíz das pestanas até à
                   ponta onde acabam.
                 xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/div[4]/div[4]
+            promotion:
+              - text: -20%
+                xpath: /html/body/div[12]/@promotion
             variants:
               - text: 01 - BLACK
                 xpath: /html/body/div[18]
@@ -112,4 +130,4 @@ extractions:
               - text: Yes
                 xpath: /html/body/div[17]
         xpath: /html
-    timestamp: 1607505190662
+    timestamp: 1610538760964
