@@ -68,21 +68,43 @@ module.exports = {
       }
       var script = getAllXpath('//div[@id="product-detail-description"]//ul/li/text()', 'nodeValue');
       var final = "";
-    if (script.length >= 1) {
-      for (var i = 0; i < script.length; i++) {
-        final = final + script[i] + " || ";
+      if (script.length >= 1) {
+        for (var i = 0; i < script.length; i++) {
+          final = final + script[i] + " || ";
+        }
+      } else {
+        var script1 = getAllXpath('//div[@class="content-tabs"]//section[@class="panel-inner"]/p/text()', 'nodeValue');
+        for (var i = 0; i < script1.length; i++) {
+          final = final + script1[i];
+        }
       }
-    } else {
-      var script1 = getAllXpath('//div[@class="content-tabs"]//section[@class="panel-inner"]/p/text()', 'nodeValue');
-      for (var i = 0; i < script1.length; i++) {
-        final = final + script1[i];
+      if (final.length >= 1) {
+        addElementToDocument('descrip', final);
       }
-    }
-    if (final.length>=1)
-    {
-      addElementToDocument('descrip',final);
-    }
-  });
-  await context.extract(productDetails);
-},
+      var image = getXpath("//div[@class='gallery__master-region']//div//div//div[1]//div//div[@class='gallery-magnifier gallery__slide gallery-magnifier--vertical-align']/img[1]/@src | (//img[@class='gallery-magnifier__normal']/@src)[1]", 'nodeValue');
+      if (image.includes("550/550")) {
+        image = image.replace("550/550", "");
+        addElementToDocument('image', image);
+      }
+      var altimg = getAllXpath('//div[@class="gallery-thumbnails__inset"]/div/div/div[position()>1 ]/div/img/@src', 'nodeValue');
+      if (altimg.length >= 1) {
+        for (var i = 0; i < altimg.length; i++) {
+          if (altimg[i].includes("550/550")) {
+            altimg[i] = altimg[i].replace("550/550", "90/90");
+          }
+        }
+        var secimg = altimg.join(" | ");
+        addElementToDocument('secimg', secimg);
+      }
+      var ing = getAllXpath("//strong[contains(text(),'Zloženie:')]/parent::p/following::ul[1]/li/text()", 'nodeValue');
+      var final = "";
+      if (ing.length>=1){
+      for (var i = 0; i < ing.length; i++) {
+        final = final +" "+ ing[i];
+      }
+      addElementToDocument('final', final);
+      }
+    });
+    await context.extract(productDetails);
+  },
 };
