@@ -46,16 +46,20 @@ const transform = (data) => {
             });
         }
         if (row.alternateImages) {
+          let info = [];
           row.alternateImages.forEach(item => {
               item.text = item.text.replace(/,.*/, '');
               item.text = item.text.replace('1x', '');
               item.text = 'I'+ item.text;
               item.text = item.text.slice(1, -1);
               item.text = item.text.replace(/\?.*/, '');
+              info.push(item.text);
           });
-          if (row.alternateImages.length) {
-            row.alternateImages.splice(0, 1);
-            row.alternateImages.splice(row.alternateImages.length , 1);
+          if (info.length) {
+            row.alternateImages = [{ "text": info[2], 'xpath': row.alternateImages[2].xpath }];
+          }
+          else {
+            delete row.alternateImages;
           }
        }
         if (row.description) {
