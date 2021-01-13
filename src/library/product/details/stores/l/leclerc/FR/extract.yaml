@@ -40,7 +40,11 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     xpath: //div[contains(@class,'large-screen-only')]//div[contains(@class,'divWCRS310_Panier_Produit_Fiche')]/a[@id='sLibellePictoAjouterProduit']
-
+  - name: shortDescription
+    singleValue: false
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    xpath: string(//div/div/p[@class="descriptif-produit"])
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
