@@ -40,11 +40,12 @@ module.exports = {
     });
     await new Promise((resolve) => setTimeout(resolve, 10000));
     try{
-      await context.waitForXPath(`//div[@class="description-py5"][contains(.,'W pudełku')]//img[@data-component="lazyLoad"]/@src | //div[@class="description_dyson-py5"][contains(.,'Zawartość pudełka')]//img/@src | //div[contains(.,'W zestawie')]//p[contains(@class,'description-para')]/preceding-sibling::img/@src | //div[@class="description_dyson-py5"][contains(.,'Zawartość opakowania')]//img[@data-component="lazyLoad"]/@src | //div[@class="description-py5"][contains(.,'Zawartość opakowania')]//img[@data-component="lazyLoad"]/@src`);
+      await context.waitForXPath(`//div[@class="description-container" or @class='description_dyson-container' ]/div[contains(.,'Included') or contains(.,'contents') or contains(.,'Contents')]/following-sibling::*//img/@src`);
     }
     catch(e){
       console.log("No in the box url present");
     }
+    await new Promise((resolve) => setTimeout(resolve, 10000));
     const videoIframes = await context.evaluate(async function () {
       console.log(document.querySelectorAll('div#description div[style] iframe[data-component="lazyLoad"]'));
       return document.querySelectorAll('div#description div[style] iframe[data-component="lazyLoad"]');
