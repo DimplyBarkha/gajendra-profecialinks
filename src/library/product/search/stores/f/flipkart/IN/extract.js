@@ -154,6 +154,7 @@ async function implementation(
       if (product.slotType === 'WIDGET' && product.widget.data.products) {
         const prodUrl = product.widget.data.products[0].productInfo.value.baseUrl;
         const prodEl = document.querySelector(`a[href*="${prodUrl}"]`);
+        if (!prodEl) continue;
         prodEl.setAttribute('selector', 'productLink');
         let imgUrl = product.widget.data.products[0].productInfo.value.media.images.length && product.widget.data.products[0].productInfo.value.media.images[0].url;
         imgUrl = imgUrl.replace('{@width}', '312').replace('{@height}', '312').replace('{@quality}', '90');
