@@ -48,18 +48,32 @@ const transform = (data) => {
           },
         ];
        }
-        if (row.availabilityText){
+       if (row.availabilityText) {
         row.availabilityText.forEach(item => {
-        item.text="In Stock"
+          if (item.text == "true"){
+            item.text = "In Stock";
+          }
+          else{
+             item.text = "Out Of Stock";
+          }
 
-      });
-    }
-    else {
-           row.availabilityText.forEach(item => {
-        item.text="Out of Stock"
-
-      });
-    }
+        })
+      }
+if(row.sku){
+  row.sku.forEach(item =>{
+     item.text = item.text.replace('SKU:', '');
+  })
+}
+if(row.countryOfOrigin){
+  row.countryOfOrigin.forEach(item =>{
+     item.text = item.text.replace('Country of Origin :', '');
+  })
+}
+if(row.brandText){
+  row.brandText.forEach(item =>{
+     item.text = item.text.replace('Brand :', '');
+  })
+}
        if (row.descriptionBullets) {
         let text = '';
         row.descriptionBullets.forEach(item => {

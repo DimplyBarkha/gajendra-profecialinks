@@ -17,7 +17,7 @@ fields:
     singleValue: false
     description: Other product images (not in manufacturer description)
     #xpath: //div[@class='image-viewer-swatch-wrapper dcsg-card']//picture/source/@srcset
-    xpath: //div[contains(@class,'image-viewer-swatch-wrapper dcsg-card')]//picture/img/@src
+    xpath: //div[contains(@class,'image-viewer-swatch-wrapper')]//img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -42,8 +42,7 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    defaultValue: Out of Stock
-    xpath: boolean(//div[contains(@class,"add-to-cart-row ng-tns-c125-1")]//button)
+    xpath: boolean(//div[contains(@class,'add-to-cart-row')]//button[contains(@id,'add-to-cart')])
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -57,7 +56,7 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //div[contains(@class,'description-text')]//ul[1]//li[1]//span//span
+    xpath: //div[contains(@class,'description-text')]//li[contains(.,'Brand')]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -78,7 +77,8 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //ul[contains(@class,'list-unstyled product-numbers')]//li[2]//span
+    xpath: //div[contains(@class,'description-text')]//li[contains(.,'SKU')]
+   # xpath: //ul[contains(@class,'list-unstyled product-numbers')]//li[2]//span
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
@@ -408,6 +408,7 @@ fields:
   - name: countryOfOrigin
     singleValue: true
     description: The country from which the product originates
+    xpath: //div[contains(@class,'description-text')]//ul//li[contains(.,'Country of Origin')]
   - name: allergyAdvice
     singleValue: true
     description: Allergy information associated with the product
