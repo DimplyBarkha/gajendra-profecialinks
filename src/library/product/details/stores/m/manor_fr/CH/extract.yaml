@@ -30,7 +30,7 @@ fields:
     xpath: //div[@data-t-name='Breadcrumb']/a
   - name: description
     singleValue: false
-    xpath: //div[@class="m-productdescription__description js-desc"]/p
+    xpath: //html//div[@id='description']
   - name: color
     singleValue: false
     xpath: //span[@class='m-productcolorselect-v-2__selector-title']
@@ -63,7 +63,7 @@ fields:
     xpath: //html//div[@id='variants']
   - name: variantInformation
     singleValue: false
-    xpath: //span[@class="m-productcolorselect-v-2__selector-title"]
+    xpath: //html//div[@id='variantInformation']
   - name: brandText
     singleValue: false
     xpath: //div[contains(@class,"m-productdetailareaa__areaA__title-line")]//h2
@@ -85,6 +85,9 @@ fields:
   - name: name
     singleValue: false 
     xpath: //html//div[@id='nameEmpty']
+  - name: ingredientsList
+    singleValue: true
+    xpath: //html//div[@id='ingredientsList']
   - name: nameExtended
     singleValue: false 
     xpath: //html//div[@id='name']
@@ -117,3 +120,4 @@ fields:
   - name: quantity
     singleValue: true
     xpath: //html//div[@id='size']
+  

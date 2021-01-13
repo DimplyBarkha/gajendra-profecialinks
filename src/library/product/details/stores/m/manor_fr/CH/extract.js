@@ -58,28 +58,34 @@ async function implementation(
     pipeSeparatorSingle('variants', variants);
 
     try {
+       // @ts-ignore
+      const allData = window.dataLayer;
       // @ts-ignore
-      const name = document.querySelectorAll('div[class="m-productdetailareaa__areaA__title-line g-col g-col-1"]')[0].innerText;
+      let name = document.querySelectorAll('div[class="m-productdetailareaa__areaA__title-line g-col g-col-1"]')[0].innerText;
       if (name !== null && name.length > 0) {
+        let size, color;
+        try {
+          size = allData[0].transactionProducts[0].size;
+          if (size != 'none') {
+            addElementToDocument('size', size);
+            name = name + ' ' + size;
+          }
+        } catch (error) {
+
+        }
+        try {
+          color = allData[0].transactionProducts[0].colour;
+          if (color != 'none') {
+            addElementToDocument('variantInformation', color);
+            name = name + ' ' + color;
+          }
+        } catch (error) {
+
+        }
         addElementToDocument('name', name);
       }
     } catch (error) {
 
-    }
-    try {
-      // @ts-ignore
-      let size = document.querySelector('span[class="m-productsizeselect-v-2__title"]').outerText.replace(/INHALT: /g, '')
-      if (size !== null && size.length > 0 && !size.includes('INHALT')) {
-        addElementToDocument('size', size);
-      }
-      else {
-        // @ts-ignore
-        size = document.querySelector('a[class="m-productsizeselect-v-2__variant m-productsizeselect-v-2__variant__title js-size-selector-title"]').outerText
-        if (size !== null && size.length > 0) {
-          addElementToDocument('size', size);
-        }
-      }
-    } catch (error) {
     }
     let alternateImages = [];
     let temp;
@@ -103,8 +109,26 @@ async function implementation(
     }
     try {
       // @ts-ignore
-      const specifications=document.querySelector('div[class="m-productfactslist"]').innerText;
+      const specifications = document.querySelector('div[class="m-productfactslist"]').innerText;
       addElementToDocument('specifications', specifications);
+    } catch (error) {
+
+    }
+    try {
+      const descriptionFinal = [];
+      const description = getAllXpath('//div[@class="m-productdescription__description js-desc"]//text()[not(ancestor::span)]', 'nodeValue');
+      for (let i = 0; i < description.length; i++) {
+        if (description[i].length > 1) {
+          descriptionFinal.push(description[i]);
+        }
+      }
+      spaceSeparatorSingle('description', descriptionFinal)
+    } catch (error) {
+
+    }
+    try {
+      const ingredientsList = getAllXpath('//span[@class="m-productfacts__single__name" and contains(text(),"Zutaten")]/parent::div/div/span/text() | //span[@class="m-productfacts__single__name" and contains(text(),"Ingrédients")]/parent::div/div/span/text()', 'nodeValue');
+      addElementToDocument('ingredientsList', ingredientsList[0]);
     } catch (error) {
       
     }
