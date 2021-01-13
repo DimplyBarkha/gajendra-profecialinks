@@ -84,9 +84,30 @@ async function implementation (
     if (pdfExist) addElementToDocument('pdfExist', 'Yes');
     const image360Exists = document.querySelector('div.wc-three-sixty');
     if (image360Exists) addElementToDocument('image360Exists', 'Yes');
-    const manufacturerDescription = document.querySelector('div#from_manufacturer_content')
+    let manufacturerDescription = document.querySelector('div#from_manufacturer_content')
       ? document.querySelector('div#from_manufacturer_content').innerText.replace(/\n{2,}|\s{2,}/g, '') : '';
+    const manDescSelector = [...document.querySelector('.syndi_powerpage').shadowRoot.querySelectorAll('.syndigo-featureset-feature')];
+    let manDescArray = [];
+    for (let i = 0; i < manDescSelector.length; i++) {
+      if (manDescSelector[i].innerText) {
+        manDescArray.push(manDescSelector[i].innerText);
+      }
+    }
+    manDescArray = [...new Set(manDescArray)];
+    const manDesc = manDescArray.join(' | ');
+    manufacturerDescription = manufacturerDescription + manDesc;
     if (manufacturerDescription) addElementToDocument('manufacturerDescription', manufacturerDescription);
+
+    const manImageSelector = [...document.querySelector('.syndi_powerpage').shadowRoot.querySelectorAll('img')];
+    let manImagesArray = [];
+    for (let i = 0; i < manImageSelector.length; i++) {
+      if (manImageSelector[i].getAttribute('src')) {
+        manImagesArray.push(manImageSelector[i].getAttribute('src'));
+      }
+    }
+    manImagesArray = [...new Set(manImagesArray)];
+    const manImages = manImagesArray.join(' | ');
+    document.querySelector('body').setAttribute('manImages', manImages);
 
     const viedoContainer = document.querySelector('div#productvideocontainer script')
       ? document.querySelector('div#productvideocontainer script').innerText : '';
@@ -113,43 +134,43 @@ async function implementation (
       priceText = priceText.substr(12, priceText.length);
     }
     if (priceText !== '') addElementToDocument('priceText', priceText);
-    let scripts=document.querySelectorAll('script[type="text/javascript"]');
-    let targetScript=null;
-    let skuStr='';
-    for(let i=0;i<scripts.length;i++){
-        if(scripts[i].innerText.includes('Product_')){
-            targetScript=scripts[i].innerText;
-          }
+    const scripts = document.querySelectorAll('script[type="text/javascript"]');
+    let targetScript = null;
+    let skuStr = '';
+    for (let i = 0; i < scripts.length; i++) {
+      if (scripts[i].innerText.includes('Product_')) {
+        targetScript = scripts[i].innerText;
+      }
+    }
+    for (let i = 0; i < targetScript.length; i++) {
+      if (targetScript.substring(i, i + 3).includes('SKU')) {
+        let j = i + 3;
+        while (true) {
+          if (targetScript.charAt(j) === '}') { skuStr = targetScript.substring(i, j); break; }
+          j++;
         }
-    for(let i=0;i<targetScript.length;i++){
-        if(targetScript.substring(i,i+3).includes('SKU')){
-          let j=i+3;
-          while(true){
-            if(targetScript.charAt(j)==='}') {skuStr=targetScript.substring(i,j); break;}
+        break;
+      }
+    }
+    if (skuStr.length > 0) {
+      for (let i = 0; i < targetScript.length; i++) {
+        if (targetScript.substring(i, i + 3).includes('SKU')) {
+          let j = i + 3;
+          while (true) {
+            if (targetScript.charAt(j) === '}') { skuStr = targetScript.substring(i, j); break; }
             j++;
           }
           break;
         }
       }
-      if(skuStr.length>0){
-        for(let i=0;i<targetScript.length;i++){
-          if(targetScript.substring(i,i+3).includes('SKU')){
-            let j=i+3;
-            while(true){
-              if(targetScript.charAt(j)==='}') {skuStr=targetScript.substring(i,j); break;}
-              j++;
-            }
-            break;
-          }
-        }
-  for(let i=5;i<skuStr.length;i++){
-      if(skuStr.charAt(i)=='\''){
-         skuStr=skuStr.substring(i+1,skuStr.length-1);
+      for (let i = 5; i < skuStr.length; i++) {
+        if (skuStr.charAt(i) == '\'') {
+          skuStr = skuStr.substring(i + 1, skuStr.length - 1);
           break;
+        }
       }
-  }
-      }
-      addElementToDocument('skuString',skuStr);
+    }
+    addElementToDocument('skuString', skuStr);
   });
   await context.extract(productDetails, { transform });
 }
