@@ -20,3 +20,9 @@ fields:
     xpath: //div[@id="features"]//dt[contains(.,"Color:")]/following-sibling::dd[1]
   - name: quantity
     xpath: //dl[@class="product-details"]//dt[contains(.,"pulgadas")]/following-sibling::dd[1]
+  - name: _input
+    xpath: ../..//meta[@property="og:url"]/@content
+    regExp: (.+-)(\d+)(.htm.+)
+    regExpReplace: $2
+  - name: productUrl
+    xpath: ../..//meta[@property="og:url"]/@content

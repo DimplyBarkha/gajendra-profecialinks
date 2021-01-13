@@ -115,13 +115,15 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     description: The extended description of the product supplied by the lister
-    xpath: //div[@id="flix-inpage"] | //div[@id="rcm-container"]
+    xpath: '@aplus-description | //div[@id="flix-inpage"] | //div[@id="rcm-container"] | //div[@id="wrp_cnet"]//div[contains(@id,"inline-content")]'
   - name: manufacturerImages
     description: Images within the third party description
-    xpath: //div[contains(@class,"inpage_selector_feature") or contains(@class,"inpage_selector_gallery")]//img/@data-flixsrcset | //div[@id="rcm-container"]//img/@src | //div[@class="flix-tech-spacs"]//img/@data-flixsrcset
+    xpath: '@aplus-images | //div[contains(@class,"inpage_selector_feature") or contains(@class,"inpage_selector_gallery")]//img/@data-flixsrcset | //div[contains(@class,"inpage_selector_feature") or contains(@class,"inpage_selector_gallery")]//img/@data-srcset | //div[contains(@class,"inpage_selector_feature") or contains(@class,"inpage_selector_gallery")]//a/@href[contains(.,"media")] | //div[@id="rcm-container"]//img/@src | //div[@class="flix-tech-spacs"]//img/@data-flixsrcset | //div[@id="wrp_cnet"]//div[@data-media-type="image"]/@data-image-url | //div[@id="wrp_cnet"]//img/@data-large'
   - name: videos
     description: URLs of videos on page
-    xpath: //div[contains(@class,"fullJwPlayerWarp")]//input/@value | //meta[@itemprop="contentURL"]/@content | //div[contains(@class,"cms_html_container") or contains(@class,"embed-responsive")]//iframe/@src
+    xpath: '@aplus-videos | //div[contains(@class,"fullJwPlayerWarp") or contains(@class,"flix-feature-video")]//input/@value | //meta[@itemprop="contentURL"]/@content | //div[contains(@class,"cms_html_container") or contains(@class,"embed-responsive")]//iframe/@src | //*[contains(@class,"flix_jw_videoid")]/@data-jw'
+  - name: galleryVideos
+    xpath: '@aplus-videos | //div[contains(@class,"fullJwPlayerWarp") or contains(@class,"flix-feature-video")]//input/@value | //meta[@itemprop="contentURL"]/@content | //div[contains(@class,"cms_html_container") or contains(@class,"embed-responsive")]//iframe/@src | //*[contains(@class,"flix_jw_videoid")]/@data-jw'
   - name: name
     description: The product name
     xpath: //h1[@itemprop="name"]
