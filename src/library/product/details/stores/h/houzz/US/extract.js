@@ -89,17 +89,71 @@ async function implementation(
     let jsonParsed = {};
     if (jsonString && jsonString.trim()) {
       jsonParsed = JSON.parse(jsonString);
-      findAndInsertLabel(jsonParsed[0], "image", "image");
-      findAndInsertLabel(jsonParsed[0], "category", "category");
-      findAndInsertLabel(jsonParsed[0], "name", "nameExtended");
-      findAndInsertLabel(jsonParsed[0], "description", "description");
-      findAndInsertLabel(jsonParsed[0], "sku", "sku");
-      findAndInsertLabel(jsonParsed[0], "mpn", "mpc");
-      findAndInsertLabel(jsonParsed[0], "material", "material");
-      findAndInsertLabel(jsonParsed[0], "color", "color");
-      findAndInsertLabel(jsonParsed[0].weight, "description", "weightNet");
-      findAndInsertLabel(jsonParsed[0].manufacturer, "name", "manufacturer");
-      findAndInsertLabel(jsonParsed[0], "productID", "variantId");
+      try{
+        findAndInsertLabel(jsonParsed[0], "image", "image");
+      }catch(err){
+        console.log(err)
+        };
+
+      try{
+        findAndInsertLabel(jsonParsed[0], "category", "category");
+      }catch(err){
+        console.log(err)
+        };
+
+      try{
+        findAndInsertLabel(jsonParsed[0], "name", "nameExtended");
+      }catch(err){
+        console.log(err)
+        };
+      try{
+        findAndInsertLabel(jsonParsed[0], "description", "description");
+      }catch(err){
+        console.log(err)
+        };
+
+      try{
+        findAndInsertLabel(jsonParsed[0], "sku", "sku");
+      }catch(err){
+        console.log(err)
+        };
+      try{
+        findAndInsertLabel(jsonParsed[0], "mpn", "mpc");
+      }catch(err){
+        console.log(err)
+        };
+      try{
+        findAndInsertLabel(jsonParsed[0], "material", "material");
+      }catch(err){
+        console.log(err)
+        };
+
+      try{
+        findAndInsertLabel(jsonParsed[0], "color", "color");
+
+      }catch(err){
+        console.log(err)
+        };
+      try{
+        findAndInsertLabel(jsonParsed[0].weight, "description", "weightNet");
+
+      }catch(err){
+        console.log(err)
+        };
+      try{
+        findAndInsertLabel(jsonParsed[0].manufacturer, "name", "manufacturer");
+      }catch(err){
+        console.log(err)
+        };
+      try{
+        findAndInsertLabel(jsonParsed[0], "productID", "variantId");
+      }catch(err){
+        console.log(err)
+        };
+
+
+
+
       try{
         addHiddenDiv("ii_bulletcount",jsonParsed[0].description.split("\r\n-").length-1);
       }catch(err){
