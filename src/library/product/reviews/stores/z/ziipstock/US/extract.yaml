@@ -5,7 +5,7 @@ recordXPath: //div[@class="stamped-review"]
 fields:
   - name: brand
     description: Product brand shown - this may actually NOT be just a brand name e.g. "Visit the Gillette Store"
-    xpath: ancestor::html//p[@class='product-single__vendor']//a
+    xpath: ancestor::html//p[@class='product-single__vendor']//a | ancestor::html//p[@class='product-single__vendor'] | ancestor::html//p[@class='product-single_vendor']//a | ancestor::html//p[@class='product-single_vendor']
   - name: reviewText
     description: The text of the review
     xpath: //div[@class='stamped-review-body']//p
