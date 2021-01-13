@@ -50,8 +50,27 @@ module.exports = {
         ? document.querySelector('meta[itemprop="mpn"]').getAttribute('content') : '';
       if (isVariants !== null) addElementToDocument('firstVariant', firstVariant);
     });
+    var dataRef = await context.extract(productDetails, { transform });
+    dataRef[0].group.forEach((row) => {
+      if (row.variantInformation) {
+        row.variantInformation.forEach(item => {
+          item.text = item.text ? item.text.trim() : '';
+        });
+      }
+      if (row.variants) {
+        row.variants.forEach(item => {
+          item.text = item.text.includes('variant') ? item.text.split('variant: ').join('') : item.text;
+        });
+      }
+      if (row.nameExtended) {
+        row.nameExtended.forEach(item => {
+          item.text = item.text.includes('variant') ? item.text.split('variant: ').pop() : item.text;
+        });
+      }
+    });
 
-    await context.extract(productDetails, { transform });
+    return dataRef;
+    // await context.extract(productDetails, { transform });
   },
 
 };

@@ -24,12 +24,12 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: (//ul[@class='breadcrumbs']/li)[position() < last()]
+    xpath: (//ul[@class='breadcrumbs']/li)[position() > 1 and position() < last()]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //h1[@itemprop='name']
+    xpath: concat(//h1[@itemprop='name'], ' ', //select[@class='autoredirect']/option)
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -472,6 +472,7 @@ fields:
   - name: variants
     singleValue: false
     description: null
+    xpath: //select[@class='autoredirect']/option
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
