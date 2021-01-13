@@ -1,79 +1,30 @@
 /**
  *
- * @param { { keywords: string, zipcode: string } } inputs
+ * @param { { keywords: string, zipcode: string, storeID: string ,query: string} } inputs
  * @param { { url: string, loadedSelector?: string, noResultsXPath: string } } parameters
  * @param { ImportIO.IContext } context
  * @param { { goto: ImportIO.Action} } dependencies
  */
 async function implementation (
   inputs,
-  parameters,
+  { url, loadedSelector, noResultsXPath },
   context,
   dependencies,
 ) {
-  console.log('params', parameters);
-  const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
-  await dependencies.goto({ url, zipcode: inputs.zipcode });
-
-  async function timeout1 (ms) {
-    console.log('waiting for ' + ms + ' millisecs');
-    return new Promise((resolve) => setTimeout(resolve, ms));
-  }
-
-  await timeout1(5000);
-
-  // await context.evaluate(async () => {
-  //   async function timeout(ms) {
-  //     console.log('waiting for ' + ms + ' millisecs');
-  //     return new Promise((resolve) => setTimeout(resolve, ms));
-  //   }
-
-  //   let loaderSel = 'span[data-search="product"][class*="search-results__loader"]';
-  //   let loaderElm = document.querySelectorAll(loaderSel);
-  //   let waitMax = 250000;
-  //   let checkAfter = 500;
-  //   let timeBeing = 0;
-  //   let isLoaderPresent = false;
-  //   if(loaderElm.length > 0) {
-  //     console.log('we have loader -- need to wait');
-  //     isLoaderPresent = true;
-  //     if(loaderElm.length === 1) {
-  //       while(isLoaderPresent) {
-  //         await timeout(checkAfter);
-  //         timeBeing = timeBeing + checkAfter;
-  //         console.log(`We have waited for ${timeBeing} ms`);
-  //         if(timeBeing > waitMax) {
-  //           console.log('we have waited for too long - ' + timeBeing + ' Still the loader is there');
-  //           break;
-  //         }
-  //         loaderElm = document.querySelectorAll(loaderSel);
-  //         if(loaderElm.length === 0) {
-  //           isLoaderPresent = false;
-  //         }
-  //       }
-  //       console.log('do we still have the loader - ' + isLoaderPresent);
-
-  //     } else {
-  //       console.log('we have many loaders - not sure what to do');
-  //     }
-  //   } else {
-  //     console.log('no loader found - can steer through');
-  //   }
-  // });
-
-  if (parameters.loadedSelector) {
+  const { keywords, query } = inputs;
+  console.log(url);
+  const destinationUrl = url
+    .replace('{searchTerms}', encodeURIComponent(keywords))
+    .replace('{queryParams}', query);
+  await dependencies.goto({ ...inputs, url: destinationUrl });
+  await new Promise((resolve) => setTimeout(resolve, 5000));
+  if (loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
+    }, { timeout: 10000 }, loadedSelector, noResultsXPath);
   }
-  console.log('Checking no results', parameters.noResultsXPath);
-  return await context.evaluate(function (xp) {
-    const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
-    console.log(xp, r);
-    const e = r.iterateNext();
-    console.log(e);
-    return !e;
-  }, parameters.noResultsXPath);
+  console.log(`noResultsXPath: ${noResultsXPath}`);
+  return await context.evaluate((xp) => !document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext(), noResultsXPath);
 }
 
 module.exports = {
@@ -114,6 +65,18 @@ module.exports = {
       name: 'zipcode',
       description: 'keywords to search for',
       type: 'string',
+    },
+    {
+      name: 'storeID',
+      description: 'Id of the store',
+      type: 'string',
+      optional: true,
+    },
+    {
+      name: 'query',
+      description: 'Part of a URL',
+      type: 'string',
+      optional: true,
     },
   ],
   dependencies: {

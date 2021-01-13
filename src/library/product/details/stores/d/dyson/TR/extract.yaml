@@ -1,4 +1,5 @@
 extends: ../shared 
+singleRecord: null
 fields:
   - name: image
     singleValue: true
@@ -426,7 +427,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: //div[@id="specifications"]
+    xpath: //div[@id="specsText"]
   - name: warranty #localedependent
     singleValue: true
     description: Guarantee associated with the product
