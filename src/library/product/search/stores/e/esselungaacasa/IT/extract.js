@@ -12,23 +12,16 @@ module.exports = {
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     await new Promise((resolve) => setTimeout(resolve, 3000));
     await context.evaluate(async function () {
+      const body = document.body;
+      const html = document.documentElement;
+      const pageHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+
       let scrollTop = 0;
-      while (scrollTop !== 20000) {
-        await stall(500);
-        scrollTop += 1000;
+      while (scrollTop <= pageHeight) {
+        await new Promise((resolve) => setTimeout(resolve, 500));
+        scrollTop += 200;
         window.scroll(0, scrollTop);
-        if (scrollTop === 20000) {
-          await stall(5000);
-          break;
-        }
-      }
-      function stall (ms) {
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            resolve();
-          }, ms);
-        });
-      }
+      };
     });
     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
     await context.evaluate(async function () {
