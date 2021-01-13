@@ -124,7 +124,7 @@ const transform = (data) => {
         row.caloriesPerServing.forEach(item => {
           const text2 = item.text.split("|");
           const text1 = `${text2[1]}`;
-          text3 = text1.replace('~ ', '');
+          text3 = text1.replace('~', '');
         });
         row.caloriesPerServing = [
           {
@@ -132,8 +132,12 @@ const transform = (data) => {
           },
         ];
       }
-
-
+ if (row.servingSize) {
+          let text = '';
+          row.servingSize.forEach(item => {
+             item.text = item.text.replace('Poids net:', '');
+         });
+ }
 
 
       //  if (row.servingSize) {

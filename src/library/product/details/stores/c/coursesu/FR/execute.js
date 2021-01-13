@@ -5,7 +5,7 @@ module.exports = {
     country: 'FR',
     store: 'coursesu',
     domain: 'coursesu.com',
-    loadedSelector: 'a.product-image.main-image img',
+    loadedSelector: 'div#pdpMain',
     noResultsXPath: '//h2/@data-su-analytics-search-error',
     zipcode: '76120',
   },

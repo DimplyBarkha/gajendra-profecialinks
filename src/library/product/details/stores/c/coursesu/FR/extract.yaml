@@ -265,10 +265,12 @@ fields:
   - name: servingSize
     singleValue: false
     description: The size of serving Nutritional information is based on.
+    xpath: //div[contains(@class,'nutritional-information')]//header[contains(@id,'ls-index-nr-0')]
+    #xpath: //div[contains(@id,'panel2')]//ul//li[contains(.,'Poids net:')]
     # xpath: //*[contains(text(), 'Pour')]
     # regExp: Pour (.*?)
     # regExpReplace: $1
-    xpath: //div[@class='nutritional-information nutritional-information--tabel']/header[@class='info-row header clearfix active']
+    #xpath: //div[@class='nutritional-information nutritional-information--tabel']/header[@class='info-row header clearfix active']
   - name: servingSizeUom
     singleValue: false
     description: Unit of measure of serving
