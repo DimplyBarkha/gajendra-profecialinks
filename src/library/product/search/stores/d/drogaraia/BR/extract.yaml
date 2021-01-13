@@ -7,7 +7,8 @@ fields:
     singleValue: false
     xpath: //div[contains(@class, "trustvox")]/@data-trustvox-product-code
   - name: searchUrl
-    singleValue: false
+    singleValue: true
+    xpath: ancestor::html//div[@id="searchUrl"][last()]
   - name: name
     xpath: //a[@data-tb-sid = "st_title-link"]
     singleValue: false
