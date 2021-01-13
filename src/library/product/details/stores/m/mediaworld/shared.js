@@ -20,7 +20,7 @@ const cleanUp = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       let text = '';
-      if (row.inTheBoxUrl.length > 1) {
+      if (row.inTheBoxUrl && row.inTheBoxUrl.length > 1) {
         row.inTheBoxUrl.forEach(item => {
           const data = item.text.split(',');
           text += `${data[data.length - 1].split(' ')[1].replace(/^(.*)/gm, 'http:$1')} || `;
