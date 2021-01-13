@@ -17,7 +17,7 @@ fields:
       - Electric Toothbrushes & Accessories
       - Electric Toothbrushes
       - Rotating
-    xpath: ancestor::html//select[@name="sort-order"]//option[@selected]
+    xpath: ancestor::html//div[contains(@class, "sort-selection-block")]//select[@name="sort-order"]//option[@selected]
   - name: productUrl
     singleValue: false
     description: The URL for the product details page
