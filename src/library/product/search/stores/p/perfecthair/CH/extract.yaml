@@ -5,9 +5,7 @@ recordXPath: //div[@class="listing--container"]//div[@class="listing"]//div[@cla
 fields: 
   - name: id
     SingleValue: false
-    xpath: //div[@class="product--actions"]//a[@class='product--action action--compare']/@href
-    regExp: (.+\/articleID\/)(\d+)
-    regExpReplace: $2
+    xpath: //div[@class="product--actions"]//a[@class='product--action cart--add-to-list']/@data-ordernumber
   - name: productUrl
     SingleValue: false
     xpath: //div[@class="product--info"]//a[@class='product--image']/@href
@@ -16,7 +14,7 @@ fields:
     xpath: //span[@class="image--media"]//img/@srcset
   - name: name
     SingleValue: false
-    xpath: //a[@class="product--title"]
+    xpath: //a[@class="product--title"]/@title
   - name: price
     SingleValue: false
     xpath: //div[@class="product--price-info"]//span[contains(@class,'price--default is--nowrap')]

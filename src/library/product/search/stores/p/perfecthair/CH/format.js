@@ -37,6 +37,12 @@ const transform = (data, context) => {
             });
             delete row.aggregateRatinghalf;
           }
+          if (row.price) {
+            row.price.forEach(item => {
+              item.text = item.text.replace(/\s*/g, '').trim();
+              item.text = item.text.replace('*', '').trim();
+            });
+          }
         if (row.aggregateRating2) {
           let info = []
           row.aggregateRating2.forEach(item => {
