@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: 'ul[data-selector="splp-pag-lst"] li:last-child a:not(.disabled)',
     mutationSelector: 'div.plt div[data-selector="splp-prd-lst-ttl"]',
     spinnerSelector: null,
-    loadedSelector: 'a > span > article > span',
+    loadedSelector: 'div.pl>div',
     noResultsXPath: '//h1[contains(text(),"NO RESULTS FOUND FOR")]',
     openSearchDefinition: null,
     domain: 'lowes.com',
