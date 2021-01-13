@@ -128,11 +128,11 @@ fields:
   - name: unInterruptedPDP
     xpath: //div[@id="accessoriesCarousel"]//div[@data-event="OFFERBOX_CLICK"]//a[@data-analytics-on="click"]
   - name: inTheBoxUrl
-    xpath: //div[@class="description-container" or @class='description_dyson-container' ]/div[contains(.,'W zestawie') or contains(.,'Zawartość')]/following-sibling::*//img/@src | //div[ contains(@class,'description-dyson')]/div[contains(.,'W pudełku')]/following-sibling::*//img/@src | //div[contains(@class,"description-col")]/img[@data-component="lazyLoad"]/@data-src
+    xpath: //div[@class="description-container" or @class='description_dyson-container' ]/div[contains(.,'W ') or contains(.,'Zawartość')]/following-sibling::*//img/@src | //div[ contains(@class,'description-dyson')]/div[contains(.,'W pudełku')]/following-sibling::*//img/@src | //h3[contains(.,"Zawartość opakowania")]/../../following-sibling::div//img/@data-src | //h3[contains(.,"Zawartość opakowania")]/../../following-sibling::div//img/@src
     regExp: (.+)
     regExpReplace: https://mediaexpert.pl$1 
   - name: inTheBoxText
-    xpath: //div[@class="description-container" or @class='description_dyson-container' ]/div[contains(.,'W zestawie') or contains(.,'Zawartość')]/following-sibling::*//img/following-sibling::p[contains(@class,'description')] | //div[contains(@class,'description-dyson-') ]/div[contains(.,'W pudełku')]/following-sibling::*//img/following-sibling::p[contains(@class,'description')]
+    xpath: //div[@class="description-container" or @class='description_dyson-container' ]/div[contains(.,'W ') or contains(.,'Zawartość')]/following-sibling::*//img/following-sibling::p[contains(@class,'description')] | //div[contains(@class,'description-dyson-') ]/div[contains(.,'W pudełku')]/following-sibling::*//img/following-sibling::p[contains(@class,'description')]
   - name: hasComparisonTable
     xpath: //div[contains(@class, "description_dyson")]//div[@class='table-responsve']/table
     regExp: (.+)
