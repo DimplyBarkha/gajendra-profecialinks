@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'kidkraft',
     domain: 'kidkraft.com',
-    loadedSelector: 'div.page-wrapper',
+    loadedSelector: 'div.fotorama__loaded--img img',
     noResultsXPath: "//div[contains(@class,'message notice')]//div/text()",
     zipcode: "''",
   },
