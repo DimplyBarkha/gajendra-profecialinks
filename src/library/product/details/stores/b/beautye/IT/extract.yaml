@@ -31,7 +31,7 @@ fields:
     # xpath: concat(//span[@class='brand-no-link'],' ',//div[@class='fotorama__caption__wrap'][1])
   - name: listPrice
     singleValue: false
-    xpath: //span[@data-price-type="oldPrice"]//span[@class="price"]
+    xpath: (//span[@data-price-type="oldPrice"]//span[@class="price"])[1]
     #xpath: //div[contains(@class,"swatch-option")]//div[contains(@class,"custom-option-price")]/text()
   - name: price
     singleValue: false
