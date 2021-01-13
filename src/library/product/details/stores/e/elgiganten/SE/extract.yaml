@@ -91,7 +91,7 @@ fields:
     xpath: //td[contains(text(),"Färg")]/following-sibling::td
   - name: aggregateRating
     singleValue: false
-    xpath: //div[@class="product-ratings__avarage"]/a/text()
+    xpath: translate(//div[@class="product-ratings__avarage"]/a/text(), ",",".")
     # manualSelector: div.bv_avgRating_component_container
   - name: ratingCount
     singleValue: false
