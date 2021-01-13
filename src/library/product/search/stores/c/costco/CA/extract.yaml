@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[contains(@class,"product-list")]/div[contains(@class,"product")][//div[@class='scProdId'][@sc.prodid!=""]]
 fields:
   - name: productUrl
     xpath: //div[@class="caption"]//span[@class="description"]/a/@href
@@ -42,7 +42,8 @@ fields:
     type: NUMBER
   - name: sponsored
     singleValue: true
-    xpath: //div[@class="criteo-sponsored"]
+    #xpath: //div[@class="criteo-sponsored"]
+    selector: div.criteo-sponsored
     description: Is sponsored/paid
     type: BOOLEAN
   - name: id
