@@ -70,8 +70,7 @@ fields:
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
   xpath: //div[@class='fed-pdp-product-details-title']/h1
-  regExp: ^(.+?)\s
-  regExpReplace: $1
+  regExp: ^[^\s]+
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
