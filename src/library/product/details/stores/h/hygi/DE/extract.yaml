@@ -3,6 +3,18 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: _url
+    xpath: (//form[@action="/showVat"]/input[@name="returnUrl"]/@value)[1]
+    regExp: (.+)
+    regExpReplace: https://www.hygi.de$1
+  - name: url
+    xpath: (//form[@action="/showVat"]/input[@name="returnUrl"]/@value)[1]
+    regExp: (.+)
+    regExpReplace: https://www.hygi.de$1
+  - name: productUrl
+    xpath: (//form[@action="/showVat"]/input[@name="returnUrl"]/@value)[1]
+    regExp: (.+)
+    regExpReplace: https://www.hygi.de$1
   - name: image
     singleValue: true
     description: URL of the main product image
@@ -44,7 +56,7 @@ fields:
     xpath: //span[@class="delivery-status status-1"]/em
     regExp: (Auf Lager.+)
     regExpReplace: In Stock
-    defaultValue: Out of Stock
+    defaultValue: Out Of Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
