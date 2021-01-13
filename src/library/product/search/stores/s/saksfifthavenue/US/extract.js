@@ -7,6 +7,12 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+
+  try {
+    await context.waitForSelector('div.welcome-modal-body', { timeout: 5000 });
+  } catch (error) {
+    console.log('No pop up');
+  }
   await context.evaluate(async function () {
     const accCookie = document.querySelector('button.ao-cb__button.ao-cb__button--accept');
     if (accCookie) {
@@ -21,12 +27,6 @@ async function implementation (
       promoClose.click();
     }
   });
-
-  try {
-    await context.waitForSelector('div.welcome-modal-body', { timeout: 25000 });
-  } catch (error) {
-    console.log('No pop up');
-  }
   await context.evaluate(async function () {
     const popup = document.querySelector('.consent-tracking-close');
     if (popup) {
@@ -34,30 +34,23 @@ async function implementation (
       popup.click();
     }
   });
-  // await context.evaluate(async function () {
-  //   const surveryPopup = document.querySelector('button.promotionModalClose.icon-close.c-modal-close.u-pos--absolute.ico.ico-close.ico-lg');
-  //   if (promoClose) {
-  //     // @ts-ignore
-  //     promoClose.click();
-  //   }
-  // });
 
-  async function scrollToRec(node) {
-    await context.evaluate(async (node) => {
-      const element = document.querySelector(node) || null;
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
-        await new Promise((resolve) => {
-          setTimeout(resolve, 5000);
-        });
-      }
-    }, node);
-  }
-  async function paginationNext () {
-    return await context.evaluate(async () => {
-      return !!document.querySelector('p.page-item.next');
-    });
-  }
+  // async function scrollToRec(node) {
+  //   await context.evaluate(async (node) => {
+  //     const element = document.querySelector(node) || null;
+  //     if (element) {
+  //       element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+  //       await new Promise((resolve) => {
+  //         setTimeout(resolve, 5000);
+  //       });
+  //     }
+  //   }, node);
+  // }
+  // async function paginationNext () {
+  //   return await context.evaluate(async () => {
+  //     return !!document.querySelector('p.page-item.next');
+  //   });
+  // }
 
   // let pageNextExists = await paginationNext();
   // console.log('pageNextExists!@');
@@ -71,15 +64,6 @@ async function implementation (
   //   console.log(pageNextExists);
   //   pageNextExists = await paginationNext();
   // }
-  console.log('totalll!@');
-  async function prod () {
-    return await context.evaluate(async () => {
-      return document.querySelectorAll('div.product-grid div.col-6').length
-      ;
-    });
-  }
-  console.log(await prod());
-  
 
   return await context.extract(productDetails, { transform });
 }

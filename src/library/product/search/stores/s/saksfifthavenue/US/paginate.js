@@ -20,7 +20,6 @@ module.exports = {
     noResultsXPath: null,
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
-    // openSearchDefinition: null,
     domain: 'saksfifthavenue.com',
     zipcode: '',
   },
