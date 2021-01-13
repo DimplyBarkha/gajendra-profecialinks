@@ -540,3 +540,10 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+  - name: inTheBoxUrl
+  - name: inTheBoxText
+    xpath: //*[text()="Includes:"]/following::ul[1]/li
+  - name: hasComparisonTable
+    defaultValue: No
+  - name: unInterruptedPDP
+    xpath: //div[@class="slick-track"]//p[@class="description"]/a
