@@ -16,6 +16,7 @@ module.exports = {
     if (cookies) {
       await context.click('input#EUCookieButton');
     };
+    await new Promise((resolve, reject) => setTimeout(resolve, 2000));
     await context.evaluate(async function () {
       // Get legalDisclaimer info
       const legalDisclaimer = Array.from(document.querySelectorAll('div.piDisclaimer')).map(elm => {

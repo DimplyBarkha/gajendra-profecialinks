@@ -2,7 +2,7 @@ input:
   id: "257876"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=6c445723-710f-40b1-af02-2fa8c9f27889/task=cd488eb3-f96e-462a-9e86-5de734aaeebc/618141b1-e6b7-4fdc-8dce-31e77900d9eb.html
+  - html: https://workbench.import.io/html/run=8a8236bc-de5a-4f31-bb8d-845e6007f69a/task=4c89a8cc-d9f7-48f9-b39d-20ad93f8b31f/862f6c61-3921-49fd-a54f-ba32b3103075.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
@@ -16,13 +16,13 @@ extractions:
               - text: Chef's Larder Premium Luxury Chocolate Fudge Cake
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/h3[1]
             image:
-              - text: https://www.booker.co.uk/bbimages/1/75bfad30-d7dd-4325-a186-bcd2f8596cd6.jpg
+              - text: http://www.booker.co.uk/bbimages/1/75bfad30-d7dd-4325-a186-bcd2f8596cd6.jpg
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             imageAlt:
               - text: Chef's Larder Premium Luxury Chocolate Fudge Cake - Click for larger image
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
             price:
-              - text: £47.89
+              - text: £65.89
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[3]/span[1]
             quantity:
               - text: 6 x 14ptn
@@ -33,11 +33,6 @@ extractions:
             variantId:
               - text: "257876"
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[1]
-            promotion:
-              - text: |-
-                  In branch until 05/01/21
-                  Normal WSP: £63.49 Now £47.89 SAVE £15.60
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[4]/ul[1]/li[1]
             brandText:
               - text: Chef's Larder
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[9]/span[1]
@@ -180,9 +175,6 @@ extractions:
             servingSizeUom:
               - text: g
                 xpath: /html/body/div[6]
-            listPrice:
-              - text: £63.49
-                xpath: /html/body/div[7]
             variantCount:
               - text: "0"
             technicalInformationPdfPresent:
@@ -196,4 +188,4 @@ extractions:
             productOtherInformation:
               - text: © Booker 000520
         xpath: /html
-    timestamp: 1608223523945
+    timestamp: 1610526298147
