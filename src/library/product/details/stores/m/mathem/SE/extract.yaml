@@ -51,7 +51,7 @@ fields:
     singleValue: true
     description: Quantity as described on the page
     regExp: \d+
-    xpath: //div[@class="title pull-left half-width"]//mh-product-quantity/mh-quantity/div[@class="add-to-cart"]//form[@class="ng-untouched ng-pristine ng-valid"]//@aria-label
+    xpath: (//div[@class="top-wrapper product-info"]//span//@aria-label)[1]
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -72,14 +72,15 @@ fields:
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //div[@class="title pull-left half-width"]//mh-product-quantity/mh-quantity/div[@class="add-to-cart"]//button[@class="decrease"]/@aria-controls
+    regExp: \d+
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
     xpath: //div[@class="title pull-left half-width"]//mh-product-quantity/mh-quantity/div[@class="add-to-cart"]//button[@class="decrease"]/@aria-controls
     regExp: \d+
-  - name: packSize
-    singleValue: true
-    description: The number of packs in the product offer (if stated separately on the site to quantity)
+  - name: storage  
+    singleValue: true 
     xpath:  //*[contains(text(),'Förvaring')]/following-sibling::*[1]
   - name: legalDisclaimer
     singleValue: true
@@ -127,7 +128,7 @@ fields:
     singleValue: true
     description: null
     xpath: //*[contains(text(),'Näringsinnehåll')]/following-sibling::*[1]
-  - name: productOtherInformation
+  - name: warnings
     singleValue: false
     description: Any other product information
     xpath: //*[contains(text(),'Bra att veta')]/following-sibling::*[1]
@@ -148,8 +149,14 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    defaultValue: Yes
   - name: url
     singleValue: true
     description: A harvest url
-    xpath: //link[@id="mh-canonical"]/@href  
+    xpath: //link[@id="mh-canonical"]/@href
+  - name: availabilityText
+    singleValue: false
+    regExp: (.+)
+    regExpReplace: In Stock 
+    defaultValue: Out Of Stock
+    xpath: //div[@class="product-open"]//button[@data-cy="increase-quantity" and @aria-disabled="false"]    
