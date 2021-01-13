@@ -55,7 +55,7 @@ fields:
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
-    xpath: count(//div[contains(@class,"product-responsive-info")]//li)
+    xpath: count(//div[@id='descriptionid']//li)
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -135,7 +135,7 @@ fields:
   - name: color
     singleValue: true
     description: A textual description of the colour
-    xpath: //div[contains(@class,'product-responsive-info')]//p[strong[contains(.,'Farge')]]/text()
+    xpath: //div[contains(@class,'product-responsive-info')]//p[strong[contains(.,'Farge')]]/text()|//div[@class="product-variants__selected" and not(//div[contains(@class,'product-responsive-info')]//p[strong[contains(.,'Farge')]]/text())]
     regExp: '[^\:]+'
   - name: colorCode
     singleValue: true

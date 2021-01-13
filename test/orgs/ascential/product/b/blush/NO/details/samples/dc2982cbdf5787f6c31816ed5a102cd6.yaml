@@ -1,0 +1,83 @@
+input:
+  _url: http://blush.no
+  URL: https://www.blush.no/product/785530
+extractions:
+  - html: https://workbench.import.io/html/run=0d85a269-245d-4362-9b25-d689c5916ab5/task=cbde368b-b196-4471-a85e-8a70bb92e662/c1f003cb-2bb1-4d68-afdb-5ba1dc24cc57.html
+    extractionConfigId: product/details/stores/b/blush/NO/extract
+    data:
+      - group:
+          - image:
+              - text: https://www.blush.no/img/p/800/785530.jpg
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/button[1]/img[1]/@src
+            nameExtended:
+              - text: Dermalogica oily skin kit
+                xpath: /html/body/div[5]
+            description:
+              - text: "Skin kit - OilyHudpleiekit fra Dermalogica for fet hud. Dette kitet for
+                  fet hud gir en fullverdig hudpleierutine som renser, tilfører
+                  fuktighet og kontrollerer talgproduksjonen for for en sunnere
+                  hud. Inneholder disse produktene:PreCleanse (prøve):
+                  Dyptrensende olje som løser opp urenheter og makeup fra huden.
+                  Dermal Clay Cleanser: Leirebasert rens som fjerner overflødig
+                  talg, klarner utbrudd og virker oppfriskende. Skin Prep Scrub:
+                  Polerende skrubb som forsiktig fjerner smuss og døde
+                  hudceller. Skin Refining Masque (prøve): Dyptrensende
+                  leiremaske som reduserer overflødig talg og renser porene.
+                  Multi-Active Toner: Oppfriskende ansiktsspray som mykgjør og
+                  bidrar til å øke absorberingen av fuktighet. Oil Control
+                  Lotion: Ultralett fuktighetskrem som absorberer overflødig
+                  talg og motvirker blank hud for et matt utseende som varer
+                  hele dagen. Total Eye Care SPF15: Øyekrem med SPF som demper
+                  mørke ringer og virker oppstrammende rundt det delikate
+                  øyeområdet. Påføring:Bruk morgen og kveld for kontrollere
+                  talgproduksjonen og motvirke tilstopninger og utbrudd."
+                xpath: /html/body/div[9]
+            gtin:
+              - text: "666151000667"
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[1]/div[2]/span[4]/span[1]
+            sku:
+              - text: "785530"
+                xpath: /html/body/div[10]
+            variantId:
+              - text: "111156"
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[1]/div[2]/span[3]/span[2]
+            mpc:
+              - text: "111156"
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[1]/div[2]/span[3]/span[2]
+            name:
+              - text: Dermalogica oily skin kit
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[1]/h1[1]/span[1]
+            availabilityText:
+              - text: Out of Stock
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: nb_NO
+                value: 0
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: nb_NO
+                value: 0
+            secondaryImageTotal:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: nb_NO
+                value: 0
+        xpath: /
+    timestamp: 1610464404515

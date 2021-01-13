@@ -2,7 +2,7 @@ input:
   _url: http://blush.no
   URL: https://www.blush.no/product/914569/sminke/oeyne/anastasia-brow-definer
 extractions:
-  - html: https://workbench.import.io/html/run=1474bedc-dfaf-421b-858e-aa29a43ca1be/task=f9f4341b-c1c0-4392-9b35-3152a41a72c1/42f91c36-4178-47c4-81d0-3b4e29828cc5.html
+  - html: https://workbench.import.io/html/run=0d85a269-245d-4362-9b25-d689c5916ab5/task=5f3710ff-fec0-4f19-bb4d-6713f6e8ef0e/9492b7c5-4dc2-4fe0-afc7-0e280c346203.html
     extractionConfigId: product/details/stores/b/blush/NO/extract
     data:
       - group:
@@ -40,7 +40,7 @@ extractions:
                   kan brukes til å myke opp harde kanter og til å børste gjennom
                   brynene.Brow Definer finnes i 10 forskjellige nyanser.Farge:
                   Taupe"
-                xpath: /html/body/div[8]
+                xpath: /html/body/div[9]
             brandText:
               - text: Anastasia Beverly Hills
                 xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[3]/div[1]/div[2]/a[2]/span[1]
@@ -49,7 +49,7 @@ extractions:
                 xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[1]/div[2]/span[4]/span[1]
             sku:
               - text: "914569"
-                xpath: /html/body/div[9]
+                xpath: /html/body/div[10]
             variantId:
               - text: ABH01-04401
                 xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[1]/div[2]/span[3]/span[2]
@@ -72,24 +72,28 @@ extractions:
               - text: Taupe
                 xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]
             variants:
-              - text: Granite
-                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]/@title
-              - text: Ebony
-                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[2]/a[1]/@title
               - text: Dark Brown
-                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[3]/a[1]/@title
-              - text: Chocolate
-                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[4]/a[1]/@title
-              - text: Medium Brown
-                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[5]/a[1]/@title
-              - text: Soft Brown
-                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[6]/a[1]/@title
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]/@title
               - text: Caramel
-                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[7]/a[1]/@title
-              - text: Taupe
-                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[8]/a[1]/@title
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[2]/a[1]/@title
+              - text: Ebony
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[3]/a[1]/@title
+              - text: Granite
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[4]/a[1]/@title
               - text: Blonde
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[5]/a[1]/@title
+              - text: Taupe
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[6]/a[1]/@title
+              - text: Medium Brown
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[7]/a[1]/@title
+              - text: Soft Brown
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[8]/a[1]/@title
+              - text: Chocolate
                 xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[9]/a[1]/@title
+              - text: Ash Brown
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[10]/a[1]/@title
+              - text: Strawburn
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[11]/a[1]/@title
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -109,11 +113,11 @@ extractions:
                 locale: nb_NO
                 value: 0
             variantCount:
-              - text: "9"
+              - text: "11"
                 type: NUMBER
-                raw: "9"
+                raw: "11"
                 locale: nb_NO
-                value: 9
+                value: 11
             secondaryImageTotal:
               - text: "2"
                 type: NUMBER
@@ -121,4 +125,4 @@ extractions:
                 locale: nb_NO
                 value: 2
         xpath: /
-    timestamp: 1608193383607
+    timestamp: 1610464406190
