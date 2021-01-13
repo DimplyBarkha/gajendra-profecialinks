@@ -10,6 +10,34 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { transform }, context, { productDetails }) => {
+    const applyScroll = async function (context) {
+      await context.evaluate(async function () {
+        let scrollTop = 0;
+        while (scrollTop !== 20000) {
+          scrollTop += 500;
+          window.scroll(0, scrollTop);
+          await stall(1000);
+        }
+        function stall(ms) {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve();
+            }, ms);
+          });
+        }
+      });
+    };
+    await applyScroll(context);
+    await context.evaluate(async function (context) {
+      const seeAllSelector = document.querySelector('#produktdetailseiten_reco-bottom div.next');
+      if (seeAllSelector) {
+        seeAllSelector.click();
+        seeAllSelector.click();
+        seeAllSelector.click();
+        seeAllSelector.click();
+        seeAllSelector.click();
+      }
+    });
     var extractedData = await context.extract(productDetails, { transform });
 
     var productUrl = extractedData[0].group[0].productUrl;

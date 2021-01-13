@@ -556,3 +556,13 @@ fields:
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
   defaultValue: Yes
+# custom Fields
+- name: inTheBoxUrl
+  xpath: //div[contains(@class,"InTheBox")]//div[contains(@class,"flix")]//img/@srcset
+  regExp: (.+)
+  regExpReplace: https:$1
+- name: inTheBoxText
+  xpath: //div[contains(@class,"InTheBox")]//div[contains(@class,"flix")]//span
+- name: hasComparisonTable
+- name: unInterruptedPDP
+  xpath: //*[@id="product-details"]//div[1]/div[1]//a/div|//div[contains(@class,"border")]/h2[contains(text(),"interessieren")]/following::div[@class="cf products-carousel"]//ul[@class="products-grid"]/li[not(contains(@class,"cloned"))]//div[contains(@class, "base-info")]//h3
