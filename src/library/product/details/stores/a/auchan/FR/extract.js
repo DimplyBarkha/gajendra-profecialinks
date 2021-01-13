@@ -42,16 +42,41 @@ module.exports = {
       if (chooseDriveSelector) {
         await context.waitForSelector(chooseDriveSelector);
         await context.click(chooseDriveSelector);
-
-        await context.waitForSelector('input.journeySearchInput');
-        await context.setInputValue('input.journeySearchInput', '75020');
-        await context.waitForSelector('li.journey__search-suggest');
-        await context.click('li.journey__search-suggest');
-        await context.waitForSelector('.journey-offering-context__wrapper .journey-offering-context__actions button');
-        await context.click('.journey-offering-context__wrapper .journey-offering-context__actions button');
+        await context.waitForNavigation({ timeout: 45000 });
+        try {
+          await context.waitForSelector('input.journeySearchInput', { timeout: 45000 });
+          await context.setInputValue('input.journeySearchInput', '75020');
+          await context.waitForSelector('li.journey__search-suggest');
+          await context.click('li.journey__search-suggest');
+          await context.waitForSelector('.journey-offering-context__wrapper .journey-offering-context__actions button');
+          await context.click('.journey-offering-context__wrapper .journey-offering-context__actions button');
+        } catch (error) {
+          console.log('Not loading inputs for journey search');
+        }
         await new Promise((resolve, reject) => setTimeout(resolve, 1000));
         await context.goto(mainUrl, { timeout: 1000000, waitUntil: 'networkidle0', checkBlocked: true });
       }
+    }
+
+    async function scrollToRec (node) {
+      await context.evaluate(async (node) => {
+        const element = document.querySelector(node) || null;
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+          await new Promise((resolve) => {
+            setTimeout(resolve, 5000);
+          });
+        }
+      }, node);
+    }
+    await scrollToRec('div.flex-wrapper');
+    await scrollToRec('div#tabDescription');
+    await scrollToRec('footer');
+
+    try {
+      await context.waitForSelector('div#flix-inpage', { timeout: 45000 });
+    } catch (e) {
+      console.log('No loading manuf content');
     }
     await context.evaluate(async function () {
       function addHiddenDiv (id, content) {
