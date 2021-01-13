@@ -40,58 +40,13 @@ module.exports = {
   },
   path: './goto/domains/${domain[0:2]}/${domain}',
   implementation: async (inputs, parameters, context, dependencies) => {
-    const { timeout = 10000, jsonToTable } = parameters;
+    const { timeout = 10000 } = parameters;
     const { url, zipcode, storeId } = inputs;
     await context.goto(url, { timeout, waitUntil: 'load', checkBlocked: true });
-    console.log('==============')
-    console.log(`jsonToTable: ${jsonToTable}`)
-    console.log(parameters)
-    console.log('==============')
-    await new Promise((resolve) => setTimeout(resolve, 3000));
-    if (jsonToTable && url.split('[!opt!]')[1] && url.split('[!opt!]')[1].includes('"type":"json"')) {
-      let isTableReady = true;
-      await context.waitForXPath('//table//tbody//td', timeout)
-        .catch(() => { console.log('got caught'); isTableReady = false; });
-        console.log('==============')
-        console.log(`isTableReady: ${isTableReady}`);
-        console.log('==============')
-      if (!isTableReady) {
-      // load the json into a table manually
-        isTableReady = await context.evaluate(() => {
-          let body;
-          try {
-          // if this line fails, it means that the response had an issue, therefore no valid results are there
-            body = JSON.parse(document.body.innerText);
-          } catch (error) {
-            console.error(error);
-            return false;
-          }
-          // transform the json into an html table
-          const appendRow = (obj, depth, headers) => {
-            return headers.reduce((acc, key) => {
-              const value = obj[key] || '';
-              if (typeof value === 'object' || Array.isArray(value)) {
-                return `${acc}<td class="${key} depth_${depth}">${obj2HTMLTable(value, depth + 1)}</td>`;
-              }
-              return `${acc}<td class="${key} depth_${depth}">${value.toString()}</td>`;
-            }, '<tr>') + '</tr>';
-          };
-          const obj2HTMLTable = (origin, depth) => {
-            if (!Array.isArray(origin)) return obj2HTMLTable([origin], depth);
-            const arr = typeof origin[0] === 'object' ? origin : origin.map(val => ({ LISTITEM: val }));
-            const headers = [...new Set(arr.reduce((acc, obj) => [...Object.keys(obj)], []))];
-            const tHead = headers
-              .reduce((acc, key) => `${acc}<th>${key}</th>`, '<table><thead><tr>') + '</tr></thead>';
-            return arr.reduce((acc, obj) => {
-              return acc + appendRow(obj, depth, headers);
-            }, `${tHead}<tbody>`) + '</tbody></table>';
-          };
-          const htmlString = obj2HTMLTable(body, 0);
-          document.write(htmlString);
-          document.close();
-          return htmlString;
-        });
-      }
+
+    // patch for synchronicity issue between json decoring and goto result
+    if (url.split('[!opt!]')[1] && url.split('[!opt!]')[1].includes('"type":"json"')) {
+      await new Promise((resolve) => setTimeout(resolve, 5000));
     }
 
     console.log(`zipcode: ${zipcode}`);
