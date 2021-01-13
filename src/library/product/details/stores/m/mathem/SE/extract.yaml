@@ -115,12 +115,12 @@ fields:
     singleValue: true
     description: Price in the selected store
     xpth: //mh-product-campaign-price//p[@class="price"]//mh-product-active-price
-  - name: brandLink
-    singleValue: true
-    description: null
-    xpath: //div[@class="title pull-left half-width"]//h1//a[contains(@class,"underlined")]/@href
-    regExp: (/.+)
-    regExpReplace: https://www.mathem.se$1
+  # - name: brandLink
+  #   singleValue: true
+  #   description: null
+  #   xpath: //div[@class="title pull-left half-width"]//h1//a[contains(@class,"underlined")]/@href
+  #   # regExp: (/.+)
+  #   # regExpReplace: https://www.mathem.se$1
   - name: ingredientsList
     singleValue: true
     xpath: //*[contains(text(),'Innehållsförteckning')]/following-sibling::*[1]  
@@ -156,7 +156,10 @@ fields:
     xpath: //link[@id="mh-canonical"]/@href
   - name: availabilityText
     singleValue: false
+    xpath: (//div[@data-cy="product-details"]//button/@aria-controls)[1]
     regExp: (.+)
     regExpReplace: In Stock 
     defaultValue: Out Of Stock
-    xpath: //div[@class="product-open"]//button[@data-cy="increase-quantity" and @aria-disabled="false"]    
+    
+   
+        
