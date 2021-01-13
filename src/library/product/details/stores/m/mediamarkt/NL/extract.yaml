@@ -91,10 +91,10 @@ fields:
     singleValue: false
     description: Must include image url to show the accessories/tools which come with the product
   - name: inTheBoxText
-    xpath: //article[@id="omschrijving"]/p[last()]
-    regExp: In de verpakking:\s(.+) | Dit krijg je erbij:(.+)
-    regExpReplace: $1
-  - name: hasComparisonTable
+  #   xpath: //article[@id="omschrijving"]/p[last()]
+  #   regExp: In de verpakking:\s(.+)|Dit krijg je erbij:(.+)
+  #   regExpReplace: $1$2
+  # - name: hasComparisonTable
     defaultValue: No
   - name: variants
     xpath: //div[contains(@class,"product-attributes__group")]//@data-action-id | //div[contains(@class,"product-attributes__group")]//@href
