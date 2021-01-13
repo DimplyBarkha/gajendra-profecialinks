@@ -18,77 +18,6 @@ async function implementation (
     return window.location.href;
   });
 
-  const iFrameSrc = await context.evaluate(async function () {
-    const manuf = document.querySelector('button[data-track*="From the Manufacturer');
-    if (manuf) {
-      manuf.click();
-      await new Promise(resolve => setTimeout(resolve, 5000));
-    }
-    const iFrameSrc = document.querySelector('iframe.manufacturer-content-iframe') && document.querySelector('iframe.manufacturer-content-iframe').getAttribute('src');
-    return iFrameSrc;
-  });
-  let manufacturerData = '';
-  const timeout = parameters.timeout ? parameters.timeout : 130000;
-  if (iFrameSrc) {
-    try {
-      await context.goto(`${iFrameSrc}#[!opt!]{"block_ads":false,"anti_fingerprint":false,"first_request_timeout":60,"load_timeout":30,"load_all_resources":true,"enable_cache":false,"discard_CSP_header":true}[/!opt!]`);
-    } catch (error) {
-      console.log('Enhanced content navigation error', error);
-    }
-    try {
-      try {
-        await context.waitForSelector('div#syndi_powerpage div[class*="syndigo-shadowed-powerpage"]');
-      } catch (error) {
-        console.log('Error: syndi_powerpage selector not found');
-      }
-      manufacturerData = await context.evaluate(async function () {
-        const manuData = document.querySelector('div#syndi_powerpage div[class*="syndigo-shadowed-powerpage"]');
-        const getShadowDomHtml = (manuData) => {
-          let shadowText = '';
-          const shadowImage = [];
-          if (manuData && manuData.shadowRoot) {
-            let imagesHtml = manuData.shadowRoot.childNodes[0];
-            for (const el of manuData.shadowRoot.childNodes) {
-              shadowText += el.innerText;
-            }
-            imagesHtml = imagesHtml.querySelectorAll('img') || '';
-            if (imagesHtml && imagesHtml.length) {
-              imagesHtml.forEach(element => {
-                shadowImage.push(element.src);
-              });
-            }
-          } else {
-            manuData = document.querySelector('div.ccs-cc-inline.ccs-cc-block-inline');
-            if (manuData) {
-              shadowText = manuData.innerText;
-              const imagesHtml = manuData.querySelectorAll('img') || '';
-              if (imagesHtml && imagesHtml.length) {
-                imagesHtml.forEach(element => {
-                  shadowImage.push(element.src);
-                });
-              }
-            } else {
-              manuData = document.querySelector('#wc-outter-wrapper');
-              if (manuData) {
-                shadowText = manuData.innerText;
-                const imagesHtml = manuData.querySelectorAll('img') || '';
-                if (imagesHtml && imagesHtml.length) {
-                  imagesHtml.forEach(element => {
-                    shadowImage.push(element.src);
-                  });
-                }
-              }
-            }
-          }
-          return { shadowText: shadowText.trim(), shadowImage };
-        };
-        return getShadowDomHtml(manuData);
-      });
-    } catch (error) {
-      console.log('Enhanced content not loaded', error);
-    }
-    await context.goto(`${mainUrl}&intl=nosplash#[!opt!]{"block_ads":false,"anti_fingerprint":false,"first_request_timeout":60,"load_timeout":30,"load_all_resources":true,"enable_cache":false,"discard_CSP_header":true}[/!opt!]`, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: true });
-  }
   try {
     // await context.captureRequests();
     // try{
@@ -119,32 +48,32 @@ async function implementation (
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
-      try {
-        await new Promise(resolve => setTimeout(resolve, 8000));
-        // await context.waitForSelector('button[data-track*="From the Manufacturer"]')
-        // await context.click('button[data-track*="From the Manufacturer"]')
-        const manuf = document.querySelector('button[data-track*="From the Manufacturer');
-        if (manuf) {
-          manuf.click();
-          await new Promise(resolve => setTimeout(resolve, 5000));
-          // await context.waitForSelector('iframe.manufacturer-content-iframe');
-          const ifr = document.querySelector('iframe.manufacturer-content-iframe');
-          if (ifr) {
-            const aplusImgs = ifr.contentDocument.body.querySelectorAll('img.wc-media');
-            console.log('aplusImgs', aplusImgs);
-            if (aplusImgs && aplusImgs.length > 0) {
-              aplusImgs.forEach((el, idx) => {
-                const img = el.getAttribute('src');
-                if (img) {
-                  addHiddenDiv(`aplusImg_${idx}`, img);
-                }
-              });
-            }
-          }
-        }
-      } catch (error) {
-        console.log('Manufacturer contents are not loaded');
-      }
+      // try {
+      //   await new Promise(resolve => setTimeout(resolve, 8000));
+      //   await context.waitForSelector('button[data-track*="From the Manufacturer"]')
+      //   await context.click('button[data-track*="From the Manufacturer"]')
+      //   const manuf = document.querySelector('button[data-track*="From the Manufacturer');
+      //   if (manuf) {
+      //     manuf.click();
+      //     await new Promise(resolve => setTimeout(resolve, 5000));
+      //     // await context.waitForSelector('iframe.manufacturer-content-iframe');
+      //     const ifr = document.querySelector('iframe.manufacturer-content-iframe');
+      //     if (ifr) {
+      //       const aplusImgs = ifr.contentDocument.body.querySelectorAll('img.wc-media');
+      //       console.log('aplusImgs', aplusImgs);
+      //       if (aplusImgs && aplusImgs.length > 0) {
+      //         aplusImgs.forEach((el, idx) => {
+      //           const img = el.getAttribute('src');
+      //           if (img) {
+      //             addHiddenDiv(`aplusImg_${idx}`, img);
+      //           }
+      //         });
+      //       }
+      //     }
+      //   }
+      // } catch (error) {
+      //   console.log('Manufacturer contents are not loaded');
+      // }
       const vidSel = document.querySelector('li.video-thumbnail button');
       if (vidSel) {
         vidSel.click();
@@ -261,9 +190,121 @@ async function implementation (
         }
       }
     });
-    // await context.extract(productDetails, { transform });
+    await context.extract(productDetails, { transform });
   } catch (error) {
     console.log(error);
+  }
+
+  const iFrameSrc = await context.evaluate(async function () {
+    const manuf = document.querySelector('button[data-track*="From the Manufacturer');
+    if (manuf) {
+      manuf.click();
+      await new Promise(resolve => setTimeout(resolve, 5000));
+    }
+    const iFrameSrc = document.querySelector('iframe.manufacturer-content-iframe') && document.querySelector('iframe.manufacturer-content-iframe').getAttribute('src');
+    console.log('IFRAME', document.querySelector('iframe.manufacturer-content-iframe'));
+    return iFrameSrc;
+  });
+  let manufacturerData = '';
+  const timeout = parameters.timeout ? parameters.timeout : 130000;
+  if (iFrameSrc) {
+    console.log('IFRAME SRC found', iFrameSrc);
+    try {
+      await context.goto(`${iFrameSrc}#[!opt!]{"block_ads":false,"anti_fingerprint":false,"first_request_timeout":60,"load_timeout":30,"load_all_resources":true,"enable_cache":false,"discard_CSP_header":true}[/!opt!]`);
+      await context.waitUntil('load');
+      console.log('on iFrame page');
+    } catch (error) {
+      console.log('Enhanced content navigation error', error);
+    }
+    try {
+      try {
+        await context.waitForSelector('div#syndi_powerpage div[class*="syndigo-shadowed-powerpage"]');
+      } catch (error) {
+        console.log('Error: syndi_powerpage selector not found');
+      }
+      manufacturerData = await context.evaluate(async function () {
+        const manuData = document.querySelector('div#syndi_powerpage div[class*="syndigo-shadowed-powerpage"]');
+        const getShadowDomHtml = async (manuData) => {
+          let shadowText = '';
+          const shadowImage = [];
+          if (manuData && manuData.shadowRoot) {
+            let imagesHtml = manuData.shadowRoot.childNodes[0];
+            for (const el of manuData.shadowRoot.childNodes) {
+              shadowText += el.innerText;
+            }
+            imagesHtml = imagesHtml.querySelectorAll('img') || '';
+            if (imagesHtml && imagesHtml.length) {
+              imagesHtml.forEach(element => {
+                shadowImage.push(element.src);
+              });
+            }
+          } else {
+            manuData = document.querySelector('div.ccs-cc-inline.ccs-cc-block-inline');
+            if (manuData) {
+              shadowText = manuData.innerText;
+              const imagesHtml = manuData.querySelectorAll('img') || '';
+              if (imagesHtml && imagesHtml.length) {
+                imagesHtml.forEach(element => {
+                  shadowImage.push(element.src);
+                });
+              }
+            } else {
+              manuData = document.querySelector('#wc-outter-wrapper');
+              if (manuData) {
+                // shadowText = manuData.innerText;
+                const imagesHtml = manuData.querySelectorAll('img') || '';
+                if (imagesHtml && imagesHtml.length) {
+                  imagesHtml.forEach(element => {
+                    shadowImage.push(element.src);
+                  });
+                }
+                // if (shadowText === '') {
+                const tabButtons = document.querySelectorAll('div[id="navbar"] ul li[class*="wc-selected"] ~ li a');
+                if (tabButtons) {
+                  for (let index = 0; index < tabButtons.length; index++) {
+                    const tabButtonsHref = tabButtons[index].href;
+                    const responseData = await fetch(tabButtonsHref).then(x =>
+                      x.text(),
+                    );
+                    const domParser = new DOMParser();
+                    const parsedData = domParser.parseFromString(responseData, 'text/html');
+                    const fetchedData = parsedData.querySelector('div[class*=wc-pc-tabbed-content] div[class*="wc-pc-content"]');
+                    if (shadowText) {
+                      shadowText += fetchedData.innerText;
+                    }
+                  }
+                  // }
+                  // const tabButtons = document.querySelectorAll('div.wc-ms-navbar ul li a');
+                  // for (let index = 0; index < tabButtons.length; index++) {
+                  //   const element = tabButtons[index];
+                  //   console.log(element);
+                  //   const data = document.querySelector('#wc-pc-content');
+                  //   if (data) { shadowText = data.innerText; }
+                  //   element.click();
+                  //   await new Promise((resolve, reject) => setTimeout(resolve, 500));
+                  // }
+                }
+              } else {
+                manuData = document.querySelectorAll('#inpage_container');
+                if (manuData && manuData.length) {
+                  const shadowTextArr = [];
+                  manuData.forEach(element => {
+                    shadowTextArr.push(element.innerHTML.replace(/<.*?>/gm, '').replace(/&nbsp;/g, '').replace(/Close Video/g, '').replace(/function.*?;,/g, '').replace(/FlixjQ.*?;,/g, '').trim());
+                    shadowImage.push(element.querySelector('img').src);
+                  });
+                  shadowText = shadowTextArr.join();
+                }
+              }
+            }
+          }
+          return { shadowText: shadowText.trim(), shadowImage };
+        };
+        return getShadowDomHtml(manuData);
+      });
+    } catch (error) {
+      console.log('Enhanced content not loaded', error);
+    }
+    await context.goto(`${mainUrl}&intl=nosplash#[!opt!]{"block_ads":false,"anti_fingerprint":false,"first_request_timeout":60,"load_timeout":30,"load_all_resources":true,"enable_cache":false,"discard_CSP_header":true}[/!opt!]`, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: true });
   }
   await context.evaluate(async function (manufacturerData) {
     function addHiddenDiv (id, content) {
@@ -279,7 +320,7 @@ async function implementation (
       addHiddenDiv('aplus_img', element);
     });
   }, manufacturerData);
-  return await context.extract(productDetails, { transform });
+  return await context.extract(productDetails, { transform, type: 'MERGE_ROWS' });
 }
 
 module.exports = {

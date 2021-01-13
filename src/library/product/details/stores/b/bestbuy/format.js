@@ -90,7 +90,7 @@ const transform = (data, context) => {
         }];
       }
       if (row.manufacturerDescription) {
-        row.manufacturerDescription[0].text = row.manufacturerDescription[0].text.replace(/(\s*\n\s*)+/g, ' ');
+        row.manufacturerDescription[0].text = row.manufacturerDescription[0].text.replace(/(\s*\n\s*)+/g, ' ').replace(/function.*?;,/g, '').replace(/FlixjQ.*?;,/g, '').replace(/FlixjQ.?each/g, '');
       }
     }
   }
