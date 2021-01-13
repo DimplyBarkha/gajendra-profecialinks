@@ -6,7 +6,7 @@ module.exports = {
     store: 'bigw',
     domain: 'bigw.com.au',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//h3[contains(text(), "did not return any results")]',
     zipcode: "''",
   },
 };
