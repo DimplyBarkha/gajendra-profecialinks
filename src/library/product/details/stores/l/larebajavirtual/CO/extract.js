@@ -33,10 +33,17 @@ module.exports = {
         else result = elem ? elem.singleNodeValue : '';
         return result && result.trim ? result.trim() : result;
       };
+      // price
       var price = getXpath("(//span[@class='ahora'])[1]/text() | //section[@class='product_detail']/div[@class='container']//div[@class='descripciones']/div[2]/div/div[@class='subtotal']/span/span/text()", 'nodeValue');
       if (price != null) {
         price = price.replace('.', ',');
         addElementToDocument('price', price);
+      }
+      // listPrice
+      var listprice = getXpath("//span[@class='strike2']/text()", 'nodeValue');
+      if (listprice != null) {
+        listprice = listprice.replace('.', ',');
+        addElementToDocument('listprice', listprice);
       }
       var variant = getAllXpath("//div[@class='sep-dashed']/label/text()", 'nodeValue');
       if (variant != null) {
@@ -45,8 +52,11 @@ module.exports = {
       }
       // secondaryImages
       var secimg = getAllXpath("//ul[@class='ad-thumb-list']/li[position()>1 and position()<= last()]/a/@href", 'nodeValue');
+      for (var i = 0; i < secimg.length; i++) {
+        secimg[i] = 'https://www.larebajavirtual.com' + secimg[i];
+      }
       if (secimg != null) {
-        var secondaryImages = secimg.join(' | https://www.larebajavirtual.com');
+        var secondaryImages = secimg.join(' | ');
         addElementToDocument('secondaryImages', secondaryImages);
       }
     });

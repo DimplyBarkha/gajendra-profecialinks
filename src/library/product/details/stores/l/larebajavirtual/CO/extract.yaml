@@ -17,8 +17,8 @@ fields:
     singleValue: false
     xpath: //html//div[@id='secondaryImages']
     description: Other product images (not in manufacturer description)
-    regExp: (\/images.+)
-    regExpReplace: https://www.larebajavirtual.com$1
+    # regExp: (\/images.+)
+    # regExpReplace: https://www.larebajavirtual.com$1
   - name: category
     singleValue: false
     xpath: //ol[@class='breadcrumb']/li[position()>1 and position()< last()]
@@ -36,6 +36,9 @@ fields:
     xpath: //html//div[@id='price']
     # regExp: (\$\d+)\.(\d+)
     # regExpReplace: $1,$2
+  - name: listPrice
+    singleValue: true
+    xpath: //html//div[@id='listprice']
   - name: url
     singleValue: false
     xpath: (//ol[@class='breadcrumb']/li/a/@href)[1]
