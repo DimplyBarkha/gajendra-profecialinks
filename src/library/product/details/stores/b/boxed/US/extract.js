@@ -129,7 +129,7 @@ module.exports = {
       }
       if (row.ingredientsList) {
         row.ingredientsList.forEach(item => {
-          item.text = item.text ? item.text.split('\n').join('') : '';
+          item.text = item.text ? item.text.split('\n').join(' ') : '';
         });
       }
     });
