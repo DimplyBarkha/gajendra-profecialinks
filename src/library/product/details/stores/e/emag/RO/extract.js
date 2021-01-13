@@ -86,8 +86,14 @@ module.exports = {
     if (dataRef[0].group[0].variants) {
       dataRef[0].group[0].variantCount[0].text = dataRef[0].group[0].variants.length;
     }
+    if (dataRef[0].group[0].gtin) {
+      dataRef[0].group[0].gtin[0].text = dataRef[0].group[0].gtin[0].text.match(/: (.+)/)[1];
+    }
     if (dataRef[0].group[0].brandLink) {
       dataRef[0].group[0].brandLink[0].text = `http://www.emag.ro${dataRef[0].group[0].brandLink[0].text}`;
+    }
+    if (dataRef[0].group[0].manufacturerDescription) {
+      dataRef[0].group[0].manufacturerDescription[0].text = dataRef[0].group[0].manufacturerDescription[0].text.replace(/\|\| /g, '');
     }
     if (dataRef[0].group[0].videos) {
       dataRef[0].group[0].videos.forEach((element, index) => {

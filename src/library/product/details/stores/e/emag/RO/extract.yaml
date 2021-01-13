@@ -59,7 +59,7 @@ fields:
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: //div[@id="description-body"]/*[not(.//video)][not(contains(.,"Ingrediente"))][not(contains(.,"Informatii nutritionale"))] | //div[@id="description-body"][not(*)]/text()
+  xpath: //div[@id="description-body"]//*[not(contains(@class,"plyr"))]/text()[not(.="0")]
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -88,8 +88,6 @@ fields:
   singleValue: true
   description: GTIN code (includes UPC/EAN)
   xpath: //span[@class="product-code-display pull-left"]
-  regExp: ': (\w+)'
-  regExpReplace: $1
 - name: sku
   singleValue: true
   description: The store-specific product identifier
@@ -158,7 +156,7 @@ fields:
 - name: manufacturerDescription
   singleValue: false
   description: The extended description of the product supplied by the lister
-  xpath: //div[@id="description-body"]//text()
+  xpath: //div[@id="description-body"]//*[not(contains(@class,"plyr"))]/text()[not(.="0")]
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
@@ -276,7 +274,7 @@ fields:
   singleValue: true
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
-  xpath: //div[@id="description-body"]//p[contains(.,"Ingrediente")] | //div[@id="description-body"]//b[contains(.,"Ingrediente")]/following-sibling::text()[position()=1]
+  xpath: //p[contains(., "Ingrediente")]/following-sibling::p[1]
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.
