@@ -9,7 +9,6 @@ module.exports.Helpers = class {
   // const helper = new Helpers(context)
   // helper.function()
 
-
   // Function which adds an element to the document
   async addItemToDocument (key, value, { parentID = '', type = 'div', clss = '' } = {}) {
     const inputs = { key, value, parentID, type, clss };

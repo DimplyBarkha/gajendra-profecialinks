@@ -52,6 +52,7 @@ module.exports = {
       const ajax = async (url, method, body) => {
         const response = await fetch(url, { method, headers: { 'Content-Type': 'application/json' }, body });
         const rHeaders = {};
+        // eslint-disable-next-line no-return-assign
         response.headers.forEach((value, name) => rHeaders[name] = value);
         const status = response.status;
         return response.json()
