@@ -2,13 +2,19 @@ input:
   id: "256795"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=8a8236bc-de5a-4f31-bb8d-845e6007f69a/task=cf0e6a26-f95c-456a-b6ad-6c79b70acda3/a8cc28cb-2b74-4612-beff-b34cfb97dd46.html
+  - html: https://workbench.import.io/html/run=3f9c3f8e-b3d5-42a7-ac8c-f5810cdcc736/task=8f4fae26-df99-4269-be7d-2749af4af77c/086876bf-77fd-4709-aaa1-097f1ef22fb7.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
           - category:
               - text: Browse Categories
                 xpath: /html/body/form[1]/div[3]/div[1]/div[3]/a[2]
+              - text: Grocery - Catering
+                xpath: /html/body/form[1]/div[3]/div[1]/div[3]/a[3]
+              - text: Gravy & Stock Catering
+                xpath: /html/body/form[1]/div[3]/div[1]/div[3]/a[4]
+              - text: Gravy & Gravy Browning
+                xpath: /html/body/form[1]/div[3]/div[1]/div[3]/span[5]
             nameExtended:
               - text: Bisto Gluten Free Gravy Granules 1.9kg
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/h3[1]
@@ -149,7 +155,7 @@ extractions:
                   due acknowledgement.
                 xpath: /html/body/new-disclaimer[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=256795
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=256795&categoryName=305268
                 xpath: /html/body/div[1]
             metaKeywords:
               - text: Booker, cash & carry, cash and carry, wholesale service, wholesalers, Big
@@ -180,4 +186,4 @@ extractions:
                   marks, designs and logos appearing on this pack are owned by
                   the Premier Foods Group.
         xpath: /html
-    timestamp: 1610526301351
+    timestamp: 1610541507139

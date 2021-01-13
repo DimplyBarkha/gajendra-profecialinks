@@ -2,13 +2,19 @@ input:
   id: "237197"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=8a8236bc-de5a-4f31-bb8d-845e6007f69a/task=6d905506-f8af-42a2-88e8-c71e48146cd6/e49c0f8c-8fdd-4091-9e45-43f31664ed1f.html
+  - html: https://workbench.import.io/html/run=3f9c3f8e-b3d5-42a7-ac8c-f5810cdcc736/task=6ad199d7-db47-4ce0-a7f2-07eacd7d40ce/bbcfcd63-9056-462c-95b9-6bded8d56130.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
           - category:
               - text: Browse Categories
                 xpath: /html/body/form[1]/div[3]/div[1]/div[3]/a[2]
+              - text: Health, Beauty & Baby
+                xpath: /html/body/form[1]/div[3]/div[1]/div[3]/a[3]
+              - text: Baby Food & Drinks
+                xpath: /html/body/form[1]/div[3]/div[1]/div[3]/a[4]
+              - text: Baby Drinks
+                xpath: /html/body/form[1]/div[3]/div[1]/div[3]/span[5]
             nameExtended:
               - text: Aptamil 2 Follow On Baby Milk Formula 6-12 Months 800g
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/h3[1]
@@ -282,7 +288,7 @@ extractions:
                   due acknowledgement.
                 xpath: /html/body/new-disclaimer[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=237197
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=237197&categoryName=301351
                 xpath: /html/body/div[1]
             metaKeywords:
               - text: Booker, cash & carry, cash and carry, wholesale service, wholesalers, Big
@@ -312,4 +318,4 @@ extractions:
               - text: Packaged in a protective atmosphere. Contents may settle in transit.
                   Nutricia, Aptamil® and Pronutra™ are registered trademarks.
         xpath: /html
-    timestamp: 1610526298007
+    timestamp: 1610541504573

@@ -38,7 +38,7 @@ module.exports = {
 
       // Get productUrl
       const productUrl = window.location.href;
-      addElementToDocument('productUrl', productUrl);
+      addElementToDocument('productUrl', productUrl.replace(/&CSUrl.*$/g, ''));
       // Get metakeywords
       const metaKeyword = (document.querySelector('meta[name="keywords"]') && document.querySelector('meta[name="keywords"]').getAttribute('content')) || '';
       addElementToDocument('metaKeyword', metaKeyword);
