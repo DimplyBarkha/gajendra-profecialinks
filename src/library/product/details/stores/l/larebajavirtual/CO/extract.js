@@ -43,6 +43,12 @@ module.exports = {
         var ab = variant.join(' | ');
         addElementToDocument('variant', ab);
       }
+      // secondaryImages
+      var secimg = getAllXpath("//ul[@class='ad-thumb-list']/li[position()>1 and position()<= last()]/a/@href", 'nodeValue');
+      if (secimg != null) {
+        var secondaryImages = secimg.join(' | https://www.larebajavirtual.com');
+        addElementToDocument('secondaryImages', secondaryImages);
+      }
     });
     await context.extract(productDetails);
   },

@@ -15,7 +15,7 @@ fields:
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
-    xpath: //ul[@class='ad-thumb-list']/li[position()>1 and position()<= last()]/a/@href
+    xpath: //html//div[@id='secondaryImages']
     description: Other product images (not in manufacturer description)
     regExp: (\/images.+)
     regExpReplace: https://www.larebajavirtual.com$1
@@ -83,14 +83,16 @@ fields:
     xpath: (//div[@class='descripciones']/div/div/span)[1]
   - name: ratingCount
     singleValue: true
-    description: The number of ratings
+    xpath: //div[@class='col-md-6']/p/text()
+    # regExp: ([0-9]{1,}) ratings
+    # regExpReplace: $1
     type: NUMBER
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: true
-    description: The stated aggregate rating normalized to be out of 5
+    xpath: //div[@class='clst_cal_str detail_raty']/@data-score
     type: NUMBER
   - name: variantCount
     singleValue: true
@@ -109,3 +111,7 @@ fields:
     xpath: //html//div[@id='variant']
     # xpath: //div[@class='sep-dashed']/label
     description: null
+  - name: availabilityText
+    singleValue: true
+    xpath: 
+    defaultValue: In Stock
