@@ -11,12 +11,12 @@ const implementation = async (
 
   const { url, id, zipcode } = inputs;
 
-  await context.waitForSelector('div.ProductCard a', { timeout: 5000 });
+  await context.waitForSelector('div.ProductCard a, div.ProductDetails-header', { timeout: 5000 }).catch(() => console.log('already on a product page'));
 
   await context.click('div.ContainerGrid-header.m-0 div.ProductCard a')
     .catch(() => console.log('URL given as input, no item to click'));
 
-  await context.waitForSelector('div.ProductDetails-header');
+  await context.waitForSelector('div.ProductDetails-header').catch(() => console.log('already on a product page'));;
 
   // wait and check for ratings/reviews, loads slowly:
   await context.waitForXPath('//div[@class="bv_avgRating_component_container notranslate"]', { timeout: 9000 })
