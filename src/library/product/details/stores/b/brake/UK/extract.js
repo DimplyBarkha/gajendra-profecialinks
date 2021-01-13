@@ -93,7 +93,7 @@ module.exports = {
       let caloriesPerServing;
 
       if (energyInCal && energyInKJ) {
-        caloriesPerServing = energyInCal + '|' + energyInKJ;
+        caloriesPerServing = energyInCal + ' | ' + energyInKJ;
       } else if (energyInCal && !energyInKJ) {
         caloriesPerServing = energyInCal;
       } else {
