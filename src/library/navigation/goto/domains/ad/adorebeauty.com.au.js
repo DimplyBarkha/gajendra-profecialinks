@@ -10,7 +10,11 @@ module.exports = {
   },
   implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
     const timeout = parameters.timeout ? parameters.timeout : 10000;
-    await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
+    context.setBlockAds(false);
+    context.setLoadAllResources(true);
+    context.setAntiFingerprint(false);
+
+    await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true, block_ads: false, load_all_resources: true, images_enabled: true });
     console.log(zipcode);
     if (zipcode) {
       await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
