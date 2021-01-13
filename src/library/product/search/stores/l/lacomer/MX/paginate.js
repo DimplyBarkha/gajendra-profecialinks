@@ -13,9 +13,9 @@ module.exports = {
     noResultsXPath: null,
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
-    // openSearchDefinition: {
-    //   template: 'https://www.lacomer.com.mx/lacomer/goBusqueda.action?succId=287&ver=mislistas&succFmt=100&criterio={searchTerms}#/{searchTerms}-/p={page}',
-    //   },
+    openSearchDefinition: {
+      template: 'https://www.lacomer.com.mx/lacomer/goBusqueda.action?succId=287&ver=mislistas&succFmt=100&criterio={searchTerms}#/{searchTerms}-/p={page}',
+      },
     domain: 'lacomer.com.mx',
     zipcode: '',
   },
