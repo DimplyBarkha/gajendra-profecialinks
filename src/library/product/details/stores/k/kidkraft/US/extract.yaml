@@ -15,15 +15,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[contains(@class,'fotorama__nav__frame fotorama__nav__frame--thumb')]//div[1]/img/@src
-    #xpath:  //div[contains(@class,'column main')]//div/img/@src
-    #xpath: //img[contains(@class,'fotorama__img')]/@src | //div[contains(@class,'fotorama__nav__frame fotorama__nav__frame--thumb')]//div/img/@src
-    #xpath:  //div[contains(@class,'fotorama__thumb fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img')]/img/@src
-    #xpath: //div[contains(@class,'fotorama__nav__shaft fotorama__grab')]//div/img/@src| //div[contains(@class,'fotorama__nav__frame fotorama__nav__frame--thumb')]//div/img/@src
-    #xpath: //div[contains(@class,'fotorama__thumb fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img')]/img/@src | //img[contains(@class,'fotorama__img')]/@src
-    #xpath: //div[contains(@class,'fotorama__stage')]//img[contains(@class,'fotorama__img')]/@src
-    #xpath: //img[contains(@class,'fotorama__img')]/@src
-    #xpath: //div[contains(@class,'fotorama__nav__shaft fotorama__grab')]//img/@src
+    xpath: //div[contains(@class,'fotorama-item fotorama fotorama1610515406776')]//img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -47,10 +39,10 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: boolean(//div[contains(@class,'stock unavailable')]//span[2]/text())
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    xpath: boolean(//button[contains(@class,'action primary tocart test')])
+    #regExp: (.+)
+    #regExpReplace: In Stock
+    #defaultValue: Out of Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -82,6 +74,7 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    xpath: //div[contains(@class,'data item content')]//li[contains(.,'UPC')]
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -118,8 +111,6 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     xpath: //dd[contains(@class,'bv-rating-ratio-number')]//span[contains(@class,'bv-rating')]//span
-   # xpath: //*[@id="BVRRContainer"]/div/div/div/div/div[1]/div[3]/div/div/div[2]/div[2]/div[1]/span[2]
-    #xpath: //dd[contains(@class,'bv-rating-ratio-number')]//span//span/text()
     type: NUMBER
   - name: shippingInfo
     singleValue: true
@@ -127,6 +118,7 @@ fields:
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
+    xpath: //div[contains(@class,'data item content')]//ul//li[contains(.,'Dimension')]
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
@@ -423,7 +415,8 @@ fields:
   - name: countryOfOrigin
     singleValue: true
     description: The country from which the product originates
-    xpath: //div[contains(@class,'product info detailed accordion kk')]//div//div[2]//ul[1]//li[4]
+    xpath: //div[contains(@class,'data item content')]//li[contains(.,'Country of Origin')]
+    #xpath: //div[contains(@class,'product info detailed accordion kk')]//div//div[2]//ul[1]//li[4]
   - name: allergyAdvice
     singleValue: true
     description: Allergy information associated with the product
@@ -518,7 +511,8 @@ fields:
     singleValue: true
     description: Materials used to make the product
     example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
-    xpath: //div[contains(@class,'product info detailed accordion kk')]//div//div[2]//ul[1]//li[3]
+    #xpath: //div[contains(@class,'product info detailed accordion kk')]//div//div[2]//ul[1]//li[3]
+    xpath:  //div[contains(@class,'data item content')]//li[contains(.,'Materials')]
   - name: Image360Present
     singleValue: true
     description: If 360 image is present in the carousel ['Yes','No']

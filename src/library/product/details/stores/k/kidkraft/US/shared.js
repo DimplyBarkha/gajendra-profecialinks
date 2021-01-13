@@ -58,16 +58,19 @@ const transform = (data) => {
           },
         ];
        }
-       if (row.availabilityText){
+       if(row.gtin){
+         row.gtin.forEach(item =>{
+            item.text = item.text.replace('UPC:','').trim();
+         })
+       }
+        if (row.availabilityText){
         row.availabilityText.forEach(item => {
         item.text="In Stock"
-
       });
     }
     else {
            row.availabilityText.forEach(item => {
-        item.text="Out of Stock"
-
+           item.text="Out of Stock"
       });
     }
     if(row.materials){

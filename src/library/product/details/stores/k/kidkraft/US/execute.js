@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'kidkraft',
     domain: 'kidkraft.com',
-    loadedSelector: null,
+    loadedSelector: 'div.page-wrapper',
     noResultsXPath: "//div[contains(@class,'message notice')]//div/text()",
     zipcode: "''",
   },
