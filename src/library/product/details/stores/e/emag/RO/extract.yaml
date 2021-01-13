@@ -40,18 +40,21 @@ fields:
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
-  xpath: normalize-space(concat(//div[@class="product-highlight product-page-pricing"]//p[@class="product-old-price"]/s/text()[1],".",//div[@class="product-highlight product-page-pricing"]//p[@class="product-old-price"]/s/sup," ",//div[@class="product-highlight product-page-pricing"]//p[@class="product-old-price"]/s/span))
+  xpath: normalize-space(concat(//div[@class="product-highlight product-page-pricing"]//p[@class="product-old-price"]/s/text()[1],",",//div[@class="product-highlight product-page-pricing"]//p[@class="product-old-price"]/s/sup," ",//div[@class="product-highlight product-page-pricing"]//p[@class="product-old-price"]/s/span))
 - name: price
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
-  xpath: normalize-space(concat(//div[@class="product-highlight product-page-pricing"]//p[@class="product-new-price"]/text()[1],".",//div[@class="product-highlight product-page-pricing"]//p[@class="product-new-price"]/sup," ",//div[@class="product-highlight product-page-pricing"]//p[@class="product-new-price"]/span))
+  xpath: //div[@id="price"]
 - name: availabilityText
   singleValue: true
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
-  xpath: //div[@class="product-highlight product-page-pricing"]//span[@class="label label-in_stock"] | //div[@class="product-highlight product-page-pricing"]//span[@class="label label-unavailable"] | //div[@class="product-highlight product-page-pricing"]//span[@class="label label-out_of_stock"]
+  xpath: //div[@class="product-highlight product-page-pricing"]//span[@class="label label-out_of_stock"] | //div[@class="product-highlight product-page-pricing"]//span[@class="label label-unavailable"] | //div[@class="main-product-form"]//a[contains(@class,"js-unfair-offer-btn") and contains(.,"vezi oferta")][not(//div[@class="product-highlights-wrapper"]/span[contains(@class,"label")])]
+  regExp: (.+)
+  regExpReplace: "Out Of Stock"
+  defaultValue: "In Stock"
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
@@ -84,6 +87,9 @@ fields:
 - name: gtin
   singleValue: true
   description: GTIN code (includes UPC/EAN)
+  xpath: //span[@class="product-code-display pull-left"]
+  regExp: ': (\w+)'
+  regExpReplace: $1
 - name: sku
   singleValue: true
   description: The store-specific product identifier
@@ -99,15 +105,15 @@ fields:
   singleValue: true
   description: The manufacturer model code (unique) of the product
 - name: packSize
-  singleValue: true
+  singleValue: false
   description: The number of packs in the product offer (if stated separately on the
     site to quantity)
   xpath: //td[contains(.,"pachet")]/following-sibling::td
-  regExp: (\d+)
-  regExpReplace: $1
+  regExp: \d+
 - name: legalDisclaimer
   singleValue: true
   description: Content under "legal disclaimer" header
+  xpath: //div[@class="disclaimer-section"]/p[not(.//a)]
 - name: directions
   singleValue: false
   description: Content under "directions" header
@@ -141,7 +147,7 @@ fields:
 - name: variantCount
   singleValue: true
   description: Number of variants listed
-  xpaht: count(//div[@class="product-highlights-wrapper"]//ul[@class="page-product-options-group list-inline"]/li)
+  defaultValue: '0'
 - name: color
   singleValue: true
   description: A textual description of the colour
@@ -152,14 +158,15 @@ fields:
 - name: manufacturerDescription
   singleValue: false
   description: The extended description of the product supplied by the lister
-  xpath: //div[@id="description-body"]//img//@src
+  xpath: //div[@id="description-body"]//text()
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
+  xpath: //div[@id="description-body"]//img//@data-src
 - name: videos
-  singleValue: false
+  singleValue: true
   description: URLs of videos on page
-  xpath: //div[@id="description-body"]//video/source/@src
+  xpath: //div[@id="description-body"]//video/source/@src | //*[@data-ph-id="video"][not(//div[@id="description-body"]//video/source/@src)]/a/@data-videos
 - name: name
   singleValue: true
   description: The product name
@@ -180,8 +187,9 @@ fields:
   singleValue: true
   description: Text of link next to Amazon choice graphic
 - name: brandLink
-  singleValue: true
+  singleValue: false
   description: 
+  xpath: //div[@class="disclaimer-section"]//a/@href
 - name: internationalShipping
   singleValue: true
   description: Text next to bullet point
@@ -254,6 +262,7 @@ fields:
 - name: secondaryImageTotal
   singleValue: true
   description: 
+  xpath: count(//div[contains(@class,"product-gallery-wrapper")]/div[@data-phino]//div[contains(@class,"thumbnail-wrapper ph-card")][not(contains(@class,"active"))])
 - name: news
   singleValue: true
   description: 
@@ -452,7 +461,7 @@ fields:
 - name: variantInformation
   singleValue: false
   description: colour / scent / flavour / other
-  xpath: //div[@class="product-highlights-wrapper"]//div[@class="product-highlight"][contains(.,"Alege Marime")]//p[@class="text-label"] | //div[@class="product-highlights-wrapper"]//div[@class="product-highlight"][contains(.,"Alege Marime")]//a[contains(@class,"active")]//span[contains(@class,"product-option-label")]
+  xpath: //div[@class="product-highlights-wrapper"]//ul[@class="page-product-options-group list-inline"]/li/a[contains(@class,"active")]/text()
 - name: firstVariant
   singleValue: true
   description: Unique identifier for a collection of variants. For a subset of core
@@ -463,9 +472,6 @@ fields:
     to populate "first_variant" for all variants of a product, this rpc becomes the
     common link between other variants. method 3 = apply some logic to determine link
     between variants, this will need analysis
-  xpath: //span[@class="product-code-display pull-left"]
-  regExp: ': (\w+)'
-  regExpReplace: $1
 - name: variants
   singleValue: false
   description: 
