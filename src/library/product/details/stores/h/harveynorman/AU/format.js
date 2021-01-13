@@ -98,10 +98,15 @@ const transform = (data) => {
             }
             if (row.manufacturerImages) {
                 row.manufacturerImages.forEach(item => {
-                    item.text = item.text.replace(/,.*/, '');
-                    item.text = item.text.replace('200w', '');
-                    item.text = 'I'+ item.text;
-                    item.text = item.text.slice(1, -1);
+                    if(item.text.includes("https")){
+                        item.text = item.text;
+                    }else{
+                        item.text = item.text.replace(/,.*/, '');
+                        item.text = item.text.replace('200w', '');
+                        item.text = 'I'+ item.text;
+                        item.text = item.text.slice(1, -1);
+                        item.text = 'https:'+item.text;
+                    }
                 });
             }
             if (row.additionalDescBulletInfo) {
