@@ -1,0 +1,73 @@
+input:
+  _url: http://blush.no
+  URL: https://www.blush.no/product/982611
+extractions:
+  - html: https://workbench.import.io/html/run=0d85a269-245d-4362-9b25-d689c5916ab5/task=bbfc6c16-a3d5-49c0-97bf-bbd97d4ead51/ef76c113-c8d6-44a9-8001-7bcdc87b1660.html
+    extractionConfigId: product/details/stores/b/blush/NO/extract
+    data:
+      - group:
+          - image:
+              - text: https://www.blush.no/img/p/800/982611.jpg
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/button[1]/img[1]/@src
+            nameExtended:
+              - text: L´Oréal Paris Colorista Hair Makeup Jell
+                xpath: /html/body/div[5]
+            description:
+              - text: L´Oréal Paris Colorista Hair Make Up er ikke en hårfarve, det er som
+                  makeup til håret! En behagelig formel og som gir øyeblikkelig
+                  farve. Det er ikke nødvendigt at skylle ut. Du kan føle
+                  teksturen i håret, men farven vil falme efter 1 hårvask. Du
+                  kan påføre flere forskjellige nyanser i håret samtidig for å
+                  skape din egen spesielle look!Bruk:Påfør en liten mengde farge
+                  på hårstråene og gre det oppoverGjenta hvis du ønsker merTørk
+                  fargen med føner eller lufttørk for å feste fargen
+                xpath: /html/body/div[9]
+            gtin:
+              - text: "3600523616817"
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[1]/div[2]/span[4]/span[1]
+            sku:
+              - text: "982611"
+                xpath: /html/body/div[10]
+            variantId:
+              - text: A9607400
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[1]/div[2]/span[3]/span[2]
+            mpc:
+              - text: A9607400
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[1]/div[2]/span[3]/span[2]
+            name:
+              - text: L´Oréal Paris Colorista Hair Makeup Jell
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[1]/h1[1]/span[1]
+            availabilityText:
+              - text: Out of Stock
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: nb_NO
+                value: 0
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: nb_NO
+                value: 0
+            secondaryImageTotal:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: nb_NO
+                value: 0
+        xpath: /
+    timestamp: 1610464405018

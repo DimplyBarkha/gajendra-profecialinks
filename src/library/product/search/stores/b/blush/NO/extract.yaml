@@ -1,0 +1,58 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: div.product-list-item
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //@productId
+  - name: searchUrl
+    singleValue: true
+  - name: name
+    singleValue: false
+    xpath: //@productName
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class="product-link image-container"]/@href
+    regExp: (\/product.*)
+    regExpReplace: https://www.blush.no$1
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //@thumbnails
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //@aggrating
+  - name: reviewCount
+    singleValue: false
+    xpath: //@ratingcount
+  - name: ratingCount
+    singleValue: false
+    xpath: //@ratingcount
+  - name: price
+    singleValue: false
+    xpath: //@priceid
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+  # - name: totalRecordCount
+  #   singleValue: true 
+  #   type: NUMBER
