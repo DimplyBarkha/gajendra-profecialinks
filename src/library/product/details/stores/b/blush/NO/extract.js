@@ -90,7 +90,7 @@ module.exports = {
       const directions = `${stepstext} ${tips} ${care}`;
       addElementToDocument('directions', directions.trim());
       const color = document.evaluate('//div[contains(@class,"product-responsive-info")]//p[strong[contains(.,"Farge")]]/text()|//div[@class="product-variants__selected" and not(//div[contains(@class,"product-responsive-info")]//p[strong[contains(.,"Farge")]]/text())]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-      const colorText = color && color.textContent.match(/[^\:]+/) ? color.textContent.match(/[^\:]+/)[0] : '';
+      const colorText = color && color.textContent.match(/[^:]+/) ? color.textContent.match(/[^:]+/)[0] : '';
       addElementToDocument('colorid', colorText.trim());
     });
     await context.extract(productDetails, { transform });
