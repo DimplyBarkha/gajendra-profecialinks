@@ -12,7 +12,7 @@ async function implementation (
 
   const apiUrl = url.indexOf('{queryParams}') > -1 ? url.replace('{queryParams}', query) : url;
 
-  await context.goto(apiUrl, { timeout: 20000, waitUntil: 'load' });
+  await context.goto(apiUrl.replace(/\s/g,''), { timeout: 20000, waitUntil: 'load' });
 
   await context.evaluate(async (ukRun) => {
     function addDiv (id, content) {
