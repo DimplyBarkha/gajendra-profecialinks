@@ -107,7 +107,7 @@ module.exports = {
       if (variantOptions.length > 1) variantOptions[0].setAttribute('variantinfo', variantOptions[0].innerText);
       const couponText = document.querySelector('div[id*="couponId"] div[class*="e594"]');
       // @ts-ignore
-      if (couponText !== null) couponText.setAttribute('coupon', couponText.innerText.split('\n').join(' '));
+      if (couponText !== null) couponText.setAttribute('coupon', couponText.innerText.split('\n').join(''));
     });
 
     var dataRef = await context.extract(productDetails);
@@ -124,7 +124,12 @@ module.exports = {
       }
       if (row.description) {
         row.description.forEach(item => {
-          item.text = item.text ? item.text.replace(/•/g, '||') : '';
+          item.text = item.text ? item.text.replace(/•/g, '||').split('\n').join('') : '';
+        });
+      }
+      if (row.ingredientsList) {
+        row.ingredientsList.forEach(item => {
+          item.text = item.text ? item.text.split('\n').join('') : '';
         });
       }
     });
