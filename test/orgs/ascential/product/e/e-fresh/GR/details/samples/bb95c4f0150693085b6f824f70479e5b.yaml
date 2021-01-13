@@ -2,11 +2,14 @@ input:
   id: 4100000201
   _url: http://e-fresh.gr
 extractions:
-  - html: https://workbench.import.io/html/run=4a5d8f2e-36b8-4880-9e0f-57a8f42087cd/task=a6f6a338-4b70-45f6-a836-8dc8b9033604/3caee4de-d019-40a5-95d3-3289c71514fc.html
+  - html: https://workbench.import.io/html/run=fd1ee2d7-aa3b-4901-9700-9158f1812776/task=4ef4dfef-7e64-474e-b424-e00f2f26b174/afef79d8-3259-42fc-8e82-54b37fb40e1f.html
     extractionConfigId: product/details/stores/e/e-fresh/GR/extract
     data:
       - group:
-          - image:
+          - productUrl:
+              - text: https://www.e-fresh.gr/el/sokolata-galaktos-ion-100g
+                xpath: /html/body/div[5]
+            image:
               - text: https://dj0m4io8o9yuz.cloudfront.net/storage/media/catalog/products/410/1/4100000201/ion_galaktos.jpg?id=1561382832
                 xpath: /html/head[1]/meta[23]/@content
             metaKeywords:
@@ -23,16 +26,13 @@ extractions:
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ol[1]/li[5]
             nameExtended:
               - text: Σοκολάτα Γάλακτος ΙΟΝ (100g)
-                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/h2[1]
-            listPrice:
-              - text: 1.42 €
-                xpath: /html/body/div[10]
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/h2[1]
             price:
-              - text: 1.21 €
-                xpath: /html/body/div[11]
+              - text: 1,42 €
+                xpath: /html/body/div[12]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[4]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/span[1]
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[4]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/span[1]
             description:
               - text: Η σοκολάτα γάλακτος ΙΟΝ (100g), κομμάτι της οικογένειας των γλυκών σνακς,
                   έχει μεγαλώσει και συνεχίζει να μεγαλώνει γενιές και γενιές
@@ -42,19 +42,19 @@ extractions:
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/p[1]
             brandText:
               - text: Ίον
-                xpath: /html/body/div[5]
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[4]/strong[1]
             manufacturer:
               - text: Ίον
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[4]/strong[1]
             gtin:
               - text: "5012501010094"
-                xpath: /html/body/div[6]
+                xpath: /html/body/div[7]
             sku:
               - text: "4100000201"
-                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/span[1]
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/span[1]
             variantId:
               - text: "4100000201"
-                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/span[1]
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/span[1]
             ingredientsList:
               - text: "Ζαχαρη, Γαλα Σε Σκονη, Βουτυρο Κακαο, Μαζα Κακαο, Ορος Γαλακτος Σε Σκονη,
                   Λακτοζη, Γαλακτωματοποιητης: Λεκιθινη Σογιας, Αρωματικη Υλη:
@@ -109,13 +109,10 @@ extractions:
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]/span[1]
             allergyAdvice:
               - text: Γαλα, Σογιας, ξηρων, καρπων, πρωτεϊνων, σιτου
-                xpath: /html/body/div[9]
-            promotion:
-              - text: -15%
-                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
+                xpath: /html/body/div[10]
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[12]
+                xpath: /html/body/div[13]
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -139,4 +136,4 @@ extractions:
                 locale: el
                 value: 0
         xpath: /
-    timestamp: 1607944836658
+    timestamp: 1610571366075

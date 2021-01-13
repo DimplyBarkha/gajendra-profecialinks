@@ -3,17 +3,20 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@id='productUrl']
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //meta[@itemprop="image"]/@content
+    xpath: ((//div[@id='addImg'])[1] | //meta[@itemprop="image"]/@content)[1]
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@id='addImg']
+    xpath: (//div[@id='addImg'])[position()>1]
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -59,7 +62,7 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //div[@id='brand']
+    xpath: //div[@class="supplier"]//strong
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -141,6 +144,7 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
+    xpath: //div[@class="description"]//img/@src
   - name: videos
     singleValue: false
     description: URLs of videos on page
@@ -239,7 +243,7 @@ fields:
     singleValue: true
     description: null
     type: NUMBER
-    xpath: count(//div[@id='addImg'])
+    xpath: count(//div[@id='addImg'][position()>1])
   - name: news
     singleValue: true
     description: null
@@ -431,6 +435,7 @@ fields:
   - name: storage
     singleValue: true
     description: Suggested storage location for product
+    xpath: //strong[contains(.,'Οδηγίες Φύλαξης')]/..
   - name: countryOfOrigin
     singleValue: true
     description: The country from which the product originates

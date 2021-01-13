@@ -2,11 +2,14 @@ input:
   id: 4100000205
   _url: http://e-fresh.gr
 extractions:
-  - html: https://workbench.import.io/html/run=4a5d8f2e-36b8-4880-9e0f-57a8f42087cd/task=eaf53af3-8da3-4770-b190-a426721a6096/f4dcb824-f2b6-40b0-8902-3d7c0aec88f5.html
+  - html: https://workbench.import.io/html/run=fd1ee2d7-aa3b-4901-9700-9158f1812776/task=f1651d33-6093-49dc-a9b6-551c24784d77/14304d31-013a-4437-8109-820447a3199d.html
     extractionConfigId: product/details/stores/e/e-fresh/GR/extract
     data:
       - group:
-          - image:
+          - productUrl:
+              - text: https://www.e-fresh.gr/el/sokolata-galaktos-amygdaloy-ion-100g
+                xpath: /html/body/div[5]
+            image:
               - text: https://dj0m4io8o9yuz.cloudfront.net/storage/media/catalog/products/410/5/4100000205/amigd_100_1.jpg?id=1561382833
                 xpath: /html/head[1]/meta[23]/@content
             metaKeywords:
@@ -25,8 +28,8 @@ extractions:
               - text: Σοκολάτα γάλακτος αμυγδάλου ΙΟΝ (100g)
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/h2[1]
             price:
-              - text: 1.42 €
-                xpath: /html/body/div[11]
+              - text: 1,42 €
+                xpath: /html/body/div[12]
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[4]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/span[1]
@@ -39,13 +42,13 @@ extractions:
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/p[1]
             brandText:
               - text: Ίον
-                xpath: /html/body/div[5]
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[4]/strong[1]
             manufacturer:
               - text: Ίον
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[4]/strong[1]
             gtin:
               - text: "5012501022097"
-                xpath: /html/body/div[6]
+                xpath: /html/body/div[7]
             sku:
               - text: "4100000205"
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/span[1]
@@ -106,10 +109,10 @@ extractions:
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]/span[1]
             allergyAdvice:
               - text: Γαλα, Αμυγδαλα, Σογιας, ξηρων, καρπων, πρωτεϊνων, σιτου
-                xpath: /html/body/div[9]
+                xpath: /html/body/div[10]
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[12]
+                xpath: /html/body/div[13]
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -133,4 +136,4 @@ extractions:
                 locale: el
                 value: 0
         xpath: /
-    timestamp: 1607944845588
+    timestamp: 1610571367644

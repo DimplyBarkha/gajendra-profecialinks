@@ -24,10 +24,12 @@ module.exports = {
       const JSONText = document.evaluate('//script[@type="application/ld+json"][contains(text(),"sku")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       const JSONObject = JSONText ? JSON.parse(JSONText.textContent) : null;
       const imgResults = document.querySelectorAll('a[class="thumb-image"] img[alt]');
-      for (let i = 1; i < imgResults.length; i++) {
+      for (let i = 0; i < imgResults.length; i++) {
         const img = imgResults[i] ? imgResults[i].getAttribute('src').replace(/thumbs\//g, '').replace(/-95x95_crop_thumb/g, '') : '';
         addElementToDocument('addImg', img);
       }
+      const productUrl = JSONObject && JSONObject.url ? JSONObject.url : '';
+      addElementToDocument('productUrl', productUrl);
       const brand = JSONObject && JSONObject.brand ? JSONObject.brand.name : '';
       addElementToDocument('brand', brand);
       const gtin = JSONObject ? JSONObject.mpn : '';
@@ -42,9 +44,9 @@ module.exports = {
         allergyArr.push(element.textContent);
       });
       addElementToDocument('allergens', allergyArr.join(', '));
-      const oldPrice = document.querySelector('div.product-wrap div[class="old_price"]') ? document.querySelector('div.product-wrap div[class="old_price"]').textContent.replace(',', '.').trim() : '';
+      const oldPrice = document.querySelector('div.product-wrap div[class="old_price"]') ? document.querySelector('div.product-wrap div[class="old_price"]').textContent.replace('.', ',').trim() : '';
       addElementToDocument('oldPrice', oldPrice);
-      const price = document.querySelector('div.product-wrap div[class="price"]') ? document.querySelector('div.product-wrap div[class="price"]').textContent.replace(',', '.').trim() : '';
+      const price = document.querySelector('div.product-wrap div[class="price"]') ? document.querySelector('div.product-wrap div[class="price"]').textContent.replace('.', ',').trim() : '';
       addElementToDocument('addedPrice', price);
       const zoomIn = document.querySelector('div.img.zoom') ? 'Yes' : 'No';
       addElementToDocument('zoomIn', zoomIn);
