@@ -348,13 +348,18 @@ module.exports = {
                 addHiddenDiv('ii_weight', variant.p_Product_Weight, newDiv);
                 addHiddenDiv('ii_reviewCount', variant.p_Product_Review, newDiv);
 
-                if (variant.p_Promotion_Description) {
-                  addHiddenDiv('ii_promotion', variant.p_Promotion_Description, newDiv);
-                } else if (variant.coupons.ceb[0]) {
-                  if (variant.coupons.ceb[0].webDsc) {
-                    addHiddenDiv('ii_promotion', variant.coupons.ceb[0].webDsc, newDiv);
+                try{
+                  if (variant.p_Promotion_Description) {
+                    addHiddenDiv('ii_promotion', variant.p_Promotion_Description, newDiv);
+                  } else if (variant.coupons.ceb[0]) {
+                    if (variant.coupons.ceb[0].webDsc) {
+                      addHiddenDiv('ii_promotion', variant.coupons.ceb[0].webDsc, newDiv);
+                    }
                   }
+                } catch(err) {
+                  console.log('coupons not present');
                 }
+              
 
                 if (variant.p_Product_Rating) {
                   const rating = parseFloat(variant.p_Product_Rating);
