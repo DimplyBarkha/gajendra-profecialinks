@@ -85,17 +85,6 @@ const transform = (data, context) => {
             row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
           }
 
-          if (row.videos) {
-            let videoArray = [];
-            row.videos.forEach(video => {
-              if(!videoArray.includes(video.text)){
-                videoArray.push(video.text);
-              }
-            });
-            row.videos = [{text: ""}]
-            let videoStr = videoArray.join(" | ");
-            row.videos[0].text = videoStr;
-          }
 
           if (row.manufacturerImages) {
             let manufImageArray = [];
@@ -123,14 +112,15 @@ const transform = (data, context) => {
           })
           }
 
-          // if (row.variants) {
-          //   console.log("row.variants",row.variants);
-          //   row.variants.forEach(item => {
-          //     item.text = item.text.replace('/productimages/sku/s','').trim();
-          //     item.text = item.text.split("+");
-          //     console.log("item.text2",item.text);
-          // })
-          // }
+          if (row.variants) {
+            console.log("row.variants",row.variants);
+            row.variants.forEach(item => {
+              item.text = item.text.replace('/productimages/sku/s','').trim();
+              let split = item.text.split("+");
+              item.text = `${split[0]}`
+              console.log("item.text2",item.text);
+          })
+          }
 
           // row = cleanUp(row);
           Object.keys(row).forEach(header => row[header].forEach(el => {

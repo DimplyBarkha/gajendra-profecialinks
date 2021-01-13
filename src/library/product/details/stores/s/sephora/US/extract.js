@@ -254,7 +254,7 @@ module.exports = {
         }
       }
       if (variantSkuArray.length) {
-        const variantsStr = variantSkuArray.join(' | ');
+        const variantsStr = variantSkuArray;
         addHiddenDiv('ii_variantCount', variantSkuArray.length);
         addHiddenDiv('ii_variants', variantsStr);
       }

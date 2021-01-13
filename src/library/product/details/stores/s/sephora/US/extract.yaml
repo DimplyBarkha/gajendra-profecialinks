@@ -56,8 +56,8 @@ fields:
   - name: additionalDescBulletInfo
     xpath: //div[@id="tabpanel0"]//text()[contains(., "- ")]|//div[contains(@data-comp,"RegularProduct")]//h2[contains(text(), "About the Product")]//following-sibling::div[1]//div//div[@data-comp="StyledComponent BaseComponent "]//text()[contains(., "- ")]
   - name: variants
-    xpath: //div[@id="ii_variants"]
-    # xpath: //div[@data-comp='ProductSwatchItem ']//img/@src
+    # xpath: //div[@id="ii_variants"]
+    xpath: //div[@data-comp='ProductSwatchItem ']//img/@src
   - name: variantInformation
     xpath: //div[@id="ii_variantInfo"]
   - name: sku
