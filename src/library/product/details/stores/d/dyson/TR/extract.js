@@ -153,7 +153,7 @@ async function implementation(
         addHiddenDiv('weight', specText);
       }
     });
-    addHiddenDiv('specifications', specifications.join(' | '));
+    addHiddenDiv('specsText', specifications.join(' | '));
   });
 
   return await context.extract(productDetails, { transform });
