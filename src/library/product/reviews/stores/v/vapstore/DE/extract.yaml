@@ -10,9 +10,11 @@ fields:
   - name: productRange
     singleValue: false
     description: Product range
+    xpath: ancestor::html//div//ol[@id='bc']//li[5]//a/@title
   - name: productFamily
     singleValue: false
     description: Product family
+    xpath: ancestor::html//div//ol[@id='bc']//li[3]//a/@title
   - name: colour
     singleValue: false
     description: Product colour
