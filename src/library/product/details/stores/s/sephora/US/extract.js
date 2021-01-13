@@ -9,6 +9,12 @@ module.exports = {
     domain: 'sephora.com',
   },
   implementation: async ({ parentInput }, { country, domain, transform: transformParam }, context, { productDetails }) => {
+    try {
+      await context.waitForSelector('a#spEl div[data-at="product_carousel_title"]', { timeout: 30000 });
+    } catch (error) {
+      console.log(error);
+      console.log('Similar product not found => ', error);
+    }
     const itemUrl = await context.evaluate(function () {
       const resultsCheck = '(//h1//text()[not(parent::b)])[1]';
       var checkResults = document.evaluate(resultsCheck, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
@@ -75,16 +81,7 @@ module.exports = {
     //   console.log('Loading ratings and reviews');
     // }
 
-    // try {
-    //   await context.waitForSelector('div[data-comp~="ReviewsStats"]  span[data-comp^="Text Box StyledComponent BaseComponent"]', { timeout: 20000 });
-    // } catch (error) {
-    //   await context.evaluate(async function () {
-    //     if (document.querySelector('span[data-at^="number_of_reviews"]')) {
-    //       document.querySelector('span[data-at^="number_of_reviews"]').click();
-    //     }
-    //   });
-    //   console.log('Loading ratings and reviews');
-    // }
+
 
     try {
       await context.waitForSelector('div[data-comp~="StyledComponent"] h2, div#tabpanel0', { timeout: 20000 });
@@ -304,7 +301,7 @@ module.exports = {
     })
 
     await new Promise(resolve => setTimeout(resolve, 5000));
-
+   
     return await context.extract(productDetails, { transform: transformParam });
   },
 };
