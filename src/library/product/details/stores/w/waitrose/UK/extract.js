@@ -64,7 +64,10 @@ module.exports = {
           data[k].group[i].legalDisclaimer.splice(1, data[k].group[i].legalDisclaimer.length - 1);
         }
         if ('warnings' in data[k].group[i]) {
-          data[k].group[i].warnings[0].text = data[k].group[i].warnings[0].text.replace(/<br>/g, ' ');
+          data[k].group[i].warnings[0].text = data[k].group[i].warnings[0].text.replace(/<br>/g, ' ').replace(/<p>/g, '').replace(/<\/p>/g, '').trim();
+        }
+        if ('directions' in data[k].group[i]) {
+          data[k].group[i].directions[0].text = data[k].group[i].directions[0].text.replace(/<ul>/g, '').replace(/<\/li>/g, '').replace(/<\/ul>/g, '').replace(/<li>/g, ' ').trim();
         }
         if ('description' in data[k].group[i]) {
           data[k].group[i].description[0].text = data[k].group[i].description[0].text.trim();

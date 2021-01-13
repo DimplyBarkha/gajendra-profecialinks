@@ -5,6 +5,13 @@ const implementation = async ({ url, id, zipcode, storeId }, { loadedSelector, n
     else url = await dependencies.createUrl({ id });
   }
   await dependencies.goto({ url, zipcode, storeId });
+  const captcha = await context.evaluate(async () => {return document.querySelector('div[title="We don\'t support frames at the moment."]')});
+  if (captcha) {
+    await context.solveCaptcha({
+      type: 'RECAPTCHA',
+      inputElement:'input[id="recaptcha-token"]',
+    });
+  }
   const detailsPage = await context.evaluate(async () => {
     if (document.querySelector('div[id="introAgreeButton"] span[class="CwaK9"] span[class="RveJvd snByac"]') !== null) {
       document.querySelector('div[id="introAgreeButton"] span[class="CwaK9"] span[class="RveJvd snByac"]').click();
@@ -40,7 +47,7 @@ module.exports = {
     store: 'waitrose',
     domain: 'waitrose.com',
     loadedSelector: 'section[class="productDetailContainer___1TUHx"], a[data-origincomponent="ProductPod"]',
-    noResultsXPath: '//button[@aria-label="Load more"] | //div[@class="noResults___2M4HP"] | //h1[contains(text(), "404 Not Found")] | //ul[@style="margin-left:1.3em;margin-bottom:2em"]',
+    noResultsXPath: '//button[@aria-label="Load more"] | //div[@class="noResults___2M4HP"] | //h1[contains(text(), "404 Not Found")] | //ul[@style="margin-left:1.3em;margin-bottom:2em"] | //h1[contains(text(), "Offer(s)")] | //pdf-viewer',
     zipcode: '',
   },
   implementation,
