@@ -2,7 +2,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'sephora.com',
-    timeout: 30000,
+    timeout: 60000,
     country: 'US',
     store: 'sephora',
   },
