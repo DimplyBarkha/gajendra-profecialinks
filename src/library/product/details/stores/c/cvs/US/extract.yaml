@@ -358,3 +358,9 @@ fields:
     xpath: //div[@id='ii_availability']
   - name: otherSellersPrice
     xpath: //div[@id='ii_price']
+  - name: shortDescription
+    xpath: //div[@id='ii_shortdescription']
+    regExp: <p>(.+)<\/p>
+    regExpReplace: $1
+  - name: featureBullets
+    xpath: //div[@id='ii_additionalDescBulletInfo']

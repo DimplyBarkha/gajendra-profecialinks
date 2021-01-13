@@ -248,6 +248,8 @@ module.exports = {
                 if (variant.p_Product_Details) {
                   let deets = variant.p_Product_Details;
                   const regex = /<li>(.*?)<\/li>/g;
+                  const regexp = /<p>(.*?)<\/p>/g;
+                  let shortDescription = deets.match(regexp);
                   let bullets = deets.match(regex);
                   if (!bullets && deets.match(/<li>/g)) {
                     if (deets.match(/<li>(.*?)<\/ul>/g)) {
@@ -270,6 +272,7 @@ module.exports = {
                   deets = deets.replace(/<.+?>/g, ' ');
                   deets = deets.replace(/@\s+@/g, ' || ');
                   deets = deets.replace(/@/g, ' || ');
+                  addHiddenDiv('ii_shortdescription', `${shortDescription}`, newDiv);
                   addHiddenDiv('ii_description', `${deets}`, newDiv);
                   if (bullets) {
                     addHiddenDiv('ii_descriptionBullets', `${bullets.length}`, newDiv);
@@ -350,7 +353,7 @@ module.exports = {
 
                 if (variant.p_Promotion_Description) {
                   addHiddenDiv('ii_promotion', variant.p_Promotion_Description, newDiv);
-                } else if (variant.coupons.ceb[0]) {
+                } else if (variant.coupons && variant.coupons.ceb[0]) {
                   if (variant.coupons.ceb[0].webDsc) {
                     addHiddenDiv('ii_promotion', variant.coupons.ceb[0].webDsc, newDiv);
                   }
