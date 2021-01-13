@@ -13,8 +13,9 @@ async function implementation (
 ) {
   const { keywords, query } = inputs;
   console.log(url);
-  let destinationUrl = url.indexOf('{queryParams}') > -1 ? url.replace('{queryParams}', query) : url;
-  destinationUrl = destinationUrl.replace('{searchTerms}', encodeURIComponent(keywords));
+  const destinationUrl = url
+    .replace('{searchTerms}', encodeURIComponent(keywords))
+    .replace('{queryParams}', query);
   await dependencies.goto({ ...inputs, url: destinationUrl });
   await new Promise((resolve) => setTimeout(resolve, 5000));
   if (loadedSelector) {
@@ -23,8 +24,7 @@ async function implementation (
     }, { timeout: 10000 }, loadedSelector, noResultsXPath);
   }
   console.log(`noResultsXPath: ${noResultsXPath}`);
-  return await context.evaluate((xp) => !document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext()), noResultsXPath);
-
+  return await context.evaluate((xp) => !document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext(), noResultsXPath);
 }
 
 module.exports = {
