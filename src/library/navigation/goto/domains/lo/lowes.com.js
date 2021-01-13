@@ -10,7 +10,7 @@ module.exports = {
   implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
     const timeout = parameters.timeout ? parameters.timeout : 10000;
     await context.setBlockAds(false);
-    await context.goto(url, { first_request_timeout: 60000 , timeout: timeout, waitUntil: 'load', checkBlocked: true });
+    await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
     const isStorePresent = await context.evaluate(async function () {
       const isStorePresent = document.querySelector('#store-search-handler');
       // @ts-ignore
