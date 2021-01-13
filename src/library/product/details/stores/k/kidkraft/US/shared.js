@@ -81,15 +81,19 @@ const transform = (data) => {
           },
         ];
       }
-      if (row.availabilityText) {
+       if (row.availabilityText) {
         row.availabilityText.forEach(item => {
-          item.text = "In Stock"
-        });
-      }
-      else {
-        row.availabilityText.forEach(item => {
-          item.text = "Out of Stock"
-        });
+          if (item.text == "true"){
+
+            item.text = "In Stock";
+
+          }
+          else{
+             item.text = "Out Of Stock";
+
+          }
+
+        })
       }
 
     }
