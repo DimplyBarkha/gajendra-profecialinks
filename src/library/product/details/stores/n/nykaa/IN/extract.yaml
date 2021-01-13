@@ -592,7 +592,7 @@ fields:
   - name : productOtherInformation
     xpath: //p[contains(.,'Additional Information')] | //p[contains(.,'Additional Information')]//following-sibling::p[1]
   - name: variantInformation
-    xpath: //div[@class="select-style shade-select"]//option[2]
+    xpath: //span[contains(@class, 'color-pallets-tick')]//img/@title
   - name: variantCount
     xpath: count(//li[@class='sku'][position()>1])
   - name : warranty
@@ -624,7 +624,8 @@ fields:
     xpath: //div[contains(@class,'pdp-description-tab-item')]//p[contains(.,'Additional')]/text()
   - name: manufacturerDescription
     description: The extended description of the product supplied by the lister
-    xpath: //div[@class="AzIndex"] | //div[@class="pdp-description-tab-item description-expand"]//p[contains(.,'Explore')] | //div[@class="pdp-description-tab-item description-expand"]/div/p[1] | //div[@class="pdp-description-tab-item description-expand"]/div/strong[1]
+    # xpath: //div[@class="AzIndex"] | //div[@class="pdp-description-tab-item description-expand"]//p[contains(.,'Explore')] | //div[@class="pdp-description-tab-item description-expand"]/div/p[1] | //div[@class="pdp-description-tab-item description-expand"]/div/strong[1]\
+    xpath: //div[contains(@class, 'pdp-description-tab-item')]
   - name: ingredientsList
     description: List of Ingredients from site - can be string of data if no discernible start/end point
     xpath: //div[contains(@class,"finalIngrediantsList")]/@ingrediantsData
@@ -644,3 +645,4 @@ fields:
   - name: inTheBoxText
     xpath: //div[contains(@class,"pdp-description")]//div/p/b[contains(text(),"box")]/following::dd[not(preceding-sibling::br)]|//div[contains(@class,"pdp-description")]//div/p[@class]/b[@class and contains(text(),"box")]/following::dd[not(preceding-sibling::br)]|//div[contains(@class,"pdp-description")]//div/p[5]/following::dd
   - name: hasComparisonTable  
+ 
