@@ -1,11 +1,12 @@
+// @ts-ignore
 const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'BR',
     store: 'lojasrede',
-    transform: null,
-    domain: 'lojasrede.com.br',
+    transform: transform,
+    domain: 'lojasrede.com.br', 
     zipcode: '',
   },
   implementation,
@@ -74,13 +75,14 @@ async function implementation(
     
       // var price = getXpath('//div[@class="row product-details"]//em[@class="valor-por price-best-price"]/strong/text()', 'nodeValue');
       var price = getXpath('(//strong[@class="skuBestPrice"])[1]/text()', 'nodeValue');
-      alert(price)
+      // alert(price)
       try{
       if(price != null)
       {
         price = price.split(' ')[1]
         price = price.replace(',','.');
         addElementToDocument('price', price);
+        // alert(price)
       }
     }
   catch (err) {
