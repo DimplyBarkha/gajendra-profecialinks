@@ -5,6 +5,6 @@ module.exports = {
     country: 'DE',
     domain: 'flaschenpost.de',
     store: 'flaschenpost',
-    zipcode: '28199',
+    zipcode: '28203',
   },
 };

@@ -6,7 +6,7 @@ module.exports = {
     timeout: 50000,
     country: 'DE',
     store: 'flaschenpost',
-    zipcode: '28199',
+    zipcode: '28203',
   },
   implementation: async (
     { url },
