@@ -23,29 +23,20 @@ module.exports = {
     const { productDetails, Helpers: { Helpers } } = dependencies;
     const helper = new Helpers(context);
 
-    await context.waitForSelector(cssProductDetails, { timeout: 10000 })
-      .catch(() => console.log('Not a product page'));
+    await context.waitForSelector(cssProduct, { timeout: 10000 });
+    const productAvailable = await helper.checkSelector(cssProduct, 'CSS');
 
-    const productDetailsAvailable = await helper.checkSelector(cssProductDetails, 'CSS');
-
-    if (!productDetailsAvailable) {
-      console.log('.....waiting......');
-      await context.waitForSelector(cssProduct, { timeout: 10000 });
-
-      const productAvailable = await helper.checkSelector(cssProduct, 'CSS');
-      console.log(`productAvailable: ${productAvailable}`);
-      if (productAvailable) {
-        console.log('clicking product link');
-        await helper.ifThereClickOnIt(cssProduct);
-        await context.waitForNavigation({ timeout: 10000, waitUntil: 'load' });
-        await context.waitForSelector(cssProductDetails);
-        const productDetailsAvailable = await helper.checkSelector(cssProductDetails, 'CSS');
-        console.log(`productDetailsAvailable: ${productDetailsAvailable}`);
-        if (!productDetailsAvailable) {
-          throw new Error('ERROR: Failed to load product details page');
-        }
-        console.log('navigation complete!!');
+    if (productAvailable) {
+      console.log('clicking product link');
+      await helper.ifThereClickOnIt(cssProduct);
+      await context.waitForNavigation({ timeout: 10000, waitUntil: 'load' });
+      await context.waitForSelector(cssProductDetails);
+      const productDetailsAvailable = await helper.checkSelector(cssProductDetails, 'CSS');
+      console.log(`productDetailsAvailable: ${productDetailsAvailable}`);
+      if (!productDetailsAvailable) {
+        throw new Error('ERROR: Failed to load product details page');
       }
+      console.log('navigation complete!!');
     }
 
     const jsonFromCatalogue = await context.evaluate(async function (inputs) {
