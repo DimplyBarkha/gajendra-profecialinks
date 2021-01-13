@@ -30,6 +30,10 @@ const cleanUp = (data, context) => {
         let text = `${row.nameExtended[0].text} ${row.quantity[0].text} ${row.color[0].text}`
         row.nameExtended = [{ text: text.trim() }]
       }
+      if (row.availabilityText) {
+        let text = row.availabilityText[0].text;
+        row.availabilityText = [{ text: text.trim() }];
+      }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
