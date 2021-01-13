@@ -25,7 +25,7 @@ fields:
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     #xpath: //meta[@itemprop='price']/@content
-    xpath: //h2[@class="bop-price__current "]
+    xpath: //div[@itemprop="offers"]//h2[contains(@class,"bop-price__current")]/text()
   - name: availabilityText
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
