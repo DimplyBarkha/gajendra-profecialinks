@@ -18,6 +18,7 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(async () => {
+      await new Promise(resolve => setTimeout(resolve, 11000));
       const bulletsNode = document.querySelectorAll('ul.pdp-features li');
       const detailsNode = document.querySelector('div.row.active div.product-info-description');
       const featuresNode = document.querySelectorAll('div.row.active div.product-info-description ul li');

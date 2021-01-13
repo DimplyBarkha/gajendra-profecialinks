@@ -23,7 +23,7 @@ module.exports = {
       // @ts-ignore
       await context.evaluate((zipcode) => { document.querySelector('div.modal-content').value = zipcode; }, zipcode);
       await context.click('button#costcoModalBtn2');
-      await new Promise(resolve => setTimeout(resolve, 20000));
+      await new Promise(resolve => setTimeout(resolve, 10000));
     }
   },
 };
