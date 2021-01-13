@@ -1,0 +1,388 @@
+input:
+  keywords: knuspermüsli
+  _url: http://mpreis.at
+extractions:
+  - html: https://workbench.import.io/html/run=72002f55-3d69-4860-831d-37eb76ff4455/task=7841bb98-eb03-41e8-ab9d-dfcf8499f560/40a5166b-29b5-4064-864b-2a7d2053e7f7.html
+    extractionConfigId: product/search/stores/m/mpreis/AT/extract
+    data:
+      - group:
+          - id:
+              - text: "828200"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/@href
+            name:
+              - text: Knuspermüsli Erdbeer & Weiße Schokolade
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/div[1]/div[2]/h2[1]/span[1]
+            productUrl:
+              - text: https://www.mpreis.at/shop/p/knusperli-knuspermuesli-erdbeer-weisse-schokolade-828200
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/@href
+            gtin:
+              - text: "828200"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1603846897/mpreis/products/2407063.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+            price:
+              - text: 4,50
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/div[4]/div[1]/div[2]
+            manufacturer:
+              - text: KNUSPERLI
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/div[1]/div[2]/h2[1]/span[2]
+          - id:
+              - text: "212215"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2]/@href
+            name:
+              - text: Vitalis Knuspermüsli Plus Double Chocolate
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2]/div[1]/div[2]/h2[1]/span[1]
+            productUrl:
+              - text: https://www.mpreis.at/shop/p/dr-oetker-vitalis-knuspermuesli-plus-double-chocolate-212215
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2]/@href
+            gtin:
+              - text: "212215"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1601078489/mpreis/products/2364365.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+            price:
+              - text: 3,50
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2]/div[4]/div[1]/div[2]
+            manufacturer:
+              - text: Dr. Oetker
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2]/div[1]/div[2]/h2[1]/span[2]
+          - id:
+              - text: "828201"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[3]/@href
+            name:
+              - text: Knuspermüsli Himbeer & Joghurt
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[3]/div[1]/div[2]/h2[1]/span[1]
+            productUrl:
+              - text: https://www.mpreis.at/shop/p/knusperli-knuspermuesli-himbeer-joghurt-828201
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[3]/@href
+            gtin:
+              - text: "828201"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[3]/@href
+            thumbnail:
+              - text: https://www.mpreis.at/img/noImage_detail.9dc03909.png
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[3]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+            price:
+              - text: 4,50
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[3]/div[4]/div[1]/div[2]
+            manufacturer:
+              - text: KNUSPERLI
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[3]/div[1]/div[2]/h2[1]/span[2]
+          - id:
+              - text: "828170"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[4]/@href
+            name:
+              - text: Vitalis Knuspermüsli
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[4]/div[1]/div[2]/h2[1]/span[1]
+            productUrl:
+              - text: https://www.mpreis.at/shop/p/dr-oetker-vitalis-knuspermuesli-828170
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[4]/@href
+            gtin:
+              - text: "828170"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[4]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1601079111/mpreis/products/2394773.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[4]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+            price:
+              - text: 6,99
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[4]/div[4]/div[1]/div[2]
+            manufacturer:
+              - text: Dr. Oetker
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[4]/div[1]/div[2]/h2[1]/span[2]
+          - id:
+              - text: "200101"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[5]/@href
+            name:
+              - text: Knuspermüsli Schoko
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[5]/div[1]/div[2]/h2[1]/span[1]
+            productUrl:
+              - text: https://www.mpreis.at/shop/p/jeden-tag-knuspermuesli-schoko-200101
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[5]/@href
+            gtin:
+              - text: "200101"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[5]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1588939583/mpreis/products/1927007.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[5]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+            price:
+              - text: 1,99
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[5]/div[4]/div[1]/div[2]
+            manufacturer:
+              - text: Jeden Tag
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[5]/div[1]/div[2]/h2[1]/span[2]
+          - id:
+              - text: "828203"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[6]/@href
+            name:
+              - text: Knuspermüsli mit 0% Zuckerzusatz Waldbeer
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[6]/div[1]/div[2]/h2[1]/span[1]
+            productUrl:
+              - text: https://www.mpreis.at/shop/p/knusperli-knuspermuesli-mit-0-zuckerzusatz-waldbeer-828203
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[6]/@href
+            gtin:
+              - text: "828203"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[6]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1603846855/mpreis/products/2414078.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[6]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+            price:
+              - text: 4,50
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[6]/div[4]/div[1]/div[2]
+            manufacturer:
+              - text: KNUSPERLI
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[6]/div[1]/div[2]/h2[1]/span[2]
+          - id:
+              - text: "200146"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[7]/@href
+            name:
+              - text: Knuspermüsli weniger süß
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[7]/div[1]/div[2]/h2[1]/span[1]
+            productUrl:
+              - text: https://www.mpreis.at/shop/p/jeden-tag-knuspermuesli-weniger-sss-200146
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[7]/@href
+            gtin:
+              - text: "200146"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[7]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1588939279/mpreis/products/1927004.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[7]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+            price:
+              - text: 1,99
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[7]/div[4]/div[1]/div[2]
+            manufacturer:
+              - text: Jeden Tag
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[7]/div[1]/div[2]/h2[1]/span[2]
+          - id:
+              - text: "212107"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[8]/@href
+            name:
+              - text: Vitalis Knuspermüsli Schoko-Banane
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[8]/div[1]/div[2]/h2[1]/span[1]
+            productUrl:
+              - text: https://www.mpreis.at/shop/p/dr-oetker-vitalis-knuspermuesli-schoko-banane-212107
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[8]/@href
+            gtin:
+              - text: "212107"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[8]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1600905758/mpreis/products/2160259.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[8]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+            price:
+              - text: 3,50
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[8]/div[4]/div[1]/div[2]
+            manufacturer:
+              - text: Dr. Oetker
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[8]/div[1]/div[2]/h2[1]/span[2]
+          - id:
+              - text: "200149"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[9]/@href
+            name:
+              - text: Knuspermüsli Schoko-Keks
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[9]/div[1]/div[2]/h2[1]/span[1]
+            productUrl:
+              - text: https://www.mpreis.at/shop/p/jeden-tag-knuspermuesli-schoko-keks-200149
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[9]/@href
+            gtin:
+              - text: "200149"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[9]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1588939724/mpreis/products/1670200.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[9]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+            price:
+              - text: 1,99
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[9]/div[4]/div[1]/div[2]
+            manufacturer:
+              - text: Jeden Tag
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[9]/div[1]/div[2]/h2[1]/span[2]
+          - id:
+              - text: "212106"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[10]/@href
+            name:
+              - text: Vitalis Knuspermüsli Schokolade
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[10]/div[1]/div[2]/h2[1]/span[1]
+            productUrl:
+              - text: https://www.mpreis.at/shop/p/dr-oetker-vitalis-knuspermuesli-schokolade-212106
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[10]/@href
+            gtin:
+              - text: "212106"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[10]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1601078819/mpreis/products/2394731.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[10]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+            price:
+              - text: 3,50
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[10]/div[4]/div[1]/div[2]
+            manufacturer:
+              - text: Dr. Oetker
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[10]/div[1]/div[2]/h2[1]/span[2]
+          - id:
+              - text: "212214"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[11]/@href
+            name:
+              - text: Vitalis Knuspermüsli Plus Honig-Mandel
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[11]/div[1]/div[2]/h2[1]/span[1]
+            productUrl:
+              - text: https://www.mpreis.at/shop/p/dr-oetker-vitalis-knuspermuesli-plus-honig-mandel-212214
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[11]/@href
+            gtin:
+              - text: "212214"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[11]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1604711297/mpreis/products/2160134.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[11]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+            price:
+              - text: 3,50
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[11]/div[4]/div[1]/div[2]
+            manufacturer:
+              - text: Dr. Oetker
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[11]/div[1]/div[2]/h2[1]/span[2]
+          - id:
+              - text: "828199"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[12]/@href
+            name:
+              - text: Knuspermüsli Schokolade & Banane
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[12]/div[1]/div[2]/h2[1]/span[1]
+            productUrl:
+              - text: https://www.mpreis.at/shop/p/knusperli-knuspermuesli-schokolade-banane-828199
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[12]/@href
+            gtin:
+              - text: "828199"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[12]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1603846863/mpreis/products/2414072.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[12]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+            price:
+              - text: 4,50
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[12]/div[4]/div[1]/div[2]
+            manufacturer:
+              - text: KNUSPERLI
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[12]/div[1]/div[2]/h2[1]/span[2]
+          - id:
+              - text: "828202"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[13]/@href
+            name:
+              - text: Knuspermüsli mit 0% Zuckerzusatz Pur
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[13]/div[1]/div[2]/h2[1]/span[1]
+            productUrl:
+              - text: https://www.mpreis.at/shop/p/knusperli-knuspermuesli-mit-0-zuckerzusatz-pur-828202
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[13]/@href
+            gtin:
+              - text: "828202"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[13]/@href
+            thumbnail:
+              - text: https://www.mpreis.at/img/noImage_detail.9dc03909.png
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[13]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+            price:
+              - text: 4,50
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[13]/div[4]/div[1]/div[2]
+            manufacturer:
+              - text: KNUSPERLI
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[13]/div[1]/div[2]/h2[1]/span[2]
+          - id:
+              - text: "212253"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[14]/@href
+            name:
+              - text: Vitalis Knuspermüsli Nuss-Nougat
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[14]/div[1]/div[2]/h2[1]/span[1]
+            productUrl:
+              - text: https://www.mpreis.at/shop/p/dr-oetker-vitalis-knuspermuesli-nuss-nougat-212253
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[14]/@href
+            gtin:
+              - text: "212253"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[14]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1601078835/mpreis/products/2160223.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[14]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+            price:
+              - text: 3,50
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[14]/div[4]/div[1]/div[2]
+            manufacturer:
+              - text: Dr. Oetker
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[14]/div[1]/div[2]/h2[1]/span[2]
+          - id:
+              - text: "212252"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[15]/@href
+            name:
+              - text: Vitalis Knuspermüsli Flakes-Mandeln
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[15]/div[1]/div[2]/h2[1]/span[1]
+            productUrl:
+              - text: https://www.mpreis.at/shop/p/dr-oetker-vitalis-knuspermuesli-flakes-mandeln-212252
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[15]/@href
+            gtin:
+              - text: "212252"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[15]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1601511088/mpreis/products/1539024.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[15]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+            price:
+              - text: 3,50
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[15]/div[4]/div[1]/div[2]
+            manufacturer:
+              - text: Dr. Oetker
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[15]/div[1]/div[2]/h2[1]/span[2]
+          - id:
+              - text: "188355"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[16]/@href
+            name:
+              - text: Knusper Müsli
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[16]/div[1]/div[2]/h2[1]/span[1]
+            productUrl:
+              - text: https://www.mpreis.at/shop/p/manner-knusper-muesli-188355
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[16]/@href
+            gtin:
+              - text: "188355"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[16]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1601597223/mpreis/products/2402607.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[16]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+            price:
+              - text: 3,50
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[16]/div[4]/div[1]/div[2]
+            manufacturer:
+              - text: Manner
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[16]/div[1]/div[2]/h2[1]/span[2]
+          - id:
+              - text: "188377"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[17]/@href
+            name:
+              - text: Schoko Bananen Knusper Müsli
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[17]/div[1]/div[2]/h2[1]/span[1]
+            productUrl:
+              - text: https://www.mpreis.at/shop/p/casali-schoko-bananen-knusper-muesli-188377
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[17]/@href
+            gtin:
+              - text: "188377"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[17]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1606525329/mpreis/products/2489398.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[17]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+            price:
+              - text: 3,50
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[17]/div[4]/div[1]/div[2]
+            manufacturer:
+              - text: Casali
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[17]/div[1]/div[2]/h2[1]/span[2]
+          - id:
+              - text: "188376"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[18]/@href
+            name:
+              - text: Dragee Keksi Knusper Müsli
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[18]/div[1]/div[2]/h2[1]/span[1]
+            productUrl:
+              - text: https://www.mpreis.at/shop/p/napoli-dragee-keksi-knusper-muesli-188376
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[18]/@href
+            gtin:
+              - text: "188376"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[18]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1600214456/mpreis/products/2371412.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[18]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+            price:
+              - text: 3,50
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[18]/div[4]/div[1]/div[2]
+            manufacturer:
+              - text: Napoli
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[18]/div[1]/div[2]/h2[1]/span[2]
+        xpath: /html
+    timestamp: 1610523497234

@@ -26,9 +26,7 @@ fields:
     regExpReplace: $1
   - name: thumbnail
     singleValue: false
-    xpath: //div[contains(@class, "c3-product__media")]/@style
-    regExp: \"(.+)\"
-    regExpReplace: $1
+    xpath: //span[@class="c3-product__name"]/@thumbnail
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -52,16 +50,15 @@ fields:
     singleValue: false
     description: search/listing rank
     type: NUMBER
-    xpath: //span[@class="c3-product__name"]/@rank
   - name: rankOrganic
     singleValue: false
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
-    xpath: //span[@class="c3-product__name"]/@rank
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
+    defaultValue: false
   # - name: totalRecordCount
   #   singleValue: true
   #   type: NUMBER

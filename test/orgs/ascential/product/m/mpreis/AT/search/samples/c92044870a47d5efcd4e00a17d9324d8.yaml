@@ -1,0 +1,115 @@
+input:
+  keywords: Kitkat
+  _url: http://mpreis.at
+extractions:
+  - html: https://workbench.import.io/html/run=72002f55-3d69-4860-831d-37eb76ff4455/task=472ebd51-4969-46b1-9909-cdb49bfeaa94/612589f9-619e-449b-a38e-f924f9d283be.html
+    extractionConfigId: product/search/stores/m/mpreis/AT/extract
+    data:
+      - group:
+          - id:
+              - text: "160003"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/@href
+            name:
+              - text: Kit Kat 3er-Packung
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/div[1]/div[2]/h2[1]/span[1]
+            productUrl:
+              - text: https://www.mpreis.at/shop/p/nestle-kit-kat-3er-packung-160003
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/@href
+            gtin:
+              - text: "160003"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1588938833/mpreis/products/2224816.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+            price:
+              - text: 1,50
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/div[4]/div[1]/div[2]
+            manufacturer:
+              - text: NESTLE
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/div[1]/div[2]/h2[1]/span[2]
+          - id:
+              - text: "160029"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2]/@href
+            name:
+              - text: Kit Kat Mini
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2]/div[1]/div[2]/h2[1]/span[1]
+            productUrl:
+              - text: https://www.mpreis.at/shop/p/nestle-kit-kat-mini-160029
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2]/@href
+            gtin:
+              - text: "160029"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1588938842/mpreis/products/2064959.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+            price:
+              - text: 1,99
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2]/div[4]/div[1]/div[2]
+            manufacturer:
+              - text: NESTLE
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2]/div[1]/div[2]/h2[1]/span[2]
+          - id:
+              - text: "160004"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[3]/@href
+            name:
+              - text: Kit Kat Single
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[3]/div[1]/div[2]/h2[1]/span[1]
+            productUrl:
+              - text: https://www.mpreis.at/shop/p/nestle-kit-kat-single-160004
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[3]/@href
+            gtin:
+              - text: "160004"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[3]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1588938836/mpreis/products/2064866.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[3]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+            price:
+              - text: 0,90
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[3]/div[4]/div[1]/div[2]
+            manufacturer:
+              - text: NESTLE
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[3]/div[1]/div[2]/h2[1]/span[2]
+          - id:
+              - text: "160001"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[4]/@href
+            name:
+              - text: Kit Kat Chunky
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[4]/div[1]/div[2]/h2[1]/span[1]
+            productUrl:
+              - text: https://www.mpreis.at/shop/p/nestle-kit-kat-chunky-160001
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[4]/@href
+            gtin:
+              - text: "160001"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[4]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1588938830/mpreis/products/2064880.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[4]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+            price:
+              - text: 1,00
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[4]/div[4]/div[1]/div[2]
+            manufacturer:
+              - text: NESTLE
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[4]/div[1]/div[2]/h2[1]/span[2]
+          - id:
+              - text: "160010"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[5]/@href
+            name:
+              - text: Kit Kat Gold Single
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[5]/div[1]/div[2]/h2[1]/span[1]
+            productUrl:
+              - text: https://www.mpreis.at/shop/p/nestle-kit-kat-gold-single-160010
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[5]/@href
+            gtin:
+              - text: "160010"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[5]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1596499538/mpreis/products/2134769.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[5]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+            price:
+              - text: 1,30
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[5]/div[4]/div[1]/div[2]
+            manufacturer:
+              - text: NESTLE
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[5]/div[1]/div[2]/h2[1]/span[2]
+        xpath: /html
+    timestamp: 1610523496048
