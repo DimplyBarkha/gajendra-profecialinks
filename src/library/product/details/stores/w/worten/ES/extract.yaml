@@ -54,7 +54,7 @@ fields:
     description: Identifier for a variant from a store where variants share the same sku
     xpath: //ul//li//span[contains(text(),'Referencia')]/../span[position()>last()-1]
   - name: mpc
-    xpath: //ul//li//span[contains(text(),'Referencia')]/../span[position()>last()-1]
+    xpath: //li[contains(.,"Modelo")]//*[contains(@class,"value")]
   - name: legalDisclaimer
     description: Content under "legal disclaimer" header
     xpath: //div[contains(@class,"product__legal-disclaimer")]
@@ -75,7 +75,7 @@ fields:
     xpath: //ul//li//span[contains(text(),'Color')]/../span[position()>last()-1]
   - name: manufacturerDescription
     description: The extended description of the product supplied by the lister
-    xpath: //div[@id="inpage_container"]//div[@class="inpage_block inpage_selector_feature"]
+    xpath: //div[@id="inpage_container"]
   - name: manufacturerImages
     description: Images within the third party description
     xpath: //div[@id="flix-std-inpage"]//img//@srcset | //div[@id="inpage_container"]//img//@srcset[contains(.,'jpg')]
