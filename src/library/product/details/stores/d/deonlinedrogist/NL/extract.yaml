@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //*[@id="product-view-image"]/img/@src
+    xpath: //div[@class="c-singleProduct__imagestable"]/span/@href
     description: URL of the main product image
   - name: imageAlt
     singleValue: true
@@ -46,12 +46,12 @@ fields:
       should be "In Stock"
   - name: description
     singleValue: false
-    xpath: //div[@id="added_description_desc"]
+    xpath: //div[@class="c-product-description__accordion"]/span[@class="c-product-description__accordiontitle c-product-description__accordiontitle--active"] | //div[@id="added_description_desc"]
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
     singleValue: true
-    xpath: //div[@id='add_desc_bullet_count']
+    xpath: //div[@id="add_desc_bullet_count"]
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
@@ -64,7 +64,7 @@ fields:
     description: Product manufacturer
   - name: quantity
     singleValue: true
-    xpath: //div[@id='quantity']
+    xpath: //div[@id="quantity"]
     description: Quantity as described on the page
   - name: weightNet
     singleValue: true
