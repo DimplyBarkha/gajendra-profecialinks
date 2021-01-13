@@ -447,9 +447,13 @@ fields:
     regExp: ^(.*)
     regExpReplace: 'https://www.londondrugs.com$1'
   - name: inTheBoxUrl
+    xpath: //*[@*="in-the-box" or @*="In The Box"]//img/@src
   - name: inTheBoxText
+    xpath: //*[@*="in-the-box" or @*="In The Box"]//*[contains(@class, 'main-header')]
   - name: hasComparisonTable
     xpath: //div[contains(@class, 'comparison-table')]
+    regExp: (.+)
+    regExpReplace: Yes
     defaultValue: No
   - name: unInterruptedPDP
     xpath: //div[contains(@id,'recomm_slot')]//div[contains(@class, 'slick-list')]//div[contains(@class, 'slick-slide') and not(contains(@class, 'slick-cloned'))]//h3
