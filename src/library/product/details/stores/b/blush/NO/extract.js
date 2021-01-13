@@ -69,7 +69,7 @@ module.exports = {
       if (descriptionElement) addFollowingParagraphs('descriptionid', descriptionElement, null, useTextArray);
 
       const description = document.querySelector('div#descriptionid') ? document.querySelector('div#descriptionid').textContent.replace(/\s{2,}|\n{2,}|\t/g, ' ') : '';
-      addElementToDocument('descId', description);
+      addElementToDocument('descId', description.trim());
 
       const sku = document.querySelector('meta[property="og:url"]') ? document.querySelector('meta[property="og:url"]').getAttribute('content') : '';
       addElementToDocument('sku', sku.replace(/.*product\/([^/]+).*/g, '$1'));
@@ -89,6 +89,9 @@ module.exports = {
       const tips = tipsXpath ? tipsXpath.textContent : '';
       const directions = `${stepstext} ${tips} ${care}`;
       addElementToDocument('directions', directions.trim());
+      const color = document.evaluate('//div[contains(@class,"product-responsive-info")]//p[strong[contains(.,"Farge")]]/text()|//div[@class="product-variants__selected" and not(//div[contains(@class,"product-responsive-info")]//p[strong[contains(.,"Farge")]]/text())]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const colorText = color && color.textContent.match(/[^\:]+/) ? color.textContent.match(/[^\:]+/)[0] : '';
+      addElementToDocument('colorid', colorText.trim());
     });
     await context.extract(productDetails, { transform });
   },
