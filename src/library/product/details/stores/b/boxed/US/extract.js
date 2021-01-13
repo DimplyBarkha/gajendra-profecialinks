@@ -107,7 +107,7 @@ module.exports = {
       if (variantOptions.length > 1) variantOptions[0].setAttribute('variantinfo', variantOptions[0].innerText);
       const couponText = document.querySelector('div[id*="couponId"] div[class*="e594"]');
       // @ts-ignore
-      if (couponText !== null) couponText.setAttribute('coupon', couponText.innerText);
+      if (couponText !== null) couponText.setAttribute('coupon', couponText.innerText.split('\n').join(' '));
     });
 
     var dataRef = await context.extract(productDetails);
