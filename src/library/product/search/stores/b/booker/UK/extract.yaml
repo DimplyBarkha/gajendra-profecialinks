@@ -1,54 +1,41 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //tr[@class='pr']
+recordXPath: null
 fields:
   - name: id
-    singleValue: false
-    xpath: //td[contains(@class,'packm')]
-  - name: searchUrl
-    singleValue: false
-    xpath: ancestor::html//div[@id='pageURL']/@content
+    xpath: //td[@class='packm']/div
+    singleValue: true
   - name: name
+    xpath: //td[@class="info"]//a
     singleValue: false
-    xpath: //div[@class='info_r1']//a
   - name: productUrl
+    xpath: //td[@class="info"]//a/@href
+    regExp: ^(.+)$
+    regExpReplace: https://www.booker.co.uk$1
     singleValue: false
-    xpath: //div[@class='info_r1']//a/@produrl
   - name: gtin
-    singleValue: false
+    singleValue: true
   - name: thumbnail
+    xpath: //td[@class="pack"]/a/img/@src
+    regExp: ^(.+)$
+    regExpReplace: https://www.booker.co.uk$1
     singleValue: false
-    xpath: //img[@class='pi']/@prodthumb
   - name: aggregateRating
-    singleValue: false
-  - name: aggregateRating2
-    singleValue: false
+    singleValue: true
   - name: reviewCount
-    singleValue: false
+    singleValue: true
   - name: ratingCount
-    singleValue: false
+    singleValue: true
   - name: price
-    singleValue: false
-    xpath: //td[@class='price']//li[@class='wsp']/text()
+    singleValue: true
   - name: manufacturer
     singleValue: true
   - name: soldBy
     singleValue: true
   - name: endorsementText
-    singleValue: false
-  - name: rank
-    singleValue: false
-    description: search/listing rank
-    type: NUMBER
-  - name: rankOrganic
     singleValue: true
-    description: The position (rank) within the list excluding sponsored/paid results
-    type: NUMBER
+  - name: rank
+  - name: rankOrganic
   - name: sponsored
-    singleValue: false
-    description: Is sponsored/paid
-    type: BOOLEAN
-  # - name: totalRecordCount
-  #   singleValue: true 
-  #   type: NUMBER
+    defaultValue: false

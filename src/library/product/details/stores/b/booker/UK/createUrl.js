@@ -6,7 +6,6 @@ module.exports = {
     prefix: null,
     store: 'booker',
     country: 'UK',
-    url: 'https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords={id}&view=UnGrouped',
-    zipcode: '',
+    url: 'https://www.booker.co.uk/catalog/productinformation.aspx?code={id}',
   },
 };
