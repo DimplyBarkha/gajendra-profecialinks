@@ -1,4 +1,4 @@
-const { transform } = require('../../../../../search/shared');
+const { transform } = require('../../../../../details/shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
@@ -13,11 +13,11 @@ module.exports = {
     const { productDetails } = dependencies;
     console.log(parameters);
     await context.evaluate(() => {
-      const button = document.querySelector('section.spex-section');
+      const button = document.querySelector("p.spex-p");
       if (button) {
-        document.querySelector('div#spex-h3').setAttribute('availability', 'In Stock');
+        document.querySelector('div.spex-h3').setAttribute('availability', 'Out of Stock');
       } else {
-        document.querySelector('div#spex-card').setAttribute('availability', 'Out of Stock');
+        document.querySelector('div.spex-card').setAttribute('availability', 'In Stock');
       }
     });
     return await context.extract(productDetails, { transform });
