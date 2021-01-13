@@ -158,34 +158,6 @@ module.exports.Helpers = class {
     return false;
   }
 
-  // Function which makes a click
-  async ifThereClickOnIt (selector, timeoutOptions) {
-    const { wait = timeoutOptions || 3000, click = timeoutOptions || 3000 } = timeoutOptions || {};
-    try {
-      await this.context.waitForSelector(selector, { timeout: wait });
-    } catch (error) {
-      console.log(`The following selector was not found: ${selector}`, `timeout: wait: ${wait}, click: ${click}`);
-      return false;
-    }
-    const hasItem = await this.context.evaluate((selector) => {
-      return document.querySelector(selector) !== null;
-    }, selector);
-    if (hasItem) {
-      // try both click
-      try {
-        await this.context.click(selector, { timeout: click });
-      } catch (error) {
-        // context click did not work and that is ok
-      }
-      await this.context.evaluate((selector) => {
-        const elem = document.querySelector(selector);
-        if (elem) elem.click();
-      }, selector);
-      return true;
-    }
-    return false;
-  };
-
   // Function which allows to wait for an element within an iframe or a shadowroot
   async waitForInDifferentContext (selector, documentSelector, options) {
     const { timeout = Number(options) ? options : 500 } = options || {};
