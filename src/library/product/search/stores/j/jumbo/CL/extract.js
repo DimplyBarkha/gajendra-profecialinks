@@ -51,7 +51,6 @@ async function implementation (
       addProp('li.shelf-item', i, 'productUrl', 'https://www.jumbo.cl' + productUrls[i].getAttribute('href'));
     }
 
-
     const nextPageNumber = document.querySelector('div.slides button[class*=\'page-number active\'] + button')
       ? parseInt(document.querySelector('div.slides button[class*=\'page-number active\'] + button').innerText) : '';
     const currentUrl = window.location.href;
