@@ -47,7 +47,7 @@ fields:
     xpath: //div[@id="price"]//span[contains(@class,"a-text-strike")] | //div[@id="almDetailPagePrice_price" or @id="primeNowDetailPagePrice_price"]//span[contains(@class,"a-text-strike")]
   - name: price
     singleValue: false
-    xpath: (//*[@id="priceblock_ourprice"] | //div[contains(@id, "variation_size_name")]/ul/li/span/div/span/span[contains(@class, "selected")]//span[contains(@id, "_price")]/span[contains(@class, "Price")])[1] | //span[contains(@id,"priceblock_dealprice")] | //span[@id="priceblock_saleprice"] | //li[contains(@class,selected) and contains(@class,"swatchElement")]//span[contains(@class,"a-size-base a-color-price")] | //span[contains(@class,"header-price")] | //li[@class="swatchSelect"]//span[@class="olp-message a-color-price"]/span/text()[last()] | //div[@id="buyNew_noncbb"]/span
+    xpath: (//*[@id="priceblock_ourprice"] | //div[contains(@id, "variation_size_name")]/ul/li/span/div/span/span[contains(@class, "selected")]//span[contains(@id, "_price")]/span[contains(@class, "Price")])[1] | //span[contains(@id,"priceblock_dealprice")] | //span[@id="priceblock_saleprice"] | //li[contains(@class,selected) and contains(@class,"swatchElement")]//span[contains(@class,"a-size-base a-color-price")] | //span[contains(@class,"header-price")][not(@id="subscriptionPrice")] | //li[@class="swatchSelect"]//span[@class="olp-message a-color-price"]/span/text()[last()] | //div[@id="buyNew_noncbb"]/span
   - name: availabilityText
     singleValue: false
     xpath: (//*[normalize-space(@id)='availability']/span[not(span)] | //*[normalize-space(@id)='availability']/span/span[last()] | //*[normalize-space(@id)='availability-string']/span[not(span)])[1]
@@ -68,7 +68,7 @@ fields:
     xpath: count(//*[@id='feature-bullets']//ul/li[not(@id)] | //div[@id="productDescription"]/ul/li)
   - name: backupBrand
     singleValue: false
-    xpath: //a[@id="bylineInfo"]/text() | //div[contains(@id,"bylineInfo") and not(//a[@id="bylineInfo"]/text())] | //a[@id="brandteaser"]/img/@alt | //*[@id="brand"]
+    xpath: (//a[@id="bylineInfo"]/text() | //div[contains(@id,"bylineInfo") and not(//a[@id="bylineInfo"]/text())] | //a[@id="brandteaser"]/img/@alt | //*[@id="brand"])[1][not(//span[contains(@class,"author")])]
     regExp: '(Brand:\s+(.+)$|Visit the (.+) Store|by\s+(.+)$|^(.+)$)'
     regExpReplace: $2$3$4$5
   - name: brandText
@@ -727,4 +727,4 @@ fields:
     defaultValue: False
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //div[contains(@class,"customer-also-viewed")]/div//img/@alt | //div[contains(@id,"thematic-highly_rated")]//a/@title | //div[contains(@class,"sponsored-products-truncator")]/../@title | //li[@role="listitem"]//div[contains(@class,"p13n-sc-truncated")]/..//img/@alt | //*[contains(@id,"sp_detail")]/a/@title | //*[contains(@id,'similarities-sims-feature')]//li[@role="listitem"]//div[contains(@class,'p13n-sc-truncated')] | //li[@role="listitem"]//div[contains(@class,"p13n-sc-truncated")]//@title |//*[contains(@id,'similarities-sims-feature')]//li[@role="listitem"]//div[contains(@class,'p13n-sc-truncated')]//@title | //li[@role="listitem"]//div[contains(@class,"p13n-sc-truncated")]//@title
+    xpath: //div[contains(@class,"customer-also-viewed")]/div//img/@alt | //div[contains(@id,"thematic-highly_rated")]//a/@title | //div[contains(@class,"sponsored-products-truncator")]/../@title | //li[@role="listitem"]//div[contains(@class,"p13n-sc-truncated")]/..//img/@alt | //*[contains(@id,"sp_detail")]/a/@title | //*[contains(@id,'similarities-sims-feature')]//li[@role="listitem"]//div[contains(@class,'p13n-sc-truncated')] | //li[@role="listitem"]//div[contains(@class,"p13n-sc-truncated")]//@title |//*[contains(@id,'similarities-sims-feature')]//li[@role="listitem"]//div[contains(@class,'p13n-sc-truncated')]//@title | //li[@role="listitem"]//div[contains(@class,"p13n-sc-truncated")]//@title 
