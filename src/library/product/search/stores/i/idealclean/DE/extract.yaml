@@ -20,14 +20,12 @@ fields:
   - name: id
     description: The store-specific product identifier
     xpath: //div[@class='ProductCard_productDescription__3l4j5']/span[@class='ant-typography ant-typography-secondary'][2]/text()[3]
-  - name: aggregateRating2
+  - name: aggregateRating
     xpath: //div[@class='ts-reviewSummary-averageRating']//span[@class='ts-reviewSummary-ratingValue']//text()
-  - name: ratingCount
-    type: NUMBER
+  - name: reviewCount
     xpath: //div[@class='ts-rating-light ts-rating de_DE productreviewsSummary']//span[@class='ts-stars-reviewCount']//text()
   - name: price
     description: The offered price for the product
-    type: CURRENCY
     xpath: //div[@class='ProductPrice_mainPriceHolder__250xx']
   - name: brand
     type: TEXT

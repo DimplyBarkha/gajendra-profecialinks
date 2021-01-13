@@ -2,20 +2,15 @@
 module.exports = {
   implements: 'navigation/paginate',
   parameterValues: {
-    template: null,
     country: 'DE',
     store: 'idealclean',
-    nextLinkSelector: 'li[class=" ant-pagination-next"]>a>i>svg',
-    nextLinkXpath: null,
+    nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'body',
-    loadedXpath: null,
-    noResultsXPath: null,
-    stopConditionSelectorOrXpath: null,
-    resultsDivSelector: null,
-    openSearchDefinition: null,
+    loadedSelector: 'div.LYSContainer_padding__1r8V2',
+    openSearchDefinition: {
+      template: 'https://www.idealclean.de/search?limit=20&search={searchTerms}&page={page}',
+    },
     domain: 'ideal_clean.de',
-    zipcode: '',
   },
 };
