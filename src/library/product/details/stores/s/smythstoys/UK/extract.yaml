@@ -33,7 +33,7 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: (//span[@name="js-stockStatusCode"])[1]
+    xpath: //button[@class='btn btn-green js-add-to-cart btn-icon js-enable-btn']
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -86,6 +86,7 @@ fields:
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
+    xpath: //div[@class='detail_right']/p[contains(.,'EU Warning:')]//span
   - name: directions
     singleValue: true
     description: Content under "directions" header

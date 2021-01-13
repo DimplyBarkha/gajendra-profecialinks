@@ -7,7 +7,17 @@
 const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
-
+      if (row.description) {
+        let desc = '';
+        row.description.forEach(item => {
+          desc += `${item.text}`;
+        });
+        row.description = [
+          {
+            text: desc
+          },
+        ];
+      }
     }
   }
   // Clean up data
