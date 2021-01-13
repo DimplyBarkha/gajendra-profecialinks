@@ -5,7 +5,6 @@ module.exports.Helpers = class {
   }
 
   // this file is invoked by writting the following:
-  // const { Helpers } = require('../../../../../../helpers/helpers');
   // const helper = new Helpers(context)
   // helper.function()
 
