@@ -44,11 +44,10 @@ module.exports = {
       if (isAvailable !== null) {
         addElementToDocument('isAvailable', 'In Stock');
       } else addElementToDocument('isAvailable', 'Out of Stock');
-
-      const isVariants = document.querySelector('select.autoredirect');
-      const firstVariant = document.querySelector('meta[itemprop="mpn"]')
+      const sku = document.querySelector('meta[itemprop="mpn"]')
         ? document.querySelector('meta[itemprop="mpn"]').getAttribute('content') : '';
-      if (isVariants !== null) addElementToDocument('firstVariant', firstVariant);
+      const variantInformation = document.querySelector('select[class="autoredirect"] > option[selected="selected"]');
+      if (variantInformation !== null) variantInformation.setAttribute('variantinfo', variantInformation.textContent.split('variant: ').join('').trim().concat(` - ${sku}`));
     });
     var dataRef = await context.extract(productDetails, { transform });
     dataRef[0].group.forEach((row) => {
@@ -64,13 +63,12 @@ module.exports = {
       }
       if (row.nameExtended) {
         row.nameExtended.forEach(item => {
-          item.text = item.text.includes('variant') ? item.text.split('variant: ').pop() : item.text;
+          item.text = item.text.includes('variant') ? item.text.split('variant: ').join('').trim() : item.text.trim();
         });
       }
     });
 
     return dataRef;
-    // await context.extract(productDetails, { transform });
   },
 
 };

@@ -29,7 +29,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: concat(//h1[@itemprop='name'], ' ', //select[@class='autoredirect']/option)
+    xpath: concat(//h1[@itemprop='name'], ' ', //select[@class='autoredirect']/option[@selected="selected"])
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -454,9 +454,7 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
-    xpath: //select[@class='autoredirect']/option
-    regExp: \:(.*)
-    regExpReplace: $1
+    xpath: //@variantinfo
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
@@ -468,7 +466,6 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
-    xpath: //div[@id='firstVariant']
   - name: variants
     singleValue: false
     description: null
