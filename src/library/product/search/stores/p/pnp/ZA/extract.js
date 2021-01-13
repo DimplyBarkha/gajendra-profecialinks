@@ -26,7 +26,6 @@ async function implementation (
     const searchUrl = window.location.href;
     const allProducts = document.querySelectorAll('ul.col-md-12.product-listing.product-grid.product-grid > div > div');
     for (let x = 0; allProducts.length - 1 >= x; x++) {
-      allProducts[x].setAttribute('count', `${x + 1}`);
       allProducts[x].setAttribute('searchurl', searchUrl);
       // Create ID via XML request
       const productUrl = allProducts[x].querySelector('a');
