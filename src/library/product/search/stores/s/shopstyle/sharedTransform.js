@@ -47,6 +47,7 @@ const transform = (data, context) => {
 
         setRow('pageRank', 'rank');
         setRow('variantSize', 'mySize');
+        setRow('color', 'myColor');
 
         delete row.product;
       }

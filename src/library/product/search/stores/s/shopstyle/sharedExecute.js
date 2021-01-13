@@ -28,15 +28,27 @@ async function implementation (
     } else {
       addDiv('FilterType', data.htmlProperties.metaDescription);
     }
-
     data.products.forEach((product, rankIndex) => {
-      const allSizes = product.sizes.map(size => size.name);
+      const allOptions = product.stock;
       product.rank = rankIndex + 1;
-      for (let i = 0; i < allSizes.length; i++) {
-        product.mySize = allSizes[i];
+      for (let i = 0; i < allOptions.length; i++) {
+        if (allOptions[i].size) {
+          product.mySize = allOptions[i].size.name;
+        }
+        if (allOptions[i].color) {
+          product.myColor = allOptions[i].color.name;
+        }
         addDiv('product', JSON.stringify(product));
       }
     });
+    // data.products.forEach((product, rankIndex) => {
+    //   const allSizes = product.sizes.map(size => size.name);
+    //   product.rank = rankIndex + 1;
+    //   for (let i = 0; i < allSizes.length; i++) {
+    //     product.mySize = allSizes[i];
+    //     addDiv('product', JSON.stringify(product));
+    //   }
+    // });
   }, ukRun);
 
   return true;
