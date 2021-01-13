@@ -42,12 +42,12 @@ fields:
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
-  xpath: //span[contains(@class, 'e6af-less')]/span[1]
+  xpath: //div[@data-bx="pdp-details-price"]/div/span/span
 - name: price
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
-  xpath: //span[contains(@class, '2528-less') or contains(@class, '18a7-less')]
+  xpath: //div[@data-bx="pdp-details-price"]/span
 - name: availabilityText
   singleValue: true
   description: Availability as described on page for the selected variant. If there
@@ -62,6 +62,7 @@ fields:
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
+  xpath: //@bullets
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
@@ -242,6 +243,7 @@ fields:
 - name: secondaryImageTotal
   singleValue: true
   description: 
+  xpath: count(//div[contains(@id, 'addedImage')])
 - name: news
   singleValue: true
   description: 
