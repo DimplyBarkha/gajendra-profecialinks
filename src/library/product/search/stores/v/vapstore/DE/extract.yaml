@@ -6,3 +6,5 @@ fields:
   - name: productUrl
     singleValue: false
     xpath: //a[@class='img-w block']/@href
+    regExp: (.+)
+    regExpReplace: https://www.vapstore.de/$1
