@@ -7,10 +7,11 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
-    noResultsXPath: '//div[@class="no-results"]',
-    openSearchDefinition: {
-      template: 'https://www.hondoscenter.com/en/apotelesmata-proionton/p{page}/?search-for={searchTerms}',
-      },
+    // noResultsXPath: '//div[@class="no-results"]',
+    noResultsXPath: null,
+    // openSearchDefinition: {
+    //   template: 'https://www.hondoscenter.com/en/apotelesmata-proionton/p{page}/?search-for={searchTerms}',
+    //   },
     domain: 'hondoscenter.com',
     zipcode: '',
   },

@@ -5,7 +5,7 @@ module.exports = {
     country: 'GR',
     store: 'hondoscenter',
     domain: 'hondoscenter.com',
-    url: 'https://www.hondoscenter.com/el/apotelesmata-proionton/?search-for={searchTerms}',
+    url: 'https://www.hondoscenter.com/CachedServices/api/Product/GetScrolledProductList?search-for={searchTerms}&lang=en&templateCode=search_products&configCode=&itemId=88338&itemPath=1755772414&pageNumber=1&pageSize=150&sortKey=default&fullPath=%2C1%2C126315%2C2%2C88276%2C88338%2C#[!opt!]{"type":"json"}[/!opt!]',
     loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',

@@ -1,28 +1,30 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //ul[@class="items-list "]/li/article
+# recordXPath: //ul[@class="items-list "]/li/article
+recordXPath: null
 fields:
-  - name: thumbnail
-    singleValue: false
-    xpath: //img[@class=" lazyloaded"]/@src
-  - name: name
-    singleValue: false
-    xpath: //h2[@class="heading"]/a
+  # - name: thumbnail
+  #   singleValue: false
+  #   xpath: //img[@class=" lazyloaded"]/@src
+  # - name: name
+  #   singleValue: false
+  #   xpath: //h2[@class="heading"]/a
   - name: id
     singleValue: false
-    xpath: //ul[@class="items-list "]//@data-productid
-  - name: productUrl
-    singleValue: false
-    xpath: //h2[@class="heading"]//a/@href
-    regExp: (/.*)
-    regExpReplace: https://www.hondoscenter.com$1
-  - name: price
-    singleValue: false
-    xpath: //div[@class="current-price-container"]/span
-  - name: searchUrl
-    singleValue: false
-    xpath: //link[@rel="alternate"]/@href
+    xpath: //td[contains(@class,"Properties")]/table/tbody/tr/td[contains(@class,"UPCs")]/text()
+    # xpath: //ul[@class="items-list "]//@data-productid
+  # - name: productUrl
+  #   singleValue: false
+  #   xpath: //h2[@class="heading"]//a/@href
+  #   regExp: (/.*)
+  #   regExpReplace: https://www.hondoscenter.com$1
+  # - name: price
+  #   singleValue: false
+  #   xpath: //div[@class="current-price-container"]/span
+  # - name: searchUrl
+  #   singleValue: false
+  #   xpath: //link[@rel="alternate"]/@href
     
 
 
