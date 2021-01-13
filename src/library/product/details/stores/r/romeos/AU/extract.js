@@ -1,11 +1,11 @@
-const { transform } = require('../../../../shared');
+const { cleanUp } = require('../../../../shared');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'AU',
     store: 'romeos',
-    transform,
+    transform: cleanUp,
     domain: 'martinplace.romeosonline.com.au',
     zipcode: '',
   },
@@ -49,6 +49,11 @@ module.exports = {
           });
         }
       });
+
+      const url = window.location.href;
+      const sku = url.match(/.+\/(.+)/) ? url.match(/.+\/(.+)/)[1] : '';
+      addElementToDom(sku, 'sku');
+      addElementToDom(url, 'product_url');
     });
     await context.extract(productDetails, { transform });
   },

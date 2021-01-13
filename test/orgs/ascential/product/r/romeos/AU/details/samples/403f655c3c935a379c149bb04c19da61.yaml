@@ -2,19 +2,31 @@ input:
   _url: http://martinplace.romeosonline.com.au
   URL: https://martinplace.romeosonline.com.au/lines/waterfords-lite-fruity-sparkling-natural-mineral-water-apple-berry-1lt
 extractions:
-  - html: https://workbench.import.io/html/run=61265bba-2ee5-48a7-b880-e0236d108b42/task=1d0eb520-ae95-45df-b26d-ee740793a928/e00b9e31-8232-4890-8d9a-0326d031f98c.html
+  - html: https://workbench.import.io/html/run=3086530f-c802-4ed4-ae1c-697b7939b8df/task=d9b181ad-b2b7-4ccf-8461-3ff7420fc7ab/b1d72e2e-4729-4e0b-af6b-94f770e7fbb0.html
     extractionConfigId: product/details/stores/r/romeos/AU/extract
     data:
       - group:
-          - nameExtended:
+          - image:
+              - text: https://dtgxwmigmg3gc.cloudfront.net/imagery/assets/derivations/icon/512/512/true/eyJpZCI6ImQ1MTc4MGY4NjY2M2ZkZjIxMjc0ZDBhOWFjMTU5MTQyIiwic3RvcmFnZSI6InB1YmxpY19zdG9yZSJ9?signature=c11dcdb169b02dd27201695f033091602b753fdf0948bd34ea68d425a751c433
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Eyjpzci6imq1mtc4mgy4njy2m2zkzjixmjc0zdbhowfjmtu5mtqyiiwic3rvcmfnzsi6inb1ymxpy19zdg9yzsj9?signature=c11dcdb169b02dd27201695f033091602b753fdf0948bd34ea68d425a751c433
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            nameExtended:
               - text: Waterfords Lite & Fruity Sparkling Natural Mineral Water Apple Berry 1lt
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]/h1[1]
             price:
               - text: $1.50
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[2]/strong[1]
-            variantId:
-              - text: Waterfords Lite & Fruity Sparkling Natural Mineral Water Apple Berry 1lt
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]/h1[1]
+            legalDisclaimer:
+              - text: Romeo’s Martin Place aims to include in the product list up to date
+                  pictures of the products and accurate ingredients, nutritional
+                  information and other information. However, product detail may
+                  change from time to time and there may be a delay in making
+                  updates. When precise information is important, we recommend
+                  that you read the label on the products you purchase or
+                  contact the manufacturer of the product.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]
             name:
               - text: Waterfords Lite & Fruity Sparkling Natural Mineral Water Apple Berry 1lt
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]/h1[1]
@@ -27,25 +39,16 @@ extractions:
             pricePerUnitUom:
               - text: litre
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[2]/span[2]
-            image:
-              - text: https://dtgxwmigmg3gc.cloudfront.net/imagery/assets/derivations/icon/512/512/true/eyJpZCI6ImQ1MTc4MGY4NjY2M2ZkZjIxMjc0ZDBhOWFjMTU5MTQyIiwic3RvcmFnZSI6InB1YmxpY19zdG9yZSJ9?signature=c11dcdb169b02dd27201695f033091602b753fdf0948bd34ea68d425a751c433
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
-            imageAlt:
-              - text: Eyjpzci6imq1mtc4mgy4njy2m2zkzjixmjc0zdbhowfjmtu5mtqyiiwic3rvcmfnzsi6inb1ymxpy19zdg9yzsj9?signature=c11dcdb169b02dd27201695f033091602b753fdf0948bd34ea68d425a751c433
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
-            legalDisclaimer:
-              - text: Romeo’s Martin Place aims to include in the product list up to date
-                  pictures of the products and accurate ingredients, nutritional
-                  information and other information. However, product detail may
-                  change from time to time and there may be a delay in making
-                  updates. When precise information is important, we recommend
-                  that you read the label on the products you purchase or
-                  contact the manufacturer of the product.
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]
             listPrice:
               - text: $2.25
                 xpath: /html/body/div[4]
+            sku:
+              - text: waterfords-lite-fruity-sparkling-natural-mineral-water-apple-berry-1lt
+                xpath: /html/body/div[5]
+            productUrl:
+              - text: https://martinplace.romeosonline.com.au/lines/waterfords-lite-fruity-sparkling-natural-mineral-water-apple-berry-1lt
+                xpath: /html/body/div[6]
             availabilityText:
               - text: In Stock
-        xpath: /html
-    timestamp: 1605856793482
+        xpath: /html/body
+    timestamp: 1610541239416

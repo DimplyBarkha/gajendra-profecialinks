@@ -2,19 +2,31 @@ input:
   _url: http://martinplace.romeosonline.com.au
   URL: https://martinplace.romeosonline.com.au/lines/mother-energy-drink-sugar-free-4x500ml
 extractions:
-  - html: https://workbench.import.io/html/run=61265bba-2ee5-48a7-b880-e0236d108b42/task=cd00b3d1-387a-4546-ab6e-47225033f842/bc6cafbb-7d1c-4884-b82e-464b7504d8d8.html
+  - html: https://workbench.import.io/html/run=3086530f-c802-4ed4-ae1c-697b7939b8df/task=2c83018c-dbeb-4d58-a952-d812dbb0a849/eaf4f4eb-6750-4f58-b08b-63aedc1b6f1e.html
     extractionConfigId: product/details/stores/r/romeos/AU/extract
     data:
       - group:
-          - nameExtended:
+          - image:
+              - text: https://dtgxwmigmg3gc.cloudfront.net/imagery/assets/derivations/icon/512/512/true/eyJpZCI6ImVjNDkyMTQzZmNmNTU3MWIxN2ViZmJhNTM4MjNiMmE3Iiwic3RvcmFnZSI6InB1YmxpY19zdG9yZSJ9?signature=c432106150c491941ae50a340fad4b950393859cf7fc7f114b74163825bf5dcd
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Eyjpzci6imvjndkymtqzzmnmntu3mwixn2vizmjhntm4mjnimme3iiwic3rvcmfnzsi6inb1ymxpy19zdg9yzsj9?signature=c432106150c491941ae50a340fad4b950393859cf7fc7f114b74163825bf5dcd
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            nameExtended:
               - text: Mother Energy Drink Sugar Free 4x500ml
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]/h1[1]
             price:
               - text: $6.85
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[2]/strong[1]
-            variantId:
-              - text: Mother Energy Drink Sugar Free 4x500ml
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]/h1[1]
+            legalDisclaimer:
+              - text: Romeo’s Martin Place aims to include in the product list up to date
+                  pictures of the products and accurate ingredients, nutritional
+                  information and other information. However, product detail may
+                  change from time to time and there may be a delay in making
+                  updates. When precise information is important, we recommend
+                  that you read the label on the products you purchase or
+                  contact the manufacturer of the product.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]
             name:
               - text: Mother Energy Drink Sugar Free 4x500ml
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]/h1[1]
@@ -27,25 +39,16 @@ extractions:
             pricePerUnitUom:
               - text: litre
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[2]/span[2]
-            image:
-              - text: https://dtgxwmigmg3gc.cloudfront.net/imagery/assets/derivations/icon/512/512/true/eyJpZCI6ImVjNDkyMTQzZmNmNTU3MWIxN2ViZmJhNTM4MjNiMmE3Iiwic3RvcmFnZSI6InB1YmxpY19zdG9yZSJ9?signature=c432106150c491941ae50a340fad4b950393859cf7fc7f114b74163825bf5dcd
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
-            imageAlt:
-              - text: Eyjpzci6imvjndkymtqzzmnmntu3mwixn2vizmjhntm4mjnimme3iiwic3rvcmfnzsi6inb1ymxpy19zdg9yzsj9?signature=c432106150c491941ae50a340fad4b950393859cf7fc7f114b74163825bf5dcd
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
-            legalDisclaimer:
-              - text: Romeo’s Martin Place aims to include in the product list up to date
-                  pictures of the products and accurate ingredients, nutritional
-                  information and other information. However, product detail may
-                  change from time to time and there may be a delay in making
-                  updates. When precise information is important, we recommend
-                  that you read the label on the products you purchase or
-                  contact the manufacturer of the product.
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]
             listPrice:
               - text: $10.40
                 xpath: /html/body/div[4]
+            sku:
+              - text: mother-energy-drink-sugar-free-4x500ml
+                xpath: /html/body/div[5]
+            productUrl:
+              - text: https://martinplace.romeosonline.com.au/lines/mother-energy-drink-sugar-free-4x500ml
+                xpath: /html/body/div[6]
             availabilityText:
               - text: In Stock
-        xpath: /html
-    timestamp: 1605856794481
+        xpath: /html/body
+    timestamp: 1610541240554
