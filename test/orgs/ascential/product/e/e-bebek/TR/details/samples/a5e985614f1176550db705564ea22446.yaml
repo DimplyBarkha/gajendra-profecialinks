@@ -2,7 +2,7 @@ input:
   id: cbe-1959
   _url: http://e-bebek.com
 extractions:
-  - html: https://workbench.import.io/html/run=76389e26-6bac-4bc3-89e6-7d5630d6a817/task=13ebf473-0041-4663-8eb5-191a301d13d3/3c88188b-8fb5-413a-a2b2-f3800904a36f.html
+  - html: https://workbench.import.io/html/run=60657b65-1fa4-4461-8275-3ff862e76d1b/task=076f4d82-bbdd-446b-b74b-fb8edced04b8/c9399904-e65e-4c44-acd4-bb19a4eafe6c.html
     extractionConfigId: product/details/stores/e/e-bebek/TR/extract
     data:
       - group:
@@ -18,8 +18,6 @@ extractions:
               - text: https://cdn.e-bebek.com/mnresize/1000/-/www.ebebek/i/p/hd/59/lCBE-1959_3.jpg
                 xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[6]/a[1]/img[1]/@src
             category:
-              - text: ebebek
-                xpath: /html/body/div[2]/main[1]/div[2]/div[2]/ul[1]/li[1]/a[1]
               - text: Bez & Mendil
                 xpath: /html/body/div[2]/main[1]/div[2]/div[2]/ul[1]/li[2]/a[1]
               - text: Bebek Bezleri
@@ -41,6 +39,9 @@ extractions:
             quantity:
               - text: "110"
                 xpath: /html/body/div[8]
+            gtin:
+              - text: CBE-1959
+                xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
             sku:
               - text: CBE-1959
                 xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
@@ -144,4 +145,4 @@ extractions:
                 locale: tr_TR
                 value: 1
         xpath: /
-    timestamp: 1610357372997
+    timestamp: 1610534801859

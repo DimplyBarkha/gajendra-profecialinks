@@ -37,6 +37,27 @@ module.exports = {
         data.unitPriceUom = unitPriceArr[0].trim();
         data.unitPrice = unitPriceArr[1].trim();
       }
+      // const additionalDescMatch = document.evaluate('concat(//meta[@property="og:title"]/@content, //meta[@property="og:description"]/@content,//div[@class="detail-list card-body"])',
+      //   document, null, XPathResult.STRING_TYPE, null).stringValue.replace(/\n/g, '').replace(/\s+/g, ' ').match(/Özellikleri: (.*)/);
+      const descHeader = document.querySelector('div.product-detail h3') ? document.querySelector('div.product-detail h3').textContent : '';
+      const additionalDesc = document.querySelector('div.product-detail div.card')
+        ? document.querySelector('div.product-detail div.card').textContent.replace(/\n/g, '').replace(/\s+/g, ' ') : '';
+      if (additionalDesc) data.additionalDesc = descHeader ? `${descHeader} ${additionalDesc}` : additionalDesc;
+      const videoId = document.querySelector('div[itemprop=video]') ? document.querySelector('div[itemprop=video]').getAttribute('id') : '';
+      const videoBtn = document.querySelector('button.kWidgetPlayBtn');
+      if (videoBtn) {
+        // @ts-ignore
+        await videoBtn.click();
+        await new Promise(resolve => setTimeout(resolve, 250));
+      }
+      if (videoId) {
+        try {
+          // @ts-ignore
+          data.video = window.KWidget.iframeUrls[videoId].match(/(.*?)&flashvars/)[1];
+        } catch (e) {
+          console.log('Error extracting video url.');
+        }
+      }
       appendData(data);
     });
     await context.extract(productDetails, { transform });

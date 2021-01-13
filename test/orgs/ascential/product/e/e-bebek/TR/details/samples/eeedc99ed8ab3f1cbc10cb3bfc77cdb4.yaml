@@ -2,7 +2,7 @@ input:
   id: mol-5034436
   _url: http://e-bebek.com
 extractions:
-  - html: https://workbench.import.io/html/run=76389e26-6bac-4bc3-89e6-7d5630d6a817/task=5304976f-2dfa-40a1-a489-75fa5d589e50/4a7303b5-5146-41f1-82d3-78e6f8a322e3.html
+  - html: https://workbench.import.io/html/run=60657b65-1fa4-4461-8275-3ff862e76d1b/task=d315cde5-2bfa-4ced-8daa-2b69aff1a7ed/c3ba3001-6f25-47a5-9dc0-88795ea7705d.html
     extractionConfigId: product/details/stores/e/e-bebek/TR/extract
     data:
       - group:
@@ -20,8 +20,6 @@ extractions:
               - text: https://cdn.e-bebek.com/mnresize/1600/1600/y.ebebek/prod/productImage/8690536802920_4.jpg
                 xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[7]/a[1]/img[1]/@src
             category:
-              - text: ebebek
-                xpath: /html/body/div[2]/main[1]/div[2]/div[2]/ul[1]/li[1]/a[1]
               - text: Bez & Mendil
                 xpath: /html/body/div[2]/main[1]/div[2]/div[2]/ul[1]/li[2]/a[1]
               - text: Bebek Bezleri
@@ -40,6 +38,9 @@ extractions:
             manufacturer:
               - text: Molfix
                 xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[1]
+            gtin:
+              - text: MOL-5034436
+                xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
             sku:
               - text: MOL-5034436
                 xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
@@ -143,4 +144,4 @@ extractions:
                 locale: tr_TR
                 value: 1
         xpath: /
-    timestamp: 1610357369695
+    timestamp: 1610534797869

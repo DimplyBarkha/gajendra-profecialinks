@@ -2,7 +2,7 @@ input:
   id: PRI-2906-NC
   _url: http://e-bebek.com
 extractions:
-  - html: https://workbench.import.io/html/run=76389e26-6bac-4bc3-89e6-7d5630d6a817/task=4213e874-cd1d-48f4-9c74-a5eb85c9622e/b3469930-07dd-4948-9f24-c9e012166962.html
+  - html: https://workbench.import.io/html/run=60657b65-1fa4-4461-8275-3ff862e76d1b/task=89dbafa9-4cd8-43a9-bef0-dcc2ce32240e/e41e802c-6640-47ec-9b38-c231e8564013.html
     extractionConfigId: product/details/stores/e/e-bebek/TR/extract
     data:
       - group:
@@ -26,8 +26,6 @@ extractions:
               - text: https://cdn.e-bebek.com/mnresize/1000/-/www.ebebek/i/p/hd/06/lPRI-2906_7.jpg
                 xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[10]/a[1]/img[1]/@src
             category:
-              - text: ebebek
-                xpath: /html/body/div[2]/main[1]/div[2]/div[2]/ul[1]/li[1]/a[1]
               - text: Bez & Mendil
                 xpath: /html/body/div[2]/main[1]/div[2]/div[2]/ul[1]/li[2]/a[1]
               - text: Bebek Bezleri
@@ -40,14 +38,6 @@ extractions:
             price:
               - text: 74,99 TL
                 xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/text()[1]
-            description:
-              - text: Pampers, Prima markasının uluslararası pazardaki adıdır. Belirli
-                  dönemlerde ürünlere olan taleplerin artması nedeniyle Prima
-                  ürünleri farklı dillerdeki ambalajları ile piyasaya
-                  sunulabilmektedir. Pampers isimli ürünler bildiğiniz,
-                  güvendiğiniz Prima kalitesindedir. Değerli bebeveynlerimizin
-                  bilgisine sunarız.
-                xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[1]/div[2]/div[2]/div[3]/p[1]
             brandText:
               - text: Prima
                 xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[1]
@@ -57,6 +47,9 @@ extractions:
             quantity:
               - text: "42"
                 xpath: /html/body/div[8]
+            gtin:
+              - text: PRI-2906
+                xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
             sku:
               - text: PRI-2906
                 xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
@@ -73,35 +66,6 @@ extractions:
             aggregateRating:
               - text: 4,9
                 xpath: /html/body/div[7]
-            manufacturerDescription:
-              - text: >-
-                  Emekleme çağına gelmeleriyle yerinde duramayan bebeklerin
-                  bezini değiştirmek zorlaşabilir. Bu durumda Pampers Prima
-                  Pants Külot Bez'i denemenizin tam zamanı. Pampers Prima Pants
-                  Külot Bez tek seferde külot gibi kolayca giydirilir ve 12
-                  saate kadar kuruluk sağlar. 360 derece esnek bel teknolojisi
-                  ile bebeğinizin belini tamamen kavrar ve hareketlerine uyum
-                  sağlar. Devrim niteliğindeki 3 emici kanal ıslaklığın eşit
-                  biçimde yayılmasını sağlayarak bebeği kuru tutar. Bebeğiniz
-                  nerede emeklerse emeklesin, Pampers Prima Pants Külot ile
-                  altını hızlı ve kolay biçimde değiştirebilirsiniz.
-                   
-                  *önceki külot çocuk bezlerimize kıyasla.
-                   
-
-                   
-                  Yerinde duramayan bebeklere kolayca giydirilen Pampers Prima Pants Külot Bez Yanlardan yırtmanız yeterlidir.
-                   
-                  Hava kanalları hava akımının bezin içinde rahatça dolaşmasını sağlayarak 12 saate kadar nefes alan bir kuruluk sunar.
-                   
-                  Emici Mikro İnci Tanecikler: Islaklığı emen ve hapseden mikro inci taneciklerinin olduğu iç tabaka
-                   
-                  Bebeğinizin külot rahatlığındaki Pampers Prima Külot Beziyle tüm gün rahat olması için Pamuk Gibi Yumuşak
-                   
-                  360 derece esnek bel teknolojisi: Her yönde esneyen bel bantı bebeğin hareketlerine uyarak vücuduna mükemmel biçimde oturur.
-                   
-                  Kolay çıkarılır: Yanlardan yırtmanız yeterlidir.
-                xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]
             manufacturerImages:
               - text: https://asset.ebebek.com/y.ebebek/i/st/p_content/PANTS-min.jpg
                 xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/p[1]/img[1]/@src
@@ -189,4 +153,4 @@ extractions:
                 locale: tr_TR
                 value: 1
         xpath: /
-    timestamp: 1610357367439
+    timestamp: 1610534797253
