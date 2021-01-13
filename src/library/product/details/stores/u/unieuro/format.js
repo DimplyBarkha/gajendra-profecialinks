@@ -117,17 +117,9 @@ const transform = (data) => {
                     row.videos = [row.videos[0]];
                 }
             }
-            if (row.manufacturerImages) {
-                let manufacturerImgArr = [];
-                row.manufacturerImages.forEach(ele => {
-                    manufacturerImgArr.push("https:" + ele.text);
-                })
-                row.manufacturerImages[0].text = manufacturerImgArr.join(" | ")
-                row.manufacturerImages = [row.manufacturerImages[0]]
-            }
             if (row.manufacturerDescription) {
                 row.manufacturerDescription.forEach(ele => {
-                    ele.text = ele.text.replace(/(12345[\d]+)/g, '')
+                    ele.text = ele.text.replace(/(12345[\d\s]+)/g, '')
                 })
             }
         }

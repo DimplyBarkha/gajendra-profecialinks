@@ -13,12 +13,6 @@ module.exports = {
         await context.setJavaScriptEnabled(true);
         url = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
         await context.goto(url, { waitUntil: 'networkidle0', block_ads: false, js_enabled: true });
-        try {
-            await context.waitForSelector('button[id="onetrust-accept-btn-handler"]', { timeout: 5000 });
-            await context.click('button[id="onetrust-accept-btn-handler"]');
-        } catch (e) {
-            console.log("accept cookie button not presen...t\nError: " + e);
-        }
         await context.evaluate(async function() {
             try {
                 if (document.querySelector('section[class*="hits"] section:first-child')) {
@@ -28,6 +22,12 @@ module.exports = {
                 console.log(err);
             }
         });
+        try {
+            await context.waitForSelector('button[id="onetrust-accept-btn-handler"]', { timeout: 5000 });
+            await context.click('button[id="onetrust-accept-btn-handler"]');
+        } catch (e) {
+            console.log("accept cookie button not presen...t\nError: " + e);
+        }
         await context.evaluate(async function() {
             await new Promise((resolve, reject) => {
                 var totalHeight = 0;
