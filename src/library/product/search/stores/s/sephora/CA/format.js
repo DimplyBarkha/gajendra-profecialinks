@@ -23,6 +23,7 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       rankCounter += 1;
+      let skyIdStr='';
       if (!row.sponsored) {
         orgRankCounter += 1;
         row.rankOrganic = [{ text: orgRankCounter }];
@@ -36,11 +37,24 @@ const transform = (data, context) => {
             item.text="https://www.sephora.com/"+item.text;
         })
       }
+      if(row.productUrl){
+        row.productUrl.forEach(item=>{
+          let skuI=item.text.split('?skuId=');
+          if(skuI.length>1){
+            let skuI1=skuI[1].split('&');
+            skyIdStr=skuI1[0];
+          }
+        })
+      }
       if(row.id){
           row.id.forEach(item=>{
               let idAr=item.text.split(' ');
               item.text=idAr[1];
           })
+      }else{
+        if(skyIdStr!=''){
+          row.id=[{"text":skyIdStr}];
+        }
       }
       if(row.aggregateRating){
           row.aggregateRating.forEach(item=>{
