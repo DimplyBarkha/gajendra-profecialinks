@@ -77,3 +77,11 @@ fields:
   - name: videos
     singleValue: false
     xpath: //div[@id="ii_video"]
+  - name: inTheBoxUrl
+  - name: inTheBoxText
+    xpath: //div[@id="tabpanel0"]
+    regExp: (.+)(This Set Contains:)(.+)
+    regExpReplace: $3
+  - name: hasComparisonTable
+  - name: unInterruptedPDP
+    xpath: //div[@data-at="product_carousel"]//div[contains(@id,"tabItem")]//span[@data-at="sku_item_name"]
