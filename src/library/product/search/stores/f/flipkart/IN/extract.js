@@ -1,13 +1,13 @@
-//const { transform } = require('../../../../shared');
+// const { transform } = require('../../../../shared');
 const { transform } = require('./transform');
 
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
   dependencies,
 ) {
-  //const { transform } = parameters;
+  // const { transform } = parameters;
   const { productDetails } = dependencies;
   // await context.evaluate(async function () {
   //   const applyScroll = async function (context) {
@@ -160,6 +160,19 @@ async function implementation(
         imgUrl = imgUrl.replace('{@width}', '312').replace('{@height}', '312').replace('{@quality}', '90');
         prodEl.setAttribute('imgUrl', imgUrl);
       }
+    }
+
+    function addElementToDocument (doc, key, value) {
+      const catElement = document.createElement('div');
+      catElement.id = key;
+      catElement.textContent = value;
+      catElement.style.display = 'none';
+      doc.appendChild(catElement);
+    }
+    const url = window.location.href;
+    const productSelectors = document.querySelectorAll('div._13oc-S>div');
+    for (let i = 0; i < productSelectors.length; i++) {
+      addElementToDocument(productSelectors[i], 'url', url);
     }
   });
 

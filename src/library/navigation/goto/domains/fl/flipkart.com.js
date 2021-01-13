@@ -7,7 +7,7 @@ module.exports = {
     country: 'IN',
     store: 'flipkart',
     zipcode: "''",
-  },  
+  },
   implementation: async ({ url }, parameters, context, dependencies) => {
     context.setBlockAds(false);
     context.setLoadAllResources(true);
