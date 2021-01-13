@@ -145,4 +145,5 @@ fields:
   - name: inTheBoxText
     xpath: ancestor::html//div[@class="wrapper_table"]//tr/td[contains(.,'Accesorios Incluidos')]//following-sibling::td
   - name: unInterruptedPDP
-    xpath: ancestor::html//div[@class="slick-track"]/div[contains(@class,'slick-slide')]//a//p[contains(@class,'description')]
+    xpath: ancestor::html//h2[contains(text(),'ARTÍCULOS SIMILARES')]/parent::section//div[contains(@class,"slick-slide")][not(contains(@class,"cloned"))][not(contains(@class,"initialized"))]//figcaption/p
+    
