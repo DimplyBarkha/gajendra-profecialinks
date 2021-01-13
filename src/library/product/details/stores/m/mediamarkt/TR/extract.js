@@ -4,6 +4,12 @@ const { transform } = require('./transform');
 async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  await context.evaluate(async function (context) {
+    const seeAllSelector = document.querySelector('div[id*="product_detail_page"] div[class="next"]');
+    if (seeAllSelector) {
+      seeAllSelector.click();
+    }
+  });
   const selectors = {
     isVariants: 'div[class*="product-attributes"]',
     isColors: '.product-attributes__color-item',

@@ -2,7 +2,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'mediamarkt.com.tr',
-    timeout: 50000,
+    timeout: 500000,
     store: 'mediamarkt',
     country: 'TR',
     zipcode: '',
@@ -24,6 +24,8 @@ module.exports = {
       timeout: timeout,
       waitUntil: 'load',
       checkBlocked: true,
+      load_all_resources: true,
+      images_enabled: true,
     });
     // For mediamarkt ES
     try {
