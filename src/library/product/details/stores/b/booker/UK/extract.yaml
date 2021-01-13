@@ -32,7 +32,7 @@ fields:
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
-  xpath: //div[@id="csmpc"]//*[contains(@class,'Selected')][position()>1]
+  xpath: //div[@id="csmpc"]//*[contains(@class,'Selected')][position()>2]
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"

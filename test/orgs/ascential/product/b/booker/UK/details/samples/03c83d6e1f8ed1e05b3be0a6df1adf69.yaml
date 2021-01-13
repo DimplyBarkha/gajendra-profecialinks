@@ -2,14 +2,11 @@ input:
   id: "250074"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=3f9c3f8e-b3d5-42a7-ac8c-f5810cdcc736/task=acb81520-6817-4dbb-8805-88f36ba1fb92/1caa1862-4861-438e-828d-63bcaf6c41fa.html
+  - html: https://workbench.import.io/html/run=552fba50-2098-4d1b-a2f2-908ac6672526/task=4dd8b877-0258-4783-afce-cd32278afbc4/1851b4c1-b2d6-4131-95da-02ee6a22e13e.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
-          - category:
-              - text: Browse Categories
-                xpath: /html/body/form[1]/div[3]/div[1]/div[3]/span[2]
-            productUrl:
+          - productUrl:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=250074&view=UnGrouped
                 xpath: /html/body/div[1]
             metaKeywords:
@@ -36,4 +33,4 @@ extractions:
             productOtherInformation:
               - text: ""
         xpath: /html/body
-    timestamp: 1610541503553
+    timestamp: 1610571992631
