@@ -93,6 +93,7 @@ fields:
     regExp: (.+\s)(.+)(\s.+)
     regExpReplace: https:$2
   - name: inTheBoxText
+    xpath: //div[contains(@class,"inpage_selector_InTheBox")]//div[@class="flix-std-table"]//div[@class="flix-std-content"]
   - name: hasComparisonTable
     defaultValue: No
   - name: unInterruptedPDP
