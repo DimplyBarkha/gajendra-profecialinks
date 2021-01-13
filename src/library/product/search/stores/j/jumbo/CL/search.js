@@ -6,5 +6,6 @@ module.exports = {
     store: 'jumbo',
     domain: 'jumbo.cl',
     zipcode: '',
+    storeID: null,
   },
 };

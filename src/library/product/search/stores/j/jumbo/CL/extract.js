@@ -50,6 +50,26 @@ async function implementation (
       }
       addProp('li.shelf-item', i, 'productUrl', 'https://www.jumbo.cl' + productUrls[i].getAttribute('href'));
     }
+
+    const nextPageNumber = document.querySelector('div.slides button[class*=\'page-number active\'] + button')
+      ? parseInt(document.querySelector('div.slides button[class*=\'page-number active\'] + button').innerText) : '';
+    const currentUrl = window.location.href;
+    let nextUrl = '';
+    if (nextPageNumber) {
+      if (!currentUrl.includes('page=')) {
+        nextUrl = currentUrl + `&page=${nextPageNumber}`;
+      } else {
+        const urlWithoutPageNumberRegex = /(.*page=)(\d+)/g;
+        const urlWithoutPageNumber = urlWithoutPageNumberRegex.exec(currentUrl)[1];
+        nextUrl = urlWithoutPageNumber + nextPageNumber;
+      }
+      const nextLinkElement = document.createElement('link');
+      nextLinkElement.rel = 'next';
+      nextLinkElement.href = nextUrl;
+      document.head.appendChild(nextLinkElement);
+    }
+
+    await new Promise((resolve, reject) => setTimeout(resolve, 2000));
   });
   return await context.extract(productDetails, { transform });
 }
