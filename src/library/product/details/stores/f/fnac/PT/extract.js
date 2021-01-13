@@ -26,7 +26,7 @@ async function implementation (inputs, parameters, context, dependencies) {
 
   const enhancedContentUrl = await context.evaluate(async function() {
     let code = document.querySelector('img[id*=_flixbtn]') ? document.querySelector('img[id*=_flixbtn]').getAttribute('id').match(/\d+/g)[0]: "";
-    let url  = `https://media.flixcar.com/delivery/inpage/show/418/pt/${code}/json?c=jsonpcar418pt1863608&complimentary=0&type=.html`;
+    let url  = `https://media.flixcar.com/delivery/inpage/show/418/pt/${code}/`;
     return url;
   });
 
