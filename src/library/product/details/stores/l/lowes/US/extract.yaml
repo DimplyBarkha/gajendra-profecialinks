@@ -153,3 +153,15 @@ fields:
     xpath: //div[contains(@class,"swatchWrapper")]//button/@data-url
     regExp: \/(\d+)
     regExpReplace: $1
+# Custom Fields
+  - name: unInterruptedPDP
+    xpath: //*[@id="item-index-1-wrapper"]//h6//span[@class="product-desc"]|//div[contains(@class,"recommendation")]//div[contains(@class,"product-card-wrapper")]//div[contains(@class,"card-description-container")]/h6/a
+  - name: inTheBoxUrl
+    xpath: //div[@id='witbImg']|//div[@data-section-tag="in-the-box"]//div[@class="wc-aplus-body"]//li//img/@src
+  - name: inTheBoxText
+    xpath: //div[@id='witbText']|//div[@data-section-tag="in-the-box"]//div[@class="wc-aplus-body"]//li//h3
+  - name: hasComparisonTable
+    singleValue: true
+    xpath: //div[@class="prev-container"]/div[@class="prev-body"]//div[@class="divTableRow"][1]//div[@class="optionCont"]/a
+    regExp: (.+)
+    regExpReplace: Yes

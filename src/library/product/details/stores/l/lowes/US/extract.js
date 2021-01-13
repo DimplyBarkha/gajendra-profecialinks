@@ -14,6 +14,24 @@ module.exports = {
     context,
     dependencies,
   ) => {
+    const applyScroll = async function (context) {
+      await context.evaluate(async function () {
+        let scrollTop = 0;
+        while (scrollTop !== 20000) {
+          scrollTop += 400;
+          window.scroll(0, scrollTop);
+          await stall(1000);
+        }
+        function stall(ms) {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve();
+            }, ms);
+          });
+        }
+      });
+    };
+    await applyScroll(context);
     await context.evaluate(async function () {
       let scrollSelector = document.querySelector('div#footerApp');
       let scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
@@ -50,9 +68,24 @@ module.exports = {
         secondaryImageCount.setAttribute('href', alternateImagesCount);
         document.body.appendChild(secondaryImageCount);
       }
+      function addElementToDocument(key, value) {
+        const catElement = document.createElement('div');
+        catElement.id = key;
+        catElement.textContent = value;
+        catElement.style.display = 'none';
+        document.body.appendChild(catElement);
+      }
+      const enhancedContent = document.querySelector('div[class*="syndi_powerpage"]');
+      if (enhancedContent) {
+        const witbData = Array.from([...enhancedContent.shadowRoot.querySelectorAll('[class="syndigo-widget-section-header"]')].find(elm => elm.innerText.match(/in the box/i)).nextElementSibling.querySelectorAll('[class="syndigo-featureset-feature"]'))
+        witbData.forEach(element => {
+          element.querySelector('h3') && addElementToDocument('witbText', element.querySelector('h3').innerText);
+          element.querySelector('img') && addElementToDocument('witbImg', element.querySelector('img').src);
+        });
+      }
       const videoApi = JSON.parse(document.evaluate('//script[contains(text(),"__PRELOADED_STATE__")]', document).iterateNext().textContent &&
-      document.evaluate('//script[contains(text(),"__PRELOADED_STATE__")]', document).iterateNext().textContent.match(/videos":([^\]]+])/) &&
-      document.evaluate('//script[contains(text(),"__PRELOADED_STATE__")]', document).iterateNext().textContent.match(/videos":([^\]]+])/)[1]);
+        document.evaluate('//script[contains(text(),"__PRELOADED_STATE__")]', document).iterateNext().textContent.match(/videos":([^\]]+])/) &&
+        document.evaluate('//script[contains(text(),"__PRELOADED_STATE__")]', document).iterateNext().textContent.match(/videos":([^\]]+])/)[1]);
       if (videoApi && videoApi.length) {
         videoApi.map(ele => {
           const newlink = document.createElement('a');
@@ -66,5 +99,4 @@ module.exports = {
     const { productDetails } = dependencies;
     await context.extract(productDetails, { transform });
   },
-
 };
