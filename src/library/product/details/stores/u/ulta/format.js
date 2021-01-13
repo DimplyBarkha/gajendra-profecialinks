@@ -59,12 +59,12 @@ const transform = (data) => {
       });
       }
 
-      if (row.highQualityImages) {
-        row.highQualityImages.forEach(item => {
-            item.text = item.text + "?\u0026wid=1000\u0026hei=1000";
-        });
+      // if (row.highQualityImages) {
+      //   row.highQualityImages.forEach(item => {
+      //       item.text = item.text + "?\u0026wid=1000\u0026hei=1000";
+      //   });
 
-      }
+      // }
     }
   }
   const clean = text => text.toString()

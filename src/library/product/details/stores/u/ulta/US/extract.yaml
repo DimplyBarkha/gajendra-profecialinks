@@ -136,8 +136,8 @@ fields:
   - name: shownImages
     singleValue: false
     xpath: //div[@class='ProductImage__thumbNails']//div[@class='Image']//img/@src
-    regExp: (.*)\?.*
-    regExpReplace: $1
+    # regExp: (.*)\?.*
+    # regExpReplace: $1
   - name: highQualityImages
     singleValue: false
     xpath:  //div[@class='ProductImage__thumbNails']//div[@class='Image']//img/@src
