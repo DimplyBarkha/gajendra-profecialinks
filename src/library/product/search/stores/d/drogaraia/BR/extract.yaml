@@ -7,7 +7,7 @@ fields:
     singleValue: false
     xpath: //div[contains(@class, "trustvox")]/@data-trustvox-product-code
   - name: searchUrl
-    singleValue: true
+    singleValue: false
   - name: name
     xpath: //a[@data-tb-sid = "st_title-link"]
     singleValue: false
@@ -20,7 +20,7 @@ fields:
     singleValue: false
     xpath: //div[(@class="sli_image")]//img/@data-src
     regExp: (.+)
-    regExpReplace: http:$1
+    regExpReplace: https:$1
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -52,6 +52,3 @@ fields:
     singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
-  # - name: totalRecordCount
-  #   singleValue: true 
-  #   type: NUMBER
