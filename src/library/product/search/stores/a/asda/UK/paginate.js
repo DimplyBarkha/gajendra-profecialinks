@@ -4,11 +4,9 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'asda',
-    nextLinkSelector: 'button[aria-label="next page"] > span:not(.asda-icon--gray)',
-    spinnerSelector: 'div.search-page-content div.asda-spinner',
-    mutationSelector: null,
-    loadedSelector: null,
-    openSearchDefinition: null,
+    openSearchDefinition: {
+      template: 'https://groceries.asda.com/api/items/search?productperpage=60&pagenum={page}&keyword={searchTerms}#[!opt!]{"type":"json"}[/!opt!]',
+    },
     domain: 'groceries.asda.com',
   },
 };
