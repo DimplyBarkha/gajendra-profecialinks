@@ -149,3 +149,9 @@ fields:
   - name: shippingWeight
     singleValue: false
     xpath: //tr[th[contains(text(),'Packaged Weight')]]/td
+  - name: inTheBoxUrl
+    xpath: 
+  - name: inTheBoxText
+  - name: hasComparisonTable
+  - name: unInterruptedPDP
+    xpath: //h3[contains(text(), 'You may also like')]/following::div[contains(@id, 'related')]/div[contains(@class, 'slick-list')]/div/div[not(contains(@class, 'cloned'))]//a//h4
