@@ -36,7 +36,6 @@ module.exports = {
       if (!productDetailsAvailable) {
         throw new Error('ERROR: Failed to load product details page');
       }
-      console.log('navigation complete!!');
     }
 
     const jsonFromCatalogue = await context.evaluate(async function (inputs) {
