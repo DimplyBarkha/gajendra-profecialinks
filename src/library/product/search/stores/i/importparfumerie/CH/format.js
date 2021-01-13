@@ -35,6 +35,14 @@ const transform = (data) => {
             item.text=parseFloat(item.text);
           });
         }
+        if (row.thumbnail) {
+          row.thumbnail.forEach(item => {
+              item.text = item.text.replace(/,.*/, '');
+              item.text = item.text.replace('405w', '');
+              item.text = 'I'+ item.text;
+              item.text = item.text.slice(1, -1);
+          });
+       }
         if (row.price) {
           row.price.forEach(item => {
             item.text = item.text.replace(/\s\n/g, '').trim();

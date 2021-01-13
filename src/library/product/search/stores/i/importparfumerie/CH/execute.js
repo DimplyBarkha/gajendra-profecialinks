@@ -20,7 +20,7 @@ async function implementation (
     }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
   console.log('Checking no results', parameters.noResultsXPath);
-
+  await new Promise((resolve, reject) => setTimeout(resolve, 9000));
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
       let scrollTop = 0;
@@ -61,7 +61,7 @@ module.exports = {
     country: 'CH',
     store: 'importparfumerie',
     domain: 'importparfumerie.ch',
-    url: 'https://www.impo.ch/de/search/?text={searchTerms}',
+    url: 'https://www.impo.ch/search/?text={searchTerms}&sort=flagNew&_=1526558088777',
     loadedSelector: 'div.list-page.spacing-top-10.spacing-bottom-10',
     noResultsXPath: '//div[contains(text(),"Geben Sie einen anderen Begriff ein und suchen Sie erneut.")]',
     zipcode: "''",
