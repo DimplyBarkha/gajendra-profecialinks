@@ -1,0 +1,11 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id="product"]
+fields:
+  - name: product
+    xpath: //text()
+  - name: filterType
+    xpath: ancestor::html//div[@id="FilterType"]
+  - name: sortType
+    defaultValue: 'Most Popular'

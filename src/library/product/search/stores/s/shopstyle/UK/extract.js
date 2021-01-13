@@ -3,10 +3,10 @@ const { transform } = require('../sharedTransform');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
-    country: 'US',
+    country: 'UK',
     store: 'shopstyle',
     transform,
+    domain: 'shopstyle.co.uk',
     zipcode: '',
-    domain: 'shopstyle.com',
   },
 };

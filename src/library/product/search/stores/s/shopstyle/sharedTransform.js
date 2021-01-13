@@ -37,7 +37,10 @@ const transform = (data, context) => {
           setRow('salePrice', 'salePriceLabel');
         }
 
-        row.brand = [{ text: productObj.brand.name }];
+        if (productObj.brand) {
+          row.brand = [{ text: productObj.brand.name }];
+        }
+
         row.storeName = [{ text: productObj.retailer.name }];
         row.imageUrl = [{ text: productObj.image.sizes.Best.url }];
         row.availability = [{ text: true }];
