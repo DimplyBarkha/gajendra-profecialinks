@@ -6,7 +6,7 @@ module.exports = {
     store: 'lowes',
     domain: 'lowes.com',
     url: 'https://www.lowes.com/search?searchTerm={searchTerms}',
-    loadedSelector: 'a > span > article > span',
+    loadedSelector: 'div.pl>div',
     noResultsXPath: '//h1[contains(text(),"NO RESULTS FOUND FOR")]',
   },
 };
