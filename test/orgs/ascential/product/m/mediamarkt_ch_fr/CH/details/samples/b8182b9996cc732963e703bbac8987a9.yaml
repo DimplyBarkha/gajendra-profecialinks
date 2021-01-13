@@ -2,7 +2,7 @@ input:
   id: 1422442
   _url: http://mediamarkt.ch
 extractions:
-  - html: https://workbench.import.io/html/run=e58ed27f-1219-4a29-861a-cc16f2f95870/task=945cd352-03bd-4205-a423-6e780123c549/f114131b-f2d1-4e9f-984b-6b3d37089410.html
+  - html: https://workbench.import.io/html/run=9cd4eb6b-d2a9-48c4-9183-c1e04fa8ddc3/task=07317c76-1643-432f-8cb5-f3dc7dbb3333/728555b8-59c6-4f0b-99bf-9662bc4338e4.html
     extractionConfigId: product/details/stores/m/mediamarkt_ch_fr/CH/extract
     data:
       - group:
@@ -31,23 +31,12 @@ extractions:
               - text: "1422442"
                 xpath: /html/body/div[2]/div[2]/div[5]/div[1]/div[6]/div[1]/div[2]/div[1]/section[1]/dl[1]/dd[12]
             ratingCount:
-              - text: "0"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/dl[1]/dd[2]/div[1]/div[1]/button[1]/div[2]/div[1]
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/dl[1]/dd[2]/div[1]/div[1]/button[1]/div[3]/div[1]
             name:
               - text: DE-LONGHI NESCAFÉ Dolce Gusto Mini Me Starter Kit Machine à capsule
                   (Blanc/noir)
                 xpath: /html/body/div[2]/div[2]/div[1]/h1[1]
-            promotion:
-              - text: >-
-                  À l'achat d'une machine à café automatique Dolce Gusto, 128
-                  capsules Dolce Gusto offertes*
-                   
-                  *Conditions de l'offre :
-                   Offre valable à l'achat d'une machine à café automatique Dolce Gusto du 16.11.2020 au 31.12.2020. Pour profiter de la promotion, vous devez commander au minimum huit boîtes de capsules. La réduction sera déduite du panier.
-
-                   
-                  Les gammes Starbucks, les boîtes Magnum et Absolute Origins, et les packs avantages sont exclus de l'action. Seulement jusqu'à épuisement des stocks. Offre non cumulable avec d'autres offres.
-                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]
             energyEfficiency:
               - text: A+
                 xpath: /html/body/div[2]/div[2]/div[5]/div[1]/div[6]/div[1]/div[2]/div[1]/section[1]/dl[1]/dd[7]
@@ -82,10 +71,16 @@ extractions:
               - text: En-ligne disponible Livraison entro 1-4 jours ouvrables Disponibilité en
                   magasin
                 xpath: /html/body/div[16]
+            aggregateRating:
+              - text: "5.0"
+                xpath: /html/body/div[17]
             productUrl:
               - text: https://www.mediamarkt.ch/fr/product/_de-longhi-nescaf%C3%A9-dolce-gusto-mini-me-starter-kit-1422442.html?ga_query=%7Bid%7D
                 xpath: /html/body/div[18]
+            gtin:
+              - text: "8004399328624"
+                xpath: /html/body/div[19]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html/body
-    timestamp: 1606479097635
+    timestamp: 1610547891273

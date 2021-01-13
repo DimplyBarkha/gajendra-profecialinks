@@ -79,6 +79,7 @@ fields:
 - name: gtin
   singleValue: true
   description: GTIN code (includes UPC/EAN)
+  xpath: //div[@id="product-upc"]
 - name: sku
   description: The store-specific product identifier
   xpath: //dl[@class='specification']/dt[text()="Numéro d’article:"]/following-sibling::dd[1]

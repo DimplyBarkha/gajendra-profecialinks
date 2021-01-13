@@ -2,7 +2,7 @@ input:
   id: 1893185
   _url: http://mediamarkt.ch
 extractions:
-  - html: https://workbench.import.io/html/run=e58ed27f-1219-4a29-861a-cc16f2f95870/task=45e969bf-91fe-4de3-9b76-56473bcc6e77/23f94c22-a3b6-4b30-8436-d5d07302f5f5.html
+  - html: https://workbench.import.io/html/run=9cd4eb6b-d2a9-48c4-9183-c1e04fa8ddc3/task=5b580e6d-14fc-4889-91e4-13e09c91f5f4/d05f711c-4b64-4601-be82-d4937b3a4378.html
     extractionConfigId: product/details/stores/m/mediamarkt_ch_fr/CH/extract
     data:
       - group:
@@ -79,7 +79,7 @@ extractions:
               - text: 244352-01
                 xpath: /html/body/div[2]/div[2]/div[5]/div[1]/div[6]/div[1]/div[2]/div[1]/section[3]/dl[1]/dd[6]
             ratingCount:
-              - text: "116"
+              - text: "128"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[1]/dl[1]/dd[2]/div[1]/div[1]/button[1]/div[3]/div[1]
             color:
               - text: Blanc
@@ -94,35 +94,38 @@ extractions:
                 xpath: /html/body/div[3]/footer[1]/div[5]
             image:
               - text: http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-80175072/fee_325_225_png/DYSON-Pure-Hot---Cool---Purificateur-d%27air-%28Blanc%29
-                xpath: /html/body/div[9]
+                xpath: /html/body/div[10]
             imageAlt:
               - text: DYSON Pure Hot + Cool - Purificateur d'air (Blanc)
-                xpath: /html/body/div[10]
+                xpath: /html/body/div[11]
             alternateImages:
               - text: http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-80078261/wcs_overlay_prod_detail/DYSON-Pure-Hot---Cool---Purificateur-d%27air-%28Blanc%29,http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-80078262/wcs_overlay_prod_detail/DYSON-Pure-Hot---Cool---Purificateur-d%27air-%28Blanc%29,http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-80078377/wcs_overlay_prod_detail/DYSON-Pure-Hot---Cool---Purificateur-d%27air-%28Blanc%29,http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-80078259/wcs_overlay_prod_detail/DYSON-Pure-Hot---Cool---Purificateur-d%27air-%28Blanc%29,http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-80078258/wcs_overlay_prod_detail/DYSON-Pure-Hot---Cool---Purificateur-d%27air-%28Blanc%29
-                xpath: /html/body/div[11]
+                xpath: /html/body/div[12]
             secondaryImageTotal:
               - text: "5"
-                xpath: /html/body/div[12]
-            price:
-              - text: 599 CHF
                 xpath: /html/body/div[13]
-            listPrice:
-              - text: 699 CHF
+            price:
+              - text: 649 CHF
                 xpath: /html/body/div[14]
+            listPrice:
+              - text: 649 CHF
+                xpath: /html/body/div[15]
             availabilityText:
               - text: En-ligne disponible Livraison dans 1-2 jours Disponibilité en magasin
-                xpath: /html/body/div[15]
+                xpath: /html/body/div[16]
             aggregateRating:
               - text: "4.1"
-                xpath: /html/body/div[16]
+                xpath: /html/body/div[17]
             weightNet:
               - text: "5.7"
-                xpath: /html/body/div[17]
+                xpath: /html/body/div[18]
             productUrl:
               - text: https://www.mediamarkt.ch/fr/product/_dyson-pure-hot-cool-1893185.html?ga_query=%7Bid%7D
-                xpath: /html/body/div[18]
+                xpath: /html/body/div[19]
+            gtin:
+              - text: "5025155038635"
+                xpath: /html/body/div[20]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html/body
-    timestamp: 1606479100633
+    timestamp: 1610547890696

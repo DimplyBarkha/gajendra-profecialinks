@@ -2,7 +2,7 @@ input:
   id: 1056734
   _url: http://mediamarkt.ch
 extractions:
-  - html: https://workbench.import.io/html/run=e58ed27f-1219-4a29-861a-cc16f2f95870/task=4557bf91-f79c-4884-810f-29e236c67d84/370e0bdf-270a-47ab-88ea-d48d3f102e73.html
+  - html: https://workbench.import.io/html/run=9cd4eb6b-d2a9-48c4-9183-c1e04fa8ddc3/task=b5921a5b-dcea-40e5-aec2-8a17ad277608/8719f4c3-6759-4a37-8604-4902b24ea41f.html
     extractionConfigId: product/details/stores/m/mediamarkt_ch_fr/CH/extract
     data:
       - group:
@@ -103,8 +103,7 @@ extractions:
               - text: 5.95 CHF
                 xpath: /html/body/div[15]
             availabilityText:
-              - text: Ce produit est épuisé en ligne, veuillez sélectionner 'Disponibilité en
-                  magasin'! Disponibilité en magasin
+              - text: Livraison jusque’à 6 jours ouvrables Disponibilité en magasin
                 xpath: /html/body/div[16]
             servingSize:
               - text: "100"
@@ -118,7 +117,10 @@ extractions:
             productUrl:
               - text: https://www.mediamarkt.ch/fr/product/_nescaf%C3%A9-dolce-gusto-lungo-1056734.html?ga_query=%7Bid%7D
                 xpath: /html/body/div[21]
+            gtin:
+              - text: "7613037882636"
+                xpath: /html/body/div[22]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html/body
-    timestamp: 1606479093560
+    timestamp: 1610547887551
