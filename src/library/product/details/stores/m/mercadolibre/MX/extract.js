@@ -51,7 +51,6 @@ module.exports = {
         addElementToDocument('isStock', '');
         console.log('not in stock');
       }
-      // addElementToDocument('url', location.href);
     });
     return await context.extract(productDetails, { transform });
   },
