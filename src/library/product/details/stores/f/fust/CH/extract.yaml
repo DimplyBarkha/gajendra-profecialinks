@@ -66,7 +66,7 @@ fields:
     type: NUMBER
   - name: specifications
     singleValue: false
-    xpath: //table[contains(@class,'specification')]//tr 
+    xpath: //table[contains(@class,'specification')]//tr
   - name: warranty
     singleValue: false
     xpath: //div[contains(@class,'show-for-medium')]//div[@class='guarantee']//span
@@ -108,3 +108,5 @@ fields:
     regExpReplace: https:$1
   - name: inTheBoxText
     xpath: //div[contains(.,'Lieferumfang') and contains(@class,'title')]/following-sibling::div//img/parent::div/following-sibling::div
+  - name: hasComparisonTable
+    defaultValue: No
