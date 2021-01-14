@@ -31,11 +31,62 @@ module.exports = {
       if (isAvailable !== null && isAvailable !== undefined) {
         addElementToDocument('isAvailable', 'In Stock');
       } else addElementToDocument('isAvailable', 'Out of Stock');
+
+      const allergyAdvice = document.querySelectorAll('li[id="tab-ingredientsAndAllergens"] ul > li');
+      const allergyText = [];
+      if (allergyAdvice.length !== 0) {
+        allergyAdvice.forEach((e, i) => {
+          // @ts-ignore
+          if (i !== 0) allergyText.push(e.innerText);
+        });
+        addElementToDocument('allergy', allergyText.join(' ').split('\n\n').join(' '));
+      }
+      // @ts-ignore
+      const totalFat = [...document.querySelectorAll('tr.nutrient-table__item td, ul > li > strong')].filter(e => e.innerText === 'Fett' || e.innerText === 'Rohfett');
+      if (totalFat.length === 1) addElementToDocument('totalfat', totalFat[0].nextElementSibling.innerText);
     });
 
     var dataRef = await context.extract(productDetails, { transform });
 
     dataRef[0].group.forEach((row) => {
+      if (row.sodiumPerServingUom) {
+        row.sodiumPerServingUom.forEach(item => {
+          if (item.text.includes('/ ')) item.text = item.text.split('/ ').join('/').trim();
+          if (!item.text.includes('/ ')) item.text = item.text.split(' ').pop();
+        });
+      }
+      if (row.magnesiumPerServingUom) {
+        row.magnesiumPerServingUom.forEach(item => {
+          if (item.text.includes('/ ')) item.text = item.text.split('/ ').join('/').trim();
+          if (!item.text.includes('/ ')) item.text = item.text.split(' ').pop();
+        });
+      }
+      if (row.dietaryFibrePerServingUom) {
+        row.dietaryFibrePerServingUom.forEach(item => {
+          if (item.text.includes('/ ')) item.text = item.text.split('/ ').join('/').trim();
+          if (!item.text.includes('/ ')) item.text = item.text.split(' ').pop();
+        });
+      }
+      if (row.saltPerServingUom) {
+        row.saltPerServingUom.forEach(item => {
+          item.text = item.text ? item.text.split(' ').pop() : '';
+        });
+      }
+      if (row.totalFatPerServingUom) {
+        row.totalFatPerServingUom.forEach(item => {
+          item.text = item.text ? item.text.split(' ').pop() : '';
+        });
+      }
+      if (row.proteinPerServingUom) {
+        row.proteinPerServingUom.forEach(item => {
+          item.text = item.text ? item.text.split(' ').pop() : '';
+        });
+      }
+      if (row.servingSizeUom) {
+        row.servingSizeUom.forEach(item => {
+          item.text = item.text ? item.text.split(' ').pop() : item.text;
+        });
+      }
       if (row.additionalDescBulletInfo) {
         let text = '';
         row.additionalDescBulletInfo.forEach(item => {
@@ -57,6 +108,11 @@ module.exports = {
             text: text,
           },
         ];
+      }
+      if (row.pricePerUnit) {
+        row.pricePerUnit.forEach(item => {
+          item.text = !item.text.includes('zzgl.') ? item.text.match(/.+\/\d+/) : item.text;
+        });
       }
       if (row.dietaryInformation) {
         let text = '';

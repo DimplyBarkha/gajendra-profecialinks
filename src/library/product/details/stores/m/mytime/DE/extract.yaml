@@ -35,7 +35,7 @@ fields:
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
-  xpath: //h1/span[@itemprop='name']
+  xpath: //h1
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
@@ -55,7 +55,7 @@ fields:
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: //li[strong[contains(text(), 'Beschreibung')]]/p
+  xpath: //li[@id='tab-details']
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -68,7 +68,7 @@ fields:
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
-  xpath: //meta[@property='product:brand']/@content
+  xpath: (//address | //meta[@property='product:brand']/@content)[last()]
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
@@ -105,7 +105,7 @@ fields:
 - name: directions
   singleValue: true
   description: Content under "directions" header
-  xpath: //li[strong[contains(text(), 'Anwen')]]/p
+  xpath: //li[strong[contains(text(), 'Anwen')]]/p | //strong[contains(text(), 'Fütterungsempfehlung')]/following-sibling::p
 - name: warnings
   singleValue: true
   description: Content under "warnings" header
@@ -260,9 +260,13 @@ fields:
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.
+  xpath: //tr[@class="nutrient-table__factsper"]/td[last()]
+  regExp: je (.*)
+  regExpReplace: $1
 - name: servingSizeUom
   singleValue: true
   description: Unit of measure of serving
+  xpath: //tr[@class="nutrient-table__factsper"]/td[last()]
 - name: numberOfServingsInPackage
   singleValue: true
   description: Suggested number of servings of the product.
@@ -279,17 +283,18 @@ fields:
   singleValue: true
   description: Nutritional Information for Total Fat content - Usually based on per
     100g serving
-  xpath:  //tr[td[contains(text(), 'Fett')]]/td[last()]
+  xpath:  //div[@id='totalfat']
+  regExp: <\d+.\d+|<\d+,\d+|\d+.\d+|\d+,\d+|\d+
 - name: totalFatPerServingUom
   singleValue: true
   description: Unit of Measure Data for Total Fat content
-  xpath: //tr[td[text()='Fett']]/td[last()]
-  regExp: ([a-zA-Z]+)
+  xpath: //div[@id='totalfat']
 - name: saturatedFatPerServing
   singleValue: true
   description: Nutritional Information for Saturated Fat content - Usually based on
     per 100g serving
   xpath: //tr[td[contains(text(), 'Fettsäuren')]]/td[last()]
+  regExp: <\d+.\d+|<\d+,\d+|\d+.\d+|\d+,\d+|\d+
 - name: saturatedFatPerServingUom
   singleValue: true
   description: Unit of Measure Data for Saturated Fat content
@@ -313,14 +318,18 @@ fields:
   singleValue: true
   description: Nutritional Information for Sodium content - Usually based on per 100g
     serving
+  xpath: //tr/td[contains(text(), 'Natrium')]/following-sibling::td
+  regExp: \d+.\d+|\d+,\d+|\d+
 - name: sodiumPerServingUom
   singleValue: true
   description: Unit of Measure Data for Sodium content
+  xpath: //tr/td[contains(text(), 'Natrium')]/following-sibling::td
 - name: totalCarbPerServing
   singleValue: true
   description: Nutritional Information for Total Carbohydrate content - Usually based
     on per 100g serving
   xpath: //tr[td[contains(text(), 'Kohlenhydrate')]]/td[last()]
+  regExp: <\d+.\d+|<\d+,\d+|\d+.\d+|\d+,\d+|\d+
 - name: totalCarbPerServingUom
   singleValue: true
   description: Unit of Measure Data for Total Carbohydrate content
@@ -330,17 +339,18 @@ fields:
   singleValue: true
   description: Nutritional Information for Dietary Fibre content - Usually based on
     per 100g serving
-  xpath: //tr[td[contains(text(), 'Ballaststoffe')]]/td[last()]
+  xpath: //tr[td[contains(text(), 'Ballaststoffe')]]/td[last()] | //strong[contains(text(), 'Rohfaser')]/following-sibling::p
+  regExp: <\d+.\d+|<\d+,\d+|\d+.\d+|\d+,\d+|\d+
 - name: dietaryFibrePerServingUom
   singleValue: true
   description: Unit of Measure Data for Dietary Fibre content
-  xpath: //tr[td[contains(text(), 'Ballaststoffe')]]/td[last()]
-  regExp: ([a-zA-Z]+)
+  xpath: //tr[td[contains(text(), 'Ballaststoffe')]]/td[last()] | //strong[contains(text(), 'Rohfaser')]/following-sibling::p
 - name: totalSugarsPerServing
   singleValue: true
   description: Nutritional Information for Total Sugar content - Usually based on
     per 100g serving
   xpath: //tr[td[contains(text(), 'Zucker')]]/td[last()]
+  regExp: <\d+.\d+|<\d+,\d+|\d+.\d+|\d+,\d+|\d+
 - name: totalSugarsPerServingUom
   singleValue: true
   description: Unit of Measure Data for Total Sugar content
@@ -350,12 +360,12 @@ fields:
   singleValue: true
   description: Nutritional Information for Protein content - Usually based on per
     100g serving
-  xpath: //tr[td[contains(text(), 'Eiweiß')]]/td[last()]
+  xpath: //tr[td[contains(text(), 'Eiweiß')]]/td[last()] | //strong[contains(text(), 'Rohprotein')]/following-sibling::p
+  regExp: <\d+.\d+|<\d+,\d+|\d+.\d+|\d+,\d+|\d+
 - name: proteinPerServingUom
   singleValue: true
   description: Unit of Measure Data for Protein
-  xpath: //tr[td[contains(text(), 'Eiweiß')]]/td[last()]
-  regExp: ([a-zA-Z]+) 
+  xpath: //tr[td[contains(text(), 'Eiweiß')]]/td[last()] | //strong[contains(text(), 'Rohprotein')]/following-sibling::p
 - name: vitaminAPerServing
   singleValue: true
   description: Nutritional Information for Vitamin A content - Usually based on per
@@ -378,6 +388,7 @@ fields:
   description: Nutritional Information for Calcium content - Usually based on per
     100g serving
   xpath:  //li[strong[text()='Calcium']]/p
+  regExp:
 - name: calciumPerServingUom
   singleValue: true
   description: Unit of Measure Data for Calcium
@@ -388,11 +399,13 @@ fields:
   description: Nutritional Information for Iron content - Usually based on per 100g
     serving
   xpath: //li[strong[contains(text(), 'Eisen')]]/p
+  regExp: \d+.\d+|\d+,\d+|\d+
 - name: ironPerServingUom
   singleValue: true
   description: Unit of Measure Data for Iron
   xpath: //li[strong[contains(text(), 'Eisen')]]/p
-  regExp: ([a-zA-Z]+\/[a-zA-Z]+)
+  regExp: \d+ (.*)
+  regExpReplace: $1
 - name: dietarySymbols
   singleValue: true
   description: Information related to the dietary symbols of a specific product
@@ -400,22 +413,22 @@ fields:
   singleValue: true
   description: Nutritional Information for Magnesium content - Usually based on per
     100g serving
-  xpath: //li[strong[contains(text(), 'Magnesium')]]/p
+  xpath: //li[strong[contains(text(), 'Magnesium')]]/p | //tr/td[contains(text(), 'Magnesium')]/following-sibling::td
+  regExp: \d+.\d+|\d+,\d+|\d+
 - name: magnesiumPerServingUom
   singleValue: true
   description: Unit of Measure Data for Magnesium
-  xpath: //li[strong[contains(text(), 'Magnesium')]]/p
-  regExp: ([a-zA-Z]+\/[a-zA-Z]+)
+  xpath: //li[strong[contains(text(), 'Magnesium')]]/p | //tr/td[contains(text(), 'Magnesium')]/following-sibling::td
 - name: saltPerServing
   singleValue: true
   description: Nutritional Information for Salt content - Usually based on per 100g
     serving
   xpath: //tr[td[contains(text(), 'Salz')]]/td[last()]
+  regExp: <\d+.\d+|<\d+,\d+|\d+.\d+|\d+,\d+|\d+
 - name: saltPerServingUom
   singleValue: true
   description: Unit of Measure Data for Salt
   xpath: //tr[td[contains(text(), 'Salz')]]/td[last()]
-  regExp: ([a-zA-Z]+)
 - name: dietaryInformation
   singleValue: false
   description: 
@@ -437,7 +450,7 @@ fields:
 - name: allergyAdvice
   singleValue: true
   description: Allergy information associated with the product
-  xpath: //li[@id='tab-ingredientsAndAllergens']//li[strong][position()>1]
+  xpath: //div[@id='allergy']
 - name: recyclingInformation
   singleValue: true
   description: Recycling information associated with the product
@@ -448,7 +461,7 @@ fields:
 - name: packaging
   singleValue: true
   description: Packaging information
-  xpath: //li[strong[contains(text(), 'Verpackungsform')]]/p
+  xpath: //li[strong[contains(text(), 'Verpackungsform')]]/p | //strong[contains(text(),'Verpackungsart')]/following-sibling::p
 - name: additives
   singleValue: false
   description: List of additives in the product
