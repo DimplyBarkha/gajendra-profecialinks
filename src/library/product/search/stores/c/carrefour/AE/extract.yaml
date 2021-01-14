@@ -1,7 +1,8 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //ul[@data-testid="scrollable-list-view"]//div[@class="ltr-jyyiad"]
+recordXpath: //div[@class="ltr-14tfefh"]//div[@class="ltr-6hrfmx"]
+# recordXPath: //ul[@data-testid="scrollable-list-view"]//div[@class="ltr-jyyiad"]
 fields:
   - name: id
     SingleValue: false
@@ -20,7 +21,7 @@ fields:
     xpath: //img[@data-testid="product_image"]/@src
   - name: name
     SingleValue: false
-    xpath: //a[@data-testid="product_name"]
+    xpath: //a[@data-testid="product_name"]/text()
   - name: rankOrganic
     SingleValue: true
   - name: rank
