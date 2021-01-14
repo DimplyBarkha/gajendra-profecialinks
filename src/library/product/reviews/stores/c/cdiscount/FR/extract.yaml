@@ -1,0 +1,87 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //*[@id="fpRating"]//div[contains(@class,"jsDetRating")]
+fields:
+  - name: helpfulCount
+    singleValue: false
+    xpath: //div[contains(@class,"ratSocial")]//div[contains(.,"Oui")]/span
+    regExp: (\d+)
+    regExpReplace: $1
+    description: Number of people who said the review was helpful
+  - name: commentCount
+    singleValue: false
+    type: NUMBER
+    description: Number of comments on the review
+  - name: brandText
+    singleValue: false
+    xpath: ancestor::html//script[contains(@type,"application/ld+json") and contains(text(),'@type":"Product')]
+    regExp: brand":{"@type":"Organization","name":"([^,]+)"}
+    regExpReplace: $1
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+  - name: name
+    singleValue: false
+    description: The product name
+    xpath: ancestor::html//h1[@itemprop="name"]
+  - name: sku
+    singleValue: false
+    xpath: ancestor::html//*[@id="fpSku"]
+  - name: reviewDate
+    singleValue: false
+    xpath: //span[contains(@class,"ratingPublishDetails")]
+    regExp: (\d{1,2}\/\d{1,2}\/\d{4})
+    regExpReplace: $1
+    description: Date the review was made
+  - name: reviewRating
+    singleValue: false
+    xpath: //div[contains(@class,"ratingPosition")]/@class
+    regExp: stN(.+)\s
+    regExpReplace: $1
+    description: Rating normalized to be out of 5
+  - name: reviewText
+    singleValue: false
+    xpath: //div[contains(@class,"infoCli")]/p
+    description: The text of the review
+  - name: reviewTitle
+    singleValue: false
+    xpath: //div[contains(@class,"infoCli")]//div[contains(@class,"title")]
+    description: The title of the review
+  - name: reviewerTags
+    singleValue: false
+    xpath: //span[contains(@class,"achatCert")]
+    description: The tags a reviewer has
+  - name: gtin
+    singleValue: false
+    xpath: ancestor::html//@data-flix-ean
+    description: GTIN code (includes UPC/EAN)
+  - name: productUrl
+    singleValue: false
+    xpath: ancestor::html//meta[contains(@property, 'og:url')]/@content
+    description: The url of the product details page
+  - name: verifiedPurchase
+    singleValue: false
+    xpath: //div[contains(@class,"infoCli")]//span[contains(@class,"achatCert")]
+    regExp: Achat
+    regExpReplace: 'Yes'
+    description: Whether this of an item the reviewer purchased. "Yes" if false else ""
+  - name: manufacturerResponse
+    singleValue: false
+    description: The response of the manufacturer (if any)
+  - name: syndicatedFrom
+    singleValue: false
+    description: Stated place the review was syndicated from
+  - name: reviewUrl
+    singleValue: false
+    description: A direct link to the review
+  - name: reviewedSku
+    singleValue: false
+    description: The SKU of the item that was reviewed (may be different from the
+      sku the review was shown on). 1 if sku == reviewedSku else 0. Get sku
+      value, transform will handle the value.
+  - name: user
+    description: The user name of the reviewer
+    xpath: //div[contains(@class,"ratingPublishBy")]//span[contains(@itemprop,"author")]
+  - name: aggregateRating
+    description: The product rating
+    xpath: ancestor::html//div[@class="topMainRating"]//span[@class="mainTit"]
