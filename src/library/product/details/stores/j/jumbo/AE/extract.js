@@ -10,87 +10,49 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ url }, { country, domain, transform }, context, { productDetails }) => {
-
-    await context.evaluate(async function () {
-      async function infiniteScroll() {
-        let prevScroll = document.documentElement.scrollTop;
-        while (true) {
-          window.scrollBy(0, document.documentElement.clientHeight);
-          await new Promise(resolve => setTimeout(resolve, 1000));
-          const currentScroll = document.documentElement.scrollTop;
-          if (currentScroll === prevScroll) {
-            break;
-          }
-          prevScroll = currentScroll;
+    const infiniteScroll = () => context.evaluate(async () => {
+      let prevScroll = document.documentElement.scrollTop;
+      while (true) {
+        window.scrollBy(0, document.documentElement.clientHeight);
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        const currentScroll = document.documentElement.scrollTop;
+        if (currentScroll === prevScroll) {
+          break;
         }
+        prevScroll = currentScroll;
       }
-      await infiniteScroll();
     });
 
-    try {
-      context.waitForSelector('#flix-std-inpage', { timeout: 30000 });
-      if ('#flix-std-inpage') {
-        console.log('Enhanced content loaded')
-        async function infiniteScroll() {
-          await context.evaluate(async function () {
-            let prevScroll = document.documentElement.scrollTop;
-            while (true) {
-              window.scrollBy(0, document.documentElement.clientHeight);
-              await new Promise(resolve => setTimeout(resolve, 1000));
-              const currentScroll = document.documentElement.scrollTop;
-              if (currentScroll === prevScroll) {
-                break;
-              }
-              prevScroll = currentScroll;
-            }
-          });
-        }
-        await infiniteScroll();
-      }
-    } catch (err) {
-      console.log(err);
-      console.log('waiting again');
-      try {
-        context.waitForXPath('//div[@id="inpage_container"]//div[contains(@class,"inpage_selector_InTheBox")]');
-        async function infiniteScroll() {
-          await context.evaluate(async function () {
-            let prevScroll = document.documentElement.scrollTop;
-            while (true) {
-              window.scrollBy(0, document.documentElement.clientHeight);
-              await new Promise(resolve => setTimeout(resolve, 1000));
-              const currentScroll = document.documentElement.scrollTop;
-              if (currentScroll === prevScroll) {
-                break;
-              }
-              prevScroll = currentScroll;
-            }
-          });
-        }
-        await infiniteScroll();
-      } catch (err) {
-        console.log(err)
-      }
-    }
+    await infiniteScroll();
+
+    await context.waitForSelector('#flix-std-inpage', { timeout: 30000 })
+      .then(() => {
+        console.log('Enhanced content loaded');
+      })
+      .catch((e) => {
+        console.log(e);
+        console.log('waiting again');
+        return context.waitForXPath('//div[@id="inpage_container"]//div[contains(@class,"inpage_selector_InTheBox")]');
+      })
+      .finally(() => infiniteScroll());
 
     try {
-
-      await context.evaluate(async function () {
-
+      await context.evaluate(async () => {
         const videoId = document.evaluate("//div[contains(@class,'flix-videocontainer')]//input/@value", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-        let video = videoId && videoId.textContent.replace(/(.*){"file":"\\\/\\\/(.+)(.mp4)"(.*)/g, 'https://$2$3');
+        const video = videoId && videoId.textContent.replace(/(.*){"file":"\\\/\\\/(.+)(.mp4)"(.*)/g, 'https://$2$3').replace(/\\/g, '');
         addElementToDocument('added_video', video);
 
-        let specs = [];
-        let specsList = document.evaluate("//table[contains(@class,'flix-std-specs-table')]//td/div/span/text()", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        const specs = [];
+        const specsList = document.evaluate("//table[contains(@class,'flix-std-specs-table')]//td/div/span/text()", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         for (let index = 0; index < specsList.snapshotLength; index++) {
           const element = specsList.snapshotItem(index);
-          let spec = element.nodeValue;
+          const spec = element.nodeValue;
           specs.push(spec);
         }
-        let specData = specs.join('||');
+        const specData = specs.join('||');
         addElementToDocument('specdata', specData);
 
-        function addElementToDocument(key, value) {
+        function addElementToDocument (key, value) {
           const catElement = document.createElement('div');
           catElement.id = key;
           catElement.textContent = value;
@@ -99,7 +61,7 @@ module.exports = {
         }
       });
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
 
     // try {
@@ -112,7 +74,7 @@ module.exports = {
     // } catch (e) {
     //   console.log(e)
     // }
-    await new Promise(resolve => setTimeout(resolve, 30000))
+    await new Promise(resolve => setTimeout(resolve, 10000));
     return await context.extract(productDetails, { transform });
   },
 };

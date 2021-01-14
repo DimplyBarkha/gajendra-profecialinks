@@ -6,7 +6,7 @@ module.exports = {
     store: 'jumbo',
     domain: 'jumbo.ae',
     loadedSelector: 'div[class*="own-product custom-layout"]',
-    noResultsXPath: '//div[@class*="links_404"]/h3',
+    noResultsXPath: '//div[contains(@class,"links_404")]/h3',
     zipcode: '',
   },
 };
