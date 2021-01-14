@@ -17,7 +17,7 @@ module.exports = {
         scrollTop += 1000;
         window.scroll(0, scrollTop);
         if (scrollTop === 20000) {
-          await stall(8000);
+          await stall(1000);
           break;
         }
       }
@@ -43,7 +43,7 @@ module.exports = {
         const response = await fetch(`https://www.homedepot.ca/homedepotcacommercewebservices/v2/homedepotca/products/${url.match(/q=(\d+)/)[1]}.json?fields=BASIC_SPA&lang=en`)
           .then(response => response.json())
           .catch(error => console.error('Error:', error));
-        await new Promise(resolve => setTimeout(resolve, 10000));
+        await new Promise(resolve => setTimeout(resolve, 500));
         if (response) {
           if (response.variantOptionsSorted) {
             response.variantOptionsSorted.forEach(variants => {
@@ -52,11 +52,19 @@ module.exports = {
                 variant.url && addElementToDocument('pd_variantsUrl', variant.url);
               });
             });
+          } else {
+            // @ts-ignore
+            if (document.querySelector('nav[id="breadcrumbs"] ol li[itemscope="false"]') && document.querySelector('nav[id="breadcrumbs"] ol li[itemscope="false"]').innerText) {
+              // @ts-ignore
+              const value = document.querySelector('nav[id="breadcrumbs"] ol li[itemscope="false"]').innerText;
+              addElementToDocument('pd_variants', value);
+              addElementToDocument('pd_variantsUrl', `/product/${value}`);
+            }
           }
         }
       }
     });
-    await new Promise(resolve => setTimeout(resolve, 10000));
+    await new Promise(resolve => setTimeout(resolve, 500));
     return await context.extract(variants, { transform });
   },
 };
