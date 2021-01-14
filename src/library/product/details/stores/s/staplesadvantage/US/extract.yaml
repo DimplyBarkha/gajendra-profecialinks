@@ -18,7 +18,7 @@ fields:
   singleValue: true
 - name: alternateImages
   singleValue: false
-  xpath: //div[@class="grid__row undefined grid__margin"]/descendant::img/@data-srcset
+  xpath: //img[contains(@aria-label, 'Product Image')][not(contains(@aria-label, '1'))]/@alt
 - name: metaKeywords
   singleValue: false
 - name: category
@@ -27,6 +27,8 @@ fields:
 - name: nameExtended
   singleValue: true
   xpath: //h1[@id='product_title']
+  regExp: '(.*)'
+  regExpReplace: $1
 - name: listPrice
   singleValue: false
   xpath: //span[@class='price-info__originalPrice']
@@ -38,10 +40,10 @@ fields:
   defaultValue: "In Stock"
 - name: description
   singleValue: false
-  xpath: //div[@id='ProductDetailsSummaryWrapper']/ul/@description
+  xpath: //div[@id="ProdDescSpec"]
 - name: descriptionBullets
   singleValue: false
-  xpath: //body/@bulletsnumber
+  xpath: count(//div[@id="ProdDescSpec"]/descendant::ul/li)
 - name: brandText
   singleValue: false
   xpath: //div[@class="tab__tab"]/descendant::th[contains(., "Brand Name")]/following-sibling::td
@@ -63,9 +65,7 @@ fields:
   regExpReplace: $2
 - name: sku
   singleValue: false
-  xpath: //h1[@id='product_title']
-  regExp: '.+(\((.+)).$'
-  regExpReplace: $2
+  xpath: //span[@id="manufacturer_number"]/@skunumber
 - name: variantId
   singleValue: true
   xpath: //span[@id="item_number"]
@@ -89,7 +89,7 @@ fields:
   singleValue: false
   description: The number of ratings
   xpath: //div[@class='review-snapshot-ux2dot0__review_block']/descendant::span[@class='rating__reviewLinkWrapper rating__review_link rating__textDecoration']
-  regExp: '([0-9]\w+)'
+  regExp: '([0-9]+)'
 - name: aggregateRatingText
   singleValue: false
   description: The stated aggregate rating

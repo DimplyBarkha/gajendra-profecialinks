@@ -30,18 +30,41 @@ async function implementation (inputs, parameters, context, dependencies) {
     await new Promise((resolve) => setTimeout(resolve, 3000));
 
     await context.evaluate(() => {
-      const manufacturerImages = document.querySelectorAll('img');
+      const checking = document.querySelectorAll('div');
+      let shadow;
+      let manufacturerImages;
+      let manufacturerDescription;
+      let manufacturerDescriptionBullets;
+
+      for (let i = 0; i < checking.length; i++) {
+        if (checking[i].shadowRoot !== null) {
+          shadow = checking[i].shadowRoot;
+          manufacturerImages = shadow.querySelectorAll('img');
+          manufacturerDescription = shadow.querySelector('div').innerText
+          manufacturerDescriptionBullets = shadow.querySelectorAll('body ul>li');
+          break;
+        }
+      };
+
+      if (manufacturerImages === undefined) {
+        manufacturerImages = document.querySelectorAll('img');
+      }
       let image;
-      const manufacturerDescription = document.querySelector('body').innerText;
-      const manufacturerDescriptionBullets = document.querySelectorAll('body ul>li');
+
+      if (manufacturerDescription === undefined) {
+        manufacturerDescription = document.querySelector('body').innerText;
+      }
       let k = 0;
 
-      if (manufacturerDescriptionBullets.length !== 0 || manufacturerDescriptionBullets !== null) {
+      if (manufacturerDescriptionBullets === undefined) {
+        manufacturerDescriptionBullets = document.querySelectorAll('body ul>li');
+      }
+
+      if (manufacturerDescriptionBullets.length !== 0) {
         manufacturerDescriptionBullets.forEach(bullet => {
           k++;
-
-          document.querySelector('body').setAttribute('bulletsnumber', `${k}`);
         });
+        document.querySelector('body').setAttribute('bulletsnumber', `${k}`);
       }
 
       if (manufacturerImages.length !== 0 && manufacturerDescription !== '') {
