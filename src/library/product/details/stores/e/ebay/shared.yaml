@@ -19,7 +19,7 @@ fields:
     # regExpReplace: $1l500$2
   - name: videos
     singleValue: false
-    xpath: //*[@class="buttons"]//*[@class="video"]/@data-title | //*[contains(@class,"video") and contains(@for,"toggleVideo")]/@hideifempty
+    xpath: //*[@class="buttons"]//*[@class="video"]/@data-title | //*[contains(@class,"video") and contains(@for,"toggleVideo")]/@hideifempty | //video//source/@src
   - name: price
     singleValue: false
     manualSelector: span#prcIsum, span#prcIsum_bidPrice, span#mm-saleDscPrc,div[class*="display-price"] 
@@ -94,7 +94,7 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     # manualSelector: div#ds_div
-    xpath: //div[@id="manufacturercDesc"]
+    xpath: //div[@id="manufacturercDesc"] | //div[@id="ds_div"]
   - name: shippingWeight
     singleValue: false
     xpath: normalize-space(//td[contains(text(), 'Box Weight:')]/following-sibling::td)
@@ -106,7 +106,7 @@ fields:
     xpath: normalize-space(//td[contains(translate(text(),'WARRANTY','warranty'),'warranty')]/following-sibling::td | //h2[contains(@id, 'subTitle') and contains(text(),'Warranty')])
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="features"]//span[@class="image"]/img/@src
+    xpath: //div[@id="features"]//span[@class="image"]/img/@src | //div[@id="ds_div"]//img[contains(@src,"http")]/@src
   - name: termsAndConditions
     singleValue: false
   - name: productUrl
