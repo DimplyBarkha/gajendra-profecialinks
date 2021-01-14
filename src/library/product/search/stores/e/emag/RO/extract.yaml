@@ -5,7 +5,7 @@ recordXPath: //div[@class="card-item js-product-data"]
 fields:
   - name: id
     singleValue: false
-    xpath: //div[@class="card-item js-product-data"]/@data-offer-id
+    xpath: //div[@class="card-item js-product-data"]//button[contains(@class, "card-compare-btn")]/@data-id
   - name: searchUrl
     singleValue: true
   - name: name

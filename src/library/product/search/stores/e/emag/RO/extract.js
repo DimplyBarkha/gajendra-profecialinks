@@ -13,7 +13,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       const firstPrice = number.slice(0, -2);
       const secondPrice = number.slice(-2);
       const currency = element.textContent.match(/[a-zA-Z]+/)[0];
-      const price = firstPrice + '.' + secondPrice + ' ' + currency;
+      const price = firstPrice + ',' + secondPrice + ' ' + currency;
       element.setAttribute('price', price);
     });
 
@@ -23,9 +23,8 @@ async function implementation (inputs, parameters, context, dependencies) {
 
     rating.forEach((element) => {
       var regArray = element.getAttribute('class').match(regex);
-
       if (regArray[0]) {
-        element.setAttribute('rating', regArray[0]);
+        element.setAttribute('rating', regArray[0].replace('.', ','));
       }
     });
   });

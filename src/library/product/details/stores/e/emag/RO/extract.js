@@ -54,18 +54,53 @@ module.exports = {
         text = text.slice(0, -3);
         addElementToDocument('other-info', text);
       }
+
+      const price = document.querySelector('div.product-highlights-wrapper p.product-new-price');
+      if (price) {
+        price.querySelector('sup').textContent = `,${price.querySelector('sup').textContent}`;
+        addElementToDocument('price', price.textContent.replace(/\./g, '').match(/\d.+/)[0]);
+      }
     });
     const dataRef = await context.extract(productDetails, { transform });
     const description = dataRef[0].group[0].description;
     reduceInfoToOneField(description);
     const directions = dataRef[0].group[0].directions;
     reduceInfoToOneField(directions);
-    const variants = dataRef[0].group[0].variants;
-    reduceInfoToOneField(variants, ' | ');
+    if (dataRef[0].group[0].manufacturerDescription && dataRef[0].group[0].manufacturerDescription.length > 1) {
+      reduceInfoToOneField(dataRef[0].group[0].manufacturerDescription);
+    }
     if (dataRef[0].group[0].listPrice) {
-      if (dataRef[0].group[0].listPrice[0].text === '.') {
+      if (dataRef[0].group[0].listPrice[0].text === ',') {
         delete dataRef[0].group[0].listPrice;
       }
+    }
+    if (dataRef[0].group[0].price) {
+      if (dataRef[0].group[0].price[0].text === ',') {
+        delete dataRef[0].group[0].price;
+      }
+    }
+    if (dataRef[0].group[0].aggregateRating) {
+      dataRef[0].group[0].aggregateRating[0].text = dataRef[0].group[0].aggregateRating[0].text.replace('.', ',');
+      dataRef[0].group[0].aggregateRatingText[0].text = dataRef[0].group[0].aggregateRatingText[0].text.replace('.', ',');
+    }
+    if (dataRef[0].group[0].variants) {
+      dataRef[0].group[0].variantCount[0].text = dataRef[0].group[0].variants.length;
+    }
+    if (dataRef[0].group[0].gtin) {
+      dataRef[0].group[0].gtin[0].text = dataRef[0].group[0].gtin[0].text.match(/: (.+)/)[1];
+    }
+    if (dataRef[0].group[0].brandLink) {
+      dataRef[0].group[0].brandLink[0].text = `http://www.emag.ro${dataRef[0].group[0].brandLink[0].text}`;
+    }
+    if (dataRef[0].group[0].manufacturerDescription) {
+      dataRef[0].group[0].manufacturerDescription[0].text = dataRef[0].group[0].manufacturerDescription[0].text.replace(/\|\| /g, '');
+    }
+    if (dataRef[0].group[0].videos) {
+      dataRef[0].group[0].videos.forEach((element, index) => {
+        if (element.text.includes('[')) {
+          element.text.match(/"mp4":.+?url":"(.+?)"/).length > 1 ? element.text = element.text.match(/"mp4":.+?url":"(.+?)"/)[1] : delete dataRef[0].group[0].videos[index];
+        }
+      });
     }
     return dataRef;
   },
