@@ -24,8 +24,13 @@ module.exports = {
       const JSONText = document.evaluate('//script[@type="application/ld+json"][contains(text(),"sku")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       const JSONObject = JSONText ? JSON.parse(JSONText.textContent) : null;
       const imgResults = document.querySelectorAll('a[class="thumb-image"] img[alt]');
-      for (let i = 0; i < imgResults.length; i++) {
-        const img = imgResults[i] ? imgResults[i].getAttribute('src').replace(/thumbs\//g, '').replace(/-95x95_crop_thumb/g, '') : '';
+      if (imgResults.length) {
+        for (let i = 0; i < imgResults.length; i++) {
+          const img = imgResults[i] ? imgResults[i].getAttribute('src').replace(/thumbs\//g, '').replace(/-95x95_crop_thumb/g, '') : '';
+          addElementToDocument('addImg', img);
+        }
+      } else {
+        const img = document.querySelector('meta[itemprop="image"]') ? document.querySelector('meta[itemprop="image"]').getAttribute('content') : '';
         addElementToDocument('addImg', img);
       }
       const productUrl = JSONObject && JSONObject.url ? JSONObject.url : '';
@@ -50,6 +55,8 @@ module.exports = {
       addElementToDocument('addedPrice', price);
       const zoomIn = document.querySelector('div.img.zoom') ? 'Yes' : 'No';
       addElementToDocument('zoomIn', zoomIn);
+      const availability = document.querySelector('div[class*=product-actions] i.fa.fa-shopping-cart+span') ? 'In Stock' : 'Out Of Stock';
+      addElementToDocument('availability', availability);
     });
     await context.extract(productDetails, { transform });
   },

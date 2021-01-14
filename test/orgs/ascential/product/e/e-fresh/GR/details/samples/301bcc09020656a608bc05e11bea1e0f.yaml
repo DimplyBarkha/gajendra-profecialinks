@@ -2,7 +2,7 @@ input:
   id: 4100000099
   _url: http://e-fresh.gr
 extractions:
-  - html: https://workbench.import.io/html/run=fd1ee2d7-aa3b-4901-9700-9158f1812776/task=b728a426-c236-4064-9831-e9e0af9dfd27/77130918-e33c-47c3-8698-50a338782b23.html
+  - html: https://workbench.import.io/html/run=02a70c9d-0ec6-46a4-a184-f01b5c47c374/task=a12fe1c1-f601-408c-bf06-4e3d0c05a781/697fa617-7f8a-4fdd-af0c-310ecdf5cb8a.html
     extractionConfigId: product/details/stores/e/e-fresh/GR/extract
     data:
       - group:
@@ -11,45 +11,48 @@ extractions:
                 xpath: /html/body/div[6]
             image:
               - text: https://dj0m4io8o9yuz.cloudfront.net/storage/media/catalog/products/410/9/4100000099/digestive-bars-red-fruits-milk-cmyk_1.png?id=1561382993
-                xpath: /html/head[1]/meta[23]/@content
+                xpath: /html/body/div[5]
             metaKeywords:
               - text: Μπάρες Δημητριακών Digestive Κόκκινα Φρούτα και Γάλα Παπαδοπούλου (5x28g)
                   -0,30€
                 xpath: /html/head[1]/meta[17]/@content
             category:
               - text: Προσφορές
-                xpath: /html/body/div[4]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ol[1]/li[2]
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ol[1]/li[2]
             nameExtended:
               - text: Μπάρες Δημητριακών Digestive Κόκκινα Φρούτα και Γάλα Παπαδοπούλου (5x28g)
                   -0,30€
-                xpath: /html/body/div[4]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/h2[1]
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/h2[1]
             listPrice:
               - text: 3,05 €
                 xpath: /html/body/div[12]
             price:
               - text: 2,75 €
                 xpath: /html/body/div[13]
+            availabilityText:
+              - text: Out Of Stock
+                xpath: /html/body/div[15]
             description:
               - text: Τα αγαπημένα σας μπισκότα Digestive Παπαδοπούλου ενώθηκαν με μια ποικιλία
                   δημητριακών, κόκκινα φρούτα και γάλα. Μπάρες πλούσιες σε
                   φυτικές ίνες, ιδανικές για όλες τις ώρες της ημέρας. Η τέλεια
                   επιλογή για ένα υγιεινό, θρεπτικό και απολαυστικό σνακ!
-                xpath: /html/body/div[4]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/p[1]
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/p[1]
             brandText:
               - text: Παπαδοπούλου
-                xpath: /html/body/div[4]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[4]/strong[1]
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[4]/strong[1]
             manufacturer:
               - text: Παπαδοπούλου
-                xpath: /html/body/div[4]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[4]/strong[1]
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[4]/strong[1]
             gtin:
               - text: "5201004366467"
                 xpath: /html/body/div[8]
             sku:
               - text: "4100000099"
-                xpath: /html/body/div[4]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/span[1]
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/span[1]
             variantId:
               - text: "4100000099"
-                xpath: /html/body/div[4]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/span[1]
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/span[1]
             ingredientsList:
               - text: Μπισκότο Digestive με 35% λιγότερα λιπαρά 25% {αλεύρι σίτου,ζάχαρη,φυτικό
                   έλαιο(φοινικέλαιο), αλεύρι σίτου ολικής άλεσης 12%,άμυλο,
@@ -70,64 +73,62 @@ extractions:
                   θείου)},ζάχαρη, ορός γάλακτος σκόνη, (0,7%), αποβουτυρωμένο
                   γάλα σκόνη (0,4%),αρωματική ύλη, γαλακτωματοποιητής (λεκιθίνη
                   σόγιας).Το προϊόν μπορεί να περιέχει ίχνη από Ξηρούς καρπούς.
-                xpath: /html/body/div[4]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/p[1]
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/p[1]
             servingSize:
               - text: "100"
-                xpath: /html/body/div[4]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/thead[1]/tr[1]/th[2]
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/thead[1]/tr[1]/th[2]
             servingSizeUom:
               - text: g
-                xpath: /html/body/div[4]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/thead[1]/tr[1]/th[2]
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/thead[1]/tr[1]/th[2]
             caloriesPerServing:
               - text: 1837Kj/437Kcal
-                xpath: /html/body/div[4]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]
             totalFatPerServing:
               - text: 15,0
-                xpath: /html/body/div[4]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]/span[1]
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]/span[1]
             totalFatPerServingUom:
               - text: g
-                xpath: /html/body/div[4]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]/span[1]
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]/span[1]
             saturatedFatPerServing:
               - text: "7.5"
-                xpath: /html/body/div[4]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
             saturatedFatPerServingUom:
               - text: g
-                xpath: /html/body/div[4]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[2]/span[1]
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[2]/span[1]
             totalCarbPerServing:
               - text: "70.0"
-                xpath: /html/body/div[4]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]/span[1]
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]/span[1]
             totalCarbPerServingUom:
               - text: g
-                xpath: /html/body/div[4]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]/span[1]
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]/span[1]
             totalSugarsPerServing:
               - text: 28,5
-                xpath: /html/body/div[4]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]/span[1]
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]/span[1]
             totalSugarsPerServingUom:
               - text: g
-                xpath: /html/body/div[4]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]/span[1]
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]/span[1]
             proteinPerServing:
               - text: 4,0
-                xpath: /html/body/div[4]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[2]/span[1]
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[2]/span[1]
             proteinPerServingUom:
               - text: g
-                xpath: /html/body/div[4]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[2]/span[1]
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[2]/span[1]
             saltPerServing:
               - text: 0,38
-                xpath: /html/body/div[4]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]/span[1]
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]/span[1]
             saltPerServingUom:
               - text: g
-                xpath: /html/body/div[4]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]/span[1]
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]/span[1]
             allergyAdvice:
               - text: σίτου, σίτου, σόγιας, γλουτένη σίτου, κριθαριού, κριθαριού, κριθαριού,
                   γάλακτος, σόγιας, Ξηρούς καρπούς.
                 xpath: /html/body/div[11]
             promotion:
               - text: -0,30€
-                xpath: /html/body/div[4]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
             imageZoomFeaturePresent:
               - text: Yes
                 xpath: /html/body/div[14]
-            availabilityText:
-              - text: Out of Stock
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -151,4 +152,4 @@ extractions:
                 locale: el
                 value: 0
         xpath: /
-    timestamp: 1610571364753
+    timestamp: 1610637784635
