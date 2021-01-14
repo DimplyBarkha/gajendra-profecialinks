@@ -24,13 +24,11 @@ fields:
 - name: reviewText
   xpath: //div[@class="description"]/p/text()
 - name: reviewTitle
-  defaultValue:  'N/A'
 - name: mediaURL
   xpath: ancestor::html//figure[@class="woocommerce-product-gallery__image"]/a/@href
 - name: location
   defaultValue: US
 - name: helpful
-  defaultValue:  'N/A'
 - name: verifiedPurchase
 - name: rating
   xpath: //div[@class="comment-text"]//strong[@class="rating"]
