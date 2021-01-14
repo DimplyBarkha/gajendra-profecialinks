@@ -32,6 +32,14 @@ const transform = (data) => {
           item.text = item.text.replace(/\n \n \n \n/g, ' || ').replace(/\n \n/g, ' : ');
         });
       }
+
+      if (row.manufacturerDescription) {
+        let text = '';
+        row.manufacturerDescription.forEach(item => {
+          text += `${item.text.replace(/\n \n/g, ' ')}  `;
+        });
+      }
+
       if (!row.color) {
         let color = '';
         if (row.nameExtended[0].text.includes(',')) {
