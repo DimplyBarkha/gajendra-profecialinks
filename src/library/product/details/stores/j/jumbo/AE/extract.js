@@ -52,6 +52,16 @@ module.exports = {
         const specData = specs.join('||');
         addElementToDocument('specdata', specData);
 
+        const enhancedContent = [];
+        const ecNodes = document.evaluate("//div[contains(@class,'flix-Text-block') or contains(@class,'flix-std-content')]//text()", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        for (let index = 0; index < ecNodes.snapshotLength; index++) {
+          const element = ecNodes.snapshotItem(index);
+          const content = element.nodeValue;
+          enhancedContent.push(content);
+        }
+        //const specData = specs.join('||');
+        addElementToDocument('econtent', enhancedContent.join(" "));
+
         function addElementToDocument (key, value) {
           const catElement = document.createElement('div');
           catElement.id = key;
