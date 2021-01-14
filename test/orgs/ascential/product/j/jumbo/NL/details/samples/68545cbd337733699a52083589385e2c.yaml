@@ -1,0 +1,152 @@
+input:
+  id: 174643POT
+  _url: http://jumbo.com
+extractions:
+  - html: https://workbench.import.io/html/run=9746b6bf-661e-4395-86ef-2935f7017e89/task=9357aaf2-b103-4897-ae0f-74077438a951/2fb21ee9-8b9e-4e0b-8fb2-0faf90e0870c.html
+    extractionConfigId: product/details/stores/j/jumbo/NL/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.jumbo.com/olvarit-pompoen-rijst-4-maanden-125g/174643POT/
+                xpath: /html/head[1]/link[2]/@href
+            image:
+              - text: https://static-images.jumbo.com/product_images/131220200319_174643POT-1_360x360_2.png
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Olvarit Pompoen Rijst 4+ Maanden 125g
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@alt
+            alternateImages:
+              - text: https://static-images.jumbo.com/product_images/131220200321_174643POT-5_360x360_2.png
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/img[1]/@src
+              - text: https://static-images.jumbo.com/product_images/131220200322_174643POT-9_360x360_2.png
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/img[1]/@src
+            category:
+              - text: Vanaf 4 maanden
+                xpath: /html/head[1]/title[1]
+            nameExtended:
+              - text: Olvarit Pompoen Rijst 4+ Maanden 125g
+                xpath: /html/head[1]/meta[8]/@content
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/button[1]/span[1]
+            description:
+              - text: " -Vanaf 4 maanden staat je kindje open voor nieuwe smaken, naast borst-
+                  of flesvoeding*. Nu altijd met een herkenbare groente smaak,
+                  dit helpt je kindje de smaak te herkennen en te waarderen. Met
+                  de herkenbare smaak van Pompoen. De smaak en textuur zijn
+                  aangepast op de leeftijd van je kindje om een goede
+                  smaakontwikkeling te ondersteunen. Pure ingrediënten. Zonder
+                  conserveringsmiddelen**. *Tot de leeftijd van 6 maanden is
+                  borstvoeding de belangrijkste voeding voor je kindje. De
+                  eerste hapjes vanaf 4 maanden zijn uitsluitend bedoeld als
+                  aanvulling op volledige borst- of flesvoeding. **Olvarit
+                  bevat, net zoals andere babyvoeding, geen conserveermiddelen.
+                  -Babyvoeding"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[1]/div[1]/div[1]/p[1]
+            brandText:
+              - text: nutriciavoorjou
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[10]/p[1]/a[1]/@href
+            quantity:
+              - text: 125g
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/h1[1]/strong[1]
+            variantId:
+              - text: 174643POT
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[1]/@data-jum-product-details
+            directions:
+              - text: >-
+                  Belangrijk: volg altijd deze gebruiksaanwijzing. 
+
+                  Druk vóór het openen op het dekseltje. Als het klikt, inhoud niet gebruiken.
+
+                  Roer de inhoud en doe de gewenste hoeveelheid op een bordje, gebruik hiervoor een plastic lepel.
+
+                  Bewaar resterende inhoud afgesloten in de koelkast en gebruik binnen 24 uur.
+
+                  Verwarm in de magnetron ca. 20 sec. op 600W.
+
+                  Roer na verwarmen nogmaals goed door en controleer de temperatuur. 
+
+                  Restjes niet opnieuw gebruiken.
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[7]/p[1]
+            name:
+              - text: Olvarit Pompoen Rijst 4+ Maanden 125g
+                xpath: /html/head[1]/meta[8]/@content
+            ingredientsList:
+              - text: " -70% pompoen -15,6% water (nodig voor bereiding) -14,4% rijst."
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[6]/ul[1]/li[1]
+            servingSize:
+              - text: per portie (125g)
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/thead[1]/tr[1]/th[3]
+            servingSizeUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/thead[1]/tr[1]/th[3]
+            caloriesPerServing:
+              - text: 176 kJ/41 kcal
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[1]/td[2]
+            totalFatPerServing:
+              - text: "0.3"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[2]/td[2]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[2]/td[2]
+            saturatedFatPerServing:
+              - text: "0.03"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[3]/td[2]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[3]/td[2]
+            totalCarbPerServing:
+              - text: "8.3"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[4]/td[2]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[4]/td[2]
+            dietaryFibrePerServing:
+              - text: "1.5"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[6]/td[2]
+            dietaryFibrePerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[6]/td[2]
+            totalSugarsPerServing:
+              - text: "3.0"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[5]/td[2]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[5]/td[2]
+            proteinPerServing:
+              - text: "0.9"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[7]/td[2]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[7]/td[2]
+            saltPerServing:
+              - text: "0.06"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[8]/td[2]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[8]/td[2]
+            additives:
+              - text: Zonder Kunstmatige bewaarmiddelen
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[8]/p[1]
+            pricePerUnit:
+              - text: 7,36/kilo
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[2]/span[2]
+            pricePerUnitUom:
+              - text: kilo
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[2]/span[2]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            price:
+              - text: 0,92€
+        xpath: /
+    timestamp: 1607952923651
