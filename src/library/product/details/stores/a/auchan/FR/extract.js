@@ -11,6 +11,8 @@ module.exports = {
   },
   implementation: async (inputs, parameters, context, { productDetails: data }) => {
     const { transform } = parameters;
+    // Commenting this out because it needs to be done in setUpZipcode file
+    /*
     const mainUrl = await context.evaluate(async function () {
       var el = document.querySelector('div.journey-reminder-header span');
       console.log('window.product', window.product);
@@ -57,6 +59,7 @@ module.exports = {
         await context.goto(mainUrl, { timeout: 1000000, waitUntil: 'networkidle0', checkBlocked: true });
       }
     }
+    */
 
     async function scrollToRec (node) {
       await context.evaluate(async (node) => {
@@ -74,6 +77,7 @@ module.exports = {
     await scrollToRec('footer');
 
     try {
+      await scrollToRec('div#tabDescription');
       await context.waitForSelector('div#flix-inpage', { timeout: 45000 });
     } catch (e) {
       console.log('No loading manuf content');
