@@ -30,7 +30,7 @@ fields:
   - name: quantity
     singleValue: true
     xpath: //h1[@data-dmid="detail-page-headline-product-title"]
-    regExp: (.*)\,\s((\d+)(.*))\D+
+    regExp: (.*,\s)([0-9]+(\,[0-9]{1,2})?)(.*)
     regExpReplace: $2
   - name: sku
     singleValue: true
@@ -51,8 +51,7 @@ fields:
     singleValue: true
     defaultValue: 0
     xpath: //div[@class='bv_numReviews_text'] | //div[@class='bv_numReviews_text'] | //div[@id="main-section-headline-container"]//div[@role="button"]//span[2]
-    regExp: >-
-      (?:([\d\.\,]+)\s?)|(\d+)
+    regExp: (?:([\d\.\,]+)\s?)|(\d+)
   - name: gtin
     singleValue: true
     xpath: //meta[@itemprop='gtin13']/@content
@@ -83,18 +82,12 @@ fields:
   - name: caloriesPerServingUom
     singleValue: true
     xpath: //td[contains(., 'Brennwert')]/following-sibling::td
-    regExp: >-
-      \d+(.*).*\/
-    regExpReplace: $1
   - name: totalFatPerServing
     singleValue: true
     xpath: (//button[@aria-label="Analytische Bestandteile"]/..//div[@data-dmid="product-detail-accordion-inner-content"])|(//td[text()='Fett']/following-sibling::td)
   - name: totalFatPerServingUom
     singleValue: true
-    xpath: //td[text()="Fett"]/following-sibling::td
-    regExp: >-
-      (?:([\d\.\,]+)\s?)(.*)
-    regExpReplace: $2
+    xpath: (//button[@aria-label="Analytische Bestandteile"]/..//div[@data-dmid="product-detail-accordion-inner-content"])|(//td[text()='Fett']/following-sibling::td)
   - name: saturatedFatPerServing
     singleValue: true
     xpath: //td[contains(.,'Fett, davon gesättigte Fettsäuren')]/following-sibling::td
@@ -126,9 +119,6 @@ fields:
   - name: dietaryFibrePerServingUom
     singleValue: true
     xpath: //td[text()="Ballaststoffe"]/following-sibling::td
-    regExp: >-
-      (?:([\d\.\,]+)\s?)(.*)
-    regExpReplace: $2
   - name: totalSugarsPerServing
     singleValue: true
     xpath: //td[contains(text(),'Zucker')]/following-sibling::td
@@ -136,8 +126,6 @@ fields:
   - name: totalSugarsPerServingUom
     singleValue: true
     xpath: //td[contains(text(),'Zucker')]/following-sibling::td
-    regExp: (?:([\d\.\,]+)\s?)(.*)
-    regExpReplace: $2
   - name: totalProtienPerServing
     singleValue: true
     xpath: //td[text()='Eiweiß']/following-sibling::td
@@ -169,8 +157,7 @@ fields:
   - name: calciumPerServingUom
     singleValue: true
     xpath: //td[text()='Calcium']/following-sibling::td
-    regExp: (?:([\d\.\,]+)\s?)(.*)
-    regExpReplace: $2
+    regExp: (\b(\w+)$)
   - name: ironPerServing
     singleValue: true
     xpath: //td[text()='Eisen']/following-sibling::td

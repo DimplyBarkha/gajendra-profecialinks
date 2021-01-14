@@ -17,35 +17,23 @@ const transform = (data) => {
 
   for (const { group } of data) {
     for (const row of group) {
-      if (row.availabilityText) {
-        const availabilityTextArr = row.availabilityText.map((item) => {
-          return typeof (item.text) === 'string' && item.text.trim().includes('Nicht mehr im Verkauf') ? 'In Stock' : 'Out Of Stock';
-        });
-        row.availabilityText = [{ text: availabilityTextArr, xpath: row.availabilityText[0].xpath }];
-      }
-      if (row.quantity) {
-        const quantityArr = row.quantity.map((item) => {
-          return typeof (item.text) === 'string' ? item.text.trim() : '';
-        });
-        row.quantity = [{ text: quantityArr, xpath: row.quantity[0].xpath }];
-      }
       if (row.description) {
         const descriptionArr = row.description.map((item) => {
           return typeof (item.text) === 'string' ? item.text.replace(/\n/gm, ' ').replace(/\//g, '') : '|';
         });
         row.description = [{ text: descriptionArr.join(' || '), xpath: row.description[0].xpath }];
       }
+      if (row.directions) {
+        const directionsArr = row.directions.map((item) => {
+          return typeof (item.text) === 'string' ? item.text.replace(/\n/gm, ' ').replace(/\//g, '') : '|';
+        });
+        row.directions = [{ text: directionsArr.join(' || '), xpath: row.directions[0].xpath }];
+      }
       if (row.additionalDescBulletInfo) {
         const additionalDescBulletInfoArr = row.additionalDescBulletInfo.map((item) => {
           return typeof (item.text) === 'string' ? item.text.replace(/\n/gm, ' ').replace(/\//g, '') : '|';
         });
         row.additionalDescBulletInfo = [{ text: '|| ' + additionalDescBulletInfoArr.join(' || '), xpath: row.additionalDescBulletInfo[0].xpath }];
-      }
-      if (row.manufacturer) {
-        const manufacturerArr = row.manufacturer.map((item) => {
-          return clean(typeof (item.text) === 'string' ? item.text.replace(/\n/g, ' ') : '|');
-        });
-        row.manufacturer = [{ text: manufacturerArr.join('|'), xpath: row.manufacturer[0].xpath }];
       }
       if (row.dietarySymbols) {
         const dietarySymbolsArr = row.dietarySymbols.map((item) => {
@@ -72,7 +60,7 @@ const transform = (data) => {
       }
       if (row.pricePerUnit) {
         const pricePerUnitArr = row.pricePerUnit.map((item) => {
-          return typeof (item.text) === 'string' ? item.text.replace(/(.*)\((?:([\d.,]+)\s?)€(.*)/g, '$2') : '|';
+          return clean(typeof (item.text) === 'string' ? item.text.replace(/(.*)\((?:([\d.,]+)\s?)€(.*)/g, '$2') : '|');
         });
         row.pricePerUnit = [{ text: pricePerUnitArr.join('|'), xpath: row.pricePerUnit[0].xpath }];
       }
@@ -84,13 +72,13 @@ const transform = (data) => {
       }
       if (row.brandLink) {
         const brandLinkArr = row.brandLink.map((item) => {
-          return typeof (item.text) === 'string' ? item.text.replace(/(.+)/g, 'https://dm.de$1') : '|';
+          return clean(typeof (item.text) === 'string' ? item.text.replace(/(.+)/g, 'https://dm.de$1') : '|');
         });
         row.brandLink = [{ text: brandLinkArr.join('|'), xpath: row.brandLink[0].xpath }];
       }
       if (row.termsAndConditions) {
         const termsAndConditionsArr = row.termsAndConditions.map((item) => {
-          return (typeof (item.text) === 'string') && (item.text.includes('agb')) ? 'Yes' : 'No';
+          return clean((typeof (item.text) === 'string') && (item.text.includes('agb')) ? 'Yes' : 'No');
         });
         row.termsAndConditions = [{ text: termsAndConditionsArr.join(), xpath: row.termsAndConditions[0].xpath }];
       }
@@ -106,11 +94,23 @@ const transform = (data) => {
         });
         row.servingSizeUom = [{ text: servingSizeUomArr.join('|'), xpath: row.servingSizeUom[0].xpath }];
       }
+      if (row.caloriesPerServingUom) {
+        const caloriesPerServingUomArr = row.caloriesPerServingUom.map((item) => {
+          return typeof (item.text) === 'string' ? item.text.replace(/(\d+\s(.*)\s.*\/.*)/g, '$2') : '|';
+        });
+        row.caloriesPerServingUom = [{ text: caloriesPerServingUomArr.join('|'), xpath: row.caloriesPerServingUom[0].xpath }];
+      }
+      if (row.dietaryFibrePerServingUom) {
+        const dietaryFibrePerServingUomArr = row.dietaryFibrePerServingUom.map((item) => {
+          return typeof (item.text) === 'string' ? item.text.replace(/(?:([\d.,]+)\s?)(.*)/g, '$2') : '|';
+        });
+        row.dietaryFibrePerServingUom = [{ text: dietaryFibrePerServingUomArr.join('|'), xpath: row.dietaryFibrePerServingUom[0].xpath }];
+      }
       if (row.sku) {
-        row.sku[0].text = row.sku[0].text.match(/(.*)([a-z])(\d+)(.html)/)[3];
+        clean(row.sku[0].text = row.sku[0].text.match(/(.*)([a-z])(\d+)(.html)/)[3]);
       }
       if (row.variantId) {
-        row.variantId[0].text = row.variantId[0].text.match(/(.*)([a-z])(\d+)(.html)/)[3];
+        clean(row.variantId[0].text = row.variantId[0].text.match(/(.*)([a-z])(\d+)(.html)/)[3]);
       }
       if (row.sodiumPerServingUom) {
         const sodiumPerServingUomArr = row.sodiumPerServingUom.map((item) => {
@@ -124,9 +124,15 @@ const transform = (data) => {
         });
         row.vitaminAPerServingUom = [{ text: vitaminAPerServingUomArr.join('|'), xpath: row.vitaminAPerServingUom[0].xpath }];
       }
+      if (row.totalSugarsPerServingUom) {
+        const totalSugarsPerServingUomArr = row.totalSugarsPerServingUom.map((item) => {
+          return typeof (item.text) === 'string' ? item.text.replace(/(?:([\d.,]+)\s?)(.*)/g, '$2') : '|';
+        });
+        row.totalSugarsPerServingUom = [{ text: totalSugarsPerServingUomArr.join('|'), xpath: row.totalSugarsPerServingUom[0].xpath }];
+      }
       if (row.videos) {
         const videosArr = row.videos.map((item) => {
-          return item.text;
+          return clean(item.text);
         });
         row.videos = [{ text: videosArr.join('|'), xpath: row.videos[0].xpath }];
       }
@@ -134,18 +140,47 @@ const transform = (data) => {
         const totalFatPerServingArr = row.totalFatPerServing.map((item) => {
           const regExV1 = /(.+)(Fettgehalt:\s([\d]+[,.][\d]+))(.+)/;
           const regExV2 = /(.+)(Fettgehalt\s([\d]+[,.][\d]+))(.+)/;
-          const regExV3 = /(?:([\d.,]+)\s?)(.+)/;
+          const regExV3 = /(.+)(fette\s([\d]+[,.][\d]+))(.+)/;
+          const regExV4 = /(.+)(\d+)(\D)(\s*Rohfett)(.+)/;
+          const regExV5 = /(?:([\d.,]+)\s?)(.+)/;
           if (regExV1.test(item.text)) {
-            return typeof (item.text) === 'string' ? item.text.replace(/(.+)(Fettgehalt:\s([\d]+[,.][\d]+))(.+)/g, '$3') : '|';
+            return clean(typeof (item.text) === 'string' ? item.text.replace(/(.+)(Fettgehalt:\s([\d]+[,.][\d]+))(.+)/g, '$3') : '|');
           } else if (regExV2.test(item.text)) {
-            return typeof (item.text) === 'string' ? item.text.replace(/(.+)(Fettgehalt\s([\d]+[,.][\d]+))(.+)/g, '$3') : '|';
+            return clean(typeof (item.text) === 'string' ? item.text.replace(/(.+)(Fettgehalt\s([\d]+[,.][\d]+))(.+)/g, '$3') : '|');
           } else if (regExV3.test(item.text)) {
-            return typeof (item.text) === 'string' ? item.text.replace(/(?:([\d.,]+)\s?)(.+)/g, '$1') : '|';
+            return clean(typeof (item.text) === 'string' ? item.text.replace(/(.+)(fette\s([\d]+[,.][\d]+))(.+)/g, '$3') : '|');
+          } else if (regExV4.test(item.text)) {
+            return clean(typeof (item.text) === 'string' ? item.text.replace(/(.+)(\d+)(\D)(\s*Rohfett)(.+)/g, '$2') : '|');
+          } else if (regExV5.test(item.text)) {
+            return clean(typeof (item.text) === 'string' ? item.text.replace(/(?:([\d.,]+)\s?)(.+)/g, '$1') : '|');
           } else {
             return '';
           }
         });
         row.totalFatPerServing = [{ text: totalFatPerServingArr.join('|'), xpath: row.totalFatPerServing[0].xpath }];
+      }
+      if (row.totalFatPerServingUom) {
+        const totalFatPerServingUomArr = row.totalFatPerServingUom.map((item) => {
+          const regExV1 = /(.+)(Fettgehalt:\s([\d]+[,.][\d]+)(\s*\D))(.+)/;
+          const regExV2 = /(.+)(Fettgehalt\s([\d]+[,.][\d]+)(\s*\D))(.+)/;
+          const regExV3 = /(.+)(fette\s([\d]+[,.][\d]+)(\s*\D))(.+)/;
+          const regExV4 = /(.+)(\d+)(\D)(\s*Rohfett)(.+)/;
+          const regExV5 = /(?:([\d.,]+)\s?)(.+)/;
+          if (regExV1.test(item.text)) {
+            return clean(typeof (item.text) === 'string' ? item.text.replace(/(.+)(Fettgehalt:\s([\d]+[,.][\d]+)(\s*\D))(.+)/g, '$4') : '|');
+          } else if (regExV2.test(item.text)) {
+            return clean(typeof (item.text) === 'string' ? item.text.replace(/(.+)(Fettgehalt\s([\d]+[,.][\d]+)(\s*\D))(.+)/g, '$4') : '|');
+          } else if (regExV3.test(item.text)) {
+            return clean(typeof (item.text) === 'string' ? item.text.replace(/(.+)(fette\s([\d]+[,.][\d]+)(\s*\D))(.+)/g, '$4') : '|');
+          } else if (regExV4.test(item.text)) {
+            return clean(typeof (item.text) === 'string' ? item.text.replace(/(.+)(\d+)(\D)(\s*Rohfett)(.+)/g, '$3') : '|');
+          } else if (regExV5.test(item.text)) {
+            return clean(typeof (item.text) === 'string' ? item.text.replace(/(?:([\d.,]+)\s?)(.+)/g, '$2') : '|');
+          } else {
+            return '';
+          }
+        });
+        row.totalFatPerServingUom = [{ text: totalFatPerServingUomArr.join('|'), xpath: row.totalFatPerServingUom[0].xpath }];
       }
     }
   }
