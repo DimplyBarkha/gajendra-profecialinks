@@ -1,11 +1,11 @@
-const { transform } = require('../../../../shared');
+const { cleanUp } = require('../../../../shared');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'IT',
     store: 'euronics',
-    transform: null,
+    transform: cleanUp,
     domain: 'euronics.it',
     zipcode: '',
   },
@@ -55,6 +55,6 @@ module.exports = {
         console.log('match', match);
       });
     });
-    return await context.extract(productDetails, { transform });
+    return await context.extract(productDetails, { cleanUp });
   },
 };
