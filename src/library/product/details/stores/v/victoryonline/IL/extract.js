@@ -19,7 +19,9 @@ module.exports = {
     });
     const dataRef = await context.extract(productDetails, { transform });
     if (dataRef[0].group[0].sku) {
-      dataRef[0].group[0].sku[0].text = dataRef[0].group[0].sku[0].text.match(/(\d+)/)[1];
+      if (/(\d+)/.test(dataRef[0].group[0].sku[0].text)) {
+        dataRef[0].group[0].sku[0].text = dataRef[0].group[0].sku[0].text.match(/(\d+)/)[1];
+      }
     }
     return dataRef;
   },
