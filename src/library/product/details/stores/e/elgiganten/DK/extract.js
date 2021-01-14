@@ -74,14 +74,6 @@ module.exports = {
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
-
-      const manufacturerDesc = document.querySelectorAll('section[class*="article-page"] div[class*="article-text"]');
-      let manufacturerDescription = '';
-      for (let i = 0; i < manufacturerDesc.length; i++) {
-        manufacturerDescription += manufacturerDesc[i].textContent + ' ';
-
-      }
-      addHiddenDiv('manufacturerDescription', manufacturerDescription);
     });
     try {
       await context.click('[data-template="ProductMoreInformationTab"]');
