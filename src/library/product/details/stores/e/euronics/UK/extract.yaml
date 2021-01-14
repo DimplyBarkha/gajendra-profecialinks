@@ -170,3 +170,8 @@ fields:
     xpath: //div[@class="carousel__item"]
   - name: hasComparisonTable
     defaultValue: No
+  - name: inTheBoxUrl
+    xpath: //div[contains(@class,'grid__item--size-1-2')]//div[@class='banner']/img/@src
+    regExp: (.+)
+    regExpReplace: https://euronics.co.uk$1
+    type: IMAGE
