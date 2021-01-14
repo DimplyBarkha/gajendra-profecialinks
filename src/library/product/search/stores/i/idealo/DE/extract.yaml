@@ -8,9 +8,9 @@ fields:
     xpath: //div[@id="pd_url"]
   - name: thumbnail
     singleValue: false
-    xpath: //noscript
-    regExp: <img\s*src="(.+).jpg"(.+)?
-    regExpReplace: https:$1.jpg
+    xpath: //div[@id="pd_id"]
+    regExp: (.+)
+    regExpReplace: https://cdn.idealo.com/images/product/$1/de_DE/0/mittelgross.jpg
   - name: name
     singleValue: false
     xpath: //div[contains(@id,"result-title")] 
