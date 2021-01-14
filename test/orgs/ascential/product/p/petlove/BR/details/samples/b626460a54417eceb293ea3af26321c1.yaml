@@ -2,12 +2,12 @@ input:
   id: 3100940
   _url: http://petlove.com.br
 extractions:
-  - html: https://workbench.import.io/html/run=e9dcccfc-d52e-465a-8f37-06640888521a/task=f25197fb-9e31-4c05-8b1e-11447c6b638e/0c9e447a-a3f9-4b0d-98b7-6791729af0a6.html
+  - html: https://workbench.import.io/html/run=f6a202c1-5c11-4c70-b3a7-f68dcebbaf4e/task=f4d3956d-c3c4-47d7-ae62-a05dd5708843/166c5afe-bdab-4e7f-8fed-b1ddf2c12ebb.html
     extractionConfigId: product/details/stores/p/petlove/BR/extract
     data:
       - group:
           - productUrl:
-              - text: https://www.petlove.com.br/petisco-dreamies-carne---40gr-3100940/p?sku=3100940
+              - text: https://www.petlove.com.br/petisco-dreamies-carne---40gr-3100940/p
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@product_url
             image:
               - text: https://www.petlove.com.br/images/products/213552/large/Petisco_Dreamies_Carne_-_40_g_3100940_1.jpg?1568406392
@@ -27,10 +27,13 @@ extractions:
               - text: https://www.petlove.com.br/images/products/213556/large/Petisco_Dreamies_Carne_-_40_g_3100940_5.jpg?1568407364
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[1]/li[6]/@image
             nameExtended:
-              - text: Dreamies - Petisco Dreamies Carne Para Gatos Adultos - 40 g
+              - text: Petisco Dreamies Carne Para Gatos Adultos
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@name_extended
+            listPrice:
+              - text: R$5.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@list_price
             price:
-              - text: R$5,99
+              - text: R$5.99
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@price
             description:
               - text: Petisco para toda hora; || Rende mais de 20 dias (*3 pedacinhos por dia);
@@ -67,6 +70,18 @@ extractions:
             coupon:
               - text: 10% OFF
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@coupon_text
+            secondaryImageTotal:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@secondary_image_total
+            ingredientsList:
+              - text: Farinha de Subprodutos de Frango, Glúten de Milho*, Quirera de arroz,
+                  Milho Integral Moído*, Gordura de Frango, Gordura Bovina,
+                  Glúten de Trigo, Farinha de Trigo, Taurina, Metionina,
+                  Vitaminas (A, B1, B2, B6, B12, D3, E, K3, Ácido Fólico,
+                  Niacina, Biotina, Cloreto de Colina e Ácido Pantotênico),
+                  Minerais (Cloreto de Sódio (Sal comum), Cloreto de Potássio e
+                  Óxido de Zinco), Palatabilizantes, Antioxidante e Corantes.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@ingredients
             variants:
               - text: "3100940"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/input[1]/@id
@@ -77,8 +92,6 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]
               - text: Biscoitos
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
-              - text: Dreamies
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/span[1]
             ratingCount:
               - text: "140"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
@@ -135,4 +148,4 @@ extractions:
             availabilityText:
               - text: In stock
         xpath: /html
-    timestamp: 1610617084784
+    timestamp: 1610627251421

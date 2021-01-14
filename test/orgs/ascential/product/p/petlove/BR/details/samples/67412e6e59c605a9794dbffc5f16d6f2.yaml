@@ -2,12 +2,12 @@ input:
   id: 2154518
   _url: http://petlove.com.br
 extractions:
-  - html: https://workbench.import.io/html/run=e9dcccfc-d52e-465a-8f37-06640888521a/task=23538a71-548c-4006-a4fa-99fc3b0cbc30/9721134b-9d53-4cf8-b04a-f00dafbf8927.html
+  - html: https://workbench.import.io/html/run=f6a202c1-5c11-4c70-b3a7-f68dcebbaf4e/task=e608d690-6819-4146-8cf9-01543130dc02/d81fc7e5-f8be-420f-9dfd-680dc76b0f82.html
     extractionConfigId: product/details/stores/p/petlove/BR/extract
     data:
       - group:
           - productUrl:
-              - text: https://www.petlove.com.br/racao-supra-funny-bunny-chinchila/p?sku=2154518
+              - text: https://www.petlove.com.br/racao-supra-funny-bunny-chinchila/p
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@product_url
             image:
               - text: https://www.petlove.com.br/images/products/204414/large/Ra%C3%A7%C3%A3o_Supra_Funny_Bunny_Chinchila_-_700_g_2154515.jpg?1556474602
@@ -16,13 +16,13 @@ extractions:
               - text: Imagem do produto
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[1]/li[1]/@image_alt
             nameExtended:
-              - text: Supra - Ração Supra Funny Bunny Chinchila - 700 g
+              - text: Ração Supra Funny Bunny Chinchila
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@name_extended
             listPrice:
-              - text: R$18,00
+              - text: R$18.0
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@list_price
             price:
-              - text: R$17,46
+              - text: R$17.46
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@price
             description:
               - text: "Com vitaminas e minerais; || Alfafa, fontes de fibras essenciais; ||
@@ -58,6 +58,24 @@ extractions:
             coupon:
               - text: 13% OFF
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@coupon_text
+            secondaryImageTotal:
+              - text: "0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@secondary_image_total
+            ingredientsList:
+              - text: "Farelo de Trigo, Farelo de Soja**, Alfafa Desidratada, Calcário
+                  Calcítico, Cloreto de Sódio (Sal Comum), DL-Metionina, Extrato
+                  de Yucca, Vitamina A, Vitamina C, Vitamina D3, Vitamina E,
+                  Vitamina K3, Vitamina B1, Vitamina B2, Vitamina B6, Vitamina
+                  B12, Ácido Fólico, Pantotenato de Cálcio, Biotina, Cloreto de
+                  Colina, Ácido Nicotínico, Sulfato de Cobre, Sulfato de Ferro,
+                  Iodato de Cálcio, Monóxido de Manganês, Selenito de Sódio,
+                  Óxido de Zinco, Aditivo Antioxidante (Etoxiquim), Propionato
+                  de Cálcio. - Espécies doadoras de genes: *Agrobacterium
+                  tumefaciens, Bacillus thuringiensis, Streptomyces
+                  viridochromogenes, Zea mays. **Agrobacterium tumefaciens,
+                  Arabidopsis thaliana, Bacillus thuringiensis, Streptomyces
+                  viridochromogenes."
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@ingredients
             variants:
               - text: "2154515"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/input[1]/@id
@@ -68,8 +86,6 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]
               - text: Outros
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
-              - text: Supra
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/span[1]
             ratingCount:
               - text: "5"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
@@ -129,7 +145,7 @@ extractions:
             availabilityText:
               - text: In stock
           - productUrl:
-              - text: https://www.petlove.com.br/racao-supra-funny-bunny-chinchila/p?sku=2154518
+              - text: https://www.petlove.com.br/racao-supra-funny-bunny-chinchila/p
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@product_url
             image:
               - text: https://www.petlove.com.br/images/products/204415/large/Ra%C3%A7%C3%A3o_Supra_Funny_Bunny_Chinchila_-_2_5__Kg_2154518.jpg?1556474681
@@ -138,8 +154,14 @@ extractions:
               - text: Imagem do produto
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/ol[1]/li[1]/@image_alt
             nameExtended:
-              - text: Supra - Ração Supra Funny Bunny Chinchila - 2,5 Kg
+              - text: Ração Supra Funny Bunny Chinchila
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@name_extended
+            listPrice:
+              - text: R$52.5
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@list_price
+            price:
+              - text: R$50.92
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@price
             availabilityText:
               - text: Out Of Stock
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@availability_text
@@ -174,6 +196,24 @@ extractions:
             name:
               - text: Ração Supra Funny Bunny Chinchila
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@product_name
+            secondaryImageTotal:
+              - text: "0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@secondary_image_total
+            ingredientsList:
+              - text: "Farelo de Trigo, Farelo de Soja**, Alfafa Desidratada, Calcário
+                  Calcítico, Cloreto de Sódio (Sal Comum), DL-Metionina, Extrato
+                  de Yucca, Vitamina A, Vitamina C, Vitamina D3, Vitamina E,
+                  Vitamina K3, Vitamina B1, Vitamina B2, Vitamina B6, Vitamina
+                  B12, Ácido Fólico, Pantotenato de Cálcio, Biotina, Cloreto de
+                  Colina, Ácido Nicotínico, Sulfato de Cobre, Sulfato de Ferro,
+                  Iodato de Cálcio, Monóxido de Manganês, Selenito de Sódio,
+                  Óxido de Zinco, Aditivo Antioxidante (Etoxiquim), Propionato
+                  de Cálcio. - Espécies doadoras de genes: *Agrobacterium
+                  tumefaciens, Bacillus thuringiensis, Streptomyces
+                  viridochromogenes, Zea mays. **Agrobacterium tumefaciens,
+                  Arabidopsis thaliana, Bacillus thuringiensis, Streptomyces
+                  viridochromogenes."
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@ingredients
             variants:
               - text: "2154518"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/input[1]/@id
@@ -184,8 +224,6 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]
               - text: Outros
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
-              - text: Supra
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/span[1]
             ratingCount:
               - text: "5"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
@@ -243,4 +281,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1610617083097
+    timestamp: 1610627251327

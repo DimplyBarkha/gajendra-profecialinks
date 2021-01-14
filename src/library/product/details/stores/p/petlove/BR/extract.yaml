@@ -31,7 +31,7 @@ fields:
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
-  xpath: ancestor::html//div[@class="breadcrumb"]//li[position()>1]//span
+  xpath: ancestor::html//div[@class="breadcrumb"]//li[position()>1 and not(@class)]//span
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
@@ -251,6 +251,7 @@ fields:
 - name: secondaryImageTotal
   singleValue: true
   description: 
+  xpath: //div/@secondary_image_total
 - name: news
   singleValue: true
   description: 
@@ -264,7 +265,8 @@ fields:
   singleValue: true
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
-  xpath: ancestor::html//tr[th[contains(text(), "Composição")]]/td
+  # xpath: ancestor::html//tr[th[contains(text(), "Composição")]]/td
+  xpath: //div/@ingredients
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.

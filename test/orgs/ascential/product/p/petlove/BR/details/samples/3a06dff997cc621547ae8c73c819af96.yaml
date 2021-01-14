@@ -2,12 +2,12 @@ input:
   id: 3102928
   _url: http://petlove.com.br
 extractions:
-  - html: https://workbench.import.io/html/run=e9dcccfc-d52e-465a-8f37-06640888521a/task=fb454286-c62c-4b92-8b3d-c38fbb46c239/b378b1d5-ee11-4dea-a88f-37877755e870.html
+  - html: https://workbench.import.io/html/run=f6a202c1-5c11-4c70-b3a7-f68dcebbaf4e/task=9a2391d8-a113-42b2-a277-f8cb4dcb9312/f3e351f7-82fb-4e87-96b7-65cf8d92ca97.html
     extractionConfigId: product/details/stores/p/petlove/BR/extract
     data:
       - group:
           - productUrl:
-              - text: https://www.petlove.com.br/refil-para-filtro-maxxi/p?sku=3102928
+              - text: https://www.petlove.com.br/refil-para-filtro-maxxi/p
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@product_url
             image:
               - text: https://www.petlove.com.br/images/products/192331/large/3102932.1.jpg?1556453690
@@ -23,10 +23,13 @@ extractions:
               - text: https://www.petlove.com.br/images/products/192334/large/3102932.4.jpg?1556453849
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[1]/li[4]/@image
             nameExtended:
-              - text: Maxxi - Refil para Filtro Maxxi - HF 60
+              - text: Refil para Filtro Maxxi
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@name_extended
+            listPrice:
+              - text: R$11.29
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@list_price
             price:
-              - text: R$11,29
+              - text: R$11.29
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@price
             description:
               - text: Oxigenação perfeita; || Purificação da água; || Remove partículas bem
@@ -60,6 +63,9 @@ extractions:
             coupon:
               - text: 10% OFF
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@coupon_text
+            secondaryImageTotal:
+              - text: "3"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@secondary_image_total
             variants:
               - text: "3102932"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/input[1]/@id
@@ -70,8 +76,6 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]
               - text: Filtros
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
-              - text: Maxxi
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/span[1]
             ratingCount:
               - text: "1"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
@@ -94,7 +98,7 @@ extractions:
             availabilityText:
               - text: In stock
           - productUrl:
-              - text: https://www.petlove.com.br/refil-para-filtro-maxxi/p?sku=3102928
+              - text: https://www.petlove.com.br/refil-para-filtro-maxxi/p
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@product_url
             image:
               - text: https://www.petlove.com.br/images/products/192335/large/3102928.1.jpg?1556453994
@@ -103,10 +107,13 @@ extractions:
               - text: Imagem do produto
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/ol[1]/li[1]/@image_alt
             nameExtended:
-              - text: Maxxi - Refil para Filtro Maxxi - HF 120
+              - text: Refil para Filtro Maxxi
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@name_extended
+            listPrice:
+              - text: R$18.39
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@list_price
             price:
-              - text: R$18,39
+              - text: R$18.39
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@price
             description:
               - text: Oxigenação perfeita; || Purificação da água; || Remove partículas bem
@@ -140,6 +147,9 @@ extractions:
             coupon:
               - text: 10% OFF
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@coupon_text
+            secondaryImageTotal:
+              - text: "0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@secondary_image_total
             variants:
               - text: "3102928"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/input[1]/@id
@@ -150,8 +160,6 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]
               - text: Filtros
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
-              - text: Maxxi
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/span[1]
             ratingCount:
               - text: "1"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
@@ -174,7 +182,7 @@ extractions:
             availabilityText:
               - text: In stock
           - productUrl:
-              - text: https://www.petlove.com.br/refil-para-filtro-maxxi/p?sku=3102928
+              - text: https://www.petlove.com.br/refil-para-filtro-maxxi/p
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/@product_url
             image:
               - text: https://www.petlove.com.br/images/products/192337/large/3102928.3.jpg?1556453922
@@ -183,10 +191,13 @@ extractions:
               - text: Imagem do produto
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/ol[1]/li[1]/@image_alt
             nameExtended:
-              - text: Maxxi - Refil para Filtro Maxxi - HF 360
+              - text: Refil para Filtro Maxxi
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/@name_extended
+            listPrice:
+              - text: R$30.39
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/@list_price
             price:
-              - text: R$30,39
+              - text: R$30.39
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/@price
             description:
               - text: Oxigenação perfeita; || Purificação da água; || Remove partículas bem
@@ -220,6 +231,9 @@ extractions:
             coupon:
               - text: 10% OFF
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/@coupon_text
+            secondaryImageTotal:
+              - text: "0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/@secondary_image_total
             variants:
               - text: "3102930"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/input[1]/@id
@@ -230,8 +244,6 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]
               - text: Filtros
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
-              - text: Maxxi
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/span[1]
             ratingCount:
               - text: "1"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
@@ -254,4 +266,4 @@ extractions:
             availabilityText:
               - text: In stock
         xpath: /html
-    timestamp: 1610617085891
+    timestamp: 1610627254023

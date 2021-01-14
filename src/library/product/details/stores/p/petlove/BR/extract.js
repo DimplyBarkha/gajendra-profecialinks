@@ -41,6 +41,7 @@ module.exports = {
             alternateImagesList.appendChild(listItem);
           }
           variantElem.appendChild(alternateImagesList);
+          variantElem.setAttribute('secondary_image_total', (allImages.length - 1).toString());
 
           const allVideos = variantObj.images.filter((image) => image.large_url.includes('img.youtube.com/vi/'));
           const videosList = document.createElement('ol');
@@ -61,15 +62,18 @@ module.exports = {
           const name = document.querySelector('h1[itemprop="name"]')
             ? document.querySelector('h1[itemprop="name"]').textContent
             : '';
-          const nameExtendedArr = [brand, name];
-          if (variantObj.short_name) nameExtendedArr.push(variantObj.short_name);
+          const nameExtended = name.toLowerCase().includes(brand.toLowerCase()) ? name : `${brand} - ${name}`;
+          // if (variantObj.short_name) nameExtendedArr.push(variantObj.short_name);
 
-          const listPrice = document.querySelector('div.product-info div:not([class]) div.variant-list-price')
-            ? document.querySelector('div.product-info div:not([class]) div.variant-list-price').textContent
-            : '';
-          const price = document.querySelector('div.product-info div:not([class]) div.product-price')
-            ? document.querySelector('div.product-info div:not([class]) div.product-price').textContent
-            : '';
+          const currency = document.querySelector('meta[name="currency"]')
+            ? document.querySelector('meta[name="currency"]').getAttribute('content')
+            : 'R$';
+          // const listPrice = document.querySelector('div.product-info div:not([class]) div.variant-list-price')
+          //   ? document.querySelector('div.product-info div:not([class]) div.variant-list-price').textContent
+          //   : '';
+          // const price = document.querySelector('div.product-info div:not([class]) div.product-price')
+          //   ? document.querySelector('div.product-info div:not([class]) div.product-price').textContent
+          //   : '';
           const couponText = document.querySelector('div.product-info div.flag')
             ? document.querySelector('div.product-info div.flag').textContent
             : '';
@@ -78,8 +82,8 @@ module.exports = {
           let descriptionArr = document.querySelector('div.product-resume')
             ? document.querySelector('div.product-resume').innerText.split('\n')
             : [];
-          descriptionArr = descriptionArr.filter(item => !!item);
-          descriptionArr = descriptionArr.map(item => item.replace(/^\s*-\s*/, ''));
+          descriptionArr = descriptionArr.filter((item) => !!item);
+          descriptionArr = descriptionArr.map((item) => item.replace(/^\s*-\s*/, ''));
           variantElem.setAttribute('description_bullets', descriptionArr.length);
           variantElem.setAttribute('description', descriptionArr.join(' || '));
 
@@ -87,20 +91,37 @@ module.exports = {
           const remindButton = document.querySelector('div#reminder-area:not(.hidden) button#btn-reminder');
           if (unavailableLabel || remindButton) variantElem.setAttribute('availability_text', 'Out Of Stock');
 
-          const directionsText = document.evaluate('//h3[text() = "Dicas Petlove"]/following-sibling::div[1]', document, null, XPathResult.STRING_TYPE, null).stringValue;
+          const directionsText = document.evaluate(
+            '//h3[text() = "Dicas Petlove"]/following-sibling::div[1]',
+            document,
+            null,
+            XPathResult.STRING_TYPE,
+            null,
+          ).stringValue;
           if (directionsText) variantElem.setAttribute('directions', directionsText);
 
-          const quantity = variantElem.querySelector('div.label-title') ? variantElem.querySelector('div.label-title').textContent : '';
+          const quantity = variantElem.querySelector('div.label-title')
+            ? variantElem.querySelector('div.label-title').textContent
+            : '';
           if (quantity && quantity.match(/[\d.,]+\s.?g/)) variantElem.setAttribute('quantity', quantity);
 
-          variantElem.setAttribute('product_url', window.location.href);
+          const ingredients = document.evaluate('html//tr[th[contains(text(), "Composição")]]/td', document, null, XPathResult.STRING_TYPE, null).stringValue;
+
+          // const calciumRow = document.evaluate('//tr//tr[td[contains(text(), "Cálcio")]]', document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
+          // if (calciumRow.childNodes.length === 2) {
+          //   const firstElem = calciumRow.firstChild;
+          //   const secondElem = calciumRow.lastChild;
+          // }
+
+          variantElem.setAttribute('product_url', window.location.href.match(/(.+\/p)(\?.*)?/)[1]);
           variantElem.setAttribute('product_name', name);
           variantElem.setAttribute('brand', brand);
-          variantElem.setAttribute('name_extended', nameExtendedArr.join(' - '));
+          variantElem.setAttribute('name_extended', nameExtended);
           variantElem.setAttribute('variant_count', variantsTotal);
-          variantElem.setAttribute('list_price', listPrice);
-          variantElem.setAttribute('price', price);
+          variantElem.setAttribute('list_price', `${currency}${variantObj.list_price}`);
+          variantElem.setAttribute('price', `${currency}${variantObj.price}`);
           variantElem.setAttribute('coupon_text', couponText);
+          variantElem.setAttribute('ingredients', ingredients);
         },
         { i, variantsTotal },
       );

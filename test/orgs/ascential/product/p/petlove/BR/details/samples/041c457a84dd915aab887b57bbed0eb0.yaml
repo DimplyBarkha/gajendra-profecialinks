@@ -2,12 +2,12 @@ input:
   id: 3105099-4
   _url: http://petlove.com.br
 extractions:
-  - html: https://workbench.import.io/html/run=e9dcccfc-d52e-465a-8f37-06640888521a/task=5ac3c8d4-3438-44de-bdce-75ae37af5974/edc8f011-3365-47e0-afe3-b32047d02011.html
+  - html: https://workbench.import.io/html/run=f6a202c1-5c11-4c70-b3a7-f68dcebbaf4e/task=89a8e6ba-345e-419c-b688-b09e0302dc73/63ed67f6-0c2d-47b7-9172-87af30928ffa.html
     extractionConfigId: product/details/stores/p/petlove/BR/extract
     data:
       - group:
           - productUrl:
-              - text: https://www.petlove.com.br/brinquedo-kong-squeaker-bola-de-tenis-3105099/p?sku=3105099-4
+              - text: https://www.petlove.com.br/brinquedo-kong-squeaker-bola-de-tenis-3105099/p
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@product_url
             image:
               - text: https://www.petlove.com.br/images/products/212801/large/Brinquedo_KONG_Squeakair_Bola_de_T%C3%AAnis_3105099.jpg?1566312151
@@ -25,10 +25,13 @@ extractions:
               - text: https://www.petlove.com.br/images/products/212802/large/Brinquedo_KONG_Squeakair_Bola_de_T%C3%AAnis_3105099_.jpg?1566312345
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[1]/li[5]/@image
             nameExtended:
-              - text: KONG - Brinquedo KONG Squeakair Bola de Tênis - Tam. EP
+              - text: Brinquedo KONG Squeakair Bola de Tênis
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@name_extended
+            listPrice:
+              - text: R$43.84
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@list_price
             price:
-              - text: R$43,84
+              - text: R$43.84
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@price
             description:
               - text: É o brinquedo numero 1, indicado por veterinários do mundo todo, por seu
@@ -83,6 +86,9 @@ extractions:
             coupon:
               - text: 10% OFF
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@coupon_text
+            secondaryImageTotal:
+              - text: "4"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@secondary_image_total
             variants:
               - text: 3105099-1
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/input[1]/@id
@@ -93,8 +99,6 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]
               - text: Bolinhas
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
-              - text: KONG
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/span[1]
             ratingCount:
               - text: "12"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
@@ -117,7 +121,7 @@ extractions:
             availabilityText:
               - text: In stock
           - productUrl:
-              - text: https://www.petlove.com.br/brinquedo-kong-squeaker-bola-de-tenis-3105099/p?sku=3105099-4
+              - text: https://www.petlove.com.br/brinquedo-kong-squeaker-bola-de-tenis-3105099/p
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@product_url
             image:
               - text: https://www.petlove.com.br/images/products/154192/large/Brinquedo-Kong-Squeakair-Bola-de-Tenis-Ast2-3-Unidades---Medio-_1.jpg?1556357038
@@ -129,10 +133,13 @@ extractions:
               - text: https://www.petlove.com.br/images/products/165527/large/Brinquedo-Kong-Squeakair-Bola-de-Tenis-Ast3-3-Unidades---Pequeno_1.jpg?1556357071
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/ol[1]/li[2]/@image
             nameExtended:
-              - text: KONG - Brinquedo KONG Squeakair Bola de Tênis - Tam. M
+              - text: Brinquedo KONG Squeakair Bola de Tênis
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@name_extended
+            listPrice:
+              - text: R$66.57
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@list_price
             price:
-              - text: R$66,57
+              - text: R$66.57
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@price
             description:
               - text: É o brinquedo numero 1, indicado por veterinários do mundo todo, por seu
@@ -187,6 +194,9 @@ extractions:
             coupon:
               - text: 10% OFF
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@coupon_text
+            secondaryImageTotal:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@secondary_image_total
             variants:
               - text: 3105099-3
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/input[1]/@id
@@ -197,8 +207,6 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]
               - text: Bolinhas
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
-              - text: KONG
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/span[1]
             ratingCount:
               - text: "12"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
@@ -221,7 +229,7 @@ extractions:
             availabilityText:
               - text: In stock
           - productUrl:
-              - text: https://www.petlove.com.br/brinquedo-kong-squeaker-bola-de-tenis-3105099/p?sku=3105099-4
+              - text: https://www.petlove.com.br/brinquedo-kong-squeaker-bola-de-tenis-3105099/p
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/@product_url
             image:
               - text: https://www.petlove.com.br/images/products/154194/large/Brinquedo-Kong-Squeakair-Bola-de-Tenis-Ast1-2-Unidades---Grande_1.jpg?1556357104
@@ -230,13 +238,13 @@ extractions:
               - text: Imagem do produto
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/ol[1]/li[1]/@image_alt
             nameExtended:
-              - text: KONG - Brinquedo KONG Squeakair Bola de Tênis - Tam. G
+              - text: Brinquedo KONG Squeakair Bola de Tênis
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/@name_extended
             listPrice:
-              - text: R$75,62
+              - text: R$75.62
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/@list_price
             price:
-              - text: R$73,35
+              - text: R$73.35
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/@price
             description:
               - text: É o brinquedo numero 1, indicado por veterinários do mundo todo, por seu
@@ -291,6 +299,9 @@ extractions:
             coupon:
               - text: 13% OFF
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/@coupon_text
+            secondaryImageTotal:
+              - text: "0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/@secondary_image_total
             variants:
               - text: 3105099-4
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/input[1]/@id
@@ -301,8 +312,6 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]
               - text: Bolinhas
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
-              - text: KONG
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/span[1]
             ratingCount:
               - text: "12"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
@@ -325,4 +334,4 @@ extractions:
             availabilityText:
               - text: In stock
         xpath: /html
-    timestamp: 1610617092935
+    timestamp: 1610627258424
