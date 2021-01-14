@@ -55,7 +55,11 @@ const transform = (data) => {
           console.log(" item.text", item.text)
         });
       }
-
+      if(row.ingredientsList){
+        row.ingredientsList.forEach(item =>{
+          item.text = item.text.replace(':', '').trim();
+        })
+      }
       if (row.availabilityText) {
         row.availabilityText.forEach(item => {
           if (item.text == "true"){
