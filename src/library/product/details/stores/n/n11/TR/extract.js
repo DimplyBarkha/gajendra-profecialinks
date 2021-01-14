@@ -15,14 +15,14 @@ module.exports = {
     context,
     dependencies,
   ) => {
-    const {transform} = parameters;
-    const {productDetails} = dependencies;
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
     try {
       await context.waitForSelector(`#p-${inputs.id}`);
       await context.clickAndWaitForNavigation(`#p-${inputs.id} h3`, {}, {});
-      return await context.extract(productDetails, {transform});
     } catch (e) {
-      return await context.extract(productDetails, {transform});
+      console.log(e);
     }
+    return await context.extract(productDetails, { transform });
   },
 };

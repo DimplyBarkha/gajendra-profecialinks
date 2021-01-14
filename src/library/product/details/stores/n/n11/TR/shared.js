@@ -8,6 +8,7 @@ const transform = (data) => {
     return string.replace(',', '.').replace(/[^\d\.]/g, '').replace(/\./, 'x').replace(/\./g, '').replace(/x/, '.');
     string = Math.round(parseFloat(string) * 100) / 100;
   }
+
   function cleanText (str) {
     return str.replace(/(\r\n|\n|\r)/gm, '').replace(/\s+/g, ' ').trim();
   }
@@ -19,12 +20,13 @@ const transform = (data) => {
   data.forEach(el => {
     el.group.forEach(gr => {
       try {
-        if (gr.alternativeImages) gr.alternativeImages.shift();
+        if (gr.alternateImages) gr.alternateImages.shift();
         if (gr.category) gr.category.shift();
         if (gr.secondaryImageTotal) gr.secondaryImageTotal = [{ text: gr.secondaryImageTotal.length - 1 }];
         if (gr.brandText) {
           try {
             gr.brandText = [{ text: findField(gr.brandText, 'brand') }];
+            if (!gr.brandText[0].text) gr.brandText = gr.brandText2;
           } catch (e) {
             el.group = [];
           }
@@ -37,9 +39,7 @@ const transform = (data) => {
         if (!gr.promotion) gr.promotion = [{ text: '%0 İndirim 0 TL Kazanç' }];
         if (gr.manufacturerDescription) gr.manufacturerDescription = [{ text: cleanText(gr.manufacturerDescription[0].text) }];
         if (gr.specifications) {
-          gr.specifications.forEach(e => {
-            e.text = cleanText(e.text);
-          });
+          gr.specifications = [{ text: gr.specifications.map(e => cleanText(e.text)).join(' | ') }];
         }
       } catch (e) {
         console.log(e);

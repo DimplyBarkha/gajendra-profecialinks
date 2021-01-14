@@ -26,10 +26,10 @@ fields:
     singleValue: true
     xpath: //figure[@class='proImgHolder']/div/div/div/img/@alt
 
-  - name: alternativeImages
+  - name: alternateImages
     singleValue: false
     xpath: //ul[@class='unf-p-thumbs']/li/img/@src
-  - name: alternativeImages
+  - name: alternateImages
     singleValue: false
     xpath: //div[@class='thumbsHolder']/ul/li/img/@src
 
@@ -84,6 +84,9 @@ fields:
   - name: brandText
     singleValue: false
     xpath: //script[@type='application/ld+json']
+  - name: brandText2
+    singleValue: false
+    xpath: //script/@data-flix-brand
 
   - name: quantity
     singleValue: true
@@ -118,7 +121,7 @@ fields:
 
   - name: manufacturerImages
     singleValue: false
-    xpath: //section[@class='uni-content']/div/figure/img/@src
+    xpath: //section[@class='uni-content']//descendant::img/@src
 
   - name: specifications
     singleValue: false
