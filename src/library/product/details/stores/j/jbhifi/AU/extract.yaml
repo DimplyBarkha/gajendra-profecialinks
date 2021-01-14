@@ -154,4 +154,4 @@ fields:
   - name: inTheBoxText
   - name: hasComparisonTable
   - name: unInterruptedPDP
-    xpath: //h3[contains(text(), 'You may also like')]/following::div[contains(@id, 'related')]/div[contains(@class, 'slick-list')]/div/div[not(contains(@class, 'cloned'))]//a//h4
+    xpath: //h3[contains(text(), 'You may also like')]/following::div[contains(@id, 'related')]/div[contains(@class, 'slick-list')]/div/div[not(contains(@class, 'cloned'))]//a//h4|//h3[contains(text(), 'Recommended')]/following::div[contains(@id, 'related')]/div[contains(@class, 'slick-list')]/div/div[not(contains(@class, 'cloned'))]//a//h4|//h3[contains(text(), 'Others you may like')]/following::div[contains(@id, 'related')]/div[contains(@class, 'slick-list')]/div/div[not(contains(@class, 'cloned'))]//a//h4
