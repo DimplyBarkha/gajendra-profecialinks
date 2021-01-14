@@ -33,12 +33,13 @@ async function implementation (
 
   return await context.extract(productReviews);
 }
+const { transform } = require('./shared');
 module.exports = {
   implements: 'product/reviews/extract',
   parameterValues: {
     country: 'CA',
     store: '180smoke',
-    transform: null,
+    transform: transform,
     domain: '180smoke.ca',
     zipcode: '',
   },

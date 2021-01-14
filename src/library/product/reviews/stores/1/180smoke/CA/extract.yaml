@@ -35,3 +35,5 @@ fields:
   xpath: ancestor::html//meta[@property="og:title"]/@content
 - name: sourceUrl
   xpath: ancestor::html//meta[@property="og:url"]/@content
+  regExp: (.+)
+  regExpReplace: https://www.180smoke.ca$1
