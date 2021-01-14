@@ -26,28 +26,16 @@ const transform = (data) => {
     for (const row of group) {
       if (row.brand) {
         row.brand.forEach(item => {
-          if (item.text.includes("My Blu")) {
-            item.text = item.text.slice(0, 6);
-          }
-          else if (item.text.includes("BLU")) {
-            item.text = item.text.slice(0, 3);
-          }
-          else if (item.text.includes("SMOK")) {
-            item.text = item.text.slice(0, 4);
-          }
-          else if (item.text.includes("Vype")) {
-            item.text = item.text.slice(0, 4);
-          }
-          else if (item.text.includes("JUUL")) {
-            item.text = item.text.slice(0, 4);
+          if (item.text.includes('My Blu')) {
+            item.text = item.text.split(' ').slice(0, 2).join(' ');
+          } else {
+            item.text = item.text.split(' ').slice(0, 1);
           }
         });
       }
-
     }
   }
   return cleanUp(data);
 };
 
 module.exports = { transform };
-
