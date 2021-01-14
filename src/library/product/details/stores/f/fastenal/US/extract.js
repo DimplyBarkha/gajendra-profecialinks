@@ -17,6 +17,13 @@ async function implementation (
 		}
     var url = window.location.href;
     addHiddenDiv("product_custom_url", url);
+    const descArray = [];
+    var desc = document.querySelectorAll('div#note p');
+    for (let i = 0; i < desc.length; i++) {
+      const descText = desc[i].innerText;
+      descText && descArray.push(descText);
+  }
+  addHiddenDiv("ii_details",descArray);
     });
   return await context.extract(productDetails, { transform });
 }
