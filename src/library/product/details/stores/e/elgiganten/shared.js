@@ -114,7 +114,7 @@ const transform = (data) => {
         const unInterruptedPDPs = [];
         let dup = '';
         let urls = [];
-        row.varianunInterruptedPDPtId.forEach(item => {
+        row.unInterruptedPDP.forEach(item => {
           // console.log('item:: ', item.text);
           urls = row.unInterruptedPDP.filter(it => item.text === it.text);
           if (urls && urls.length === 1) {

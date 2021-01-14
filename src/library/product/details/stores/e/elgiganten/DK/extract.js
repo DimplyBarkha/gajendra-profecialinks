@@ -37,7 +37,7 @@ module.exports = {
             break;
           }
         }
-        function stall (ms) {
+        function stall(ms) {
           return new Promise((resolve) => {
             setTimeout(() => {
               resolve();
@@ -54,6 +54,9 @@ module.exports = {
       if (videoData) {
         document.body.appendChild(videoData);
       }
+
+      
+
       if (document.querySelector('section.section.product-more-info')) {
         // @ts-ignore
         document.querySelector('li#tab-specs').click();
@@ -63,6 +66,22 @@ module.exports = {
         document.querySelector('li#tab-more-info').click();
         await new Promise(resolve => setTimeout(resolve, 1000));
       }
+
+      function addHiddenDiv(id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+
+      const manufacturerDesc = document.querySelectorAll('section[class*="article-page"] div[class*="article-text"]');
+      let manufacturerDescription = '';
+      for (let i = 0; i < manufacturerDesc.length; i++) {
+        manufacturerDescription += manufacturerDesc[i].textContent + ' ';
+
+      }
+      addHiddenDiv('manufacturerDescription', manufacturerDescription);
     });
     try {
       await context.click('[data-template="ProductMoreInformationTab"]');

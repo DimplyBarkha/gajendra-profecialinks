@@ -132,8 +132,8 @@ fields:
     regExp: (.+)
     regExpReplace: https://www.elgiganten.dk$1
   - name: manufacturerDescription
-    singleValue: false
-    xpath: //div[contains(@class,'product-detail-page')]//div[contains(@class,'product-inspiration-wrapper')]//section[contains(@class,'article-page')]//div[contains(@class,'article-text')]
+    
+    xpath: //div[@id='manufacturerDescription']
   - name: inTheBoxUrl
     singleValue: false
   - name: inTheBoxText
