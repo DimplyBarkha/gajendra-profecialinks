@@ -148,6 +148,14 @@ const transform = (data) => {
                 });
                 row.manufacturerDescription = [{'text':info.join(' '),'xpath':row.manufacturerDescription[0].xpath}];
             }
+            if(row.inTheBoxUrl){
+                row.inTheBoxUrl.forEach((element)=>{
+                    let text= element.text.split(',')[0].match(/(.+)(jpg)/g)[0];
+                    let finalText = `https:${text}`
+                    element.text = finalText
+                    
+                })
+            }
         }
     }
     return cleanUp(data);
