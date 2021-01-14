@@ -37,7 +37,7 @@ module.exports = {
 
     const ingredientsList = extractedData[0].group[0].ingredientsList;
     if (ingredientsList) {
-      ingredientsList[0].text = ingredientsList[0].text.replace('Ingredientes:', '').trim();
+      ingredientsList[0].text = ingredientsList[0].text.replace(/Ingredientes:/g, '').trim();
     }
 
     const calories = extractedData[0].group[0].caloriesPerServing;
