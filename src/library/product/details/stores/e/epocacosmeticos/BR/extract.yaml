@@ -23,7 +23,7 @@ fields:
     regExpReplace: $1$2
   - name: category
     singleValue: false
-    xpath: //li[@itemprop="itemListElement"]//span[@itemprop="name"]
+    xpath: //li[@itemprop="itemListElement" and not(contains(@class, "last"))]//span[@itemprop="name"]
   - name: name
     singleValue: false
     xpath: //div[contains(@class,'fn')]
@@ -45,8 +45,6 @@ fields:
   - name: directions
     singleValue: false
     xpath: //div[contains(@class,'product__info--description')]//div[@class="productDescription"]
-    regExp: \Modo de Usar:(.*)
-    regExpReplace: $1
   - name: variantId
     singleValue: false
     xpath: //meta[@itemprop="productID"]/@content
@@ -99,5 +97,4 @@ fields:
     regExpReplace: https://www.epocacosmeticos.com.br$1
   - name: descriptionBullets
   - name: additionalDescBulletInfo
-    singleValue: false
-    xpath: //td[@class="value-field Conteudo-Especial"]//div//div//div//li | //td[@class="value-field Conteudo-Especial"]//div//div//div//p
+    # xpath: //td[@class="value-field Conteudo-Especial"]//div//div//div//li | //td[@class="value-field Conteudo-Especial"]//div//div//div//p

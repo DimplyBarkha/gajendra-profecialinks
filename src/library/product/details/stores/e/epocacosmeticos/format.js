@@ -55,10 +55,10 @@ const transform = (data, context) => {
         });
         row.manufacturerDescription = [{ text: manufacturerDescriptionArr.join(' | '), xpath: row.manufacturerDescription[0].xpath }];
       }
-      if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0] && row.additionalDescBulletInfo[0].text.length > 1) {
-        row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
-        row.descriptionBullets = [{ text: row.additionalDescBulletInfo.length, xpath: row.additionalDescBulletInfo[0].xpath }];
-      }
+      // if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0] && row.additionalDescBulletInfo[0].text.length > 1) {
+      //   row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
+      //   row.descriptionBullets = [{ text: row.additionalDescBulletInfo.length, xpath: row.additionalDescBulletInfo[0].xpath }];
+      // }
       if (row.manufacturerImages) {
         const manufacturerImagesArr = row.manufacturerImages.map((item) => {
           return item.text;
@@ -75,6 +75,16 @@ const transform = (data, context) => {
           }
         })
         row.description = [{ text: newDescription[0] }]
+      }
+      if (row.directions) {
+        const newDirections = row.directions.map((item) => {
+          const searchItemIndex = item.text.search(/Modo de Usar/i);
+          if (searchItemIndex > -1) {
+            return item.text.substring(searchItemIndex + 13, item.text.length);
+          }
+        })
+        row.directions = [{ text: newDirections && newDirections[0] }]
+
       }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);

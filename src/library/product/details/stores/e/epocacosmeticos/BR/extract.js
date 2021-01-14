@@ -31,7 +31,7 @@ async function implementation(
       await context.evaluate(async (j, gtinArray) => {
         const sku = document.querySelectorAll('meta[itemprop="sku"]')[j].getAttribute('content');
         document.querySelector('#selectedSKU').setAttribute('data-sku', sku);
-        document.querySelector('#gtin-data').setAttribute('data-gtin', gtinArray[j])
+        document.querySelector('#gtin-data') && document.querySelector('#gtin-data').setAttribute('data-gtin', gtinArray[j])
         return document.querySelectorAll('ul.topic li label')[j].click();
       }, j, gtinArray);
       await new Promise((resolve, reject) => setTimeout(resolve, 3000));
@@ -48,7 +48,7 @@ async function implementation(
       document.body.appendChild(skuDiv);
       const sku = document.querySelector('meta[itemprop="sku"]').getAttribute('content');
       const gtinValue = document.querySelector('meta[itemprop="gtin13"]').getAttribute('content');
-      document.querySelector('#gtin-data').setAttribute('data-gtin', gtinValue)
+      document.querySelector('#gtin-data') && document.querySelector('#gtin-data').setAttribute('data-gtin', gtinValue)
       document.querySelector('#selectedSKU').setAttribute('data-sku', sku);
     });
   }
