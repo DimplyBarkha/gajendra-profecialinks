@@ -5,7 +5,7 @@ module.exports = {
     country: 'BE',
     store: 'newpharma',
     domain: 'newpharma.be',
-    loadedSelector: 'div.product-details > div > a > img[alt]',
+    loadedSelector: 'div.product-details > div img[alt]',
     noResultsXPath: '//body[contains(@class, "Error")]',
     zipcode: "''",
   },

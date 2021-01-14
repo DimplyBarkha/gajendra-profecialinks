@@ -11,7 +11,7 @@ module.exports = {
     zipcode: "''",
   },
   implementation: async ({ inputString }, { transform }, context, { productDetails }) => {
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    await new Promise(resolve => setTimeout(resolve, 3000));
     await context.evaluate(async () => {
       const addElementToDocument = (key, value) => {
         const catElement = document.createElement('div');
@@ -93,8 +93,8 @@ module.exports = {
         data.pricePerUnit = document.querySelector('div.c-price__unit').textContent.match((/\/\s?(.+)\)/))
           ? document.querySelector('div.c-price__unit').textContent.match((/\/\s?(.+)\)/))[1] : '';
       }
-      data.availability = document.querySelector('div.js-stock_message') ? document.querySelector('div.js-stock_message').textContent.trim() : 'Not In Stock';
-      if (document.querySelector('div.c-addToCart__product-unavailable')) data.availability = document.querySelector('div.c-addToCart__product-unavailable').textContent.trim();
+      data.availability = document.querySelector('div.js-stock_message') && document.querySelector('div.js-stock_message').textContent.toLowerCase().includes('en stock')
+        ? 'In Stock' : 'Out Of Stock';
       const promotionText = document.querySelector('div.box-promo__content') ? `${document.querySelector('div.box-promo__content').textContent} ` : '';
       const priceBadgeText = document.querySelector('div.c-price__badge') ? document.querySelector('div.c-price__badge').textContent : '';
       data.promotion = `${promotionText}${priceBadgeText}`;

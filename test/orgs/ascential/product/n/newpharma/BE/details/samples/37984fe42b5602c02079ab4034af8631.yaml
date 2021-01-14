@@ -2,13 +2,13 @@ input:
   id: 188302
   _url: http://newpharma.be
 extractions:
-  - html: https://workbench.import.io/html/run=bafe619d-4053-44b7-a3b7-f013ac0a562f/task=4d477e48-4028-45a0-9f62-0c7169cd8472/3ee5c3fb-fc2f-45cb-93e1-a5a5cf040f7a.html
+  - html: https://workbench.import.io/html/run=bc0ec8cc-9f9f-4c9d-82f2-96f6b5869a5c/task=6f7557db-7f35-4f29-a32c-ea3b3800da27/a6fae252-5504-4f3f-bd7c-c3b44f421957.html
     extractionConfigId: product/details/stores/n/newpharma/BE/extract
     data:
       - group:
           - productUrl:
               - text: https://www.newpharma.be/pharmacie/gaviscon/188302/gaviscon-menthe-suspension-buvable-500ml.html
-                xpath: /html/body/div[12]
+                xpath: /html/body/div[13]
             image:
               - text: https://img.newpharma.net/images/products/fr/500/gaviscon-menthe-suspension-buvable-500ml.2002.jpg
                 xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@src
@@ -31,8 +31,8 @@ extractions:
               - text: 13,44
                 xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]
             availabilityText:
-              - text: En stock !
-                xpath: /html/body/div[18]
+              - text: Out Of Stock
+                xpath: /html/body/div[19]
             brandText:
               - text: Gaviscon
                 xpath: /html/body/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]
@@ -60,13 +60,10 @@ extractions:
                   teneurs en acide gastrique sont très faibles. Si les symptômes
                   ne s'améliorent pas après sept jours, il faut réexaminer la
                   situation clinique.
-                xpath: /html/body/div[16]
+                xpath: /html/body/div[17]
             ratingCount:
               - text: "0"
                 xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]
-            shippingInfo:
-              - text: Commandé avant 16h, livré chez vous demain ou en 24h en point relais
-                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[3]
             manufacturerDescription:
               - text: "Gaviscon Menthe Suspension Buvable 500ml Indications: Traitement des
                   symptômes du reflux gastro-oesophagien tels que la
@@ -113,21 +110,21 @@ extractions:
                   éprouver un ballonnement abdominal. Interactions: Aucune
                   interaction médicamenteuse n'est à ce jour connue avec le
                   Gaviscon."
-                xpath: /html/body/div[10]
+                xpath: /html/body/div[11]
             name:
               - text: Gaviscon Menthe Suspension Buvable 500ml
                 xpath: /html/body/div[6]/div[1]/div[1]/div[1]/h1[1]
             brandLink:
               - text: https://www.newpharma.be/pharmacie/brands/gaviscon/04903.html
-                xpath: /html/body/div[13]
+                xpath: /html/body/div[14]
             privacyPolicy:
               - text: Yes
-                xpath: /html/body/div[20]
+                xpath: /html/body/div[21]
             customerServiceAvailability:
               - text: Yes
-                xpath: /html/body/div[21]
+                xpath: /html/body/div[22]
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[22]
+                xpath: /html/body/div[23]
         xpath: /
-    timestamp: 1609333759993
+    timestamp: 1609753669474
