@@ -12,10 +12,10 @@ fields:
     xpath: ((//img[contains(@class, "gallery-placeholder__image")]/@alt)[1]|(//div[contains(@class, "gallery-placeholder")]//img/@alt)[1])[1]
     description: Alt text of the main product image
   - name: alternateImages
-    singleValue: false
     description: Other product images (not in manufacturer description)
     # xpath: (//div[contains(@class, "fotorama__thumb")]//img/@src)[position()>1]
-    xpath: //div[@id='alternateImages']/text()
+    # xpath: //div[@id='alternateImages']/text()
+    xpath: //div[contains(@class,"fotorama__nav fotorama__nav--thumbs")]//div[contains(@class,"fotorama__nav__frame fotorama__nav__frame--thumb")][position()>1]//img/@src
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name="keywords"]/@content  
