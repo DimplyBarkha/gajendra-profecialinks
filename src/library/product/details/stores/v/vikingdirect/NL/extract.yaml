@@ -22,7 +22,8 @@ fields:
   description: Alt text of the main product image
 - name: alternateImages
   xpath: //div[@state="default"]/@style
-  regExp: (http.+alt.+jpg)
+  regExp: \"(.+alt.+)wid
+  regExpReplace: $1wid=150&hei=150&fmt=jpg
   singleValue: false
   description: Other product images (not in manufacturer description)
 - name: metaKeywords

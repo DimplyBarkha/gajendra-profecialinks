@@ -1,11 +1,11 @@
 const { cleanUp } = require('../../../../shared');
 
-async function implementation (inputs, parameters, context, dependencies) {
+async function implementation(inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
   await context.evaluate(async () => {
-    function addElementToDocument (key, value, src) {
+    function addElementToDocument(key, value, src) {
       const catElement = document.createElement('div');
       catElement.id = key;
       catElement.innerText = value;
@@ -36,11 +36,13 @@ async function implementation (inputs, parameters, context, dependencies) {
     // if product is not available set availabilityText to Out of Stock
     const availabilityText = document.querySelector('span[class="product-stock-message__title"]') ? document.querySelector('span[class="product-stock-message__title"]').innerText : null;
     if (availabilityText === null && document.querySelector('div[role="alertdialog"]').innerText === 'Helaas is dit product niet langer beschikbaar') {
-      addElementToDocument('availabilityText', 'Out of Stock');
+      addElementToDocument('availabilityText', 'Out Of Stock');
     } else if (availabilityText) {
-      addElementToDocument('availabilityText', availabilityText);
+      addElementToDocument('availabilityText', 'In Stock');
     }
+
   });
+
 
   // return await context.extract(productDetails, { transform });
   const dataRef = await context.extract(productDetails, { transform });
