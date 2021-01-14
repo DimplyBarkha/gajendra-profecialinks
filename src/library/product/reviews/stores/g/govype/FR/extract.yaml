@@ -4,11 +4,11 @@ recordSelector: null
 recordXPath: //div[@class="netreviews_review_part"]
 fields:
   - name: helpful
-    type: NUMBER
     xpath: //div[@class='netreviews_review_part']//a[@data-vote][1]
     description: Number of people who said the review was helpful
+    regExp: Oui (.*)
+    regExpReplace: $1
   - name: commentCount
-    type: NUMBER
     description: Number of comments on the review
   - name: brand
     defaultValue: Vype
@@ -23,9 +23,10 @@ fields:
     xpath: ancestor::html//*[@class="product-add-form"]//@data-product-sku
     description: The store-specific product identifier
   - name: reviewDate
-    type: DATETIME
     xpath: //p[@class='netreviews_customer_name']//span[1] 
     description: Date the review was made
+    regExp: publié (.*)
+    regExpReplace: $1
   - name: rating
     xpath: //div[@class="netreviews_review_rate_and_stars"]/@custom_rating
     description: Rating normalized to be out of 5
@@ -44,7 +45,6 @@ fields:
     xpath: ancestor::html//head/link[@rel='canonical']/@href
     description: The url of the product details page
   - name: verifiedPurchase
-    type: BOOLEAN
     description: Whether this of an item the reviewer purchased. "Yes" if true else ""
   - name: manufacturerResponse
     singleValue: true
@@ -63,14 +63,11 @@ fields:
   - name: user
     xpath: //p[@class="netreviews_customer_name"]/text()
     description: The user name of the reviewer
-    type: TEXT
   - name: aggregateRating
     singleValue: false
     xpath: ancestor::html//p[@class="netreviews_note_generale"]/text()
     description: The product rating
   - name: pageTitle
-    type: STRING
     xpath: ancestor::html//meta[@property="og:title"]/@content
   - name: sourceUrl
-    type: STRING
     xpath: ancestor::html//meta[@property="og:url"]/@content
