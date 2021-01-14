@@ -65,6 +65,17 @@ const transform = (data, context) => {
         });
         row.manufacturerImages = [{ text: manufacturerImagesArr.join(' | '), xpath: row.manufacturerImages[0].xpath }];
       }
+      if (row.description) {
+        const newDescription = row.description.map((item) => {
+          const searchItemIndex = item.text.search(/Modo de Usar/i);
+          if (searchItemIndex > -1) {
+            return item.text.substring(0, searchItemIndex);
+          } else {
+            return item.text
+          }
+        })
+        row.description = [{ text: newDescription[0] }]
+      }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
