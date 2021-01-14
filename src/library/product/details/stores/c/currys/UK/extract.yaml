@@ -532,13 +532,11 @@ fields:
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
   - name: inTheBoxUrl
-    singleValue: false
-    xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset
-    regExp: (.+800w,\s)(.+.jpg)(.+)
-    regExpReplace: $2
+    xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset | //div[@id="intheboxURL"]
+    # regExp: (.+800w,\s)(.+.jpg)(.+)
+    # regExpReplace: $2
   - name: inTheBoxText
-    singleValue: false
-    xpath: //div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")]
+    xpath: //div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")] | //div[@id="intheboxText"]
     description: Must include text to show the accessories/tools which come with the product
   - name: hasComparisonTable
     singleValue: true

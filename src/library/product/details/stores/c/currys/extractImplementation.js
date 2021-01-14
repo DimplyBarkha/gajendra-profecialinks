@@ -14,7 +14,6 @@ const implementation = async (
       return false;
     }
   };
-
   await optionalWaitForSelector('.shopList .product');
 
   const readMore = await optionalWaitForSelector('div[data-open-label="Read more"] ~ .long-text-ctl a');
@@ -100,6 +99,26 @@ const implementation = async (
       }
       return value;
     });
+    let intheboxURL = await context.evaluate(() => {
+      console.log('implementing in the box');
+      let inthebox= document.querySelectorAll('.eky-accesory-container img');
+      intheboxURL=[]
+      for(let i=0; i<inthebox.length;i++){
+        intheboxURL.push(inthebox[i].getAttribute('src'));
+      }
+      console.log('in the box URL are',intheboxURL);
+      return intheboxURL;
+    });
+    let intheboxText = await context.evaluate(() => {
+      console.log('implementing in the box');
+      let intheboxtxt= document.querySelectorAll('.eky-accesory-container .eky-accesory-title');
+      intheboxText=[]
+      for(let i=0; i<intheboxtxt.length;i++){
+        intheboxText.push(intheboxtxt[i].innerText);
+      }
+      console.log('in the box URL are',intheboxText);
+      return intheboxText;
+    });
 
     const desc = await context.evaluate(() => {
       const src = document.querySelectorAll('h1,h2,h3,h4,p,div.eky-accessory>div');
@@ -117,6 +136,18 @@ const implementation = async (
       video = video.join(' | ');
       document.querySelector('body').setAttribute('video-src', video);
     }, video);
+    await context.evaluate(async function(intheboxURL,intheboxText){
+    function addHiddenDiv (id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+      }
+      addHiddenDiv('intheboxURL',intheboxURL);
+      addHiddenDiv('intheboxText',intheboxText);
+      console.log('intheboxurl is:',intheboxURL);
+    },intheboxURL,intheboxText);
     await context.evaluate((images) => {
       images = images.join(' | ');
       console.log(images);
