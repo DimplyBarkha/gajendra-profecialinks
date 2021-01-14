@@ -34,26 +34,23 @@ fields:
     singleValue: false
     xpath: //section[@class='spex-section']//div[@class="spex-legacydescription"]//p
   - name: specifications
-    singleValue: false
-    xpath: //div[@class='spex-accordion__content']
+    xpath: //div[@class="spex-accordion"]//div[@class="spex-accordion__content"]//ul//li
   - name: descriptionBullets
     singleValue: false    
     xpath: //div[@class="spex-accordion"]//div[@class="spex-accordion__content"]//ul//li
   - name: availabilityText
     singleValue: false
     # defaultValue: 'In Stock'
-  - name: brandText
+  - name: brand
     singleValue: false
     xpath: //h1[@class='spex-productImageWithTitle__title']
-    regExp: brand":([^}]+)
-    regExpReplace: $1
   - name: variantInformation
     singleValue: false
     xpath: //section[contains(@class,'spex-selectionInput spex-selectionInput--fullBorder')]//span[@class="spex-selectionInput__title"]
   - name: packSize
     singleValue: false
     xpath: //div[@id="LensHeadlinePlural"]/var[@name="packageSize"]
-  - name: manufacturer
+  - name: manufacturer_name
     singleValue: false
-    xpath: //div[@class='spex-accordion__content']
+    xpath: //div[@class='spex-accordion__content']/ul[@class='spex-list']/li[@class='spex-list__item'][10]
     regExp: /.{0,}Hersteller:/
