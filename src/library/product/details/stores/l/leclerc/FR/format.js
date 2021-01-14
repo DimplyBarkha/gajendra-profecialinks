@@ -52,7 +52,7 @@
           }
           if (row.ingredientsList) {
             row.ingredientsList.forEach(item => {
-              item.text = item.text.replace( 'Ingrédients :', '');
+              item.text = item.text.replace( 'Ingrédients :', '').replace( 'Ingrédients:', '').trim();
             });
           }
           if (row.availabilityText) {
