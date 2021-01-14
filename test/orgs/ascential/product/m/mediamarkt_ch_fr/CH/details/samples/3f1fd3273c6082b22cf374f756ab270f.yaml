@@ -2,13 +2,11 @@ input:
   id: 1231849
   _url: http://mediamarkt.ch
 extractions:
-  - html: https://workbench.import.io/html/run=9cd4eb6b-d2a9-48c4-9183-c1e04fa8ddc3/task=ca095db0-198d-491c-b6dd-d1108d6ff4f7/62941b5b-1912-4bcc-b3c8-e2f57d2e08e7.html
+  - html: https://workbench.import.io/html/run=abc434ab-70a6-4c85-a19d-0350df88b2e5/task=5bb8c684-ac7a-4797-86ef-f1a12cac1d96/def8a1aa-2ebf-4891-9bf0-5967eb0abc56.html
     extractionConfigId: product/details/stores/m/mediamarkt_ch_fr/CH/extract
     data:
       - group:
           - category:
-              - text: Page d’accueil
-                xpath: /html/body/div[2]/nav[1]/ul[1]/li[1]
               - text: Cuisiner & Manger
                 xpath: /html/body/div[2]/nav[1]/ul[1]/li[2]
               - text: Machines à café
@@ -23,7 +21,7 @@ extractions:
                   crema onctueuse : le tout réuni en une seule capsule. Si
                   pratique et si bon ! Aussi disponible sans caféine."
                 xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[5]/article[1]/p[1]
-            manufacturer:
+            brandText:
               - text: NESCAFÉ
                 xpath: /html/body/div[2]/div[2]/div[1]/div[1]/meta[1]/@content
             quantity:
@@ -52,9 +50,6 @@ extractions:
             totalFatPerServingUom:
               - text: g
                 xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[3]/dl[1]/dd[3]
-            saturatedFatPerServing:
-              - text: "0.8"
-                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[3]/dl[1]/dd[4]
             totalCarbPerServing:
               - text: "2"
                 xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[3]/dl[1]/dd[5]
@@ -91,14 +86,13 @@ extractions:
               - text: "5"
                 xpath: /html/body/div[13]
             price:
-              - text: 5.95 CHF
+              - text: "5.95"
                 xpath: /html/body/div[14]
             listPrice:
-              - text: 5.95 CHF
+              - text: "5.95"
                 xpath: /html/body/div[15]
             availabilityText:
-              - text: En-ligne disponible Livraison entro 1-4 jours ouvrables Disponibilité en
-                  magasin
+              - text: In Stock
                 xpath: /html/body/div[16]
             aggregateRating:
               - text: "5.0"
@@ -109,13 +103,19 @@ extractions:
             servingSizeUom:
               - text: g
                 xpath: /html/body/div[19]
+            saturatedFatPerServing:
+              - text: "0.8"
+                xpath: /html/body/div[20]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[21]
             productUrl:
               - text: https://www.mediamarkt.ch/fr/product/_nescaf%C3%A9-dolce-gusto-cortado-espresso-macchiato-1231849.html?ga_query=%7Bid%7D
-                xpath: /html/body/div[20]
+                xpath: /html/body/div[22]
             gtin:
               - text: "7613032396350"
-                xpath: /html/body/div[21]
+                xpath: /html/body/div[23]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html/body
-    timestamp: 1610547902448
+    timestamp: 1610619386652

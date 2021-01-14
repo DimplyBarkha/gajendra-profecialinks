@@ -2,13 +2,11 @@ input:
   id: 1077929
   _url: http://mediamarkt.ch
 extractions:
-  - html: https://workbench.import.io/html/run=9cd4eb6b-d2a9-48c4-9183-c1e04fa8ddc3/task=6ba2a4ce-18c6-4477-9206-ce458723330e/8f8b4798-dc90-4001-b9fc-203cfb3c2916.html
+  - html: https://workbench.import.io/html/run=abc434ab-70a6-4c85-a19d-0350df88b2e5/task=e1b5f184-5525-4fa0-8885-e9b856d1b100/2fa9d23c-8434-439d-85dc-05b712562cc8.html
     extractionConfigId: product/details/stores/m/mediamarkt_ch_fr/CH/extract
     data:
       - group:
           - category:
-              - text: Page d’accueil
-                xpath: /html/body/div[2]/nav[1]/ul[1]/li[1]
               - text: Cuisiner & Manger
                 xpath: /html/body/div[2]/nav[1]/ul[1]/li[2]
               - text: Machines à café
@@ -22,7 +20,7 @@ extractions:
               - text: Succombez à la gourmandise de Chococino®, notre chocolat chaud au puissant
                   arôme de cacao adouci par une délicate mousse de lait.
                 xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[5]/article[1]/p[1]
-            manufacturer:
+            brandText:
               - text: NESCAFÉ
                 xpath: /html/body/div[2]/div[2]/div[1]/div[1]/meta[1]/@content
             quantity:
@@ -46,9 +44,6 @@ extractions:
             totalFatPerServingUom:
               - text: g
                 xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[3]
-            saturatedFatPerServing:
-              - text: "9.7"
-                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[4]
             totalCarbPerServing:
               - text: "58.6"
                 xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[5]
@@ -97,14 +92,13 @@ extractions:
               - text: "5"
                 xpath: /html/body/div[13]
             price:
-              - text: 5.95 CHF
+              - text: "5.95"
                 xpath: /html/body/div[14]
             listPrice:
-              - text: 5.95 CHF
+              - text: "5.95"
                 xpath: /html/body/div[15]
             availabilityText:
-              - text: En-ligne disponible Livraison entro 1-4 jours ouvrables Disponibilité en
-                  magasin
+              - text: In Stock
                 xpath: /html/body/div[16]
             servingSize:
               - text: "100"
@@ -112,16 +106,22 @@ extractions:
             servingSizeUom:
               - text: g
                 xpath: /html/body/div[19]
+            saturatedFatPerServing:
+              - text: "9.7"
+                xpath: /html/body/div[20]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[21]
             weightNet:
               - text: 0.270 kg
-                xpath: /html/body/div[20]
+                xpath: /html/body/div[22]
             productUrl:
               - text: https://www.mediamarkt.ch/fr/product/_nescaf%C3%A9-dolce-gusto-chococino-1077929.html?ga_query=%7Bid%7D
-                xpath: /html/body/div[21]
+                xpath: /html/body/div[23]
             gtin:
               - text: "7613035690639"
-                xpath: /html/body/div[22]
+                xpath: /html/body/div[24]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html/body
-    timestamp: 1610547889110
+    timestamp: 1610619381968

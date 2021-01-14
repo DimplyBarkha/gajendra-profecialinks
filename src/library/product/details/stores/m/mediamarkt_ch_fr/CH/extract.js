@@ -29,17 +29,16 @@ module.exports = {
       }
       const data = {};
       const prefix = 'http:';
-      const currency = document.querySelector('div.price-sidebar meta[itemprop="priceCurrency"]').getAttribute('content');
       data.photo = prefix + document.querySelector('#product-sidebar > div.preview > a > img').getAttribute('src');
       data.imgAlt = document.querySelector('#product-sidebar > div.preview > a > img').getAttribute('alt');
       data.alternateImages = document.querySelectorAll('#product-sidebar > ul > li').length > 1
         // @ts-ignore
         ? [...document.querySelectorAll('#product-sidebar > ul > li')].map(el => prefix + el.querySelector('a').getAttribute('data-preview')).slice(1) : [];
       data.secImageTotal = data.alternateImages.length || null;
-      data.price = `${document.querySelector('div.price-sidebar meta[itemprop="price"]').getAttribute('content')} ${currency}`;
+      data.price = document.querySelector('div.price-sidebar meta[itemprop="price"]') ? document.querySelector('div.price-sidebar meta[itemprop="price"]').getAttribute('content') : '';
       data.listPrice = document.querySelector('div.price-details.has-old-price > div.old-price-block > div')
-        ? `${document.querySelector('div.price-details.has-old-price > div.old-price-block > div').textContent.replace(/\n|.-/g, '')} ${currency}` : data.price;
-      data.availabilityText = document.querySelector('div.box.infobox.availability > ul').textContent;
+        ? document.querySelector('div.price-details.has-old-price > div.old-price-block > div').textContent.replace(/\n|.-/g, '') : data.price;
+      data.availabilityText = document.querySelector('#pdp-add-to-cart') ? 'In Stock' : 'Out Of Stock';
       data.aggregateRating = document.querySelector('div.bv_avgRating_component_container')
         ? document.querySelector('div.bv_avgRating_component_container').textContent : '';
       const uomText = document.evaluate('//section/h2[contains(text(), "Informations nutritionnelles")]', document, null, XPathResult.STRING_TYPE, null).stringValue;
@@ -49,6 +48,9 @@ module.exports = {
         data.servingSizeUom = uomMatch[2] || '';
       }
       let weight = document.evaluate('//dl[@class="specification"]/dt[text()="Poids:"]/following-sibling::dd[1]', document, null, XPathResult.STRING_TYPE, null).stringValue;
+      const saturatedFat = document.evaluate('//dl[@class="specification"]/dt[contains(text(),"gras saturés:")]/following-sibling::dd[1]', document, null, XPathResult.STRING_TYPE, null).stringValue;
+      data.saturatedFat = saturatedFat.match(/(\d+(.\d+)?)\s?(\w+)/) ? saturatedFat.match(/(\d+(.\d+)?)\s?(\w+)/)[1] : '';
+      data.saturatedFatUom = saturatedFat.match(/(\d+(.\d+)?)\s?(\w+)/) ? saturatedFat.match(/(\d+(.\d+)?)\s?(\w+)/)[3] : '';
       if (!weight || weight === '-') weight = document.evaluate('//dl[@class="specification"]/dt[text()="Volume de ventes:"]/following-sibling::dd[1]', document, null, XPathResult.STRING_TYPE, null).stringValue;
       if (!weight || weight === '-') weight = document.evaluate('//dl[@class="specification"]/dt[text()="Quantité de remplissage nette:"]/following-sibling::dd[1]', document, null, XPathResult.STRING_TYPE, null).stringValue;
       if (weight && weight !== '-') data.weightNet = weight;

@@ -27,7 +27,7 @@ fields:
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
-  xpath: //ul[@class="breadcrumbs"]/li[position() < last()]
+  xpath: //ul[@class="breadcrumbs"]/li[position() < last() and position() > 1]
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
@@ -60,10 +60,10 @@ fields:
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
+  xpath: //meta[@itemprop="brand"]/@content
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
-  xpath: //div[@class='details']//meta[@itemprop="brand"]/@content
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
@@ -283,15 +283,10 @@ fields:
   regExp: (\d+(.?\d+)?)\s?(\w+)
   regExpReplace: $3
 - name: saturatedFatPerServing
-  description: Nutritional Information for Saturated Fat content - Usually based on
-    per 100g serving
-  xpath: //dl[@class='specification']/dt[contains(text(),"gras saturés:")]/following-sibling::dd[1]
-  regExp: (\d+(.?\d+)?)\s?(\w+)
-  regExpReplace: $1
+  xpath: //div[@id="product-saturated-fat"]
 - name: saturatedFatPerServingUom
   description: Unit of Measure Data for Saturated Fat content
-  regExp: (\d+(.?\d+)?)\s?(\w+)
-  regExpReplace: $3
+  xpath: //div[@id="product-saturated-fat-uom"]
 - name: transFatPerServing
   description: Nutritional Information for Trans Fat content - Usually based on per
     100g serving

@@ -2,13 +2,11 @@ input:
   id: 1422442
   _url: http://mediamarkt.ch
 extractions:
-  - html: https://workbench.import.io/html/run=9cd4eb6b-d2a9-48c4-9183-c1e04fa8ddc3/task=07317c76-1643-432f-8cb5-f3dc7dbb3333/728555b8-59c6-4f0b-99bf-9662bc4338e4.html
+  - html: https://workbench.import.io/html/run=abc434ab-70a6-4c85-a19d-0350df88b2e5/task=b26594df-315b-4c18-9674-0746f0f43edd/f12e313c-8b99-40fd-bea1-1df8a9df8ae4.html
     extractionConfigId: product/details/stores/m/mediamarkt_ch_fr/CH/extract
     data:
       - group:
           - category:
-              - text: Page d’accueil
-                xpath: /html/body/div[2]/nav[1]/ul[1]/li[1]
               - text: Cuisiner & Manger
                 xpath: /html/body/div[2]/nav[1]/ul[1]/li[2]
               - text: Machines à café
@@ -24,7 +22,7 @@ extractions:
                   espresso vigoureux ou délicieux chococino-NESCAFÉ Dolce Gusto
                   garantit la variété des plaisirs à la maison ».
                 xpath: /html/body/div[2]/div[2]/div[5]/div[1]/div[5]/article[1]/p[1]
-            manufacturer:
+            brandText:
               - text: DE-LONGHI
                 xpath: /html/body/div[2]/div[2]/div[1]/div[1]/meta[1]/@content
             sku:
@@ -62,25 +60,24 @@ extractions:
               - text: "4"
                 xpath: /html/body/div[13]
             price:
-              - text: 59.95 CHF
+              - text: "59.95"
                 xpath: /html/body/div[14]
             listPrice:
-              - text: 59.95 CHF
+              - text: "59.95"
                 xpath: /html/body/div[15]
             availabilityText:
-              - text: En-ligne disponible Livraison entro 1-4 jours ouvrables Disponibilité en
-                  magasin
+              - text: In Stock
                 xpath: /html/body/div[16]
             aggregateRating:
               - text: "5.0"
                 xpath: /html/body/div[17]
             productUrl:
               - text: https://www.mediamarkt.ch/fr/product/_de-longhi-nescaf%C3%A9-dolce-gusto-mini-me-starter-kit-1422442.html?ga_query=%7Bid%7D
-                xpath: /html/body/div[18]
+                xpath: /html/body/div[20]
             gtin:
               - text: "8004399328624"
-                xpath: /html/body/div[19]
+                xpath: /html/body/div[21]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html/body
-    timestamp: 1610547891273
+    timestamp: 1610619382339

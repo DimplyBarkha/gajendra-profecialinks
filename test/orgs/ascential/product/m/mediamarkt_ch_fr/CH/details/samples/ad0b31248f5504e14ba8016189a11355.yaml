@@ -2,13 +2,11 @@ input:
   id: 1893185
   _url: http://mediamarkt.ch
 extractions:
-  - html: https://workbench.import.io/html/run=9cd4eb6b-d2a9-48c4-9183-c1e04fa8ddc3/task=5b580e6d-14fc-4889-91e4-13e09c91f5f4/d05f711c-4b64-4601-be82-d4937b3a4378.html
+  - html: https://workbench.import.io/html/run=abc434ab-70a6-4c85-a19d-0350df88b2e5/task=442e6eb9-faca-4292-a3f4-054cb177f244/0e191916-f8db-4c73-8c19-ae9ebf9fb18d.html
     extractionConfigId: product/details/stores/m/mediamarkt_ch_fr/CH/extract
     data:
       - group:
           - category:
-              - text: Page d’accueil
-                xpath: /html/body/div[2]/nav[1]/ul[1]/li[1]
               - text: Ménage, Maison & Hobby
                 xpath: /html/body/div[2]/nav[1]/ul[1]/li[2]
               - text: Climat des locaux
@@ -69,7 +67,7 @@ extractions:
                   2 À la puissance maximale 3 Particule mesurant jusqu’à 0.1
                   micron. Testé conformément à EN1822."
                 xpath: /html/body/div[2]/div[2]/div[5]/div[1]/div[5]/article[1]/p[1]
-            manufacturer:
+            brandText:
               - text: DYSON
                 xpath: /html/body/div[2]/div[2]/div[1]/div[1]/meta[1]/@content
             sku:
@@ -105,27 +103,27 @@ extractions:
               - text: "5"
                 xpath: /html/body/div[13]
             price:
-              - text: 649 CHF
+              - text: "649"
                 xpath: /html/body/div[14]
             listPrice:
-              - text: 649 CHF
+              - text: "649"
                 xpath: /html/body/div[15]
             availabilityText:
-              - text: En-ligne disponible Livraison dans 1-2 jours Disponibilité en magasin
+              - text: In Stock
                 xpath: /html/body/div[16]
             aggregateRating:
               - text: "4.1"
                 xpath: /html/body/div[17]
             weightNet:
               - text: "5.7"
-                xpath: /html/body/div[18]
+                xpath: /html/body/div[20]
             productUrl:
               - text: https://www.mediamarkt.ch/fr/product/_dyson-pure-hot-cool-1893185.html?ga_query=%7Bid%7D
-                xpath: /html/body/div[19]
+                xpath: /html/body/div[21]
             gtin:
               - text: "5025155038635"
-                xpath: /html/body/div[20]
+                xpath: /html/body/div[22]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html/body
-    timestamp: 1610547890696
+    timestamp: 1610619384451

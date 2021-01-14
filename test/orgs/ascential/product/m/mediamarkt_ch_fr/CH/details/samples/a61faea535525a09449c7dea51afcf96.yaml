@@ -2,13 +2,11 @@ input:
   id: 1056734
   _url: http://mediamarkt.ch
 extractions:
-  - html: https://workbench.import.io/html/run=9cd4eb6b-d2a9-48c4-9183-c1e04fa8ddc3/task=b5921a5b-dcea-40e5-aec2-8a17ad277608/8719f4c3-6759-4a37-8604-4902b24ea41f.html
+  - html: https://workbench.import.io/html/run=abc434ab-70a6-4c85-a19d-0350df88b2e5/task=8d411ceb-aec2-41ca-8856-e872cbf1eda2/cfad398d-7cef-48d2-9c20-cc6feb475b1d.html
     extractionConfigId: product/details/stores/m/mediamarkt_ch_fr/CH/extract
     data:
       - group:
           - category:
-              - text: Page d’accueil
-                xpath: /html/body/div[2]/nav[1]/ul[1]/li[1]
               - text: Cuisiner & Manger
                 xpath: /html/body/div[2]/nav[1]/ul[1]/li[2]
               - text: Machines à café
@@ -22,7 +20,7 @@ extractions:
               - text: Caffè Lungo est un espresso allongé à l’arôme intense et à la mousse de
                   café raffinée.
                 xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[5]/article[1]/p[1]
-            manufacturer:
+            brandText:
               - text: NESCAFÉ
                 xpath: /html/body/div[2]/div[2]/div[1]/div[1]/meta[1]/@content
             quantity:
@@ -46,9 +44,6 @@ extractions:
             totalFatPerServingUom:
               - text: g
                 xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[3]
-            saturatedFatPerServing:
-              - text: "7.6"
-                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[4]
             totalCarbPerServing:
               - text: "0.2"
                 xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[5]
@@ -97,13 +92,13 @@ extractions:
               - text: "4"
                 xpath: /html/body/div[13]
             price:
-              - text: 5.95 CHF
+              - text: "5.95"
                 xpath: /html/body/div[14]
             listPrice:
-              - text: 5.95 CHF
+              - text: "5.95"
                 xpath: /html/body/div[15]
             availabilityText:
-              - text: Livraison jusque’à 6 jours ouvrables Disponibilité en magasin
+              - text: In Stock
                 xpath: /html/body/div[16]
             servingSize:
               - text: "100"
@@ -111,16 +106,22 @@ extractions:
             servingSizeUom:
               - text: g
                 xpath: /html/body/div[19]
+            saturatedFatPerServing:
+              - text: "7.6"
+                xpath: /html/body/div[20]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[21]
             weightNet:
               - text: 112 g
-                xpath: /html/body/div[20]
+                xpath: /html/body/div[22]
             productUrl:
               - text: https://www.mediamarkt.ch/fr/product/_nescaf%C3%A9-dolce-gusto-lungo-1056734.html?ga_query=%7Bid%7D
-                xpath: /html/body/div[21]
+                xpath: /html/body/div[23]
             gtin:
               - text: "7613037882636"
-                xpath: /html/body/div[22]
+                xpath: /html/body/div[24]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html/body
-    timestamp: 1610547887551
+    timestamp: 1610619379627
