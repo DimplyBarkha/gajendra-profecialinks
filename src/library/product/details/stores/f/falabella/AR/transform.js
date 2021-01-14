@@ -118,6 +118,14 @@ const transform = (data) => {
           row.variantCount.push({ text: item });
         });
       }
+      if (row.nameExtended) {
+        if (row.color) {
+          const color = row.color[0].text;
+          row.nameExtended.forEach(item => {
+            item.text = `${item.text} ${color}`;
+          });
+        }
+      }
     }
   }
   data = cleanUp(data, undefined);
