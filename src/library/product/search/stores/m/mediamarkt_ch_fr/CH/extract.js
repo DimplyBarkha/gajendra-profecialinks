@@ -8,7 +8,6 @@ async function implementation (inputs, parameters, context, dependencies) {
 
   await context.evaluate(() => {
     // @ts-ignore
-    const currency = document.querySelector('div.price-range-slider + div > label').innerText;
     const allProducts = document.querySelectorAll('ul.products-list > li:not([class])');
     allProducts.forEach((product, index) => {
       const pictureUrl = `https:${product.querySelector('aside.product-photo > figure > a > img').getAttribute('data-original')}`;
@@ -16,7 +15,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       // @ts-ignore
       const price = product.querySelector('div.price-box > div') ? product.querySelector('div.price-box > div').innerText.replace(/\n/g, '') : null;
       product.setAttribute('product-picture', pictureUrl);
-      if (price) product.setAttribute('product-price', `${price} ${currency}`);
+      if (price) product.setAttribute('product-price', price);
       product.setAttribute('product-rating', rating);
     });
 
