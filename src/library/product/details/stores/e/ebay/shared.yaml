@@ -94,7 +94,7 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     # manualSelector: div#ds_div
-    xpath: //div[@id="manufacturercDesc"] | //div[@id="ds_div"]
+    xpath: //div[@id="manufacturercDesc"] | //div[@id="ds_div"]/*[not(@id='ns_copyright' or @id='backup')]
   - name: shippingWeight
     singleValue: false
     xpath: normalize-space(//td[contains(text(), 'Box Weight:')]/following-sibling::td)
@@ -106,7 +106,7 @@ fields:
     xpath: normalize-space(//td[contains(translate(text(),'WARRANTY','warranty'),'warranty')]/following-sibling::td | //h2[contains(@id, 'subTitle') and contains(text(),'Warranty')])
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="features"]//span[@class="image"]/img/@src | //div[@id="ds_div"]//img[contains(@src,"http")]/@src
+    xpath: //div[@id="features"]//span[@class="image"]/img/@src | //div[@id="ds_div"]/div[@id='footer-wrapper']/preceding-sibling::*//img[contains(@src,"http") and not(contains(@src,'gif'))]/@src
   - name: termsAndConditions
     singleValue: false
   - name: productUrl
