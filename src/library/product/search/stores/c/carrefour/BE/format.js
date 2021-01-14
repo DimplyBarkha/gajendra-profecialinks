@@ -25,15 +25,32 @@ const transform = (data) => {
   for (const { group } of data) {
     let rank = 1;
     for (const row of group) {
+      // if (row.productUrl) {
+      //   row.productUrl.forEach(item => {
+      //     item.text = 'https://drive.carrefour.eu' + item.text;
+      //   });
+      // }
       if (row.productUrl) {
+        let productUrl = [];
         row.productUrl.forEach(item => {
-          item.text = 'https://drive.carrefour.eu' + item.text;
+          if (item.text.indexOf('https://drive.carrefour.eu') === -1) {
+            item.text = `https://drive.carrefour.eu${item.text}`;
+          }
         });
       }
+      // if (row.thumbnail) {
+      //   row.thumbnail.forEach(item => {
+      //     item.text = item.text.replace('160Wx160H', '300Wx300H');
+      //     item.text = 'https://drive.carrefour.eu' + item.text;
+      //   });
+      // }
       if (row.thumbnail) {
+        let thumbnail = [];
         row.thumbnail.forEach(item => {
-          item.text = item.text.replace('160Wx160H', '300Wx300H');
-          item.text = 'https://drive.carrefour.eu' + item.text;
+          if (item.text.indexOf('https:') === -1) {
+            item.text = item.text.replace('160Wx160H', '300Wx300H');
+            item.text = `https://drive.carrefour.eu${item.text}`;
+          }
         });
       }
       row.rank = row.rankOrganic = [{ text: rank }];

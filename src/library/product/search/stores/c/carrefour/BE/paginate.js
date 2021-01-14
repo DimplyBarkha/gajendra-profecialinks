@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'BE',
     store: 'carrefour',
-    nextLinkSelector: 'li.pagination-next a[rel="next"]',
+    nextLinkSelector: 'li.pagination-next a[rel="next"] span',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'ul.product__listing div.product-item',
