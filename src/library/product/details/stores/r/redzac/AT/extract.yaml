@@ -14,8 +14,13 @@ fields:
     - name: alternateImages
       # singleValue: false
       description: Other product images (not in manufacturer description)
-      xpath: //*[@class="data_column_left flix_hotspot_container"]//li[@class="jcarousel-item"]//*[@class="product_image_list_item"]//a/@data-image_detail
-      regExp: (https.*version=\d*)
+      xpath: //div[contains(@class,"product_files")]//ul[contains(@class,"carousel-list")]//li[not(contains(@class,"active"))]//img/@src
+      regExp: (.+)
+      regExpReplace: https://www.redzac.at$1
+    - name: secondaryImageTotal
+      singleValue: true
+      type: NUMBER
+      xpath: count(//div[contains(@class,"product_files")]//ul[contains(@class,"carousel-list")]//li[not(contains(@class,"active"))]//img/@src)
     - name: metaKeywords
       singleValue: true
       description: The <meta> keywords content
@@ -267,10 +272,6 @@ fields:
     # - name: otherSellersShipping
     #   singleValue: false
     #   description: null
-    # - name: secondaryImageTotal
-    #   singleValue: true
-    #   description: null
-    #   type: NUMBER
     # - name: news
     #   singleValue: true
     #   description: null
