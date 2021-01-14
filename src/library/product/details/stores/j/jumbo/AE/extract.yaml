@@ -1,0 +1,81 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: alternateImages
+    singleValue: false
+    xpath: //li[contains(@class,"pdp-thumbnail") and not(contains(@class, "slick-cloned")) and not(@index="0")]//a[not(contains(@class, "selected"))]//img/@src
+    regExp: (.*)60x60(.*)
+    regExpReplace: $1800x800$2
+  - name: availabilityText
+    singleValue: false
+    defaultValue: Out of Stock
+    xpath: //div[@id="price"]//div[@itemprop="availability"]
+  - name: brandText
+    singleValue: false
+    xpath: //div[@id='add-cart']//meta[@itemprop='brand']/@content
+  - name: category
+    singleValue: false
+    xpath: //div[@itemprop='itemListElement']
+  - name: description
+    singleValue: false
+    xpath: //meta[contains(@property,'og:description')]/@content
+  - name: image
+    singleValue: false
+    xpath: //a[@id='img-id-1']/@href
+  - name: imageAlt
+    singleValue: false
+    xpath: //a[@id='img-id-1']//img/@alt
+  - name: manufacturerImages
+    singleValue: false
+    # xpath: //div[@id="description-text"]//img/@src
+    xpath: //div[contains(@id,"description")]//img/@src
+  - name: mpc
+    singleValue: false
+    xpath: //div[@id='price']/div[@itemprop='sku']
+  - name: name
+    singleValue: false
+    xpath: //h1[@itemprop='name']
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@itemprop='name']
+  - name: price
+    singleValue: false
+    xpath: //div[@id='pricing_summary']//div[contains(@class,'our_price')]/span
+    regExp: (.*)D(.*)
+    regExpReplace: $1D $2
+  - name: sku
+    singleValue: false
+    xpath: //div[@class='cart']/input[@id='variant_id']/@value
+  - name: specifications
+    singleValue: false
+    xpath: //div[@id='feature_groups']//tbody
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@class,'cart')]/input[@id='variant_id']/@value
+  - name: videos
+    singleValue: false
+    xpath: //div[@id='videoResultsDiv']/iframe/@src
+  - name: weightNet
+    singleValue: false
+    xpath: //div[@id='feature_groups']//td[contains(text(),'Weight')]/following-sibling::td
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@itemprop="reviewCount"]/@content
+    type: NUMBER
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@itemprop="ratingValue"]
+    type: NUMBER
+  - name: color
+    singleValue: false
+  - name: manufacturer
+    singleValue: false
+    xpath: (//span[@itemprop='manufacturer'])[1]
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //div[@id="related-items"]//span[@class="variant-title"]/a
