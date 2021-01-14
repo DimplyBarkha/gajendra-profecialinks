@@ -88,7 +88,7 @@ fields:
   description: GTIN code (includes UPC/EAN)
 - name: sku
   singleValue: true
-  xpath: //div[@class="ty-product-block__left"]/form/input[contains(@name, "[product_id]")]/@value
+  xpath: //meta[@itemprop="sku"]/@content
   description: The store-specific product identifier
 - name: variantId
   singleValue: true
