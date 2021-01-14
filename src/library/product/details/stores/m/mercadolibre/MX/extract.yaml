@@ -12,10 +12,11 @@ fields:
     singleValue: false
     xpath: //*[@id="root-app"]/div/div/div/div[1]/div[1]/div/div/div/div[2]/span/figure/img/@data-zoom
   - name: _pageTimestamp
-#  - name: url
-#    xpath: //div[@id='url']
+  - name: url
+    xpath: //div[@id='url']
   - name: _url
     singleValue: true
+    xpath: //div[@id='url']
   - name: category
     singleValue: false
     xpath: //ul[@class='andes-breadcrumb']/li[@class='andes-breadcrumb__item']/a[@class='andes-breadcrumb__link']
