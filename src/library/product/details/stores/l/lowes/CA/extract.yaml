@@ -513,6 +513,6 @@ fields:
     regExpReplace: Yes
     defaultValue: No
   - name: inTheBoxText
-    xpath: //ul[@class="wc-rich-features wc-rich-content-orientation-four-columns wc-first wc-last wc-rf-columns wc-no-line-seperator"]/li/div[contains(@class,"wc-media-wrap")]/div/img[contains(@class,"wc-media wc-image")]/@title
+    xpath: //h2[contains(text(), 'In the Box')]/following::div[contains(@class, 'wc-aplus-body')]//ul/li//img/@data-asset-title| //h2[contains(text(), 'In The Box')]/following::div[contains(@class, 'wc-aplus-body')]//ul/li//img/@data-asset-title|//h2[contains(text(), 'In the box')]/following::div[contains(@class, 'wc-aplus-body')]//ul/li//img/@data-asset-title
   - name: inTheBoxUrl
-    xpath: //ul[@class="wc-rich-features wc-rich-content-orientation-four-columns wc-first wc-last wc-rf-columns wc-no-line-seperator"]/li/div[contains(@class,"wc-media-wrap")]/div/img[contains(@class,"wc-media wc-image")]/@src
+    xpath: //h2[contains(text(), 'In the Box')]/following::div[contains(@class, 'wc-aplus-body')]//ul/li//div[@class="wc-media-wrap"]//img/@src| //h2[contains(text(), 'In The Box')]/following::div[contains(@class, 'wc-aplus-body')]//ul/li//div[@class="wc-media-wrap"]//img/@src|//h2[contains(text(), 'In the box')]/following::div[contains(@class, 'wc-aplus-body')]//ul/li//div[@class="wc-media-wrap"]//img/@src
