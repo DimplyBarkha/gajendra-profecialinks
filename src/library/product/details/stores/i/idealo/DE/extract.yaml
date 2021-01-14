@@ -5,12 +5,12 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: (//img[contains(@class,"oopStage-galleryCollageImage")]/@src)[1] | (//img[contains(@class,"rsMainSlideImage")]/@src)[1]
+    xpath: //div[@id="pd_variant_id"]
     regExp: (.+)
-    regExpReplace: https:$1
+    regExpReplace: https://cdn.idealo.com/images/product/$1/de_DE/0/s1_produktbild_gross.jpg
   - name: imageAlt
     singleValue: false
-    xpath: (//img[contains(@class,"oopStage-galleryCollageImage")]/@alt)[1] | (//img[contains(@class,"rsMainSlideImage")]/@alt)[1]
+    xpath: (//img[contains(@class,"oopStage-galleryCollageImage")]/@alt)[1] | (//img[contains(@class,"rsMainSlideImage")]/@alt)[1]  | //*[@id="gallery"]//a//img[contains(@class,"rsOverflow")]/@alt
   - name: alternateImages
     singleValue: false
     xpath: //div[contains(@class,"rsThumbsContainer")]/div[contains(@class,"rsThumb")][position()>1]//div[contains(@class,"rsTmb") and not(contains(@class,"rsTmbVideo"))]//img/@src |  (//img[contains(@class,"oopStage-galleryCollageImage")]/@src)[position()>1] 
