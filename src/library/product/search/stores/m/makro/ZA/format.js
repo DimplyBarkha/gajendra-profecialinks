@@ -33,6 +33,12 @@ const transform = (data, context) => {
           row.price = row.price1;
         }
       }
+      if (!row.thumbnail && row.thumbnail1) {
+        row.thumbnail1.forEach(item => {
+          item.text = item.text.startsWith('https:') ? item.text : `https://www.makro.co.za${item.text}`;
+        });
+        row.thumbnail = row.thumbnail1;
+      }
       if (row.productUrl) {
         row.productUrl.forEach(item => {
           item.text = 'https://www.makro.co.za' + item.text;
