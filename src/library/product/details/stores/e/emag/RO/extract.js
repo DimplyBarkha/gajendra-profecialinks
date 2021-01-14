@@ -95,6 +95,11 @@ module.exports = {
     if (dataRef[0].group[0].manufacturerDescription) {
       dataRef[0].group[0].manufacturerDescription[0].text = dataRef[0].group[0].manufacturerDescription[0].text.replace(/\|\| /g, '');
     }
+    if (dataRef[0].group[0].price) {
+      if (/oferte/.test(dataRef[0].group[0].price[0].text)) {
+        dataRef[0].group[0].price[0].text = dataRef[0].group[0].price[0].text.match(/(\d+,?\d+ Lei)/)[1];
+      }
+    }
     if (dataRef[0].group[0].videos) {
       dataRef[0].group[0].videos.forEach((element, index) => {
         if (element.text.includes('[')) {
