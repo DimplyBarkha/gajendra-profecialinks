@@ -2,26 +2,35 @@ input:
   _url: http://petstock.com.au
   URL: https://www.petstock.com.au/product/dog/my-dog-chef-select-chicken-supreme-wet-dog-food-6x100g/50303
 extractions:
-  - html: https://workbench.import.io/html/run=eee94c8b-427d-4f2d-85cd-70a38503e100/task=0ad70a80-bd12-4f99-bd82-2d708ca9ceee/1abbee8c-5bf1-4cad-a003-a0cdf60e1c93.html
+  - html: https://workbench.import.io/html/run=f4e70fe2-9a6c-48a8-a509-ff1147e924b5/task=1fa2b71d-ade6-4519-b439-778c13ece57d/7c66baa4-fa54-44b7-9bb7-7804e81a72da.html
     extractionConfigId: product/details/stores/p/petstock/AU/extract
     data:
       - group:
           - image:
-              - text: https://www.petstock.com.au/images/cache/product_zoom/images/products/5f9b56171994d4.35844736.jpeg
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/ul[1]/li[1]/a[1]/img[2]/@src
+              - text: https://www.petstock.com.au/images/cache/product_popup/images/products/5f9b56171994d4.35844736.jpeg
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/ul[1]/li[1]/a[1]/img[2]/@src
             imageAlt:
               - text: My Dog My Dog Chef Select Chicken Supreme Wet Dog Food 6x100G
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/ul[1]/li[1]/a[1]/img[2]/@alt
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/ul[1]/li[1]/a[1]/img[2]/@alt
             category:
               - text: Dog
-                xpath: /html/body/div[1]/div[1]/ul[1]/li[2]/a[1]/span[1]
+                xpath: /html/body/div[1]/div[2]/ul[1]/li[2]/a[1]/span[1]
               - text: Food
-                xpath: /html/body/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]
+                xpath: /html/body/div[1]/div[2]/ul[1]/li[3]/a[1]/span[1]
               - text: Wet Food
-                xpath: /html/body/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
+                xpath: /html/body/div[1]/div[2]/ul[1]/li[4]/a[1]/span[1]
+            description:
+              - text: My Dog Chicken Supreme is a favourite in the My Dog range. Not only is it
+                  highly nutritious, but this dish is rich in meaty goodness
+                  with succulent chicken cooked in its own juices. This
+                  convenient six pack saves you money as well as trips to the
+                  store. The My Dog range is made in Australia using recipes
+                  that meet the nutritional levels established by AAFCO Dog Food
+                  Nutrition Profiles for adult dogs.
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/text()[1]
             brandText:
               - text: My Dog
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/@data-brand
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/@data-brand
             legalDisclaimer:
               - text: PETstock online aims to provide up to date product information including
                   ingredients, size and colour specifications, packaging and
@@ -34,13 +43,13 @@ extractions:
                   information is important, we recommend that you read the label
                   on the products you purchase or contact the manufacturer of
                   the product.
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/div[2]
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/div[2]
             name:
               - text: My Dog Chef Select Chicken Supreme Wet Dog Food 6x100G
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/@data-name
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/@data-name
             termsAndConditions:
               - text: Yes
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/a[1]
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/a[1]
             alternateImages:
               - text: https://www.petstock.com.au/images/cache/product_zoom/images/products/5f9b56240327a0.55543863.jpeg
                   |
@@ -82,25 +91,6 @@ extractions:
                 xpath: /html/body/div[12]
             price:
               - text: $8.59
-            description:
-              - text: My Dog Chicken Supreme is a favourite in the My Dog range. Not only is it
-                  highly nutritious, but this dish is rich in meaty goodness
-                  with succulent chicken cooked in its own juices. This
-                  convenient six pack saves you money as well as trips to the
-                  store. The My Dog range is made in Australia using recipes
-                  that meet the nutritional levels established by AAFCO Dog Food
-                  Nutrition Profiles for adult dogs. Product NotesView all My
-                  DogView all Wet Food PETstock online aims to provide up to
-                  date product information including ingredients, size and
-                  colour specifications, packaging and product features, as
-                  provided to us by the product manufacturer. As product details
-                  change from time to time, this information is intended as a
-                  guide only and some delay may occur in the updating of our
-                  listing. Product images are indicative of the appearance and
-                  the product delivered may vary slightly from the product image
-                  show. When precise information is important, we recommend that
-                  you read the label on the products you purchase or contact the
-                  manufacturer of the product.
             descriptionBullets:
               - text: "0"
             quantity:
@@ -114,4 +104,4 @@ extractions:
             promotion:
               - text: Autoship Price (Save 10%)
         xpath: /html/body
-    timestamp: 1606917029018
+    timestamp: 1610639876957

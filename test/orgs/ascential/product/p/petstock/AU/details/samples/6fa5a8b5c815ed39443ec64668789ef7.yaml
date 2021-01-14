@@ -2,26 +2,35 @@ input:
   _url: http://petstock.com.au
   URL: https://www.petstock.com.au/product/dog/rogz-reflective-nylon-dog-lead/59202
 extractions:
-  - html: https://workbench.import.io/html/run=eee94c8b-427d-4f2d-85cd-70a38503e100/task=ac3f7219-88fc-4da4-afcc-43a3e1818cea/6e97de08-b602-4454-851b-136554d9ca37.html
+  - html: https://workbench.import.io/html/run=f4e70fe2-9a6c-48a8-a509-ff1147e924b5/task=95cf0e4c-ede2-45a9-ad5b-9e13a8a2c4f0/1fe74304-3440-40e4-864c-45d8940e2110.html
     extractionConfigId: product/details/stores/p/petstock/AU/extract
     data:
       - group:
           - image:
-              - text: https://www.petstock.com.au/images/cache/product_zoom/images/products/5bdbc553aba6a1.27737987.png
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/ul[1]/li[1]/a[1]/img[2]/@src
+              - text: https://www.petstock.com.au/images/cache/product_popup/images/products/5bdbc553aba6a1.27737987.png
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/ul[1]/li[1]/a[1]/img[2]/@src
             imageAlt:
               - text: Rogz Rogz - Reflective Nylon Dog Lead
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/ul[1]/li[1]/a[1]/img[2]/@alt
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/ul[1]/li[1]/a[1]/img[2]/@alt
             category:
               - text: Dog
-                xpath: /html/body/div[1]/div[1]/ul[1]/li[2]/a[1]/span[1]
+                xpath: /html/body/div[1]/div[2]/ul[1]/li[2]/a[1]/span[1]
               - text: Collars & Leads
-                xpath: /html/body/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]
+                xpath: /html/body/div[1]/div[2]/ul[1]/li[3]/a[1]/span[1]
               - text: Leads
-                xpath: /html/body/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
+                xpath: /html/body/div[1]/div[2]/ul[1]/li[4]/a[1]/span[1]
+            description:
+              - text: The Rogz Reflective Fixed dog lead represents simplicity and
+                  functionality, and is the key to the popularity of this lead,
+                  which matches perfectly with the collar and harness of the
+                  same style. Made from high strength nylon webbing, and
+                  interwoven with high visibility reflective thread, this
+                  durable lead will stand the test of time and keep your curious
+                  canine from straying too far.
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/text()[1]
             brandText:
               - text: Rogz
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/@data-brand
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/@data-brand
             legalDisclaimer:
               - text: PETstock online aims to provide up to date product information including
                   ingredients, size and colour specifications, packaging and
@@ -34,28 +43,28 @@ extractions:
                   information is important, we recommend that you read the label
                   on the products you purchase or contact the manufacturer of
                   the product.
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/div[2]
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/div[2]
             ratingCount:
               - text: "1"
-                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]/strong[1]/span[1]
+                xpath: /html/body/div[1]/div[2]/div[4]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]/strong[1]/span[1]
             aggregateRatingText:
               - text: Rated 1.0 out of 5
-                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/span[1]/@title
+                xpath: /html/body/div[1]/div[2]/div[4]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/span[1]/@title
             aggregateRating:
               - text: "1.0"
-                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]/span[1]
+                xpath: /html/body/div[1]/div[2]/div[4]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]/span[1]
             color:
               - text: Blue
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/section[1]/div[3]/form[1]/ol[1]/li[2]/div[1]/div[1]/label[3]/@title
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/section[1]/div[3]/form[1]/ol[1]/li[2]/div[1]/div[1]/label[3]/@title
             name:
               - text: Rogz - Reflective Nylon Dog Lead
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/@data-name
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/@data-name
             variantInformation:
               - text: Snake (16mm)
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/section[1]/div[3]/form[1]/ol[1]/li[1]/div[1]/div[1]/label[1]/@title
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/section[1]/div[3]/form[1]/ol[1]/li[1]/div[1]/div[1]/label[1]/@title
             termsAndConditions:
               - text: Yes
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/a[1]
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/a[1]
             nameExtended:
               - text: Rogz - Reflective Nylon Dog Lead Snake (16mm)
                 xpath: /html/body/div[5]
@@ -85,25 +94,6 @@ extractions:
                 xpath: /html/body/div[12]
             price:
               - text: $21.99
-            description:
-              - text: The Rogz Reflective Fixed dog lead represents simplicity and
-                  functionality, and is the key to the popularity of this lead,
-                  which matches perfectly with the collar and harness of the
-                  same style. Made from high strength nylon webbing, and
-                  interwoven with high visibility reflective thread, this
-                  durable lead will stand the test of time and keep your curious
-                  canine from straying too far. Product NotesView all RogzView
-                  all Leads PETstock online aims to provide up to date product
-                  information including ingredients, size and colour
-                  specifications, packaging and product features, as provided to
-                  us by the product manufacturer. As product details change from
-                  time to time, this information is intended as a guide only and
-                  some delay may occur in the updating of our listing. Product
-                  images are indicative of the appearance and the product
-                  delivered may vary slightly from the product image show. When
-                  precise information is important, we recommend that you read
-                  the label on the products you purchase or contact the
-                  manufacturer of the product.
             descriptionBullets:
               - text: "0"
             quantity:
@@ -117,4 +107,4 @@ extractions:
             promotion:
               - text: ""
         xpath: /html/body
-    timestamp: 1606917029510
+    timestamp: 1610639876074

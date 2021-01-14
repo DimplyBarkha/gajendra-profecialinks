@@ -2,26 +2,40 @@ input:
   _url: http://petstock.com.au
   URL: https://www.petstock.com.au/product/dog/petlife-click-go-outdoor-bed/56331
 extractions:
-  - html: https://workbench.import.io/html/run=eee94c8b-427d-4f2d-85cd-70a38503e100/task=27fbe507-bfd2-4fc0-9a89-164da7c71690/b5a66184-432e-4353-9d1f-2625ed3754f5.html
+  - html: https://workbench.import.io/html/run=f4e70fe2-9a6c-48a8-a509-ff1147e924b5/task=165aa01b-82a0-4186-bd68-fd835eca3224/56e300c8-d870-4251-94ad-a7f49e217992.html
     extractionConfigId: product/details/stores/p/petstock/AU/extract
     data:
       - group:
           - image:
-              - text: https://www.petstock.com.au/images/cache/product_zoom/images/products/5f9a442d8b9d78.49970884.jpeg
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/ul[1]/li[1]/a[1]/img[2]/@src
+              - text: https://www.petstock.com.au/images/cache/product_popup/images/products/5f9a442d8b9d78.49970884.jpeg
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/ul[1]/li[1]/a[1]/img[2]/@src
             imageAlt:
               - text: Petlife PetLife Click & Go Outdoor Bed
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/ul[1]/li[1]/a[1]/img[2]/@alt
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/ul[1]/li[1]/a[1]/img[2]/@alt
             category:
               - text: Dog
-                xpath: /html/body/div[1]/div[1]/ul[1]/li[2]/a[1]/span[1]
+                xpath: /html/body/div[1]/div[2]/ul[1]/li[2]/a[1]/span[1]
               - text: Beds & Houses
-                xpath: /html/body/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]
+                xpath: /html/body/div[1]/div[2]/ul[1]/li[3]/a[1]/span[1]
               - text: Bedding
-                xpath: /html/body/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
+                xpath: /html/body/div[1]/div[2]/ul[1]/li[4]/a[1]/span[1]
+            description:
+              - text: The PetLife Click & Go Bed makes setting up and moving your outdoor pet
+                  bed a breeze. The bed clicks together in one easy step with no
+                  tools required.The bed is flea and water resistant and is easy
+                  to clean so it's ideal for outdoor use.
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/p[1]
+              - text: Suitable for:Small breed dogs
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/p[2]
+              - text: One click assembly - no tools required
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]
+              - text: Flea and Water resistant
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: Available in 4 sizes
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]
             brandText:
               - text: Petlife
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/@data-brand
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/@data-brand
             legalDisclaimer:
               - text: PETstock online aims to provide up to date product information including
                   ingredients, size and colour specifications, packaging and
@@ -34,25 +48,25 @@ extractions:
                   information is important, we recommend that you read the label
                   on the products you purchase or contact the manufacturer of
                   the product.
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/div[2]
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/div[2]
             ratingCount:
-              - text: "10"
-                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]/strong[1]/span[1]
+              - text: "11"
+                xpath: /html/body/div[1]/div[2]/div[4]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]/strong[1]/span[1]
             aggregateRatingText:
-              - text: Rated 4.2 out of 5
-                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/span[1]/@title
+              - text: Rated 3.9 out of 5
+                xpath: /html/body/div[1]/div[2]/div[4]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/span[1]/@title
             aggregateRating:
-              - text: "4.2"
-                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]/span[1]
+              - text: "3.9"
+                xpath: /html/body/div[1]/div[2]/div[4]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]/span[1]
             name:
               - text: PetLife Click & Go Outdoor Bed
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/@data-name
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/@data-name
             variantInformation:
               - text: X Large
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/section[1]/div[3]/form[1]/ol[1]/li[1]/div[1]/div[1]/label[4]/@title
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/section[1]/div[3]/form[1]/ol[1]/li[1]/div[1]/div[1]/label[4]/@title
             termsAndConditions:
               - text: Yes
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/a[1]
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/a[1]
             nameExtended:
               - text: PetLife Click & Go Outdoor Bed X Large
                 xpath: /html/body/div[5]
@@ -82,24 +96,6 @@ extractions:
                 xpath: /html/body/div[12]
             price:
               - text: $179.00
-            description:
-              - text: The PetLife Click & Go Bed makes setting up and moving your outdoor pet
-                  bed a breeze. The bed clicks together in one easy step with no
-                  tools required.The bed is flea and water resistant and is easy
-                  to clean so it's ideal for outdoor use.Suitable for:Small
-                  breed dogsFeatures and BenefitsOne click assembly - no tools
-                  requiredFlea and Water resistantAvailable in 4 sizesProduct
-                  NotesView all PetlifeView all Bedding PETstock online aims to
-                  provide up to date product information including ingredients,
-                  size and colour specifications, packaging and product
-                  features, as provided to us by the product manufacturer. As
-                  product details change from time to time, this information is
-                  intended as a guide only and some delay may occur in the
-                  updating of our listing. Product images are indicative of the
-                  appearance and the product delivered may vary slightly from
-                  the product image show. When precise information is important,
-                  we recommend that you read the label on the products you
-                  purchase or contact the manufacturer of the product.
             descriptionBullets:
               - text: "3"
             quantity:
@@ -113,4 +109,4 @@ extractions:
             promotion:
               - text: ""
         xpath: /html/body
-    timestamp: 1606917024953
+    timestamp: 1610639874866

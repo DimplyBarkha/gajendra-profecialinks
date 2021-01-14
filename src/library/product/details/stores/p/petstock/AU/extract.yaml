@@ -14,8 +14,8 @@ fields:
 - name: image
   description: URL of the main product image
   xpath: (//img[@class='etalage_source_image']/@src)[1]
-  regExp: (\/images.*)
-  regExpReplace: https://www.petstock.com.au$1
+  regExp: .*(\/images\/products\/.*)
+  regExpReplace: https://www.petstock.com.au/images/cache/product_popup$1
 - name: imageAlt
   description: Alt text of the main product image
   xpath: (//img[@class='etalage_source_image']/@alt)[1]
@@ -54,7 +54,7 @@ fields:
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: normalize-space(//div[@itemprop="description"])
+  xpath: //div[@itemprop="description"]/p | //div[@itemprop="description"]/text() | //div[@itemprop="description"]//li
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description

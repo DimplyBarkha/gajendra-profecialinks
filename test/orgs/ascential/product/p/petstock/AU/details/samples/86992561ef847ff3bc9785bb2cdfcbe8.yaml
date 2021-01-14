@@ -2,26 +2,50 @@ input:
   _url: http://petstock.com.au
   URL: https://www.petstock.com.au/product/dog/royal-canin-miniature-schnauzer-adult-dry-dog-food/48960
 extractions:
-  - html: https://workbench.import.io/html/run=eee94c8b-427d-4f2d-85cd-70a38503e100/task=3e54a179-9afa-453e-9d64-ca1830a6cdf6/a91b3287-a6cc-4626-8d76-0077f4701553.html
+  - html: https://workbench.import.io/html/run=f4e70fe2-9a6c-48a8-a509-ff1147e924b5/task=0cecc073-2960-40cb-ad94-28430b2057c9/e8c5b43c-d240-4915-b052-76fa6bd8fb88.html
     extractionConfigId: product/details/stores/p/petstock/AU/extract
     data:
       - group:
           - image:
-              - text: https://www.petstock.com.au/images/cache/product_zoom/images/products/5f90afcb08caa0.54652701.jpeg
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/ul[1]/li[1]/a[1]/img[2]/@src
+              - text: https://www.petstock.com.au/images/cache/product_popup/images/products/5f90afcb08caa0.54652701.jpeg
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/ul[1]/li[1]/a[1]/img[2]/@src
             imageAlt:
               - text: Royal Canin Royal Canin Miniature Schnauzer Adult Dry Dog Food
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/ul[1]/li[1]/a[1]/img[2]/@alt
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/ul[1]/li[1]/a[1]/img[2]/@alt
             category:
               - text: Dog
-                xpath: /html/body/div[1]/div[1]/ul[1]/li[2]/a[1]/span[1]
+                xpath: /html/body/div[1]/div[2]/ul[1]/li[2]/a[1]/span[1]
               - text: Food
-                xpath: /html/body/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]
+                xpath: /html/body/div[1]/div[2]/ul[1]/li[3]/a[1]/span[1]
               - text: Dry Food
-                xpath: /html/body/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
+                xpath: /html/body/div[1]/div[2]/ul[1]/li[4]/a[1]/span[1]
+            description:
+              - text: Royal Canin Miniature Schnauzer complete dry food for dogs - Specially for
+                  adult and mature Miniature Schnauzers - Over 10 months old.
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/p[1]
+              - text: Urinary Tract Health
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/p[2]
+              - text: The Miniature Schnauzer is particularly prone to developing bladder
+                  stones. This food helps maintain a healthy urinary system,
+                  while also encouraging your dog to drink in order to promote
+                  urine dilution.
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/p[3]
+              - text: Intense Coat Colour
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/p[4]
+              - text: This formula contains optimal levels of specific amino acids to help
+                  maintain the coat's natural colour.
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/p[5]
+              - text: Ideal Weight
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/p[6]
+              - text: This formula helps maintain the Miniature Schnauzer's ideal weight.
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/p[7]
+              - text: Exclusive Kibble
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/p[8]
+              - text: Designed for dental health, this formula helps reduce tartar formation.
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/p[9]
             brandText:
               - text: Royal Canin
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/@data-brand
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/@data-brand
             legalDisclaimer:
               - text: PETstock online aims to provide up to date product information including
                   ingredients, size and colour specifications, packaging and
@@ -34,16 +58,16 @@ extractions:
                   information is important, we recommend that you read the label
                   on the products you purchase or contact the manufacturer of
                   the product.
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/div[2]
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/div[2]
             name:
               - text: Royal Canin Miniature Schnauzer Adult Dry Dog Food
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/@data-name
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/@data-name
             variantInformation:
               - text: 3kg
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/section[1]/div[3]/form[1]/ol[1]/li[1]/div[1]/div[1]/div[2]/div[1]/div[2]
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/section[1]/div[3]/form[1]/ol[1]/li[1]/div[1]/div[1]/div[2]/div[1]/div[2]
             termsAndConditions:
               - text: Yes
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/a[1]
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/a[1]
             alternateImages:
               - text: https://www.petstock.com.au/images/cache/product_zoom/images/products/5f90afcda35ae9.65218383.jpeg
                 xpath: /html/body/div[4]
@@ -60,7 +84,7 @@ extractions:
               - text: "48960"
                 xpath: /html/body/div[7]
             ingredientsList:
-              - text: "COMPOSITION: rice, dehydrated poultry protein, maize, vegetable protein
+              - text: "Composition: rice, dehydrated poultry protein, maize, vegetable protein
                   isolate*, maize gluten, animal fats, minerals, hydrolysed
                   animal proteins, chicory pulp, fish oil, vegetable fibres,
                   psyllium husks and seeds, fructo-oligo-saccharides, soya oil,
@@ -91,30 +115,6 @@ extractions:
                 xpath: /html/body/div[12]
             price:
               - text: $42.99
-            description:
-              - text: Royal Canin Miniature Schnauzer complete dry food for dogs - Specially for
-                  adult and mature Miniature Schnauzers - Over 10 months
-                  old.Urinary Tract HealthThe Miniature Schnauzer is
-                  particularly prone to developing bladder stones. This food
-                  helps maintain a healthy urinary system, while also
-                  encouraging your dog to drink in order to promote urine
-                  dilution.Intense Coat ColourThis formula contains optimal
-                  levels of specific amino acids to help maintain the coat's
-                  natural colour.Ideal WeightThis formula helps maintain the
-                  Miniature Schnauzer's ideal weight.Exclusive KibbleDesigned
-                  for dental health, this formula helps reduce tartar
-                  formation.Product NotesView all Royal CaninView all Dry Food
-                  PETstock online aims to provide up to date product information
-                  including ingredients, size and colour specifications,
-                  packaging and product features, as provided to us by the
-                  product manufacturer. As product details change from time to
-                  time, this information is intended as a guide only and some
-                  delay may occur in the updating of our listing. Product images
-                  are indicative of the appearance and the product delivered may
-                  vary slightly from the product image show. When precise
-                  information is important, we recommend that you read the label
-                  on the products you purchase or contact the manufacturer of
-                  the product.
             descriptionBullets:
               - text: "0"
             quantity:
@@ -128,4 +128,4 @@ extractions:
             promotion:
               - text: Autoship Price (Save 15%)
         xpath: /html/body
-    timestamp: 1606917027710
+    timestamp: 1610639876135
