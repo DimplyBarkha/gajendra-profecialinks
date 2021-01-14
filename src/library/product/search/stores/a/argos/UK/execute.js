@@ -52,7 +52,7 @@ module.exports = {
     domain: 'argos.co.uk',
     url: 'https://www.argos.co.uk/search/{searchTerms}/category:800160/',
     loadedSelector: '#findability > div > div.search > div',
-    noResultsXPath: '//h2[contains(@data-test,"no-results-suggestions-heading")] || //h4[@data-el="search-nic-label"]',
+    noResultsXPath: '//h2[contains(@data-test,"no-results-suggestions-heading")] | //h4[@data-el="search-nic-label"]',
   },
   implementation,
 };
