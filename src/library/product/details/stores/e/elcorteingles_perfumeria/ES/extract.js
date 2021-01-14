@@ -209,11 +209,11 @@ module.exports = {
         }
 
         function variantInformation (variantsData) {
-          if (variantsData.variant[1]) {
+          if (variantsData && variantsData.variant && variantsData.variant[1]) {
             if (variantsData.variant[0]) {
               return variantsData.variant[1].value + '-' + variantsData.variant[0].value;
             }
-          } else {
+          } else if(variantsData && variantsData.variant) {
             return variantsData.variant[1] ? variantsData.variant[1].value : '' + '' + variantsData.variant[0] ? variantsData.variant[0].value : '';
           }
         }
@@ -245,6 +245,7 @@ module.exports = {
 
         const reviewData = `https://api.bazaarvoice.com/data/display/0.2alpha/product/summary?PassKey=${passKey}&productid=${productID}&contentType=reviews,questions&reviewDistribution=primaryRating,recommended&rev=0&contentlocale=es_ES`;
         const apiReviewResponse = await makeApiCall(reviewData, {});
+        console.log(`apiReviewResponse : ${JSON.stringify(apiReviewResponse)}`);
         const apiReviewResponseJson = JSON.parse(apiReviewResponse);
         const responseRatingCount = apiReviewResponseJson ? apiReviewResponseJson.reviewSummary.numReviews : ratingFromDOM();
         const responseReviewRating = apiReviewResponseJson ? parseFloat(apiReviewResponseJson.reviewSummary.primaryRating.average).toFixed(1).replace('.', ',')
@@ -260,8 +261,8 @@ module.exports = {
         addElementToDocument('promotion', JSON.parse(apiDataResponse).discount ? '-' + JSON.parse(apiDataResponse).discount + '%' : '');
 
         // Append a UL and LI tag append the variant info in the DOM
-        const variants = JSON.parse(apiDataResponse)._all_colors;
-        console.log(variants, 'Data');
+        const variants = JSON.parse(apiDataResponse) || '';
+        console.log(`variants : ${JSON.stringify(variants)}`);
         const targetElement = document.querySelector('body');
         const newUl = document.createElement('ul');
         newUl.id = 'variantsadd';
@@ -269,16 +270,20 @@ module.exports = {
         const ul = document.querySelector('#variantsadd');
         const name = nameExtended(); // same for all variant
         const variantIds = [];
-        variants.forEach(q => {
-          if (q.skus && q.skus[0] && q.skus[0].reference_id) {
-            variantIds.push(q.skus[0].reference_id.trim());
-          }
-        });
+        if (variants && variants.skus) {
+          variants.skus.forEach(q => {
+            if (q && q.reference_id) {
+              variantIds.push(q.reference_id.trim());
+            }
+          });
+        }
+        console.log(`variantIds : ${variantIds}`);
         try {
-          if (variants.length) {
-            for (let i = 0; i < variants.length; i++) {
+          if (variantIds.length) {
+            for (let i = 0; i < variantIds.length; i++) {
               const listItem = document.createElement('li');
-              const variantSKU = variants[i] && variants[i].skus && variants[i].skus[0] ? variants[i].skus[0] : '';
+              const variantSKU = variants.skus && variants.skus[i] ? variants.skus[i] : '';
+              console.log(`variantSKU : ${variantSKU}`);
               const color = variantSKU && variantSKU.color && variantSKU.color.title ? variantSKU.color.title : '';
               const gtin = variantSKU && variantSKU.gtin ? variantSKU.gtin : '';
               const retailer_product_code = variantSKU && variantSKU.reference_id ? variantSKU.reference_id : '';
