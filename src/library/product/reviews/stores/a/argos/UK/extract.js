@@ -32,7 +32,7 @@ async function implementation (
     await context.click(cssReviews);
   }
 
-  await context.waitForSelector(cssReviewsRow, { timeout: 5000 });
+  await context.waitForSelector(cssReviewsRow, { timeout: 100000 });
 
   const showMoreAvailable = await isSelectorAvailable(cssShowMore);
   console.log(`showMoreAvailable: ${showMoreAvailable}`);

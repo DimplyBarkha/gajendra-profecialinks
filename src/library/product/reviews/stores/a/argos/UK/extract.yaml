@@ -18,7 +18,7 @@ fields:
     type: STRING
   - name: brand
     type: STRING
-    xpath: ancestor::html//title/text()
+    xpath: ancestor::html//span[@data-test="product-title"]
   - name: productRange
     type: STRING
   - name: productFamily
