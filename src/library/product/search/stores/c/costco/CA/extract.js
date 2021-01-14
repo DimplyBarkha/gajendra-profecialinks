@@ -1,4 +1,4 @@
-const { transform } = require('../shared');
+const { transform } = require('./transform');
 
 async function implementation (
   inputs,
@@ -21,6 +21,7 @@ async function implementation (
       document.body.appendChild(newDiv);
     }
     const url = window.location.href;
+    console.log('url', url);
     addHiddenDiv('added-searchurl', url);
   }
   await context.evaluate(addUrl);
