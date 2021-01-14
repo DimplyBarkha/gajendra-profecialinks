@@ -29,7 +29,7 @@ const transform = (data, context) => {
 
         setRow('sku', 'id');
         setRow('price', 'priceLabel');
-        setRow('style', 'unbrandedName');
+        setRow('name', 'unbrandedName');
         setRow('numberHearts', 'favoriteCount');
         setRow('detailUrl', 'clickUrl');
 
