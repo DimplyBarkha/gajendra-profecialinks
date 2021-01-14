@@ -18,6 +18,7 @@ fields:
     regExpReplace: https://www.boozt.com$1
   - name: gtin
     singleValue: false
+    xpath: //ul[@id="product-list-cont"]/li/@data-product-id
   - name: thumbnail
     singleValue: false
     xpath: //div[@class="p-card__image_wrapper p-card__image_wrapper--grey"]/a/img/@src
