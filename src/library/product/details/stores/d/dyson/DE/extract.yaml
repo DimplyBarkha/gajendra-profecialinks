@@ -13,7 +13,3 @@ fields:
     singleValue: true
     description: Guarantee associated with the product
     xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),' Garantie')]])[1]
-  - name: shippingInfo #localedependent
-    singleValue: true
-    description: Shipping information for the product
-    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),'ieferung ')] or .//*[contains(text(),'liefern')]])[1]
