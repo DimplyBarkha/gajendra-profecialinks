@@ -209,11 +209,11 @@ module.exports = {
         }
 
         function variantInformation (variantsData) {
-          if (variantsData.variant[1]) {
+          if (variantsData && variantsData.variant && variantsData.variant[1]) {
             if (variantsData.variant[0]) {
               return variantsData.variant[1].value + '-' + variantsData.variant[0].value;
             }
-          } else {
+          } else if(variantsData && variantsData.variant) {
             return variantsData.variant[1] ? variantsData.variant[1].value : '' + '' + variantsData.variant[0] ? variantsData.variant[0].value : '';
           }
         }
@@ -255,14 +255,13 @@ module.exports = {
 
         const productsData = `https://www.elcorteingles.es/api/product/${productID}?product_id=${productID}&store_id=${storeId}&original_store=${storeId}`;
         const apiDataResponse = await makeApiCall(productsData, {});
-        // console.log(`apiDataResponse : ${JSON.stringify(apiDataResponse)}`);
         addElementToDocument('SKU', JSON.parse(apiDataResponse).id);
         const mpc = JSON.parse(apiDataResponse) && JSON.parse(apiDataResponse)._product_model ? JSON.parse(apiDataResponse)._product_model : '';
         addElementToDocument('mpc', mpc);
         addElementToDocument('promotion', JSON.parse(apiDataResponse).discount ? '-' + JSON.parse(apiDataResponse).discount + '%' : '');
 
         // Append a UL and LI tag append the variant info in the DOM
-        const variants = JSON.parse(apiDataResponse).cross_selling && JSON.parse(apiDataResponse).cross_selling[0] ? JSON.parse(apiDataResponse).cross_selling[0] : '';
+        const variants = JSON.parse(apiDataResponse) || '';
         console.log(`variants : ${JSON.stringify(variants)}`);
         const targetElement = document.querySelector('body');
         const newUl = document.createElement('ul');
@@ -272,9 +271,7 @@ module.exports = {
         const name = nameExtended(); // same for all variant
         const variantIds = [];
         if (variants && variants.skus) {
-          console.log(`variants.skus : ${JSON.stringify(variants.skus)}`);
           variants.skus.forEach(q => {
-            console.log(`variants.skus.q : ${JSON.stringify(q)}`);
             if (q && q.reference_id) {
               variantIds.push(q.reference_id.trim());
             }
