@@ -42,6 +42,33 @@ const transform = (data) => {
           item.text = "fastenal_" + item.text;
         });
       }
+
+      if (row.description) {
+        let desc = '';
+        row.description.forEach(item => {
+          desc += `${item.text}`;
+        });
+        row.description = [
+          {
+            text: desc
+          },
+        ];
+      }
+
+      if (row.shortDescription) {
+        let desc = '';
+        row.shortDescription.forEach(item => {
+          desc += `${item.text}`;
+        });
+        row.shortDescription = [
+          {
+            text: desc
+          },
+        ];
+      }
+
+
+
     }
   }
   return data;

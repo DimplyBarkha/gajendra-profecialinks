@@ -46,8 +46,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    # xpath: //div[@id='note']/p/text()
-    xpath: //div[@class='ii_details']
+    xpath: //div[@id='note']/p/text() | (//div[@id='note']/text())[1]s
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -514,3 +513,8 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
+  - name: shortDescription
+    singleValue: false
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    xpath: //div[@id='note']/p/text() | (//div[@id='note']/text())[1]
