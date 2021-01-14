@@ -20,7 +20,7 @@ fields:
 - name: colour
 - name: flavour
 - name: sku
-  xpath: ancestor::html//title
+  xpath: ancestor::html//h1[@itemprop="name"]
 - name: reviewText
   xpath: //div[@class="description"]/p/text()
 - name: reviewTitle
