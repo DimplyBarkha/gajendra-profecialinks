@@ -4,6 +4,12 @@ async function implementation(inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
+  //increase maxWidth for loading all the altImgs
+  await context.evaluate(() => {
+    let container = document.querySelector('#productPage > .container')
+    container.style.maxWidth = '2000px'
+  })
+
   await context.evaluate(async () => {
     function addElementToDocument(key, value, src) {
       const catElement = document.createElement('div');
