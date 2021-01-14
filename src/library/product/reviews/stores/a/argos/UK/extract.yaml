@@ -19,8 +19,6 @@ fields:
   - name: brand
     type: STRING
     xpath: ancestor::html//title/text()
-    regExp: (?<=\Buy\s)(\w+)
-    regExpReplace: $1
   - name: productRange
     type: STRING
   - name: productFamily

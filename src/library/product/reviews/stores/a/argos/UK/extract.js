@@ -1,9 +1,11 @@
+const { transform } = require('../shared');
 async function implementation (
   inputs,
   parameters,
   context,
   dependencies,
 ) {
+  const { transform } = parameters;
   const { productReviews } = dependencies;
 
   const cssCookiesDiv = '.container';
@@ -50,14 +52,14 @@ async function implementation (
     });
   }
 
-  return await context.extract(productReviews);
+  return await context.extract(productReviews, { transform });
 }
 module.exports = {
   implements: 'product/reviews/extract',
   parameterValues: {
     country: 'UK',
     store: 'argos',
-    transform: null,
+    transform,
     domain: 'argos.co.uk',
     zipcode: '',
   },
