@@ -115,3 +115,19 @@ fields:
     description: The extended description of the product supplied by the lister
   - name: packSize
     xpath: //div[contains(text(),"Paket Seçenekleri")]/following-sibling::div[1]/ul/li
+  - name: inTheBoxUrl
+    singleValue: false
+  - name: inTheBoxText
+    singleValue: false
+    description: Must include text to show the accessories/tools which come with the product
+    xpath: //td[contains(@class, "spec-title")][text()="Aksesuar"]/following-sibling::td[contains(@class, "productFeaturesitemList")]/text()
+  - name: hasComparisonTable
+    defaultValue: No
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //div[@id="most-sold-cataloged-products"]//li//p[contains(@class, "title")]|//ul[@id="recommendation-products"]//li//span[contains(@class, "title")]
+    description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
+  - name: backunInterruptedPDP
+    singleValue: false
+    xpath: //ul[@id="recommendation-products"]//li//span[contains(@class, "title")]
+    description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections

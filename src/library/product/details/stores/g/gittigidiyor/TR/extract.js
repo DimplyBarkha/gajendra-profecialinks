@@ -38,7 +38,42 @@ async function implementation(
         skuElement.className = 'skuinfo';
         skuElement.setAttribute('sku', sku);
         document.body.append(skuElement);
-    })
+    });
+    async function scrollToRec (node) {
+        await context.evaluate(async (node) => {
+          const element = document.querySelector(node) || null;
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+            await new Promise((resolve) => {
+              setTimeout(resolve, 5000);
+            });
+          }
+        }, node);
+      }
+      await scrollToRec('div#TabsCon');
+      await scrollToRec('div.footer');
+      await scrollToRec('div.boxContent');
+    //   await context.waitForSelector('div#userInterestedContainer', { timeout: 20000 })
+    //   addOptionalWait('div#userInterestedContainer');
+    //   await scrollToRec('div#userInterestedContainer');
+    //   await context.waitForSelector('div#user-interested-products', { timeout: 20000 })
+    //   addOptionalWait('div#user-interested-products');
+    //   await scrollToRec('div#user-interested-products');
+    //   await context.waitForSelector('ul#recommendation-products', { timeout: 20000 })
+    addOptionalWait('ul#recommendation-products');
+    await scrollToRec('ul#recommendation-products');
+    await new Promise((resolve, reject) => setTimeout(resolve, 15000));
+    try {
+        await context.waitForSelector('ul#recommendation-products li', { timeout: 25000 });
+    } catch (e) {
+        console.log('Not loading rec products');
+    }
+    console.log('window.latestProducts');
+    await context.evaluate(() => {
+        console.log(window);
+        console.log(window.latestProducts);
+        console.log('esting');
+    });
     return await context.extract(productDetails, { transform });
 }
 const { transform } = require('../shared');
