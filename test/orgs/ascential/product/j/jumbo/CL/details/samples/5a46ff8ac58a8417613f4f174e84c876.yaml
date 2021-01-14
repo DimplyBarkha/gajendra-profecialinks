@@ -1,0 +1,63 @@
+input:
+  _url: http://jumbo.cl
+  URL: https://www.jumbo.cl/atun-en-agua-van-camp-s-104-g-dr/p
+extractions:
+  - html: https://workbench.import.io/html/run=11137642-177f-4f68-b73e-d43356de27e7/task=982bbf8c-b829-41b0-9536-baf87ad91a7e/bade09b8-f468-437c-a80b-7a32f6b64abf.html
+    extractionConfigId: product/details/stores/j/jumbo/CL/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.jumbo.cl/atun-en-agua-van-camp-s-104-g-dr/p
+                xpath: /html/head[1]/meta[13]/@content
+            image:
+              - text: https://jumbo.vteximg.com.br/arquivos/ids/349460-750-750/Principal-41904.jpg?v=637315076539130000
+                xpath: /html/body/div[2]/@content
+            imageAlt:
+              - text: Principal-41904
+                xpath: /html/body/div[3]/@content
+            alternateImages:
+              - text: https://jumbo.vteximg.com.br/arquivos/ids/349460/Principal-41904.jpg?v=637315076539130000
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/img[1]/@fullimg
+              - text: https://jumbo.vteximg.com.br/arquivos/ids/227504/1707545.jpg?v=636595847440200000
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/img[1]/@fullimg
+            category:
+              - text: Despensa
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]
+              - text: Conservas
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]
+              - text: Conservas de Pescado
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]
+            listPrice:
+              - text: $ 1.249
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: $ 1.149
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[1]/span[1]/text()[1]
+            availabilityText:
+              - text: in stock
+                xpath: /html/head[1]/meta[28]/@content
+            description:
+              - text: "Contenido neto: 160 g"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[1]/div[2]/div[5]/span[2]/li[1]
+            brandText:
+              - text: Van Camp's
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[1]/div[2]/div[3]/div[1]/span[2]
+            manufacturer:
+              - text: Van Camp's
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[1]/div[2]/div[3]/div[1]/span[2]
+            quantity:
+              - text: 1 un
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[1]/div[2]/div[3]/div[1]/span[1]
+            sku:
+              - text: "32675"
+                xpath: /html/head[1]/meta[29]/@content
+            nameExtended:
+              - text: Van Camp's Atún lomitos en agua 104 g drenado
+            descriptionBullets:
+              - text: "1"
+                type: NUMBER
+                raw: "1"
+                locale: es
+                value: 1
+        xpath: /
+    timestamp: 1605178575337

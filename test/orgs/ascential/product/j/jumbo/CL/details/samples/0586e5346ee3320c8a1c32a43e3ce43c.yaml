@@ -1,0 +1,49 @@
+input:
+  _url: http://jumbo.cl
+  URL: https://www.jumbo.cl/suplemento-alimenticio-slim-system-berries-440-g/p
+extractions:
+  - html: https://workbench.import.io/html/run=11137642-177f-4f68-b73e-d43356de27e7/task=7819a3e4-1095-4c16-8c79-7e8ad02869cd/ed4e2b05-02bd-4060-b2f8-3aab8367d811.html
+    extractionConfigId: product/details/stores/j/jumbo/CL/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.jumbo.cl/suplemento-alimenticio-slim-system-berries-440-g/p
+                xpath: /html/head[1]/meta[13]/@content
+            image:
+              - text: https://jumbo.vteximg.com.br/arquivos/ids/235837-750-750/1589649.jpg?v=636620680084170000
+                xpath: /html/body/div[2]/@content
+            category:
+              - text: Farmacia
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]
+              - text: Suplementos y Vitaminas
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]
+              - text: Suplementos
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]
+            listPrice:
+              - text: $ 10.990
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[1]/div[2]/div[4]/div[1]/text()[1]
+            availabilityText:
+              - text: in stock
+                xpath: /html/head[1]/meta[28]/@content
+            brandText:
+              - text: Slim System
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[1]/div[2]/div[3]/div[1]/span[2]
+            manufacturer:
+              - text: Slim System
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[1]/div[2]/div[3]/div[1]/span[2]
+            quantity:
+              - text: 1 un
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[1]/div[2]/div[3]/div[1]/span[1]
+            sku:
+              - text: "53961"
+                xpath: /html/head[1]/meta[29]/@content
+            nameExtended:
+              - text: Slim System Suplemento alimenticio Slim system berries 440 g
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: es
+                value: 0
+        xpath: /
+    timestamp: 1605178573272

@@ -1,0 +1,115 @@
+input:
+  _url: http://jumbo.cl
+  URL: https://www.jumbo.cl/queso-mantecoso-rio-bueno-500-g-2/p
+extractions:
+  - html: https://workbench.import.io/html/run=11137642-177f-4f68-b73e-d43356de27e7/task=f15a3f31-8491-49ce-b405-a51ce574a805/253d733f-f0bb-4998-babf-b5c90165728a.html
+    extractionConfigId: product/details/stores/j/jumbo/CL/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.jumbo.cl/queso-mantecoso-rio-bueno-500-g-2/p
+                xpath: /html/head[1]/meta[13]/@content
+            image:
+              - text: https://jumbo.vteximg.com.br/arquivos/ids/333588-750-750/Principal-3182.jpg?v=637226592195370000
+                xpath: /html/body/div[2]/@content
+            category:
+              - text: Quesos y Fiambres
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]
+              - text: Quesería
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]
+              - text: Mantecosos y Chanco
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]
+            listPrice:
+              - text: $ 4.799
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[1]/div[2]/div[4]/div[1]/text()[1]
+            availabilityText:
+              - text: in stock
+                xpath: /html/head[1]/meta[28]/@content
+            description:
+              - text: Receta ArtesanalNaturalmente Sin Lactosa
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[2]
+            brandText:
+              - text: Río Bueno
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[1]/div[2]/div[3]/div[1]/span[2]
+            manufacturer:
+              - text: Río Bueno
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[1]/div[2]/div[3]/div[1]/span[2]
+            quantity:
+              - text: 1 un
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[1]/div[2]/div[3]/div[1]/span[1]
+            sku:
+              - text: "10988"
+                xpath: /html/head[1]/meta[29]/@content
+            caloriesPerServing:
+              - text: "320"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[3]/div[1]/div[3]/div[1]/ul[2]/li[2]
+            totalFatPerServing:
+              - text: 26,0
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[3]/div[1]/div[3]/div[1]/ul[4]/li[2]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[3]/div[1]/div[3]/div[1]/ul[4]/li[1]/@unitofmeasure
+            saturatedFatPerServing:
+              - text: 16,64
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[3]/div[1]/div[3]/div[1]/ul[5]/li[2]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[3]/div[1]/div[3]/div[1]/ul[5]/li[1]/@unitofmeasure
+            transFatPerServing:
+              - text: 1,12
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[3]/div[1]/div[3]/div[1]/ul[8]/li[2]
+            transFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[3]/div[1]/div[3]/div[1]/ul[8]/li[1]/@unitofmeasure
+            cholesterolPerServing:
+              - text: "83"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[3]/div[1]/div[3]/div[1]/ul[9]/li[2]
+            cholesterolPerServingUom:
+              - text: mg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[3]/div[1]/div[3]/div[1]/ul[9]/li[1]/@unitofmeasure
+            sodiumPerServing:
+              - text: "688"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[3]/div[1]/div[3]/div[1]/ul[13]/li[2]
+            sodiumPerServingUom:
+              - text: mg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[3]/div[1]/div[3]/div[1]/ul[13]/li[1]/@unitofmeasure
+            totalCarbPerServing:
+              - text: 0,5
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[3]/div[1]/div[3]/div[1]/ul[10]/li[2]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[3]/div[1]/div[3]/div[1]/ul[10]/li[1]/@unitofmeasure
+            dietaryFibrePerServing:
+              - text: 0,0
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[3]/div[1]/div[3]/div[1]/ul[12]/li[2]
+            dietaryFibrePerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[3]/div[1]/div[3]/div[1]/ul[12]/li[1]/@unitofmeasure
+            totalSugarsPerServing:
+              - text: 0,0
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[3]/div[1]/div[3]/div[1]/ul[11]/li[2]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[3]/div[1]/div[3]/div[1]/ul[11]/li[1]/@unitofmeasure
+            proteinPerServing:
+              - text: 21,0
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[3]/div[1]/div[3]/div[1]/ul[3]/li[2]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[3]/div[1]/div[3]/div[1]/ul[3]/li[1]/@unitofmeasure
+            calciumPerServing:
+              - text: "743"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[3]/div[1]/div[3]/div[1]/ul[14]/li[2]
+            calciumPerServingUom:
+              - text: mg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[3]/div[1]/div[3]/div[1]/ul[14]/li[1]/@unitofmeasure
+            nameExtended:
+              - text: Río Bueno Queso mantecoso laminado 500 g
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: es
+                value: 0
+        xpath: /
+    timestamp: 1605178572889
