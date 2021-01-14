@@ -2,7 +2,7 @@ input:
   id: 188302
   _url: http://newpharma.be
 extractions:
-  - html: https://workbench.import.io/html/run=bc0ec8cc-9f9f-4c9d-82f2-96f6b5869a5c/task=6f7557db-7f35-4f29-a32c-ea3b3800da27/a6fae252-5504-4f3f-bd7c-c3b44f421957.html
+  - html: https://workbench.import.io/html/run=dd7f2932-7aeb-4d6b-b86f-6ff2a445f1b1/task=f3d475a6-a85c-43cc-a429-46d1621e0c4c/cc39e3ec-99f1-4e7d-9adb-fcd46ad26d8e.html
     extractionConfigId: product/details/stores/n/newpharma/BE/extract
     data:
       - group:
@@ -31,8 +31,8 @@ extractions:
               - text: 13,44
                 xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]
             availabilityText:
-              - text: Out Of Stock
-                xpath: /html/body/div[19]
+              - text: In Stock
+                xpath: /html/body/div[20]
             brandText:
               - text: Gaviscon
                 xpath: /html/body/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]
@@ -64,6 +64,9 @@ extractions:
             ratingCount:
               - text: "0"
                 xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]
+            shippingInfo:
+              - text: Commandé avant 16h, livré chez vous demain ou en 24h en point relais
+                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[3]
             manufacturerDescription:
               - text: "Gaviscon Menthe Suspension Buvable 500ml Indications: Traitement des
                   symptômes du reflux gastro-oesophagien tels que la
@@ -119,12 +122,12 @@ extractions:
                 xpath: /html/body/div[14]
             privacyPolicy:
               - text: Yes
-                xpath: /html/body/div[21]
+                xpath: /html/body/div[22]
             customerServiceAvailability:
               - text: Yes
-                xpath: /html/body/div[22]
+                xpath: /html/body/div[23]
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[23]
+                xpath: /html/body/div[24]
         xpath: /
-    timestamp: 1609753669474
+    timestamp: 1610619743386

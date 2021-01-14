@@ -51,6 +51,25 @@ module.exports = {
         }
         return result;
       }
+
+      function getIngredients (name) {
+        const nodes = document.evaluate(`//table//td[text()="${name}"]/../td[position()>1]`, document, null, XPathResult.ORDERED_NODE_ITERATOR_TYPE, null);
+        let uom;
+        let amount;
+        let node = null;
+        // eslint-disable-next-line no-cond-assign
+        while ((node = nodes.iterateNext()) && (!uom || !amount)) {
+          if (node.textContent.match(/^[\D/]+$/)) uom = node.textContent;
+          else if (node.textContent.match(/^[\d/,]+$/)) amount = node.textContent;
+          else if (node.textContent.match(/^(\d+(.\d+)?)\D+$/)) {
+            uom = node.textContent.match(/^(\d+(.\d+)?)(\D+)$/)[3];
+            amount = node.textContent.match(/^(\d+(.\d+)?)(\D+)$/)[1];
+            break;
+          }
+        }
+        return [uom, amount];
+      }
+
       if (document.querySelector('#js-cookie-policy-popup')) {
         document.querySelector('#js-cookie-policy-popup').remove();
         await new Promise(resolve => setTimeout(resolve, 1500));
@@ -88,6 +107,7 @@ module.exports = {
       data.directions = extractParagraph('Conseils d’utilisation', description, headersArr);
       data.warnings = extractParagraph('Précautions', description, headersArr);
       data.ingredients = extractParagraph('Ingrédients', description, headersArr);
+      data.additionalDesc = extractParagraph('Propriétés', description, headersArr);
       if (document.querySelector('div.c-price__unit span')) {
         data.pricePer = document.querySelector('div.c-price__unit span').textContent;
         data.pricePerUnit = document.querySelector('div.c-price__unit').textContent.match((/\/\s?(.+)\)/))
@@ -104,6 +124,15 @@ module.exports = {
       if (isPrivacyPolicy) data.privacyPolicy = 'Yes';
       if (isCS) data.cs = 'Yes';
       if (isImgZoom) data.imgZoom = 'Yes';
+      [data.uomVitA, data.vitA] = getIngredients('Vitamine A');
+      [data.uomVitC, data.vitC] = getIngredients('Vitamine C');
+      [data.uomCalc, data.calc] = getIngredients('Calcium');
+      [data.uomFibres, data.fibres] = getIngredients('Fibres alimentaires');
+      [data.uomFats, data.fats] = getIngredients('Graisses');
+      [data.uomProteines, data.proteines] = getIngredients('Protéines');
+      [data.uomSodium, data.sodium] = getIngredients('Na');
+      [data.uomCarbs, data.carbs] = getIngredients('Glucides');
+      data.calories = getTextByXpath('//table//td[text()="Énergie"]/..').replace('Énergie ', '');
       appendData(data);
     });
     await context.extract(productDetails, { transform });

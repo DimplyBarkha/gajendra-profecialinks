@@ -54,7 +54,7 @@ fields:
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: //div[@class="headline"]
+  xpath: //div[@id="product-additional-desc"]
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -266,17 +266,20 @@ fields:
 - name: numberOfServingsInPackage
   description: Suggested number of servings of the product.
 - name: caloriesPerServing
-  singleValue: true
+  singleValue: false
   description: Nutritional Information for Calories Per Serving content - Usually
     based on per 100g serving
+  xpath: //div[@id="product-calories"]
 - name: caloriesFromFatPerServing
   description: Nutritional Information for Calories From Fat content - Usually based
     on per 100g serving
 - name: totalFatPerServing
   description: Nutritional Information for Total Fat content - Usually based on per
     100g serving
+  xpath: //div[@id="product-fats"]
 - name: totalFatPerServingUom
   description: Unit of Measure Data for Total Fat content
+  xpath: //div[@id="product-uom-fats"]
 - name: saturatedFatPerServing
   description: Nutritional Information for Saturated Fat content - Usually based on
     per 100g serving
@@ -295,18 +298,24 @@ fields:
 - name: sodiumPerServing
   description: Nutritional Information for Sodium content - Usually based on per 100g
     serving
+  xpath: //div[@id="product-sodium"]
 - name: sodiumPerServingUom
   description: Unit of Measure Data for Sodium content
+  xpath: //div[@id="product-uom-sodium"]
 - name: totalCarbPerServing
   description: Nutritional Information for Total Carbohydrate content - Usually based
     on per 100g serving
+  xpath: //div[@id="product-carbs"]
 - name: totalCarbPerServingUom
   description: Unit of Measure Data for Total Carbohydrate content
+  xpath: //div[@id="product-uom-carbs"]
 - name: dietaryFibrePerServing
   description: Nutritional Information for Dietary Fibre content - Usually based on
     per 100g serving
+  xpath: //div[@id="product-fibres"]
 - name: dietaryFibrePerServingUom
   description: Unit of Measure Data for Dietary Fibre content
+  xpath: //div[@id="product-uom-fibres"]
 - name: totalSugarsPerServing
   description: Nutritional Information for Total Sugar content - Usually based on
     per 100g serving
@@ -315,23 +324,31 @@ fields:
 - name: proteinPerServing
   description: Nutritional Information for Protein content - Usually based on per
     100g serving
+  xpath: //div[@id="product-proteines"]
 - name: proteinPerServingUom
   description: Unit of Measure Data for Protein
+  xpath: //div[@id="product-uom-proteines"]
 - name: vitaminAPerServing
   description: Nutritional Information for Vitamin A content - Usually based on per
     100g serving
+  xpath: //div[@id="product-vit-a"]
 - name: vitaminAPerServingUom
   description: Unit of Measure Data for Vitamin A
+  xpath: //div[@id="product-uom-vit-a"]
 - name: vitaminCPerServing
   description: Nutritional Information for Vitamin C content - Usually based on per
     100g serving
+  xpath: //div[@id="product-vit-c"]
 - name: vitaminCPerServingUom
   description: Unit of Measure Data for Vitamin C
+  xpath: //div[@id="product-uom-vit-c"]
 - name: calciumPerServing
   description: Nutritional Information for Calcium content - Usually based on per
     100g serving
+  xpath: //div[@id="product-calc"]
 - name: calciumPerServingUom
   description: Unit of Measure Data for Calcium
+  xpath: //div[@id="product-uom-calc"]
 - name: ironPerServing
   description: Nutritional Information for Iron content - Usually based on per 100g
     serving
