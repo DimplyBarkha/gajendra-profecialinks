@@ -9,7 +9,7 @@ fields:
   singleValue: false
 - name: productUrl
   singleValue: false
-  xpath: //meta[@property="og:url"]/@content
+  xpath: //body/@url
 - name: _pageTimeStamp
   singleValue: false
 - name: image
@@ -50,7 +50,7 @@ fields:
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
-  xpath: //span[@id="availability_value"]
+  xpath: //link[@itemprop="availability"]/@href
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
@@ -59,12 +59,12 @@ fields:
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
-  xpath: count(//div[@class="cat_desc rte"]//li)
+  xpath: count(//div[@class="cat_desc rte"]//li | //div[@class="cat_desc rte"]//span[text()="-"])
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
-  xpath: //p[@id="product-manufacturer"]/a
+  xpath: //p[@id="product-manufacturer"]//span[@class="product-manufacturer-name"]
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
@@ -72,7 +72,7 @@ fields:
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
-  xpath: //div[@id="quantity"]
+  # xpath: //div[@id="quantity"]
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page
@@ -104,6 +104,7 @@ fields:
 - name: directions
   singleValue: true
   description: Content under "directions" header
+  xpath: //div[@id="conseil-d-utilisation"]//following-sibling::section[1]//p
 - name: warnings
   singleValue: true
   description: Content under "warnings" header
@@ -419,6 +420,7 @@ fields:
 - name: promotion
   singleValue: true
   description: promotion text on product page
+  xpath: //span[@class="sale-box-gomette"]
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information

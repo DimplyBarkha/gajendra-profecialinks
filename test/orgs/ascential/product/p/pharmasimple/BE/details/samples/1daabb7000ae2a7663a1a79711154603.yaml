@@ -1,0 +1,30 @@
+input:
+  _url: http://pharmasimple.com
+  URL: https://pharmasimple.com/fr/vichy-dercos-nutri-reparateur-masque-riche-200ml
+extractions:
+  - html: https://workbench.import.io/html/run=1e229932-d00a-4548-8caf-69847b245285/task=6c7bb9f1-46cd-4ec5-a86c-3499a2bfda5d/950664cc-18a4-4d59-aafa-5ac01f463916.html
+    extractionConfigId: product/details/stores/p/pharmasimple/BE/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://pharmasimple.com/fr/marques/vichy
+                xpath: /html/body/@url
+            metaKeywords:
+              - text: Vichy,propriétés régénérantes,propriétés minéralisantes,vertus
+                  thérapeutiques,eau thermale de Vichy,soins
+                  dermatologiques,crèmes nourrissantes,sérums
+                  hydratants,produits solaires,traitement capillaire,routine
+                  beauté anti-âge,routine anti âge,soin nourriss
+                xpath: /html/head[1]/meta[4]/@content
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: Yes
+            privacyPolicy:
+              - text: Yes
+            customerServiceAvailability:
+              - text: Yes
+            descriptionBullets:
+              - text: "0"
+        xpath: /
+    timestamp: 1610550592938

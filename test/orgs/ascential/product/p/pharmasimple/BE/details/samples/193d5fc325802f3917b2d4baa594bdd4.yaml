@@ -1,0 +1,30 @@
+input:
+  _url: http://pharmasimple.com
+  URL: https://pharmasimple.com/fr/vichy-lumineuse-creme-teintee-revelatrice-d-eclat-02-peche-30ml
+extractions:
+  - html: https://workbench.import.io/html/run=1e229932-d00a-4548-8caf-69847b245285/task=8bd7cf93-9741-4efa-9f6b-3e778d2348b0/f14e7c45-d43f-4d7d-9c3d-4b118a984127.html
+    extractionConfigId: product/details/stores/p/pharmasimple/BE/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://pharmasimple.com/fr/marques/vichy
+                xpath: /html/body/@url
+            metaKeywords:
+              - text: Vichy,propriétés régénérantes,propriétés minéralisantes,vertus
+                  thérapeutiques,eau thermale de Vichy,soins
+                  dermatologiques,crèmes nourrissantes,sérums
+                  hydratants,produits solaires,traitement capillaire,routine
+                  beauté anti-âge,routine anti âge,soin nourriss
+                xpath: /html/head[1]/meta[4]/@content
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: Yes
+            privacyPolicy:
+              - text: Yes
+            customerServiceAvailability:
+              - text: Yes
+            descriptionBullets:
+              - text: "0"
+        xpath: /
+    timestamp: 1610550593488
