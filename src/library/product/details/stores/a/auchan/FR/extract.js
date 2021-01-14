@@ -75,6 +75,46 @@ module.exports = {
     await scrollToRec('div.flex-wrapper');
     await scrollToRec('div#tabDescription');
     await scrollToRec('footer');
+    await context.evaluate(async () => {
+      await new Promise((resolve) => setTimeout(resolve, 5000));
+
+      async function infiniteScroll () {
+        let prevScroll = document.documentElement.scrollTop;
+        while (true) {
+          window.scrollBy(0, document.documentElement.clientHeight);
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          const currentScroll = document.documentElement.scrollTop;
+          if (currentScroll === prevScroll) {
+            break;
+          }
+          prevScroll = currentScroll;
+        }
+      }
+      await infiniteScroll();
+    });
+    // const applyScroll = async function (context) {
+    //   await context.evaluate(async function () {
+    //     let scrollTop = 0;
+    //     while (scrollTop !== 20000) {
+    //       await stall(500);
+    //       scrollTop += 1000;
+    //       window.scroll(0, scrollTop);
+    //       if (scrollTop === 20000) {
+    //         await stall(5000);
+    //         break;
+    //       }
+    //     }
+    //     function stall (ms) {
+    //       return new Promise((resolve, reject) => {
+    //         setTimeout(() => {
+    //           resolve();
+    //         }, ms);
+    //       });
+    //     }
+    //   });
+    // };
+
+    // await applyScroll(context);
 
     try {
       await scrollToRec('div#tabDescription');
