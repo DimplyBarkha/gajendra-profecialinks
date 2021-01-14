@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //div[contains(@class,'picture  has--morcepics')]//a//img/@src
+    xpath: //div[contains(@class,'picture  has--morcepics')]//a//img/@src | //div[contains(@class,'picture')]//a/img/@src
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -14,7 +14,7 @@ fields:
   - name: shownImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[contains(@class,'morepics-container js-morepics-container')]//ul//li//a/img/@src
+    xpath: /div[contains(@class,'morepics-container js-morepics-container')]//ul//li//a/img/@src/
    # xpath: //div[contains(@class,'morepics-container js-morepics-container')]//ul//li//img/@src
   - name: metaKeywords
     singleValue: true
