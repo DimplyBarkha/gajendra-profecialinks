@@ -1,11 +1,11 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="card-item js-product-data"]
+recordXPath: //div[@class="card-item js-product-data"][not(@trim)]
 fields:
   - name: id
     singleValue: false
-    xpath: //div[@class="card-item js-product-data"]/@data-offer-id
+    xpath: //button[contains(@class, 'card-toolbox-btn card-compare-btn hidden-xs gtm_kz1kte2')]/@data-id
   - name: searchUrl
     singleValue: true
   - name: name

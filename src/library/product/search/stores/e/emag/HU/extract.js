@@ -24,6 +24,14 @@ async function implementation (inputs, parameters, context, dependencies) {
         element.setAttribute('rating', regArray[0]);
       }
     });
+    // reducing results to 150
+    const url = window.location.href;
+    const allProducts = document.querySelectorAll('div[class="card-item js-product-data"]');
+    if (url.includes('/p3')) {
+      allProducts.forEach((e, i) => {
+        if (i > 29) e.setAttribute('trim', '');
+      });
+    }
   });
 
   return await context.extract(productDetails, { transform });
