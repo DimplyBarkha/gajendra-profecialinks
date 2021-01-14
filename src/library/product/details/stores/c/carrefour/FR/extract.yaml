@@ -528,3 +528,17 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
+  - name: inTheBoxUrl
+    singleValue: false
+    xpath:  //div[@id="flix-inpage"]//div[contains(@class, "InTheBox")]//div[contains(@class, "flix-background-image")]//img/@data-flixsrcset
+    regExp: (.+)(\s?200w)(.+)
+    regExpReplace: https:$1
+  - name: inTheBoxText
+    singleValue: false
+    description: Must include text to show the accessories/tools which come with the product
+    xpath:  //div[@id="flix-inpage"]//div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")]
+  - name: hasComparisonTable
+    defaultValue: No
+  - name: unInterruptedPDP
+    singleValue: false
+    description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
