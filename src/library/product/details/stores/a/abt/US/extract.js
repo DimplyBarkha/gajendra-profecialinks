@@ -86,29 +86,30 @@ async function implementation (
     if (image360Exists) addElementToDocument('image360Exists', 'Yes');
     let manufacturerDescription = document.querySelector('div#from_manufacturer_content')
       ? document.querySelector('div#from_manufacturer_content').innerText.replace(/\n{2,}|\s{2,}/g, '') : '';
-    const manDescSelector = [...document.querySelector('.syndi_powerpage').shadowRoot.querySelectorAll('.syndigo-featureset-feature')];
-    let manDescArray = [];
-    for (let i = 0; i < manDescSelector.length; i++) {
-      if (manDescSelector[i].innerText) {
-        manDescArray.push(manDescSelector[i].innerText);
+    if (document.querySelector('.syndi_powerpage')) {
+      const manDescSelector = [...document.querySelector('.syndi_powerpage').shadowRoot.querySelectorAll('.syndigo-featureset-feature')];
+      let manDescArray = [];
+      for (let i = 0; i < manDescSelector.length; i++) {
+        if (manDescSelector[i].innerText) {
+          manDescArray.push(manDescSelector[i].innerText);
+        }
       }
-    }
-    manDescArray = [...new Set(manDescArray)];
-    const manDesc = manDescArray.join(' | ');
-    manufacturerDescription = manufacturerDescription + manDesc;
-    if (manufacturerDescription) addElementToDocument('manufacturerDescription', manufacturerDescription);
+      manDescArray = [...new Set(manDescArray)];
+      const manDesc = manDescArray.join(' | ');
+      manufacturerDescription = manufacturerDescription + manDesc;
+      if (manufacturerDescription) addElementToDocument('manufacturerDescription', manufacturerDescription);
 
-    const manImageSelector = [...document.querySelector('.syndi_powerpage').shadowRoot.querySelectorAll('img')];
-    let manImagesArray = [];
-    for (let i = 0; i < manImageSelector.length; i++) {
-      if (manImageSelector[i].getAttribute('src')) {
-        manImagesArray.push(manImageSelector[i].getAttribute('src'));
+      const manImageSelector = [...document.querySelector('.syndi_powerpage').shadowRoot.querySelectorAll('img')];
+      let manImagesArray = [];
+      for (let i = 0; i < manImageSelector.length; i++) {
+        if (manImageSelector[i].getAttribute('src')) {
+          manImagesArray.push(manImageSelector[i].getAttribute('src'));
+        }
       }
+      manImagesArray = [...new Set(manImagesArray)];
+      const manImages = manImagesArray.join(' | ');
+      document.querySelector('body').setAttribute('manImages', manImages);
     }
-    manImagesArray = [...new Set(manImagesArray)];
-    const manImages = manImagesArray.join(' | ');
-    document.querySelector('body').setAttribute('manImages', manImages);
-
     const viedoContainer = document.querySelector('div#productvideocontainer script')
       ? document.querySelector('div#productvideocontainer script').innerText : '';
     const regex = new RegExp("youtubeid:\\s'(.+)'", 'g');
@@ -164,7 +165,7 @@ async function implementation (
         }
       }
       for (let i = 5; i < skuStr.length; i++) {
-        if (skuStr.charAt(i) == '\'') {
+        if (skuStr.charAt(i) === '\'') {
           skuStr = skuStr.substring(i + 1, skuStr.length - 1);
           break;
         }
