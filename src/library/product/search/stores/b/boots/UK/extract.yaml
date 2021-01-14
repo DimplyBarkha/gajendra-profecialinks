@@ -1,7 +1,8 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="plp_gridView_redesign"]//ul[@class="grid_mode grid"]//li[@class="estore_product_container"]
+recordXPath: //div[@class="plp_gridView_redesign"]//ul[@class="grid_mode grid"]//li[@class="estore_product_container"] | //div[contains(@class,"product_listing_container")]//ul[contains(@class,"grid_mode")]//li
+# updated the row selector for another case "https://www.boots.com/loreal-men-expert"
 fields:
   - name: productUrl
     singleValue: false
