@@ -52,7 +52,7 @@ fields:
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
-  xpath: concat(//span[@data-selenium="stockStatus"], " ", //div[contains(@class, "stockTimeFrame")])
+  xpath: //body/@availability
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
@@ -61,6 +61,7 @@ fields:
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
+  xpath: count(//div[contains(@class, "overviewContent")]//div[contains(@class, "description")])
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
@@ -167,6 +168,11 @@ fields:
   singleValue: true
   description: The product name
   xpath: //h1[@data-selenium="productTitle"]
+- name: secondaryImageTotal
+  singleValue: true
+  description: 
+  type: NUMBER
+  xpath: count((//div[contains(@class, "thumbnails")]//img/@src)[position()>1])
 - name: specifications
   singleValue: true
   description: The physical dimensions of the product including packaging.
@@ -204,7 +210,7 @@ fields:
 - name: promotion
   singleValue: true
   description: promotion text on product page
-  xpath: //div[@data-selenium="addOnSavingsWidgetSaveUp"]/span
+  xpath: //div[@data-selenium="otherSavings"]
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information

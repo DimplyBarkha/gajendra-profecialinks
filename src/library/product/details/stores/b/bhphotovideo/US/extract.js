@@ -52,6 +52,10 @@ module.exports = {
     });
 
     await context.evaluate(async () => {
+      const requestStockAlertButton = document.querySelector('button[data-selenium="notifyAvailabilityButton"]');
+      const availability = requestStockAlertButton ? 'Out of Stock' : 'In Stock';
+      document.querySelector('body').setAttribute('availability', availability);
+
       const image360 = document.querySelector('button[data-selenium="inlineMediaOpenMedia inlineMedia3DGallery"]');
       const image360Present = image360 ? 'Yes' : 'No';
       document.querySelector('body').setAttribute('image360Present', image360Present);
