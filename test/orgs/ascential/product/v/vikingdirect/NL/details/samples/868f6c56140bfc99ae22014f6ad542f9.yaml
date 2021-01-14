@@ -1,0 +1,184 @@
+input:
+  RPC: 3929571
+  _url: http://vikingdirect.nl
+extractions:
+  - html: https://workbench.import.io/html/run=f559a4dc-3f38-4905-b6d5-ca9e887f9310/task=4a7bd2e9-26ae-4f17-8e64-fd3802e62677/d2c3420e-a373-4cca-bad7-dc50bcbfd251.html
+    extractionConfigId: product/details/stores/v/vikingdirect/NL/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.vikingdirect.nl/nl/-p-3929571
+                xpath: /html/body/div[7]
+            image:
+              - text: https://static.vikingdirect.nl/is/image/odeu13/3929571?wid=400&hei=400&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/picture[1]/img[1]/@src
+            imageAlt:
+              - text: Tork Toiletpapier T4 Universal 2-laags 30 Rollen à 400 Vellen
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/picture[1]/img[1]/@alt
+            metaKeywords:
+              - text: Tork,Toiletpapier,T4,Universal,2-laags,30,Rollen,à,400,Vellen,Schoonmaken,&,hygiëne,Hygiëne-artikelen,Toiletpapier
+                xpath: /html/head[1]/meta[5]/@content
+            category:
+              - text: Facilitair & Wonen
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[2]/a[1]/span[1]/text()[1]
+              - text: Schoonmaken & hygiëne
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[3]/a[1]/span[1]/text()[1]
+              - text: Hygiëne-artikelen
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[4]/a[1]/span[1]/text()[1]
+              - text: Toiletpapier
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[5]/a[1]/span[1]/text()[1]
+            nameExtended:
+              - text: Tork Toiletpapier T4 Universal 2-laags 30 Rollen à 400 Vellen
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/h1[1]
+            listPrice:
+              - text: 21,16
+                xpath: /html/body/@price
+            price:
+              - text: 21,16
+                xpath: /html/body/@price
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[9]
+            brandText:
+              - text: Tork
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[9]/td[2]
+            manufacturer:
+              - text: Tork
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[9]/td[2]
+            quantity:
+              - text: 400 Vellen
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[2]
+            gtin:
+              - text: "7310791048406"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
+            sku:
+              - text: "3929571"
+                xpath: /html/body/div[4]/main[1]/div[3]/header[1]/@data-product-sku
+            variantId:
+              - text: "3929571"
+                xpath: /html/body/div[4]/main[1]/div[3]/header[1]/@data-product-sku
+            mpc:
+              - text: "3929571"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[2]/a[1]/@data-review-count
+            aggregateRating:
+              - text: "3"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[2]/a[1]/div[1]/div[1]/@title
+            shippingDimensions:
+              - text: 12,5 cm (B) x 48 m (L)
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
+            color:
+              - text: Wit
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
+            name:
+              - text: Tork Toiletpapier T4 Universal 2-laags 30 Rollen à 400 Vellen
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/h1[1]
+            brandLink:
+              - text: https://www.vikingdirect.nl/nl/search?q=Tork%3arelevance%3abrandName%3aTork%3afacetPrefix%3abrandName-Tork
+                xpath: /html/body/div[8]
+            specifications:
+              - text: |-
+                  Artikelnummer
+                   
+                  3929571
+                   
+                   
+                   
+                   EAN/UPC
+                   
+                   7310791048406
+                   
+                   
+                   
+                  Afmetingen
+                   
+                   12,5 cm (B) x 48 m (L)
+                   
+                   
+                   
+                  Afmetingen kern
+                   
+                   40 mm
+                   
+                   
+                   
+                  Inclusief
+                   
+                   30 x toiletpapier
+                   
+                   
+                   
+                  Inhoud
+                   
+                   400 Vellen
+                   
+                   
+                   
+                  Kleur
+                   
+                   Wit
+                   
+                   
+                   
+                  Lagen
+                   
+                   2-laags
+                   
+                   
+                   
+                  Merk
+                   
+                   Tork
+                   
+                   
+                   
+                  Milieu-eisen
+                   
+                   Blauwe engel UZ5 (sanitaire papierproducten)
+                   
+                   
+                   
+                  Model
+                   
+                   T4 Universal
+                   
+                   
+                   
+                  Product Type
+                   
+                   Toiletpapier
+                   
+                   
+                   
+                  Verkoopeenheid
+                   
+                   Pak
+                   
+                   
+                   
+                  Verpakkingshoeveelheid
+                   
+                   Pak 30
+                   
+                   
+                   
+                  Verpakkingsinhoud
+                   
+                   30 Rollen 400 Vellen
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]
+            pricePerUnit:
+              - text: Pak
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]
+            description:
+              - text: Dit value pack van wc-papierrollen van Tork voldoet aan de basisbehoeften
+                  in elke sanitaire ruimte, en bevat 30 rollen van 400 vellen
+                  per rol. | Extra lange rollen Het Tork minirol toiletpapier
+                  biedt veel waar voor uw geld voor sanitaire ruimtes met een
+                  klein aantal bezoekers.
+        xpath: /
+    timestamp: 1610622530690
