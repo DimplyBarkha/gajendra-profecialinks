@@ -6,7 +6,7 @@ module.exports = {
     store: 'blu',
     domain: 'blu.com',
     loadedSelector: 'div#reviews',
-    noResultsXPath: '//span[contains(text(),"No reviews yet")| boolean(//div[@class="sc-1tgc0g2-2 ipFJnx"])',
+    noResultsXPath: null,
     reviewUrl: null,
     sortButtonSelectors: null,
     zipcode: '',
