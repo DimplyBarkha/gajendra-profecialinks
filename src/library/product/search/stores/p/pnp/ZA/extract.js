@@ -32,7 +32,7 @@ async function implementation (
       getHTML(`https://www.pnp.co.za/${productUrl}`, function (response) {
         const id = response.querySelectorAll('div.col-sm-5.col-lg-8');
         id.forEach(element => {
-          const regex = /\d+$/;
+          const regex = /^\s+\d+$/;
           const idMatch = element.innerText.match(regex);
           if (idMatch) {
             allProducts[x].setAttribute('idxhr', idMatch[0]);
