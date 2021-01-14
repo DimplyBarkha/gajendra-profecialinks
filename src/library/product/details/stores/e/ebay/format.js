@@ -8,6 +8,12 @@ const transform = (data) => {
     of data) {
     for (const row of group) {
       if (row.specifications) {
+        // for(let i=0;i<row.specifications.length;i++){
+        //   if(i!==0){
+        //   if(row.specifications[i].text===row.specifications[i-1].text)
+        //     row.specifications.splice(i,i+1);
+        //   }
+        // }
         row.specifications = [{
           text: row.specifications.reduce((item, currItem) => item ? `${item} || ${currItem.text.replace(/:(\s*\n\s*)+/g, ': ').replace(/(\s*\n\s*)+/, ' || ')}` : currItem.text.replace(/:(\s*\n\s*)/g, ': ').replace(/(\s*\n\s*)+/, ' || '), ''),
         }];
@@ -64,15 +70,18 @@ const transform = (data) => {
       if (row.aggregateRating && row.decimalSeperator && row.decimalSeperator[0].text === 'EU') {
         row.aggregateRating[0].text = row.aggregateRating[0].text.replace('.', ',');
       }
-      if(row.videos){
-        let vids=[];
-        vids=row.videos;
-        for(let i=0;i<vids.length;i++)
-          {
-            if(vids[i].text.includes('undefined'))
-              row.videos.splice(i,i+1);
-          }
+      if (row.videos) {
+        let vids = [];
+        vids = row.videos;
+        for (let i = 0; i < vids.length; i++) {
+          if (vids[i].text.includes('undefined')) { row.videos.splice(i, i + 1); }
         }
+      }
+      if (row.shippingInfo) {
+        let shippingInfos = [];
+        shippingInfos = row.shippingInfo;
+        if (shippingInfos.length > 1) row.shippingInfo.splice(1, shippingInfos.length);
+      }
       // row.hasComparisonTable = row.hasComparisonTable ? [{ text: 'Yes' }] : [{ text: 'No' }]
     }
   }

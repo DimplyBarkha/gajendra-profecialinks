@@ -13,9 +13,9 @@ async function implementation (
     await context.click('.nodestar-item-card-details__view>a[href*="www.ebay"]');
   }
 
-  const productUrl = await context.evaluate(async function () {
-    return window.location.href;
-  });
+  // const productUrl = await context.evaluate(async function () {
+  //   return window.location.href;
+  // });
   try {
     await context.waitForSelector('iframe#desc_ifr');
   } catch (err) {
@@ -79,6 +79,12 @@ async function implementation (
       } catch (e) {
         console.log('unInterruptedPDP not found');
       }
+      // let specifications='';
+      //   if(document.querySelectorAll('div[class*="prodDetailDesc"] tr>td')){
+      //   let tableData=document.querySelectorAll('div[class*="prodDetailDesc"] tr>td');
+      //   for(let i=0;i<tableData.length;i++)  specifications+=tableData[i].innerText+' || ';
+      //   addElementToDocument('prodSpecs',specifications);
+      //   }
     });
   }
   await checkUPDP();
