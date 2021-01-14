@@ -87,15 +87,11 @@ fields:
 - name: gtin
   singleValue: true
   description: GTIN code (includes UPC/EAN)
-  xpath: //body/script[contains(text(), "ean")]
-  regExp: (\"ean\":)\"(.*?)\"
-  regExpReplace: $2
+  xpath: //body/@upc
 - name: eangtin
   singleValue: true
   description: GTIN code (includes UPC/EAN)
-  xpath: //body/script[contains(text(), "ean")]
-  regExp: (\"ean\":)\"(.*?)\"
-  regExpReplace: $2
+  xpath: //body/@upc
 - name: sku
   singleValue: true
   description: The store-specific product identifier
@@ -156,7 +152,7 @@ fields:
 - name: manufacturerDescription
   singleValue: false
   description: The extended description of the product supplied by the lister
-  xpath: //div[@id="inpage_container"]//div[contains(@class, "flix-Body")]
+  xpath: //div[@id="inpage_container"]//div[contains(@class, "flix-Body") or contains(@class, "flix-Header") or @class="flix-std-content"]
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
