@@ -1,17 +1,17 @@
 const { cleanUp } = require('../../../../shared');
 
-async function implementation(inputs, parameters, context, dependencies) {
+async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  //increase maxWidth for loading all the altImgs
+  // increase maxWidth for loading all the altImgs
   await context.evaluate(() => {
-    let container = document.querySelector('#productPage > .container')
-    container.style.maxWidth = '2000px'
-  })
+    const container = document.querySelector('#productPage > .container');
+    container.style.maxWidth = '2000px';
+  });
 
   await context.evaluate(async () => {
-    function addElementToDocument(key, value, src) {
+    function addElementToDocument (key, value, src) {
       const catElement = document.createElement('div');
       catElement.id = key;
       catElement.innerText = value;
@@ -46,9 +46,7 @@ async function implementation(inputs, parameters, context, dependencies) {
     } else if (availabilityText) {
       addElementToDocument('availabilityText', 'In Stock');
     }
-
   });
-
 
   // return await context.extract(productDetails, { transform });
   const dataRef = await context.extract(productDetails, { transform });
