@@ -21,6 +21,7 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //a[@class="productMainImage"]/img/@src
+    regExp: (.+jpg)
   - name: aggregateRating
     singleValue: false
     xpath: //a[@class="productRating"]/span
