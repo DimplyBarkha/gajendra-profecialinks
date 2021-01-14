@@ -5,6 +5,6 @@ module.exports = {
     store: 'bipa',
     domain: 'bipa.at',
     loadedSelector: '.pdp__wrapper',
-    noResultsXPath: '//div[@class="inner"]',
+    noResultsXPath: '//div[@class="inner"]|//div[@class="column listing fullwidth"]',
   },
 };

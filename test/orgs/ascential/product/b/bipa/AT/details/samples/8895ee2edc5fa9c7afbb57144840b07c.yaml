@@ -2,12 +2,12 @@ input:
   id: 622417
   _url: http://bipa.at
 extractions:
-  - html: https://workbench.import.io/html/run=1dab4dc7-d8a9-4889-80aa-9cad615ebf2a/task=6211459f-9b31-48ab-8161-20899a16cedb/948a2d54-221c-4beb-b1d7-79c75f2d2759.html
+  - html: https://workbench.import.io/html/run=c73e3967-499b-453f-b4b4-0a5e242954ac/task=e7c00e09-961b-4d6b-93e2-36a2a3026adc/e99f5a97-afee-4392-b3c2-84a0dd66d0bd.html
     extractionConfigId: product/details/stores/b/bipa/AT/extract
     data:
       - group:
           - image:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1609224855647/original/622417.png?sw=450&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1610607271260/original/622417.png?sw=450&sfrm=png
                 xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
             imageAlt:
               - text: HiPP Müesli-Freund Getreide & Apfel-Pfirsich
@@ -24,9 +24,6 @@ extractions:
             nameExtended:
               - text: HiPP Müesli-Freund Getreide & Apfel-Pfirsich
                 xpath: /html/head[1]/meta[10]/@content
-            listPrice:
-              - text: 0,99
-                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/span[1]/text()[1]
             description:
               - text: mit dem Plus an Getreide
                 xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/text()[1]
@@ -51,16 +48,10 @@ extractions:
                 xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/text()[1]
             weightNet:
               - text: "Nettogehalt: 20 Gramm"
-                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[10]/text()[2]
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[10]/text()[2]
             weightGross:
               - text: "Bruttogewicht: 21 Gramm"
-                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[10]/text()[1]
-            sku:
-              - text: B3-622417
-                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/div[2]/div[1]/div[1]/@data-product-id
-            variantId:
-              - text: B3-622417
-                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/div[2]/div[1]/div[1]/@data-product-id
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[10]/text()[1]
             mpc:
               - text: "40623719"
                 xpath: /html/body/div[1]/div[3]/div[1]/div[1]/script[1]
@@ -70,6 +61,9 @@ extractions:
             aggregateRatingText:
               - text: 5,0
                 xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[1]/div[1]/a[1]/span[1]/text()[1]
+            aggregateRating:
+              - text: 5,0
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[1]/div[1]/a[1]/span[1]/@ratingformatted
             name:
               - text: Müesli-Freund Getreide & Apfel-Pfirsich
                 xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]/text()[1]
@@ -80,111 +74,111 @@ extractions:
                   WEIZENVOLLKORNMEHL*, WEIZENMEHL*, Reismehl*. *aus biologischer
                   Erzeugung. Kann Spuren von MILCH, ERDNÜSSEN, SOJA und
                   SCHALENFRÜCHTEN enthalten."
-                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/text()[2]
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/text()[2]
             servingSize:
               - text: 100 Gramm
-                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/thead[1]/tr[1]/th[2]/text()[1]
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/thead[1]/tr[1]/th[2]/text()[1]
             servingSizeUom:
               - text: Gramm
-                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/thead[1]/tr[1]/th[2]/text()[1]
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/thead[1]/tr[1]/th[2]/text()[1]
             caloriesPerServing:
               - text: 380 Kilokalorie
-                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/tbody[1]/tr[2]/td[2]/text()[1]
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/tbody[1]/tr[2]/td[2]/text()[1]
             totalFatPerServing:
               - text: "9.5"
-                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/tbody[1]/tr[3]/td[2]/text()[1]
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/tbody[1]/tr[3]/td[2]/text()[1]
                 type: NUMBER
                 raw: 9,50 Gramm
                 locale: de_AT
                 value: 9.5
             totalFatPerServingUom:
               - text: Gramm
-                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/tbody[1]/tr[3]/td[2]/text()[1]
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/tbody[1]/tr[3]/td[2]/text()[1]
             saturatedFatPerServing:
               - text: "1.1"
-                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/tbody[1]/tr[4]/td[2]/text()[1]
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/tbody[1]/tr[4]/td[2]/text()[1]
                 type: NUMBER
                 raw: 1,10 Gramm
                 locale: de_AT
                 value: 1.1
             saturatedFatPerServingUom:
               - text: Gramm
-                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/tbody[1]/tr[4]/td[2]/text()[1]
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/tbody[1]/tr[4]/td[2]/text()[1]
             sodiumPerServing:
               - text: "0.02"
-                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/tbody[1]/tr[10]/td[2]/text()[1]
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/tbody[1]/tr[10]/td[2]/text()[1]
                 type: NUMBER
                 raw: 0,02 Gramm
                 locale: de_AT
                 value: 0.02
             sodiumPerServingUom:
               - text: Gramm
-                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/tbody[1]/tr[10]/td[2]/text()[1]
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/tbody[1]/tr[10]/td[2]/text()[1]
             totalCarbPerServing:
               - text: "65.2"
-                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/tbody[1]/tr[5]/td[2]/text()[1]
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/tbody[1]/tr[5]/td[2]/text()[1]
                 type: NUMBER
                 raw: 65,20 Gramm
                 locale: de_AT
                 value: 65.2
             totalCarbPerServingUom:
               - text: Gramm
-                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/tbody[1]/tr[5]/td[2]/text()[1]
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/tbody[1]/tr[5]/td[2]/text()[1]
             dietaryFibrePerServing:
               - text: "6.5"
-                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/tbody[1]/tr[7]/td[2]/text()[1]
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/tbody[1]/tr[7]/td[2]/text()[1]
                 type: NUMBER
                 raw: 6,50 Gramm
                 locale: de_AT
                 value: 6.5
             dietaryFibrePerServingUom:
               - text: Gramm
-                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/tbody[1]/tr[7]/td[2]/text()[1]
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/tbody[1]/tr[7]/td[2]/text()[1]
             totalSugarsPerServing:
               - text: "33.3"
-                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/tbody[1]/tr[6]/td[2]/text()[1]
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/tbody[1]/tr[6]/td[2]/text()[1]
                 type: NUMBER
                 raw: 33,30 Gramm
                 locale: de_AT
                 value: 33.3
             totalSugarsPerServingUom:
               - text: Gramm
-                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/tbody[1]/tr[6]/td[2]/text()[1]
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/tbody[1]/tr[6]/td[2]/text()[1]
             proteinPerServing:
               - text: "5.2"
-                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/tbody[1]/tr[8]/td[2]/text()[1]
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/tbody[1]/tr[8]/td[2]/text()[1]
                 type: NUMBER
                 raw: 5,20 Gramm
                 locale: de_AT
                 value: 5.2
             proteinPerServingUom:
               - text: Gramm
-                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/tbody[1]/tr[8]/td[2]/text()[1]
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/tbody[1]/tr[8]/td[2]/text()[1]
             saltPerServing:
               - text: "0.05"
-                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/tbody[1]/tr[9]/td[2]/text()[1]
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/tbody[1]/tr[9]/td[2]/text()[1]
                 type: NUMBER
                 raw: 0,05 Gramm
                 locale: de_AT
                 value: 0.05
             saltPerServingUom:
               - text: Gramm
-                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/tbody[1]/tr[9]/td[2]/text()[1]
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[11]/div[2]/table[1]/tbody[1]/tr[9]/td[2]/text()[1]
             storage:
               - text: Trocken und bei Raumtemperatur lagern.
-                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[4]/text()[2]
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[4]/text()[2]
             countryOfOrigin:
               - text: DEUTSCHLAND, BUNDESREPUBLIK
-                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[6]/text()[2]
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[6]/text()[2]
             allergyAdvice:
               - text: Sojabohnen und -erzeugnisse,Milch und Milcherzeugnisse,Nüsse und
                   Nusserzeugnisse. Kann Mandeln, Haselnüsse, Walnüsse,
                   Cashewnüsse etc. einschliessen,Erdnüsse und
                   -erzeugnisse,Glutenhaltiges Getreide sowie daraus hergestellte
                   Erzeugnisse
-                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[7]/div[2]/text()[2]
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[7]/div[2]/text()[2]
             pricePerUnit:
-              - text: 1 kg 37.00
+              - text: 1 kg 49.50
                 xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/text()[1]
             pricePerUnitUom:
               - text: kg
@@ -216,7 +210,7 @@ extractions:
             Image360Present:
               - text: No
             price:
-              - text: 0,74
+              - text: 0,99
             descriptionBullets:
               - text: "5"
                 type: NUMBER
@@ -230,4 +224,4 @@ extractions:
                 locale: de_AT
                 value: 0
         xpath: /
-    timestamp: 1609248783015
+    timestamp: 1610618989904

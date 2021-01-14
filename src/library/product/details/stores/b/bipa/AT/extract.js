@@ -14,7 +14,17 @@ module.exports = {
     context,
     { productDetails },
   ) => {
-    await context.evaluate(() => {
+    await context.evaluate(async () => {
+      const addAggRating = () => {
+        const rating = document.querySelector('span[itemprop="ratingValue"]');
+        if (rating) {
+          const regex = /(\d+)(.)(\d+)/;
+          let ratingText = rating.textContent.match(regex)[0];
+          ratingText = ratingText.replace('.', ',');
+          rating.setAttribute('ratingFormatted', ratingText);
+        }
+      };
+      await addAggRating();
       const zoom = document.querySelector('.magnifyframe');
 
       if (zoom) {

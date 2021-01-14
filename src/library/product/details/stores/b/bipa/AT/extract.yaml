@@ -41,7 +41,7 @@ fields:
     regExp: (.+)
     regExpReplace: In stock
     defaultValue: Out of Stock
-    xpath: //span[@class='stock-switchcolor']/text()|//span[@class='stock-switchcolor']/font/font/text()
+    xpath: //span[@class='stock-switchcolor']/text()|//span[@class='stock-switchcolor']/font/font/text()|//button[contains(text(), 'In den Warenkorb')]/text(
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from    multiple places; specifically not the manufacturer description
@@ -112,9 +112,7 @@ fields:
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //span[@itemprop='ratingValue']/text()|//span[@itemprop='ratingValue']/font/font/text()
-    regExp: (\d+)(.)(\d+)
-    regExpReplace: $1,$3
+    xpath: //span[@itemprop='ratingValue']/@ratingFormatted
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
