@@ -1,11 +1,11 @@
 const { cleanUp } = require('../../../../shared');
 
-async function implementation (inputs, parameters, context, dependencies) {
+async function implementation(inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
   await context.evaluate(async () => {
-    function addElementToDocument (id, value, key) {
+    function addElementToDocument(id, value, key) {
       const catElement = document.createElement('div');
       catElement.id = id;
       catElement.innerText = value;
@@ -14,11 +14,36 @@ async function implementation (inputs, parameters, context, dependencies) {
       document.body.appendChild(catElement);
     }
 
-    const warningParentDiv = document.querySelector('div.gn-accordionElement__wrapper div.gn-content:last-child');
-    const warningDiv = warningParentDiv.querySelector('div').innerText;
-    if (warningDiv.match(/(Safety Warning:)([\s\S]+)Origin/) != null) {
-      addElementToDocument('warnings', warningDiv.match(/(Safety Warning:)([\s\S]+)Origin/)[2]);
-    }
+    /** Function used to extract all paragraph's text between two given titles.
+   * If no 'startTitle' provided, it starts adding from the beginning.
+   * If no 'stopTitle' provided, it doesn't stop and adds everything to the end
+   * @param {object} node Parent node of all elements we want to iterate over
+   * @param {Array} startTitle List of paragraph's textContent that once we meet we start adding following paragraph's text
+   * @param {Array} stopTitleArray Lisf of paragraph's textContent that once we meet we stop adding following paragraph's text
+   */
+
+    const addFollowingParagraphs = (key, node, startTitle, stopTitleArray) => {
+      const elements = document.createElement('div');
+      elements.id = key;
+      let reading;
+      const allElements = node.childNodes;
+      for (let i = 0; i < allElements.length; i++) {
+        const element = allElements[i];
+        if (!startTitle || startTitle.some((startTitleElem) => element.textContent.toLowerCase().trim() === startTitleElem.toLowerCase())) reading = true;
+        if (stopTitleArray && stopTitleArray.length && stopTitleArray.some((stopTitleElem) => element.textContent.toLowerCase().trim() === stopTitleElem.toLowerCase())) break;
+        if (reading) {
+          elements.appendChild(element.cloneNode(true));
+        }
+      }
+      document.body.appendChild(elements);
+    };
+
+    const warningParentDiv = document.querySelector('div.bop-productDetails div:nth-child(2) > div.gn-accordionElement__content.gn-accordionElement__content > div.gn-accordionElement__wrapper > div:last-child >div.bop-info__content');
+    const warningHeading = ['Safety Warning:'];
+    const warningEnd = ['Origin:', 'Usage:', 'Additional Information:'];
+    console.log(warningParentDiv);
+    if (warningParentDiv) addFollowingParagraphs('warnings', warningParentDiv, warningHeading, warningEnd);
+
 
     const isAvailable = document.querySelector('li > div.basketControls__wrapper > button.gn-button--buy')
       ? document.querySelector('li > div.basketControls__wrapper > button.gn-button--buy') : null;
