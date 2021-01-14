@@ -53,24 +53,24 @@ const transform = (data) => {
         ];
       }
 
-      if (row.manufacturerImages) {
-        const manufacturerImage = [];
-        let dupUrl = '';
-        let urls = [];
-        row.manufacturerImages.forEach(item => {
-          console.log('item:: ', item.text);
-          urls = row.manufacturerImages.filter(it => item.text === it.text);
-          if (urls && urls.length === 1) {
-            manufacturerImage.push(item);
-          } else {
-            if (dupUrl !== item.text) {
-              dupUrl = item.text;
-              manufacturerImage.push(item);
-            }
-          }
-        });
-        row.manufacturerImages = manufacturerImage;
-      }
+      // if (row.manufacturerImages) {
+      //   const manufacturerImage = [];
+      //   let dupUrl = '';
+      //   let urls = [];
+      //   row.manufacturerImages.forEach(item => {
+      //     console.log('item:: ', item.text);
+      //     urls = row.manufacturerImages.filter(it => item.text === it.text);
+      //     if (urls && urls.length === 1) {
+      //       manufacturerImage.push(item);
+      //     } else {
+      //       if (dupUrl !== item.text) {
+      //         dupUrl = item.text;
+      //         manufacturerImage.push(item);
+      //       }
+      //     }
+      //   });
+      //   row.manufacturerImages = manufacturerImage;
+      // }
 
       if (row.variantUrl) {
         const variantUrls = [];

@@ -54,9 +54,6 @@ module.exports = {
       if (videoData) {
         document.body.appendChild(videoData);
       }
-
-      
-
       if (document.querySelector('section.section.product-more-info')) {
         // @ts-ignore
         document.querySelector('li#tab-specs').click();
@@ -65,14 +62,6 @@ module.exports = {
         // @ts-ignore
         document.querySelector('li#tab-more-info').click();
         await new Promise(resolve => setTimeout(resolve, 1000));
-      }
-
-      function addHiddenDiv(id, content) {
-        const newDiv = document.createElement('div');
-        newDiv.id = id;
-        newDiv.textContent = content;
-        newDiv.style.display = 'none';
-        document.body.appendChild(newDiv);
       }
     });
     try {
