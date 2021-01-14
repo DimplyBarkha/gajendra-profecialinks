@@ -22,14 +22,12 @@ module.exports = {
         await new Promise(resolve => { setTimeout(resolve, 5000); });
       }
     });
-
     await context.evaluate(async () => {
       if (document.querySelector('div[data-testid="ratingStars"]')) {
         let moreReviews = true;
         const reviewString = document.querySelector('div.sc-1tgc0g2-2.ipFJnx > span').textContent;
         const totalReviewsCount = Number(reviewString.match(/\d+/g)[0]);
         let foundReviews = 10;
-
         let page = 2;
         while (moreReviews && foundReviews < totalReviewsCount) {
           const url = window.location.href;
