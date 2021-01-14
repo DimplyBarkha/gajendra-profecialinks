@@ -72,27 +72,30 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
+      // adding size
+      const quantity = document.querySelector('div#description strong');
+      if (quantity !== null && quantity !== undefined) {
+        // @ts-ignore
+        const quantityText = quantity.innerText.match(/\d+ml|\d+ ml|\d+g|\d+ g|\d+ Cl|\d+ G|\d+G|\d+ L|\d+ML/);
+        if (quantityText !== null) addElementToDocument('quantity', quantityText[0]);
+      }
       // adding description and bullets
-
+      const hiddenSpan = document.querySelector('div#description span.hidden')
+      // @ts-ignore
+        ? document.querySelector('div#description span.hidden').innerText : '';
       const descriptionText = document.querySelector('div#description')
         // @ts-ignore
         ? document.querySelector('div#description').innerText : '';
-      const description = [];
+      // @ts-ignore
+      addElementToDocument('desc', descriptionText.split('\n').join('').concat(hiddenSpan));
       let count = 0;
-      if (descriptionText !== undefined && descriptionText !== null && descriptionText !== '') {
-        descriptionText.split('\n').filter(e => e.length > 0).forEach(e => {
-          if (e.charAt('-', 0) === '-') {
-            count++;
-            description.push(e.replace('-', ' || '));
-          } else if (e.charAt('*', 0) === '*') {
-            count++;
-            description.push(e.replace('*', ' || '));
-          } else if (e.charAt('•', 0) === '•') {
-            count++;
-            description.push(e.replace('•', ' || '));
-          } else description.push(e);
+      const benefits = document.querySelector('div.prdct__details-benefits > p');
+      // @ts-ignore
+      if (benefits !== null && benefits.innerText !== undefined) {
+        // @ts-ignore
+        [...benefits.innerText.split('\n')].filter(e => e.length > 0).forEach(e => {
+          if ((e.charAt('-', 0) === '-') || (e.charAt('•', 0) === '•')) count++;
         });
-        addElementToDocument('desc', description.join(' '));
         addElementToDocument('bullet', count);
       }
 
@@ -100,31 +103,22 @@ module.exports = {
       const hiddenDesc = document.querySelector('div#savoirplus')
         // @ts-ignore
         ? document.querySelector('div#savoirplus').innerText : '';
-      const descHidden = [];
+
       let countHidden = 0;
       if (document.querySelector('div#description') === null && hiddenDesc !== undefined && hiddenDesc !== null) {
+        // @ts-ignore
+        addElementToDocument('descHidden', hiddenDesc.split('\n').join('').concat(hiddenSpan));
         const text = hiddenDesc.split('\n').filter(e => e.length > 0);
         if (text.length > 1 && text[0] !== null && text[0] !== undefined) {
           text.forEach(e => {
-            if (e.charAt('-', 0) === '-') {
-              countHidden++;
-              descHidden.push(e.replace('-', ' || '));
-            } else if (e.charAt('*', 0) === '*') {
-              countHidden++;
-              descHidden.push(e.replace('*', ' || '));
-            } else if (e.charAt('•', 0) === '•') {
-              countHidden++;
-              descHidden.push(e.replace('•', ' || '));
-            } else descHidden.push(e);
+            if ((e.charAt('-', 0) === '-') || (e.charAt('•', 0) === '•')) countHidden++;
           });
         } if (text.length === 1 && text[0] !== null && text[0] !== undefined) {
           if (text[0].includes('•')) {
-            descHidden.push(text[0].replace(/•/g, ' ||'));
             const bullets = text[0].replace(/•/g, ' ||').match(/\|\|/gi);
             countHidden += bullets.length;
-          } else descHidden.push(text[0]);
+          }
         }
-        addElementToDocument('descHidden', descHidden.join(' '));
         addElementToDocument('bulletHidden', countHidden);
       }
 
@@ -137,7 +131,7 @@ module.exports = {
         ? document.querySelector('div[class*="prdct__logo"] a, div[class*="prdct__banner"] a').href : '';
       addElementToDocument('brandLink', '', brandLink);
     });
-
+    await new Promise((resolve, reject) => setTimeout(resolve, 4000));
     await context.evaluate(async function () {
       const openDirections = document.querySelector('a[href="#conseils"]');
       // @ts-ignore
@@ -147,7 +141,7 @@ module.exports = {
         await new Promise((resolve, reject) => setTimeout(resolve, 4000));
         const directions = document.querySelector('div#conseils >p');
         // @ts-ignore
-        if (directions !== undefined && directions !== null) openDirections.setAttribute('directions', directions.innerText);
+        if (directions !== undefined && directions !== null) openDirections.setAttribute('directions', directions.innerText.split('\n').join(''));
       }
     });
 
@@ -160,6 +154,16 @@ module.exports = {
     var dataRef = await context.extract(productDetails, { transform });
 
     dataRef[0].group.forEach((row) => {
+      if (row.description) {
+        row.description.forEach(item => {
+          item.text = item.text ? item.text.split('Bénéfice').join('En savoir plus Bénéfice') : '';
+        });
+      }
+      if (row.nameExtended) {
+        row.nameExtended.forEach(item => {
+          item.text = item.text ? item.text.trim() : '';
+        });
+      }
       if (row.pricePerUnit) {
         row.pricePerUnit.forEach(item => {
           item.text = item.text ? item.text.split('/').shift().trim().split('€').join(' €') : '';
@@ -205,12 +209,12 @@ module.exports = {
         row.ratingCount.forEach(item => {
           if (item.text.includes('avis ')) {
             item.text = item.text ? item.text.substring(item.text.lastIndexOf('sur') + 4, item.text.lastIndexOf('avis')) : '';
-          } else item.text = item.text ? item.text.match(/\d+/gm) : '';
+          } item.text = item.text ? item.text.match(/\d+/gm) : '';
         });
       }
       if (row.aggregateRating) {
         row.aggregateRating.forEach(item => {
-          item.text = item.text ? item.text.replace('.', ',') : '';
+          item.text = item.text.includes(',') ? item.text.replace('.', ',') : item.text;
         });
       }
       if (row.ingredientsList) {

@@ -72,9 +72,9 @@ fields:
   description: Product manufacturer
   xpath: //head//title
 - name: quantity
-  singleValue: true
+  # singleValue: true
   description: Quantity as described on the page
-  xpath: //li[@class='prdct__datas-item'][contains(text(), 'Contenance')]/strong
+  xpath: //div[@id='quantity']
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page
@@ -121,6 +121,7 @@ fields:
 - name: aggregateRating
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
+  defaultValue: "0"
   xpath: //div[@itemprop='ratingValue'] | //span[contains(@class, 'summary-rating')]
 - name: shippingInfo
   singleValue: true
