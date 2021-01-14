@@ -12,9 +12,9 @@ module.exports = {
     await context.setLoadImages(true);
     await context.setJavaScriptEnabled(true);
     await context.setAntiFingerprint(false);
-    await context.setUseRelayProxy(false); 
+    await context.setUseRelayProxy(false);
     console.log('Block ads set to false for context');
-    await context.goto(url, {firstRequestTimeout: 90000, timeout: 50000, waitUntil: 'load', checkBlocked: true });
+    await context.goto(url, { firstRequestTimeout: 90000, timeout: 50000, waitUntil: 'load', checkBlocked: true });
     console.log(zipcode);
     if (zipcode) {
       await dependencies.setZipCode({ url, zipcode });

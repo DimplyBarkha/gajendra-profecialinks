@@ -13,7 +13,7 @@ fields:
   - name: promotion
     singleValue: true
     description: promotion text if available
-    xpath: //span[@class="kds-Text--xs kds-Text--bold block font-bold px-4 text-center rounded-small bg-default-200 text-special-800"] | //*[contains(@class,"PurchaseOptions")]//*[contains(@class,"kds-Price kds-Price-alternate")]//following-sibling::*[contains(@class,"text-special-800") and contains(@class,"kds-Link")] | //*[contains(@class,"PurchaseOptions")]//*[contains(@class,"kds-Card ")]//following-sibling::*[contains(@class,"text-special-800") and contains(@class,"kds-Link")]
+    xpath: //span[@class="kds-Text--xs kds-Text--bold block font-bold px-4 text-center rounded-small bg-default-200 text-special-800"] | //*[contains(@class,"PurchaseOptions")]//*[contains(@class,"kds-Price kds-Price-alternate")]//following-sibling::*[contains(@class,"text-special-800") and contains(@class,"kds-Link")]
   - name: privacyPolicy
     singleValue: true
     xpath: //a[@href='/privacypolicy']
@@ -82,20 +82,25 @@ fields:
     xpath: //div[@class='swiper-wrapper']/div[not(contains(@class,'active'))]//img[contains(@class,'ProductImages')][not(contains(@src,'thumbnail'))]/@src
   - name: imageAlt
     singleValue: true
-    xpath: //div[@class="ProductDetails-header"]/h1
+    # xpath: //div[@class="ProductDetails-header"]/h1
+    xpath: //h1[contains(@class,"ProductDetails-header")]
   - name: name
     singleValue: true
     description: The product name
-    xpath: //div[@class='ProductDetails-header']/h1
+    # xpath: //div[@class='ProductDetails-header']/h1
+    xpath: //h1[contains(@class,"ProductDetails-header")]
   - name: mpc
     singleValue: true
     description: The model code of the product
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: //span[@class='ProductDetails-upc']
-    regExp: >-   
-      [0-9]+
+    # xpath: //span[@class='ProductDetails-upc']
+    # regExp: >-   
+    #   [0-9]+
+    xpath: //div[contains(@class,"ProductDetails-sizeAndUpc")]
+    regExp: UPC:\s(\d+)
+    regExpReplace: $1
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating

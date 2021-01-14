@@ -16,7 +16,7 @@ const implementation = async (
   await context.click('div.ContainerGrid-header.m-0 div.ProductCard a')
     .catch(() => console.log('URL given as input, no item to click'));
 
-  await context.waitForSelector('div.ProductDetails-header').catch(() => console.log('already on a product page'));;
+  await context.waitForSelector('div.ProductDetails-header').catch(() => console.log('already on a product page')); ;
 
   // wait and check for ratings/reviews, loads slowly:
   await context.waitForXPath('//div[@class="bv_avgRating_component_container notranslate"]', { timeout: 9000 })
@@ -40,9 +40,11 @@ const implementation = async (
     // name logic, only 45255 to include size in nameExtended:
     let nameExtended;
     if (zipcode !== '45255') {
-      nameExtended = document.evaluate('//div[@class="ProductDetails-header"]/h1', document, null, XPathResult.STRING_TYPE, null).stringValue;
+      // nameExtended = document.evaluate('//div[@class="ProductDetails-header"]/h1', document, null, XPathResult.STRING_TYPE, null).stringValue;
+      nameExtended = document.evaluate('//h1[contains(@class,"ProductDetails-header")]', document, null, XPathResult.STRING_TYPE, null).stringValue;
     } else {
-      nameExtended = document.evaluate('concat(//div[@class="ProductDetails-header"]/h1," ",//span[@id="ProductDetails-sellBy-unit"])', document, null, XPathResult.STRING_TYPE, null).stringValue;
+      // nameExtended = document.evaluate('concat(//div[@class="ProductDetails-header"]/h1," ",//span[@id="ProductDetails-sellBy-unit"])', document, null, XPathResult.STRING_TYPE, null).stringValue;
+      nameExtended = document.evaluate('concat(//h1[contains(@class,"ProductDetails-header")]," ",//span[@id="ProductDetails-sellBy-unit"])', document, null, XPathResult.STRING_TYPE, null).stringValue;
     }
     addHiddenDiv('my-name-ext', nameExtended);
 

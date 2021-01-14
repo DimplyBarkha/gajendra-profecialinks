@@ -135,32 +135,32 @@ async function implementation (
 
   // updating the zip change using an API
   await context.evaluate(async function (zipcode) {
-    const zipAndStoreDetails = { //holds the zipcode and respective restraunts to select
-      '45209': {
+    const zipAndStoreDetails = { // holds the zipcode and respective restraunts to select
+      45209: {
         name: 'Hyde Park',
-        locationId: '01400355'
+        locationId: '01400355',
       },
-      '45255': {
+      45255: {
         name: 'Cherry Grove',
-        locationId: '01400431'
+        locationId: '01400431',
       },
-      '48315': {
+      48315: {
         name: 'Shelby Marketplace',
-        locationId: '01800737'
+        locationId: '01800737',
       },
-      '45232': {
+      45232: {
         name: 'St. Bernard',
-        locationId: '01400428'
+        locationId: '01400428',
       },
-      '41071': {
+      41071: {
         name: 'I-471 Memorial Pkwy',
-        locationId: '01400423'
+        locationId: '01400423',
       },
-      '45044' : {
+      45044: {
         name: 'Middletown',
-        locationId: '01400335'
-      }
-    }
+        locationId: '01400335',
+      },
+    };
 
     async function getStoreDetails (zipcode) {
       const API = 'https://www.kroger.com/atlas/v1/modality/options';
