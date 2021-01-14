@@ -237,7 +237,7 @@ fields:
     defaultValue: No
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //ul[@class="products-grid"]/li[not(contains(@class,"cloned"))]//div[contains(@class, "base-info")]//h3/a
+    xpath: //ul[@class="products-grid"]/li[not(contains(@class,"cloned"))]//div[contains(@class, "base-info")]//h3/a | //li[contains(@class,'dyItem') and not(contains(@class,'slick-cloned'))]//div[@class="dyBaseInfo"]/@data-gtm-name
   - name: inTheBoxUrl
     singleValue: false
     xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset
