@@ -32,7 +32,8 @@ module.exports = {
       .catch((e) => {
         console.log(e);
         console.log('waiting again');
-        return context.waitForXPath('//div[@id="inpage_container"]//div[contains(@class,"inpage_selector_InTheBox")]');
+        return context.waitForXPath('//div[@id="inpage_container"]//div[contains(@class,"inpage_selector_InTheBox")]')
+          .catch(() => console.log('Enhanced content did not load'));
       })
       .finally(() => infiniteScroll());
 
