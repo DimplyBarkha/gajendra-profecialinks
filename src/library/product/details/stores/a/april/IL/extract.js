@@ -77,6 +77,17 @@ module.exports = {
         addElementToDocument('variantcount', '0');
         addElementToDocument('specifications', specifications);
       }
+
+      let specs = [];
+      let specsList = document.evaluate('//div[@id="mytab_1"]/ul//li', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      for (let index = 0; index < specsList.snapshotLength; index++) {
+        const element = specsList.snapshotItem(index);
+        let spec = element.textContent;
+        specs.push(spec);
+      }
+      let specData = specs.join('||');
+      addElementToDocument('specdata', specData);
+
       const variantId = getAllXpath("//div[@class='colors']//button[@class='color_img']/@id", 'nodeValue').join('|');
       if (variantId.length > 1) {
         // var str = variantId.split('|');
