@@ -1,0 +1,13 @@
+
+======= VARIANTS ================
+import-io extractor:new --org ascential --parameters country=US  domain=walmart.com store=walmart zipcode='' --robot product/details/variants
+
+import-io action:run:local --parameters country=US domain=walmart.com store=walmart --action product/details/variants -inputs RPC=15173448
+
+import-io extractor:deploy -o ascential -p product/w/walmart/US/variants -b staging
+
+================================
+import-io action:run:remote --parameters country=CH domain=melectronics.ch store=melectronics --action product/details -inputs URL=https://www.melectronics.ch/de/p/798711100000/microsoft-surface-laptop-3-15-256gb-a9-8gb
+
+
+import-io extractor:deploy -o ascential -p product/w/walmart/US/variants -b staging
