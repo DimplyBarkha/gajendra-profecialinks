@@ -9,7 +9,7 @@ fields:
   singleValue: false
 - name: productUrl
   singleValue: false
-  xpath: //@product_url
+  xpath: //div/@product_url
 - name: _pageTimeStamp
   singleValue: false
 - name: image
@@ -36,42 +36,44 @@ fields:
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
-  xpath: //@name_extended
+  xpath: //div/@name_extended
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
-  xpath: //@list_price
+  xpath: //div/@list_price
 - name: price
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
-  xpath: //@price
+  xpath: //div/@price
 - name: availabilityText
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
-  xpath: //@availability_text
-  regExp: ^([\w\sí]+)
-  regExpReplace: $1
+  xpath: //div/@availability_text
+  defaultValue: 'In stock'
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: ancestor::html//div[@class="product-resume" or @itemprop="description"]
+  # xpath: ancestor::html//div[@class="product-resume" or @itemprop="description"]
+  xpath: //div/@description
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
+  xpath: //div/@description_bullets
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
-  xpath: //@brand
+  xpath: //div/@brand
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
+  xpath: //div/@quantity
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page
@@ -83,9 +85,10 @@ fields:
   description: GTIN code (includes UPC/EAN)
 - name: sku
   description: The store-specific product identifier
-  xpath: ancestor::html//div[contains(@class, "code-label")]
-  regExp: 'Cod: (\d+)'
-  regExpReplace: $1
+  # xpath: ancestor::html//div[contains(@class, "code-label")]
+  # regExp: 'Cod: (\d+)'
+  # regExpReplace: $1
+  xpath: //input[@name="variantSku"]/@value
 - name: variantId
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
@@ -104,6 +107,7 @@ fields:
 - name: directions
   singleValue: true
   description: Content under "directions" header
+  xpath: //div/@directions
 - name: warnings
   singleValue: true
   description: Content under "warnings" header
@@ -131,7 +135,7 @@ fields:
 - name: variantCount
   singleValue: true
   description: Number of variants listed
-  xpath: //@variant_count
+  xpath: //div/@variant_count
 - name: color
   singleValue: true
   description: A textual description of the colour
@@ -153,7 +157,7 @@ fields:
 - name: name
   singleValue: true
   description: The product name
-  xpath: //@product_name
+  xpath: //div/@product_name
 - name: inStorePrice
   singleValue: true
   description: Price in the selected store
@@ -163,7 +167,7 @@ fields:
 - name: coupon
   singleValue: true
   description: Text of any coupon offer
-  xpath: //@coupon_text
+  xpath: //div/@coupon_text
 - name: amazonChoice
   singleValue: true
   description: YES or Blank
@@ -495,7 +499,8 @@ fields:
     between variants, this will need analysis
 - name: variants
   description: 
-  xpath: ancestor::html//div[contains(@class, "label-title")]
+  # xpath: ancestor::html//div[contains(@class, "label-title")]
+  xpath: //input/@id
 - name: additionalDescBulletInfo
   singleValue: false
   description: 

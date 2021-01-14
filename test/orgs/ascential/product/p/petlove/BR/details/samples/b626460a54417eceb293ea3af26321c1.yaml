@@ -2,7 +2,7 @@ input:
   id: 3100940
   _url: http://petlove.com.br
 extractions:
-  - html: https://workbench.import.io/html/run=d6b24f94-ef1b-42b9-9863-a4269a4fdf78/task=6c90f7be-74d6-4149-ba9f-0aa120fdfe91/6c47871f-722c-44f0-8a38-819f5a86036f.html
+  - html: https://workbench.import.io/html/run=e9dcccfc-d52e-465a-8f37-06640888521a/task=f25197fb-9e31-4c05-8b1e-11447c6b638e/0c9e447a-a3f9-4b0d-98b7-6791729af0a6.html
     extractionConfigId: product/details/stores/p/petlove/BR/extract
     data:
       - group:
@@ -30,17 +30,34 @@ extractions:
               - text: Dreamies - Petisco Dreamies Carne Para Gatos Adultos - 40 g
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@name_extended
             price:
-              - text: R$4,99
+              - text: R$5,99
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@price
-            availabilityText:
-              - text: em estoque
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@availability_text
+            description:
+              - text: Petisco para toda hora; || Rende mais de 20 dias (*3 pedacinhos por dia);
+                  || Pedacinhos crocantes por fora, macios por dentro; ||
+                  Diversão e mais momentos junto com seu gatinho.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@description
+            descriptionBullets:
+              - text: "4"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@description_bullets
             brandText:
               - text: Dreamies
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@brand
+            quantity:
+              - text: 40 g
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@quantity
+            sku:
+              - text: "3100940"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/input[1]/@value
             variantId:
               - text: "3100940"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/input[1]/@value
+            directions:
+              - text: Dê ao seu gato como um agrado até 12 unidades por dia. Esse alimento não
+                  deve exceder 10% da necessidade calórica diária do seu animal.
+                  Adeque a quantidade de alimento completo oferecido ou nível de
+                  atividade do seu gato.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@directions
             variantCount:
               - text: "1"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@variant_count
@@ -50,6 +67,9 @@ extractions:
             coupon:
               - text: 10% OFF
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@coupon_text
+            variants:
+              - text: "3100940"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/input[1]/@id
             category:
               - text: Gatos
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/span[1]
@@ -59,77 +79,60 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
               - text: Dreamies
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/span[1]
-            description:
-              - text: |-
-                  - Petisco para toda hora;
-                   - Rende mais de 20 dias (*3 pedacinhos por dia);
-                   - Pedacinhos crocantes por fora, macios por dentro;
-                   - Diversão e mais momentos junto com seu gatinho.
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]
-              - text: "O Petisco Dreamies Carne garantem diversão e mais momentos junto com seu
-                  gato. São deliciosos petiscos em três diferentes sabores:
-                  Carne, Frango e Queijo. Seu gato vai sonhar com os pedacinhos
-                  crocantes e recheados todos os dias. Descubra qual é o
-                  favorito do seu gato!"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]
-            sku:
-              - text: "3100940"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[3]
             ratingCount:
-              - text: "132"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
+              - text: "140"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
             aggregateRating:
               - text: 4,8
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
             brandLink:
               - text: https://www.petlove.com.br/dreamies
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@href
             subscriptionPrice:
-              - text: R$4,49
+              - text: R$5,39
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]
             subscribeAndSave:
               - text: "true"
             sodiumPerServing:
               - text: "4800"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[7]/td[1]/table[1]/tbody[1]/tr[9]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[7]/td[1]/table[1]/tbody[1]/tr[9]
             sodiumPerServingUom:
               - text: mg
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[7]/td[1]/table[1]/tbody[1]/tr[9]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[7]/td[1]/table[1]/tbody[1]/tr[9]
             dietaryFibrePerServing:
               - text: "40"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[7]/td[1]/table[1]/tbody[1]/tr[4]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[7]/td[1]/table[1]/tbody[1]/tr[4]
             dietaryFibrePerServingUom:
               - text: g
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[7]/td[1]/table[1]/tbody[1]/tr[4]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[7]/td[1]/table[1]/tbody[1]/tr[4]
             proteinPerServing:
               - text: "280"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[7]/td[1]/table[1]/tbody[1]/tr[2]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[7]/td[1]/table[1]/tbody[1]/tr[2]
             proteinPerServingUom:
               - text: g
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[7]/td[1]/table[1]/tbody[1]/tr[2]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[7]/td[1]/table[1]/tbody[1]/tr[2]
             vitaminAPerServing:
               - text: "4.100"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[8]/td[1]/table[1]/tbody[1]/tr[1]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[8]/td[1]/table[1]/tbody[1]/tr[1]
             vitaminAPerServingUom:
               - text: UI
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[8]/td[1]/table[1]/tbody[1]/tr[1]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[8]/td[1]/table[1]/tbody[1]/tr[1]
             calciumPerServing:
               - text: "6000"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[7]/td[1]/table[1]/tbody[1]/tr[6]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[7]/td[1]/table[1]/tbody[1]/tr[6]
               - text: "12"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[7]/td[1]/table[1]/tbody[1]/tr[7]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[7]/td[1]/table[1]/tbody[1]/tr[7]
             calciumPerServingUom:
               - text: mg
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[7]/td[1]/table[1]/tbody[1]/tr[6]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[7]/td[1]/table[1]/tbody[1]/tr[6]
               - text: g
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[7]/td[1]/table[1]/tbody[1]/tr[7]
-            variants:
-              - text: 40 g
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/div[2]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[7]/td[1]/table[1]/tbody[1]/tr[7]
             ageSuitability:
               - text: Adultos, Idosos
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[3]/td[1]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
             imageZoomFeaturePresent:
               - text: "true"
+            availabilityText:
+              - text: In stock
         xpath: /html
-    timestamp: 1606913683458
+    timestamp: 1610617084784

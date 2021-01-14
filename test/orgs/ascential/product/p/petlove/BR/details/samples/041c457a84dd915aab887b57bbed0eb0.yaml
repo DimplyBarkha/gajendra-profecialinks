@@ -2,7 +2,7 @@ input:
   id: 3105099-4
   _url: http://petlove.com.br
 extractions:
-  - html: https://workbench.import.io/html/run=d6b24f94-ef1b-42b9-9863-a4269a4fdf78/task=6dd61731-40a2-4545-ac5a-01254fd27aa1/9aa03c67-9f82-4162-874f-c8be2797a410.html
+  - html: https://workbench.import.io/html/run=e9dcccfc-d52e-465a-8f37-06640888521a/task=5ac3c8d4-3438-44de-bdce-75ae37af5974/edc8f011-3365-47e0-afe3-b32047d02011.html
     extractionConfigId: product/details/stores/p/petlove/BR/extract
     data:
       - group:
@@ -30,15 +30,45 @@ extractions:
             price:
               - text: R$43,84
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@price
-            availabilityText:
-              - text: "em estoque "
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@availability_text
+            description:
+              - text: É o brinquedo numero 1, indicado por veterinários do mundo todo, por seu
+                  apelo a incentivar o peludo a se exercitar com muita segurança
+                  com a durabilidade avançada de Kong; || Kong conta com formato
+                  redondo, isto faz com que, o brinquedo pule de um lado para
+                  outro sempre de forma imprevisível, fazendo de Kong sempre um
+                  brinquedo novo para o seu cão e estimulando ainda mais o
+                  prazer de brincar; || Kong exercita a mandíbula de nossos
+                  pequenos caçadores, ajudando a manter as gengivas saudáveis (é
+                  suave e não à machuca), sem ser abrasivo e agressivo com os
+                  dentes; || Conta com ótimo custo beneficio por ser vários
+                  tipos de brinquedo em um só e durar por muito tempo. || É
+                  importante lembrar que nenhum brinquedo é 100% indestrutível e
+                  a brincadeira precisa ser monitorada.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@description
+            descriptionBullets:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@description_bullets
             brandText:
               - text: KONG
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@brand
+            sku:
+              - text: 3105099-1
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/input[1]/@value
             variantId:
               - text: 3105099-1
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/input[1]/@value
+            directions:
+              - text: >-
+                  Como Funciona:
+
+                  O principal atrativo e segredo da adoração dos cães por Kong, é a sua forma redonda que permite que a bola pule de um lado pra o outro fazendo a alegria do seu amiguinho e o distraindo por horas.
+
+                  Assim que seu pet conhecer Kong, ele vai adorar brincar por horas enquanto você joga a bola ele vai se empenhar em buscá-la o mais rápido possível,treinando a sua agilidade durante a brincadeira, ele irá se divertir ainda por mais tempo com o Kong. Cuidados:
+
+                  Nenhum brinquedo é 100% indestrutível, Kong conta com alta durabilidade, bem maior que a encontrada no mercado, mas aconselha-se nos primeiros dias de uso do novo brinquedo supervisionar como o seu cão brinca e se adapta ao mesmo; Todo brinquedo destruído ou parcialmente danificado deve ser descartado e retirado do convívio com seu pet, evitando danos com pedaços que se soltem ou farpas que o machuquem. Manter o brinquedo sempre limpo, que seu cão está sempre a colocar na boca é importante; Kong é fácil de limpar, lavar em água corrente e com ajuda de uma escovinha. Importante
+
+                  Os brinquedos são recursos mais simples, barato e prático para proporcionar bem-estar físico e mental aos animais. Os brinquedos são instrumentos importantes no controle da ansiedade e instintos do seu peludinho. Destruir os brinquedos faz parte de um comportamento saudável, desde que seja supervisionado para que não engulam pedaços e se machuquem. É importante sempre verificar se o brinquedo escolhido está de acordo com o porte do seu pet e resistente o suficiente para ele.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@directions
             variantCount:
               - text: "3"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@variant_count
@@ -53,6 +83,9 @@ extractions:
             coupon:
               - text: 10% OFF
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@coupon_text
+            variants:
+              - text: 3105099-1
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/input[1]/@id
             category:
               - text: Cachorro
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/span[1]
@@ -62,53 +95,27 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
               - text: KONG
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/span[1]
-            description:
-              - text: >-
-                  - É o brinquedo numero 1, indicado por veterinários do mundo
-                  todo, por seu apelo a incentivar o peludo a se exercitar com
-                  muita segurança com a durabilidade avançada de Kong;
-                   - Kong conta com formato redondo, isto faz com que, o brinquedo pule de um lado para outro sempre de forma imprevisível, fazendo de Kong sempre um brinquedo novo para o seu cão e estimulando ainda mais o prazer de brincar;
-                   - Kong exercita a mandíbula de nossos pequenos caçadores, ajudando a manter as gengivas saudáveis (é suave e não à machuca), sem ser abrasivo e agressivo com os dentes;
-                   - Conta com ótimo custo beneficio por ser vários tipos de brinquedo em um só e durar por muito tempo. 
-                  É importante lembrar que nenhum brinquedo é 100% indestrutível e a brincadeira precisa ser monitorada.
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]
-              - text: >-
-                  O Brinquedo Kong Squealair Bola de Tênis combina dois produtos
-                  clássicos para seu cachorro em um só: a bola de tênis e o
-                  apito. Kong Squealair é durável, de alta qualidade, revestido
-                  por um feltro especial não abrasivo que não machuca os dentes
-                  e a gengiva do seu cão como as bolas de tênis comuns.
-                   Um brinquedo que estimula até aquele cão mais contido ou sem vontade de brincar a interagir com Kong, proporcionando grandes períodos de distração com exercícios de mastigação e agilidade. Mas Kong vai além, aquele cão que adora tanto brincar, que acaba mastigando tudo que vê pela frente, até despedaçar e perder o interesse pelo brinquedo; Com Kong este tipo de pet vai se sentir desafiado e assim se manter por longos períodos entretido com Kong, mas não vai perder o interesse, pois Kong possui grande durabilidade, além de ser seguro para o seu melhor amigo.
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]
-            sku:
-              - text: "3105099"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[3]
             ratingCount:
               - text: "12"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
             aggregateRating:
               - text: 4,0
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
             brandLink:
               - text: https://www.petlove.com.br/kong
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@href
             subscriptionPrice:
-              - text: R$68,06
+              - text: R$66,01
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]
             subscribeAndSave:
               - text: "true"
-            variants:
-              - text: Tam. EP
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/div[2]
-              - text: Tam. M
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/div[2]
-              - text: Tam. G
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/div[2]
             ageSuitability:
               - text: Filhotes, Adultos, Idosos
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[3]/td[1]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
             imageZoomFeaturePresent:
               - text: "true"
+            availabilityText:
+              - text: In stock
           - productUrl:
               - text: https://www.petlove.com.br/brinquedo-kong-squeaker-bola-de-tenis-3105099/p?sku=3105099-4
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@product_url
@@ -127,15 +134,45 @@ extractions:
             price:
               - text: R$66,57
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@price
-            availabilityText:
-              - text: em estoque
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@availability_text
+            description:
+              - text: É o brinquedo numero 1, indicado por veterinários do mundo todo, por seu
+                  apelo a incentivar o peludo a se exercitar com muita segurança
+                  com a durabilidade avançada de Kong; || Kong conta com formato
+                  redondo, isto faz com que, o brinquedo pule de um lado para
+                  outro sempre de forma imprevisível, fazendo de Kong sempre um
+                  brinquedo novo para o seu cão e estimulando ainda mais o
+                  prazer de brincar; || Kong exercita a mandíbula de nossos
+                  pequenos caçadores, ajudando a manter as gengivas saudáveis (é
+                  suave e não à machuca), sem ser abrasivo e agressivo com os
+                  dentes; || Conta com ótimo custo beneficio por ser vários
+                  tipos de brinquedo em um só e durar por muito tempo. || É
+                  importante lembrar que nenhum brinquedo é 100% indestrutível e
+                  a brincadeira precisa ser monitorada.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@description
+            descriptionBullets:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@description_bullets
             brandText:
               - text: KONG
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@brand
+            sku:
+              - text: 3105099-3
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/input[1]/@value
             variantId:
               - text: 3105099-3
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/input[1]/@value
+            directions:
+              - text: >-
+                  Como Funciona:
+
+                  O principal atrativo e segredo da adoração dos cães por Kong, é a sua forma redonda que permite que a bola pule de um lado pra o outro fazendo a alegria do seu amiguinho e o distraindo por horas.
+
+                  Assim que seu pet conhecer Kong, ele vai adorar brincar por horas enquanto você joga a bola ele vai se empenhar em buscá-la o mais rápido possível,treinando a sua agilidade durante a brincadeira, ele irá se divertir ainda por mais tempo com o Kong. Cuidados:
+
+                  Nenhum brinquedo é 100% indestrutível, Kong conta com alta durabilidade, bem maior que a encontrada no mercado, mas aconselha-se nos primeiros dias de uso do novo brinquedo supervisionar como o seu cão brinca e se adapta ao mesmo; Todo brinquedo destruído ou parcialmente danificado deve ser descartado e retirado do convívio com seu pet, evitando danos com pedaços que se soltem ou farpas que o machuquem. Manter o brinquedo sempre limpo, que seu cão está sempre a colocar na boca é importante; Kong é fácil de limpar, lavar em água corrente e com ajuda de uma escovinha. Importante
+
+                  Os brinquedos são recursos mais simples, barato e prático para proporcionar bem-estar físico e mental aos animais. Os brinquedos são instrumentos importantes no controle da ansiedade e instintos do seu peludinho. Destruir os brinquedos faz parte de um comportamento saudável, desde que seja supervisionado para que não engulam pedaços e se machuquem. É importante sempre verificar se o brinquedo escolhido está de acordo com o porte do seu pet e resistente o suficiente para ele.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@directions
             variantCount:
               - text: "3"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@variant_count
@@ -150,6 +187,9 @@ extractions:
             coupon:
               - text: 10% OFF
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@coupon_text
+            variants:
+              - text: 3105099-3
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/input[1]/@id
             category:
               - text: Cachorro
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/span[1]
@@ -159,53 +199,27 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
               - text: KONG
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/span[1]
-            description:
-              - text: >-
-                  - É o brinquedo numero 1, indicado por veterinários do mundo
-                  todo, por seu apelo a incentivar o peludo a se exercitar com
-                  muita segurança com a durabilidade avançada de Kong;
-                   - Kong conta com formato redondo, isto faz com que, o brinquedo pule de um lado para outro sempre de forma imprevisível, fazendo de Kong sempre um brinquedo novo para o seu cão e estimulando ainda mais o prazer de brincar;
-                   - Kong exercita a mandíbula de nossos pequenos caçadores, ajudando a manter as gengivas saudáveis (é suave e não à machuca), sem ser abrasivo e agressivo com os dentes;
-                   - Conta com ótimo custo beneficio por ser vários tipos de brinquedo em um só e durar por muito tempo. 
-                  É importante lembrar que nenhum brinquedo é 100% indestrutível e a brincadeira precisa ser monitorada.
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]
-              - text: >-
-                  O Brinquedo Kong Squealair Bola de Tênis combina dois produtos
-                  clássicos para seu cachorro em um só: a bola de tênis e o
-                  apito. Kong Squealair é durável, de alta qualidade, revestido
-                  por um feltro especial não abrasivo que não machuca os dentes
-                  e a gengiva do seu cão como as bolas de tênis comuns.
-                   Um brinquedo que estimula até aquele cão mais contido ou sem vontade de brincar a interagir com Kong, proporcionando grandes períodos de distração com exercícios de mastigação e agilidade. Mas Kong vai além, aquele cão que adora tanto brincar, que acaba mastigando tudo que vê pela frente, até despedaçar e perder o interesse pelo brinquedo; Com Kong este tipo de pet vai se sentir desafiado e assim se manter por longos períodos entretido com Kong, mas não vai perder o interesse, pois Kong possui grande durabilidade, além de ser seguro para o seu melhor amigo.
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]
-            sku:
-              - text: "3105099"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[3]
             ratingCount:
               - text: "12"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
             aggregateRating:
               - text: 4,0
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
             brandLink:
               - text: https://www.petlove.com.br/kong
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@href
             subscriptionPrice:
-              - text: R$68,06
+              - text: R$66,01
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]
             subscribeAndSave:
               - text: "true"
-            variants:
-              - text: Tam. EP
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/div[2]
-              - text: Tam. M
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/div[2]
-              - text: Tam. G
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/div[2]
             ageSuitability:
               - text: Filhotes, Adultos, Idosos
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[3]/td[1]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
             imageZoomFeaturePresent:
               - text: "true"
+            availabilityText:
+              - text: In stock
           - productUrl:
               - text: https://www.petlove.com.br/brinquedo-kong-squeaker-bola-de-tenis-3105099/p?sku=3105099-4
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/@product_url
@@ -218,18 +232,51 @@ extractions:
             nameExtended:
               - text: KONG - Brinquedo KONG Squeakair Bola de Tênis - Tam. G
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/@name_extended
-            price:
+            listPrice:
               - text: R$75,62
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/@list_price
+            price:
+              - text: R$73,35
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/@price
-            availabilityText:
-              - text: em estoque
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/@availability_text
+            description:
+              - text: É o brinquedo numero 1, indicado por veterinários do mundo todo, por seu
+                  apelo a incentivar o peludo a se exercitar com muita segurança
+                  com a durabilidade avançada de Kong; || Kong conta com formato
+                  redondo, isto faz com que, o brinquedo pule de um lado para
+                  outro sempre de forma imprevisível, fazendo de Kong sempre um
+                  brinquedo novo para o seu cão e estimulando ainda mais o
+                  prazer de brincar; || Kong exercita a mandíbula de nossos
+                  pequenos caçadores, ajudando a manter as gengivas saudáveis (é
+                  suave e não à machuca), sem ser abrasivo e agressivo com os
+                  dentes; || Conta com ótimo custo beneficio por ser vários
+                  tipos de brinquedo em um só e durar por muito tempo. || É
+                  importante lembrar que nenhum brinquedo é 100% indestrutível e
+                  a brincadeira precisa ser monitorada.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/@description
+            descriptionBullets:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/@description_bullets
             brandText:
               - text: KONG
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/@brand
+            sku:
+              - text: 3105099-4
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/input[1]/@value
             variantId:
               - text: 3105099-4
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/input[1]/@value
+            directions:
+              - text: >-
+                  Como Funciona:
+
+                  O principal atrativo e segredo da adoração dos cães por Kong, é a sua forma redonda que permite que a bola pule de um lado pra o outro fazendo a alegria do seu amiguinho e o distraindo por horas.
+
+                  Assim que seu pet conhecer Kong, ele vai adorar brincar por horas enquanto você joga a bola ele vai se empenhar em buscá-la o mais rápido possível,treinando a sua agilidade durante a brincadeira, ele irá se divertir ainda por mais tempo com o Kong. Cuidados:
+
+                  Nenhum brinquedo é 100% indestrutível, Kong conta com alta durabilidade, bem maior que a encontrada no mercado, mas aconselha-se nos primeiros dias de uso do novo brinquedo supervisionar como o seu cão brinca e se adapta ao mesmo; Todo brinquedo destruído ou parcialmente danificado deve ser descartado e retirado do convívio com seu pet, evitando danos com pedaços que se soltem ou farpas que o machuquem. Manter o brinquedo sempre limpo, que seu cão está sempre a colocar na boca é importante; Kong é fácil de limpar, lavar em água corrente e com ajuda de uma escovinha. Importante
+
+                  Os brinquedos são recursos mais simples, barato e prático para proporcionar bem-estar físico e mental aos animais. Os brinquedos são instrumentos importantes no controle da ansiedade e instintos do seu peludinho. Destruir os brinquedos faz parte de um comportamento saudável, desde que seja supervisionado para que não engulam pedaços e se machuquem. É importante sempre verificar se o brinquedo escolhido está de acordo com o porte do seu pet e resistente o suficiente para ele.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/@directions
             variantCount:
               - text: "3"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/@variant_count
@@ -242,8 +289,11 @@ extractions:
               - text: Brinquedo KONG Squeakair Bola de Tênis
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/@product_name
             coupon:
-              - text: 10% OFF
+              - text: 13% OFF
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/@coupon_text
+            variants:
+              - text: 3105099-4
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/input[1]/@id
             category:
               - text: Cachorro
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/span[1]
@@ -253,52 +303,26 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
               - text: KONG
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/span[1]
-            description:
-              - text: >-
-                  - É o brinquedo numero 1, indicado por veterinários do mundo
-                  todo, por seu apelo a incentivar o peludo a se exercitar com
-                  muita segurança com a durabilidade avançada de Kong;
-                   - Kong conta com formato redondo, isto faz com que, o brinquedo pule de um lado para outro sempre de forma imprevisível, fazendo de Kong sempre um brinquedo novo para o seu cão e estimulando ainda mais o prazer de brincar;
-                   - Kong exercita a mandíbula de nossos pequenos caçadores, ajudando a manter as gengivas saudáveis (é suave e não à machuca), sem ser abrasivo e agressivo com os dentes;
-                   - Conta com ótimo custo beneficio por ser vários tipos de brinquedo em um só e durar por muito tempo. 
-                  É importante lembrar que nenhum brinquedo é 100% indestrutível e a brincadeira precisa ser monitorada.
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]
-              - text: >-
-                  O Brinquedo Kong Squealair Bola de Tênis combina dois produtos
-                  clássicos para seu cachorro em um só: a bola de tênis e o
-                  apito. Kong Squealair é durável, de alta qualidade, revestido
-                  por um feltro especial não abrasivo que não machuca os dentes
-                  e a gengiva do seu cão como as bolas de tênis comuns.
-                   Um brinquedo que estimula até aquele cão mais contido ou sem vontade de brincar a interagir com Kong, proporcionando grandes períodos de distração com exercícios de mastigação e agilidade. Mas Kong vai além, aquele cão que adora tanto brincar, que acaba mastigando tudo que vê pela frente, até despedaçar e perder o interesse pelo brinquedo; Com Kong este tipo de pet vai se sentir desafiado e assim se manter por longos períodos entretido com Kong, mas não vai perder o interesse, pois Kong possui grande durabilidade, além de ser seguro para o seu melhor amigo.
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]
-            sku:
-              - text: "3105099"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[3]
             ratingCount:
               - text: "12"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
             aggregateRating:
               - text: 4,0
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
             brandLink:
               - text: https://www.petlove.com.br/kong
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@href
             subscriptionPrice:
-              - text: R$68,06
+              - text: R$66,01
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]
             subscribeAndSave:
               - text: "true"
-            variants:
-              - text: Tam. EP
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/div[2]
-              - text: Tam. M
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/div[2]
-              - text: Tam. G
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/div[2]
             ageSuitability:
               - text: Filhotes, Adultos, Idosos
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[3]/td[1]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
             imageZoomFeaturePresent:
               - text: "true"
+            availabilityText:
+              - text: In stock
         xpath: /html
-    timestamp: 1606913700466
+    timestamp: 1610617092935
