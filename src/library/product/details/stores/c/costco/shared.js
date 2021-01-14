@@ -106,7 +106,7 @@ const transform = (data) => {
             text += `${item.text} | `;
           });
           row.variantInformation = [{ text: text.slice(0, -3) }];
-        } else {
+        } else if (!row.variantInformation || row.variantInformation.length <= 0) {
           row.variantInformation = [{ text: '' }];
         }
         if (row.variantId && row.variantId.length > 0) {
