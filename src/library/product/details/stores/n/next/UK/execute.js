@@ -6,7 +6,7 @@ module.exports = {
     store: 'next',
     domain: 'next.co.uk',
     loadedSelector: 'div[class="itemsContainer"]',
-    noResultsXPath: '//div[@class="Error Error404"]',
+    noResultsXPath: '//div[@class="Error Error404"] | //div[contains(text(), "Uh oh, that page no longer exists...")]',
     zipcode: '',
   },
 };

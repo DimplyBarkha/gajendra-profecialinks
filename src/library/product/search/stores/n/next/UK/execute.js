@@ -7,7 +7,7 @@ module.exports = {
     domain: 'next.co.uk',
     url: 'https://www.next.co.uk/search?w={searchTerms}',
     loadedSelector: 'div[class~="Page"]',
-    noResultsXPath: '//div[@class="no-results"]',
+    noResultsXPath: '//div[@class="no-results"] | //div[@class="spell-relaxed"]',
     zipcode: '',
   },
 };
