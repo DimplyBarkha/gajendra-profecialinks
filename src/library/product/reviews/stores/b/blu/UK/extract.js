@@ -33,7 +33,7 @@ module.exports = {
       while (moreReviews && foundReviews < totalReviewsCount) {
         const url = window.location.href;
         const urlSplit = url.split('/');
-        const itemStr = urlSplit[urlSplit.length - 1];
+        const itemStr = urlSplit[urlSplit.length - 1].replace('.html','');
         const apiUrl = `https://www.blu.com/acceleration/eu/api/bazaarvoice-gateway/products/${itemStr}/reviews?page=${page}&pageSize=10&market=GB&locale=en-GB&sort=hightolow`;
         console.log(`PAGE#:${page}`);
         page++;
@@ -52,7 +52,7 @@ module.exports = {
           method: 'GET',
           mode: 'cors',
         });
-        if (!response || response.status !== 200 || foundReviews === totalReviewsCount) {
+        if (!response || response.status !== 200 || foundReviews >= totalReviewsCount) {
           moreReviews = false;
         } else {
           function addHiddenDiv (id, reviewDate, rating, title, text) {
@@ -67,6 +67,7 @@ module.exports = {
           }
           const data = await response.json();
           console.log('API called! Adding data..');
+          console.log(`Found reviews:${foundReviews} and reviews expected:${totalReviewsCount}`)
           data.reviews.forEach((review) => {
             addHiddenDiv('my-reviews', review.timeAgoInWords, review.rating, review.title, review.message);
             foundReviews++;
