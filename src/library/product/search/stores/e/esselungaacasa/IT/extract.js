@@ -12,12 +12,8 @@ module.exports = {
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     await new Promise((resolve) => setTimeout(resolve, 3000));
     await context.evaluate(async function () {
-      const body = document.body;
-      const html = document.documentElement;
-      const pageHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
-
       let scrollTop = 0;
-      while (scrollTop <= pageHeight) {
+      while (scrollTop <= 20000) {
         await new Promise((resolve) => setTimeout(resolve, 500));
         scrollTop += 200;
         window.scroll(0, scrollTop);
@@ -34,9 +30,11 @@ module.exports = {
       };
 
       const allProducts = document.querySelectorAll('div.content-item[tabindex="0"]');
+      const searchUrl = window.location.href;
       for (let x = 0; x < allProducts.length; x++) {
-        const productId = allProducts[x].getAttribute('id');
-        addElementToDocument(allProducts[x], 'productId', productId);
+        const productId = allProducts[x] && allProducts[x].querySelector('span[ng-show="productCtrl.productCodeVisible"]') ? allProducts[x].querySelector('span[ng-show="productCtrl.productCodeVisible"]').textContent : '';
+        addElementToDocument(allProducts[x], 'productId', productId.replace(/[()]+/g, ''));
+        addElementToDocument(allProducts[x], 'searchUrl', searchUrl);
       }
     });
     return await context.extract(productDetails, { transform });

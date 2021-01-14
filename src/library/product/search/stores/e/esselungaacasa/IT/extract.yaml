@@ -1,20 +1,21 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@id="products-panel"]//div[@class="content-item"][div[@class="pict"]]
+recordXPath: (//div[@id="products-panel"]//div[@class="content-item"][div[@class="pict"]])[position()<=150]
 fields:
   - name: id
     singleValue: false
     xpath: //div[@id='productId']
   - name: searchUrl
     singleValue: true
+    xpath: //div[@id='searchUrl']
   - name: name
     singleValue: false
-    xpath: //span[@class="product-brand"]
+    xpath: //div[@class="pict"]/a/@aria-label
   - name: productUrl
     xpath: //div[@class="pict"]//a/@href
     regExp: (#!.*)
-    regExpReplace: https://www.esselungaacasa.it/ecommerce/nav/auth/supermercato/home.html?streetId=30104457$1
+    regExpReplace: https://www.esselungaacasa.it/ecommerce/nav/auth/supermercato/home.html?esseiaOtp=64e8f9fa2077866d53f0aca45cae9dc46c3e342c$1
     singleValue: false
   - name: gtin
     singleValue: false
