@@ -118,7 +118,7 @@ fields:
     description: The number of ratings
     type: NUMBER
     xpath: //div[@class='product-stats-item']/a/text()
-    regExp: ^.*?\([^\d]*(\d+)[^\d]*\).*$  
+    regExp: ^.*?\([^\d]*(\d+)[^\d]*\).*$
   - name: aggregateRatingText
     description: The stated aggregate rating
     xpath: //span[@class='rating']/font/font/text() | //span[@class='rating']/text()
@@ -566,3 +566,16 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
+  - name: inTheBoxUrl
+    xpath: //div[@class="inpage_selector_InTheBox"]//img/@data-flixsrcset
+    regExp: (.+\s)(.+)(\s.+)
+    regExpReplace: https:$2
+  - name: inTheBoxText
+    xpath: //div[@class="inpage_selector_InTheBox"]//div[@class="flix-std-table"]
+  - name: hasComparisonTable
+    xpath: //div[@class="swogo-bundle noCheckbox"]//div[@class="swogo-bundle-products"]
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: unInterruptedPDP
+    xpath: //div[contains(@class,"recommend-products-box")]//div[contains(@class,"product-item")][not(contains(@class,"swiper-slide-duplicate"))]//div[@class="product-name"] | //div[contains(@class,"top-products-of-category-box")]//div[contains(@class,"product-item")][not(contains(@class,"swiper-slide-duplicate"))]//div[@class="product-name"]
