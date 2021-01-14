@@ -2,7 +2,7 @@ input:
   id: 120093399
   _url: http://teknosa.com
 extractions:
-  - html: https://workbench.import.io/html/run=806d4e64-1583-4a5e-a25b-ab38bb6413c3/task=5ab7b8cf-c7b4-45ed-97db-7ec24ba8dd42/522359b5-c738-4e48-ad85-80b954d8e571.html
+  - html: https://workbench.import.io/html/run=109f5be3-2690-4131-be88-5807373e1de6/task=22dcbe78-c600-460d-ad16-ce10b0e23949/7bb31ad5-281b-4f1d-8a73-a26c722821fd.html
     extractionConfigId: product/details/stores/t/teknosa/TR/extract
     data:
       - group:
@@ -26,10 +26,10 @@ extractions:
                 xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/h1[1]/text()[1]
             listPrice:
               - text: 169,00 TL
-                xpath: /html/body/script[10]/@correctlistprice
+                xpath: /html/body/script[4]/@correctlistprice
             price:
               - text: 139,00 TL
-                xpath: /html/body/script[10]/@correctprice
+                xpath: /html/body/script[4]/@correctprice
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/text()[2]
@@ -150,4 +150,4 @@ extractions:
                 locale: tr
                 value: 0
         xpath: /
-    timestamp: 1610112056113
+    timestamp: 1610612788474

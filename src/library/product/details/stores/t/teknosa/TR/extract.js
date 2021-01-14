@@ -25,8 +25,12 @@ module.exports = {
       const currency = "TL";
       const price = scriptPrice.innerText.match(regexPrice);
       const listPrice = scriptPrice.innerText.match(regexListPrice);
-      listPrice[0] = listPrice[0].replace(".", ",");
-      price[0] = price[0].replace(".", ",");
+      if (listPrice) {
+        listPrice[0] = listPrice[0].replace(".", ",");
+      }
+      if (price) {
+        price[0] = price[0].replace(".", ",");
+      }
       if (addToCart) {
         scriptPrice.setAttribute("correctPrice", price[0] + " " + currency);
         if (price[0] !== listPrice[0]) {
