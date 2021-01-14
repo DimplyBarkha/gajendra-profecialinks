@@ -6,7 +6,7 @@ module.exports = {
     store: 'mytime',
     domain: 'mytime.de',
     loadedSelector: '.product-page',
-    noResultsXPath: '//picture[@data-alt="Wechsler-Fehlserseite"]',
+    noResultsXPath: '//picture[@data-alt="Wechsler-Fehlserseite"] | //p[contains(text(), "nichts gefunden")]',
     zipcode: '',
   },
 };

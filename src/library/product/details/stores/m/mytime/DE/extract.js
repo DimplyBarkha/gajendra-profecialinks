@@ -30,7 +30,7 @@ module.exports = {
       const isAvailable = document.querySelector('meta[property="product:availability"]');
       if (isAvailable !== null && isAvailable !== undefined) {
         addElementToDocument('isAvailable', 'In Stock');
-      } else addElementToDocument('isAvailable', 'Out of Stock');
+      } else addElementToDocument('isAvailable', 'Out Of Stock');
 
       const allergyAdvice = document.querySelectorAll('li[id="tab-ingredientsAndAllergens"] ul > li');
       const allergyText = [];
@@ -49,6 +49,12 @@ module.exports = {
     var dataRef = await context.extract(productDetails, { transform });
 
     dataRef[0].group.forEach((row) => {
+      if (row.description) {
+        row.description.forEach(item => {
+          if (item.text.includes('Beschreibung')) item.text = item.text.split('Beschreibung').pop().trim();
+          else { return item.text; }
+        });
+      }
       if (row.sodiumPerServingUom) {
         row.sodiumPerServingUom.forEach(item => {
           if (item.text.includes('/ ')) item.text = item.text.split('/ ').join('/').trim();
