@@ -55,7 +55,7 @@ fields:
     xpath: //div[@id='selectedSKU']/@data-sku
   - name: gtin
     singleValue: false
-    xpath: //meta[@itemprop="gtin13"]/@content
+    xpath: //div[@id="gtin-data"]/@data-gtin
   - name: secondaryImageTotal
   - name: ratingCount
     singleValue: false
@@ -70,7 +70,7 @@ fields:
     xpath: (//div[@class="ts-v-rating-note"]//span)[1]
   - name: eangtin
     singleValue: false
-    xpath: //meta[@itemprop="gtin13"]/@content
+    xpath: //div[@id="gtin-data"]/@data-gtin
   - name: videos
     singleValue: false
     xpath: //ul[contains(@class,"thumbs")]//li[contains(@class,"video")]/@data-iframe
