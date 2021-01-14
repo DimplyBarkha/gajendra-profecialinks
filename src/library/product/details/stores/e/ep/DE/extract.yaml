@@ -56,7 +56,11 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //div[@id="availabilityText"]
+    # xpath: //div[@id="availabilityText"]
+    xpath: //*[contains(@class,'product-cart-add-to-cart-button')]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out Of Stock
   - name: description
     singleValue: true
     description: Product description supplied by website - may be concatenanted from
