@@ -132,5 +132,11 @@ fields:
     xpath: //tr[th[contains(text(),"pouces")]]//li
   - name: promotion
     singleValue: false
-    xpath: //span[contains(@class,"product-offer-ripost-text-marketing")]
-  
+    xpath: //span[contains(@class,"product-offer-ripost-text-marketing")] 
+  - name: unInteruptedPdp
+    xpath: //div[contains(@class,"rr_items_carousel_inner")]//li[contains(@class,"rr_item")]//h3
+  - name: inTheBoxUrl
+    xpath: //div[contains(@class,"inpage_selector_InTheBox")]//img/@data-flixsrcset
+  - name: inTheBoxText
+    xpath: //div[contains(@class,"inpage_selector_InTheBox")]//div[contains(@class,"flix-std-table")]
+  - name: hasComparisonTable
