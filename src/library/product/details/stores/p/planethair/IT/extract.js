@@ -54,10 +54,7 @@ module.exports = {
         }
         if ('description' in data[k].group[i]) {
           var descrString = data[k].group[i].description[0].text;
-          descrString = descrString.split('Planethair.it:');
-          descrString = descrString[0];
-          descrString = descrString.split('Ingredienti');
-          descrString = descrString[0];
+          descrString = descrString.split('Ingredienti')[0];
           data[k].group[i].description[0].text = descrString;
         }
         if ('ingredientsList' in data[k].group[i]) {
