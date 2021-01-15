@@ -15,7 +15,7 @@ module.exports = {
   ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    await context.waitForXPath(`//article[contains(@class, 'a_plus_content')]//img/@src | //div[contains(@class,'wc-reset')]//li//img/@src | //article[contains(@class, 'a-plus-content')]//img/@src | //div[@id="product-overview"]//div[@class="flix-container"]//img/@src | (//div[@id="product-overview"]//a//img[@alt="Product image"]/@src)[1] | (//div[@id="product-overview"]//a//img/@src)[1]`);
+    //await context.waitForXPath(`//article[contains(@class, 'a_plus_content')]//img/@src | //div[contains(@class,'wc-reset')]//li//img/@src | //article[contains(@class, 'a-plus-content')]//img/@src | //div[@id="product-overview"]//div[@class="flix-container"]//img/@src | (//div[@id="product-overview"]//a//img[@alt="Product image"]/@src)[1] | (//div[@id="product-overview"]//a//img/@src)[1]`);
     await context.evaluate(async () => {
       const video = document.querySelector('video.jw-video');
       if (video) {
