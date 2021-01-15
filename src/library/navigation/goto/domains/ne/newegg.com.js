@@ -4,12 +4,12 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'newegg.com',
-    timeout: null,
+    timeout: 45000,
     country: 'US',
     store: 'newegg',
     zipcode: '',
   },
-  implementation: async (
+ /* implementation: async (
     { url },
     parameters,
     context,
@@ -149,5 +149,5 @@ module.exports = {
       //   addHiddenDiv('bulletInfo', bulletInfo);
     });
   },
-
+*/
 };
