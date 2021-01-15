@@ -16,7 +16,7 @@ dependencies: {
 
 */
 
-module.exports.Helpers = class {
+module.exports = class Helpers {
   constructor (context) {
     this.context = context;
   }
