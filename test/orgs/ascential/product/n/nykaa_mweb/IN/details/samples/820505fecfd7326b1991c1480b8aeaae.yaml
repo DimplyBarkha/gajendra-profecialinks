@@ -2,22 +2,22 @@ input:
   _url: http://nykaa.com
   URL: https://www.nykaa.com/G/p/365703
 extractions:
-  - html: https://workbench.import.io/html/run=f6c90a4c-7aab-44fe-902f-c8829f5c4bf6/task=fb49e620-7faf-4cb5-a0bf-3b60ed76ad35/3b15b784-f08a-4126-afc2-283bb72c10d9.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=952be7ff-a188-404e-9cc7-614ae9a98069/task=767270de-41e0-4339-87c5-2f7f28f588d9/24091cb9-7125-47fe-94df-0e21e7bd8591.html
     extractionConfigId: product/details/stores/n/nykaa_mweb/IN/extract
     data:
       - group:
           - productUrl:
               - text: https://www.nykaa.com/G/p/365703
-                xpath: /html/body/div[6]
+                xpath: /html/body/div[7]
             image:
-              - text: https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/8/9/8901526547036_1.jpg
-                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://images-static.nykaa.com/media/catalog/product/tr:h-800,w-800,cm-pad_resize/8/9/8901526547036_1.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/meta[1]/@content
             imageAlt:
               - text: Wristwatch by Ted Baker London
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
               - text: https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/8/9/8901526547036_2.jpg,https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/8/9/8901526547036_3.jpg,https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/8/9/8901526547036_4.jpg,https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/8/9/8901526547036_5.jpg,https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/8/9/8901526547036_6.jpg,https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/8/9/8901526547036_0.jpg,https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/n/y/nygarnier_acert.jpg_1_85.jpg
-                xpath: /html/body/div[7]
+                xpath: /html/body/div[8]
             metaKeywords:
               - text: Garnier Light Complete Moisturising Serum-In-Lotion, Skin, Body, Lotion &
                   Cream
@@ -42,7 +42,7 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/span[2]/span[1]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[9]
+                xpath: /html/body/div[10]
             description:
               - text: |-
                   how will it benefit my skin
@@ -78,26 +78,32 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]/a[2]
             quantity:
               - text: 125ml
-                xpath: /html/body/div[10]
-            sku:
-              - text: "365703"
                 xpath: /html/body/div[11]
+            sku:
+              - text: "8901526547036"
+                xpath: /html/body/div[6]
             variantId:
               - text: "365703"
-                xpath: /html/body/div[11]
+                xpath: /html/body/div[12]
+            mpc:
+              - text: "365703"
+                xpath: /html/body/div[12]
             directions:
               - text: Smooth generously over entire body daily.
-                xpath: /html/body/div[14]
+                xpath: /html/body/div[15]
             ratingCount:
-              - text: "899"
-                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+              - text: "275"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/meta[3]/@content
                 type: NUMBER
-                raw: "899"
+                raw: "275"
                 locale: en
-                value: 899
+                value: 275
             aggregateRating:
-              - text: "4.2"
-                xpath: /html/body/div[12]
+              - text: "4.3"
+                xpath: /html/body/div[13]
+            shippingInfo:
+              - text: SOLD BY :Nykaa
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]/div[3]/div[1]
             manufacturerImages:
               - text: https://www.nykaa.com/media/wysiwyg/8901526547081banner.jpg
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
@@ -129,14 +135,17 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]
             brandLink:
               - text: https://www.nykaa.com/brands/garnier/c/593?ptype=brand&id=593
-                xpath: /html/body/div[13]
+                xpath: /html/body/div[14]
             secondaryImageTotal:
               - text: "7"
-                xpath: /html/body/div[8]
+                xpath: /html/body/div[9]
                 type: NUMBER
                 raw: "7"
                 locale: en
                 value: 7
+            promotion:
+              - text: 35% off
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]
             imageZoomFeaturePresent:
               - text: Yes
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/@class
@@ -150,7 +159,9 @@ extractions:
               - text: No
             Image360Present:
               - text: No
+            descriptionBullets:
+              - text: "0"
             variantCount:
               - text: "0"
         xpath: /
-    timestamp: 1607342353003
+    timestamp: 1610714248624

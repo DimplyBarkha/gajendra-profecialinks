@@ -13,7 +13,7 @@ fields:
   singleValue: false
 - name: image
   description: URL of the main product image
-  xpath: //div[@class="pd-main-image"]//img/@src
+  xpath: //div[@class="pd-main-image"]//meta/@content
 - name: imageAlt
   description: Alt text of the main product image
   xpath: //div[@class="pd-main-image"]//img/@alt
@@ -48,7 +48,7 @@ fields:
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
-  xpath: //div[@id="product-availability"]|//span[contains(@class, "stock-label")]
+  xpath: //div[@id="product-availability"]
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
@@ -57,6 +57,7 @@ fields:
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
+  xpath: count(//div[contains(@class, "pdp-description-tab-item")]//ul/li)
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
@@ -85,10 +86,11 @@ fields:
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
-  xpath: //div[@id="product-sku"]
+  xpath: //div[@id="product-upc"]
 - name: mpc
   singleValue: tru
   description: The manufacturer model code (unique) of the product
+  xpath: //div[@id="product-upc"]
 - name: packSize
   singleValue: true
   description: The number of packs in the product offer (if stated separately on the
@@ -106,7 +108,7 @@ fields:
 - name: ratingCount
   singleValue: true
   description: The number of ratings
-  xpath: (//meta[@itemprop="ratingCount"]/@content|//div[contains(@class, "ReviewHeader")]//p)[1]
+  xpath: //meta[@itemprop="reviewCount"]/@content
   type: NUMBER
 - name: aggregateRatingText
   singleValue: true
@@ -118,6 +120,7 @@ fields:
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
+  xpath: //div[contains(@class, "sold-by-container")]
 - name: shippingDimensions
   singleValue: true
   description: Stated shipping dimensions
@@ -136,6 +139,7 @@ fields:
 - name: manufacturerDescription
   singleValue: false
   description: The extended description of the product supplied by the lister
+  xpath: //div[@id="product-additional-desc"]
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
@@ -387,7 +391,7 @@ fields:
 - name: promotion
   singleValue: true
   description: promotion text on product page
-  xpath: //div[contains(@class,"product-description")]//div[@class="offers-all-item"]
+  xpath: //div[@class="product-des__details-price"]//div[@class="discount-info"]
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information

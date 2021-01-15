@@ -35,18 +35,21 @@ module.exports = {
             ? document.querySelector('div.pdp-description-tab-item.description-expand').textContent : '';
         }
       }
-
+      // @ts-ignore
+      if (document.querySelector('div.pdp-description-tab-readmore')) await document.querySelector('div.pdp-description-tab-readmore').click();
       const data = {};
+      const preloadedState = document.evaluate('//script[contains(text(), "window.__PRELOADED_STATE__")]', document, null, XPathResult.STRING_TYPE, null).stringValue;
+      if (preloadedState) data.sku = preloadedState.match(/"sku":"(.*?)"/) ? preloadedState.match(/"sku":"(.*?)"/)[1] : '';
       data.url = window.location.href;
       // @ts-ignore
       data.alternateImages = [...document.querySelectorAll('div.product_description div.slick-track img')].map(el => el.src.replace(/-50,/g, '-344,')).slice(1);
       data.alternateImagesCount = data.alternateImages.length;
       const isAvailable = document.querySelector('div.product_description button.combo-add-to-btn')
         ? document.querySelector('div.product_description button.combo-add-to-btn').textContent.includes('ADD TO BAG') : false;
-      data.availability = isAvailable ? 'In Stock' : 'Out of Stock';
+      data.availability = isAvailable ? 'In Stock' : 'Out Of Stock';
       data.quantity = document.querySelector('h1.product-title > span')
         ? document.querySelector('h1.product-title > span').textContent.replace(/\(|\)/g, '') : '';
-      data.sku = window.location.href.match(/skuId=(\d+)/) ? window.location.href.match(/skuId=(\d+)/)[1] : window.location.href.match(/\/p\/(\d+)/)[1];
+      data.upc = window.location.href.match(/skuId=(\d+)/) ? window.location.href.match(/skuId=(\d+)/)[1] : window.location.href.match(/\/p\/(\d+)/)[1];
       data.rating = document.querySelector('section.product-rating-summary > div.rs-text > strong')
         ? document.querySelector('section.product-rating-summary > div.rs-text > strong').textContent : '';
       const brandLink = document.evaluate('(//div[contains(@class,"pdp-description-tab")]//a[contains(@href,"brands")]/@href)[1]', document, null, XPathResult.STRING_TYPE, null).stringValue;
@@ -55,8 +58,13 @@ module.exports = {
       data.ingredients = await extractHeaders('ingredients');
       // Click on description to make it active - extracted in extract.yaml
       await extractHeaders('description');
-      const variantInfo = document.evaluate('(//div[contains(@class,"product-des__options")]/div/@class)[1]', document, null, XPathResult.STRING_TYPE, null).stringValue;
-      data.variantInfo = variantInfo.match(/product-des__options-(.+)/) ? variantInfo.match(/product-des__options-(.+)/)[1] : '';
+      const variantInfo = document.evaluate('//div[contains(@class,"selected")]//img/@alt|//label[contains(@class,"selected")]', document, null, XPathResult.STRING_TYPE, null).stringValue;
+      data.variantInfo = variantInfo.match(/ - (.*)/) ? variantInfo.match(/ - (.*)/)[1] : variantInfo;
+      data.additionalDesc = '';
+      document.querySelectorAll('div.pdp-description-tab-item.description-expand > div > div,div.pdp-description-tab-item.description-expand p:not([class*=mrp])')
+        .forEach(el => {
+          data.additionalDesc += el.textContent.trim();
+        });
       appendData(data);
     });
     await context.extract(productDetails, { transform });
