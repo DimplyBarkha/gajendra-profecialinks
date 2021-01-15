@@ -97,8 +97,27 @@ module.exports = {
 
 
       var sec = getAllXpath('//div[@class="fotorama__nav__frame fotorama__nav__frame--thumb"]/div/img/@src', 'nodeValue');
-      if( sec != null){
-        addElementToDocument('sec', sec);
+      if( sec.length >= 1){
+        for(var i=0; i<sec.length; i++){
+          addElementToDocument('sec', sec[i]);
+        }
+      }
+
+
+      // availability
+      var aval = getXpath('//script[@type="application/ld+json"]/text()', 'nodeValue');
+      if(aval != null){
+        var data = JSON.parse(aval);
+        var availability = data.offers.availability;
+        if(availability != null){
+          availability = availability.split("org/")[1];
+          if(availability.includes("InStock")){
+            availability = "In Stock";
+          }else{
+            availability = "Out of Stock"
+          }
+        addElementToDocument('availability', availability);
+        }
       }
 
       
