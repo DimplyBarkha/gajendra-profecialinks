@@ -19,11 +19,11 @@ fields:
     regExp: (/.+)
     regExpReplace: https://www.luluhypermarket.com$1
     xpath: //div[@class="plp-prod-img"]/img/@src
-  - name: url
-    singleValue: false
-    xpath: //form[@class="searchPOSForm clearfix"]/@action
-    regExp: (/.+)
-    regExpReplace: https://www.luluhypermarket.com$1
+  # - name: url
+  #   singleValue: true
+  #   xpath: //form[@class="searchPOSForm clearfix"]/@action
+  #   regExp: (/.+)
+  #   regExpReplace: https://www.luluhypermarket.com$1
   - name: price
     singleValue: false
     xpath: //div[@class="price"]/span/text()
