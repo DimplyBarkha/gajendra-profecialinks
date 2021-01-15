@@ -5,7 +5,7 @@ module.exports = {
     country: 'DE',
     store: 'idealclean',
     domain: 'ideal_clean.de',
-    loadedSelector: 'body',
+    loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
   },
