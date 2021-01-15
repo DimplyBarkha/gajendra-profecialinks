@@ -365,8 +365,6 @@ module.exports = {
         const updpList = [];
 
         if (similarItemsList.length) {
-          hasComparisionTable = true;
-
           for (const item of similarItemsList) {
             const title = item.querySelector('.caption .description') ? item.querySelector('.caption .description').innerText : null;
 
