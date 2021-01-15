@@ -91,6 +91,7 @@ fields:
     singleValue: true
     description: The size of serving Nutritional information is based on.
     xpath: (//th[contains(.,'Typical Values')]/following-sibling::th[1])[1]
+    regExp: .+[^:]
   - name: servingSizeUom
     singleValue: true
     description: Unit of measure of serving
