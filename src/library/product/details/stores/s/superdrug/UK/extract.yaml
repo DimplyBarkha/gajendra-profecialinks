@@ -31,7 +31,7 @@ fields:
   xpath: //div[@id="breadcrumb"]/a[position()>1 and position()<last()]
 - name: nameExtended
   singleValue: false
-  xpath: //div[@id="nameextended"]
+  xpath: //h1[@class="pdp__productName"]
 - name: listPrice
   singleValue: true
   xpath: //span[@class="pricing__was"]
@@ -43,8 +43,9 @@ fields:
   xpath: //div[@id="added-availability"]
 - name: description
   singleValue: false
-  xpath: //p[@itemprop="description"]
+  xpath: concat(//p[@itemprop="description"], //p[@itemprop="description"]/following-sibling::article/h3[contains(text(), "Features")]/parent::article, //p[@itemprop="description"]/following-sibling::article/h3[contains(text(), "Benefits")]/parent::article)
 - name: descriptionBullets
+  xpath: count(//h3[text()="Features"]/following-sibling::li|//h3[text()="Benefits"]/following-sibling::li)
   singleValue: true
   description: Number of ul > li tags in the description
 - name: brandText
@@ -237,7 +238,7 @@ fields:
   description: 
 - name: ingredientsList
   singleValue: false
-  xpath: //strong[@class="itemHeader"][contains(text(),"Ingredients")]/../../following-sibling::p[not(preceding-sibling::div)]
+  xpath: //strong[@class="itemHeader"][contains(text(),"Ingredients")]/../../following-sibling::p[not(preceding-sibling::div)]|//p[@itemprop="description"]/following-sibling::article/h3[contains(text(), "Product Specification")]/following-sibling::p[contains(text(), "Aqua")]|//p[@itemprop="description"]/following-sibling::article/h3[contains(text(), "Product Specification")]/following-sibling::div[contains(text(), "Aqua")]|//p[@itemprop="description"]/following-sibling::article/h3[contains(text(), "Product Specification")]/following::strong[contains(text(), "ingredient")]|//p[@itemprop="description"]/following-sibling::article/h3[contains(text(), "Product Specification")]/following::strong[contains(text(), "ingredient")]/parent::p/following::p[2]
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.

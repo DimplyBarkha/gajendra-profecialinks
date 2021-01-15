@@ -2,7 +2,7 @@ input:
   id: 101583
   _url: http://superdrug.com
 extractions:
-  - html: https://workbench.import.io/html/run=f7f3f108-8966-4a2b-a05a-1a85961faa06/task=71285a93-548c-448a-9c75-b6400df96a0d/24872936-1841-4a69-8ad8-f136febd2855.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=aaffc437-0294-4666-a1da-1cfa607b29d6/task=d1d933d3-c542-43f0-bea5-c70b886a8b80/a6980223-854d-4912-8d48-aa1987b5b019.html
     extractionConfigId: product/details/stores/s/superdrug/UK/extract
     data:
       - group:
@@ -17,9 +17,9 @@ extractions:
                 xpath: /html/body/div[26]/div[1]/section[1]/div[1]/div[2]/a[1]/div[1]/img[1]/@alt
             alternateImages:
               - text: https://www.superdrug.com/medias/sys_master/back-prdthumb/back-prdthumb/h0b/hc7/9790573183006/Olay-Regenerist-Eye-Lifting-Serum-15-Ml-101583.jpg
-                xpath: /html/body/div[43]
+                xpath: /html/body/div[42]
               - text: https://www.superdrug.com/medias/sys_master/side-prdthumb/side-prdthumb/h8c/hde/9790747836446/Olay-Regenerist-Eye-Lifting-Serum-15-Ml-101583.jpg
-                xpath: /html/body/div[44]
+                xpath: /html/body/div[43]
             category:
               - text: Skin
                 xpath: /html/body/div[24]/a[2]
@@ -28,20 +28,14 @@ extractions:
               - text: Eye Gels, Serums & Balms
                 xpath: /html/body/div[24]/a[4]
             nameExtended:
-              - text: Olay - Olay Regenerist Eye Lifting Serum 15ml
-                xpath: /html/body/div[36]
+              - text: Olay Regenerist Eye Lifting Serum 15ml
+                xpath: /html/body/div[26]/div[1]/section[1]/header[1]/h1[1]
             price:
               - text: "21.69"
                 xpath: /html/body/div[26]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[46]
-            description:
-              - text: |-
-                  - Smoothes fine lines and wrinkles around the eyes
-                  - Hydrates for a lifted eye contour
-                  - Exfoliates, smoothes and brightens
-                xpath: /html/body/div[26]/div[3]/div[1]/section[1]/p[1]
+                xpath: /html/body/div[45]
             brandText:
               - text: Olay
                 xpath: /html/body/div[26]/div[1]/section[1]/header[1]/span[1]/a[1]
@@ -71,10 +65,22 @@ extractions:
                 xpath: /html/body/div[26]/div[1]/section[1]/header[1]/h1[1]
             brandLink:
               - text: https://www.superdrug.com/b/Olay
-                xpath: /html/body/div[37]
+                xpath: /html/body/div[36]
             secondaryImageTotal:
               - text: "2"
-                xpath: /html/body/div[42]
+                xpath: /html/body/div[41]
+            ingredientsList:
+              - text: Aqua, Dimethicone, Glycerin, Niacinamide, Dimethicone Crosspolymer,
+                  Polymethylsilsesquioxane, Panthenol, Polyethylene, Tocopheryl
+                  Acetate, C13-14 Isoparaffin, Allantoin, Dimethiconol, Butylene
+                  Glycol, Camellia Sinensis Leaf Extract, Palmitoyl
+                  Pentapeptide-4, Mica, Acrylamide/Sodium
+                  Acryloyldimethyltaurate Copolymer, Laureth-4, Acrylates/C10-30
+                  Alkyl Acrylate Crosspolymer, Laureth-7, Sodium PEG-7 Olive Oil
+                  Carboxylate, Disodium EDTA, Triethoxycaprylylsilane, PEG-100
+                  Stearate, DMDM Hydantoin, Benzyl Alcohol, Iodopropynyl
+                  Butylcarbamate, Methylparaben, CI 77891, CI 77491, Caramel
+                xpath: /html/body/div[26]/div[3]/div[1]/section[1]/article[4]/p[1]
             productOtherInformation:
               - text: Olay Regenerist Eye Lifting Serum is an eye cream serum specifically
                   designed to treat the the delicate skin around the eye area.
@@ -103,23 +109,49 @@ extractions:
                 xpath: /html/body/div[26]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
             pricePerUnitUom:
               - text: 10ml
-                xpath: /html/body/div[45]
+                xpath: /html/body/div[44]
             promotion:
               - text: Buy 1 get 1 free mix & match on selected Olay
                 xpath: /html/body/div[26]/div[1]/section[1]/div[3]/a[2]
             termsAndConditions:
               - text: Yes
-                xpath: /html/body/div[39]
+                xpath: /html/body/div[38]
             privacyPolicy:
               - text: Yes
-                xpath: /html/body/div[40]
+                xpath: /html/body/div[39]
             customerServiceAvailability:
               - text: Yes
-                xpath: /html/body/div[41]
+                xpath: /html/body/div[40]
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[38]
+                xpath: /html/body/div[37]
+            description:
+              - text: "- Smoothes fine lines and wrinkles around the eyes- Hydrates for a lifted
+                  eye contour- Exfoliates, smoothes and brightens
+
+                  \t\t\t\t    Features
+
+                  \t\t\t\t    Olay Regenerist Eye Lifting
+                  Serum is an eye cream serum specifically designed to treat the
+                  the delicate skin around the eye area. It smoothes fine lines
+                  and wrinkles around the eye contour for a lifted appearance.
+                  Reveal younger looking skin with the fragrance-free,
+                  Amino-Peptide-Complex formula that replenishes the skin's
+                  moisture barrier to regenerate the skin's surface.
+
+                  \t\t\t\t
+
+                  \t\t\t\t    Benefits
+
+                  \t\t\t\t    - Smoothes fine lines and
+                  wrinkles around the eyes- Hydrates for a lifted eye contour-
+                  Exfoliates, smoothes and brightens- Fast-absorbing,
+                  fragrance-free formula with Amino-Peptide-Complex
+
+                  \t\t\t\t"
+            descriptionBullets:
+              - text: "0"
             variantCount:
               - text: "0"
         xpath: /
-    timestamp: 1609330962336
+    timestamp: 1610717326425

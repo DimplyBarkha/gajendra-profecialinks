@@ -2,7 +2,7 @@ input:
   id: 184209
   _url: http://superdrug.com
 extractions:
-  - html: https://workbench.import.io/html/run=f7f3f108-8966-4a2b-a05a-1a85961faa06/task=ef3c75a7-5c22-4a25-bb0c-bcde33e4c494/10dfb085-86bb-4e9b-8cc3-3dfe344e9f7d.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=aaffc437-0294-4666-a1da-1cfa607b29d6/task=a5ee7f56-988b-4e66-b5da-388098c26121/d54ff6cb-533f-486d-874e-87184adfdab7.html
     extractionConfigId: product/details/stores/s/superdrug/UK/extract
     data:
       - group:
@@ -17,9 +17,9 @@ extractions:
                 xpath: /html/body/div[26]/div[1]/section[1]/div[1]/div[2]/a[1]/div[1]/img[1]/@alt
             alternateImages:
               - text: https://www.superdrug.com/medias/sys_master/back-prdthumb/back-prdthumb/ha2/h4b/10018797944862/-Calpol-Infant-Suspension-2-Months-Sugar-Free-100ml-184209.jpg
-                xpath: /html/body/div[43]
+                xpath: /html/body/div[42]
               - text: https://www.superdrug.com/medias/sys_master/side-prdthumb/side-prdthumb/hf7/h3c/9365175205918/DNR-Calpol-Infant-Suspension-2-Months-Sugar-Free-100ml-184209.jpg
-                xpath: /html/body/div[44]
+                xpath: /html/body/div[43]
             category:
               - text: Health
                 xpath: /html/body/div[24]/a[2]
@@ -28,20 +28,14 @@ extractions:
               - text: Children's Pain Relief
                 xpath: /html/body/div[24]/a[4]
             nameExtended:
-              - text: Calpol - Calpol Infant 2+ Months Sugar Free Suspension 100ml
-                xpath: /html/body/div[36]
+              - text: Calpol Infant 2+ Months Sugar Free Suspension 100ml
+                xpath: /html/body/div[26]/div[1]/section[1]/header[1]/h1[1]
             price:
               - text: "3.49"
                 xpath: /html/body/div[26]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[46]
-            description:
-              - text: Calpol Sugar Free Infant Suspension is used to relieve pain and/or bring
-                  down fever (high temperature) in many conditions including
-                  post-immunisation fever, teething, headache, cold and flu,
-                  toothache, earache, sore throat and other aches and pains.
-                xpath: /html/body/div[26]/div[3]/div[1]/section[1]/p[1]
+                xpath: /html/body/div[45]
             brandText:
               - text: Calpol
                 xpath: /html/body/div[26]/div[1]/section[1]/header[1]/span[1]/a[1]
@@ -107,10 +101,10 @@ extractions:
                 xpath: /html/body/div[26]/div[1]/section[1]/header[1]/h1[1]
             brandLink:
               - text: https://www.superdrug.com/b/Calpol
-                xpath: /html/body/div[37]
+                xpath: /html/body/div[36]
             secondaryImageTotal:
               - text: "2"
-                xpath: /html/body/div[42]
+                xpath: /html/body/div[41]
             productOtherInformation:
               - text: Pink oral liquid.
                 xpath: /html/body/div[26]/div[3]/div[1]/section[1]/article[1]/p[1]
@@ -128,23 +122,46 @@ extractions:
                 xpath: /html/body/div[26]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
             pricePerUnitUom:
               - text: 100ml
-                xpath: /html/body/div[45]
+                xpath: /html/body/div[44]
             promotion:
               - text: Get 300 points when you spend £20 across Healthcare!
                 xpath: /html/body/div[26]/div[1]/section[1]/div[3]/a[2]
             termsAndConditions:
               - text: Yes
-                xpath: /html/body/div[39]
+                xpath: /html/body/div[38]
             privacyPolicy:
               - text: Yes
-                xpath: /html/body/div[40]
+                xpath: /html/body/div[39]
             customerServiceAvailability:
               - text: Yes
-                xpath: /html/body/div[41]
+                xpath: /html/body/div[40]
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[38]
+                xpath: /html/body/div[37]
+            description:
+              - text: "Calpol Sugar Free Infant Suspension is used to relieve pain and/or bring
+                  down fever (high temperature) in many conditions including
+                  post-immunisation fever, teething, headache, cold and flu,
+                  toothache, earache, sore throat and other aches and pains.
+
+                  \t\t\t\t    Features
+
+                  \t\t\t\t    Pink oral liquid.
+
+                  \t\t\t\t
+
+                  \t\t\t\t    Benefits
+
+                  \t\t\t\t    The active ingredient in this
+                  medicine is paracetamol which is effective for providing
+                  relief from many conditions including post-immunisation fever,
+                  teething, headache, cold and flu, toothache, earache, sore
+                  throat and other aches and pains.
+
+                  \t\t\t\t"
+            descriptionBullets:
+              - text: "0"
             variantCount:
               - text: "0"
         xpath: /
-    timestamp: 1609330964492
+    timestamp: 1610717331988

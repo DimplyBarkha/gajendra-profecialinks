@@ -2,7 +2,7 @@ input:
   id: 933481
   _url: http://superdrug.com
 extractions:
-  - html: https://workbench.import.io/html/run=f7f3f108-8966-4a2b-a05a-1a85961faa06/task=3fda8c23-312b-4689-aad8-375cfc6d4a32/9df9e840-2397-4cc4-a14b-a3319c8c0c45.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=aaffc437-0294-4666-a1da-1cfa607b29d6/task=e5494cce-138e-404f-b51d-53274fc9e172/81507b39-547d-48c9-969f-39de7a854e2e.html
     extractionConfigId: product/details/stores/s/superdrug/UK/extract
     data:
       - group:
@@ -17,9 +17,9 @@ extractions:
                 xpath: /html/body/div[26]/div[1]/section[1]/div[1]/div[2]/a[1]/div[1]/img[1]/@alt
             alternateImages:
               - text: https://www.superdrug.com/medias/sys_master/back-prdthumb/back-prdthumb/h36/haa/9648477831198/Rimmel-Exaggerate-Lipliner-Red-Diva-24-933481.jpg
-                xpath: /html/body/div[47]
+                xpath: /html/body/div[46]
               - text: https://www.superdrug.com/medias/sys_master/side-prdthumb/side-prdthumb/h55/hee/11150397079582/Rimmel-Exaggerate-Lip-Liner-Red-Diva-24-933481.jpg
-                xpath: /html/body/div[48]
+                xpath: /html/body/div[47]
             category:
               - text: Make Up
                 xpath: /html/body/div[24]/a[2]
@@ -28,21 +28,14 @@ extractions:
               - text: Lip Liners
                 xpath: /html/body/div[24]/a[4]
             nameExtended:
-              - text: Rimmel - Rimmel Exaggerate Lip Liner Red Diva 24
-                xpath: /html/body/div[36]
+              - text: Rimmel Exaggerate Lip Liner Red Diva 24
+                xpath: /html/body/div[26]/div[1]/section[1]/header[1]/h1[1]
             price:
               - text: "4.99"
                 xpath: /html/body/div[26]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[49]
-            description:
-              - text: |-
-                  Long Lasting precise contour colour 
-                  Full Volume Colour and definition.
-                  Soft texture
-                  Fine tipped automatic liner
-                xpath: /html/body/div[26]/div[3]/div[1]/section[1]/p[1]
+                xpath: /html/body/div[48]
             brandText:
               - text: Rimmel
                 xpath: /html/body/div[26]/div[1]/section[1]/header[1]/span[1]/a[1]
@@ -75,10 +68,10 @@ extractions:
                 xpath: /html/body/div[26]/div[1]/section[1]/header[1]/h1[1]
             brandLink:
               - text: https://www.superdrug.com/b/Rimmel
-                xpath: /html/body/div[37]
+                xpath: /html/body/div[36]
             secondaryImageTotal:
               - text: "2"
-                xpath: /html/body/div[46]
+                xpath: /html/body/div[45]
             recyclingInformation:
               - text: Check with local recycling in your area
                 xpath: /html/body/div[26]/div[3]/div[1]/section[1]/article[2]/p[1]
@@ -109,29 +102,34 @@ extractions:
                 xpath: /html/body/div[26]/div[1]/div[1]/div[1]/div[1]/div[3]/form[1]/div[1]/div[1]/a[4]/@title
             firstVariant:
               - text: Addiction 18 - 698829
-                xpath: /html/body/div[39]
+                xpath: /html/body/div[38]
             variants:
               - text: Addiction 18 - 698829
-                xpath: /html/body/div[39]
+                xpath: /html/body/div[38]
               - text: Obsession 64 - 698886
-                xpath: /html/body/div[40]
+                xpath: /html/body/div[39]
               - text: Eastend Snob 63 - 933473
-                xpath: /html/body/div[41]
+                xpath: /html/body/div[40]
               - text: Red Diva 24 - 933481
-                xpath: /html/body/div[42]
+                xpath: /html/body/div[41]
             termsAndConditions:
               - text: Yes
-                xpath: /html/body/div[43]
+                xpath: /html/body/div[42]
             privacyPolicy:
               - text: Yes
-                xpath: /html/body/div[44]
+                xpath: /html/body/div[43]
             customerServiceAvailability:
               - text: Yes
-                xpath: /html/body/div[45]
+                xpath: /html/body/div[44]
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[38]
+                xpath: /html/body/div[37]
+            description:
+              - text: Long Lasting precise contour colour Full Volume Colour and definition.Soft
+                  textureFine tipped automatic liner
+            descriptionBullets:
+              - text: "0"
             variantCount:
               - text: "4"
         xpath: /
-    timestamp: 1609330965605
+    timestamp: 1610717339351
