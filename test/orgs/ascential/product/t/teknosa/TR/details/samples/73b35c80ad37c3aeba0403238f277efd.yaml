@@ -2,7 +2,7 @@ input:
   id: 125077495
   _url: http://teknosa.com
 extractions:
-  - html: https://workbench.import.io/html/run=806d4e64-1583-4a5e-a25b-ab38bb6413c3/task=ed0ed935-0f2f-4274-a0de-acbc58a7d9e2/fbb1f869-2975-42a5-83eb-b7677a8d2bfb.html
+  - html: https://workbench.import.io/html/run=109f5be3-2690-4131-be88-5807373e1de6/task=e93c9311-2896-4f7a-9ea1-f4a1f4d4673f/f68a1724-7113-4b34-9e39-aa79ecbb97bd.html
     extractionConfigId: product/details/stores/t/teknosa/TR/extract
     data:
       - group:
@@ -33,8 +33,11 @@ extractions:
             nameExtended:
               - text: Samsung Galaxy A51 White Akıllı Telefon
                 xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/h1[1]/text()[1]
-            price:
+            listPrice:
               - text: 3499,00 TL
+                xpath: /html/body/script[4]/@correctlistprice
+            price:
+              - text: 3249,00 TL
                 xpath: /html/body/script[4]/@correctprice
             availabilityText:
               - text: In Stock
@@ -2097,6 +2100,12 @@ extractions:
                   uzatabileceğiniz bir hizmet sözleşmesidir. Tekno Garanti
                   Nedir?
                 xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[5]/div[1]/p[1]
+            promotion:
+              - text: |-
+                  %7
+                   
+                  İNDİRİM
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]
             technicalInformationPdfPresent:
               - text: Yes
                 xpath: /html/body/div[2]/section[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[2]/@href
@@ -2123,4 +2132,4 @@ extractions:
                 locale: tr
                 value: 9
         xpath: /
-    timestamp: 1610112047725
+    timestamp: 1610612793932
