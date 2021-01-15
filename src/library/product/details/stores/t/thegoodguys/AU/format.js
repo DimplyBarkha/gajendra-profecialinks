@@ -56,6 +56,13 @@ const transform = (data) => {
           }
         });
       }
+      if (row.manufacturerImages) {
+        row.manufacturerImages.forEach(item => {
+          if (item.text.indexOf('http') < 0) {
+            item.text = 'https:' + item.text;
+          }
+        });
+      }
       if (row.price2) {
         if (!row.price) {
           row.price = [{ text: '$' + row.price2[0].text }];
