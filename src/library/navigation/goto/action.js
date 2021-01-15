@@ -10,6 +10,12 @@ module.exports = {
       type: 'number',
       optional: true,
     },
+    {
+      name: 'jsonToTable',
+      description: 'will check if the json collected is properly parsed into a table',
+      type: 'boolean',
+      optional: true,
+    },
   ],
   inputs: [
     {

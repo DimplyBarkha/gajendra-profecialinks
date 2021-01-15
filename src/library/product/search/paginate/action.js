@@ -1,34 +1,10 @@
-/**
- *
- * @param {{
- *  keywords: string,
- *  page: number,
- *  offset: number,
- * }} inputs
- * @param {{
- *  nextLinkSelector: string,
- * nextLinkXpath: string,
- *  mutationSelector: string,
- *  loadedSelector: string,
- *  loadedXpath: string,
- *  noResultsXPath: string,
- *  spinnerSelector: string,
- *  stopConditionSelectorOrXpath: string,
- *  resultsDivSelector: string,
- *  openSearchDefinition: { template: string, indexOffset?: number, pageOffset?: number, pageIndexMultiplier?: number, pageStartNb?: number }
- * }} parameters
- * @param { ImportIO.IContext } context
- * @param { Record<string, any> } dependencies
- */
-async function implementation (
-  inputs,
-  parameters,
-  context,
-  dependencies,
-) {
-  const { keywords, page, offset } = inputs;
-  const { stopConditionSelectorOrXpath, nextLinkSelector, loadedSelector, noResultsXPath, mutationSelector, loadedXpath, resultsDivSelector, spinnerSelector, openSearchDefinition, nextLinkXpath } = parameters;
+// this file is kept for backward compatibility puproses
+// when possible and redeploying a search extractor, migrate to the new pagination by:
+// in the file paginate.js
+// replace the line: implements: 'product/search/paginate',
+// by the line:  implements: 'navigation/paginate',
 
+<<<<<<< HEAD
   let nextLink;
 
   if (stopConditionSelectorOrXpath) {
@@ -193,3 +169,6 @@ module.exports = {
   },
   implementation,
 };
+=======
+module.exports = require('../../../navigation/paginate/action');
+>>>>>>> e8f51368ee299eedbfdcdc334201ea544028f53e
