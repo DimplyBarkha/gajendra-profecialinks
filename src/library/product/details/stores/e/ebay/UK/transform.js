@@ -12,6 +12,23 @@ const transform = (data) => {
           text: row.specifications.reduce((item, currItem) => item ? `${item} || ${currItem.text.replace(/:(\s*\n\s*)+/g, ': ').replace(/(\s*\n\s*)+/, ' || ')}` : currItem.text.replace(/:(\s*\n\s*)/g, ': ').replace(/(\s*\n\s*)+/, ' || '), ''),
         }];
       }
+      if (row.manufacturerImages) {
+        let text = '';
+        row.manufacturerImages.forEach(item => {
+          if (item.text.match('jpg') || item.text.match('jpeg') || item.text.match('png')) {
+            text = text + (text ? ' | ' : '') + item.text;
+          }
+        });
+        console.log('manufacturer Images - ', text);
+        row.manufacturerImages = [{ text }];
+      }
+      if (row.manufacturerDescription) {
+        let text = '';
+        row.manufacturerDescription.forEach(item => {
+          text = text + (text ? ' ' : '') + item.text;
+        });
+        row.manufacturerDescription = [{ text }];
+      }
       if (row.unInterruptedPDP) {
         const set = new Set();
         row.unInterruptedPDP.forEach(item => {
