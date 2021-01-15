@@ -10,7 +10,7 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
-    const dataConversion = (data) => {
+    const dataConversion = (data, rpc = null) => {
       for (let k = 0; k < data.length; k++) {
         for (let i = 0; i < data[k].group.length; i++) {
           if ('alternateImages' in data[k].group[i]) {
@@ -18,6 +18,12 @@ module.exports = {
               data[k].group[i].alternateImages[j].text = data[k].group[i].alternateImages[j].text.replace('AltItemThumb', 'AltItemShot');
               data[k].group[i].alternateImages[j].text = data[k].group[i].alternateImages[j].text.replace('minishot', 'shotview-315x472');
             }
+          }
+          if ('variantId' in data[k].group[i] && rpc !== null) {
+            data[k].group[i].variantId[0].text = rpc;
+          }
+          if ('variantInformation' in data[k].group[i]) {
+            data[k].group[i].variantInformation[0].text = data[k].group[i].variantInformation[0].text.split(' - Currently')[0];
           }
           if ('availabilityText' in data[k].group[i] && data[k].group[i].availabilityText[0].text !== 'Out of Stock') {
             data[k].group[i].availabilityText[0].text = 'In Stock';
@@ -52,18 +58,24 @@ module.exports = {
         document.body.appendChild(element);
       }
     });
-    const variants = await context.evaluate(() => { return document.querySelectorAll('div.colourList > div > ul > li > a').length; });
-    if (variants !== 0) {
-      for (let i = 0; i < variants; i++) {
+    const rpc = await context.evaluate(() => {
+      const rpc = [];
+      const variantId = document.querySelectorAll('div[role="listbox"] ul li a');
+      variantId.forEach(element => rpc.push(element.getAttribute('data-dk-dropdown-value')));
+      return rpc;
+    });
+    const variants = await context.evaluate(() => { return document.querySelectorAll('div[class*="SizeSelector"] > div > ul > li > a').length; });
+    if (variants > 1) {
+      for (let i = 1; i < variants; i++) {
         await context.evaluate((i) => {
-          document.querySelectorAll('div.colourList > div > ul > li > a')[i].click();
+          document.querySelectorAll('div[class*="SizeSelector"] > div > ul > li > a')[i].click();
         }, i);
         // wait for extraction
         await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-        dataConversion(await context.extract(productDetails, { transform }));
+        dataConversion(await context.extract(productDetails, { transform }), rpc[i]);
       };
     }
-    if (variants === 0) {
+    if (variants <= 1) {
       dataConversion(await context.extract(productDetails, { transform }));
     }
   },

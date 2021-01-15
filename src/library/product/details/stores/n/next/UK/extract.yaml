@@ -26,6 +26,7 @@ fields:
   description: Other product images (not in manufacturer description)
 - name: metaKeywords
   singleValue: true
+  xpath: //meta[@name="keywords"]/@content
   description: The <meta> keywords content
 - name: category
   singleValue: false
@@ -62,6 +63,7 @@ fields:
   description: Number of ul > li tags in the description
 - name: brandText
   singleValue: true
+  xpath: //section[@class="ProductDetail"]/article/@data-brand
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
 - name: manufacturer
@@ -85,7 +87,7 @@ fields:
   description: The store-specific product identifier
 - name: variantId
   singleValue: true
-  xpath: //div[@class="ItemNumber"]
+  xpath: //div[@role="combobox"]//div[@role="listbox"]/ul/li/a/@data-dk-dropdown-value
   description: Identifier for a variant from a store where variants share the same
     sku
 - name: mpc
@@ -238,6 +240,7 @@ fields:
   description: 
 - name: secondaryImageTotal
   singleValue: true
+  xpath: count(//div[@class="ThumbNailNavClip"]//li[not(contains(@class, "first selected"))]//img)
   description: 
 - name: news
   singleValue: true
@@ -432,6 +435,7 @@ fields:
     desription info
 - name: variantInformation
   singleValue: true
+  xpath: //li[contains(@class, "dk_option_current")]/a/text()
   description: colour / scent / flavour / other
 - name: firstVariant
   singleValue: true
