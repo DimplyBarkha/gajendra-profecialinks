@@ -70,11 +70,9 @@ fields:
     description: Number of comments on the review
   - name: reviewDate
     singleValue: false
-    type: DATETIME
     description: Date the review was made
     xpath: //span[@class='sc-1tgo8i-11 iEjqbJ']/span/following-sibling::text() | //div[@id="my-reviews"]/@reviewDate
   - name: rating
-    type: NUMBER
     singleValue: false
     description: Rating normalized to be out of 5
     xpath: //div[@data-testid='ratingStars']//div[1]//*[name()='svg'][1]//span[1] | //div[@id="my-reviews"]/@rating
