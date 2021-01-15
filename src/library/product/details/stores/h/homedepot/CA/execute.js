@@ -35,7 +35,7 @@ module.exports = {
     country: 'CA',
     store: 'homedepot',
     domain: 'homedepot.ca',
-    // loadedSelector: 'product,div[class="hdca-product"],div[evtperfname="product-localized-container"]',
+    // loadedSelector: 'div[evtperfname="product-localized-container"]',
     // noResultsXPath: '//message[contains(text(),"not found")] | //errorList | //product-not-found-container[@evtperfname="product-not-found-container"]//div[contains(text(), "temporarily unavailable")] | //product-not-found-container[@evtperfname="product-not-found-container"]//h1[contains(text(), "temporarily unavailable")] | //div[contains(@class,"hdca-container") and not(.//div[@acl-breadcrumbs])]',
     zipcode: '',
   },

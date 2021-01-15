@@ -29,6 +29,8 @@ module.exports = {
         });
       }
     });
+
+  
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -87,6 +89,23 @@ module.exports = {
           }
         }
       }
+
+      async function getUnInterruptedPDP() {
+        const sku = document.evaluate('//nav[@id="breadcrumbs"]//ol//li[@itemscope="false"]', document, null, XPathResult.ANY_TYPE, null).iterateNext().textContent;
+         const jsApi = `https://www.homedepot.ca/api/rec/v1/recommendations?scheme=product1_rr&trackingId=900360419029528&products=${sku}&store=7077&fields=FULL&catalogVersion=Online&lang=en`
+           const response = await fetch(jsApi);
+          if(response) {
+            const jsonData = await response.json();
+            const data = jsonData && jsonData.schemes[0] && jsonData.schemes[0].items && jsonData.schemes[0].items.map(e=> e.manufacturer+ ' '+ e.name);
+            return data;
+          }
+    }
+   
+    const unInterruptedPDP = await getUnInterruptedPDP();
+    if(unInterruptedPDP && unInterruptedPDP.length) {
+      const uPdp = unInterruptedPDP.join(' || ');
+      document.querySelector('h1') && document.querySelector('h1').setAttribute('recommend-products',uPdp);
+    }
     });
     await new Promise(resolve => setTimeout(resolve, 10000));
     return await context.extract(productDetails, { transform });

@@ -58,7 +58,17 @@ const transform = (data) => {
           item.text = item.text.slice(index);
         });
       }
-
+      if (row.unInterruptedPDP) {
+        let text = '';
+        row.unInterruptedPDP.forEach(item => {
+          text = row.unInterruptedPDP.map(elm => elm.text).join(' || ');
+        });
+        row.unInterruptedPDP = [
+          {
+            text: text,
+          },
+        ];
+      }
       if (row.specifications) {
         row.specifications[0].text = '';
         if (row.dimensionsSpecifications) {
