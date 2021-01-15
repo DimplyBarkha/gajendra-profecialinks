@@ -92,7 +92,9 @@ fields:
     singleValue: false
     xpath: //h2[text()='Lisätietoja']//following-sibling::div[contains(@class,'content')]//table//tr//th//div[text()='Materiaali']//parent::th//following-sibling::td   
   - name: inTheBoxUrl
-    xpath: //div[@class="inpage_selector_InTheBox"]//img/@srcset
+    xpath: //div[@class="inpage_selector_InTheBox"]//img/@data-flixsrcset
+    regExp: (//media.flixcar.com/f360cdn/.+)(200w)
+    regExpReplace: https:$1
   - name: inTheBoxText
     xpath: //div[@class="inpage_selector_InTheBox"]//span
   - name: unInterruptedPDP
