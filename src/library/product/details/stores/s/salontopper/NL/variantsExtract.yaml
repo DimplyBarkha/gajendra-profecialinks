@@ -1,0 +1,12 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //select[@class='autoredirect']
+fields:
+  - name: variantId
+    xpath: //select[@class='autoredirect']/option/@value
+    regExp: \d+$
+  - name: variantUrl
+    xpath: //select[@class='autoredirect']/option/@value
+    regExp: (.+)
+    regExpReplace: https://www.salontopper.nl$1

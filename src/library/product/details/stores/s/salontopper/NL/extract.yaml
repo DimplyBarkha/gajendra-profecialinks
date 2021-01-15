@@ -48,12 +48,12 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@itemprop='description']/p | //div[@itemprop='description']/ul
+    xpath: //div[@id='desc']
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
-    xpath: count(//div[@itemprop='description']/ul/li)
+    xpath: count(//div[@aria-labelledby="specs-label"]/ul/li)
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -99,7 +99,7 @@ fields:
   - name: directions
     singleValue: true
     description: Content under "directions" header
-    xpath: //strong[contains(text(), 'Gebruik')]/following-sibling::text()[1] | //h3[strong[contains(text(), 'Gebruik')]]/following-sibling::p[1]
+    xpath: //div[@id='directions']
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
@@ -115,7 +115,7 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     # type: NUMBER
-    xpath: //meta[@itemprop='ratingValue']/@ratingvalue
+    xpath: //meta[@itemprop='ratingValue']/@ratingvalue | //meta[@itemprop='ratingValue']/@content
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product

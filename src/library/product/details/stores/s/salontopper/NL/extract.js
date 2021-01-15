@@ -1,3 +1,4 @@
+// @ts-nocheck
 const { cleanUp } = require('../../../../shared');
 
 module.exports = {
@@ -18,6 +19,41 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
+      // directions
+      const directions = [];
+      const directionsTitle = document.querySelectorAll('div[id*="accordion"] > *')
+        ? document.querySelectorAll('div[id*="accordion"] > *') : [];
+      directionsTitle.forEach((e, i) => {
+        if (e.textContent.includes('Gebruiksaanwijzing')) {
+          directions.push(e.textContent);
+          const main = e.nextElementSibling
+            ? e.nextElementSibling.textContent : '';
+          directions.push(main);
+        }
+        if (e.textContent.includes('Gebruik')) {
+          const directionsMain = e.parentElement
+            ? e.parentElement.textContent : '';
+          directions.push(directionsMain.split('Gebruik:').pop().trim());
+        }
+      });
+
+      addElementToDocument('directions', directions.join(' '));
+      // description bullets
+      const desc = [];
+      const header = document.querySelector('#description > a')
+        ? document.querySelector('#description > a').textContent : '';
+      const title = document.querySelector('div[itemprop="description"] h2')
+        ? document.querySelector('div[itemprop="description"] h2').textContent : '';
+      const main = document.querySelectorAll('div[itemprop="description"] > *:not([name]):not(h2)')
+        ? [...document.querySelectorAll('div[itemprop="description"] > *:not([name]):not(h2)')].map(e => e.innerText).join('').split('\n').join('')
+        : '';
+      desc.push(header);
+      desc.push(title);
+      desc.push(main);
+      const specs = document.querySelector('#specs')
+        ? document.querySelector('#specs').innerText.split('\n').join(' | ') : '';
+      desc.push(specs);
+      addElementToDocument('desc', desc.join(''));
       // rating
       const ratingValue = document.querySelector('meta[itemprop="ratingValue"]');
       if (ratingValue !== null) ratingValue.setAttribute('ratingValue', ratingValue.getAttribute('content').replace('.', ','));
@@ -51,6 +87,11 @@ module.exports = {
     });
     var dataRef = await context.extract(productDetails, { transform });
     dataRef[0].group.forEach((row) => {
+      if (row.aggregateRating) {
+        row.aggregateRating.forEach(item => {
+          item.text = !item.text.includes('.') || !item.text.includes(',') ? item.text.concat('.0') : item.text;
+        });
+      }
       if (row.variantInformation) {
         row.variantInformation.forEach(item => {
           item.text = item.text ? item.text.trim() : '';
