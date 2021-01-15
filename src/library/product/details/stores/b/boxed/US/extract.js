@@ -33,6 +33,8 @@ module.exports = {
       const descBullets = document.querySelector('article[class*="270b-less"] > p');
       // @ts-ignore
       if (descBullets !== null && descBullets.innerText.includes('•')) descBullets.setAttribute('bullets', descBullets.innerText.match(/•/g).length);
+      // @ts-ignore
+      if (descBullets !== null && descBullets.innerText.includes('∙')) descBullets.setAttribute('bullets', descBullets.innerText.match(/∙/g).length);
       const quantitySecond = document.evaluate('//span[contains(@class, "a8ac-less")]/following-sibling::text()[1]', document, null, XPathResult.STRING_TYPE).stringValue;
       const quantityFirst = document.evaluate('//span[contains(@class, "a8ac-less")]/preceding-sibling::text()[1]', document, null, XPathResult.STRING_TYPE).stringValue;
       if (quantitySecond) addElementToDocument('quantity', quantitySecond, '#');
@@ -49,22 +51,22 @@ module.exports = {
       }
 
       const pricePerUnit = document.querySelector('div[class*="ba0e6-less"]');
-      if (pricePerUnit !== null) addElementToDocument('pricePerUnit', pricePerUnit.textContent.split('/')[0]);
-
-      const pricePerUnitUom = document.querySelector('div[class*="ba0e6-less"]');
-      if (pricePerUnitUom !== null) {
-        const unit = pricePerUnitUom.textContent.split('/')[1];
+      if (pricePerUnit !== null && pricePerUnit.textContent !== '') {
+        addElementToDocument('pricePerUnit', pricePerUnit.textContent.split('/')[0]);
+        const unit = pricePerUnit.textContent.split('/')[1];
         if (unit.indexOf('(')) {
           addElementToDocument('pricePerUnitUom', unit.split('(')[0]);
         } else addElementToDocument('pricePerUnitUom', unit);
       }
 
-      const promotion = document.querySelector('div[class*="05d-less"]')
-        ? document.querySelector('div[class*="05d-less"]').textContent : '';
-      addElementToDocument('promotion', promotion.substring(
-        promotion.lastIndexOf('(') + 1,
-        promotion.lastIndexOf(')'),
-      ));
+      const promotion = document.querySelector('div[class*="ba0e6-less"]')
+        ? document.querySelector('div[class*="ba0e6-less"]').textContent : '';
+      if (promotion !== '') {
+        addElementToDocument('promotion', promotion.substring(
+          promotion.lastIndexOf('(') + 1,
+          promotion.lastIndexOf(')'),
+        ));
+      }
 
       const isAvailable = document.querySelector('section[class*="73e-less"] h2');
 
