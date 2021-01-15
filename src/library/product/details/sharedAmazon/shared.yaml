@@ -183,7 +183,7 @@ fields:
     xpath: //div[@id='added-url']
   - name: asin
     #singleValue: true
-    xpath: //div[@id='added-asin'] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'ASIN')]/../../text() | //*[normalize-space(text())="ASIN"]/following-sibling::*[1]
+    xpath: //div[@id='added-asin'] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'ASIN')]/../../text() | //*[normalize-space(text())="ASIN"]/following-sibling::*[1] | //*[normalize-space(text())="ASIN :"]/following-sibling::*[1]
     regExp: ^\w+
   - name: sku
   - name: coupon
@@ -727,4 +727,4 @@ fields:
     defaultValue: False
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //div[contains(@class,"customer-also-viewed")]/div//img/@alt | //div[contains(@id,"thematic-highly_rated")]//a/@title | //div[contains(@class,"sponsored-products-truncator")]/../@title | //li[@role="listitem"]//div[contains(@class,"p13n-sc-truncated")]/..//img/@alt | //*[contains(@id,"sp_detail")]/a/@title | //*[contains(@id,'similarities-sims-feature')]//li[@role="listitem"]//div[contains(@class,'p13n-sc-truncated')] | //li[@role="listitem"]//div[contains(@class,"p13n-sc-truncated")]//@title |//*[contains(@id,'similarities-sims-feature')]//li[@role="listitem"]//div[contains(@class,'p13n-sc-truncated')]//@title | //li[@role="listitem"]//div[contains(@class,"p13n-sc-truncated")]//@title 
+    xpath: //div[contains(@class,"customer-also-viewed")]/div//img/@alt | //div[contains(@id,"thematic-highly_rated")]//a/@title | //div[contains(@class,"sponsored-products-truncator")]/../@title | //li[@role="listitem"]//div[contains(@class,"p13n-sc-truncated")]/..//img/@alt | //*[contains(@id,"sp_detail")]/a/@title | //*[contains(@id,'similarities-sims-feature')]//li[@role="listitem"]//div[contains(@class,'p13n-sc-truncated')] | //li[@role="listitem"]//div[contains(@class,"p13n-sc-truncated")]//@title |//*[contains(@id,'similarities-sims-feature')]//li[@role="listitem"]//div[contains(@class,'p13n-sc-truncated')]//@title | //li[@role="listitem"]//div[contains(@class,"p13n-sc-truncated")]//@title
