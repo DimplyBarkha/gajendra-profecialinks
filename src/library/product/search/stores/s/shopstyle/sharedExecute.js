@@ -22,6 +22,9 @@ async function implementation (
       document.body.appendChild(newDiv);
     }
     const data = JSON.parse(document.querySelector('pre').textContent);
+    if (!data.products){
+      throw new Error('API call did not return any products');
+    }
 
     if (ukRun) {
       addDiv('FilterType', data.products[0].retailer.name + ' ' + data.metadata.category.id);

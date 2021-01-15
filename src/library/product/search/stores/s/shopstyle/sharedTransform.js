@@ -28,13 +28,15 @@ const transform = (data, context) => {
         };
 
         setRow('sku', 'id');
-        setRow('price', 'priceLabel');
+        setRow('listPrice', 'priceLabel');
         setRow('name', 'unbrandedName');
         setRow('numberHearts', 'favoriteCount');
-        setRow('detailUrl', 'clickUrl');
+        setRow('productUrl', 'clickUrl');
 
         if (productObj.salePriceLabel) {
-          setRow('salePrice', 'salePriceLabel');
+          setRow('price', 'salePriceLabel');
+        } else {
+          setRow('price','priceLabel');
         }
 
         if (productObj.brand) {
