@@ -38,8 +38,10 @@ module.exports = {
         cardsItems.forEach(item => {
           item.setAttribute('ms-input', pageUrl);
           item.setAttribute('ms-url', pageUrl);
-          const thumbSrc =  item.querySelector('img').getAttribute('data-src');
-          item.setAttribute('ms-thumb', thumbSrc);
+          const thumbSrc =  item.querySelector('img');
+          if(thumbSrc){
+            item.setAttribute('ms-thumb', thumbSrc.getAttribute('data-src'));
+          }
         });
       }
       addElementToDocument('pageUrl', pageUrl);
