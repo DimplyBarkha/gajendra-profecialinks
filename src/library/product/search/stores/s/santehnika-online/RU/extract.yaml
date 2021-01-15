@@ -5,7 +5,7 @@ recordXPath: //div[contains(@class, 'products__list-item')]
 fields:
   - name: id
     singleValue: false
-    xpath: //div[contains(@class, 'catalog-products__list-item')]/@data-id
+    xpath: //li[contains(@class, 'product__code')]/text()[last()]
   - name: searchUrl
     singleValue: true
     xpath: ancestor::html//div[@id="searchUrl"][last()]
@@ -17,7 +17,7 @@ fields:
     xpath: //a[contains(@class, 'product__title')]/@producturl
   - name: gtin
     singleValue: false
-    xpath: //li[contains(@class, 'product__code')]/text()[last()]
+    xpath: //div[contains(@class, 'catalog-products__list-item')]/@data-id
   - name: thumbnail
     singleValue: false
     xpath: //div[contains(@class, 'products__list-item')]/@productimg
