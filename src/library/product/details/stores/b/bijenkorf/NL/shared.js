@@ -65,7 +65,7 @@ const transform = (data) => {
       if (row.specifications) {
         let specString = '';
         for (let i = 0; i < row.specifications.length; i++) {
-          specString += ` | ${row.specifications[i].text}`;
+          specString += ` || ${row.specifications[i].text}`;
         }
         row.specifications = [{ text: specString }];
       }
