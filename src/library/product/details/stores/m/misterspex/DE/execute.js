@@ -7,6 +7,6 @@ module.exports = {
     domain: 'misterspex.de',
     loadedSelector: null,
     noResultsXPath: null,
-    zipcode: '',
+    zipcode: "''",
   },
 };
