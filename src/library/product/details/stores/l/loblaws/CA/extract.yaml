@@ -267,7 +267,7 @@ fields:
     type: NUMBER
   - name: caloriesPerServing
     singleValue: false
-    xpath: //span/span[contains(.,"Calories")]/following-sibling::*
+    xpath: //span/span[contains(.,"Calories")]/following-sibling::* | //div/span[contains(.,"Calories")]/following-sibling::*
     description: Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
   - name: caloriesFromFatPerServing
