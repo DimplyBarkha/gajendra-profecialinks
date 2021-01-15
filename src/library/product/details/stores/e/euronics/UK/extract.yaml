@@ -174,4 +174,5 @@ fields:
     xpath: //div[contains(@class,'grid__item--size-1-2')]//div[@class='banner']/img/@src
     regExp: (.+)
     regExpReplace: https://euronics.co.uk$1
-    type: IMAGE
+  - name: inTheBoxText
+    xpath: //div[contains(@class,'productDetailsPageSection') and not(contains(@class,'component container'))]//strong[contains(.,'Tools')]/ancestor::div[1]/p[contains(@class,'Normal')]/span
