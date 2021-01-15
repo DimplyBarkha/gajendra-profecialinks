@@ -55,6 +55,6 @@ module.exports = {
         console.log('match', match);
       });
     });
-    return await context.extract(productDetails, { cleanUp });
+    return await context.extract(productDetails, { transform });
   },
 };
