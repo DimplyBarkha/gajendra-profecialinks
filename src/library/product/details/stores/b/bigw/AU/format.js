@@ -42,10 +42,16 @@ const transform = (data) => {
             });
           }
           if (row.ingredientsList) {
+            var Arr = [];
             row.ingredientsList.forEach(item => {
               item.text = item.text.replace(/\s*/, '');
               item.text = item.text.replace('Ingredients:', '');
+              item.text = item.text.replace(/\s*/, '');
+              Arr.push(item.text);
             });
+            if (Arr.length) {
+              row.ingredientsList = [{ "text": Arr.join().replace(',',"") , 'xpath': row.ingredientsList[0].xpath }];
+            }
           }
           if(row.availabilityText){
             row.availabilityText.forEach(item => {
