@@ -160,7 +160,7 @@ fields:
     singleValue: false
     xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset
     regExp: (.+800w,\s)(.+(.png|.jpg))(.+)
-    regExpReplace: $2
+    regExpReplace: https:$2
   - name: inTheBoxText
     singleValue: false
     xpath: //div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")]
