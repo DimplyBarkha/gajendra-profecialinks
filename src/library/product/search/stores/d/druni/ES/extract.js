@@ -56,7 +56,7 @@ module.exports = {
             addElementToDoc(`productElement-${i * 20 + j}`, i * 20 + j);
             const product = data.results[j];
             const productElemId = `div#productElement-${i * 20 + j}`;
-            document.querySelector(productElemId).setAttribute('product-tile-id', product.id);
+            document.querySelector(productElemId).setAttribute('product-tile-id', product.mpn);
             const productBrand = product.brand ? capitalizeFirstChar(product.brand) : '';
             document.querySelector(productElemId).setAttribute('product-tile-name', `${productBrand} ${product.title}`);
             const productUrl = product.link;
