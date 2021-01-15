@@ -126,3 +126,14 @@ fields:
   - name: secondaryImageTotal
     singleValue: false
     xpath: count((//div[@class='s7staticimage']//img/@src)[position() > 1])
+  - name: unInterruptedPDP
+  - name: inTheBoxUrl
+    xpath: //body/@inTheBoxUrl
+    regExp: (.+)
+  - name: inTheBoxText
+    xpath: //body/@inTheBoxText
+  - name: hasComparisonTable
+    xpath: //body/@hasComparisonTable
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No

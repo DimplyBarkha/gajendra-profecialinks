@@ -72,6 +72,57 @@ async function implementation(inputs, parameters, context, dependencies) {
       }
     }
   });
+  await context.evaluate(() => {
+    const syndiPowerpage = document.querySelector('.syndigo-shadowed-powerpage');
+            let inTheBoxText = '';
+          let inTheBoxUrl = '';
+            let hasComparisonTable = 'No';
+            if (syndiPowerpage) {
+             console.log('Shadow root!');
+              const headings = Array.from(syndiPowerpage.shadowRoot.querySelectorAll('h2'));
+              headings.forEach(h2 => {
+                if (h2.innerText.includes('In the box') || h2.innerText.includes('In The Box') || h2.innerText.includes('in the box') || h2.innerText.includes('In the Box') || h2.innerText.includes("What's Included")) {
+                  const parent = h2.parentElement;
+             const inTheBoxEls = parent.querySelectorAll('.syndigo-featureset-feature');
+                inTheBoxEls.forEach(el => {
+                  const imgs = el.querySelector('img').getAttribute('src').split(',');
+                   let images = '';
+                   if (imgs.length === 1) {
+                      images = imgs[0];
+                   } else {
+                      images = imgs[imgs.length - 1];
+                 }
+                 images = images.replace(/(.+)(\s.+)/, '$1');
+                inTheBoxUrl = inTheBoxUrl + (inTheBoxUrl ? ' || ' : '') + images;
+    // @ts-ignore
+                   inTheBoxText = inTheBoxText + (inTheBoxText ? ' || ' : '') + el.innerText;
+                });
+               }
+              });
+           const table = syndiPowerpage.shadowRoot.querySelector('div[class*="comparison-table"] table');
+             if (table) {
+             hasComparisonTable = 'Yes';
+    } else {
+             console.log('No Shadow root!');
+              const inTheBoxEls = Array.from(document.querySelectorAll('div[data-section-caption="In The Box"] ul>li, div[data-section-tag="in-the-box"] ul>li'));
+           inTheBoxEls.forEach(el => {
+               const image = el.querySelector('img').getAttribute('src');
+              // @ts-ignore
+              const text = el.innerText;
+                inTheBoxUrl = inTheBoxUrl + (inTheBoxUrl ? ' || ' : '') + image;
+                inTheBoxText = inTheBoxText + (inTheBoxText ? ' || ' : '') + text;
+    });
+              const table = document.querySelector('div[data-section-template-code*="comparison-table"] table');
+              if (table) {
+                hasComparisonTable = 'Yes';
+              }
+            }
+            document.body.setAttribute('has-comparison-table', hasComparisonTable);   
+            document.body.setAttribute('in-the-box-text', inTheBoxText);
+            document.body.setAttribute('in-the-box-url', inTheBoxUrl);
+          }
+          });
+            
   // await context.evaluate(() => {});
   return await context.extract(productDetails, { transform });
 }
