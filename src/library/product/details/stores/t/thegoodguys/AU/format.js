@@ -93,6 +93,18 @@ const transform = (data) => {
           row.unInterruptedPDP = [{ text: arrTemp.join(' || ') }];
         }
       }
+      let text = '';
+      if (row.inTheBoxUrl && row.inTheBoxUrl.length > 1) {
+        row.inTheBoxUrl.forEach(item => {
+          const data = item.text.split(',');
+          text += `${data[data.length - 1].split(' ')[1].replace(/^(.*)/gm, 'http:$1')} || `;
+        });
+        row.inTheBoxUrl = [
+          {
+            text,
+          },
+        ];
+      }
     }
   }
   return cleanUp(data);

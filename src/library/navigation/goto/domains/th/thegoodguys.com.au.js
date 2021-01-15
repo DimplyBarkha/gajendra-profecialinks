@@ -8,6 +8,10 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ url }, { country, domain, timeout }, context, dependencies) => {
+    await context.setAntiFingerprint(false);
+    await context.setLoadAllResources(true);
+    await context.setBlockAds(false);
+    await context.setLoadImages(true);
     await context.goto(`${url}#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]`, { timeout, waitUntil: 'load', checkBlocked: true });
     const newUrl = await context.evaluate(function (url) {
       const isSelector = document.querySelector('div.dyson.dyson-content');
