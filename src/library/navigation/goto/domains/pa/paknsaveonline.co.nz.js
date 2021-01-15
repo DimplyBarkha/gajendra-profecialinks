@@ -1,9 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto/setZipCode',
+  implements: 'navigation/goto',
   parameterValues: {
+    domain: 'paknsaveonline.co.nz',
+    timeout: null,
     country: 'NZ',
-    domain: 'paknsave.co.nz',
     store: 'paknsave',
     zipcode: "''",
   },

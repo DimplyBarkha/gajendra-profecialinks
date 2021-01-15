@@ -1,27 +1,28 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: div#wrapper ul.search-result-list li
-recordXPath: null
+recordSelector: div.fs-product-card
+recordXPath: //div[@class="fs-product-card"]
 fields:
   - name: id
     SingleValue: false
-    xpath: //div[contains(@class,"field-title")]/a/@href
-    regExp: recipes\/(.+)
+    xpath: //div[@data-options][1]/@data-options
+    regExp: productId":\s*"(.*?)"
     regExpReplace: $1
   - name: productUrl
     SingleValue: false
-    xpath: //div[contains(@class,"field-title")]/a/@href
+    xpath: //div[@class="fs-product-card"]/a/@href
     regExp: (.+)
-    regExpReplace: https://www.paknsave.co.nz$1    
+    regExpReplace: https://www.paknsaveonline.co.nz$1
   - name: thumbnail
     SingleValue: false
-    xpath: //div[@class="sxa-search-results__image-wrap"]/img/@src
-    regExp: (.+)
-    regExpReplace: https://www.paknsave.co.nz$1
+    xpath: //div[@class="fs-product-card__product-image"]/@data-src-s
   - name: name
     SingleValue: false
-    xpath: //div[contains(@class,"sxa-search-results__content")]/a
+    manualSelector: div.fs-product-card__description
   - name: rankOrganic
     SingleValue: true
   - name: rank
     SingleValue: true
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id='search-url']

@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'NZ',
     store: 'paknsave',
-    domain: 'paknsave.co.nz',
+    domain: 'paknsaveonline.co.nz',
     zipcode: "''",
   },
 };
