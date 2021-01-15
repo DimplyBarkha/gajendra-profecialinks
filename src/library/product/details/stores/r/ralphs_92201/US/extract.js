@@ -20,7 +20,7 @@ module.exports = {
     });
 
     
-    await context.waitForSelector('div.ProductDetails-header');
+    await context.waitForSelector('h1.ProductDetails-header');
   
     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
   
