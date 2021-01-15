@@ -1,19 +1,5 @@
 const { transform } = require('./format');
-async function implementation (
-  inputs,
-  { transform: transformParam },
-  context,
-  dependencies,
-) {
-  const { productDetails } = dependencies;
-  try {
-    await context.click('body > div.cookie-dialog-screen.open > div > div > div.buttons > button');
-    console.log("buttton clicked")
-    }  catch(err) {
-     console.log("couldn't click");
-    }
-  return await context.extract(productDetails, {transform});
-}
+
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
@@ -23,5 +9,31 @@ module.exports = {
     domain: 'stockmann.com',
     zipcode: '',
   },
-  implementation,
+  implementation: async ({ url }, { country, domain, transform }, context, { productDetails }) => {
+     const applyScroll = async function (context) {
+    await context.evaluate(async function () {
+      let scrollTop = 0;
+      while (scrollTop !== 20000) {
+        scrollTop += 500;
+        window.scroll(0, scrollTop);
+        await stall(1500);
+      }
+      function stall(ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
+    });
+    try {
+      await context.waitForSelector('class="product-slider"', { timeout: 200000 });
+  } catch (error) {
+      console.log("Manufacturer Description did not loaded....");
+  }
+  };
+    await applyScroll(context);
+    return await context.extract(productDetails, { transform });
+  },
+  
 };

@@ -90,4 +90,10 @@ fields:
     xpath: //h2[text()='Lisätietoja']//following-sibling::div[contains(@class,'content')]//table//tr//th//div[text()='Kokotiedot']//parent::th//following-sibling::td
   - name: materials
     singleValue: false
-    xpath: //h2[text()='Lisätietoja']//following-sibling::div[contains(@class,'content')]//table//tr//th//div[text()='Materiaali']//parent::th//following-sibling::td    
+    xpath: //h2[text()='Lisätietoja']//following-sibling::div[contains(@class,'content')]//table//tr//th//div[text()='Materiaali']//parent::th//following-sibling::td   
+  - name: inTheBoxUrl
+    xpath: //div[@class="inpage_selector_InTheBox"]//img/@srcset
+  - name: inTheBoxText
+    xpath: //div[@class="inpage_selector_InTheBox"]//span
+  - name: unInterruptedPDP
+    xpath: //div[@class="product-slider-body"]//div[@class="product-tile js-gtm-product-tile"]//div[@class="tile-body"]/span | //a[@class="pdp-title"]

@@ -24,6 +24,13 @@ const transform = (data) => {
   };
   for (const { group } of data) {
     for (const row of group) {
+      if (row.unInterruptedPDP) {
+        let text = '';
+        row.unInterruptedPDP.forEach(item => {
+          text = text + (text ? ' ' : '') + item.text;
+        });
+        row.unInterruptedPDP = [{ text }];
+      }
       if (row.nameExtended) {
         if (row.brandText) {
           row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.nameExtended[0].text }];
