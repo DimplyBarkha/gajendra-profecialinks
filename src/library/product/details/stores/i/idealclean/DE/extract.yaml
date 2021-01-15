@@ -4,10 +4,8 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: _url
-    type: URL
     xpath: //meta[@property='og:url']/@content
   - name: image
-    singleValue: true
     description: URL of the main product image
     xpath: //meta[@property='og:image']/@content
   - name: imageAlt
@@ -50,9 +48,9 @@ fields:
       should be "In Stock"
     manualSelector: script[type='application/ld+json']
     # regExp: '(\"availability\"\:\")(.*?)",'
-    defaultValue: In stock
+    defaultValue: In Stock
     regExp: OutOfStock
-    regExpReplace: Out of Stock
+    regExpReplace: Out Of Stock
   - name: description
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
