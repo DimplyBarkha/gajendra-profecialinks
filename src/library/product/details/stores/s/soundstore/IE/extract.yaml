@@ -135,20 +135,20 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //div[@id='added_manufacturerDescription']
+    xpath: //div[@id='added_manufacturerDescription'] | //body/@desc
     # xpath: //div[contains(@id,'inpage_container')]//div[(contains(@class,'flix-d-p') or contains(@class,'flix-std-desc')) and not(contains(@class,'flix-title')or contains(@class,'flix-caveat-desc'))]
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
     #xpath: //div[@id='added_manufacturerImage']
-    xpath: //div[@class='flix-background-image inpage_wowimg']/img/@srcset
+    xpath: //div[@class='flix-background-image inpage_wowimg']/img/@srcset | //body/@img-src
     regExp: (.+)
     regExpReplace: https:$1
     # xpath: //div[@id='added_manufacturerImages']
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[@id='added_video_url']
+    xpath: //div[@id='added_video_url'] | //body/@video-src
   - name: name
     singleValue: true
     description: The product name
