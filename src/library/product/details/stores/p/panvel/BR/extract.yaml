@@ -41,7 +41,8 @@ fields:
     # regExpReplace: $1
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//h2[contains(.,"Beneficios") or (contains(.,"Benefícios"))]/../li | (//h2[contains(.,"DESCRIÇÃO")]/..//ul)[1]/li | //h2[contains(.,"Benefícios")]/../li[(following::*[contains(text(),"Modo")])] | //h2[contains(.,"Beneficios") or (contains(.,"Benefícios"))]/following::ul[1]/li)
+    xpath: count(//div[@class="item-description__content"]//li)
+    # xpath: count(//h2[contains(.,"Beneficios") or (contains(.,"Benefícios"))]/../li | (//h2[contains(.,"DESCRIÇÃO")]/..//ul)[1]/li | //h2[contains(.,"Benefícios")]/../li[(following::*[contains(text(),"Modo")])] | //h2[contains(.,"Beneficios") or (contains(.,"Benefícios"))]/following::ul[1]/li)
     type: NUMBER
   - name: brandText
     singleValue: false
