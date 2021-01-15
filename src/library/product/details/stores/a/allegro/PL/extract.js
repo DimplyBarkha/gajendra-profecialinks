@@ -24,6 +24,12 @@ module.exports = {
       }
       return prodPage;
     });
+    try{
+      await context.waitForSelector('div[data-box-id="GplSxh3oS4aP1tkrKwtgMQ=="]');
+    }catch(err)
+    {
+      console.log("Other product doesnot exist");
+    } 
     if (isProdPage === true) {
       const applyScroll = async function (context) {
         await context.evaluate(async function () {
