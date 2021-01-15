@@ -512,3 +512,6 @@ fields:
   xpath: //a[@class="enlarge"]/@title
   regExp: (.+)
   regExpReplace: 'Yes'
+- name: unInterruptedPDP
+  singleValue: false
+  xpath: //div[contains(@class,'relatedItemsCarousel')]//img/@alt | //div[@data-feature-show-code="YOU_MAY_ALSO_LIKE"]//img/@alt
