@@ -18,7 +18,26 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  await context.evaluate(async () => {
+  let pageNum=1;
+  while(true){
+  let breakLoop=await context.evaluate(async (pageNum) => {
+    if(document.querySelector(`button[data-test*="pagination-loop-${pageNum}"]`)){
+      document.querySelector(`button[data-test*="pagination-loop-${pageNum}"]`).click();
+      function stall (ms)
+        {
+        return new Promise((resolve, reject) => {
+        setTimeout(() => {
+        resolve();
+        }, ms);
+        });
+        }
+        await stall(3000);
+        return false;
+      }
+      return true;
+  },pageNum);
+  if(breakLoop===true) break;
+      await context.evaluate(async () => {
     // window.scrollTo(0,9999);
     async function infiniteScroll () {
       let prevScroll = document.documentElement.scrollTop;
@@ -49,10 +68,10 @@ async function implementation (
       newDiv.id = id;
       newDiv.textContent = content;
       newDiv.style.display = 'none';
-      const originalDiv = document.querySelectorAll('div[data-test="product-thumb"] a')[index];
+      const originalDiv = document.querySelectorAll('a[data-test="product-thumb"]')[index];
       originalDiv.parentNode.insertBefore(newDiv, originalDiv);
     }
-    const product = document.querySelectorAll('div[data-test="product-thumb"]');
+    const product = document.querySelectorAll('a[data-test="product-thumb"]');
     console.log('product: ', product.length);
     for (let i = 0; i < product.length; i++) {
       await new Promise((resolve, reject) => setTimeout(resolve, 1000));
@@ -69,5 +88,7 @@ async function implementation (
       }
     }
   });
-  return await context.extract(productDetails, { transform });
+ await context.extract(productDetails, { transform });
+  pageNum++;
+  }
 }
