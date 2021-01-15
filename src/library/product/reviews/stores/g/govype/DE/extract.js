@@ -19,13 +19,8 @@ async function implementation (
       document.body.appendChild(newDiv);
     }
 
-    try {
-      if (document.querySelector('#onetrust-accept-btn-handler')) {
-        document.querySelector('#onetrust-accept-btn-handler').click();
-      }
-      if (document.querySelector('#btn-entry-age-allow')) {
-        document.querySelector('#btn-entry-age-allow').click();
-      }
+    // try {
+
 
       if (!document.querySelector('#ts_product_widget .productreviewsSummary')) {
         const newDiv = document.createElement('div');
@@ -67,9 +62,9 @@ async function implementation (
           }
         }
       }
-    } catch (e) {
-      console.log('button not found');
-    }
+    // } catch (e) {
+    //   console.log('button not found');
+    // }
   });
   return await context.extract(productReviews, { transform });
 }
