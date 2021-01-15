@@ -5,17 +5,17 @@
  */
 const transform = (data) => {
   const clean = text => text.toString()
-  .replace(/\r\n|\r|\n/g, ' ')
-  .replace(/&amp;nbsp;/g, ' ')
-  .replace(/&amp;#160/g, ' ')
-  .replace(/\u00A0/g, ' ')
-  .replace(/\s{2,}/g, ' ')
-  .replace(/"\s{1,}/g, '"')
-  .replace(/\s{1,}"/g, '"')
-  .replace(/^ +| +$|( )+/g, ' ')
+    .replace(/\r\n|\r|\n/g, ' ')
+    .replace(/&amp;nbsp;/g, ' ')
+    .replace(/&amp;#160/g, ' ')
+    .replace(/\u00A0/g, ' ')
+    .replace(/\s{2,}/g, ' ')
+    .replace(/"\s{1,}/g, '"')
+    .replace(/\s{1,}"/g, '"')
+    .replace(/^ +| +$|( )+/g, ' ')
   // eslint-disable-next-line no-control-regex
-  .replace(/[\x00-\x1F]/g, '')
-  .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+    .replace(/[\x00-\x1F]/g, '')
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
 
   for (const { group } of data) {
     for (const row of group) {
@@ -47,24 +47,24 @@ const transform = (data) => {
         // });
       }
       if (row.inTheBoxText) {
-        let info = [];
+        const info = [];
         row.inTheBoxText.forEach(item => {
-            info.push(item.text);
+          info.push(item.text);
         });
-        row.inTheBoxText = [{'text':info.join(' || '),'xpath':row.inTheBoxText[0].xpath}];
+        row.inTheBoxText = [{ text: info.join(' || '), xpath: row.inTheBoxText[0].xpath }];
       }
 
       if (row.inTheBoxUrl) {
         row.inTheBoxUrl.forEach(item => {
-          const textArr = item.text.split(" ");
+          const textArr = item.text.split(' ');
           const url = textArr[0];
           item.text = `https:${url}`;
         });
       }
       if ((!row.inTheBoxText || !row.inTheBoxText.length) && row.inTheBoxText1) {
-        console.log('inTheBoxText1',row.inTheBoxText1);
+        console.log('inTheBoxText1', row.inTheBoxText1);
         row.inTheBoxText = row.inTheBoxText1;
-        console.log("inTheBoxText", row.inTheBoxText);
+        console.log('inTheBoxText', row.inTheBoxText);
       }
     }
   }

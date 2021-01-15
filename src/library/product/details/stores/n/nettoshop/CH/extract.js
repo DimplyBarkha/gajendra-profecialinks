@@ -15,7 +15,6 @@ module.exports = {
     context,
     dependencies,
   ) => {
-    
     // const cssProduct = 'div.c-product-detail ember-view';
     const cssProductDetails = 'div.ivy-tabs-tablist a.ivy-tabs-tab';
     const applyScroll = async function (context) {
@@ -94,13 +93,13 @@ module.exports = {
       await context.waitForNavigation({ timeout: 5000, waitUntil: 'load' });
       console.log('navigation complete!!');
     }
-    //clicking on specification button
-    await context.evaluate( async function(){
-    const specButton = document.querySelector('div[class*="c-product-detail"] a *[data-component*="c-product-specifications"]');
-    if(specButton){
-      specButton.click();
-    }
-  });
+    // clicking on specification button
+    await context.evaluate(async function () {
+      const specButton = document.querySelector('div[class*="c-product-detail"] a *[data-component*="c-product-specifications"]');
+      if (specButton) {
+        specButton.click();
+      }
+    });
     // video end
     // product tour click
     // const tourSelector = 'div[class="c-product-tour__item-head"] button';
