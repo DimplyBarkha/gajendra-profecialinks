@@ -117,7 +117,7 @@ async function implementation(inputs, parameters, context, dependencies) {
                 hasComparisonTable = 'Yes';
               }
             }
-            document.body.setAttribute('has-comparison-table', hasComparisonTable);   
+            document.body.setAttribute('has-comparison-tablec', hasComparisonTable);   
             document.body.setAttribute('in-the-box-text', inTheBoxText);
             document.body.setAttribute('in-the-box-url', inTheBoxUrl);
           }

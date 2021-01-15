@@ -128,12 +128,12 @@ fields:
     xpath: count((//div[@class='s7staticimage']//img/@src)[position() > 1])
   - name: unInterruptedPDP
   - name: inTheBoxUrl
-    xpath: //body/@inTheBoxUrl
+    xpath: //body/@in-the-box-url
     regExp: (.+)
   - name: inTheBoxText
-    xpath: //body/@inTheBoxText
+    xpath: //body/@in-the-box-text
   - name: hasComparisonTable
-    xpath: //body/@hasComparisonTable
+    xpath: //body/@has-comparison-tablec
     regExp: (.+)
     regExpReplace: Yes
     defaultValue: No
