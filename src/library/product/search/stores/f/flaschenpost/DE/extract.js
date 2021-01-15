@@ -13,23 +13,14 @@ module.exports = {
     dependencies,
   ) => {
     const { transform } = parameters;
-    const { productDetails } = dependencies;
-    await context.evaluate(async () => {     
-        const usernameElements = document.querySelectorAll('[id=validZipcode]');
-      // @ts-ignore
-      usernameElements.forEach(username => username.value = "28203");
-      // @ts-ignore
-      document.querySelector('div[class="fp-modal_input"]>button').click()
-      await new Promise(r => setTimeout(r, 10000));
-          
-      function addElementToDocument(key, value) {
-        const catElement = document.createElement('div');
-        catElement.className = key;
-        catElement.textContent = value;
-        catElement.style.display = 'none';
-        document.body.appendChild(catElement);
-      }         
-    });
+    const { productDetails } = dependencies;       
+        var wantedZip = '28203';
+    // await context.evaluate(async () => {
+      // const usernameElements = document.querySelector('input#validZipcode');     
+      await context.setInputValue('[id="validZipcode"]', wantedZip);
+      await context.waitForSelector('button[class="fp-button fp-button--primary zip--button"]', 6000)
+      await context.click('button[class="fp-button fp-button--primary zip--button"]');    
+    
     return await context.extract(productDetails, { transform });
   },
 }
