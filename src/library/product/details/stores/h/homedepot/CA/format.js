@@ -70,6 +70,8 @@ const transform = (data) => {
         ];
       }
       if (row.specifications) {
+
+      if (row.specifications && row.specifications[0]) {
         row.specifications[0].text = '';
         if (row.dimensionsSpecifications) {
           row.dimensionsSpecifications.forEach(item => {
@@ -98,19 +100,25 @@ const transform = (data) => {
           }
         });
       }
+      if (row.descriptionBulletsInfo && row.descriptionBulletsInfo[0]) {
+        row.descriptionBulletsInfo.forEach(item => {
+          item.text = item.text.replace(/(\s?\n)+/g, ' || ').replace(/# ?/g, '').trim();
+        });
+        row.additionalDescBulletInfo = row.descriptionBulletsInfo;
+      }
 
       if (row.description && row.description[0] && row.description[0].text !== ' ') {
-        row.description.forEach(item => {
+        row.description && row.description.forEach(item => {
           item.text = item.text.replace(/Overview/g, '').replace(/# ?/g, '').trim();
         });
-        if (row.descriptionBulletsInfo) {
-          row.descriptionBulletsInfo.forEach(item => {
-            item.text = item.text.replace(/(\s?\n)+/g, ' || ').replace(/# ?/g, '').trim();
-          });
-        }
-        row.additionalDescBulletInfo = row.descriptionBulletsInfo;
         const guide = row.description1 && row.description1[0] ? row.description1[0].text : '';
-        row.description[0].text = row.description[0].text + ' || ' + row.descriptionBulletsInfo[0].text + ' ' + guide;
+        const bullets = row.descriptionBulletsInfo && row.descriptionBulletsInfo[0] ? row.descriptionBulletsInfo[0].text : '';
+        if (bullets) {
+          row.description[0].text = row.description[0].text + ' || ' + bullets;
+        }
+        if (guide) {
+          row.description[0].text = row.description[0].text + ' ' + guide;
+        }
       }
 
       if (row.nameExtended) {
