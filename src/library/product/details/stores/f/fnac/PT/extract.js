@@ -38,7 +38,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       let content = {};
       let enhancedContent = '';
       for (let i = 0; i < flixRows.length; i++) {
-        if (flixRows[i].querySelector('div[class*="flix-std-title"]')) { enhancedContent += flixRows[i].querySelector('div[class*="flix-std-title"]').innerText + '||'; }
+        if (flixRows[i].querySelector('div[class*="flix-std-title"]')) { enhancedContent += flixRows[i].querySelector('div[class*="flix-std-title"]').textContent + '||'; }
         if (flixRows[i].querySelector('div[class*="flix-std-desc"]')) { enhancedContent += flixRows[i].querySelector('div[class*="flix-std-desc"]').innerText + '||'; }
       }
       if (document.querySelectorAll('div[class*="flix-std-table"] div[class*="flix-std-desc"]')) {
