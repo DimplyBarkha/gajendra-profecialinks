@@ -33,9 +33,7 @@ fields:
     xpath: //div[@class='bbmx-product-description']//div[contains(@class,'descriptionContainer')]
   - name: descriptionBullets
     singleValue: false
-  - name: description2
-    singleValue: false
-    xpath: //div[@class='shop-product-features']//div[@class='feature-body-container']//div[@class='list-row']  
+    xpath: count(//div[@class='shop-product-features']//div[@class='feature-body-container']//div[@class='list-row'])  
   - name: brandText
     singleValue: false
     xpath: //div[@class='specifications-component-container']//table[@class='specifications-table']//td[@class='specification-name' and text()='Marca']/parent::*/td[@class='specification-value']
@@ -56,10 +54,10 @@ fields:
     xpath: //span[@id='sku-value']
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class='image-carousel-wrapper']//ol[@class='carousel-indicate']//li[@class='thumbnail-image-wrapper carousel-item visible']//img/@src
+    xpath: //div[@class='image-carousel-wrapper']//ol[@class='carousel-indicate']//li[@class='thumbnail-image-wrapper carousel-item visible']//img/@src | //div[@class='image-carousel-wrapper']//ol[@class='carousel-indicate']//li[@class='thumbnail-image-wrapper carousel-item visible']//img/@src | //div[@class='image-carousel-wrapper']//ol[@class='carousel-indicate']//li[contains(@class,'thumbnail-image-wrapper show-more-carousel-item visible')]//img/@src | //div[@class='image-carousel-wrapper']//ol[@class='carousel-indicate']//li[contains(@class,'thumbnail-image-wrapper carousel-item hidden')]//img/@src
   - name: secondaryImageTotal
     singleValue: false
-    xpath: count(//div[@class='image-carousel-wrapper']//ol[@class='carousel-indicate']//li[@class='thumbnail-image-wrapper carousel-item visible']//img/@src)
+    xpath: count(//div[@class='image-carousel-wrapper']//ol[@class='carousel-indicate']//li[@class='thumbnail-image-wrapper carousel-item visible']//img/@src | //div[@class='image-carousel-wrapper']//ol[@class='carousel-indicate']//li[@class='thumbnail-image-wrapper carousel-item visible']//img/@src | //div[@class='image-carousel-wrapper']//ol[@class='carousel-indicate']//li[contains(@class,'thumbnail-image-wrapper show-more-carousel-item visible')]//img/@src | //div[@class='image-carousel-wrapper']//ol[@class='carousel-indicate']//li[contains(@class,'thumbnail-image-wrapper carousel-item hidden')]//img/@src)
   - name: ratingCount
     singleValue: false
     xpath: //li[@class='customer-rating']//span[@class='c-reviews']//span[@class='c-total-reviews']
@@ -114,7 +112,7 @@ fields:
     xpath: //div[@class='product-variations']//ul[@class='tile-group']//li[1]//div[@class='variant-img-box']//img[@class='variant-img']/@data-sku
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id="inpage_container"]//div[contains(@class,"flix-std-content")]//text()
+    xpath: //div[@class="inpage_selector_feature"]//div[contains(@class,"flix-std-content")]//text()
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="inpage_container"]//img/@data-flixsrcset
+    xpath: //div[@class="inpage_selector_feature"]//img/@data-flixsrcset

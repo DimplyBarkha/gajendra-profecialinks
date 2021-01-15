@@ -55,6 +55,7 @@ const transform = (data) => {
                 item.text = item.text.replace(/(\s*img.youtube\s*)+/isg, 'youtube').trim();
                 item.text = item.text.replace(/(\s*\/vi\/\s*)+/isg, '/watch?v=').trim();
                 item.text = item.text.replace(/(\s*\/mqdefault.jpg\s*)+/isg, '').trim();
+                item.text = item.text+'&feature=youtu.be'
             });
         }
         if (row.galleryVideos) {            
@@ -62,22 +63,26 @@ const transform = (data) => {
               item.text = item.text.replace(/(\s*img.youtube\s*)+/isg, 'youtube').trim();
               item.text = item.text.replace(/(\s*\/vi\/\s*)+/isg, '/watch?v=').trim();
               item.text = item.text.replace(/(\s*\/mqdefault.jpg\s*)+/isg, '').trim();
+              item.text = item.text+'&feature=youtu.be'
           });
         }
-        if (row.description2) {
-            let info = [];          
-            row.description2.forEach(item => {
-              info.push(item.text.replace(/(\s*\n\s*)+/g, '').trim());            
-            });
-            row.descriptionBullets = [{'text': info.length}];
-            tmp_desc = info.join('');
-            delete row.description2;
+        if(row.availabilityText){
+          row.availabilityText.forEach(item => {
+            if (item.text == 'Agotado'){
+              row.availabilityText = [{"text": 'Out of Stock', "xpath": row.availabilityText[0].xpath}]
+            }else{
+              row.availabilityText = [{"text": 'In Stock', "xpath": row.availabilityText[0].xpath}]
+            }
+          })
         }
-        if (row.description && tmp_desc != '') {            
-            row.description.forEach(item => {
-                item.text = item.text.replace(/(\s*\n\s*)+/g, '').trim();
-                item.text = item.text + tmp_desc;
-            });
+        if (row.description) {
+          let description_ar = [];
+          row.description.forEach(item => {
+              description_ar.push(item.text);
+          });
+          if (description_ar.length) {
+            row.description = [{ "text": description_ar, 'xpath': row.description[0].xpath }];
+          }
         }
         if (row.ratingCount) {            
             row.ratingCount.forEach(item => {
@@ -87,6 +92,11 @@ const transform = (data) => {
         if (row.aggregateRating) {
           row.aggregateRating.forEach(item => {
             item.text = item.text.replace('.', ',').trim();
+          });
+        }
+        if (row.nameExtended) {
+          row.nameExtended.forEach(item => {
+            item.text = item.text.replace(/(\s*\n\s*)+/g, '').trim();
           });
         }
         if (row.specifications) {
