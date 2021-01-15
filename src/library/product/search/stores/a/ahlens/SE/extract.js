@@ -74,11 +74,11 @@ module.exports = {
       var rating = getAllXpath("//*[contains(@class,'MuiCardContent-root')]//div/div//span[contains(text(),'kr')][1]/text()");
       for (let index = 0; index < rating.length; index++) {
         if (rating[index].includes(":")) {
-          var temp = rating[index].replace(":", ".");
+          var temp = rating[index].replace(":", ",");
         } else if (rating[index].includes(",")) {
-          var temp = rating[index].replace(",", ".");
+          var temp = rating[index].replace(",", ",");
         } else {
-          temp = rating[index].replace(":-", ".");
+          temp = rating[index].replace(":-", ",");
         }
         addHiddenDivPrice('price', temp, index);
       }
