@@ -96,17 +96,15 @@ const transform = (data) => {
         ];
       }
 
-      // if (row.inTheBoxUrl) {
-      //   let text = '';
-      //   row.inTheBoxUrl.forEach((item, i) => {
-      //     text += concatFunction(item, i);
-      //   });
-      //   row.inTheBoxUrl = [
-      //     {
-      //       text: text.replace(new RegExp('(.+\\s)(.+)(\\s.+)', 'g'), 'https:$2'),
-      //     },
-      //   ];
-      // }
+      if (row.unInterruptedPDP) {
+        const pdp = [];
+        row.unInterruptedPDP.forEach(item => {
+          if (pdp.indexOf(item.text) == -1) {
+            pdp.push(item.text);
+          }
+        });
+        row.unInterruptedPDP = [{ text: pdp.join(' || ') }];
+      }
     }
   }
   return data;

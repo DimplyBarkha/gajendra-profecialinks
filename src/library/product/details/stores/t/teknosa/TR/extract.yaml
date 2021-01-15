@@ -445,4 +445,4 @@ fields:
     regExpReplace: Yes
     defaultValue: No
   - name: unInterruptedPDP
-    xpath: //div[contains(@class,"recommend-products-box")]//div[contains(@class,"product-item")][not(contains(@class,"swiper-slide-duplicate"))]//div[@class="product-name"] | //div[contains(@class,"top-products-of-category-box")]//div[contains(@class,"product-item")][not(contains(@class,"swiper-slide-duplicate"))]//div[@class="product-name"]
+    xpath: //div[contains(@class, 'recommend-product-list')]/div[contains(@class, 'product-item') and not(contains(@class, 'duplicate'))]//div[@class="product-name"] | //div[@id="segmentifyBestSellers"]//div[@clas="product-item-inner"]//div[@class="product-name"]
