@@ -36,7 +36,10 @@ fields:
   - name: price
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: (//div[@class='ProductPrice_mainPriceHolder__250xx']/span)[1]
+    # xpath: (//div[@class='ProductPrice_mainPriceHolder__250xx']/span)[1]
+    manualSelector: script[type='application/ld+json']
+    regExp: '("price":")(\d+.\d+)'
+    regExpReplace: $2
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
