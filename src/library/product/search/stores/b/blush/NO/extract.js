@@ -36,13 +36,13 @@ module.exports = {
         const productSubtitle = products[i].querySelector('div.product-list-item div.text-content p') ? products[i].querySelector('div.product-list-item div.text-content p').textContent : '';
         products[i].setAttribute('productName', `${productTitle} ${productSubtitle}`);
         const productUrl = products[i].querySelector('a.product-link.image-container') ? products[i].querySelector('a.product-link.image-container').getAttribute('href') : '';
-        const productId = productUrl && productUrl.match(/\/(\d+)\//g) ? productUrl.match(/\/(\d+)\//g)[0].replace(/\//g, '') : '';
+        const productId = productUrl && productUrl.match(/\d+/g) ? productUrl.replace(/[^\d]+/g, '') : '';
         products[i].setAttribute('productId', productId);
         const price = products[i].querySelector('span.product-price-now') ? products[i].querySelector('span.product-price-now').textContent.replace(/\s/g, '') : '';
         const currencyObj = products[i].querySelector('div.buy-button') ? products[i].querySelector('div.buy-button').getAttribute('data-initobject') : '';
         const currency = currencyObj && JSON.parse(currencyObj) ? JSON.parse(currencyObj).currency : '';
         products[i].setAttribute('priceid', `${currency} ${price}`);
-        const thumbnails = products[i].getAttribute('productId') ? `https://www.blush.no/img/p/1200/${productId}.jpg` : '';
+        const thumbnails = products[i].getAttribute('productId') ? `https://www.blush.no/img/p/200/${productId}.jpg` : '';
         if (thumbnails) products[i].setAttribute('thumbnails', thumbnails);
         const ratingCount = products[i].querySelector('span.review-count') ? products[i].querySelector('span.review-count').textContent.replace(/\(|\)/g, '') : '';
         if (ratingCount) products[i].setAttribute('ratingcount', ratingCount);
