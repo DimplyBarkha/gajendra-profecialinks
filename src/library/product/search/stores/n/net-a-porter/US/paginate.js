@@ -5,7 +5,7 @@ module.exports = {
     template: null,
     country: 'US',
     store: 'net-a-porter',
-    nextLinkSelector: null,
+    nextLinkSelector: '#noPagination',
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,
@@ -14,9 +14,10 @@ module.exports = {
     noResultsXPath: null,
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: 'div[itemprop="item"]',
-    openSearchDefinition: {
-      template: 'https://www.net-a-porter.com/en-us/shop/search/{queryParams}&pageNumber={page}',
-    },
+    openSearchDefinition: null,
+    // openSearchDefinition: {
+    //   template: 'https://www.net-a-porter.com/en-us/shop/search/{queryParams}&pageNumber={page}',
+    // },
     zipcode: '',
     domain: 'net-a-porter.com',
   },
