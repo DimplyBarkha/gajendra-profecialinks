@@ -255,14 +255,31 @@ module.exports = {
 
         const productsData = `https://www.elcorteingles.es/api/product/${productID}?product_id=${productID}&store_id=${storeId}&original_store=${storeId}`;
         const apiDataResponse = await makeApiCall(productsData, {});
+        // console.log(`apiDataResponse : ${JSON.stringify(apiDataResponse)}`);
+        // Check if the product has color variants are not
+        const numColors = document.querySelectorAll('ul.colors_list li') && document.querySelectorAll('ul.colors_list li').length ? document.querySelectorAll('ul.colors_list li').length : 0;
+        const isColorVariant = Boolean(numColors > 0);
         addElementToDocument('SKU', JSON.parse(apiDataResponse).id);
         const mpc = JSON.parse(apiDataResponse) && JSON.parse(apiDataResponse)._product_model ? JSON.parse(apiDataResponse)._product_model : '';
         addElementToDocument('mpc', mpc);
         addElementToDocument('promotion', JSON.parse(apiDataResponse).discount ? '-' + JSON.parse(apiDataResponse).discount + '%' : '');
 
         // Append a UL and LI tag append the variant info in the DOM
-        const variants = JSON.parse(apiDataResponse) || '';
-        console.log(`variants : ${JSON.stringify(variants)}`);
+        let allVariantsData = [];
+        if (isColorVariant) {
+          const variants = JSON.parse(apiDataResponse) && JSON.parse(apiDataResponse)._all_colors ? JSON.parse(apiDataResponse)._all_colors  : '';
+          if (variants.length > 0) {
+            variants.forEach(ele => {
+              const tempVariantData = ele && ele.skus && ele.skus[0] ? ele.skus[0] : '';
+              allVariantsData.push(tempVariantData);
+            });
+          }
+        } else {
+          const variants = JSON.parse(apiDataResponse) && JSON.parse(apiDataResponse).skus ? JSON.parse(apiDataResponse).skus : '';
+          if (variants.length > 0) {
+            variants.forEach(ele => allVariantsData.push(ele));
+          }
+        }
         const targetElement = document.querySelector('body');
         const newUl = document.createElement('ul');
         newUl.id = 'variantsadd';
@@ -270,8 +287,8 @@ module.exports = {
         const ul = document.querySelector('#variantsadd');
         const name = nameExtended(); // same for all variant
         const variantIds = [];
-        if (variants && variants.skus) {
-          variants.skus.forEach(q => {
+        if (allVariantsData) {
+          allVariantsData.forEach(q => {
             if (q && q.reference_id) {
               variantIds.push(q.reference_id.trim());
             }
@@ -279,11 +296,11 @@ module.exports = {
         }
         console.log(`variantIds : ${variantIds}`);
         try {
-          if (variantIds.length) {
-            for (let i = 0; i < variantIds.length; i++) {
+          if (allVariantsData.length > 0) {
+            for (let i = 0; i < allVariantsData.length; i++) {
               const listItem = document.createElement('li');
-              const variantSKU = variants.skus && variants.skus[i] ? variants.skus[i] : '';
-              console.log(`variantSKU : ${variantSKU}`);
+              const variantSKU = allVariantsData && allVariantsData[i] ? allVariantsData[i] : '';
+              console.log(`variantSKU : ${JSON.stringify(variantSKU)}`);
               const color = variantSKU && variantSKU.color && variantSKU.color.title ? variantSKU.color.title : '';
               const gtin = variantSKU && variantSKU.gtin ? variantSKU.gtin : '';
               const retailer_product_code = variantSKU && variantSKU.reference_id ? variantSKU.reference_id : '';
@@ -296,7 +313,7 @@ module.exports = {
                 retailer_product_code,
                 variantinformation, // variantInformation,
                 variantDetails: variantIds.join(' | '), // variants
-                variantcount: variants.length, // variantCount
+                variantcount: allVariantsData.length, // variantCount
                 availability, // availabilityText
               };
               console.log(`variantInfo: ${JSON.stringify(variantInfo)}`);
@@ -306,7 +323,7 @@ module.exports = {
             }
           }
         } catch (err) {
-          console.log(err, 'api');
+          console.log(JSON.stringify(err), 'api');
           throw 'API Needs a change';
         }
 
