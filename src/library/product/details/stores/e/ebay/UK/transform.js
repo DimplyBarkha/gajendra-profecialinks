@@ -64,6 +64,13 @@ const transform = (data) => {
       if (row.aggregateRating && row.decimalSeperator && row.decimalSeperator[0].text === 'EU') {
         row.aggregateRating[0].text = row.aggregateRating[0].text.replace('.', ',');
       }
+      if (row.shippingInfo) {
+        let shippingInfos = [];
+        shippingInfos = row.shippingInfo;
+        if (shippingInfos.length > 1) row.shippingInfo.splice(1, shippingInfos.length);
+        if (!row.shippingInfo[0].text.includes('dyson')) row.shippingInfo.splice(0);
+        if (row.shippingInfo[0].text.includes('outlet')) row.shippingInfo.splice(0);
+      }
       console.log(row.inTheBoxUrl + ' IS INBOX URL');
       console.log(row.inTheBoxText + ' IS INBOX text');
       let spliceUrl = true;
