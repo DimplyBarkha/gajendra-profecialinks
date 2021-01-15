@@ -1,3 +1,7 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
 fields:
   - name: image
     description: URL of the main product image
@@ -105,8 +109,6 @@ fields:
   - name: inTheBoxUrl
   - name: inTheBoxText
     xpath: //div[contains(@class,"long-description")]
-    # regExp: (.+What’s in the box:|.+What's in the Box)(.+)(Warranty:.+)
-    # regExpReplace: $2
   - name: hasComparisonTable
     defaultValue: No
   - name: unInterruptedPDP
