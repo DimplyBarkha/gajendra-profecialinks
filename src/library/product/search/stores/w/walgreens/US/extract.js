@@ -2,11 +2,10 @@ const { transform } = require('../../../../shared');
 
 async function implementation (
   inputs,
-  parameters,
+  { transform: transformParam },
   context,
   dependencies,
 ) {
-  const { transform } = parameters;
   const { productDetails } = dependencies;
 
   await context.evaluate(async function (inputs) {
@@ -41,6 +40,7 @@ async function implementation (
           newDiv.dataset.price = price.replace(/\$(\d+) and (\d+) cents/, '$1.$2');
         }
       }
+    }
 
       const reviewRatings = (productCards && productCards[i] && productCards[i].querySelector('.wag-prod-review-info').querySelector('img')) ? productCards[i].querySelector('.wag-prod-review-info').querySelector('img') : null;
       if (reviewRatings && reviewRatings.getAttribute('title')) {
@@ -69,10 +69,24 @@ async function implementation (
         }
       }
 
-      if (productCards && productCards.item(i)) {
-        productCards.item(i).appendChild(newDiv);
+    const allProducts = [...document.querySelectorAll(productCardSelector)]
+      .map(elem => ({
+        elem,
+        id: (!elem.id ? elem.parentElement.parentElement : elem).id.replace(idPrefix, ''),
+        notDone: true,
+      }));
+    const processItem = objWithData => (item) => {
+      const { elem, id } = item;
+      // Try to match against the initial state
+      const infos = objWithData.find(({ productInfo }) => productInfo.prodId === id);
+      if (infos) {
+        elem.dataset.upc = infos.productInfo.gtin || infos.productInfo.upc;
+        elem.dataset.id = infos.productInfo.wic;
+        // remove from the list
+        item.notDone = false;
       }
-    }
+    };
+    if (init.length > 0) allProducts.forEach(processItem(init));
 
     let productNotFound = false;
     let productInformation = null;
@@ -156,14 +170,12 @@ async function implementation (
       }
       const response = await fetch('https://www.walgreens.com/productsearch/v1/products/search', {
         headers: {
-          accept: 'application/json, text/plain, */*',
-          'accept-language': 'en-US,en;q=0.9',
-          'cache-control': 'no-cache',
-          'content-type': 'application/json; charset=UTF-8',
-          pragma: 'no-cache',
-          'sec-fetch-dest': 'empty',
-          'sec-fetch-mode': 'cors',
-          'sec-fetch-site': 'same-origin',
+          'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:82.0) Gecko/20100101 Firefox/82.0',
+          Accept: 'application/json, text/plain, */*',
+          'Accept-Language': 'en-GB,en;q=0.5',
+          'Content-Type': 'application/json; charset=utf-8',
+          'x-dtpc': '2$544687158_898h8vESUAATIKHCRLASDHFEIGQETKUNAAHRAR-0e4',
+          'Cache-Control': 'max-age=0',
         },
         referrer: refURL,
         referrerPolicy: 'no-referrer-when-downgrade',
@@ -178,7 +190,7 @@ async function implementation (
       }
 
       if (response && response.status === 200) {
-        console.log('Product Found!!!!');
+        console.log('The products %o were found', remainingProds);
         const data = await response.json();
         console.log(data);
         productInformation = data.products;
@@ -221,14 +233,16 @@ async function implementation (
       i++;
     }
   });
-  return await context.extract(productDetails, { transform });
+
+  return await context.extract(productDetails, { transform: transformParam });
 }
+
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'US',
     store: 'walgreens',
-    transform: transform,
+    transform,
     domain: 'walgreens.com',
   },
   implementation,
