@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="fp-productList_content"]/span',
     openSearchDefinition: null,
     domain: 'flaschenpost.de',
     zipcode: '28203',
