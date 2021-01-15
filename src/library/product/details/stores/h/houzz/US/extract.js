@@ -80,7 +80,13 @@ async function implementation(
       addHiddenDiv("ii_title",updated_title)
     }
     // @ts-ignore
-
+    try{
+      var img_url= document.getElementsByClassName("zoom-pane-image")[0].style.backgroundImage.split('"')[1]
+      addHiddenDiv("ii_image_url",img_url)
+    }catch(err){
+      console.log(err)
+    }
+    
     const jsonString = document.querySelector(
       "script[type='application/ld+json']"
     ).innerText;
@@ -160,7 +166,7 @@ async function implementation(
         console.log(err)
       };
       try{
-        addHiddenDiv("ii_fulldescription","Product Description"+jsonParsed[0].description);
+        addHiddenDiv("ii_fulldescription","Product Description"+jsonParsed[0].description.replaceAll("-",""));
       }catch(err){
         console.log(err)
       };
