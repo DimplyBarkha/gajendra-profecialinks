@@ -96,3 +96,9 @@ fields:
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@id='wc-aplus']//img/@src  
+  - name: inTheBoxText
+    xpath: //li[contains(., 'Set includes:')]/ul/li
+  - name: unInterruptedPDP
+    xpath: //div[contains(@certonaidentifier, 'recommendation_pdp_cav') or contains(@class, 'mt2 hideOnPrint') or contains(@id,'viewItem-PDP') or contains(@certonaidentifier, 'recommendation_pdp_fbw')]/div//div[contains(@class, 'CertonaProductTile') or contains(@class, 'hl-product')]//div[@id='PdpPricePanel']/following-sibling::a[1]
+  - name: hasComparisonTable
+    defaultValue: "No"
