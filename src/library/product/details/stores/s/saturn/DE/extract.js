@@ -24,22 +24,22 @@ async function implementation (inputs, parameters, context, dependencies) {
   }
 
   // adding rating count with API since value seems to vary during run.
-  async function getRating () {
-    const productId = window.location.pathname.match(/([^-]+).html$/)[1];
-    const API = `https://www.saturn.de/api/v1/graphql?operationName=GetSelectProduct&variables={"hasMarketplace":false,"id":"${productId}"}&extensions={"pwa":{"salesLine":"Saturn","country":"DE","language":"de"},"persistedQuery":{"version":1,"sha256Hash":"bf21cd23afefaf0e92d339815ffe1da9ed05b7fdbeb5f00dcf5478e5abdfee89"}}`;
-    const response = await fetch(API);
-    const json = await response.json();
-    const rating = json.data && json.data.reviews && json.data.reviews.rating;
-    if (rating) {
-      document.body.setAttribute('rating-count', rating.count);
-    } else {
-      const ratingCountXpth = document.evaluate('//script[@type="application/ld+json"][contains(text(),"ratingCount")]', document, null, XPathResult.STRING_TYPE, null);
-      if (ratingCountXpth && ratingCountXpth.stringValue) {
-        document.body.setAttribute('rating-count', ratingCountXpth.stringValue.match(/(?<=ratingCount)(.*)(?=review")/) ? ratingCountXpth.stringValue.match(/(?<=ratingCount)(.*)(?=review")/)[0] : '');
-      }
-    }
-  }
-  await context.evaluate(getRating);
+  // async function getRating () {
+  //   const productId = window.location.pathname.match(/([^-]+).html$/)[1];
+  //   const API = `https://www.saturn.de/api/v1/graphql?operationName=GetSelectProduct&variables={"hasMarketplace":false,"id":"${productId}"}&extensions={"pwa":{"salesLine":"Saturn","country":"DE","language":"de"},"persistedQuery":{"version":1,"sha256Hash":"bf21cd23afefaf0e92d339815ffe1da9ed05b7fdbeb5f00dcf5478e5abdfee89"}}`;
+  //   const response = await fetch(API);
+  //   const json = await response.json();
+  //   const rating = json.data && json.data.reviews && json.data.reviews.rating;
+  //   if (rating) {
+  //     document.body.setAttribute('rating-count', rating.count);
+  //   } else {
+  //     const ratingCountXpth = document.evaluate('//script[@type="application/ld+json"][contains(text(),"ratingCount")]', document, null, XPathResult.STRING_TYPE, null);
+  //     if (ratingCountXpth && ratingCountXpth.stringValue) {
+  //       document.body.setAttribute('rating-count', ratingCountXpth.stringValue.match(/(?<=ratingCount)(.*)(?=review")/) ? ratingCountXpth.stringValue.match(/(?<=ratingCount)(.*)(?=review")/)[0] : '');
+  //     }
+  //   }
+  // }
+  // await context.evaluate(getRating);
 
   try {
     await context.waitForSelector('button[class*="ProductFeatures"]', { timeout: 15000 });
