@@ -1,23 +1,25 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
-recordXPath: //div[contains(@class,"pl-lg-1 catalog-products")]//div[contains(@class,"productbox productbox-grid col-6")]
-fields: 
+recordSelector: div.catalog-products div.productbox
+recordXPath: //div[contains(@class,"catalog-products")]//div[contains(@class,"productbox")]
+fields:
   - name: id
     SingleValue: false
-    xpath: //div[contains(@class,"pl-lg-1 catalog-products")]//section[contains(@class,"row productbox-container pt-1 flex-nowrap")]//a//h3
-  - name: productUrl
+  - name: productUrlObj
     SingleValue: false
-    defaultValue: '#'
+    xpath: ancestor::html//div[@id='product-url']
   - name: name
     SingleValue: false
-    xpath: //div[contains(@class,"pl-lg-1 catalog-products")]//section[contains(@class,"row productbox-container pt-1 flex-nowrap")]//a//h3
+    xpath: //a//h3
   - name: price
     SingleValue: false
-    xpath: //div[contains(@class,"pl-lg-1 catalog-products")]//section[contains(@class,"row productbox-container pt-1 flex-nowrap")]//span[@class="newprice"]
+    manualSelector: span.newprice
   - name: listPrice
     SingleValue: false
-    xpath: //div[contains(@class,"pl-lg-1 catalog-products")]//section[contains(@class,"row productbox-container pt-1 flex-nowrap")]//span[@class="oldprice"]
+    manualSelector: span.oldprice
   - name: thumbnail
     SingleValue: false
-    xpath: //div[contains(@class,"pl-lg-1 catalog-products")]//section[contains(@class,"img-container")]//img/@data-src
+    xpath: //section[contains(@class,"img-container")]//img/@data-src
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id='search-url']
