@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'ebay',
     domain: 'ebay.com',
-    loadedSelector: 'div#CenterPanelInternal',
+    loadedSelector: null,
     noResultsXPath: '//p[contains(text(),"We looked everywhere")]',
     zipcode: '',
   },
