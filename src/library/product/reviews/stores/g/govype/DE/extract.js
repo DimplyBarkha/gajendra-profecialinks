@@ -20,11 +20,18 @@ async function implementation (
     }
 
     try {
-      if (document.querySelector('button#onetrust-accept-btn-handler')) {
-        document.querySelector('button#onetrust-accept-btn-handler').click();
+      if (document.querySelector('#onetrust-accept-btn-handler')) {
+        document.querySelector('#onetrust-accept-btn-handler').click();
       }
-      if (document.querySelector('button#btn-entry-age-allow')) {
-        document.querySelector('button#btn-entry-age-allow').click();
+      if (document.querySelector('#btn-entry-age-allow')) {
+        document.querySelector('#btn-entry-age-allow').click();
+      }
+
+      if (!document.querySelector('#ts_product_widget .productreviewsSummary')) {
+        const newDiv = document.createElement('div');
+        newDiv.id = 'custom_noReview';
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
       }
 
       if (document.querySelectorAll('ul.ts-reviews-pagination li')) {

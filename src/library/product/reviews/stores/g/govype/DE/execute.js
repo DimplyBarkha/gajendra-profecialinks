@@ -6,7 +6,7 @@ module.exports = {
     store: 'govype',
     domain: 'govype.com',
     loadedSelector: 'div.ts-wrapper',
-    noResultsXPath: null,
+    noResultsXPath: '//div[@id="custom_noReview"]',
     reviewUrl: null,
     sortButtonSelectors: null,
     zipcode: "''",

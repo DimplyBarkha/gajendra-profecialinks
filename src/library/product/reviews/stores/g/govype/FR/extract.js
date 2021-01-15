@@ -8,9 +8,29 @@ async function implementation (
   const { transform } = parameters;
   const { productReviews } = dependencies;
   await context.evaluate(async () => {
-    while (document.querySelector('.page-bottom #netreviews_button_more_reviews:not([style*="display:none"]):not([style*="display: none"])')) {
-      document.querySelector('#netreviews_button_more_reviews').click();
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+    if (document.querySelector('#onetrust-accept-btn-handler')) {
+      document.querySelector('#onetrust-accept-btn-handler').click();
+    }
+
+    if (document.querySelector('#btn-entry-age-allow')) {
+      document.getElementById('age-gate-dob-day').getElementsByTagName('option')[1].selected = 'selected';
+      document.getElementById('age-gate-dob-month').getElementsByTagName('option')[1].selected = 'selected';
+      document.getElementById('age-gate-dob-year').value = '2000';
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      document.querySelector('#btn-entry-age-allow').click();
+    }
+
+    if (!document.querySelector('div.netreviews-stars')) {
+      const newDiv = document.createElement('div');
+      newDiv.id = 'custom_noReview';
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+    if (document.querySelector('#netreviews_button_more_reviews')) {
+      while (document.querySelector('.page-bottom #netreviews_button_more_reviews:not([style*="display:none"]):not([style*="display: none"])')) {
+        document.querySelector('#netreviews_button_more_reviews').click();
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+      }
     }
     const ratings = document.querySelectorAll('.netreviews_review_rate_and_stars');
     if (ratings) {
