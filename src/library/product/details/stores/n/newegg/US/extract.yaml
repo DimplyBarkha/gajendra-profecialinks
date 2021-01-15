@@ -643,3 +643,17 @@ fields:
   defaultValue: No
   
   # //img[@class="wc-media wc-image wc-rf-banner-image"]
+- name: inTheBoxUrl
+  singleValue: false
+  xpath: //div[@data-section-tag="in-the-box"]//ul//li//img/@src
+- name: inTheBoxText
+  singleValue: false
+  description: Must include text to show the accessories/tools which come with the product
+  xpath: //div[@data-section-tag="in-the-box"]//ul//li//h3
+- name: hasComparisonTable
+  defaultValue: No
+- name: unInterruptedPDP
+  singleValue: false
+  xpath: //div[contains(@class,"swiper-wrapper")]//a[contains(@class,"title")]|//ul[contains(@class,"swiper-wrapper")]//a[contains(@class,"title")]
+  description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
+  

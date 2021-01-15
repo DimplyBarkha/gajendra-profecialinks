@@ -82,6 +82,24 @@ module.exports = {
       }
       addHiddenDiv('sku', sku);
 
+      if (document.getElementsByTagName('video')) {
+        const vLink = parent.document.getElementById('wcframable1-0');
+        if (vLink) {
+          var videoLink = vLink.contentWindow.document.getElementsByTagName('video').vjs_video_1_html5_api;
+          // var link = '';
+          if (videoLink) {
+            var link = videoLink.src;
+          }
+        }
+      }
+      const links = [];
+      if (document.querySelector('div.wc-reset > ul > li > div > div > img.wc-media.wc-video')) {
+        document.querySelectorAll('div.wc-reset > ul > li > div > div > img.wc-media.wc-video').forEach(e => {
+          links.push(e.getAttribute('wcobj'));
+        });
+      }
+      if (document.querySelector('div.wc-reset > ul > li > div > div > img.wc-media.wc-video')) addHiddenDiv('video', links.join(' | '));
+      addHiddenDiv('video', link);
       // (\/p\/)(\w.+)(\?)
 
       // const bulletInfo =
