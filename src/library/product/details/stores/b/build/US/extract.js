@@ -24,10 +24,12 @@ module.exports = {
         table.appendChild(tBody);
 
         for (let index = 0; index < shownImage.length; index++) {
-          const newlink = document.createElement('tr');
-          newlink.setAttribute('class', 'append_image');
-          newlink.setAttribute('images', shownImage[index].src);
-          tBody.appendChild(newlink);
+          if (shownImage[index].src !== 'https://s2.img-b.com/build.com/themes/build/images/beta/play_overlay.png') {
+            const newlink = document.createElement('tr');
+            newlink.setAttribute('class', 'append_image');
+            newlink.setAttribute('images', shownImage[index].src);
+            tBody.appendChild(newlink);
+          }
         }
       }
 
