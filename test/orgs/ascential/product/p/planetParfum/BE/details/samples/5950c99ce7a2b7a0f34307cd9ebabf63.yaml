@@ -2,7 +2,7 @@ input:
   RPC: 14519_409
   _url: http://planetparfum.com
 extractions:
-  - html: https://workbench.import.io/html/run=3ad071f7-b904-497f-a973-ace386ef972a/task=b27790d0-6b4f-4575-a6a0-759275afea82/a9ac21b3-08f4-4979-a8c8-f5bd8dff5a44.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=ca694516-2a0a-4635-8963-98655f26dcd1/task=172d58bb-a2b4-47fc-9237-ae7a8f9e0586/279a1435-d79c-4bee-be44-6fc8e2246d2e.html
     extractionConfigId: product/details/stores/p/planetParfum/BE/extract
     data:
       - group:
@@ -28,14 +28,11 @@ extractions:
             nameExtended:
               - text: LANCÔME - Ombre Hypnôse Mono Mate - Ombre à Paupières - 102 Beige Nu
                 xpath: /html/body/div[3]/@name_extended
-            listPrice:
-              - text: 30,90 €
-                xpath: /html/body/div[3]/@list_price
             price:
-              - text: 24,10 €
+              - text: 30,90 €
                 xpath: /html/body/div[3]/@price
             availabilityText:
-              - text: Out of Stock
+              - text: Out Of Stock
                 xpath: /html/body/div[3]/@availability_text
             description:
               - text: Des ombres à paupières pour des maquillages naturels de jour aux looks
@@ -49,11 +46,14 @@ extractions:
             brandText:
               - text: LANCÔME
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
-            sku:
+            gtin:
               - text: "20014423"
-                xpath: /html/body/div[3]/@sku_value
+                xpath: /html/body/div[3]/@upc_value
+            sku:
+              - text: M0033214
+                xpath: /html/body/div[3]/@product_sku_id
             variantId:
-              - text: 102 Beige Nu
+              - text: 14519_409
                 xpath: /html/body/div[3]/@variant_id
             shippingInfo:
               - text: >-
@@ -124,14 +124,11 @@ extractions:
             nameExtended:
               - text: LANCÔME - Ombre Hypnôse Mono Mate - Ombre à Paupières - 204 Très Chocolat
                 xpath: /html/body/div[5]/@name_extended
-            listPrice:
-              - text: 30,90 €
-                xpath: /html/body/div[5]/@list_price
             price:
-              - text: 24,10 €
+              - text: 30,90 €
                 xpath: /html/body/div[5]/@price
             availabilityText:
-              - text: In stock
+              - text: Out Of Stock
                 xpath: /html/body/div[5]/@availability_text
             description:
               - text: Des ombres à paupières pour des maquillages naturels de jour aux looks
@@ -145,11 +142,14 @@ extractions:
             brandText:
               - text: LANCÔME
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
-            sku:
+            gtin:
               - text: "20014426"
-                xpath: /html/body/div[5]/@sku_value
+                xpath: /html/body/div[5]/@upc_value
+            sku:
+              - text: M0033214
+                xpath: /html/body/div[5]/@product_sku_id
             variantId:
-              - text: 204 Très Chocolat
+              - text: 16003_409
                 xpath: /html/body/div[5]/@variant_id
             shippingInfo:
               - text: >-
@@ -199,4 +199,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1606403980264
+    timestamp: 1610723306410

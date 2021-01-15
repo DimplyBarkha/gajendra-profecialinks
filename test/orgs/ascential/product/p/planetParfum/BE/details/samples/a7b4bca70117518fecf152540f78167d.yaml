@@ -2,7 +2,7 @@ input:
   RPC: 12764_457
   _url: http://planetparfum.com
 extractions:
-  - html: https://workbench.import.io/html/run=3ad071f7-b904-497f-a973-ace386ef972a/task=17c05e3d-c8c6-4f94-bc45-e887f0833027/0520047b-cf47-4f07-ad61-048c342fbec3.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=ca694516-2a0a-4635-8963-98655f26dcd1/task=ce0f1c24-6c0e-44cc-a5a9-b4dd87af793e/00086b87-8d73-4b94-ae48-b052ecda685b.html
     extractionConfigId: product/details/stores/p/planetParfum/BE/extract
     data:
       - group:
@@ -35,14 +35,11 @@ extractions:
             nameExtended:
               - text: PACO RABANNE - Pour Homme - Eau de Toilette - 50 ml - Vaporisateur
                 xpath: /html/body/div[3]/@name_extended
-            listPrice:
-              - text: 52,50 €
-                xpath: /html/body/div[3]/@list_price
             price:
-              - text: 40,95 €
+              - text: 52,50 €
                 xpath: /html/body/div[3]/@price
             availabilityText:
-              - text: Out of Stock
+              - text: Out Of Stock
                 xpath: /html/body/div[3]/@availability_text
             description:
               - text: >-
@@ -63,11 +60,14 @@ extractions:
             quantity:
               - text: 50 ml
                 xpath: /html/body/div[3]/@quantity_text
-            sku:
+            gtin:
               - text: "20019631"
-                xpath: /html/body/div[3]/@sku_value
+                xpath: /html/body/div[3]/@upc_value
+            sku:
+              - text: P0063404
+                xpath: /html/body/div[3]/@product_sku_id
             variantId:
-              - text: 50 ml - Vaporisateur
+              - text: 18950_457
                 xpath: /html/body/div[3]/@variant_id
             directions:
               - text: Pour un parfum intense qui fait ressortir toutes les facettes de l'Eau de
@@ -146,14 +146,11 @@ extractions:
             nameExtended:
               - text: PACO RABANNE - Pour Homme - Eau de Toilette - 100 ml - Vaporisateur
                 xpath: /html/body/div[5]/@name_extended
-            listPrice:
-              - text: 83,50 €
-                xpath: /html/body/div[5]/@list_price
             price:
-              - text: 65,13 €
+              - text: 83,50 €
                 xpath: /html/body/div[5]/@price
             availabilityText:
-              - text: In stock
+              - text: In Stock
                 xpath: /html/body/div[5]/@availability_text
             description:
               - text: >-
@@ -174,11 +171,14 @@ extractions:
             quantity:
               - text: 100 ml
                 xpath: /html/body/div[5]/@quantity_text
-            sku:
+            gtin:
               - text: "20015874"
-                xpath: /html/body/div[5]/@sku_value
+                xpath: /html/body/div[5]/@upc_value
+            sku:
+              - text: P0063404
+                xpath: /html/body/div[5]/@product_sku_id
             variantId:
-              - text: 100 ml - Vaporisateur
+              - text: 12764_457
                 xpath: /html/body/div[5]/@variant_id
             directions:
               - text: Pour un parfum intense qui fait ressortir toutes les facettes de l'Eau de
@@ -229,4 +229,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1606403981266
+    timestamp: 1610723308984

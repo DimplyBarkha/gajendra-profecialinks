@@ -37,11 +37,17 @@ module.exports = {
           addedVariant.setAttribute('list_price', listPrice);
 
           const productInfoElem = document.querySelector('input#pid');
-          const skuValue = productInfoElem ? productInfoElem.getAttribute('value') : '';
-          addedVariant.setAttribute('sku_value', skuValue);
+          const upcValue = productInfoElem ? productInfoElem.getAttribute('value') : '';
+          addedVariant.setAttribute('upc_value', upcValue);
+
+
+          const linkElem = document.querySelector('link[rel="canonical"]');
+          const productUrl = linkElem ? linkElem.getAttribute('href') : '';
+          const productSku = productUrl ? productUrl.replace(/.+\/(.+)\.html/, '$1') : '';
+          addedVariant.setAttribute('product_sku_id', productSku);
 
           const availabilityElem = document.querySelector('div.availability p.in-stock-msg');
-          const availabilityText = availabilityElem ? 'In stock' : 'Out of Stock';
+          const availabilityText = availabilityElem ? 'In Stock' : 'Out Of Stock';
           addedVariant.setAttribute('availability_text', availabilityText);
 
           const mainImage = getEleByXpath('//div[@id="thumbnails"]//li[position()=1]//img/@data-lgimg');
@@ -78,7 +84,17 @@ module.exports = {
           if (variantName) nameExtended.push(variantName);
           addedVariant.setAttribute('name_extended', nameExtended.join(' - '));
 
-          addedVariant.setAttribute('variant_id', variantName.trim());
+          const vainantIdElem = document.querySelector('div.product-variations.attributes');
+          const variantIdData = vainantIdElem ? vainantIdElem.getAttribute('data-current') : null;
+          const variantIdJson = variantIdData ? JSON.parse(variantIdData) : null;
+          let variantId;
+          if (variantIdJson && variantIdJson.volume && variantIdJson.volume.value) {
+            variantId = variantIdJson.volume.value.replace('var_', '');
+          } else if (variantIdJson && variantIdJson.color && variantIdJson.color.value) {
+            variantId = variantIdJson.color.value.replace('var_', '');
+          } else variantId = '';
+
+          addedVariant.setAttribute('variant_id', variantId);
 
           const quantityElement = document.querySelector('div.product-contents');
           const quantityText = quantityElement ? quantityElement.textContent.trim() : '';

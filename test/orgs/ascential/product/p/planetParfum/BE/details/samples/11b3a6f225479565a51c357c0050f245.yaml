@@ -2,7 +2,7 @@ input:
   RPC: 14808_457
   _url: http://planetparfum.com
 extractions:
-  - html: https://workbench.import.io/html/run=3ad071f7-b904-497f-a973-ace386ef972a/task=a79d0ae1-9d69-47f4-a3a1-3628406c08cf/85be45a7-b4ed-44f1-9dbb-034a0d4d993c.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=ca694516-2a0a-4635-8963-98655f26dcd1/task=6de141ff-773c-47d4-b8ae-734b999f3eea/579d2d20-2b33-428f-a6a1-3244e0b1fbd5.html
     extractionConfigId: product/details/stores/p/planetParfum/BE/extract
     data:
       - group:
@@ -28,14 +28,11 @@ extractions:
             nameExtended:
               - text: CLARINS - Haute Exigence Jour Toutes Peaux - Crème Jour
                 xpath: /html/body/div[4]/@name_extended
-            listPrice:
-              - text: 89,90 €
-                xpath: /html/body/div[4]/@list_price
             price:
-              - text: 70,12 €
+              - text: 89,90 €
                 xpath: /html/body/div[4]/@price
             availabilityText:
-              - text: In stock
+              - text: In Stock
                 xpath: /html/body/div[4]/@availability_text
             description:
               - text: >-
@@ -55,9 +52,15 @@ extractions:
             quantity:
               - text: 50 ml
                 xpath: /html/body/div[4]/@quantity_text
-            sku:
+            gtin:
               - text: "20023064"
-                xpath: /html/body/div[4]/@sku_value
+                xpath: /html/body/div[4]/@upc_value
+            sku:
+              - text: S0047459
+                xpath: /html/body/div[4]/@product_sku_id
+            variantId:
+              - text: 14808_457
+                xpath: /html/body/div[4]/@variant_id
             directions:
               - text: Appliquer chaque matin sur le visage et le cou parfaitement nettoyés en
                   effectuant des pressions du centre du visage vers l'extérieur.
@@ -105,4 +108,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1606403975229
+    timestamp: 1610723300961

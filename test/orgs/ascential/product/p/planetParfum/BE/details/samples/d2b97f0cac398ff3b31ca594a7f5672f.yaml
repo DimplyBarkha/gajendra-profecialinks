@@ -2,7 +2,7 @@ input:
   RPC: 12782_457
   _url: http://planetparfum.com
 extractions:
-  - html: https://workbench.import.io/html/run=3ad071f7-b904-497f-a973-ace386ef972a/task=a6e5f9be-523e-490a-8552-ed27929f55ca/34371428-53d1-48b2-a054-bd4e57dfa405.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=ca694516-2a0a-4635-8963-98655f26dcd1/task=6a31fb9f-7fd3-47ca-afb0-ca831821b516/48773a33-7f5e-4dc1-b01a-329e9093211c.html
     extractionConfigId: product/details/stores/p/planetParfum/BE/extract
     data:
       - group:
@@ -41,14 +41,11 @@ extractions:
             nameExtended:
               - text: PACO RABANNE - 1 Million - Eau de Toilette - 50 ml - Vaporisateur
                 xpath: /html/body/div[3]/@name_extended
-            listPrice:
-              - text: 64,90 €
-                xpath: /html/body/div[3]/@list_price
             price:
-              - text: 50,62 €
+              - text: 64,90 €
                 xpath: /html/body/div[3]/@price
             availabilityText:
-              - text: In stock
+              - text: In Stock
                 xpath: /html/body/div[3]/@availability_text
             description:
               - text: >-
@@ -73,11 +70,14 @@ extractions:
             quantity:
               - text: 50 ml
                 xpath: /html/body/div[3]/@quantity_text
-            sku:
+            gtin:
               - text: "20015902"
-                xpath: /html/body/div[3]/@sku_value
+                xpath: /html/body/div[3]/@upc_value
+            sku:
+              - text: P0062804
+                xpath: /html/body/div[3]/@product_sku_id
             variantId:
-              - text: 50 ml - Vaporisateur
+              - text: 12733_457
                 xpath: /html/body/div[3]/@variant_id
             directions:
               - text: Pour un parfum intense qui fait ressortir toutes les facettes de l'Eau de
@@ -162,14 +162,11 @@ extractions:
             nameExtended:
               - text: PACO RABANNE - 1 Million - Eau de Toilette - 100 ml - Vaporisateur
                 xpath: /html/body/div[4]/@name_extended
-            listPrice:
-              - text: 85,90 €
-                xpath: /html/body/div[4]/@list_price
             price:
-              - text: 67,00 €
+              - text: 85,90 €
                 xpath: /html/body/div[4]/@price
             availabilityText:
-              - text: Out of Stock
+              - text: Out Of Stock
                 xpath: /html/body/div[4]/@availability_text
             description:
               - text: >-
@@ -194,11 +191,14 @@ extractions:
             quantity:
               - text: 100 ml
                 xpath: /html/body/div[4]/@quantity_text
-            sku:
+            gtin:
               - text: "20015901"
-                xpath: /html/body/div[4]/@sku_value
+                xpath: /html/body/div[4]/@upc_value
+            sku:
+              - text: P0062804
+                xpath: /html/body/div[4]/@product_sku_id
             variantId:
-              - text: 100 ml - Vaporisateur
+              - text: 12750_457
                 xpath: /html/body/div[4]/@variant_id
             directions:
               - text: Pour un parfum intense qui fait ressortir toutes les facettes de l'Eau de
@@ -283,14 +283,11 @@ extractions:
             nameExtended:
               - text: PACO RABANNE - 1 Million - Eau de Toilette - 200 ml - Vaporisateur
                 xpath: /html/body/div[6]/@name_extended
-            listPrice:
-              - text: 117,90 €
-                xpath: /html/body/div[6]/@list_price
             price:
-              - text: 91,96 €
+              - text: 117,90 €
                 xpath: /html/body/div[6]/@price
             availabilityText:
-              - text: In stock
+              - text: In Stock
                 xpath: /html/body/div[6]/@availability_text
             description:
               - text: >-
@@ -315,11 +312,14 @@ extractions:
             quantity:
               - text: 200 ml
                 xpath: /html/body/div[6]/@quantity_text
-            sku:
+            gtin:
               - text: "20015903"
-                xpath: /html/body/div[6]/@sku_value
+                xpath: /html/body/div[6]/@upc_value
+            sku:
+              - text: P0062804
+                xpath: /html/body/div[6]/@product_sku_id
             variantId:
-              - text: 200 ml - Vaporisateur
+              - text: 12782_457
                 xpath: /html/body/div[6]/@variant_id
             directions:
               - text: Pour un parfum intense qui fait ressortir toutes les facettes de l'Eau de
@@ -370,4 +370,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1606403987845
+    timestamp: 1610723316307
