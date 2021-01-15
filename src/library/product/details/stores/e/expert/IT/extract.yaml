@@ -151,8 +151,10 @@ fields:
     defaultValue: '0'
   - name: variantId
     singleValue: false
-    xpath: //*/@data-codice
-    regExp: EXPERT_(.*)
+    # xpath: //*/@data-codice
+    xpath: //form[contains(@id,"aspnetForm")]/@action
+    # regExp: EXPERT_(.*)
+    regExp: (\d+).aspx
     regExpReplace: $1
   - name: inTheBoxUrl
     singleValue: false
