@@ -264,7 +264,7 @@ async function implementation (
       document.querySelector('a[href="#reviews-tab"]').click();
       await stall(1000);
       if (document.querySelector('.product-review-comment')) {
-        const ratingMatch = document.querySelector('.product-review-comment').innerText.match(/\d+\.\d{0,2}\/5/);
+        const ratingMatch = document.querySelector('.product-review-comment').innerText.match(/\d+\.\d{0,2}\s?\/\s?5/);
         const reviewCountMatch = document.querySelector('.product-review-comment').innerText.match(/\d+ Testberichte/);
         if (reviewCountMatch && reviewCountMatch.length) {
           addHiddenDiv('ratingCount', reviewCountMatch[0].split(' ')[0]);
