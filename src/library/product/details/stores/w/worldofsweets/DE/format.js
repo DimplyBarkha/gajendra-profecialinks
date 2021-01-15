@@ -51,15 +51,11 @@ const transform = (data) => {
         console.log("row.ingredientsList",row.ingredientsList);
         row.ingredientsList.forEach(item => {
           console.log(" item.text", item.text)
-          item.text = item.text.replace('Zutaten', '').trim();
+          item.text = item.text.replace('Zutaten:', '').trim();
           console.log(" item.text", item.text)
         });
       }
-      if(row.ingredientsList){
-        row.ingredientsList.forEach(item =>{
-          item.text = item.text.replace(':', '').trim();
-        })
-      }
+
       if (row.availabilityText) {
         row.availabilityText.forEach(item => {
           if (item.text == "true"){
@@ -73,6 +69,12 @@ const transform = (data) => {
           }
 
         })
+      /*  if(row.caloriesPerServing){
+                      row.caloriesPerServing.forEach(item =>{
+                      item.text = item.text.split('Fett:');
+                 })
+          }
+      } */
       }
     }
 

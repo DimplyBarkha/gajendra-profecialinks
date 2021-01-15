@@ -14,7 +14,7 @@ fields:
   - name: shownImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: /div[contains(@class,'morepics-container js-morepics-container')]//ul//li//a/img/@src/
+    xpath: /div[contains(@class,'morepics-container js-morepics-container')]//ul//li//a/img/@src |  //div[contains(@class,'picture  has--morcepics')]//a//img/@src | //div[contains(@class,'picture')]//a/img/@src
    # xpath: //div[contains(@class,'morepics-container js-morepics-container')]//ul//li//img/@src
   - name: metaKeywords
     singleValue: true
@@ -269,7 +269,8 @@ fields:
     singleValue: true
     description: Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
-    xpath:  //div[contains(@class,'nutrition-table')]//div[contains(.,'Energie')]/following-sibling::div[1]/text()
+    #xpath: //div[contains(@class,'nutrition-table')]//strong[contains(.,'Nährwert pro 100g:')]/../following-sibling::div/text()
+    xpath: //div[contains(@class,'nutrition-table')]//div[contains(.,'Energie')]/following-sibling::div[1]/text()
   - name: caloriesFromFatPerServing
     singleValue: true
     description: Nutritional Information for Calories From Fat content - Usually
@@ -398,7 +399,7 @@ fields:
     description: Nutritional Information for Salt content - Usually based on per
       100g serving
     type: NUMBER
-    xpath:  //div[contains(@class,'nutrition-table')]//div[contains(.,'Salz:')]/following-sibling::div[1]/text()
+    xpath: //div[contains(@class,'nutrition-table')]//div[contains(.,'Salz:')]/following-sibling::div[1]/text()
   - name: saltPerServingUom
     singleValue: true
     description: Unit of Measure Data for Salt
