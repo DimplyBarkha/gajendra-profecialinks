@@ -8,18 +8,7 @@ async function implementation (
   const { transform } = parameters;
   const { productReviews } = dependencies;
   await context.evaluate(async () => {
-    if (document.querySelector('#onetrust-accept-btn-handler')) {
-      document.querySelector('#onetrust-accept-btn-handler').click();
-    }
-
-    if (document.querySelector('#btn-entry-age-allow')) {
-      document.getElementById('age-gate-dob-day').getElementsByTagName('option')[1].selected = 'selected';
-      document.getElementById('age-gate-dob-month').getElementsByTagName('option')[1].selected = 'selected';
-      document.getElementById('age-gate-dob-year').value = '2000';
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      document.querySelector('#btn-entry-age-allow').click();
-    }
-
+ 
     if (!document.querySelector('div.netreviews-stars')) {
       const newDiv = document.createElement('div');
       newDiv.id = 'custom_noReview';
