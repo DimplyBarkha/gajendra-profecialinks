@@ -1,13 +1,13 @@
 const { cleanUp } = require('../../../../shared');
 
-async function implementation(inputs, parameters, context, dependencies) {
+async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
   await context.evaluate(async () => {
     // await new Promise((resolve, reject) => setTimeout(resolve, 3000));
 
-    function addElementToDocument(id, value, key) {
+    function addElementToDocument (id, value, key) {
       const catElement = document.createElement('div');
       catElement.id = id;
       catElement.innerText = value;
@@ -62,7 +62,7 @@ async function implementation(inputs, parameters, context, dependencies) {
   const dataRef = await context.extract(productDetails, { transform });
 
   if (dataRef[0].group[0].brandText) {
-    dataRef[0].group[0].brandText[0].text = dataRef[0].group[0].brandText[0].text.replace("'", "");
+    dataRef[0].group[0].brandText[0].text = dataRef[0].group[0].brandText[0].text.replace("'", '');
   }
   return dataRef;
 }
