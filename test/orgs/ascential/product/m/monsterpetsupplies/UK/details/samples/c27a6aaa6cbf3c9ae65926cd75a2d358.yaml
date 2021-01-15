@@ -1,0 +1,96 @@
+input:
+  id: DFNNN050_1
+  _url: http://monsterpetsupplies.co.uk
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=9a2b5950-a3d1-4eed-b098-b7fcb6a74587/task=83b1e20c-0967-4a55-94fc-4ffbfe419171/dfd643e5-e5dd-4675-ae71-5fbda46756f5.html
+    extractionConfigId: product/details/stores/m/monsterpetsupplies/UK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.monsterpetsupplies.co.uk/dog/dry-dog-food/purina-veterinary-jm-joint-mobility-dog-food
+                xpath: /html/head[1]/link[11]/@href
+            image:
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/f_auto,c_pad,w_500,h_500,q_75/v1605616371/users/7613036678292_zxjlsd.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/span[1]/img[2]/@src
+            imageAlt:
+              - text: PRO PLAN Canine JM Joint Mobility Dog Food
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/span[1]/img[1]/@alt
+            alternateImages:
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/f_auto,c_pad,w_50,h_50,q_75/v1605616371/users/7613036678292_t19_t4tuvs.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/img[1]/@src
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/f_auto,c_pad,w_500,h_500,q_75/v1605616371/users/7613036678292_zxjlsd.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/img[1]/@src
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/f_auto,c_pad,w_50,h_50,q_75/v1593793208/users/43636550_djwccs.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/img[1]/@src
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/f_auto,c_pad,w_50,h_50,q_75/v1548771647/PurinaFortifloraCanine_rtl983.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/img[1]/@src
+            metaKeywords:
+              - text: pro plan canine jm joint mobility dog food
+                xpath: /html/head[1]/meta[4]/@content
+            category:
+              - text: Dog
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]/a[3]
+              - text: Dry Dog Food
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]/a[4]
+            nameExtended:
+              - text: PRO PLAN Canine JM Joint Mobility Dog Food 12kg
+                xpath: /html/body/div[17]
+            listPrice:
+              - text: £69.00
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[2]/section[1]/div[2]/p[2]
+            price:
+              - text: £58.19
+                xpath: /html/body/div[18]
+            availabilityText:
+              - text: InStock
+                xpath: /html/body/div[20]
+            sku:
+              - text: DFNNN050_1
+                xpath: /html/body/div[16]
+            manufacturerDescription:
+              - text: PRO PLAN Canine JM Joint Mobility Dog Food is an appetising diet,
+                  specially designed to provide complete nutrition for dogs with
+                  joint problems. A balanced pet food rich in Omega-3 fatty
+                  acids and EPA to promote healthy joints and cartilage in dogs
+                  of all ages, Canine JM has been shown to improve the gait and
+                  mobility of dogs suffering with osteoarthritis.
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/p[1]
+              - text: With a moderated fat content to help reduce the stress on your dog’s
+                  joints, Canine JM is also fantastic as a weight loss diet,
+                  though it is important to note it is not recommended for pets
+                  suffering with renal failure. Above all, Canine JM is mouth
+                  wateringly delicious, to ensure the cooperation of your furry
+                  four-legged patient!
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/p[2]
+              - text: Key Features & Benefits
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/p[3]
+              - text: Ingredients
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/p[4]
+              - text: Rice, Dehydrated Salmon Protein, Wheat Flour, Dehydrated Poultry Protein,
+                  Soya Protein, Maize, Dried Egg, Digest, Fish Oil, Pea Fibre,
+                  Animal Fat, Minerals, Cellulose
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/p[5]
+              - text: Analytical Constituents
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/p[6]
+              - text: "Protein: 30.0%, Fat content: 12.0%, Crude ash: 7.0%, Crude fibres: 2.5%,
+                  EPA and DHA: 0.8%"
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/p[7]
+            name:
+              - text: PRO PLAN Canine JM Joint Mobility Dog Food
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/h1[1]
+            promotion:
+              - text: You Save £10.81 (16%)
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[2]/section[1]/div[3]/p[1]
+            variantInformation:
+              - text: 12kg & FREE Delivery & FREE Gift
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[2]/section[1]/div[1]/h5[1]
+            firstVariant:
+              - text: DFNNN050
+                xpath: /html/body/div[16]
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[22]
+            variantCount:
+              - text: "3"
+        xpath: /
+    timestamp: 1610704927475
