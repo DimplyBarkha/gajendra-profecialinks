@@ -5,9 +5,6 @@ recordXPath: null
 fields:
   - name: name
     singleValue: true
-    xpath: //h2[@class='ui-search-item__title']
-  - name: name
-    singleValue: true
     xpath: //h2[@class='ui-search-item__title ui-search-item__group__element']
   - name: _pageTimestamp
     singleValue: true
@@ -20,10 +17,10 @@ fields:
     xpath: //ol/li/div/div/div/a/@href
   - name: thumbnail
     singleValue: true
-    xpath: //img[@class='ui-search-result-image__element']/@src
+    xpath: //div[@class='slick-track']/div[@class='slick-slide slick-active']/img[@class='ui-search-result-image__element']/@src
   - name: price
     singleValue: true
-    xpath: //div[@class='ui-search-price ui-search-price--size-medium ui-search-item__group__element']/div[@class='ui-search-price__second-line']/span[@class='price-tag ui-search-price__part']
+    xpath: //div[@class='ui-search-price ui-search-price--size-medium ui-search-item__group__element']/div[@class='ui-search-price__second-line'] | //div[@class='ui-search-price ui-search-price--size-x-tiny ui-search-item__pds-best-price ui-search-item__group__element ui-search-color--black']
   - name: soldBy
     singleValue: true
     xpath: //div[@class='ui-search-item__group ui-search-item__group--title']/a/p

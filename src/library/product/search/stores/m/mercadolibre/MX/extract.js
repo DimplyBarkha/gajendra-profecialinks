@@ -17,7 +17,7 @@ module.exports = {
   ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    await context.waitForSelector('.ui-search-results', { timeout: 25000 });
+    await context.waitForSelector('.ui-search-results', { timeout: 30000 });
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
         let scrollTop = 0;

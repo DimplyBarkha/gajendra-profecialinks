@@ -17,6 +17,7 @@ const transform = (data, context) => {
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   const state = context.getState();
+  console.log(state);
   let orgRankCounter = state.orgRankCounter || 0;
   let rankCounter = state.rankCounter || 0;
   const productCodes = state.productCodes || [];
