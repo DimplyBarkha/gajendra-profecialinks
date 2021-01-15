@@ -7,15 +7,25 @@ const transform = (data) => {
   for (const { group }
     of data) {
     for (const row of group) {
+      const uniqueArr = [];
       if (row.specifications) {
+        for (let i = 0; i < row.specifications.length; i++) {
+          if (!uniqueArr.includes(row.specifications[i].text)) uniqueArr.push(row.specifications[i].text);
+          // row.specifications=null;
+          // row.specifications=uniqueArr;
+        }
         // for(let i=0;i<row.specifications.length;i++){
         //   if(i!==0){
         //   if(row.specifications[i].text===row.specifications[i-1].text)
         //     row.specifications.splice(i,i+1);
         //   }
         // }
+
+        // row.specifications = [{
+        //   text: row.specifications.reduce((item, currItem) => item ? `${item} || ${currItem.text.replace(/:(\s*\n\s*)+/g, ': ').replace(/(\s*\n\s*)+/, ' || ')}` : currItem.text.replace(/:(\s*\n\s*)/g, ': ').replace(/(\s*\n\s*)+/, ' || '), ''),
+        // }];
         row.specifications = [{
-          text: row.specifications.reduce((item, currItem) => item ? `${item} || ${currItem.text.replace(/:(\s*\n\s*)+/g, ': ').replace(/(\s*\n\s*)+/, ' || ')}` : currItem.text.replace(/:(\s*\n\s*)/g, ': ').replace(/(\s*\n\s*)+/, ' || '), ''),
+          text: uniqueArr.reduce((item, currItem) => item ? `${item} || ${currItem.replace(/:(\s*\n\s*)+/g, ': ').replace(/(\s*\n\s*)+/, ' || ')}` : currItem.replace(/:(\s*\n\s*)/g, ': ').replace(/(\s*\n\s*)+/, ' || '), ''),
         }];
       }
       if (row.unInterruptedPDP) {
@@ -81,6 +91,8 @@ const transform = (data) => {
         let shippingInfos = [];
         shippingInfos = row.shippingInfo;
         if (shippingInfos.length > 1) row.shippingInfo.splice(1, shippingInfos.length);
+        if (!row.shippingInfo[0].text.includes('dyson')) row.shippingInfo.splice(0);
+        if (row.shippingInfo[0].text.includes('outlet')) row.shippingInfo.splice(0);
       }
       // row.hasComparisonTable = row.hasComparisonTable ? [{ text: 'Yes' }] : [{ text: 'No' }]
     }

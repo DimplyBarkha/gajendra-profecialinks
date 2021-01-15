@@ -31,7 +31,8 @@ fields:
     manualSelector: span.vi-discount
   - name: specifications
     singleValue: false
-    xpath: //div[@class='spec'][not(@data-title='')] | //div[contains(@class,'allspecs')]//div[not(@hide-if-empty='')]/p | //div[contains(@class,"specifications")]//div[contains(@class,"specification")] | //div[contains(@class,"p-spec")]| //div[contains(@class,"prodDetailDesc")]//td//text()
+    # xpath: //div[@class='spec'][not(@data-title='')] | //div[contains(@class,'allspecs')]//div[not(@hide-if-empty='')]/p | //div[contains(@class,"specifications")]//div[contains(@class,"specification")] | //div[contains(@class,"p-spec")]| //div[contains(@class,"prodDetailDesc")]//td//text()
+    xpath: //div[@id='specsDiv']//text() | //div[contains(@class,'allspecs')]//div[not(@hide-if-empty='')]/p | (//div[@class='specifications']//div[contains(@class,'specification')]//h5|//div[@class='specifications']//div[contains(@class,'specification')]//p)[.]|//div[contains(@class,'container')]//div[@class='spec' and @data-title!='']//span
   - name: availabilityText
     singleValue: false
     xpath: (//*[contains(@id,"binBtn_btn")]/@class)[1] | (//div[@class='item-action']/a)[1]
@@ -114,4 +115,5 @@ fields:
     xpath: //link[@rel='canonical']/@href
   - name:  shippingInfo
     # xpath: //div[contains(@class,"si-cnt")]//div[contains(@class,"mbg")]/a | //div[contains(@class,"si-content")]//div[contains(@class,"mbg")]//span[contains(@class,"mbg")] | //div[contains(@class,"seller-details")]//a
-    xpath: //div[contains(@class,"si-cnt")]//div[contains(@class,"mbg")]/a | //div[contains(@class,"si-content")]//div[contains(@class,"mbg")]//span[contains(@class,"mbg")]
+    xpath: //div[@class='shippingInfo']/text() | //div[contains(@class,"si-cnt")]//div[contains(@class,"mbg")]/a | //div[contains(@class,"si-content")]//div[contains(@class,"mbg")]//span[contains(@class,"mbg")] 
+    # xpath: //div[@class='shippingInfo']/text()

@@ -85,6 +85,27 @@ async function implementation (
       //   for(let i=0;i<tableData.length;i++)  specifications+=tableData[i].innerText+' || ';
       //   addElementToDocument('prodSpecs',specifications);
       //   }
+      console.log('we are on page ', document.URL);
+      // div[contains(@class,"si-cnt")]//div[contains(@class,"mbg")]/a | //div[contains(@class,"si-content")]//div[contains(@class,"mbg")]//span[contains(@class,"mbg")]
+      let shippingInfoPresent = true; let shippingInfo = '';
+      if (document.querySelector('div[class*="si-content"] h2[class*="si-ttl"]')) {
+        if (document.querySelector('div[class*="si-content"] h2[class*="si-ttl"]').innerText.includes('sur le vendeu')) { shippingInfoPresent = false; }
+      }
+      if (shippingInfoPresent === true) {
+        if (document.querySelector('div[class*="si-cnt"] div[class*="mbg"]')) {
+          console.log(document.querySelector('div[class*="si-cnt"] div[class*="mbg"]').innerText);
+          if (!document.querySelector('div[class*="si-cnt"] div[class*="mbg"]').innerText.includes('outlet')) {
+            shippingInfo = document.querySelector('div[class*="si-cnt"] div[class*="mbg"]').innerText;
+            addElementToDocument('shippingInfo', shippingInfo);
+          }
+        } else if (document.querySelector('div[class*="si-content"] div[class*="mbg"] span[class*="mbg"]')) {
+          if (!document.querySelector('div[class*="si-content"] div[class*="mbg"] span[class*="mbg"]').innerText.includes('outlet')) {
+            shippingInfo = document.querySelector('div[class*="si-content"] div[class*="mbg"] span[class*="mbg"]').innerText;
+            addElementToDocument('shippingInfo', shippingInfo);
+          }
+        }
+      }
+      console.log('shippininfo is ', shippingInfo);
     });
   }
   await checkUPDP();
@@ -125,6 +146,36 @@ async function implementation (
         await context.setBypassCSP(true);
         await context.goto(src, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
         await context.waitForSelector('div#ds_div');
+        await context.evaluate(async () => {
+          function addHiddenDiv (id, content) {
+            const newDiv = document.createElement('div');
+            newDiv.id = id;
+            newDiv.textContent = content;
+            newDiv.style.display = 'none';
+            document.body.appendChild(newDiv);
+          }
+          let specsText = '';
+          if (document.querySelectorAll('div[class*="p-wrapper"] div[class*="p-spec"]').length !== 0) {
+            const specDivs = document.querySelectorAll('div[class*="p-wrapper"] div[class*="p-spec"]');
+            for (let i = 0; i < specDivs.length; i++) {
+              if (specDivs[i].querySelector('span[class*="p-val"]') && specDivs[i].querySelector('span[class*="p-val"]').innerText !== '') { specsText += specDivs[i].querySelector('span[class*="p-title"]').innerText + ' || ' + specDivs[i].querySelector('span[class*="p-text"]').innerText + ' || '; }
+              if (specDivs[i].querySelector('b') && specDivs[i].querySelector('b').innerText !== '') { specsText += specDivs[i].querySelector('p').innerText + ' || '; }
+            }
+          } else if (document.querySelectorAll('table td div[id*="ds_div"] p')) {
+            const specsParas = document.querySelectorAll('table td div[id*="ds_div"] p');
+            for (let i = 0; i < specsParas.length; i++) {
+              if (!specsParas[i].innerText.includes('Specifications')) { specsText += specsParas[i].innerText + ' || '; }
+            }
+          }
+          if (document.querySelectorAll('div[class*="container"] div[class="spec"]').length !== 0) {
+            const specDivs = document.querySelectorAll('div[class*="container"] div[class="spec"]');
+            for (let i = 0; i < specDivs.length; i++) {
+              if (specDivs[i].querySelector('span[class*="val"]') && specDivs[i].querySelector('span[class*="val"]').innerText !== '') { specsText += specDivs[i].querySelector('span[class*="title"]').innerText + ' || ' + specDivs[i].querySelector('span[class*="val"]').innerText + ' || '; }
+              if (specDivs[i].querySelector('b') && specDivs[i].querySelector('b').innerText !== '') { specsText += specDivs[i].querySelector('p').innerText + ' || '; }
+            }
+          }
+          addHiddenDiv('specsDiv', specsText);
+        });
         return await context.extract(productDetails, { type: 'MERGE_ROWS', transform });
       } catch (error) {
         console.log('could not load page', error);
