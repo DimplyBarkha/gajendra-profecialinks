@@ -1,0 +1,21 @@
+robot: product/details/variants
+proxy:
+  zone: ZUS
+  type: DATA_CENTER
+policy:
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 120
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 3
+authenticated: false
+parameters:
+  country: CH
+  domain: importparfumerie.ch
+  store: importparfumerie
+  zipcode: "''"
+meta:
+  branches:
+    profecia:
+      extractor: 7714fc49-23e9-4a25-8578-f9a9abb6c744
+      legacyAccountId: 85e1dabd-5c4e-414e-925b-b1692098d5f0

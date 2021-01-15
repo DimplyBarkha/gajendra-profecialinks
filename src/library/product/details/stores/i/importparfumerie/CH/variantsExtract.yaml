@@ -1,0 +1,23 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantCount
+    singleValue: false
+    xpath: count(//ul[contains(@class,"product-variant-switch product-variant-switch--horizontal")]//li)
+  - name: variantInformation
+    singleValue: false
+    xpath: //ul[contains(@class,"product-variant-switch product-variant-switch--horizontal")]//li//a[contains(@class,"product-variant-switch__switch-item  interaction--enabled  active  ")]//span[contains(@class,"product-variant-switch__size")] | //div[@class="select-placeholder"]
+  - name: firstVariant
+    singleValue: false
+    xpath: //div[contains(@class,"product-detail-price__item product-detail-price__item__buttons")]//div/@data-productid
+  - name: variants
+    singleValue: false
+    xpath: //ul[contains(@class,"product-variant-switch product-variant-switch--horizontal")]//li//a/@data-product-variant-switch-trigger-id
+  - name: variantUrl
+    singleValue: false
+    xpath: //link[@itemprop="url"]/@href
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@class,"product-detail-price__item product-detail-price__item__buttons")]//div/@data-productid   
