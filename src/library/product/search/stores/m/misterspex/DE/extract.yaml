@@ -6,7 +6,7 @@ fields:
   - name: input
     xpath: //div[@class='spex-productList__item']/@ms-input
   - name: id
-    xpath: //div[@class="spex-productTile__wishlist"]//span/@data-id
+    xpath: //*[contains(@class, 'spex-productTile')]/@data-sku
   - name: pageTimestamp
     singleValue: true
   - name: name
