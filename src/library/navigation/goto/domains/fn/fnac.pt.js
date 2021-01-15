@@ -118,7 +118,7 @@ module.exports = {
         const container = document.querySelector(cssBlockedTxtContainer);
         return container && container.innerText.toLowerCase().includes(txtBlocked.toLowerCase());
       }, hardBlockedParam);
-    }
+    };
 
     const run = async () => {
       const captchaFrame = "iframe[_src*='captcha']:not([title]), iframe[src*='captcha']:not([title])";

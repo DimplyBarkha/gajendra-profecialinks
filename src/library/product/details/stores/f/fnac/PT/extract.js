@@ -11,31 +11,30 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
   try {
-    await context.waitForXPath("//div[@class='slick-track']//article",{ timeout:10000 });
-
-  } catch(error) {
+    await context.waitForXPath("//div[@class='slick-track']//article", { timeout: 10000 });
+  } catch (error) {
 
   }
-  const prodUrl = await context.evaluate(async function() {
+  const prodUrl = await context.evaluate(async function () {
     return document.URL;
-  })
-  //get enhancedContent
+  });
+  // get enhancedContent
   try {
-    await context.waitForSelector('img[id*=_flixbtn]', {timeout:10000});
-  } catch(er) {};
+    await context.waitForSelector('img[id*=_flixbtn]', { timeout: 10000 });
+  } catch (er) {};
 
-  const enhancedContentUrl = await context.evaluate(async function() {
-    let code = document.querySelector('img[id*=_flixbtn]') ? document.querySelector('img[id*=_flixbtn]').getAttribute('id').match(/\d+/g)[0]: "";
-    let url  = `https://media.flixcar.com/delivery/inpage/show/418/pt/${code}/`;
+  const enhancedContentUrl = await context.evaluate(async function () {
+    const code = document.querySelector('img[id*=_flixbtn]') ? document.querySelector('img[id*=_flixbtn]').getAttribute('id').match(/\d+/g)[0] : '';
+    const url = `https://media.flixcar.com/delivery/inpage/show/418/pt/${code}/`;
     return url;
   });
 
   let enhancedContent = null;
-  if(enhancedContentUrl) {
+  if (enhancedContentUrl) {
     await context.goto(enhancedContentUrl, { timeout: 100000, waitUntil: 'load', checkBlocked: true });
-    enhancedContent = await context.evaluate(async function() {
+    enhancedContent = await context.evaluate(async function () {
       const flixRows = document.querySelectorAll('div.flix-std-row');
-      let content = {};
+      const content = {};
       let enhancedContent = '';
       for (let i = 0; i < flixRows.length; i++) {
         if (flixRows[i].querySelector('div[class*="flix-std-title"]')) { enhancedContent += flixRows[i].querySelector('div[class*="flix-std-title"]').innerText + '||'; }
@@ -50,33 +49,33 @@ async function implementation (inputs, parameters, context, dependencies) {
           enhancedContent += specsData[i].querySelector('div[class*="flix-title"]').innerText + '||';
         }
       }
-      enhancedContent = enhancedContent.replace( /(<([^>]+)>)/ig, '');
+      enhancedContent = enhancedContent.replace(/(<([^>]+)>)/ig, '');
       let images = [];
       const imagenodes = document.querySelectorAll('div[class*="flix-std-row"] img');
       imagenodes.forEach(q => {
-        if(q.hasAttribute('data-flixsrcset')) {
-          images.push(q.getAttribute('data-flixsrcset').replace(/\\\//g, "/").replace(/\\\"/g,""));
+        if (q.hasAttribute('data-flixsrcset')) {
+          images.push(q.getAttribute('data-flixsrcset').replace(/\\\//g, '/').replace(/\\\"/g, ''));
         }
       });
-      images = images.join(" | ");
-      content.enhancedContent = enhancedContent.replace(/(?:\\[rn])+/g, "");
+      images = images.join(' | ');
+      content.enhancedContent = enhancedContent.replace(/(?:\\[rn])+/g, '');
       content.images = images;
       content.videoLinks = [];
-      let videoNode = document.querySelector('div[class*=fullJwPlayerWarp] input');
-      if(videoNode && videoNode.hasAttribute('value')) {
+      const videoNode = document.querySelector('div[class*=fullJwPlayerWarp] input');
+      if (videoNode && videoNode.hasAttribute('value')) {
         let valueAttr = videoNode.getAttribute('value').replace(/\\/g, '');
         valueAttr = JSON.parse(valueAttr);
-        if(valueAttr.playlist) {
+        if (valueAttr.playlist) {
           valueAttr.playlist.forEach(q => {
-            if(q.file) {
+            if (q.file) {
               content.videoLinks.push(q.file);
             }
-          })
+          });
         }
       }
-      content.videoLinks = content.videoLinks.join(" | ");
+      content.videoLinks = content.videoLinks.join(' | ');
       return content;
-    })
+    });
   }
 
   await context.goto(prodUrl, { timeout: 300000, waitUntil: 'load', checkBlocked: true });
@@ -106,10 +105,10 @@ async function implementation (inputs, parameters, context, dependencies) {
       addHiddenDiv('added_brandText', brandText);
     }
     fetchBrandFromScript();
-    if(document.querySelector('div#flix-location-content')){
+    if (document.querySelector('div#flix-location-content')) {
       const scrollToElement = document.querySelector('div#flix-location-content');
-    console.log('scroll element ' + scrollToElement);
-    scrollToElement.scrollIntoView({ behavior: 'smooth' });
+      console.log('scroll element ' + scrollToElement);
+      scrollToElement.scrollIntoView({ behavior: 'smooth' });
     }
     function stall (ms) {
       return new Promise((resolve, reject) => {
