@@ -1,3 +1,4 @@
+// @ts-nocheck
 const { cleanUp } = require('../../../../shared');
 
 module.exports = {
@@ -26,6 +27,59 @@ module.exports = {
       }
       await context.evaluate(
         async ({ i, variantsTotal }) => {
+          const addMinMax = (snapshot, nodeName) => {
+            const list = document.createElement('ol');
+            list.id = nodeName;
+            list.style.display = 'none';
+            variantElem.appendChild(list);
+            for (let i = 0; i < snapshot.snapshotLength; i++) {
+              const row = snapshot.snapshotItem(i);
+              if (!(row && nodeName)) return;
+              const regexp = /([\d,.]+) ?([a-zA-Z/]+)/;
+
+              if (row.childNodes.length >= 2) {
+                let min, minUom, max, maxUom;
+                const firstElem = row.firstChild;
+                let secondElem = row.childNodes[1];
+                if (row.childNodes.length > 2) {
+                  secondElem = Array.from(row.childNodes).find(
+                    (node, index) => !node.textContent.includes('%') && index > 0,
+                  );
+                }
+
+                const hasMin = firstElem.textContent.toLowerCase().includes('mín');
+                const hasMax = firstElem.textContent.toLowerCase().includes('máx');
+                if (hasMin && hasMax) {
+                  const valuesArr = secondElem.textContent.split(' / ');
+                  if (valuesArr.length === 2) {
+                    const minMatch = valuesArr[0].match(regexp);
+                    const maxMatch = valuesArr[1].match(regexp);
+                    min = minMatch ? minMatch[1] : '';
+                    minUom = minMatch ? minMatch[2] : '';
+                    max = maxMatch ? maxMatch[1] : '';
+                    maxUom = maxMatch ? maxMatch[2] : '';
+                  }
+                } else if (hasMin || hasMax) {
+                  const minMatch = secondElem.textContent.match(regexp);
+                  if (minMatch) {
+                    min = minMatch[1];
+                    minUom = minMatch[2];
+                  }
+                }
+                const listItem = document.createElement('li');
+                listItem.setAttribute('value', min);
+                listItem.setAttribute('uom', minUom);
+                list.appendChild(listItem);
+                if (max && maxUom) {
+                  const listItem = document.createElement('li');
+                  listItem.setAttribute('value', max);
+                  listItem.setAttribute('uom', maxUom);
+                  list.appendChild(listItem);
+                }
+              }
+            }
+          };
+
           const variantElem = document.querySelectorAll('div.box-variants label.radio-button-item > div')[i];
           const variantObj = window.productJSON.variants[i];
 
@@ -105,21 +159,40 @@ module.exports = {
             : '';
           if (quantity && quantity.match(/[\d.,]+\s.?g/)) variantElem.setAttribute('quantity', quantity);
 
-          const ingredients = document.evaluate('html//tr[th[contains(text(), "Composição")]]/td', document, null, XPathResult.STRING_TYPE, null).stringValue;
+          const ingredients = document.evaluate(
+            'html//tr[th[contains(text(), "Composição")]]/td',
+            document,
+            null,
+            XPathResult.STRING_TYPE,
+            null,
+          ).stringValue;
 
-          // const calciumRow = document.evaluate('//tr//tr[td[contains(text(), "Cálcio")]]', document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
-          // if (calciumRow.childNodes.length === 2) {
-          //   const firstElem = calciumRow.firstChild;
-          //   const secondElem = calciumRow.lastChild;
-          // }
+          const calciumSnapshot = document.evaluate(
+            '//tr//tr[td[contains(text(), "Cálcio")]]',
+            document,
+            null,
+            XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
+            null,
+          );
+
+          const fibreSnapshot = document.evaluate(
+            '//tr//tr[td[contains(translate(text(), "FIBROSA", "fibrosa"), "fibrosa")]]',
+            document,
+            null,
+            XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
+            null,
+          );
+
+          addMinMax(calciumSnapshot, 'calcium');
+          addMinMax(fibreSnapshot, 'fibre');
 
           variantElem.setAttribute('product_url', window.location.href.match(/(.+\/p)(\?.*)?/)[1]);
           variantElem.setAttribute('product_name', name);
           variantElem.setAttribute('brand', brand);
           variantElem.setAttribute('name_extended', nameExtended);
           variantElem.setAttribute('variant_count', variantsTotal);
-          variantElem.setAttribute('list_price', `${currency}${variantObj.list_price}`);
-          variantElem.setAttribute('price', `${currency}${variantObj.price}`);
+          variantElem.setAttribute('list_price', `${currency}${variantObj.list_price}`.replace('.', ','));
+          variantElem.setAttribute('price', `${currency}${variantObj.price}`.replace('.', ','));
           variantElem.setAttribute('coupon_text', couponText);
           variantElem.setAttribute('ingredients', ingredients);
         },

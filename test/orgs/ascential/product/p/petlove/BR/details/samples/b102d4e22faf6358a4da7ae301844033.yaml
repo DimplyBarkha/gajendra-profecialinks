@@ -2,7 +2,7 @@ input:
   id: 3105657-2
   _url: http://petlove.com.br
 extractions:
-  - html: https://workbench.import.io/html/run=f6a202c1-5c11-4c70-b3a7-f68dcebbaf4e/task=1cde3695-ebe0-412b-9552-4ed2ec2b95ed/fff6c996-44ff-4631-8ebb-05918b20a2e4.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=6573641b-a8f9-483e-a92b-4c519a2dbd85/task=008a094b-f255-4fa4-91b3-bcedd00e7f70/2df7b9ba-ee03-417d-adac-b3294e67f9d1.html
     extractionConfigId: product/details/stores/p/petlove/BR/extract
     data:
       - group:
@@ -27,10 +27,10 @@ extractions:
                   Ração ou Petisco
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/@name_extended
             listPrice:
-              - text: R$92.78
+              - text: R$92,78
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/@list_price
             price:
-              - text: R$88.15
+              - text: R$88,15
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/@price
             description:
               - text: É o brinquedo numero 1, indicado por veterinários do mundo todo, por seu
@@ -57,10 +57,10 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/@brand
             sku:
               - text: 3105657-2
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/input[1]/@value
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/input[1]/@id
             variantId:
               - text: 3105657-2
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/input[1]/@value
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/input[1]/@id
             directions:
               - text: >-
                   Como Funciona: O principal atrativo e segredo da adoração dos
@@ -123,4 +123,4 @@ extractions:
             availabilityText:
               - text: In stock
         xpath: /html
-    timestamp: 1610627254882
+    timestamp: 1610704029012

@@ -2,7 +2,7 @@ input:
   id: 2154518
   _url: http://petlove.com.br
 extractions:
-  - html: https://workbench.import.io/html/run=f6a202c1-5c11-4c70-b3a7-f68dcebbaf4e/task=e608d690-6819-4146-8cf9-01543130dc02/d81fc7e5-f8be-420f-9dfd-680dc76b0f82.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=6573641b-a8f9-483e-a92b-4c519a2dbd85/task=5aa3b12f-184c-4d45-be96-ae2638ba709d/9692ae7c-874f-49ce-85be-63a3680a9f14.html
     extractionConfigId: product/details/stores/p/petlove/BR/extract
     data:
       - group:
@@ -19,10 +19,10 @@ extractions:
               - text: Ração Supra Funny Bunny Chinchila
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@name_extended
             listPrice:
-              - text: R$18.0
+              - text: R$18,0
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@list_price
             price:
-              - text: R$17.46
+              - text: R$17,46
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@price
             description:
               - text: "Com vitaminas e minerais; || Alfafa, fontes de fibras essenciais; ||
@@ -40,10 +40,10 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@quantity
             sku:
               - text: "2154515"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/input[1]/@value
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/input[1]/@id
             variantId:
               - text: "2154515"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/input[1]/@value
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/input[1]/@id
             directions:
               - text: É importante manter a Ração Supra Funny Bunny Chinchila à disposição do
                   animal, mantendo o comedouro sempre abastecido. Os roedores
@@ -76,6 +76,22 @@ extractions:
                   Arabidopsis thaliana, Bacillus thuringiensis, Streptomyces
                   viridochromogenes."
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@ingredients
+            dietaryFibrePerServing:
+              - text: "165"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[4]/li[1]/@value
+            dietaryFibrePerServingUom:
+              - text: g/kg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[4]/li[1]/@uom
+            calciumPerServing:
+              - text: "11"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[3]/li[1]/@value
+              - text: "21"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[3]/li[2]/@value
+            calciumPerServingUom:
+              - text: g/kg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[3]/li[1]/@uom
+              - text: g/kg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[3]/li[2]/@uom
             variants:
               - text: "2154515"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/input[1]/@id
@@ -97,12 +113,6 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@href
             subscribeAndSave:
               - text: "false"
-            dietaryFibrePerServing:
-              - text: "165"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[4]
-            dietaryFibrePerServingUom:
-              - text: g
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[4]
             proteinPerServing:
               - text: "210"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[2]
@@ -121,16 +131,6 @@ extractions:
             vitaminCPerServingUom:
               - text: mg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[2]
-            calciumPerServing:
-              - text: "11"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[6]
-              - text: "21"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[7]
-            calciumPerServingUom:
-              - text: g
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[6]
-              - text: g
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[7]
             ironPerServing:
               - text: "60"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[16]
@@ -157,10 +157,10 @@ extractions:
               - text: Ração Supra Funny Bunny Chinchila
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@name_extended
             listPrice:
-              - text: R$52.5
+              - text: R$52,5
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@list_price
             price:
-              - text: R$50.92
+              - text: R$50,92
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@price
             availabilityText:
               - text: Out Of Stock
@@ -181,10 +181,10 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@quantity
             sku:
               - text: "2154518"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/input[1]/@value
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/input[1]/@id
             variantId:
               - text: "2154518"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/input[1]/@value
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/input[1]/@id
             directions:
               - text: É importante manter a Ração Supra Funny Bunny Chinchila à disposição do
                   animal, mantendo o comedouro sempre abastecido. Os roedores
@@ -214,6 +214,22 @@ extractions:
                   Arabidopsis thaliana, Bacillus thuringiensis, Streptomyces
                   viridochromogenes."
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@ingredients
+            dietaryFibrePerServing:
+              - text: "165"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/ol[4]/li[1]/@value
+            dietaryFibrePerServingUom:
+              - text: g/kg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/ol[4]/li[1]/@uom
+            calciumPerServing:
+              - text: "11"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/ol[3]/li[1]/@value
+              - text: "21"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/ol[3]/li[2]/@value
+            calciumPerServingUom:
+              - text: g/kg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/ol[3]/li[1]/@uom
+              - text: g/kg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/ol[3]/li[2]/@uom
             variants:
               - text: "2154518"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/input[1]/@id
@@ -235,12 +251,6 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@href
             subscribeAndSave:
               - text: "false"
-            dietaryFibrePerServing:
-              - text: "165"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[4]
-            dietaryFibrePerServingUom:
-              - text: g
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[4]
             proteinPerServing:
               - text: "210"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[2]
@@ -259,16 +269,6 @@ extractions:
             vitaminCPerServingUom:
               - text: mg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[2]
-            calciumPerServing:
-              - text: "11"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[6]
-              - text: "21"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[7]
-            calciumPerServingUom:
-              - text: g
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[6]
-              - text: g
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[7]
             ironPerServing:
               - text: "60"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[16]
@@ -281,4 +281,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1610627251327
+    timestamp: 1610704032074

@@ -2,7 +2,7 @@ input:
   id: 3100940
   _url: http://petlove.com.br
 extractions:
-  - html: https://workbench.import.io/html/run=f6a202c1-5c11-4c70-b3a7-f68dcebbaf4e/task=f4d3956d-c3c4-47d7-ae62-a05dd5708843/166c5afe-bdab-4e7f-8fed-b1ddf2c12ebb.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=6573641b-a8f9-483e-a92b-4c519a2dbd85/task=bc6ae8c0-8d18-4dd8-9d09-4edc97d7bca9/6f89612a-06b0-4f63-86fb-cdfb76f5d803.html
     extractionConfigId: product/details/stores/p/petlove/BR/extract
     data:
       - group:
@@ -30,10 +30,10 @@ extractions:
               - text: Petisco Dreamies Carne Para Gatos Adultos
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@name_extended
             listPrice:
-              - text: R$5.99
+              - text: R$5,99
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@list_price
             price:
-              - text: R$5.99
+              - text: R$5,99
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@price
             description:
               - text: Petisco para toda hora; || Rende mais de 20 dias (*3 pedacinhos por dia);
@@ -51,10 +51,10 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@quantity
             sku:
               - text: "3100940"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/input[1]/@value
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/input[1]/@id
             variantId:
               - text: "3100940"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/input[1]/@value
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/input[1]/@id
             directions:
               - text: Dê ao seu gato como um agrado até 12 unidades por dia. Esse alimento não
                   deve exceder 10% da necessidade calórica diária do seu animal.
@@ -82,6 +82,22 @@ extractions:
                   Minerais (Cloreto de Sódio (Sal comum), Cloreto de Potássio e
                   Óxido de Zinco), Palatabilizantes, Antioxidante e Corantes.
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@ingredients
+            dietaryFibrePerServing:
+              - text: "40"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[4]/li[1]/@value
+            dietaryFibrePerServingUom:
+              - text: g/kg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[4]/li[1]/@uom
+            calciumPerServing:
+              - text: "6000"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[3]/li[1]/@value
+              - text: "12"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[3]/li[2]/@value
+            calciumPerServingUom:
+              - text: mg/kg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[3]/li[1]/@uom
+              - text: g/kg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[3]/li[2]/@uom
             variants:
               - text: "3100940"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/input[1]/@id
@@ -112,12 +128,6 @@ extractions:
             sodiumPerServingUom:
               - text: mg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[7]/td[1]/table[1]/tbody[1]/tr[9]
-            dietaryFibrePerServing:
-              - text: "40"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[7]/td[1]/table[1]/tbody[1]/tr[4]
-            dietaryFibrePerServingUom:
-              - text: g
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[7]/td[1]/table[1]/tbody[1]/tr[4]
             proteinPerServing:
               - text: "280"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[7]/td[1]/table[1]/tbody[1]/tr[2]
@@ -130,16 +140,6 @@ extractions:
             vitaminAPerServingUom:
               - text: UI
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[8]/td[1]/table[1]/tbody[1]/tr[1]
-            calciumPerServing:
-              - text: "6000"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[7]/td[1]/table[1]/tbody[1]/tr[6]
-              - text: "12"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[7]/td[1]/table[1]/tbody[1]/tr[7]
-            calciumPerServingUom:
-              - text: mg
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[7]/td[1]/table[1]/tbody[1]/tr[6]
-              - text: g
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[7]/td[1]/table[1]/tbody[1]/tr[7]
             ageSuitability:
               - text: Adultos, Idosos
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
@@ -148,4 +148,4 @@ extractions:
             availabilityText:
               - text: In stock
         xpath: /html
-    timestamp: 1610627251421
+    timestamp: 1610704025176

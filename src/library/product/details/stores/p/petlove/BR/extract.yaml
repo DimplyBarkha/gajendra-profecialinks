@@ -88,12 +88,12 @@ fields:
   # xpath: ancestor::html//div[contains(@class, "code-label")]
   # regExp: 'Cod: (\d+)'
   # regExpReplace: $1
-  xpath: //input[@name="variantSku"]/@value
+  xpath: //input[@name="variantSku"]/@id
 - name: variantId
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
-  xpath: //input[@name="variantSku"]/@value
+  xpath: //input[@name="variantSku"]/@id
 - name: mpc
   singleValue: tru
   description: The manufacturer model code (unique) of the product
@@ -338,14 +338,16 @@ fields:
 - name: dietaryFibrePerServing
   description: Nutritional Information for Dietary Fibre content - Usually based on
     per 100g serving
-  xpath: ancestor::html//tr//tr[td[contains(text(), "Fibrosa")]]
-  regExp: ([\d,.]+) ?([a-zA-Z]+)
-  regExpReplace: $1
+  # xpath: ancestor::html//tr//tr[td[contains(text(), "Fibrosa")]]
+  # regExp: ([\d,.]+) ?([a-zA-Z]+)
+  # regExpReplace: $1
+  xpath: //ol[@id="fibre"]/li/@value
 - name: dietaryFibrePerServingUom
   description: Unit of Measure Data for Dietary Fibre content
-  xpath: ancestor::html//tr//tr[td[contains(text(), "Fibrosa")]]
-  regExp: ([\d,.]+) ?([a-zA-Z]+)
-  regExpReplace: $2
+  # xpath: ancestor::html//tr//tr[td[contains(text(), "Fibrosa")]]
+  # regExp: ([\d,.]+) ?([a-zA-Z]+)
+  # regExpReplace: $2
+  xpath: //ol[@id="fibre"]/li/@uom
 - name: totalSugarsPerServing
   singleValue: true
   description: Nutritional Information for Total Sugar content - Usually based on
@@ -389,14 +391,16 @@ fields:
 - name: calciumPerServing
   description: Nutritional Information for Calcium content - Usually based on per
     100g serving
-  xpath: ancestor::html//tr//tr[td[contains(text(), "Cálcio")]]
-  regExp: ([\d,.]+) ?([a-zA-Z]+)
-  regExpReplace: $1
+  # xpath: ancestor::html//tr//tr[td[contains(text(), "Cálcio")]]
+  # regExp: ([\d,.]+) ?([a-zA-Z]+)
+  # regExpReplace: $1
+  xpath: //ol[@id="calcium"]/li/@value
 - name: calciumPerServingUom
   description: Unit of Measure Data for Calcium
-  xpath: ancestor::html//tr//tr[td[contains(text(), "Cálcio")]]
-  regExp: ([\d,.]+) ?([a-zA-Z]+)
-  regExpReplace: $2
+  # xpath: ancestor::html//tr//tr[td[contains(text(), "Cálcio")]]
+  # regExp: ([\d,.]+) ?([a-zA-Z]+)
+  # regExpReplace: $2
+  xpath: //ol[@id="calcium"]/li/@uom
 - name: ironPerServing
   description: Nutritional Information for Iron content - Usually based on per 100g
     serving
