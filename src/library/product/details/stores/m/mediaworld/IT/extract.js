@@ -32,25 +32,6 @@ module.exports = {
         console.log('No record');
       }
     }
-    try {
-      await new Promise(resolve => setTimeout(resolve, 5000));
-      await context.waitForSelector('ul[class="productDetailsTabs"] li[class="productDetails-tab active"]', {}, { timeout: 100000 });
-      await context.waitForXPath("//div[@id='flix-inpage']//img/@srcset | //div[@id='flix-inpage']//img/@data-img-src|//div[@id='flix-inpage']//img/@data-srcset", {}, { timeout: 100000 });
-      await context.waitForSelector('div[id="flix-inpage"] img', {}, { timeout: 100000 });
-    } catch (error) {
-      console.log(error);
-    }
-    try {
-      await context.click('div[id="flix_hotspots"] svg[id="flix_key_features"]', {}, { timeout: 100000 });
-    } catch (error) {
-      console.log('error');
-    }
-
-    try {
-      await context.click('div[id="flix_hotspots"] svg[id="flix_product_video"]', {}, { timeout: 100000 });
-    } catch (error) {
-      console.log('error');
-    }
     const iframeLink = 'iframe[id="eky-dyson-iframe"]';
 
     const optionalWait = async (sel) => {
@@ -128,6 +109,25 @@ module.exports = {
         }
       }, enhancedContentInfo);
     }
+    try {
+      await new Promise(resolve => setTimeout(resolve, 5000));
+      await context.waitForSelector('ul[class="productDetailsTabs"] li[class="productDetails-tab active"]', {}, { timeout: 100000 });
+      await context.waitForXPath("//div[@id='flix-inpage']//img/@srcset | //div[@id='flix-inpage']//img/@data-img-src|//div[@id='flix-inpage']//img/@data-srcset", {}, { timeout: 100000 });
+      await context.waitForSelector('div[id="flix-inpage"] img', {}, { timeout: 100000 });
+    } catch (error) {
+      console.log(error);
+    }
+    try {
+      await context.click('div[id="flix_hotspots"] svg[id="flix_key_features"]', {}, { timeout: 100000 });
+    } catch (error) {
+      console.log('error');
+    }
+
+    try {
+      await context.click('div[id="flix_hotspots"] svg[id="flix_product_video"]', {}, { timeout: 100000 });
+    } catch (error) {
+      console.log('error');
+    }
 
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
@@ -183,9 +183,10 @@ module.exports = {
         addElementToDocument('added_category', item);
       }); */
 
-      const categoryXpath = getXpath('//script[contains(text(),"dlInit")]', 'innerText');
+      const categoryXpath = getXpath('//script[contains(text(),"var dlInit")]', 'innerText');
       try {
-        var categoryScript = categoryXpath.replace('var dlInit =', '');
+        var categoryScript = categoryXpath.replace(/var dlInit=/g, '');
+        categoryScript = categoryScript.replace(/var dlInit =/g, '');
         var scriptCategoryData = categoryScript.substring(0, categoryScript.length - 1);
         var scriptCategoryXpathObj = JSON.parse(scriptCategoryData);
         if (scriptCategoryXpathObj.category) {
@@ -209,8 +210,8 @@ module.exports = {
         addElementToDocument('added_video_url', VideoXpath.substring(VideoXpath.indexOf('src=') + 5, VideoXpath.indexOf('frameborder') - 2));
       }
       const name = getXpath("//div[contains(@class,'hidden-tab-up')]//div[@data-component='productDetailInfo']//h1", 'innerText');
-      const productDescription = getXpath("//div[contains(@class,'hidden-lg')]//h2[contains(@itemprop,'description')]", 'innerText');
-      addElementToDocument('added_description', productDescription);
+      // const productDescription = getXpath("//div[contains(@class,'hidden-lg')]//h2[contains(@itemprop,'description')]", 'innerText');
+      // addElementToDocument('added_description', productDescription);
       const scriptXpathData = getXpath("//script[@type='application/ld+json'][contains(text(),'@graph')]", 'innerText');
       if (scriptXpathData !== null) {
         const scriptXpath = scriptXpathData.toString().replace(/@graph/g, 'graph');
@@ -220,6 +221,9 @@ module.exports = {
         addElementToDocument('added_product_price', scriptXpathObj.graph[0].offers.priceCurrency + priceXpath);
         const listPrice = getXpath("//div[@class='product-detail-main-container']/@data-gtm-price-full", 'nodeValue');
         const listPriceXpath = listPrice.toString().replace(/\./g, ',');
+        const productDescriptionName = getXpath("//meta[@property='og:description']/@content", 'nodeValue');
+        var productDescription = scriptXpathObj.graph[0].description;
+        addElementToDocument('added_description', productDescription.substr(productDescriptionName.length + 1));
         addElementToDocument('added_listprice', scriptXpathObj.graph[0].offers.priceCurrency + listPriceXpath);
         addElementToDocument('added_brand', scriptXpathObj.graph[0].brand.name);
         addElementToDocument('added_product_description', name);
@@ -320,7 +324,8 @@ module.exports = {
       if (manufactureXpath.length > 0) {
         addElementToDocument('added_manufacture', manufactureXpath.join('|').replace(paginationPath, ' '));
       }
-      const manufactureImageXpath = getAllXpath("//div[@id='flix-inpage']//img/@srcset | //div[@id='flix-inpage']//img/@data-img-src|//div[@id='flix-inpage']//img/@data-srcset|//div[@id='flix-inpage']//img/@data-flixsrcset", 'nodeValue');
+      const manufactureImageXpath = getAllXpath("//div[@id='flix-inpage']//img/@data-img-src|//div[@id='flix-inpage']//img/@data-srcset|//div[@id='flix-inpage']//img/@data-flixsrcset", 'nodeValue');
+      // const manufactureImageXpath = getAllXpath("//div[@id='flix-inpage']//img/@srcset | //div[@id='flix-inpage']//img/@data-img-src|//div[@id='flix-inpage']//img/@data-srcset|//div[@id='flix-inpage']//img/@data-flixsrcset", 'nodeValue');
       try {
         if (manufactureImageXpath.length > 0) {
           const manufactureImages = [];
