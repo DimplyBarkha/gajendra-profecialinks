@@ -2,7 +2,7 @@ input:
   id: 25199
   _url: http://petshop.ru
 extractions:
-  - html: https://workbench.import.io/html/run=65ad2503-086b-4e82-8b62-88251be9e4be/task=d8ad224d-dd6e-4adb-93f4-91a126d66e7e/92b575c0-184f-4421-9a21-fdf7f01a56cb.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=d557ce1e-8064-4a33-bc37-cece4d30f4ed/task=eeb00c05-7750-4348-8db1-ff4872b49644/7e3aedac-e327-48c4-909b-08008dbaf057.html
     extractionConfigId: product/details/stores/p/petshop/RU/extract
     data:
       - group:
@@ -23,27 +23,25 @@ extractions:
               - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/0d/8c/7a/364150_1600x1600.jpg
                 xpath: /html/body/ol[1]/li[1]/ol[1]/li[4]/@src
             nameExtended:
-              - text: Purina Pro Plan (вет. корма) - Purina Pro Plan (вет. корма) кусочки в
-                  соусе для кошек при мочекаменной болезни с курицей, UR - 25199
+              - text: Purina Pro Plan (вет. корма) кусочки в соусе для кошек при мочекаменной
+                  болезни с курицей, UR
                 xpath: /html/body/ol[1]/li[1]/@name_extended
             price:
               - text: 78 ₽
                 xpath: /html/body/ol[1]/li[1]/@price
             availabilityText:
-              - text: В наличии
+              - text: In Stock
                 xpath: /html/body/ol[1]/li[1]/@availability_text
             description:
               - text: >-
-                  Описание 
-
-                  Диетический корм при заболеваниях нижних отделов мочевыводящих путей у взрослых кошек.
-                   - Растворение струвитных камней- Профилактика повторного появления струвитных камней- Профилактика повторного появления оксалатов- Идиопатическое нарушение мочеиспускания 
-                   
-                   
-                   
-                   
-                   
-                   Способствует образованию недонасыщенной мочи для предотвращения образования струвитов и метастабильной мочи для оксалата кальция (защита мочевыделительной системы St/Ox).
+                  Диетический корм при заболеваниях нижних отделов мочевыводящих
+                  путей у взрослых кошек. - Растворение струвитных камней-
+                  Профилактика повторного появления струвитных камней-
+                  Профилактика повторного появления оксалатов- Идиопатическое
+                  нарушение мочеиспускания Способствует образованию
+                  недонасыщенной мочи для предотвращения образования струвитов
+                  и метастабильной мочи для оксалата кальция (защита
+                  мочевыделительной системы St/Ox).
                    
                    
                    
@@ -56,24 +54,18 @@ extractions:
                    Умеренное содержание жиров и калорий, 
                    
                    позволяет поддерживать идеальную массу тела (ожирение является фактором риска для урологического синдрома).
-                   
-                   
-                   
-                   
-                   Противопоказания: 
-                   - Рост и репродукция 
-                   - Хроническая почечная недостаточность 
-                   - Другие состояния, связанные с диурезом 
-                   - Задержка жидкости, например, асцит и отекиПодробнее о бренде
                 xpath: /html/body/ol[1]/li[1]/@description
             brandText:
               - text: Purina Pro Plan (вет. корма)
                 xpath: /html/body/ol[1]/li[1]/@brand
+            weightNet:
+              - text: 85 г
+                xpath: /html/body/ol[1]/li[1]/@weight
             variantId:
               - text: "25199"
                 xpath: /html/body/ol[1]/li[1]/@variant_id
             ratingCount:
-              - text: "288"
+              - text: "289"
                 xpath: /html/body/ol[1]/li[1]/@rating_count
             aggregateRating:
               - text: "41"
@@ -92,6 +84,12 @@ extractions:
             brandLink:
               - text: https://www.petshop.ru/brand/purina_vet_korma/
                 xpath: /html/body/ol[1]/li[1]/@brand_link
+            secondaryImageTotal:
+              - text: "4"
+                xpath: /html/body/ol[1]/li[1]/ol[1]/@total
+            totalFatPerServing:
+              - text: .
+                xpath: /html/body/ol[1]/li[1]/@total_fat_per_serving
             Image360Present:
               - text: "true"
                 xpath: /html/body/ol[1]/li[1]/@image_360_present
@@ -106,10 +104,28 @@ extractions:
                 xpath: /html/body/div[6]/div[1]/ul[1]/li[9]
               - text: Кусочки в соусе для кошек при мочекаменной болезни с курицей
                 xpath: /html/body/div[6]/div[1]/ul[1]/li[11]
+            directions:
+              - text: >-
+                  Способствует образованию недонасыщенной мочи для
+                  предотвращения образования струвитов и метастабильной мочи для
+                  оксалата кальция (защита мочевыделительной системы St/Ox).
+                   
+                   
+                   
+                   Способствует образованию разбавленной мочи, 
+                   
+                   которая приводит к растворению струвитных камней.
+                   
+                   
+                   
+                   Умеренное содержание жиров и калорий, 
+                   
+                   позволяет поддерживать идеальную массу тела (ожирение является фактором риска для урологического синдрома).
+                xpath: /html/body/@directions
             variants:
               - text: 85 г
                 xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[1]/div[1]/div[1]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1606719352977
+    timestamp: 1610718926699

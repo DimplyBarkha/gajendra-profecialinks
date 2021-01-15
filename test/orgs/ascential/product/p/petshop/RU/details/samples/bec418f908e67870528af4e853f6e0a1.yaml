@@ -2,7 +2,7 @@ input:
   id: 36158
   _url: http://petshop.ru
 extractions:
-  - html: https://workbench.import.io/html/run=65ad2503-086b-4e82-8b62-88251be9e4be/task=95bc90b0-ff3c-41fa-b19b-28b93dcd3da3/ca67717e-42d3-4a4e-a09e-0ff87610c38c.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=d557ce1e-8064-4a33-bc37-cece4d30f4ed/task=65d1bf17-8a0b-41e4-adf7-d6ed783a15d8/2901b026-0a47-4243-bd1b-c169278d689c.html
     extractionConfigId: product/details/stores/p/petshop/RU/extract
     data:
       - group:
@@ -16,46 +16,44 @@ extractions:
               - text: alt text
                 xpath: /html/body/ol[1]/li[1]/ol[1]/li[1]/@alt
             nameExtended:
-              - text: Felix - Felix хрустящее лакомство со вкусом рыбы - 36158
+              - text: Felix хрустящее лакомство со вкусом рыбы
                 xpath: /html/body/ol[1]/li[1]/@name_extended
-            price:
+            listPrice:
               - text: 63 ₽
+                xpath: /html/body/ol[1]/li[1]/@list_price
+            price:
+              - text: 50 ₽
                 xpath: /html/body/ol[1]/li[1]/@price
             availabilityText:
-              - text: В наличии
+              - text: In Stock
                 xpath: /html/body/ol[1]/li[1]/@availability_text
             description:
-              - text: >-
-                  ОписаниеЧаще радуйтесь общению с вашим питомцем благодаря 
-                  хрустящему лакомству Felix! Хрустящее лакомство Felix - это
-                  дополнение к ежедневному рациону, с помощью которого вы можете
-                  баловать вашего питомца. В каждой упаковке удивительные
-                  ароматные гранулы с восхитительным вкусом и аппетитной
-                  текстурой! И это еще не все! Felix хрустящее лакомство
-                  содержит белки, витамины и Омега-6 жирные кислоты для того,
-                  чтобы помочь вашему питомцу быть счастливым и здоровым.
-                  Предложите вашему питомцу другие вкусы хрустящего лакомства
-                  Felix - радуйтесь вкусному разнообразию вместе!
-                   
-
-                   
-
-                   
-
-                   
-
-                   
-                  Ежедневная норма кормления для взрослой кошки весом 4 кг: 13г (до 35 гранул). Следите, чтобы у вашей кошки всегда была чистая, свежая питьевая вода. Пожалуйста, скорректируйте суточную норму основного корма в соответствии с нормой кормления лакомством в день.
-                   Подробнее о бренде
+              - text: "Чаще радуйтесь общению с вашим питомцем благодаря  хрустящему лакомству
+                  Felix! Хрустящее лакомство Felix - это дополнение к
+                  ежедневному рациону, с помощью которого вы можете баловать
+                  вашего питомца. В каждой упаковке удивительные ароматные
+                  гранулы с восхитительным вкусом и аппетитной текстурой! И это
+                  еще не все! Felix хрустящее лакомство содержит белки, витамины
+                  и Омега-6 жирные кислоты для того, чтобы помочь вашему питомцу
+                  быть счастливым и здоровым. Предложите вашему питомцу другие
+                  вкусы хрустящего лакомства Felix - радуйтесь вкусному
+                  разнообразию вместе! Ежедневная норма кормления для взрослой
+                  кошки весом 4 кг: 13г (до 35 гранул). Следите, чтобы у вашей
+                  кошки всегда была чистая, свежая питьевая вода. Пожалуйста,
+                  скорректируйте суточную норму основного корма в соответствии с
+                  нормой кормления лакомством в день."
                 xpath: /html/body/ol[1]/li[1]/@description
             brandText:
               - text: Felix
                 xpath: /html/body/ol[1]/li[1]/@brand
+            weightNet:
+              - text: 60 г
+                xpath: /html/body/ol[1]/li[1]/@weight
             variantId:
               - text: "36158"
                 xpath: /html/body/ol[1]/li[1]/@variant_id
             ratingCount:
-              - text: "25"
+              - text: "38"
                 xpath: /html/body/ol[1]/li[1]/@rating_count
             aggregateRating:
               - text: "47"
@@ -73,12 +71,21 @@ extractions:
             brandLink:
               - text: https://www.petshop.ru/brand/felix/
                 xpath: /html/body/ol[1]/li[1]/@brand_link
+            secondaryImageTotal:
+              - text: "1"
+                xpath: /html/body/ol[1]/li[1]/ol[1]/@total
             servingSize:
               - text: "1"
                 xpath: /html/body/ol[1]/li[1]/@serving_size
             servingSizeUom:
               - text: кг
                 xpath: /html/body/ol[1]/li[1]/@serving_size_uom
+            totalFatPerServing:
+              - text: "19.5"
+                xpath: /html/body/ol[1]/li[1]/@total_fat_per_serving
+            totalFatPerServingUom:
+              - text: "%"
+                xpath: /html/body/ol[1]/li[1]/@total_fat_per_serving_uom
             vitaminAPerServing:
               - text: "32000"
                 xpath: /html/body/ol[1]/li[1]/@vitamin_a_per_serving
@@ -111,4 +118,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1606719366302
+    timestamp: 1610718924087

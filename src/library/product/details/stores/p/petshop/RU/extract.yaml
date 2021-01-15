@@ -73,6 +73,7 @@ fields:
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page
+  xpath: //@weight
 - name: weightGross
   singleValue: true
   description: Gross weight as described on the page
@@ -100,6 +101,7 @@ fields:
 - name: directions
   singleValue: true
   description: Content under "directions" header
+  xpath: ancestor::html/body/@directions
 - name: warnings
   singleValue: true
   description: Content under "warnings" header
@@ -238,6 +240,7 @@ fields:
 - name: secondaryImageTotal
   singleValue: true
   description: 
+  xpath: //ol[@id="images"]/@total
 - name: news
   singleValue: true
   description: 
@@ -248,12 +251,10 @@ fields:
   singleValue: true
   description: 
 - name: ingredientsList
-  singleValue: true
+  singleValue: false
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
-  xpath: html//div[contains(@class, "style_composition__composition")]//div[b[contains(text(), "Ингредиенты")]]
-  regExp: 'Ингредиенты: (.+)'
-  regExpReplace: $1
+  xpath: ancestor::html//div[contains(@class, "style_composition__composition")]//div[b[contains(text(), "Ингредиенты")]]
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.
