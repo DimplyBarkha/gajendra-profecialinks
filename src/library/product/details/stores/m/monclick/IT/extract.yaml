@@ -72,7 +72,7 @@ fields:
     xpath: //div[@id='techspecs' and @role]//strong[contains(text(),'Garanzia')]/following::p[1]
   - name: weightNet
     singleValue: false
-    xpath: //div[@id='techspecs' and @role]//strong[(text()='Peso')]/following::p[1]
+    xpath: //div[@id='techspecs' and @role]//*[(text()='Peso')]/following::p[1] | //div[@id="description" and contains(@role,"tabpanel")]//*[contains(text(),"Peso")][not(//div[@id='techspecs' and @role]//*[(text()='Peso')])]//text() | //body/@weightnet[not(//div[@id='techspecs' and @role]//*[(text()='Peso')]/following::p[1] | //div[@id="description" and contains(@role,"tabpanel")]//*[contains(text(),"Peso")][not(//div[@id='techspecs' and @role]//*[(text()='Peso')])]//text())]
   - name: videos
     singleValue: false
     xpath: //iframe[@id="iframeVideo"]/@src
