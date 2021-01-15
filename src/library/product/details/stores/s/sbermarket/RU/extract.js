@@ -1,11 +1,11 @@
-const { cleanup } = require('../../../../shared');
+const { cleanUp } = require('../../../../shared');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'RU',
     store: 'sbermarket',
-    transform: cleanup,
+    transform: cleanUp,
     domain: 'sbermarket.ru/metro',
     zipcode: '',
   },
@@ -28,6 +28,13 @@ module.exports = {
       };
 
       const productUrl = window.location.href;
+
+      const modalElem = document.querySelector('div[data-react-class="ModalModule"]');
+      const dataFromModal = modalElem ? modalElem.getAttribute('data-react-props') : null;
+      const dataJson = dataFromModal ? JSON.parse(dataFromModal) : null;
+      const retailerSku = dataJson && dataJson.preloadedState.viewData.product.offer.retailerSku ? dataJson.preloadedState.viewData.product.offer.retailerSku : null;
+      if (retailerSku) addElementToDocument('retailer_sku_id', retailerSku);
+
       const availability = getEleByXpath('//link[@itemprop="availability"]/@href[contains(., "InStock")]');
       const availabilityText = availability ? 'In stock' : 'Out of Stock';
       const servingSize = document.querySelector('h3.nutrition__title');

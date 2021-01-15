@@ -70,7 +70,7 @@ fields:
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
-  xpath: //h1[@itemprop="name"]/following-sibling::p
+  xpath: //div[@itemprop="offers"]/p
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page
@@ -88,7 +88,7 @@ fields:
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
-  xpath: //div[@class="i-flocktory"]/@data-fl-item-id
+  xpath: //div[@id="retailer_sku_id"]
 - name: mpc
   singleValue: tru
   description: The manufacturer model code (unique) of the product
