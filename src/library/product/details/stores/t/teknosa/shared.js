@@ -95,6 +95,18 @@ const transform = (data) => {
           },
         ];
       }
+
+      // if (row.inTheBoxUrl) {
+      //   let text = '';
+      //   row.inTheBoxUrl.forEach((item, i) => {
+      //     text += concatFunction(item, i);
+      //   });
+      //   row.inTheBoxUrl = [
+      //     {
+      //       text: text.replace(new RegExp('(.+\\s)(.+)(\\s.+)', 'g'), 'https:$2'),
+      //     },
+      //   ];
+      // }
     }
   }
   return data;
