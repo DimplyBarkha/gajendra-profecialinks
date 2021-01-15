@@ -3108,6 +3108,7 @@ module.exports = {
 
     const userAgentString = JSON.parse(allUserAgentString[Math.floor(allUserAgentString.length * Math.random())].config).userAgent + ' ' + Math.random().toString(36).substring(2, 15);
     await context.setUserAgent(userAgentString);
+    url = `${url}#[!opt!]{"first_request_timeout":50000,"force200":true}[/!opt!]`;
     const timeout = parameters.timeout ? parameters.timeout : 10000;
     await context.captureRequests();
     await context.setBlockAds(false);
