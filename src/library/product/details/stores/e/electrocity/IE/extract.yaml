@@ -407,7 +407,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: //div[@id="added_specifications"]
+    xpath: //div[@id="added_specifications"] | //div[@id='specificationText']/text()
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product

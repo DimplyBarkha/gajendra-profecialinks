@@ -32,6 +32,7 @@ module.exports = {
     let inTheBoxContent = await context.evaluate(async function () {
       let inTheBoxText = '';
       let inTheBoxUrls = '';
+      let specification = '';
       if (document.querySelectorAll('div[class*="tools-included-section"] div[class*="overlay-text"]')) {
         const inBoxTexts = document.querySelectorAll('div[class*="tools-included-section"] div[class*="overlay-text"]');
         for (let i = 0; i < inBoxTexts.length; i++) inTheBoxText += inBoxTexts[i].innerText + ' || ';
@@ -40,7 +41,11 @@ module.exports = {
         const videosList = document.querySelectorAll('div[class*="tools-included-section"] div[class*="video-container"]  video');
         for (let i = 0; i < videosList.length; i++) inTheBoxUrls += 'http://media.flixfacts.com/eyekandy/dyson/v11/en/' + videosList[i].getAttribute('src') + ' || ';
       }
-      inTheBoxContent = { inTheBoxText, inTheBoxUrls };
+      if (document.querySelectorAll('#specifications > div > div > p')) {
+        const specificationTexts = document.querySelectorAll('#specifications > div > div > p');
+        for (let i = 0; i < specificationTexts.length; i++) specification += specificationTexts[i].innerText + ' || ';
+      }
+      inTheBoxContent = { inTheBoxText, inTheBoxUrls, specification };
       return inTheBoxContent;
     });
     await context.goto(prodUrl, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
@@ -209,6 +214,7 @@ module.exports = {
       if (inTheBoxContent != null) {
         addElementToDocument('inBoxText', inTheBoxContent.inTheBoxText);
         addElementToDocument('inBoxUrl', inTheBoxContent.inTheBoxUrls);
+        addElementToDocument('specificationText', inTheBoxContent.specification);
       }
       let mainPageImages = null;
       if (document.querySelectorAll('div[class*="InTheBox"] img')) {
