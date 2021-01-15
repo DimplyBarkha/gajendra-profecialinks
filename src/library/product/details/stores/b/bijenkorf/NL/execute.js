@@ -47,8 +47,12 @@ module.exports = {
     });
     console.log("product url", productDetailsLink);
     if (productDetailsLink) {
-      const url = productDetailsLink;
-      await context.goto(url, {
+      const url = `https:${productDetailsLink}`;
+      const finalUrl = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
+      await context.setBlockAds(false);
+      await context.setLoadAllResources(true);
+      await context.setLoadImages(true);
+      await context.goto(finalUrl, {
         timeout: 30000,
         waitUntil: 'load',
         checkBlocked: true,
@@ -59,6 +63,25 @@ module.exports = {
     } else {
       return false;
     }
+    async function autoScroll(page) {
+      await page.evaluate(async () => {
+        await new Promise((resolve, reject) => {
+          var totalHeight = 0;
+          var distance = 100;
+          var timer = setInterval(() => {
+            var scrollHeight = document.body.scrollHeight;
+            window.scrollBy(0, distance);
+            totalHeight += distance;
+
+            if (totalHeight >= scrollHeight) {
+              clearInterval(timer);
+              resolve();
+            }
+          }, 100);
+        });
+      });
+    }
+    await autoScroll(context);
     return await context.evaluate(function (xp) {
       const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
       console.log(xp, r);

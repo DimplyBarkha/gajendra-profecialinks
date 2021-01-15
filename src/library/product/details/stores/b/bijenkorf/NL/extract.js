@@ -10,6 +10,49 @@ module.exports = {
   },
 
   implementation: async (inputs, { country, domain, transform: transformParam }, context, { productDetails }) => {
+    // try {
+    //   await context.waitForSelector('div[data-testid="toast"]>div button', { timeout: 30000 });
+    //   console.log('reloading button present');
+    // } catch (e) {
+    //   console.log('page reloading button is not present')
+    // }
+    await context.evaluate(() => {
+      const cookiesElement = document.querySelector('button[data-dbk-cookie-cta="accept"]');
+      if (cookiesElement) {
+        cookiesElement.click()
+      }
+    })
+    // const checkPresence = async () => {
+    //   return await context.evaluate(() => {
+    //     if (document.querySelector('div[data-testid="toast"]>div button')) {
+    //       return true
+    //     } else {
+    //       return false
+    //     }
+    //   })
+    // }
+    // let flag = true;
+    // while (flag == true) {
+    //   try {
+    //     await context.waitForSelector('div[data-testid="toast"]>div button', { timeout: 30000 });
+    //     console.log('reloading button present');
+    //   } catch (e) {
+    //     console.log('page reloading button is not present')
+    //   }
+    //   let isPresent = await checkPresence();
+    //   if (isPresent) {
+    //     flag = true;
+    //     console.log('isPresent', isPresent);
+    //     if (isPresent) {
+    //       await context.click('div[data-testid="toast"]>div button')
+    //       console.log('button clicked successfully');
+    //       await context.waitForNavigation({ timeout: 20000 });
+    //     }
+    //   } else {
+    //     flag = false;
+    //   }
+    //   console.log('flag===', flag);
+    // }
     await context.evaluate(async function (inputs) {
       const specSpan = document.querySelector("button[data-at='expansion-panel-header--Specificaties'");
       if (specSpan) {
@@ -247,6 +290,21 @@ module.exports = {
         }
       });
     }
+
+    // await context.evaluate(async () => {
+    //   const reloadPageButton = document.querySelector('div[data-testid="toast"]>div button');
+    //   console.log('this is the reloading element=====', reloadPageButton)
+    //   // if (reloadPageButton) {
+    //   reloadPageButton.click();
+    //   await new Promise(res => setTimeout(res, 15000))
+    //   // }
+    // })
+    // try {
+    //   await context.waitForSelector('div[data-at="recently-viewed-carousel"]', { timeout: 40000 });
+    //   console.log('recently viewed products loaded successfully')
+    // } catch (e) {
+    //   console.log('product did not laod at all');
+    // }
 
     return await context.extract(productDetails, { transform: transformParam });
   },
