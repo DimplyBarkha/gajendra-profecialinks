@@ -151,7 +151,8 @@ module.exports = {
         specTabButton.click();
       }
       await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-      const specifications = document.querySelectorAll('pwr-product-specifications > div');
+      // const specifications = document.querySelectorAll('pwr-product-specifications > div');
+      const specifications = document.querySelectorAll('pwr-product-specifications > div, .flix-std-specs-table>tbody>tr>td>div');
       const specArr = [];
       if (specifications) {
         specifications.forEach(e => {
