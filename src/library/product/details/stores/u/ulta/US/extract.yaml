@@ -127,13 +127,13 @@ fields:
     singleValue: false
     xpath: count((//div[@class='s7staticimage']//img/@src)[position() > 1])
   - name: unInterruptedPDP
+    xpath: //h4[contains(text() ,'Our Picks for You')]/parent::div/following-sibling::div//div[contains(@class,'Product__productName')] | //h4[contains(text() ,'Similar Items for You')]/parent::div/following-sibling::div//div[contains(@class,'Product__productName')]
   - name: inTheBoxUrl
-    xpath: //body/@in-the-box-url
-    regExp: (.+)
+    xpath: //a[@class='in-the-box']/@href | //h2[contains(text(),'in the box')]/following-sibling::div[@class="wc-aplus-body"]//ul//li//img/@src
   - name: inTheBoxText
-    xpath: //body/@in-the-box-text
+    xpath: //a[@class='in-the-box'] | //h2[contains(text(),'in the box')]/following-sibling::div[@class="wc-aplus-body"]//ul//li
   - name: hasComparisonTable
-    xpath: //body/@has-comparison-tablec
+    xpath: //div[@data-section-template-code="comparison-table"]//table
     regExp: (.+)
     regExpReplace: Yes
     defaultValue: No
