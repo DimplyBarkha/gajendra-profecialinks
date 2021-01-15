@@ -178,6 +178,24 @@ module.exports = {
       let videoAppend = videoSrc.join(' | ');
       document.querySelector('body').setAttribute('video-src', videoAppend)
     })
+    await context.evaluate(async function() {
+      console.log('secondary image clicking');
+      let secondaryImageButton = document.querySelector('.resp-sl-hide.resp-sp-hide.resp-tl-hide.resp-tp-hide .jcarousel-list.jcarousel-list-horizontal li');
+      if(secondaryImageButton){
+        secondaryImageButton.click();
+        console.log('secondary image clicked')
+      }
+    });
+    // function addHiddenDiv (id, content) {
+    //   const newDiv = document.createElement('div');
+    //   newDiv.id = id;
+    //   newDiv.textContent = content;
+    //   newDiv.style.display = 'none';
+    //   document.body.appendChild(newDiv);
+    //   }
+    //   let secondaryImage = document.evaluate(`//div[contains(@class,"jcarousel-clip jcarousel-clip-horizontal all_items_visible")]//ul[contains(@class,'jcarousel-list jcarousel-list-horizontal')]/li[@class="jcarousel-item"]//img/@src`,document).iterateNext().textContent
+    //   console.log(secondaryImage);
+    //   addHiddenDiv('alternateImages',secondaryImage);
     const { productDetails } = dependencies;
     await context.extract(productDetails, { transform });
   },

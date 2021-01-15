@@ -14,8 +14,8 @@ fields:
     - name: alternateImages
       # singleValue: false
       description: Other product images (not in manufacturer description)
-      xpath: //*[@class="data_column_left flix_hotspot_container"]//li[@class="jcarousel-item"]//*[@class="product_image_list_item"]//a/@data-image_detail
-      regExp: (https.*version=\d*)
+      xpath: //div[contains(@class,"jcarousel-clip jcarousel-clip-horizontal all_items_visible")]//ul[contains(@class,'jcarousel-list jcarousel-list-horizontal')]/li[@class="jcarousel-item"]//img/@src
+      # regExp: (https.*version=\d*)
     - name: metaKeywords
       singleValue: true
       description: The <meta> keywords content
