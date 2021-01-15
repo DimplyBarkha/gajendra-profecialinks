@@ -110,15 +110,9 @@ fields:
     type: NUMBER
   - name: aggregateRatingText
     xpath: translate(//div[contains(@class,"StyledAverageRating")]//span[contains(@class,"AverageRatingSummary")],'.',',')
-    # xpath: //script[@type="application/ld+json"][contains(text(),"aggregateRating")]
-    # regExp: (@type":"AggregateRating","ratingValue":")((\d+)(.)?(\d+)?)"
-    # regExpReplace: $2
     description: The stated aggregate rating
   - name: aggregateRating
     xpath: translate(//div[contains(@class,"StyledAverageRating")]//span[contains(@class,"AverageRatingSummary")],'.',',')
-    # xpath: //script[@type="application/ld+json"][contains(text(),"aggregateRating")]
-    # regExp: (@type":"AggregateRating","ratingValue":")((\d+)(.)?(\d+)?)"
-    # regExpReplace: $2
     description: The stated aggregate rating normalized to be out of 5
   - name: shippingInfo
     description: Shipping information for the product
