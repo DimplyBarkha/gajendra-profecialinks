@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'jbhifi.com.au',
-    timeout: 20000,
+    timeout: 500000,
     country: 'AU',
     store: 'jbhifi',
     zipcode: "''",
