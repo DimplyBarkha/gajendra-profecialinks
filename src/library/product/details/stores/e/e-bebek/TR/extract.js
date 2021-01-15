@@ -41,10 +41,12 @@ module.exports = {
       //   document, null, XPathResult.STRING_TYPE, null).stringValue.replace(/\n/g, '').replace(/\s+/g, ' ').match(/Özellikleri: (.*)/);
       const descHeader = document.querySelector('div.product-detail h3') ? document.querySelector('div.product-detail h3').textContent : '';
       const additionalDesc = document.querySelector('div.product-detail div.card')
-        ? document.querySelector('div.product-detail div.card').textContent.replace(/\n/g, '').replace(/\s+/g, ' ') : '';
+        ? document.querySelector('div.product-detail div.card').textContent.replace(/\n/g, '').replace(/\s+/g, ' ').replace(/kWidget.thumbEmbed((.*?));/, '') : '';
       if (additionalDesc) data.additionalDesc = descHeader ? `${descHeader} ${additionalDesc}` : additionalDesc;
       const videoId = document.querySelector('div[itemprop=video]') ? document.querySelector('div[itemprop=video]').getAttribute('id') : '';
       const videoBtn = document.querySelector('button.kWidgetPlayBtn');
+      data.warranty = document.querySelector('div[class="card warranty"]')
+        ? document.querySelector('div[class="card warranty"]').textContent.replace(/\n/g, '').replace(/\s+/g, ' ') : '';
       if (videoBtn) {
         // @ts-ignore
         await videoBtn.click();
