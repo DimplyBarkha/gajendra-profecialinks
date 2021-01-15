@@ -6,6 +6,7 @@ fields:
   - name: id
     singleValue: false
     xpath: //input[@name="productCodePost"]/@value
+    regExp: \d+
   - name: name
     singleValue: false
     xpath: //div[@class="plp-prod-name"]/text()
