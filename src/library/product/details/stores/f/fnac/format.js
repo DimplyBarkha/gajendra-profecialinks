@@ -82,6 +82,9 @@ const transform = (data) => {
       if (row.specifications) {
         row.specifications[0].text = row.specifications[0].text.replace(/(\n\s*){4,}/g, ' || ').replace(/(\n\s*){2,}/g, ' : ').replace(/(\n\s*){1,}/g, ' ');
       }
+      data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+        el.text = cleanUp(el.text);
+      }))));
     }
   }
   return data;
