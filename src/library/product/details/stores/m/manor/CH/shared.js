@@ -34,6 +34,10 @@ const cleanUp = (data, context) => {
         let text = row.availabilityText[0].text;
         row.availabilityText = [{ text: text.trim() }];
       }
+      if (row.sku) {
+        let text = row.sku[0].text.replace("?bv=true", '').toUpperCase();
+        row.sku = [{ text }]
+      }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
