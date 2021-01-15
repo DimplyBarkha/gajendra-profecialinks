@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'UA',
     store: 'pampik',
-    nextLinkSelector: "div[id='pagination-block'] ul[class='pagination'] li[class='pagination__page current disabled'] + li a",
+    nextLinkSelector: 'li.pagination__arrow--right > a',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
+    loadedSelector: 'ul#products-list > li.listing__item',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'pampik.com',

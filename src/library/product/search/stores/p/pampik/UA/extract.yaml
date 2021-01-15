@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
-recordXPath: "//ul[@id='products-list']//li[@class='listing__item']"
+recordSelector: ul#products-list > li.listing__item
+recordXPath: //ul[@id='products-list']//li[@class='listing__item']
 
 fields:
   - name: id
@@ -19,7 +19,7 @@ fields:
     regExpReplace: https://pampik.com$1
   - name: name
     singleValue: false
-    xpath: //span[@class='new-product-item-center']//a[@class='new-product-item__name']  
+    xpath: //div[@class='sc-data']/@data-name
   - name: price
     singleValue: false
     xpath: //span[@class='new-product-item-price']//span[@class='new-product-item-price__current']
@@ -40,3 +40,6 @@ fields:
   - name: rankOrganic
     singleValue: false
     xpath: //div[@class='sc-data']/@data-position
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id='search-url']
