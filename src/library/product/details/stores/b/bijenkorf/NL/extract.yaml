@@ -26,7 +26,7 @@ fields:
   - name: brandText
     xpath: ancestor::html//a[contains(@class, 'product-heading__brand--anchor')] | ancestor::html//h1[contains(@class, 'product-heading__brand')]
   - name: name
-    xpath : ancestor::html//div[contains(@class, 'dbk-product-summary product-element__container')]//p[contains(@class, 'description')]
+    xpath: ancestor::html//div[contains(@class, 'dbk-product-summary product-element__container')]//p[contains(@class, 'description')]
   - name: nameSuffix
     xpath: ancestor::html//h2[contains(@class, 'product-heading__sub-brand')]
   - name: singleProductPriceText
@@ -82,7 +82,7 @@ fields:
   - name: sku
     xpath: //div[@id='skuInfo']
   - name: variantCount
-    xpath: count(ancestor::html//ul[contains(@class, 'dbk-product-carousel--list')]/li)-1 
+    xpath: count(ancestor::html//ul[contains(@class, 'dbk-product-carousel--list')]/li)-1
   - name: variantCountFromDropdown
     xpath: count(ancestor::html//div[@data-dbk-size-selector]//select[@data-testid="selectbox-size"]/option[@data-testid])
   - name: productUrl
@@ -91,3 +91,5 @@ fields:
     xpath: ancestor::html//div[contains(@class, 'product-carousel')]//div[contains(@class, 'pos-relative')]//li//div[contains(@class, 'product-description')]
   - name: currencyOverride
     defaultValue: EUR
+  - name: hasComparisonTable
+    defaultValue: No
