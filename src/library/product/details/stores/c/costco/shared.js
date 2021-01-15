@@ -106,7 +106,7 @@ const transform = (data) => {
             text += `${item.text} | `;
           });
           row.variantInformation = [{ text: text.slice(0, -3) }];
-        } else if (!row.variantInformation || row.variantInformation.length <= 0) {
+        } else {
           row.variantInformation = [{ text: '' }];
         }
         if (row.variantId && row.variantId.length > 0) {
@@ -179,7 +179,8 @@ const transform = (data) => {
         row.mpcforAll.forEach(item => {
           text1 += item.text + ' | ';
         });
-        row.mpc = [{ text: text1.slice(0, -2).trim() }];
+        row.mpcforAll = [{ text: text1.slice(0, -2).trim() }];
+        row.mpc = row.mpcforAll;
       }
 
       if (row.myPrice && row.myPrice.length > 0) {

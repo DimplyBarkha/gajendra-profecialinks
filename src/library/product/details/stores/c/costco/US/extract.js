@@ -239,11 +239,11 @@ module.exports = {
       return (document.querySelectorAll('div[id=theSwatches] a')) ? document.querySelectorAll('div[id=theSwatches] a').length : 0;
     });
 
-    const check = await context.evaluate(async () => {
-      return document.querySelector('div[id=theSwatches][class=hide]') ? 1 : 0;
-    });
+    // const check = await context.evaluate(async () => {
+    //   return document.querySelector('div[id=theSwatches][class=hide]') ? 1 : 0;
+    // });
     console.log('Variant Length', variantLength);
-    if (variantLength >= 1 && variantLength1 >= 1 && check === 0) {
+    if (variantLength >= 1 && variantLength1 >= 1) {
       try {
         for (let j = 0; j < variantLength; j++) {
           await context.evaluate(async (j) => {
@@ -273,7 +273,7 @@ module.exports = {
         }
       } catch (err) {}
     } else {
-      if (check === 0) {
+      if (variantLength >= 1 && variantLength1 === 0) {
         for (let k = 0; k < variantLength; k++) {
           await context.evaluate(async (k) => {
             return document.querySelectorAll('div[id=theSwatches] a>img')[k].click();
@@ -287,20 +287,20 @@ module.exports = {
           }
         }
       } else {
-        // if (variantLength1 >= 1 && variantLength === 0) {
-        for (let k = 0; k < variantLength1; k++) {
-          await context.evaluate(async (k) => {
-            return document.querySelectorAll('span[role="radiogroup"] label')[k].click();
-          }, k);
+        if (variantLength1 >= 1 && variantLength === 0) {
+          for (let k = 0; k < variantLength1; k++) {
+            await context.evaluate(async (k) => {
+              return document.querySelectorAll('span[role="radiogroup"] label')[k].click();
+            }, k);
 
-          // await clickBtn(j);
-          console.log('Inside variants', k);
-          await new Promise(resolve => setTimeout(resolve, 1000));
-          if (k !== variantLength1 - 1) {
-            await context.extract(productDetails, { transform });
+            // await clickBtn(j);
+            console.log('Inside variants', k);
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            if (k !== variantLength1 - 1) {
+              await context.extract(productDetails, { transform });
+            }
           }
         }
-        // }
       }
     }
 
