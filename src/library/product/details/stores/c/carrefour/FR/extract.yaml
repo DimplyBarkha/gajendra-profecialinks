@@ -243,11 +243,10 @@ fields:
     regExp: (Ingrédients:\sIngrédients\s:\s|Ingrédients:\s|Ingrédients\s:\s)(.+)
     regExpReplace: $2
   - name: servingSize
-    singleValue: true
+    singleValue: false
     description: The size of serving Nutritional information is based on.
     xpath: //h3[contains(., 'Valeurs Nutritionnelles')]/span
-    regExp: pour\s(.*)
-    regExpReplace: $1
+    regExp: \d+.+
   - name: servingSizeUom
     singleValue: true
     description: Unit of measure of serving
