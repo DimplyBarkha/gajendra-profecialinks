@@ -16,12 +16,12 @@ module.exports = {
     // } catch (e) {
     //   console.log('page reloading button is not present')
     // }
-    // await context.evaluate(() => {
-    //   const cookiesElement = document.querySelector('button[data-dbk-cookie-cta="accept"]');
-    //   if (cookiesElement) {
-    //     cookiesElement.click()
-    //   }
-    // })
+    await context.evaluate(() => {
+      const cookiesElement = document.querySelector('button[data-dbk-cookie-cta="accept"]');
+      if (cookiesElement) {
+        cookiesElement.click()
+      }
+    })
     // const checkPresence = async () => {
     //   return await context.evaluate(() => {
     //     if (document.querySelector('div[data-testid="toast"]>div button')) {
