@@ -79,8 +79,12 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
       }
       if (nutritionDetails[7] !== 'null' && nutritionDetails[7] !== null && nutritionDetails[7] !== '') {
         // added_cholesterol_per_serving
-        const CholesterolPerServing = nutritionDetails[7].replace(/[^\d.-]/g, '');
-        const CholesterolPerServingUOM = nutritionDetails[7].replace(/[^a-zA-Z%]/g, '');
+        const cholesterolArray = [];
+        const cholesterolNumber = nutritionDetails[7].replace(/[^<\d.-]/g, '');
+        const cholesterolUnit = nutritionDetails[7].replace(/[^a-zA-Z%]/g, '');
+        cholesterolArray.push(cholesterolNumber, cholesterolUnit);
+        const CholesterolPerServing = (cholesterolArray[1] === 'MG' || cholesterolArray[1] === 'G') ? cholesterolArray[0] + cholesterolArray[1] : cholesterolArray[0];
+        const CholesterolPerServingUOM = (cholesterolArray[1] === 'MG' || cholesterolArray[1] === 'G') ? '' : cholesterolArray[1];
         addElementToDocument('added_cholesterol_per_serving', CholesterolPerServing);
         addElementToDocument('added_cholesterol_per_serving_uom', CholesterolPerServingUOM);
       }
