@@ -25,7 +25,7 @@ async function implementation (
     return window.location.href;
   });
 
-  await context.goto('https://mark.reevoo.com/reevoomark/en-GB/product?sku=' + productId + '&trkref=ERN');
+  await context.goto('https://mark.reevoo.com/reevoomark/en-GB/product?sku=' + productId + '&trkref=ERN&variant=NewStars');
 
   await stall(3000);
 
