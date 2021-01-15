@@ -4,6 +4,11 @@ async function implementation (inputs, parameters, context, dependencies) {
     encodeURIComponent(inputs.keywords),
   );
   const loginUrl = 'https://www.staplesadvantage.com/idm';
+  const credentials = {
+    accountNumber: '1021401',
+    loginUserId: 'LLAWSON',
+    loginUserPassword: 'Norris2017',
+  };
 
   await dependencies.goto({ url, zipcode: inputs.zipcode });
   if (parameters.loadedSelector) {
@@ -33,10 +38,10 @@ async function implementation (inputs, parameters, context, dependencies) {
   // the popup is visible after a moment -> delaying the removal
   await new Promise((resolve) => setTimeout(resolve, 3000));
   const isPopupPresent = await context.evaluate(async () => {
-    return document.querySelector('div.truste_box_overlay');
+    return document.querySelector('div.truste_box_overlay') !== null;
   });
     // when the popup is present it returns undefined, when not - null
-  if (isPopupPresent !== null) {
+  if (isPopupPresent) {
     await context.evaluate(() => {
       document.querySelector('div.truste_box_overlay').remove();
       document.querySelector('div.truste_overlay').remove();
@@ -50,25 +55,16 @@ async function implementation (inputs, parameters, context, dependencies) {
   });
     // when the user is not logged in, the extractor fills out the form
   if (!isUserLogged) {
-    // filling in the inputs only works after clicking them first
-    await context.click('input#accountNumber');
-    await context.evaluate(async () => {
-      document.querySelector('input#accountNumber').setAttribute('value', '1021401');
-    });
-    await context.click('input#loginUserId');
-    // after filling in the account number input and clicking away, the page is reloaded
-    // and the extractor needs to wait to fill in the rest of the inputs
-    await new Promise((resolve) => setTimeout(resolve, 3000));
-    await context.evaluate(async () => {
-      document.querySelector('input#loginUserId').setAttribute('value', 'LLAWSON');
-    });
-    await context.click('input#loginUserPassword');
-    await context.evaluate(async () => {
-      document.querySelector('input#loginUserPassword').setAttribute('value', 'Norris2017');
-    });
-    // clicking outside the form after filling it out
-    // then clicking the log in button
-    await context.click('section[aria-label="Contact us"]');
+    const isAccountNumberFilledIn = await context.evaluate(async (number) => {
+      return document.querySelector('input#accountNumber').getAttribute('value') === number;
+    }, credentials.accountNumber);
+    if (!isAccountNumberFilledIn) await context.setInputValue('input#accountNumber', credentials.accountNumber);
+    const isLoginUserIdFilledIn = await context.evaluate(async (login) => {
+      return document.querySelector('input#loginUserId').getAttribute('value') === login;
+    }, credentials.loginUserId);
+    if (!isLoginUserIdFilledIn) await context.setInputValue('input#loginUserId', credentials.loginUserId);
+    await context.setInputValue('input#loginUserPassword', credentials.loginUserPassword);
+
     await context.click('div#loginBtn');
   }
   // logging in takes a moment and reloads the page, then goes to the homepage
