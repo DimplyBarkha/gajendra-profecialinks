@@ -4,7 +4,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  await new Promise((resolve, reject) => setTimeout(resolve, 1500));
+  await new Promise((resolve, reject) => setTimeout(resolve, 4000));
 
   await context.evaluate(async function () {
     const price = document.querySelectorAll('div[class="card-item js-product-data"] p[class="product-new-price"]');
