@@ -6,7 +6,7 @@ module.exports = {
     store: 'harristeeter',
     domain: 'harristeeter.com',
     loadedSelector: 'hts-product-details',
-    noResultsXPath: null,
+    noResultsXPath: '//title[position()=1][not(text())]',
     zipcode: '',
   },
 };

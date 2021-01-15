@@ -5,9 +5,8 @@ module.exports = {
     country: 'US',
     store: 'harristeeter_28203',
     domain: 'harristeeter.com',
-    // loadedSelector: 'div.product-tabs',
     loadedSelector: 'hts-product-details',
-    noResultsXPath: null,
+    noResultsXPath: '//title[position()=1][not(text())]',
     zipcode: '',
   },
 };

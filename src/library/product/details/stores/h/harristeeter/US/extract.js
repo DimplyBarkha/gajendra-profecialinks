@@ -1,4 +1,4 @@
-const { transform } = require('../../../../shared');
+const { cleanUp } = require('../../../../shared');
 const { implementation } = require('../../shared');
 
 module.exports = {
@@ -6,7 +6,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'harristeeter',
-    transform: transform,
+    transform: cleanUp,
     domain: 'harristeeter.com',
     zipcode: '',
   },
