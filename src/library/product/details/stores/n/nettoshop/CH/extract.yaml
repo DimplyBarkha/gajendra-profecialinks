@@ -28,7 +28,7 @@ fields:
     #regExpReplace: $1
   - name: mpc
     singleValue: false
-    xpath: //div[@class="c-product-tour__item-content"]/script/@data-flix-mpn
+    xpath: //div[@class="c-product-tour__item-content"]/script/@data-flix-mpn | //div[@id="flix-inpage-wrap"]/script/@data-flix-mpn
   - name: nameExtended
     singleValue: false
     xpath: //h1[@class="c-product-detail__product-name"]/text()
