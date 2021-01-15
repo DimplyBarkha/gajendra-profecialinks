@@ -6,12 +6,11 @@ fields:
   - name: price
     singleValue: false
     description: price of the product
-    type: CURRENCY
     xpath: //div[@id='price']  
   - name: productUrl
     singleValue: false
     description: The URL for the product details page 
-    xpath: //*[contains(@class,'MuiButtonBase-root MuiCardActionArea')]/@href
+    xpath: //*[contains(@class,'MuiButtonBase-root MuiCardActionArea')]//@href
   - name: thumbnail
     singleValue: false
     description: The URL for the product thumbnail image
@@ -21,7 +20,7 @@ fields:
   - name: id
     singleValue: false
     description: The store-specific product identifier
-    xpath: //*[contains(@class,'MuiButtonBase-root MuiCardActionArea')]/@href
+    xpath: //*[contains(@class,'MuiButtonBase-root MuiCardActionArea')]//@href
     regExp: .*-(\w+)/$
     regExpReplace: $1
   - name: name
