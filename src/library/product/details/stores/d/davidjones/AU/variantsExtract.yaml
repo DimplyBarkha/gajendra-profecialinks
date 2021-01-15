@@ -1,0 +1,14 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //form[@class="item-selection"]//ul//li
+fields:
+  - name: variantId
+    singleValue: false
+    xpath: //input//@value
+  - name: variant
+    singleValue: false
+    xpath: //label//span  
+  - name: variantUrl
+    singleValue: false
+    xpath: //meta[@property="og:url"]//@content
