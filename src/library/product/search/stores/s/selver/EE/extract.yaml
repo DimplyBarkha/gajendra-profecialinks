@@ -25,8 +25,9 @@ fields:
     regExpReplace: $1
     description: The offered price for the product
   - name: id
-    xpath: //ol/li/@data-product-id
-    singleValue: false
+    xpath: //a[@class="product-image"]/img/@src
+    regExp: \d{7,}
+    #regExpReplace: https:$1
     description: Unique id (within this extractor)
   - name: rank
   - name: rankOrganic
