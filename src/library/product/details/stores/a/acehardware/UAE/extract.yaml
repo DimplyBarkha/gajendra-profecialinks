@@ -104,7 +104,7 @@ fields:
 
   - name: specifications
     singleValue: true
-    xpath: //body/@details
+    xpath: //body/@details | //li[contains(text(),'Dimension')]
 
   - name: warranty
     singleValue: false
