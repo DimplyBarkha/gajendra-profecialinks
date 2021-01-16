@@ -27,6 +27,7 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[@id='product-view-price']//span[@class='price']
+    defaultValue: "$"
   - name: listPrice
     singleValue: false
     xpath: 
@@ -58,7 +59,7 @@ fields:
     xpath: //div[@class='product-carousel-wrapper']//div[contains(@class,'item active')]//img//@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class='product-carousel-wrapper']//div[contains(@class,'item') and position() >1]//img//@data-image-src
+    xpath: (//div[@class='product-carousel-wrapper']//div[contains(@class,'item')]//img)[position()>1]//@data-image-src
   - name: videos
     singleValue: false
     xpath: //div[@class='product-carousel-wrapper']//div[contains(@class,'item')]//iframe//@src
@@ -76,7 +77,7 @@ fields:
     xpath: count(//div[@id='productDescription']//div[contains(@class,'product-long-description')]//ul//li)
   - name: secondaryImageTotal
     singleValue: false
-    xpath: count(//div[@class='product-carousel-wrapper']//div[contains(@class,'item') and position() >1]//img//@data-image-src)
+    xpath: count((//div[@class='product-carousel-wrapper']//div[contains(@class,'item')]//img)[position()>1]//@data-image-src)
   - name: videoLength
     singleValue: false
     xpath: //div[@class='timecode']//div//text()
@@ -104,7 +105,7 @@ fields:
     xpath: //div[@id='product-specs']//tr//th[contains(text(),'Manufacturers Express Warranty')]/following-sibling::td[@class="data"]
   - name: promotion
     singleValue: false
-    xpath: //div[contains(@class,'interest-free-strip')]//div[contains(@class,'ge-text')]//p
+    xpath: //div[contains(@class,'interest-free-strip')]//div[contains(@class,'ge-text')]
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[contains(@class,'product-long-description')]//div[contains(@class,'row')] 
