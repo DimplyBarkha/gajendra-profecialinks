@@ -7,9 +7,9 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'body',
+    loadedSelector: 'div[class="LYSContainer_padding__1r8V2"]',
     openSearchDefinition: {
-      template: 'https://www.idealclean.de/search?limit=20&search={searchTerms}&page={page}',
+      template: 'https://www2.idealclean.de/search?limit=150&search={searchTerms}&page={page}',
     },
     domain: 'ideal_clean.de',
   },

@@ -7,10 +7,9 @@ fields:
     xpath: //meta[@property="og:url"]/@content
   - name: productUrl
     description: The URL for the product details page
-    type: URL
     xpath: //div[@class='ProductCard_productDescription__3l4j5']/a/@href
     regExp: (.+)
-    regExpReplace: https://www.idealclean.de$1
+    regExpReplace: https://www2.idealclean.de$1
   - name: thumbnail
     description: The URL for the product thumbnail image
     xpath: //div[@class='ProductCard_imageHolder__hJKKy']/img/@src
