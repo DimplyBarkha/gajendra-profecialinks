@@ -22,6 +22,26 @@ const transform = (data, context) => {
   const productCodes = state.productCodes || [];
   for (const { group } of data) {
     for (const row of group) {
+
+      if (row.id) {
+        let productId = [];
+        row.id.forEach(item => {                    
+            productId =  item.text.split(' ');
+            item.text = productId[1];
+        });
+      }
+
+      if (row.productUrl) {
+          row.productUrl.forEach(item => {                    
+              item.text = "https://www.procurator.net" + item.text;
+          });
+      } 
+      
+      if (row.thumbnail) {
+          row.thumbnail.forEach(item => {                    
+              item.text = "https://www.procurator.net" + item.text;
+          });
+      } 
       rankCounter += 1;
       if (!row.sponsored) {
         orgRankCounter += 1;
