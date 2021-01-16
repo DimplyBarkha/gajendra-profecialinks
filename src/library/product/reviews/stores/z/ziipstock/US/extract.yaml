@@ -50,3 +50,7 @@ fields:
     xpath: //div[@class='stamped-review-header']//strong[@class='author']
   - name: sku
     xpath: ancestor::html//div[@id="stamped-main-widget"]/@data-product-sku
+  - name: flavour
+    xpath: ancestor::html//div[@class='product-single__info-wrapper']//h1[@class='product-single__title']
+  - name: productFamily
+    xpath: ancestor::html//div[@class='product-single__info-wrapper']//h1[@class='product-single__title']
