@@ -76,9 +76,11 @@ const transform = (data) => {
         if (row.manufacturer){
           let info = [];
           row.manufacturer.forEach(item => {
-            item.text = item.text.replace(/Hersteller:/, "");
-             info.push(item.text)
-          })
+            item.text = item.text.replace(/Hersteller: /, "");
+            item.text = item.text.replace(/Inhalt: /, "");
+            item.text = item.text.replace(/Tragehinweis: /, "");
+            info.push(item.text);
+          });
         }
         if(row.variantInformation){
           var strVariantInfo = ''
