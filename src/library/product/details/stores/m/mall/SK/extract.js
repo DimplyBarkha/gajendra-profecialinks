@@ -96,7 +96,8 @@ module.exports = {
         var secimg = altimg.join(" | ");
         addElementToDocument('secimg', secimg);
       }
-      var ing = getAllXpath("//strong[contains(text(),'Zloženie:')]/parent::p/following::ul[1]/li/text()", 'nodeValue');
+      var ing = getAllXpath('//strong[contains(text(),"Zloženie:")]/parent::p/following::ul[1]/li/text() | //strong[contains(text(),"Ingrediencie:")]/parent::p/following::ul[1]/li/text()'
+      , 'nodeValue');
       var final = "";
       if (ing.length>=1){
       for (var i = 0; i < ing.length; i++) {
