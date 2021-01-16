@@ -140,7 +140,11 @@ async function implementation (inputs, parameters, context, dependencies) {
       }
 
       console.log(allVideos.join(' || '));
-      await addElementToDocumentAsync('galleryvideos', allVideos.join(' || '));
+      // await addElementToDocumentAsync('galleryvideos', allVideos.join(' | '));
+      // 18723 - client says they want only one video - 
+      // for one url - we have multiple distinct video urls - which are redirecting going to the same video
+      // not sure which one to discard - so getting the first one only
+      await addElementToDocumentAsync('galleryvideos', allVideos[0]);
     },
     allVideos);
   } else {

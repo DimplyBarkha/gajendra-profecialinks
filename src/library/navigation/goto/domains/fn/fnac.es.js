@@ -126,9 +126,10 @@ module.exports = {
         try {
           await context.waitForSelector(captchaFrame, { timeout: 10000 });
           await solveCaptchIfNecessary(cssCaptcha); // captcha is being solved, but not getting submitted
-          await context.waitForNavigation({ timeout: 10000 });
+          await context.waitForNavigation({ timeout: 30000 });
         } catch (error) {
           console.log(error);
+          throw new Error('Either getting blocked or not able to solve captcha! Hence throwing error');
         }
       }
       await checkPageLoaded();
