@@ -1,3 +1,4 @@
+
 module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
@@ -114,22 +115,40 @@ module.exports = {
       }
     };
 
+    const isHardBlocked = async (hardBlockedParam) => {
+      return await context.evaluateInFrame('iframe', (hardBlockedParam) => {
+        const { txtBlocked, cssBlockedTxtContainer } = hardBlockedParam;
+
+        const container = document.querySelector(cssBlockedTxtContainer);
+        return container && container.innerText.toLowerCase().includes(txtBlocked.toLowerCase());
+      }, hardBlockedParam);
+    };
+
     const run = async () => {
       const captchaFrame = "iframe[_src*='captcha']:not([title]), iframe[src*='captcha']:not([title])";
       const cssCaptchaHandler = '.captcha-handler';
+      const txtBlocked = 'You have been blocked';
+      const cssBlockedTxtContainer = '.captcha__human__title';
 
       const cssCaptcha = { captchaFrame, cssCaptchaHandler };
+      const hardBlockedParam = { txtBlocked, cssBlockedTxtContainer };
       const { statusCode } = await gotoFn(url);
 
       if (statusCode === 403) {
         // waiting to load captcha
         try {
           await context.waitForSelector(captchaFrame, { timeout: 10000 });
-          await solveCaptchIfNecessary(cssCaptcha); // captcha is being solved, but not getting submitted
+        } catch (error) {
+          console.log(error);
+        }
+
+        if (await isHardBlocked(hardBlockedParam)) throw new Error('Hard blocked');
+        await solveCaptchIfNecessary(cssCaptcha); // if not hard blocked
+
+        try {
           await context.waitForNavigation({ timeout: 30000 });
         } catch (error) {
           console.log(error);
-          throw new Error('Either getting blocked or not able to solve captcha! Hence throwing error');
         }
       }
       await checkPageLoaded();
