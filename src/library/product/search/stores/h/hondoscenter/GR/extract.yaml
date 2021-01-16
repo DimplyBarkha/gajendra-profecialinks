@@ -4,23 +4,30 @@ recordSelector: null
 # recordXPath: //ul[@class="items-list "]/li/article
 recordXPath: null
 fields:
-  # - name: thumbnail
-  #   singleValue: false
-  #   xpath: //img[@class=" lazyloaded"]/@src
-  # - name: name
-  #   singleValue: false
-  #   xpath: //h2[@class="heading"]/a
+  - name: thumbnail
+    singleValue: false
+  #  xpath: //img[@class=" lazyloaded"]/@src
+    xpath: //td[@class="Images depth_3"]/table/tbody/tr[1]/td[@class="List depth_4"]/text()
+    regExp: (/.*)
+    regExpReplace: https:$1
+  - name: name
+    singleValue: false
+    # xpath: //h2[@class="heading"]/a
+    xpath: //td[@class="Title depth_3"]/text()
   - name: id
     singleValue: false
     xpath: //td[contains(@class,"Properties")]/table/tbody/tr/td[contains(@class,"UPCs")]/text()
+    
     # xpath: //ul[@class="items-list "]//@data-productid
-  # - name: productUrl
-  #   singleValue: false
-  #   xpath: //h2[@class="heading"]//a/@href
-  #   regExp: (/.*)
-  #   regExpReplace: https://www.hondoscenter.com$1
-  # - name: price
-  #   singleValue: false
+  - name: productUrl
+    singleValue: false
+    # xpath: //h2[@class="heading"]//a/@href
+    xpath: //td[@class="Url depth_3"]/text()
+    regExp: (/.*)
+    regExpReplace: https://www.hondoscenter.com$1
+  - name: price
+    singleValue: false
+    xpath: //td[@class="CurrentPrice depth_5"]/text()
   #   xpath: //div[@class="current-price-container"]/span
   # - name: searchUrl
   #   singleValue: false
