@@ -30,6 +30,10 @@ module.exports = {
     console.log('Status :', responseStatus.status);
     console.log('URL :', responseStatus.url);
     let captchaFrame = "iframe[_src*='captcha']:not([title]), iframe[src*='captcha']:not([title]), div.captcha";
+    const txtBlocked = 'You have been blocked';
+    const cssBlockedTxtContainer = '.captcha__human__title';
+    const hardBlockedParam = { txtBlocked, cssBlockedTxtContainer };
+
     try {
       await context.waitForSelector(captchaFrame);
     } catch (error) {
@@ -42,11 +46,27 @@ module.exports = {
         return Boolean(document.querySelector(captchaSelector));
       }, selector);
     };
+
+    const isHardBlocked = async (hardBlockedParam) => {
+      return await context.evaluateInFrame('iframe', (hardBlockedParam) => {
+        const { txtBlocked, cssBlockedTxtContainer } = hardBlockedParam;
+
+        const container = document.querySelector(cssBlockedTxtContainer);
+        return container && container.innerText.toLowerCase().includes(txtBlocked.toLowerCase());
+      }, hardBlockedParam);
+    };
     const isCaptchaFramePresent = await hasCaptcha(captchaFrame);
 
     if (isCaptchaFramePresent) {
       console.log('isCaptcha', true);
       await context.waitForNavigation(timeout);
+
+      // check if hard blocked before solving the captcha
+      if (await isHardBlocked(hardBlockedParam)) {
+        return context.reportBlocked(responseStatus.status, 'Hard Blocked');
+        // throw new Error('Hard blocked')
+      };
+
       // @ts-ignore
       // eslint-disable-next-line no-undef
       await context.evaluateInFrame('iframe', () => grecaptcha.execute());
