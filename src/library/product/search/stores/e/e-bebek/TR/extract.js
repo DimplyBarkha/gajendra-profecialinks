@@ -22,7 +22,16 @@ async function implementation (inputs, parameters, context, dependencies) {
       if (productUrl !== undefined) product.setAttribute('producturl', prefix.concat(productUrl.getAttribute('href')));
     });
   });
-  return await context.extract(productDetails, { transform });
+  var dataRef = await context.extract(productDetails, { transform });
+
+  dataRef[0].group.forEach((row) => {
+    if (row.id) {
+      row.id.forEach(item => {
+        item.text = item.text ? item.text.toLowerCase() : '';
+      });
+    }
+  });
+  return dataRef;
 }
 
 module.exports = {
