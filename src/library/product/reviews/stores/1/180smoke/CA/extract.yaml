@@ -15,7 +15,9 @@ fields:
 - name: brand
   xpath: ancestor::html//h1[@class="page-product-view--title"]
 - name: productRange
+  xpath: ancestor::html//ol[@class="breadcrumb"]/li[1]/a/text()
 - name: productFamily
+  xpath: concat(//ol[@class="breadcrumb"]/li[1]/a/text(),'/',//ol[@class="breadcrumb"]/li[2]/text())
 - name: colour
 - name: flavour
 - name: sku
