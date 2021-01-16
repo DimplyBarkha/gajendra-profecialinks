@@ -15,27 +15,27 @@ const implementation = async (inputs, { loadedSelector, noResultsXPath }, contex
   await dependencies.goto({ ...inputs, url: builtUrl || url });
 
   await new Promise((resolve, reject) => setTimeout(resolve, 5000));
-  
+
   const videoSources = await context.evaluate(async function (selectorClick) {
     const videoSrcArr = [];
     const videoSelectors = document.querySelectorAll('div[data-comp="HeroMediaList "] div[data-comp="Carousel "] div[role="tabpanel"] button');
     const videoSrcXpath = '//video[@data-player="default"]/@src';
-    //const srcSel = document.querySelector('iframe#video-article-details');
-    
+    // const srcSel = document.querySelector('iframe#video-article-details');
+
     let i = 0;
     while (i < videoSelectors.length) {
-      //videoSelectors[i].addEventListener('click');
+      // videoSelectors[i].addEventListener('click');
       videoSelectors[i].click();
-      
+
       await new Promise(resolve => setTimeout(resolve, 5000));
       var videoSrcCheck = document.evaluate(videoSrcXpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
       if (videoSrcCheck.snapshotLength > 0) {
         const checkSrc = videoSrcCheck.snapshotItem(0);
-        //videoSrcArr.push(`https:${checkSrc.textContent}`);
+        // videoSrcArr.push(`https:${checkSrc.textContent}`);
         videoSrcArr.push(checkSrc.textContent);
       }
       console.log('going to close');
-      //debugger;
+      // debugger;
       const closeSel = document.querySelector('button[data-at="modal_close"]');
       closeSel.click();
       await new Promise(resolve => setTimeout(resolve, 4000));
@@ -49,17 +49,15 @@ const implementation = async (inputs, { loadedSelector, noResultsXPath }, contex
       document.body.appendChild(newDiv);
     }
     if (videoSrcArr) {
-      console.log('videoSrcArr:: ',videoSrcArr);
-      debugger;
+      console.log('videoSrcArr:: ', videoSrcArr);
       videoSrcArr.forEach(src => {
         addHiddenDiv('ii_video', src);
         console.log('ii_video DIV added: ');
       });
-      debugger;
     }
     return videoSrcArr;
-  })
-  
+  });
+
   const nameExtended = await context.evaluate(function (parentInput, videoSources) {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
@@ -69,14 +67,12 @@ const implementation = async (inputs, { loadedSelector, noResultsXPath }, contex
       document.body.appendChild(newDiv);
     }
     if (videoSources) {
-      console.log('videoSources:: ',videoSources);
-      debugger;
+      console.log('videoSources:: ', videoSources);
       videoSources.forEach(src => {
-        //addHiddenDiv('ii_video', src);
+        // addHiddenDiv('ii_video', src);
       });
-      debugger;
     }
-  })
+  });
 
   if (loadedSelector) {
     await context.waitForFunction(
@@ -88,9 +84,28 @@ const implementation = async (inputs, { loadedSelector, noResultsXPath }, contex
       noResultsXPath,
     );
   }
+  await context.evaluate(async function () {
+    let scrollTop = 0;
+    while (scrollTop <= 20000) {
+      await stall(500);
+      scrollTop += 1000;
+      window.scroll(0, scrollTop);
+      if (scrollTop === 20000) {
+        await stall(8000);
+        break;
+      }
+    }
+    function stall (ms) {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve();
+        }, ms);
+      });
+    }
+  });
   return await context.evaluate((xpath) => !document.evaluate(xpath, document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue, noResultsXPath);
 };
-////div[@data-comp="HeroMediaList "]/div[1]//div[@data-hammer-carousel-inner="true"]//button
+/// /div[@data-comp="HeroMediaList "]/div[1]//div[@data-hammer-carousel-inner="true"]//button
 module.exports = {
   implements: 'product/details/execute',
   parameterValues: {
