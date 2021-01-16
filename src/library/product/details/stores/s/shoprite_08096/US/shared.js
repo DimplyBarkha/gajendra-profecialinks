@@ -58,8 +58,12 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
       }
       if (nutritionDetails[4] !== 'null' && nutritionDetails[4] !== null && nutritionDetails[4] !== '') {
         // added_total_fat_per_serving
-        const TotalFatPerServing = nutritionDetails[4].replace(/[^\d.-]/g, '');
-        const TotalFatPerServingUOM = nutritionDetails[4].replace(/[^a-zA-Z%]/g, '');
+        const totalFatArray = [];
+        const totalFatNumber = nutritionDetails[4].replace(/[^<\d.-]/g, '');
+        const totalFatUnit = nutritionDetails[4].replace(/[^a-zA-Z%]/g, '');
+        totalFatArray.push(totalFatNumber, totalFatUnit);
+        const TotalFatPerServing = (totalFatArray[1] === 'MG' || totalFatArray[1] === 'G') ? totalFatArray[0] + totalFatArray[1] : totalFatArray[0];
+        const TotalFatPerServingUOM = (totalFatArray[1] === 'MG' || totalFatArray[1] === 'G') ? '' : totalFatArray[1];
         addElementToDocument('added_total_fat_per_serving', TotalFatPerServing);
         addElementToDocument('added_total_fat_per_serving_uom', TotalFatPerServingUOM);
       }
@@ -90,15 +94,23 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
       }
       if (nutritionDetails[8] !== 'null' && nutritionDetails[8] !== null && nutritionDetails[8] !== '') {
         // added_sodium_per_serving
-        const SodiumPerServing = nutritionDetails[8].replace(/[^\d.-]/g, '');
-        const SodiumPerServingUOM = nutritionDetails[8].replace(/[^a-zA-Z%]/g, '');
+        const sodiumArray = [];
+        const sodiumNumber = nutritionDetails[8].replace(/[^<\d.-]/g, '');
+        const sodiumUnit = nutritionDetails[8].replace(/[^a-zA-Z%]/g, '');
+        sodiumArray.push(sodiumNumber, sodiumUnit);
+        const SodiumPerServing = (sodiumArray[1] === 'MG' || sodiumArray[1] === 'G') ? sodiumArray[0] + sodiumArray[1] : sodiumArray[0];
+        const SodiumPerServingUOM = (sodiumArray[1] === 'MG' || sodiumArray[1] === 'G') ? '' : sodiumArray[1];
         addElementToDocument('added_sodium_per_serving', SodiumPerServing);
         addElementToDocument('added_sodium_per_serving_uom', SodiumPerServingUOM);
       }
       if (nutritionDetails[9] !== 'null' && nutritionDetails[9] !== null && nutritionDetails[9] !== '') {
         // added_total_carb_per_serving
-        const TotalCarbPerServing = nutritionDetails[9].replace(/[^\d.-]/g, '');
-        const TotalCarbPerServingUOM = nutritionDetails[9].replace(/[^a-zA-Z%]/g, '');
+        const totalCarbArray = [];
+        const totalCarbNumber = nutritionDetails[9].replace(/[^<\d.-]/g, '');
+        const totalCarbUnit = nutritionDetails[9].replace(/[^a-zA-Z%]/g, '');
+        totalCarbArray.push(totalCarbNumber, totalCarbUnit);
+        const TotalCarbPerServing = (totalCarbArray[1] === 'MG' || totalCarbArray[1] === 'G') ? totalCarbArray[0] + totalCarbArray[1] : totalCarbArray[0];
+        const TotalCarbPerServingUOM = (totalCarbArray[1] === 'MG' || totalCarbArray[1] === 'G') ? '' : totalCarbArray[1];
         addElementToDocument('added_total_carb_per_serving', TotalCarbPerServing);
         addElementToDocument('added_total_carb_per_serving_uom', TotalCarbPerServingUOM);
       }
@@ -111,15 +123,23 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
       }
       if (nutritionDetails[11] !== 'null' && nutritionDetails[11] !== null && nutritionDetails[11] !== '') {
         // added_total_sugars_per_serving
-        const TotalSugarsPerServing = nutritionDetails[11].replace(/[^\d.-]/g, '');
-        const TotalSugarsPerServingUOM = nutritionDetails[11].replace(/[^a-zA-Z%]/g, '');
+        const totalSugarsArray = [];
+        const totalSugarsNumber = nutritionDetails[11].replace(/[^<\d.-]/g, '');
+        const totalSugarsUnit = nutritionDetails[11].replace(/[^a-zA-Z%]/g, '');
+        totalSugarsArray.push(totalSugarsNumber, totalSugarsUnit);
+        const TotalSugarsPerServing = (totalSugarsArray[1] === 'MG' || totalSugarsArray[1] === 'G') ? totalSugarsArray[0] + totalSugarsArray[1] : totalSugarsArray[0];
+        const TotalSugarsPerServingUOM = (totalSugarsArray[1] === 'MG' || totalSugarsArray[1] === 'G') ? '' : totalSugarsArray[1];
         addElementToDocument('added_total_sugars_per_serving', TotalSugarsPerServing);
         addElementToDocument('added_total_sugars_per_serving_uom', TotalSugarsPerServingUOM);
       }
       if (nutritionDetails[12] !== 'null' && nutritionDetails[12] !== null && nutritionDetails[12] !== '') {
         // added_protein_per_serving
-        const ProteinPerServing = nutritionDetails[12].replace(/[^\d.-]/g, '');
-        const ProteinPerServingUOM = nutritionDetails[12].replace(/[^a-zA-Z%]/g, '');
+        const proteinArray = [];
+        const proteinNumber = nutritionDetails[12].replace(/[^<\d.-]/g, '');
+        const proteinUnit = nutritionDetails[12].replace(/[^a-zA-Z%]/g, '');
+        proteinArray.push(proteinNumber, proteinUnit);
+        const ProteinPerServing = (proteinArray[1] === 'MG' || proteinArray[1] === 'G') ? proteinArray[0] + proteinArray[1] : proteinArray[0];
+        const ProteinPerServingUOM = (proteinArray[1] === 'MG' || proteinArray[1] === 'G') ? '' : proteinArray[1];
         addElementToDocument('added_protein_per_serving', ProteinPerServing);
         addElementToDocument('added_protein_per_serving_uom', ProteinPerServingUOM);
       }
