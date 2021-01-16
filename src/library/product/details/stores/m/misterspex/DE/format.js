@@ -73,6 +73,13 @@ const transform = (data) => {
               info.push(item.text);
             });
         }
+        if (row.manufacturer){
+          let info = [];
+          row.manufacturer.forEach(item => {
+            item.text = item.text.replace(/Hersteller:/, "");
+             info.push(item.text)
+          })
+        }
         if(row.variantInformation){
           var strVariantInfo = ''
           row.variantInformation.forEach(item => {
