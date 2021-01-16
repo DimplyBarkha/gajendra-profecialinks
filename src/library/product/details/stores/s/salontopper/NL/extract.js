@@ -90,6 +90,7 @@ module.exports = {
       if (row.aggregateRating) {
         row.aggregateRating.forEach(item => {
           item.text = !item.text.includes('.') || !item.text.includes(',') ? item.text.concat('.0') : item.text;
+          if (item.text === '0.0') item.text = item.text.split('.').shift();
         });
       }
       if (row.variantInformation) {
