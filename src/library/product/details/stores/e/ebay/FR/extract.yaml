@@ -18,3 +18,6 @@ fields:
   - name: unInterruptedPDP
     singleValue: false
     xpath: //div[contains(@id,'nume_html') and not(contains(.,'from this seller'))]//div[contains(@class,"mfe-reco")]//li//p[@class="mfe-title container-truncate"]|//div[@class="updp_item"] | //div[@class="similaritems"]//h3[@class="title"] | //h2[text()="Prodotto più venduto in Aspirapolvere"]/parent::*/following::*//ul/li//img/@alt | //h2[text()="Risparmia su Aspirapolvere"]/parent::*/following::*//ul/li//img/@alt | //h2[text()="Altri oggetti che ti potrebbero interessare"]/parent::*/following::*//ul/li//img/@alt
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id="features"]//span[@class="image"]/img/@src | //div[@id="ds_div"]/div[@id='footer-wrapper']/preceding-sibling::*//img[contains(@src,"http") and not(contains(@src,'gif'))]/@src | //div[@id="ds_div"]/*[not(@id='ns_copyright' or @id='backup')]//div[contains(@class,'p-feature')]//img/@src
