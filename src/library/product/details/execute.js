@@ -17,7 +17,7 @@ const implementation = async ({ url, id, zipcode, storeId }, { loadedSelector, n
       (selector, xpath) => {
         return !!(document.querySelector(selector) || document.evaluate(xpath, document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue);
       },
-      { timeout: 10000 },
+      { timeout: 25000 },
       loadedSelector,
       noResultsXPath,
     );
