@@ -5,4 +5,4 @@ recordXPath: //div[@class="RR__column"]
 fields:
   - name: productUrl
     type: STRING
-    xpath: (//div[@class="RR__column"])[1]/a/@href
+    xpath: //div[@class="RR__column"]/a[contains(@href,"vype-e")]/@href
