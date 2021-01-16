@@ -28,27 +28,39 @@ async function implementation (
   const reviewsAvailable = await isSelectorAvailable(cssReviews);
   if (reviewsAvailable) {
     await context.click(cssReviews);
-  }
+    await context.waitForSelector(cssReviewsRow, { timeout: 5000 });
 
-  await context.waitForSelector(cssReviewsRow, { timeout: 5000 });
-
-  const showMoreAvailable = await isSelectorAvailable(cssShowMore);
-  console.log(`showMoreAvailable: ${showMoreAvailable}`);
-  if (showMoreAvailable) {
-    await context.waitForNavigation({ timeout: 2000, waitUntil: 'load' });
-    await context.evaluate(async function () {
-      let moreReviews = true;
-      while (moreReviews) {
-        const reviewsButton = document.querySelector('button[data-test="show-x-more-reviews-button"]');
-        if (reviewsButton) {
-          reviewsButton.click();
-          await new Promise((resolve, reject) => setTimeout(resolve, 4000));
-        } else {
-          moreReviews = false;
+    const showMoreAvailable = await isSelectorAvailable(cssShowMore);
+    console.log(`showMoreAvailable: ${showMoreAvailable}`);
+    if (showMoreAvailable) {
+      await context.waitForNavigation({ timeout: 2000, waitUntil: 'load' });
+      await context.evaluate(async function () {
+        let moreReviews = true;
+        while (moreReviews) {
+          const reviewsButton = document.querySelector('button[data-test="show-x-more-reviews-button"]');
+          if (reviewsButton) {
+            reviewsButton.click();
+            await new Promise((resolve, reject) => setTimeout(resolve, 4000));
+          } else {
+            moreReviews = false;
+          }
         }
-      }
-    });
+      });
+    }
   }
+  await context.evaluate(async () => {
+    function addHiddenDivNoReview (id) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.setAttribute('noreviews', 'noreviews');
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+    if (!document.querySelector('a[data-test="reviews-flag-link"]')) {
+      addHiddenDivNoReview('noreviews');
+      await new Promise((resolve) => setTimeout(resolve, 5000));
+    }
+  });
 
   return await context.extract(productReviews);
 }
