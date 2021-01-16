@@ -1,0 +1,16 @@
+input:
+  id: SMA-3614-NC
+  _url: http://e-bebek.com
+extractions:
+  - html: https://workbench.import.io/html/run=330c4046-6d8f-4d30-88ea-bc4beb39d0c9/task=3a60cb52-eef2-46ea-be9d-40208cc38afc/843105f1-527f-43e6-bc0d-d19c8810f146.html
+    extractionConfigId: product/details/stores/e/e-bebek/TR/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: SMA-3614001
+                xpath: /html/body/div[7]
+            variantUrl:
+              - text: https://www.e-bebek.com//sma-optipro-2-400-gr-6-12-ay-bebek-sutu-p-sma-3614001
+                xpath: /html/body/div[8]
+        xpath: /html/body
+    timestamp: 1607585634463
