@@ -1,4 +1,4 @@
-async function implementation(
+async function implementation (
   { url, id, zipcode, date, days },
   { reviewUrl, sortButtonSelectors, loadedSelector, noResultsXPath },
   context,
@@ -16,19 +16,19 @@ async function implementation(
 
   await dependencies.goto({ url: destinationUrl, zipcode });
 
-  await context.evaluate(async()=>{
+  await context.evaluate(async () => {
     if (document.querySelector('#onetrust-accept-btn-handler')) {
       document.querySelector('#onetrust-accept-btn-handler').click();
     }
-  
+
     if (document.querySelector('#btn-entry-age-allow')) {
       document.getElementById('age-gate-dob-day').getElementsByTagName('option')[1].selected = 'selected';
       document.getElementById('age-gate-dob-month').getElementsByTagName('option')[1].selected = 'selected';
-      document.getElementById('age-gate-dob-year').value = '2000';
+      document.getElementById('age-gate-dob-year').value = '1990';
       await new Promise((resolve) => setTimeout(resolve, 2000));
       document.querySelector('#btn-entry-age-allow').click();
     }
-  })
+  });
 
   if (loadedSelector) {
     await context.waitForFunction((sel, xp) => {

@@ -8,7 +8,6 @@ async function implementation (
   const { transform } = parameters;
   const { productReviews } = dependencies;
   await context.evaluate(async () => {
- 
     if (!document.querySelector('div.netreviews-stars')) {
       const newDiv = document.createElement('div');
       newDiv.id = 'custom_noReview';

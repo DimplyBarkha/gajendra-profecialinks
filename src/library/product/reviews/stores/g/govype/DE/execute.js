@@ -1,4 +1,4 @@
-async function implementation(
+async function implementation (
   { url, id, zipcode, date, days },
   { reviewUrl, sortButtonSelectors, loadedSelector, noResultsXPath },
   context,
@@ -23,12 +23,12 @@ async function implementation(
     if (document.querySelector('#btn-entry-age-allow')) {
       document.querySelector('#btn-entry-age-allow').click();
     }
-  })
+  });
 
   if (loadedSelector) {
-    await context.waitForXPath('//span[@class="ts-review-text"]', { timeout:7000 })
-      .catch(()=>console.log('No reviews'));
-      
+    await context.waitForXPath('//span[@class="ts-review-text"]', { timeout: 7000 })
+      .catch(() => console.log('No reviews'));
+
     await context.waitForFunction((sel, xp) => {
       return Boolean(document.querySelector(sel) || !document.evaluate(xp, document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue);
     }, { timeout: 10000 }, loadedSelector, noResultsXPath);
