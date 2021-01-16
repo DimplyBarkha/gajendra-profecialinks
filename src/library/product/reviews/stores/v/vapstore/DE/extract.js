@@ -53,14 +53,13 @@ async function implementation (
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
-      var ele = document.querySelectorAll('script[type="application/ld+json"]');
+      var ele = document.querySelector('#buy_form');
       if (ele.length > 0) {
-        ele.forEach(function(item){
-          let content = JSON.parse(item.textContent);
-          if(content['sku']){
-            addHiddenDiv('vapstore_sku', content['sku']);
-          }
-        });
+        var eleTag = ele.getAttribute('data-track-p-items');
+        var tagVal = JSON.parse(eleTag);
+        if(tagVal[0].id){
+            addHiddenDiv('vapstore_sku', tagVal[0].id);
+        }
       }
     });
 
