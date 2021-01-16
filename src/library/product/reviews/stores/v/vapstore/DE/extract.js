@@ -36,6 +36,39 @@ const transform = (data) => {
   return cleanUp(data);
 };
 
+async function implementation (
+  inputs,
+  parameters,
+  context,
+  dependencies,
+) {
+  const { productReviews } = dependencies;
+  const { transform } = parameters;
+
+   await context.evaluate(async () => {
+      function addHiddenDiv (elementID, content) {
+        const newDiv = document.createElement('div');
+        newDiv.className = elementID;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+      var ele = document.querySelectorAll('script[type="application/ld+json"]');
+      if (ele.length > 0) {
+        ele.forEach(function(item){
+          let content = JSON.parse(item.textContent);
+          if(content['sku']){
+            addHiddenDiv('vapstore_sku', content['sku']);
+          }
+        });
+      }
+    });
+
+  const data = await context.extract(productReviews, { transform });
+
+  return data;
+}
+
 module.exports = {
   implements: 'product/reviews/extract',
   parameterValues: {
@@ -45,5 +78,5 @@ module.exports = {
     domain: 'vapstore.de',
     zipcode: "''",
   },
-
+  implementation,
 };
