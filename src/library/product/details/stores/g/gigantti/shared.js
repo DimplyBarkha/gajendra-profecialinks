@@ -7,13 +7,13 @@
 const transform = (data) => {
 	for (const { group } of data) {
 		for (const row of group) {
-			if (row.manufacturerImages) {				
-				let newText = 'https://www.gigantti.fi/';
-				row.manufacturerImages.forEach(item => {                    			
-					newText = newText + item.text.trim()
-				});
-				row.manufacturerImages = [{ text: newText }];
-			}
+			// if (row.manufacturerImages) {				
+			// 	let newText = 'https://www.gigantti.fi/';
+			// 	row.manufacturerImages.forEach(item => {                    			
+			// 		newText = newText + item.text.trim()
+			// 	});
+			// 	row.manufacturerImages = [{ text: newText }];
+			// }
 
 			if (row.videos) {				
 				let newText = 'https://www.gigantti.fi/';

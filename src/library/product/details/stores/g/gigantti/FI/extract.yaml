@@ -152,6 +152,8 @@ fields:
     singleValue: false
     description: Images within the third party description
     xpath: //section[contains(@class,'article-page')]//div[contains(@class,'article-text')]//img/@src
+    regExp: (.+)
+    regExpReplace: https://www.gigantti.fi$1
   - name: videos
     singleValue: false
     description: URLs of videos on page
