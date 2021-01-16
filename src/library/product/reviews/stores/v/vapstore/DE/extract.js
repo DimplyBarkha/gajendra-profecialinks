@@ -14,6 +14,11 @@ const transform = (data) => {
       .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
     for (const { group } of data) {
       for (const row of group) {
+        if (row.brand) {
+          if (row.brand[0].text.includes('/')) {
+            row.brand[0].text = row.brand[0].text.split('/')[0].trim();
+          }
+        }
         if (row.mediaURL) {
           const url = row.mediaURL[0].text;
           row.mediaURL[0].text = 'https://www.vapstore.de/' + url;
@@ -45,23 +50,23 @@ async function implementation (
   const { productReviews } = dependencies;
   const { transform } = parameters;
 
-   await context.evaluate(async () => {
-      function addHiddenDiv (elementID, content) {
-        const newDiv = document.createElement('div');
-        newDiv.className = elementID;
-        newDiv.textContent = content;
-        newDiv.style.display = 'none';
-        document.body.appendChild(newDiv);
+  await context.evaluate(async () => {
+    function addHiddenDiv (elementID, content) {
+      const newDiv = document.createElement('div');
+      newDiv.className = elementID;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+    var ele = document.querySelector('#buy_form');
+    if (ele.length > 0) {
+      var eleTag = ele.getAttribute('data-track-p-items');
+      var tagVal = JSON.parse(eleTag);
+      if (tagVal[0].id) {
+        addHiddenDiv('vapstore_sku', tagVal[0].id);
       }
-      var ele = document.querySelector('#buy_form');
-      if (ele.length > 0) {
-        var eleTag = ele.getAttribute('data-track-p-items');
-        var tagVal = JSON.parse(eleTag);
-        if(tagVal[0].id){
-            addHiddenDiv('vapstore_sku', tagVal[0].id);
-        }
-      }
-    });
+    }
+  });
 
   const data = await context.extract(productReviews, { transform });
 
