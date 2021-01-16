@@ -6,7 +6,7 @@ const { transform } = require('../../bestbuy/format');
  * @param { ImportIO.IContext } context
  * @param { Record<string, any> } dependencies
  */
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -14,6 +14,83 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  const applyScroll = async function (context) {
+    await context.evaluate(async function () {
+      let scrollTop = 0;
+      while (scrollTop !== 20000) {
+        scrollTop += 500;
+        window.scroll(0, scrollTop);
+        await stall(1000);
+      }
+      function stall(ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
+    });
+  };
+  await applyScroll(context);
+  await context.evaluate(async function (context) {
+    const selector1 = document.querySelector('div[class*="products"] div[class="product-block"]:nth-child(3)>span> span[class="overlayTrigger"]>button');
+    const selector2 = document.querySelector('div[class*="products"] div[class="product-block"]:nth-child(5)>span> span[class="overlayTrigger"]>button');
+    const selector3 = document.querySelector('div[class*="products"] div[class="product-block"]:nth-child(7)>span> span[class="overlayTrigger"]>button');
+    const selector4 = document.querySelector('div[class*="products"] div[class="product-block"]:nth-child(9)>span> span[class="overlayTrigger"]>button');
+    function addElementToDocument(key, value) {
+      const catElement = document.createElement('div');
+      catElement.id = key;
+      catElement.textContent = value;
+      catElement.style.display = 'none';
+      document.body.appendChild(catElement);
+    }
+    if (selector1) {
+      selector1.click();
+      const expandData = document.querySelector('div[class*="products"]>div[class="product-block"] span[class*="c-overlay"] h3>a').textContent;
+      if (expandData) {
+        addElementToDocument('elementData1', expandData);
+      }
+    }
+    if (selector2) {
+      selector2.click();
+      const expandData = document.querySelector('div[class*="products"]>div[class="product-block"] span[class*="c-overlay"] h3>a').textContent;
+      if (expandData) {
+        addElementToDocument('elementData1', expandData);
+      }
+    }
+    if (selector3) {
+      selector3.click();
+      const expandData = document.querySelector('div[class*="products"]>div[class="product-block"] span[class*="c-overlay"] h3>a').textContent;
+      if (expandData) {
+        addElementToDocument('elementData1', expandData);
+      }
+    }
+    if (selector4) {
+      selector4.click();
+      const expandData = document.querySelector('div[class*="products"]>div[class="product-block"] span[class*="c-overlay"] h3>a').textContent;
+      if (expandData) {
+        addElementToDocument('elementData1', expandData);
+      }
+    }
+  });
+  await context.evaluate(async function (context) {
+    const seeAllSelector1 = document.querySelector('.v-m-bottom-g .shop-product-carousels div.pager-carousel-content > button[class*="right"]');
+    const seeAllSelector2 = document.querySelector('.v-m-bottom-m .shop-product-carousels div[class*="product-carousel"]:nth-child(1) div.pager-carousel-content > button[class*="right"]');
+    const seeAllSelector3 = document.querySelector('.v-m-bottom-m .shop-product-carousels div[class*="product-carousel"]:nth-child(2) div.pager-carousel-content > button[class*="right"]');
+    const seeAllSelector4 = document.querySelector('.v-m-bottom-m .shop-product-carousels div[class*="product-carousel"]:nth-child(3) div.pager-carousel-content > button[class*="right"]');
+    for(let i=0; i<5; i++) {
+      seeAllSelector1.click();
+    }
+    for(let i=0; i<3; i++) {
+      seeAllSelector2.click();
+    }
+    for(let i=0; i<3; i++) {
+      seeAllSelector3.click();
+    }
+    for(let i=0; i<3; i++) {
+      seeAllSelector4.click();
+    }
+  });
   const mainUrl = await context.evaluate(async function () {
     return window.location.href;
   });
@@ -41,7 +118,7 @@ async function implementation (
     //   console.log('there are no videos');
     // }
     await context.evaluate(async function () {
-      function addHiddenDiv (id, content) {
+      function addHiddenDiv(id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
@@ -123,7 +200,7 @@ async function implementation (
     //  await new Promise(resolve => setTimeout(resolve, 2000));
 
     await context.evaluate(async function (videos) {
-      function addHiddenDiv (id, content) {
+      function addHiddenDiv(id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
@@ -159,7 +236,7 @@ async function implementation (
 
     await context.evaluate(async function () {
       document.querySelector('button.has-text.image-button') ? document.querySelector('button.has-text.image-button').click() : document.querySelector('button.see-more-images-button') ? document.querySelector('button.see-more-images-button').click() : '';
-      function addHiddenDiv (id, content) {
+      function addHiddenDiv(id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
@@ -307,19 +384,53 @@ async function implementation (
     await context.goto(`${mainUrl}&intl=nosplash#[!opt!]{"block_ads":false,"anti_fingerprint":false,"first_request_timeout":60,"load_timeout":30,"load_all_resources":true,"enable_cache":false,"discard_CSP_header":true}[/!opt!]`, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: true });
   }
   await context.evaluate(async function (manufacturerData) {
-    function addHiddenDiv (id, content) {
+    function addHiddenDiv(id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
       newDiv.textContent = content;
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
+
     console.log('---------->', manufacturerData);
     manufacturerData.shadowText && addHiddenDiv('pd_manu_desc', manufacturerData.shadowText);
     manufacturerData.shadowImage && manufacturerData.shadowImage.length && manufacturerData.shadowImage.forEach(element => {
       addHiddenDiv('aplus_img', element);
     });
+    function addElementToDocument(key, value) {
+      const catElement = document.createElement('div');
+      catElement.id = key;
+      catElement.textContent = value;
+      catElement.style.display = 'none';
+      document.body.appendChild(catElement);
+    }
+    const enhancedContent = document.querySelector('div[class*="syndi_powerpage"]');
+    if (enhancedContent) {
+      const witbData = Array.from([...enhancedContent.shadowRoot.querySelectorAll('[class="syndigo-widget-section-header"]')].find(elm => elm.innerText.match(/in the box/i)).nextElementSibling.querySelectorAll('[class="syndigo-featureset-feature"]'))
+      witbData.forEach(element => {
+        element.querySelector('h3') && addElementToDocument('witbText', element.querySelector('h3').innerText);
+        element.querySelector('img') && addElementToDocument('witbImg', element.querySelector('img').src);
+      });
+    }
+
+    function addElementToDocument(key, value) {
+      const catElement = document.createElement('div');
+      catElement.id = key;
+      catElement.textContent = value;
+      catElement.style.display = 'none';
+      document.body.appendChild(catElement);
+    }
+    const documentFrame = document.querySelector('div[class="analytics-adsense-ads"]> iframe[title="Ads by Google"]');
+    if (documentFrame) {
+      const witbData = [...documentFrame.shadowRoot.querySelectorAll('[style*="ms-flex-direction"] div[style*="ms-flex-direction"]')]
+      witbData.forEach(element => {
+        element.querySelector('a[class*="lc_ si6"]') && addElementToDocument('witbDocument', element.querySelector('a[class*="lc_ si6"]'));
+      });
+    }
+
+
   }, manufacturerData);
+
   return await context.extract(productDetails, { transform, type: 'MERGE_ROWS' });
 }
 

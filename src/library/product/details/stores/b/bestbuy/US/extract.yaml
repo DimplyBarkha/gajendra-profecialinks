@@ -143,3 +143,12 @@ fields:
   - name: variantCount
     singleValue: false
     defaultValue: '0'
+# custom Fields
+  - name: inTheBoxUrl
+    xpath: //div[@id='witbImg']
+  - name: inTheBoxText
+    xpath: //div[@id='witbText']|//div[@class="shop-whats-included"]//ul/li
+  - name: hasComparisonTable
+  - name: unInterruptedPDP
+    # manualSelector: div[style*="ms-flex-direction"] div[style*="ms-flex-direction"] >a[class*="lc_ si6"]
+    xpath: //div[@id='elementData1']|//div[@class="shop-product-carousels"]//div[contains(@class,"title-block")]/text()
