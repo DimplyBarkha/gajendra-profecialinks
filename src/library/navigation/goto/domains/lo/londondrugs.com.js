@@ -25,7 +25,7 @@ module.exports = {
     await context.goto(url, {
       firstRequestTimeout: 60000,
       timeout: timeout,
-      waitUntil: 'load',
+      waitUntil: 'networkidle0',
       checkBlocked: true,
       block_ads: false,
       load_all_resources: true,
