@@ -77,8 +77,13 @@ const transform = (data) => {
           let info = [];
           row.manufacturer.forEach(item => {
             item.text = item.text.replace(/Hersteller: /, "");
-            item.text = item.text.replace(/Inhalt: /, "");
-            item.text = item.text.replace(/Tragehinweis: /, "");
+            item.text = item.text.replace(/Inhalt: 1 Linse pro Packung/, "");
+            item.text = item.text.replace(/Inhalt: 6 Monatslinsen pro Packung/, "");
+            item.text = item.text.replace(/Inhalt: 6 Kontaktlinsen pro Packung/, "");
+            item.text = item.text.replace(/Tragehinweis: mit praktischem Handlingstint in Light Blue/, "");
+            item.text = item.text.replace(/Inhalt: 30 Linsen pro Packung/, "");
+            item.text = item.text.replace(/Tragehinweis: mit praktischem Handlingstint in Light Blue/, "");
+            item.text = item.text.replace(/Inhalt: 30 Kontaktlinsen pro Packung/, "");
             info.push(item.text);
           });
         }
