@@ -10,6 +10,9 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
+    await context.click('button[type="submit"]');
+    await context.waitForSelector('ul[class*="b-breadcrumb__list"]');
+    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
