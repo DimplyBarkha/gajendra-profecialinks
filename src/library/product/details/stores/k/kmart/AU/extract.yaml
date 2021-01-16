@@ -7,7 +7,7 @@ fields:
     singleValue: true
     xpath: //div[@class="image"]/a/img/@src
     regExp: (wcsstore\/.+)
-    regExpReplace: https://www.kmart.com.au/$1
+    regExpReplace: https://www.kmart.com.au//$1
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -24,7 +24,7 @@ fields:
     xpath: //div[@class="row breadcrumb"]/ul/li[position()>1 and position()<=last()]
   - name: nameExtended
     singleValue: true
-    xpath: concat(//meta[@name="keyword"]/@content,' - ',//div[@class="title"]/h1/text())
+    xpath: //div[@class="title"]/h1/text()
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -50,6 +50,9 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
+  - name: promotion
+    singleValue: true
+    xpath: concat(//div[@class="fx-component product-price save-price"]/h4/span/text(),//div[@class="fx-component product-price save-price"]/h4/text() )
   - name: quantity
     singleValue: true
     xpath: //html//div[@id='xyz']
