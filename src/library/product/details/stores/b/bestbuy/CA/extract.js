@@ -19,9 +19,9 @@ module.exports = {
       await context.evaluate(async function () {
         let scrollTop = 0;
         while (scrollTop !== 20000) {
-          scrollTop += 1000;
+          scrollTop += 400;
           window.scroll(0, scrollTop);
-          await stall(1000);
+          await stall(2000);
         }
         function stall(ms) {
           return new Promise((resolve, reject) => {
@@ -33,6 +33,20 @@ module.exports = {
       });
     };
     await applyScroll(context);
+    await context.evaluate(async function (context) {
+      const seeAllSelector1 = document.querySelector('div[class*="x-customers-also-viewed"] ul>div >a');
+      const seeAllSelector2 = document.querySelector('div[data-automation*="sponsored"] ul>div >a');
+      const seeAllSelector3 = document.querySelector('div[class*="recently"] ul>div >a');
+      for(let i=0; i<3; i++) {
+        seeAllSelector1.click();
+      }
+      for(let i=0; i<3; i++) {
+        seeAllSelector2.click();
+      }
+      for(let i=0; i<3; i++) {
+        seeAllSelector3.click();
+      }
+    });
     await context.evaluate(async function () {
       const buttonSelector = 'button#detailsAndSpecs';
       let available = document.querySelector(buttonSelector);

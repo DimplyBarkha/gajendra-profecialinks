@@ -134,10 +134,11 @@ fields:
     xpath: //div[@class="sizeVariantWrapper_2FRMM"]//a[@class="link_3hcyN"]/@href
   - name: variantUrl
     xpath:  //div[@class="sizeVariantWrapper_2FRMM"]//a[@class="link_3hcyN"]/@href
+#  Custom fields
+  - name: unInterruptedPDP
+    xpath: //div[contains(@class,'container')]//a//div[contains(@class,"productItemName")]
   - name: inTheBoxUrl
   - name: inTheBoxText
     xpath: //ul[contains(@class,'boxContents')]//li
   - name: hasComparisonTable
     defaultValue: No
-  - name: unInterruptedPDP
-    xpath: //*[contains(@class,'productItemContainer')]//a//div[@itemprop="name"]
