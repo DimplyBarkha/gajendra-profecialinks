@@ -14,7 +14,7 @@ module.exports = {
       await context.evaluate(async function () {
         let scrollTop = 0;
         while (scrollTop !== 20000) {
-          scrollTop += 500;
+          scrollTop += 400;
           window.scroll(0, scrollTop);
           await stall(1000);
         }
@@ -29,13 +29,15 @@ module.exports = {
     };
     await applyScroll(context);
     await context.evaluate(async function (context) {
-      const seeAllSelector = document.querySelector('#produktdetailseiten_reco-bottom div.next');
-      if (seeAllSelector) {
+      const seeAllSelector = document.querySelector('div[class*="product-accessories"] div.next');
+      for(let i=0; i<5; i++) {
         seeAllSelector.click();
-        seeAllSelector.click();
-        seeAllSelector.click();
-        seeAllSelector.click();
-        seeAllSelector.click();
+      }
+    });
+    await context.evaluate(async function (context) {
+      const seeAllSelector1 = document.querySelector('#produktdetailseiten_reco-bottom div.next');
+      for(let i=0; i<5; i++) {
+        seeAllSelector1.click();
       }
     });
     var extractedData = await context.extract(productDetails, { transform });
