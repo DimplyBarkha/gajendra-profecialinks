@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'cdw',
-    nextLinkSelector: 'a[aria-label="Next Page"]',
+    //nextLinkSelector: 'a[aria-label="Next Page"]',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div.search-results',
+    loadedSelector: 'div.search-results>div.search-result',
     noResultsXPath: '//div[@class="no-results-error-message"]',
     openSearchDefinition: null,
     domain: 'cdw.com',
