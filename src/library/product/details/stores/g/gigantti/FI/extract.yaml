@@ -149,8 +149,9 @@ fields:
     description: The extended description of the product supplied by the lister
     xpath: //section[contains(@class, "article-page main-content")]//div[contains(@class, "multiple-rows type-3 section")]//div[contains(@class, "article-text article-free-html")]
   - name: manufacturerImages
-    singleValue: true
+    singleValue: false
     description: Images within the third party description
+    xpath: //section[contains(@class,'article-page')]//div[contains(@class,'article-text')]//img/@src
   - name: videos
     singleValue: false
     description: URLs of videos on page
