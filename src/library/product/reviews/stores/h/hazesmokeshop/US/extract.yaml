@@ -20,7 +20,7 @@ fields:
   xpath: concat(//nav[@class="woocommerce-breadcrumb"]/a[1],'/',//nav[@class="woocommerce-breadcrumb"]/a[2],'/',//nav[@class="woocommerce-breadcrumb"]/a[3],'/',//nav[@class="woocommerce-breadcrumb"]/span)
 - name: colour
 - name: flavour
-  xpath: ancestor::html//div[@class="wc-tab-inner "]//p[contains(@text,"flavour")]
+  xpath: ancestor::html//h1[@itemprop="name"]
 - name: sku
   xpath: ancestor::html//span[@class="sku"]
 - name: reviewText
