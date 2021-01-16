@@ -98,4 +98,5 @@ fields:
   - name: inTheBoxText
     xpath: //div[@class="inpage_selector_InTheBox"]//span
   - name: unInterruptedPDP
-    xpath: //div[@class="product-slider-body"]//div[@class="product-tile js-gtm-product-tile"]//div[@class="tile-body"]/span | //a[@class="pdp-title"]
+    xpath: //@updp
+    regExp: '[^|]+'
