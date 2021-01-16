@@ -1,4 +1,3 @@
-
 module.exports = {
   implements: 'navigation/paginate',
   parameterValues: {
