@@ -72,7 +72,8 @@ fields:
     regExpReplace: $2
   - name: color
     description: A textual description of the colour
-    xpath: //ul//li//span[contains(text(),'Color')]/../span[position()>last()-1]
+    # xpath: //ul//li//span[contains(text(),'Color')]/../span[position()>last()-1]
+    xpath: //ul//li//span[contains(.,'Color')]/../span[contains(@class,"details-value")][position()>last()-1]
   - name: manufacturerDescription
     description: The extended description of the product supplied by the lister
     xpath: //div[@id="inpage_container"]
