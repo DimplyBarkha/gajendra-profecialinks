@@ -6,7 +6,7 @@ module.exports = {
     store: 'well',
     domain: 'well.ca',
     url: 'https://well.ca/searchresult.html?keyword={searchTerms}',
-    loadedSelector: 'div.product_image_link.product-item-image img',
+    loadedSelector: 'div#categories_main_content div.product-item',
     noResultsXPath: '(//div[@class="search_results_message"]//p)[1]',
     zipcode: '',
   },

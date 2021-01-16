@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
-recordXPath: //div[@id='categories_main_content']//div[contains(@class,'col-lg-5ths')]
+recordSelector: div#categories_main_content div.product-item
+recordXPath: //div[@id='categories_main_content']//div[contains(@class,'product-id')]
 fields:
   - name: id
     SingleValue: false
@@ -20,10 +20,11 @@ fields:
     xpath: //div[@class='product_grid_price']
   - name: aggregateRating
     SingleValue: false
-    xpath: //div[@class='product_grid_rating']//*[name()='svg']/*[name()='defs']/*[name()='linearGradient']//@x1
+    manualSelector: div.aggRating
+  - name: aggregateRating2
+    SingleValue: false
+    manualSelector: div.aggRating
   - name: rankOrganic
     SingleValue: false
-    defaultValue: 1
   - name: rank
     SingleValue: false
-    defaultValue: 1
