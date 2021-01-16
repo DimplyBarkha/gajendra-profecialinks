@@ -58,7 +58,7 @@ module.exports = {
       const ratingValue = document.querySelector('meta[itemprop="ratingValue"]');
       if (ratingValue !== null) ratingValue.setAttribute('ratingValue', ratingValue.getAttribute('content').replace('.', ','));
       // video url
-      const ytPrefix = 'https://www.youtube.com/watch?v=';
+      const ytPrefix = 'https://www.youtube-nocookie.com/embed/';
       const keyword = document.querySelector('a[class*="thumb youtube"]')
         ? document.querySelector('a[class*="thumb youtube"]').getAttribute('style').match(/vi\/(.*)\//)[1] : null;
       if (keyword !== null) addElementToDocument('videoUrl', ytPrefix.concat(keyword));
@@ -79,7 +79,7 @@ module.exports = {
         ? document.querySelector('meta[itemprop*="availability"][content*="InStock"]').getAttribute('content') : null;
       if (isAvailable !== null) {
         addElementToDocument('isAvailable', 'In Stock');
-      } else addElementToDocument('isAvailable', 'Out of Stock');
+      } else addElementToDocument('isAvailable', 'Out Of Stock');
       const sku = document.querySelector('meta[itemprop="mpn"]')
         ? document.querySelector('meta[itemprop="mpn"]').getAttribute('content') : '';
       const variantInformation = document.querySelector('select[class="autoredirect"] > option[selected="selected"]');
