@@ -30,7 +30,7 @@ module.exports = {
             ? e.nextElementSibling.textContent : '';
           directions.push(main);
         }
-        if (e.textContent.includes('Gebruik')) {
+        if (e.textContent.includes('Gebruik') && !e.textContent.includes('Resultaat na gebruik')) {
           const directionsMain = e.parentElement
             ? e.parentElement.textContent : '';
           directions.push(directionsMain.split('Gebruik:').pop().trim());
