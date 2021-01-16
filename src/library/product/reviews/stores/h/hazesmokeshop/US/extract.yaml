@@ -15,7 +15,7 @@ fields:
 - name: brand
   xpath: ancestor::html//div[@class="wb-posted_in"]/a
 - name: productRange
-  xpath: ancestor::html//nav[@class="woocommerce-breadcrumb"]/a[3]
+  xpath: ancestor::html//nav[@class="woocommerce-breadcrumb"]/a[3]/text()
 - name: productFamily
   xpath: concat(//nav[@class="woocommerce-breadcrumb"]/a[1],'/',//nav[@class="woocommerce-breadcrumb"]/a[2],'/',//nav[@class="woocommerce-breadcrumb"]/a[3],'/',//nav[@class="woocommerce-breadcrumb"]/span)
 - name: colour
