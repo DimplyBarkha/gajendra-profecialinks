@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'product/search',
+  implements: 'navigation/goto/setZipCode',
   parameterValues: {
     country: 'IT',
-    store: 'sephora',
     domain: 'sephora.it',
+    store: 'sephora',
     zipcode: '',
-    storeID: null,
   },
 };

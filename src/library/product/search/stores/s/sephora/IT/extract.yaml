@@ -1,29 +1,25 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@data-comp,"ProductGrid")]//div[@class="css-dkxsdo"]//div[@class="css-12egk0t"]
+recordXPath: //ul[@id="search-result-items"]/li
 fields:
   - name: name
-    singleValue: false
-    xpath: //span[@data-at="sku_item_name" and @class="css-pelz90"]
+    singleRecord: false
+    xpath: //ul[@id="search-result-items"]/li//div[contains(@class,"product-info")]//a[@class="product-tile-link"]/@title
   - name: thumbnail
     singleValue: false
-    xpath: //picture[@class="css-yq9732"]/img/@src
+    xpath: //ul[@id="search-result-items"]/li//div[@class="product-image"]//a[@class="product-tile-link"]/img/@src
   - name: id
     singleValue: false
-    xpath: //a[@class="css-ix8km1" and contains(@data-comp,"ProductItem")]/@data-uid
+    xpath: //ul[@id="search-result-items"]/li//div[contains(@class,"product-tile  clickable")]/@data-tcproduct
   - name: productUrl
     singleValue: false
-    xpath: //a[@class="css-ix8km1" and contains(@data-comp,"ProductItem")]/@href
+    xpath: //ul[@id="search-result-items"]/li//div[@class="product-image"]//a[@class="product-tile-link"]/@href
   - name: price
     singleValue: false
-    xpath: //span[@data-at="sku_item_price_list"]
+    xpath: //ul[@id="search-result-items"]/li//div[contains(@class,"product-info")]//span[@class="product-min-price"]
   - name: aggregateRating
     singleValue: false
-    xpath: //div[@class="css-jp4jy6" and contains(@data-comp,"StarRating")]/@aria-label
-  - name: reviewCount
+    xpath: //ul[@id="search-result-items"]/li//div[contains(@class,"product-info")]//*[name()='svg' and @class="product-rating-icon"]/@width | //ul[@id="search-result-items"]/li//div[contains(@class,"product-info")]//img[@class="product-rating-icon"]/@src
+  - name: sponsored
     singleValue: false
-    xpath: //span[@class="css-1dk1ux" and contains(@aria-label,"reviews")]
-  - name: ratingCount
-    singleValue: false
-    xpath: //span[@class="css-1dk1ux" and contains(@aria-label,"reviews")]

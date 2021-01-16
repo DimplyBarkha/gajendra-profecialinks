@@ -31,36 +31,30 @@ const transform = (data, context) => {
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
-      if(row.thumbnail){
-        row.thumbnail.forEach(item=>{
-            item.text="https://www.sephora.com"+item.text;
-        })
-      }
-      if(row.productUrl){
-        row.productUrl.forEach(item=>{
-          let skuI=item.text.split('?skuId=');
-          //console.log('skuIZZ:',skuI);
-          //console.log('lengthZZ:',skuI.length);
-          if(skuI.length>1){
-            let skuI1=skuI[1].split('&');
-            skyIdStr=skuI1[0];
-          }else{
-            console.log('item.text :',item.text);
-            let skuI=item.text.split('?');
-            //console.log('skuIYY:',skuI);
-            //console.log('lengthYY:',skuI.length);
-            if(skuI.length>1){
-              skyIdStr=skuI[0].split('-').pop().replace(/\D/g,'');
-              console.log('skuIX1:',skyIdStr);
-              //console.log('sku finale:',skuI1.replace(/\D/g,''));
-
-            }
-          }
+      if(row.id){
+        row.id.forEach(item=>{
+          let tmpObj=JSON.parse(item.text);
+          item.text=tmpObj.product_sku;
         })
       }
       if(row.aggregateRating){
+        let ratVal=0;
         row.aggregateRating.forEach(item=>{
-            item.text=item.text.replace(' stars','');
+          if(item.text=='/on/demandware.static/Sites-Sephora_IT-Site/-/default/dwf843d5fd/images/svg-icons/rating-star-full-icon.svg'){
+            ratVal++;
+          }else if(item.text=='16px'){
+            ratVal=ratVal+0.5;
+          }
+        })
+        if(ratVal>0){
+          row.aggregateRating=[{"text":ratVal}];
+        }
+      }
+      if(row.thumbnail){
+        row.thumbnail.forEach(item=>{
+          if(item.text.indexOf('https://www.sephora.it')==-1){
+            item.text='https://www.sephora.it'+item.text;
+          }
         })
       }
     }

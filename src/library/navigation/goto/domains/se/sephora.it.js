@@ -1,11 +1,11 @@
 
 module.exports = {
-  implements: 'product/search',
+  implements: 'navigation/goto',
   parameterValues: {
+    domain: 'sephora.it',
+    timeout: 100000,
     country: 'IT',
     store: 'sephora',
-    domain: 'sephora.it',
     zipcode: '',
-    storeID: null,
   },
 };
