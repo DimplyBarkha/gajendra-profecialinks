@@ -142,7 +142,11 @@ module.exports = {
           console.log(error);
         }
 
-        if (await isHardBlocked(hardBlockedParam)) throw new Error('Hard blocked');
+        if (await isHardBlocked(hardBlockedParam)) {
+          return context.reportBlocked(statusCode, 'Hard Blocked');
+          // throw new Error('Hard blocked')
+        };
+        
         await solveCaptchIfNecessary(cssCaptcha); // if not hard blocked
 
         try {
