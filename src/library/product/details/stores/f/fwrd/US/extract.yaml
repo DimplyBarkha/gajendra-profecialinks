@@ -1,7 +1,8 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,"pdp__col--fixed-width")]//*[@id="pdp-sizes"]//div[contains(@class,"pdp__size-btn")]
+recordXPath: //*[contains(@id,"pdp-size")]//li
+# recordXPath: //div[contains(@class,"pdp__col--fixed-width")]//*[@id="pdp-sizes"]//div[contains(@class,"pdp__size-btn")]
 fields:
   - name: availability
     type: BOOLEAN
@@ -31,7 +32,7 @@ fields:
   - name: listPrice
     description: The stated undiscounted price for the product
     singleValue: false
-    xpath: ancestor::html//div[contains(@class,'fwd_pdp')]//div[contains(@class,'pdp__col--fixed-width')]//s[contains(@class,'price__retail')]
+    xpath: ancestor::html//div[contains(@class,'fwd_pdp')]//div[contains(@class,'pdp__col--fixed-width')]//*[contains(@class,'price__retail')]
   - name: name
     description: The product name
     singleValue: false
