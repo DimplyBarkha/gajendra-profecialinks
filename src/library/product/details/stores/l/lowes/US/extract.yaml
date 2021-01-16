@@ -162,6 +162,6 @@ fields:
     xpath: //div[@id='witbText']|//div[@data-section-tag="in-the-box"]//div[@class="wc-aplus-body"]//li//h3
   - name: hasComparisonTable
     singleValue: true
-    xpath: //div[@class="prev-container"]/div[@class="prev-body"]//div[@class="divTableRow"][1]//div[@class="optionCont"]/a
+    xpath: //div[@id='witbTable']|//div[@class="prev-container"]/div[@class="prev-body"]//div[@class="divTableRow"][1]//div[@class="optionCont"]/a
     regExp: (.+)
     regExpReplace: Yes

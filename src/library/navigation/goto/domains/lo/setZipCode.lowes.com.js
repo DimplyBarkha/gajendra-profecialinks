@@ -11,7 +11,7 @@ async function implementation (
       let scrollTop = 0;
       while (scrollTop !== 20000) {
         await stall(500);
-        scrollTop += 1000;
+        scrollTop += 500;
         window.scroll(0, scrollTop);
         if (scrollTop === 20000) {
           await stall(5000);
@@ -61,7 +61,7 @@ async function implementation (
     await context.waitForNavigation({ timeout: 50000, waitUntil: 'load' });
   }
   console.log('params', parameters);
-  await context.goto(url, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
+  await context.goto(url, { timeout: 50000, waitUntil: 'load', checkBlocked: true, block_ads: false, load_all_resources: true, images_enabled: true });
   if (applyScrollToPage) {
     await applyScroll(context);
   }

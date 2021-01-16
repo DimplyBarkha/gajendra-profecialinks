@@ -20,7 +20,7 @@ module.exports = {
         while (scrollTop !== 20000) {
           scrollTop += 400;
           window.scroll(0, scrollTop);
-          await stall(1000);
+          await stall(2000);
         }
         function stall(ms) {
           return new Promise((resolve, reject) => {
@@ -82,6 +82,13 @@ module.exports = {
           element.querySelector('h3') && addElementToDocument('witbText', element.querySelector('h3').innerText);
           element.querySelector('img') && addElementToDocument('witbImg', element.querySelector('img').src);
         });
+      }
+      const comparisonTable = document.querySelector('div[class*="syndi_powerpage"]');
+      if(comparisonTable) {
+        const witbData1 = [...comparisonTable.shadowRoot.querySelectorAll('div[class="syndi_powerpage"] div[class*="syndigo"]')]
+           witbData1.forEach(element => {
+             element.querySelector('h2[class="syndigo-widget-section-header"]') && addElementToDocument('witbTable', element.querySelector('h2[class="syndigo-widget-section-header"]'));
+           });
       }
       const videoApi = JSON.parse(document.evaluate('//script[contains(text(),"__PRELOADED_STATE__")]', document).iterateNext().textContent &&
         document.evaluate('//script[contains(text(),"__PRELOADED_STATE__")]', document).iterateNext().textContent.match(/videos":([^\]]+])/) &&

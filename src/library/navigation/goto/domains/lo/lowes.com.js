@@ -3,7 +3,7 @@ module.exports = {
   parameterValues: {
     domain: 'lowes.com',
     timeout: 2000000,
-    country: 'DK',
+    country: 'US',
     store: 'lowes',
     zipcode: '',
   },
