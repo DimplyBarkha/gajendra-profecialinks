@@ -58,6 +58,12 @@ async function implementation (
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
+
+    var elePagination = document.querySelector('div.review');
+    if (!elePagination) {
+      addHiddenDiv('no_reviews', 'no reviews available');
+    }
+
     var ele = document.querySelector('#buy_form');
     if (ele.length > 0) {
       var eleTag = ele.getAttribute('data-track-p-items');
