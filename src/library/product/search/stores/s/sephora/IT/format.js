@@ -33,7 +33,29 @@ const transform = (data, context) => {
       }));
       if(row.thumbnail){
         row.thumbnail.forEach(item=>{
-            item.text="https://www.sephora.com/"+item.text;
+            item.text="https://www.sephora.com"+item.text;
+        })
+      }
+      if(row.productUrl){
+        row.productUrl.forEach(item=>{
+          let skuI=item.text.split('?skuId=');
+          //console.log('skuIZZ:',skuI);
+          //console.log('lengthZZ:',skuI.length);
+          if(skuI.length>1){
+            let skuI1=skuI[1].split('&');
+            skyIdStr=skuI1[0];
+          }else{
+            console.log('item.text :',item.text);
+            let skuI=item.text.split('?');
+            //console.log('skuIYY:',skuI);
+            //console.log('lengthYY:',skuI.length);
+            if(skuI.length>1){
+              skyIdStr=skuI[0].split('-').pop().replace(/\D/g,'');
+              console.log('skuIX1:',skyIdStr);
+              //console.log('sku finale:',skuI1.replace(/\D/g,''));
+
+            }
+          }
         })
       }
       if(row.aggregateRating){
