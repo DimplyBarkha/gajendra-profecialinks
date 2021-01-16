@@ -4,65 +4,49 @@ recordSelector: null
 recordXPath: //div[contains(@class, "yotpo-review ")]
 fields:
 - name: aggregateRating
-  type: STRING
   xpath: ancestor::html//span[contains(@class,"avg-score")]
 - name: name
-  type: STRING
   xpath: ancestor::html//h1[@class="product-information__header__title__name heading--large"]
 - name: commentCount
-  type: STRING
 - name: reviewDate
-  type: STRING
   xpath: //div[contains(@class,"yotpo-header-actions")]/label[contains(@class,"yotpo-review-date")]
 - name: user
-  type: STRING
   xpath: //label[contains(@class,"yotpo-user-name")]
 - name: brand
-  type: STRING
   xpath: ancestor::html//meta[@name="application-name"]/@content
 - name: productRange
-  type: STRING
-- name: productFamily
-  type: STRING
   xpath: ancestor::html//meta[@property="og:url"]/@content
   regExp: https://www.juul.com/shop/(.*)/
   regExpReplace: $1
+- name: productFamily
+  xpath: ancestor::html//meta[@property="og:url"]/@content
+  regExp: https://www.juul.com/(.*)\?
+  regExpReplace: $1
 - name: colour
-  type: STRING
 - name: flavour
-  type: STRING
+  xpath: ancestor::html//div[@class="product-information__description-markdown"]/p[contains(text(),"flavor")] | ancestor::html//h1[@class="product-information__header__title__name heading--large"]
 - name: sku
-  type: STRING
   xpath: ancestor::html//img[@class="hero__single-image"]/@alt | ancestor::html//h1[@class="product-information__header__title__name heading--large"]
 - name: reviewText
-  type: STRING
   xpath: //div[@class="content-review"]
 - name: reviewTitle
-  type: STRING
   xpath: //div[@class="content-title yotpo-font-bold"]
 - name: mediaURL
-  type: STRING
   xpath: ancestor::html//meta[@property="og:image"]/@content
 - name: location
-  type: STRING
   defaultValue: US
 - name: helpful
-  type: STRING
   xpath: //label[@data-type="up"]
 - name: verifiedPurchase
-  type: STRING
   xpath: //div[@class="label-with-tooltip pull-left"]/span[@data-type="toggleFade"]
   regExp: (.+)
   regExpReplace: 'Yes'
   defaultValue:  'No'
 - name: rating
-  type: STRING
   xpath: //span[@class="sr-only"]
   regExp: ([0-9\.]{1,}) star rating
   regExpReplace: $1
 - name: pageTitle
-  type: STRING
   xpath: ancestor::html//meta[@property="og:title"]/@content
 - name: sourceUrl
-  type: STRING
   xpath: ancestor::html//meta[@property="og:url"]/@content
