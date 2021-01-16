@@ -1,4 +1,4 @@
-// const { transform } = require('./format');
+const { transform } = require('../../../../shared');
 
 async function implementation (
   inputs,
@@ -52,7 +52,7 @@ module.exports = {
   parameterValues: {
     country: 'UA',
     store: 'pampik',
-    transform: null,
+    transform,
     domain: 'pampik.com',
     zipcode: '',
   },
