@@ -12,7 +12,7 @@ async function implementation (inputs, parameters, context, dependencies) {
         return document.querySelector('span.d-xs-inline.d-l-none');
       }) === null || await context.evaluate(() => {
         const offSet = window.location.href.match('offSet=([0-9]+)');
-        return parseInt(offSet[1]) >= 150;
+        return parseInt(offSet[1]) >= 100;
       })) {
         return await context.extract(productDetails, { transform });
       } else {
