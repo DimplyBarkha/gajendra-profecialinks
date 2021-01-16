@@ -9,6 +9,7 @@ module.exports = {
     domain: 'mediamarkt.ch',
     zipcode: '',
   },
+  // @ts-ignore
   implementation: async ({ inputString }, { transform }, context, { productDetails }) => {
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
@@ -18,7 +19,8 @@ module.exports = {
           window.scroll(0, scrollTop);
           await stall(1000);
         }
-        function stall(ms) {
+        function stall (ms) {
+          // @ts-ignore
           return new Promise((resolve, reject) => {
             setTimeout(() => {
               resolve();
@@ -28,11 +30,20 @@ module.exports = {
       });
     };
     await applyScroll(context);
+    // @ts-ignore
     await context.evaluate(async function (context) {
       const seeAllSelector = document.querySelector('div[class*="product-accessories"] div.next');
       for(let i=0; i<5; i++) {
         seeAllSelector.click();
       }
+
+      const eanScriptXPath = '//body/script[contains(text(), "ean")]';
+      const eanScriptElement = document.evaluate(eanScriptXPath, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
+      const eanScript = eanScriptElement.textContent;
+      const eanRegex = '("ean":)"(.*?)"';
+      const upcValue = eanScript.match(eanRegex) ? eanScript.match(eanRegex)[2] : '';
+
+      document.querySelector('body').setAttribute('upc', upcValue);
     });
     await context.evaluate(async function (context) {
       const seeAllSelector1 = document.querySelector('#produktdetailseiten_reco-bottom div.next');
@@ -75,7 +86,7 @@ module.exports = {
       manufacturerDescription.forEach(description => {
         fullDescription += description.text + ' ';
       });
-      manufacturerDescription[0].text = fullDescription;
+      manufacturerDescription[0].text = fullDescription.trim();
       manufacturerDescription.splice(1);
     }
 
