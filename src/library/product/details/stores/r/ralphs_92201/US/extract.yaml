@@ -56,12 +56,12 @@ fields:
       .+?(?= Perspective)
   - name: name
     singleValue: false
-    xpath: //div[@class='ProductDetails-header']/h1
+    xpath: //h1[@class='ProductDetails-header']
   - name: mpc
     singleValue: false
   - name: gtin
     singleValue: false
-    xpath: //span[@class='ProductDetails-upc']
+    xpath: //div[@class='ProductDetails-sizeAndUpc']//span[2]
     regExp: >-   
       [0-9]+
   - name: aggregateRating2
@@ -96,7 +96,7 @@ fields:
     singleValue: false
   - name: nameExtended
     singleValue: false
-    xpath: //div[@class='ProductDetails-header']/h1
+    xpath: //h1[@class='ProductDetails-header']
   - name: aggregateRating
     singleValue: false
     type: NUMBER
@@ -121,12 +121,12 @@ fields:
     # xpath: //span[@id="ProductDetails-sellBy-unit"]
   - name: variantId
     singleValue: false
-    xpath: //span[@class='ProductDetails-upc']
+    xpath: //div[@class='ProductDetails-sizeAndUpc']//span[2]
     regExp: UPC:(.+)
     regExpReplace: $1   
   - name: sku
     singleValue: false
-    xpath: //span[@class='ProductDetails-upc']
+    xpath: //div[@class='ProductDetails-sizeAndUpc']//span[2]
     regExp: >-   
       [0-9]+
   - name: warnings
