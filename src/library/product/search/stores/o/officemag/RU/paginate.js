@@ -6,7 +6,7 @@ module.exports = {
     store: 'officemag',
     nextLinkSelector: 'li.forw',
     mutationSelector: null,
-    spinnerSelector: 'div.Page__overlay',
+    spinnerSelector: null,
     loadedSelector: 'div.listItemsContainer',
     noResultsXPath: '//div[@class="searchPageForm"]',
     openSearchDefinition: null,

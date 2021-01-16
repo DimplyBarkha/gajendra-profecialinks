@@ -6,7 +6,7 @@ module.exports = {
     store: 'officemag',
     domain: 'officemag.ru',
     url: 'https://www.officemag.ru/search/?q={searchTerms}',
-    loadedSelector: 'div.listItemsContainer',
+    loadedSelector: 'ul.listItems',
     noResultsXPath: '//div[@class="searchPageForm"]',
     zipcode: '',
   },
