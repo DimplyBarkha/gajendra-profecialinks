@@ -1,23 +1,23 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
-recordXPath: //div[@class="ProductListContent"]//div[contains(@class,"ItemOrj col-4")]
-fields: 
+recordSelector: div#ProductPageProductList > div.ItemOrj
+recordXPath: //div[@id="ProductPageProductList"]/div[contains(@class,"ItemOrj")]
+fields:
   - name: productUrl
     SingleValue: false
-    xpath: //div[@class="ProductListContent"]//div[contains(@class,"productName detailUrl")]//a/@href
+    xpath: //div[contains(@class,"productName detailUrl")]//a/@href
   - name: id
     SingleValue: false
-    xpath: //div[@class="ProductListContent"]//div[contains(@class,"productName detailUrl")]/@data-id
+    xpath: //div[contains(@class,"productName detailUrl")]/@data-id
   - name: name
     SingleValue: false
-    xpath: //div[@class="ProductListContent"]//div[contains(@class,"productName detailUrl")]//a
+    xpath: //div[contains(@class,"productName detailUrl")]//a
   - name: thumbnail
     SingleValue: false
-    xpath: //div[@class="ProductListContent"]//div[@class="productImage"]//img/@data-original
+    xpath: //div[@class="productImage"]//img/@data-original
   - name: price
     SingleValue: false
-    xpath: //div[@class="ProductListContent"]//div[@class="discountPrice"]//span[not(@class)]
+    xpath: //div[@class="discountPrice"]//span[not(@class)]
   - name: listPrice
     SingleValue: false
-    xpath: //div[@class="ProductListContent"]//div[@class="regularPrice"]//span[not(@class)]
+    xpath: //div[@class="regularPrice"]//span[not(@class)]
