@@ -45,7 +45,28 @@ async function implementation (
     for (let i = 0; i < product.length; i++) {
       addHiddenDiv('page_url', URL, i);
     }
-  });
+    function addHiddenDiv_Details (id, content, index) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      const originalDiv = document.querySelector('div.style__ProductDetailsWrapper-PDP__sc-18s9jld-0');
+      originalDiv.appendChild(newDiv);
+    }
+      let wholeDiv = document.querySelector('div.style__ProductDetailsWrapper-PDP__sc-18s9jld-0')
+     console.log('s' , wholeDiv);
+      if(wholeDiv) {
+        let url = window.location.href
+        addHiddenDiv_Details('Prod_url' , url)
+        addHiddenDiv_Details('Search_url' , url)
+        let thumbnail_details = document.querySelector('img.met-epc-item').src
+        addHiddenDiv_Details('thumbnail_details' , thumbnail_details)
+        let bits = url.split("/");
+        let id_details = bits[bits.length-1];
+        addHiddenDiv_Details('id_details' , id_details)
+
+      }
+      });
   return await context.extract(productDetails, { transform });
 }
 module.exports = {
