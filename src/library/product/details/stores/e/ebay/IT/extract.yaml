@@ -22,3 +22,6 @@ fields:
   # - name: unInterruptedPDPNew
   #   singleValue: false
   #   xpath: //div[@class='updp1_item']
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id="features"]//span[@class="image"]/img/@src | //div[@id="ds_div"]/div[@id='footer-wrapper']/preceding-sibling::*//img[contains(@src,"http") and not(contains(@src,'gif'))]/@src |  //div[@id="ds_div"]/*[not(@id='ns_copyright' or @id='backup')]//div[contains(@class,'grid-item large--four-twelfths dysonFeatureBox')]/img/@src
