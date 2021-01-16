@@ -28,6 +28,7 @@ fields:
     xpath: ancestor::html//head/title
   - name: productFamily
     description: The url of the page productFamily
+    xpath: ancestor::html//div[@class='breadcrumb']//div//ul
   - name: productRange
     description: The url of the page productRange
   - name: rating
