@@ -8,20 +8,35 @@ module.exports = {
     store: 'myntra',
     zipcode: '',
   },
-  implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
+  implementation: async ({ url, zipcode, storeId }, { timeout }, context, dependencies) => {
     await context.setFirstRequestTimeout(60000);
     await context.setBlockAds(false);
     await context.setLoadAllResources(true);
     await context.setLoadImages(true);
     await context.setJavaScriptEnabled(true);
     await context.setAntiFingerprint(false);
-    await context.goto(url, {
-      block_ads: false,
-      timeout: 60000,
-      waitUntil: 'load',
-      load_all_resources: true,
-      images_enabled: true,
-    });
+    await context.setBlockAds(false);
+    url = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
+    await context.goto(url, { timeout, waitUntil: 'networkidle0', block_ads: false });
+    async function autoScroll (page) {
+      await page.evaluate(async () => {
+        await new Promise((resolve, reject) => {
+          var totalHeight = 0;
+          var distance = 100;
+          var timer = setInterval(() => {
+            var scrollHeight = document.body.scrollHeight;
+            window.scrollBy(0, distance);
+            totalHeight += distance;
+
+            if (totalHeight >= scrollHeight) {
+              clearInterval(timer);
+              resolve();
+            }
+          }, 100);
+        });
+      });
+    }
+    await autoScroll(context);
   },
 
 };
