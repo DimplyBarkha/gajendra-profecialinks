@@ -7,14 +7,16 @@ fields:
   - name: name
     singleValue: false
     description: The product name
-    xpath: //a/div[3]/h2
+    # xpath: //a/div[3]/h2
+    xpath: //h2
   - name: thumbnail
     singleValue: false
     xpath: //div[@id="thumbnail"]
   - name: productUrl
     singleValue: false
     description: The URL for the product details page
-    xpath: //a/@href
+    # xpath: //a/@href
+    xpath: //@href
   - name: id
     singleValue: false
     description: GTIN code (includes UPC/EAN)
@@ -22,11 +24,13 @@ fields:
   - name: price
     singleValue: false
     description: The offered price for the product
-    xpath: //div[@data-qa="prices"]/div[@data-qa="priceCurrent"]
+    # xpath: //div[@data-qa="prices"]/div[@data-qa="priceCurrent"]
+    xpath: //div[@data-qa='prices']/span
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
-    xpath: //del[@data-qa="priceOriginal"]
+    # xpath: //del[@data-qa="priceOriginal"]
+    xpath: //div[@data-qa='prices']/div/span
   - name: rank
     singleValue: false
     description: search/listing rank
@@ -38,7 +42,8 @@ fields:
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per extractor)
-    xpath: //a/div[3]/h2
+    # xpath: //a/div[3]/h2
+    xpath: //h2
   # - name: paid
   #   singleValue: false
   #   description: Whether this is a sponsored/paid result
