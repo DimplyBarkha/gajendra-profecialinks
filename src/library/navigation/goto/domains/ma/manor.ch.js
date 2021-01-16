@@ -13,7 +13,7 @@ module.exports = {
     await context.setBlockAds(false);
     url = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
     await context.goto(url, { waitUntil: 'networkidle0', block_ads: false });
-    async function autoScroll(page) {
+    async function autoScroll (page) {
       await page.evaluate(async () => {
         await new Promise((resolve, reject) => {
           var totalHeight = 0;
@@ -34,4 +34,3 @@ module.exports = {
     await autoScroll(context);
   },
 };
-

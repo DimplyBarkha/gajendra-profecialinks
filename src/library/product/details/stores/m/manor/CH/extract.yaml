@@ -138,8 +138,10 @@ fields:
     xpath: //div[@id="inpage_container"]//div/text()
   - name: inTheBoxUrl
     xpath: //div[contains(@class, 'InTheBox')]//div[contains(@class, 'background-image')]/img/@srcset
+    regExp: ^[^\s]+
+    regExpReplace: https:$1
   - name: inTheBoxText
     xpath: //div[contains(@class, 'InTheBox')]//div[contains(@class, 'flix-std-content')]/div//font/font
   - name: unInterruptedPdp
-    xpath: //div[contains(@class, 'recommendations-widget')]//div[contains(@class,'producttile__desc')]/div[@class='epoq-rs-title o-producttile__copy']
+    xpath: //div[contains(@class, 'recommendations-widget')]//div[contains(@class,'producttile__desc')]
   - name: hasComparisonTable
