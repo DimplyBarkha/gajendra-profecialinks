@@ -17,7 +17,9 @@ fields:
 - name: brand
   xpath: ancestor::html//div[@class="title-appendix"]//a[contains(@class,"brand-button")][1]
 - name: productRange
+  xpath: ancestor::html//div[@class="breadcrumbs"]//a/text()
 - name: productFamily
+  xpath: concat(//div[@class="breadcrumbs"]//a/text(),'/',//div[@class="breadcrumbs"]//span/a/span/text())
 - name: colour
 - name: flavour
 - name: sku
