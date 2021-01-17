@@ -83,11 +83,11 @@ module.exports = {
       };
 
       const productDetails = await postData('https://groceries.asda.com/api/items/catalog', requestBody);
-      const productImageDetails = await getData(`https://groceries.asda.com/api/items/search?keyword=${inputs.id}`);
+     /*  const productImageDetails = await getData(`https://groceries.asda.com/api/items/search?keyword=${sku}`);
       console.log('productImageDetails : ' + JSON.stringify(productImageDetails));
       const productImage = productImageDetails && productImageDetails.items && productImageDetails.items[0] && productImageDetails.items[0].imageURL;
       const productGTIN = productImageDetails && productImageDetails.items && productImageDetails.items[0] && productImageDetails.items[0].scene7AssetId;
-
+ */
       const item = (productDetails.data.uber_item && productDetails.data.uber_item.items.length && productDetails.data.uber_item.items[0]) || false;
 
       if (item) {
@@ -115,7 +115,7 @@ module.exports = {
         }
       }
 
-      if (productImage) {
+     /*  if (productImage) {
         const imageElem = document.createElement('div');
 
         imageElem.id = 'productImage';
@@ -131,7 +131,7 @@ module.exports = {
         gtinElem.innerText = productGTIN;
 
         document.body.appendChild(gtinElem);
-      }
+      } */
     }, inputs);
 
     const { transform } = parameters;
