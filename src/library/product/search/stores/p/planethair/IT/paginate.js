@@ -14,7 +14,7 @@ module.exports = {
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
     openSearchDefinition: {
-      template: 'https://www.planethair.it/?subcats=Y&pcode_from_q=Y&pshort=Y&pfull=Y&pname=Y&pkeywords=Y&search_performed=Y&q={searchTerms}&dispatch=products.search&page={page}',
+      template: 'https://www.planethair.it/?subcats=Y&pcode_from_q=Y&pshort=Y&pfull=Y&pname=Y&pkeywords=Y&search_performed=Y&q={searchTerms}&dispatch=products.search&items_per_page=96&page={page}',
     },
     domain: 'planethair.it',
     zipcode: '',
