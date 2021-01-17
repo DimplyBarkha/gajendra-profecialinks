@@ -30,7 +30,7 @@ module.exports = {
     console.log('Status :', responseStatus.status);
     console.log('URL :', responseStatus.url);
     const captchaFrame = "iframe[_src*='captcha']:not([title]), iframe[src*='captcha']:not([title]), div.captcha";
-    const txtBlocked = ['You have been blocked', 'Vous avez été bloqué(e)'];
+    const txtBlocked = ['You have been blocked', 'Vous avez été bloqué'];
     const cssBlockedTxtContainer = '.captcha__human__title';
     const hardBlockedParam = { txtBlocked, cssBlockedTxtContainer };
 
@@ -55,6 +55,7 @@ module.exports = {
         const shownText = container && container.innerText.toLowerCase();
 
         // if on block, many possible text can be shown, we pass in an array
+        let isMatched = false;
         if (shownText && Array.isArray(txtBlocked)) {
           return new RegExp(txtBlocked.join('|').toLowerCase()).test(shownText);
         }
