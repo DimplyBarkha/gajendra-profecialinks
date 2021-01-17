@@ -22,8 +22,8 @@ const transform = (data) => {
     }))));
     return data;
   };
+  let rank = 1;
   for (const { group } of data) {
-    let rank = 1;
     for (const row of group) {
       if (row.thumbnail) {
         row.thumbnail.forEach(item => {
