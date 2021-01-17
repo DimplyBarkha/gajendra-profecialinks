@@ -4,9 +4,9 @@ module.exports = {
   parameterValues: {
     country: 'CL',
     store: 'falabella',
-    nextLinkSelector: null,
+    nextLinkSelector: 'button#testId-pagination-bottom-arrow-right',
     mutationSelector: null,
-    spinnerSelector: null,
+    spinnerSelector: 'div.loader div.spinner',
     loadedSelector: 'div.jsx-1987097504,main',
     noResultsXPath: '//div[contains(@class,"no-result")]//h3',
     openSearchDefinition: null,
