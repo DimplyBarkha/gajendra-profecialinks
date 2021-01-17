@@ -88,3 +88,8 @@ fields:
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]//div[@class="detailmodule_dynamic"]//p/img/@src | //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]//table//td//img/@src
+  - name: unInterruptedPDP
+    xpath: //div[@class="bottom-recommendation"]//div[contains(@class, "bottom-rcmd")]/div//a/text()
+  - name: inTheBoxText
+  - name: inTheBoxUrl
+  - name: hasComparisonTable
