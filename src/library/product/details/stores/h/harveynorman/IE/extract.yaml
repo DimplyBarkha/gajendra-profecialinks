@@ -93,7 +93,7 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id="flix-inpage"]//div[@class="flix_featdiv"]//div[@class="allcontent"]
+    xpath: //div[@id="content_description"]//div[@id="flix-inpage"]//div[@class="inpage_selector_feature"]//div[@class="flix-std-row flix-t3-feat4"]/div/div/div//text()
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@id="content_description"]/div/div[@class="clearfix"]/img/@src
@@ -462,8 +462,5 @@ fields:
     xpath: //div[@class="tangiblee-cta"]
     defaultValue: No
   - name: imageZoomFeaturePresent
-    singleValue: true
-    description: If Zoom feature is available for Main image or images in the
-      carousel,['Yes','No']
-    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    singleValue: false
     defaultValue: Yes
