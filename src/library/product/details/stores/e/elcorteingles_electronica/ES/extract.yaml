@@ -139,6 +139,6 @@ fields:
   - name: inTheBoxText
     xpath: //div[contains(@class,'InTheBox')]//span
   - name: unInterruptedPDP
-    xpath: //ul[@class="nosto-list"]//li
+    xpath: //li[contains(@class, 'item similar')]//div[contains(@class, 'product_preview-info')]|//div[@class="swogo-bundle-products"]/div//div[@class="swogo-product-title"]
   - name: hasComparisonTable
     defaultValue: No
