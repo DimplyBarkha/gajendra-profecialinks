@@ -88,6 +88,7 @@ fields:
   - name: productUrl
     xpath: //link[@rel='canonical']/@href
   - name: unInterruptedPDP
-    xpath: ancestor::html//div[contains(@class, 'product-carousel')]//div[contains(@class, 'pos-relative')]//li//div[contains(@class, 'product-description')]
+    xpath: ancestor::html//div[contains(@class, 'product-carousel')]//div[contains(@class, 'pos-relative')]//li//div[contains(@class, 'product-description')] | ancestor::html/body/@updp
+    regExp: '[^|]+'
   - name: hasComparisonTable
     defaultValue: No

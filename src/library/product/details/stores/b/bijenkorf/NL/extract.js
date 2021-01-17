@@ -19,9 +19,9 @@ module.exports = {
     await context.evaluate(() => {
       const cookiesElement = document.querySelector('button[data-dbk-cookie-cta="accept"]');
       if (cookiesElement) {
-        cookiesElement.click()
+        cookiesElement.click();
       }
-    })
+    });
     // const checkPresence = async () => {
     //   return await context.evaluate(() => {
     //     if (document.querySelector('div[data-testid="toast"]>div button')) {
@@ -305,7 +305,22 @@ module.exports = {
     // } catch (e) {
     //   console.log('product did not laod at all');
     // }
-
+    async function getRecommendedProducts () {
+      const ids = window.location.pathname.match(/([^\-]+)-([^\-]+)$/);
+      const API = `https://ceres-catalog.debijenkorf.nl/catalog/product/show?productCode=${ids[1]}&productVariantCode=${ids[2]}&cached=false&locale=nl_NL`;
+      let response = await fetch(API);
+      let json = await response.json();
+      const recommendedAPI = 'https:' + json.data.relatedProducts.crossSell.endpoint;
+      response = await fetch(recommendedAPI);
+      json = await response.json();
+      const pdp = json.data.map(elm => elm.product.name).join('|');
+      document.body.setAttribute('updp', pdp);
+    }
+    try {
+      await context.evaluate(getRecommendedProducts);
+    } catch (error) {
+      console.log('Error getting PDP', error);
+    }
     return await context.extract(productDetails, { transform: transformParam });
   },
 };
