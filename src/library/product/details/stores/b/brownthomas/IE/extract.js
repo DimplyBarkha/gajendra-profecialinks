@@ -55,6 +55,7 @@ module.exports = {
         const videoEls = document.querySelectorAll('video');
         const imageEls = document.querySelectorAll('img[id*="eky-"]');
         const specification = document.querySelectorAll('div[id="specifications"] p');
+        const boxUrl = document.querySelectorAll('img[id*="eky-accessory-"]');
 
         let text = '';
         Array.from(textContent).forEach(el => {
@@ -70,7 +71,6 @@ module.exports = {
           }
         });
         const weight = document.evaluate('//div[@id="specifications"]//p[contains(.,"Weight")]/following-sibling::p', document).iterateNext().innerText;
-
         const videos = [];
         Array.from(videoEls).forEach(el => {
           videos.push(el.src);
@@ -81,7 +81,12 @@ module.exports = {
           images.push(el.src);
         });
 
-        return { description: text.trim(), spec: specifications.trim(), videos, images, weight };
+        const boxUrls = [];
+        Array.from(boxUrl).forEach(el => {
+          boxUrls.push(el.src);
+        });
+         
+        return { description: text.trim(), spec: specifications.trim(), videos, images, weight, boxUrls };
       });
 
       console.log('Navigating back to product page.');
@@ -91,18 +96,24 @@ module.exports = {
       await context.evaluate(function (content) {
         let video = '';
         let images = '';
+        let boxUrls = '';
         content.videos.forEach(t => {
           video += t ? ` | ${t}` : t;
         });
         content.images.forEach(t => {
           images += t ? ` | ${t}` : t;
         });
+        content.boxUrls.forEach(t => {
+          boxUrls += t ? ` | ${t}` : t;
+        });
+
         console.log('Adding content to body');
         const body = document.querySelector('body');
         body.setAttribute('enhancedContent', content.description || '');
         body.setAttribute('specifi', content.spec || '');
         body.setAttribute('videos', video);
         body.setAttribute('images', images);
+        body.setAttribute('boxUrls', boxUrls);     
         body.setAttribute('weightNet', content.weight || '');
       }, enhancedContentInfo);
     }
@@ -110,6 +121,7 @@ module.exports = {
       const isFound = document.querySelector('div#inpage_container img[data-flixsrcset*="flixcar"]');
       const isVideo = document.querySelector('#pdp-carousel-video a');
       const nameExtended = document.querySelector('h1[itemprop="name"]');
+      const isInboxUrls = document.querySelector('div[class*="InTheBox"] div[class*="flix-background-image"] > img[data-flixsrcset]');
       if (nameExtended) {
         const extended = nameExtended.innerText.replace(/Dyson/g, '');
         const body = document.querySelector('body');
@@ -117,7 +129,6 @@ module.exports = {
       }
       if (isFound) {
         const images = [];
-
         let image = '';
         document.querySelectorAll('div#inpage_container img[data-flixsrcset*="flixcar"]').forEach(el => {
           images.push(`https:${el.getAttribute('data-flixsrcset').split(' ')[0]}`);
@@ -129,6 +140,22 @@ module.exports = {
         const body = document.querySelector('body');
         body.setAttribute('images', image);
       }
+
+      if (isInboxUrls) {
+        const inboxUrls = [];
+        let inboxUrl = '';
+        document.querySelectorAll('div[class*="InTheBox"] div[class*="flix-background-image"] > img[data-flixsrcset]').forEach(el => {
+          inboxUrls.push(`https:${el.getAttribute('data-flixsrcset').split(' ')[0]}`);
+        })
+
+        inboxUrls.forEach(t => {
+          inboxUrl += t ? ` | ${t}` : t;
+        });
+        const body = document.querySelector('body');
+        body.setAttribute('boxUrls', inboxUrl);
+
+      }
+      
       if (isVideo) {
         const videosElms = [];
         let video = '';

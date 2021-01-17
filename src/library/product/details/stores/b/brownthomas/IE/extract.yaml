@@ -104,9 +104,10 @@ fields:
   - name: additionalDescBulletInfo
     xpath: //div[@itemprop="description"]//li
   - name: inTheBoxUrl
-    xpath: //div[contains(@class,'InTheBox')]//div[@class="flix-background-image"]//img/@data-flixsrcset
-    regExp: (.+)(\s?200w)(.+)
-    regExpReplace: https:$1
+    xpath: //body/@boxUrls
+    # xpath: //div[contains(@class,'InTheBox')]//div[@class="flix-background-image"]//img/@data-flixsrcset
+    # regExp: (.+)(\s?200w)(.+)
+    # regExpReplace: https:$1
   - name: inTheBoxText
     xpath: //div[contains(@class,'InTheBox')]//span | //p[contains(.,'In the Box')]/following-sibling::ul[1]//li | //body/@in-the-box-text | //div[@itemprop="description"]//li[contains(.,"in the box?")]
   - name: hasComparisonTable
