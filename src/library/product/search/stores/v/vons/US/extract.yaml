@@ -7,7 +7,6 @@ fields:
     xpath: //link[@rel="canonical"]/@href
   - name: productUrl
     xpath: //div//a[@class='product-title']/@href
-    type: URL
     regExp: (.+)
     regExpReplace: https://www.vons.com$1
     description: The URL for the product details page
@@ -21,7 +20,7 @@ fields:
     xpath: //div//a[@class='product-title']//text()
   - name: id
     description: The store-specific product identifier
-    xpath: //div[@class='container']//a//@id
+    xpath: //div[@class='container']//a//@data-bpn
   - name: price
     type: CURRENCY
     description: The offered price for the product
