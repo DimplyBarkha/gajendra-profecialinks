@@ -13,6 +13,7 @@ fields:
   - name: productFamily
     singleValue: false
     description: Product family
+    xpath: ancestor::html//div[@data-testid='productDetailsBlock']//h1[@data-testid='details-product-title']
   - name: colour
     singleValue: false
     description: Product colour
