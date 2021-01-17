@@ -88,11 +88,14 @@ const transform = (data) => {
           });
         }
         if (row.availabilityText){
-          let info = [];
+          let availability = [];
           row.availabilityText.forEach(item => {
-          if(item.text === null) {info.push("out of stock")} else {info.push("in stock")}
-          });
-        }
+          if(item.text !== null) {item.text.replace(/In den Warenkorb/, 'In stock')} else {
+            {item.text.replace(/In den Warenkorb/, 'Out of stock')}
+          }
+            availability.push(item.text)
+        });
+      }
         if(row.variantInformation){
           var strVariantInfo = ''
           row.variantInformation.forEach(item => {
