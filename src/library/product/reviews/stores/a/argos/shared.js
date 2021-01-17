@@ -32,7 +32,7 @@ const transform = (data) => {
                 item.text = 'Juul';
               }else if(item.text.includes("Blu") || item.text.includes("blu") || item.text.includes("BLU")){
                 item.text = 'Blu';
-              }else if(item.text.includes("Vuse") || item.text.includes("vuse") || item.text.includes("VISE")){
+              }else if(item.text.includes("Vuse") || item.text.includes("vuse") || item.text.includes("VUSE")){
                 item.text = 'Vuse';
               }else{
                 item.text = item.text;
