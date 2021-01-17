@@ -56,7 +56,7 @@ module.exports = {
 
         // if on block, many possible text can be shown, we pass in an array
         if (shownText && Array.isArray(txtBlocked)) {
-          return new RegExp(txtBlocked.join('|')).test(shownText);
+          return new RegExp(txtBlocked.join('|').toLowerCase()).test(shownText);
         }
 
         // if on block, single text is passed as string
