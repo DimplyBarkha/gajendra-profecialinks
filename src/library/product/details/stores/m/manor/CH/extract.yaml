@@ -137,7 +137,7 @@ fields:
   - name: manufacturerDescription
     xpath: //div[@id="inpage_container"]//div/text()
   - name: inTheBoxUrl
-    xpath: //div[contains(@class, 'InTheBox')]//div[contains(@class, 'background-image')]/img/@srcset
+    xpath: //div[contains(@class, 'InTheBox')]//div[contains(@class, 'background-image')]/img/@srcset | //div[contains(@class, 'InTheBox')]//div[contains(@class, 'background-image')]/img[not(@srcset)]/@data-flixsrcset
     regExp: ^([^\s]+)
     regExpReplace: https:$1
   - name: inTheBoxText
