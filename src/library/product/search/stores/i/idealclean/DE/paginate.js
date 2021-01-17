@@ -1,4 +1,3 @@
-
 module.exports = {
   implements: 'navigation/paginate',
   parameterValues: {
@@ -9,7 +8,7 @@ module.exports = {
     spinnerSelector: null,
     loadedSelector: 'body',
     openSearchDefinition: {
-      template: 'https://www.idealclean.de/search?limit=150&search={searchTerms}&page={page}',
+      template: 'https://www.idealclean.de/search?search={searchTerms}&page={page}',
     },
     domain: 'ideal_clean.de',
   },
