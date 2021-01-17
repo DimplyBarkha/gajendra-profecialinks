@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'super-pharm.co.il',
     prefix: null,
-    url: null,
+    url: 'https://shop.super-pharm.co.il/search?av={id}',
     country: 'IL',
     store: 'super-pharm',
     zipcode: '',
