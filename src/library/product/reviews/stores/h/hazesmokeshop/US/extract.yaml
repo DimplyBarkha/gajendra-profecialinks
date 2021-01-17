@@ -15,14 +15,14 @@ fields:
 - name: brand
   xpath: ancestor::html//div[@class="wb-posted_in"]/a
 - name: productRange
-  xpath: ancestor::html//nav[@class="woocommerce-breadcrumb"]/a[3]/text()
+  xpath: ancestor::html//nav[@class="woocommerce-breadcrumb"]/a[3]/text() | ancestor::html//nav[@class="woocommerce-breadcrumb"]/a[2]/text() | ancestor::html//nav[@class="woocommerce-breadcrumb"]/a[1]/text()
 - name: productFamily
   xpath: concat(//nav[@class="woocommerce-breadcrumb"]/a[1],'/',//nav[@class="woocommerce-breadcrumb"]/a[2],'/',//nav[@class="woocommerce-breadcrumb"]/a[3],'/',//nav[@class="woocommerce-breadcrumb"]/span)
 - name: colour
 - name: flavour
   xpath: ancestor::html//h1[@itemprop="name"]
 - name: sku
-  xpath: ancestor::html//span[@class="sku"]
+  xpath: ancestor::html//span[@class="sku"] | ancestor::html//h1[@itemprop="name"]
 - name: reviewText
   xpath: //div[@class="description"]/p/text()
 - name: reviewTitle
