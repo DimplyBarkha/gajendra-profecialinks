@@ -26,17 +26,16 @@ const transform = (data) => {
       for (const row of group) {
         if (row.brand) {
           row.brand.forEach(item => {
-              if(item.text.includes("Vype") || item.text.includes("vype")){
+              if(item.text.includes("Vype") || item.text.includes("vype") || item.text.includes("VYPE")){
                 item.text = 'Vype';
-              }
-              if(item.text.includes("Juul") || item.text.includes("juul")){
+              }else if(item.text.includes("Juul") || item.text.includes("juul") || item.text.includes("JUUL")){
                 item.text = 'Juul';
-              }
-              if(item.text.includes("Blu") || item.text.includes("blu")){
+              }else if(item.text.includes("Blu") || item.text.includes("blu") || item.text.includes("BLU")){
                 item.text = 'Blu';
-              }
-              if(item.text.includes("Vuse") || item.text.includes("vuse")){
+              }else if(item.text.includes("Vuse") || item.text.includes("vuse") || item.text.includes("VISE")){
                 item.text = 'Vuse';
+              }else{
+                item.text = item.text;
               }
           });
         }
