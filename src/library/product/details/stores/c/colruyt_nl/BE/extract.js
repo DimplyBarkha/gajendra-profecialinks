@@ -166,7 +166,7 @@ async function implementation (inputs, parameters, context, dependencies) {
         allegyList1.forEach((element) => {
           console.log('element', element);
           allegy1 +=
-            element.innerText + ',';
+            element.innerText + ', ';
         });
       }
       return allegy1;

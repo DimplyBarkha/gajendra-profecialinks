@@ -191,7 +191,7 @@ const transform = (data) => {
       }
       if (row.ingredientsList) {
         row.ingredientsList.forEach((ingredientsListItem) => {
-          ingredientsListItem.text = ingredientsListItem.text.replace('Ingrediënten', '').replace(/Ingrediënten\s:\s/gm, '').replace('Ingerdienten', '').replace('Ingrediënten', '').replace(':', '').trim();
+          ingredientsListItem.text = ingredientsListItem.text.replace('Ingrediënten', '').replace(/Ingrediënten\s:\s/gm, '').replace('Ingerdienten', '').replace('Ingrediënten', '').replace('INGREDIËNTEN', '').replace(':', '').trim();
         });
       }
       if (row.countryOfOrigin) {
