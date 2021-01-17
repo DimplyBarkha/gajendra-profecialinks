@@ -213,7 +213,7 @@ fields:
   - name: inTheBoxText
     xpath: //div[contains(text(),'Accessories')]/following-sibling::ul/li
   - name: unInterruptedPDP
-    xpath: //h2[contains(text(),'Customers Who Viewed this Item Bought')]/following-sibling::div//a[contains(@class,'hdca-product-box__main-info-label')] | //h2[contains(text(),'Related Products')]/following-sibling::div//h4  | //h2[contains(text(),'Top Sellers')]/following-sibling::div//a[contains(@class,'hdca-product-box__main-info-label')] | //h1/@recommend-products
+    xpath: //h2[contains(text(),'Customers Who Viewed this Item Bought')]/following-sibling::div//a[contains(@class,'hdca-product-box__main-info-label')] | //h2[contains(text(),'Related Products')]/following-sibling::div//h4  | //h2[contains(text(),'Top Sellers')]/following-sibling::div//a[contains(@class,'hdca-product-box__main-info-label')] | //h1/@recommend-products | //h2[contains(text(),'Customers Also Viewed')]/following-sibling::div//a[contains(@class,'hdca-product-box__main-info-label')]
   - name: hasComparisonTable
     xpath: //h2[contains(text(),'Induction Cooktop Step-Up Chart')]
     regExp: (.+)
