@@ -117,3 +117,9 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: false
     defaultValue: Yes
+  - name: gtin
+    singleValue: false
+    xpath: //table[contains(@class,"specification-table")]//tr/td[contains(text(),"Modelo")]
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[contains(@class,'fa--image-gallery-item__desktop')]/div/img[contains(@src,'_') and not(contains(@src,'_1?'))]/@src)
