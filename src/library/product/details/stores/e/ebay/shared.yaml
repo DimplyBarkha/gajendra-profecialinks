@@ -32,7 +32,8 @@ fields:
   - name: specifications
     singleValue: false
     # xpath: //div[@class='spec'][not(@data-title='')] | //div[contains(@class,'allspecs')]//div[not(@hide-if-empty='')]/p | //div[contains(@class,"specifications")]//div[contains(@class,"specification")] | //div[contains(@class,"p-spec")]| //div[contains(@class,"prodDetailDesc")]//td//text()
-    xpath: //div[@id='specsDiv']//text() | //div[contains(@class,'allspecs')]//div[not(@hide-if-empty='')]/p | (//div[@class='specifications']//div[contains(@class,'specification')]//h5|//div[@class='specifications']//div[contains(@class,'specification')]//p)[.]|//div[contains(@class,'container')]//div[@class='spec' and @data-title!='']//span
+    xpath: //div[@id='specsDiv']//text() | //div[contains(@class,'allspecs')]//div[not(@hide-if-empty='')]/p | (//div[@class='specifications']//div[contains(@class,'specification')]//h5|//div[@class='specifications']//div[contains(@class,'specification')]//p)[.]|//div[contains(@class,'container')]//div[@class='spec' and @data-title!='']//span[//div[@id="specs" and @data-title!='']]
+    # xpath: //div[@id='specsDiv']//text() | //div[contains(@class,'allspecs')]//div[not(@hide-if-empty='')]/p | (//div[@class='specifications']//div[contains(@class,'specification')]//h5|//div[@class='specifications']//div[contains(@class,'specification')]//p)[.]|//div[contains(@class,'container')]//div[@class='spec' and @data-title!='']//span
   - name: availabilityText
     singleValue: false
     xpath: (//*[contains(@id,"binBtn_btn")]/@class)[1] | (//div[@class='item-action']/a)[1]
