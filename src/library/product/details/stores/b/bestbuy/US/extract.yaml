@@ -145,10 +145,13 @@ fields:
     defaultValue: '0'
 # custom Fields
   - name: inTheBoxUrl
-    xpath: //div[@id='witbImg']
+    xpath: //@witb-url
+    regExp: '[^|]+'
   - name: inTheBoxText
-    xpath: //div[@id='witbText']|//div[@class="shop-whats-included"]//ul/li
+    xpath: //@witb-text
+    regExp: '[^|]+'
   - name: hasComparisonTable
+    xpath: //@has-comparison
   - name: unInterruptedPDP
     # manualSelector: div[style*="ms-flex-direction"] div[style*="ms-flex-direction"] >a[class*="lc_ si6"]
     xpath: //div[@id='elementData1']|//div[@class="shop-product-carousels"]//div[contains(@class,"title-block")]/text()
