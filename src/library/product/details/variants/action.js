@@ -16,9 +16,15 @@ async function implementation (
   const { execute, extract } = dependencies;
   const url = URL;
   const id = (RPC) || ((SKU) || inputs.id);
-  await execute({ url, id, zipcode: parameters.zipcode });
+  let pageHasProd = await execute({ url, id, zipcode: parameters.zipcode });
+  // await extract({ url, id });
 
-  await extract({ url, id });
+  if(pageHasProd) {
+    await extract({ url, id });
+  } else {
+    console.log('there is no product on this page - hence nothing to extract!!');
+  }
+  
 }
 
 module.exports = {
