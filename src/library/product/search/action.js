@@ -50,11 +50,6 @@ module.exports = {
       description: 'brands to search for',
       type: 'string',
     },
-    {
-      name: 'query',
-      description: 'Part of a uniform resource locator (URL)',
-      type: 'string',
-    },
   ],
   dependencies: {
     execute: 'action:product/search/execute',
@@ -63,7 +58,7 @@ module.exports = {
   },
   path: './search/stores/${store[0:1]}/${store}/${country}/search',
   implementation: async (inputs, { country, store, domain, zipcode }, context, { execute, extract, paginate }) => {
-    const { keywords, Keywords, results = 150, Brands, query } = inputs;
+    const { keywords, Keywords, results = 150, Brands } = inputs;
 
     const inputKeywords = Keywords || keywords || Brands;
 
@@ -74,7 +69,6 @@ module.exports = {
       ...inputs,
       keywords: inputKeywords,
       zipcode: inputs.zipcode || zipcode,
-      query: query,
     });
 
     // do the search
@@ -86,23 +80,24 @@ module.exports = {
 
     // try gettings some search results
     const pageOne = await extract({});
+    // Check added for backward compatibility
+    let collected = pageOne.data ? length(pageOne.data) : length(pageOne);
 
-    let collected = length(pageOne);
-
-    console.log(`Got initial number of results: ${collected}`);
+    console.log('Got initial number of results', collected);
 
     // check we have some data
-    if (collected === 0) {
-      console.log('Was not able to collect any data on the first page');
-      return;
-    }
+    if (collected === 0) return;
 
     let page = 2;
     while (collected < results && await paginate({ keywords: inputKeywords, page, offset: collected })) {
-      const data = await extract({});
-      const count = length(data);
-      if (count === 0) break; // no results
-      collected += count;
+      const results = await extract({});
+      // Check added for backward compatibility
+      const count = results.data ? length(results.data) : length(results);
+      if (count === 0) {
+        // no results
+        break;
+      }
+      collected = (results.mergeType && (results.mergeType === 'MERGE_ROWS') && count) || (collected + count);
       console.log('Got more results', collected);
       page++;
     }
