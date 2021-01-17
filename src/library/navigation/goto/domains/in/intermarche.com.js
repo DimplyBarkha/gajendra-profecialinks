@@ -30,7 +30,7 @@ module.exports = {
     console.log('Status :', responseStatus.status);
     console.log('URL :', responseStatus.url);
     let captchaFrame = "iframe[_src*='captcha']:not([title]), iframe[src*='captcha']:not([title]), div.captcha";
-    const txtBlocked = 'You have been blocked';
+    const txtBlocked = ['You have been blocked', 'Vous avez été bloqué(e)'];
     const cssBlockedTxtContainer = '.captcha__human__title';
     const hardBlockedParam = { txtBlocked, cssBlockedTxtContainer };
 
@@ -52,7 +52,15 @@ module.exports = {
         const { txtBlocked, cssBlockedTxtContainer } = hardBlockedParam;
 
         const container = document.querySelector(cssBlockedTxtContainer);
-        return container && container.innerText.toLowerCase().includes(txtBlocked.toLowerCase());
+        const shownText = container && container.innerText.toLowerCase();
+        
+        // if on block, many possible text can be shown, we pass in an array
+        if(shownText && Array.isArray(txtBlocked)) {
+          return new RegExp(txtBlocked.join('|')).test(shownText);
+        }
+
+        // if on block, single text is passed as string
+        return shownText.includes(txtBlocked.toLowerCase());
       }, hardBlockedParam);
     };
     const isCaptchaFramePresent = await hasCaptcha(captchaFrame);
