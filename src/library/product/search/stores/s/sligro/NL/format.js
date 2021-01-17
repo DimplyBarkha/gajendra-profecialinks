@@ -3,7 +3,7 @@
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
  */
-const transform = (data) => {
+const transform = (data, context) => {
   const cleanUp = (data, context) => {
     const clean = text => text.toString()
       .replace(/\r\n|\r|\n/g, ' ')
@@ -22,6 +22,10 @@ const transform = (data) => {
     }))));
     return data;
   };
+  const state = context.getState();
+  let orgRankCounter = state.orgRankCounter || 0;
+  let rankCounter = state.rankCounter || 0;
+  const productCodes = state.productCodes || [];
   for (const { group } of data) {
     let rank = 1;
     for (const row of group) {
@@ -39,6 +43,9 @@ const transform = (data) => {
       rank++;
     }
   }
+  context.setState({ rankCounter });
+  context.setState({ orgRankCounter });
+  context.setState({ productCodes });
   return cleanUp(data);
 };
 
