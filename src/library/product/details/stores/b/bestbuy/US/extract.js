@@ -456,7 +456,7 @@ async function implementation (
     if (json) {
       const witb = Object.values(Object.values(Object.values(json.experiences).find(elm => elm.hasOwnProperty('experiences')).experiences).find(elm => elm.hasOwnProperty('widgets')).widgets).filter(elm => elm.headerText.match(/in the box/i))[0].items[0].features.map(elm => ({ text: elm.caption, img: elm.asset.url.replace('{0}', elm.asset.originalWidth) }));
       const hasComparision = Object.values(Object.values(Object.values(json.experiences).find(elm => elm.hasOwnProperty('experiences')).experiences).find(elm => elm.hasOwnProperty('widgets')).widgets).filter(elm => elm.widgetType.match(/ComparisonTable/i));
-      document.body.setAttribute('has-comparison', Boolean(hasComparision));
+      document.body.setAttribute('has-comparison', Boolean(hasComparision && hasComparision.length));
       document.body.setAttribute('witb-text', witb.map(elm => elm.text).join('|'));
       document.body.setAttribute('witb-url', witb.map(elm => elm.img).join('|'));
     } else {
