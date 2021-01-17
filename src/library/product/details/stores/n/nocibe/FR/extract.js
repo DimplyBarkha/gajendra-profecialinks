@@ -1,4 +1,5 @@
 
+// eslint-disable-next-line no-unused-vars
 const { cleanUp } = require('../../../../shared');
 
 module.exports = {
@@ -6,7 +7,7 @@ module.exports = {
   parameterValues: {
     country: 'FR',
     store: 'nocibe',
-    transform: cleanUp,
+    transform: null,
     domain: 'nocibe.fr',
     zipcode: '',
   },
@@ -76,7 +77,7 @@ module.exports = {
       const quantity = document.querySelector('div#description strong');
       if (quantity !== null && quantity !== undefined) {
         // @ts-ignore
-        const quantityText = quantity.innerText.match(/\d+ml|\d+ ml|\d+g|\d+ g|\d+ Cl|\d+ G|\d+G|\d+ L|\d+ML/);
+        const quantityText = quantity.innerText.match(/\d+ml|\d+ ml|\d+g|\d+ g|\d+ Cl|\d+ML/);
         if (quantityText !== null) addElementToDocument('quantity', quantityText[0]);
       }
       // adding description and bullets
@@ -147,8 +148,11 @@ module.exports = {
 
     await context.evaluate(async function () {
       const openIngredients = document.querySelector('a[href="#ingredients"]');
-      // @ts-ignore
-      if (openIngredients !== undefined && openIngredients !== null) openIngredients.click();
+      if (openIngredients !== undefined && openIngredients !== null) {
+        // @ts-ignore
+        openIngredients.click();
+        await new Promise((resolve, reject) => setTimeout(resolve, 4000));
+      }
     });
 
     var dataRef = await context.extract(productDetails, { transform });
@@ -156,7 +160,12 @@ module.exports = {
     dataRef[0].group.forEach((row) => {
       if (row.description) {
         row.description.forEach(item => {
-          item.text = item.text ? item.text.split('Bénéfice').join('En savoir plus Bénéfice') : '';
+          item.text = item.text ? item.text.split('Bénéfice produit').join(' En savoir plus Bénéfice produit ').split('Réf').join(' Réf') : '';
+        });
+      }
+      if (row.name) {
+        row.name.forEach(item => {
+          item.text = item.text.includes('\n') ? item.text.split('\n').join('').trim() : '';
         });
       }
       if (row.nameExtended) {
@@ -209,17 +218,17 @@ module.exports = {
         row.ratingCount.forEach(item => {
           if (item.text.includes('avis ')) {
             item.text = item.text ? item.text.substring(item.text.lastIndexOf('sur') + 4, item.text.lastIndexOf('avis')) : '';
-          } item.text = item.text ? item.text.match(/\d+/gm) : '';
+          } item.text = item.text ? item.text.match(/\d+/gm)[0] : '';
         });
       }
       if (row.aggregateRating) {
         row.aggregateRating.forEach(item => {
-          item.text = item.text.includes(',') ? item.text.replace('.', ',') : item.text;
-        });
-      }
-      if (row.ingredientsList) {
-        row.ingredientsList.forEach(item => {
-          item.text = item.text ? item.text.replace(/"/g, "'").split('reporter.').join('reporter. ') : '';
+          if (item.text.includes(',')) {
+            item.text = item.text.replace('.', ',');
+          }
+          if (item.text.includes('(')) {
+            item.text = item.text.match(/\d+/gm)[0];
+          }
         });
       }
       if (row.image) {
