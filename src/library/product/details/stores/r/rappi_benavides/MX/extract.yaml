@@ -22,8 +22,8 @@ fields:
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: false
-    xpath: //meta[@property="og:title"]/@content
-    # xpath: //h3[@class="product-name"]/text()
+    # xpath: //meta[@property="og:title"]/@content
+    xpath: //h3[@class="product-name"]/text()
   - name: listPrice
     singleValue: false
     xpath:  //h3[@class="product-price product-real-price"]/span/text()
@@ -34,8 +34,8 @@ fields:
     singleValue: false
     xpath: //button[@class="primary-button-filled"]
     regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: In Stock
+    regExpReplace: In_Stock
+    defaultValue: In_Stock
   - name: description
     singleValue: false
     xpath: //div[contains(@class,"product-description")]/text()
