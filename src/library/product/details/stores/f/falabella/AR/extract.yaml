@@ -78,7 +78,7 @@ fields:
     xpath: //div/@data-id
   - name: shippingInfo
     singleValue: false
-    xpath: //p[contains(@class,'sellerInfo')]
+    xpath: //p[contains(@class,'sellerInfo')] | //p[contains(@class,'market-place-tag-text')]
   - name: ratingCount
     singleValue: false
     xpath: //meta[@itemprop='reviewCount']/@content
@@ -103,3 +103,12 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: false
     defaultValue: 'Yes'
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[contains(@class,'color')]//span[contains(@class,'normal')]
+  - name: variants
+    singleValue: false
+    xpath: //div[@id='custom-variants']
+  - name: variantCount
+    singleValue: false
+    xpath: //div[@id='custom-variants-count']

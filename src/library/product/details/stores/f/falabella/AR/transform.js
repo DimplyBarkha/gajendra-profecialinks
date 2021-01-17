@@ -29,6 +29,16 @@ const transform = (data) => {
       //     item.text = item.text.replace(/(\s?\n)+/g, ' | ').trim();
       //   });
       // }
+      if (row.shippingInfo) {
+        let text = "";
+        let xpath = row.shippingInfo[0].xpath;
+        row.shippingInfo.forEach(item => {
+          text += item.text;
+        });
+        text = text.replace('Marketplace','');
+        row.shippingInfo = [{text: text, xpath: xpath}];
+      }
+
       if (row.videos) {
         row.videos = row.videos.filter((video) => {
           return video.text;
@@ -92,6 +102,29 @@ const transform = (data) => {
           row.alternateImages.push({ text: item });
         });
         row.secondaryImageTotal = [{ text: row.alternateImages ? row.alternateImages.length : 0 }];
+      }
+      if (row.variants) {
+        const unqVariants = [...new Set(row.variants.map(item => item.text))];
+
+        row.variants = [];
+        unqVariants.forEach((item) => {
+          row.variants.push({ text: item });
+        });
+
+        const unqVariantCount = [...new Set(row.variantCount.map(item => item.text))];
+
+        row.variantCount = [];
+        unqVariantCount.forEach((item) => {
+          row.variantCount.push({ text: item });
+        });
+      }
+      if (row.nameExtended) {
+        if (row.color) {
+          const color = row.color[0].text;
+          row.nameExtended.forEach(item => {
+            item.text = `${item.text} ${color}`;
+          });
+        }
       }
     }
   }
