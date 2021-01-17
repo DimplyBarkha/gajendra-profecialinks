@@ -18,13 +18,11 @@ const transform = (data, context) => {
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
 
   for (const { group } of data) {
-    for (let row of group) {
-     
+    for (const row of group) {
       if (row.nameExtended && row.nameExtended1 && row.nameExtended1[0].text) {
-        row.nameExtended = [{text: `${row.nameExtended[0].text} ${row.nameExtended1[0].text}`}];
-      }
-      else if(row.nameExtended1 && row.nameExtended1[0].text){
-        row.nameExtended = [{text: `${row.nameExtended1[0].text}`}];
+        row.nameExtended = [{ text: `${row.nameExtended[0].text} ${row.nameExtended1[0].text}` }];
+      } else if (row.nameExtended1 && row.nameExtended1[0].text) {
+        row.nameExtended = [{ text: `${row.nameExtended1[0].text}` }];
       }
       if (row.nameExtended && row.nameExtended2 && row.nameExtended2[0].text) {
         row.nameExtended[0].text = `${row.nameExtended[0].text} ${row.nameExtended2[0].text}`;
@@ -35,31 +33,31 @@ const transform = (data, context) => {
 
       if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0].text.length > 1) {
         row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
-      }      
+      }
       if (!row.brandText && row.availabilityText) {
-        row.availabilityText = []; 
+        row.availabilityText = [];
       }
       if (row.videos) {
-        let videoArray = [];
+        const videoArray = [];
         row.videos.forEach(video => {
           if (!videoArray.includes(video.text)) {
             videoArray.push(video.text);
           }
         });
-        row.videos = [{ text: "" }]
-        let videoStr = videoArray.join(" | ");
+        row.videos = [{ text: '' }];
+        const videoStr = videoArray.join(' | ');
         row.videos[0].text = videoStr;
       }
 
       if (row.manufacturerImages) {
-        let manufImageArray = [];
+        const manufImageArray = [];
         row.manufacturerImages.forEach(manufImage => {
           if (!manufImageArray.includes(manufImage.text)) {
             manufImageArray.push(manufImage.text);
           }
         });
-        row.manufacturerImages = [{ text: "" }]
-        let manufImageStr = manufImageArray.join(" | ");
+        row.manufacturerImages = [{ text: '' }];
+        const manufImageStr = manufImageArray.join(' | ');
         row.manufacturerImages[0].text = manufImageStr;
       }
 

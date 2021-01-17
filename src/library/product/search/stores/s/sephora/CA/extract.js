@@ -8,7 +8,7 @@ module.exports = {
     domain: 'sephora.com',
     zipcode: '',
   },
-  implementation
+  implementation,
 };
 async function implementation (
   inputs,
@@ -40,8 +40,8 @@ async function implementation (
       }
       document.body.innerText = '';
       addHiddenDiv('totalProducts', cnt);
-        let newUrl = `https://www.sephora.com/ca/en/search?keyword=${searchTerms}`
-        addHiddenDiv('ii_url', newUrl);
+      const newUrl = `https://www.sephora.com/ca/en/search?keyword=${searchTerms}`;
+      addHiddenDiv('ii_url', newUrl);
       for (let i = 0; i < products.length; i++) {
         const newDiv = addHiddenDiv('ii_product', '');
         const product = products[i];
@@ -62,7 +62,7 @@ async function implementation (
           }
         }
       }
-    },domain , json.products, json.totalProducts, json.keyword);
+    }, domain, json.products, json.totalProducts, json.keyword);
   }
   return await context.extract(productDetails, { transform });
 }

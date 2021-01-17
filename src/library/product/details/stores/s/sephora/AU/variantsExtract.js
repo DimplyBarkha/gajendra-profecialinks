@@ -8,7 +8,7 @@ module.exports = {
     domain: 'sephora.com.au',
     zipcode: '',
   },
-  implementation
+  implementation,
 };
 async function implementation (
   inputs,
@@ -20,7 +20,6 @@ async function implementation (
   const { variants } = dependencies;
 
   const variantArray = await context.evaluate(function () {
-    
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
@@ -28,20 +27,19 @@ async function implementation (
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
-    let url = window.location.href
-    let urlSplit = url.split("/v/")
-    let variantNames = '//li[contains(@class, "product-variant-swatch")]//img/@title';
-    var variantsCheck = document.evaluate( variantNames, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-    if(variantsCheck.snapshotLength > 0){
-      for(let i = 0; i < variantsCheck.snapshotLength; i++){
-        let checkName = variantsCheck.snapshotItem(i).textContent.toLowerCase()
-        let nameSplit = checkName.split(" ").join("-")
-        let variantUrl = `${urlSplit[0]}/v/${nameSplit}`
+    const url = window.location.href;
+    const urlSplit = url.split('/v/');
+    const variantNames = '//li[contains(@class, "product-variant-swatch")]//img/@title';
+    var variantsCheck = document.evaluate(variantNames, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+    if (variantsCheck.snapshotLength > 0) {
+      for (let i = 0; i < variantsCheck.snapshotLength; i++) {
+        const checkName = variantsCheck.snapshotItem(i).textContent.toLowerCase();
+        const nameSplit = checkName.split(' ').join('-');
+        const variantUrl = `${urlSplit[0]}/v/${nameSplit}`;
         addHiddenDiv('ii_variantUrl', variantUrl);
       }
     }
   });
-
 
   return await context.extract(variants, { transform });
 }

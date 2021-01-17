@@ -29,7 +29,7 @@ module.exports = {
     await new Promise((resolve) => setTimeout(resolve, 5000));
     console.log('Status :', responseStatus.status);
     console.log('URL :', responseStatus.url);
-    let captchaFrame = "iframe[_src*='captcha']:not([title]), iframe[src*='captcha']:not([title]), div.captcha";
+    const captchaFrame = "iframe[_src*='captcha']:not([title]), iframe[src*='captcha']:not([title]), div.captcha";
     const txtBlocked = ['You have been blocked', 'Vous avez été bloqué(e)'];
     const cssBlockedTxtContainer = '.captcha__human__title';
     const hardBlockedParam = { txtBlocked, cssBlockedTxtContainer };
@@ -53,9 +53,9 @@ module.exports = {
 
         const container = document.querySelector(cssBlockedTxtContainer);
         const shownText = container && container.innerText.toLowerCase();
-        
+
         // if on block, many possible text can be shown, we pass in an array
-        if(shownText && Array.isArray(txtBlocked)) {
+        if (shownText && Array.isArray(txtBlocked)) {
           return new RegExp(txtBlocked.join('|')).test(shownText);
         }
 
@@ -78,7 +78,7 @@ module.exports = {
       // @ts-ignore
       // eslint-disable-next-line no-undef
       await context.evaluateInFrame('iframe', () => grecaptcha.execute());
-      //await context.solveCaptcha({ type: 'RECAPTCHA', inputElement: '.g-recaptcha' });
+      // await context.solveCaptcha({ type: 'RECAPTCHA', inputElement: '.g-recaptcha' });
       console.log('solved captcha, waiting for page change');
       await context.waitForNavigation(timeout);
     }
@@ -91,9 +91,9 @@ module.exports = {
       await context.goto('https://www.intermarche.com/accueil/magasins/02111/brienne-le-chateau-10500');
       await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
     }
-    const hasAcceptLink = await context.evaluate((selector) => !!document.querySelector(selector), "a.didomi-popup-close.didomi-no-link-style");
+    const hasAcceptLink = await context.evaluate((selector) => !!document.querySelector(selector), 'a.didomi-popup-close.didomi-no-link-style');
     if (hasAcceptLink) {
-      await context.click("a.didomi-popup-close.didomi-no-link-style")
+      await context.click('a.didomi-popup-close.didomi-no-link-style');
     }
   },
 };
