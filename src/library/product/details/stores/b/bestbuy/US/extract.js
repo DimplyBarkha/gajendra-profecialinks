@@ -463,7 +463,12 @@ async function implementation (
       document.body.setAttribute('has-comparison', await getCompareTable());
     }
   }
-  await context.evaluate(addWitbandCRT);
+  try {
+    await context.evaluate(addWitbandCRT);
+  } catch (error) {
+    console.log('Error adding WITB/CTR', error);
+  }
+
   return await context.extract(productDetails, { transform, type: 'MERGE_ROWS' });
 }
 
