@@ -8,10 +8,10 @@ module.exports = {
     // nextLinkXpath: '//button[@ng-click="buscaxPaginaSig(pagActual)"][2]',
     mutationSelector: null,
     spinnerSelector: null,
-    // loadedSelector: '#product_list',
+    loadedSelector: 'div[class="li_prod_picture"]',
     loadedXpath: null,
     noResultsXPath: null,
-    stopConditionSelectorOrXpath: null,
+    stopConditionSelectorOrXpath: '//html//div[@id="noResults"]',
     resultsDivSelector: null,
     openSearchDefinition: {
       template: 'https://www.lacomer.com.mx/lacomer/goBusqueda.action?succId=287&ver=mislistas&succFmt=100&criterio={searchTerms}#/{searchTerms}-/p={page}',
