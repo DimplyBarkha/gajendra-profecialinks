@@ -54,8 +54,8 @@ fields:
   - name: ingredientsList
     singleValue: false
     xpath: //div[contains(@class,'u-marginBmd u-textSmall')]//h5[contains(text(),'Ingredienser')]/parent::*
-    regExp: (Ingredienser\singredienser:\s|Ingredienser\s)(.+)
-    regExpReplace: $2
+    regExp: (Ingredienser\s+ingredienser:\s+|Ingredienser\s+)(Ingredienser:|ingredienser:|Ingredienser:)?(.+)
+    regExpReplace: $3
   - name: category
     singleValue: false
     xpath: //div[contains(@data-page-type,"productPage")]//div[contains(@class,'Breadcrumb-container')]//div[contains(@class,'Breadcrumb-item')]//span
