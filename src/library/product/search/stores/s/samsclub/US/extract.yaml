@@ -1,24 +1,19 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,"sc-infinite-loader")]//ul//li
+recordXPath: //div[contains(@class,"sc-infinite-loader")]//ul//li//div[contains(@class,'sc-plp-cards-card')]
 fields:
   - name: id
     singleValue: false
     xpath: //div[contains(@class,"sc-pc-medium-desktop-card sc-plp-cards-card")]/a/@href
     regExp: /((prod)?(\d+))
     regExpReplace: $1
-  - name: rankOrganic
   - name: name
     singleValue: false
-    xpath: //h3
+    xpath: //h3s
   - name: productUrl
     singleValue: false
     xpath: //div[contains(@class,"sc-pc-medium-desktop-card sc-plp-cards-card")]/a/@href
-    regExp: (.+)
-    regExpReplace: https://www.samsclub.com$1
-  - name: gtin
-    singleValue: true
   - name: thumbnail
     xpath: //div[contains(@class,"sc-pc-medium-desktop-card sc-plp-cards-card")]//a//img/@src
   - name: aggregateRating2
@@ -35,9 +30,3 @@ fields:
     xpath: //span[contains(@class,"Price-group")]/@title
     regExp: (\d+\.\d+)
     regExpReplace: $1
-  - name: manufacturer
-    singleValue: true
-  - name: soldBy
-    singleValue: true
-  - name: rank
-  - name: endorsementText
