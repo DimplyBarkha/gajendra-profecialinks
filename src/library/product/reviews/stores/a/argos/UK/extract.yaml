@@ -13,14 +13,11 @@ fields:
   - name: user
   - name: brand
     xpath: ancestor::html//title/text()
-    regExp: (?<=\Buy\s)(\w+)
-    regExpReplace: $1
   - name: productRange
     xpath: ancestor::html//nav[@aria-label="Breadcrumb"]//ol/li[3]//span/text()
   - name: productFamily
     xpath: concat(//nav[@aria-label="Breadcrumb"]//ol/li[1]//span/text(),'/',//nav[@aria-label="Breadcrumb"]//ol/li[2]//span/text(),'/',//nav[@aria-label="Breadcrumb"]//ol/li[3]//span/text(),'/',//nav[@aria-label="Breadcrumb"]//ol/li[4]//span/text())
   - name: colour
-    xpath:
   - name: flavour
   - name: sku
     xpath: ancestor::html//span[@itemprop="sku"]/@content
