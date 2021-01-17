@@ -17,10 +17,10 @@ async function implementation (
   await new Promise((resolve, reject) => setTimeout(resolve, 1000));
   for(let i=0;i<5;i++){
     try{
-      await context.waitForSelector('div.btn-more-wrap>button.btn-more');
+      await context.waitForSelector('div.btn-more-wrap>button');
       await new Promise((resolve, reject) => setTimeout(resolve, 1000));
       await context.click('div.btn-more-wrap>button.btn-more');
-      await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+      await new Promise((resolve, reject) => setTimeout(resolve, 8000));
     }catch(e){
   
     }
@@ -31,7 +31,7 @@ async function implementation (
       let scrollTop = 0;
       while (scrollTop !== 20000) {
         await stall(500);
-        scrollTop += 1000;
+        scrollTop += 500;
         window.scroll(0, scrollTop);
         if (scrollTop === 20000) {
           await stall(5000);
@@ -76,4 +76,5 @@ module.exports = {
     noResultsXPath: null,
     zipcode: '',
   },
+  implementation
 };
