@@ -21,7 +21,7 @@ fields:
   - name: flavour
     singleValue: false
     description: Product flavour
-    xpath: ancestor::html//div[@id='short_description_block']//p/*[contains(text(), 'Saveur :')]/parent::*
+    xpath: ancestor::html//div[@id='short_description_block']//p/*[contains(text(), 'Saveur :')]/parent::*|//div[@id='short_description_block']//p[contains(text(), 'Saveur :')]
   - name: sku
     singleValue: false
     description: The store-specific product identifier
