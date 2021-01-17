@@ -12,7 +12,7 @@ fields:
     xpath: //div[contains(@class,"producto-info")]//a[@data-id][1]/@href
   - name: price
     SingleValue: false
-    xpath: //p[contains(@class,"precio-regular-productos-destacados")] | //span[@class="precio-numero"]
+    xpath: //p[contains(@class,"precio-regular-productos-destacados")] | //span[@class="precio-numero"] | //div[@class="producto-info"]//p[@class="price"]
     # xpath: //div[@class="producto-info"]//p[@class="price"]
   - name: listPrice
     SingleValue: false
@@ -22,7 +22,7 @@ fields:
     xpath: //div[@class="image"]//img/@src
   - name: name
     SingleValue: false
-    xpath: //p[@class="title title-food truncate"]
+    xpath: //p[@class="title title-food truncate"] | //div[@class="producto-info"]//p[@class="title"]
     # xpath: //div[@class="producto-info"]//p[@class="title"]
   - name: rankOrganic
     SingleValue: true
