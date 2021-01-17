@@ -11,7 +11,7 @@ fields:
     singleValue: false 
   - name: name
     singleValue: false
-    xpath: //div[@class="ribbon-wrapper"]/div/a/@title
+    xpath: //h2[@class="product-title"]/a/text()
   - name: productUrl
     singleValue: false
     xpath: //div[@class="ribbon-wrapper"]/div/a/@href 
