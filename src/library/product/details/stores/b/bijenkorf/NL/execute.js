@@ -15,40 +15,43 @@ module.exports = {
     context,
     dependencies,
   ) {
-    const searchUrl = `https://ceres-catalog.debijenkorf.nl/catalog/product/show?productVariantCode=${inputs.id}&cached=false&locale=nl_NL&api-version=2.34`;
-    try {
-      await context.goto(searchUrl, {
-        timeout: 30000,
-        waitUntil: 'load',
-        checkBlocked: true,
-        js_enabled: true,
-        css_enabled: false,
-        random_move_mouse: true,
-      });
-    } catch (e) {
-      console.log(e);
-    }
-
-    const productDetailsLink = await context.evaluate(function () {
-      let url = null;
-      let htmlContent = document.querySelector('pre').textContent;
-      if (htmlContent) {
-        htmlContent = JSON.parse(htmlContent);
-        if (htmlContent.data && htmlContent.data.product && htmlContent.data.product.currentVariantProduct) {
-          console.log(htmlContent.data.product.currentVariantProduct.url);
-          url = htmlContent.data.product.currentVariantProduct.url;
-          return url;
-        } else if (htmlContent.data && htmlContent.data.product) {
-          console.log(htmlContent.data && htmlContent.data.product.url);
-          url = htmlContent.data && htmlContent.data.product.url;
-        }
+    let productDetailsLink;
+    if (inputs.id) {
+      const searchUrl = `https://ceres-catalog.debijenkorf.nl/catalog/product/show?productVariantCode=${inputs.id}&cached=false&locale=nl_NL&api-version=2.34`;
+      try {
+        await context.goto(searchUrl, {
+          timeout: 30000,
+          waitUntil: 'load',
+          checkBlocked: true,
+          js_enabled: true,
+          css_enabled: false,
+          random_move_mouse: true,
+        });
+      } catch (e) {
+        console.log(e);
       }
-      return url;
-    });
-    console.log("product url", productDetailsLink);
+
+      productDetailsLink = await context.evaluate(function () {
+        let url = null;
+        let htmlContent = document.querySelector('pre').textContent;
+        if (htmlContent) {
+          htmlContent = JSON.parse(htmlContent);
+          if (htmlContent.data && htmlContent.data.product && htmlContent.data.product.currentVariantProduct) {
+            console.log(htmlContent.data.product.currentVariantProduct.url);
+            url = htmlContent.data.product.currentVariantProduct.url;
+            return url;
+          } else if (htmlContent.data && htmlContent.data.product) {
+            console.log(htmlContent.data && htmlContent.data.product.url);
+            url = htmlContent.data && htmlContent.data.product.url;
+          }
+        }
+        return `https:${url}`;
+      });
+    }
+    console.log('product url', productDetailsLink || inputs.url);
+    productDetailsLink = productDetailsLink || inputs.url;
     if (productDetailsLink) {
-      const url = `https:${productDetailsLink}`;
-      const finalUrl = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
+      const finalUrl = `${productDetailsLink}#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
       await context.setBlockAds(false);
       await context.setLoadAllResources(true);
       await context.setLoadImages(true);
@@ -63,7 +66,7 @@ module.exports = {
     } else {
       return false;
     }
-    async function autoScroll(page) {
+    async function autoScroll (page) {
       await page.evaluate(async () => {
         await new Promise((resolve, reject) => {
           var totalHeight = 0;
