@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class, 'product-gallery')]/div[@class='cell']
+recordXPath: //div[contains(@class, 'product-gallery')]/div[@class='cell'][not(@trim)]
 fields:
   - name: id
     singleValue: false

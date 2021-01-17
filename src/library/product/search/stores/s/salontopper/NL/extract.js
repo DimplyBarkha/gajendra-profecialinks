@@ -37,6 +37,22 @@ async function implementation (inputs, parameters, context, dependencies) {
     for (let i = 0; i < allProducts.length; i++) {
       addProp('div[class*="product-gallery"] div.cell', i, 'rankorganic', `${i + 1}`);
     }
+    const last = allProducts[allProducts.length - 1].getAttribute('rankorganic');
+    if (!searchUrl.includes('&pag=2')) {
+      addElementToDocument('itemscount', last);
+    }
+    const rest = 150 - parseInt(last);
+    if (searchUrl.includes('&pag=2')) {
+      // @ts-ignore
+      [...allProducts].filter(e => e.getAttribute('rankorganic') > rest)
+        .forEach(e => e.setAttribute('trim', ''));
+    }
+  });
+  await context.evaluate(async function () {
+    const nextPageElement = document.querySelectorAll('a[class*="ty-pagination__next"]');
+    if (nextPageElement) {
+      nextPageElement.forEach(e => e.parentNode.removeChild(e));
+    }
   });
 
   return await context.extract(productDetails, { transform });
