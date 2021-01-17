@@ -97,11 +97,17 @@ const transform = (data) => {
                 row.description = [{'text':info.join(' || '),'xpath':row.description[0].xpath}];
             }
             if (row.manufacturerImages) {
-                let info = [];
                 row.manufacturerImages.forEach(item => {
-                info.push(item.text.replace(/(\s*\n\s*)+/g, ' || ').trim());
+                    if(item.text.includes("https")){
+                        item.text = item.text;
+                    }else{
+                        item.text = item.text.replace(/,.*/, '');
+                        item.text = item.text.replace('200w', '');
+                        item.text = 'I'+ item.text;
+                        item.text = item.text.slice(1, -1);
+                        item.text = 'https:'+item.text;
+                    }
                 });
-                row.manufacturerImages = [{'text':info.join(' || '),'xpath':row.manufacturerImages[0].xpath}];
             }
             if (row.additionalDescBulletInfo) {
                 let info = [];
@@ -134,6 +140,21 @@ const transform = (data) => {
                     text: text.slice(0, -4),
                   },
                 ];
+            }
+            if (row.manufacturerDescription) {
+                let info = [];
+                row.manufacturerDescription.forEach(item => {
+                info.push(item.text.replace(/(\s*\n\s*)+/g, ' ').trim());
+                });
+                row.manufacturerDescription = [{'text':info.join(' '),'xpath':row.manufacturerDescription[0].xpath}];
+            }
+            if(row.inTheBoxUrl){
+                row.inTheBoxUrl.forEach((element)=>{
+                    let text= element.text.split(',')[0].match(/(.+)(jpg)/g)[0];
+                    let finalText = `https:${text}`
+                    element.text = finalText
+                    
+                })
             }
         }
     }
