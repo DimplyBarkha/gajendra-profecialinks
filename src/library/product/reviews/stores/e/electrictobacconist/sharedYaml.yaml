@@ -13,6 +13,9 @@ fields:
   - name: sourceUrl
     singleValue: false
     xpath: ancestor::html//meta[@property="og:url"]/@content
+  - name: mediaURL
+    description: product media url
+    xpath: ancestor::html//div[contains(@class, 'slick-slide')]//a[contains(@class, 'product__image__zoom-link')]//img/@src
   - name: flavour
     singleValue: false
     xpath: ancestor::html//div[contains(@class,"product-tabs__content__cms")]//*[contains(text(),"Flavor Profile:")] | ancestor::html//div[contains(@class,"product-tabs__content__cms")]//*[contains(text(),"Flavor profile:")] | ancestor::html//div[contains(@class,"product-tabs__content__cms")]//*[contains(text(),"Flavour Profile:")] | ancestor::html//div[contains(@class,"product-tabs__content__cms")]//*[contains(text(),"Flavour profile:")]
