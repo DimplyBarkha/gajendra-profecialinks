@@ -11,21 +11,24 @@ const implementation = async (inputs, { loadedSelector, noResultsXPath }, contex
   if (!url) {
     if (!id) throw new Error('No id provided');
     else builtUrl = await dependencies.createUrl(inputs);
+    await dependencies.goto({ ...inputs, url: builtUrl || url });
+    await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+    
+    try{
+      console.log('comming for xpath');
+      await context.waitForSelector('div#results-boxes>a',{timeout:500});
+      console.log('comming for click');
+      //await context.click('div#results-boxes>a',{timeout:500});
+      //context.waitForNavigation();
+      await context.clickAndWaitForNavigation('div#results-boxes>a');
+    }catch(e){
+
+    }
+  }else{
+    await dependencies.goto({ ...inputs, url: builtUrl || url });
   }
-  await dependencies.goto({ ...inputs, url: builtUrl || url });
-  await new Promise((resolve, reject) => setTimeout(resolve, 5000));
   
-  try{
-    console.log('comming for xpath');
-    await context.waitForSelector('div#results-boxes>a',{timeout:500});
-    console.log('comming for click');
-    //await context.click('div#results-boxes>a',{timeout:500});
-    //context.waitForNavigation();
-    await context.clickAndWaitForNavigation('div#results-boxes>a');
-  }catch(e){
-
-  }
-
+  
   if (loadedSelector) {
     await context.waitForFunction(
       (selector, xpath) => {
