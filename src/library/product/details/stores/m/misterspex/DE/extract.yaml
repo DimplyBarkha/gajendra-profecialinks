@@ -41,7 +41,8 @@ fields:
     xpath: //div[@class="spex-accordion"]//div[@class="spex-accordion__content"]//ul//li
   - name: availabilityText
     singleValue: false
-    defaultValue: 'In Stock'
+    # defaultValue: 'In Stock'
+    xpath: //div[@class='spex-card__content']/button[@id='PurchaseSubmit']/var[@id='addToBasketButtonText']
   - name: brandText
     singleValue: false
     xpath: //script[contains(@type, "application/ld+json") and contains(text(), "brand")][1]/text()
