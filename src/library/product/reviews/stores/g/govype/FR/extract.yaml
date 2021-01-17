@@ -23,7 +23,7 @@ fields:
     xpath: ancestor::html//*[@class="product-add-form"]//@data-product-sku
     description: The store-specific product identifier
   - name: reviewDate
-    xpath: //p[@class='netreviews_customer_name']//span[1] 
+    xpath: //p[@class='netreviews_customer_name']//span[1]
     description: Date the review was made
     regExp: publié (.*)
     regExpReplace: $1
@@ -31,7 +31,7 @@ fields:
     xpath: //div[@class="netreviews_review_rate_and_stars"]/@custom_rating
     description: Rating normalized to be out of 5
   - name: reviewText
-    xpath: //div[@class='netreviews_review_part']//p[@class='netreviews_customer_review'] 
+    xpath: //div[@class='netreviews_review_part']//p[@class='netreviews_customer_review']
     description: The text of the review
   - name: reviewTitle
     description: The title of the review
@@ -71,3 +71,9 @@ fields:
     xpath: ancestor::html//meta[@property="og:title"]/@content
   - name: sourceUrl
     xpath: ancestor::html//meta[@property="og:url"]/@content
+  - name: flavour
+    xpath: ancestor::html//meta[@property="og:title"]/@content
+  - name: productFamily
+    xpath: ancestor::html//meta[@property="og:title"]/@content
+  - name: colour
+    xpath: ancestor::html//div[@class='swatch-option color']/@option-label
