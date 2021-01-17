@@ -308,10 +308,10 @@ module.exports = {
     async function getRecommendedProducts () {
       const ids = window.location.pathname.match(/([^\-]+)-([^\-]+)$/);
       // Updated version based on what is being used in website. Currently its using older version. 2.34
-      const API = `https://ceres-catalog.debijenkorf.nl/catalog/product/show?productCode=${ids[1]}&productVariantCode=${ids[2]}&cached=false&locale=nl_NL&api-version=2.34`;
+      const API = `https://ceres-catalog.debijenkorf.nl/catalog/product/show?productCode=${ids[1]}&productVariantCode=${ids[2]}&cached=false&locale=nl_NL&api-version=2.37`;
       let response = await fetch(API);
       let json = await response.json();
-      const recommendedAPI = 'https:' + json.data.relatedProducts.crossSell.endpoint;
+      const recommendedAPI = 'https:' + json.data.product.relatedProducts.crossSell.endpoint;
       response = await fetch(recommendedAPI);
       json = await response.json();
       const pdp = json.data.map(elm => elm.product.displayName).join('|');
