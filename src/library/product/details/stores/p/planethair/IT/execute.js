@@ -6,7 +6,7 @@ module.exports = {
     store: 'planethair',
     domain: 'planethair.it',
     loadedSelector: 'div[class="ty-product-block product-main-info"]',
-    noResultsXPath: null,
+    noResultsXPath: '//h2[contains(text(), "Mappa del sito")]',
     zipcode: '',
   },
 };

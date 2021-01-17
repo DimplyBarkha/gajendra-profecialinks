@@ -9,26 +9,28 @@ fields:
   singleValue: false
 - name: productUrl
   singleValue: false
+  xpath: //div[@data-layout="button_count"]/@data-href
 - name: _pageTimeStamp
   singleValue: false
 - name: image
   singleValue: false
-  xpath: //div[@class="ty-product-block product-main-info"]//div[@class="ty-product-img cm-preview-wrapper"]//img[contains(@style, "user-select")]/@src
+  xpath: //html//img[contains(@style, "user-select")]/@src
   description: URL of the main product image
 - name: imageAlt
   singleValue: true
-  xpath: //div[@class="ty-product-block product-main-info"]//div[@class="ty-product-img cm-preview-wrapper"]//img[contains(@style, "user-select")]/@alt
+  xpath: //html//img[contains(@style, "user-select")]/@alt
   description: Alt text of the main product image
 - name: alternateImages
   singleValue: false
-  xpath: //div[@class="ty-product-block product-main-info"]//div[@class="ty-product-img cm-preview-wrapper"]/a[contains(@class, "hidden")]/img/@src
+  xpath: //div[@class="ty-tygh  "]//div[@id="alternateImages"]/@title
   description: Other product images (not in manufacturer description)
 - name: metaKeywords
   singleValue: true
+  xpath: //meta[@name="keywords"]/@content
   description: The <meta> keywords content
 - name: category
-  singleValue: true
-  xpath: //div[@class="ty-breadcrumbs clearfix"]/span[@class="ty-breadcrumbs__current"]/preceding-sibling::a[1]/text()
+  singleValue: false
+  xpath: //a[@class="ty-breadcrumbs__a"]
   description: The categories (e.g. from breadcrumbs)
 - name: nameExtended
   singleValue: false
@@ -46,16 +48,12 @@ fields:
   singleValue: true
   type: STRING
   xpath: //div[@class="ty-product-block__price-actual"]//span[@class="ty-price"]//span[contains(@id, "sec_discounted_price")]/text()
-  # regExp: (\d+)\.(\d+)
-  # regExpReplace: $1,$2
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
 - name: availabilityText
   singleValue: false
   type: STRING
-  xpath: //div[@class="ty-product-block__button"]//button[@type="submit"]
-  regExp: (.+)
-  regExpReplace: "In Stock"
+  xpath: //div[@class="ty-product-block__button"]//button[@type="submit"]/text() | //span[contains(text(), "Non disponibile")]
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
@@ -66,7 +64,7 @@ fields:
     multiple places; specifically not the manufacturer description
 - name: descriptionBullets
   singleValue: true
-  xpath: count(//div[@id="content_description"]//ul/li)
+  xpath: //div[@id="descriptionBullets"]/@title
   description: Number of ul > li tags in the description
 - name: brandText
   singleValue: true
@@ -90,7 +88,7 @@ fields:
   description: GTIN code (includes UPC/EAN)
 - name: sku
   singleValue: true
-  xpath: //div[@class="ty-product-block__left"]/form/input[contains(@name, "[product_id]")]/@value
+  xpath: //meta[@itemprop="sku"]/@content
   description: The store-specific product identifier
 - name: variantId
   singleValue: true
