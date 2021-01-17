@@ -8,29 +8,31 @@ module.exports = {
     store: 'kogan',
     zipcode: '',
   },
-  implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
+  implementation: async (
+    { url: longUrl },
+    parameters,
+    context,
+    dependencies,
+  ) => {
     const timeout = parameters.timeout ? parameters.timeout : 10000;
+
     await context.setBlockAds(false);
-    await context.captureRequests();
-    await context.setBlockAds(false);
-    await context.setAntiFingerprint(false);
     await context.setLoadAllResources(true);
     await context.setLoadImages(true);
     await context.setJavaScriptEnabled(true);
-    
+    await context.setAntiFingerprint(false);
+    await context.setUseRelayProxy(false);
+    const url = longUrl.split('.aspx#')[0];
+
     const gotoOptions = {
       firstRequestTimeout: 60000,
-      timeout: timeout, 
+      timeout,
       waitUntil: 'load',
-      checkBlocked: true,
+      checkBlocked: false,
       antiCaptchaOptions: {
         type: 'RECAPTCHA',
       },
     };
-    console.log(zipcode);
-    if (zipcode) {
-      await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
-    }
     const responseStatus = await context.goto(url, gotoOptions);
     console.log('Status :', responseStatus.status);
     console.log('URL :', responseStatus.url);
@@ -41,7 +43,7 @@ module.exports = {
 
     try {
       await context.waitForSelector(captchaFrame);
-    } catch(e) {
+    } catch (e) {
       console.log("Didn't find Captcha.");
     }
 
@@ -57,7 +59,7 @@ module.exports = {
     };
 
     let isCaptchaFramePresent = await checkExistance(captchaFrame);
-    console.log("isCaptcha:"+ isCaptchaFramePresent);
+    console.log("isCaptcha:" + isCaptchaFramePresent);
 
     while (isCaptchaFramePresent && numberOfCaptchas < maxRetries) {
       console.log('isCaptcha', true);
