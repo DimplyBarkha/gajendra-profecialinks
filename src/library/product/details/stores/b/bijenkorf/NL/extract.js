@@ -313,7 +313,7 @@ module.exports = {
       const recommendedAPI = 'https:' + json.data.relatedProducts.crossSell.endpoint;
       response = await fetch(recommendedAPI);
       json = await response.json();
-      const pdp = json.data.map(elm => elm.product.name).join('|');
+      const pdp = json.data.map(elm => elm.product.displayName).join('|');
       document.body.setAttribute('updp', pdp);
     }
     try {
