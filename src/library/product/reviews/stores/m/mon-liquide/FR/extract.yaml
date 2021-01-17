@@ -10,15 +10,18 @@ fields:
   - name: productRange
     singleValue: false
     description: Product range
+    xpath: ancestor::html//div[@class='bg-breadcrumb']//span[contains(@class, 'navigation_page')]//span[@itemprop='itemListElement'][2]
   - name: productFamily
     singleValue: false
     description: Product family
+    xpath: ancestor::html//div[@class='bg-breadcrumb']//div[contains(@class, 'breadcrumb')]
   - name: colour
     singleValue: false
     description: Product colour
   - name: flavour
     singleValue: false
     description: Product flavour
+    xpath: ancestor::html//div[@id='short_description_block']//p/*[contains(text(), 'Saveur :')]/parent::*
   - name: sku
     singleValue: false
     description: The store-specific product identifier
@@ -67,11 +70,9 @@ fields:
     description: Number of comments on the review
   - name: reviewDate
     singleValue: false
-    type: DATETIME
     description: Date the review was made
     xpath: //span[@class='AV_rating_date']
   - name: rating
-    type: NUMBER
     singleValue: false
     description: Rating normalized to be out of 5
     xpath: //span[@itemprop='ratingValue']
