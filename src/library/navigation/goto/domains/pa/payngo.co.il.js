@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'payngo.co.il',
-    timeout: 60000,
+    timeout: 100000,
     country: 'IL',
     store: 'payngo',
     zipcode: '',
