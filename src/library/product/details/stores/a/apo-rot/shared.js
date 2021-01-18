@@ -43,8 +43,9 @@ const transform = (data) => {
           }
           if (finalDesc.startsWith('||')) {
             finalDesc = finalDesc.substring(2);
-          }
+          }          
         }
+        finalDesc = finalDesc.trim();
         row.description = [
           {
             text: finalDesc,
