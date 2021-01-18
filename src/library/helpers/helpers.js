@@ -88,8 +88,8 @@ module.exports.Helpers = class {
   // Function which checks a selecor
   async checkSelector (selector, type) {
     let elemIsThere;
-    if (type === 'xpath') elemIsThere = await this.checkXpathSelector(selector);
-    else if (type === 'css') elemIsThere = await this.checkCSSSelector(selector);
+    if (type.toLowerCase() === 'xpath') elemIsThere = await this.checkXpathSelector(selector);
+    else if (type.toLowerCase() === 'css') elemIsThere = await this.checkCSSSelector(selector);
     else return false;
     return elemIsThere;
   }
@@ -99,8 +99,8 @@ module.exports.Helpers = class {
     if (!this.checkSelector(selector, type)) return;
     return await this.context.evaluate(({ selector, property, type }) => {
       let elem;
-      if (type === 'xpath') elem = document.evaluate(selector, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
-      else if (type === 'css') elem = document.querySelector(selector);
+      if (type.toLowerCase() === 'xpath') elem = document.evaluate(selector, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
+      else if (type.toLowerCase() === 'css') elem = document.querySelector(selector);
       return elem[property];
     }, { selector, property, type });
   }
