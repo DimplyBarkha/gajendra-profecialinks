@@ -5,21 +5,27 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    description: URL of the main product image.
+    xpath: (//img[@class="primary_image product_image pdp__primary-image  b-product_img"])[2]/@src
+    regExp: (\/on.+)
+    regExpReplace: https://www.lancome.com.au$1
   - name: imageAlt
     singleValue: true
-    description: Alt text of the main product image
+    xpath: (//img[@class="primary_image product_image pdp__primary-image  b-product_img"])[2]/@alt
   - name: alternateImages
     singleValue: false
-    description: Other product images (not in manufacturer description)
+    xpath: (//img[@class="product-thumbnails__image productthumbnail lazyloaded"])[position() > 1]/@src
+    regExp: (\/on.+)
+    regExpReplace: https://www.lancome.com.au$1
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
   - name: category
     singleValue: false
+    xpath: (//ul[@class="breadcrumb breadcrumb--large layout hide-for-small-only"]//li)[position()>1 and position()<last()]
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: true
+    xpath: //html//div[@id='ab']
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
@@ -27,10 +33,12 @@ fields:
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
+    xpath: (//p[@class="product_price price_sale product-price__inner-sale product-price__inner"])[position() = last()-1]
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
     singleValue: true
+    xpath : //p[contains(@class,"availability_value")]
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
@@ -39,6 +47,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
+    xpath: //div[@id="tab_description"]/p
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
@@ -82,7 +91,7 @@ fields:
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
-  - name: directions
+  - name: directions 
     singleValue: true
     description: Content under "directions" header
   - name: warnings
@@ -90,6 +99,9 @@ fields:
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: true
+    xpath: (//span[@class="ui-rating-label"])[position() = last()-1]
+    regExp: (^\d+)
+    regExpReplace: $1
     description: The number of ratings
     type: NUMBER
   - name: aggregateRatingText
@@ -110,6 +122,7 @@ fields:
     description: Stated shipping weight
   - name: variantCount
     singleValue: true
+    xpath: count(//div[contains(@class,"product-variation-shade__item")]/a/@data-pid) 
     description: Number of variants listed
     type: NUMBER
   - name: color

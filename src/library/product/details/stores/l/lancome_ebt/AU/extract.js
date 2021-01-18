@@ -1,4 +1,3 @@
-
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
@@ -7,5 +6,74 @@ module.exports = {
     transform: null,
     domain: 'lancome.com.au',
     zipcode: '',
+  },
+  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+    await context.evaluate(async function () {
+      function addElementToDocument (key, value) {
+        const catElement = document.createElement('div');
+        catElement.id = key;
+        catElement.textContent = value;
+        catElement.style.display = 'none';
+        document.body.appendChild(catElement);
+      }
+      const getAllXpath = (xpath, prop) => {
+        const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        const result = [];
+        for (let index = 0; index < nodeSet.snapshotLength; index++) {
+          const element = nodeSet.snapshotItem(index);
+          if (element) result.push(prop ? element[prop] : element.nodeValue);
+        }
+        return result;
+      };
+      var pn = getAllXpath('//h1[@class="product_name product__name"]/span', 'nodeValue');
+      var pq = getAllXpath('//h2[@class="product_subtitle pdp__subtitle"]', 'nodeValue');
+      if (pn != null && pq != null) {
+        var ab = pn + ' | ' + pq;
+        addElementToDocument('ab', ab);
+      }
+
+      var desc = getAllXpath("//div[@class='b-details-content']/ul/li/text()", 'nodeValue');
+      if (desc != null) {
+        var specs = desc.join(' || ');
+        addElementToDocument('specs', specs);
+      }
+
+      // Method to Retrieve Xpath content of a Multiple Nodes
+
+      var getXpath = (xpath, prop) => {
+        var elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+        let result;
+        if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+        else result = elem ? elem.singleNodeValue : '';
+        return result && result.trim ? result.trim() : result;
+      };
+      var description = getXpath('//div[@class="js-target"]/a/text()', 'nodeValue');
+      var description1 = getXpath("(//div[@class='b-pdp-carousel-item']/picture/img/@alt)[1]", 'nodeValue');
+      description = description + ' ' + description1;
+      addElementToDocument('description', description);
+      var aval = getXpath('//span[@class="b-availability-label-message js-availability-label-message"]/text()[1]', 'nodeValue');
+      if (aval != null) {
+        if (aval.includes('Dieser Artikel ist online leider nicht mehr verfügbar.')) {
+          aval = 'Out of stock';
+          addElementToDocument('aval', aval);
+        } else {
+          aval = 'In stock';
+          addElementToDocument('aval', aval);
+        }
+      } else {
+        aval = 'In stock';
+        addElementToDocument('aval', aval);
+      }
+      var str = getXpath('(//div[@class="b-rating-value"]/@style)[1]', 'nodeValue');
+      if (str != null) {
+        // for (var i = 0; i < str.length; i++) {
+        var abc = str.split(': ')[1];
+        abc = abc.slice(0, -1);
+        abc = (abc) / 20;
+        addElementToDocument('agg', abc);
+        // }
+      }
+    });
+    await context.extract(productDetails);
   },
 };
