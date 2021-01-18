@@ -5,9 +5,12 @@ recordXPath: null
 fields:
   - name: id
     singleValue: false
-    xpath: //h3[@class="c-product-list__title"]/a/@href
-    regExp: (.+/p)(\d+)(/.+)
-    regExpReplace: lsprod$2
+    # xpath: //h3[@class="c-product-list__title"]/a/@href
+    # regExp: (.+/p)(\d+)(/.+)
+    # regExpReplace: lsprod$2
+    xpath: //picture/img/@src
+    regExp: (.+/)(.+)(\.jpg)
+    regExpReplace: $2
   - name: name
     singleValue: false
     xpath: //h3[@class="c-product-list__title"]
@@ -22,6 +25,8 @@ fields:
   - name: price
     singleValue: false
     xpath: //span[@class="u-price"]
-    type: CURRENCY
+    regExp: (\d+),(\d+)
+    regExpReplace: $1.$2
+    # type: CURRENCY
   - name: aggregateRating
     singleValue: false
