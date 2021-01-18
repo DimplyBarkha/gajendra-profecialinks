@@ -449,6 +449,15 @@ if(variantInfo) {
 }
 
   });
+  try{
+    await context.evaluate(() => {
+    document.querySelector('div[data-zone-name="footer"]').scrollIntoView();
+    });
+    await context.waitForSelector('div[data-apiary-widget-id="/ProductAccessories"]');
+  }catch(err)
+  {
+    console.log('not found');
+  } 
   
   return await context.extract(productDetails, { transform });
 }
