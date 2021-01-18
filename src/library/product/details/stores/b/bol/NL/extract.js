@@ -382,6 +382,24 @@ const implementation = async (inputs, { transform }, context, { productDetails }
     variantsList.setAttribute('selected_variant_id', selectedVariantId);
   });
 
+  try {
+    await context.evaluate(() => {
+      let currentUrl = window.location.href;
+      currentUrl = currentUrl.split('?')[0];
+      let name = document.querySelector('.page-heading span').innerText;
+      if (!name) {
+        name = document.querySelector('.product-description').innerText;
+      }
+      const div = document.createElement('div');
+      div.id = 'productUrl';
+      div.innerText = currentUrl;
+      div.setAttribute('product-name', name);
+      document.body.appendChild(div);
+    });
+  } catch (e) {
+    console.log(e.message);
+  }
+
   return await context.extract(productDetails, { transform });
 };
 
