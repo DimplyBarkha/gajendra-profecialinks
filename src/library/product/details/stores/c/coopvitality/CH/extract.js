@@ -120,6 +120,14 @@ module.exports = {
         }
       }
 
+
+      //image
+      var image = getXpath('(//div[@class="fotorama__stage__frame fotorama__active fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img"]/img)[1]/@src', 'nodeValue');
+      if(image != null){
+        image = image.replace("9d08971813a040f8f96067a40f75c615","030716fc62035027b622eeef186d3d67");
+        addElementToDocument('image', image);
+      }
+
       
 
     });
