@@ -73,6 +73,12 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
+      // adding name extended
+      const name = document.querySelector('div[class*="prdct__designation"] h1[class="prdct__maintitle"]');
+      const variantInfo = document.querySelector('div[class*="prdct__sku-selected"] span[class="prdct__sku-name"], span[class*="prdct__bullets-link active"]');
+      if (name !== null) {
+        if (variantInfo !== null) { addElementToDocument('nameextended', name.textContent.trim().concat(` ${variantInfo.textContent.trim()}`)); } else addElementToDocument('nameextended', name.textContent.trim());
+      }
       // adding size
       const quantity = document.querySelector('div#description strong');
       if (quantity !== null && quantity !== undefined) {
@@ -84,11 +90,12 @@ module.exports = {
       const hiddenSpan = document.querySelector('div#description span.hidden')
       // @ts-ignore
         ? document.querySelector('div#description span.hidden').innerText : '';
+
       const descriptionText = document.querySelector('div#description')
         // @ts-ignore
         ? document.querySelector('div#description').innerText : '';
       // @ts-ignore
-      addElementToDocument('desc', descriptionText.split('\n').join('').concat(hiddenSpan));
+      addElementToDocument('desc', descriptionText.split('\n').join(' ').concat(hiddenSpan));
       let count = 0;
       const benefits = document.querySelector('div.prdct__details-benefits > p');
       // @ts-ignore
@@ -108,7 +115,7 @@ module.exports = {
       let countHidden = 0;
       if (document.querySelector('div#description') === null && hiddenDesc !== undefined && hiddenDesc !== null) {
         // @ts-ignore
-        addElementToDocument('descHidden', hiddenDesc.split('\n').join('').concat(hiddenSpan));
+        addElementToDocument('descHidden', hiddenDesc.split('\n').join(' ').concat(hiddenSpan));
         const text = hiddenDesc.split('\n').filter(e => e.length > 0);
         if (text.length > 1 && text[0] !== null && text[0] !== undefined) {
           text.forEach(e => {
@@ -142,7 +149,7 @@ module.exports = {
         await new Promise((resolve, reject) => setTimeout(resolve, 4000));
         const directions = document.querySelector('div#conseils >p');
         // @ts-ignore
-        if (directions !== undefined && directions !== null) openDirections.setAttribute('directions', directions.innerText.split('\n').join(''));
+        if (directions !== undefined && directions !== null) openDirections.setAttribute('directions', directions.innerText.split('\n').join(' '));
       }
     });
 
@@ -166,11 +173,6 @@ module.exports = {
       if (row.name) {
         row.name.forEach(item => {
           item.text = item.text.includes('\n') ? item.text.split('\n').join('').trim() : '';
-        });
-      }
-      if (row.nameExtended) {
-        row.nameExtended.forEach(item => {
-          item.text = item.text ? item.text.trim() : '';
         });
       }
       if (row.pricePerUnit) {
