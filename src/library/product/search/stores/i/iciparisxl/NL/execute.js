@@ -61,7 +61,7 @@ module.exports = {
     country: 'NL',
     store: 'iciparisxl',
     domain: 'iciparisxl.nl',
-    url: 'https://www.iciparisxl.nl/nl/search?text={searchTerms}',
+    url: 'https://www.iciparisxl.nl/nl/search?resultsForPage=100&q={searchTerms}',
     loadedSelector: 'section.product-grid',
     noResultsXPath: '//p[contains(text(),"Sorry, je zoekopdracht leverde geen resultaat op. We vonden 0 overeenkomende producten.")]',
     zipcode: "''",
