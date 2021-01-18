@@ -18,9 +18,7 @@ module.exports.implementation = async function implementation (
   await loadResources();
 
   try {
-    // await stall(100000);
     await context.waitForSelector('hts-product-info[id*=sponsored]', {}, { timeout: 50000 });
-    // await context.waitForXpath('//hts-product-info[contains(@id,"sponsored-")]', {}, { timeout: 50000 });
   } catch (error) {
     console.log(error);
   }
@@ -134,8 +132,6 @@ module.exports.implementation = async function implementation (
     if (pageNo === 1) {
       const sponsoredProductName = getAllXpath("//hts-product-info[contains(@id,'sponsored-')]//span[@class='product-name']//text()", 'nodeValue').join(',');
       const sponsoredProductNameList = sponsoredProductName.split(',');
-      console.log('sponsoredProductName');
-      console.log(sponsoredProductName);
 
       const sponsoredProductPrice = getAllXpath("//hts-product-info[contains(@id,'sponsored-')]//span[@class='product-price']//text()", 'nodeValue').join(',');
       const sponsoredProductPriceList = sponsoredProductPrice.split(',');
@@ -143,18 +139,18 @@ module.exports.implementation = async function implementation (
       const sponsoredProductUrl = getAllXpath("//hts-product-info[contains(@id,'sponsored-')]//a[contains(@onclick, 'url:')]/@href", 'nodeValue').join(',');
       const sponsoredProductUrlList = sponsoredProductUrl.split(',');
 
+      const sponsoredProductImage = getAllXpath("//hts-product-info[contains(@id,'sponsored-')]//span[@class='product-img']//img/@src", 'nodeValue').join(',');
+      const sponsoredProductImageList = sponsoredProductImage.split(',');
+
       for (var count = 0; count < sponsoredProductNameList.length; count++) {
         const row = addElementToDocument('added_row', '');
         row.setAttribute('added_name', sponsoredProductNameList[count]);
         row.setAttribute('added_price', sponsoredProductPriceList[count]);
-        row.setAttribute('added_url', sponsoredProductUrlList[count]);
+        row.setAttribute('added_url', 'https://www.harristeeter.com' + sponsoredProductUrlList[count]);
+        var id = sponsoredProductUrlList[count].substring(sponsoredProductUrlList[count].lastIndexOf('product/') + 8, sponsoredProductUrlList[count].lastIndexOf('/details'));
+        row.setAttribute('added_id', id);
+        row.setAttribute('added_thumbnail', sponsoredProductImageList[count]);
       }
-
-      // hts-product-info[contains(@id,"sponsored-")]//span[@class='product-name']//text()
-      // hts-product-info[contains(@id,"sponsored-")]//span[@class='product-price']//text()
-      // hts-product-info[contains(@id,"sponsored-")]//a[contains(@onclick, 'url:')]/@href
-      // id
-      // image
     }
   }, domain, country, keywords);
 
