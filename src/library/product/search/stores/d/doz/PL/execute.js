@@ -7,7 +7,7 @@ module.exports = {
     domain: 'doz.pl',
     url: 'https://www.doz.pl/apteka/szukaj?search={searchTerms}',
     loadedSelector: 'div#product-list',
-    noResultsXPath: '//span[contains(.,"0 produktów")]',
+    noResultsXPath: '//header[contains(@class,"category__header")]//*[text()="0 produktów"]',
     zipcode: '',
   },
 };
