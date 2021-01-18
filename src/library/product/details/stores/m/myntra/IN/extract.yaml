@@ -106,7 +106,7 @@ fields:
   - name: inTheBoxText
     singleValue: false
     description: Must include text to show the accessories/tools which come with the product
-    xpath: //b[contains(text(),'Box')]/following-sibling::ul//li|//div[contains(@class, "pdp-productDescriptorsContainer")]//*[contains(.,'It consists of:')]/ul//li
+    # xpath: //b[contains(text(),'Box')]/following-sibling::ul//li|//div[contains(@class, "pdp-productDescriptorsContainer")]//*[contains(.,'It consists of:')]/ul//li
   - name: hasComparisonTable
     defaultValue: No
   - name: unInterruptedPDP
