@@ -259,20 +259,31 @@ module.exports = {
       const allVideos = enhanceContentVideos.join(' | ');
       document.querySelector('h1') && document.querySelector('h1').setAttribute('enhance-videos', allVideos);
 
-      const updpItems = [];
-      const updpEls = document.evaluate(`//h2[contains(text(), 'Artigos mais vendidos em Produtos')]/parent::header/following-sibling::div[1]//h3`, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null );
+      let URL = `https://recs.richrelevance.com/rrserver/p13n_generated.js`;
+      const sku = document.querySelector('[data-sku]') ? document.querySelector('[data-sku]').getAttribute('data-sku') : '';
+      const scriptEl = document.evaluate(`//*[@data-cookieconsent='preferences'][contains(., 'richrelevance')]`,  document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null).snapshotItem(0);
+      let parentId = scriptEl ? scriptEl.innerText.match(/parent":"(\d+)/g)[0] : '';
+      parentId = parentId.split(':"');
+      parentId = parentId[parentId.length - 1];
+      let apiKey = scriptEl ? scriptEl.innerText.match(/apiKey":"(\w+)/g)[0] : '';
+      apiKey = apiKey.split(':"');
+      apiKey = apiKey[apiKey.length - 1];
+      URL = `${URL}?a=${apiKey}&ssl=t&p=${sku}&pt=%7Citem_page.w2recs_1%7Citem_page.w2recs_2%7Citem_page.w2recs_3&u=08d83d0e75a509158c04d2ad20ca8e252a046924734dc6a14fff08f8c49216ae&s=08d83d0e75a509158c04d2ad20ca8e252a046924734dc6a14fff08f8c49216ae&chi=${parentId}`;
+      const requestForItems = await fetch(URL);
+      let dataStr = await requestForItems.text();
+      let updpItems = [];
+      dataStr = dataStr.split('title": "');
 
-      if (updpEls.snapshotLength) {
-        for (let i = 0; i < updpEls.snapshotLength; i++) {
-          const itemName = updpEls.snapshotItem(i).innerText;
+      for (let i = 1 ; i < dataStr.length; i++)  {
+        let title = dataStr[i].split('"');
+        title = title[0];
+        updpItems.push(title.split('\\\'').join('\''));
+      }
 
-          if (updpItems.indexOf(itemName.trim()) == -1) {
-            updpItems.push(itemName.trim());
-            const newEl = document.createElement('import-updp');
-            newEl.innerText = itemName.trim();
-            document.body.appendChild(newEl);
-          }
-        }
+      for (const item of updpItems) {
+        const newEl = document.createElement('import-updp');
+        newEl.innerText = item;
+        document.body.appendChild(newEl);
       }
     })
 
