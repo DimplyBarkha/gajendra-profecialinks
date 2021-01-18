@@ -86,15 +86,15 @@ const transform = (data) => {
             item.text = item.text.replace(/Inhalt: 30 Kontaktlinsen pro Packung/, "");
             info.push(item.text);
           });
-        }
+        };
         if (row.availabilityText){
           let info = [];
           row.availabilityText.forEach(item => {
-          item.text = item.text.replace(/In den Warenkorb/, "In stock");
-          item.text = item.text.replace(/ /, "Out of stock");
-          info.push(item.text);
+            item.text = item.text.replace(/In den Warenkorb/, "In stock");
+            item.text = item.text.replace(/ /, "Out of stock");
+            info.push(item.text);
           });
-        }
+        };
         if(row.variantInformation){
           var strVariantInfo = ''
           row.variantInformation.forEach(item => {
