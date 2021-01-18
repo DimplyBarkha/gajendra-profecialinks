@@ -215,7 +215,7 @@ module.exports = {
           const shadowDoc = iframePresent.contentDocument.querySelector('.syndigo-shadowed-powerpage').shadowRoot;
           const syndigoDiv = shadowDoc.querySelector('.syndi_powerpage');
           const witb = document.evaluate(
-            './/h2[contains(.,"In the Box")]/following-sibling::div//div[@class="syndigo-featureset-feature"]',
+            './/h2[contains(.,"In the Box") or contains(.,"In The Box") or contains(.,"in the box") or contains(.,"In the box")]/following-sibling::div//div[@class="syndigo-featureset-feature"]',
             syndigoDiv,
             null,
             XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
@@ -224,7 +224,11 @@ module.exports = {
           for (let i = 0; i < witb.snapshotLength; i++) {
             const item = witb.snapshotItem(i);
             // @ts-ignore
-            const url = item.querySelector('img').getAttribute('srcset');
+            let url = item.querySelector('img').getAttribute('srcset');
+            if (!url) {
+              // @ts-ignore
+              url = item.querySelector('img').getAttribute('src');
+            }
             const splitUrls = url.split(',');
             const witbUrl = splitUrls[splitUrls.length - 1].split(' ')[0];
             // @ts-ignore
