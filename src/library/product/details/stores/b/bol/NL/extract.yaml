@@ -94,12 +94,11 @@ fields:
 - name: sku
   singleValue: true
   description: The store-specific product identifier
-  # xpath: (//div[@data-global-id]/@data-global-id | //a[@data-product-id]/@data-product-id)[1]
+  xpath: //ol[@id="added_variants_list"]/@selected_variant_id
 - name: variantId
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
-  # xpath: (//div[@data-global-id]/@data-global-id | //a[@data-product-id]/@data-product-id)[1]
   xpath: //ol[@id="added_variants_list"]/@selected_variant_id
 - name: mpc
   singleValue: true

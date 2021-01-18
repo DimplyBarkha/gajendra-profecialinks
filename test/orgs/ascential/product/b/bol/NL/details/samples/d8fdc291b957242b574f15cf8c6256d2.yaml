@@ -2,7 +2,7 @@ input:
   _url: http://bol.com
   URL: https://www.bol.com/nl/p/krups-nescafe-dolce-gusto-piccolo-xs-kp1a0110-koffiecupmachine-wit/9200000119890739/
 extractions:
-  - html: https://workbench.import.io/html/run=003031f7-e027-4411-9241-e4904e23f6ef/task=1dc9b34d-c4f0-49a9-8666-59bbc7741c61/b19ca1bd-21c1-4d51-84ac-2adfb37e24b0.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=d7d31cd2-d6cb-403d-bf80-8e05222c7c23/task=4395eba7-31d0-4f5f-a880-a7c0341cdca1/08113a2d-053b-4146-9b28-87b475aee255.html
     extractionConfigId: product/details/stores/b/bol/NL/extract
     data:
       - group:
@@ -52,7 +52,7 @@ extractions:
               - text: € 79,49
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/wsp-visibility-switch[1]/section[1]/div[1]/del[1]
             price:
-              - text: € 56,99
+              - text: € 67,99
                 xpath: /html/body/div[4]
             availabilityText:
               - text: In Stock
@@ -99,14 +99,17 @@ extractions:
             weightNet:
               - text: 2637 g
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[10]/dl[1]/dd[7]
+            sku:
+              - text: "9200000119890739"
+                xpath: /html/body/ol[2]/@selected_variant_id
             variantId:
               - text: "9200000119890739"
                 xpath: /html/body/ol[2]/@selected_variant_id
             ratingCount:
-              - text: "98"
+              - text: "101"
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[7]/div[1]/div[2]/div[2]/div[1]/div[2]/strong[1]
             aggregateRating:
-              - text: 4,1
+              - text: 4,0
                 xpath: /html/body/div[13]
             color:
               - text: Wit
@@ -124,14 +127,14 @@ extractions:
               - text: Krups NESCAFÉ Dolce Gusto PICCOLO XS KP1A0110 - Koffiecupmachine - Wit
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[1]/h1[1]/span[1]
             inStorePrice:
-              - text: € 56,99
+              - text: € 67,99
                 xpath: /html/body/div[4]
             specifications:
               - text: "Verpakking breedte: 294 mm | Verpakking hoogte: 317 mm | Verpakking
                   lengte: 178 mm"
                 xpath: /html/body/div[9]
             promotion:
-              - text: Je bespaart 28%
+              - text: Je bespaart 14%
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/wsp-visibility-switch[1]/section[1]/div[2]
             variantInformation:
               - text: Wit
@@ -159,10 +162,10 @@ extractions:
             gtin:
               - text: "3016661155581"
             shippingInfo:
-              - text: Dutch Label Store 9.3
+              - text: ""
             variantCount:
               - text: "4"
             secondaryImageTotal:
               - text: "10"
         xpath: /
-    timestamp: 1610366035526
+    timestamp: 1610980619880

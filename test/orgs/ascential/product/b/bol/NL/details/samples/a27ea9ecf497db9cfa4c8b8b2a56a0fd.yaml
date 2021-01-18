@@ -2,7 +2,7 @@ input:
   _url: http://bol.com
   URL: https://www.bol.com/nl/p/dove-nourishing-oil-care-conditioner-6-x-200ml-voordeelverpakking/9200000055835720/
 extractions:
-  - html: https://workbench.import.io/html/run=003031f7-e027-4411-9241-e4904e23f6ef/task=2ee26123-fbdb-4241-bde6-3f9ed9892321/6bcafc75-5287-49fd-8610-a29e3d15922b.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=d7d31cd2-d6cb-403d-bf80-8e05222c7c23/task=dfe6fb42-8817-4434-8cd6-603b2df544e0/39a9effc-f61c-4a53-9134-1febcc50736c.html
     extractionConfigId: product/details/stores/b/bol/NL/extract
     data:
       - group:
@@ -44,7 +44,7 @@ extractions:
               - text: € 23,34
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/wsp-visibility-switch[1]/section[1]/div[1]/del[1]
             price:
-              - text: € 11,67
+              - text: € 14
                 xpath: /html/body/div[4]
             availabilityText:
               - text: In Stock
@@ -114,6 +114,9 @@ extractions:
             weightNet:
               - text: 1,4 kg
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/dl[1]/dd[1]
+            sku:
+              - text: "9200000055835720"
+                xpath: /html/body/ol[2]/@selected_variant_id
             variantId:
               - text: "9200000055835720"
                 xpath: /html/body/ol[2]/@selected_variant_id
@@ -141,20 +144,20 @@ extractions:
               - text: Dove Nourishing Oil & Care Conditioner - 6 x 200ml - Voordeelverpakking
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[1]/h1[1]/span[1]
             inStorePrice:
-              - text: € 11,67
+              - text: € 14
                 xpath: /html/body/div[4]
             specifications:
               - text: "Verpakking breedte: 180 mm | Verpakking hoogte: 68 mm | Verpakking
                   lengte: 255 mm"
                 xpath: /html/body/div[10]
             pricePerUnit:
-              - text: 1,95
+              - text: 2,33
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/wsp-visibility-switch[1]/section[1]/div[3]/span[1]/span[1]
             pricePerUnitUom:
               - text: stuk
                 xpath: /html/body/div[6]
             promotion:
-              - text: Je bespaart 50%
+              - text: Je bespaart 40%
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/wsp-visibility-switch[1]/section[1]/div[2]
             additionalDescBulletInfo:
               - text: "|| Voedend voor je haar || Met arganolie, rijk aan vitamine E en F ||
@@ -179,4 +182,4 @@ extractions:
             secondaryImageTotal:
               - text: "6"
         xpath: /
-    timestamp: 1610366032990
+    timestamp: 1610980612834

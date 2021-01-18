@@ -2,7 +2,7 @@ input:
   _url: http://bol.com
   URL: https://www.bol.com/nl/p/essie-fishnet-stockings-56-rood-nagellak/9200000007087738/
 extractions:
-  - html: https://workbench.import.io/html/run=003031f7-e027-4411-9241-e4904e23f6ef/task=4945707e-e37e-4e5a-8651-5880586fc928/c29cd3e3-d398-426f-b058-887d95bca95f.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=d7d31cd2-d6cb-403d-bf80-8e05222c7c23/task=b9ceb18b-5703-4a94-8eb5-377595c66f67/c46afcf5-fc93-4c75-8a7b-057693650dc1.html
     extractionConfigId: product/details/stores/b/bol/NL/extract
     data:
       - group:
@@ -48,11 +48,8 @@ extractions:
             nameExtended:
               - text: essie fishnet stockings 56 - rood - nagellak
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[1]/h1[1]/span[1]
-            listPrice:
-              - text: € 9,99
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/wsp-visibility-switch[1]/section[1]/div[1]/del[1]
             price:
-              - text: € 8,99
+              - text: € 9,99
                 xpath: /html/body/div[4]
             availabilityText:
               - text: In Stock
@@ -75,6 +72,9 @@ extractions:
             weightNet:
               - text: 0,1 kg
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/dl[1]/dd[1]
+            sku:
+              - text: "9200000007087738"
+                xpath: /html/body/ol[2]/@selected_variant_id
             variantId:
               - text: "9200000007087738"
                 xpath: /html/body/ol[2]/@selected_variant_id
@@ -103,23 +103,20 @@ extractions:
               - text: essie fishnet stockings 56 - rood - nagellak
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[1]/h1[1]/span[1]
             inStorePrice:
-              - text: € 8,99
+              - text: € 9,99
                 xpath: /html/body/div[4]
             specifications:
               - text: "Verpakking breedte: 2.50 cm | Verpakking hoogte: 70 mm | Verpakking
                   lengte: 23 mm"
                 xpath: /html/body/div[9]
-            promotion:
-              - text: Je bespaart 10%
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/wsp-visibility-switch[1]/section[1]/div[2]
             variantInformation:
               - text: Rood, 56 Fishnet Stockings
                 xpath: /html/body/ol[2]/@selected_variant_name
             firstVariant:
-              - text: "9300000003749411"
+              - text: "9300000003749341"
                 xpath: /html/body/ol[2]/li[1]/@variant_id
             variants:
-              - text: "9300000003749411"
+              - text: "9300000003749341"
                 xpath: /html/body/ol[2]/li[1]/@variant_id
               - text: "9200000007087640"
                 xpath: /html/body/ol[2]/li[2]/@variant_id
@@ -165,41 +162,41 @@ extractions:
                 xpath: /html/body/ol[2]/li[22]/@variant_id
               - text: "9200000072896854"
                 xpath: /html/body/ol[2]/li[23]/@variant_id
-              - text: "9200000107918598"
-                xpath: /html/body/ol[2]/li[24]/@variant_id
               - text: "9200000007087790"
-                xpath: /html/body/ol[2]/li[25]/@variant_id
+                xpath: /html/body/ol[2]/li[24]/@variant_id
               - text: "9200000043214104"
-                xpath: /html/body/ol[2]/li[26]/@variant_id
+                xpath: /html/body/ol[2]/li[25]/@variant_id
               - text: "9200000101988459"
-                xpath: /html/body/ol[2]/li[27]/@variant_id
+                xpath: /html/body/ol[2]/li[26]/@variant_id
               - text: "9200000007087826"
-                xpath: /html/body/ol[2]/li[28]/@variant_id
+                xpath: /html/body/ol[2]/li[27]/@variant_id
               - text: "9200000007087838"
+                xpath: /html/body/ol[2]/li[28]/@variant_id
+              - text: "9200000088396918"
                 xpath: /html/body/ol[2]/li[29]/@variant_id
-              - text: "9200000007087776"
-                xpath: /html/body/ol[2]/li[30]/@variant_id
               - text: "9200000007087778"
-                xpath: /html/body/ol[2]/li[31]/@variant_id
+                xpath: /html/body/ol[2]/li[30]/@variant_id
               - text: "9200000007087780"
-                xpath: /html/body/ol[2]/li[32]/@variant_id
+                xpath: /html/body/ol[2]/li[31]/@variant_id
               - text: "9200000007087782"
-                xpath: /html/body/ol[2]/li[33]/@variant_id
+                xpath: /html/body/ol[2]/li[32]/@variant_id
               - text: "9200000007087804"
-                xpath: /html/body/ol[2]/li[34]/@variant_id
+                xpath: /html/body/ol[2]/li[33]/@variant_id
               - text: "9200000011448589"
-                xpath: /html/body/ol[2]/li[35]/@variant_id
+                xpath: /html/body/ol[2]/li[34]/@variant_id
               - text: "9200000014668050"
-                xpath: /html/body/ol[2]/li[36]/@variant_id
+                xpath: /html/body/ol[2]/li[35]/@variant_id
               - text: "9200000025427005"
-                xpath: /html/body/ol[2]/li[37]/@variant_id
+                xpath: /html/body/ol[2]/li[36]/@variant_id
               - text: "9200000087713781"
-                xpath: /html/body/ol[2]/li[38]/@variant_id
+                xpath: /html/body/ol[2]/li[37]/@variant_id
               - text: "9200000007087820"
-                xpath: /html/body/ol[2]/li[39]/@variant_id
+                xpath: /html/body/ol[2]/li[38]/@variant_id
               - text: "9200000007087822"
-                xpath: /html/body/ol[2]/li[40]/@variant_id
+                xpath: /html/body/ol[2]/li[39]/@variant_id
               - text: "9200000007087824"
+                xpath: /html/body/ol[2]/li[40]/@variant_id
+              - text: "9200000011082138"
                 xpath: /html/body/ol[2]/li[41]/@variant_id
               - text: "9200000011448578"
                 xpath: /html/body/ol[2]/li[42]/@variant_id
@@ -287,71 +284,71 @@ extractions:
                 xpath: /html/body/ol[2]/li[83]/@variant_id
               - text: "9200000007087754"
                 xpath: /html/body/ol[2]/li[84]/@variant_id
-              - text: "9200000007087760"
-                xpath: /html/body/ol[2]/li[85]/@variant_id
               - text: "9200000086593747"
-                xpath: /html/body/ol[2]/li[86]/@variant_id
+                xpath: /html/body/ol[2]/li[85]/@variant_id
               - text: "9300000000211727"
-                xpath: /html/body/ol[2]/li[87]/@variant_id
+                xpath: /html/body/ol[2]/li[86]/@variant_id
               - text: "9200000007087668"
-                xpath: /html/body/ol[2]/li[88]/@variant_id
+                xpath: /html/body/ol[2]/li[87]/@variant_id
               - text: "9200000007087674"
-                xpath: /html/body/ol[2]/li[89]/@variant_id
+                xpath: /html/body/ol[2]/li[88]/@variant_id
               - text: "9200000007087676"
-                xpath: /html/body/ol[2]/li[90]/@variant_id
+                xpath: /html/body/ol[2]/li[89]/@variant_id
               - text: "9200000007087678"
-                xpath: /html/body/ol[2]/li[91]/@variant_id
+                xpath: /html/body/ol[2]/li[90]/@variant_id
               - text: "9200000007087680"
-                xpath: /html/body/ol[2]/li[92]/@variant_id
+                xpath: /html/body/ol[2]/li[91]/@variant_id
               - text: "9200000014668096"
-                xpath: /html/body/ol[2]/li[93]/@variant_id
+                xpath: /html/body/ol[2]/li[92]/@variant_id
               - text: "9200000007087682"
-                xpath: /html/body/ol[2]/li[94]/@variant_id
+                xpath: /html/body/ol[2]/li[93]/@variant_id
               - text: "9200000021914318"
-                xpath: /html/body/ol[2]/li[95]/@variant_id
+                xpath: /html/body/ol[2]/li[94]/@variant_id
               - text: "9200000007087692"
-                xpath: /html/body/ol[2]/li[96]/@variant_id
+                xpath: /html/body/ol[2]/li[95]/@variant_id
               - text: "9200000099580615"
-                xpath: /html/body/ol[2]/li[97]/@variant_id
+                xpath: /html/body/ol[2]/li[96]/@variant_id
               - text: "9200000097100523"
-                xpath: /html/body/ol[2]/li[98]/@variant_id
+                xpath: /html/body/ol[2]/li[97]/@variant_id
               - text: "9200000103422242"
-                xpath: /html/body/ol[2]/li[99]/@variant_id
+                xpath: /html/body/ol[2]/li[98]/@variant_id
               - text: "9200000103611014"
-                xpath: /html/body/ol[2]/li[100]/@variant_id
+                xpath: /html/body/ol[2]/li[99]/@variant_id
               - text: "9200000007087770"
-                xpath: /html/body/ol[2]/li[101]/@variant_id
+                xpath: /html/body/ol[2]/li[100]/@variant_id
               - text: "9200000007087772"
-                xpath: /html/body/ol[2]/li[102]/@variant_id
+                xpath: /html/body/ol[2]/li[101]/@variant_id
               - text: "9200000007087774"
-                xpath: /html/body/ol[2]/li[103]/@variant_id
+                xpath: /html/body/ol[2]/li[102]/@variant_id
               - text: "9200000088396914"
-                xpath: /html/body/ol[2]/li[104]/@variant_id
+                xpath: /html/body/ol[2]/li[103]/@variant_id
               - text: "9200000007087630"
-                xpath: /html/body/ol[2]/li[105]/@variant_id
+                xpath: /html/body/ol[2]/li[104]/@variant_id
               - text: "9200000021914290"
-                xpath: /html/body/ol[2]/li[106]/@variant_id
+                xpath: /html/body/ol[2]/li[105]/@variant_id
               - text: "9200000007087636"
-                xpath: /html/body/ol[2]/li[107]/@variant_id
+                xpath: /html/body/ol[2]/li[106]/@variant_id
               - text: "9200000021914294"
-                xpath: /html/body/ol[2]/li[108]/@variant_id
+                xpath: /html/body/ol[2]/li[107]/@variant_id
               - text: "9200000051672574"
-                xpath: /html/body/ol[2]/li[109]/@variant_id
+                xpath: /html/body/ol[2]/li[108]/@variant_id
               - text: "9200000052020440"
-                xpath: /html/body/ol[2]/li[110]/@variant_id
+                xpath: /html/body/ol[2]/li[109]/@variant_id
               - text: "9200000097100517"
-                xpath: /html/body/ol[2]/li[111]/@variant_id
+                xpath: /html/body/ol[2]/li[110]/@variant_id
               - text: "9200000108159303"
-                xpath: /html/body/ol[2]/li[112]/@variant_id
+                xpath: /html/body/ol[2]/li[111]/@variant_id
               - text: "9200000107918582"
-                xpath: /html/body/ol[2]/li[113]/@variant_id
+                xpath: /html/body/ol[2]/li[112]/@variant_id
               - text: "9200000086593749"
-                xpath: /html/body/ol[2]/li[114]/@variant_id
+                xpath: /html/body/ol[2]/li[113]/@variant_id
               - text: "9200000072896856"
-                xpath: /html/body/ol[2]/li[115]/@variant_id
+                xpath: /html/body/ol[2]/li[114]/@variant_id
               - text: "9200000007087726"
-                xpath: /html/body/ol[2]/li[116]/@variant_id
+                xpath: /html/body/ol[2]/li[115]/@variant_id
               - text: "9200000007087802"
+                xpath: /html/body/ol[2]/li[116]/@variant_id
+              - text: "9300000003749411"
                 xpath: /html/body/ol[2]/li[117]/@variant_id
               - text: "9200000040388834"
                 xpath: /html/body/ol[2]/li[118]/@variant_id
@@ -379,44 +376,48 @@ extractions:
                 xpath: /html/body/ol[2]/li[129]/@variant_id
               - text: "9200000127564449"
                 xpath: /html/body/ol[2]/li[130]/@variant_id
-              - text: "9200000053473212"
+              - text: "9200000107918598"
                 xpath: /html/body/ol[2]/li[131]/@variant_id
-              - text: "9200000011082138"
+              - text: "9200000007087776"
                 xpath: /html/body/ol[2]/li[132]/@variant_id
-              - text: "9200000118562113"
+              - text: "9200000053473212"
                 xpath: /html/body/ol[2]/li[133]/@variant_id
-              - text: "9200000035056651"
+              - text: "9200000118562113"
                 xpath: /html/body/ol[2]/li[134]/@variant_id
-              - text: "9200000035056534"
+              - text: "9200000035056651"
                 xpath: /html/body/ol[2]/li[135]/@variant_id
-              - text: "9200000011082132"
+              - text: "9200000035056534"
                 xpath: /html/body/ol[2]/li[136]/@variant_id
-              - text: "9200000007087694"
+              - text: "9200000011082132"
                 xpath: /html/body/ol[2]/li[137]/@variant_id
-              - text: "9200000048994011"
+              - text: "9200000007087694"
                 xpath: /html/body/ol[2]/li[138]/@variant_id
-              - text: "9200000120439167"
+              - text: "9200000048994011"
                 xpath: /html/body/ol[2]/li[139]/@variant_id
-              - text: "9200000007087728"
+              - text: "9200000120439167"
                 xpath: /html/body/ol[2]/li[140]/@variant_id
-              - text: "9200000086593751"
+              - text: "9200000007087728"
                 xpath: /html/body/ol[2]/li[141]/@variant_id
-              - text: "9200000093559208"
+              - text: "9200000086593751"
                 xpath: /html/body/ol[2]/li[142]/@variant_id
-              - text: "9200000107918600"
+              - text: "9200000093559208"
                 xpath: /html/body/ol[2]/li[143]/@variant_id
-              - text: "9200000007087756"
+              - text: "9200000107918600"
                 xpath: /html/body/ol[2]/li[144]/@variant_id
-              - text: "9200000086593753"
+              - text: "9200000007087756"
                 xpath: /html/body/ol[2]/li[145]/@variant_id
-              - text: "9200000097100519"
+              - text: "9200000007087760"
                 xpath: /html/body/ol[2]/li[146]/@variant_id
-              - text: "9200000035056645"
+              - text: "9200000086593753"
                 xpath: /html/body/ol[2]/li[147]/@variant_id
-              - text: "9200000007087836"
+              - text: "9200000097100519"
                 xpath: /html/body/ol[2]/li[148]/@variant_id
-              - text: "9200000048994019"
+              - text: "9200000035056645"
                 xpath: /html/body/ol[2]/li[149]/@variant_id
+              - text: "9200000007087836"
+                xpath: /html/body/ol[2]/li[150]/@variant_id
+              - text: "9200000048994019"
+                xpath: /html/body/ol[2]/li[151]/@variant_id
             termsAndConditions:
               - text: Yes
             privacyPolicy:
@@ -430,8 +431,8 @@ extractions:
             shippingInfo:
               - text: ""
             variantCount:
-              - text: "149"
+              - text: "151"
             secondaryImageTotal:
               - text: "10"
         xpath: /
-    timestamp: 1610366033785
+    timestamp: 1610980620711
