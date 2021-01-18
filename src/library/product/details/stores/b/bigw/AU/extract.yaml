@@ -71,12 +71,12 @@ fields:
   - name: ingredientsList
     singleValue: false
     xpath: //div[contains(@class,"tab-pane active")]//div[@class="panel-body"]//div[@class="contentList"]//p//strong[contains(text(),"Ingredients:")]/parent::*//following-sibling::p | //div[contains(@class,"tab-pane active")]//div[@class="panel-body"]//div[@class="contentList"]//p//strong[contains(text(),"Ingredients:")]/parent::* | //div[contains(@class,"tab-pane active")]//div[@class="panel-body"]//div[@class="contentList"]//p[contains(text(),"Ingredients:")]/parent::*//following-sibling::p[2] | //div[contains(@class,"tab-pane active")]//div[@class="panel-body"]//div[@class="contentList"]//ul//li[contains(text(),"Ingredients")]
-  - name: inTheBoxUrl
-    xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset
-    regExp: (.+800w,\s)(.+(.png|.jpg))(.+)
-    regExpReplace: $2
-  - name: inTheBoxText
-    xpath: //*[contains(text(), 'Box Includes:')]/following::*[1]
+  # - name: inTheBoxUrl
+  #   xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset
+  #   regExp: (.+800w,\s)(.+(.png|.jpg))(.+)
+  #   regExpReplace: $2
+  # - name: inTheBoxText
+  #   xpath: //*[contains(text(), 'Box Includes:')]/following::*[1]
   - name: hasComparisonTable
     defaultValue: No
   - name: unInterruptedPDP
