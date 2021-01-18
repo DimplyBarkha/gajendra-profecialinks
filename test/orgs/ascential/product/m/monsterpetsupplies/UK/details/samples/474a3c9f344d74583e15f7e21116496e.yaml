@@ -2,7 +2,7 @@ input:
   id: CF27386_1
   _url: http://monsterpetsupplies.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=9a2b5950-a3d1-4eed-b098-b7fcb6a74587/task=f7734053-ff8d-4a0d-828c-caa90f53de21/e5c70e7f-29f2-440c-b085-dcc27673f8d2.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=d970568d-8e74-4c45-a36b-48bfbcee0650/task=d80a653d-642e-4eb3-a1bc-080cd0ca7976/d0c37c44-e369-4a6b-be2f-5fe1597f0dcb.html
     extractionConfigId: product/details/stores/m/monsterpetsupplies/UK/extract
     data:
       - group:
@@ -10,15 +10,13 @@ extractions:
               - text: https://www.monsterpetsupplies.co.uk/cat/wet-cat-food/felix-sensations-crunchies-cat-food-meat-100g-x-40
                 xpath: /html/head[1]/link[11]/@href
             image:
-              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/f_auto,c_pad,w_500,h_500,q_75/v1574861904/users/7613036010542_T517_ha3eoo.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/span[1]/img[2]/@src
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1574861904/users/7613036010542_T517_ha3eoo.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/img[1]/@src
             imageAlt:
               - text: Felix Sensations Mixed Selection Crunchies Adult Cat Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/span[1]/img[1]/@alt
             alternateImages:
-              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/f_auto,c_pad,w_500,h_500,q_75/v1574861904/users/7613036010542_T517_ha3eoo.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/img[1]/@src
-              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/f_auto,c_pad,w_50,h_50,q_75/v1610012265/users/8473116_T1_aoxzdf.jpg
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1610012265/users/8473116_T1_aoxzdf.jpg
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/img[1]/@src
             metaKeywords:
               - text: felix sensations mixed selection crunchies adult cat food
@@ -35,9 +33,44 @@ extractions:
               - text: £21.59
                 xpath: /html/body/div[18]
             availabilityText:
-              - text: InStock
+              - text: In Stock
                 xpath: /html/body/div[20]
+            description:
+              - text: >-
+                  Felix Sensations Meat Crunchies Adult Cat Food is a range of
+                  delicious meals with a delicious crunchy topping for a
+                  fascinating combination of tastes and textures. These exciting
+                  Sensations varieties come with a convenient, re-sealable pouch
+                  of light and crispy crumbles to sprinkle on your cat's meal to
+                  add a delightfully satisfying crunch.
+
+                  Each meal is a source of essential Omega 6 fatty acids with the right combination of balanced minerals and vitamins to help keep your cat full of vitality and ready for mischief! They're packed with healthy goodness and satisfy 100% of your cat's daily needs when served according to the feeding guidelines.
+
+                  What's inside (Box of 10)
+                   
+                  3x with Beef in Jelly
+                   
+                  3x with Chicken in Jelly
+                   
+                  2x with Tuna in Jelly
+                   
+                  2x with Lamb in Jelly
+                   
+                  Crunchy Dry Topping
+
+                  Ingredients
+
+                  100g Pouches: Meat and animal derivatives; vegetable protein extracts; fish and fish derivatives (tuna 4%); minerals; various sugars.
+
+                  40g Crunchy Crumbles Topping: Cereals; Meat and animal derivatives; Oils and fats; Vegetable protein extracts; Various sugars; Minerals; Yeast.
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]
+            brandText:
+              - text: FELIX
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/meta[1]/@content
             sku:
+              - text: CF27386_1
+                xpath: /html/body/div[16]
+            variantId:
               - text: CF27386_1
                 xpath: /html/body/div[16]
             manufacturerDescription:
@@ -69,6 +102,35 @@ extractions:
             name:
               - text: Felix Sensations Mixed Selection Crunchies Adult Cat Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/h1[1]
+            totalFatPerServing:
+              - text: >-
+                  Felix Sensations Meat Crunchies Adult Cat Food is a range of
+                  delicious meals with a delicious crunchy topping for a
+                  fascinating combination of tastes and textures. These exciting
+                  Sensations varieties come with a convenient, re-sealable pouch
+                  of light and crispy crumbles to sprinkle on your cat's meal to
+                  add a delightfully satisfying crunch.
+
+                  Each meal is a source of essential Omega 6 fatty acids with the right combination of balanced minerals and vitamins to help keep your cat full of vitality and ready for mischief! They're packed with healthy goodness and satisfy 100% of your cat's daily needs when served according to the feeding guidelines.
+
+                  What's inside (Box of 10)
+                   
+                  3x with Beef in Jelly
+                   
+                  3x with Chicken in Jelly
+                   
+                  2x with Tuna in Jelly
+                   
+                  2x with Lamb in Jelly
+                   
+                  Crunchy Dry Topping
+
+                  Ingredients
+
+                  100g Pouches: Meat and animal derivatives; vegetable protein extracts; fish and fish derivatives (tuna 4%); minerals; various sugars.
+
+                  40g Crunchy Crumbles Topping: Cereals; Meat and animal derivatives; Oils and fats; Vegetable protein extracts; Various sugars; Minerals; Yeast.
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]
             variantInformation:
               - text: 100g x 40
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/h5[1]
@@ -81,4 +143,4 @@ extractions:
             variantCount:
               - text: "2"
         xpath: /
-    timestamp: 1610704929433
+    timestamp: 1610976797394

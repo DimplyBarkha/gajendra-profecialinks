@@ -1,10 +1,7 @@
-const { transform } = require('../../../../shared');
+const { cleanUp } = require('../../../../shared');
 
-async function implementation ({ url, id }, parameters, context, dependencies) {
-  const { transform } = parameters;
-  const { productDetails } = dependencies;
+async function implementation ({ url, id }, { transform }, context, { productDetails }) {
   const prodId = id;
-
   await context.evaluate(async (prodId) => {
     var getSiblings = function (elem) {
       // Setup siblings array and get the first sibling
@@ -45,7 +42,8 @@ async function implementation ({ url, id }, parameters, context, dependencies) {
     const elem = document.querySelector('div[id="availability"]');
 
     if (elem) {
-      elem.textContent = elem.textContent.match(availRegExp)[1];
+      const availRaw = elem.textContent.match(availRegExp)[1];
+      elem.textContent = availRaw === 'InStock' ? 'In Stock' : 'Out Of Stock';
     }
 
     document.querySelector('img[class="zoomImg"]') ? addElementToDom('Yes', 'Zoom') : addElementToDom('No', 'Zoom');
@@ -59,7 +57,7 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'monsterpetsupplies',
-    transform: transform,
+    transform: cleanUp,
     domain: 'monsterpetsupplies.co.uk',
     zipcode: '',
   },

@@ -2,7 +2,7 @@ input:
   id: CF21491_1
   _url: http://monsterpetsupplies.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=9a2b5950-a3d1-4eed-b098-b7fcb6a74587/task=1b06f8c3-6cb4-40f1-9e82-fe5d0a9a2a50/ec8135d3-d503-4865-94af-cd76eac966a2.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=d970568d-8e74-4c45-a36b-48bfbcee0650/task=f48c69ea-839c-4980-bd92-9a68a0decba7/22c65aa7-5e24-466f-9b00-226c81afc67b.html
     extractionConfigId: product/details/stores/m/monsterpetsupplies/UK/extract
     data:
       - group:
@@ -10,15 +10,13 @@ extractions:
               - text: https://www.monsterpetsupplies.co.uk/cat/wet-cat-food/gourmet-perle-pouch-delicate-meat-duos-12x85g
                 xpath: /html/head[1]/link[11]/@href
             image:
-              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/f_auto,c_pad,w_500,h_500,q_75/v1551172460/5385056_T1_l4mwdf.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/span[1]/img[2]/@src
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1551172460/5385056_T1_l4mwdf.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/img[1]/@src
             imageAlt:
               - text: Gourmet Perle Delicate Meats Duo Cat Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/span[1]/img[1]/@alt
             alternateImages:
-              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/f_auto,c_pad,w_500,h_500,q_75/v1551172460/5385056_T1_l4mwdf.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/img[1]/@src
-              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/f_auto,c_pad,w_50,h_50,q_75/v1607533960/users/5385056_T3_zq4ffj.jpg
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1607533960/users/5385056_T3_zq4ffj.jpg
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/img[1]/@src
             metaKeywords:
               - text: gourmet perle delicate meats duo cat food
@@ -35,9 +33,29 @@ extractions:
               - text: £5.99
                 xpath: /html/body/div[18]
             availabilityText:
-              - text: InStock
+              - text: Out Of Stock
                 xpath: /html/body/div[20]
+            description:
+              - text: >-
+                  Gourmet Gold Perle Delicate Meat Duo are nutritionally
+                  balanced & thoroughly delectable recipes to tickle the fancy
+                  of even the most acutely refined cat connoisseur. Treat your
+                  furry sophisticate every day with exquisite morsels of meat or
+                  fish, cut into fine fillets & gently cooked in a sumptuously
+                  savoury sauce for a delight even the most discerning feline
+                  won’t turn their nose up at!
+
+                  Even better, this complete pet food provides complete nourishment, to keep your cat feeling healthy and looking beautiful every day. This mouth-watering Chef's Selection of elegant flavours, such as Chicken & Beef, Turkey & Lamb, Duck & Liver, and Rabbit & Game, ensures your pampered puss will be absolutely spoiled for choice!
+
+                  Ingredients: Meat and animal derivatives (meat 14%), vegetable protein extracts, fish and fish derivatives, minerals, various sugars.
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]
+            brandText:
+              - text: Gourmet
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/meta[1]/@content
             sku:
+              - text: CF21491_1
+                xpath: /html/body/div[16]
+            variantId:
               - text: CF21491_1
                 xpath: /html/body/div[16]
             manufacturerDescription:
@@ -59,6 +77,24 @@ extractions:
             name:
               - text: Gourmet Perle Delicate Meats Duo Cat Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/h1[1]
+            ingredientsList:
+              - text: Meat and animal derivatives (meat 14%), vegetable protein extracts, fish
+                  and fish derivatives, minerals, various sugars.
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]
+            totalFatPerServing:
+              - text: >-
+                  Gourmet Gold Perle Delicate Meat Duo are nutritionally
+                  balanced & thoroughly delectable recipes to tickle the fancy
+                  of even the most acutely refined cat connoisseur. Treat your
+                  furry sophisticate every day with exquisite morsels of meat or
+                  fish, cut into fine fillets & gently cooked in a sumptuously
+                  savoury sauce for a delight even the most discerning feline
+                  won’t turn their nose up at!
+
+                  Even better, this complete pet food provides complete nourishment, to keep your cat feeling healthy and looking beautiful every day. This mouth-watering Chef's Selection of elegant flavours, such as Chicken & Beef, Turkey & Lamb, Duck & Liver, and Rabbit & Game, ensures your pampered puss will be absolutely spoiled for choice!
+
+                  Ingredients: Meat and animal derivatives (meat 14%), vegetable protein extracts, fish and fish derivatives, minerals, various sugars.
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]
             variantInformation:
               - text: 85g x 12
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/h5[1]
@@ -71,4 +107,4 @@ extractions:
             variantCount:
               - text: "1"
         xpath: /
-    timestamp: 1610704922523
+    timestamp: 1610976788699
