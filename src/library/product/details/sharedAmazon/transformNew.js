@@ -56,6 +56,7 @@ const transform = (data, context) => {
         weightGross: item => sg(item).trim(),
         shippingWeight: item => sg(item).replace(/\s\(/g, '').trim(),
         grossWeight: item => sg(item).replace(/\s\(/g, '').trim(),
+        availabilityText: item => sg(item).replace('.', '').trim(),
         largeImageCount: item => {
           const array = sg(item).toString().split('SL1500');
           return array.length === 0 ? 0 : array.length - 1;
@@ -167,12 +168,12 @@ const transform = (data, context) => {
         }
       }
       if (row.additionalDescBulletInfo) {
-        const text = [''];
+        const text = [];
         row.additionalDescBulletInfo.forEach(item => {
           if (item.text.length > 0) { text.push(item.text); }
         });
         if (text.length > 0) {
-          row.additionalDescBulletInfo = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') }];
+          row.additionalDescBulletInfo = [{ text: text.join(' | ').trim().replace(/\|\| \|/g, '|') }];
         }
       }
       if (row.shippingInfo) {
@@ -207,12 +208,12 @@ const transform = (data, context) => {
         row.variantInformation = [{ text }];
         if (!row.color || row.color[0].text.length === 0) {
           if (json.color_name) {
-            row.color = [{ text: json.color_name }];
+            row.color = [{ textvalue: json.color_name }];
           }
         }
         if (!row.quantity || row.quantity[0].text.length) {
           if (json.size_name) {
-            row.quantity = [{ text: json.size_name }];
+            row.quantity = [{ textvalue: json.size_name }];
           }
         }
       }
