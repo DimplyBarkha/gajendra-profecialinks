@@ -14,7 +14,10 @@ fields:
     singleValue: true
     description: Guarantee associated with the product
     xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),' Garantie')]])[1]
-  - name: shippingInfo #localedependent
-    description: Shipping information for the product, ex ; ships and sold by amazon.com
-    #xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][not(.//*[contains(text(),'guarantee ')])][.//*[contains(text(),'hipping ')] or .//*[contains(text(),'elivery')]])[1]
-    xpath: normalize-space((//div[contains(@class,"reasons-to-buy__reason")]//*[contains(@class,"reasons-to-buy__text")])[1])
+    
+   #please don't add shipping info for this domain - refer this ticket - 19678
+
+  # - name: shippingInfo #localedependent
+  #   description: Shipping information for the product, ex ; ships and sold by amazon.com
+  #   #xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][not(.//*[contains(text(),'guarantee ')])][.//*[contains(text(),'hipping ')] or .//*[contains(text(),'elivery')]])[1]
+  #   xpath: normalize-space((//div[contains(@class,"reasons-to-buy__reason")]//*[contains(@class,"reasons-to-buy__text")])[1])
