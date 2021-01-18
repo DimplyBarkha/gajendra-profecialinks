@@ -26,3 +26,7 @@ fields:
     regExpReplace: $2
   - name: productUrl
     xpath: ../..//meta[@property="og:url"]/@content
+  - name: hasComparisonTable
+    xpath: //div[@class="inpage_selector_comparison"]//div[contains(@class,'h2')]
+    regExp: (.+)
+    regExpReplace: Yes
