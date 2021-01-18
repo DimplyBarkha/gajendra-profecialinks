@@ -10,7 +10,7 @@ module.exports = {
   },
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     // for RPC ID:z-30592816
-    const productUrl = await context.evaluate(async function () {
+    /* const productUrl = await context.evaluate(async function () {
       const getXpath = (xpath, prop) => {
         const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
         let result;
@@ -31,7 +31,7 @@ module.exports = {
       } catch (error) {
         console.log('No record');
       }
-    }
+    } */
     const iframeLink = 'iframe[id="eky-dyson-iframe"]';
 
     const optionalWait = async (sel) => {
@@ -178,11 +178,6 @@ module.exports = {
         }
       }
 
-      /* const categoryXpath = getAllXpath('//div[@class="breadcrumbs"]//ol//li[position()>1 and position() < last()]//a', 'innerText');
-      categoryXpath.forEach(item => {
-        addElementToDocument('added_category', item);
-      }); */
-
       const categoryXpath = getXpath('//script[contains(text(),"var dlInit")]', 'innerText');
       try {
         var categoryScript = categoryXpath.replace(/var dlInit=/g, '');
@@ -210,8 +205,12 @@ module.exports = {
         addElementToDocument('added_video_url', VideoXpath.substring(VideoXpath.indexOf('src=') + 5, VideoXpath.indexOf('frameborder') - 2));
       }
       const name = getXpath("//div[contains(@class,'hidden-tab-up')]//div[@data-component='productDetailInfo']//h1", 'innerText');
-      // const productDescription = getXpath("//div[contains(@class,'hidden-lg')]//h2[contains(@itemprop,'description')]", 'innerText');
-      // addElementToDocument('added_description', productDescription);
+      // var el = document.querySelector("div.hidden-lg h2[itemprop='description']").textContent;
+      // const productDescription = getXpath("//div[contains(@class,'hidden-lg')]//h2[contains(@itemprop,'description')][text()]", 'innerText');
+      let productDescription = getXpath("//div[contains(@class,'hidden-lg')]//h2[contains(@itemprop,'description')]", 'innerHTML');
+      productDescription = productDescription.replace(/<br>/g, ' ');
+      productDescription = productDescription.replace(/<\/br>/g, ' ');
+      addElementToDocument('added_description', productDescription);
       const scriptXpathData = getXpath("//script[@type='application/ld+json'][contains(text(),'@graph')]", 'innerText');
       if (scriptXpathData !== null) {
         const scriptXpath = scriptXpathData.toString().replace(/@graph/g, 'graph');
@@ -221,9 +220,9 @@ module.exports = {
         addElementToDocument('added_product_price', scriptXpathObj.graph[0].offers.priceCurrency + priceXpath);
         const listPrice = getXpath("//div[@class='product-detail-main-container']/@data-gtm-price-full", 'nodeValue');
         const listPriceXpath = listPrice.toString().replace(/\./g, ',');
-        const productDescriptionName = getXpath("//meta[@property='og:description']/@content", 'nodeValue');
-        var productDescription = scriptXpathObj.graph[0].description;
-        addElementToDocument('added_description', productDescription.substr(productDescriptionName.length + 1));
+        // const productDescriptionName = getXpath("//meta[@property='og:description']/@content", 'nodeValue');
+        // var productDescription = scriptXpathObj.graph[0].description;
+        // addElementToDocument('added_description', productDescription.substr(productDescriptionName.length + 1));
         addElementToDocument('added_listprice', scriptXpathObj.graph[0].offers.priceCurrency + listPriceXpath);
         addElementToDocument('added_brand', scriptXpathObj.graph[0].brand.name);
         addElementToDocument('added_product_description', name);
