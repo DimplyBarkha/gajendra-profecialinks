@@ -1,13 +1,13 @@
 const { cleanUp } = require('../../../../shared');
 
-async function implementation (inputs, parameters, context, dependencies) {
+async function implementation(inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
   await context.evaluate(async () => {
     // await new Promise((resolve, reject) => setTimeout(resolve, 3000));
 
-    function addElementToDocument (id, value, key) {
+    function addElementToDocument(id, value, key) {
       const catElement = document.createElement('div');
       catElement.id = id;
       catElement.innerText = value;
@@ -15,6 +15,43 @@ async function implementation (inputs, parameters, context, dependencies) {
       catElement.style.display = 'none';
       document.body.appendChild(catElement);
     };
+
+    /** Function used to extract all paragraph's text between two given titles.
+       * If no 'startTitle' provided, it starts adding from the beginning.
+       * If no 'stopTitle' provided, it doesn't stop and adds everything to the end
+       * @param {object} node Parent node of all elements we want to iterate over
+       * @param {Array} startTitle List of paragraph's textContent that once we meet we start adding following paragraph's text
+       * @param {Array} stopTitleArray Lisf of paragraph's textContent that once we meet we stop adding following paragraph's text
+       */
+
+    const addFollowingParagraphs = (key, node, startTitle, stopTitleArray) => {
+      const elements = document.createElement('div');
+      elements.id = key;
+      let reading;
+      const allElements = node.childNodes;
+      for (let i = 0; i < allElements.length; i++) {
+        const element = allElements[i];
+        if (!startTitle || startTitle.some((startTitleElem) => element.textContent.toLowerCase().trim() === startTitleElem.toLowerCase())) reading = true;
+        if (stopTitleArray && stopTitleArray.length && stopTitleArray.some((stopTitleElem) => element.textContent.toLowerCase().trim() === stopTitleElem.toLowerCase())) break;
+        if (reading) {
+          elements.appendChild(element.cloneNode(true));
+        }
+      }
+      document.body.appendChild(elements);
+    };
+
+    const allHeadings = document.querySelectorAll("#pdp__details article h3.pdp-details__sub-title");
+    for (let i = 0; i < allHeadings.length; i++) {
+      if (allHeadings[i].textContent === "Product Specification") {
+        console.log("tak");
+        const ingredientsText = allHeadings[i].parentElement;
+        console.log(ingredientsText);
+        const ingredientsHeading = ['Product Specification']
+        const ingredientsEnd = ['Size'];
+        if (ingredientsText) addFollowingParagraphs('ingredients', ingredientsText, ingredientsHeading, ingredientsEnd);
+      }
+    }
+
 
     const prefix = 'https://www.superdrug.com';
     const brandName = document.querySelector('span.pdp__byBrand>a') ? document.querySelector('span.pdp__byBrand>a').getAttribute('href') : null;
@@ -63,6 +100,14 @@ async function implementation (inputs, parameters, context, dependencies) {
 
   if (dataRef[0].group[0].brandText) {
     dataRef[0].group[0].brandText[0].text = dataRef[0].group[0].brandText[0].text.replace("'", '');
+  }
+  if (dataRef[0].group[0].ingredientsList) {
+    dataRef[0].group[0].ingredientsList[0].text = dataRef[0].group[0].ingredientsList[0].text.replace("Product Specification", '').trim();
+    let sizeTxt = dataRef[0].group[0].ingredientsList[0].text;
+    let index = sizeTxt.indexOf('Size');
+    if (index != -1) {
+      dataRef[0].group[0].ingredientsList[0].text = dataRef[0].group[0].ingredientsList[0].text.slice(0, index).trim();
+    }
   }
   return dataRef;
 }
