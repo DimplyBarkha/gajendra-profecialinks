@@ -2,7 +2,7 @@ input:
   id: 12609
   _url: http://bruneau.fr
 extractions:
-  - html: https://workbench.import.io/html/run=efab614b-ddac-4d4c-9735-e4232b94cc65/task=1c03c944-0425-441a-807c-04414749627e/8bcd44f9-1076-4e16-8343-8e51ed6e6324.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5f967211-bf6c-49ec-ba4a-6541394506ca/task=447fffdb-d784-4467-ac42-42c001142684/7a00c4a0-7fee-4f95-a447-1f2ee4b385ac.html
     extractionConfigId: product/details/stores/b/bruneau/FR/extract
     data:
       - group:
@@ -19,8 +19,6 @@ extractions:
               - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/12/60/12609.jpg?width=83&height=83&mode=Default&quality=85&scale=upscalecanvas
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[1]/img[1]/@src
             category:
-              - text: Accueil
-                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/a[1]/span[1]
               - text: Hygiène et entretien
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/a[1]/span[1]
               - text: Hygiène mains et corps
@@ -42,9 +40,17 @@ extractions:
               - text: In Stock
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[6]/button[1]/span[2]
             description:
-              - text: Achetez Lingettes imprégnées mains et surface Tifon - Boîte de 70
-                  lingettes sur Bruneau.fr. Nettoient et dégraissent
-                xpath: /html/head[1]/meta[5]/@content
+              - text: Nettoient et dégraissent. Non agressive pour la peau. Sans eau, sans
+                  rinçage sans résidu.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[2]/div[1]/div[1]/text()[1]
+              - text: Nettoient les mains et surfaces (outils, mécaniques…).
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[2]/div[1]/div[1]/text()[2]
+              - text: Eliminent graisses, huiles, peintures, colles et résines. Parfum agrumes.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[2]/div[1]/div[1]/text()[3]
+              - text: "Dimensions lingettes : 30 x 33 cm."
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[2]/div[1]/div[1]/text()[4]
+              - text: Boîte de 70 lingettes.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[2]/div[1]/div[1]/text()[5]
             sku:
               - text: "12609"
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/p[1]/span[1]
@@ -66,6 +72,9 @@ extractions:
             shippingInfo:
               - text: Livraison sous 24 heures
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/span[1]
+            shippingDimensions:
+              - text: 30 x 33
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/text()[1]
             manufacturerDescription:
               - text: Nettoient et dégraissent. Non agressive pour la peau. Sans eau, sans
                   rinçage sans résidu.
@@ -98,5 +107,7 @@ extractions:
               - text: No
             variantCount:
               - text: "0"
+            promotion:
+              - text: ""
         xpath: /
-    timestamp: 1609231547202
+    timestamp: 1610962393029

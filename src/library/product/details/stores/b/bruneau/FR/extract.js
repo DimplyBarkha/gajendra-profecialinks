@@ -5,15 +5,15 @@ module.exports = {
   parameterValues: {
     country: 'FR',
     store: 'bruneau',
-    transform: transform,
+    transform,
     domain: 'bruneau.fr',
     zipcode: '',
   },
   implementation: async (
     inputs,
-    { country, domain },
+    { country, domain, transform },
     context,
-    dependencies,
+    { productDetails },
   ) => {
     const product = await context.evaluate(() =>
       document.querySelector('#product-page'),
@@ -44,19 +44,24 @@ module.exports = {
       const ratingAlt = document.querySelector('.rating-container > span');
 
       if (rating) {
+        // @ts-ignore
         if (rating.title.length === 1) {
+          // @ts-ignore
           rating.title = rating.setAttribute('title', (rating.title += ',0'));
         }
       }
       if (ratingAlt) {
+        // @ts-ignore
         if (ratingAlt.title.length === 1) {
+          // @ts-ignore
           ratingAlt.title = ratingAlt.setAttribute(
             'title',
+            // @ts-ignore
             (ratingAlt.title += ',0'),
           );
         }
       }
     });
-    await context.extract(dependencies.productDetails);
+    await context.extract(productDetails, { transform });
   },
 };

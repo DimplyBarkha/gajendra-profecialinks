@@ -1,0 +1,141 @@
+input:
+  id: 78550
+  _url: http://bruneau.fr
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5f967211-bf6c-49ec-ba4a-6541394506ca/task=68f4d109-314a-4446-8176-3e32b8028e7e/1a3073ac-af55-4bbc-98c0-6520a7a216f3.html
+    extractionConfigId: product/details/stores/b/bruneau/FR/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.bruneau.fr/hygiene-entretien/papier-toilette-mouchoirs/distributeurs-papier-toilette/distributeur-papier-toilette-rouleau-tork-t8-smartone-inox-of78550.htm
+                xpath: /html/head[1]/link[2]/@href
+            image:
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/78/55/78550A.jpg?width=330&height=330&mode=Default&quality=85&scale=upscalecanvas
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Distributeur papier toilette rouleau Tork T8 SmartOne inox
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
+            alternateImages:
+              - text: /Content/images/JMB_FRA/fr/video-83x83.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[1]/img[1]/@src
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/78/55/78550A.jpg?width=83&height=83&mode=Default&quality=85&scale=upscalecanvas
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/img[1]/@src
+            category:
+              - text: Hygiène et entretien
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/a[1]/span[1]
+              - text: Papier toilette et mouchoirs
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/a[1]/span[1]
+              - text: Distributeurs de papier toilette
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/a[1]/span[1]
+            nameExtended:
+              - text: Distributeur papier toilette rouleau Tork T8 SmartOne inox
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/h1[1]
+            listPrice:
+              - text: 66,95 € ht
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            price:
+              - text: 66,95 € ht
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[7]/button[1]/span[2]
+            description:
+              - text: "Economique et écologique : distributeur feuille à feuille, jusqu'à 40 %
+                  d'économie en nombre de feuilles consommées."
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[2]/div[1]/div[1]/text()[1]
+              - text: "Pratique : rouleau de 1150 feuilles, très grande autonomie, diminue la
+                  fréquence des rechargements. Chargement facile, fermeture par
+                  clé. Niveau visible, capot translucide."
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[2]/div[1]/div[1]/text()[2]
+              - text: "Hygiénique : rouleau entièrement protégé dans le distributeur. Réduit les
+                  risques de contamination croisée."
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[2]/div[1]/div[1]/text()[3]
+              - text: "Efficace : feuille de grande taille plus facile à tirer, présentée face à
+                  l'utilisateur."
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[2]/div[1]/div[1]/text()[4]
+              - text: Inox.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[2]/div[1]/div[1]/text()[5]
+              - text: "Dimensions : diamètre 27 cm, profondeur 17 cm."
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[2]/div[1]/div[1]/text()[6]
+            brandText:
+              - text: Voir tous les produits Tork
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/a[1]/img[1]/@title
+            manufacturer:
+              - text: Tork
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/a[1]/@content
+            sku:
+              - text: "78550"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/p[1]/span[1]
+            variantId:
+              - text: "78550"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/p[1]/span[1]
+            mpc:
+              - text: "78550"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/p[1]/span[1]
+            aggregateRatingText:
+              - text: 4,4
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[4]/ul[1]/li[1]/div[1]/div[2]/div[1]/span[1]/@title
+            aggregateRating:
+              - text: 4,4
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[4]/ul[1]/li[1]/div[1]/div[2]/div[1]/span[1]/@title
+            shippingInfo:
+              - text: Livraison sous 24 heures
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/span[1]
+            color:
+              - text: Inox
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/ul[1]/li[1]/img[1]/@title
+            manufacturerDescription:
+              - text: "Economique et écologique : distributeur feuille à feuille, jusqu'à 40 %
+                  d'économie en nombre de feuilles consommées."
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[2]/div[1]/div[1]/text()[1]
+              - text: "Pratique : rouleau de 1150 feuilles, très grande autonomie, diminue la
+                  fréquence des rechargements. Chargement facile, fermeture par
+                  clé. Niveau visible, capot translucide."
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[2]/div[1]/div[1]/text()[2]
+              - text: "Hygiénique : rouleau entièrement protégé dans le distributeur. Réduit les
+                  risques de contamination croisée."
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[2]/div[1]/div[1]/text()[3]
+              - text: "Efficace : feuille de grande taille plus facile à tirer, présentée face à
+                  l'utilisateur."
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[2]/div[1]/div[1]/text()[4]
+              - text: Inox.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[2]/div[1]/div[1]/text()[5]
+              - text: "Dimensions : diamètre 27 cm, profondeur 17 cm."
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[2]/div[1]/div[1]/text()[6]
+            videos:
+              - text: https://www.youtube.com/embed/xj7aa5Wxex0?autoplay=0&rel=0&control=0&fs=1&enablejsapi=0&origin=https://www.bruneau.fr
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[2]/div[1]/div[3]/iframe[1]/@src
+            name:
+              - text: Distributeur papier toilette rouleau Tork T8 SmartOne inox
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/h1[1]
+            pricePerUnit:
+              - text: |-
+                  74,95
+                   €
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/text()[1]
+              - text: |-
+                  44,25
+                   €
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[4]/ul[1]/li[1]/div[1]/div[3]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/text()[1]
+            pricePerUnitUom:
+              - text: EUR
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/span[1]/@content
+            variantInformation:
+              - text: COULEUR
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/@data-feature-id
+            variants:
+              - text: Inox
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/ul[1]/li[1]/@data-name
+            imageZoomFeaturePresent:
+              - text: yes
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@zoom
+            technicalInformationPdfPresent:
+              - text: No
+            Image360Present:
+              - text: No
+            variantCount:
+              - text: "2"
+            promotion:
+              - text: ""
+        xpath: /
+    timestamp: 1610962399523
