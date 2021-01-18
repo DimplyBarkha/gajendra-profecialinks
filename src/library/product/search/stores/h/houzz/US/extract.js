@@ -62,13 +62,11 @@ module.exports = {
         newDiv.textContent = content;
         newDiv.style.display = "none";
         const originalDiv = document.querySelectorAll(
-          "a[href] div div .hz-image-container"
+          ".hz-product-card__image-container"
         )[index];
         originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
-      var link = document.querySelectorAll(
-        "a[href] div div .hz-image-container"
-      )
+      var link = document.getElementsByClassName("hz-product-card__link")
       if (link != null){
         for (let i = 0; i < link.length; i++) {
           console.log("Loop is working");
