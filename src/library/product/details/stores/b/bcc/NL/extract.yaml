@@ -399,6 +399,6 @@ fields:
     defaultValue: No
     xpath: substring('Yes', 1, string-length(//div[@class='galleryzoom__fog']/@class))
   - name: unInterruptedPDP
-    xpath: //section[@id="wfinance-terms"]//table//a[@href]/div[1]/text()
+    xpath: //section[contains(@class,"product-wfinance-terms")]//table//a[@href]/div[1]/text() | //section[@id="container-accessories"][contains(@class,"hidden-xs")]//div[@id="accessories"]//span[contains(@class,"secondary-product__title")]
   - name: hasComparisonTable
     defaultValue: No
