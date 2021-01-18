@@ -80,7 +80,7 @@ async function implementation (
           productFamily += ' > ' + item.innerText;
         });
         productFamily = (productFamily[1] === '>') ? productFamily.substr(2).trim() : productFamily.trim();
-        productRange = document.querySelector('div#wayfinding-breadcrumbs_container li:nth-child(5) a').innerText;
+        productRange = document.querySelector('div#wayfinding-breadcrumbs_container li:last-child a').innerText;
         return { productFamily: productFamily, productRange: productRange };
       }
     } catch (e) {
