@@ -37,13 +37,17 @@ const transform = (data, context) => {
                 item.text=item.text.replace(' star rating','');
             })
         }
-        if(row.productUrl){
+        if(row.thumbnail){
           let tmpId=[];
-          row.productUrl.forEach(item=>{
-              item.text="https://shop.super-pharm.co.il"+item.text;
-              tmpId=item.text.split('/').pop().split('.');
+          row.thumbnail.forEach(item=>{
+            tmpId=item.text.split('/').pop().split('.');
           })
           row.id=[{"text":tmpId[0]}];
+        }
+        if(row.productUrl){
+          row.productUrl.forEach(item=>{
+              item.text="https://shop.super-pharm.co.il"+item.text;
+          })
         }
         if(row.price){
           let priceStr='';
