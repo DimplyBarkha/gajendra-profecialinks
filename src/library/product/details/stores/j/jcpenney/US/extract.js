@@ -31,7 +31,13 @@ async function implementation(
     if (!desc) {
       const descPara = document.evaluate(`//div[@aria-label="productDeccription"]//div//p[1]`, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
       if (descPara) {
-        document.body.setAttribute('description', descPara.textContent);
+        let descParap = descPara.textContent.replace(/\u00a0/g, " ");
+        if(descParap !== " ") {
+        document.body.setAttribute('description', descParap);
+        } else {
+          const descParanew = document.evaluate(`//div[@aria-label="productDeccription"]//div//p[2]`, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
+          document.body.setAttribute('description', descParanew.textContent.replace(/\u00a0/g, " "));
+        }
       }
     }
 
