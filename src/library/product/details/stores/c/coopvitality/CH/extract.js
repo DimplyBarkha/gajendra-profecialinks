@@ -9,6 +9,11 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputstring }, { country, domain }, context, { productDetails }) => {
+    await context.waitForSelector('div[class="product photo product-item-photo"] a', 3000);
+    await context.click('div[class="product photo product-item-photo"] a');
+
+
+
     // delay
     await context.waitForSelector('div[class="fotorama__stage__frame fotorama__active fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img"] img', 5000)
     await context.evaluate(() => {

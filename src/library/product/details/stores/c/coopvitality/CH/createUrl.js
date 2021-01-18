@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'coopvitality.ch',
     prefix: null,
-    url: null,
+    url: 'https://www.coopvitality.ch/de/catalogsearch/result?q={id}',
     country: 'CH',
     store: 'coopvitality',
     zipcode: '',
