@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: '//div[@data-testid="ProductList_list"]/div'
+recordXPath: '//div[@data-testid="ProductList_list"]/div[position()>=1 and position()<=150]'
 fields:
   - name: price
     singleValue: false
