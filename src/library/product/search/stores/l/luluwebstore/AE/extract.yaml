@@ -9,7 +9,7 @@ fields:
     regExp: \d+
   - name: name
     singleValue: false
-    xpath: //div[@class="plp-prod-name"]/text()
+    xpath: //html//div[@id="name"]
   - name: productUrl
     singleValue: false
     regExp: (/.+)
