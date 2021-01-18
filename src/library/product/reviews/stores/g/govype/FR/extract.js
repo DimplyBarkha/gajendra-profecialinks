@@ -15,9 +15,22 @@ async function implementation (
       document.body.appendChild(newDiv);
     }
     if (document.querySelector('#netreviews_button_more_reviews')) {
-      while (document.querySelector('.page-bottom #netreviews_button_more_reviews:not([style*="display:none"]):not([style*="display: none"])')) {
+      const reviewString = document.querySelector('p.netreviews_subtitle').textContent;
+      const totalReviewsCount = Number(reviewString.match(/\d+/g)[0]);
+
+      console.log('totalReviewsCount ', totalReviewsCount);
+
+      let reviewBlock = document.querySelectorAll('div.netreviews_review_part').length;
+      let buttonClick = true;
+      // while (document.querySelector('.page-bottom #netreviews_button_more_reviews:not([style*="display:none"]):not([style*="display: none"])')) {
+      while (buttonClick) {
         document.querySelector('#netreviews_button_more_reviews').click();
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+        reviewBlock = document.querySelectorAll('div.netreviews_review_part').length;
+        console.log('current count ', reviewBlock);
+        if (totalReviewsCount <= reviewBlock) {
+          buttonClick = false;
+        }
       }
     }
     const ratings = document.querySelectorAll('.netreviews_review_rate_and_stars');

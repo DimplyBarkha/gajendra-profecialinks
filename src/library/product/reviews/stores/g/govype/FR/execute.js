@@ -25,7 +25,12 @@ async function implementation (
       document.getElementById('age-gate-dob-day').getElementsByTagName('option')[1].selected = 'selected';
       document.getElementById('age-gate-dob-month').getElementsByTagName('option')[1].selected = 'selected';
       document.getElementById('age-gate-dob-year').value = '1990';
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+
+      var element = document.getElementById('age-gate-dob-day');
+      var event = new Event('change');
+      element.dispatchEvent(event);
+
+      // await new Promise((resolve) => setTimeout(resolve, 2000));
       document.querySelector('#btn-entry-age-allow').click();
     }
   });
