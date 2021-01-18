@@ -1,8 +1,8 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-# recordXPath: //ul[@class="items-list "]/li/article
-recordXPath: null
+recordXPath: //td[@class="Items depth_1"]/table/tbody/tr/td[@class="LISTITEM_9872649 depth_2"]/table/tbody/tr
+# recordXPath: null
 fields:
   - name: thumbnail
     singleValue: false
@@ -16,8 +16,10 @@ fields:
     xpath: //td[@class="Title depth_3"]/text()
   - name: id
     singleValue: false
-    xpath: //td[contains(@class,"Properties")]/table/tbody/tr/td[contains(@class,"UPCs")]/text()
-    
+    # xpath: //html//div[@id="upc"]
+    xpath: //td[contains(@class,"Properties")]/table/tbody/tr[1]/td[contains(@class,"UPCs")]/text()
+    regExp: ^\d+
+    # regExp: (.*)
     # xpath: //ul[@class="items-list "]//@data-productid
   - name: productUrl
     singleValue: false
