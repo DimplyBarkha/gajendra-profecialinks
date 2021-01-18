@@ -3,6 +3,9 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //div[@id="product-list"]//li[@class="product__list-item product"]
 fields:
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id="added_search_url"]
   - name: productUrl
     xpath: //a[@class="product__image"]/@href
     regExp: (.+)
