@@ -17,13 +17,18 @@ module.exports.implementation = async function implementation (
 
   await loadResources();
 
-  try {
+  /* try {
     await context.waitForSelector('hts-product-info[id*=sponsored]', {}, { timeout: 50000 });
   } catch (error) {
     console.log(error);
-  }
+  } */
 
   await context.evaluate(async (domain, country, keywords) => {
+    try {
+      await context.waitForSelector('hts-product-info[id*=sponsored]', {}, { timeout: 50000 });
+    } catch (error) {
+      console.log(error);
+    }
     // function stall (ms) {
     //   return new Promise((resolve, reject) => {
     //     setTimeout(() => {
@@ -150,6 +155,7 @@ module.exports.implementation = async function implementation (
         var id = sponsoredProductUrlList[count].substring(sponsoredProductUrlList[count].lastIndexOf('product/') + 8, sponsoredProductUrlList[count].lastIndexOf('/details'));
         row.setAttribute('added_id', id);
         row.setAttribute('added_thumbnail', sponsoredProductImageList[count]);
+        row.setAttribute('added_sponsored', 'true');
       }
     }
   }, domain, country, keywords);
