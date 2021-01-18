@@ -514,4 +514,4 @@ fields:
   regExpReplace: 'Yes'
 - name: unInterruptedPDP
   singleValue: false
-  xpath: //div[contains(@class,'relatedItemsCarousel')]//img/@alt | //div[@data-feature-show-code="YOU_MAY_ALSO_LIKE"]//img/@alt
+  xpath: //div[contains(@class,"recosLoadMoreItem")]//p[@class="productDesc"][parent::a[not(contains(@data-prod-id,"{"))]]
