@@ -5,7 +5,7 @@ module.exports = {
     country: 'ae',
     store: 'choithrams',
     domain: 'choithrams.com',
-    url: 'https://www.choithrams.com/en/shop/search/?q={searchTerms}',
+    url: 'https://www.choithrams.com/search/?q={searchTerms}',
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
