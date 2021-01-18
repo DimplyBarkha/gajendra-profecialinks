@@ -66,13 +66,7 @@ fields:
     regExpReplace: $1
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //div[@id='scarab-nuxt-recommendations']//div[@class='product-info']//div[@class='product__heading__title']
-  - name: inTheBoxUrl
-    singleValue: false
-  - name: inTheBoxText
-    singleValue: false
-    xpath: //span[contains(text(), "come with?")]//ancestor::h2/following-sibling::ul//li|//span[contains(text(), "What attachments")]//ancestor::h2/following-sibling::ul//li//strong|//span[contains(text(), "What is included")]//ancestor::h2/following-sibling::ul//li
-    description: Must include text to show the accessories/tools which come with the product
+    xpath: //div[@id='scarab-nuxt-recommendations']/section/section[contains(@class, '--show-above')]//div[@class='product-info']//div[@class='product__heading__title']|//section[@id="alsobought-recs"]//ul/li/label/a/text()
   - name: hasComparisonTable
     singleValue: true
     defaultValue: No
