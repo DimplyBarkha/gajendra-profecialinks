@@ -25,9 +25,15 @@ module.exports = {
       const unavailabilityInfo = document.querySelector('div[class*=\'row--unavailable\']');
       const availabilityInfo = document.querySelector('div[class*=\'prices__row\']>div[class*=\'buttons\']');
       if (unavailabilityInfo) {
-        addElementToDocument('availability', 'Out of stock');
+        addElementToDocument('availability', 'Out Of Stock');
       } else if (availabilityInfo) {
-        addElementToDocument('availability', 'In stock');
+        addElementToDocument('availability', 'In Stock');
+      }
+
+      // eslint-disable-next-line no-undef
+      const productSku = __SD__.cardDelivery.data.item.id;
+      if (productSku) {
+        addElementToDocument('product_sku', productSku);
       }
 
       const productDescription = document.querySelectorAll('ul[class*=\'properties-wrapper\'] > li, div[class*=\'card-product-text\']>ul>li, div[class*=\'card-product-text\'] ');

@@ -82,8 +82,7 @@ fields:
 - name: sku
   singleValue: true
   description: The store-specific product identifier
-  xpath: //div[contains(@class, 'info__code')]
-  regExp: \d+
+  xpath: //div[@id='product_sku']
 - name: variantId
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
