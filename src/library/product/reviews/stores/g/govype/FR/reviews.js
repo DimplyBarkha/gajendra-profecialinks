@@ -6,6 +6,6 @@ module.exports = {
     store: 'govype',
     domain: 'govype.com',
     zipcode: "''",
-    mergeType: null,
+    mergeType: 'MERGE_ROWS',
   },
 };
