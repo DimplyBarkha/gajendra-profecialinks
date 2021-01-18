@@ -6,7 +6,7 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div[id="product-list"]',
+    loadedSelector: null,
     openSearchDefinition: {
       template: 'https://www.medpex.de/search.do?q={searchTerms}&pn={page}',
     },
