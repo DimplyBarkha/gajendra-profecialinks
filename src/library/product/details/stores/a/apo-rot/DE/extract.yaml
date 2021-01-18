@@ -61,8 +61,14 @@ fields:
     singleValue: false
     xpath: normalize-space(//div[@class="margin-vert-normal"]//div[contains(text(), "PZN")]/../div[not(contains(text(), "PZN"))])
   - name: directions
+    singleValue: false    
+    xpath: //*[@id="tabs-1"]//*[contains(text(), "Anwendung")]/../text()
+  - name: ingredientsList
     singleValue: false
-    xpath: //div[contains(@class, "tab-content")]//p//strong[contains(text(), "Anwendung")]/..
+    xpath: //*[@class="table_check margin-vert-smaller"]//*[contains(text(), "Wirkstoffe:")]/../text()
+  - name: numberOfServingsInPackage
+    singlevalue: false,
+    xpath: //div[contains(@class, "font-resp-normal")]//div[contains(text(), "Menge")]/../div[2]/text()
   - name: ratingCount
     singleValue: false
     xpath: substring-before(substring-after(//span[contains(text(), "Bewertungen")], "("), " Bewertungen)")
