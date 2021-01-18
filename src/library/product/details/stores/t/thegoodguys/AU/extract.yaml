@@ -120,7 +120,7 @@ fields:
     defaultValue: Yes
   - name: inTheBoxText
     singleValue: false  
-    xpath: //div[@class='inpage_selector_InTheBox']//div[@class='flix-std-table']//div[contains(@class,'content')]//span | //*[@text]/@text
+    xpath: //div[@class='inpage_selector_InTheBox']//div[@class='flix-std-table']//div[contains(@class,'content')]//span
   - name: promotion
     singleValue: false  
     xpath: //div[contains(@class,'bg-clearance')]//span[@class='labl-prod-title']/p
@@ -130,4 +130,4 @@ fields:
     singleValue: false  
     xpath: (//div[@class=' paTracker-widget-wrapper-for-tab tgg-paTracker-widget-wrapper-for-tab']//div[@id='pa-icc'])[1]//div[@class='paw__glide__slides']//div[contains(@class,'paw__glide__slide')]//div[contains(@class,'tgg-paTracker-product-compactName')]
   - name: inTheBoxUrl
-    xpath: //div[@class="inpage_selector_InTheBox"]//img[@data-flixsrcset]/@data-flixsrcset  | //*[@images]/@images
+    xpath: //div[@class="inpage_selector_InTheBox"]//img[@data-flixsrcset]/@data-flixsrcset

@@ -74,9 +74,7 @@ module.exports = {
           content.content.forEach(t => {
             text += t ? `${t} ||` : t;
           });
-          content.images.forEach(t => {
-            images += t ? ` || ${t}` : t;
-          });
+          images = content.images.join(' || ');
           console.log('Adding content to body');
           const body = document.querySelector('body');
           body.setAttribute('images', images);
