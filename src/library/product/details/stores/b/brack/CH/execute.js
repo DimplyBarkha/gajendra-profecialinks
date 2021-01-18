@@ -8,7 +8,7 @@ module.exports = {
     // loadedSelector: 'div.productStage__infoText, ul.productList > li.product-card',
     // noResultsXPath: '//div[contains(@class, "hasNoSearchResults")] | //div[@class="wrapper error-404"]',
     loadedSelector: 'div.productStage__infoText, ul.productList > li.product-card, div[class*="hasNoSearchResults"], div.productNotFound',
-    noResultsXPath: null,
+    noResultsXPath: '//div[@id="searchInfo"]//p[contains(.,"Leider konnten wir zu Ihrer Suchanfrag")]',
     zipcode: '',
   },
 };
