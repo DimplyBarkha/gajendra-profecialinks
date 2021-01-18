@@ -6,22 +6,18 @@ async function implementation (inputs, parameters, context, dependencies) {
   const mainUrl = await context.evaluate(() => {
     return window.location.href;
   });
-  let mainUrlWithDomain = '';
-  mainUrlWithDomain = mainUrl.includes('https://www.doz.pl') ? mainUrl : 'https://www.doz.pl' + mainUrl;
-  if (mainUrlWithDomain) {
-    await context.goto(mainUrlWithDomain, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
+  let pageNotFound = '';
+  const mainUrlWithDomain = mainUrl.includes('https://www.doz.pl') ? mainUrl : 'https://www.doz.pl' + mainUrl;
+
+  pageNotFound = await context.evaluate(() => {
+    const pageNotFoundSelector = document.evaluate('//title[contains(text(),"Page not found")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+
+    return pageNotFoundSelector || '';
+  });
+  console.log(pageNotFound);
+  if (pageNotFound) {
+    await context.goto(mainUrlWithDomain, { timeout: 5000, waitUntil: 'load', checkBlocked: true });
   }
-  await context.evaluate(({ totalSugarsPerServing, proteinPerServing, totalCarbPerServing, saturatedFatPerServing, totalFatPerServing, caloriesPerServing, servingSize, legalDisclaimer, ingredientsList, saltPerServing, storage, gtin, quantity, calciumPerServing, SodiumPerServing, magnesiumPerServing, vitaminAPerServing }) => {
-    function addHiddenDiv (id, content) {
-      const newDiv = document.createElement('div');
-      newDiv.id = id;
-      newDiv.textContent = content;
-      newDiv.style.display = 'none';
-      document.body.appendChild(newDiv);
-    }
-    // addHiddenDiv('servingSize_added', ingredients);
-    addHiddenDiv('totalSugarsPerServing_added', totalSugarsPerServing);
-  }, { totalSugarsPerServing });
   return await context.extract(productDetails, { transform });
 }
 module.exports = {
