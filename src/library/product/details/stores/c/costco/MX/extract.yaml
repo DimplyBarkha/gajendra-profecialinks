@@ -21,7 +21,7 @@ fields:
     regExpReplace: https://costco.com.mx$1
   - name: metaKeywords
     singleValue: true
-    description: The <meta> keywords content     	
+    description: The <meta> keywords content
     xpath: //meta[@name="keywords"]/@content
   - name: category
     singleValue: false
@@ -111,17 +111,19 @@ fields:
     description: The number of ratings
     type: NUMBER
     xpath: //div[@class='bv_numReviews_text']/text()
-    regExp: (\d+)
-    regExpReplace: $1
+    regExp: \d+
+    # regExp: (\d+)
+    # regExpReplace: $1
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
     # xpath: //ol[@class='bv-content-list bv-content-list-reviews']//li//div[@class='bv-content-summary-body-text']
   - name: aggregateRating
     singleValue: true
-    description: The stated aggregate rating normalized to be out of 5    
-    type: NUMBER   
-    xpath: //div[@id='added_aggregateRating']/text()
+    # type: NUMBER
+    description: The stated aggregate rating normalized to be out of 5     
+    # xpath: //div[@id='added_aggregateRating']/text()
+    xpath: //div[@class='bv_avgRating_component_container notranslate']/text()
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
