@@ -23,6 +23,12 @@ const transform = (data) => {
         });
         row.description = [{ text: descriptionArr.join(' || '), xpath: row.description[0].xpath }];
       }
+      if (row.ingredientsList) {
+        const ingredientsListArr = row.ingredientsList.map((item) => {
+          return typeof (item.text) === 'string' ? item.text.replace(/\n/gm, '').replace(/(\\|")+/gm, '') : '|';
+        });
+        row.ingredientsList = [{ text: ingredientsListArr.join(' | '), xpath: row.ingredientsList[0].xpath }];
+      }
       if (row.directions) {
         const directionsArr = row.directions.map((item) => {
           return typeof (item.text) === 'string' ? item.text.replace(/\n/gm, ' ').replace(/\//g, '') : '|';
