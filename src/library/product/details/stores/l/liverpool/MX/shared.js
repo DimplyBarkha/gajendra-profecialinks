@@ -134,6 +134,33 @@ const cleanUp = (data, context) => {
         if (row.listPrice && row.listPrice[0].text === '.') {
           delete row.listPrice;
         }
+        if(row.unInterruptedPDP){
+          let text = '';
+          row.unInterruptedPDP.forEach(item=>{
+          text = text + (text ? ' || ' : '') + item.text;
+          })
+          row.unInterruptedPDP = [{text}];
+        }
+        if(row.unInterruptedPDP2){
+          let updp= [];
+          row.unInterruptedPDP2.forEach(item=>{
+            updp.push(item.text);
+          })
+          // @ts-ignore
+          let updpUnique = [...new Set(updp)];
+          console.log(updpUnique.length);
+          let text = '';
+          updpUnique.forEach(item=>{
+            text = text + (text ? ' || ' : '') + item;
+          })
+          row.unInterruptedPDP2 = [{text}];
+        }
+        if(row.unInterruptedPDP && row.unInterruptedPDP2){
+          let text = row.unInterruptedPDP2[0].text + ' || ' + row.unInterruptedPDP[0].text;
+          row.unInterruptedPDP = [{text}];
+          let text2 = '';
+          row.unInterruptedPDP2 = [{text:text2}];
+        }
       } catch (err) {
         console.log('Error while applying transformations');
       }

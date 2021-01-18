@@ -143,7 +143,7 @@ fields:
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: Yes
   - name: inTheBoxText
-    xpath: ancestor::html//div[@class="wrapper_table"]//tr/td[contains(.,'Accesorios Incluidos')]//following-sibling::td
   - name: unInterruptedPDP
     xpath: ancestor::html//h2[contains(text(),'ARTÍCULOS SIMILARES')]/parent::section//div[contains(@class,"slick-slide")][not(contains(@class,"cloned"))][not(contains(@class,"initialized"))]//figcaption/p
-    
+  - name: unInterruptedPDP2
+    xpath: ancestor::html//*[@id="swogo-bundle-1"]//div[@class="swogo-product swogo-accessory"]//div[@class="swogo-product-title"]   
