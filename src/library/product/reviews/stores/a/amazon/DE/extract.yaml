@@ -9,8 +9,6 @@ fields:
     xpath: ancestor::html//div[contains(@class, 'product-by-line')]//span//a[contains(@class, 'a-size-base')]
   - name: colour
     singleValue: //div[contains(@class, 'review-data')]//a[contains(@class,'a-color-secondary')]
-  - name: flavour
-    singleValue: false
   - name: reviewText
     singleValue: false
     description: The text of the review
@@ -40,8 +38,6 @@ fields:
   - name: sourceUrl
     description: The url of the product url
     xpath: ancestor::html//div[contains(@class,'product-title')]//a[@data-hook="product-link"]/@href
-  - name: productFamily
-    singleValue: false
   - name: name
     description: The product name
     xpath: ancestor::html//div[contains(@class,'product-title')]//a[@data-hook="product-link"]
