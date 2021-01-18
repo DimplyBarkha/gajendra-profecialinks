@@ -2,7 +2,7 @@ input:
   _url: http://martinplace.romeosonline.com.au
   URL: https://martinplace.romeosonline.com.au/lines/barista-bros-milk-choc-500ml
 extractions:
-  - html: https://workbench.import.io/html/run=3086530f-c802-4ed4-ae1c-697b7939b8df/task=9790dc92-a2fd-4c5b-8968-326f252a4532/0564985c-6b8a-41bc-a41e-69efa7967cba.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=8e43781d-5d57-4316-ba39-630a82c5aaf2/task=7905a9ee-7299-4534-ac95-1197389c2548/acd56cc8-dfd3-4bf2-828e-23ae9489921c.html
     extractionConfigId: product/details/stores/r/romeos/AU/extract
     data:
       - group:
@@ -39,10 +39,13 @@ extractions:
             sku:
               - text: barista-bros-milk-choc-500ml
                 xpath: /html/body/div[3]
+            variantId:
+              - text: barista-bros-milk-choc-500ml
+                xpath: /html/body/div[3]
             productUrl:
               - text: https://martinplace.romeosonline.com.au/lines/barista-bros-milk-choc-500ml
                 xpath: /html/body/div[4]
             availabilityText:
               - text: In Stock
         xpath: /html
-    timestamp: 1610541240389
+    timestamp: 1610972095891

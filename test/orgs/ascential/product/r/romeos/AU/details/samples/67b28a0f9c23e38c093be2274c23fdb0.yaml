@@ -2,7 +2,7 @@ input:
   _url: http://martinplace.romeosonline.com.au
   URL: https://martinplace.romeosonline.com.au/lines/mother-energy-drink-sugar-free-4x500ml
 extractions:
-  - html: https://workbench.import.io/html/run=3086530f-c802-4ed4-ae1c-697b7939b8df/task=2c83018c-dbeb-4d58-a952-d812dbb0a849/eaf4f4eb-6750-4f58-b08b-63aedc1b6f1e.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=8e43781d-5d57-4316-ba39-630a82c5aaf2/task=c535da1a-ad7c-4d4e-9d81-017806860d3f/d8708c34-ab3f-416d-ad5c-fc16bde0b4d6.html
     extractionConfigId: product/details/stores/r/romeos/AU/extract
     data:
       - group:
@@ -45,10 +45,13 @@ extractions:
             sku:
               - text: mother-energy-drink-sugar-free-4x500ml
                 xpath: /html/body/div[5]
+            variantId:
+              - text: mother-energy-drink-sugar-free-4x500ml
+                xpath: /html/body/div[5]
             productUrl:
               - text: https://martinplace.romeosonline.com.au/lines/mother-energy-drink-sugar-free-4x500ml
                 xpath: /html/body/div[6]
             availabilityText:
               - text: In Stock
         xpath: /html/body
-    timestamp: 1610541240554
+    timestamp: 1610972095257

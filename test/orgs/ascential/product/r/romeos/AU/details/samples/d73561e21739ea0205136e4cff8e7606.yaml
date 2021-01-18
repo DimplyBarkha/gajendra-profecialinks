@@ -2,7 +2,7 @@ input:
   _url: http://martinplace.romeosonline.com.au
   URL: https://martinplace.romeosonline.com.au/lines/schw-tonic-water-4x300ml
 extractions:
-  - html: https://workbench.import.io/html/run=3086530f-c802-4ed4-ae1c-697b7939b8df/task=d8b3e9a0-20bf-4352-ad17-3a0437318959/2d73431d-cee1-476f-81d5-5e23866424ef.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=8e43781d-5d57-4316-ba39-630a82c5aaf2/task=e9f2c2cd-e7d5-404c-955a-d5e091381f29/5b6e7c48-882e-4dfb-a8a0-dc1edc895e56.html
     extractionConfigId: product/details/stores/r/romeos/AU/extract
     data:
       - group:
@@ -45,10 +45,13 @@ extractions:
             sku:
               - text: schw-tonic-water-4x300ml
                 xpath: /html/body/div[5]
+            variantId:
+              - text: schw-tonic-water-4x300ml
+                xpath: /html/body/div[5]
             productUrl:
               - text: https://martinplace.romeosonline.com.au/lines/schw-tonic-water-4x300ml
                 xpath: /html/body/div[6]
             availabilityText:
               - text: In Stock
         xpath: /html/body
-    timestamp: 1610541243126
+    timestamp: 1610972098410
