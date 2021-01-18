@@ -20,7 +20,7 @@ module.exports = {
       if (document.querySelector('#consent-close')) {
         document.querySelector('#consent-close').click();
       }
-      function addElementToDocument (doc, key, value) {
+      function addElementToDocument(doc, key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -35,7 +35,27 @@ module.exports = {
         const doc = item1;
         addElementToDocument(doc, 'searchUrl', searchUrl);
       });
+
+
+      await new Promise((resolve) => setTimeout(resolve, 5000));
+
+      async function infiniteScroll() {
+          let prevScroll = document.documentElement.scrollTop;
+          while (true) {
+              window.scrollBy(0, document.documentElement.clientHeight);
+              await new Promise(resolve => setTimeout(resolve, 1000));
+              const currentScroll = document.documentElement.scrollTop;
+              if (currentScroll === prevScroll) {
+                  break;
+              }
+              prevScroll = currentScroll;
+          }
+      }
+      await infiniteScroll();
+      await new Promise((resolve) => setTimeout(resolve, 8000));
+
     });
+
     return await context.extract(productDetails, { transform });
   },
 };
