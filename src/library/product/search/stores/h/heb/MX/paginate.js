@@ -11,7 +11,7 @@ module.exports = {
     noResultsXPath: null,
     resultsDivSelector: null,
     openSearchDefinition: {
-      pageStartNb: 1,
+      //pageStartNb: 1,
       template: 'https://www.heb.com.mx/catalogsearch/result/index/?p={page}&q={searchTerms}',
       },
     domain: 'heb.com',
