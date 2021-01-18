@@ -456,5 +456,5 @@ fields:
     regExpReplace: Yes
     defaultValue: No
   - name: unInterruptedPDP
-    xpath: //div[@class="frequentlybought__details-name"]/a | //@updp
+    xpath: //div[@class="frequentlybought__details-name"]/a | //@updp | //div[contains(@id,'recomm_slot')]//div[contains(@class, 'slick-list')]//div[contains(@class, 'slick-slide') and not(contains(@class, 'slick-cloned'))]//h3
     regExp: '[^|]+'
