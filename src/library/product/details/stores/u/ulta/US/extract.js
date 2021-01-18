@@ -163,6 +163,25 @@ async function implementation(inputs, parameters, context, dependencies) {
         document.body.append(newElement);
       });
     }
+
+    var Updp = [];
+    var rows = [...document.querySelectorAll('div.Product__details')];
+    if (rows && rows.length) {
+      rows.map(e => {
+        var brand = e && e.querySelector('div.Product__brandName p') && e.querySelector('div.Product__brandName p').textContent;
+        var productName = e && e.querySelector('div.Product__productName p') && e.querySelector('div.Product__productName p').textContent;
+        if (brand && productName) {
+          var pName = brand + ' ' + productName;
+          Updp.push(pName);
+        }
+      });
+    }
+    if (Updp && Updp.length) {
+      console.log('pdp',Updp.length);
+      var Fupdp = Updp.join(' || ');
+      var productName = document.querySelector('h1');
+      productName.setAttribute('pdp', Fupdp);
+    }
   });
   return await context.extract(productDetails, { transform });
 }
