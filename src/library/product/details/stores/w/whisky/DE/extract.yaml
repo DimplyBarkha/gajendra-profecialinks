@@ -13,12 +13,12 @@ fields:
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
-  xpath: (//li[@class='productData clearfix']/div[@class='col-sm col-sm-fixed-50 article-thumbnail']/img/@alt)[1]
+  xpath: //div[@class="article-image-zoom"]//img/@alt
 - name: alternateImages
   type: FILE[]
   singleValue: false
   description: Other product images (not in manufacturer description)
-  xpath: //div[@class='article-image-further']/a[not(contains(@class,'image-zoom-gallery           active activated'))]//img/@src
+  xpath: //div[@class="article-image-further"]/a[@class="image-zoom-gallery"]/img/@src
 - name: metaKeywords
   singleValue: true
   type: TEXT
@@ -36,6 +36,7 @@ fields:
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
+  xpath: //h1//span[@itemprop="name"]//text()
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
@@ -43,7 +44,7 @@ fields:
   type: CURRENCY
   description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-  xpath: (//span[@class='article-price-default article-club-hidden'])[1]//text()
+  xpath: (//span[@class='article-price-default article-club-hidden'])[1]
 - name: availabilityText
   singleValue: true
   xpath: //meta[@itemprop="availability"]/@content
@@ -110,19 +111,19 @@ fields:
 - name: warnings
   singleValue: true
   description: Content under "warnings" header
-- name: aggregateRating
+- name: aggregateRating2
   description: The number of ratings
-  xpath: //span[@class='rating-value']//text()
-  regExp: '\d+\.\d+'
+  xpath: //span[@class='rating-value']
+  # regExp: '\d+\.\d+'
 - name: ratingCount
   singleValue: true
   type: NUMBER
   description: The stated aggregate rating
   xpath: (//div[@class='col-xs-12 col-xl-8 flex-column']//span[@class='rating-count']//text())[2]
-- name: manufacturerImages
+- name: aplus_images
   singleValue: false
   xpath: //div[@class='infos row']//a/img/@src
-- name: manufacturerDescription
+- name: enhanced_content
   singleValue: false
   type: TEXT
   xpath: //div[@class='infos row']//div[@class='text']//text()
@@ -158,17 +159,15 @@ fields:
 - name: videos
   description: URLs of videos on page
   type: URL[]
-  xpath: //div[@class='embed-responsive embed-responsive-16by9']//iframe/@src
+  xpath: //use[@class="ytp-svg-shadow"]/@href
 - name: nameExtended
   type: TEXT
   description: The product name
-  # xpath: //meta[@property='og:title']/@content
-  xpath: (//div[@class='modal-title h4'])[1]//text()
 - name: name
   singleValue: true
   type: TEXT
   description: The product name
-  xpath: (//div[@class='modal-title h4'])[1]//text()
+  xpath: //h1//span[@itemprop="name"]//text()
   # xpath: //meta[@property='og:title']/@content
 - name: inStorePrice
   singleValue: true
@@ -261,6 +260,7 @@ fields:
   singleValue: true
   description: null
   type: NUMBER
+  xpath: count(//div[@class="article-image-further"]/a[@class="image-zoom-gallery"]/img/@src)
 - name: news
   singleValue: true
   description: null
