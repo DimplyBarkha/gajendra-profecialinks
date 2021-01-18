@@ -17,6 +17,7 @@ module.exports = {
   ) {
     const { transform } = parameters;
     const { productDetails } = dependencies;
+    await new Promise(resolve => setTimeout(resolve, 1000));
     await context.evaluate(function name () {
       const searchUrl = window.location.href.replace('%20', ' ');
       const lastPageUrl = document.querySelector('div#search-url');
