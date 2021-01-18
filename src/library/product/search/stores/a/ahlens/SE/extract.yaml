@@ -1,29 +1,22 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: '//div[@data-testid="ProductList_list"]/div[position()>=1 and position()<=150]'
+recordXPath: //td[@class="docs depth_0"]/table/tbody/tr
 fields:
   - name: price
     singleValue: false
-    description: price of the product
-    xpath: //div[@id='price']  
+    xpath: //td[@class="regular depth_2"]
   - name: productUrl
     singleValue: false
-    description: The URL for the product details page 
-    xpath: //*[contains(@class,'MuiButtonBase-root MuiCardActionArea')]//a[contains(@class,'MuiTypography-root MuiLink-root MuiLink-underlineHover')]//@href
+    xpath: //td[@class="link_url depth_1"]
   - name: thumbnail
     singleValue: false
-    description: The URL for the product thumbnail image
-    xpath: //*[contains(@class,'MuiButtonBase-root MuiCardActionArea')]//figure//img//@src
-    regExp: (.+)(Mobile)(.+)
-    regExpReplace: https://www.ahlens.se$1Large$3
+    xpath: //td[@class="large depth_2"]
+    regExp: (.+)
+    regExpReplace: https://www.ahlens.se$1
   - name: id
     singleValue: false
-    description: The store-specific product identifier
-    xpath: //*[contains(@class,'MuiButtonBase-root MuiCardActionArea')]//a[contains(@class,'MuiTypography-root MuiLink-root MuiLink-underlineHover')]//@href
-    regExp: .*-(\w+)/$
-    regExpReplace: $1
+    xpath: //td[@class="sku depth_1"]
   - name: name
     singleValue: false
-    description: The product name
-    xpath: //*[contains(@class,'MuiCardContent-root')]/div/span[2]
+    xpath: //td[@class="name depth_1"]

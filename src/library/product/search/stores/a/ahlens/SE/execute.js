@@ -5,7 +5,7 @@ module.exports = {
     country: 'SE',
     store: 'ahlens',
     domain: 'ahlens.se',
-    url: "https://www.ahlens.se/INTERSHOP/web/WFS/Ahlens-AhlensSE-Site/sv_SE/-/SEK/ViewParametricSearch-StaticPage?search=true&SearchTerm={searchTerms}",
+    url: 'https://ahlensapiplatformprod.azure-api.net/personalized-products/?query={searchTerms}&start=0&rows=150&placement=search_page.find#[!opt!]{"type":"json"}[/!opt!]',
     //loadedSelector: 'body',
     noResultsXPath: '//div[@data-testid="AhSearchResults_noHitsErrorMessage"]',
     zipcode: '',
