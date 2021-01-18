@@ -11,12 +11,11 @@ module.exports = {
   },
   implementation: async ({ parentInput }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     await new Promise(resolve => setTimeout(resolve, 5000));
-    await context.evaluate(function() {
-      document.cookie = "locale=au;";
-    })
+    await context.evaluate(function () {
+      document.cookie = 'locale=au;';
+    });
 
-    const nameExtended = await context.evaluate(function() {
-
+    const nameExtended = await context.evaluate(function () {
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
@@ -25,31 +24,30 @@ module.exports = {
         document.body.appendChild(newDiv);
       }
 
-      let name = [];
-      let variant = '//span[contains(@class, "current-variant-name")]';
-      let names = '//div[@class="basic-information-section"]//div[contains(@class, "product-")]';
-      var variantCheck = document.evaluate( variant, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-      var namesCheck = document.evaluate( names, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-      if(namesCheck.snapshotLength > 0){
-        let checkName1 = namesCheck.snapshotItem(0);
-        let checkName2 = namesCheck.snapshotItem(1);
-        let checkVariant = variantCheck.snapshotItem(0);
-        if(checkName1){
+      const name = [];
+      const variant = '//span[contains(@class, "current-variant-name")]';
+      const names = '//div[@class="basic-information-section"]//div[contains(@class, "product-")]';
+      var variantCheck = document.evaluate(variant, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      var namesCheck = document.evaluate(names, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      if (namesCheck.snapshotLength > 0) {
+        const checkName1 = namesCheck.snapshotItem(0);
+        const checkName2 = namesCheck.snapshotItem(1);
+        const checkVariant = variantCheck.snapshotItem(0);
+        if (checkName1) {
           name.push(checkName1.textContent);
         }
-        if(checkName2){
+        if (checkName2) {
           name.push(checkName2.textContent);
         }
-        if(checkVariant){
+        if (checkVariant) {
           name.push(checkVariant.textContent);
         }
 
-        let fullName = name.join(" - ")
+        const fullName = name.join(' - ');
         addHiddenDiv('ii_nameExtended', fullName);
       }
-    
-    })
-    
+    });
+
     // await new Promise(resolve => setTimeout(resolve, 10000));
     return await context.extract(productDetails, { transform: transformParam });
   },

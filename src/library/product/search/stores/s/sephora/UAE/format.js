@@ -22,7 +22,6 @@ const transform = (data, context) => {
   const productCodes = state.productCodes || [];
   for (const { group } of data) {
     for (const row of group) {
-
       // if(row.thumbnail){
       //   let text = row.thumbnail[0].text;
       //   let split = text.split("&");
@@ -34,21 +33,19 @@ const transform = (data, context) => {
       //   }
       // }
 
-
-      if(row.productUrl){
-        let url = row.productUrl[0].text;
-        row.productUrl = [{text: url}];
+      if (row.productUrl) {
+        const url = row.productUrl[0].text;
+        row.productUrl = [{ text: url }];
       }
 
-      if(row.name){
-        let names = [];
+      if (row.name) {
+        const names = [];
         row.name.forEach(n => {
           names.push(n.text);
         });
-        let nameJoin = names.join(" - ")
-        row.name = [{text: nameJoin}]
+        const nameJoin = names.join(' - ');
+        row.name = [{ text: nameJoin }];
       }
-
 
       // if(row.thumbnail){
       //   let text = row.thumbnail[0].text;
@@ -82,7 +79,7 @@ const transform = (data, context) => {
       // if(row.id){
       //   if(row.id[0].text){
       //     let text = row.id[0].text
-          
+
       //     if(text){
       //       let num = text.match(/[0-9]+/g);
       //       if(num){
@@ -91,7 +88,6 @@ const transform = (data, context) => {
       //     }
       //   }
       // }
-
 
       if (row.id && row.id[0]) {
         productCodes.push(row.id[0].text);

@@ -21,7 +21,6 @@ async function implementation (
   const { productDetails } = dependencies;
 
   const scrollFunc = await context.evaluate(async function () {
-
     let scrollTop = 0;
     while (scrollTop !== 20000) {
       // await stall(2500);
@@ -30,7 +29,7 @@ async function implementation (
       window.scroll(0, scrollTop);
       await new Promise(resolve => setTimeout(resolve, 2000));
 
-      console.log("SCROLLING");
+      console.log('SCROLLING');
       if (scrollTop === 20000) {
         break;
       }
