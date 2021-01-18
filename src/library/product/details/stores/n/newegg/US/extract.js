@@ -18,8 +18,67 @@ module.exports = {
     // const { transform } = parameters;
     const { cleanUp } = parameters;
     const { productDetails } = dependencies;
+    const applyScroll = async function (context) {
+      await context.evaluate(async function () {
+        let scrollTop = 0;
+        while (scrollTop !== 20000) {
+          scrollTop += 400;
+          window.scroll(0, scrollTop);
+          await stall(1000);
+        }
+        function stall(ms) {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve();
+            }, ms);
+          });
+        }
+      });
+    };
+    await context.evaluate(async function (context) {
+      const seeAllSelector = document.querySelector('[class="top-country-bottom"]>button');
+      if (seeAllSelector) {
+        seeAllSelector.click();
+      }
+    });
+    await context.evaluate(async function (context) {
+      const seeAllSelector1 = document.querySelector('[id="popup"]>a');
+      if (seeAllSelector1) {
+        seeAllSelector1.click();
+      }
+    });
+    await applyScroll(context);
     await context.evaluate(async () => {
-      function addHiddenDiv (id, content) {
+      function addElementToDocument(key, value) {
+        const catElement = document.createElement('div');
+        catElement.id = key;
+        catElement.textContent = value;
+        catElement.style.display = 'none';
+        document.body.appendChild(catElement);
+      }
+      const enhancedContent = document.querySelector('div[class*="syndi_powerpage"]');
+      if (enhancedContent) {
+        const witbData = Array.from([...enhancedContent.shadowRoot.querySelectorAll('[class="syndigo-widget-section-header"]')].find(elm => elm.innerText.match(/in the box/i)).nextElementSibling.querySelectorAll('[class="syndigo-featureset-feature"]'))
+        witbData.forEach(element => {
+          element.querySelector('h3') && addElementToDocument('witbText', element.querySelector('h3').innerText);
+          element.querySelector('img') && addElementToDocument('witbImg', element.querySelector('img').src);
+        });
+      }
+      const comparisonTable = document.querySelector('div[class*="syndi_powerpage"]');
+      if (comparisonTable) {
+        const witbData1 = [...comparisonTable.shadowRoot.querySelectorAll('div[class="syndi_powerpage"] div[class*="syndigo"]')]
+        witbData1.forEach(element => {
+          element.querySelector('h2[class="syndigo-widget-section-header"]') && addElementToDocument('witbTable', element.querySelector('h2[class="syndigo-widget-section-header"]').innerText);
+        });
+      }
+      // const expandDataT = document.querySelector('div[id="wc-power-page"]');
+      // var finalValue;
+      // if (expandDataT.querySelector('h2').innerText.match(/Comparison Chart/i)) {
+      //   finalValue = "Yes";
+      // }
+      // addElementToDocument('elementDataT', finalValue);
+
+      function addHiddenDiv(id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
@@ -52,13 +111,13 @@ module.exports = {
       // //  heads= ele.innerHTML + specification.join(' || ');
       // // });
       // }
-      function extractContent (s) {
+      function extractContent(s) {
         var span = document.createElement('span');
         span.innerHTML = s;
         return span.textContent || span.innerText;
       };
 
-      function replaceLi (string, search, replace) {
+      function replaceLi(string, search, replace) {
         return string.split(search).join(replace);
       }
 
@@ -109,6 +168,7 @@ module.exports = {
       // .join('||'));
       // addHiddenDiv('bulletInfo', bulletInfo);
     });
+
     // return await context.extract(productDetails);
     return await context.extract(productDetails, { cleanUp });
     // await context.extract(productDetails);
