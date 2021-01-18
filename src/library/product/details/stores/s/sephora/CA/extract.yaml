@@ -4,11 +4,11 @@ recordSelector: null
 recordXPath: /html/body
 fields:
   - name: image
-    xpath: //div[@class="css-1axb2kt"]/div/div[@class="css-1juuxmf"]//img/@src
+    xpath: //div[@class="css-1axb2kt"]/div/div[@class="css-1juuxmf"]//div[@id="tabItem_p18_1_0"]//img/@src
   - name: imageAlt
-    xpath: //div[@class="css-1axb2kt"]/div/div[@class="css-1juuxmf"]//img/@alt
+    xpath: //div[@class="css-1axb2kt"]/div/div[@class="css-1juuxmf"]//div[@id="tabItem_p18_1_0"]//img/@alt
   - name: alternateImages
-    xpath: //div[@class="css-1axb2kt"]/div/div[@class="css-1juuxmf"]//img/@src
+    xpath: //div[@class="css-1axb2kt"]/div/div[@class="css-1juuxmf"]//div[contains(@id,"tabItem_p18_1") and position()>1]//img/@src
   - name: category
     xpath: //nav[@aria-label="Breadcrumbs"]/ol/li/a
   - name: nameExtended

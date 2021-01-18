@@ -44,7 +44,7 @@ const transform = (data) => {
             if(skuArr.length>1){
               skuStr=skuArr[0];
             }
-            fstImg="https://www.sephora.com"+item.text;
+            fstImg="https://www.sephora.com"+item.text.replace('?imwidth=60','?imwidth=1000');
           }
         });
         row.image=[{"text":fstImg}];
@@ -60,19 +60,9 @@ const transform = (data) => {
         row.imageAlt=[{"text":fstImgAlt}];
       }
       if(row.alternateImages){
-        let tmpF=true;
         row.alternateImages.forEach(item=>{
-          if(tmpF==true){
-            tmpF=false
-          }else{
-            var nPos = item.text.indexOf("?imwidth=300");
-            if(nPos!=-1){
-              let tmpD={"text":"https://www.sephora.com"+item.text};
-              restImg.push(tmpD);
-            }
-          }
+          item.text="https://www.sephora.com"+item.text.replace('?imwidth=60','?imwidth=1000');
         })
-        row.alternateImages=restImg;
       }   
       let brnd='';  
       if(row.brandText){
