@@ -57,6 +57,7 @@ module.exports = {
       data.url = window.location.href;
       const upcMatch = document.evaluate('//script[contains(text(),\'"ean"\')]', document, null, XPathResult.STRING_TYPE, null).stringValue.match(/"ean":"(.*?)"/);
       if (upcMatch && upcMatch.length) data.upc = upcMatch[1];
+      data.description = document.evaluate('concat(//dl[@class="product-details"],//article[contains(@class,"description")])', document, null, XPathResult.STRING_TYPE, null).stringValue.replace(/\n|montrer plus/g, ' ').replace(/\s+/g, ' ').trim();
       appendData(data);
     });
     await context.extract(productDetails, { transform });

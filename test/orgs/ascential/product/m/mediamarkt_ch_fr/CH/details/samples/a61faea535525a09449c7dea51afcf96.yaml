@@ -2,7 +2,7 @@ input:
   id: 1056734
   _url: http://mediamarkt.ch
 extractions:
-  - html: https://workbench.import.io/html/run=abc434ab-70a6-4c85-a19d-0350df88b2e5/task=8d411ceb-aec2-41ca-8856-e872cbf1eda2/cfad398d-7cef-48d2-9c20-cc6feb475b1d.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=7d82f670-054e-4e7a-bed6-d16d25fe4221/task=2cd9440b-d5fc-4cdc-ab3c-8eb672191fc3/3eae5512-8333-4374-893f-70babc32a430.html
     extractionConfigId: product/details/stores/m/mediamarkt_ch_fr/CH/extract
     data:
       - group:
@@ -16,10 +16,6 @@ extractions:
             nameExtended:
               - text: NESCAFÉ Dolce Gusto Lungo Capsules de café
                 xpath: /html/body/div[2]/div[2]/div[1]/h1[1]
-            description:
-              - text: Caffè Lungo est un espresso allongé à l’arôme intense et à la mousse de
-                  café raffinée.
-                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[5]/article[1]/p[1]
             brandText:
               - text: NESCAFÉ
                 xpath: /html/body/div[2]/div[2]/div[1]/div[1]/meta[1]/@content
@@ -121,7 +117,15 @@ extractions:
             gtin:
               - text: "7613037882636"
                 xpath: /html/body/div[24]
+            description:
+              - text: "Système approprié: Nescafé Dolce Gusto Genre: Lungo Tranchage: 1 capsule
+                  Unité d’emballage: 16 capsules Saveurs: - Type de produit:
+                  Capsules de café systèmes adaptés: NESCAFÉ® Dolce Gusto®
+                  Description de l’article pour NESCAFÉ Dolce Gusto Lungo -
+                  Capsules de café Caffè Lungo est un espresso allongé à l’arôme
+                  intense et à la mousse de café raffinée."
+                xpath: /html/body/div[25]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html/body
-    timestamp: 1610619379627
+    timestamp: 1610970485026

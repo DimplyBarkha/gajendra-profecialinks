@@ -2,7 +2,7 @@ input:
   id: 1077929
   _url: http://mediamarkt.ch
 extractions:
-  - html: https://workbench.import.io/html/run=abc434ab-70a6-4c85-a19d-0350df88b2e5/task=e1b5f184-5525-4fa0-8885-e9b856d1b100/2fa9d23c-8434-439d-85dc-05b712562cc8.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=7d82f670-054e-4e7a-bed6-d16d25fe4221/task=c8833659-d85e-4372-b03f-0ef1b017c0fb/d6aa79aa-4f73-4806-9c35-30228758644b.html
     extractionConfigId: product/details/stores/m/mediamarkt_ch_fr/CH/extract
     data:
       - group:
@@ -16,10 +16,6 @@ extractions:
             nameExtended:
               - text: NESCAFÉ Dolce Gusto Chococino Capsules cacao
                 xpath: /html/body/div[2]/div[2]/div[1]/h1[1]
-            description:
-              - text: Succombez à la gourmandise de Chococino®, notre chocolat chaud au puissant
-                  arôme de cacao adouci par une délicate mousse de lait.
-                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[5]/article[1]/p[1]
             brandText:
               - text: NESCAFÉ
                 xpath: /html/body/div[2]/div[2]/div[1]/div[1]/meta[1]/@content
@@ -121,7 +117,16 @@ extractions:
             gtin:
               - text: "7613035690639"
                 xpath: /html/body/div[24]
+            description:
+              - text: "Système approprié: Nescafé Dolce Gusto Genre: Chococino® Tranchage: 1
+                  capsule Unité d’emballage: 2x 8 capsules Saveurs: - Type de
+                  produit: Capsules cacao systèmes adaptés: NESCAFÉ® Dolce
+                  Gusto® Description de l’article pour NESCAFÉ Dolce Gusto
+                  Chococino - Capsules cacao Succombez à la gourmandise de
+                  Chococino®, notre chocolat chaud au puissant arôme de cacao
+                  adouci par une délicate mousse de lait."
+                xpath: /html/body/div[25]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html/body
-    timestamp: 1610619381968
+    timestamp: 1610970486753

@@ -2,7 +2,7 @@ input:
   id: 1231849
   _url: http://mediamarkt.ch
 extractions:
-  - html: https://workbench.import.io/html/run=abc434ab-70a6-4c85-a19d-0350df88b2e5/task=5bb8c684-ac7a-4797-86ef-f1a12cac1d96/def8a1aa-2ebf-4891-9bf0-5967eb0abc56.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=7d82f670-054e-4e7a-bed6-d16d25fe4221/task=b5d6f4d0-516e-4d7d-8cd3-526cd833d629/1c23b0f0-f95a-4fa8-80c9-b767899e55fe.html
     extractionConfigId: product/details/stores/m/mediamarkt_ch_fr/CH/extract
     data:
       - group:
@@ -16,11 +16,6 @@ extractions:
             nameExtended:
               - text: NESCAFÉ Dolce Gusto Cortado Espresso Macchiato Capsules de café
                 xpath: /html/body/div[2]/div[2]/div[1]/h1[1]
-            description:
-              - text: "Un Espresso corsé et intense avec une pointe de lait, surmonté d’une
-                  crema onctueuse : le tout réuni en une seule capsule. Si
-                  pratique et si bon ! Aussi disponible sans caféine."
-                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[5]/article[1]/p[1]
             brandText:
               - text: NESCAFÉ
                 xpath: /html/body/div[2]/div[2]/div[1]/div[1]/meta[1]/@content
@@ -115,7 +110,18 @@ extractions:
             gtin:
               - text: "7613032396350"
                 xpath: /html/body/div[23]
+            description:
+              - text: "Système approprié: Nescafé Dolce Gusto Genre: - Tranchage: 1 capsule
+                  Unité d’emballage: 16 capsules Saveurs: Cortado Espresso
+                  Macchiato Type de produit: Capsules de café Caractéristiques
+                  spécifiques: Pour 16 tasses Description de l’article pour
+                  NESCAFÉ Dolce Gusto Cortado Espresso Macchiato - Capsules de
+                  café Un Espresso corsé et intense avec une pointe de lait,
+                  surmonté d’une crema onctueuse : le tout réuni en une seule
+                  capsule. Si pratique et si bon ! Aussi disponible sans
+                  caféine."
+                xpath: /html/body/div[24]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html/body
-    timestamp: 1610619386652
+    timestamp: 1610970489409

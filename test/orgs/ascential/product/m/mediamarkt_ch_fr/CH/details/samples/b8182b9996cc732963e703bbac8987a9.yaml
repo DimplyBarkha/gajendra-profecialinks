@@ -2,7 +2,7 @@ input:
   id: 1422442
   _url: http://mediamarkt.ch
 extractions:
-  - html: https://workbench.import.io/html/run=abc434ab-70a6-4c85-a19d-0350df88b2e5/task=b26594df-315b-4c18-9674-0746f0f43edd/f12e313c-8b99-40fd-bea1-1df8a9df8ae4.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=7d82f670-054e-4e7a-bed6-d16d25fe4221/task=f9f1ea51-8e5d-4b24-a8b4-85fd973fc8f1/c313a498-dbc3-45e7-afde-c0505c391484.html
     extractionConfigId: product/details/stores/m/mediamarkt_ch_fr/CH/extract
     data:
       - group:
@@ -17,11 +17,6 @@ extractions:
               - text: DE-LONGHI NESCAFÉ Dolce Gusto Mini Me Starter Kit Machine à capsule
                   (Blanc/noir)
                 xpath: /html/body/div[2]/div[2]/div[1]/h1[1]
-            description:
-              - text: « Bien plus qu’un café! Aromatique caffè lungo, latte macchiato crémeux,
-                  espresso vigoureux ou délicieux chococino-NESCAFÉ Dolce Gusto
-                  garantit la variété des plaisirs à la maison ».
-                xpath: /html/body/div[2]/div[2]/div[5]/div[1]/div[5]/article[1]/p[1]
             brandText:
               - text: DE-LONGHI
                 xpath: /html/body/div[2]/div[2]/div[1]/div[1]/meta[1]/@content
@@ -77,7 +72,18 @@ extractions:
             gtin:
               - text: "8004399328624"
                 xpath: /html/body/div[21]
+            description:
+              - text: "Type de produit: Machine à capsule Système à dosettes / capsules: Oui
+                  Système approprié: Nescafé Dolce Gusto Puissance maximale:
+                  1450 W Alimentation en eau: réservoir d'eau interne Capacité
+                  réservoir d’eau: 800 ml Classe d’efficacité énergétique: A+
+                  Description de l’article pour DE-LONGHI NESCAFÉ Dolce Gusto
+                  Mini Me Starter Kit - Machine à capsule (Blanc/noir) « Bien
+                  plus qu’un café! Aromatique caffè lungo, latte macchiato
+                  crémeux, espresso vigoureux ou délicieux chococino-NESCAFÉ
+                  Dolce Gusto garantit la variété des plaisirs à la maison »."
+                xpath: /html/body/div[22]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html/body
-    timestamp: 1610619382339
+    timestamp: 1610970486805
