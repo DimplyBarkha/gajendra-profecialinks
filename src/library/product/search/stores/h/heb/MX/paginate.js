@@ -11,7 +11,8 @@ module.exports = {
     noResultsXPath: null,
     resultsDivSelector: null,
     openSearchDefinition: {
-      template: 'https://www.heb.com.mx/catalogsearch/result/index/?p=page&q={searchTerms}',
+      pageStartNb: 1,
+      template: 'https://www.heb.com.mx/catalogsearch/result/index/?p={page}&q={searchTerms}',
       },
     domain: 'heb.com',
     zipcode: '',
