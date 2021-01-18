@@ -127,8 +127,5 @@ fields:
     xpath: //div[contains(@id, "enhanced-content")]//div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")]
   - name: hasComparisonTable
     xpath: //body/@import-comparision-table
-    regExp: (.+)
-    regExpReplace: Yes
-    defaultValue: No
   - name: unInterruptedPDP
     xpath: //h2[contains(text(),'Quem comprou esta máquina, também comprou')]/parent::header/following-sibling::div[1]//h3 | //import-updp
