@@ -46,7 +46,7 @@ module.exports = {
           data[k].group[i].aggregateRating[0].text = data[k].group[i].aggregateRating[0].text.replace('.', ',');
         }
         if ('availabilityText' in data[k].group[i]) {
-          if (data[k].group[i].availabilityText[0].text !== 'Out of Stock') {
+          if (data[k].group[i].availabilityText[0].text !== 'Out Of Stock') {
             data[k].group[i].availabilityText[0].text = 'In Stock';
           }
         }
