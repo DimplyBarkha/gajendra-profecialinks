@@ -128,4 +128,7 @@ fields:
   - name: inTheBoxUrl
     xpath: //table//tr//@inboxurl
   - name: hasComparisonTable
-    xpath: //table[@class="product-comparison-table"]//tr
+    xpath: //div[contains(@class,"product-comparison-body")]/../div[contains(@class,"title")]
+    defaultValue: No
+    regExp: (.+)
+    regExpReplace: 'Yes'
