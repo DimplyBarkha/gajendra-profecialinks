@@ -44,7 +44,7 @@ async function implementation (
   await applyScroll(context);
   await context.evaluate(async function () {
     try {
-      const iframeUrl = document.querySelector('div[data-flix-embed-meta="main_video"] iframe').getAttribute('src');
+      const iframeUrl = document.querySelector('div[data-flix-embed-meta="main_video"] iframe') && document.querySelector('div[data-flix-embed-meta="main_video"] iframe').getAttribute('src');
       console.log(iframeUrl);
       const tmpData = document.createElement('div');
       tmpData.setAttribute('id', 'iframe_video_url');
