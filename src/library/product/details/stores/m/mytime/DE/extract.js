@@ -42,6 +42,9 @@ module.exports = {
         });
         addElementToDocument('allergy', allergyText.join(' ').split('\n\n').join(' '));
       }
+      const promotion = document.querySelector('aside[class="product-promo"]');
+      // @ts-ignore
+      if (promotion !== null) promotion.setAttribute('promotion', promotion.innerText.split('\n').join(' '));
 
       const desc = document.querySelector('li#tab-details > div');
       // @ts-ignore
