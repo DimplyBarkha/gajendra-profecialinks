@@ -27,7 +27,10 @@ module.exports = {
       }
       await context.evaluate(
         async ({ i, variantsTotal }) => {
-          const addMinMax = (snapshot, nodeName) => {
+          const addMinMax = (snapshot, nodeName, variantElem) => {
+            const numbersArr = [];
+            const uomArr = [];
+
             const list = document.createElement('ol');
             list.id = nodeName;
             list.style.display = 'none';
@@ -35,49 +38,40 @@ module.exports = {
             for (let i = 0; i < snapshot.snapshotLength; i++) {
               const row = snapshot.snapshotItem(i);
               if (!(row && nodeName)) return;
+              let minMatch, maxMatch;
               const regexp = /([\d,.]+) ?([a-zA-Z/]+)/;
 
-              if (row.childNodes.length >= 2) {
-                let min, minUom, max, maxUom;
-                const firstElem = row.firstChild;
-                let secondElem = row.childNodes[1];
-                if (row.childNodes.length > 2) {
-                  secondElem = Array.from(row.childNodes).find(
+              if (row.children.length >= 2) {
+                const firstElem = row.firstElementChild;
+                let secondElem = row.lastElementChild;
+                if (row.children.length > 2) {
+                  secondElem = Array.from(row.children).find(
                     (node, index) => !node.textContent.includes('%') && index > 0,
                   );
                 }
-
                 const hasMin = firstElem.textContent.toLowerCase().includes('mín');
                 const hasMax = firstElem.textContent.toLowerCase().includes('máx');
                 if (hasMin && hasMax) {
                   const valuesArr = secondElem.textContent.split(' / ');
                   if (valuesArr.length === 2) {
-                    const minMatch = valuesArr[0].match(regexp);
-                    const maxMatch = valuesArr[1].match(regexp);
-                    min = minMatch ? minMatch[1] : '';
-                    minUom = minMatch ? minMatch[2] : '';
-                    max = maxMatch ? maxMatch[1] : '';
-                    maxUom = maxMatch ? maxMatch[2] : '';
+                    minMatch = valuesArr[0].match(regexp);
+                    maxMatch = valuesArr[1].match(regexp);
                   }
                 } else if (hasMin || hasMax) {
-                  const minMatch = secondElem.textContent.match(regexp);
-                  if (minMatch) {
-                    min = minMatch[1];
-                    minUom = minMatch[2];
-                  }
-                }
-                const listItem = document.createElement('li');
-                listItem.setAttribute('value', min);
-                listItem.setAttribute('uom', minUom);
-                list.appendChild(listItem);
-                if (max && maxUom) {
-                  const listItem = document.createElement('li');
-                  listItem.setAttribute('value', max);
-                  listItem.setAttribute('uom', maxUom);
-                  list.appendChild(listItem);
+                  minMatch = secondElem.textContent.match(regexp);
                 }
               }
+              if (minMatch) {
+                numbersArr.push(minMatch[1]);
+                uomArr.push(minMatch[2]);
+              }
+              if (maxMatch) {
+                numbersArr.push(maxMatch[1]);
+                uomArr.push(maxMatch[2]);
+              }
             }
+            variantElem.setAttribute(`${nodeName}_value`, numbersArr.join(' || '));
+            variantElem.setAttribute(`${nodeName}_uom`, uomArr.join(' || '));
           };
 
           const variantElem = document.querySelectorAll('div.box-variants label.radio-button-item > div')[i];
@@ -137,9 +131,9 @@ module.exports = {
             ? document.querySelector('div.product-resume').innerText.split('\n')
             : [];
           descriptionArr = descriptionArr.filter((item) => !!item);
-          descriptionArr = descriptionArr.map((item) => item.replace(/^\s*-\s*/, ''));
+          descriptionArr = descriptionArr.map((item) => item.replace(/^\s*-\s*/, '').replace('\n', ' '));
           variantElem.setAttribute('description_bullets', descriptionArr.length);
-          variantElem.setAttribute('description', descriptionArr.join(' || '));
+          variantElem.setAttribute('description', descriptionArr.join(' '));
 
           const unavailableLabel = document.querySelector('div.label-stock.unavailable');
           const remindButton = document.querySelector('div#reminder-area:not(.hidden) button#btn-reminder');
@@ -183,8 +177,8 @@ module.exports = {
             null,
           );
 
-          addMinMax(calciumSnapshot, 'calcium');
-          addMinMax(fibreSnapshot, 'fibre');
+          addMinMax(calciumSnapshot, 'calcium', variantElem);
+          addMinMax(fibreSnapshot, 'fibre', variantElem);
 
           variantElem.setAttribute('product_url', window.location.href.match(/(.+\/p)(\?.*)?/)[1]);
           variantElem.setAttribute('product_name', name);

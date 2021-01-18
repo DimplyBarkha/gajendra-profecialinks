@@ -2,7 +2,7 @@ input:
   id: 3100940
   _url: http://petlove.com.br
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=6573641b-a8f9-483e-a92b-4c519a2dbd85/task=bc6ae8c0-8d18-4dd8-9d09-4edc97d7bca9/6f89612a-06b0-4f63-86fb-cdfb76f5d803.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=aba7acbf-618b-4905-b736-f7db7ec325e1/task=7fc6b3ab-a930-4195-a48d-a58eee5421a3/3e679dc4-7fe4-43f8-a569-3ba63f3d10c8.html
     extractionConfigId: product/details/stores/p/petlove/BR/extract
     data:
       - group:
@@ -36,9 +36,9 @@ extractions:
               - text: R$5,99
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@price
             description:
-              - text: Petisco para toda hora; || Rende mais de 20 dias (*3 pedacinhos por dia);
-                  || Pedacinhos crocantes por fora, macios por dentro; ||
-                  Diversão e mais momentos junto com seu gatinho.
+              - text: Petisco para toda hora; Rende mais de 20 dias (*3 pedacinhos por dia);
+                  Pedacinhos crocantes por fora, macios por dentro; Diversão e
+                  mais momentos junto com seu gatinho.
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@description
             descriptionBullets:
               - text: "4"
@@ -84,20 +84,16 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@ingredients
             dietaryFibrePerServing:
               - text: "40"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[4]/li[1]/@value
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@fibre_value
             dietaryFibrePerServingUom:
               - text: g/kg
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[4]/li[1]/@uom
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@fibre_uom
             calciumPerServing:
-              - text: "6000"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[3]/li[1]/@value
-              - text: "12"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[3]/li[2]/@value
+              - text: 6000 || 12
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@calcium_value
             calciumPerServingUom:
-              - text: mg/kg
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[3]/li[1]/@uom
-              - text: g/kg
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[3]/li[2]/@uom
+              - text: mg/kg || g/kg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@calcium_uom
             variants:
               - text: "3100940"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/input[1]/@id
@@ -148,4 +144,4 @@ extractions:
             availabilityText:
               - text: In stock
         xpath: /html
-    timestamp: 1610704025176
+    timestamp: 1610965551289

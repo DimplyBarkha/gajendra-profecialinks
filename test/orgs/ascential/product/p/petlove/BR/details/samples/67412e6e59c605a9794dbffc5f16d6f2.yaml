@@ -2,7 +2,7 @@ input:
   id: 2154518
   _url: http://petlove.com.br
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=6573641b-a8f9-483e-a92b-4c519a2dbd85/task=5aa3b12f-184c-4d45-be96-ae2638ba709d/9692ae7c-874f-49ce-85be-63a3680a9f14.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=aba7acbf-618b-4905-b736-f7db7ec325e1/task=88c52677-9b16-47b3-9064-deb1f0684c44/cc467390-747b-4151-9297-2f9f4b009647.html
     extractionConfigId: product/details/stores/p/petlove/BR/extract
     data:
       - group:
@@ -25,9 +25,9 @@ extractions:
               - text: R$17,46
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@price
             description:
-              - text: "Com vitaminas e minerais; || Alfafa, fontes de fibras essenciais; ||
-                  Alimento extrusado; || Fecho Zip: abre para servir e fecha
-                  para conservar."
+              - text: "Com vitaminas e minerais; Alfafa, fontes de fibras essenciais; Alimento
+                  extrusado; Fecho Zip: abre para servir e fecha para
+                  conservar."
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@description
             descriptionBullets:
               - text: "4"
@@ -78,20 +78,16 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@ingredients
             dietaryFibrePerServing:
               - text: "165"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[4]/li[1]/@value
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@fibre_value
             dietaryFibrePerServingUom:
               - text: g/kg
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[4]/li[1]/@uom
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@fibre_uom
             calciumPerServing:
-              - text: "11"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[3]/li[1]/@value
-              - text: "21"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[3]/li[2]/@value
+              - text: 11 || 21
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@calcium_value
             calciumPerServingUom:
-              - text: g/kg
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[3]/li[1]/@uom
-              - text: g/kg
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[3]/li[2]/@uom
+              - text: g/kg || g/kg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@calcium_uom
             variants:
               - text: "2154515"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/input[1]/@id
@@ -166,9 +162,9 @@ extractions:
               - text: Out Of Stock
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@availability_text
             description:
-              - text: "Com vitaminas e minerais; || Alfafa, fontes de fibras essenciais; ||
-                  Alimento extrusado; || Fecho Zip: abre para servir e fecha
-                  para conservar."
+              - text: "Com vitaminas e minerais; Alfafa, fontes de fibras essenciais; Alimento
+                  extrusado; Fecho Zip: abre para servir e fecha para
+                  conservar."
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@description
             descriptionBullets:
               - text: "4"
@@ -216,20 +212,16 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@ingredients
             dietaryFibrePerServing:
               - text: "165"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/ol[4]/li[1]/@value
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@fibre_value
             dietaryFibrePerServingUom:
               - text: g/kg
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/ol[4]/li[1]/@uom
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@fibre_uom
             calciumPerServing:
-              - text: "11"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/ol[3]/li[1]/@value
-              - text: "21"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/ol[3]/li[2]/@value
+              - text: 11 || 21
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@calcium_value
             calciumPerServingUom:
-              - text: g/kg
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/ol[3]/li[1]/@uom
-              - text: g/kg
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/ol[3]/li[2]/@uom
+              - text: g/kg || g/kg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@calcium_uom
             variants:
               - text: "2154518"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/input[1]/@id
@@ -281,4 +273,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1610704032074
+    timestamp: 1610965550358

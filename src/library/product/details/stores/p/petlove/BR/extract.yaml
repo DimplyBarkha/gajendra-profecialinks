@@ -338,16 +338,12 @@ fields:
 - name: dietaryFibrePerServing
   description: Nutritional Information for Dietary Fibre content - Usually based on
     per 100g serving
-  # xpath: ancestor::html//tr//tr[td[contains(text(), "Fibrosa")]]
-  # regExp: ([\d,.]+) ?([a-zA-Z]+)
-  # regExpReplace: $1
-  xpath: //ol[@id="fibre"]/li/@value
+  singleValue: true
+  xpath: //@fibre_value
 - name: dietaryFibrePerServingUom
+  singleValue: true
   description: Unit of Measure Data for Dietary Fibre content
-  # xpath: ancestor::html//tr//tr[td[contains(text(), "Fibrosa")]]
-  # regExp: ([\d,.]+) ?([a-zA-Z]+)
-  # regExpReplace: $2
-  xpath: //ol[@id="fibre"]/li/@uom
+  xpath: //@fibre_uom
 - name: totalSugarsPerServing
   singleValue: true
   description: Nutritional Information for Total Sugar content - Usually based on
@@ -391,16 +387,12 @@ fields:
 - name: calciumPerServing
   description: Nutritional Information for Calcium content - Usually based on per
     100g serving
-  # xpath: ancestor::html//tr//tr[td[contains(text(), "Cálcio")]]
-  # regExp: ([\d,.]+) ?([a-zA-Z]+)
-  # regExpReplace: $1
-  xpath: //ol[@id="calcium"]/li/@value
+  singleValue: true
+  xpath: //@calcium_value
 - name: calciumPerServingUom
   description: Unit of Measure Data for Calcium
-  # xpath: ancestor::html//tr//tr[td[contains(text(), "Cálcio")]]
-  # regExp: ([\d,.]+) ?([a-zA-Z]+)
-  # regExpReplace: $2
-  xpath: //ol[@id="calcium"]/li/@uom
+  singleValue: true
+  xpath: //@calcium_uom
 - name: ironPerServing
   description: Nutritional Information for Iron content - Usually based on per 100g
     serving
