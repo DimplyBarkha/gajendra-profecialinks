@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'NL',
     store: 'iciparisxl',
-    nextLinkSelector: 'li.next',
+    nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'section.product-grid',
