@@ -17,6 +17,16 @@ async function implementation (
       document.body.appendChild(newDiv);
     }
 
+    try {
+      const updp = document.querySelector('div.tab-menu--cross-selling');
+      const updpStyle = updp ? window.getComputedStyle(updp, null).getPropertyValue('display') : null;
+      if (updpStyle === 'none') {
+        updp.remove();
+      }
+    } catch (error) {
+      console.log(`ERROR: ${error}`);
+    }
+
     let dirToUse = document.evaluate('//div[contains(@class, "product--description")]//p[(strong|strong/span)[contains(text(),\'Directions of use\')]]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE)
       .singleNodeValue;
     dirToUse = dirToUse ? dirToUse.nextElementSibling : '';

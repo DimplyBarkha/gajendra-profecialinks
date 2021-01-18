@@ -5,7 +5,7 @@ module.exports = {
     store: 'perfecthair',
     domain: 'perfecthair.ch',
     loadedSelector: 'div[class *="product--image-container"] img',
-    noResultsXPath: null,
+    noResultsXPath: '//h1[@class="detail-error--headline"]',
     zipcode: '',
   }
 };
