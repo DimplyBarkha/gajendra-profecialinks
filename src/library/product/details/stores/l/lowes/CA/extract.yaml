@@ -23,7 +23,7 @@ fields:
     xpath: //meta[contains(@name, "keywords")]/@content
   - name: category
     singleValue: false
-    xpath: (//*[contains(@class,'breadcrumb')]//li)[position()<last()]
+    xpath: (//*[contains(@class,'breadcrumb')]//li//a)
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: false
