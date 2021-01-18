@@ -8,7 +8,7 @@ const transform = (data, context) => {
     .replace(/"\s{1,}/g, '"')
     .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
-  // eslint-disable-next-line no-control-regex
+    // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ')
     .trim();
@@ -70,17 +70,60 @@ async function implementation (
       .catch(() => console.log('On last page'));
   }
 
+  const prodObj = await context.evaluate(() => {
+    try {
+      if (document.querySelector('div#wayfinding-breadcrumbs_container a')) {
+        let productFamily = '';
+        let productRange = '';
+        const nav = document.querySelectorAll('div#wayfinding-breadcrumbs_container a');
+        nav.forEach(item => {
+          productFamily += ' > ' + item.innerText;
+        });
+        productFamily = (productFamily[1] === '>') ? productFamily.substr(2).trim() : productFamily.trim();
+        productRange = document.querySelector('div#wayfinding-breadcrumbs_container li:nth-child(5) a').innerText;
+        return { productFamily: productFamily, productRange: productRange };
+      }
+    } catch (e) {
+      console.log('error while getting breadcrumb');
+    }
+  });
+
   if (!onReviewsPage) {
-    // await context.clickAndWaitForNavigation('a[data-hook="see-all-reviews-link-foot"]', { timeout: 15000 }, { waitUntil: 'load' });
     const reviewSuffix = await context.evaluate(() => {
-      return document.querySelector('a[data-hook="see-all-reviews-link-foot"]').getAttribute('href');
+      let reviewURL = '';
+      if (document.querySelector('a[data-hook="see-all-reviews-link-foot"]')) {
+        reviewURL = document.querySelector('a[data-hook="see-all-reviews-link-foot"]').getAttribute('href');
+      }
+      return reviewURL;
     });
-    await context.goto(`https://www.amazon.de${reviewSuffix}`, { timeout: 20000, waitUntil: 'load' });
+    if (reviewSuffix) {
+      await context.goto(`https://www.amazon.de${reviewSuffix}`, { timeout: 20000, waitUntil: 'load' });
+    } else {
+      await context.evaluate(() => {
+        const newDiv = document.createElement('div');
+        newDiv.id = 'no_reviews';
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      });
+    }
   }
 
-  const data = await context.extract(productReviews, { transform });
+  await context.evaluate((prodObj) => {
+    try {
+      if (prodObj && prodObj.productFamily) {
+        const newDiv = document.createElement('div');
+        newDiv.id = 'custom_details';
+        newDiv.setAttribute('productFamily', prodObj.productFamily);
+        newDiv.setAttribute('productRange', prodObj.productRange);
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+    } catch (e) {
+      console.log('error with breadcrumb');
+    }
+  }, prodObj);
 
-  return data;
+  return await context.extract(productReviews, { transform });
 }
 
 module.exports = {
