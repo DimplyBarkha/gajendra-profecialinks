@@ -4,17 +4,15 @@ module.exports = {
   parameterValues: {
     country: 'ae',
     store: 'choithrams',
-    nextLinkSelector: 'li[class="next"]',
-    // 'li[class="next"]',
+    nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div[class="small-product-box"]',
-    // 'div[class="small-product-box"]',
-    noResultsXPath: null,
+    loadedSelector: 'section[class="products-list"]',
+    noResultsXPath: '//section[@class="products-list"]//div[contains(.,"No products")]',
     openSearchDefinition:
-    // null,
      {
-       template: 'https://www.choithrams.com/en/shop/search/?q={searchTerms}?page={page}',
+       offset: 0,
+       template: 'https://www.choithrams.com/search/?q={searchTerms}&page={page}',
      },
     domain: 'choithrams.com',
     zipcode: '',

@@ -8,7 +8,7 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  await context.waitForSelector('div[class="product-image"] img', {}, { timeout: 5000000 });
+  await context.waitForSelector('.product-img img');
   await context.evaluate(async function () {
     // function addHiddenDiv (id, content) { div[class="product-image"] img'
     //   const newDiv = document.createElement('div');

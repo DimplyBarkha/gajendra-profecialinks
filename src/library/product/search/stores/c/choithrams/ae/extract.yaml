@@ -1,33 +1,23 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: 
-  # //div[@class='small-product-box']
-  # //div[@id='added_row']
+recordXPath: null
 fields:
 - name: price
   singleValue: false
-  xpath: //div[@id='price']
-    # //div[@id='price']
-    # //div[@class='price']//span[1]
+  xpath: //div[@class="product-price"]
 - name: name
   singleValue: false
-  xpath: //div[@id='name']
+  xpath: //p[contains(@class,'excerpt')]
 - name: productUrl
   singleValue: false
-  xpath: //div[@id='productUrl']
-#   regExp: (.+)
-#   regExpReplace: https://www.choithrams.com$1
+  xpath: //div[@class="product-img"]/a/@href
+  regExp: (.+)
+  regExpReplace: https://www.choithrams.com$1
 - name: thumbnail
   singleValue: false
-  xpath: //div[@id='thumbnail']
-#   regExp: (.+)
-#   regExpReplace: https://www.choithrams.com$1
+  xpath: //div[@class="product-img"]//img/@src
 - name: id
   singleValue: false
-  xpath: //div[@id='id']
-    # //div[@id='added_row']/@idMatch
-- name: searchUrl
-  singleValue: false
-  xpath: //div[@id='added-searchurl']
+  xpath: //div[contains(@class,'product-bx')]/@data-product-id
 

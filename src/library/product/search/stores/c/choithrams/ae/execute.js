@@ -6,8 +6,8 @@ module.exports = {
     store: 'choithrams',
     domain: 'choithrams.com',
     url: 'https://www.choithrams.com/search/?q={searchTerms}',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'section[class="products-list"]',
+    noResultsXPath: '//section[@class="products-list"]//div[contains(.,"No products")]',
     zipcode: '',
   },
 };
