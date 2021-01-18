@@ -5,7 +5,7 @@ recordXPath: //section[@class='product-list']//div[contains(@class, 'product gtm
 fields:
   - name: id
     singleValue: false
-    xpath: //div[@class='product-content']//input[@name='productCodePostBase']/@value
+    xpath: //form[contains(@action,'wishlist')]/input/@value
   - name: searchUrl
     singleValue: false
     xpath: (//div[@id='searchurl'])[last()]
