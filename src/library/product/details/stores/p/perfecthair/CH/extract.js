@@ -19,7 +19,7 @@ async function implementation (
 
     let dirToUse = document.evaluate('//div[contains(@class, "product--description")]//p[(strong|strong/span)[contains(text(),\'Directions of use\')]]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE)
       .singleNodeValue;
-    dirToUse = dirToUse.nextElementSibling;
+    dirToUse = dirToUse ? dirToUse.nextElementSibling : '';
     let dirToUseText = '';
     while (dirToUse) {
       if (dirToUse.querySelector('strong')) {
