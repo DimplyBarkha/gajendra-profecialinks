@@ -1,27 +1,25 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //form[@id="products-list"]//table[contains(@class, "list_item")]
+recordXPath: //form[@id="products-list"]//table[contains(@class, "list_item")] | //body[not(//form[@id="products-list"]//table[contains(@class, "list_item")])]
 fields:
   - name: id
     singleValue: false
-    xpath: //span[@class="list_code"]
+    xpath: //span[@class="list_code"] | //tr[@id="prod_code"]/td[text()]
   - name: searchUrl
     singleValue: true
     xpath: ./@searchurl
   - name: name
     singleValue: false
-    xpath: //div[@class="list_self"]/a
+    xpath: //div[@class="list_self"]/a | (//h1[@id="prod_desc"])[position()=1]
   - name: productUrl
     singleValue: false
-    xpath: //div[@class="list_self"]/a/@href
-    regExp: (.+)
-    regExpReplace: https://order.musgravemarketplace.ie$1
+    xpath: //div[@class="list_self"]/a/@href | //body[not(//div[@class="list_self"]/a)]/@searchurl
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
-    xpath: //th[@class="list_img"]//img/@src
+    xpath: //th[@class="list_img"]//img/@src | //div[@id="product_image"]//img[@class="product_img"]/@src
     regExp: (.+)
     regExpReplace: https://order.musgravemarketplace.ie$1
   - name: aggregateRating
