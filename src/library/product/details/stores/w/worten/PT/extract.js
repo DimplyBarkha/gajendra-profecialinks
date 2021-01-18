@@ -286,11 +286,15 @@ module.exports = {
         document.body.appendChild(newEl);
       }
 
-      const comparisionTable = document.evaluate(`//*[contains(text(), "Tabela de comparação")]/../..//ul[@class='flix-comp-list']/li`, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-      document.body.setAttribute(
-        'import-comparision-table',
-        comparisionTable.snapshotLength ? 'Yes' : 'No'
-      );
+      const comparisionTable = document.evaluate(`//div[contains(@class,'flix-comp-h2')][contains(text(), "Tabela de comparação")]/../../div[@class='flix-comp-container']//div[@class='flix-comp-wrapper']/div[last()]`, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+
+      if (comparisionTable.snapshotLength) {
+        document.body.setAttribute(
+          'import-comparision-table',
+          comparisionTable.snapshotItem(0).innerText ? 'Yes' : 'No'
+        );
+      }
+      
     })
 
     await context.extract(productDetails, {
