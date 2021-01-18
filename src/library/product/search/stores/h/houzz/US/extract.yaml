@@ -3,10 +3,6 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: paid
-    singleValue: true
-    description: Whether this is a sponsored/paid result
-    type: BOOLEAN
   - name: brand
     singleValue: true
     description: The brand name
@@ -16,10 +12,6 @@ fields:
     singleValue: true
     description: The URL for the product details page
     xpath: //div[@data-posid]/a[@class="hz-product-card__link"]/@href
-  # - name: input
-  #   singleValue: true
-  #   description: Search keywords
-  #   xpath: (//input[@class="hz-header__search-bar__input"])[2]/@value
   - name: thumbnail
     singleValue: true
     description: The URL for the product thumbnail image
@@ -32,24 +24,7 @@ fields:
     singleValue: true
     description: The store-specific product identifier
     xpath: //a/parent::div[@class="hz-product-card hz-track-me hz-product-card--medium hz-br-container--three-grid hz-product-card__browse-redesign"]/@data-objid
-  - name: mpc
-    singleValue: true
-    description: The model code of the product
-  - name: gtin
-    singleValue: true
-    description: GTIN code (includes UPC/EAN)
-  - name: aggregateRatingText
-    singleValue: true
-    description: The stated aggregate rating
-    xpath: //a/div/div/span[@class="star-rating hz-product-card__review-stars"]/@aria-label
-  - name: ratingCount
-    singleValue: true
-    description: The number of ratings
 
-  - name: reviewCount
-    singleValue: true
-    description: The number of reviews
-    xpath: //a/div/div/span/span[@class="star-rating__review-text"]
   - name: price
     singleValue: true
     description: The offered price for the product
@@ -58,23 +33,7 @@ fields:
     singleValue: true
     description: The stated undiscounted price for the product
     xpath: //a/div/div/div/div[@class="product-prices hz-product-card__prices"]/span/span[@class="hz-product-price hz-product-price--v2 hz-product-price--strikethrough"]/del/span
-  - name: manufacturer
-    singleValue: true
-    description: Product manufacturer
-    xpath: //a/div/div[@class="hz-product-card__meta"]/span[2]/span[@class="hz-color-link__text "]
 
-  - name: soldBy
-    singleValue: true
-    description: The name of the seller of the item (if available)
-  - name: endorsementText
-    singleValue: true
-    description: The text that signifies that a product is endorsed
-  - name: shippingInfo
-    singleValue: true
-    description: Shipping information for the product
-  - name: rank
-    singleValue: true
-    description: search/listing rank
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
@@ -92,10 +51,7 @@ fields:
       The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per extractor)
     xpath: //a/div/div[@class="hz-product-card__meta"]/span[@data-compid="title"]/span
-  - name: aggregateRating
-    singleValue: true
-    description: The stated aggregate rating normalized to be out of 5
-    xpath: //a/div/div/span[@class="star-rating hz-product-card__review-stars"]/@aria-label
+
   - name: searchUrl
     singleValue: false
     xpath: //div[@id="ii_searchURL"]
