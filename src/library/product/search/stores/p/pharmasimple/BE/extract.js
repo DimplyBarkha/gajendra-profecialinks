@@ -5,6 +5,13 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { productDetails } = dependencies;
 
   await new Promise(resolve => setTimeout(resolve, 4000));
+  let isError = await context.evaluate(async () => document.querySelector('body > h1') ? document.querySelector('body > h1').textContent.includes('Error') : false);
+  if (isError) {
+    await context.reload();
+    await new Promise(resolve => setTimeout(resolve, 4000));
+    isError = await context.evaluate(async () => document.querySelector('body > h1') ? document.querySelector('body > h1').textContent.includes('Error') : false);
+    if (isError) throw new Error('Page did not load');
+  }
   await context.evaluate(async () => {
     function addElementToDocument (key, value) {
       const catElement = document.createElement('div');
@@ -32,10 +39,10 @@ async function implementation (inputs, parameters, context, dependencies) {
           console.log('Product id unavailable. Fetching product page to get the id');
           const prodUrl = element.querySelector('a.product-name').getAttribute('href');
           const prodPage = await fetch(prodUrl).then(resp => resp.text());
-          prodId = prodPage.match(/id_product = (\d+)/) ? prodPage.match(/id_product = (\d+)/)[1] : '';
-          console.log(prodId);
+          prodId = prodPage.match(/id_product = (\d+)/) ? prodPage.match(/id_product = (\d+)/)[1] : '-';
         } catch (e) {
           console.log('Error extracting product id');
+          prodId = '-';
         }
       }
       element.setAttribute('added-prod-id', prodId);
