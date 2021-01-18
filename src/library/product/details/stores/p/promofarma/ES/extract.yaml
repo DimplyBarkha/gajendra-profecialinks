@@ -15,7 +15,7 @@ fields:
   xpath: //img[@class="img-fluid"]/@alt
 - name: category
   singleValue: false
-  xpath: //ol[@class='breadcrumb ml-1 ml-md-0 my-1']//li[position() >= 2 and position()<last()]/a/span
+  xpath: //ol[@class='breadcrumb ml-1 ml-md-0 my-1']//li[position() >= 2 and position()<=last()]/a/span
 - name: nameExtended
   singleValue: true
   xpath: //section[@id='productSheetCont']/h1[@class='h3 font-weight-normal px-4 pt-2 mb-3']
