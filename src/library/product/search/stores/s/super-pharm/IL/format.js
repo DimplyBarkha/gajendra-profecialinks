@@ -38,9 +38,12 @@ const transform = (data, context) => {
             })
         }
         if(row.productUrl){
+          let tmpId=[];
           row.productUrl.forEach(item=>{
               item.text="https://shop.super-pharm.co.il"+item.text;
+              tmpId=item.text.split('/').pop().split('.');
           })
+          row.id=[{"text":tmpId[0]}];
         }
         if(row.price){
           let priceStr='';
