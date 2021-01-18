@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="ty-column3"]/div[contains(@class, 'list__item')]
+recordXPath: //div[@class="ty-column3"]/div[contains(@class, 'list__item')][not(@trim)]
 fields:
   - name: id
     singleValue: false
@@ -36,7 +36,6 @@ fields:
     xpath: //span[contains(@class,'ty-price') and contains(@id, 'line')]/@price
   - name: manufacturer
     singleValue: true
-    xpath: //input[contains(@name, '[brand]')]/@value
   - name: soldBy
     singleValue: true
   - name: endorsementText

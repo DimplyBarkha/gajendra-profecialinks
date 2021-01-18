@@ -36,10 +36,20 @@ async function implementation (inputs, parameters, context, dependencies) {
 
     // rank
 
-    if (allProducts !== undefined) {
+    if (allProducts.length !== 0) {
       for (let i = 0; i < allProducts.length; i++) {
         addProp('div[class="ty-column3"] > div[class*="list__item"]', i, 'rankorganic', `${i + 1}`);
       }
+    }
+    const last = allProducts[allProducts.length - 1].getAttribute('rankorganic');
+    if (!searchUrl.includes('&page=2')) {
+      addElementToDocument('itemscount', last);
+    }
+    const rest = 150 - parseInt(last);
+    if (searchUrl.includes('&page=2')) {
+      // @ts-ignore
+      [...allProducts].filter(e => e.getAttribute('rankorganic') > rest)
+        .forEach(e => e.setAttribute('trim', ''));
     }
   });
   await context.evaluate(async function () {
