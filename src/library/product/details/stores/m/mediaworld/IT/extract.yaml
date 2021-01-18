@@ -560,9 +560,9 @@ fields:
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
   - name: inTheBoxUrl
-    xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset | //*[@images]/@images
+    xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset
   - name: inTheBoxText
-    xpath: //div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")] | //*[@text]/@text
+    xpath: //div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")]
   - name: hasComparisonTable
     xpath: //div[contains(text(), "Tavola di comparazione")]
     regExp: (.+)
