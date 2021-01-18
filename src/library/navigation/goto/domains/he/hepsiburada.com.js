@@ -10,9 +10,9 @@ module.exports = {
   implementation: async ({ url }, parameters, context, dependencies) => {
     await new Promise((resolve, reject) => setTimeout(resolve, 30000));
     const timeout = parameters.timeout ? parameters.timeout : 10000;
-    async function getHtml(url) {
+    async function getHtml (url) {
       const element = document.querySelectorAll('div.flix-std-table div.flix-std-content');
-      let inBox = [];
+      const inBox = [];
       if (element) {
         for (let i = 0; i < element.length; i++) {
           inBox.push(element[i].textContent.replace(/\s\s/g, ''));
@@ -21,11 +21,11 @@ module.exports = {
       return inBox;
     }
 
-    async function inBoxUrl(url) {
-      //const inBoxImageSelector = 'div.inpage_selector_InTheBox div.flix-background-image img';
+    async function inBoxUrl (url) {
+      // const inBoxImageSelector = 'div.inpage_selector_InTheBox div.flix-background-image img';
       const element = document.querySelectorAll('div.inpage_selector_InTheBox div.flix-background-image img');
-      //const element = document.querySelectorAll(inBoxImageSelector);
-      let inBox = [];
+      // const element = document.querySelectorAll(inBoxImageSelector);
+      const inBox = [];
       if (element) {
         for (let i = 0; i < element.length; i++) {
           inBox.push(element[i].dataset.flixsrcset.match(/^(\/\/)(.+)(.jpg)(.200w)/)[2]);
@@ -34,7 +34,7 @@ module.exports = {
       return inBox;
     }
 
-    async function addHtml(html, id) {
+    async function addHtml (html, id) {
       const div = document.createElement('div');
       div.setAttribute('id', id);
       div.innerHTML = html;
@@ -46,7 +46,7 @@ module.exports = {
       document.body.append(div);
     }
 
-    async function getEnhancedContentLink() {
+    async function getEnhancedContentLink () {
       try {
         const element = document.querySelector('#flix-iframe');
         return element.src;
@@ -56,7 +56,7 @@ module.exports = {
       }
     }
 
-    async function addEnhancedContent() {
+    async function addEnhancedContent () {
       const enhancedContentLink = await context.evaluate(getEnhancedContentLink);
       if (enhancedContentLink) {
         await context.goto(enhancedContentLink, {
@@ -66,7 +66,7 @@ module.exports = {
           block_ads: false,
         });
         await new Promise((resolve, reject) => setTimeout(resolve, 10000));
-        await context.waitForSelector('div.inpage_selector_InTheBox div.flix-background-image img', { timeout: 90000 });
+        try { await context.waitForSelector('div.inpage_selector_InTheBox div.flix-background-image img', { timeout: 90000 }); } catch (error) { console.log(error); }
         const html = await context.evaluate(getHtml, enhancedContentLink);
         const inBoxManufactureUrl = await context.evaluate(inBoxUrl, enhancedContentLink);
         await context.goto(url);
