@@ -41,7 +41,14 @@ async function implementation (
     for (let i = 0; i < rpcArray.length; i++) {
       const prodFullName = brandName + ' ' + prodName;
       // prodFullName += ' ' + rpcArray[i].size;
-      const rpc = rpcArray[i].sku;
+      //const rpc = rpcArray[i].sku;
+      let rpc = null;
+      let prodCode = rpcArray[i].sku.includes("-") ? rpcArray[i].sku.split('-')[0]: rpcArray[i].sku;
+      if(rpcArray[i].size) {
+        rpc = prodCode + ` - ` + rpcArray[i].size;
+      } else {
+        rpc = prodCode;
+      }
       if (rpcArray[i].quantity !== 0) addHiddenDiv('descDiv', prodFullName, 'In Stock', i, rpc, rpcArray[i].size);
       else addHiddenDiv('descDiv', prodFullName, 'Out Of Stock', i, rpc, rpcArray[i].size);
     }
