@@ -30,20 +30,24 @@ module.exports = {
 
       const name = document.querySelectorAll('article[class="box-product    "]>form');
       var image;
-      // @ts-ignore
-      const URL = window.tc_vars.originalPageURL;
-      let price;
-      for (let i = 0; i < name.length; i++) {
-        image = document.querySelectorAll('div[class="image-product"] a img')[i].getAttribute('src');
-        if (image.startsWith('http')) {
-          addHiddenDiv('image', image, i);
+      try {
+        // @ts-ignore
+        const URL = window.location.href;
+        addElementToDocument('pd_url', URL);
+        let price;
+        for (let i = 0; i < name.length; i++) {
+          image = document.querySelectorAll('div[class="image-product"] a img')[i].getAttribute('src');
+          if (image.startsWith('http')) {
+            addHiddenDiv('image', image, i);
+          }
+          else {
+            image = document.querySelectorAll('div[class="image-product"] a img')[i].getAttribute('data-frz-src');
+            addHiddenDiv('image', image, i);
+          }
         }
-        else {
-          image = document.querySelectorAll('div[class="image-product"] a img')[i].getAttribute('data-frz-src');
-          addHiddenDiv('image', image, i);
-        }
+      } catch (error) {
+
       }
-      addElementToDocument('pd_url', URL);
     });
     return await context.extract(productDetails, { transform });
   },
