@@ -2,7 +2,7 @@ input:
   id: 4400000796
   _url: http://e-fresh.gr
 extractions:
-  - html: https://workbench.import.io/html/run=02a70c9d-0ec6-46a4-a184-f01b5c47c374/task=0d594c4e-3e51-433a-bd66-790e7f72a098/3b47dc50-1058-4f39-af04-e13cc8c83998.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=3cbb42f2-8e56-48f2-8459-ec642600bd66/task=354514f6-a57d-4939-a91a-86e93b9893be/207078db-0b2d-4817-bb41-21c5796bc754.html
     extractionConfigId: product/details/stores/e/e-fresh/GR/extract
     data:
       - group:
@@ -31,7 +31,7 @@ extractions:
               - text: 2,72 €
                 xpath: /html/body/div[14]
             availabilityText:
-              - text: In Stock
+              - text: Out Of Stock
                 xpath: /html/body/div[16]
             description:
               - text: >-
@@ -65,6 +65,9 @@ extractions:
             variantId:
               - text: "4400000796"
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/span[1]
+            name:
+              - text: Χλωρίνη Ultra Protection Pink Klinex (2lt)
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/h2[1]
             promotion:
               - text: -20%
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
@@ -94,4 +97,4 @@ extractions:
                 locale: el
                 value: 1
         xpath: /
-    timestamp: 1610637784798
+    timestamp: 1610969574338

@@ -2,7 +2,7 @@ input:
   id: 4100000201
   _url: http://e-fresh.gr
 extractions:
-  - html: https://workbench.import.io/html/run=02a70c9d-0ec6-46a4-a184-f01b5c47c374/task=d61b17cf-1228-4505-bf89-07741b2f8a14/e7e7d27b-f653-4116-9ce4-7ae37eaf21cc.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=3cbb42f2-8e56-48f2-8459-ec642600bd66/task=177635ce-f812-416b-9956-7c56c2bd1b75/ab34fab1-4c33-47db-904d-50ad87b93fb5.html
     extractionConfigId: product/details/stores/e/e-fresh/GR/extract
     data:
       - group:
@@ -55,6 +55,9 @@ extractions:
             variantId:
               - text: "4100000201"
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/span[1]
+            name:
+              - text: Σοκολάτα Γάλακτος ΙΟΝ (100g)
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/h2[1]
             ingredientsList:
               - text: "Ζαχαρη, Γαλα Σε Σκονη, Βουτυρο Κακαο, Μαζα Κακαο, Ορος Γαλακτος Σε Σκονη,
                   Λακτοζη, Γαλακτωματοποιητης: Λεκιθινη Σογιας, Αρωματικη Υλη:
@@ -136,4 +139,4 @@ extractions:
                 locale: el
                 value: 0
         xpath: /
-    timestamp: 1610637787277
+    timestamp: 1610969576160

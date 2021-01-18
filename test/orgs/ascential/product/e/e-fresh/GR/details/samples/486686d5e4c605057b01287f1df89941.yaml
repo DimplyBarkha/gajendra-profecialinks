@@ -2,7 +2,7 @@ input:
   id: 4100000205
   _url: http://e-fresh.gr
 extractions:
-  - html: https://workbench.import.io/html/run=02a70c9d-0ec6-46a4-a184-f01b5c47c374/task=7de33485-a02f-4487-8568-b0a7e3451dfe/1d3df7e3-9cc4-4ab8-ac0e-0496f5b45a2b.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=3cbb42f2-8e56-48f2-8459-ec642600bd66/task=2d918af2-40af-47ca-8028-dec565f38192/6aceb2f9-631c-4c13-83b4-3b919b33f64f.html
     extractionConfigId: product/details/stores/e/e-fresh/GR/extract
     data:
       - group:
@@ -55,6 +55,9 @@ extractions:
             variantId:
               - text: "4100000205"
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/span[1]
+            name:
+              - text: Σοκολάτα γάλακτος αμυγδάλου ΙΟΝ (100g)
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/h2[1]
             ingredientsList:
               - text: "Ζαχαρη, Γαλα Σε Σκονη, Βουτυρο Κακαο, Αμυγδαλα 14%, Μαζα Κακαο, Λακτοζη,
                   Γαλακτωματοποιητης: Λεκιθινη Σογιας, Αρωματικη Υλη: Βανιλλινη.
@@ -136,4 +139,4 @@ extractions:
                 locale: el
                 value: 0
         xpath: /
-    timestamp: 1610637793582
+    timestamp: 1610969577757

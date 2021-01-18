@@ -2,7 +2,7 @@ input:
   id: 4100000202
   _url: http://e-fresh.gr
 extractions:
-  - html: https://workbench.import.io/html/run=02a70c9d-0ec6-46a4-a184-f01b5c47c374/task=816bde12-7bf7-4c8d-acb3-e0cb16195850/5d404b13-8578-40f6-97f0-6bb2d122ab88.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=3cbb42f2-8e56-48f2-8459-ec642600bd66/task=79c095cc-e9e0-43b4-9ee3-b1b23f340c6f/67ba44a9-e59f-430e-b65e-12c24f779112.html
     extractionConfigId: product/details/stores/e/e-fresh/GR/extract
     data:
       - group:
@@ -55,6 +55,9 @@ extractions:
             variantId:
               - text: "4100000202"
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/span[1]
+            name:
+              - text: Σοκολάτα γάλακτος ΙΟΝ (200g)
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/h2[1]
             ingredientsList:
               - text: "Ζαχαρη, Γαλα Σε Σκονη, Βουτυρο Κακαο, Μαζα Κακαο, Ορος Γαλακτος Σε Σκονη,
                   Λακτοζη, Γαλακτωματοποιητης: Λεκιθινη Σογιας, Αρωματικη Υλη:
@@ -136,4 +139,4 @@ extractions:
                 locale: el
                 value: 0
         xpath: /
-    timestamp: 1610637789441
+    timestamp: 1610969576834

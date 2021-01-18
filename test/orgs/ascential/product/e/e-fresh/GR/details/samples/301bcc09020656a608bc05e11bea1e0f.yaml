@@ -2,7 +2,7 @@ input:
   id: 4100000099
   _url: http://e-fresh.gr
 extractions:
-  - html: https://workbench.import.io/html/run=02a70c9d-0ec6-46a4-a184-f01b5c47c374/task=a12fe1c1-f601-408c-bf06-4e3d0c05a781/697fa617-7f8a-4fdd-af0c-310ecdf5cb8a.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=3cbb42f2-8e56-48f2-8459-ec642600bd66/task=c321a5e3-cc1f-4481-a996-bd7ba2434fec/3b437e0e-251e-4879-b98e-15ebc52b53b2.html
     extractionConfigId: product/details/stores/e/e-fresh/GR/extract
     data:
       - group:
@@ -30,7 +30,7 @@ extractions:
               - text: 2,75 €
                 xpath: /html/body/div[13]
             availabilityText:
-              - text: Out Of Stock
+              - text: In Stock
                 xpath: /html/body/div[15]
             description:
               - text: Τα αγαπημένα σας μπισκότα Digestive Παπαδοπούλου ενώθηκαν με μια ποικιλία
@@ -53,6 +53,10 @@ extractions:
             variantId:
               - text: "4100000099"
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/span[1]
+            name:
+              - text: Μπάρες Δημητριακών Digestive Κόκκινα Φρούτα και Γάλα Παπαδοπούλου (5x28g)
+                  -0,30€
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/h2[1]
             ingredientsList:
               - text: Μπισκότο Digestive με 35% λιγότερα λιπαρά 25% {αλεύρι σίτου,ζάχαρη,φυτικό
                   έλαιο(φοινικέλαιο), αλεύρι σίτου ολικής άλεσης 12%,άμυλο,
@@ -152,4 +156,4 @@ extractions:
                 locale: el
                 value: 0
         xpath: /
-    timestamp: 1610637784635
+    timestamp: 1610969574192
