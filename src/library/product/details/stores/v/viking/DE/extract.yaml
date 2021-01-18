@@ -53,12 +53,15 @@ fields:
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
-  xpath: //span[@class='product-stock-message__title']
+  xpath: //span[@class='product-stock-message__title']/text()
+  regExp: (.+?)
+  regExpReplace: 'In Stock'
+  defaultValue: 'Out Of Stock'
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: //div[@class='product__intro']//p
+  xpath: //div[@class='container']//div[@class='product__intro']//p | //div[@class='container']//div[@class='product-details__content collapse show']//p
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -87,12 +90,12 @@ fields:
 - name: sku
   singleValue: true
   description: The store-specific product identifier
-  xpath: //div[@id='productDetailsPanel']/@data-article-number
+  xpath: //div[@id='productDetailsPanel']/@data-legacy-sku
 - name: variantId
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
-  xpath: //div[@id='productDetailsPanel']/@data-article-number
+  xpath: //div[@id='productDetailsPanel']/@data-legacy-sku
 - name: mpc
   singleValue: tru
   description: The manufacturer model code (unique) of the product
@@ -129,6 +132,7 @@ fields:
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
+  xpath: //div[@id='contentproductDeliveryInfo']
 - name: shippingDimensions
   singleValue: true
   description: Stated shipping dimensions

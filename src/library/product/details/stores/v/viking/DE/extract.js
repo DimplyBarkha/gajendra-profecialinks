@@ -5,7 +5,7 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'viking',
-    transform: transform,
+    transform,
     domain: 'viking.de',
     zipcode: '',
   },

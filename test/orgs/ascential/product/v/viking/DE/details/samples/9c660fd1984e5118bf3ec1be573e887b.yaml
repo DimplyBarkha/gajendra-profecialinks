@@ -2,7 +2,7 @@ input:
   _url: http://viking.de
   URL: https://www.viking.de/de/tork-toilet-paper-dispenser-mini-twin-plastic-white-p-2924569
 extractions:
-  - html: https://workbench.import.io/html/run=f108b7aa-8450-4abf-9b3d-7f039a4b5462/task=a42aff59-71d1-4f87-8f5a-ce3ef5f0b73e/902d26ec-8fa6-4a48-bd80-2359d0745920.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=22619c0e-255c-49b4-abc4-3a67487802fb/task=c0c35cce-5458-4a53-9c66-50508c169100/c71aa4c8-4cd3-4879-befb-2fb9a4c183d4.html
     extractionConfigId: product/details/stores/v/viking/DE/extract
     data:
       - group:
@@ -11,11 +11,11 @@ extractions:
                 xpath: /html/head[1]/link[1]/@href
             image:
               - text: https://static.viking.de/is/image/odeu13/2924569?wid=400&hei=400&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/picture[1]/img[1]/@src
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/picture[1]/img[1]/@src
             imageAlt:
               - text: Tork Toilettenpapierspender T9 SmartOne Mini Twin Zentralentnahme
                   Kunststoff Abschließbar Wandmontage Weiß
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/picture[1]/img[1]/@alt
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/picture[1]/img[1]/@alt
             alternateImages:
               - text: https://static.viking.de/is/image/odeu13/%212924569_alt1?
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/@style
@@ -25,7 +25,7 @@ extractions:
               - text: Tork,Toilettenpapierspender,T9,SmartOne,Mini,Twin,Zentralentnahme,Kunststoff,Abschließbar,Wandmontage,Weiß,Reinigung,&,Hygiene,Hygieneartikel,Toilettenpapierspender
                 xpath: /html/head[1]/meta[5]/@content
             category:
-              - text: Bewirtung & Haushalt
+              - text: Haushalt & Wohnen
                 xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[2]/a[1]
               - text: Reinigung & Hygiene
                 xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[3]/a[1]
@@ -41,13 +41,28 @@ extractions:
               - text: 43,99 €
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]
             availabilityText:
-              - text: Aktuell verfügbar
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/span[1]
+              - text: In Stock
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/span[1]/text()[1]
             description:
               - text: Mit seinem effektiven Verteilersystem verhindert dieser Tork
                   Toilettenpapierspender, dass Sie diesen häufig nachfüllen
                   müssen. Der SmartOne, nimmt gleich zwei Rollen auf.
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[2]/p[1]
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[3]/p[1]
+              - text: Der Tork Toilettenpapierspender SmartOne zeichnet sich durch Effizienz und
+                  Robustheit aus. In den Maßen 398 x 156 x 221 mm eignet er sich
+                  für anspruchsvolle Waschräume mit niedriger bis mittlerer
+                  Besucherfrequenz. Die besondere Effizienz liegt in dem System
+                  der Einzeltuchentnahme, die den Verbrauch von Toilettenpapier
+                  um bis zu 40% im Vergleich zu anderen Spendern, senken kann.
+                  Das senkt nicht nur die Kosten sondern ebenfalls den
+                  Wartungsaufwand.
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/p[1]
+              - text: Der Spender selbst besteht aus robustem Kunststoff das leicht zu reinigen
+                  ist. Durch die halbtranspatente gräuliche Unterseite des
+                  Spenders können Sie ohne Probleme den Füllstand des Spenders
+                  erkennen und rechtzeitig dafür sorgen, dass der Nachschub an
+                  Toilettenpapier gewährleistet ist.
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/p[2]
             brandText:
               - text: Tork
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[3]/a[1]
@@ -56,10 +71,10 @@ extractions:
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[3]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
             sku:
               - text: "2924569"
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/@data-article-number
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/@data-legacy-sku
             variantId:
               - text: "2924569"
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/@data-article-number
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/@data-legacy-sku
             ratingCount:
               - text: "1"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[2]/a[1]/div[2]/text()[1]
@@ -69,6 +84,95 @@ extractions:
             aggregateRating:
               - text: "1"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[2]/a[1]/div[1]/div[1]/@title
+            shippingInfo:
+              - text: >-
+                  Wir liefern kostenlos ab einem Warenwert von 49,- €
+                  (zzgl.USt).
+                   
+                  Bei Bestellungen unter 49,- € erheben wir eine Lieferpauschale von 4,90 € (zzgl. USt). Sie setzt sich zusammen aus 2,95 € Versandkosten und 1,95 € Versicherungspauschale, wobei die Versicherungspauschale bei jeder Lieferung berechnet wird.
+                   
+                  Bei Teillieferungen wird die Liefergebühr auch auf der Grundlage des Gesamtbetrages (exkl. MwSt.) Ihrer Bestellung berechnet. 
+                   
+                  Klicken Sie hier für aktuelle Informationen zu Bestellung und Lieferung während COVID-19.
+                   
+                  Einige Produkte, die direkt vom Hersteller geliefert werden, können unter Umständen vom freien Versand ausgeschlossen sein.
+                   
+                  Wann wird meine Bestellung geliefert bzw. wie sind die Lieferzeiten?
+                   
+
+                   
+
+                   
+
+                   
+                  Bestelltag
+                   
+                  Liefertag*
+                   
+
+                   
+
+                   
+                  Montag bis Donnerstag vor 17:00 Uhr
+                   
+                  nächster Werktag*
+                   
+
+                   
+
+                   
+                  Montag bis Donnerstag nach 17:00 Uhr
+                   
+                  übernächster Werktag*
+                   
+
+                   
+
+                   
+                  Freitag vor 17:00 Uhr
+                   
+                  Montag
+                   
+
+                   
+
+                   
+                  Freitag nach 17:00 Uhr
+                   
+                  Dienstag
+                   
+
+                   
+
+                   
+                  Samstag
+                   
+                  Dienstag
+                   
+
+                   
+
+                   
+                  Sonntag
+                   
+                  Dienstag
+                   
+
+                   
+
+                   
+                  *Werktage: Montag bis Freitag
+                   
+                  Auslieferzeit: 08:00 bis 18:00 Uhr
+                   
+
+                   
+
+                   
+
+                   
+                  Bitte beachten Sie, für Direktlieferungsartikeln beträgt Lieferzeit 1-4 Werktage (Mo.-Fr.), für Möbel kann die Anlieferung bis zu 21 Werktage (Mo.-Fr.) in Anspruch nehmen.
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/section[1]/div[1]
             color:
               - text: Weiß
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[3]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
@@ -112,4 +216,4 @@ extractions:
             customerServiceAvailability:
               - text: No
         xpath: /
-    timestamp: 1606806183377
+    timestamp: 1610965151037

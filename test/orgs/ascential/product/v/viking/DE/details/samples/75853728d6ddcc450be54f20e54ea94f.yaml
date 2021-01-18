@@ -2,7 +2,7 @@ input:
   _url: http://viking.de
   URL: https://www.viking.de/de/wypall-wischtucher-l30-2-lagig-wei-pack-6-p-1448095
 extractions:
-  - html: https://workbench.import.io/html/run=f108b7aa-8450-4abf-9b3d-7f039a4b5462/task=4375a8ed-2c64-4dc1-9761-b3d942c172cb/41520822-1b75-4c95-9c15-a8c648c663f1.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=22619c0e-255c-49b4-abc4-3a67487802fb/task=cd2eaa3c-ad47-4f85-82b2-5594d2131d27/4659a75e-e0a8-47ee-8c95-3bf61588acee.html
     extractionConfigId: product/details/stores/v/viking/DE/extract
     data:
       - group:
@@ -11,10 +11,10 @@ extractions:
                 xpath: /html/head[1]/link[1]/@href
             image:
               - text: https://static.viking.de/is/image/odeu13/1448095?wid=400&hei=400&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/picture[1]/img[1]/@src
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/picture[1]/img[1]/@src
             imageAlt:
               - text: WYPALL Wischtuchrolle L20 2-lagig 6 Stück à 336 Blatt
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/picture[1]/img[1]/@alt
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/picture[1]/img[1]/@alt
             alternateImages:
               - text: https://static.viking.de/is/image/odeu13/%211448095_alt1?
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/@style
@@ -26,7 +26,7 @@ extractions:
               - text: WYPALL,Wischtuchrolle,L20,2-lagig,6,Stück,à,336,Blatt,Reinigung,&,Hygiene,Reinigungsartikel,Reinigungstücher
                 xpath: /html/head[1]/meta[5]/@content
             category:
-              - text: Bewirtung & Haushalt
+              - text: Haushalt & Wohnen
                 xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[2]/a[1]
               - text: Reinigung & Hygiene
                 xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[3]/a[1]
@@ -41,11 +41,28 @@ extractions:
               - text: 54,99 €
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]
             availabilityText:
-              - text: Aktuell verfügbar
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/span[1]
+              - text: In Stock
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/span[1]/text()[1]
             description:
               - text: Besonders schnell aufsaugfähige Wischtücher für den allgemeinen Gebrauch.
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[2]/p[1]
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[3]/p[1]
+              - text: Wenn Sie eine geschäftige Küche oder Kantine betreiben, sollte es Ihnen
+                  ein Anliegen sein, dass Arbeitsflächen so sauber wie möglich
+                  gehalten werden. Die Wypal L20 Wischtuchrollen mit
+                  Zentralnentnahme kommen da gerade gelegen. Die weiche Haptik
+                  und Optik der Wischtücher wird durch die Airflex-Technologie
+                  vermittelt. Die Airflex Technologie sorgt dafür, dass die
+                  Tücher auch bei Nässe flexibel und Reißfest bleiben, was das
+                  Arbeiten angenehmer macht.
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/p[1]
+              - text: Haben Sie Ein Tablett mit Getränken verschüttet, mit Soße gekleckst oder
+                  müssen andere Flüssigkeiten aufwischen? Keine Sorge, denn
+                  diese zweilagigen Reinigungstücher stehen dank ihrer
+                  Langlebigkeit und Festigkeit zur Verfügung, um jedem Wisch Job
+                  gerecht zu werden. Mit 6 Rollen pro Packung und 300 Blatt pro
+                  Rolle brauchen Sie keine Sorgen machen, dass Ihnen in einem
+                  ungünstigen Moment der Vorrat ausgeht.
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/p[2]
             brandText:
               - text: WYPALL
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[3]/a[1]
@@ -54,16 +71,105 @@ extractions:
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[3]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
             sku:
               - text: "1448095"
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/@data-article-number
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/@data-legacy-sku
             variantId:
               - text: "1448095"
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/@data-article-number
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/@data-legacy-sku
             mpc:
               - text: "7303"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[3]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
             packSize:
               - text: Pack 6
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[3]/div[1]/div[1]/table[1]/tbody[1]/tr[14]/td[2]
+            shippingInfo:
+              - text: >-
+                  Wir liefern kostenlos ab einem Warenwert von 49,- €
+                  (zzgl.USt).
+                   
+                  Bei Bestellungen unter 49,- € erheben wir eine Lieferpauschale von 4,90 € (zzgl. USt). Sie setzt sich zusammen aus 2,95 € Versandkosten und 1,95 € Versicherungspauschale, wobei die Versicherungspauschale bei jeder Lieferung berechnet wird.
+                   
+                  Bei Teillieferungen wird die Liefergebühr auch auf der Grundlage des Gesamtbetrages (exkl. MwSt.) Ihrer Bestellung berechnet. 
+                   
+                  Klicken Sie hier für aktuelle Informationen zu Bestellung und Lieferung während COVID-19.
+                   
+                  Einige Produkte, die direkt vom Hersteller geliefert werden, können unter Umständen vom freien Versand ausgeschlossen sein.
+                   
+                  Wann wird meine Bestellung geliefert bzw. wie sind die Lieferzeiten?
+                   
+
+                   
+
+                   
+
+                   
+                  Bestelltag
+                   
+                  Liefertag*
+                   
+
+                   
+
+                   
+                  Montag bis Donnerstag vor 17:00 Uhr
+                   
+                  nächster Werktag*
+                   
+
+                   
+
+                   
+                  Montag bis Donnerstag nach 17:00 Uhr
+                   
+                  übernächster Werktag*
+                   
+
+                   
+
+                   
+                  Freitag vor 17:00 Uhr
+                   
+                  Montag
+                   
+
+                   
+
+                   
+                  Freitag nach 17:00 Uhr
+                   
+                  Dienstag
+                   
+
+                   
+
+                   
+                  Samstag
+                   
+                  Dienstag
+                   
+
+                   
+
+                   
+                  Sonntag
+                   
+                  Dienstag
+                   
+
+                   
+
+                   
+                  *Werktage: Montag bis Freitag
+                   
+                  Auslieferzeit: 08:00 bis 18:00 Uhr
+                   
+
+                   
+
+                   
+
+                   
+                  Bitte beachten Sie, für Direktlieferungsartikeln beträgt Lieferzeit 1-4 Werktage (Mo.-Fr.), für Möbel kann die Anlieferung bis zu 21 Werktage (Mo.-Fr.) in Anspruch nehmen.
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/section[1]/div[1]
             color:
               - text: Weiß
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[3]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
@@ -108,4 +214,4 @@ extractions:
             customerServiceAvailability:
               - text: No
         xpath: /
-    timestamp: 1606806179711
+    timestamp: 1610965149813

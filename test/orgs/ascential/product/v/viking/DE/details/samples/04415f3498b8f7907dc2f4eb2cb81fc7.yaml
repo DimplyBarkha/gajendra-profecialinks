@@ -2,7 +2,7 @@ input:
   _url: http://viking.de
   URL: https://www.viking.de/de/tork-servietten-wei-p-1027698
 extractions:
-  - html: https://workbench.import.io/html/run=f108b7aa-8450-4abf-9b3d-7f039a4b5462/task=aa1db033-a74a-4a81-861e-56975b097d79/1343e1b8-2e46-40a4-9650-086d5f5df91e.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=22619c0e-255c-49b4-abc4-3a67487802fb/task=0aada071-2ad4-4902-87c0-b9cbde73f5a7/6cf3dd1e-cdf6-4f92-bb95-d0d9d1744dc0.html
     extractionConfigId: product/details/stores/v/viking/DE/extract
     data:
       - group:
@@ -11,10 +11,10 @@ extractions:
                 xpath: /html/head[1]/link[1]/@href
             image:
               - text: https://static.viking.de/is/image/odeu13/1027698?wid=400&hei=400&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/picture[1]/img[1]/@src
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/picture[1]/img[1]/@src
             imageAlt:
               - text: Tork Servietten 32,5 x 32,5 cm Weiß 8 Stück à 500 Blatt
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/picture[1]/img[1]/@alt
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/picture[1]/img[1]/@alt
             alternateImages:
               - text: https://static.viking.de/is/image/odeu13/%211027698_alt1?
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/@style
@@ -26,7 +26,7 @@ extractions:
               - text: Tork,Servietten,32,5,x,cm,Weiß,8,Stück,à,500,Blatt,Bewirtung,&,Küche,Tischgedeck,Servietten
                 xpath: /html/head[1]/meta[5]/@content
             category:
-              - text: Bewirtung & Haushalt
+              - text: Haushalt & Wohnen
                 xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[2]/a[1]
               - text: Bewirtung & Küche
                 xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[3]/a[1]
@@ -41,11 +41,14 @@ extractions:
               - text: 32,99 €
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]
             availabilityText:
-              - text: Aktuell verfügbar
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/span[1]
+              - text: In Stock
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/span[1]/text()[1]
             description:
               - text: Einlagige Servietten, geringere Kosten bei Standardleistung.
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[2]/p[1]
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[3]/p[1]
+              - text: Diese Tork Servietten decken den Grundbedarf, insbesondere für Restaurants
+                  oder Catering.
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/p[1]
             brandText:
               - text: Tork
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[3]/a[1]
@@ -54,16 +57,105 @@ extractions:
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
             sku:
               - text: "1027698"
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/@data-article-number
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/@data-legacy-sku
             variantId:
               - text: "1027698"
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/@data-article-number
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/@data-legacy-sku
             mpc:
               - text: "509300"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
             packSize:
               - text: Pack 8
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[11]/td[2]
+            shippingInfo:
+              - text: >-
+                  Wir liefern kostenlos ab einem Warenwert von 49,- €
+                  (zzgl.USt).
+                   
+                  Bei Bestellungen unter 49,- € erheben wir eine Lieferpauschale von 4,90 € (zzgl. USt). Sie setzt sich zusammen aus 2,95 € Versandkosten und 1,95 € Versicherungspauschale, wobei die Versicherungspauschale bei jeder Lieferung berechnet wird.
+                   
+                  Bei Teillieferungen wird die Liefergebühr auch auf der Grundlage des Gesamtbetrages (exkl. MwSt.) Ihrer Bestellung berechnet. 
+                   
+                  Klicken Sie hier für aktuelle Informationen zu Bestellung und Lieferung während COVID-19.
+                   
+                  Einige Produkte, die direkt vom Hersteller geliefert werden, können unter Umständen vom freien Versand ausgeschlossen sein.
+                   
+                  Wann wird meine Bestellung geliefert bzw. wie sind die Lieferzeiten?
+                   
+
+                   
+
+                   
+
+                   
+                  Bestelltag
+                   
+                  Liefertag*
+                   
+
+                   
+
+                   
+                  Montag bis Donnerstag vor 17:00 Uhr
+                   
+                  nächster Werktag*
+                   
+
+                   
+
+                   
+                  Montag bis Donnerstag nach 17:00 Uhr
+                   
+                  übernächster Werktag*
+                   
+
+                   
+
+                   
+                  Freitag vor 17:00 Uhr
+                   
+                  Montag
+                   
+
+                   
+
+                   
+                  Freitag nach 17:00 Uhr
+                   
+                  Dienstag
+                   
+
+                   
+
+                   
+                  Samstag
+                   
+                  Dienstag
+                   
+
+                   
+
+                   
+                  Sonntag
+                   
+                  Dienstag
+                   
+
+                   
+
+                   
+                  *Werktage: Montag bis Freitag
+                   
+                  Auslieferzeit: 08:00 bis 18:00 Uhr
+                   
+
+                   
+
+                   
+
+                   
+                  Bitte beachten Sie, für Direktlieferungsartikeln beträgt Lieferzeit 1-4 Werktage (Mo.-Fr.), für Möbel kann die Anlieferung bis zu 21 Werktage (Mo.-Fr.) in Anspruch nehmen.
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/section[1]/div[1]
             color:
               - text: Weiß
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
@@ -91,4 +183,4 @@ extractions:
             customerServiceAvailability:
               - text: No
         xpath: /
-    timestamp: 1606806180280
+    timestamp: 1610965150146
