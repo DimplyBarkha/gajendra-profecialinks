@@ -32,7 +32,7 @@ module.exports = {
         while (moreReviews && foundReviews < totalReviewsCount) {
           const url = window.location.href;
           const urlSplit = url.split('/');
-          const itemStr = urlSplit[urlSplit.length - 1];
+          const itemStr = urlSplit[urlSplit.length - 1].replace('.html', '');
           const apiUrl = `https://www.blu.com/acceleration/eu/api/bazaarvoice-gateway/products/${itemStr}/reviews?page=${page}&pageSize=10&market=GB&locale=en-GB&sort=hightolow`;
           console.log(`PAGE#:${page}`);
           page++;
