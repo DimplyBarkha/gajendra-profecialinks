@@ -10,9 +10,10 @@ fields:
   - name: imageAlt
     xpath: //div[@id='js-offerGallery']//div[contains(@class, 'slick-current')]/img/@alt
   - name: videos
-    xpath: //li[contains(@class, 'ytGallery')]/@data-video
-    regExp: (.+)
-    regExpReplace: https://www.youtube.com/embed/$1
+    xpath: //div[@id="videos"]
+    # //li[contains(@class, 'ytGallery')]/@data-video
+    # regExp: (.+)
+    # regExpReplace: https://www.youtube.com/embed/$1
   - name: category
     xpath: //div[@class='m-breadcrumb']/ul/li[position()>1]/a/span
   - name: nameExtended
@@ -59,7 +60,8 @@ fields:
   - name: aggregateRating2
     xpath: //meta[@itemprop='ratingValue']/@content
   - name: manufacturerImages
-    xpath: //div[@id='description']//img[contains(@class, 'description-img')]/@src
+    xpath: //div[@id="manufacdescimgs"]
+    # //div[@id='description']//img[contains(@class, 'description-img')]/@src |
     regExp: (.+)
     regExpReplace: https:$1
   - name: specificationsTitle
@@ -81,17 +83,19 @@ fields:
   - name: additionalDescBulletInfo
     xpath: //div[contains(@class, 'b-offerDescription_short')]/ul/li
   - name: listPrice
-    xpath: //div[contains(@class,"productAction")]//div[contains(@class, 'm-priceBox_old')] 
+    xpath: //div[contains(@class,"productAction")]//div[contains(@class, 'm-priceBox_old')] | //div[contains(@class, 'm-priceBox_old')][not(//div[contains(@class,"productAction")]//div[contains(@class, 'm-priceBox_old')])]
   - name: variantInformation
     xpath: //dt[contains(., 'Kolor')]/following-sibling::dd
   - name: color
     xpath: //dt[contains(., 'Kolor')]/following-sibling::dd
   - name: name
-    xpath: //h1[contains(@class, 'm-typo')]
+    xpath: //h1[contains(@class,"Title")]  
+  # xpath: //h1[contains(@class, 'm-typo')]
   - name: energyEfficiency
     xpath: //dt[contains(., 'lasa energetyczna')]/following-sibling::dd
   - name: manufacturerDescription
-    xpath: //div[contains(@class,'description-product')]
+    xpath: //div[@id="manufacdesc"]
+    # //div[contains(@class,'description-product')] | 
   - name: galleryVideos
     xpath: //ul[contains(@id,"js-ytGallery")]/li/@data-video
     regExp: (.+)
