@@ -60,7 +60,7 @@ module.exports = {
       }
       try {
         const descNode1 = document.querySelector('div.syndi_powerpage');
-        await new Promise(resolve => setTimeout(resolve, 4000));
+        await new Promise(resolve => setTimeout(resolve, 8000));
         if (descNode1 && descNode1.shadowRoot) {
           const fetchNode = descNode1.shadowRoot.firstChild;
           let text = fetchNode.innerText;
