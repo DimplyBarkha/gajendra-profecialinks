@@ -294,7 +294,8 @@ module.exports = {
       //     comparisionTable.snapshotItem(0).innerText ? 'Yes' : 'No'
       //   );
       // }
-      const comparisionTable = document.querySelector("#flix-comp .flix-comp-container .flix-comp-products") ? document.querySelector("#flix-comp .flix-comp-container .flix-comp-products").offsetHeight : 0;
+      // const comparisionTable = document.querySelector("#flix-comp .flix-comp-container .flix-comp-products") ? document.querySelector("#flix-comp .flix-comp-container .flix-comp-products").offsetHeight : 0;
+      const comparisionTable = document.querySelector('[data-comp-mpn]');
       document.body.setAttribute('import-comparision-table', comparisionTable ? 'Yes' : 'No');
     })
 
