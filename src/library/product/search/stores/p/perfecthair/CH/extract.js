@@ -42,5 +42,6 @@ module.exports = {
     transform,
     domain: 'perfecthair.ch',
     zipcode: '',
-  }
+  },
+  implementation,
 };
