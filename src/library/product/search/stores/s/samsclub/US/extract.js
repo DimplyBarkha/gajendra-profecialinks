@@ -1,4 +1,4 @@
-const { transform } = require('./format');
+const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
@@ -8,7 +8,7 @@ module.exports = {
     domain: 'samsclub.com',
   },
   implementation: async ({ url }, { country, domain, transform }, context, { productDetails }) => {
-    await new Promise((resolve, reject) => setTimeout(resolve, 9000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
     await context.evaluate(async () => {
       const closePopupButton = document.querySelector('.sc-modal-content > div button ');
       if (closePopupButton) {
