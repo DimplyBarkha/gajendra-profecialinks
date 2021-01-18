@@ -4,18 +4,18 @@ module.exports = {
   parameterValues: {
     country: 'MX',
     store: 'lacomer',
-    // nextLinkSelector: 'button[class="btn btn-primary hidden-sm-down"]',
+    nextLinkSelector: 'button[class="btn btn-primary hidden-sm-down"]',
     // nextLinkXpath: '//button[@ng-click="buscaxPaginaSig(pagActual)"][2]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[class="li_prod_picture"]',
     loadedXpath: null,
     noResultsXPath: null,
-    stopConditionSelectorOrXpath: '//html//div[@id="noResults"]',
+    // stopConditionSelectorOrXpath: '//html//div[@id="noResults"]',
     resultsDivSelector: null,
-    openSearchDefinition: {
-      template: 'https://www.lacomer.com.mx/lacomer/goBusqueda.action?succId=287&ver=mislistas&succFmt=100&criterio={searchTerms}#/{searchTerms}-/p={page}',
-      },
+    // openSearchDefinition: {
+    //   template: 'https://www.lacomer.com.mx/lacomer/goBusqueda.action?succId=287&ver=mislistas&succFmt=100&criterio={searchTerms}#/{searchTerms}-/p={page}',
+    //   },
     domain: 'lacomer.com.mx',
     zipcode: '',
   },
