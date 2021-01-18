@@ -140,4 +140,4 @@ fields:
     regExp: (.+)
     regExpReplace: Yes
   - name: unInterruptedPDP
-    xpath: //section[@id="recommended-products"]//ul//li//div[@class="product-box"]//h3
+    xpath: //section[@id="recommended-products"]//ul//li//div[@class="product-box"]//h3 | //div[@id='dynamic-suite']//div[contains(@class, 'suite-main-product')]/div[@class='product-name'] | //div[@id='dynamic-suite']//div[contains(@class, 'dynamic-suite-packages')]//div[contains(@class, 'package-product-name')]
