@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: ((//div[@class="fotorama__stage__frame fotorama__active fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img"]/img)/@src)[1]
+    xpath: //html//div[@id="image"]
   - name: url
     singleValue: true
     description: A harvest url
@@ -89,7 +89,7 @@ fields:
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //div[@class="product attribute sku"]/div/text()
+    xpath: //div[@class="product-info-price"]/div[@class="price-box price-final_price"]/@data-product-id
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product

@@ -9,6 +9,8 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputstring }, { country, domain }, context, { productDetails }) => {
+    // delay
+    await context.waitForSelector('div[class="fotorama__stage__frame fotorama__active fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img"] img', 5000)
     await context.evaluate(() => {
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
@@ -17,6 +19,10 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
+
+      
+     
+
       // @ts-ignore
       const brand = window.dlObjects[0].ecommerce.detail.products[0].brand;
       addElementToDocument('brand', brand);
@@ -99,8 +105,12 @@ module.exports = {
       var sec = getAllXpath('//div[@class="fotorama__nav__frame fotorama__nav__frame--thumb"]/div/img/@src', 'nodeValue');
       if( sec.length >= 1){
         for(var i=0; i<sec.length; i++){
-          addElementToDocument('sec', sec[i]);
+          if(sec[i].includes("2c8e4a927e83d05ef971eebbe46f67ee")){
+            sec[i] = sec[i].replace("2c8e4a927e83d05ef971eebbe46f67ee","74c1057f7991b4edb2bc7bdaa94de933");
+          }
         }
+        var sec_img = sec.join(" | ");
+        addElementToDocument('sec', sec_img);
       }
 
 
@@ -122,9 +132,11 @@ module.exports = {
 
 
       //image
-      var image = getXpath('(//div[@class="fotorama__stage__frame fotorama__active fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img"]/img)[1]/@src', 'nodeValue');
+      var image = getXpath('(//div[@data-gallery-role="stage-shaft"]//div//img/@src)[1]', 'nodeValue');
       if(image != null){
-        image = image.replace("9d08971813a040f8f96067a40f75c615","030716fc62035027b622eeef186d3d67");
+        if( image.includes("9d08971813a040f8f96067a40f75c615")){
+          image = image.replace("9d08971813a040f8f96067a40f75c615","030716fc62035027b622eeef186d3d67");
+        }
         addElementToDocument('image', image);
       }
 
