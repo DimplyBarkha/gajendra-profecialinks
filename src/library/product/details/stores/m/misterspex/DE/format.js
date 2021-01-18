@@ -90,7 +90,8 @@ const transform = (data) => {
         if (row.availabilityText){
           let info = [];
           row.availabilityText.forEach(item => {
-            item.text = item.text.replace(/In den Warenkorb/, "In stock");
+            item.text = item.text.replace(/1. Packungsgröße /, "In stock");
+            item.text = item.text.replace(/Diese Linse ist nicht mehr verfügbar./, "Out of stock");
             info.push(item.text);
           });
         };
