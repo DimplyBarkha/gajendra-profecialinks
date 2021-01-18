@@ -4,6 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'FR',
     store: 'marionnaud',
+    // nextLinkXpath:'//a[@class="page-link next"]/@href',
     nextLinkSelector: 'a[class="page-link next"]',
     // nextLinkSelector: null,
     mutationSelector: null,
