@@ -258,6 +258,22 @@ module.exports = {
       }
       const allVideos = enhanceContentVideos.join(' | ');
       document.querySelector('h1') && document.querySelector('h1').setAttribute('enhance-videos', allVideos);
+
+      const updpItems = [];
+      const updpEls = document.evaluate(`//h2[contains(text(), 'Artigos mais vendidos em Produtos')]/parent::header/following-sibling::div[1]//h3`, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null );
+
+      if (updpEls.snapshotLength) {
+        for (let i = 0; i < updpEls.snapshotLength; i++) {
+          const itemName = updpEls.snapshotItem(i).innerText;
+
+          if (updpItems.indexOf(itemName.trim()) == -1) {
+            updpItems.push(itemName.trim());
+            const newEl = document.createElement('import-updp');
+            newEl.innerText = itemName.trim();
+            document.body.appendChild(newEl);
+          }
+        }
+      }
     })
 
     await context.extract(productDetails, {
