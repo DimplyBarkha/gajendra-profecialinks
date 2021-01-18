@@ -18,7 +18,7 @@ module.exports = {
       const info = document.querySelector('div[class="hidden"] script[type="application/ld+json"]') ? JSON.parse(document.querySelector('div[class="hidden"] script[type="application/ld+json"]').textContent) : '';
       return info;
     });
-    // add video and description information
+    // add video, description bullet-info count information
     await context.evaluate(async function () {
       const addElementToDOM = (tag, id, content) => {
         const element = document.createElement(tag);
@@ -41,6 +41,8 @@ module.exports = {
           }
         }
       }
+      const bulletInfo = document.querySelectorAll('div[class="accordionText"] ul li').length;
+      addElementToDOM('div', 'descriptionBullets', bulletInfo);
       const description = document.querySelector('div[class="accordionText"]');
       const descriptionLiElements = document.querySelectorAll('div[class="accordionText"] ul li');
       if (document.querySelector('div[class="accordionText"] div')) {
@@ -76,6 +78,9 @@ module.exports = {
           }
           if (price !== null && 'price' in data[k].group[i]) {
             data[k].group[i].price[0].text = '$' + price;
+          }
+          if ('aggregateRating' in data[k].group[i] && !data[k].group[i].aggregateRating[0].text.includes('.')) {
+            data[k].group[i].aggregateRating[0].text += '.0';
           }
           if (availability !== null && 'availabilityText' in data[k].group[i]) {
             if (availability === 'OutofStock') {

@@ -63,7 +63,7 @@ fields:
     multiple places; specifically not the manufacturer description
 - name: descriptionBullets
   singleValue: false
-  xpath: count(//div[contains(@class, "accLongDesc")]//div[@class="accordionText"]//ul/li)
+  xpath: //div[@id="descriptionBullets"]
   description: Number of ul > li tags in the description
 - name: brandText
   singleValue: true
