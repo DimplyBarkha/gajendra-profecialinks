@@ -5,14 +5,8 @@ parameters:
   store: harveynorman
   zipcode: ""
 proxy:
-  zone: GBR
+  zone: ZUS
   type: DATA_CENTER
-policy:
-  numberRetries: 4
-  priority: MEDIUM
-  retryDelay: 120
-  backoffPolicy: EXPONENTIAL
-  retryWithResidentialProxyAfter: 3
 meta:
   branches:
     dev:
