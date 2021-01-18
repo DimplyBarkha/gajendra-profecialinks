@@ -127,3 +127,14 @@ fields:
   - name: description
     singleValue: false  
     xpath: //div[contains(@class, "summaryStrate__raw")] | //div[contains(@class, "characteristicsStrate__item") and contains(@class, "item--long")]
+  - name: unInterruptedPDP
+    xpath: //span[@class="miniFA__title"]
+  - name: hasComparisonTable
+    defaultValue: No
+    xpath: (//div[contains(text(),'Tableau de comparaison')])[1]
+    regExp: .+
+    regExpReplace: 'Yes'
+  - name: inTheBoxUrl
+    xpath: //div[contains(text(),'Contenu de la boîte')]/..//img/@srcset
+  - name: inTheBoxText
+    xpath: //div[contains(text(),'Contenu de la boîte')]/..//span
