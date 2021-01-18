@@ -11,7 +11,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   if (mainUrlWithDomain) {
     await context.goto(mainUrlWithDomain, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
   }
-  await context.evaluate(async function (sku) {
+  await context.evaluate(({ totalSugarsPerServing, proteinPerServing, totalCarbPerServing, saturatedFatPerServing, totalFatPerServing, caloriesPerServing, servingSize, legalDisclaimer, ingredientsList, saltPerServing, storage, gtin, quantity, calciumPerServing, SodiumPerServing, magnesiumPerServing, vitaminAPerServing }) => {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
@@ -19,8 +19,9 @@ async function implementation (inputs, parameters, context, dependencies) {
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
-    addHiddenDiv('sku', searchURL);
-  });
+    // addHiddenDiv('servingSize_added', ingredients);
+    addHiddenDiv('totalSugarsPerServing_added', totalSugarsPerServing);
+  }, { totalSugarsPerServing });
   return await context.extract(productDetails, { transform });
 }
 module.exports = {
