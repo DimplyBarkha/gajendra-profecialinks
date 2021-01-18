@@ -45,7 +45,7 @@ fields:
   description: The stated undiscounted price for the product
 - name: price
   singleValue: true
-  xpath: //span[@class="price" or @class="productDetailPrice price" or @class="price priceSm"] | //div[@class="itemNo"]
+  xpath: //span[@class="price" or @class="productDetailPrice price" or @class="price priceSm"] | //div[@class="itemNo"] | //meta[@property="og:price:amount"]/@content
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
 - name: availabilityText
