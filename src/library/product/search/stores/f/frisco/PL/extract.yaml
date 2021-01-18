@@ -1,42 +1,20 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath:
+recordXPath: //td[@class="products depth_0"]/table/tbody/tr
 fields:
-- name: id
-  singleValue: false
-  xpath: //div[@id="id1"]
-- name: name
-  singleValue: false
-  xpath: //a[@class='product-box_image ']/@title
-- name: rankOrganic
-  singleValue: false
-- name: productUrl
-  singleValue: false
-  xpath: //a[@class='product-box_image ']/@href
-  regExp: (.+)
-  regExpReplace: https://frisco.pl$1
-- name: gtin
-  singleValue: true
 - name: thumbnail
   singleValue: false
-  xpath: //a[@class='product-box_image ']/img/@src
-- name: aggregateRating
-  singleValue: true
-- name: reviewCount
-  singleValue: true
+  xpath: //td[@class="imageUrl depth_2"]
+- name: productUrl
+  singleValue: false
+  xpath: //td[@class='productUrl depth_2']
 - name: price
   singleValue: false
-  xpath: //span[@class="price product-box_normal-price digits-2"] | //span[@class="price product-box_normal-price digits-1"]
-  regExp: (\d+)\,(\d+)(.*)
-  regExpReplace: $1.$2$3
-- name: manufacturer
-  singleValue: true
-- name: soldBy
-  singleValue: true
-- name: rankOrganic
-  singleValue: true
-- name: endorsementText
-  singleValue: true
-- name: rank
-  singleValue: true
+  xpath: //td[@class='price depth_3']
+- name: name
+  singleValue: false
+  xpath: //table/tbody/tr[1]/td[@class='products depth_0']/table/tbody/tr/td[@class="product depth_1"]/table/tbody/tr/td[@class="name depth_2"]/table/tbody/tr/td[@class='en depth_3']
+- name: id
+  singleValue: false
+  xpath: //td[@class="productId depth_1"]
