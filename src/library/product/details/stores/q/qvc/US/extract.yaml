@@ -514,4 +514,4 @@ fields:
   regExpReplace: 'Yes'
 - name: unInterruptedPDP
   singleValue: false
-  xpath: //div[contains(@class,"recosLoadMoreItem")]//p[@class="productDesc"][parent::a[not(contains(@data-prod-id,"{"))]]
+  xpath: //p[@class="productDesc"][parent::a[not(contains(@data-prod-id,"{"))]] | //div[@class="granify-product-title"]

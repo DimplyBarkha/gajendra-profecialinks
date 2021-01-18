@@ -1,4 +1,4 @@
-const { cleanUp } = require('../../../../shared');
+const { cleanUp } = require('./shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
@@ -52,14 +52,14 @@ module.exports = {
       let descriptionText = description ? description.textContent : '';
       const descriptionLiTexts = [];
       descriptionLiElements.forEach((li) => {
-      descriptionLiTexts.push(li.textContent ? li.textContent : '');
+        descriptionLiTexts.push(li.textContent ? li.textContent : '');
       });
       const descriptionBulletsText = descriptionLiTexts.length ? ' || ' + descriptionLiTexts.join(' || ') : '';
       descriptionText += descriptionBulletsText;
       addElementToDOM('div', 'description', descriptionText);
     });
 
-    const dataConversion = (data, sku = null, availability = null, variantInfo = null, price=null) => {
+    const dataConversion = (data, sku = null, availability = null, variantInfo = null, price = null) => {
       for (let k = 0; k < data.length; k++) {
         for (let i = 0; i < data[k].group.length; i++) {
           if ('ingredientsList' in data[k].group[i]) {
@@ -98,7 +98,7 @@ module.exports = {
     };
 
     const variants = await context.evaluate(() => { return document.querySelectorAll('ul[role="radiogroup"] li').length; });
-    const variantAvailability = await context.evaluate(() => { 
+    const variantAvailability = await context.evaluate(() => {
       const variantAvailability = [];
       for (let i = 0; i < document.querySelectorAll('ul[role="radiogroup"] li').length; i++) {
         variantAvailability.push(document.querySelectorAll('ul[role="radiogroup"] li')[i].getAttribute('ats'));
