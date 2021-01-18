@@ -29,7 +29,7 @@ fields:
     xpath: normalize-space(//div[@class="price"]/text())
   - name: availabilityText
     singleValue: false
-    xpath: //p[contains(text(),"Produkt chwilowo niedostępny")]
+    xpath: //button[contains(@class,"product__add-to-cart btn btn--orange")]
     regExp: (.+)
     regExpReplace: Out of Stock
     defaultValue: In Stock
