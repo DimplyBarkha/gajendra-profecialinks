@@ -10,7 +10,7 @@ async function implementation (
   await context.evaluate(async () => {
     while(!!document.querySelector('#search-grid_0 > div.col-12.bloom-load-wrapper > button')){
       document.querySelector('#search-grid_0 > div.col-12.bloom-load-wrapper > button').click()
-      await new Promise(r => setTimeout(r, 6000));
+      await new Promise(r => setTimeout(r, 8000));
     }
   })
   return await context.extract(productDetails, { transform });
