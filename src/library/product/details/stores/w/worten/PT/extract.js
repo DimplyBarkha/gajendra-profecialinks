@@ -285,6 +285,12 @@ module.exports = {
         newEl.innerText = item;
         document.body.appendChild(newEl);
       }
+
+      const comparisionTable = document.evaluate(`//*[contains(text(), "Tabela de comparação")]`, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      document.body.setAttribute(
+        'import-comparision-table',
+        comparisionTable.snapshotLength ? 'Yes' : 'No'
+      );
     })
 
     await context.extract(productDetails, {
