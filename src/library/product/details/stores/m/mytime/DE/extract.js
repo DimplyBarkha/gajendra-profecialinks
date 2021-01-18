@@ -1,4 +1,5 @@
 
+// eslint-disable-next-line no-unused-vars
 const { cleanUp } = require('../../../../shared');
 
 module.exports = {
@@ -6,7 +7,7 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'mytime',
-    transform: cleanUp,
+    transform: null,
     domain: 'mytime.de',
     zipcode: '',
   },
@@ -41,6 +42,15 @@ module.exports = {
         });
         addElementToDocument('allergy', allergyText.join(' ').split('\n\n').join(' '));
       }
+
+      const desc = document.querySelector('li#tab-details > div');
+      // @ts-ignore
+      if (desc !== null) desc.setAttribute('desc', desc.innerText.split('\n\n').join(' ').split('\n').join(' '));
+
+      const address = document.querySelector('address');
+      if (address !== null) address.setAttribute('address', address.innerText.split('\n').join(''));
+      const name = document.querySelector('h1');
+      if (name !== null) name.setAttribute('name', name.innerText.split('\n').join(' '));
       // @ts-ignore
       const totalFat = [...document.querySelectorAll('tr.nutrient-table__item td, ul > li > strong')].filter(e => e.innerText === 'Fett' || e.innerText === 'Rohfett');
       if (totalFat.length === 1) addElementToDocument('totalfat', totalFat[0].nextElementSibling.innerText);
@@ -49,6 +59,12 @@ module.exports = {
     var dataRef = await context.extract(productDetails, { transform });
 
     dataRef[0].group.forEach((row) => {
+      if (row.ingredientsList) {
+        row.ingredientsList.forEach(item => {
+          item.text = item.text.split('\n').join('');
+          if (item.text.includes('  ')) item.text = item.text.split('  ').join(' ');
+        });
+      }
       if (row.description) {
         row.description.forEach(item => {
           if (item.text.includes('Beschreibung')) item.text = item.text.split('Beschreibung').pop().trim();
