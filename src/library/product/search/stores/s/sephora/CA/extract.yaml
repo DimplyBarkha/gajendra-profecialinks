@@ -1,0 +1,58 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id='ii_product']
+fields:
+  - name: searchUrl
+    xpath: ancestor::html//div[@id="ii_url"]
+  - name: manufacturer
+    singleValue: true
+    description: The brand name
+    example: Panasonic
+    xpath: //div[@id='ii_brand']
+  - name: productUrl
+    singleValue: true
+    description: The URL for the product details page
+    # xpath: //div[contains(@data-comp, "ProductGrid")]//a/@href
+    xpath: //div[@id="ii_productUrl"]
+  - name: thumbnail
+    singleValue: true
+    description: The URL for the product thumbnail image
+    xpath: //div[@id="ii_image"]
+  - name: name
+    singleValue: false
+    description: The product name
+    # xpath: //span[contains(@data-at, "sku_item_name")]|//div[@id="ii_name"]
+    xpath: //div[@id="ii_title"]
+  - name: reviewCount
+    singleValue: true
+    description: The number of reviews
+    xpath: //div[@id="ii_reviews"]
+    defaultValue: "0"
+  - name: price
+    singleValue: true
+    description: The offered price for the product
+    # xpath: div[@id="ii_price"]
+    xpath: //div[@id="ii_price"]
+    # xpath: //span[contains(@data-at, "sku_item_price_sale")]|//span[contains(@data-at, "sku_item_price_list")]|//div[@id="ii_price"]
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    singleValue: true
+    description: Is sponsored/paid
+    type: BOOLEAN
+  - name: id
+    singleValue: false
+    description: Unique id (within this extractor)
+    xpath: //div[@id="ii_id"]
+  - name: aggregateRating2
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: //div[@id="ii_rating"]
+

@@ -1,0 +1,20 @@
+robot: product/details/variants
+parameters:
+  country: CA
+  domain: sephora.ca
+  store: sephora
+  zipcode: ""
+proxy:
+  zone: ZUS
+  type: DATA_CENTER
+policy:
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 30
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 99
+meta:
+  branches:
+    staging:
+      extractor: 4b9af0ef-7801-4793-a74e-6a4234ddc83e
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94

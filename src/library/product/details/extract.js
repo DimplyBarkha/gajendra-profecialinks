@@ -1,6 +1,6 @@
 /**
  *
- * @param { { url?: string,  id?: string} } inputs
+ * @param { { url?: string,  id?: string, parentInput?: string} } inputs
  * @param { Record<string, any> } parameters
  * @param { ImportIO.IContext } context
  * @param { Record<string, any> } dependencies
@@ -42,6 +42,12 @@ module.exports = {
     {
       name: 'id',
       description: 'unique identifier for product',
+      type: 'string',
+      optional: true,
+    },
+    {
+      name: 'parentInput',
+      description: 'input value',
       type: 'string',
       optional: true,
     },

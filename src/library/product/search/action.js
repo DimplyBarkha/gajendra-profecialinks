@@ -62,12 +62,11 @@ module.exports = {
     extract: 'action:product/search/extract',
   },
   path: './search/stores/${store[0:1]}/${store}/${country}/search',
-  implementation: async (inputs, { country, store, domain, zipcode }, context, { execute, extract, paginate }) => {
-    const { keywords, Keywords, results = 150, Brands, query } = inputs;
-
-    const inputKeywords = Keywords || keywords || Brands;
-
+  implementation: async ({ keywords, Keywords, Brands, results = 300 }, { country, store, domain, zipcode }, context, { execute, extract, paginate }) => {
     // TODO: consider moving this to a reusable function
+
+    results = (results) || defaultResults;
+    console.log('No of results were returned' + results);
     const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
     const resultsReturned = await execute({

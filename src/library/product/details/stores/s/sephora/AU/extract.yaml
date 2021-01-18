@@ -1,0 +1,214 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: parentInput
+    singleValue: false
+    xpath: //div[@id='ii_parentInput']
+  - name: descriptionBullets
+    xpath: //div[@id="ii_descriptionBullets"]
+  - name: image
+    singleValue: false
+    description: URL of the main product image
+    #xpath: (//div[@class='product-images']//img/@src)[1]
+    xpath: (//div[contains(@class,'product-images')]//img/@src)[1]
+  - name: imageAlt
+    singleValue: false
+    description: Alt text of the main product image
+    xpath: (//div[contains(@class,'product-images')]//img/@alt)[1]
+  - name: alternateImages
+    description: Other product images (not in manufacturer description)
+    # xpath: //div[@class='product-images']//img/@src|//div[@id='tns1-ow']//following-sibling::ul[contains(@class,'thumbnails-navigation')]//img/@src
+    # xpath: //div[@id='tns1-ow']//following-sibling::ul[contains(@class,'thumbnails-navigation')]/li[position()>1]//img/@src
+    xpath: //div[@id='altImages']
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //div[contains(@class, "product-breadcrumbs")]//li
+  - name: nameExtended
+    singleValue: false
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //div[@id='ii_nameExtended']
+  - name: listPrice
+    singleValue: false
+    description: The stated undiscounted price for the product
+    xpath: ((//p[contains(@class, 'product-price')])[1]/span)[1]
+  - name: price
+    singleValue: false
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+    xpath: (//p[contains(@class, 'product-price')])[1]/span[not (contains(., '%'))][last()]
+  - name: availabilityText
+    singleValue: false
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: In Stock
+  - name: description
+    singleValue: false
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    # xpath: //div[contains(@class, "product-description")]//text()
+    xpath: //div[@id="ii_description"]
+  - name: descriptionBullets
+    singleValue: false
+    description: Number of ul > li tags in the description
+    type: NUMBER
+  - name: brandText
+    singleValue: false
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    xpath: //div[contains(@class, "product-brand")]/a|//div[contains(@class, "product-info")]//*[contains(@class, "product-brand")]
+  - name: manufacturer
+    singleValue: false
+    description: Product manufacturer
+    xpath: //div[contains(@class, "product-brand")]/a|//div[contains(@class, "product-info")]//*[contains(@class, "product-brand")]
+  - name: quantity
+    singleValue: false
+    description: Quantity as described on the page
+    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    regExpReplace: $1$2$3$4
+  - name: sku
+    singleValue: false
+    description: The store-specific product identifier
+    #xpath: //div[contains(@class, "variant-selector")]//li[contains(@class, "active")]/@class
+    #regExp: (([0-9]+)$)
+    xpath: (//a[contains(@class,"add-to-wish-list")])[last()]/@href
+    regExp: \?wishlist=(.+)#authentication
+    regExpReplace: $1
+  - name: variantId
+    singleValue: false
+    description: Identifier for a variant from a store where variants share the same sku
+    #xpath: //div[contains(@class, "variant-selector")]//li[contains(@class, "active")]/@class
+    #regExp: (([0-9]+)$)
+    xpath: (//a[contains(@class,"add-to-wish-list")])[last()]/@href
+    regExp: \?wishlist=(.+)#authentication
+    regExpReplace: $1
+  - name: legalDisclaimer
+    singleValue: false
+    description: Content under "legal disclaimer" header
+  - name: directions
+    singleValue: false
+    xpath: //div[@id="ii_directions"]
+    # xpath: //div[contains(@class, "product-how-to")]//text()
+  - name: warnings
+    singleValue: false
+    description: Content under "warnings" header
+  - name: ratingCount
+    singleValue: false
+    description: The number of ratings
+    type: NUMBER
+    xpath: //div[contains(@class, "product-info")]//p[contains(@class, "product-rating-count")]
+  - name: aggregateRating2
+    singleValue: false
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+    xpath: //div[@class='rating-container']//div[contains(@id, 'rateit-range')]/@aria-valuenow
+  - name: shippingInfo
+    singleValue: false
+    description: Shipping information for the product
+    xpath: //div[contains(@id, "shipping-collapse")]/div|//div[contains(@class,"free-shipping-message")]
+  - name: variantCount
+    singleValue: false
+    description: Number of variants listed
+    type: NUMBER
+    xpath: count(//div[contains(@class, "variant-selector")]//li[contains(@class, "product-variant")]/@class)
+  - name: color
+    singleValue: false
+    description: A textual description of the colour
+    xpath:
+  - name: colorCode
+    singleValue: false
+    description: A code description of the color (e.g. RGB hex)
+  - name: videos
+    singleValue: false
+    description: URLs of videos on page
+    xpath: //div[@id='ii_video']
+  - name: name
+    singleValue: false
+    description: The product name
+    xpath: //div[@class="basic-information-section"]//div[contains(@class, "product-heading")]|//div[@class="basic-information-section"]//div[contains(@class, "product-heading")]|//h1[contains(@class, "product-name")]
+  - name: inStorePrice
+    singleValue: false
+    description: Price in the selected store
+  - name: brandLink
+    singleValue: false
+    description: null
+    xpath: //div[contains(@class, "product-brand")]/a/@href|//h2[contains(@class, "product-brand")]//a/@href
+  - name: secondaryImageTotal
+    singleValue: false
+    description: null
+    type: NUMBER
+  - name: ingredientsList
+    singleValue: false
+    description: List of Ingredients from site - can be string of data if no
+      discernible start/end point
+    xpath: //div[contains(@class, "product-ingredients-values")]|//div[contains(@class, "product-description")]//div[contains(@id,"product-ingredients")]
+  - name: promotion
+    singleValue: false
+    description: promotion text on product page
+  - name: variantInformation
+    singleValue: false
+    description: colour / scent / flavour / other
+    xpath: //span[contains(@class, 'current-variant-name')]|//*[contains(@class, "product-variant-swatch")]//li[@class="product-variant-swatch active"]/img/@title
+  - name: firstVariant
+    singleValue: false
+    description: Unique identifier for a collection of variants. For a subset of
+      core feeds (43) we have a column "first_variant" that is populated with a
+      common code to link all variants for a product. method 1 (Preferred) = use
+      common tag (Could be parent sku) that is same value for all variants of a
+      product. method 2 = first_variant method technique, Identify the first
+      varient in the sequence and use this rpc to populate "first_variant" for
+      all variants of a product, this rpc becomes the common link between other
+      variants. method 3 = apply some logic to determine link between variants,
+      this will need analysis
+  - name: variants
+    singleValue: false
+    description: null
+    xpath: //div[contains(@class, "variant-selector")]//li[contains(@class, "product-variant")]/@class|//*[contains(@class, "product-variant-swatch")]//li/img/@title
+  - name: additionalDescBulletInfo
+    singleValue: false
+    description: null
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    description: If there is for example a manual in pdf format on the website. ['Yes','No']
+    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    defaultValue: No
+  - name: termsAndConditions
+    singleValue: false
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: No
+  - name: privacyPolicy
+    singleValue: false
+    description: Privacy Policy information text ['Yes','No']
+    defaultValue: No
+  - name: customerServiceAvailability
+    singleValue: false
+    description: Information related to customer service availability (text), ['Yes','No']
+    defaultValue: No
+  - name: Image360Present
+    singleValue: false
+    description: If 360 image is present in the carousel ['Yes','No']
+    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    defaultValue: No
+    xpath: boolean(//*[contains(@class, "zoom-icon")])
+  - name: inTheBoxText1
+    singleValue: false
+    xpath: //b[text()="What it includes:"]/ancestor::p[1]/following-sibling::ul[1]/li
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //div[@id="product-description"]/div/div/p/b[text()="What it includes:"]/parent::*/following-sibling::*/li[following::p/b[text()="What else you need to know:"]]
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //div[contains(@id, "myupdp")]
+      # //div[@id="recommendations_carousel-sephoracollection"]//ul[@class="products_expanded"]/li | //div[@id="recommendations_carousel-pdp"]//ul[@class="products_expanded"]/li

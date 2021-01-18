@@ -1,12 +1,17 @@
 /**
  *
- * @param { { URL: string, parentInput: string, id: any, RPC: string, UPC: any, SKU: string, zipcode: string, storeID: string, storeId: string } } inputs
- * @param { { store: any, country: any, zipcode: any, storeId: any } } parameters
+ * @param { { URL: string, id: any, RPC: string, SKU: string, parentInput: string } } inputs
+ * @param { { store: any, country: any, zipcode: any } } parameters
  * @param { ImportIO.IContext } context
  * @param { { execute: ImportIO.Action, extract: ImportIO.Action } } dependencies
  */
-async function implementation (inputs, parameters, context, dependencies) {
-  const { URL, RPC, SKU, UPC, storeID } = inputs;
+async function implementation (
+  inputs,
+  parameters,
+  context,
+  dependencies,
+) {
+  const { URL, RPC, SKU, parentInput } = inputs;
   const { execute, extract } = dependencies;
   const url = URL;
   const id = RPC || SKU || UPC || inputs.id;
@@ -21,7 +26,11 @@ async function implementation (inputs, parameters, context, dependencies) {
     return;
   }
 
+<<<<<<< HEAD
   await extract(newInput);
+=======
+  await extract({ url, id, parentInput });
+>>>>>>> 3aa6b277c0f631e790b3d64d8608d35702352a89
 }
 
 module.exports = {
@@ -76,6 +85,7 @@ module.exports = {
       optional: true,
     },
     {
+<<<<<<< HEAD
       name: 'zipcode',
       description: 'zipcode',
       type: 'string',
@@ -89,6 +99,10 @@ module.exports = {
     {
       name: 'storeID',
       description: 'Id of the store',
+=======
+      name: 'parentInput',
+      description: 'parent input value',
+>>>>>>> 3aa6b277c0f631e790b3d64d8608d35702352a89
       type: 'string',
       optional: true,
     },

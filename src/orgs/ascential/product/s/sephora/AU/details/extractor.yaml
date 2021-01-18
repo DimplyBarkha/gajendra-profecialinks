@@ -1,0 +1,23 @@
+robot: product/details
+parameters:
+  country: AU
+  domain: sephora.com.au
+  store: sephora
+  zipcode: ""
+proxy:
+  zone: ZUS
+  type: DATA_CENTER
+meta:
+  branches:
+    test:
+      extractor: 15bd8f16-a2cf-4643-8d7c-57ae31723fbe
+      legacyAccountId: 1e821eb9-04e2-4eb3-9503-5ea51441a19b
+    dalton:
+      extractor: abee123b-1364-4e33-b467-51826350e7a5
+      legacyAccountId: 1e821eb9-04e2-4eb3-9503-5ea51441a19b
+    staging:
+      extractor: 42dc233a-99fe-416b-a8e2-c33a52e97034
+      legacyAccountId: 85e1dabd-5c4e-414e-925b-b1692098d5f0
+    techops_sephora_AU_core_test:
+      extractor: e852699c-d6f2-4fec-b307-57349c7af7fc
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013

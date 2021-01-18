@@ -1,0 +1,55 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@data-comp,"ProductGrid")]/div//*[contains(@data-comp,"ProductItem")]
+fields:
+  - name: searchUrl
+    xpath: ancestor::html/body/@current-page
+  - name: manufacturer
+    description: The brand name
+    example: Panasonic
+    xpath: //*[@data-at="sku_item_brand"]
+  - name: productUrl
+    description: The URL for the product details page
+    # xpath: //div[contains(@data-comp, "ProductGrid")]//a/@href
+    xpath: ./@href
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    xpath: //picture//img/@srcset
+    regExp: ^((http|https)://www.sephora.com)?([^?]+)
+    regExpReplace: https://www.sephora.com$3
+  - name: name
+    # xpath: //span[contains(@data-at, "sku_item_name")]|//div[@id="ii_name"]
+    xpath: ./@aria-label
+  - name: reviewCount
+    description: The number of reviews
+    xpath: //*[@data-comp="ReviewCount "]
+    defaultValue: "0"
+  - name: price
+    description: The offered price for the product
+    # xpath: div[@id="ii_price"]
+    xpath: //*[@data-at="sku_item_price_sale"] | //*[@data-at="sku_item_price_list"][not(@class="css-4jky3p")]
+    # xpath: //span[contains(@data-at, "sku_item_price_sale")]|//span[contains(@data-at, "sku_item_price_list")]|//div[@id="ii_price"]
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    description: Is sponsored/paid
+    type: BOOLEAN
+  - name: id
+    singleValue: false
+    description: Unique id (within this extractor)
+    xpath: ./@href
+    regExp: skuId=(\w+)
+    regExpReplace: $1
+    # xpath: //div[@id="ii_id"]
+  - name: aggregateRating2
+    description: The stated aggregate rating normalized to be out of 5
+    # xpath: //div[@id="ii_rating"]
+    xpath: //*[@data-comp="StarRating "]/@aria-label
+    regExp: ^[\d\.]+
+

@@ -1,0 +1,28 @@
+robot: product/details
+parameters:
+  country: US
+  domain: sephora.com
+  store: sephora
+proxy:
+  zone: ZUS
+  type: DATA_CENTER
+policy:
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 30
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 99
+meta:
+  branches:
+    staging:
+      extractor: 85f2a371-4a8e-42cb-b70d-b3c05bd8272d
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    test:
+      extractor: e43ff254-aaf8-4485-817a-40c906af1e39
+      legacyAccountId: 1e821eb9-04e2-4eb3-9503-5ea51441a19b
+    dalton:
+      extractor: 66c57f83-5d68-4842-97de-ff4fe0f24cdb
+      legacyAccountId: 1e821eb9-04e2-4eb3-9503-5ea51441a19b
+    techops_test:
+      extractor: 8b387c50-82f5-48d7-b462-3c84ac818db1
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013

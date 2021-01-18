@@ -1,0 +1,107 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: parentInput
+    singleValue: true
+    xpath: //div[@id='ii_parentInput']
+  - name: productUrl
+    xpath: //div[@id='ii_url']
+  - name: manufacturerDescription 
+    singleValue: false
+    # xpath: //div[contains(@class, "brand-content-block")]//text()
+    # xpath: //div[contains(@class,"brand-content-body ")]//p//text()
+  - name: manufacturerImages
+    singleValue: false
+    # xpath: //div[contains(@class, "brand-content-block")]//img/@src
+    xpath: //div[@id='ii_manufImage']
+  - name: image
+    singleValue: false
+    description: URL of the main product image
+    xpath: (//a[contains(@name, "product_detail_image")]//img)[1]/@src
+  - name: aggregateRating
+    singleValue: false
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+    xpath: //div[contains(@itemprop, "ratingValue")]
+  - name: manufacturer
+    singleValue: false
+    description: Product manufacturer
+    xpath: //span[contains(@class,"brand-name")]
+  - name: ratingCount
+    singleValue: false
+    description: The number of ratings
+    type: NUMBER
+    xpath: //meta[contains(@itemprop,"reviewCount")]/@content
+  - name: videos 
+    singleValue: false
+    description: URLs of videos on page
+  - name: nameExtended
+    singleValue: false
+    description: The product name
+    xpath: //div[@id='ii_nameExtended']
+  - name: name
+    xpath: //span[contains(@class, "product-name")]
+  - name: category
+    xpath: //div[@class='breadcrumb-element']/a
+  - name: warnings
+    singleValue: false
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[@class="accordion"]//div[contains(., 'Ingredients')]/div
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,"product-cart")]//span[contains(@class, 'price')]
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@id,"descriptionText")]
+  - name: brandText
+    singleValue: false
+    xpath: //span[contains(@class,"brand-name")]
+  - name: directions
+    singleValue: false
+    #xpath: //div[@class="accordion"]//div[contains(., 'How to')]/div
+    xpath: //b[contains(text(),'Tips')]/..
+  - name: alternateImages
+    singleValue: false
+    xpath: //a[@name="product_detail_image"]/img/@data-src
+  - name: availabilityText
+    singleValue: false
+    xpath: //span[contains(@class, 'availability-status')]
+    defaultValue: "In Stock"
+  - name: promotion
+    regExp: (.*)
+    regExpReplace: Sale
+  - name: listPrice
+    singleValue: false
+    xpath: //div[contains(@class,"product-cart")]//span[contains(@class, 'price')]
+  - name: metaKeywords
+    xpath: //meta[@name="keywords"]/@content
+  - name: imageAlt
+    singleValue: false
+    description: Alt text of the main product image
+    xpath: (//img[contains(@class, "productthumbnail")])[1]/@alt
+  - name: additionalDescBulletInfo
+  - name: descriptionBullets
+  - name: variants
+    xpath: //meta[contains(@itemprop,"sku")]/@content
+  - name: variantInformation
+    xpath: //span[contains(@class, "selected-value-name")]|//div[@class="product-variations"]//span[contains(@class, "variation-title")]
+  - name: sku
+    regExp: ([0-9]+$)
+    xpath: (//meta[contains(@itemprop,"sku")])[1]/@content
+  - name: variantId
+    regExp: ([0-9]+$)
+    xpath: (//meta[contains(@itemprop,"sku")])[1]/@content
+  - name: color
+  - name: imageZoomFeaturePresent
+    xpath: boolean(//div[contains(@class, "zoomLens")])
+  - name: inTheBoxText   
+    singleValue: false    
+    description: Must include text to show the accessories/tools which come with the
+    xpath: //b[contains(text(),'This Set Contains')]/following::text()[position()<4]|//div[@class="product-description-box"]//b[contains(text(),'Tools')]//following-sibling::b|//div[@class="product-description-box"]//span[contains(text(),'Tools')]/ancestor::div[1]//following-sibling::div[not(br)][position() mod 2 = 1]
+  - name: unInterruptedPDP    
+    singleValue: false   
+    description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
+    xpath: //div[@class="owl-stage"]//div[@class="product-info-wrapper"]//h3[@class="product-title bidirectional"]//span
