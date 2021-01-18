@@ -36,6 +36,9 @@ fields:
   - name: descriptionBullets
     singleValue: false
     xpath: //div[contains(@class,"tab-pane active")]//div[@class="panel-body"]//div[@class="contentList"]//ul//li
+  - name: promotion
+    singleValue: false
+    xpath: //div[contains(@class," clearfix stickyCart stickyFooter  ")]//div[contains(@class,"priceBadge savePercentagePrice hide-sm hide-prv")]//label[@class="badge"]
   - name: quantity
     singleValue: false
     xpath: //div[@class='clone-title']//h1[@itemprop='name']
