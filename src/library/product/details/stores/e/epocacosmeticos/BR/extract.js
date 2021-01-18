@@ -34,7 +34,7 @@ async function implementation(
         document.querySelector('#gtin-data') && document.querySelector('#gtin-data').setAttribute('data-gtin', gtinArray[j])
         return document.querySelectorAll('ul.topic li label')[j].click();
       }, j, gtinArray);
-      await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+      await new Promise((resolve, reject) => setTimeout(resolve, 6000));
       // await context.click(`ul.topic li label`);
       console.log('Inside variants', j);
       // await preparePage(j, variantLength);
