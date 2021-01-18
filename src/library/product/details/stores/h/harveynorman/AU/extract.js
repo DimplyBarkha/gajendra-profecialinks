@@ -36,22 +36,24 @@ async function implementation (
     } else {
       const [sku, ean] = Array.from(document.querySelectorAll('h1.name~small')).map(elm => elm.innerText.trim());
       jsApi2 = `https://media.flixcar.com/delivery/js/inpage/3986/au/mpn/${sku}/ean/${ean}`;
-      let response = await fetch('https://cors-anywhere.herokuapp.com/' + jsApi2);
+      let response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(jsApi2)}`);
+      if (response.status !== 200) throw Error('Enhanced content API Failed');
       const js = await response.text();
-      const id = js.match(/flixJsCallbacks.pid\s*='([^']+)/)[1];
-      response = await fetch(`https://cors-anywhere.herokuapp.com/https://media.flixcar.com/delivery/inpage/show/3986/au/${id}/json`);
-      const html = JSON.parse((await response.text()).match(/^\((.+)\)$/)[1]).html;
-      const div = document.createElement('div');
-      div.id = 'enhanced-content';
-      div.innerHTML = html;
-      document.body.append(div);
+      if (js.match(/flixJsCallbacks.pid\s*='([^']+)/)) {
+        const id = js.match(/flixJsCallbacks.pid\s*='([^']+)/)[1];
+        response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(`https://media.flixcar.com/delivery/inpage/show/3986/au/${id}/json`)}`);
+        const html = JSON.parse((await response.json()).contents.match(/^\((.+)\)$/)[1]).html;
+        const div = document.createElement('div');
+        div.id = 'enhanced-content';
+        div.innerHTML = html;
+        document.body.append(div);
+      }
     }
   }
   try {
-    js = await context.evaluate(addEnhancedContent);
-    console.log(js);
+    await context.evaluate(addEnhancedContent);
   } catch (error) {
-    console.log('Enhance content not loaded. Error: ', error);
+    throw new Error('Enhance content not loaded. Error: ' + JSON.stringify(error));
   }
   return await context.extract(productDetails, { transform });
 }
