@@ -102,9 +102,9 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //img[@alt="video"]/parent::a/@onclick
-    regExp: afficherPopInVideo\(\'(.*).mp4
-    regExpReplace: $1
+    xpath: //video[contains(@id,"inlineVideo")]//@src
+    # regExp: afficherPopInVideo\(\'(.*).mp4
+    # regExpReplace: $1
   - name: availabilityText
     singleValue: false
     xpath: //button[contains(@class, "btnGreen")]/span[text()="Ajouter au panier"] |//*[@data-popinname="dispo-product"] | //button[@onclick="eventAddToCart()"]/span[text()="Ajouter au panier"]
