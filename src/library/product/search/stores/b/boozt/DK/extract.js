@@ -15,7 +15,7 @@ async function implementation (
   const skuArray = [];
   const gtinArray = [];
   for (let i = 0; i < info.itemListElement.length; i++) {
-    skuArray.push(info.itemListElement[i].item.sku);
+    skuArray.push(info.itemListElement[i].item.sku.toLowerCase());
     gtinArray.push(info.itemListElement[i].item.gtin8);
   };
   var data = await context.extract(productDetails, { transform });
