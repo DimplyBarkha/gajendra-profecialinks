@@ -9,12 +9,7 @@ module.exports = {
     domain: 'bhphotovideo.com',
     zipcode: '',
   },
-  implementation: async (
-    { inputString },
-    { country, domain, transform },
-    context,
-    { productDetails },
-  ) => {
+  implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     // checking if the extractor is on search results page and if true redirecting to the product page
     let productLink = 'https://www.bhphotovideo.com';
     const isExtractorOnSearchResultsPage = await context.evaluate(async () => {
@@ -23,13 +18,15 @@ module.exports = {
     });
     if (isExtractorOnSearchResultsPage) {
       const partialLink = await context.evaluate(async () => {
-        return document.querySelector('div[class*="desc"] a[class*="title"]').getAttribute('href');
+        return document.querySelector('div[class*="desc"] a[class*="title"]')
+          ? document.querySelector('div[class*="desc"] a[class*="title"]').getAttribute('href')
+          : '';
       });
       productLink += partialLink;
-      context.goto(productLink);
+      await context.goto(productLink);
     }
     await context.waitForNavigation();
-    await context.waitForSelector('div[class*="details"]', { timeout: 3000 });
+    await context.waitForSelector('div[class*="details"]', { timeout: 5000 });
 
     await context.evaluate(async () => {
       let scrollTop = 0;
@@ -69,7 +66,7 @@ module.exports = {
     var dataRef = await context.extract(productDetails, { transform });
     const descriptions = dataRef[0].group[0].manufacturerDescription;
     if (descriptions) {
-      descriptions.forEach((desc) => {
+      descriptions.forEach(desc => {
         descriptions[0].text += ' ' + desc.text;
       });
       descriptions.splice(1);
