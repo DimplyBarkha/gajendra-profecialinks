@@ -8,7 +8,7 @@ const transform = (data, context) => {
     .replace(/"\s{1,}/g, '"')
     .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
-  // eslint-disable-next-line no-control-regex
+    // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ')
     .trim();
@@ -89,7 +89,7 @@ async function implementation (
   });
 
   if (!onReviewsPage) {
-        const reviewSuffix = await context.evaluate(() => {
+    const reviewSuffix = await context.evaluate(() => {
       let reviewURL = '';
       if (document.querySelector('a[data-hook="see-all-reviews-link-foot"]')) {
         reviewURL = document.querySelector('a[data-hook="see-all-reviews-link-foot"]').getAttribute('href');
