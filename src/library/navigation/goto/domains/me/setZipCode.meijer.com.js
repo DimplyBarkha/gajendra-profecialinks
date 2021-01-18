@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     domain: 'meijer.com',
-    store: 'meijer',
+    store: 'meijer_49684',
     zipcode: '',
   },
 };
