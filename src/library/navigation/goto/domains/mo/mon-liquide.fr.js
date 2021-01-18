@@ -2,9 +2,10 @@
 module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
-    country: 'GB',
-    domain: 'asda.com',
-    store: 'asda',
+    domain: 'mon-liquide.fr',
     timeout: 50000,
+    country: 'FR',
+    store: 'mon-liquide',
+    zipcode: "''",
   },
 };
