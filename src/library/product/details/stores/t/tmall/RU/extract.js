@@ -19,29 +19,9 @@ module.exports = {
         if (document.querySelector('.bottom-recommendation')) {
           document.querySelector('.bottom-recommendation').scrollIntoView();
           console.log('Waiting for 3 seconds.');
-          await timeout(3000);
+          await timeout(5000);
         }
       });
-      // async function autoScroll(page){
-      //   await page.evaluate(async () => {
-      //     await new Promise((resolve, reject) => {
-      //       var totalHeight = 0;
-      //       var distance = 100;
-      //       var timer = setInterval(() => {
-      //         var scrollHeight = document.body.scrollHeight;
-      //         window.scrollBy(0, distance);
-      //         totalHeight += distance;
-        
-      //         if(totalHeight >= scrollHeight){
-      //           clearInterval(timer);
-      //           resolve();
-      //         }
-      //       }, 100);
-      //     });
-      //   });
-      // }
-
-      // await autoScroll(context);
     } catch (er) {
       console.log('Failed to scroll to bottom of page', er);
     }
