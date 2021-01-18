@@ -39,7 +39,7 @@ fields:
     regExp: (\d+)
   - name: price
     singleValue: false
-    xpath: //div[@class='item-price']/div[@class='currentPrice  '] | //div[@class='item-price']/div[@class='currentPrice  hasSavings']
+    xpath: //div[@class='item-price']/div[@class='currentPrice  '] | //div[@class='item-price']/div[@class='currentPrice  hasSavings'] | //span[@class='priceDiv']//div[@class='normalPrice']
   - name: manufacturer
     singleValue: true
   - name: soldBy

@@ -41,7 +41,7 @@ async function implementation (
       });
     }
     // Adding , separator to price
-    const allProductsPrice = document.querySelectorAll('div.currentPrice  ');
+    const allProductsPrice = document.querySelectorAll('div.currentPrice,div.normalPrice');
     allProductsPrice.forEach(element => {
       const elementSpan = element.querySelector('span');
       if (elementSpan) {
