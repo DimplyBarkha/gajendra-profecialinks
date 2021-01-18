@@ -18,7 +18,9 @@ fields:
     xpath: //div[@class='ProductCard_productDescription__3l4j5']//span[@class='ant-typography LYSTypography_h4__Tirm_ ProductCard_productName__1avVW']//text()
   - name: id
     description: The store-specific product identifier
-    xpath: //div[@class='ProductCard_productDescription__3l4j5']/span[@class='ant-typography ant-typography-secondary'][2]/text()[3]
+    type: TEXT
+    # xpath: //div[@class='ProductCard_productDescription__3l4j5']/span[@class='ant-typography ant-typography-secondary'][2]/text()[3]
+    xpath: //span[contains(text(),"Artikelnummer")]//text()[3]
   - name: aggregateRating2
     xpath: //div[@class='ts-reviewSummary-averageRating']//span[@class='ts-reviewSummary-ratingValue']//text()
   - name: reviewCount
