@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class, 'productCard j-productCard')]
+recordXPath: //div[contains(@class, 'productCard j-productCard') and not(contains(@data-item, 'reccomendedcomp'))]
 fields:
   - name: id
     singleValue: true
