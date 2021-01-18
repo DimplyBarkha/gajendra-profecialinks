@@ -16,7 +16,8 @@ module.exports = {
     await context.setJavaScriptEnabled(true);
     await context.setAntiFingerprint(false);
     await context.setUseRelayProxy(false);
-    await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
+    await context.goto(url, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: true });
+    // await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
     try {
       await context.waitForSelector('button#onetrust-accept-btn-handler');
       await context.evaluate(async function (inputs) {
