@@ -1,6 +1,6 @@
 /**
  *
- * @param { { URL: string, id: any, RPC: string, SKU: string, parentInput: string } } inputs
+ * @param { { URL: string, id: any, RPC: string, SKU: string, zipcode: string } } inputs
  * @param { { store: any, country: any, zipcode: any } } parameters
  * @param { ImportIO.IContext } context
  * @param { { execute: ImportIO.Action, extract: ImportIO.Action } } dependencies
@@ -11,26 +11,14 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { URL, RPC, SKU, parentInput } = inputs;
+  const { URL, RPC, SKU } = inputs;
   const { execute, extract } = dependencies;
   const url = URL;
-  const id = RPC || SKU || UPC || inputs.id;
+  const id = (RPC) || ((SKU) || inputs.id);
   const zipcode = inputs.zipcode || parameters.zipcode;
-  const storeId = inputs.storeId || storeID || parameters.storeId;
+  await execute({ url, id, zipcode });
 
-  const newInput = { ...inputs, storeId, zipcode, url, id };
-
-  const resultsReturned = await execute(newInput);
-  if (!resultsReturned) {
-    console.log('No results were returned');
-    return;
-  }
-
-<<<<<<< HEAD
-  await extract(newInput);
-=======
-  await extract({ url, id, parentInput });
->>>>>>> 3aa6b277c0f631e790b3d64d8608d35702352a89
+  await extract({ url, id });
 }
 
 module.exports = {
@@ -73,36 +61,14 @@ module.exports = {
       optional: true,
     },
     {
-      name: 'UPC',
-      description: 'UPC for product',
-      type: 'string',
-      optional: true,
-    },
-    {
       name: 'SKU',
       description: 'sku for product',
       type: 'string',
       optional: true,
     },
     {
-<<<<<<< HEAD
       name: 'zipcode',
       description: 'zipcode',
-      type: 'string',
-      optional: true,
-    },
-    {
-      name: 'parentInput',
-      description: 'parent input value',
-      optional: true,
-    },
-    {
-      name: 'storeID',
-      description: 'Id of the store',
-=======
-      name: 'parentInput',
-      description: 'parent input value',
->>>>>>> 3aa6b277c0f631e790b3d64d8608d35702352a89
       type: 'string',
       optional: true,
     },
