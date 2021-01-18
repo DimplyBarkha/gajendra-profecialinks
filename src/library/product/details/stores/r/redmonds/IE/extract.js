@@ -91,31 +91,31 @@ module.exports = {
         addElementToDocument('added_specifications', specifications);
       }
 
-    //  const inTheBoxUrl = getAllXpath("//div[@class='product-collateral']//div[@class='inpage_selector_InTheBox']//img/@srcset", 'nodeValue');
-     // var inTheBoxVal = '';
-     // if (inTheBoxUrl.length > 0) {
-     //   for (var inTheBox in inTheBoxUrl) {
+      const inTheBoxUrl = getAllXpath("//div[@class='product-collateral']//div[@class='inpage_selector_InTheBox']//img/@srcset", 'nodeValue');
+      var inTheBoxVal = '';
+      if (inTheBoxUrl.length > 0) {
+        for (var inTheBox in inTheBoxUrl) {
           // @ts-ignore
-       //   if (isNaN(inTheBox) === false) {
-          //  inTheBoxVal += 'https:' + inTheBoxUrl[inTheBox] + '||';
-         // }
-        //}
+          if (isNaN(inTheBox) === false) {
+            inTheBoxVal += 'https:' + inTheBoxUrl[inTheBox] + '||';
+          }
+        }
 
-     //   if (inTheBoxVal !== '') {
-      //    inTheBoxVal = inTheBoxVal.replace(/||\s*$/, '');
-      //    addElementToDocument('added_intheboxurl', inTheBoxVal);
-      //  }
-     // }
-//
-     // const inTheBoxText = getAllXpath("//div[@class='product-collateral']//div[@class='inpage_selector_InTheBox']//div[@class='flix-std-content']/div/span", 'innerText').join(' || ');
-     // if (inTheBoxText) {
-     //   addElementToDocument('added_intheboxtext', inTheBoxText);
-     // }
+        if (inTheBoxVal !== '') {
+          inTheBoxVal = inTheBoxVal.replace(/||\s*$/, '');
+          addElementToDocument('added_intheboxurl', inTheBoxVal);
+        }
+      }
 
-     // const enhanced_content = getAllXpath("//div[@class='flix-std-container-fluid']//div[@class='flix-std-row']//div", 'innerText').join(' ');
-     // if (enhanced_content) {
-     //   addElementToDocument('added_enhanced_content', enhanced_content);
-     // }
+      const inTheBoxText = getAllXpath("//div[@class='product-collateral']//div[@class='inpage_selector_InTheBox']//div[@class='flix-std-content']/div/span", 'innerText').join(' || ');
+      if (inTheBoxText) {
+        addElementToDocument('added_intheboxtext', inTheBoxText);
+      }
+
+      const enhanced_content = getAllXpath("//div[@class='flix-std-container-fluid']//div[@class='flix-std-row']//div", 'innerText').join(' ');
+      if (enhanced_content) {
+        addElementToDocument('added_enhanced_content', enhanced_content);
+      }
 
       const aplus_images = getAllXpath("//div[@class='flix-std-container-fluid']//div[@class='flix-std-row']//div//img/@srcset", 'nodeValue');
       console.log(aplus_images);

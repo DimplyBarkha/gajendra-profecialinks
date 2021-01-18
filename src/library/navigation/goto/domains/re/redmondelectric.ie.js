@@ -3,25 +3,35 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'redmondelectric.ie',
-    timeout: null,
+    timeout: 60000,
     country: 'IE',
     store: 'redmonds',
     zipcode: '',
   },
-  implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
-    const timeout = parameters.timeout ? parameters.timeout : 1000000;
-    await context.setAntiFingerprint(false);
-    await context.setLoadAllResources(true);
+
+  implementation: async (inputs, { timeout }, context, dependencies) => {
+    let url = `${inputs.url}`;
     await context.setBlockAds(false);
-    await context.setLoadImages(true);
-    await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
-    if (zipcode) {
-      await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
+    url = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
+    await context.goto(url, { waitUntil: 'networkidle0', block_ads: false, timeout });
+    async function autoScroll (page) {
+      await page.evaluate(async () => {
+        await new Promise((resolve, reject) => {
+          var totalHeight = 0;
+          var distance = 100;
+          var timer = setInterval(() => {
+            var scrollHeight = document.body.scrollHeight;
+            window.scrollBy(0, distance);
+            totalHeight += distance;
+
+            if (totalHeight >= scrollHeight) {
+              clearInterval(timer);
+              resolve();
+            }
+          }, 100);
+        });
+      });
     }
+    await autoScroll(context);
   },
 };
-
-
-    
-
-
