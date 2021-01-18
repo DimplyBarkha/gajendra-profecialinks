@@ -18,9 +18,9 @@ module.exports = {
       await context.evaluate(async function () {
         let scrollTop = 0;
         while (scrollTop !== 20000) {
-          scrollTop += 400;
+          scrollTop += 1000;
           window.scroll(0, scrollTop);
-          await stall(2000);
+          await stall(1000);
         }
         function stall(ms) {
           return new Promise((resolve, reject) => {
@@ -51,6 +51,7 @@ module.exports = {
         console.log('failed to click view all spec');
       }
     });
+    // await applyScroll(context);
     await context.evaluate(async function () {
       const images = JSON.parse(document.evaluate('//script[contains(text(),"__PRELOADED_STATE__")]', document).iterateNext().textContent &&
         document.evaluate('//script[contains(text(),"__PRELOADED_STATE__")]', document).iterateNext().textContent.match(/"additionalImages":([^\]]+])/) &&
@@ -84,12 +85,31 @@ module.exports = {
         });
       }
       const comparisonTable = document.querySelector('div[class*="syndi_powerpage"]');
-      if(comparisonTable) {
+      if (comparisonTable) {
         const witbData1 = [...comparisonTable.shadowRoot.querySelectorAll('div[class="syndi_powerpage"] div[class*="syndigo"]')]
-           witbData1.forEach(element => {
-             element.querySelector('h2[class="syndigo-widget-section-header"]') && addElementToDocument('witbTable', element.querySelector('h2[class="syndigo-widget-section-header"]'));
-           });
+        witbData1.forEach(element => {
+          element.querySelector('h2[class="syndigo-widget-section-header"]') && addElementToDocument('witbTable', element.querySelector('h2[class="syndigo-widget-section-header"]'));
+        });
       }
+
+      // const expandDataT = document.querySelector('div[class="prev-container"]>div[class="prev-body"] div[class="divTableRow"]:first-child div[class="optionCont"]');
+      // if (expandDataT) {
+      //   let witbData1 = expandDataT.querySelectorAll('a');
+      //   let finalValue;
+      //   witbData1.forEach(element => {
+      //     if (element.querySelector('b').innerText.match(/dyson/i)) {
+      //       finalValue = 'Yes';
+      //     }
+      //     else {
+      //       finalValue = 'No';
+      //       return false;
+      //     }
+      //   });
+        
+      //   addElementToDocument('elementDataT', finalValue);
+      // }
+      console.log(document.querySelector('b').innerText == "Dyson")
+      console.log(document.querySelector('b').innerText.match(/dyson/i))
       const videoApi = JSON.parse(document.evaluate('//script[contains(text(),"__PRELOADED_STATE__")]', document).iterateNext().textContent &&
         document.evaluate('//script[contains(text(),"__PRELOADED_STATE__")]', document).iterateNext().textContent.match(/videos":([^\]]+])/) &&
         document.evaluate('//script[contains(text(),"__PRELOADED_STATE__")]', document).iterateNext().textContent.match(/videos":([^\]]+])/)[1]);
@@ -102,6 +122,7 @@ module.exports = {
         });
       }
     });
+    await applyScroll(context);
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.extract(productDetails, { transform });

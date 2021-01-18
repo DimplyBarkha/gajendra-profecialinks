@@ -11,6 +11,25 @@ module.exports = {
     const timeout = parameters.timeout ? parameters.timeout : 10000;
     await context.setBlockAds(false);
     await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true, block_ads: false, load_all_resources: true, images_enabled: true });
+    async function autoScroll(page) {
+      await page.evaluate(async () => {
+        await new Promise((resolve, reject) => {
+          var totalHeight = 0;
+          var distance = 100;
+          var timer = setInterval(() => {
+            var scrollHeight = document.body.scrollHeight;
+            window.scrollBy(0, distance);
+            totalHeight += distance;
+
+            if (totalHeight >= scrollHeight) {
+              clearInterval(timer);
+              resolve();
+            }
+          }, 100);
+        });
+      });
+    }
+    await autoScroll(context);
     const isStorePresent = await context.evaluate(async function () {
       const isStorePresent = document.querySelector('#store-search-handler');
       // @ts-ignore
@@ -49,5 +68,6 @@ module.exports = {
     if (zipcode) {
       await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
     }
+    await autoScroll(context);
   },
 };
