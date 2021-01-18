@@ -6,7 +6,7 @@ module.exports = {
   nextLinkSelector: null,
   mutationSelector: null,
   spinnerSelector: null,
-  loadedSelector: 'body',
+  loadedSelector: 'div.container-fluid',
   noResultsXPath: null,
   openSearchDefinition: null,
   domain: 'vons.com',
