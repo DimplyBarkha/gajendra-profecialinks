@@ -97,7 +97,6 @@ fields:
     sku
 - name: mpc
   singleValue: true
-  xpath: //div[@class="itemNo"]
   description: The manufacturer model code (unique) of the product
 - name: packSize
   singleValue: true
@@ -512,6 +511,3 @@ fields:
   xpath: //a[@class="enlarge"]/@title
   regExp: (.+)
   regExpReplace: 'Yes'
-- name: unInterruptedPDP
-  singleValue: false
-  xpath: //div[contains(@class,'relatedItemsCarousel')]//img/@alt | //div[@data-feature-show-code="YOU_MAY_ALSO_LIKE"]//img/@alt
