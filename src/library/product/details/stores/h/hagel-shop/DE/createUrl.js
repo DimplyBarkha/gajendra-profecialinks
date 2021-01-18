@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'hagel-shop.de',
     prefix: null,
-    url: null,
+    url: 'https://www.hagel-shop.de/catalogsearch/result?q={id}',
     country: 'DE',
     store: 'hagel-shop',
     zipcode: '',

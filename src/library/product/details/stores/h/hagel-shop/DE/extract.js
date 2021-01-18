@@ -68,8 +68,17 @@ module.exports = {
       //price 
       var price = getXpath('//div[@class="price-details"]/div[@class="price-box"]/p[@class="special-price"]/span[@class="price"]/text() | //div[@class="simple-product-list"]/table/tbody/tr[1]//p[@class="special-price"]/span[@class="price"]/text() | //div[@class="price-details"]/div[@class="price-box"]/span[@class="regular-price"]//span[@class="price"]/text()', 'nodeValue');
       if (price != null) {
-        // price = price.replace(",", ".");
+        price = price.replace(",", ".");
         addElementToDocument('price', price);
+      }
+
+      //List price 
+      var list_price = getXpath('(//p[@class="old-price"]/span[@class="price"])[1]/text()', 'nodeValue');
+      if (list_price != null){
+        if(list_price.includes(",")){
+          list_price = list_price.replace(",", ".");
+        }
+        addElementToDocument('list_price', list_price);
       }
 
       //size [ quantity ]
@@ -95,7 +104,7 @@ module.exports = {
         if(aval.includes("In")){
           aval = "In Stock"
         }else{
-          aval = "Out of Stock"
+          aval = "Out Of Stock"
         }
         addElementToDocument('aval', aval);
       }
