@@ -1,9 +1,11 @@
+const { transform } = require('../shared');
 async function implementation (
   inputs,
   parameters,
   context,
   dependencies,
 ) {
+  const { transform } = parameters;
   const { productReviews } = dependencies;
   await context.evaluate(async function () {
     function addEleToDoc (key, value) {
@@ -31,14 +33,14 @@ async function implementation (
     }
   });
 
-  return await context.extract(productReviews);
+  return await context.extract(productReviews, { transform });
 }
 module.exports = {
   implements: 'product/reviews/extract',
   parameterValues: {
     country: 'CA',
     store: '180smoke',
-    transform: null,
+    transform,
     domain: '180smoke.ca',
     zipcode: '',
   },

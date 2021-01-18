@@ -15,7 +15,9 @@ fields:
 - name: brand
   xpath: ancestor::html//h1[@class="page-product-view--title"]
 - name: productRange
-  xpath: ancestor::html//ol[@class="breadcrumb"]/li[1]/a/text()
+  xpath: ancestor::html//meta[@name="keywords"]/@content
+  regExp: ^([\w\-]+)
+  regExpReplace: $1
 - name: productFamily
   xpath: concat(//ol[@class="breadcrumb"]/li[1]/a/text(),'/',//ol[@class="breadcrumb"]/li[2]/text())
 - name: colour
