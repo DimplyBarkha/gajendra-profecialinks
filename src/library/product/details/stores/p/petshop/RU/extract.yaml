@@ -254,7 +254,7 @@ fields:
   singleValue: false
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
-  xpath: ancestor::html//div[contains(@class, "style_composition__composition")]//div[b[contains(text(), "Ингредиенты")]]
+  xpath: ancestor::html//div[contains(@class, "style_composition__composition")]//*[b[contains(text(), "Ингредиенты")]]
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.

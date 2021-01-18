@@ -53,12 +53,13 @@ module.exports = {
       if (descriptionParent) {
         for (let i = 0; i < descriptionParent.children.length; i++) {
           const row = descriptionParent.children[i];
+          if (row.nodeName === 'TABLE') break;
           const hasTable = !!row.querySelector('table');
           if (!hasTable) descriptionArr.push(row.textContent);
           else {
             for (let j = 0; j < row.children.length; j++) {
               const child = row.children[j];
-              if (child.querySelector('table')) break;
+              if (child.querySelector('table') || child.nodeName === 'TABLE') break;
               descriptionArr.push(child.textContent);
             }
           }
@@ -142,11 +143,11 @@ module.exports = {
             productObj && productObj.images ? productObj.images.filter((item) => item.type === 'image') : [];
           allImages.forEach((image) => {
             const imageElem = document.createElement('li');
-            imageElem.setAttribute('src', `https:${image.bigImgSrc}`);
+            imageElem.setAttribute('src', `https:${image.defaultImgSrc}`);
             imageElem.setAttribute('alt', image.alt);
             imagesList.appendChild(imageElem);
           });
-          imagesList.setAttribute('total', allImages.length);
+          imagesList.setAttribute('total', allImages.length - 1);
           listElem.appendChild(imagesList);
 
           const videosList = document.createElement('ol');
@@ -168,11 +169,11 @@ module.exports = {
           listElem.appendChild(videosList);
 
           const productUrl = window.location.href;
-          const name = document.querySelector('div[class^="style_info_product_name"] h1')
-            ? document.querySelector('div[class^="style_info_product_name"] h1').textContent
+          const name = document.querySelector('div[class^="style_info_product_name"] h1, h1.product-name')
+            ? document.querySelector('div[class^="style_info_product_name"] h1, h1.product-name').textContent
             : '';
           const brandElem = document.querySelector('a[class*="brand_name"], a[class*="ProductBrand"]');
-          const brandName = brandElem ? brandElem.textContent : '';
+          const brandName = brandElem ? brandElem.textContent.trim() : '';
           const brandLink = brandElem ? `https://www.petshop.ru${brandElem.getAttribute('href')}` : '';
 
           const listPrice = document.evaluate(
@@ -191,20 +192,13 @@ module.exports = {
           ).stringValue;
 
           const availabilityText = document.querySelector('div[data-testid="deliveryInfo"][class*="not_available"]')
-            ? 'Out Of Stock'
+            ? 'Out of Stock'
             : 'In Stock';
-          // const availabilityText = document.evaluate(
-          //   '//div[@data-testid="deliveryInfo"]',
-          //   document,
-          //   null,
-          //   XPathResult.STRING_TYPE,
-          //   null,
-          // ).stringValue;
 
           const couponText = document.querySelector('div.product-info div.flag')
             ? document.querySelector('div.product-info div.flag').textContent
             : '';
-          const nameExtended = name.toLowerCase().includes(brandName.toLowerCase()) ? name : `${brandName} - ${name}`;
+          const nameExtended = brandName && !name.toLowerCase().includes(brandName.toLowerCase()) ? `${brandName} - ${name}` : name;
 
           listElem.setAttribute('product_url', productUrl);
           listElem.setAttribute('product_name', name);
@@ -219,7 +213,7 @@ module.exports = {
           listElem.setAttribute('description', productDescription);
           if (productObj && productObj.rating) {
             listElem.setAttribute('rating_count', productObj.rating.voteCount);
-            listElem.setAttribute('aggregate_rating', productObj.rating.value);
+            listElem.setAttribute('aggregate_rating', productObj.rating.value.toString().replace('.', ','));
           }
 
           const servingText = document.evaluate(
@@ -250,13 +244,13 @@ module.exports = {
           listElem.setAttribute('calories_per_serving', caloriesPerServing);
 
           const fatText = document.evaluate(
-            '//*[(name()="tr" or name()="li") and contains(translate(. , "ЖИР", "жир"), "жир")]',
+            '(//*[(name()="tr" or name()="li") and contains(translate(. , "ЖИР", "жир"), "жир")])[last()]',
             document,
             null,
             XPathResult.STRING_TYPE,
             null,
           ).stringValue;
-          const fatRegexp = /([\d.]+)\s?(.+)/;
+          const fatRegexp = /([\d.,]+)\s?(.+)/;
           const totalFatPerServing = fatText.match(fatRegexp) ? fatText.match(fatRegexp)[1] : '';
           const totalFatPerServingUom = fatText.match(fatRegexp) ? fatText.match(fatRegexp)[2] : '';
 
@@ -271,7 +265,7 @@ module.exports = {
             XPathResult.STRING_TYPE,
             null,
           ).stringValue;
-          const sodiumRegexp = /([\d.]+)\s?(.+)/;
+          const sodiumRegexp = /([\d.,]+)\s?(.+)/;
           const sodiumPerServing = sodiumText.match(sodiumRegexp) ? sodiumText.match(sodiumRegexp)[1] : '';
           const sodiumPerServingUom = sodiumText.match(sodiumRegexp) ? sodiumText.match(sodiumRegexp)[2] : '';
 
@@ -292,33 +286,37 @@ module.exports = {
           listElem.setAttribute('total_carb_per_serving_uom', totalCarbPerServingUom);
 
           const fibreText = document.evaluate(
-            '//tr[td[contains(. , "волокно")] and contains(. , "г") and not(contains(. , "%"))]',
+            '//*[(name()="tr" or name()="li") and (contains(translate(. , "КЛЕТЧАТКА", "клетчатка"), "клетчатка") or contains(translate(. , "ВОЛОКНО", "волокно"), "волокно"))]',
             document,
             null,
             XPathResult.STRING_TYPE,
             null,
           ).stringValue;
-          const dietaryFibrePerServing = fibreText.match(/(\d+)\s?(.+)/) ? fibreText.match(/(\d+)\s?(.+)/)[1] : '';
-          const dietaryFibrePerServingUom = fibreText.match(/(\d+)\s?(.+)/) ? fibreText.match(/(\d+)\s?(.+)/)[2] : '';
+          const fibreRegexp = /([\d.,]+)\s?(.+)/;
+          const dietaryFibrePerServing = fibreText.match(fibreRegexp) ? fibreText.match(fibreRegexp)[1] : '';
+          const dietaryFibrePerServingUom = fibreText.match(fibreRegexp) ? fibreText.match(fibreRegexp)[2] : '';
 
           listElem.setAttribute('dietary_fibre_per_serving', dietaryFibrePerServing);
           listElem.setAttribute('dietary_fibre_per_serving_uom', dietaryFibrePerServingUom);
 
           const sugarText = document.evaluate(
-            '//tr[td[contains(. , "сахар")] and contains(. , "г") and not(contains(. , "%"))]',
+            '//*[(name()="tr" or name()="li") and contains(translate(. , "САХАР", "сахар"), "сахар")]',
+            // '//tr[td[contains(. , "сахар")] and contains(. , "г") and not(contains(. , "%"))]',
             document,
             null,
             XPathResult.STRING_TYPE,
             null,
           ).stringValue;
-          const totalSugarsPerServing = sugarText.match(/(\d+)\s?(.+)/) ? sugarText.match(/(\d+)\s?(.+)/)[1] : '';
-          const totalSugarsPerServingUom = sugarText.match(/(\d+)\s?(.+)/) ? sugarText.match(/(\d+)\s?(.+)/)[2] : '';
+          const sugarMatch = sugarText.match(/([\d.,]+)\s?(.+)/);
+          const totalSugarsPerServing = sugarMatch ? sugarMatch[1] : '';
+          const totalSugarsPerServingUom = sugarMatch ? sugarMatch[2] : '';
 
           listElem.setAttribute('total_sugar_per_serving', totalSugarsPerServing);
           listElem.setAttribute('total_sugar_per_serving_uom', totalSugarsPerServingUom);
 
           const proteinText = document.evaluate(
-            '//tr[td[contains(. , "белок") or contains(. , "белки")] and contains(. , "г") and not(contains(. , "%"))]',
+            '//*[(name()="tr" or name()="li") and (contains(translate(. , "БЕЛОК", "белок"), "белок") or contains(translate(. , "БЕЛКИ", "белки"), "белки"))]',
+            // '//tr[td[contains(. , "белок") or contains(. , "белки")] and contains(. , "г") and not(contains(. , "%"))]',
             document,
             null,
             XPathResult.STRING_TYPE,
@@ -363,7 +361,7 @@ module.exports = {
             XPathResult.STRING_TYPE,
             null,
           ).stringValue;
-          const calciumRegexp = /([\d.]+)\s?(.+)/;
+          const calciumRegexp = /([\d.,]+)\s?(.+)/;
           const calciumPerServing = calciumText.match(calciumRegexp) ? calciumText.match(calciumRegexp)[1] : '';
           const calciumPerServingUom = calciumText.match(calciumRegexp) ? calciumText.match(calciumRegexp)[2] : '';
 
@@ -378,7 +376,7 @@ module.exports = {
             XPathResult.STRING_TYPE,
             null,
           ).stringValue;
-          const ironRegexp = /([\d.]+)\s?(.+)/;
+          const ironRegexp = /([\d.,]+)\s?(.+)/;
           const ironPerServing = ironText.match(ironRegexp) ? ironText.match(ironRegexp)[1] : '';
           const ironPerServingUom = ironText.match(ironRegexp) ? ironText.match(ironRegexp)[2] : '';
 
@@ -393,7 +391,7 @@ module.exports = {
             XPathResult.STRING_TYPE,
             null,
           ).stringValue;
-          const magnesiumRegExp = /([\d.]+)\s?(.+)/;
+          const magnesiumRegExp = /([\d.,]+)\s?(.+)/;
           const magnesiumPerServing = magnesiumText.match(magnesiumRegExp)
             ? magnesiumText.match(magnesiumRegExp)[1]
             : '';
@@ -412,14 +410,18 @@ module.exports = {
             XPathResult.STRING_TYPE,
             null,
           ).stringValue;
-          const saltRegexp = /([\d.]+)\s?(.+)/;
+          const saltRegexp = /([\d.,]+)\s?(.+)/;
           const saltPerServing = saltText.match(saltRegexp) ? saltText.match(saltRegexp)[1] : '';
           const saltPerServingUom = saltText.match(saltRegexp) ? saltText.match(saltRegexp)[2] : '';
 
           listElem.setAttribute('salt_per_serving', saltPerServing);
           listElem.setAttribute('salt_per_serving_uom', saltPerServingUom);
 
-          const image360Present = !!(productObj && productObj.images && productObj.images.find((item) => item.type === '3d' && item.imagesArr.length));
+          const image360Present = !!(
+            productObj &&
+            productObj.images &&
+            productObj.images.find((item) => item.type === '3d' && item.imagesArr.length)
+          );
           listElem.setAttribute('image_360_present', image360Present.toString());
 
           const weightElem = document.querySelector(

@@ -2,7 +2,7 @@ input:
   id: 36158
   _url: http://petshop.ru
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=d557ce1e-8064-4a33-bc37-cece4d30f4ed/task=65d1bf17-8a0b-41e4-adf7-d6ed783a15d8/2901b026-0a47-4243-bd1b-c169278d689c.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=d61e5a0d-76e4-4ebb-a1c5-73fc0c40f3e3/task=351fdb76-c05f-4686-929e-3b178cb81498/8ffc07fb-d698-4260-a0bf-1de8d9b3a147.html
     extractionConfigId: product/details/stores/p/petshop/RU/extract
     data:
       - group:
@@ -10,7 +10,7 @@ extractions:
               - text: https://www.petshop.ru/catalog/cats/Vitaminss/lakomstva/the-crunchy-treat-with-the-taste-of-the-fish-for-kittons/
                 xpath: /html/body/ol[1]/li[1]/@product_url
             image:
-              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/35/ce/b1/479188_1600x1600.jpg
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/35/ce/b1/479188_400x400.jpg
                 xpath: /html/body/ol[1]/li[1]/ol[1]/li[1]/@src
             imageAlt:
               - text: alt text
@@ -56,12 +56,12 @@ extractions:
               - text: "38"
                 xpath: /html/body/ol[1]/li[1]/@rating_count
             aggregateRating:
-              - text: "47"
+              - text: "4.7"
                 xpath: /html/body/ol[1]/li[1]/@aggregate_rating
                 type: NUMBER
-                raw: "4.7"
+                raw: 4,7
                 locale: ru
-                value: 47
+                value: 4.7
             variantCount:
               - text: "1"
                 xpath: /html/body/ol[1]/li[1]/@variant_count
@@ -72,7 +72,7 @@ extractions:
               - text: https://www.petshop.ru/brand/felix/
                 xpath: /html/body/ol[1]/li[1]/@brand_link
             secondaryImageTotal:
-              - text: "1"
+              - text: "0"
                 xpath: /html/body/ol[1]/li[1]/ol[1]/@total
             servingSize:
               - text: "1"
@@ -86,6 +86,18 @@ extractions:
             totalFatPerServingUom:
               - text: "%"
                 xpath: /html/body/ol[1]/li[1]/@total_fat_per_serving_uom
+            dietaryFibrePerServing:
+              - text: "0.5"
+                xpath: /html/body/ol[1]/li[1]/@dietary_fibre_per_serving
+            dietaryFibrePerServingUom:
+              - text: "%"
+                xpath: /html/body/ol[1]/li[1]/@dietary_fibre_per_serving_uom
+            proteinPerServing:
+              - text: "35"
+                xpath: /html/body/ol[1]/li[1]/@protein_per_serving
+            proteinPerServingUom:
+              - text: "%"
+                xpath: /html/body/ol[1]/li[1]/@protein_per_serving_uom
             vitaminAPerServing:
               - text: "32000"
                 xpath: /html/body/ol[1]/li[1]/@vitamin_a_per_serving
@@ -118,4 +130,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1610718924087
+    timestamp: 1610970941383

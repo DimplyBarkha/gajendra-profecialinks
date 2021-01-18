@@ -2,7 +2,7 @@ input:
   id: 11122
   _url: http://petshop.ru
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=d557ce1e-8064-4a33-bc37-cece4d30f4ed/task=50be7100-8ca8-4fa3-ac5b-f2cc3748128e/d934f79e-fe2a-46ef-a254-ef062ab89f2c.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=d61e5a0d-76e4-4ebb-a1c5-73fc0c40f3e3/task=31b4131f-124e-4c1e-bb3b-790bcad74233/a293593c-58ad-49a2-9b7c-f281000f6400.html
     extractionConfigId: product/details/stores/p/petshop/RU/extract
     data:
       - group:
@@ -10,7 +10,8 @@ extractions:
               - text: https://www.petshop.ru/catalog/dogs/syxoi/schenki/dlya_schenkov_gigantskih_porod_8_18_mes_giant_junior_31_891/
                 xpath: /html/body/ol[1]/li[1]/@product_url
             nameExtended:
-              - text: "-"
+              - text: Корм Royal Canin (сухие корма) для щенков гигантских пород 8-18/24 мес.,
+                  Giant Junior
                 xpath: /html/body/ol[1]/li[1]/@name_extended
             availabilityText:
               - text: In Stock
@@ -28,11 +29,15 @@ extractions:
             variantCount:
               - text: "0"
                 xpath: /html/body/ol[1]/li[1]/@variant_count
+            name:
+              - text: Корм Royal Canin (сухие корма) для щенков гигантских пород 8-18/24 мес.,
+                  Giant Junior
+                xpath: /html/body/ol[1]/li[1]/@product_name
             brandLink:
               - text: https://www.petshop.ru/brand/royal_canin/
                 xpath: /html/body/ol[1]/li[1]/@brand_link
             secondaryImageTotal:
-              - text: "0"
+              - text: "-1"
                 xpath: /html/body/ol[1]/li[1]/ol[1]/@total
             totalFatPerServing:
               - text: "16"
@@ -40,11 +45,23 @@ extractions:
             totalFatPerServingUom:
               - text: "%"
                 xpath: /html/body/ol[1]/li[1]/@total_fat_per_serving_uom
+            dietaryFibrePerServing:
+              - text: 1,5
+                xpath: /html/body/ol[1]/li[1]/@dietary_fibre_per_serving
+            dietaryFibrePerServingUom:
+              - text: "%"
+                xpath: /html/body/ol[1]/li[1]/@dietary_fibre_per_serving_uom
+            proteinPerServing:
+              - text: "31"
+                xpath: /html/body/ol[1]/li[1]/@protein_per_serving
+            proteinPerServingUom:
+              - text: "%"
+                xpath: /html/body/ol[1]/li[1]/@protein_per_serving_uom
             calciumPerServing:
-              - text: "1"
+              - text: 1,26
                 xpath: /html/body/ol[1]/li[1]/@calcium_per_serving
             calciumPerServingUom:
-              - text: ",26 %"
+              - text: "%"
                 xpath: /html/body/ol[1]/li[1]/@calcium_per_serving_uom
             Image360Present:
               - text: "false"
@@ -63,4 +80,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "false"
         xpath: /html
-    timestamp: 1610718931712
+    timestamp: 1610970943447

@@ -2,7 +2,7 @@ input:
   id: 406020
   _url: http://petshop.ru
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=d557ce1e-8064-4a33-bc37-cece4d30f4ed/task=0a967d29-7404-4bb8-867a-626235802642/a3a51fb6-e290-4540-9b93-c3b2e92f01db.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=d61e5a0d-76e4-4ebb-a1c5-73fc0c40f3e3/task=9bf4a914-2b50-468c-9971-dd0ccfb81141/e5502213-4e55-4745-b5cd-42571f2bfb43.html
     extractionConfigId: product/details/stores/p/petshop/RU/extract
     data:
       - group:
@@ -10,15 +10,15 @@ extractions:
               - text: https://www.petshop.ru/catalog/dogs/syxoi/vzroslye_1_6let/dlya_sobak_krupnyh_porod_s_moschnym_teloslozheniem_s_chuvstvitelnym_pischevareniem_s_yagnenkom_large_adult_robust_lamb_12294786_40602/?oid=386882
                 xpath: /html/body/ol[1]/li[1]/@product_url
             image:
-              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/7f/75/52/386001_1600x1600.jpg
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/7f/75/52/386001_400x400.jpg
                 xpath: /html/body/ol[1]/li[1]/ol[1]/li[1]/@src
             imageAlt:
               - text: alt text
                 xpath: /html/body/ol[1]/li[1]/ol[1]/li[1]/@alt
             alternateImages:
-              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/8e/5b/dc/386002_1600x1600.jpg
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/8e/5b/dc/386002_400x400.jpg
                 xpath: /html/body/ol[1]/li[1]/ol[1]/li[2]/@src
-              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/22/8c/5a/452089_1600x1600.jpg
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/22/8c/5a/452089_400x400.jpg
                 xpath: /html/body/ol[1]/li[1]/ol[1]/li[3]/@src
             nameExtended:
               - text: Корм Purina Pro Plan для собак крупных пород мощного телосложения с
@@ -56,15 +56,15 @@ extractions:
               - text: "40602"
                 xpath: /html/body/ol[1]/li[1]/@variant_id
             ratingCount:
-              - text: "348"
+              - text: "349"
                 xpath: /html/body/ol[1]/li[1]/@rating_count
             aggregateRating:
-              - text: "42"
+              - text: "4.2"
                 xpath: /html/body/ol[1]/li[1]/@aggregate_rating
                 type: NUMBER
-                raw: "4.2"
+                raw: 4,2
                 locale: ru
-                value: 42
+                value: 4.2
             variantCount:
               - text: "4"
                 xpath: /html/body/ol[1]/li[1]/@variant_count
@@ -77,7 +77,7 @@ extractions:
               - text: https://www.petshop.ru/brand/purina_pro_plan/
                 xpath: /html/body/ol[1]/li[1]/@brand_link
             secondaryImageTotal:
-              - text: "3"
+              - text: "2"
                 xpath: /html/body/ol[1]/li[1]/ol[1]/@total
             Image360Present:
               - text: "false"
@@ -116,15 +116,15 @@ extractions:
               - text: https://www.petshop.ru/catalog/dogs/syxoi/vzroslye_1_6let/dlya_sobak_krupnyh_porod_s_moschnym_teloslozheniem_s_chuvstvitelnym_pischevareniem_s_yagnenkom_large_adult_robust_lamb_12294786_40602/?oid=499310
                 xpath: /html/body/ol[1]/li[2]/@product_url
             image:
-              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/7f/75/52/386001_1600x1600.jpg
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/7f/75/52/386001_400x400.jpg
                 xpath: /html/body/ol[1]/li[2]/ol[1]/li[1]/@src
             imageAlt:
               - text: alt text
                 xpath: /html/body/ol[1]/li[2]/ol[1]/li[1]/@alt
             alternateImages:
-              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/8e/5b/dc/386002_1600x1600.jpg
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/8e/5b/dc/386002_400x400.jpg
                 xpath: /html/body/ol[1]/li[2]/ol[1]/li[2]/@src
-              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/22/8c/5a/452089_1600x1600.jpg
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/22/8c/5a/452089_400x400.jpg
                 xpath: /html/body/ol[1]/li[2]/ol[1]/li[3]/@src
             nameExtended:
               - text: Корм Purina Pro Plan для собак крупных пород мощного телосложения с
@@ -135,7 +135,7 @@ extractions:
               - text: 4 225 ₽
                 xpath: /html/body/ol[1]/li[2]/@price
             availabilityText:
-              - text: Out Of Stock
+              - text: Out of Stock
                 xpath: /html/body/ol[1]/li[2]/@availability_text
             description:
               - text: >-
@@ -159,15 +159,15 @@ extractions:
               - text: "406020"
                 xpath: /html/body/ol[1]/li[2]/@variant_id
             ratingCount:
-              - text: "348"
+              - text: "349"
                 xpath: /html/body/ol[1]/li[2]/@rating_count
             aggregateRating:
-              - text: "42"
+              - text: "4.2"
                 xpath: /html/body/ol[1]/li[2]/@aggregate_rating
                 type: NUMBER
-                raw: "4.2"
+                raw: 4,2
                 locale: ru
-                value: 42
+                value: 4.2
             variantCount:
               - text: "4"
                 xpath: /html/body/ol[1]/li[2]/@variant_count
@@ -180,7 +180,7 @@ extractions:
               - text: https://www.petshop.ru/brand/purina_pro_plan/
                 xpath: /html/body/ol[1]/li[2]/@brand_link
             secondaryImageTotal:
-              - text: "3"
+              - text: "2"
                 xpath: /html/body/ol[1]/li[2]/ol[1]/@total
             Image360Present:
               - text: "false"
@@ -216,29 +216,32 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
           - productUrl:
-              - text: https://www.petshop.ru/catalog/dogs/syxoi/vzroslye_1_6let/dlya_sobak_krupnyh_porod_s_moschnym_teloslozheniem_s_chuvstvitelnym_pischevareniem_s_yagnenkom_large_adult_robust_lamb_12294786_40602/?oid=386888
+              - text: https://www.petshop.ru/catalog/dogs/syxoi/vzroslye_1_6let/dlya_sobak_krupnyh_porod_s_moschnym_teloslozheniem_s_chuvstvitelnym_pischevareniem_s_yagnenkom_large_adult_robust_lamb_12294786_40602/?oid=513231
                 xpath: /html/body/ol[1]/li[3]/@product_url
             image:
-              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/7f/75/52/386001_1600x1600.jpg
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/7f/75/52/386001_400x400.jpg
                 xpath: /html/body/ol[1]/li[3]/ol[1]/li[1]/@src
             imageAlt:
               - text: alt text
                 xpath: /html/body/ol[1]/li[3]/ol[1]/li[1]/@alt
             alternateImages:
-              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/8e/5b/dc/386002_1600x1600.jpg
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/8e/5b/dc/386002_400x400.jpg
                 xpath: /html/body/ol[1]/li[3]/ol[1]/li[2]/@src
-              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/22/8c/5a/452089_1600x1600.jpg
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/22/8c/5a/452089_400x400.jpg
                 xpath: /html/body/ol[1]/li[3]/ol[1]/li[3]/@src
             nameExtended:
               - text: Корм Purina Pro Plan для собак крупных пород мощного телосложения с
                   чувствительным пищеварением с ягненком, Large Adult Robust
                   Lamb
                 xpath: /html/body/ol[1]/li[3]/@name_extended
+            listPrice:
+              - text: 1 234 ₽
+                xpath: /html/body/ol[1]/li[3]/@list_price
             price:
-              - text: 1 406 ₽
+              - text: 740 ₽
                 xpath: /html/body/ol[1]/li[3]/@price
             availabilityText:
-              - text: In Stock
+              - text: Out of Stock
                 xpath: /html/body/ol[1]/li[3]/@availability_text
             description:
               - text: >-
@@ -259,18 +262,18 @@ extractions:
               - text: 3 кг
                 xpath: /html/body/ol[1]/li[3]/@weight
             variantId:
-              - text: "40604"
+              - text: 40604.акция.сроки
                 xpath: /html/body/ol[1]/li[3]/@variant_id
             ratingCount:
-              - text: "348"
+              - text: "349"
                 xpath: /html/body/ol[1]/li[3]/@rating_count
             aggregateRating:
-              - text: "42"
+              - text: "4.2"
                 xpath: /html/body/ol[1]/li[3]/@aggregate_rating
                 type: NUMBER
-                raw: "4.2"
+                raw: 4,2
                 locale: ru
-                value: 42
+                value: 4.2
             variantCount:
               - text: "4"
                 xpath: /html/body/ol[1]/li[3]/@variant_count
@@ -283,7 +286,7 @@ extractions:
               - text: https://www.petshop.ru/brand/purina_pro_plan/
                 xpath: /html/body/ol[1]/li[3]/@brand_link
             secondaryImageTotal:
-              - text: "3"
+              - text: "2"
                 xpath: /html/body/ol[1]/li[3]/ol[1]/@total
             Image360Present:
               - text: "false"
@@ -319,32 +322,29 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
           - productUrl:
-              - text: https://www.petshop.ru/catalog/dogs/syxoi/vzroslye_1_6let/dlya_sobak_krupnyh_porod_s_moschnym_teloslozheniem_s_chuvstvitelnym_pischevareniem_s_yagnenkom_large_adult_robust_lamb_12294786_40602/?oid=513231
+              - text: https://www.petshop.ru/catalog/dogs/syxoi/vzroslye_1_6let/dlya_sobak_krupnyh_porod_s_moschnym_teloslozheniem_s_chuvstvitelnym_pischevareniem_s_yagnenkom_large_adult_robust_lamb_12294786_40602/?oid=386888
                 xpath: /html/body/ol[1]/li[4]/@product_url
             image:
-              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/7f/75/52/386001_1600x1600.jpg
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/7f/75/52/386001_400x400.jpg
                 xpath: /html/body/ol[1]/li[4]/ol[1]/li[1]/@src
             imageAlt:
               - text: alt text
                 xpath: /html/body/ol[1]/li[4]/ol[1]/li[1]/@alt
             alternateImages:
-              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/8e/5b/dc/386002_1600x1600.jpg
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/8e/5b/dc/386002_400x400.jpg
                 xpath: /html/body/ol[1]/li[4]/ol[1]/li[2]/@src
-              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/22/8c/5a/452089_1600x1600.jpg
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/22/8c/5a/452089_400x400.jpg
                 xpath: /html/body/ol[1]/li[4]/ol[1]/li[3]/@src
             nameExtended:
               - text: Корм Purina Pro Plan для собак крупных пород мощного телосложения с
                   чувствительным пищеварением с ягненком, Large Adult Robust
                   Lamb
                 xpath: /html/body/ol[1]/li[4]/@name_extended
-            listPrice:
-              - text: 1 234 ₽
-                xpath: /html/body/ol[1]/li[4]/@list_price
             price:
-              - text: 740 ₽
+              - text: 1 406 ₽
                 xpath: /html/body/ol[1]/li[4]/@price
             availabilityText:
-              - text: Out Of Stock
+              - text: In Stock
                 xpath: /html/body/ol[1]/li[4]/@availability_text
             description:
               - text: >-
@@ -365,18 +365,18 @@ extractions:
               - text: 3 кг
                 xpath: /html/body/ol[1]/li[4]/@weight
             variantId:
-              - text: 40604.акция.сроки
+              - text: "40604"
                 xpath: /html/body/ol[1]/li[4]/@variant_id
             ratingCount:
-              - text: "348"
+              - text: "349"
                 xpath: /html/body/ol[1]/li[4]/@rating_count
             aggregateRating:
-              - text: "42"
+              - text: "4.2"
                 xpath: /html/body/ol[1]/li[4]/@aggregate_rating
                 type: NUMBER
-                raw: "4.2"
+                raw: 4,2
                 locale: ru
-                value: 42
+                value: 4.2
             variantCount:
               - text: "4"
                 xpath: /html/body/ol[1]/li[4]/@variant_count
@@ -389,7 +389,7 @@ extractions:
               - text: https://www.petshop.ru/brand/purina_pro_plan/
                 xpath: /html/body/ol[1]/li[4]/@brand_link
             secondaryImageTotal:
-              - text: "3"
+              - text: "2"
                 xpath: /html/body/ol[1]/li[4]/ol[1]/@total
             Image360Present:
               - text: "false"
@@ -425,4 +425,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1610718934980
+    timestamp: 1610970949541
