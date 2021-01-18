@@ -7,7 +7,7 @@ module.exports = {
     domain: 'eldorado.ru',
     url: 'https://www.eldorado.ru/search/catalog.php?q={searchTerms}',
     loadedSelector: 'body',
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="digi-not-found"]/p[2]',
     zipcode: '',
   },
 };

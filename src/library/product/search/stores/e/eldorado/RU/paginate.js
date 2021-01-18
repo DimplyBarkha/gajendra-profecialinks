@@ -4,11 +4,11 @@ module.exports = {
   parameterValues: {
     country: 'RU',
     store: 'eldorado',
-    nextLinkSelector: '#pagnNextString, #pagnNextLink, div[class="onorfo-0 sc-1y0nltl-0 bblmYF"] ul li[class*=next]:not([class*="next disabled"]) a',
+    nextLinkSelector: 'li[class="next"]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'body',
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="digi-not-found"]/p[2]',
     openSearchDefinition: null,
     domain: 'eldorado.ru',
     zipcode: '',
