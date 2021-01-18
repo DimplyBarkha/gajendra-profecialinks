@@ -15,6 +15,11 @@ async function implementation (
     if (popUps) popUps.click();
   });
 
+  // scroll to the bottom of the page
+  await context.evaluate(async () => {
+    document.querySelector('footer') && document.querySelector('footer').scrollIntoView();
+  });
+
   // Wait for sponsored products
   await context.waitForSelector('div.card__product figure.sponsored', { timeout: 6000 })
     .catch(() => console.log('No sponsored products were found.'));
@@ -46,27 +51,29 @@ async function implementation (
     const productClass = 'card__product';
     const productCardSelector = `.${productClass}`;
     const idPrefix = 'productcard';
-    const allProducts = [...document.querySelectorAll(productCardSelector)];
-    let allProdIds = allProducts
-      .map(prodEl => !prodEl.id ? prodEl.parentElement.parentElement : prodEl)
-      .map(u => u.id.replace(idPrefix, ''));
 
-    if (init.length > 0) {
-      // @ts-ignore
-      allProducts.forEach((prodEl, i) => {
-        // Try to match against the initial state
-        const idElem = !prodEl.id ? prodEl.parentElement.parentElement : prodEl;
-        const id = idElem.id.replace(idPrefix, '');
-        const infos = init.find(({ productInfo }) => productInfo.prodId === id);
-        if (infos) {
-          prodEl.dataset.upc = infos.productInfo.gtin || infos.productInfo.upc;
-          prodEl.dataset.id = infos.productInfo.wic;
-          // remove from the list
-          allProdIds = allProdIds.filter(item => item !== id);
-        }
-      });
-    }
-    if (allProdIds.length > 0) {
+    const allProducts = [...document.querySelectorAll(productCardSelector)]
+      .map(elem => ({
+        elem,
+        id: (!elem.id ? elem.parentElement.parentElement : elem).id.replace(idPrefix, ''),
+        notDone: true,
+      }));
+    const processItem = objWithData => (item) => {
+      const { elem, id } = item;
+      // Try to match against the initial state
+      const infos = objWithData.find(({ productInfo }) => productInfo.prodId === id);
+      if (infos) {
+        elem.dataset.upc = infos.productInfo.gtin || infos.productInfo.upc;
+        elem.dataset.id = infos.productInfo.wic;
+        // remove from the list
+        item.notDone = false;
+      }
+    };
+    if (init.length > 0) allProducts.forEach(processItem(init));
+
+    const remainingProds = allProducts.filter(obj => obj.notDone);
+
+    if (remainingProds.length > 0) {
       // Ask walgreens API for infos if there are any remaining ids
       const response = await fetch('https://www.walgreens.com/productsearch/v1/products/productsInfo', {
         credentials: 'include',
@@ -79,27 +86,19 @@ async function implementation (
           'Cache-Control': 'max-age=0',
         },
         referrer: 'https://www.walgreens.com/search/results.jsp?Ntt=mouth%20rinse',
-        body: JSON.stringify({ products: allProdIds }),
+        body: JSON.stringify({ products: remainingProds.map(obj => obj.id) }),
         method: 'POST',
         mode: 'cors',
       });
 
       if (response && response.status === 404) {
-        console.log(`The products ${allProdIds} were not found`);
+        console.log('The products %o were not found', remainingProds);
       }
 
       if (response && response.status === 200) {
-        console.log(`The products ${allProdIds} were found`);
+        console.log('The products %o were found', remainingProds);
         const data = await response.json();
-        data.productList.forEach(({ productInfo }) => {
-          const id = `#${idPrefix}${productInfo.prodId}`;
-          const elemID = document.querySelector(id);
-          const elem = elemID && elemID.classList.contains(productClass) ? elemID : document.querySelector(`${id} ${productCardSelector}`);
-          if (elem) {
-            elem.dataset.upc = productInfo.gtin || productInfo.upc;
-            elem.dataset.id = productInfo.wic;
-          }
-        });
+        remainingProds.forEach(processItem(data.productList));
       }
     }
   });
