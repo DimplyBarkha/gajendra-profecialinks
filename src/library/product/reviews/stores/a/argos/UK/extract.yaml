@@ -25,7 +25,7 @@ fields:
     xpath: //p[@itemprop="reviewBody"]
   - name: reviewTitle
     description: Review Title
-    xpath: //p[@class="ReviewItemstyle__Title-sc-8dsnp1-0 gWdVXs"]
+    xpath: //p[contains(@class,"ReviewItemstyle__Title-sc-8dsnp1-0")]
   - name: mediaURL
     xpath: ancestor::html//meta[@property="og:image"]/@content
     regExp: //(.*)
