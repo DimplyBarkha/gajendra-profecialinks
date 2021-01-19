@@ -51,7 +51,7 @@ module.exports = {
       if (desc !== null) desc.setAttribute('desc', desc.innerText.split('\n\n').join(' ').split('\n').join(' '));
 
       const address = document.querySelector('address');
-      if (address !== null) address.setAttribute('address', address.innerText.split('\n').join(''));
+      if (address !== null) address.setAttribute('address', address.innerText.split('\n').join(' '));
       const name = document.querySelector('h1');
       if (name !== null) name.setAttribute('name', name.innerText.split('\n').join(' '));
       // @ts-ignore
