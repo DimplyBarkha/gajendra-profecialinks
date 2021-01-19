@@ -1,10 +1,10 @@
-const { cleanup } = require('../../../../shared');
+const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'IE',
     store: 'jccampbellelectrics',
-    transform: cleanup,
+    transform: cleanUp,
     domain: 'jccampbellelectrics.com',
     zipcode: '',
   },
