@@ -1,0 +1,15 @@
+extends: ../shared
+fields:
+  - name: vat
+    xpath: //*[contains(text(), "Btw-nummer:")]/following-sibling::text()[1]
+    description: reseller_vat - european marketplace specific (also EID/TEID)
+  - name: legalName
+    xpath: //*[@id="seller-profile-container"]//*[contains(text(), "Bedrijfsnaam:")]/following-sibling::text()[1]
+    description: reseller_legal_name - Seller legal name
+  - name: address
+    singleValue: false
+    xpath: (//span[contains(text(), "Adres") or contains(text(), "adres")])[1]/following-sibling::ul/li
+    description: reseller_address_field - Seller address field [] | Because address info is not standardized we collect each row and organize data after collection
+  - name: aggregateRatingPrecision
+    defaultValue: '.|,'
+    description: used in transform for precision.

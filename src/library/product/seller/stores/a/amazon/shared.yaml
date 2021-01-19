@@ -1,0 +1,57 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: name
+    singleValue: true
+    xpath: //*[@id="sellerName"]
+    description: reseller_name - Seller Name, if the website does not have sellers, put the website name as seller
+  - name: id
+    singleValue: false
+    xpath: //link[@rel="canonical"]/@href
+    description: reseller_id - Unique seller ID
+    regExp: seller=([^\?]+)
+    regExpReplace: $1
+  - name: reviewCount
+    singleValue: true
+    xpath: //*[@id="feedback-summary-table"]//tr[position()=last()]/td[position()=last()]
+    description: reseller_reviews - Number of reviews the seller has
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@id="seller-feedback-summary"]//i[contains(@class," a-icon-star ")]
+    regExp: ^[^\s]+
+    description: Aggregate rating of seller (stars)
+  - name: feedbackPercent
+    singleValue: false
+    xpath: //*[@id="seller-feedback-summary"]//a/b
+    description: reseller_feedback_% - Seller feedback percentage poisitive or negative dont include percent if possible
+    regExp: ([^%]+)
+    regExpReplace: $1
+  - name: link
+    singleValue: false
+    xpath: //*[@id="storefront-link"]/a
+    type: LINK
+    description: reseller_link - Link to the seller page
+
+  - name: phoneNumber
+    singleValue: true
+    xpath: //*[normalize-space(@id)="seller-contact-phone"] | (//*[starts-with(@id,"about-seller")][not(ancestor::html//*[normalize-space(@id)="seller-contact-phone"])]//text()[contains(.,"Tel")])[1]
+    regExp: '[^:]+$'
+    description: reseller_phone_number - Seller phone number
+  - name: email
+    xpath: (//*[starts-with(@id,"about-seller")]//text()[contains(., '@')])[1]
+    regExp: '[^:;]+$'
+    description: reseller_email - Seller email address
+ 
+  # Extend the following fields: tested and works for US, CA, UK, DE. Doesnt work for ES, FR, IT, NL.
+  - name: vat
+    xpath: //*[contains(text(), "VAT Number:")]/following-sibling::text()[1]
+    description: reseller_vat - european marketplace specific (also EID/TEID)
+  - name: legalName
+    xpath: //*[@id="seller-profile-container"]//*[contains(text(), "Name:")]/following-sibling::text()[1]
+    description: reseller_legal_name - Seller legal name
+  - name: address
+    singleValue: false
+    xpath: (//span[contains(text(), "Address")])[1]/following-sibling::ul/li
+    description: reseller_address_field - Seller address field [] | Because address info is not standardized we collect each row and organize data after collection

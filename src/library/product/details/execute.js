@@ -12,7 +12,11 @@ const implementation = async (inputs, { loadedSelector, noResultsXPath }, contex
     if (!id) throw new Error('No id provided');
     else builtUrl = await dependencies.createUrl(inputs);
   }
+<<<<<<< HEAD
   await dependencies.goto({ ...inputs, url: builtUrl || url });
+=======
+  await dependencies.goto({ url, zipcode, storeId, inputs });
+>>>>>>> 04631a5eecdd82c5cf6541b852802c54e2201e92
 
   if (loadedSelector) {
     await context.waitForFunction(
@@ -24,8 +28,21 @@ const implementation = async (inputs, { loadedSelector, noResultsXPath }, contex
       noResultsXPath,
     );
   }
+<<<<<<< HEAD
   return await context.evaluate((xpath) => !document.evaluate(xpath, document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue, noResultsXPath);
 };
+=======
+
+  console.log('Checking no results', parameters.noResultsXPath);
+  return await context.evaluate(function (xp) {
+    const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
+    console.log(xp, r);
+    const e = r.iterateNext();
+    console.log(e);
+    return !e;
+  }, parameters.noResultsXPath);
+}
+>>>>>>> 04631a5eecdd82c5cf6541b852802c54e2201e92
 
 module.exports = {
   parameters: [
@@ -73,6 +90,12 @@ module.exports = {
     {
       name: 'storeId',
       description: 'storeId for product',
+      type: 'string',
+      optional: true,
+    },
+    {
+      name: 'zipcode',
+      description: 'zipcode to set  location',
       type: 'string',
       optional: true,
     },

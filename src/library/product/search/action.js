@@ -11,6 +11,7 @@ module.exports = {
     {
       name: 'domain',
       description: 'The top private domain of the website (e.g. amazon.com)',
+<<<<<<< HEAD
     },
     {
       name: 'zipcode',
@@ -23,6 +24,9 @@ module.exports = {
       type: 'string',
       optional: true,
     },
+=======
+    }
+>>>>>>> 04631a5eecdd82c5cf6541b852802c54e2201e92
   ],
   inputs: [
     {
@@ -46,6 +50,7 @@ module.exports = {
       type: 'number',
     },
     {
+<<<<<<< HEAD
       name: 'Brands',
       description: 'brands to search for',
       type: 'string',
@@ -53,6 +58,20 @@ module.exports = {
     {
       name: 'query',
       description: 'Part of a uniform resource locator (URL)',
+=======
+      name: 'id',
+      description: 'keywords to search for',
+      type: 'string',
+    },
+    {
+      name: '_date',
+      description: 'earliest date to extract a review',
+      type: 'string',
+    },
+    {
+      name: 'zipcode',
+      description: 'to set location',
+>>>>>>> 04631a5eecdd82c5cf6541b852802c54e2201e92
       type: 'string',
     },
   ],
@@ -62,6 +81,7 @@ module.exports = {
     extract: 'action:product/search/extract',
   },
   path: './search/stores/${store[0:1]}/${store}/${country}/search',
+<<<<<<< HEAD
   implementation: async (inputs, { country, store, domain, zipcode }, context, { execute, extract, paginate }) => {
     const { keywords, Keywords, results = 150, Brands, query } = inputs;
 
@@ -78,6 +98,16 @@ module.exports = {
     });
 
     // do the search
+=======
+  implementation: async ({ keywords, Keywords, results = 50, id, _date = null, zipcode = null }, { country, store, domain }, context, { execute, extract, paginate }) => {
+    // TODO: consider moving this to a reusable function
+    const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
+
+    keywords = (Keywords) || (keywords) || (id);
+
+    // do the search
+    const resultsReturned = await execute({ keywords, zipcode, _date, context });
+>>>>>>> 04631a5eecdd82c5cf6541b852802c54e2201e92
 
     if (!resultsReturned) {
       console.log('No results were returned');
@@ -85,7 +115,7 @@ module.exports = {
     }
 
     // try gettings some search results
-    const pageOne = await extract({});
+    const pageOne = await extract({ _date });
 
     let collected = length(pageOne);
 
@@ -98,8 +128,13 @@ module.exports = {
     }
 
     let page = 2;
+<<<<<<< HEAD
     while (collected < results && await paginate({ keywords: inputKeywords, page, offset: collected })) {
       const data = await extract({});
+=======
+    while (collected < results && await paginate({ keywords, page, offset: collected, _date, context })) {
+      const data = await extract({ _date });
+>>>>>>> 04631a5eecdd82c5cf6541b852802c54e2201e92
       const count = length(data);
       if (count === 0) break; // no results
       collected += count;

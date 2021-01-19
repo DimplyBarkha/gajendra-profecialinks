@@ -1,0 +1,26 @@
+robot: product/search
+parameters:
+  country: IT
+  domain: amazon.it
+  store: amazonMsReviews
+  zipcode: ""
+proxy:
+  zone: ZIT
+  type: DATA_CENTER
+meta:
+  branches:
+    ms_ext_amazon_it_reviews:
+      extractor: f9ee5c9c-e742-4ec1-be4b-56aea8ed2dee
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
+    ms-staging:
+      extractor: 3e210585-55ea-423f-8e82-1de653f160fe
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    mse-demo:
+      extractor: fd664992-9e21-445d-829a-4d63a60c01f1
+      legacyAccountId: 05436d0a-af0c-409d-aa11-f70cf017146
+    mse-staging:
+      extractor: 06e2d54b-e2da-4fa2-b7f5-385a6cfb6cc8
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    mse-production:
+      extractor: c05c7339-3575-4177-bad8-e22199a1d140
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94

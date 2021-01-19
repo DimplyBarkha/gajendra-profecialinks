@@ -1,5 +1,6 @@
 /**
  *
+<<<<<<< HEAD
  * @param { { URL: string, parentInput: string, id: any, RPC: string, UPC: any, SKU: string, zipcode: string, storeID: string, storeId: string } } inputs
  * @param { { store: any, country: any, zipcode: any, storeId: any } } parameters
  * @param { ImportIO.IContext } context
@@ -18,6 +19,28 @@ async function implementation (inputs, parameters, context, dependencies) {
   const resultsReturned = await execute(newInput);
   if (!resultsReturned) {
     console.log('No results were returned');
+=======
+ * @param { { URL: string, id: any, RPC: string, SKU: string, zipcode: any } } inputs
+ * @param { { store: any, country: any, zipcode: any } } parameters
+ * @param { ImportIO.IContext } context
+ * @param { { execute: ImportIO.Action, extract: ImportIO.Action } } dependencies
+ */
+async function implementation (
+  inputs,
+  parameters,
+  context,
+  dependencies,
+) {
+  const { URL, RPC, SKU, } = inputs;
+  const { execute, extract } = dependencies;
+  const url = URL;
+  const id = (RPC) || ((SKU) || inputs.id);
+  const zipcode = inputs.zipcode || parameters.zipcode  
+  const productFound = await execute({ url, id, zipcode: zipcode });
+
+  if (!productFound) {
+    console.log('No product found');
+>>>>>>> 04631a5eecdd82c5cf6541b852802c54e2201e92
     return;
   }
 

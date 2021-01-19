@@ -1,6 +1,10 @@
 /**
  *
+<<<<<<< HEAD
  * @param { { keywords: string, zipcode: string, storeID: string ,query: string} } inputs
+=======
+ * @param { { keywords: string, zipcode: string, _date: string } } inputs
+>>>>>>> 04631a5eecdd82c5cf6541b852802c54e2201e92
  * @param { { url: string, loadedSelector?: string, noResultsXPath: string } } parameters
  * @param { ImportIO.IContext } context
  * @param { { goto: ImportIO.Action} } dependencies
@@ -11,6 +15,7 @@ async function implementation (
   context,
   dependencies,
 ) {
+<<<<<<< HEAD
   const { keywords, query } = inputs;
   console.log(url);
   const destinationUrl = url
@@ -19,6 +24,12 @@ async function implementation (
   await dependencies.goto({ ...inputs, url: destinationUrl });
 
   if (loadedSelector) {
+=======
+  const zipcode = encodeURIComponent(inputs.zipcode)
+  const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
+  await dependencies.goto({ url, zipcode: zipcode, inputs });
+  if (parameters.loadedSelector) {
+>>>>>>> 04631a5eecdd82c5cf6541b852802c54e2201e92
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
     }, { timeout: 10000 }, loadedSelector, noResultsXPath);
@@ -62,11 +73,12 @@ module.exports = {
       type: 'string',
     },
     {
-      name: 'zipcode',
+      name: 'id',
       description: 'keywords to search for',
       type: 'string',
     },
     {
+<<<<<<< HEAD
       name: 'storeID',
       description: 'Id of the store',
       type: 'string',
@@ -77,6 +89,16 @@ module.exports = {
       description: 'Part of a URL',
       type: 'string',
       optional: true,
+=======
+      name: 'zipcode',
+      description: 'locale to search within',
+      type: 'string',
+    },
+    {
+      name: '_date',
+      description: 'earliest date to extract a review',
+      type: 'string',
+>>>>>>> 04631a5eecdd82c5cf6541b852802c54e2201e92
     },
   ],
   dependencies: {
