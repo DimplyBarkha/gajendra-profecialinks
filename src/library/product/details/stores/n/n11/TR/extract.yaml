@@ -5,79 +5,37 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //div[@class='imgObj']/a/img[@class='unf-p-img']/@src
-  - name: image
-    singleValue: true
-    xpath: //div[@class='imgObj']/a[@class='zoom']/@href
-  - name: image
-    singleValue: true
-    xpath: //figure[@class='proImgHolder']/div/div/div/a/img/@src
-  - name: image
-    singleValue: true
-    xpath: //figure[@class='proImgHolder']/div/div/div/img/@src
-
+    xpath: //div[@class='imgObj']/a/img[@class='unf-p-img']/@src | //div[@class='imgObj']/a[@class='zoom']/@href | //figure[@class='proImgHolder']/div/div/div/a/img/@src | //figure[@class='proImgHolder']/div/div/div/img/@src
   - name: imageAlt
     singleValue: true
-    xpath: //div[@class='imgObj']/a/img[@class='unf-p-img']/@alt
-  - name: imageAlt
-    singleValue: true
-    xpath: //figure[@class='proImgHolder']/div/div/div/a/img/@alt
-  - name: imageAlt
-    singleValue: true
-    xpath: //figure[@class='proImgHolder']/div/div/div/img/@alt
-
+    xpath: //div[@class='imgObj']/a/img[@class='unf-p-img']/@alt | //figure[@class='proImgHolder']/div/div/div/img/@alt | //figure[@class='proImgHolder']/div/div/div/a/img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //ul[@class='unf-p-thumbs']/li/img/@src
-  - name: alternateImages
-    singleValue: false
-    xpath: //div[@class='thumbsHolder']/ul/li/img/@src
-
+    xpath: //ul[@class='unf-p-thumbs']/li/img/@src | //div[@class='thumbsHolder']/ul/li/img/@src
   - name: _url
     singleValue: true
   - name: category
     singleValue: false
     xpath: //div[@id='breadCrumb']/ul/li/a
-
   - name: nameExtended
     singleValue: true
-    xpath: //div[@class='nameHolder']/h1
-  - name: nameExtended
-    singleValue: true
-    xpath: //div[@class='pro-prop']/div[@class='pro-title']/h1
-
+    xpath: //div[@class='nameHolder']/h1 | /div[@class='pro-prop']/div[@class='pro-title']/h1
   - name: listPrice
     singleValue: true
-    xpath: //div[@class='price']/div[@class='priceDetail']/del[@class='oldPrice']
-  - name: listPrice
-    singleValue: true
-    xpath: //div[@class='priceDetail']/div[@class='newPrice']/ins
-  - name: listPrice
-    singleValue: true
-    xpath: //div[@class='discount-view__row']/p[@class='discount-view__info']/del[@class='price-fullPrice']
-
+    xpath: //div[@class='priceDetail']/div[@class='newPrice']/ins | //div[@class='discount-view__row']/p[@class='discount-view__info']/del[@class='price-fullPrice'] | //div[@class='price']/div[@class='priceDetail']/del[@class='oldPrice']
   - name: price
     singleValue: true
-    xpath: //div[@class='price']/div[@class='priceDetail']/div[@class='newPrice']/ins
-  - name: price
-    singleValue: true
-    xpath: //p[@class='discount-view__info']/ins[@class='price-now is-big']/span[@class='price-amount']
-
+    xpath: //div[@class='price']/div[@class='priceDetail']/div[@class='newPrice']/ins | //p[@class='discount-view__info']/ins[@class='price-now is-big']/span[@class='price-amount']
   - name: availabilityText
     singleValue: true
     defaultValue: In Stock
   - name: description
     singleValue: false
-    xpath: //div[@class='panelContent']/section[@class='tabPanelItem details']
-  - name: description
-    singleValue: false
-    xpath: //div[@class='content']/p
-
+    xpath: //div[@class='panelContent']/section[@class='tabPanelItem details'] | //div[@class='content']/p
   - name: _pageTimestamp
     singleValue: true
   - name: _input
     singleValue: true
-
   - name: descriptionBullets
     singleValue: false
     xpath: //section[@class='tabPanelItem excInfo']/div/div/ul/li
@@ -87,14 +45,9 @@ fields:
   - name: brandText2
     singleValue: false
     xpath: //script/@data-flix-brand
-
   - name: quantity
     singleValue: true
-    xpath: //input[@id="quantity"]/@value
-  - name: quantity
-    singleValue: true
-    xpath: //input[@id='quantyInput']/@value
-
+    xpath: //input[@id="quantity"]/@value | /input[@id='quantyInput']/@value
   - name: variantId
     singleValue: true
     xpath: //input[@class="productId"]/@value
@@ -118,24 +71,18 @@ fields:
     singleValue: false
     xpath: //ul[@class='unf-p-sku-type' and @data-unif-seovari='renk']/li
     defaultVarian: 1
-
   - name: manufacturerImages
     singleValue: false
     xpath: //section[@class='uni-content']//descendant::img/@src
-
   - name: specifications
     singleValue: false
     xpath: //div[@class='unf-prop-context']/ul/li
   - name: manufacturerDescription
     singleValue: true
     xpath: //section[@class='uni-content']
-
   - name: secondaryImageTotal
     singleValue: false
-    xpath: //ul[@class='unf-p-thumbs']/li/img/@src
-  - name: secondaryImageTotal
-    singleValue: false
-    xpath: //div[@class='thumbsHolder']/ul/li/img/@src
+    xpath: //ul[@class='unf-p-thumbs']/li/img/@src | //div[@class='thumbsHolder']/ul/li/img/@src
   - name: name
     singleValue: true
     xpath: //div[@class='pro-title']/h1

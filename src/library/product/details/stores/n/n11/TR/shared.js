@@ -38,6 +38,8 @@ const transform = (data) => {
         }
         if (!gr.promotion) gr.promotion = [{ text: '%0 İndirim 0 TL Kazanç' }];
         if (gr.manufacturerDescription) gr.manufacturerDescription = [{ text: cleanText(gr.manufacturerDescription[0].text) }];
+        if (gr.description) gr.description = [{ text: cleanText(gr.description[0].text) }];
+        if (gr.shippingInfo) gr.shippingInfo = [{ text: cleanText(gr.shippingInfo[0].text) }];
         if (gr.specifications) {
           gr.specifications = [{ text: gr.specifications.map(e => cleanText(e.text)).join(' | ') }];
         }
