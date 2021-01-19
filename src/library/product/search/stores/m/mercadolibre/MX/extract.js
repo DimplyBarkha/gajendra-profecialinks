@@ -21,12 +21,9 @@ module.exports = {
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
         let scrollTop = 0;
-        await new Promise(resolve => {
-          setTimeout(() => resolve(), 4000);
-        });
         while (scrollTop !== 20000) {
           await stall(500);
-          scrollTop += 1000;
+          scrollTop += 500;
           window.scroll(0, scrollTop);
           if (scrollTop === 20000) {
             await stall(5000);

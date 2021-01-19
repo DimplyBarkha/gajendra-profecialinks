@@ -19,7 +19,7 @@ const transform = (data, context) => {
   const state = context.getState();
   let orgRankCounter = state.orgRankCounter || 0;
   let rankCounter = state.rankCounter || 0;
-  const productCodes = state.productCodes || [];
+  // const productCodes = state.productCodes || [];
   for (const { group } of data) {
     for (const row of group) {
       rankCounter += 1;
@@ -35,7 +35,7 @@ const transform = (data, context) => {
   }
   context.setState({ rankCounter });
   context.setState({ orgRankCounter });
-  context.setState({ productCodes });
+  // context.setState({ productCodes });
   return data;
 };
 module.exports = { transform };

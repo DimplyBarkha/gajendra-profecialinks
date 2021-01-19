@@ -5,7 +5,8 @@ recordXPath: null
 fields:
   - name: name
     singleValue: true
-    xpath: //*[@id="root-app"]/div/div/section/ol/li/div/div/a/div/div/h2
+    xpath: //*[@id="root-app"]/div/div/section/ol/li/div/div/a/div/div/h2 | //h2[@class='ui-search-item__title'] | //h2[@class='ui-search-item__title ui-search-item__group__element']
+#    xpath: //h2[@class='ui-search-item__title'] | //h2[@class='ui-search-item__title ui-search-item__group__element']
   - name: _pageTimestamp
     singleValue: true
   - name: _input
