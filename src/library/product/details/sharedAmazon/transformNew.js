@@ -352,6 +352,10 @@ const transform = (data, context) => {
         const rankCategory = row.salesRankCategory.map(elm => elm.text.trim());
         row.salesRankCategory = [...new Set(rankCategory)].map(elm => ({ text: elm }));
       }
+      if (row.price) {
+        const price = row.price.find(elm => elm.text.match(/\d+/));
+        row.price = price ? [price] : row.price;
+      }
       if (row.unInterruptedPDP) {
         const getUnInterruptedPDP = row.unInterruptedPDP.map(elm => elm.text.trim());
         row.unInterruptedPDP = [...new Set(getUnInterruptedPDP)].map(elm => ({ text: elm }));
@@ -372,15 +376,8 @@ const transform = (data, context) => {
         const updpLength = text.split(' || ').length;
         console.log(updpLength);
       }
-      Object.keys(row).forEach(header => {
-        row[header].forEach(el => {
-          el.text = clean(el.text);
-        });
-      });
-
-      if (row.price) {
-        const price = row.price.find(elm => elm.text.match(/\d+/));
-        row.price = price ? [price] : row.price;
+      if (row.alternateImages) {
+        row.secondaryImageTotal = [{ text: row.alternateImages.length }];
       }
       Object.keys(row).forEach(header => {
         row[header].forEach(el => {
