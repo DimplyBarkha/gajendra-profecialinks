@@ -11,6 +11,19 @@ module.exports = {
     zipcode: "''",
   },
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
+    async function scrollToRec (node) {
+      await context.evaluate(async (node) => {
+        const element = document.querySelector(node) || null;
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+          await new Promise((resolve) => {
+            setTimeout(resolve, 5000);
+          });
+        }
+      }, node);
+    }
+    await scrollToRec('div#footer');
+    await scrollToRec('div#BVRRDisplayContentID');
     await context.evaluate(async function () {
       // Get brand link
       const brandSelector = document.querySelector("span[itemprop='brand']");
