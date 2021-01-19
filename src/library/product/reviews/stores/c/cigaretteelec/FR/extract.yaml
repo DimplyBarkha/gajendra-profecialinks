@@ -12,7 +12,7 @@ fields:
     xpath: (ancestor::html//div[contains(@class,"product-tab")]/div/a/@href)[position()=1]
   - name: productFamily
     singleValue: false
-    xpath: (ancestor::html//li[@itemprop="itemListElement"]//span[@itemprop="name"])[position()=3]
+    xpath: ancestor::html//ol[@class='breadcrumb']
   - name: productRange
     singleValue: false
     xpath: (ancestor::html//li[@itemprop="itemListElement"]//span[@itemprop="name"])[position()=4]
