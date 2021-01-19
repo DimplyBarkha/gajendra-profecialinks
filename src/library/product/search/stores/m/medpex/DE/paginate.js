@@ -8,7 +8,7 @@ module.exports = {
     spinnerSelector: null,
     loadedSelector: null,
     openSearchDefinition: {
-     template: 'https://www.medpex.de/search.do?q={searchTerms}&pn={page}',
+     template: 'https://www.medpex.de/search.do?method=similarity&q={searchTerms}&pn={page}',
     },
     domain: 'medpex.de',
   },
