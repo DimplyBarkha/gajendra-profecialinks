@@ -14,6 +14,83 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  const applyScroll = async function (context) {
+    await context.evaluate(async function () {
+      let scrollTop = 0;
+      while (scrollTop !== 20000) {
+        scrollTop += 500;
+        window.scroll(0, scrollTop);
+        await stall(1000);
+      }
+      function stall (ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
+    });
+  };
+  await applyScroll(context);
+  await context.evaluate(async function (context) {
+    const selector1 = document.querySelector('div[class*="products"] div[class="product-block"]:nth-child(3)>span> span[class="overlayTrigger"]>button');
+    const selector2 = document.querySelector('div[class*="products"] div[class="product-block"]:nth-child(5)>span> span[class="overlayTrigger"]>button');
+    const selector3 = document.querySelector('div[class*="products"] div[class="product-block"]:nth-child(7)>span> span[class="overlayTrigger"]>button');
+    const selector4 = document.querySelector('div[class*="products"] div[class="product-block"]:nth-child(9)>span> span[class="overlayTrigger"]>button');
+    function addElementToDocument (key, value) {
+      const catElement = document.createElement('div');
+      catElement.id = key;
+      catElement.textContent = value;
+      catElement.style.display = 'none';
+      document.body.appendChild(catElement);
+    }
+    if (selector1) {
+      selector1.click();
+      const expandData = document.querySelector('div[class*="products"]>div[class="product-block"] span[class*="c-overlay"] h3>a').textContent;
+      if (expandData) {
+        addElementToDocument('elementData1', expandData);
+      }
+    }
+    if (selector2) {
+      selector2.click();
+      const expandData = document.querySelector('div[class*="products"]>div[class="product-block"] span[class*="c-overlay"] h3>a').textContent;
+      if (expandData) {
+        addElementToDocument('elementData1', expandData);
+      }
+    }
+    if (selector3) {
+      selector3.click();
+      const expandData = document.querySelector('div[class*="products"]>div[class="product-block"] span[class*="c-overlay"] h3>a').textContent;
+      if (expandData) {
+        addElementToDocument('elementData1', expandData);
+      }
+    }
+    if (selector4) {
+      selector4.click();
+      const expandData = document.querySelector('div[class*="products"]>div[class="product-block"] span[class*="c-overlay"] h3>a').textContent;
+      if (expandData) {
+        addElementToDocument('elementData1', expandData);
+      }
+    }
+  });
+  await context.evaluate(async function (context) {
+    const seeAllSelector1 = document.querySelector('.v-m-bottom-g .shop-product-carousels div.pager-carousel-content > button[class*="right"]');
+    const seeAllSelector2 = document.querySelector('.v-m-bottom-m .shop-product-carousels div[class*="product-carousel"]:nth-child(1) div.pager-carousel-content > button[class*="right"]');
+    const seeAllSelector3 = document.querySelector('.v-m-bottom-m .shop-product-carousels div[class*="product-carousel"]:nth-child(2) div.pager-carousel-content > button[class*="right"]');
+    const seeAllSelector4 = document.querySelector('.v-m-bottom-m .shop-product-carousels div[class*="product-carousel"]:nth-child(3) div.pager-carousel-content > button[class*="right"]');
+    for (let i = 0; i < 5; i++) {
+      seeAllSelector1 && seeAllSelector1.click();
+    }
+    for (let i = 0; i < 3; i++) {
+      seeAllSelector2 && seeAllSelector2.click();
+    }
+    for (let i = 0; i < 3; i++) {
+      seeAllSelector3 && seeAllSelector3.click();
+    }
+    for (let i = 0; i < 3; i++) {
+      seeAllSelector4 && seeAllSelector4.click();
+    }
+  });
   const mainUrl = await context.evaluate(async function () {
     return window.location.href;
   });
@@ -202,9 +279,10 @@ async function implementation (
       await new Promise(resolve => setTimeout(resolve, 5000));
     }
     const iFrameSrc = document.querySelector('iframe.manufacturer-content-iframe') && document.querySelector('iframe.manufacturer-content-iframe').getAttribute('src');
+    console.log('IFRAME', document.querySelector('iframe.manufacturer-content-iframe'));
     return iFrameSrc;
   });
-  let manufacturerData;
+  let manufacturerData = '';
   const timeout = parameters.timeout ? parameters.timeout : 130000;
   if (iFrameSrc) {
     console.log('IFRAME SRC found', iFrameSrc);
@@ -258,31 +336,31 @@ async function implementation (
                   });
                 }
                 // if (shadowText === '') {
-                // const tabButtons = document.querySelectorAll('div[id="navbar"] ul li[class*="wc-selected"] ~ li a');
-                // if (tabButtons) {
-                //   for (let index = 0; index < tabButtons.length; index++) {
-                //     const tabButtonsHref = tabButtons[index].href;
-                //     const responseData = await fetch(tabButtonsHref).then(x =>
-                //       x.text(),
-                //     );
-                //     const domParser = new DOMParser();
-                //     const parsedData = domParser.parseFromString(responseData, 'text/html');
-                //     const fetchedData = parsedData.querySelector('div[class*=wc-pc-tabbed-content] div[class*="wc-pc-content"]');
-                //     if (shadowText) {
-                //       shadowText += fetchedData.innerText;
-                //     }
-                //   }
-                // }
-                // const tabButtons = document.querySelectorAll('div.wc-ms-navbar ul li a');
-                // for (let index = 0; index < tabButtons.length; index++) {
-                //   const element = tabButtons[index];
-                //   console.log(element);
-                //   const data = document.querySelector('#wc-pc-content');
-                //   if (data) { shadowText = data.innerText; }
-                //   element.click();
-                //   await new Promise((resolve, reject) => setTimeout(resolve, 500));
-                // }
-                // }
+                const tabButtons = document.querySelectorAll('div[id="navbar"] ul li[class*="wc-selected"] ~ li a');
+                if (tabButtons) {
+                  for (let index = 0; index < tabButtons.length; index++) {
+                    const tabButtonsHref = tabButtons[index].href;
+                    const responseData = await fetch(tabButtonsHref).then(x =>
+                      x.text(),
+                    );
+                    const domParser = new DOMParser();
+                    const parsedData = domParser.parseFromString(responseData, 'text/html');
+                    const fetchedData = parsedData.querySelector('div[class*=wc-pc-tabbed-content] div[class*="wc-pc-content"]');
+                    if (shadowText) {
+                      shadowText += fetchedData.innerText;
+                    }
+                  }
+                  // }
+                  // const tabButtons = document.querySelectorAll('div.wc-ms-navbar ul li a');
+                  // for (let index = 0; index < tabButtons.length; index++) {
+                  //   const element = tabButtons[index];
+                  //   console.log(element);
+                  //   const data = document.querySelector('#wc-pc-content');
+                  //   if (data) { shadowText = data.innerText; }
+                  //   element.click();
+                  //   await new Promise((resolve, reject) => setTimeout(resolve, 500));
+                  // }
+                }
               } else {
                 manuData = document.querySelectorAll('#inpage_container');
                 if (manuData && manuData.length) {
@@ -328,7 +406,8 @@ async function implementation (
     console.log('error getting enhanced content');
   }
   // Get Enhanced HTML.
-  if (enhacnedContentJS) {
+
+if (enhacnedContentJS) {
     await context.evaluate((enhacnedContentJS) => {
       eval(enhacnedContentJS);
       const html = window._wccontent.aplus.html;
@@ -370,33 +449,106 @@ async function implementation (
   await context.goto(`${mainUrl}&intl=nosplash#[!opt!]{"block_ads":false,"anti_fingerprint":false,"first_request_timeout":60,"load_timeout":30,"load_all_resources":true,"enable_cache":false,"discard_CSP_header":true}[/!opt!]`, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: true });
 
   if (manufacturerData != null) {
-    await context.evaluate(async function (manufacturerData) {
-      function addHiddenDiv (id, content) {
-        const newDiv = document.createElement('div');
-        newDiv.id = id;
-        newDiv.textContent = content;
-        newDiv.style.display = 'none';
-        document.body.appendChild(newDiv);
-      }
-      manufacturerData.shadowText && addHiddenDiv('pd_manu_desc', manufacturerData.shadowText);
-      manufacturerData.shadowImage && manufacturerData.shadowImage.length && manufacturerData.shadowImage.forEach(element => {
-        addHiddenDiv('aplus_img', element);
-      });
-    }, manufacturerData);
-  } else {
-    await context.evaluate(async function (shadowTextApiData) {
-      function addHiddenDiv (id, content) {
-        const newDiv = document.createElement('div');
-        newDiv.id = id;
-        newDiv.textContent = content;
-        newDiv.style.display = 'none';
-        document.body.appendChild(newDiv);
-      }
-      if (shadowTextApiData) {
-        addHiddenDiv('pd_manu_desc', shadowTextApiData);
-      }
+  await context.evaluate(async function (manufacturerData) {
+    function addHiddenDiv (id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+
+    console.log('---------->', manufacturerData);
+    manufacturerData.shadowText && addHiddenDiv('pd_manu_desc', manufacturerData.shadowText);
+    manufacturerData.shadowImage && manufacturerData.shadowImage.length && manufacturerData.shadowImage.forEach(element => {
+      addHiddenDiv('aplus_img', element);
     });
+    function addElementToDocument (key, value) {
+      const catElement = document.createElement('div');
+      catElement.id = key;
+      catElement.textContent = value;
+      catElement.style.display = 'none';
+      document.body.appendChild(catElement);
+    }
+    const enhancedContent = document.querySelector('div[class*="syndi_powerpage"]');
+    if (enhancedContent) {
+      const witbData = Array.from([...enhancedContent.shadowRoot.querySelectorAll('[class="syndigo-widget-section-header"]')].find(elm => elm.innerText.match(/in the box/i)).nextElementSibling.querySelectorAll('[class="syndigo-featureset-feature"]'));
+      witbData.forEach(element => {
+        element.querySelector('h3') && addElementToDocument('witbText', element.querySelector('h3').innerText);
+        element.querySelector('img') && addElementToDocument('witbImg', element.querySelector('img').src);
+      });
+    }
+
+    function addElementToDocument (key, value) {
+      const catElement = document.createElement('div');
+      catElement.id = key;
+      catElement.textContent = value;
+      catElement.style.display = 'none';
+      document.body.appendChild(catElement);
+    }
+    const documentFrame = document.querySelector('div[class="analytics-adsense-ads"]> iframe[title="Ads by Google"]');
+    if (documentFrame) {
+      const witbData = [...documentFrame.shadowRoot.querySelectorAll('[style*="ms-flex-direction"] div[style*="ms-flex-direction"]')];
+      witbData.forEach(element => {
+        element.querySelector('a[class*="lc_ si6"]') && addElementToDocument('witbDocument', element.querySelector('a[class*="lc_ si6"]'));
+      });
+    }
+  }, manufacturerData);
+
+  async function addWitbandCRT () {
+    async function getWitbAndComparison () {
+      if (window.location.pathname.match(/(\d+).p$/)) {
+        const id = window.location.pathname.match(/(\d+).p$/)[1];
+        const api = `https://cors-anywhere.herokuapp.com/https://content.syndigo.com/page/cbd6abd4-eeda-49d1-9173-06edce7e52ca/${id}.json`;
+        const response = await fetch(api);
+        const json = await response.json();
+        if (Object.keys(json).length) {
+          return json;
+        }
+      }
+      return false;
+    }
+    async function getCompareTable () {
+      if (window.location.pathname.match(/(\d+).p$/)) {
+        const id = window.location.pathname.match(/(\d+).p$/)[1];
+        const api = `https://cors-anywhere.herokuapp.com/https://scontent.webcollage.net/bestbuy/power-page?ird=true&channel-product-id=${id}`;
+        const response = await fetch(api);
+        const text = await response.text();
+        eval(text);
+        return Boolean(_wccontent.aplus.html.match(/wc-comparison-table/));
+      }
+    }
+    const json = await getWitbAndComparison();
+    if (json) {
+      const witb = Object.values(Object.values(Object.values(json.experiences).find(elm => elm.hasOwnProperty('experiences')).experiences).find(elm => elm.hasOwnProperty('widgets')).widgets).filter(elm => elm.headerText.match(/in the box/i))[0].items[0].features.map(elm => ({ text: elm.caption, img: elm.asset.url.replace('{0}', elm.asset.originalWidth) }));
+      const hasComparision = Object.values(Object.values(Object.values(json.experiences).find(elm => elm.hasOwnProperty('experiences')).experiences).find(elm => elm.hasOwnProperty('widgets')).widgets).filter(elm => elm.widgetType.match(/ComparisonTable/i));
+      document.body.setAttribute('has-comparison', Boolean(hasComparision && hasComparision.length));
+      document.body.setAttribute('witb-text', witb.map(elm => elm.text).join('|'));
+      document.body.setAttribute('witb-url', witb.map(elm => elm.img).join('|'));
+    } else {
+      document.body.setAttribute('has-comparison', await getCompareTable());
+    }
   }
+} else {
+  await context.evaluate(async function (shadowTextApiData) {
+    function addHiddenDiv (id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+    if (shadowTextApiData) {
+      addHiddenDiv('pd_manu_desc', shadowTextApiData);
+    }
+  });
+}
+  try {
+    await context.evaluate(addWitbandCRT);
+  } catch (error) {
+    console.log('Error adding WITB/CTR', error);
+  }
+
   return await context.extract(productDetails, { transform, type: 'MERGE_ROWS' });
 }
 
