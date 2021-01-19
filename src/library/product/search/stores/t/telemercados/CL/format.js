@@ -29,6 +29,21 @@ const transform = (data) => {
           row.price.forEach(item=>{
             item.text=item.text.replace('.',',');
           })
+        }
+        if(row.id){
+          row.id.forEach(item=>{
+            let tmpObj=JSON.parse(item.text);
+            //console.log('tmpObj:',tmpObj);
+            for(let key in tmpObj){
+              //console.log('key:',key);
+              let tmp1Obj=tmpObj[key];
+              console.log('tmp1Obj sku:',tmp1Obj.ref_id);
+              item.text=tmp1Obj.ref_id
+            }
+            /*tmpObj.forEach(element => {
+              console.log('element:',element);
+            });*/
+          })
         }               
         row.rank = [{ "text": rank }];
         row.rankOrganic = [{ "text": rank }];
