@@ -17,7 +17,7 @@ async function implementation (
   await new Promise((resolve, reject) => setTimeout(resolve, 1000));
   for(let i=0;i<5;i++){
     try{
-      await context.waitForSelector('div.btn-more-wrap>button');
+      await context.waitForSelector('div.btn-more-wrap>button',{timeout:500});
       await new Promise((resolve, reject) => setTimeout(resolve, 1000));
       await context.click('div.btn-more-wrap>button.btn-more');
       await new Promise((resolve, reject) => setTimeout(resolve, 8000));

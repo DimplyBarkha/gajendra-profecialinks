@@ -23,7 +23,7 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       rankCounter += 1;
-      let skyIdStr='';
+      let skyIdStr='',skyIdStr1='';
       if (!row.sponsored) {
         orgRankCounter += 1;
         row.rankOrganic = [{ text: orgRankCounter }];
@@ -37,17 +37,25 @@ const transform = (data, context) => {
                 item.text=item.text.replace(' star rating','');
             })
         }
+        if(row.productUrl){
+          row.productUrl.forEach(item=>{
+            //console.log('item.text:',item.text);
+            skyIdStr1=item.text.split('/').pop();
+            //console.log('skyIdStr1:',skyIdStr1);
+            item.text="https://shop.super-pharm.co.il"+item.text;  
+          })
+        }
         if(row.thumbnail){
           let tmpId=[];
           row.thumbnail.forEach(item=>{
             tmpId=item.text.split('/').pop().split('.');
+            skyIdStr=tmpId[0];
           })
-          row.id=[{"text":tmpId[0]}];
         }
-        if(row.productUrl){
-          row.productUrl.forEach(item=>{
-              item.text="https://shop.super-pharm.co.il"+item.text;
-          })
+        if(skyIdStr!=''){
+          row.id=[{"text":skyIdStr}];
+        }else if(skyIdStr1!=''){
+          row.id=[{"text":skyIdStr1}];
         }
         if(row.price){
           let priceStr='';
