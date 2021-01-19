@@ -5,7 +5,7 @@ async function implementation (
   dependencies,
 ) {
   await context.goto(`https://www.boots.com/sitesearch?searchTerm=${inputs.id}`, {
-    timeout: 100000,
+    timeout: 120000,
     waitUntil: 'load',
     checkBlocked: true,
     js_enabled: true,
