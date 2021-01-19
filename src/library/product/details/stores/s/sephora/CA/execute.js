@@ -113,7 +113,7 @@ module.exports = {
     store: 'sephora',
     domain: 'sephora.com',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[contains(@data-comp,"ZeroSearchResults")]',
     zipcode: '',
   },
   implementation,
