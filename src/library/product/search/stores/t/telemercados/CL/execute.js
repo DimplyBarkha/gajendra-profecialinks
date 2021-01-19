@@ -51,8 +51,14 @@ async function implementation (
 
   }
 
-  await applyScroll(context);
-  await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+  for(let i=0;i<3;i++){
+    try{
+      await applyScroll(context);
+      await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+    }catch(e){
+
+    }
+  }
   
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
