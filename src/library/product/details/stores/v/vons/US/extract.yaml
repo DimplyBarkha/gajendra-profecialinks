@@ -9,8 +9,9 @@ fields:
     xpath: //link[@rel='canonical']/@href
   - name: image
     description: URL of the main product image
-    type: FILE
     xpath: //div[@class='product-image-details']/picture/img/@src
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: imageAlt
     singleValue: true
     type: TEXT
@@ -32,7 +33,7 @@ fields:
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
     xpath: //div[@class='product-content']//product-detail/@data-product-name
-  - name: list_price
+  - name: listPrice
     singleValue: true
     type: CURRENCY
     description: The stated undiscounted price for the product
@@ -49,14 +50,13 @@ fields:
     regExp: '(\"priceCurrency\"\: ")([^["]+)'
     regExpReplace: $2
   - name: availabilityText
-    singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     manualSelector: script[type='application/ld+json']
-    defaultvalue: In Stock
-    regExp: OutOfStock
-    regExpReplace: Out Of Stock
+    regExp: '(\"availability\"\: ")([^["]+)'
+    defaultvalue: Out Of Stock
+    regExpReplace: In Stock
   - name: description
     type: TEXT[]
     description: Product description supplied by website - may be concatenanted from
@@ -89,8 +89,6 @@ fields:
     singleValue: true
     description: GTIN code (includes UPC/EAN)
     xpath: //div[@class='product-content']//product-detail//@data-product-upc
-    regExp: '(^0+(?!$))(\d+)'
-    regExpReplace: $2
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -533,6 +531,7 @@ fields:
     type: TEXT
     description: promotion text on product page
     xpath: //div[@class='product-offer-desc']//text()
+    regExp: 'Save.*'
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
