@@ -63,9 +63,6 @@ module.exports = {
       const product = document.querySelectorAll(
         ".hz-product-card__image-container"
       );
-      let rank = document.querySelector(".hz-pagination-link--selected")
-        .innerText;
-      console.log(rank);
 
       const jsonString = document.querySelectorAll(
         "script[type='application/ld+json']"
@@ -89,12 +86,7 @@ module.exports = {
         var url_web = single_obj.url;
 
         addHiddenDiv("ii_produrl", url_web, i);
-        if (rank == 1) {
-          addHiddenDiv("ii_rankOrganic", single_obj.position, i);
-        } else {
-          var rrank = 36 * (rank - 1);
-          addHiddenDiv("ii_rankOrganic", rrank + single_obj.position, i);
-        }
+
       }
     });
     return await context.extract(productDetails, { transform });
