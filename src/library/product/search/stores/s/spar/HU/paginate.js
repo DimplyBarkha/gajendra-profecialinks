@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'HU',
     store: 'spar',
-    nextLinkSelector: null,
+    nextLinkSelector: 'button.search-content__more',
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,

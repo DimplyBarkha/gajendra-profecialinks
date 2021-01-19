@@ -3,7 +3,7 @@
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
  */
-const transform = (data) => {
+const transform = (data,context) => {
     const cleanUp = (data, context) => {
         const clean = text => text.toString()
         .replace(/\r\n|\r|\n/g, ' ')
@@ -22,16 +22,15 @@ const transform = (data) => {
         }))));
         return data;
     };    
+    const clean = text => text.toString()
 
-    let p_count = 1;
+   const state = context.getState();
+   let orgRankCounter = state.orgRankCounter || 0;
+   let rankCounter = state.rankCounter || 0;
 
     for (const { group } of data) {
-        for (let row of group) {          
-            if (row.rankOrganic && row.rank) {
-                row.rankOrganic = [{'text':p_count}];
-                row.rank = [{'text':p_count}];
-                p_count = p_count + 1;
-            } 
+        for (let row of group) {  
+
             if (row.id) {
                 row.id.forEach(item => { 
                     let parts = item.text.split('/');
@@ -40,9 +39,21 @@ const transform = (data) => {
                         item.text = match;
                     }                    
                 });
-            }       
+            } 
+            
+            rankCounter += 1;
+            if (row.rankOrganic && row.rank) {
+              orgRankCounter += 1;
+              row.rankOrganic = [{ text: orgRankCounter }];
+            }
+            row.rank = [{ text: rankCounter }];
+            Object.keys(row).forEach(header => row[header].forEach(el => {
+              el.text = clean(el.text);
+            }))
         }
     }
+    context.setState({ rankCounter });
+    context.setState({ orgRankCounter });
     return cleanUp(data);
   };
   
