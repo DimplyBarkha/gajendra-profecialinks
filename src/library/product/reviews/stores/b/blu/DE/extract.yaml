@@ -15,8 +15,11 @@ fields:
 - name: brand
   defaultValue: 'Blu'
 - name: productRange
+  description: Product range
+  xpath: ancestor::html//div[@id="productFamily"]/@productRange
 - name: productFamily
-  xpath: ancestor::html//h1[@data-testid="details-product-title"]
+  description: Product family
+  xpath: ancestor::html//div[@id="productFamily"]/@productFamily
 - name: colour
 - name: flavour
 - name: sku

@@ -74,6 +74,19 @@ async function implementation (
           }
         }
       }
+
+      let url = window.location.href;
+      let productFamily = url.replace('https://www.blu.com/de/DE/','');
+      let range = productFamily.split('/');
+      productFamily = url.replace('.html','');
+      range = range[0];
+
+      const newEle = document.createElement('div');
+      newEle.id = 'productFamily';
+      newEle.setAttribute('productFamily', productFamily);
+      newEle.setAttribute('productRange', range);
+      newEle.style.display = 'none';
+      document.body.appendChild(newEle);      
     }
   });
   await new Promise((resolve) => setTimeout(resolve, 10000));
