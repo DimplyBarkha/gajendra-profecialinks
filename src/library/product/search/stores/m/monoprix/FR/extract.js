@@ -24,7 +24,10 @@ module.exports = {
         document.body.appendChild(catElement);
       }
 
-      addElementToDocument('search_url', window.location.href);
+      const currentUrl = window.location.href;
+      const searchUrlRegex = /\/(product)\/([^?]+)(.*)/g;
+      const searchUrl = currentUrl.replace(searchUrlRegex, '/$2/$2$3');
+      addElementToDocument('search_url', searchUrl);
 
       let pageLoader = document.querySelector('div[class*="catalog-page__loader"]')
         ? document.querySelector('div[class*="catalog-page__loader"]') : '';
