@@ -6,17 +6,24 @@ fields:
   - name: productUrl
     description: The URL for the product details page
 <<<<<<< HEAD
+<<<<<<< HEAD
     xpath: //div[@data-buyable-variant-code]/div/div[1]/a[@data-scope-link]/@href
     regExp: (.+)
     regExpReplace: https://lyko.com$1
+=======
+    xpath: concat('https://lyko.com',//div[@class="NNXRtF"]/div[@data-buyable-variant-code]/div/div[1]/a[@data-scope-link]/@href)
+    # regExp: (.+)
+    # regExpReplace: https://lyko.com$1
+>>>>>>> 839d23caab0500f410ce46c0090b7c5d4fb7f0ee
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //div[contains(@class, 'link-product-page')]/picture/img/@src
+    xpath: //div[@class="NNXRtF"]//div/picture/img/@src
   - name: name
     description: The product name
-    xpath: //a[@data-scope-link]/h5
-  - name: skus
+    xpath: //div[@class="NNXRtF"]//a[@data-scope-link]/h5
+  - name: sku
     description: The store-specific product identifiera
+<<<<<<< HEAD
     xpath: //div[@class="gXdoAx"]/@data-buyable-variant-code
 =======
     xpath: //picture/img/@src
@@ -29,6 +36,9 @@ fields:
   - name: skus
     description: The store-specific product identifiera
 >>>>>>> 21d13beac14a5dcccd83d67efd8c0c9d77dd7cfa
+=======
+    xpath: //div[@class="NNXRtF"]//div[@class="gXdoAx"]/@data-buyable-variant-code
+>>>>>>> 839d23caab0500f410ce46c0090b7c5d4fb7f0ee
   - name: ratingCount
     description: The number of ratings
     regExp: (\d+)
@@ -38,11 +48,15 @@ fields:
   - name: price
     description: The offered price for the product
 <<<<<<< HEAD
+<<<<<<< HEAD
     xpath: //div/a[@data-scope-link]/span/span[1]
 =======
     xpath: //div[@class="campaign-banner__info offer"]/div[2]/span | //span[@class="price-section__price"]
     regExp: '\d+\.\d+'
 >>>>>>> 21d13beac14a5dcccd83d67efd8c0c9d77dd7cfa
+=======
+    xpath: //div[@class="NNXRtF"]//div/a[@data-scope-link]/span/span[1]
+>>>>>>> 839d23caab0500f410ce46c0090b7c5d4fb7f0ee
   - name: rank
     description: search/listing rank
     type: NUMBER
@@ -56,7 +70,11 @@ fields:
   - name: id
     description: Unique id (within this extractor)
 <<<<<<< HEAD
+<<<<<<< HEAD
     xpath: //div[@class="gXdoAx"]/@data-buyable-variant-code
+=======
+    xpath: //div[@class="NNXRtF"]//div[@class="gXdoAx"]/@data-buyable-variant-code
+>>>>>>> 839d23caab0500f410ce46c0090b7c5d4fb7f0ee
   - name: aggregateRating
 =======
     xpath: //h3/span[2]

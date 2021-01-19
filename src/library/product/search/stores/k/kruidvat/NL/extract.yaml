@@ -1,0 +1,44 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="col-6 col-md-4 col-lg-3"]
+fields:
+  - name: id
+    singleValue: true
+    xpath: //article/@data-code
+  - name: rankOrganic
+    defaultValue: false
+  - name: name
+    xpath: //a[@class="tile__product-slide-product-name ClickSearchResultEvent_Class"]
+    singleValue: false
+  - name: productUrl
+    xpath: //a[@class="tile__product-slide-product-name ClickSearchResultEvent_Class"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.kruidvat.nl$1
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@class="tile__product-slide-rating-wrapper"]/e2-rating/@reviews-number
+  - name: aggregateRating
+    singleValue: false
+    # xpath: //div[@class="tile__product-slide-rating-wrapper"]/e2-rating/@rating
+    xpath: //div[@id="aggregateRating"]
+    # type: TEXT
+  - name: thumbnail
+    singleValue: true
+    xpath: //a[@class="ClickSearchResultEvent_Class tile__product-slide-link"]/img/@src
+    regExp: (.+)
+    regExpReplace: https://www.kruidvat.nl$1
+  - name: price
+    xpath: //div[@id="price_rate"]
+    singleValue: false
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: rank
+    defaultValue: false
+  - name: sponsored
+    defaultValue: false
+  - name: endorsementText
+    singleValue: true
