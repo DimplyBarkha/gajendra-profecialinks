@@ -1,7 +1,10 @@
+recordXPath: //div[@id="my-urls"]
 fields:
   - name: paginationUrl
     singleValue: false
     description: desired url to pass in chain
+    xpath: //ul/li
   - name: resultsCount
     singleValue: false
     description: total number of results
+    xpath: ancestor::html//div[@id="my-results-count"]
