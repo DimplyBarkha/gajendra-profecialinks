@@ -3,7 +3,7 @@
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
  */
-const transform = (data) => {  
+const transform = (data) => {
     const cleanUp = (data, context) => {
       const clean = text => text.toString()
       .replace(/\r\n|\r|\n/g, ' ')

@@ -5,6 +5,7 @@ recordXPath: null
 fields:
   - name: name
     singleValue: false
+    #xpath: //div[contains(text(),'Continente Online')]//following-sibling::div[contains(@class,'productsGrid')]//div[contains(@class,'title')]/a/@title
     xpath: //div[@class="title"]/a/@title
   - name: thumbnail
     singleValue: false
