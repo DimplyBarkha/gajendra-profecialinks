@@ -33,12 +33,6 @@ const transform = (data, context) => {
         });
         row.availabilityText = [{ text: availabilityTextArr.join(), xpath: row.availabilityText[0].xpath }];
       }
-      if (row.description) {
-        const descriptionArr = row.description.map((item) => {
-          return clean(item.text);
-        });
-        row.description = [{ text: descriptionArr.join('||'), xpath: row.description[0].xpath }];
-      }
       if (row.alternateImages) {
         row.alternateImages.shift();
         row.secondaryImageTotal = [{ text: row.alternateImages.length, xpath: row.alternateImages[0].xpath }];
@@ -69,9 +63,9 @@ const transform = (data, context) => {
         const newDescription = row.description.map((item) => {
           const searchItemIndex = item.text.search(/Modo de Usar/i);
           if (searchItemIndex > -1) {
-            return item.text.substring(0, searchItemIndex);
+            return item.text.replace('[There is a trailing space here]','').substring(0, searchItemIndex);
           } else {
-            return item.text
+            return item.text.replace('[There is a trailing space here]','');
           }
         })
         row.description = [{ text: newDescription[0] }]
@@ -80,7 +74,7 @@ const transform = (data, context) => {
         const newDirections = row.directions.map((item) => {
           const searchItemIndex = item.text.search(/Modo de Usar/i);
           if (searchItemIndex > -1) {
-            return item.text.substring(searchItemIndex + 13, item.text.length);
+            return item.text.replace('[There is a trailing space here]','').substring(searchItemIndex + 13, item.text.length);
           }
         })
         row.directions = [{ text: newDirections && newDirections[0] }]
