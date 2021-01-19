@@ -23,43 +23,33 @@ const transform = (data) => {
   }))));
 
   for (const { group } of data) {
-
     for (const row of group) {
-
       if (row.flavour) {
         row.flavour.forEach(item => {
-          if (item.text.includes("Juul Pods")) {
-            let split1 = item.text.split("Juul");
+          if (item.text.includes('Juul Pods')) {
+            const split1 = item.text.split('Juul');
             item.text = `${split1[0]}`;
-          }
-          else if (item.text.includes("by MyBlu")) {
-            let split1 = item.text.split("by");
+          } else if (item.text.includes('by MyBlu')) {
+            const split1 = item.text.split('by');
             item.text = `${split1[0]}`;
-          }
-          else if (item.text.includes("Vuse ePod")) {
-            let split1 = item.text.split("ePod");
-            let split2 = `${split1[1]}`;
-            if (split2.toLowerCase().trim() === "starter kit") {
+          } else if (item.text.includes('Vuse ePod')) {
+            const split1 = item.text.split('ePod');
+            const split2 = `${split1[1]}`;
+            if (split2.toLowerCase().trim() === 'starter kit') {
               item.text = split2;
               item.text = '';
             }
-          }
-          else if (item.text.includes("Logic Pods –")) {
-            let split1 = item.text.split("-");
+          } else if (item.text.includes('Logic Pods –')) {
+            const split1 = item.text.split('-');
             item.text = `${split1[1]}`;
-          }
-          else {
+          } else {
             item.text = '';
           }
-        })
+        });
       }
-
-
-
     }
   }
   return data;
 };
 
 module.exports = { transform };
-
