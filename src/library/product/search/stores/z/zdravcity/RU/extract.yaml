@@ -5,7 +5,7 @@ recordXPath: //ul[contains(@class,'js-search-list')]//li[contains(@class,'produc
 fields:  
   - name: id
     SingleValue: false
-    xpath: //li/@data-id
+    xpath: //li[contains(@class,"b-issue-content__item")]/@data-bitrix-id
   - name: rankOrganic
     SingleValue: false
     defaultValue: 1
