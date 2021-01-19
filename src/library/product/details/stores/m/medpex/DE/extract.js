@@ -23,6 +23,15 @@ module.exports = {
         else result = elem ? elem.singleNodeValue : '';
         return result && result.trim ? result.trim() : result;
       };
+      var stock = getXpath("//div[@class='stock stock--available']/text()", 'nodeValue');
+      if(stock=="Verfügbar")
+      {
+        stock="In Stock"
+      }
+      else{
+        stock="Out Of Stock"
+      }
+      addElementToDocument('stock', stock)
       const size = getXpath('//h1[@itemprop="name"]/text()','nodeValue');
       var nameArr = size.split(',');
       addElementToDocument('size', nameArr[nameArr.length - 1])
