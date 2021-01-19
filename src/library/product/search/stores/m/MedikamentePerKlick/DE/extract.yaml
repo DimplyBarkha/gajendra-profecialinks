@@ -8,7 +8,7 @@ fields:
   - name: thumbnail
     description: The URL for the product thumbnail image
     # xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//div[@class="figure"]//img[@class="photo"]/@src
-    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//div[@class="figure"]//img[@itemprop="image"]/@src
+    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//img[@class="photo"]/@src
     regExp: (.+)
     regExpReplace: https://www.medikamente-per-klick.de$1
   - name: name
@@ -16,7 +16,6 @@ fields:
     xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//span[@itemprop="name"]//text()
   - name: id
     description: The store-specific product identifier
-    type: TEXT
     xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//dd[@itemprop="productID"]
   - name: gtin
     singleValue: false
