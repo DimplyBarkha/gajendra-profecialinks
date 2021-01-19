@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: /html/body//article[@data-testhook="product-card"]
+recordXPath: /html/body//div[@id="search-lane"]//article[@data-testhook="product-card"]
 fields:
   - name: id
     description: Unique id (within this extractor)
@@ -19,14 +19,14 @@ fields:
     description: The product name
     xpath: //span[contains(@class,"line-clamp")]
   - name: price
-    description: The offered price for the 
+    description: The offered price for the
     xpath: //div[contains(@class,"price-amount_highlight")]
   # - name: _url
   #   type: URL
   #   xpath: '@search-url'
   - name: rank
     description: search/listing rank
-    type: NUMBER    
+    type: NUMBER
   - name: rankOrganic
     description: The position (rank) within the list excluding sponsored/paid results
-    type: NUMBER 
+    type: NUMBER
