@@ -24,11 +24,12 @@ async function implementation (inputs, parameters, context, dependencies) {
         element.setAttribute('rating', regArray[0]);
       }
     });
-    // reducing results to 150
+    // reducing results to 150 and set rank
     const url = window.location.href;
     const allProducts = document.querySelectorAll('div[class="card-item js-product-data"]');
     if (url.includes('/p3')) {
       allProducts.forEach((e, i) => {
+        e.setAttribute('rank', `${i}+1`);
         if (i > 29) e.setAttribute('trim', '');
       });
     }
