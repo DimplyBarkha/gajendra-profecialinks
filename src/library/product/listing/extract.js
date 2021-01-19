@@ -12,11 +12,11 @@ async function implementation (
   dependencies,
 ) {
   const { transform, urlTemplate, resultsCountSelector, numberResultPerPage } = parameters;
-  const { productDetails, Helpers } = dependencies;
+  const { productDetails, Helpers: { Helpers } } = dependencies;
   const helper = new Helpers(context);
 
   const resultsCount = await context.evaluate((resultsCountSelector) => {
-    return document.querySelector(resultsCountSelector).replace(',', '');
+    return document.querySelector(resultsCountSelector).textContent.replace(',', '');
   }, resultsCountSelector);
 
   const totalPages = Number(resultsCount) / numberResultPerPage;
