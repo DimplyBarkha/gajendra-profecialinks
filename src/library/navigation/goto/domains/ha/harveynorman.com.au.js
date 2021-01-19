@@ -3,21 +3,30 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'harveynorman.com.au',
-    timeout: 500000,
+    timeout: 30000,
     country: 'AU',
     store: 'harveynorman',
-    zipcode: "''",
+    zipcode: '',
   },
-  
-  /* ----- commented because data is not coming for some urls eg- "https://www.harveynorman.com.au/miele-g-4263-scvi-active-60cm-fully-integrated-dishwasher.html"---- */
-
-  // implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
-  //   const timeout = parameters.timeout ? parameters.timeout : 10000;
-  //   await context.setBlockAds(false);
-  //   await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
-  //   console.log(zipcode);
-  //   if (zipcode) {
-  //     await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
-  //   }
-  // },
+  implementation: async (inputs, parameters, context, dependencies) => {
+    // const timeout = parameters.timeout ? parameters.timeout : 10000;
+    // await context.setBlockAds(false);
+    // await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
+    // console.log("neha"+zipcode);
+    // if (zipcode) {
+    //   await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
+    // }
+    const timeout = parameters.timeout ? parameters.timeout : 10000;
+    const { url, zipcode } = inputs;
+    await context.setCssEnabled(true);
+    await context.setAntiFingerprint(false);
+    await context.setJavaScriptEnabled(true);
+    await context.setBlockAds(false);
+    // await context.setLoadImages(true);
+    await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
+    console.log(zipcode);
+    if (zipcode) {
+      await dependencies.setZipCode(inputs);
+    }
+  },
 };

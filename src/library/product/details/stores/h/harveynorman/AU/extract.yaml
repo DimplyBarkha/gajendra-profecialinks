@@ -27,7 +27,7 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[@id='product-view-price']//span[@class='price']
-    defaultValue: "$"
+    defaultValue: $
   - name: listPrice
     singleValue: false
     xpath: 
@@ -108,7 +108,7 @@ fields:
     xpath: //div[contains(@class,'interest-free-strip')]//div[contains(@class,'ge-text')]
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[contains(@class,'product-long-description')]//div[contains(@class,'row')] 
+    xpath: //div[contains(@class,'product-long-description')] | //div[contains(@id,'flix-inpage')]//div[@id='inpage_container']//div[@class='inpage_selector_feature']
 
 # Custom Fields 
   - name: inTheBoxUrl
