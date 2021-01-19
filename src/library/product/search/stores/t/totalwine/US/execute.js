@@ -4,9 +4,9 @@ module.exports = {
     country: 'US',
     store: 'totalwine',
     domain: 'totalwine.com',
-    url: 'https://www.totalwine.com/search/all?text={searchTerms}',
+    url: 'https://www.totalwine.com/search/all?text={searchTerms}&aty=1,1,1,1',
     loadedSelector: 'a[class="productImg__3fOOgAmO"] > picture > img',
-    noResultsXPath: '//p[@class="resultsTitle__2yxTXNeW"]/span',
+    noResultsXPath: '//div[contains(.,"Not available in Sacramento")]',
     zipcode: '',
   },
 };

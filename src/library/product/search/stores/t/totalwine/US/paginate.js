@@ -1,4 +1,3 @@
-
 module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
@@ -6,9 +5,9 @@ module.exports = {
     store: 'totalwine',
     nextLinkSelector: 'a[aria-label*="Next page"]',
     mutationSelector: null,
-    spinnerSelector: null,
+    spinnerSelector: 'div[style*="block"] img[class*="Spinner"] ',
     loadedSelector: 'a[class="productImg__3fOOgAmO"] > picture > img',
-    noResultsXPath: '//p[@class="resultsTitle__2yxTXNeW"]/span',
+    noResultsXPath: '//p[@class="resultsTitle__2yxTXNeW"]/span | //div[contains(.,"Please check your spelling")]',
     openSearchDefinition: null,
     zipcode: '',
     domain: 'totalwine.com',

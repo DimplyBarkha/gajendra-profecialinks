@@ -13,10 +13,11 @@ const transform = (data, context) => {
     .replace(/"\s{1,}/g, '"')
     .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
-    // eslint-disable-next-line no-control-regex
+  // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
-  for (const { group } of data) {
+  for (const { group }
+    of data) {
     for (const row of group) {
       if (row.name) {
         let text = ' ';
@@ -35,7 +36,8 @@ const transform = (data, context) => {
   let orgRankCounter = state.orgRankCounter || 0;
   let rankCounter = state.rankCounter || 0;
   const productCodes = state.productCodes || [];
-  for (const { group } of data) {
+  for (const { group }
+    of data) {
     for (const row of group) {
       rankCounter += 1;
       if (!row.sponsored) {
@@ -52,6 +54,21 @@ const transform = (data, context) => {
   context.setState({ orgRankCounter });
   context.setState({ productCodes });
   console.log(productCodes);
+  data = data.filter(function (item, index, data) {
+    console.log('group length before' + item.group.length);
+    item.group = item.group.filter(function (row) {
+      if (parseInt(row.rank[0].text) > 150) {
+        return false;
+      }
+      return true;
+    });
+    console.log('group length after' + item.group.length);
+    item.rows = item.group.length;
+    if (item.group.length !== 0) {
+      return true;
+    }
+    return false;
+  });
   return data;
 };
 module.exports = { transform };
