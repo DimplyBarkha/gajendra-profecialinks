@@ -26,7 +26,7 @@ const transform = (data) => {
         });
       }
 
-      if (!row.brandText) {
+      if (!row.brandText && row.name) {
         row.brandText = [{ text: row.name[0].text.replace(/^([\w]+).*/gm, '$1') }];
       }
 
