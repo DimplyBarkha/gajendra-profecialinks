@@ -2,7 +2,7 @@ input:
   id: DF19263_5
   _url: http://monsterpetsupplies.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=1b48ea95-6d7d-4cb9-b2ab-962ce946fb48/task=664ed19f-afb3-4fff-81fd-05ea5e90ea54/74a48a23-a15b-4856-9c59-43010a606e35.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=c7f9186e-b2f5-4ee8-9b23-867e579bf336/task=1402c86a-c880-4d89-b760-33d9c9bff994/eb02814c-72cb-445a-b519-596c84eab2d7.html
     extractionConfigId: product/details/stores/m/monsterpetsupplies/UK/extract
     data:
       - group:
@@ -111,6 +111,28 @@ extractions:
             name:
               - text: Royal Canin Mini Puppy Dry Dog Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/h1[1]
+            ingredientsList:
+              - text: "Additives: Vitamin A: 21500 IU, Vitamin D3: 1000 IU, Vitamin E: 510 mg,
+                  E1 (Iron): 38 mg, E2 (Iodine): 3,8 mg, E4 (Copper): 12 mg, E5
+                  (Manganese): 49 mg, E6 (Zinc): 126 mg, E8 (Selenium): 0,06 mg
+                  - Technological additives: Clinoptilolite of sedimentary
+                  origin: 10 g - Sensory additives: Yucca extract: 125 mg -
+                  Preservatives - Antioxidants. * L.I.P.: protein selected for
+                  its very high digestibility. Composition: Dehydrated poultry
+                  protein, rice, animal fats, vegetable protein isolate*, maize,
+                  beet pulp, maize flour, hydrolysed animal proteins, maize
+                  gluten, minerals, fish oil, soya oil, fructo-oligo-saccharides
+                  (0,34%), hydrolysed yeast (source of manno-oligo-saccharides),
+                  yeasts extracts (source of betaglucans), marigold extract
+                  (source of lutein). Crude ash: 7.7%. Crude fibre: 1.4%. Crude
+                  oil fats: 20%. Moisture: 0%. Protein: 31%."
+                xpath: /html/body/div[26]
+            totalFatPerServing:
+              - text: 0,34
+                xpath: /html/body/div[24]
+            totalFatPerServingUom:
+              - text: "%"
+                xpath: /html/body/div[25]
             promotion:
               - text: You Save £11.15 (13%)
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/div[3]/p[1]
@@ -122,8 +144,10 @@ extractions:
                 xpath: /html/body/div[16]
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[25]
+                xpath: /html/body/div[27]
+            descriptionBullets:
+              - text: "3"
             variantCount:
               - text: "4"
         xpath: /
-    timestamp: 1611055412776
+    timestamp: 1611064095480

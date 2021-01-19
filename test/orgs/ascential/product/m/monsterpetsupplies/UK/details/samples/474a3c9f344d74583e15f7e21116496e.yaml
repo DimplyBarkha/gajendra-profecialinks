@@ -2,7 +2,7 @@ input:
   id: CF27386_1
   _url: http://monsterpetsupplies.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=1b48ea95-6d7d-4cb9-b2ab-962ce946fb48/task=75b3d3bb-4971-4834-b846-946e62be2a08/43bd0a18-f5aa-408d-ada0-6b2eb88974ba.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=c7f9186e-b2f5-4ee8-9b23-867e579bf336/task=2893d526-bf21-4f25-b686-adc8de2f48af/ad785dcb-efd6-47d3-83c4-f2fa3b2ac2a6.html
     extractionConfigId: product/details/stores/m/monsterpetsupplies/UK/extract
     data:
       - group:
@@ -72,9 +72,17 @@ extractions:
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/h1[1]
             ingredientsList:
               - text: "100g Pouches: Meat and animal derivatives; vegetable protein extracts;
-                  fish and fish derivatives (tuna 4%); minerals; various
-                  sugars."
+                  fish and fish derivatives (tuna 4%); minerals; various sugars.
+                  40g Crunchy Crumbles Topping: Cereals; Meat and animal
+                  derivatives; Oils and fats; Vegetable protein extracts;
+                  Various sugars; Minerals; Yeast."
+                xpath: /html/body/div[26]
+            totalFatPerServing:
+              - text: "100"
                 xpath: /html/body/div[24]
+            totalFatPerServingUom:
+              - text: "%"
+                xpath: /html/body/div[25]
             variantInformation:
               - text: 100g x 40
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/h5[1]
@@ -83,8 +91,10 @@ extractions:
                 xpath: /html/body/div[16]
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[25]
+                xpath: /html/body/div[27]
+            descriptionBullets:
+              - text: "5"
             variantCount:
               - text: "2"
         xpath: /
-    timestamp: 1611055414466
+    timestamp: 1611064097049

@@ -2,7 +2,7 @@ input:
   id: DF28725_2
   _url: http://monsterpetsupplies.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=1b48ea95-6d7d-4cb9-b2ab-962ce946fb48/task=037e869c-f122-4137-93f7-fdb85a7c5ee7/74fdc766-023e-4da2-afc8-fdfc5ff71482.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=c7f9186e-b2f5-4ee8-9b23-867e579bf336/task=4ddcdb08-a500-45a3-9aa5-217620745735/846e1887-47c3-4d2c-8adb-3231c727bd0c.html
     extractionConfigId: product/details/stores/m/monsterpetsupplies/UK/extract
     data:
       - group:
@@ -91,7 +91,13 @@ extractions:
               - text: Turkey (16%), Dehydrated Chicken Protein, Pea Starch, Cassava (12%), Dried
                   Pea, Animal Fat, Soya Meal, Pea Protein, Dried Beet Pulp,
                   Digest, Dried Egg, Minerals, Fish Oil
+                xpath: /html/body/div[28]
+            totalFatPerServing:
+              - text: ","
                 xpath: /html/body/div[24]
+            totalFatPerServingUom:
+              - text: "%"
+                xpath: /html/body/div[27]
             promotion:
               - text: You Save £37.51 (34%)
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/div[3]/p[1]
@@ -103,8 +109,10 @@ extractions:
                 xpath: /html/body/div[16]
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[25]
+                xpath: /html/body/div[29]
+            descriptionBullets:
+              - text: "5"
             variantCount:
               - text: "2"
         xpath: /
-    timestamp: 1611055418579
+    timestamp: 1611064094671

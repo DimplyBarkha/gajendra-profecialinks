@@ -2,7 +2,7 @@ input:
   id: DF25497_2
   _url: http://monsterpetsupplies.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=1b48ea95-6d7d-4cb9-b2ab-962ce946fb48/task=f9ecc9fd-1331-4c19-b5d6-ed0aeb793ece/ed68be46-6163-4e42-b776-bb0098aad82d.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=c7f9186e-b2f5-4ee8-9b23-867e579bf336/task=0906af32-2c5e-41d8-8063-cb3af8a771cf/61e7db69-f9ac-4e98-9f4c-5dafbf2f2ce4.html
     extractionConfigId: product/details/stores/m/monsterpetsupplies/UK/extract
     data:
       - group:
@@ -87,6 +87,9 @@ extractions:
             name:
               - text: Purina Beyond Simply 9 Chicken & Barley Adult Dog Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/h1[1]
+            totalFatPerServing:
+              - text: ","
+                xpath: /html/body/div[24]
             promotion:
               - text: You Save £1.31 (5%)
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[2]/section[1]/div[3]/p[1]
@@ -98,8 +101,10 @@ extractions:
                 xpath: /html/body/div[16]
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[25]
+                xpath: /html/body/div[27]
+            descriptionBullets:
+              - text: "0"
             variantCount:
               - text: "2"
         xpath: /
-    timestamp: 1611055409131
+    timestamp: 1611064091486

@@ -58,8 +58,36 @@ async function implementation({ url, id }, { transform }, context, { productDeta
     const description = descriptionElem ? descriptionElem.innerText.replace(/\n+/g, ' ').trim() : '';
     addElementToDom(description, 'description');
 
-    const ingredients = document.evaluate('//div[@itemprop="description"]//p[contains(. , "Ingredients")]/following-sibling::p[position() = 1]', document, null, XPathResult.STRING_TYPE, null).stringValue;
-    addElementToDom(ingredients, 'ingredients');
+    const ingredientsArr = [];
+    const fatRegexp = /[fF]at\D+([\d,.]+)(.+?),?/;
+    let reading = false;
+    if (descriptionElem && descriptionElem.children) {
+      for (let i = 0; i < descriptionElem.children.length; i++) {
+        const elem = descriptionElem.children[i];
+        const elemText = elem.textContent;
+        const fatMatch = elemText.toLowerCase().match(fatRegexp);
+        if (
+          elemText.toLowerCase().trim().startsWith('analytical constituent') ||
+          elemText.toLowerCase().trim().startsWith('feeding guideline') ||
+          elemText.toLowerCase().trim().startsWith('know how much to')
+        ) {
+          reading = false;
+        }
+        if (reading) ingredientsArr.push(elemText.trim());
+        if (
+          elemText.toLowerCase().trim().startsWith('ingredients') ||
+          elemText.toLowerCase().trim().startsWith('what’s in it')
+        ) {
+          reading = true;
+        }
+        if (fatMatch) {
+          addElementToDom(fatMatch[1], 'fat_value');
+          addElementToDom(fatMatch[2], 'fat_uom');
+        }
+      }
+    }
+
+    addElementToDom(ingredientsArr.join(' ').replace(/\n+/g, ' '), 'ingredients');
 
     document.querySelector('img[class="zoomImg"]') ? addElementToDom('Yes', 'Zoom') : addElementToDom('No', 'Zoom');
   }, prodId);

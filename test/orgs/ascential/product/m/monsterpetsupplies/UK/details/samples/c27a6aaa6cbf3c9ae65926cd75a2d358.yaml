@@ -2,7 +2,7 @@ input:
   id: DFNNN050_1
   _url: http://monsterpetsupplies.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=1b48ea95-6d7d-4cb9-b2ab-962ce946fb48/task=9d485685-d145-4a9b-b8c5-cf2879983dec/a60292a0-d14e-47a1-8700-6d52f801143c.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=c7f9186e-b2f5-4ee8-9b23-867e579bf336/task=bf032b8c-0cfa-47e4-9218-7d14cedb60fe/0d4ffa6a-2ddc-4906-85f3-b4d4ad2cb1c7.html
     extractionConfigId: product/details/stores/m/monsterpetsupplies/UK/extract
     data:
       - group:
@@ -86,7 +86,13 @@ extractions:
               - text: Rice, Dehydrated Salmon Protein, Wheat Flour, Dehydrated Poultry Protein,
                   Soya Protein, Maize, Dried Egg, Digest, Fish Oil, Pea Fibre,
                   Animal Fat, Minerals, Cellulose
+                xpath: /html/body/div[32]
+            totalFatPerServing:
+              - text: ","
                 xpath: /html/body/div[24]
+            totalFatPerServingUom:
+              - text: "%"
+                xpath: /html/body/div[31]
             promotion:
               - text: You Save £10.81 (16%)
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[2]/section[1]/div[3]/p[1]
@@ -98,8 +104,10 @@ extractions:
                 xpath: /html/body/div[16]
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[25]
+                xpath: /html/body/div[33]
+            descriptionBullets:
+              - text: "3"
             variantCount:
               - text: "3"
         xpath: /
-    timestamp: 1611055410277
+    timestamp: 1611064093926
