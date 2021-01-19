@@ -11,28 +11,34 @@ fields:
   - name: productUrl
     singleValue: true
     description: The URL for the product details page
-    xpath: //div[@data-posid]/a[@class="hz-product-card__link"]/@href
+    xpath: //div[@id="ii_produrl"]
+    # xpath: //div[@data-posid]/a[@class="hz-product-card__link"]/@href
   - name: thumbnail
     singleValue: true
     description: The URL for the product thumbnail image
-    xpath: //a/div/div/div/picture[@class=" hz-image-container"]/source/@srcset  | //a/div/div/picture[@class=" hz-image-container"]/source/@srcset
+    xpath: //div/picture[@class=" hz-image-container"]/img/@src
+    # xpath: //a/div/div/div/picture[@class=" hz-image-container"]/source/@srcset  | //a/div/div/picture[@class=" hz-image-container"]/source/@srcset
   - name: name
     singleValue: true
     description: The product name
-    xpath: //a/div/div[@class="hz-product-card__meta"]/span[@data-compid="title"]/span
+    xpath: //div[@class="hz-product-card__meta"]/span[@data-compid="title"]/span
+    # xpath: //a/div/div[@class="hz-product-card__meta"]/span[@data-compid="title"]/span
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //a/parent::div[@class="hz-product-card hz-track-me hz-product-card--medium hz-br-container--three-grid hz-product-card__browse-redesign"]/@data-objid
+    xpath: //div[@class="hz-product-card hz-track-me hz-product-card--medium hz-br-container--three-grid hz-product-card__browse-redesign"]/@data-objid
+    # xpath: //a/parent::div[@class="hz-product-card hz-track-me hz-product-card--medium hz-br-container--three-grid hz-product-card__browse-redesign"]/@data-objid
 
   - name: price
     singleValue: true
     description: The offered price for the product
-    xpath: //a/div/div/div/div/span[@class="hz-product-card__prices hz-color-link hz-color-link--static hz-color-link--enabled "]/span/span
+    xpath: //span[@class="hz-product-card__prices hz-color-link hz-color-link--static hz-color-link--enabled "]/span/span
+    # xpath: //a/div/div/div/div/span[@class="hz-product-card__prices hz-color-link hz-color-link--static hz-color-link--enabled "]/span/span
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //a/div/div/div/div[@class="product-prices hz-product-card__prices"]/span/span[@class="hz-product-price hz-product-price--v2 hz-product-price--strikethrough"]/del/span
+    xpath: //span[@class="hz-product-price hz-product-price--v2 hz-product-price--strikethrough"]/del/span
+    # xpath: //a/div/div/div/div[@class="product-prices hz-product-card__prices"]/span/span[@class="hz-product-price hz-product-price--v2 hz-product-price--strikethrough"]/del/span
 
   - name: rankOrganic
     singleValue: true
@@ -44,14 +50,16 @@ fields:
   - name: id
     singleValue: true
     description: Unique id (within this extractor)
-    xpath: //a/parent::div[@class="hz-product-card hz-track-me hz-product-card--medium hz-br-container--three-grid hz-product-card__browse-redesign"]/@data-objid
+    xpath: //div[@class="hz-product-card hz-track-me hz-product-card--medium hz-br-container--three-grid hz-product-card__browse-redesign"]/@data-objid
+    # xpath: //a/parent::div[@class="hz-product-card hz-track-me hz-product-card--medium hz-br-container--three-grid hz-product-card__browse-redesign"]/@data-objid
   - name: nameExtended
     singleValue: true
     description:
       The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per extractor)
-    xpath: //a/div/div[@class="hz-product-card__meta"]/span[@data-compid="title"]/span
+    xpath: //div[@class="hz-product-card__meta"]/span[@data-compid="title"]/span
+    # xpath: //a/div/div[@class="hz-product-card__meta"]/span[@data-compid="title"]/span
 
-  - name: searchUrl
-    singleValue: false
-    xpath: //div[@id="ii_searchURL"]
+  # - name: searchUrl
+  #   singleValue: false
+  #   xpath: //div[@id="ii_searchURL"]
