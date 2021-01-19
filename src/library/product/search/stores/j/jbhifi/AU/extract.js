@@ -14,13 +14,15 @@ module.exports = {
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
         let count = document.querySelectorAll('div#quicksearch-search-results div.ais-hits--item').length;
+        let currScroll = document.querySelector('.quicksearch-scrolling-container').scrollHeight;
         while (count < 150) {
-          document.querySelector('.quicksearch-scrolling-container').scrollTop = document.querySelector('.quicksearch-scrolling-container').scrollHeight;
+          const oldScroll = currScroll;
+          document.querySelector('.quicksearch-scrolling-container').scrollBy(0, 1000);
+          await new Promise(resolve => setTimeout(resolve, 4000));
+          currScroll = document.querySelector('.quicksearch-scrolling-container').scrollHeight;
 
-          await new Promise(resolve => setTimeout(resolve, 2000));
-          const oldCount = count;
           count = document.querySelectorAll('div#quicksearch-search-results div.ais-hits--item').length;
-          if (oldCount === count) {
+          if (oldScroll === currScroll) {
             break;
           }
         }
