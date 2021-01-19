@@ -34,6 +34,14 @@ const transform = (data) => {
             row.thumbnail.forEach(item=>{
                 item.text=item.text.replace('background-image: url("','').replace('");','');
             })
+        }
+        if(row.id){
+          row.id.forEach(item=>{
+            let objTmp=item.text.split('|');
+            objTmp.forEach(element => {
+              console.log('element:',element);
+            });
+          })
         }            
         row.rank = [{ "text": rank }];
         row.rankOrganic = [{ "text": rank }];
