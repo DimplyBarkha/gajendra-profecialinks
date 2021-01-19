@@ -2,7 +2,7 @@ input:
   id: 1893185
   _url: http://mediamarkt.ch
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=7d82f670-054e-4e7a-bed6-d16d25fe4221/task=28c4d24f-0737-4737-a264-4b2166b4145c/775c6259-a597-465c-916b-d6a8e80f0773.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=65b8eb82-526d-4458-bcfb-33d1350888b3/task=72dd36a3-dc51-4a24-ad11-7e6644120963/a7c606ca-4367-4cf4-9a72-ee70c3d3b09a.html
     extractionConfigId: product/details/stores/m/mediamarkt_ch_fr/CH/extract
     data:
       - group:
@@ -45,11 +45,19 @@ extractions:
             imageAlt:
               - text: DYSON Pure Hot + Cool - Purificateur d'air (Blanc)
                 xpath: /html/body/div[11]
-            alternateImages:
-              - text: http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-80078261/wcs_overlay_prod_detail/DYSON-Pure-Hot---Cool---Purificateur-d%27air-%28Blanc%29,http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-80078262/wcs_overlay_prod_detail/DYSON-Pure-Hot---Cool---Purificateur-d%27air-%28Blanc%29,http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-80078377/wcs_overlay_prod_detail/DYSON-Pure-Hot---Cool---Purificateur-d%27air-%28Blanc%29,http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-80078259/wcs_overlay_prod_detail/DYSON-Pure-Hot---Cool---Purificateur-d%27air-%28Blanc%29,http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-80078258/wcs_overlay_prod_detail/DYSON-Pure-Hot---Cool---Purificateur-d%27air-%28Blanc%29
-                xpath: /html/body/div[12]
             secondaryImageTotal:
               - text: "5"
+                xpath: /html/body/div[12]
+            alternateImages:
+              - text: http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-80078261/wcs_overlay_prod_detail/DYSON-Pure-Hot---Cool---Purificateur-d%27air-%28Blanc%29
+                  |
+                  http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-80078262/wcs_overlay_prod_detail/DYSON-Pure-Hot---Cool---Purificateur-d%27air-%28Blanc%29
+                  |
+                  http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-80078377/wcs_overlay_prod_detail/DYSON-Pure-Hot---Cool---Purificateur-d%27air-%28Blanc%29
+                  |
+                  http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-80078259/wcs_overlay_prod_detail/DYSON-Pure-Hot---Cool---Purificateur-d%27air-%28Blanc%29
+                  |
+                  http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-80078258/wcs_overlay_prod_detail/DYSON-Pure-Hot---Cool---Purificateur-d%27air-%28Blanc%29
                 xpath: /html/body/div[13]
             price:
               - text: "649"
@@ -131,4 +139,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html/body
-    timestamp: 1610970488504
+    timestamp: 1611043211599

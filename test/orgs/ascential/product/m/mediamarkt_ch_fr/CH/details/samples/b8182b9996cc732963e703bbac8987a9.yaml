@@ -2,7 +2,7 @@ input:
   id: 1422442
   _url: http://mediamarkt.ch
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=7d82f670-054e-4e7a-bed6-d16d25fe4221/task=f9f1ea51-8e5d-4b24-a8b4-85fd973fc8f1/c313a498-dbc3-45e7-afde-c0505c391484.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=65b8eb82-526d-4458-bcfb-33d1350888b3/task=6eb03e90-f598-4106-a66c-be7f4748040d/cb51472b-35d2-4755-9f8f-681fa68c7011.html
     extractionConfigId: product/details/stores/m/mediamarkt_ch_fr/CH/extract
     data:
       - group:
@@ -48,11 +48,17 @@ extractions:
               - text: DE-LONGHI NESCAFÉ Dolce Gusto Mini Me Starter Kit - Machine à capsule
                   (Blanc/noir)
                 xpath: /html/body/div[11]
-            alternateImages:
-              - text: http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-64456075/wcs_overlay_prod_detail/DE-LONGHI-NESCAF%C3%89-Dolce-Gusto-Mini-Me-Starter-Kit---Machine-%C3%A0-capsule-%28Blanc-noir%29,http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-64745870/wcs_overlay_prod_detail/DE-LONGHI-NESCAF%C3%89-Dolce-Gusto-Mini-Me-Starter-Kit---Machine-%C3%A0-capsule-%28Blanc-noir%29,http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-79959894/wcs_overlay_prod_detail/DE-LONGHI-NESCAF%C3%89-Dolce-Gusto-Mini-Me-Starter-Kit---Machine-%C3%A0-capsule-%28Blanc-noir%29,http://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_72619640/wcs_overlay_prod_detail/DE-LONGHI-NESCAF%C3%89-Dolce-Gusto-Mini-Me-Starter-Kit---Machine-%C3%A0-capsule-%28Blanc-noir%29
-                xpath: /html/body/div[12]
             secondaryImageTotal:
               - text: "4"
+                xpath: /html/body/div[12]
+            alternateImages:
+              - text: http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-64456075/wcs_overlay_prod_detail/DE-LONGHI-NESCAF%C3%89-Dolce-Gusto-Mini-Me-Starter-Kit---Machine-%C3%A0-capsule-%28Blanc-noir%29
+                  |
+                  http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-64745870/wcs_overlay_prod_detail/DE-LONGHI-NESCAF%C3%89-Dolce-Gusto-Mini-Me-Starter-Kit---Machine-%C3%A0-capsule-%28Blanc-noir%29
+                  |
+                  http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-79959894/wcs_overlay_prod_detail/DE-LONGHI-NESCAF%C3%89-Dolce-Gusto-Mini-Me-Starter-Kit---Machine-%C3%A0-capsule-%28Blanc-noir%29
+                  |
+                  http://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_72619640/wcs_overlay_prod_detail/DE-LONGHI-NESCAF%C3%89-Dolce-Gusto-Mini-Me-Starter-Kit---Machine-%C3%A0-capsule-%28Blanc-noir%29
                 xpath: /html/body/div[13]
             price:
               - text: "59.95"
@@ -86,4 +92,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html/body
-    timestamp: 1610970486805
+    timestamp: 1611043210271

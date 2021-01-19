@@ -2,7 +2,7 @@ input:
   id: 1056734
   _url: http://mediamarkt.ch
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=7d82f670-054e-4e7a-bed6-d16d25fe4221/task=2cd9440b-d5fc-4cdc-ab3c-8eb672191fc3/3eae5512-8333-4374-893f-70babc32a430.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=65b8eb82-526d-4458-bcfb-33d1350888b3/task=a6fca7de-3801-407b-8a79-dad0873f33bf/1e90ed52-3d44-4aad-9a48-021718c19f66.html
     extractionConfigId: product/details/stores/m/mediamarkt_ch_fr/CH/extract
     data:
       - group:
@@ -81,11 +81,17 @@ extractions:
             imageAlt:
               - text: NESCAFÉ Dolce Gusto Lungo - Capsules de café
                 xpath: /html/body/div[11]
-            alternateImages:
-              - text: http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-69432622/wcs_overlay_prod_detail/NESCAF%C3%89-Dolce-Gusto-Lungo---Capsules-de-caf%C3%A9,http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-62103292/wcs_overlay_prod_detail/NESCAF%C3%89-Dolce-Gusto-Lungo---Capsules-de-caf%C3%A9,http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-66052648/wcs_overlay_prod_detail/NESCAF%C3%89-Dolce-Gusto-Lungo---Capsules-de-caf%C3%A9,http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-66143467/wcs_overlay_prod_detail/NESCAF%C3%89-Dolce-Gusto-Lungo---Capsules-de-caf%C3%A9
-                xpath: /html/body/div[12]
             secondaryImageTotal:
               - text: "4"
+                xpath: /html/body/div[12]
+            alternateImages:
+              - text: http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-69432622/wcs_overlay_prod_detail/NESCAF%C3%89-Dolce-Gusto-Lungo---Capsules-de-caf%C3%A9
+                  |
+                  http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-62103292/wcs_overlay_prod_detail/NESCAF%C3%89-Dolce-Gusto-Lungo---Capsules-de-caf%C3%A9
+                  |
+                  http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-66052648/wcs_overlay_prod_detail/NESCAF%C3%89-Dolce-Gusto-Lungo---Capsules-de-caf%C3%A9
+                  |
+                  http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-66143467/wcs_overlay_prod_detail/NESCAF%C3%89-Dolce-Gusto-Lungo---Capsules-de-caf%C3%A9
                 xpath: /html/body/div[13]
             price:
               - text: "5.95"
@@ -128,4 +134,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html/body
-    timestamp: 1610970485026
+    timestamp: 1611043209073

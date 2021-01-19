@@ -31,10 +31,11 @@ module.exports = {
       const prefix = 'http:';
       data.photo = prefix + document.querySelector('#product-sidebar > div.preview > a > img').getAttribute('src');
       data.imgAlt = document.querySelector('#product-sidebar > div.preview > a > img').getAttribute('alt');
-      data.alternateImages = document.querySelectorAll('#product-sidebar > ul > li').length > 1
+      const alternateImages = document.querySelectorAll('#product-sidebar > ul > li').length > 1
         // @ts-ignore
         ? [...document.querySelectorAll('#product-sidebar > ul > li')].map(el => prefix + el.querySelector('a').getAttribute('data-preview')).slice(1) : [];
-      data.secImageTotal = data.alternateImages.length || null;
+      data.secImageTotal = alternateImages.length || null;
+      data.alternateImages = alternateImages.join(' | ');
       data.price = document.querySelector('div.price-sidebar meta[itemprop="price"]') ? document.querySelector('div.price-sidebar meta[itemprop="price"]').getAttribute('content') : '';
       data.listPrice = document.querySelector('div.price-details.has-old-price > div.old-price-block > div')
         ? document.querySelector('div.price-details.has-old-price > div.old-price-block > div').textContent.replace(/\n|.-/g, '') : data.price;
