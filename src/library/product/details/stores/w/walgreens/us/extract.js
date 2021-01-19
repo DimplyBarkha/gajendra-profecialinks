@@ -1,3 +1,4 @@
+// @ts-nocheck
 const { transform } = require('./transform');
 module.exports = {
   implements: 'product/details/extract',
@@ -69,7 +70,7 @@ module.exports = {
     await helper.waitForSelector('li#prodCollage a.view-more-trigger', { timeout: 55000 }, false)
       .catch(() => {
         if (noManufacturerContent) console.log('No manufacturer content loading');
-        else throw new Error('Manufacturer content loading issue') 
+        else throw new Error('Manufacturer content loading issue');
       });
     if (!noManufacturerContent && loadMoreManufacturer) {
       await helper.waitForSelector('div#wc-aplus', { timeout: 55000 });
@@ -280,38 +281,6 @@ module.exports = {
             return nutritionTable[query] ? (hasGreaterThanOrLessThan ? nutritionTable[query].split(/(\d*\.?\d+)/)[0] : '') + nutritionTable[query].split(/(\d*\.?\d+)/)[nb] : acc;
           }, '');
         };
-        const getShadowRoots = (elem, resArr = []) => {
-          if (elem.shadowRoot) return [...resArr, elem.shadowRoot];
-          return [...elem.childNodes]
-            .reduce((acc, elC) => [...acc, ...resArr, ...getShadowRoots(elC, resArr)], resArr);
-        };
-        const arrayOfSubDoms = [
-          // @ts-ignore
-          ...[...document.querySelectorAll('iframe')], // requires to discard CSP
-          ...getShadowRoots(document.body),
-        ];
-        const vidFilter = array => array.filter(v => v.src).map(({ src, duration }) => ({ src, duration }))
-        const videos = () => [
-          ...arrayOfSubDoms.reduce((acc, frame) => {
-            if (!frame.host && !frame.allowFullscreen) return acc;
-            let doc;
-            try {
-              doc = frame.contentWindow ? frame.contentWindow.document : frame;
-            } catch (error) {
-              // restricted iframe
-              return acc;
-            }
-            if (frame.host) return [...acc, ...vidFilter([...frame.querySelectorAll('video')])];
-            if (frame.contentWindow.settings && frame.contentWindow.settings.itemsList) {
-              const fullPath = (frame.contentWindow.document.querySelector('video') && frame.contentWindow.document.querySelector('video').src) ? frame.contentWindow.document.querySelector('video').src : null;
-              const root = fullPath ? fullPath.split('/_cp')[0] : '';
-              return [...acc, ...[...frame.contentWindow.settings.itemsList].filter(v => (v.src && v.src.src)).map(v => ({ src: root + v.src.src, duration: v.duration }))];
-            }
-            return [...acc, ...vidFilter([...frame.contentWindow.document.querySelectorAll('video')])];
-          }, []),
-          ...vidFilter([...document.querySelectorAll('video')]),
-        ];
-        const allVideos = videos().filter(({ src }) => !(/(png)/.test(src)) && !(/(jpg)/.test(src)) && !(/(jpeg)/.test(src)));
 
         const restrictedStatesList = () => {
           const states = [];
@@ -393,7 +362,7 @@ module.exports = {
 
         const isVisible = (elem) => elem.offsetWidth > 0 || elem.offsetHeight > 0;
 
-        const manufacturerDescription = () => {
+        const manufacturerDescription_old = () => {
           return [...[...document.querySelectorAll('.wc-fragment, .wc-footnotes')].filter(elem => isVisible(elem)).reduce((acc, frame) => {
             if (frame.querySelector('iframe')) {
               const text = (frame && frame.innerText) ? frame.innerText : '';
@@ -419,7 +388,107 @@ module.exports = {
           }, [])].join(' ');
         };
 
-        const manufacturerImages = () => {
+        let videos = [];
+        let manufacturerDescription = [];
+        let manufacturerImages = [];
+        const getShadowRoots = (elem, resArr = []) => {
+          if (elem.shadowRoot) return [...resArr, elem.shadowRoot];
+          return [...elem.childNodes]
+            .reduce((acc, elC) => [...acc, ...resArr, ...getShadowRoots(elC, resArr)], resArr);
+        };
+        const arrayOfSubDoms = [
+          // @ts-ignore
+          ...[...document.querySelectorAll('iframe')], // requires to discard CSP
+          ...getShadowRoots(document.body),
+        ];
+        const getEnhancedContent = async () => {
+          const doNotCollectClass = 'doNotCollect';
+          const vidFilter = array => array.filter(v => v.src).map(({ src, duration }) => ({ src, duration }));
+          const addImagesVideos = (node) => {
+            node.querySelectorAll('img').forEach(e => {
+              if (!e.classList.contains(doNotCollectClass)) manufacturerImages.push(e.getAttribute('src'));
+            });
+            node.querySelectorAll('video').forEach(vidz => {
+              videos.push({ src: vidz.src, duration: vidz.duration });
+            });
+          };
+          videos = [
+            ...arrayOfSubDoms.reduce((acc, frame) => {
+              if (!frame.host && !frame.allowFullscreen) return acc;
+              let doc;
+              try {
+                doc = frame.contentWindow ? frame.contentWindow.document : frame;
+              } catch (error) {
+                // restricted iframe
+                return acc;
+              }
+              if (frame.host) return [...acc, ...vidFilter([...frame.querySelectorAll('video')])];
+              if (frame.contentWindow.settings && frame.contentWindow.settings.itemsList) {
+                const fullPath = (frame.contentWindow.document.querySelector('video') && frame.contentWindow.document.querySelector('video').src) ? frame.contentWindow.document.querySelector('video').src : null;
+                const root = fullPath ? fullPath.split('/_cp')[0] : '';
+                return [...acc, ...[...frame.contentWindow.settings.itemsList].filter(v => (v.src && v.src.src)).map(v => ({ src: root + v.src.src, duration: v.duration }))];
+              }
+              return [...acc, ...vidFilter([...frame.contentWindow.document.querySelectorAll('video')])];
+            }, []),
+            ...vidFilter([...document.querySelectorAll('video')]),
+          ];
+          const getWCFragments = (frame = document) => {
+            frame.querySelectorAll('.wc-fragment').forEach(e => {
+              if (e.getAttribute('data-section-caption') && e.getAttribute('data-section-caption') === 'Docs') {
+                return;
+              }
+              if (e.querySelector('.wc-pct-data')) {
+                const sectionHeadder = e.parentNode.parentNode.querySelector('.syndigo-widget-section-header');
+                if (sectionHeadder && sectionHeadder.innerText.toLowerCase().includes('additional') && sectionHeadder.innerText.toLowerCase().includes('products')) {
+                  // Do not collect table comparing products
+                  // @ts-ignore
+                  [...e.querySelectorAll('img')].forEach(img => img.classList.add(doNotCollectClass));
+                } else {
+                  e.querySelectorAll('tr').forEach(tr => {
+                    if (tr && tr.innerText && !manufacturerDescription.includes(tr.innerText)) {
+                      manufacturerDescription.push(tr.innerText);
+                    }
+                  });
+                }
+              } else {
+                manufacturerDescription.push(e.innerText);
+              }
+              addImagesVideos(e);
+            });
+          };
+          getWCFragments();
+          const arrayOfSubDoms2 = [
+            // @ts-ignore
+            ...[...document.querySelectorAll('iframe')].filter(f => f.allowFullscreen).map(e => e.contentWindow.document.body),
+            ...getShadowRoots(document.body),
+          ];
+          await Promise.all(arrayOfSubDoms2.map(async (frameContents) => {
+            getWCFragments(frameContents);
+            frameContents.querySelectorAll('h1, h2, h3, p, li').forEach(e => {
+              if (!e.getAttribute('class') || (e.getAttribute('class') && !e.getAttribute('class').includes('vjs'))) {
+                manufacturerDescription.push(e.textContent);
+              }
+            });
+            frameContents.querySelectorAll('.syndigo-featureset-feature-description, .syndigo-featureset-feature-caption').forEach(e => {
+              manufacturerDescription.push(e.innerText);
+            });
+            addImagesVideos(frameContents);
+            await Promise.all([...frameContents.querySelectorAll('.wc-thumb')].map((e, ind) => setTimeout(() => {
+              if (e.querySelector('button')) {
+                e.querySelector('img').click();
+                if (frameContents.querySelector('.wc-video-container')) {
+                  const vidz = frameContents.querySelector('.wc-video-container').querySelector('video');
+                  videos.push({ src: vidz.src, duration: vidz.duration });
+                }
+              }
+            }, (ind * 500) + 500)));
+          }));
+          manufacturerDescription = [...new Set(manufacturerDescription)].join(' ').replace(/\s+/gm, ' ');
+          videos = videos.filter(({ src }) => !(/(png)/.test(src)) && !(/(jpg)/.test(src)) && !(/(jpeg)/.test(src)));
+          manufacturerImages = [...new Set(manufacturerImages)];
+        };
+
+        const manufacturerImages_old = () => {
           return [...[...document.querySelectorAll('.wc-fragment')].reduce((acc, frame) => {
             if (frame.querySelector('iframe')) {
               const imgSrc = frame.querySelector('img') ? frame.querySelector('img').src : '';
@@ -447,6 +516,7 @@ module.exports = {
 
         console.log(jsonObj.inventory);
         console.log(jsonObj.inventory.shipAvailableMessage);
+        await getEnhancedContent();
         const obj = {
           _input,
           image: infos.productImageUrl,
@@ -478,13 +548,15 @@ module.exports = {
           shippingWeight: shipping ? shipping.shippingWeight : '',
           variantCount: Object.entries(jsonObj.inventory.relatedProducts).reduce((acc, [key, arr]) => (+acc + (arr ? arr.length : 0)), 0),
           color: infos.color,
-          manufacturerDescription: manufacturerDescription(),
-          manufacturerImages: manufacturerImages(),
-          videos: allVideos && allVideos.length > 0 ? allVideos.map(v => v.src) : '',
+          manufacturerDescription_old: manufacturerDescription_old(),
+          manufacturerImages_old: manufacturerImages_old(),
+          manufacturerDescription: manufacturerDescription,
+          manufacturerImages: manufacturerImages,
+          videos: videos && videos.length > 0 ? videos.map(v => v.src) : '',
           name: infos.displayName,
           coupon: [...document.querySelectorAll('[aria-labelledby="coupon-card"] li span:not([aria-hidden="true"])')].map(u => u.textContent).join(' '),
           brandLink: infos.brandPageUrl ? `https://www.walgreens.com${infos.brandPageUrl}` : '',
-          videoLength: allVideos && allVideos.length > 0 ? allVideos.filter(({ duration }) => (duration !== undefined)).map(v => v.duration) : '',
+          videoLength: videos && videos.length > 0 ? videos.filter(({ duration }) => (duration !== undefined)).map(v => v.duration) : '',
           secondaryImageTotal: infos.filmStripUrl ? infos.filmStripUrl.length : 0,
           ingredientsList: hasIngrList ? ingrList() : '',
           // eslint-disable-next-line no-useless-escape
@@ -539,7 +611,6 @@ module.exports = {
 
       await context.extract(productDetails, { transform: transformParam, type: 'APPEND' });
     };
-    
     await extract();
 
     for (let index = 0; index < variantArray.length; index++) {

@@ -604,7 +604,7 @@ async function implementation (
         addImagesVideos(mfgNode);
         const arrayOfSubDoms = [
           // @ts-ignore
-          ...[...mfgNode.querySelectorAll('frame')].map(e => e.contentWindow.document.body),
+          ...[...mfgNode.querySelectorAll('iframe')].map(e => e.contentWindow.document.body),
           ...getShadowRoots(mfgNode.parentNode),
         ];
         arrayOfSubDoms.forEach(frameContents => {
