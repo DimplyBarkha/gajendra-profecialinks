@@ -45,7 +45,7 @@ async function implementation (
     for (let i = 0; i < product.length; i++) {
       addHiddenDiv('page_url', URL, i);
     }
-    function addHiddenDiv_Details (id, content, index) {
+    function addHiddenDivDetails (id, content, index) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
       newDiv.textContent = content;
@@ -53,20 +53,20 @@ async function implementation (
       const originalDiv = document.querySelector('div.style__ProductDetailsWrapper-PDP__sc-18s9jld-0');
       originalDiv.appendChild(newDiv);
     }
-      let wholeDiv = document.querySelector('div.style__ProductDetailsWrapper-PDP__sc-18s9jld-0')
-     console.log('s' , wholeDiv);
-      if(wholeDiv) {
-        let url = window.location.href
-        addHiddenDiv_Details('Prod_url' , url)
-        addHiddenDiv_Details('Search_url' , url)
-        let thumbnail_details = document.querySelector('img.met-epc-item').src
-        addHiddenDiv_Details('thumbnail_details' , thumbnail_details)
-        let bits = url.split("/");
-        let id_details = bits[bits.length-1];
-        addHiddenDiv_Details('id_details' , id_details)
-
-      }
-      });
+    const wholeDiv = document.querySelector('div.style__ProductDetailsWrapper-PDP__sc-18s9jld-0');
+    console.log('s', wholeDiv);
+    if (wholeDiv) {
+      const url = window.location.href;
+      addHiddenDivDetails('Prod_url', url);
+      addHiddenDivDetails('Search_url', url);
+      const thumbnailDetails = document.querySelector('img.met-epc-item');
+      // @ts-ignore
+      thumbnailDetails && thumbnailDetails.src && addHiddenDivDetails('thumbnailDetails', thumbnailDetails.src);
+      const bits = url.split('/');
+      const idDetails = bits[bits.length - 1];
+      addHiddenDivDetails('idDetails', idDetails);
+    }
+  });
   return await context.extract(productDetails, { transform });
 }
 module.exports = {

@@ -16,12 +16,14 @@ module.exports = {
   ) => {
     await context.evaluate(async function () {
       let scrollSelector = document.querySelector('div#footerApp');
+      // @ts-ignore
       let scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
       let yPos = 0;
       while (scrollLimit && yPos < scrollLimit) {
         yPos = yPos + 350;
         window.scrollTo(0, yPos);
         scrollSelector = document.querySelector('div#footerApp');
+        // @ts-ignore
         scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
         await new Promise(resolve => setTimeout(resolve, 1000));
       }
@@ -61,6 +63,7 @@ module.exports = {
       const enhancedContent = document.querySelector('div[class*="syndi_powerpage"]');
       try {
         if (enhancedContent) {
+          // @ts-ignore
           const witbData = Array.from([...enhancedContent.shadowRoot.querySelectorAll('[class="syndigo-widget-section-header"]')].find(elm => elm.innerText.match(/in the box/i)).nextElementSibling.querySelectorAll('[class="syndigo-featureset-feature"]'));
           witbData.forEach(element => {
             element.querySelector('h3') && addElementToDocument('witbText', element.querySelector('h3').innerText);
@@ -69,6 +72,7 @@ module.exports = {
         }
         const comparisonTable = document.querySelector('div[class*="syndi_powerpage"]');
         if (comparisonTable) {
+          // @ts-ignore
           const witbData1 = [...comparisonTable.shadowRoot.querySelectorAll('div[class="syndi_powerpage"] div[class*="syndigo"]')];
           witbData1.forEach(element => {
             element.querySelector('h2[class="syndigo-widget-section-header"]') && addElementToDocument('witbTable', element.querySelector('h2[class="syndigo-widget-section-header"]'));
