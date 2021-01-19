@@ -19,7 +19,7 @@ fields:
     regExp: '(\"id\"\:\ ")([^"]+)'
     regExpReplace: $2
   - name: manufacturer
-  - name: aggregateRating
+  - name: aggregateRating2
     xpath: //div[@class='panel-body']//div[@class='rating ']/@data-rating
   - name: reviewCount
     type: NUMBER
