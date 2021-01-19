@@ -33,7 +33,9 @@ fields:
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
-    xpath: (//p[@class="product_price price_sale product-price__inner-sale product-price__inner"])[position() = last()-1]
+    xpath: //div[@class="product_detail pdp__detail small-12 medium-6 large-5 columns"]//div[@class="price product-tile__price pdp__main-price "]/p
+    regExp: (\d+.\d+)
+    regExpReplace: $1
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
@@ -77,6 +79,7 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: true
+    xpath: (//li[@class="pdp__actions-item"]//a[@class="wishlist_action js_wishlist_button_update c-button--text "])/@data-pid
     description: The store-specific product identifier
   - name: variantId
     singleValue: true
@@ -93,6 +96,7 @@ fields:
     description: Content under "legal disclaimer" header
   - name: directions 
     singleValue: true
+    xpath: //html//div[@id='dir']
     description: Content under "directions" header
   - name: warnings
     singleValue: true
@@ -109,6 +113,7 @@ fields:
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: true
+    xpath: //html//div[@id='agg']
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
   - name: shippingInfo
@@ -122,7 +127,7 @@ fields:
     description: Stated shipping weight
   - name: variantCount
     singleValue: true
-    xpath: count(//div[contains(@class,"product-variation-shade__item")]/a/@data-pid) 
+    xpath: //html//div[@id='varCount']
     description: Number of variants listed
     type: NUMBER
   - name: color
@@ -142,7 +147,12 @@ fields:
     description: URLs of videos on page
   - name: name
     singleValue: true
+    xpath: //html//div[@id='ab']
     description: The product name
+  - name: url
+    singleValue: true
+    xpath: //link[@rel='canonical']/@href
+    description: product page url
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -245,6 +255,7 @@ fields:
     description: null
   - name: ingredientsList
     singleValue: true
+    xpath: //html//div[@id='ingList']
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
   - name: servingSize
@@ -448,6 +459,7 @@ fields:
     description: colour / scent / flavour / other
   - name: firstVariant
     singleValue: true
+    xpath: //html//div[@id='fvar']
     description: Unique identifier for a collection of variants. For a subset of
       core feeds (43) we have a column "first_variant" that is populated with a
       common code to link all variants for a product. method 1 (Preferred) = use
@@ -459,6 +471,7 @@ fields:
       this will need analysis
   - name: variants
     singleValue: false
+    xpath: //html//div[@id='varBy']
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
