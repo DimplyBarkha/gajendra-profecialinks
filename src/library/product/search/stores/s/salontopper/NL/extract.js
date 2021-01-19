@@ -10,7 +10,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     }
   });
 
-  await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 4000));
 
   await context.evaluate(() => {
     function addElementToDocument (id, value) {
@@ -37,12 +37,12 @@ async function implementation (inputs, parameters, context, dependencies) {
     for (let i = 0; i < allProducts.length; i++) {
       addProp('div[class*="product-gallery"] div.cell', i, 'rankorganic', `${i + 1}`);
     }
-    const last = allProducts[allProducts.length - 1].getAttribute('rankorganic');
-    if (!searchUrl.includes('&pag=2')) {
-      addElementToDocument('itemscount', last);
-    }
-    const rest = 150 - parseInt(last);
+    // reducing number of results
+    const last = allProducts.length;
+    // @ts-ignore
+    if (searchUrl.includes('ipp=3')) sessionStorage.setItem('item1', last);
     if (searchUrl.includes('&pag=2')) {
+      const rest = 150 - parseInt(sessionStorage.getItem('item1'));
       // @ts-ignore
       [...allProducts].filter(e => e.getAttribute('rankorganic') > rest)
         .forEach(e => e.setAttribute('trim', ''));

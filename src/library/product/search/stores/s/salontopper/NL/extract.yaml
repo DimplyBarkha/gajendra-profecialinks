@@ -5,7 +5,8 @@ recordXPath: //div[contains(@class, 'product-gallery')]/div[@class='cell'][not(@
 fields:
   - name: id
     singleValue: false
-    xpath: //a[contains(@class, 'add-cart')]/@data-product-id
+    xpath: //a[contains(@class, 'product-info')]/@href
+    regExp: \d+$
   - name: searchUrl
     singleValue: false
     xpath: (//div[@id='searchurl'])[last()]
