@@ -5,11 +5,12 @@ const implementation = async (inputs, parameters, context, dependencies) => {
   const { transform } = parameters;
   const { productDetails } = dependencies;
   await context.evaluate(async function () {
-    // scrolling
     let scrollTop = 0;
     while (scrollTop <= 40000) {
+      const product = document.querySelectorAll('.df-card.product-container');
+      console.log(product);
+      if (product.length >= 150) break;
       const productsContainer = document.querySelector('.df-results');
-      console.log(productsContainer);
 
       await stall(500);
       scrollTop += 1000;
@@ -31,7 +32,6 @@ const implementation = async (inputs, parameters, context, dependencies) => {
 
   await context.evaluate(async function () {
     const productList = document.querySelectorAll('.df-card.product-container');
-    console.log('list', productList);
     const url = window.location.href;
     productList.forEach((product) => product.setAttribute('searchurl', url));
   });
