@@ -15,6 +15,6 @@ module.exports = {
     await context.setBlockAds(false);
     await context.setLoadImages(true);
     // url = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":60,"anti_fingerprint":false,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
-    await context.goto(url, {firstRequestTimeout: 90000, timeout: timeout, waitUntil: 'load', checkBlocked: true });
+    await context.goto(url, { firstRequestTimeout: 90000, timeout: timeout, waitUntil: 'load', checkBlocked: true });
   },
 };
