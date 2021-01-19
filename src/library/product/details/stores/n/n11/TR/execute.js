@@ -6,7 +6,8 @@ module.exports = {
     store: 'n11',
     domain: 'n11.com',
     loadedSelector: null,
-    noResultsXPath: "//div[@class='notFoundContent']",
+    noResultsXPath: null,
     zipcode: '',
   },
+
 };

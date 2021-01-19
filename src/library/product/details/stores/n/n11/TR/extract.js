@@ -1,4 +1,4 @@
-const {transform} = require('./shared');
+const { transform } = require('./shared');
 
 module.exports = {
   implements: 'product/details/extract',
@@ -17,12 +17,8 @@ module.exports = {
   ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    try {
-      await context.waitForSelector(`#p-${inputs.id}`);
-      await context.clickAndWaitForNavigation(`#p-${inputs.id} h3`, {}, {});
-    } catch (e) {
-      console.log(e);
-    }
+    await context.waitForSelector(`#p-${inputs.id}`);
+    await context.clickAndWaitForNavigation(`#p-${inputs.id} h3`, {}, {});
     return await context.extract(productDetails, { transform });
   },
 };
