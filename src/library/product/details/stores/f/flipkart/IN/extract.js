@@ -1,5 +1,5 @@
 
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('./format');
 
 async function implementation (
   inputs,
@@ -86,7 +86,7 @@ module.exports = {
   parameterValues: {
     country: 'IN',
     store: 'flipkart',
-    transform: cleanUp,
+    transform,
     domain: 'flipkart.com',
     zipcode: '',
   },
