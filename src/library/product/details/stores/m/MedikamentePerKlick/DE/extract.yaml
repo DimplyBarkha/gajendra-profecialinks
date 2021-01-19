@@ -48,9 +48,9 @@ fields:
 - name: availabilityText
   singleValue: true
   xpath: //div[@class='wide-6 productInformations offerDetails']//dl[@class="productAvailability"]//span[@class="value-title"]/@title
-  defaultValue: In stock
+  defaultValue: In Stock
   regExp: out_of_stock
-  regExpReplace: Out of Stock
+  regExpReplace: Out Of Stock
 - name: description
   singleValue: false
   type: TEXT[]
@@ -61,7 +61,7 @@ fields:
   singleValue: true
   description: Number of ul > li tags in the description
   type: NUMBER
-  xpath: count(//dd[@class="productLongDescription"]//ul//li)
+  xpath: count(//dd[@class="productLongDescription"]//ul//li//text())
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name,
@@ -120,8 +120,11 @@ fields:
   xpath: //div[@id="productReview"]//span[@itemprop="reviewCount"]//text()
 - name: manufacturerImages
   singleValue: false
+  xpath: //dd[@class="productLongDescription"]//img/@src
 - name: manufacturerDescription
   singleValue: false
+  type: TEXT[]
+  xpath: //dd[@class="productLongDescription"]//text()
 - name: aggregateRating
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
@@ -255,6 +258,7 @@ fields:
   singleValue: true
   description: null
   type: NUMBER
+  xpath: count(//div[@class="photo with-multiple-photo"]//div[@class="slick-track"]//div[not(contains(@class,"fl slick-slide slick-current slick-active"))]/img/@src)
 - name: news
   singleValue: true
   description: null
@@ -449,6 +453,7 @@ fields:
 - name: promotion
   singleValue: true
   description: promotion text on product page
+  xpath: //div[@class="wide-6 productInformations offerDetails"]//dd[@class="youSave"]
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information
