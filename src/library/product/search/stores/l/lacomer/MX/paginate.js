@@ -14,7 +14,8 @@ module.exports = {
     // stopConditionSelectorOrXpath: '//html//div[@id="noResults"]',
     resultsDivSelector: null,
     openSearchDefinition: {
-      template: 'https://lacomer.buscador.amarello.com.mx/searchArtPrior?col=lacomer_2&npagel=20&orden=-1&p={page}&patrocinados=false&s={seachTerms}&succId=14#[!opt!]{"type":"json"}[/!opt!]',
+      // pageStartNb: 2,
+      template: 'https://lacomer.buscador.amarello.com.mx/searchArtPrior?col=lacomer_2&npagel=20&orden=-1&p={page}&patrocinados=false&s={searchTerms}&succId=14#[!opt!]{"type":"json"}[/!opt!]',
       },
     domain: 'lacomer.com.mx',
     zipcode: '',
