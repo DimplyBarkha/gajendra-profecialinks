@@ -21,7 +21,7 @@ fields:
   singleValue: true
   description: Alt text of the main product image
 - name: alternateImages
-  xpath: //div[contains(@class, "pp-gallery__thumb")]/img/@src
+  xpath: //div[contains(@class, "pp-gallery__thumb")][position()>1]/img/@src
   singleValue: false
   description: Other product images (not in manufacturer description)
 - name: metaKeywords
@@ -32,7 +32,7 @@ fields:
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
 - name: nameExtended
-  xpath: concat(//a[@data-track-id="pdp_brandname"], //h1[@class="pp-info__name"])
+  xpath: normalize-space(concat(//a[@data-track-id="pdp_brandname"], //h1[@class="pp-info__name"]))
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
@@ -46,15 +46,13 @@ fields:
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
 - name: availabilityText
-  xpath: //div[@class="btn__label"][contains(text(), "Læg i kurv")]
-  regExp: (.+)
-  regExpReplace: "In Stock"
+  xpath: //div[@id='availability']
   singleValue: true
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
 - name: description
-  xpath: //div[@class="pp-content__block pp-content__block--list"]//text()
+  xpath: //div[@class="pp-content__left"]//div
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
@@ -85,7 +83,7 @@ fields:
   description: GTIN code (includes UPC/EAN)
 - name: sku
   xpath: //span[@class="pp-content__meta-text"]
-  regExp: SKU:+(.{1,})
+  regExp: SKU:+ (.{1,})
   regExpReplace: $1
   singleValue: true
   description: The store-specific product identifier
@@ -155,7 +153,7 @@ fields:
   singleValue: false
   description: URLs of videos on page
 - name: name
-  xpath: concat(//a[@data-track-id="pdp_brandname"], //h1[@class="pp-info__name"])
+  xpath: //h1[@class="pp-info__name"]
   singleValue: true
   description: The product name
 - name: inStorePrice

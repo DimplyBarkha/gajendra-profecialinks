@@ -10,6 +10,21 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
+
+    await context.evaluate(async () => {
+      // await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+
+      function addElementToDocument(id, value, key) {
+        const catElement = document.createElement('div');
+        catElement.id = id;
+        catElement.innerText = value;
+        catElement.setAttribute('content', key);
+        catElement.style.display = 'none';
+        document.body.appendChild(catElement);
+      };
+      const availability = document.querySelector("meta[property='og:availability']") ? document.querySelector("meta[property='og:availability']").getAttribute('content') : '';
+      addElementToDocument('availability', availability === 'instock' ? 'In Stock' : 'Out Of Stock');
+    });
     await context.extract(productDetails);
 
     const allInfo = await context.evaluate(async function () {
