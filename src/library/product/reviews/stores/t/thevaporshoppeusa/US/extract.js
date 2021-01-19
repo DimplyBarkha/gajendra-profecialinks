@@ -1,10 +1,11 @@
 
+const { transform } = require('./format');
 module.exports = {
   implements: 'product/reviews/extract',
   parameterValues: {
     country: 'US',
     store: 'thevaporshoppeusa',
-    transform: null,
+    transform: transform,
     domain: 'thevaporshoppeusa.com',
     zipcode: "''",
   },
@@ -13,7 +14,7 @@ module.exports = {
     context,
     dependencies) => {
     const { productReviews } = dependencies;
-
+    const { transform } = parameters;
     await context.evaluate(async () => {
       function addHiddenDiv (elementID, content) {
         const newDiv = document.createElement('div');
@@ -31,6 +32,6 @@ module.exports = {
       }
     });
 
-    return await context.extract(productReviews);
+    return await context.extract(productReviews, { transform });
   },
 };
