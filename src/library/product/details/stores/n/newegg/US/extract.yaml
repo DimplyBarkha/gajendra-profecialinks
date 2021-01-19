@@ -655,6 +655,7 @@ fields:
   description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
 - name: hasComparisonTable
   # singleValue: true
-  xpath: //div[@id='witbTable']|//div[@id='elementDataT']|//div[@id="wc-power-page"]//h2[contains(text(),"Comparison Chart")]
+  xpath: //div[@id='witbTable']|//tbody//tr[contains(@class,"product-link")]//th
   regExp: (.+)
-  # regExpReplace: 'Yes'
+  regExpReplace: Yes
+  defaultValue: No
