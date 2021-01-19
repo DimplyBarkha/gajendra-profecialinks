@@ -4,8 +4,8 @@ module.exports = {
   parameterValues: {
     country: 'PL',
     store: 'aptekaolmed',
-    // nextLinkSelector: '#paging_setting_top > div > div > a.next',
     mutationSelector: null,
+    // nextLinkSelector: '#paging_setting_top > div > div > a.next',
     spinnerSelector: null,
     loadedSelector: 'body',
     noResultsXPath: null,

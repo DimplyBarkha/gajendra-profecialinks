@@ -76,17 +76,27 @@ async function implementation(
         var backgroundURL1 = getXpath('//a[@class="product-name"]/@href', 'nodeValue');
         console.log(backgroundURL1,'===========backgroundURL1')
         var backgroundURL = getXpath('//meta[@property="og:url"]/@content', 'nodeValue');
+        var product_image = getXpath('(//a[@class="projector_medium_image"]/@href)[1]', 'nodeValue');
         if (backgroundURL1 == null){
           product_url= backgroundURL
+          product_image = 'https://www.aptekaolmed.pl'+product_image
           addElementToDocument('product_url', product_url);
+          addElementToDocument('product_image', product_image);
         }
         else{
           const aggregateRating = document.querySelectorAll("a[class='product-name']")
-          console.log(aggregateRating.length,'---------------------',aggregateRating)
+          const image = document.querySelectorAll("a.product-icon.align_row > div > div > img")
           for (let k = 0; k < aggregateRating.length; k++) {
             product_url= 'https://www.aptekaolmed.pl'+aggregateRating[k].getAttribute("href");
             addHiddenDiv('product_url', product_url, k);
+
           }
+          for (let k = 0; k < image.length; k++) {
+            product_image= 'https://www.aptekaolmed.pl'+image[k].getAttribute("src");
+            addHiddenDiv('product_image', product_image, k);
+            // console.log(product_image,'---------------------',product_image)
+          }
+
 
         }
         
@@ -97,61 +107,4 @@ async function implementation(
 }
 
 
-
-// async function implementation(
-//   inputs,
-//   parameters,
-//   context,
-//   dependencies,
-// ) {
-//   const { transform } = parameters;
-//   const { productDetails } = dependencies;
-//   await context.evaluate(async function () {
-//     let scrollTop = 0;
-//     while (scrollTop !== 1000) {
-//       await stall(500);
-//       scrollTop += 500;
-//       window.scroll(0, scrollTop);
-//       if (scrollTop === 1000) {
-//         await stall(500);
-//         break;
-//       }
-//     }
-//     function stall(ms) {
-//       return new Promise((resolve, reject) => {
-//         setTimeout(() => {
-//           resolve();
-//         }, ms);
-//       });
-//     }
-//         function addElementToDocument(key, value) {
-//         const catElement = document.createElement('div');
-//         catElement.id = key;
-//         catElement.textContent = value;
-//         catElement.style.display = 'none';
-//         document.body.appendChild(catElement);
-//         }
-//         // Method to Retrieve Xpath content of a Multiple Nodes
-//         const getAllXpath = (xpath, prop) => {
-//         const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-//         const result = [];
-//         for (let index = 0; index < nodeSet.snapshotLength; index++) {
-//         const element = nodeSet.snapshotItem(index);
-//         if (element) result.push(prop ? element[prop] : element.nodeValue);
-//         }
-//         return result;
-//         };
-//         var getXpath = (xpath, prop) => {
-//         var elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
-//         let result;
-//         if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
-//         else result = elem ? elem.singleNodeValue : '';
-//         return result && result.trim ? result.trim() : result;
-//         };
-//         var backgroundURL = getAllXpath('//meta[@property="og:url"]/@content', 'nodeValue');
-//         console.log('backgroundURL++++++',backgroundURL)
-//         // var brand = getAllXpath('//a[@itemprop="brand"]//text()', 'nodeValue');
-// });
-//   return await context.extract(productDetails, { transform });
-// }
 

@@ -8,10 +8,7 @@ fields:
     xpath: (//div[@id="product_url"])
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: concat('https://www.aptekaolmed.pl',(//a[@class="product-icon align_row"]/div/div/img/@src | (//a[@class="projector_medium_image"]/@href)[1]))
-    # regExp: (.+)
-    # regExpReplace: https://www.aptekaolmed.pl$1
-    # xpath: concat('https://www.aptekaolmed.pl',//a[@class="product-icon align_row"]/div/div/img/@src)
+    xpath: (//div[@id="product_image"])
   - name: name
     description: The product name
     xpath: (//a[@class="product-name"] | //div[@class="product_info col-md-6 col-xs-12 "]/h1)
