@@ -55,16 +55,16 @@ module.exports = {
       if (vari != null) {
         for (var i = 0; i < vari.length; i++) {
           var agg = (vari[i].slice(0, -1) * 5) / 100;
-          addHiddenDiv1("agg", agg, i);
+          addHiddenDiv1("agg", agg.toString().replace("." , ","), i);
         }
       }
-      var price = getAllXpath('//div[@class="productlist__products"]//div[@class="product-item__price-container"]/div[@class="product-item__price"]/span/span/text()',"nodeValue");
-      if (price != null) {
-        for (var i = 0; i < price.length; i++) {
-          var price1 = price[i].replace("," , ".");
-          addHiddenDiv("price", price1, i);
-        }
-      }
+      // var price = getAllXpath('//div[@class="productlist__products"]//div[@class="product-item__price-container"]/div[@class="product-item__price"]/span/span/text()',"nodeValue");
+      // if (price != null) {
+      //   for (var i = 0; i < price.length; i++) {
+      //     var price1 = price[i].replace("," , ".");
+      //     addHiddenDiv("price", price1, i);
+      //   }
+      // }
       // const name = document.querySelectorAll('div[class="row flex flex-wrap grid-overwrite--product-items"]>div');
       // // @ts-ignore
       // let price;

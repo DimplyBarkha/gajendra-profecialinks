@@ -38,7 +38,8 @@ fields:
   - name: price
     singleValue: false
     # type: CURRENCY
-    xpath: //html//div[@id='price']
+    xpath: //div[@class="productlist__products"]//div[@class="product-item__price-container"]/div[@class="product-item__price"]/span/span/text()
+      # //html//div[@id='price']
     # //div[@class='productlist__products']//span[@class='nowrap']
     # //div[@class='productlist__products']//div[@class='product-item__price']
   - name: manufacturer
