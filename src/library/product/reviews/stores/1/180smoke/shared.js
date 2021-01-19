@@ -20,7 +20,7 @@ const transform = (data) => {
     data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
       el.text = clean(el.text);
     }))));
-  
+
     for (const { group }
       of data) {
       for (const row of group) {
@@ -43,6 +43,5 @@ const transform = (data) => {
     }
     return data;
   };
-  
+
   module.exports = { transform };
-  
