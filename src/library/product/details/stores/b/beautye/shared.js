@@ -32,6 +32,15 @@ const transform = (data) => {
           }
         });
       }
+      if (row.variantId) {
+        //remove duplicate from array
+        let a=row.variantId.pop();
+        row.variantId = [
+          {
+            text: a,
+          },
+        ];
+      }
       if (row.specifications) {
         let text = '';
         row.specifications.forEach(item => {
