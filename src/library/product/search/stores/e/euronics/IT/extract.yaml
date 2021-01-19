@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class, 'productCard j-productCard') and not(contains(@data-item, 'reccomendedcomp'))]
+recordXPath: //div[contains(@class, 'productCard j-productCard')]
 fields:
   - name: id
     singleValue: true
@@ -43,7 +43,7 @@ fields:
   - name: endorsementText
     singleValue: false
   - name: sponsored
-    defaultValue: false
-    type: boolean
+#    defaultValue: false
+#    type: boolean
     xpath: //div[contains(@data-item, 'reccomendedcomp')]
 
