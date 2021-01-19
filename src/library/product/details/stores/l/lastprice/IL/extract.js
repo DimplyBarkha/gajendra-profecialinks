@@ -1,10 +1,10 @@
-const { cleanup } = require('../../../../shared');
+const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'IL',
     store: 'lastprice',
-    transform: cleanup,
+    transform: cleanUp,
     domain: 'lastprice.co.il',
     zipcode: '',
   },
