@@ -5,37 +5,6 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { productDetails } = dependencies;
 
   await context.evaluate(async () => {
-    var prodImg = document.querySelector(
-      'div[class="product-main__image-container"] img[class="product-slider__image lazyloaded"]');
-    var prodImgAttr;
-    var prodContainer;
-    if (prodImg !== null) {
-      prodImgAttr = prodImg.getAttribute('src');
-      prodContainer = document.querySelector(
-        'div[class="product-main__image-container"]');
-      prodContainer.setAttribute('img_url', prodImgAttr);
-    } else {
-      prodImgAttr = document
-        .querySelector('div[class="product-main__image-container"] img')
-        .getAttribute('src');
-      prodContainer = document.querySelector(
-        'div[class="product-main__image-container"]',
-      );
-      prodContainer.setAttribute('img_url', prodImgAttr);
-    }
-
-    // more images
-    var moreImgs = document.querySelectorAll(
-      'div[class="product-slider__navigation"] img');
-    const prefix = 'https://thewhiskyexchange.com';
-    moreImgs.forEach((element, index) => {
-      if (index > 0) {
-        element.setAttribute(
-          'otherimgs',
-          prefix + element.getAttribute('data-original'));
-      }
-    });
-
     // join facts into description
     var facts = document.querySelectorAll('li[class="product-facts__item"]');
     var description = '';

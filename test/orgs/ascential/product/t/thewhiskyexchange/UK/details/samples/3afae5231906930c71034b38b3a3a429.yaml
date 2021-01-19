@@ -1,0 +1,84 @@
+input:
+  _url: http://thewhiskyexchange.com
+  URL: https://www.thewhiskyexchange.com/p/34877/auchentoshan-american-oak-and-tin-cup-gift-set
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=a9cb1e9d-5b44-4284-bd57-4711d337d472/task=1230fee5-986b-4ffa-b4d4-ee65219200d9/10ff1463-96bd-4bd5-94d8-3b99a4e7e1e4.html
+    extractionConfigId: product/details/stores/t/thewhiskyexchange/UK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.thewhiskyexchange.com/p/34877/auchentoshan-american-oak-and-tin-cup-gift-set
+                xpath: /html/head[1]/link[5]/@href
+            imageAlt:
+              - text: Auchentoshan American Oak and Tin Cup Gift Set
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/div[1]/img[1]/@alt
+            category:
+              - text: Scotch Whisky
+                xpath: /html/body/div[3]/div[3]/ul[1]/li[2]/a[1]/@category
+              - text: Single Malt Whisky
+                xpath: /html/body/div[3]/div[3]/ul[1]/li[3]/a[1]/@category
+              - text: Lowland
+                xpath: /html/body/div[3]/div[3]/ul[1]/li[4]/a[1]/@category
+              - text: Auchentoshan
+                xpath: /html/body/div[3]/div[3]/ul[1]/li[5]/a[1]/@category
+            nameExtended:
+              - text: Auchentoshan American Oak and Tin Cup Gift Set
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/header[1]/h1[1]
+            brandText:
+              - text: Auchentoshan
+                xpath: /html/body/div[3]/div[6]/article[1]/div[4]/h2[1]
+            quantity:
+              - text: 70cl
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/header[1]/p[1]
+            sku:
+              - text: "34877"
+                xpath: /html/body/div[3]/div[6]/input[1]/@value
+            variantId:
+              - text: "34877"
+                xpath: /html/body/div[3]/div[6]/input[1]/@value
+            name:
+              - text: Auchentoshan American Oak and Tin Cup Gift Set
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/header[1]/h1[1]
+            countryOfOrigin:
+              - text: Scotland
+                xpath: /html/body/div[3]/div[6]/article[1]/div[3]/div[1]/div[1]/div[1]/ul[1]/li[2]/p[1]
+            productOtherInformation:
+              - text: |-
+                  Bottler: Distillery Bottling
+                  Country: Scotland
+                  Region: Lowland
+                  Cask Type: First Fill Bourbon
+                xpath: /html/body/div[6]
+            alcoholContent:
+              - text: 40%
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/header[1]/p[1]
+            availabilityText:
+              - text: Out of Stock
+            ratingCount:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            description:
+              - text: Lowland Single Malt Scotch Whisky Distillery Bottling 70cl / 40% This gift
+                  set from Auchentoshan contains a bottle of American Oak and a
+                  tin cup to drink it from. It is a vanilla-rich and fruity
+                  whisky matured exclusively in first-fill bourbon casks. Please
+                  note This set consists of a bottle and cup only - there is no
+                  gift box included. Bottler Distillery Bottling Country
+                  Scotland Region Lowland Cask Type First Fill Bourbon
+            variantCount:
+              - text: "0"
+            secondaryImageTotal:
+              - text: "0"
+        xpath: /
+    timestamp: 1611057036593

@@ -1,0 +1,88 @@
+input:
+  _url: http://thewhiskyexchange.com
+  URL: https://www.thewhiskyexchange.com/p/33961/courvoisier-vs-miniature
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=a9cb1e9d-5b44-4284-bd57-4711d337d472/task=31849736-bf79-4737-b778-9861f711b8bc/8e40e0a1-84f5-483e-9649-61567436fc02.html
+    extractionConfigId: product/details/stores/t/thewhiskyexchange/UK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.thewhiskyexchange.com/p/33961/courvoisier-vs-miniature
+                xpath: /html/head[1]/link[5]/@href
+            imageAlt:
+              - text: Courvoisier VS / Miniature
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/div[1]/img[1]/@alt
+            category:
+              - text: Miniatures & Samples
+                xpath: /html/body/div[3]/div[3]/ul[1]/li[2]/a[1]/@category
+              - text: Miniatures
+                xpath: /html/body/div[3]/div[3]/ul[1]/li[3]/a[1]/@category
+              - text: Cognac
+                xpath: /html/body/div[3]/div[3]/ul[1]/li[4]/a[1]/@category
+              - text: Courvoisier
+                xpath: /html/body/div[3]/div[3]/ul[1]/li[5]/a[1]/@category
+            nameExtended:
+              - text: Courvoisier VS Miniature
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/header[1]/h1[1]
+            price:
+              - text: £3.75
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/div[2]/div[1]/div[1]/p[3]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/div[2]/div[1]/div[1]/p[1]
+            brandText:
+              - text: Courvoisier
+                xpath: /html/body/div[3]/div[6]/article[1]/div[4]/h2[1]
+            quantity:
+              - text: 5cl
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/header[1]/p[1]
+            sku:
+              - text: "33961"
+                xpath: /html/body/div[3]/div[6]/input[1]/@value
+            variantId:
+              - text: "33961"
+                xpath: /html/body/div[3]/div[6]/input[1]/@value
+            name:
+              - text: Courvoisier VS Miniature
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/header[1]/h1[1]
+            inStorePrice:
+              - text: £3.13
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/div[2]/div[1]/div[1]/p[4]
+            productOtherInformation:
+              - text: |-
+                  Flavour: France
+                  Colouring: Yes
+                xpath: /html/body/div[6]
+            pricePerUnit:
+              - text: £7.50
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/div[2]/div[1]/div[1]/p[5]
+            pricePerUnitUom:
+              - text: 10cl
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/div[2]/div[1]/div[1]/p[5]/@unit
+            alcoholContent:
+              - text: 40%
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/header[1]/p[1]
+            ratingCount:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            description:
+              - text: 5cl / 40% A miniature of world-famous VS from one of the 'Big Four'
+                  producers. Famously eulogized by Busta Rhymes in 'Pass the
+                  Courvoisier'. Flavour France Colouring Yes
+            variantCount:
+              - text: "0"
+            secondaryImageTotal:
+              - text: "0"
+        xpath: /
+    timestamp: 1611057040098

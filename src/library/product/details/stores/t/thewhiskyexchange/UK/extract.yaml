@@ -15,7 +15,7 @@ fields:
 - name: image
   singleValue: true
   description: URL of the main product image
-  xpath: //div[@class="product-main__image-container"]/@img_url
+  xpath: //div[@class='product-slider__slide slick-slide slick-current slick-active']/img/@src
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
@@ -23,7 +23,7 @@ fields:
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
-  xpath: //div[@class="product-slider__navigation"]//img/@otherimgs
+  xpath: //div[@class='product-slider__navigation']/button[position()>1]/img/@src
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
@@ -58,7 +58,7 @@ fields:
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: concat(//ul[@class="product-main__meta"], //p[@class="product-main__data"], //div[@class="product-main__description"], //ul[@class='product-notes'], normalize-space(//ul[@class="product-facts"]))
+  xpath: normalize-space(concat(//ul[@class="product-main__meta"], //p[@class="product-main__data"], //div[@class="product-main__description"], //ul[@class='product-notes'], normalize-space(//ul[@class="product-facts"])))
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description

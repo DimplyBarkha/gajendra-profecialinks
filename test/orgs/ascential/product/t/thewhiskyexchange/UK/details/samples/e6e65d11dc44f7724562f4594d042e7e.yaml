@@ -1,0 +1,95 @@
+input:
+  _url: http://thewhiskyexchange.com
+  URL: https://www.thewhiskyexchange.com/p/38795/laphroaig-19-year-old-190th-anniversary
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=a9cb1e9d-5b44-4284-bd57-4711d337d472/task=98f5a0f5-d4d3-40b1-9e14-b2bc2eece877/f20972a1-b496-4553-9262-d989b83a824f.html
+    extractionConfigId: product/details/stores/t/thewhiskyexchange/UK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.thewhiskyexchange.com/p/38795/laphroaig-19-year-old-190th-anniversary
+                xpath: /html/head[1]/link[5]/@href
+            imageAlt:
+              - text: Laphroaig 19 Year Old / 190th Anniversary
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/div[1]/img[1]/@alt
+            category:
+              - text: Scotch Whisky
+                xpath: /html/body/div[3]/div[3]/ul[1]/li[2]/a[1]/@category
+              - text: Single Malt Whisky
+                xpath: /html/body/div[3]/div[3]/ul[1]/li[3]/a[1]/@category
+              - text: Islay
+                xpath: /html/body/div[3]/div[3]/ul[1]/li[4]/a[1]/@category
+              - text: Laphroaig
+                xpath: /html/body/div[3]/div[3]/ul[1]/li[5]/a[1]/@category
+            nameExtended:
+              - text: Laphroaig 19 Year Old 190th Anniversary
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/header[1]/h1[1]
+            price:
+              - text: £5,500
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/div[2]/div[1]/div[1]/p[2]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/div[2]/div[1]/div[1]/p[1]
+            brandText:
+              - text: Laphroaig
+                xpath: /html/body/div[3]/div[6]/article[1]/div[5]/h2[1]
+            quantity:
+              - text: 70cl
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/header[1]/p[1]
+            sku:
+              - text: "38795"
+                xpath: /html/body/div[3]/div[6]/input[1]/@value
+            variantId:
+              - text: "38795"
+                xpath: /html/body/div[3]/div[6]/input[1]/@value
+            name:
+              - text: Laphroaig 19 Year Old 190th Anniversary
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/header[1]/h1[1]
+            inStorePrice:
+              - text: £4,583
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/div[2]/div[1]/div[1]/p[3]
+            countryOfOrigin:
+              - text: Scotland
+                xpath: /html/body/div[3]/div[6]/article[1]/div[3]/div[1]/div[1]/div[1]/ul[1]/li[4]/p[1]
+            productOtherInformation:
+              - text: |-
+                  Bottler: Distillery Bottling
+                  Age: 19 Year Old
+                  No of Bottles: 175
+                  Country: Scotland
+                  Region: Islay
+                  Cask Number: 5836
+                xpath: /html/body/div[6]
+            pricePerUnit:
+              - text: £7,857
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/div[2]/div[1]/div[1]/p[4]
+            pricePerUnitUom:
+              - text: litre
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/div[2]/div[1]/div[1]/p[4]/@unit
+            alcoholContent:
+              - text: 54.9%
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/header[1]/p[1]
+            ratingCount:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            description:
+              - text: Islay Single Malt Scotch Whisky Distillery Bottling 70cl / 54.9% Bottler
+                  Distillery Bottling Age 19 Year Old No of Bottles 175 Country
+                  Scotland Region Islay Cask Number 5836
+            variantCount:
+              - text: "0"
+            secondaryImageTotal:
+              - text: "0"
+        xpath: /
+    timestamp: 1611057034735

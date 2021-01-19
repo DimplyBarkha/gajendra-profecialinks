@@ -1,0 +1,96 @@
+input:
+  _url: http://thewhiskyexchange.com
+  URL: https://www.thewhiskyexchange.com/p/34085/jack-daniels-tennessee-fire-miniature
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=a9cb1e9d-5b44-4284-bd57-4711d337d472/task=b420dbe2-9b39-4328-bb30-6f00eb6ad4b0/bf71e6e3-d64f-4e12-a51f-f3f95d13146c.html
+    extractionConfigId: product/details/stores/t/thewhiskyexchange/UK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.thewhiskyexchange.com/p/34085/jack-daniels-tennessee-fire-miniature
+                xpath: /html/head[1]/link[5]/@href
+            imageAlt:
+              - text: Jack Daniel's Tennessee Fire / Miniature
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/div[1]/img[1]/@alt
+            category:
+              - text: Miniatures & Samples
+                xpath: /html/body/div[3]/div[3]/ul[1]/li[2]/a[1]/@category
+              - text: Miniatures
+                xpath: /html/body/div[3]/div[3]/ul[1]/li[3]/a[1]/@category
+              - text: Whisky Liqueurs
+                xpath: /html/body/div[3]/div[3]/ul[1]/li[4]/a[1]/@category
+              - text: Jack Daniel's
+                xpath: /html/body/div[3]/div[3]/ul[1]/li[5]/a[1]/@category
+            nameExtended:
+              - text: Jack Daniel's Tennessee Fire Miniature
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/header[1]/h1[1]
+            price:
+              - text: £3.45
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/div[2]/div[1]/div[1]/p[3]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/div[2]/div[1]/div[1]/p[1]
+            brandText:
+              - text: Jack Daniel's
+                xpath: /html/body/div[3]/div[6]/article[1]/div[5]/h2[1]
+            quantity:
+              - text: 5cl
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/header[1]/p[1]
+            sku:
+              - text: "34085"
+                xpath: /html/body/div[3]/div[6]/input[1]/@value
+            variantId:
+              - text: "34085"
+                xpath: /html/body/div[3]/div[6]/input[1]/@value
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/header[1]/div[1]/a[1]/div[1]/p[1]/span[2]
+            aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/header[1]/div[1]/a[1]/div[1]/p[1]/span[1]/span[1]
+            name:
+              - text: Jack Daniel's Tennessee Fire Miniature
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/header[1]/h1[1]
+            inStorePrice:
+              - text: £2.88
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/div[2]/div[1]/div[1]/p[4]
+            countryOfOrigin:
+              - text: USA
+                xpath: /html/body/div[3]/div[6]/article[1]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[1]/p[1]
+            productOtherInformation:
+              - text: |-
+                  Country: USA
+                  Flavour: Cinnamon
+                xpath: /html/body/div[6]
+            pricePerUnit:
+              - text: £6.90
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/div[2]/div[1]/div[1]/p[5]
+            pricePerUnitUom:
+              - text: 10cl
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/div[2]/div[1]/div[1]/p[5]/@unit
+            alcoholContent:
+              - text: 35%
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/header[1]/p[1]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            description:
+              - text: 5cl / 35% A miniature of Jack Daniel's Tennessee Fire. Combining the
+                  legendary No.7 with a fiery cinnamon liqueur, this is sweet
+                  and spicy with notes of vanilla. Best enjoyed on its own,
+                  slightly chilled. Country USA Flavour Cinnamon
+            variantCount:
+              - text: "3"
+            secondaryImageTotal:
+              - text: "0"
+        xpath: /
+    timestamp: 1611057037435

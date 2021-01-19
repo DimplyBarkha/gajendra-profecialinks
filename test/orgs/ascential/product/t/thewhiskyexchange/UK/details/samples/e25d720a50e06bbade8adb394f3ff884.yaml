@@ -1,0 +1,91 @@
+input:
+  _url: http://thewhiskyexchange.com
+  URL: https://www.thewhiskyexchange.com/p/45653/ardmore-1996-21-year-old-adelphi
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=a9cb1e9d-5b44-4284-bd57-4711d337d472/task=cbaae3d2-bf95-483f-9065-5a0c8b8b17a1/a8c7f465-6244-4c3a-8486-7f2fb64a086a.html
+    extractionConfigId: product/details/stores/t/thewhiskyexchange/UK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.thewhiskyexchange.com/p/45653/ardmore-1996-21-year-old-adelphi
+                xpath: /html/head[1]/link[5]/@href
+            imageAlt:
+              - text: Ardmore 1996 / 21 Year Old / Adelphi
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/div[1]/img[1]/@alt
+            category:
+              - text: Scotch Whisky
+                xpath: /html/body/div[3]/div[3]/ul[1]/li[2]/a[1]/@category
+              - text: Single Malt Whisky
+                xpath: /html/body/div[3]/div[3]/ul[1]/li[3]/a[1]/@category
+              - text: Highland
+                xpath: /html/body/div[3]/div[3]/ul[1]/li[4]/a[1]/@category
+              - text: Ardmore
+                xpath: /html/body/div[3]/div[3]/ul[1]/li[5]/a[1]/@category
+            nameExtended:
+              - text: Ardmore 1996 21 Year Old Adelphi
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/header[1]/h1[1]
+            brandText:
+              - text: Ardmore
+                xpath: /html/body/div[3]/div[6]/article[1]/div[4]/h2[1]
+            quantity:
+              - text: 70cl
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/header[1]/p[1]
+            sku:
+              - text: "45653"
+                xpath: /html/body/div[3]/div[6]/input[1]/@value
+            variantId:
+              - text: "45653"
+                xpath: /html/body/div[3]/div[6]/input[1]/@value
+            name:
+              - text: Ardmore 1996 21 Year Old Adelphi
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/header[1]/h1[1]
+            countryOfOrigin:
+              - text: Scotland
+                xpath: /html/body/div[3]/div[6]/article[1]/div[3]/div[1]/div[1]/div[1]/ul[1]/li[6]/p[1]
+            productOtherInformation:
+              - text: |-
+                  Bottler: Adelphi
+                  Age: 21 Year Old
+                  Vintage: 1996
+                  Bottling Date: 2018
+                  No of Bottles: 236
+                  Country: Scotland
+                  Region: Highland
+                  Cask Number: 149027
+                  Chill Filtered: No
+                xpath: /html/body/div[6]
+            alcoholContent:
+              - text: 61.2%
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/header[1]/p[1]
+            availabilityText:
+              - text: Out of Stock
+            ratingCount:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            description:
+              - text: Highland Single Malt Scotch Whisky Adelphi 70cl / 61.2% Aged for two
+                  decades, this sweet, fruity Ardmore was bottled by top
+                  independent bottler Adelphi at cask strength. Expect fresh
+                  herbal notes on the nose, and a richer palate of coconut,
+                  fruitcake and spices. Its sister cask - number 149026 - proved
+                  to be incredibly popular and with only 236 bottles available
+                  this won't be around for long. Bottler Adelphi Age 21 Year Old
+                  Vintage 1996 Bottling Date 2018 No of Bottles 236 Country
+                  Scotland Region Highland Cask Number 149027 Chill Filtered No
+            variantCount:
+              - text: "0"
+            secondaryImageTotal:
+              - text: "0"
+        xpath: /
+    timestamp: 1611057033299
