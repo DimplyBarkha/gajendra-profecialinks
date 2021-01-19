@@ -35,11 +35,11 @@ const transform = (data) => {
         row.description = [{ text: text.trim() }];
         row.descriptionBullets = [{ text: bulletCount }];
       }
-      if(row.nameExtended){
-        let nameExtended =''
-        nameExtended = nameExtended.replace(/[0-9]/g, '');
-        console.log('here is product name',nameExtended);
-      }
+      // if(row.nameExtended){
+      //   let nameExtended =''
+      //   nameExtended = nameExtended.replace(/[0-9]/g, '');
+      //   console.log('here is product name',nameExtended);
+      // }
 
       if (row.manufacturer) {
         let text = '';

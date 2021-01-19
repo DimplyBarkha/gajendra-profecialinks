@@ -19,7 +19,7 @@ fields:
   - name: nameExtended
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: (//header[@class='bop-title']/h2/text())[1]
+    xpath: //header[@class="bop-title"]//h2
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
@@ -102,7 +102,7 @@ fields:
   - name: caloriesPerServing
     description: Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
-    xpath: (//td[contains(.,'Energy')]/following-sibling::td[1])[1] | (//td[contains(.,'kcal')]/following-sibling::td[1])[1] | (//td[contains(.,'kcal')])[1]
+    xpath: //header[@class="bop-title"]/@calories
   - name: caloriesFromFatPerServing
     singleValue: true
     description: Nutritional Information for Calories From Fat content - Usually
