@@ -18,6 +18,25 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  // await context.evaluate(async function () {
+  //   let scrollTop = 0;
+  //   while (scrollTop <= 20000) {
+  //       await stall(500);
+  //       scrollTop += 500;
+  //       window.scroll(0, scrollTop);
+  //       if (scrollTop === 20000) {
+  //           await stall(8000);
+  //           break;
+  //       }
+  //   }
+  //   function stall(ms) {
+  //       return new Promise(resolve => {
+  //           setTimeout(() => {
+  //               resolve();
+  //           }, ms);
+  //       });
+  //   }
+  // })
   await context.evaluate(async function () {
     function addclass(xpathforpagination) {
       var elems = document.querySelectorAll(xpathforpagination);
@@ -30,14 +49,9 @@ async function implementation(
       catElement.style.display = 'none';
       document.body.appendChild(catElement);
     }
+
     // Method to Retrieve Xpath content of a Single Node
-    var getXpath = (xpath, prop) => {
-      var elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
-      let result;
-      if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
-      else result = elem ? elem.singleNodeValue : '';
-      return result && result.trim ? result.trim() : result;
-    };
+  
     const URL = window.location.href;
     try {
       document.getElementById('pd_url').remove();
