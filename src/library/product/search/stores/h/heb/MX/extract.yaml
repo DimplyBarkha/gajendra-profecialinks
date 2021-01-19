@@ -17,7 +17,7 @@ fields:
     xpath: //img[@class='product-image-photo']/@src
   - name: id
     singleValue: false
-    xpath: //a[@class='product-item-link']/@data-product_id
+    xpath: //div[@class='catalog-crosssell']/@data-product-sku
   - name: productUrl
     singleValue: false
     xpath: //div [@class='product-item-info']/a/@href
