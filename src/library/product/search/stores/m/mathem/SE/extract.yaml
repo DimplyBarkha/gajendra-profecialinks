@@ -22,9 +22,9 @@ fields:
     xpath: //figure//img[@class="lazyload"]/@src
     regExp: (/.+)
     regExpReplace: https://www.mathem.se$1
-  - name: url
-    singleValue: false
-    xpath: //iframe[@id="esw_storage_iframe"]/@src
+  # - name: url
+  #   singleValue: false
+  #   xpath: //iframe[@id="esw_storage_iframe"]/@src
   - name: price
     singleValue: false
     xpath: //mh-product-active-price
