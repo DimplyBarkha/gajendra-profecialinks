@@ -6,9 +6,14 @@ fields:
   - name: image
     singleValue: true
     xpath: //div[@class="productPics"]/a/@href
+    regExp: ^(.+)$
+    regExpReplace: https:$1
   - name: alternateImages
     singleValue: false
     xpath: //li[contains(@class,"swiper-slide")]/a[not(parent::li[contains(@class,'swiper-slide current swiper-slide-active')])]/img/@src
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//li[contains(@class,"swiper-slide")]/a[not(parent::li[contains(@class,'swiper-slide current swiper-slide-active')])]/img/@src)
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name="keywords"]/@content
@@ -25,11 +30,8 @@ fields:
     singleValue: true
     xpath: //html//div[@id='priceUpdated']
   - name: availabilityText
-    singleValue: true
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out Of Stock
-    xpath: //html//div[@id='availabilty']
+    singleValue: false
+    xpath: //html//div[@id='availability']
   - name: description
     singleValue: false
     xpath: //html//div[@id='addDescInfo']
@@ -98,9 +100,12 @@ fields:
   - name: weightGross
     singleValue: true
     xpath: //table[@class="productSpecifications"]/tbody/tr/td/strong[contains(text(),'Poids')]/parent::td/following-sibling::td
+  - name: manufacturerDescription
+    singleValue: false
+    manualSelector: div#ii_manu
   - name: manufacturerImages
     singleValue: true
-    xpath: //html//div[@id='manufacturerImages']
+    xpath: //html//div[@id='ii_img']
   - name: warranty
     singleValue: true
     xpath: //table[@class="productSpecifications"]/tbody/tr/td/strong[contains(text(),'Garantie')]/parent::td/following-sibling::td
@@ -110,3 +115,6 @@ fields:
   - name: variants
     singleValue: true
     xpath: //html//div[@id="variants"]
+  - name: specifications
+    singleValue: true
+    xpath: //html//div[@id="specifications"]
