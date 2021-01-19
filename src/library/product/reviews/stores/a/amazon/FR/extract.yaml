@@ -16,7 +16,7 @@ fields:
   - name: reviewTitle
     singleValue: false
     description: The title of the review
-    xpath: //a[@data-hook='review-title']//span
+    xpath: //a[@data-hook='review-title']//span | //span[@data-hook='review-title']
   - name: mediaURL
     description: product media url
     xpath: ancestor::html//div[@id='cm_cr-product_info']//div[contains(@class, 'product-image')]//img/@src
@@ -53,7 +53,7 @@ fields:
     xpath: //span[@data-hook='review-date']
   - name: rating
     description: The product rating
-    xpath: //a[@class='a-link-normal']/@title
+    xpath: //a[@class='a-link-normal']/@title | //i[@data-hook='cmps-review-star-rating']//span
   - name: user
     description: The user name of the reviewer
     xpath: //div[@data-hook='genome-widget']//div[@class='a-profile-content']
