@@ -7,7 +7,6 @@ const implementation = async ({ url, id, zipcode, storeId }, { loadedSelector, n
     await context.waitForNavigation();
     url = await context.evaluate(async () => { return window.location.href; });
   }
-  
   if (!url) {
     if (!id) throw new Error('No id provided');
   }
