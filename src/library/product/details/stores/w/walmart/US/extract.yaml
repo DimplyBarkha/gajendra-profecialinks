@@ -56,7 +56,7 @@ fields:
   # xpath: //div[@id="my-desc"]
 - name: descriptionBullets
   singleValue: true
-  xpath: count((//div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div)//li)
+  xpath: count(((//div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')])//li) | ((//div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')])/div/div/text()))
 - name: ingredientsList
   singleValue: true
   manualSelector: p.Ingredients
