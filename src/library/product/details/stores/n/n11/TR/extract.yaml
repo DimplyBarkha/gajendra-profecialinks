@@ -101,3 +101,5 @@ fields:
   - name: promotion
     singleValue: true
     xpath: //div[@class='discount discountL']
+  - name: unInterruptedPDP
+    xpath: //div[contains(@id, 'sellerUnification')]/ul/li/p/a/text() | //div[contains(@class, 'promoGroup adProductGroup')]/div/ul/li//a/h3 | //div[contains(@id, 'autoRecBoxContent')]//ul/li/a/h4
