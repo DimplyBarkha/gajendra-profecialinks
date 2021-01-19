@@ -18,7 +18,7 @@ module.exports = {
     await context.setLoadAllResources(true);
     try {
       await context.goto("sephora.com");
-      await context.clickAndWaitForNavigation("span[data-at='country_ca']")
+      await context.click("span[data-at='country_ca']")
       await context.clickAndWaitForNavigation("[data-at='modal_dialog_continue_btn']")
     }
     catch(error){
