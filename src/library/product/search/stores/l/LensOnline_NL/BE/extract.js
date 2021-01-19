@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'BE',
     store: 'LensOnline_NL',
-    transform,
+    transform: transform,
     domain: 'lensonline.nl',
     zipcode: '',
   },
