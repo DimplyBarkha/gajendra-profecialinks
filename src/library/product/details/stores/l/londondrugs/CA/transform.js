@@ -62,6 +62,10 @@ const transform = (data) => {
           row.description = [{ text }];
         }
       }
+      if (row.unInterruptedPDP) {
+        const pdp = Array.from(new Set(row.unInterruptedPDP.map(elm => elm.text.trim())));
+        row.unInterruptedPDP = pdp.map(text => ({ text }));
+      }
     }
   }
 

@@ -12,6 +12,8 @@ module.exports = {
     ) => {
         const timeout = parameters.timeout ? parameters.timeout : 10000;
         const maxRetries = 3;
+
+        url = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
         let numberOfCaptchas = 0;
         await context.captureRequests();
         await context.setAntiFingerprint(false);
@@ -96,5 +98,24 @@ module.exports = {
         if (isCaptchaFramePresent) {
             throw new Error('Failed to solve captcha');
         }
+        async function autoScroll(page){
+            await page.evaluate(async () => {
+                await new Promise((resolve, reject) => {
+                    var totalHeight = 0;
+                    var distance = 100;
+                    var timer = setInterval(() => {
+                        var scrollHeight = document.body.scrollHeight;
+                        window.scrollBy(0, distance);
+                        totalHeight += distance;
+        
+                        if(totalHeight >= scrollHeight){
+                            clearInterval(timer);
+                            resolve();
+                        }
+                    }, 100);
+                });
+            });
+        }
+        await autoScroll(context);
     },
 };

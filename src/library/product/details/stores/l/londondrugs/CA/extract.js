@@ -16,17 +16,17 @@ async function implementation(inputs, parameters, context, dependencies) {
     }
     console.log('navigation complete!!');
 
-    async function addRecommendedProducts() {
+    async function addRecommendedProducts () {
         const cookieId = document.cookie.match(/cqcid=([^;]+)/)[1];
-        const response = await fetch(`https://cors-anywhere.herokuapp.com/https://e.cquotient.com/recs/aaji-LondonDrugs/product-to-product?cookieId=${cookieId}`, {
+        const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(`https://e.cquotient.com/recs/aaji-LondonDrugs/product-to-product?cookieId=${cookieId}`)}`, {
             headers: {
-                accept: '*/*',
-                'accept-language': 'en-GB,en;q=0.9',
-                'sec-ch-ua': '"Google Chrome";v="87", " Not;A Brand";v="99", "Chromium";v="87"',
-                'sec-ch-ua-mobile': '?0',
-                'sec-fetch-dest': 'script',
-                'sec-fetch-mode': 'no-cors',
-                'sec-fetch-site': 'cross-site',
+            accept: '*/*',
+            'accept-language': 'en-GB,en;q=0.9',
+            'sec-ch-ua': '"Google Chrome";v="87", " Not;A Brand";v="99", "Chromium";v="87"',
+            'sec-ch-ua-mobile': '?0',
+            'sec-fetch-dest': 'script',
+            'sec-fetch-mode': 'no-cors',
+            'sec-fetch-site': 'cross-site',
             },
             referrerPolicy: 'same-origin',
             body: null,
@@ -34,7 +34,7 @@ async function implementation(inputs, parameters, context, dependencies) {
             mode: 'cors',
             credentials: 'omit',
         });
-        const json = await response.json();
+        const json = (await response.json()).contents;
         const pdp = Object.values(json).find(key => key.hasOwnProperty('recs')).recs.map(product => product.product_name).join('|');
         document.body.setAttribute('updp', pdp);
     }
