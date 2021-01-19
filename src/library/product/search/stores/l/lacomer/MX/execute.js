@@ -5,7 +5,7 @@ module.exports = {
     country: 'MX',
     store: 'lacomer',
     domain: 'lacomer.com.mx',
-    url: 'https://www.lacomer.com.mx/lacomer/goBusqueda.action?succId=287&ver=mislistas&succFmt=100&criterio={searchTerms}#/{searchTerms}',
+    url: 'https://lacomer.buscador.amarello.com.mx/searchArtPrior?col=lacomer_2&npagel=20&patrocinados=false&s={searchTerms}&succId=14#[!opt!]{"type":"json"}[/!opt!]',
     loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',
