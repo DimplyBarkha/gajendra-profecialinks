@@ -94,6 +94,7 @@ module.exports = {
       let productFamily = url.replace('https://www.blu.com/en/US/','');
       let range = productFamily.split('/');
       range = range[0];
+      productFamily = productFamily.replace('.html','');
 
       const newEle = document.createElement('div');
       newEle.id = 'productFamily';
