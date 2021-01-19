@@ -41,7 +41,7 @@ async function implementation (
         addHiddenDiv(el, 'brand', el.querySelector('.name').innerText.split(' ')[0])
       }
       addHiddenDiv(el, 'rank', ind + 1);
-      const itemId = el.querySelector('.sku-man').innerText.split(' ')[2];
+      const itemId = el.querySelector('.sku-man').innerText.split(' ').pop();
       addHiddenDiv(el, 'itemId', itemId);
       if (el.querySelector('.name')) {
         addHiddenDiv(el, 'url', 'https://euronics.ie' + el.querySelector('.name').querySelector('a').getAttribute('href'));
