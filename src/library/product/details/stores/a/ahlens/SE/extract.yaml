@@ -4,144 +4,36 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: true
-    description: URL of the main product image
-    xpath: //div[@class='slick-track']/li[@class='ah-image-carousel__item slick-slide slick-current slick-active']/img[@class='ah-product-image']/@src
+    xpath: (//td[@class="xxlarge depth_3"])[1]
     regExp: (/.+)
     regExpReplace: https://www.ahlens.se$1
   - name: url
-    singleValue: true
-    xpath: /html/head/link[4]/@href
-  - name: imageAlt
-    singleValue: true
-    description: Alt text of the main product image
-    xpath: (//*[@id="pdp-image-carousel"]/div/div/li/img/@alt)[1]     
+    xpath: //td[@class="uri depth_1"]
+  - name: category
+    xpath: //td[@class="title depth_1"]    
   - name: alternateImages
     singleValue: false
-    xpath: //html//div[@class='altImage'] 
-  - name: secondaryImageTotal
-    singleValue: false
-    xpath: count(//html//div[@class='altImage'])
-  - name: nameExtended
-    singleValue: false
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: concat(//div[@class='ah-pdp-info']/div/a/text() ," ", //div[@class='ah-pdp-info']/h1[@class='mb-- weight--light ah-product-info__title']) 
-  - name: listPrice
-    singleValue: true
-    type: CURRENCY
-    xpath: //html//div[@class='altImage2']    
-  - name: color
-    singleValue: true
-    xpath: //div[@class='ah-dropdown__title']/span/text()
+    xpath: (//td[@class="xxlarge depth_3"])[position()>=2]  
+    regExp: (/.+)
+    regExpReplace: https://www.ahlens.se$1
+  - name: nameExtended  
+    xpath: concat(//td[@class="brand depth_1"] ," ", //td[@class="name depth_1"])   
   - name: price
-    singleValue: true
-    type: CURRENCY
-    xpath: //html//div[@class='altImage1']  
-  - name: manufacturerImages
-    singleValue: false
-    xpath: //div[@class='bzfy-o-image-container__clip']/img[@class='bzfy-o-image']/@src  
+    xpath: //td[@class="trackPrice depth_2"]
   - name: availabilityText
-    singleValue: true
-    description: Availability as described on page for the selected variant. If
-      there is no availability but the product can be added to cart, this field
-      should be "In Stock"
-    # xpath: //div/div/a[@class='ah-pdp-cta__btn btn btn--secondary btn--large u-1/1']/span/text()
-    defaultValue: In Stock
+    xpath: (//td[contains(@class,"discontinued depth")][text()='false'])[1]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out Of Stock
   - name: description
-    singleValue: false
-    xpath: concat(//div[@class='ah-layout__item u-1/2'][2]/ng-include[1]/div[@class='ah-pdp-info']/div/p , //div[@class='ah-layout__item u-1/2'][2]/ng-include/div[@class='ah-pdp-info']/ul[@class="ul--plain"])
-  - name: descriptionBullets
-    singleValue: false    
-    xpath: count(//ul[@class="ul--plain"]/li)
-  - name: additionalDescBulletInfo
-    singleValue: false  
-    xpath: //ul[@class="ul--plain"]/li/text()
-    regExp: ([^•]+)
-  - name: directions
-    singleValue: true   
-    xpath: //ul[@class="ah-pdp-info-list ah-faq"]/li/h2[contains(text(),'Användning')]/ancestor::li/div
+    xpath: //td[@class="long_description depth_1"]
+  - name: directions 
+    xpath: (//td[@class="text depth_2"])[1]
   - name: quantity
-    singleValue: true   
-    xpath: //ul[@class="ul--plain"]/li[contains(text(),'Volym')]
+    xpath: //td[@class="LISTITEM_9872649 depth_3"]
     regExp: (\d+).*$
-  - name: packSize
-    singleValue: true 
-    xpath: //ul[@class="ul--plain"]/li[contains(text(),'pack')]
-    regExp: (\w.+)
   - name: brandText
-    singleValue: true
-    description: Product brand shown - this may actually NOT be just a brand name,
-      e.g. "Visit the Gillette Store"
-    xpath: //div[@class='zeta mb-']/a[@class='weight--bold a--no-decoration']/text()
+    xpath: //td[@class="brand depth_1"]
   - name: sku
-    singleValue: true
-    description: The store-specific product identifier
-    xpath: (//a[@class="a--light ah-favorite ah-svg-icon-btn"]/@sku)[1]
-  - name: ingredientsList
-    singleValue: true
-    xpath: //ul[@class="ah-pdp-info-list ah-faq"]/li/h2[contains(text(),'Ingredienser')]/ancestor::li/div//text()
-  - name: variantId
-    singleValue: true
-    description: Identifier for a variant from a store where variants share the same sku
-    xpath: //li[@class="rainbow--light-gray"]/@content  
-  - name: variantInformation
-    singleValue: true
-    xpath: //div[@class='ah-dropdown__title']/span/text()
-  - name: ratingCount
-    singleValue: true
-    description: The number of ratings
-    type: NUMBER
-    xpath: (//div[@class='tf-based']/div[@class='tf-count'])[1]
-  - name: aggregateRating
-    singleValue: true
-    description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
-    xpath: //div[@class="testfreaks-items"]//div/@title
-  - name: manufacturerDescription
-    singleValue: false
-    description: The extended description of the product supplied by the lister
-    #xpath: //div[@class='ah-pdp-info']/div/p
-  - name: name
-    singleValue: true
-    description: The product name
-    xpath: //div[@class='ah-pdp-info']/h1[@class='mb-- weight--light ah-product-info__title']
-  - name: productOtherInformation
-    singleValue: false
-    description: Any other product information
-    #xpath: //div[@class="ah-faq__definition"]/text()
-  - name: packaging
-    singleValue: true
-    description: Packaging information
-  - name: technicalInformationPdfPresent
-    singleValue: true
-    description: If there is for example a manual in pdf format on the website. ['Yes','No']
-    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-    defaultValue: No
-  - name: termsAndConditions
-    singleValue: true
-    description: Terms and conditions information text ['Yes','No']
-    defaultValue: No
-  - name: privacyPolicy
-    singleValue: true
-    description: Privacy Policy information text ['Yes','No']
-    defaultValue: No
-  - name: customerServiceAvailability
-    singleValue: true
-    description: Information related to customer service availability (text), ['Yes','No']
-    defaultValue: No
-  - name: materials
-    singleValue: true
-    description: Materials used to make the product
-    xpath: //ul//h2[contains(text(),'Material')]//following-sibling::div//text()
-  - name: Image360Present
-    singleValue: true
-    description: If 360 image is present in the carousel ['Yes','No']
-    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
-    defaultValue: No
-  - name: imageZoomFeaturePresent
-    singleValue: true
-    description: If Zoom feature is available for Main image or images in the
-      carousel,['Yes','No']
-    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    xpath: //td[@class="sku depth_1"]
+  
