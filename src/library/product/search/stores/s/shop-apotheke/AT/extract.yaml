@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="u-margin--bottom"]//ul[contains(@class,"o-Hits")]/div[@data-qa-id="result-list-entry"]
+recordXPath: //div[@class="u-margin--bottom"]//ul[contains(@class,"o-Hits")]//li[@data-qa-id="result-list-entry"]
 fields:
   - name: name
     singleValue: false
@@ -20,7 +20,7 @@ fields:
     xpath: //div[contains(@class,"u-hidden@medium")]//div[@class="u-display--inline-block"]/span
   - name: aggregateRating
     singleValue: false
-    xpath: //ul[contains(@class,"m-StarRating__stars--alignToEnd")]/parent::*/child::*[@class="a-visuallyhidden"]
+    xpath: //div[contains(@class,"m-StarRating") and @data-qa-id="product-rating"]/a[contains(@class,"l-flex__fixed")]/span[@class="a-visuallyhidden"]
   - name: reviewCount
     singleValue: false
     xpath: //span[@class="u-vertical-align--with-stars u-no-wrap"]/text()

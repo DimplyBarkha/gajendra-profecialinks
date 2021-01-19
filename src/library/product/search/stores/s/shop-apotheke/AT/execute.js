@@ -51,7 +51,7 @@ module.exports = {
     country: 'AT',
     store: 'shop-apotheke',
     domain: 'shop-apotheke.com',
-    url: 'https://www.shop-apotheke.com/search.htm?q={searchTerms}',
+    url: 'https://www.shop-apotheke.at/search.htm?q={searchTerms}', 
     loadedSelector: 'div#algolia-instant-search',
     noResultsXPath: '//div[contains(@class,"l-grid") and contains(@class,"u-margin--bottom")]//p[contains(text(),"Leider konnten wir keine passenden Produkte zu")]',
     zipcode: '',

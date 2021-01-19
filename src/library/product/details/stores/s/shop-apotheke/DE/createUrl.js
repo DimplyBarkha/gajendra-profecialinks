@@ -6,5 +6,6 @@ module.exports = {
     prefix: 'arzneimittel',
     country: 'DE',
     store: 'shop-apotheke',
+    url: 'https://www.shop-apotheke.com/arzneimittel/{id}/',
   },
 };

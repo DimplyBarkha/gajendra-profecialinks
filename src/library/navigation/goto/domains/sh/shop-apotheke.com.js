@@ -6,5 +6,6 @@ module.exports = {
     timeout: 50000,
     country: 'DE',
     store: 'shop-apotheke',
+    timeout: 50000,
   },
 };
