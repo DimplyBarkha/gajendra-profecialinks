@@ -10,7 +10,7 @@ async function implementation (
   parameters,
   context,
   dependencies,
-  ) {
+) {
   console.log('params', parameters);
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
   await dependencies.goto({ url, zipcode: inputs.zipcode });
@@ -18,29 +18,8 @@ async function implementation (
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
     }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
-  }  
-  const applyScroll = async function (context) {
-    await context.evaluate(async function () {
-    let scrollTop = 0;
-    while (scrollTop !== 20000) {
-      await stall(500);
-      scrollTop += 1000;
-      window.scroll(0, scrollTop);
-      if (scrollTop === 20000) {
-        await stall(5000);
-        break;
-      }
-    }
-    function stall (ms) {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-        resolve();
-      }, ms);
-      });
-    }
-    });
-  };
-  await applyScroll(context);
+  }
+
   console.log('Checking no results', parameters.noResultsXPath);
   return await context.evaluate(function (xp) {
     const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
@@ -58,7 +37,7 @@ module.exports = {
     store: 'zdravcity',
     domain: 'zdravcity.ru',
     url: 'https://zdravcity.ru/search/r_moscowregion/?order=Y&what={searchTerms}',
-    loadedSelector: "ul.js-search-list",
+    loadedSelector: 'ul.js-search-list',
     noResultsXPath: "//div[@class='b-issue__title-count']//span[text()=0]",
     zipcode: '',
   },
