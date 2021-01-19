@@ -41,14 +41,22 @@ module.exports = {
     extract: 'action:product/search/extract',
   },
   path: './search/stores/${store[0:1]}/${store}/${country}/search',
-  implementation: async ({ keywords, Keywords, results = 150 }, { country, store, domain, zipcode }, context, { execute, extract, paginate }) => {
+  implementation: async (inputs, { country, store, domain, zipcode }, context, { execute, extract, paginate }) => {
+    const { keywords, Keywords, results = 150, Brands, query } = inputs;
+
+    const inputKeywords = Keywords || keywords || Brands;
+
     // TODO: consider moving this to a reusable function
     const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
-    keywords = (Keywords) || (keywords);
-    console.log('zip:' + zipcode);
+    const resultsReturned = await execute({
+      ...inputs,
+      keywords: inputKeywords,
+      zipcode: inputs.zipcode || zipcode,
+      query: query,
+    });
+
     // do the search
-    const resultsReturned = await execute({ keywords, zipcode });
 
     if (!resultsReturned) {
       console.log('No results were returned');
@@ -60,21 +68,19 @@ module.exports = {
 
     let collected = length(pageOne);
 
-    console.log('Got initial number of results', collected);
+    console.log(`Got initial number of results: ${collected}`);
 
     // check we have some data
     if (collected === 0) {
+      console.log('Was not able to collect any data on the first page');
       return;
     }
 
     let page = 2;
-    while (collected < results && await paginate({ keywords, page, offset: collected })) {
+    while (collected < results && await paginate({ keywords: inputKeywords, page, offset: collected })) {
       const data = await extract({});
       const count = length(data);
-      if (count === 0) {
-        // no results
-        break;
-      }
+      if (count === 0) break; // no results
       collected += count;
       console.log('Got more results', collected);
       page++;
