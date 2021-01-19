@@ -14,6 +14,7 @@ module.exports = {
     dependencies,
   ) => {
     const timeout = parameters.timeout ? parameters.timeout : 60000;
+    url = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
     await context.setJavaScriptEnabled(true);
     await context.setCssEnabled(true);
     await context.setLoadAllResources(true);
@@ -37,7 +38,7 @@ module.exports = {
     try {
       await context.evaluateInFrame('iframe',
         function () {
-        // @ts-ignore
+          // @ts-ignore
           const code = geetest
             .toString()
             .replace(
@@ -51,7 +52,7 @@ module.exports = {
       await new Promise(resolve => setTimeout(resolve, 500));
       await context.evaluateInFrame('iframe',
         function () {
-        // @ts-ignore
+          // @ts-ignore
           if (document.querySelector('.captcha-handler')) {
             document.querySelector('.captcha-handler').click();
           }
@@ -83,7 +84,7 @@ module.exports = {
       try {
         await context.evaluateInFrame('iframe',
           function () {
-          // @ts-ignore
+            // @ts-ignore
             const code = geetest
               .toString()
               .replace(
@@ -97,7 +98,7 @@ module.exports = {
         await new Promise(resolve => setTimeout(resolve, 500));
         await context.evaluateInFrame('iframe',
           function () {
-          // @ts-ignore
+            // @ts-ignore
             if (document.querySelector('.captcha-handler')) {
               document.querySelector('.captcha-handler').click();
             }
@@ -112,5 +113,38 @@ module.exports = {
         console.log('error: FAILED TO SOLVE CAPTCHA AFTER RETRY', error);
       }
     }
+    async function autoScroll(page) {
+      await page.evaluate(async () => {
+        await new Promise((resolve, reject) => {
+          var totalHeight = 0;
+          var distance = 100;
+          var timer = setInterval(() => {
+            var scrollHeight = document.body.scrollHeight;
+            window.scrollBy(0, distance);
+            totalHeight += distance;
+
+            if (totalHeight >= scrollHeight) {
+              clearInterval(timer);
+              resolve();
+            }
+          }, 100);
+        });
+      });
+    }
+    await autoScroll(context);
   },
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+

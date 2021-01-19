@@ -1,6 +1,6 @@
 const { transform } = require('../format');
 
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -8,6 +8,28 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  try {
+    await context.waitForSelector('div[class*="inpage_selector_InTheBox"] img', { timeout: 30000 });
+    await new Promise((resolve, reject) => setTimeout(resolve, 90000));
+    console.log('selector of inTheBox exist');
+  } catch (e) {
+    console.log("selector of inTheBox doesn't exist");
+  }
+  try {
+    await context.waitForSelector('div[class="content"]>h3', { timeout: 30000 });
+    await new Promise((resolve, reject) => setTimeout(resolve, 90000));
+    console.log('selector of updp exist');
+  } catch (e) {
+    console.log("selector of updp doesn't exist");
+  }
+  try {
+    await context.waitForSelector('button[class="btn-expand btn-reset"]', { timeout: 30000 });
+    await new Promise((resolve, reject) => setTimeout(resolve, 90000));
+    console.log('selector of enhancedContent button exist');
+  } catch (e) {
+    console.log("selector of enhancedContent button doesn't exist");
+  }
+
 
   await context.evaluate(async () => {
     window.scroll(0, 1000);
@@ -32,7 +54,7 @@ async function implementation (
         }
       }
     }
-    function stall (ms) {
+    function stall(ms) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve();
@@ -71,6 +93,31 @@ async function implementation (
         document.body.appendChild(catElement1);
       }
     }
+     try{
+      const id = document.evaluate('//meta[@itemprop="sku"]/@content',document).iterateNext() && document.evaluate('//meta[@itemprop="sku"]/@content',document).iterateNext().textContent;
+      let res = await fetch(`https://api.early-birds.fr/widget/multi/581c930912983dbb01366c48-581ca05312983dbb01366c4c/recommendations/dff0a092-a05b-4b56-b5f2-9d44263d72c1?variables={"$productId":${id}}`)
+      let data = await res.json()
+      let props = Object.getOwnPropertyNames(data)
+      const text = ''
+      const updp = []
+      props.forEach(prop => {
+        let prods = data[prop].recommendations
+        prods.forEach(prod => {
+          updp.push(prod.product.descriptifCourt)
+        })
+      })
+      let updp2 = [...new Set(updp)]
+      updp2.forEach((element,index)=>{
+          let updpDiv = document.createElement('div');
+          updpDiv.className = 'updpinformation';
+          updpDiv.innerText = updp2[index];
+          document.body.append(updpDiv);
+      })
+
+     }catch(e) {
+       console.log(e)
+     }
+
   });
   return await context.extract(productDetails, { transform });
 }

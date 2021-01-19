@@ -112,6 +112,20 @@ const transform = (data) => {
         var secondaryImageTotalCount = row.secondaryImageTotal[0].text === '0' ? '' : row.secondaryImageTotal[0].text;
         row.secondaryImageTotal = [{ text: secondaryImageTotalCount, xpath: row.secondaryImageTotal[0].xpath }];
       }
+      if(row.unInterruptedPDP){
+          let updp= [];
+          row.unInterruptedPDP.forEach(item=>{
+            updp.push(item.text);
+          })
+          // @ts-ignore
+          let updpUnique = [...new Set(updp)];
+          console.log(updpUnique.length);
+          let text = '';
+          updpUnique.forEach(item=>{
+            text = text + (text ? ' || ' : '') + item;
+          })
+          row.unInterruptedPDP = [{text}];
+        }
     }
   }
   return data;
