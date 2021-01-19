@@ -58,8 +58,13 @@ module.exports = {
       }
       var jsonString = document.querySelectorAll(
         "[type='application/ld+json']"
-      )[1];
-      var jsonParsed = JSON.parse(jsonString.innerText);
+      );
+      if(jsonString.length === 1){
+        var newjsonString = jsonString[0]
+      }else{
+        var newjsonString = jsonString[1]
+      }
+      var jsonParsed = JSON.parse(newjsonString.innerText);
       var json_list = jsonParsed.itemListElement;
 
       function addHiddenDiv(id, content, index) {
