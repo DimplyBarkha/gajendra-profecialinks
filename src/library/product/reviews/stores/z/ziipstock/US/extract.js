@@ -1,3 +1,4 @@
+const { transform } = require('./format');
 async function implementation (
   inputs,
   parameters,
@@ -5,6 +6,7 @@ async function implementation (
   dependencies,
 ) {
   const { productReviews } = dependencies;
+  const { transform } = parameters;
   await context.evaluate(async function () {
     const ratings = document.querySelectorAll('.stamped-review-header-starratings');
     if (ratings) {
@@ -20,7 +22,8 @@ async function implementation (
     }
   });
 
-  return await context.extract(productReviews);
+  //return await context.extract(productReviews);
+  return await context.extract(productReviews, { transform });
 }
 
 module.exports = {
@@ -28,7 +31,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'ziipstock',
-    transform: null,
+    transform: transform,
     domain: 'ziipstock.com',
     zipcode: "''",
   },
