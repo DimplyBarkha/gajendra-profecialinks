@@ -3,134 +3,165 @@
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
  */
-const transform = (data, context) => {
-  // const cleanUp = (data, context) => {
-  //   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
-  //     el.text = clean(el.text);
-  //   }))));
-  //   return data;
-  // };
-  const clean = text => text.toString()
-    .replace(/\r\n|\r|\n/g, ' ')
-    .replace(/&amp;nbsp;/g, ' ')
-    .replace(/&amp;#160/g, ' ')
-    .replace(/\u00A0/g, ' ')
-    .replace(/\s{2,}/g, ' ')
-    .replace(/"\s{1,}/g, '"')
-    .replace(/\s{1,}"/g, '"')
-    .replace(/^ +| +$|( )+/g, ' ')
-    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ')
-  // eslint-disable-next-line no-control-regex
-    .replace(/[\x00-\x1F]/g, '')
-    .replace(/\"/g, ' " ')
-    .replace(/&#(\d+);/g, function (match, dec) {
-      return String.fromCharCode(dec);
-    })
-    .replace(/\s{2,}/g, ' ');
-
+const transform = (data) => {
+  const cleanUp = (data, context) => {
+    const clean = text => text.toString()
+      .replace(/\r\n|\r|\n/g, ' ')
+      .replace(/&amp;nbsp;/g, ' ')
+      .replace(/&amp;#160/g, ' ')
+      .replace(/\u00A0/g, ' ')
+      .replace(/\s{2,}/g, ' ')
+      .replace(/"\s{1,}/g, '"')
+      .replace(/\s{1,}"/g, '"')
+      .replace(/^ +| +$|( )+/g, ' ')
+    // eslint-disable-next-line no-control-regex
+      .replace(/[\x00-\x1F]/g, '')
+      .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+    data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+      el.text = clean(el.text);
+    }))));
+    return data;
+  };
   for (const { group } of data) {
+    let tmpSku = '';
     for (const row of group) {
-      try {
-        if (row.description) {
-          const text = row.description[0].text;
-          const bulletReplace = text.replace(/ - /g, ' || ');
-          row.description[0].text = bulletReplace;
-        }
-        if (row.ingredientsList) {
-          const text = row.ingredientsList[0].text;
-          const bulletReplace = text.replace(/ - /g, ' || ');
-          row.ingredientsList[0].text = bulletReplace;
-        }
-        if (row.directions) {
-          const text = row.directions[0].text;
-          const bulletReplace = text.replace(/ - /g, ' || ');
-          row.directions[0].text = bulletReplace;
-        }
+      let fstImg = ''; let fstImgAlt = ''; const restImg = []; let skuArr = []; let skuStr = '';
+      if (row.variantId) {
+        row.variantId.forEach(item => {
+          if (item.text.indexOf('ITEM') == -1) {
 
-        if (row.image) {
-          const text = row.image[0].text;
-          const splits = text.split('?');
-
-          row.image[0].text = `https://sephora.com${splits[0]}`;
-        }
-
-        if (row.alternateImages) {
-          const imageArray = [];
-          if (row.alternateImages.length > 1) {
-            for (let i = 0; i < row.alternateImages.length; i++) {
-              const text = row.alternateImages[i].text;
-              const splits = text.split('?');
-              imageArray.push(`https://sephora.com${splits[0]}`);
-            }
-            const oneLess = imageArray.slice(1);
-            const joins = oneLess.join(' | ');
-            row.alternateImages = [{ text: joins }];
           } else {
-            row.alternateImages = [{ text: '' }];
+            tmpSku = item.text.replace('ITEM ', '');
           }
-        }
-
-        if (row.aggregateRating) {
-          const text = row.aggregateRating[0].text;
-          const splits = text.split(' /');
-          row.aggregateRating[0].text = splits[0];
-        }
-
-        if (row.nameExtended) {
-          const newName = [];
-          const text = row.nameExtended.forEach(name => {
-            newName.push(name.text);
-            name.text = '';
-          });
-          const joins = newName.join(' ');
-          row.nameExtended = [{ text: joins }];
-        }
-
-        if (row.additionalDescBulletInfo) {
-          row.additionalDescBulletInfo.forEach(bullet => {
-            const text = bullet.text.replace(/- /g, '');
-            bullet.text = text;
-          });
-        }
-
-        if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0].text.length > 1) {
-          row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
-        }
-
-        if (row.videos) {
-          const videoArray = [];
-          row.videos.forEach(video => {
-            if (!videoArray.includes(video.text)) {
-              videoArray.push(video.text);
+        });
+        row.variantId = [{ text: tmpSku }];
+        row.firstVariant = [{ text: tmpSku }];
+      }
+      if (row.image) {
+        row.image.forEach(item => {
+          if (fstImg == '') {
+            skuArr = item.text.replace('/productimages/sku/s', '').split('-main-zoom.');
+            if (skuArr.length > 1) {
+              skuStr = skuArr[0];
             }
-          });
-          row.videos = [{ text: '' }];
-          const videoStr = videoArray.join(' | ');
-          row.videos[0].text = videoStr;
+            fstImg = 'https://www.sephora.com' + item.text;
+          }
+        });
+        row.image = [{ text: fstImg }];
+        if (skuStr != '') {
+          row.sku = [{ text: skuStr }];
         }
-
-        if (row.manufacturerImages) {
-          const manufImageArray = [];
-          row.manufacturerImages.forEach(manufImage => {
-            if (!manufImageArray.includes(manufImage.text)) {
-              manufImageArray.push(manufImage.text);
+      }
+      if (row.imageAlt) {
+        row.imageAlt.forEach(item => {
+          if (fstImgAlt == '') { fstImgAlt = item.text; }
+        });
+        row.imageAlt = [{ text: fstImgAlt }];
+      }
+      if (row.alternateImages) {
+        let tmpF = true;
+        row.alternateImages.forEach(item => {
+          if (tmpF == true) {
+            tmpF = false;
+          } else {
+            var nPos = item.text.indexOf('?imwidth=300');
+            if (nPos != -1) {
+              const tmpD = { text: 'https://www.sephora.com' + item.text };
+              restImg.push(tmpD);
             }
-          });
-          row.manufacturerImages = [{ text: '' }];
-          const manufImageStr = manufImageArray.join(' | ');
-          row.manufacturerImages[0].text = manufImageStr;
+          }
+        });
+        row.alternateImages = restImg;
+      }
+      let brnd = '';
+      if (row.brandText) {
+        row.brandText.forEach(item => {
+          brnd = item.text;
+        });
+      }
+      if (row.nameExtended) {
+        row.nameExtended.forEach(item => {
+          if (brnd != '') {
+            item.text = brnd + ' - ' + item.text;
+          }
+        });
+      }
+      if (row.quantity) {
+        let rowDelete;
+        row.quantity.forEach(item => {
+          if (item.text.indexOf('SIZE') == -1) {
+            rowDelete = true;
+          } else {
+            item.text = item.text.replace('SIZE ', '');
+            rowDelete = false;
+          }
+        });
+        if (rowDelete == true) {
+          delete row.quantity;
         }
-
-        // row = cleanUp(row);
-        Object.keys(row).forEach(header => row[header].forEach(el => {
-          el.text = clean(el.text);
-        }));
-      } catch (exception) {
-        console.log(exception);
+      }
+      if (row.ratingCount) {
+        row.ratingCount.forEach(item => {
+          item.text = item.text.replace(' reviews', '');
+        });
+      }
+      if (row.aggregateRating) {
+        row.aggregateRating.forEach(item => {
+          item.text = item.text.replace(' stars', '');
+        });
+      }
+      if (row.directions) {
+        let directionsStr = '';
+        row.directions.forEach(item => {
+          if (directionsStr = '') {
+            directionsStr = item.text;
+          } else {
+            directionsStr = directionsStr + ' ' + item.text;
+          }
+        });
+        row.directions = [{ text: directionsStr }];
+      }
+      if (row.directions) {
+        let directionsStr = '';
+        row.directions.forEach(item => {
+          if (directionsStr = '') {
+            directionsStr = item.text;
+          } else {
+            directionsStr = directionsStr + ' ' + item.text;
+          }
+        });
+        row.directions = [{ text: directionsStr }];
+      }
+      if (row.ingredientsList) {
+        let no2 = 0; const inf = []; let tmp = '';
+        row.ingredientsList.forEach(item => {
+          if (no2 == 0) {
+            tmp = item.text;
+            no2 = 1;
+          } else if (no2 == 1) {
+            tmp = tmp + ' : ' + item.text;
+            inf.push(tmp);
+            tmp = '';
+            no2 = 0;
+          }
+        });
+        row.ingredientsList = [{ text: inf.join(' | ') }];
+      }
+      if (row.variantInformation) {
+        row.variantInformation.forEach(item => {
+          item.text = item.text.replace(' - Selected', '');
+        });
+      }
+      if (row.variants) {
+        const inf = [];
+        row.variants.forEach(item => {
+          const tmpArr = item.text.replace('/productimages/sku/s', '').split('+');
+          inf.push(tmpArr[0]);
+        });
+        row.variants = [{ text: inf.join(' | ') }];
       }
     }
   }
-  // context.setState({ variantArray });
-  return data;
+  return cleanUp(data);
 };
 module.exports = { transform };

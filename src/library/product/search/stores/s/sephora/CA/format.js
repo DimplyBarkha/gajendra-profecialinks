@@ -22,145 +22,59 @@ const transform = (data, context) => {
   const productCodes = state.productCodes || [];
   for (const { group } of data) {
     for (const row of group) {
-      // if(row.thumbnail){
-      //   let text = row.thumbnail[0].text;
-      //   let split = text.split("&");
-      //   if(split[0]){
-      //     let url = split[0];
-      //     if(url){
-      //       row.thumbnail[0].text = url;
-      //     }
-      //   }
-      // }
-
-      if (row.price) {
-        const text = row.price[0].text;
-        const splits = text.split(' ');
-        row.price[0].text = splits[0];
+      rankCounter += 1;
+      let skyIdStr='';
+      if (!row.sponsored) {
+        orgRankCounter += 1;
+        row.rankOrganic = [{ text: orgRankCounter }];
       }
-
-      if (row.productUrl) {
-        const text = row.productUrl[0].text;
-        const split = text.split('?');
-        if (split[0]) {
-          const url = split[0];
-          if (url) {
-            row.productUrl[0].text = url;
-          }
-        }
-      }
-
-      if (row.name) {
-        const names = [];
-        row.name.forEach(n => {
-          names.push(n.text);
-        });
-        const nameJoin = names.join(' - ');
-        row.name = [{ text: nameJoin }];
-      }
-
-      if (row.aggregateRating2) {
-        const text = row.aggregateRating2[0].text;
-        if (text === 'No stars') {
-          row.aggregateRating2[0].text = '0';
-        } else {
-          const split = text.split(' ');
-          if (split[0]) {
-            const rating = parseFloat(split[0]);
-            const adjusted = rating.toPrecision(2);
-
-            if (adjusted) {
-              row.aggregateRating2[0].text = adjusted;
-            }
-          }
-        }
-      }
-
-      // if(row.aggregateRatingText){
-      //   let text = row.aggregateRatingText[0].text
-      //   let splits = text.split(" ")
-      //   let joins = splits[0]
-
-      //   if(joins){
-      //     row.aggregateRatingText[0].text = joins
-      //   }
-      // }
-
-      if (row.reviewCount) {
-        const text = row.reviewCount[0].text;
-        const splits = text.split(' ');
-        if (splits[0]) {
-          const joins = splits[0];
-
-          if (joins) {
-            row.reviewCount[0].text = joins;
-          }
-        }
-      }
-
-      if (row.thumbnail) {
-        const text = row.thumbnail[0].text;
-        let joins;
-        if (!text.includes('sephora.com')) {
-          joins = 'https://www.sephora.com' + text;
-        } else {
-          joins = text;
-        }
-
-        if (joins) {
-          row.thumbnail[0].text = joins;
-        }
-      }
-
-      if (row.productUrl) {
-        const text = row.productUrl[0].text;
-        const splits = text.split(' ');
-        let joins;
-        if (splits[0]) {
-          if (!splits[0].includes('sephora.com')) {
-            joins = 'https://www.sephora.com' + splits[0];
-            row.productUrl[0].text = joins;
-          }
-        } else {
-          joins = splits[0];
-          row.productUrl[0].text = joins;
-        }
-      }
-
-      if (row.id) {
-        if (row.id[0].text) {
-          const text = row.id[0].text;
-
-          const sNum = text.match(/(s[0-9]+)/g);
-
-          if (sNum) {
-            console.log(sNum[0]);
-
-            const num = sNum[0].match(/[0-9]+/g);
-            if (num[0]) {
-              // console.log("TEXT HERE" + " " + num[0]);
-              // row.id[0].text = text
-
-              row.id[0].text = num[0];
-            }
-          }
-        }
-      }
-
-      if (row.id && row.id[0]) {
-        productCodes.push(row.id[0].text);
-        rankCounter += 1;
-        if (!row.sponsored) {
-          orgRankCounter += 1;
-          row.rankOrganic = [{ text: orgRankCounter }];
-        }
-        row.rank = [{ text: rankCounter }];
-      } else {
-        row.id = [{ text: '' }];
-      }
+      row.rank = [{ text: rankCounter }];
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
+      if(row.thumbnail){
+        row.thumbnail.forEach(item=>{
+            item.text="https://www.sephora.com"+item.text;
+        })
+      }
+      if(row.productUrl){
+        row.productUrl.forEach(item=>{
+          let skuI=item.text.split('?skuId=');
+          //console.log('skuIZZ:',skuI);
+          //console.log('lengthZZ:',skuI.length);
+          if(skuI.length>1){
+            let skuI1=skuI[1].split('&');
+            skyIdStr=skuI1[0];
+          }else{
+            console.log('item.text :',item.text);
+            let skuI=item.text.split('?');
+            //console.log('skuIYY:',skuI);
+            //console.log('lengthYY:',skuI.length);
+            if(skuI.length>1){
+              skyIdStr=skuI[0].split('-').pop().replace(/\D/g,'');
+              console.log('skuIX1:',skyIdStr);
+              //console.log('sku finale:',skuI1.replace(/\D/g,''));
+
+            }
+          }
+        })
+      }
+      if(row.id){
+          row.id.forEach(item=>{
+            console.log('item.text for id data :',item.text);
+              let idAr=item.text.split(' ');
+              item.text=idAr[1];
+          })
+      }else{
+        if(skyIdStr!=''){
+          row.id=[{"text":skyIdStr}];
+        }
+      }
+      if(row.aggregateRating){
+          row.aggregateRating.forEach(item=>{
+              item.text=item.text.replace(' stars','');
+          })
+      }
     }
   }
   context.setState({ rankCounter });
