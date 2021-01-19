@@ -6,8 +6,11 @@
  * @param { { goto: ImportIO.Action, createUrl: ImportIO.Action} } dependencies
  */
 const implementation = async (inputs, { loadedSelector, noResultsXPath }, context, dependencies) => {
-  const { url, id } = inputs;
+  let { url, id } = inputs;
   let builtUrl;
+  if(url.toLocaleLowerCase() == 'null') {
+    url = '';
+  }
   if (!url) {
     if (!id) throw new Error('No id provided');
     else builtUrl = await dependencies.createUrl(inputs);
