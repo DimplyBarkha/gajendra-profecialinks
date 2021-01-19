@@ -108,9 +108,16 @@ const transform = (data) => {
       }
 
       if (row.description && row.description[0] && row.description[0].text !== ' ') {
-        row.description && row.description.forEach(item => {
+        row.description.forEach(item => {
           item.text = item.text.replace(/Overview/g, '').replace(/# ?/g, '').trim();
         });
+
+        if (row.descriptionBulletsInfo) {	
+          row.descriptionBulletsInfo.forEach(item => {	
+            item.text = item.text.replace(/(\s?\n)+/g, ' || ').replace(/# ?/g, '').trim();	
+          });	
+        }	
+        row.additionalDescBulletInfo = row.descriptionBulletsInfo;
         const guide = row.description1 && row.description1[0] ? row.description1[0].text : '';
         const bullets = row.descriptionBulletsInfo && row.descriptionBulletsInfo[0] ? row.descriptionBulletsInfo[0].text : '';
         if (bullets) {

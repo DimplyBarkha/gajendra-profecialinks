@@ -17,7 +17,7 @@ module.exports = {
         scrollTop += 1000;
         window.scroll(0, scrollTop);
         if (scrollTop === 20000) {
-          await stall(1000);
+          await stall(8000);
           break;
         }
       }
@@ -43,7 +43,7 @@ module.exports = {
         const response = await fetch(`https://www.homedepot.ca/homedepotcacommercewebservices/v2/homedepotca/products/${url.match(/q=(\d+)/)[1]}.json?fields=BASIC_SPA&lang=en`)
           .then(response => response.json())
           .catch(error => console.error('Error:', error));
-        await new Promise(resolve => setTimeout(resolve, 500));
+          await new Promise(resolve => setTimeout(resolve, 10000));
         if (response) {
           if (response.variantOptionsSorted) {
             response.variantOptionsSorted.forEach(variants => {
@@ -64,7 +64,7 @@ module.exports = {
         }
       }
     });
-    await new Promise(resolve => setTimeout(resolve, 500));
+    await new Promise(resolve => setTimeout(resolve, 10000));
     return await context.extract(variants, { transform });
   },
 };
