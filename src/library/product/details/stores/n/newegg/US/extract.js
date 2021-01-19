@@ -1,11 +1,11 @@
 // const { transform } = require('./shared');
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('./shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'US',
     store: 'newegg',
-    transform: cleanUp,
+    transform,
     domain: 'newegg.com',
     zipcode: '',
   },
@@ -16,7 +16,7 @@ module.exports = {
     dependencies,
   ) => {
     // const { transform } = parameters;
-    const { cleanUp } = parameters;
+    // const { cleanUp } = parameters;
     const { productDetails } = dependencies;
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
@@ -170,7 +170,7 @@ module.exports = {
     });
 
     // return await context.extract(productDetails);
-    return await context.extract(productDetails, { cleanUp });
+    return await context.extract(productDetails, { transform });
     // await context.extract(productDetails);
   },
   // implementation,

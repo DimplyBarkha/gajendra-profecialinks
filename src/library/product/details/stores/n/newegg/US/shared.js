@@ -148,6 +148,12 @@ const transform = (data) => {
           'https://www.newegg.com/p/pl?d={id}';
         });
       }
+
+      if (!row.inTheBoxText && row.inTheBoxTextFromP) {
+        let inTheBoxText = row.inTheBoxTextFromP[0].text;
+        inTheBoxText = inTheBoxText.replace(/,/g, ' || ');
+        row.inTheBoxText = [{ text: inTheBoxText }];
+      }
     }
   }
   return cleanUp(data);
