@@ -194,3 +194,15 @@ fields:
   - name: termsAndConditions
     singleValue: false
     xpath: (//ul[contains(@class,"bullet-list")]//li[@class="js-product-in-the-box--item"]//a/@href)[1]
+  - name: unInterruptedPDP
+    singleValue: false
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //div[contains(@class, "in-the-box")]//li
+  - name: inTheBoxUrl
+    singleValue: false
+  - name: hasComparisonTable
+    xpath: //div[contains(@class, "js-alternatives")]//h2
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
