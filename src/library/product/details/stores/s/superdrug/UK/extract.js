@@ -1,13 +1,13 @@
 const { cleanUp } = require('../../../../shared');
 
-async function implementation(inputs, parameters, context, dependencies) {
+async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
   await context.evaluate(async () => {
     // await new Promise((resolve, reject) => setTimeout(resolve, 3000));
 
-    function addElementToDocument(id, value, key) {
+    function addElementToDocument (id, value, key) {
       const catElement = document.createElement('div');
       catElement.id = id;
       catElement.innerText = value;
@@ -40,18 +40,16 @@ async function implementation(inputs, parameters, context, dependencies) {
       document.body.appendChild(elements);
     };
 
-    const allHeadings = document.querySelectorAll("#pdp__details article h3.pdp-details__sub-title");
+    const allHeadings = document.querySelectorAll('#pdp__details article h3.pdp-details__sub-title');
     for (let i = 0; i < allHeadings.length; i++) {
-      if (allHeadings[i].textContent === "Product Specification") {
-        console.log("tak");
+      if (allHeadings[i].textContent === 'Product Specification') {
         const ingredientsText = allHeadings[i].parentElement;
         console.log(ingredientsText);
-        const ingredientsHeading = ['Product Specification']
+        const ingredientsHeading = ['Product Specification'];
         const ingredientsEnd = ['Size'];
         if (ingredientsText) addFollowingParagraphs('ingredients', ingredientsText, ingredientsHeading, ingredientsEnd);
       }
     }
-
 
     const prefix = 'https://www.superdrug.com';
     const brandName = document.querySelector('span.pdp__byBrand>a') ? document.querySelector('span.pdp__byBrand>a').getAttribute('href') : null;
@@ -102,12 +100,15 @@ async function implementation(inputs, parameters, context, dependencies) {
     dataRef[0].group[0].brandText[0].text = dataRef[0].group[0].brandText[0].text.replace("'", '');
   }
   if (dataRef[0].group[0].ingredientsList) {
-    dataRef[0].group[0].ingredientsList[0].text = dataRef[0].group[0].ingredientsList[0].text.replace("Product Specification", '').trim();
-    let sizeTxt = dataRef[0].group[0].ingredientsList[0].text;
-    let index = sizeTxt.indexOf('Size');
+    dataRef[0].group[0].ingredientsList[0].text = dataRef[0].group[0].ingredientsList[0].text.replace('Product Specification', '').trim();
+    const sizeTxt = dataRef[0].group[0].ingredientsList[0].text;
+    const index = sizeTxt.indexOf('Size');
     if (index != -1) {
       dataRef[0].group[0].ingredientsList[0].text = dataRef[0].group[0].ingredientsList[0].text.slice(0, index).trim();
     }
+  }
+  if (dataRef[0].group[0].directions) {
+    dataRef[0].group[0].directions[0].text = dataRef[0].group[0].directions[0].text.replace('Product Uses', '').trim();
   }
   return dataRef;
 }

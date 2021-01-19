@@ -45,7 +45,7 @@ fields:
   singleValue: false
   xpath: normalize-space(concat(//p[@itemprop="description"],//p[@itemprop="description"]/following-sibling::article/h3[contains(text(), "Features")]/parent::article,//p[@itemprop="description"]/following-sibling::article/h3[contains(text(), "Benefits")]/parent::article))
 - name: descriptionBullets
-  xpath: count(//h3[text()="Features"]/following-sibling::li|//h3[text()="Benefits"]/following-sibling::li)
+  xpath: count(//div[@id="pdp__details"]/section//li)
   singleValue: true
   description: Number of ul > li tags in the description
 - name: brandText
@@ -91,7 +91,7 @@ fields:
 - name: directions
   singleValue: false
   description: Content under "directions" header
-  xpath: //h3[@class="pdp-details__sub-title"][contains(.,"Uses")]/following-sibling::p
+  xpath: //h3[@class="pdp-details__sub-title"][contains(.,"Uses")]/parent::article
 - name: warnings
   singleValue: false
   xpath: //h3[@class="pdp-details__sub-title"][contains(.,"Warnings")]/following-sibling::p
