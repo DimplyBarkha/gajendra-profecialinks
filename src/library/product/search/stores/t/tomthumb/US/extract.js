@@ -1,52 +1,38 @@
+// const { transform } = require('./transform');
+const { transform } = require('../../../../shared');
 async function implementation (
   inputs,
   parameters,
   context,
   dependencies,
 ) {
-  const { transform } = parameters;
   const { productDetails } = dependencies;
-  const applyScroll = async function (context) {
-    await context.evaluate(async function () {
-      let scrollTop = 0;
-      while (scrollTop !== 20000) {
-        await stall(500);
-        scrollTop += 1000;
-        window.scroll(0, scrollTop);
-        if (scrollTop === 20000) {
-          await stall(5000);
-          break;
-        }
-      }
-      function stall (ms) {
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            resolve();
-          }, ms);
-        });
-      }
-    });
-  };
-  await applyScroll(context);
-  await context.evaluate(() => {
-    function addHiddenDiv (el, myClass, content) {
+  await context.evaluate(async function () {
+    function addHiddenDiv (node, id, content) {
       const newDiv = document.createElement('div');
-      newDiv.setAttribute('class', myClass);
+      newDiv.id = id;
       newDiv.textContent = content;
       newDiv.style.display = 'none';
-      el.appendChild(newDiv);
+      node.appendChild(newDiv);
     }
-
+    var count = 1;
+    while (document.querySelector('.bloom-load-button')) {
+      if (count < 5) {
+        document.querySelector('.bloom-load-button').click();
+        count++;
+        await new Promise(r => setTimeout(r, 10000));
+      } else {
+        break;
+      }
+    }
     const itemContainers = document.querySelectorAll('#search-grid_0 > div.row.gutters-items-v2.grid-wrapper.product-grid-v2 > product-item-v2');
-    let rank = 1;
     for (const itemContainer of itemContainers) {
       console.log(itemContainer);
-      const totalRank = itemContainer + rank;
-      addHiddenDiv(itemContainer, 'rank', totalRank);
-      rank++;
+      const searchUrl = window.location.href;
+      addHiddenDiv(itemContainer, 'search-url', searchUrl);
     }
   });
-  return await context.extract(productDetails, { transform });
+  return await context.extract(productDetails, { transform: parameters.transform });
 }
 
 module.exports = {
@@ -54,7 +40,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'tomthumb',
-    transform: null,
+    transform: transform,
     domain: 'tomthumb.com',
     zipcode: '75023',
   },

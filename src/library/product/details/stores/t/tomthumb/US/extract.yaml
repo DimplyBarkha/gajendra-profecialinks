@@ -108,7 +108,7 @@ fields:
     description: Content under "directions" header
   - name: warnings
     singleValue: false
-    xpath: //p[@id="warningKMSITextID"]/text()
+    xpath: //span[contains(text(), 'Warning')]/following-sibling::*[1]/text()
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: true
@@ -257,7 +257,8 @@ fields:
     description: null
   - name: ingredientsList
     singleValue: false
-    xpath: //div[@class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 table-content"]
+    # xpath: //div[@class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 table-content"]
+    xpath: //div[@id="ingredients"]/div/div[2]
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
   - name: servingSize

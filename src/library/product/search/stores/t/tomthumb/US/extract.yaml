@@ -11,7 +11,6 @@ fields:
     singleValue: true
     description: The brand name
     example: Panasonic
-    
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
@@ -51,7 +50,7 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //div[@class="product-price-con"]/p/del/text() 
+    # xpath: //div[@class="product-price-con"]/p/del/text() 
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -68,12 +67,12 @@ fields:
     singleValue: true
     description: search/listing rank
     type: NUMBER
-    xpath: //div[@class="rank"]  
+    xpath: //div[@id="rank"]  
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
-    xpath: //div[@class="rank"] 
+    xpath: //div[@id="rank"] 
   - name: sponsored
     singleValue: true
     description: Is sponsored/paid
@@ -83,13 +82,14 @@ fields:
     description: The URL for the product thumbnail image
     xpath: //div[2]/search-grid[1]/div[1]/product-item-v2/div[1]/div[1]/a[1]/picture[1]/img[1]/@data-src
     regExp: (https:)?(.+)
-    regExpReplace: https:$2    
+    regExpReplace: https:$2  
 
 #  Should these be source specific formulas or in the extractor? 
   - name: id
     singleValue: true
     description: Unique id (within this extractor)
-    xpath: //div[@class="product-level-4"]/search-grid/div/product-item-v2/div/div/div/h3/a/@id
+    # xpath: //div[@class="product-level-4"]/search-grid/div/product-item-v2/div/div/div/h3/a/@id
+    xpath: //div[@class="product-level-4"]/search-grid/div/product-item-v2/div/div/div/h3/a/@data-bpn
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per extractor)
@@ -98,3 +98,9 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER 
+
+  - name: searchUrl
+    singleValue: true
+    xpath: //div[@id='search-url']
+
+    
