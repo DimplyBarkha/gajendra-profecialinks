@@ -3,8 +3,8 @@
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
  */
-const transform = (data) => {
-  const cleanUp = (data, context) => {
+const transform = (data, context) => {
+  const cleanUp = (data) => {
     const clean = text => text.toString()
       .replace(/\r\n|\r|\n/g, ' ')
       .replace(/&amp;nbsp;/g, ' ')
@@ -22,7 +22,8 @@ const transform = (data) => {
     }))));
     return data;
   };
-  let rank = 1;
+  const state = context.getState();
+  let rank = state.rank || 1;
   for (const { group } of data) {
     for (const row of group) {
       if (row.productUrl) {
@@ -30,7 +31,6 @@ const transform = (data) => {
           item.text = "https://www.staples.ca" + item.text;
         });
       }
-
       if (row.id) {
         row.id.forEach(item => {
           var myRegexp = /products\/(.+?)-/g;
@@ -48,6 +48,7 @@ const transform = (data) => {
       rank++;
     }
   }
+  context.setState({ rank });
   return cleanUp(data);
 };
 
