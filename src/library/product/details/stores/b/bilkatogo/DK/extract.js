@@ -12,7 +12,7 @@ module.exports = {
   implementation: async ({ url }, { country, domain, transform }, context, { productDetails }) => {
     await new Promise(resolve => setTimeout(resolve, 5000));
     await context.evaluate(async () => {
-      function addElementToDocument(key, value) {
+      function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -107,21 +107,22 @@ module.exports = {
 
       pricePerUnitSliced = pricePerUnitTxt.substring(strt + 1, end).trim();
       pricePerUnitUOM = pricePerUnitTxt.substring(strt + 1, endUOM + 1).trim();
-      console.log('price per unit uom is:',pricePerUnitUOM);
-      pricePerUnitUom1= pricePerUnitUOM.replace(/(.*)(\/)(.*)/g,'$3');
-      console.log('price per unit uom is:',pricePerUnitUom1);
+      console.log('price per unit uom is:', pricePerUnitUOM);
+      pricePerUnitUom1 = pricePerUnitUOM.replace(/(.*)(\/)(.*)/g, '$3');
+      console.log('price per unit uom is:', pricePerUnitUom1);
       addElementToDocument('pricePerUnit', pricePerUnitSliced);
       addElementToDocument('pricePerUnitUom', pricePerUnitUom1);
       let brandText = '';
       let index = 0;
       for (let i = pricePerUnitTxt.length; i >= 0; i--) {
-        if (pricePerUnitTxt.charAt(i) == '/') { index = i; break; }
+        if (pricePerUnitTxt.charAt(i) === '/') { index = i; break; }
       }
       brandText = pricePerUnitTxt.substring(index, pricePerUnitTxt.length);
       if (brandText.length > 4) {
         addElementToDocument('product_brand', brandText);
       }
 
+      // eslint-disable-next-line no-unused-vars
       const expansionPanels = document.querySelectorAll('div.expansion-panel');
       if (document.querySelectorAll('div.expansion-panel')) {
         const expansionPanels = document.querySelectorAll('div.expansion-panel');
