@@ -52,10 +52,10 @@ module.exports = {
                 const hasMin = firstElem.textContent.toLowerCase().includes('mín');
                 const hasMax = firstElem.textContent.toLowerCase().includes('máx');
                 if (hasMin && hasMax) {
-                  const valuesArr = secondElem.textContent.split(' / ');
+                  const valuesArr = secondElem.textContent.split(' /');
                   if (valuesArr.length === 2) {
-                    minMatch = valuesArr[0].match(regexp);
-                    maxMatch = valuesArr[1].match(regexp);
+                    minMatch = valuesArr[0].trim().match(regexp);
+                    maxMatch = valuesArr[1].trim().match(regexp);
                   }
                 } else if (hasMin || hasMax) {
                   minMatch = secondElem.textContent.match(regexp);
@@ -131,7 +131,7 @@ module.exports = {
             ? document.querySelector('div.product-resume').innerText.split('\n')
             : [];
           descriptionArr = descriptionArr.filter((item) => !!item);
-          descriptionArr = descriptionArr.map((item) => item.replace(/^\s*-\s*/, '').replace('\n', ' '));
+          descriptionArr = descriptionArr.map((item) => item.replace(/^\s*-\s*/, '').replace(/\n+/g, ' '));
           variantElem.setAttribute('description_bullets', descriptionArr.length);
           variantElem.setAttribute('description', descriptionArr.join(' '));
 
@@ -146,7 +146,7 @@ module.exports = {
             XPathResult.STRING_TYPE,
             null,
           ).stringValue;
-          if (directionsText) variantElem.setAttribute('directions', directionsText);
+          if (directionsText) variantElem.setAttribute('directions', directionsText.replace(/\n+/g, ' '));
 
           const quantity = variantElem.querySelector('div.label-title')
             ? variantElem.querySelector('div.label-title').textContent
