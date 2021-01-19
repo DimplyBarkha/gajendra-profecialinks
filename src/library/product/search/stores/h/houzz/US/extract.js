@@ -56,23 +56,12 @@ module.exports = {
           break;
         }
       }
-      var jsonString = document.querySelectorAll(
-        "[type='application/ld+json']"
-      );
-      if(jsonString.length === 1){
-        var newjsonString = jsonString[0]
-      }else{
-        var newjsonString = jsonString[1]
-      }
-      var jsonParsed = JSON.parse(newjsonString.innerText);
-      var json_list = jsonParsed.itemListElement;
-
       function addHiddenDiv(id, content, index) {
-        var newDiv = document.createElement("div");
+        const newDiv = document.createElement("div");
         newDiv.id = id;
         newDiv.textContent = content;
         newDiv.style.display = "none";
-        var originalDiv = document.querySelectorAll(
+        const originalDiv = document.querySelectorAll(
           ".hz-product-card__image-container"
         )[index];
         originalDiv.parentNode.insertBefore(newDiv, originalDiv);
@@ -81,11 +70,8 @@ module.exports = {
       if (link != null){
         for (let i = 0; i < link.length; i++) {
           console.log("Loop is working");
-          var single_obj = json_list[i];
-          var url_web = single_obj.url;
-          var searchURL = window.location.href.split("?")[0]
+          const searchURL = window.location.href.split("?")[0]
           addHiddenDiv("ii_searchURL", searchURL, i);
-          addHiddenDiv("ii_produrl", url_web, i);
         }
       }
 
@@ -93,5 +79,3 @@ module.exports = {
     return await context.extract(productDetails, { transform });
   }
 }
-
-
