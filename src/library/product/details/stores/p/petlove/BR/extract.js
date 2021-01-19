@@ -153,13 +153,14 @@ module.exports = {
             : '';
           if (quantity && quantity.match(/[\d.,]+\s.?g/)) variantElem.setAttribute('quantity', quantity);
 
-          const ingredients = document.evaluate(
+          const ingredientsElem = document.evaluate(
             'html//tr[th[contains(text(), "Composição")]]/td',
             document,
             null,
-            XPathResult.STRING_TYPE,
+            XPathResult.ANY_UNORDERED_NODE_TYPE,
             null,
-          ).stringValue;
+          ).singleNodeValue;
+          const ingredientsText = ingredientsElem && ingredientsElem.innerText ? ingredientsElem.innerText.replace(/\n+/g, ' ') : '';
 
           const calciumSnapshot = document.evaluate(
             '//tr//tr[td[contains(text(), "Cálcio")]]',
@@ -188,7 +189,7 @@ module.exports = {
           variantElem.setAttribute('list_price', `${currency}${variantObj.list_price}`.replace('.', ','));
           variantElem.setAttribute('price', `${currency}${variantObj.price}`.replace('.', ','));
           variantElem.setAttribute('coupon_text', couponText);
-          variantElem.setAttribute('ingredients', ingredients);
+          variantElem.setAttribute('ingredients', ingredientsText);
         },
         { i, variantsTotal },
       );
