@@ -11,7 +11,9 @@ const transform = (data) => {
       if (row.additionalDescBulletInfo && row.additionalDescBulletInfo.length) {
         // bulletsCount = row.additionalDescBulletInfo.length;
         row.additionalDescBulletInfo.forEach((ele) => {
-          if (ele.text) {
+          if (ele.text.includes('||')) {
+            bulletsText += ele.text.trim();
+          } else {
             bulletsText += '||' + ele.text.trim();
           }
         });
