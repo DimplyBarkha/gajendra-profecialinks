@@ -1,38 +1,3 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@sirishathotla-ux 
-import-io
-/
-robot-library
-Private
-10
-30
-Code
-Issues
-352
-Pull requests
-129
-Actions
-Projects
-5
-Wiki
-Security
-Insights
-Settings
-robot-library/src/library/product/details/stores/y/yankeecandle/US/extract.yaml
-
-unknown yankeecandle - Damayanthi
-Latest commit 15c80c0 2 hours ago
- History
- 0 contributors
-525 lines (525 sloc)  18.4 KB
-  
 singleRecord: false
 regionsSelector: null
 recordSelector: null
@@ -41,21 +6,17 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //ul[@class="slider animated"]/li/div/img/@src
+    xpath: (//a[@class="projector_medium_image"]/@href)[1]
     regExp: (.+)
-    regExpReplace: https://www.yankeecandle.com$1
+    regExpReplace: https://www.aptekaolmed.pl$1
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
-    xpath: //ul[@class="slider animated"]/li/div/img/@alt
+    xpath: (//a[@class="projector_medium_image"]/img/@alt)[1]
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-<<<<<<< HEAD
-    xpath: //ul[@class="thumbs animated"]/li/a/img/@src
-=======
-    xpath: //ul[@class="thumbs animated"]/li[position()>1]/a/img/@src
->>>>>>> 21d13beac14a5dcccd83d67efd8c0c9d77dd7cfa
+    xpath: //div[@id="bx-pager"]/a[position()>=2]//div/img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -63,12 +24,12 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: (//ul[@class="pdp breadcrumb"]/li[position()>=2 and position()<4])
+    xpath: //ol/li[position()>=2]/a
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //ul[@class="pdp breadcrumb"]/li[position()>last()-1]
+    xpath: //h1
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -76,47 +37,41 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-<<<<<<< HEAD
-    xpath: //p[@class="origPrice"]/span[2]
-    regExp: (\d+\.\d+)
-=======
-    xpath: (//p[@class="origPrice"]/span[2] | (//p[@class="salePrice"])[1])
->>>>>>> 21d13beac14a5dcccd83d67efd8c0c9d77dd7cfa
+    xpath: //strong[@class="projector_price_value"]
+    type: CURRENCY
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: (//button[@class="addToBagBtnDefault addToBagBtn"])[1]
+    xpath: //button[@class="btn-large projector_butttons_buy"]
+    regExp: (.+)
+    defaultValue: Out of Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: concat(//div[@class="descriptionContainer"],//div[@class="fragContent row"])
+    xpath: concat(//div[@class="projector_description description"], '||', //html//div[@id='xyz'])
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
+    type: NUMBER
+    xpath: count(//div[contains(@class,"projector_longdescription")]/ul/li | //div[contains(@class,"projector_longdescription")]/p/span[contains(text(),'•')])
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //ul[@class="slider animated"]/li/div/img/@src
-    regExp: (.+)
-    regExpReplace: YankeeCandle 
+    xpath: concat(//td/span[contains(text(),'Marka')]/following::td[1], '||' ,//a[@class="brand"])
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
+    xpath: //a[@class="brand"]
   - name: quantity
     singleValue: true
-    description: Quantity as described on the page
+    description: Quantity as described on the page    
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-<<<<<<< HEAD
-    xpath: (//td[contains(text(),'Weight')]/following::td[1]
-=======
-    xpath: (//td[contains(text(),'Weight')]/following::td[1])
->>>>>>> 21d13beac14a5dcccd83d67efd8c0c9d77dd7cfa
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
@@ -126,39 +81,45 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //p[@class='reviewCount']//div/@data-bv-product-id
+    xpath: //input[@id="projector_product_hidden"]/@value
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //p[@class='reviewCount']//div/@data-bv-product-id
+    xpath: //input[@id="projector_product_hidden"]/@value
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
+    type: Number
+    xpath: //div[@class="code"]/strong
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
+    xpath: //h1
+    regExp: ((\s+)\d+(.+))$
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
   - name: directions
     singleValue: true
     description: Content under "directions" header
+    xpath: //*[contains(text(),'Sposób użycia')]/following::p[1]
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: true
     description: The number of ratings
-    xpath: //meta[@itemprop="reviewCount"]/@content
+    xpath: //div[@id="opinions_58676"]/span
+    type: NUMBER
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
-    xpath: //div[@itemprop="ratingValue"]
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //div[@itemprop="ratingValue"]
+    type: NUMBER
+    xpath: count(//span[@class="n68503_stars"]/div/span/i[@class="icon-star active"])
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -171,7 +132,8 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
-    defaultValue: '0'
+    type: NUMBER
+    defaultValue: '1'
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -190,7 +152,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
-    xpath: //h1[@itemprop="name"]
+    xpath: //h1
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -281,11 +243,8 @@ fields:
   - name: secondaryImageTotal
     singleValue: true
     description: null
-<<<<<<< HEAD
-    xpath: count(//ul[@class="thumbs animated"]/li/a/img/@src)
-=======
-    xpath: count(//ul[@class="thumbs animated"]/li[position()>1]/a/img/@src)
->>>>>>> 21d13beac14a5dcccd83d67efd8c0c9d77dd7cfa
+    xpath: count(//div[@id="bx-pager"]/a[position()>=2])
+    type: NUMBER
   - name: news
     singleValue: true
     description: null
@@ -299,6 +258,7 @@ fields:
     singleValue: true
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
+    xpath: //*[contains(text(),'Skład:')]/following::p[1] | //*[contains(text(),'Składnik')]/following::p[1]
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
@@ -447,7 +407,6 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: //div[@class="specTable-responsive"]
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -457,6 +416,7 @@ fields:
   - name: countryOfOrigin
     singleValue: true
     description: The country from which the product originates
+    xpath: //td/span[contains(text(),'Kraj pochodzenia podmiotu')]/following::td[1]
   - name: allergyAdvice
     singleValue: true
     description: Allergy information associated with the product
@@ -475,9 +435,13 @@ fields:
   - name: pricePerUnit
     singleValue: true
     description: Price of the product split into certain units
+    xpath: //strong[@class="projector_price_value"]
+    regExp: (/D+)
   - name: pricePerUnitUom
     singleValue: true
     description: The unit of measurement used in price_per_unit
+    xpath: //strong[@class="projector_price_value"]
+    regExp: (/D+)
   - name: promotion
     singleValue: true
     description: promotion text on product page
@@ -510,17 +474,13 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
-    xpath: //p[@class='reviewCount']//div/@data-bv-product-id
   - name: variants
     singleValue: false
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
-<<<<<<< HEAD
-    xpath: concat(//div[@class="descriptionContainer"]/p, //div[@class="col-md-6 col-sm-12 col-xs-12"])
-=======
->>>>>>> 21d13beac14a5dcccd83d67efd8c0c9d77dd7cfa
+    xpath: //div[@class="projector_longdescription cm longdescription_small"]/ul
   - name: prop65Warning
     singleValue: true
     description: null
@@ -529,6 +489,7 @@ fields:
     description: Recommended age displayed on the product page.
       https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
     example: 4 - 99 years
+    xpath: //td/span[contains(text(),'Wiek')]/following::td[1]
   - name: energyEfficiency
     singleValue: true
     description: Energy rating of a product.
@@ -546,6 +507,8 @@ fields:
   - name: privacyPolicy
     singleValue: true
     description: Privacy Policy information text ['Yes','No']
+    xpath: //span[@class="title_terms_form"]
+    regExpReplace: Yes
     defaultValue: No
   - name: customerServiceAvailability
     singleValue: true
@@ -569,9 +532,4 @@ fields:
   - name: url
     singleValue: true
     description: The URL of the product
-<<<<<<< HEAD
-    xpath: //meta[@name="og:url"]/@content
-
-=======
-    xpath: //meta[@name="og:url"]/@content
->>>>>>> 21d13beac14a5dcccd83d67efd8c0c9d77dd7cfa
+    xpath: //meta[@property="og:url"]/@content

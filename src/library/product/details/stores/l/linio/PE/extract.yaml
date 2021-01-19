@@ -1,38 +1,3 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@sirishathotla-ux 
-import-io
-/
-robot-library
-Private
-10
-30
-Code
-Issues
-352
-Pull requests
-129
-Actions
-Projects
-5
-Wiki
-Security
-Insights
-Settings
-robot-library/src/library/product/details/stores/y/yankeecandle/US/extract.yaml
-
-unknown yankeecandle - Damayanthi
-Latest commit 15c80c0 2 hours ago
- History
- 0 contributors
-525 lines (525 sloc)  18.4 KB
-  
 singleRecord: false
 regionsSelector: null
 recordSelector: null
@@ -41,21 +6,19 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //ul[@class="slider animated"]/li/div/img/@src
+    xpath: (//div[@id="image-product"]/figure/picture/img/@src)[1]
     regExp: (.+)
-    regExpReplace: https://www.yankeecandle.com$1
+    regExpReplace: https:$1
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
-    xpath: //ul[@class="slider animated"]/li/div/img/@alt
+    xpath: (//div[@id="image-product"]/figure/picture/img/@alt)[1]
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-<<<<<<< HEAD
-    xpath: //ul[@class="thumbs animated"]/li/a/img/@src
-=======
-    xpath: //ul[@class="thumbs animated"]/li[position()>1]/a/img/@src
->>>>>>> 21d13beac14a5dcccd83d67efd8c0c9d77dd7cfa
+    xpath: (//div[@id="image-product"][position()>1]/figure/picture/img/@src)
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -63,77 +26,76 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: (//ul[@class="pdp breadcrumb"]/li[position()>=2 and position()<4])
+    xpath: //ol/li[@itemprop][position()>1]/a/span
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //ul[@class="pdp breadcrumb"]/li[position()>last()-1]
+    xpath: //span[@class="product-name"]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
+    xpath: //div[@class="product-price"]//div[@class="discount-container"]/span[@class="original-price"]
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-<<<<<<< HEAD
-    xpath: //p[@class="origPrice"]/span[2]
-    regExp: (\d+\.\d+)
-=======
-    xpath: (//p[@class="origPrice"]/span[2] | (//p[@class="salePrice"])[1])
->>>>>>> 21d13beac14a5dcccd83d67efd8c0c9d77dd7cfa
+    xpath: //div[@class="lowest-price"]/span
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: (//button[@class="addToBagBtnDefault addToBagBtn"])[1]
+    xpath: //button[@id="buy-now"]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: concat(//div[@class="descriptionContainer"],//div[@class="fragContent row"])
+    xpath: (//div[@itemprop="description"]//text()) 
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
+    type: NUMBER
+    xpath: count(//div[@itemprop="description"]//li)
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //ul[@class="slider animated"]/li/div/img/@src
-    regExp: (.+)
-    regExpReplace: YankeeCandle 
+    xpath: //a[@itemprop="brand"]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
+    xpath: //b[contains(text(),'Fabricante:')]/following::text()[1]
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
+    xpath: //span[@id="selected-option-normal-select-1"]
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-<<<<<<< HEAD
-    xpath: (//td[contains(text(),'Weight')]/following::td[1]
-=======
-    xpath: (//td[contains(text(),'Weight')]/following::td[1])
->>>>>>> 21d13beac14a5dcccd83d67efd8c0c9d77dd7cfa
+    xpath: concat(//div[@class="title"][contains(text(),'Peso (kg)')]/following::div[1],' Kg')
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    xpath: //meta[@itemprop="gtin13"]/@content
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //p[@class='reviewCount']//div/@data-bv-product-id
+    xpath: (//div[@itemprop="sku"])
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //p[@class='reviewCount']//div/@data-bv-product-id
+    xpath: (//div[@itemprop="sku"])
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
+    xpath: concat(//b[contains(text(),'Código:')]/following::text()[1] , //meta[@itemprop="model"]/@content)
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -151,17 +113,19 @@ fields:
     singleValue: true
     description: The number of ratings
     xpath: //meta[@itemprop="reviewCount"]/@content
+    type: NUMBER
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
-    xpath: //div[@itemprop="ratingValue"]
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //div[@itemprop="ratingValue"]
+    xpath: //meta[@itemprop="ratingValue"]/@content
+    type: NUMBER
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
+    xpath: //div[@class="seller-name-rating-section"]/a
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
@@ -172,9 +136,11 @@ fields:
     singleValue: true
     description: Number of variants listed
     defaultValue: '0'
+    type: NUMBER
   - name: color
     singleValue: true
     description: A textual description of the colour
+    xpath: //div[@class="title"][contains(text(),'Color')]/following::div[1]
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -190,7 +156,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
-    xpath: //h1[@itemprop="name"]
+    xpath: //span[@class="product-name"]
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -212,6 +178,7 @@ fields:
   - name: internationalShipping
     singleValue: true
     description: Text next to bullet point
+    xpath: //div[@class="product-bg-container shipping-information"]//li
   - name: salesRank
     singleValue: false
     description: Amazon best selling rank from product details (linked back) - needs
@@ -269,6 +236,7 @@ fields:
   - name: featureBullets
     singleValue: false
     description: null
+    xpath: //div[@class="product-feature"]//text()
   - name: otherSellersName
     singleValue: false
     description: null
@@ -281,11 +249,8 @@ fields:
   - name: secondaryImageTotal
     singleValue: true
     description: null
-<<<<<<< HEAD
-    xpath: count(//ul[@class="thumbs animated"]/li/a/img/@src)
-=======
-    xpath: count(//ul[@class="thumbs animated"]/li[position()>1]/a/img/@src)
->>>>>>> 21d13beac14a5dcccd83d67efd8c0c9d77dd7cfa
+    type: NUMBER
+    xpath: count(//div[@id="image-product"][position()>1]/figure/picture/img/@src)
   - name: news
     singleValue: true
     description: null
@@ -447,7 +412,6 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: //div[@class="specTable-responsive"]
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -457,6 +421,7 @@ fields:
   - name: countryOfOrigin
     singleValue: true
     description: The country from which the product originates
+    xpath: //div[@class="title"][contains(text(),'País de Origen')]/following::div[1]
   - name: allergyAdvice
     singleValue: true
     description: Allergy information associated with the product
@@ -475,6 +440,7 @@ fields:
   - name: pricePerUnit
     singleValue: true
     description: Price of the product split into certain units
+    # xpath: //div[@class="lowest-price"]/span
   - name: pricePerUnitUom
     singleValue: true
     description: The unit of measurement used in price_per_unit
@@ -499,6 +465,7 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
+    xpath: //span[@id="selected-option-normal-select-1"]
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
@@ -510,17 +477,12 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
-    xpath: //p[@class='reviewCount']//div/@data-bv-product-id
   - name: variants
     singleValue: false
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
-<<<<<<< HEAD
-    xpath: concat(//div[@class="descriptionContainer"]/p, //div[@class="col-md-6 col-sm-12 col-xs-12"])
-=======
->>>>>>> 21d13beac14a5dcccd83d67efd8c0c9d77dd7cfa
   - name: prop65Warning
     singleValue: true
     description: null
@@ -550,11 +512,15 @@ fields:
   - name: customerServiceAvailability
     singleValue: true
     description: Information related to customer service availability (text), ['Yes','No']
+    xpath: //div[@data-collapse="#customer-service-footer-menu"]
+    regExp: (.+)
+    regExpReplace: Yes
     defaultValue: No
   - name: materials
     singleValue: true
     description: Materials used to make the product
     example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+    xpath: //div[@class="title"][contains(text(),'Material')]/following::div[1]
   - name: Image360Present
     singleValue: true
     description: If 360 image is present in the carousel ['Yes','No']
@@ -565,13 +531,8 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    defaultValue: Yes
   - name: url
     singleValue: true
     description: The URL of the product
-<<<<<<< HEAD
-    xpath: //meta[@name="og:url"]/@content
-
-=======
-    xpath: //meta[@name="og:url"]/@content
->>>>>>> 21d13beac14a5dcccd83d67efd8c0c9d77dd7cfa
+    xpath: //link[@rel="canonical"]/@href

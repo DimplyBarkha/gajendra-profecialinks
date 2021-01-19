@@ -5,17 +5,20 @@ recordXPath: null
 fields:
   - name: productUrl
     description: The URL for the product details page
-    xpath: //div[@class="srp-product-box__image-section list"]/a/@href
+    xpath: //a[@class="product-name"]/@href
     regExp: (.+)
-    regExpReplace: https://www.whiteaway.com$1
+    regExpReplace: https://www.aptekaolmed.pl$1
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //div[@class="srp-product-box__image-section list"]/a/img/@src
+    xpath: //a[@class="product-icon align_row"]/div/div/img/@src
+    regExp: (.+)
+    regExpReplace: https://www.aptekaolmed.pl$1
   - name: name
     description: The product name
-    xpath: //div[@class="srp-product-box__image-section list"]/a/img/@alt
+    xpath: //a[@class="product-name"]
   - name: skus
     description: The store-specific product identifiera
+    xpath: //div[@class="product_add_basket"]/a/@data-id
   - name: ratingCount
     description: The number of ratings
     regExp: (\d+)
@@ -24,31 +27,24 @@ fields:
     regExp: (\d+)
   - name: price
     description: The offered price for the product
-<<<<<<< HEAD
-    xpath: //div[@class="campaign-banner__info offer"]/div[2]/span | //span[@class="price-section__price"]
-=======
-    xpath: //div[@class="campaign-banner__info offer"]/div[2]/span
->>>>>>> 21d13beac14a5dcccd83d67efd8c0c9d77dd7cfa
-    regExp: '\d+\.\d+'
+    xpath: //span[@class="price"]
+    type: CURRENCY
   - name: rank
     description: search/listing rank
     type: NUMBER
+    xpath: //div[@id='rankOrganic']
   - name: rankOrganic
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
+    xpath: //div[@id='rankOrganic']
   - name: sponsored
     description: Is sponsored/paid
     defaultValue: false
     type: BOOLEAN
   - name: id
     description: Unique id (within this extractor)
-    xpath: //h3/span[2]
+    xpath: //div[@class="product_add_basket"]/a/@data-id
   - name: aggregateRating
-    xpath: //div[@class="star-rating__front"]/@style
     type: NUMBER
-<<<<<<< HEAD
-=======
-    regExp: (\d+)\|20
-    # regExpReplace: $./1\|20
->>>>>>> 21d13beac14a5dcccd83d67efd8c0c9d77dd7cfa
   - name: hasVariants
+

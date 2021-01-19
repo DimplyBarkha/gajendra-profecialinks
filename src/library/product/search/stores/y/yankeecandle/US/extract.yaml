@@ -8,5 +8,19 @@ fields:
     xpath: //div[@class="product_image"]/a/@href
     regExp: (.+)
     regExpReplace: https://www.yankeecandle.com$1
+  - name: id
+    singleValue: false
+    description: Unique id (within this extractor)
+    xpath: //div[@class="product_image"]/a/img/@src
+    regExp: (.+)/(.+).jpg
+    regExpReplace: $2
+  - name: sku
+    singleValue: false
+    description: The store-specific product identifier
+    xpath: //div[@class="product_image"]/a/img/@src
+    regExp: (.+)/(.+).jpg
+    regExpReplace: $2
+
+  
   
  
