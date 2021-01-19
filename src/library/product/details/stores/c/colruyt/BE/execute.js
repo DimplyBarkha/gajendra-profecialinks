@@ -6,7 +6,7 @@ module.exports = {
     store: 'colruyt',
     domain: 'colruyt.be',
     loadedSelector: 'div.product.product--detail',
-    noResultsXPath: '//div[contains(@id,"searchResultsContainer")]',
+    noResultsXPath: '//div[contains(@class,"no-result-page")] | //div[contains(@class,"servicecost__title")]',
     zipcode: '',
   },
 };

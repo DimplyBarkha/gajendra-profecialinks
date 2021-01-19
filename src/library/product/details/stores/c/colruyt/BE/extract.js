@@ -18,13 +18,17 @@ async function implementation (inputs, parameters, context, dependencies) {
   });
   console.log('mainUrl---->', mainUrl);
   let url = '';
+  let viewArticleNumber;
   try {
-    url = await context.evaluate(() => {
-      return document.querySelector('a.product__details-more').href || '';
+    viewArticleNumber = await context.evaluate(() => {
+      return document.querySelector('input[name="viewArticleNumber"]').value;
     });
   } catch (error) {
     console.log('Read more not available');
   }
+  if (viewArticleNumber) {
+    url = 'https://fic.colruytgroup.com/productinfo/fr/cogo/' + viewArticleNumber;
+  };
 
   // let ingredients = '';
   let totalSugarsPerServing = '';
