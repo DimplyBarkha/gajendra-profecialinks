@@ -5,7 +5,7 @@ module.exports = {
     store: "houzz",
     domain: "houzz.com",
     url: "https://www.houzz.com/products/query/{searchTerms}",
-    loadedSelector: "script[type='application/ld+json']",
+    loadedSelector: "[type='application/ld+json']",
     noResultsXPath: null,
     zipcode: "",
   },

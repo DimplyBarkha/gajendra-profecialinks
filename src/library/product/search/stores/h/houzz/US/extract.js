@@ -56,18 +56,18 @@ module.exports = {
           break;
         }
       }
-      const jsonString = document.querySelectorAll(
-        "script[type='application/ld+json']"
-      )[1];
-      const jsonParsed = JSON.parse(jsonString.innerText);
-      const json_list = jsonParsed.itemListElement;
+      var jsonString = document.querySelectorAll(
+        "[type='application/ld+json']"
+      )[0];
+      var jsonParsed = JSON.parse(jsonString.innerText);
+      var json_list = jsonParsed.itemListElement;
 
       function addHiddenDiv(id, content, index) {
-        const newDiv = document.createElement("div");
+        var newDiv = document.createElement("div");
         newDiv.id = id;
         newDiv.textContent = content;
         newDiv.style.display = "none";
-        const originalDiv = document.querySelectorAll(
+        var originalDiv = document.querySelectorAll(
           ".hz-product-card__image-container"
         )[index];
         originalDiv.parentNode.insertBefore(newDiv, originalDiv);
@@ -78,7 +78,7 @@ module.exports = {
           console.log("Loop is working");
           var single_obj = json_list[i];
           var url_web = single_obj.url;
-          const searchURL = window.location.href.split("?")[0]
+          var searchURL = window.location.href.split("?")[0]
           addHiddenDiv("ii_searchURL", searchURL, i);
           addHiddenDiv("ii_produrl", url_web, i);
         }

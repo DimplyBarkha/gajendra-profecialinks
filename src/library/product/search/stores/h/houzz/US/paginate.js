@@ -6,7 +6,7 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: "body",
+    loadedSelector: "[type='application/ld+json']",
     noResultsXPath: null,
     openSearchDefinition: {
       template: 'https://www.houzz.com/products/query/{searchTerms}/p/{page}'
