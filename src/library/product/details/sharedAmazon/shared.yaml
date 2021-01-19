@@ -721,7 +721,8 @@ fields:
     # regExpReplace: $1
   - name: hasComparisonTable
     singleValue: false
-    xpath: //div[@class="apm-tablemodule"] | //*[contains(@id,"comparison_table")]
+    # xpath: //div[@class="apm-tablemodule"] | //*[contains(@id,"comparison_table")]
+    xpath: //div[@class="apm-tablemodule"]
     regExp: (.*)
     regExpReplace: True 
     defaultValue: False
