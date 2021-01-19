@@ -51,9 +51,9 @@ const transform = (data) => {
         });
         row.specifications = [{ text: arrSpecs.join(' || ') }];
       }
-      if (row.backUpInTheBoxText && !row.inTheBoxText) {
-        row.inTheBoxText = row.backUpInTheBoxText;
-      }
+      // if (row.backUpInTheBoxText && !row.inTheBoxText) {
+      //   row.inTheBoxText = row.backUpInTheBoxText;
+      // }
       // if (row.price) {
       //   row.price.forEach(item => {
       //     item.text = item.text.replace(',', '');
@@ -94,6 +94,10 @@ const transform = (data) => {
       //     item.text = (item.text * 5) / 10;
       //   });
       // }
+      if (row.unInterruptedPDP) {
+        const pdp = Array.from(new Set(row.unInterruptedPDP.map(elm => elm.text.trim())));
+        row.unInterruptedPDP = pdp.map(text => ({ text }));
+      }
     }
   }
   return cleanUp(data);

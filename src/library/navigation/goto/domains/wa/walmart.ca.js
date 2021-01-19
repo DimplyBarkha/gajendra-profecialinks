@@ -8,8 +8,8 @@ module.exports = {
     store: 'walmart',
     zipcode: '',
   },
-  implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
-    const timeout = parameters.timeout ? parameters.timeout : 10000;
+  implementation: async ({ url, zipcode, storeId }, parameterValues, context, dependencies) => {
+    const timeout = parameterValues.timeout ? parameterValues.timeout : 10000;
 
     context.setBlockAds(false);
     context.setLoadAllResources(true);
@@ -20,8 +20,27 @@ module.exports = {
     await context.goto(url, {
       firstRequestTimeout: 1000000,
       timeout,
-      waitUntil: 'load',
+      waitUntil: 'networkidle0',
       checkBlocked: false,
     });
+    async function autoScroll (page) {
+      await page.evaluate(async () => {
+        await new Promise((resolve, reject) => {
+          var totalHeight = 0;
+          var distance = 100;
+          var timer = setInterval(() => {
+            var scrollHeight = document.body.scrollHeight;
+            window.scrollBy(0, distance);
+            totalHeight += distance;
+
+            if (totalHeight >= scrollHeight) {
+              clearInterval(timer);
+              resolve();
+            }
+          }, 100);
+        });
+      });
+    }
+    await autoScroll(context);
   },
 };
