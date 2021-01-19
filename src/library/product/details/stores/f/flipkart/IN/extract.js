@@ -22,6 +22,27 @@ async function implementation (
       return new RegExp('<' + tag + '[^>]*id[\\s]?=[\\s]?[\'"]' + id + '[\'"][\\s\\S]*?<\/' + tag + '>').exec(html);
     };
     await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+
+    async function scrollToRec (node) {
+      await context.evaluate(async (node) => {
+        const element = document.querySelector(node) || null;
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+          await new Promise((resolve) => {
+            setTimeout(resolve, 5000);
+          });
+        }
+      }, node);
+    }
+    await scrollToRec('footer');
+    await scrollToRec('div._1YokD2');
+
+    try {
+      await context.waitForSelector('div.card-tile', { timeout: 45000 });
+    } catch (error) {
+      console.log('Not loading UPDP');
+    }
+
     await fetch(window.location.href, {
       method: 'GET',
     }).then(r => r.text()).then(htm => {
