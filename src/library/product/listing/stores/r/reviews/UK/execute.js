@@ -7,6 +7,8 @@ module.exports = {
     domain: 'reviews.co.uk',
     loadedSelector: 'div.StorePage',
     noResultsXPath: null,
+    gotoUrlTemplate: null,
+    // gotoUrlTemplate: 'https://www.reviews.io/company-reviews/store/{queryParams}',
     zipcode: '',
   },
 };

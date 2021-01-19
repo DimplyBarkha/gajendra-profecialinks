@@ -22,14 +22,14 @@ async function implementation (
   const totalPages = Number(resultsCount) / numberResultPerPage;
 
   const urlArray = [];
-  const { url, query } = inputs;
+  const currentUrl = await context.evaluate(() => {
+    return window.location.href;
+  });
 
-  const itemId = regExpForIdFromUrl ? url.match(regExpForIdFromUrl)[0] : '';
-  const queryToSwap = query || '';
+  const itemId = regExpForIdFromUrl ? String(currentUrl).match(regExpForIdFromUrl)[0] : '';
 
   for (let i = 1; i < totalPages; i++) {
     urlArray.push(urlTemplate
-      .replace('{queryParams}', queryToSwap)
       .replace('{id}', itemId)
       .replace('{page}', i));
   }

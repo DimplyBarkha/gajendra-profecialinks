@@ -1,17 +1,25 @@
 /**
  *
- * @param { { id: string, url: string, zipcode: string, date: string, days: string } } inputs
- * @param { { url: string, loadedSelector?: string, noResultsXPath: string, sortButtonSelectors: string, reviewUrl: string } } parameters
+ * @param { { id: string, url: string, zipcode: string, query: string } } inputs
+ * @param { { url: string, loadedSelector?: string, noResultsXPath: string, gotoUrlTemplate: string } } parameters
  * @param { ImportIO.IContext } context
  * @param { { goto: ImportIO.Action} } dependencies
  */
 async function implementation (
-  { url, zipcode },
-  { loadedSelector, noResultsXPath },
+  { url, zipcode, query },
+  { loadedSelector, noResultsXPath, gotoUrlTemplate },
   context,
   dependencies,
 ) {
-  await dependencies.goto({ url, zipcode });
+  const queryReplace = () => {
+    if (!gotoUrlTemplate) throw new Error('No pattern provided to generate a valid URL');
+    let tempUrl = gotoUrlTemplate;
+    if (query) tempUrl = tempUrl.replace(/{queryParams}/g, encodeURIComponent(query));
+    return tempUrl;
+  };
+
+  const destinationUrl = url || queryReplace();
+  await dependencies.goto({ url: destinationUrl, zipcode });
 
   if (loadedSelector) {
     await context.waitForFunction((sel, xp) => {
@@ -51,6 +59,10 @@ module.exports = {
     {
       name: 'noResultsXPath',
       description: 'XPath to tell us the page has loaded',
+    },
+    {
+      name: 'gotoUrlTemplate',
+      description: 'template for initial goto if input is not a url',
     },
   ],
   inputs: [
