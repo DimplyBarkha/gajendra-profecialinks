@@ -511,3 +511,6 @@ fields:
   xpath: //a[@class="enlarge"]/@title
   regExp: (.+)
   regExpReplace: 'Yes'
+- name: unInterruptedPDP
+  singleValue: false
+  xpath: //p[@class="productDesc"][parent::a[not(contains(@data-prod-id,"{"))]] | //div[@class="granify-product-title"]
