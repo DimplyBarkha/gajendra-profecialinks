@@ -6,7 +6,7 @@ fields:
 - name: brand
   description: Brand name
   xpath: ancestor::html//a[@id="bylineInfo"]
-  regExp: Brand:(.*) 
+  regExp: Brand:(.*)
   regExpReplace: $1
 - name: reviewDate
   xpath: //span[@data-hook="review-date"]
@@ -50,7 +50,7 @@ fields:
   xpath: //span[@data-hook="helpful-vote-statement"]
 - name: verifiedPurchase
   description: Product Purchase Notes
-  xpath: //a[@data-reftag="cm_cr_getr_d_rvw_rvwer"]/@href
+  xpath: //span[contains(text(),'Verified Purchase')]
   regExp: (.+)
   regExpReplace: 'Yes'
   defaultValue:  'No'
@@ -66,4 +66,3 @@ fields:
   description: Source URL
   xpath: ancestor::html//link[@rel="canonical"]/@href
   # xpath: ancestor::html//a[@id="bylineInfo"]/@href
- 
