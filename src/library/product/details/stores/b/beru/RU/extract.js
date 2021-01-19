@@ -197,7 +197,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     //des for second type format page
     let desc2 = document.querySelector('span.b_3JsGNgDHFb');
     if(desc2) {
-      addHiddenDiv('desList', desc2);
+      addHiddenDiv('desList', desc2.innerText);
     }
 
 
@@ -428,7 +428,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       });
       addHiddenDiv('specification_2', specification2);
     }
-    const spec2 = document.querySelector('div.b_E8vloAGwWm');
+    const spec2 = document.querySelectorAll('div.b_2O3fAVsCrX')[1];
     if (spec2) {
       var specificationList1;
       let specification1 = '';
