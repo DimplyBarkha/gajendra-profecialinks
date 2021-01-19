@@ -91,6 +91,15 @@ module.exports = {
           element.innerText = fixedText;
         });
       }
+
+      function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+      }
+
+      await sleep(3000);
+
+      const compparisionTable = document.evaluate(`//div[@id='presentation']/div/p/img[contains(@alt, 'comparateur')]/@src`, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null).snapshotLength;
+      document.body.setAttribute('import-comparision', compparisionTable ? 'Yes' : 'No')
     });
     await context.extract(productDetails, { transform });
   },
