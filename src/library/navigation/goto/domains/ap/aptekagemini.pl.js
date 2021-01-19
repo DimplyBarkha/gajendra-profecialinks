@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'aptekagemini.pl',
-    timeout: 50000,
+    timeout: 500000,
     country: 'PL',
     store: 'aptekagemini',
     zipcode: '',

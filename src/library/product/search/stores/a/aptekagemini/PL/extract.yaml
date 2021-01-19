@@ -10,6 +10,8 @@ fields:
     regExpReplace: https://www.aptekagemini.pl$1
   - name: thumbnail
     xpath: //span[contains(@class, "thumbnail")]/img/@data-src
+    # regExp: (.+)/min3(/.+)|(.+)
+    # regExpReplace: $1$2
   - name: name
     xpath: //a/@title
   - name: price
@@ -21,6 +23,6 @@ fields:
   - name: rankOrganic
     type: NUMBER
   - name: id
-    xpath: //span[contains(@class, "thumbnail")]/img/@data-src
-    regExp: (\d+).jpg
+    xpath: //a/@href
+    regExp: ((\d+)([-\w]{2,5}?)$)
     regExpReplace: $1
