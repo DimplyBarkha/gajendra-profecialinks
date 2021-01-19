@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: id
     singleValue: false
-    xpath: //input[@name="productCodePost"]/@value
+    xpath: //a[@class="js-gtm-product-link"]/@data-code
     regExp: \d+
   - name: name
     singleValue: false
