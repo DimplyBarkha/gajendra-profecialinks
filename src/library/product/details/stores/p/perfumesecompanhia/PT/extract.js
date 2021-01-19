@@ -35,7 +35,6 @@ module.exports = {
         await context.evaluate(
           async ({ i, variantsIdArr }) => {
             const addedVariant = document.createElement('div');
-            addedVariant.id = `addedVariant${i}`;
             addedVariant.id = `added_variant${i}`;
             addedVariant.style.display = 'none';
             const variantId = variantsIdArr[i];
