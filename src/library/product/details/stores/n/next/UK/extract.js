@@ -58,24 +58,30 @@ module.exports = {
         document.body.appendChild(element);
       }
     });
-    const rpc = await context.evaluate(() => {
-      const rpc = [];
-      const variantId = document.querySelectorAll('div[role="listbox"] ul li a');
-      variantId.forEach(element => rpc.push(element.getAttribute('data-dk-dropdown-value')));
-      return rpc;
-    });
-    const variants = await context.evaluate(() => { return document.querySelectorAll('div[class*="SizeSelector"] > div > ul > li > a').length; });
-    if (variants > 1) {
-      for (let i = 1; i < variants; i++) {
-        await context.evaluate((i) => {
-          document.querySelectorAll('div[class*="SizeSelector"] > div > ul > li > a')[i].click();
-        }, i);
-        // wait for extraction
-        await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-        dataConversion(await context.extract(productDetails, { transform }), rpc[i]);
-      };
+    const variantsGroup = await context.evaluate(() => { return document.querySelectorAll('div[class*="SizeSelector"]').length });
+    if (variantsGroup) {
+      for (let j = 0; j < variantsGroup; j++) {
+        const variants = await context.evaluate((j) => {
+          if (document.querySelectorAll('div[class="DropDown height-38"] div[class*="colourList"] ul li a')[j]) {
+            document.querySelectorAll('div[class="DropDown height-38"] div[class*="colourList"] ul li a')[j].click();
+          }
+          return document.querySelectorAll('div[class*="SizeSelector"]')[j].querySelectorAll('div[role="listbox"] > ul > li > a').length; 
+        }, j);
+        for (let i = 0; i < variants-1; i++) {
+          const rpc = await context.evaluate((i, j) => {
+            if (document.querySelectorAll('div[class*="SizeSelector"]')[j].querySelectorAll('div[role="listbox"] > ul > li > a').length === 1) {
+              return document.querySelectorAll('div[class*="SizeSelector"]')[j].querySelectorAll('div[role="listbox"] > ul > li > a')[0].getAttribute('data-dk-dropdown-value');
+            }
+            document.querySelectorAll('div[class*="SizeSelector"]')[j].querySelectorAll('div[role="listbox"] > ul > li > a')[i+1].click();
+            return document.querySelectorAll('div[class*="SizeSelector"]')[j].querySelectorAll('div[role="listbox"] > ul > li > a')[i+1].getAttribute('data-dk-dropdown-value');
+          }, i, j);
+          // wait for extraction
+          await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+          dataConversion(await context.extract(productDetails, { transform }), rpc);
+        };
+      }
     }
-    if (variants <= 1) {
+    if (!variantsGroup) {
       dataConversion(await context.extract(productDetails, { transform }));
     }
   },
