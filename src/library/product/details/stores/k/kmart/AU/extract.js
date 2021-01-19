@@ -36,29 +36,49 @@ module.exports = {
       };
 
       // XPATH Data Extraction For Additional Description Bullet
-      const addDescBulletInfo1 = getXpath("//div[@class='product-details-desc']/text()[1]", 'nodeValue');
-      const addDescBulletInfo2 = getAllXpath("//div[@class='product-details-desc']/ul/li/text()", 'nodeValue');
-      var abc = ""
-      if (addDescBulletInfo1 != null) {
-        if (addDescBulletInfo2 != null) {
-          abc = addDescBulletInfo2.join(" || ");
-          abc = addDescBulletInfo1 + " || " + abc
+      // const addDescBulletInfo1 = getXpath("//div[@class='product-details-desc']/text()[1]", 'nodeValue');
+      // const addDescBulletInfo2 = getAllXpath("//div[@class='product-details-desc']/ul/li/text()", 'nodeValue');
+      // var abc = ""
+      // if (addDescBulletInfo1 != null) {
+      //   if (addDescBulletInfo2 != null) {
+      //     abc = addDescBulletInfo2.join(" || ");
+      //     abc = addDescBulletInfo1 + " || " + abc
+      //   }
+      // }
+      // if (addDescBulletInfo1 != null) {
+      //   if (addDescBulletInfo2 == null) {
+      //     abc = addDescBulletInfo1;
+      //   }
+      // }
+      // if (addDescBulletInfo2 != null) {
+      //   if (addDescBulletInfo1 == null) {
+      //     var bullet = addDescBulletInfo2.join(" || ");
+      //     abc = bullet;
+      //   }
+      // }
+      // if (abc != null) {
+      //   addElementToDocument('abc', abc);
+      // }
+      var desc1 = getXpath("//div[@class='product-details-desc']/p[1]/text()", 'nodeValue');
+      var desc2 = getAllXpath("//div[@class='product-details-desc']/ul/li/text()", 'nodeValue');
+      var desc3 = getXpath("//div[@class='product-details-desc']/p[2]/text()", 'nodeValue');
+      var additional = "";
+      if (desc1 != null) {
+        additional = additional +" " + desc1;
+      }
+      if (desc2.length >=1) { 
+        for (var i=0; i<desc2.length; i++){
+          additional = additional +" " + desc2[i];
         }
       }
-      if (addDescBulletInfo1 != null) {
-        if (addDescBulletInfo2 == null) {
-          abc = addDescBulletInfo1;
-        }
+      if (desc3 != null) {
+        additional = additional +" " + desc3;
       }
-      if (addDescBulletInfo2 != null) {
-        if (addDescBulletInfo1 == null) {
-          var bullet = addDescBulletInfo2.join(" || ");
-          abc = bullet;
-        }
+      if (additional != null){
+        addElementToDocument('additional', additional);
       }
-      if (abc != null) {
-        addElementToDocument('abc', abc);
-      }
+
+
       var info1 = getAllXpath("//div[@class='product-details-desc']/ul/li/text()", 'nodeValue');
       if (info1 != null) {
         var pqr = info1.join(" || ");
