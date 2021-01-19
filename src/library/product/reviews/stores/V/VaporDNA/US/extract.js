@@ -1,4 +1,4 @@
-const { transform } = require('../../../../shared');
+const { transform } = require('./format');
 
 module.exports = {
   implements: 'product/reviews/extract',
@@ -14,6 +14,7 @@ module.exports = {
     context,
     dependencies) => {
     const { productReviews } = dependencies;
+    const { transform } = parameters;
 
     await context.evaluate(async () => {
       function addHiddenDiv (elementID, content) {
@@ -32,6 +33,6 @@ module.exports = {
       }
     });
 
-    return await context.extract(productReviews);
+    return await context.extract(productReviews, { transform });
   },
 };

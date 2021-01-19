@@ -24,7 +24,7 @@ fields:
     xpath: ancestor::html//head/title
   - name: productFamily
     description: The url of the page productFamily
-    xpath: ancestor::html//div[@id="shopify-section-product-template"]//div[@class="product-section"][1]//h1[@class='h2 product-single__title']
+    xpath: ancestor::html//meta[@property="og:url"]/@content
   - name: productRange
     description: The url of the page productRange
   - name: rating
