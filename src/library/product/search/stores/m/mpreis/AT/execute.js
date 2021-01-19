@@ -5,9 +5,9 @@ module.exports = {
     country: 'AT',
     store: 'mpreis',
     domain: 'mpreis.at',
-    url: 'https://www.mpreis.at/search/{searchTerms}',
-    loadedSelector: 'div.c3-product-grid__body',
-    noResultsXPath: '//div[@class="c3-product-grid__no-items"]',
+    url: 'https://shop.mpreis.at/index.php?lang=0&cl=search&searchparam={searchTerms}',
+    loadedSelector: 'ul[id="searchList"]',
+    noResultsXPath: '//div[contains(text(), "Leider keine Artikel gefunden.")]',
     zipcode: '',
   },
 };

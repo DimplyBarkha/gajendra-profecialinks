@@ -1,32 +1,24 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //a[contains(@class, 'c3-product-grid__item')][position() <= 150]
+recordXPath: //li[@class="productData"][position() <= 150]
 fields:
   - name: id
     singleValue: false
-    xpath: //@href
-    regExp: -(\d+)"*$
-    regExpReplace: $1
+    xpath: //input[@name="product_id"]/@id
   - name: searchUrl
     singleValue: false
-    xpath: //span[@class="c3-product__name"]/@searchurl
   - name: name
     singleValue: false
-    xpath: //span[@class="c3-product__name"]
+    xpath: //h2[@class="tm-title"]
   - name: productUrl
     singleValue: false
-    xpath: //@href
-    regExp: (.+)
-    regExpReplace: https://www.mpreis.at$1
+    xpath: //div[@class="ol-info"]//a[@class="tm-lnk-block"]/@href
   - name: gtin
     singleValue: false
-    xpath: //@href
-    regExp: -(\d+)"*$
-    regExpReplace: $1
   - name: thumbnail
     singleValue: false
-    xpath: //span[@class="c3-product__name"]/@thumbnail
+    xpath: //a[@class="slide-in img-double"]/img[1]/@src
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -37,11 +29,9 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //div[contains(@class, "_price--has-discount")]|//div[@class="c3-product__price"]
-    regExp: ^[\d,]+
+    xpath: //span[@class="productPriceUnit"]/following-sibling::strong
   - name: manufacturer
     singleValue: false
-    xpath: //span[@class="c3-product__producer"]
   - name: soldBy
     singleValue: true
   - name: endorsementText

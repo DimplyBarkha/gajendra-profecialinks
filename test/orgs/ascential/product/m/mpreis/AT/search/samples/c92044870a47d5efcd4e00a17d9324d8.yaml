@@ -2,114 +2,2259 @@ input:
   keywords: Kitkat
   _url: http://mpreis.at
 extractions:
-  - html: https://workbench.import.io/html/run=1b1131b3-cae5-457b-b8c0-cafbed7a7e32/task=67362181-1fe4-4fa9-bf54-69bb9c947b12/800d41e9-3377-4324-99b4-8ebe4ba7fe40.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=cc0aa6d8-006f-45f1-b2a8-62792942c15d/task=7d7862e2-0c75-43bd-8314-7b1e9ea92aee/3835c592-4f94-415d-b206-70907c2dcaa8.html
     extractionConfigId: product/search/stores/m/mpreis/AT/extract
     data:
       - group:
           - id:
-              - text: "160003"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/@href
+              - text: fdbd62177a9fb05c5796a7cd97ee546c
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[1]/form[1]/input[6]/@id
             name:
-              - text: Kit Kat 3er-Packung
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/div[1]/div[2]/h2[1]/span[1]
+              - text: KitKat Chunky 4er
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[1]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
-              - text: https://www.mpreis.at/shop/p/nestle-kit-kat-3er-packung-160003
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/@href
-            gtin:
-              - text: "160003"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/@href
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Riegel/KitKat-Chunky-4er.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[1]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1588938833/mpreis/products/2224816.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593043232/mpreis/products/2108651.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[1]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1,50
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/div[4]/div[1]/div[2]
-            manufacturer:
-              - text: NESTLE
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/div[1]/div[2]/h2[1]/span[2]
+              - text: 2.40 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[1]/form[1]/div[2]/div[1]/a[1]/strong[1]
           - id:
-              - text: "160029"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2]/@href
+              - text: fa34759489233bcaeed3df9c355c89dc
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[2]/form[1]/input[6]/@id
             name:
-              - text: Kit Kat Mini
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2]/div[1]/div[2]/h2[1]/span[1]
+              - text: KitKat Gold Single
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[2]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
-              - text: https://www.mpreis.at/shop/p/nestle-kit-kat-mini-160029
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2]/@href
-            gtin:
-              - text: "160029"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2]/@href
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Riegel/KitKat-Gold-Single.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[2]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1588938842/mpreis/products/2064959.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1596499538/mpreis/products/2134769.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[2]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1,99
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2]/div[4]/div[1]/div[2]
-            manufacturer:
-              - text: NESTLE
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2]/div[1]/div[2]/h2[1]/span[2]
+              - text: 1.30 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[2]/form[1]/div[2]/div[1]/a[1]/strong[1]
           - id:
-              - text: "160004"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[3]/@href
+              - text: 5aa6bfe528b97ccf1093e66d7ec36812
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[3]/form[1]/input[6]/@id
             name:
-              - text: Kit Kat Single
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[3]/div[1]/div[2]/h2[1]/span[1]
+              - text: KitKat Chunky Single Riegel
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[3]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
-              - text: https://www.mpreis.at/shop/p/nestle-kit-kat-single-160004
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[3]/@href
-            gtin:
-              - text: "160004"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[3]/@href
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Riegel/KitKat-Chunky-Single-Riegel.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[3]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1588938836/mpreis/products/2064866.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[3]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588938830/mpreis/products/2064880.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[3]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 0,90
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[3]/div[4]/div[1]/div[2]
-            manufacturer:
-              - text: NESTLE
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[3]/div[1]/div[2]/h2[1]/span[2]
+              - text: 1.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[3]/form[1]/div[2]/div[1]/a[1]/strong[1]
           - id:
-              - text: "160001"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[4]/@href
+              - text: 0277ff7cad9d6ef204c26e0ad73d774b
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[4]/form[1]/input[6]/@id
             name:
-              - text: Kit Kat Chunky
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[4]/div[1]/div[2]/h2[1]/span[1]
+              - text: KitKat Mini
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[4]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
-              - text: https://www.mpreis.at/shop/p/nestle-kit-kat-chunky-160001
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[4]/@href
-            gtin:
-              - text: "160001"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[4]/@href
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Riegel/KitKat-Mini.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[4]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1588938830/mpreis/products/2064880.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[4]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588938842/mpreis/products/2064959.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[4]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1,00
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[4]/div[4]/div[1]/div[2]
-            manufacturer:
-              - text: NESTLE
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[4]/div[1]/div[2]/h2[1]/span[2]
+              - text: 2.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[4]/form[1]/div[2]/div[1]/a[1]/strong[1]
           - id:
-              - text: "160010"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[5]/@href
+              - text: 2957c9e382a76469b376adec2bf26bad
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[5]/form[1]/input[6]/@id
             name:
-              - text: Kit Kat Gold Single
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[5]/div[1]/div[2]/h2[1]/span[1]
+              - text: KitKat Single Riegel
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[5]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
-              - text: https://www.mpreis.at/shop/p/nestle-kit-kat-gold-single-160010
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[5]/@href
-            gtin:
-              - text: "160010"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[5]/@href
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Riegel/KitKat-Single-Riegel.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[5]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1596499538/mpreis/products/2134769.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[5]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588938836/mpreis/products/2064866.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[5]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1,30
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[5]/div[4]/div[1]/div[2]
-            manufacturer:
-              - text: NESTLE
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[5]/div[1]/div[2]/h2[1]/span[2]
+              - text: 0.90 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[5]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: c0b2ff12153b2de71b9e8e7b6d80d337
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[6]/form[1]/input[6]/@id
+            name:
+              - text: KitKat 3er-Pack
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[6]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Riegel/KitKat-3er-Pack.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[6]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588938833/mpreis/products/2224816.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[6]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.80 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[6]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 58405af2002fdca6cc502c4946176e8f
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[7]/form[1]/input[6]/@id
+            name:
+              - text: Kitekat FB Landpicknick in Sauce
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[7]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Kitekat-FB-Landpicknick-in-Sauce.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[7]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1592524865/mpreis/products/423758.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[7]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.59 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[7]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 7bc948cf78d3b146a63ff348a44c2586
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[8]/form[1]/input[6]/@id
+            name:
+              - text: Kitekat Bunte Vierfalt 48er
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[8]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Kitekat-Bunte-Vierfalt-48er.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[8]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939569/mpreis/products/1380782.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[8]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 12.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[8]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: f073fa8489e4bc71bdad100f518ef290
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[9]/form[1]/input[6]/@id
+            name:
+              - text: Kitekat Landpicknick 48er
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[9]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Kitekat-Landpicknick-48er.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[9]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939575/mpreis/products/1457795.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[9]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 12.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[9]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 86404ff0792499e2ac598afd983d4fa6
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[10]/form[1]/input[6]/@id
+            name:
+              - text: Kitekat FB Bunte Vierfalt in Sauce
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[10]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Kitekat-FB-Bunte-Vierfalt-in-Sauce.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[10]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1590084627/mpreis/products/493030.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[10]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.59 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[10]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: bbb4594a9b1cbe0eecb8024792a4ab9a
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[11]/form[1]/input[6]/@id
+            name:
+              - text: Kitekat FB Geflügel Allerlei in Gelee
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[11]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Kitekat-FB-Gefluegel-Allerlei-in-Gelee.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[11]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1587876387/mpreis/products/423691.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[11]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.59 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[11]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: c69759d0f5b1d75cd21372249ae2adcb
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[12]/form[1]/input[6]/@id
+            name:
+              - text: Orofix Entkalker
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[12]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Waschen-Reinigen/Putzen-Reinigen/Allzweck-Spezialreiniger/Orofix-Entkalker.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[12]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_308825.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[12]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.45 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[12]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 382480b766391032d678c6b97d5d7a1f
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[13]/form[1]/input[6]/@id
+            name:
+              - text: JT Katzenmilch
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[13]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/JT-Katzenmilch.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[13]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939628/mpreis/products/1629788.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[13]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.69 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[13]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: bfe133f811c20e7bc1e8d0eea8f9efd6
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[14]/form[1]/input[6]/@id
+            name:
+              - text: Wodka Nikita (*)
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[14]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Alkoholische-Getraenke/Spirituosen/Wodka/Wodka-Nikita.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[14]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1598018912/mpreis/products/2293897.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[14]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.60 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[14]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: d4c690324f8c6c446888d994a02f402a
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[15]/form[1]/input[6]/@id
+            name:
+              - text: Skittles Fruits
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[15]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Suessigkeiten/Bonbons/Skittles-Fruits.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[15]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939381/mpreis/products/1668492.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[15]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.90 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[15]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 47a9e3a9949c983ba8efc17a28d5019b
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[16]/form[1]/input[6]/@id
+            name:
+              - text: Hello Kitty Tatü 4l 10x9
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[16]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Hygienepapier/Taschentuecher/Hello-Kitty-Tatue-4l-10x9.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[16]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593608519/mpreis/products/2165977.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[16]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.19 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[16]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 626d9549bbfbdef515aaf2d08964c3f4
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[17]/form[1]/input[6]/@id
+            name:
+              - text: Skittles Crazy Sours
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[17]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Suessigkeiten/Bonbons/Skittles-Crazy-Sours.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[17]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941939/mpreis/products/1668493.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[17]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.90 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[17]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: fef5620a55d54faef0d0f68b26364087
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[18]/form[1]/input[6]/@id
+            name:
+              - text: Skittles Fruits Beutel
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[18]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Suessigkeiten/Bonbons/Skittles-Fruits-Beutel.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[18]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1601510763/mpreis/products/2399726.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[18]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[18]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 82114e39ee3f63125518f2f2923068e1
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[19]/form[1]/input[6]/@id
+            name:
+              - text: Hello Kitty Tatü Würfel 3l
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[19]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Hygienepapier/Taschentuecher/Hello-Kitty-Tatue-Wuerfel-3l.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[19]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593608518/mpreis/products/2165979.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[19]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[19]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: d73b6ee431daa170c2f1073e8dfb6fd5
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[20]/form[1]/input[6]/@id
+            name:
+              - text: Skittles Crazy Sours Beutel
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[20]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Suessigkeiten/Bonbons/Skittles-Crazy-Sours-Beutel.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[20]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1601510752/mpreis/products/2399727.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[20]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[20]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: e76caab7272ceb184a7cd4f0f61b7f69
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[21]/form[1]/input[6]/@id
+            name:
+              - text: Durgol Swiss Espresso Entkalker
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[21]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Waschen-Reinigen/Putzen-Reinigen/Allzweck-Spezialreiniger/Durgol-Swiss-Espresso-Entkalker.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[21]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1598018616/mpreis/products/2294128.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[21]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 6.95 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[21]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: cc0296dc25bb276db0f6a4ff0b631581
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[22]/form[1]/input[6]/@id
+            name:
+              - text: JT Delikatessgurken
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[22]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Konserven/Dosengemuese/JT-Delikatessgurken.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[22]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/222300_i01.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[22]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[22]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 46705492978eb99ed373dea592d2b044
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[23]/form[1]/input[6]/@id
+            name:
+              - text: Hello Kitty Topa 3l 4x200
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[23]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Hygienepapier/Toilettenpapier/Hello-Kitty-Topa-3l-4x200.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[23]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941841/mpreis/products/2165978.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[23]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[23]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: f02199dd7155d02d8c5d85dc747e0222
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[24]/form[1]/input[6]/@id
+            name:
+              - text: Dr.Beckmann Maschinen Entkalker
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[24]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Waschen-Reinigen/Putzen-Reinigen/Sonstige/Dr-Beckmann-Maschinen-Entkalker.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[24]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1597276890/mpreis/products/2331690.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[24]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[24]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 6ae6ae65209eff8ab174b709ee5c488a
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[25]/form[1]/input[6]/@id
+            name:
+              - text: JT Delikatessgurken
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[25]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Konserven/Dosengemuese/JT-Delikatessgurken-oxid.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[25]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/222313_i01.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[25]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.89 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[25]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 8442ad709b96f5792bfa1e4577c1a2b6
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[26]/form[1]/input[6]/@id
+            name:
+              - text: Bentosan Naturkatzenstreu
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[26]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Pflegezubehoer/Bentosan-Naturkatzenstreu.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[26]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941855/mpreis/products/2200327.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[26]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.49 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[26]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 1d8b3255cd789ae54f27e464d71b92c2
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[27]/form[1]/input[6]/@id
+            name:
+              - text: Rana Pasta KIT Tagliatelle Pilzsauce
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[27]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Teigwaren-Reis-Saucen/Tortellini-Gnocchi/Rana-Pasta-KIT-Tagliatelle-Pilzsauce.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[27]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[27]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[27]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: d4d81de39a9eaf4f51d92df28b61ebf3
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[28]/form[1]/input[6]/@id
+            name:
+              - text: Rana Pasta KIT Tagliatelle Carbonara
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[28]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Teigwaren-Reis-Saucen/Tortellini-Gnocchi/Rana-Pasta-KIT-Tagliatelle-Carbonara.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[28]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[28]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[28]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 70c5a42819a35ee5cae95565206321b6
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[29]/form[1]/input[6]/@id
+            name:
+              - text: Power Cat Silikat Katzenstreu
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[29]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Pflegezubehoer/Power-Cat-Silikat-Katzenstreu.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[29]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939647/mpreis/products/2202089.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[29]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 5.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[29]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: fe4d0c2c466b439372717878478666f7
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[30]/form[1]/input[6]/@id
+            name:
+              - text: TM Kitzbüheler Bergkäse Scheiben 45% FiT
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[30]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Molkerei-Eier/Kaese/Hartkaese/TM-Kitzbueheler-Bergkaese-Scheiben-45-FiT.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[30]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1598019075/mpreis/products/2294632.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[30]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[30]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 7de968baa0ef5341a4caa47fa69f079b
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[31]/form[1]/input[6]/@id
+            name:
+              - text: J. Hornig Spezial Röstkaffee Ganze Bohne
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[31]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Kaffee/J-Hornig-Spezial-Roestkaffee-Ganze-Bohne.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[31]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1590796952/mpreis/products/1238188.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[31]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 7.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[31]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: f3484fe62d5ddc41d9cbfe5fadbc2223
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[32]/form[1]/input[6]/@id
+            name:
+              - text: Lindt Goldstücke Adventkalender
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[32]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Schokolade/Schokoladiges/Lindt-Goldstuecke-Adventkalender.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[32]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/167833_i01.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[32]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 11.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[32]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 64583b88e9db54ebe39e7e3871913ddd
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[33]/form[1]/input[6]/@id
+            name:
+              - text: JT Katzenstreu klumpend
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[33]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Pflegezubehoer/JT-Katzenstreu-klumpend.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[33]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939297/mpreis/products/1951296.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[33]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.49 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[33]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 70bd040b95470c652af6311ea59027fb
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[34]/form[1]/input[6]/@id
+            name:
+              - text: Kattus Frizzante Original 750 ml
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[34]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Alkoholische-Getraenke/Schaumwein/Kattus-Frizzante-Original-750-ml.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[34]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/124250_i01.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[34]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 5.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[34]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: e2ca79daef20f2c7b2c08b1c8a3ff6df
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[35]/form[1]/input[6]/@id
+            name:
+              - text: Kotanyi Muskatnuss ganz 153801
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[35]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Wuerzen-Verfeinern/Gewuerze/Kotanyi-Muskatnuss-ganz-153801.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[35]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1587876913/mpreis/products/1361583.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[35]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[35]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 742ed147a92df071298900a3f520c816
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[36]/form[1]/input[6]/@id
+            name:
+              - text: JT Bio Delikatesssauerkraut
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[36]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Konserven/Dosengemuese/JT-Bio-Delikatesssauerkraut.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[36]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939973/mpreis/products/2097120.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[36]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.69 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[36]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 07a11e59d6de36ed22bb08cf32bb39cd
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[37]/form[1]/input[6]/@id
+            name:
+              - text: Sarotti Katzenzungen
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[37]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Schokolade/Pralinen/Sarotti-Katzenzungen.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[37]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588938910/mpreis/products/1828397.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[37]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.80 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[37]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 2fb1b7db25df259bfb5278ba87a42952
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[38]/form[1]/input[6]/@id
+            name:
+              - text: Katjes Wunderland
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[38]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Suessigkeiten/Bonbons/Katjes-Wunderland.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[38]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588938884/mpreis/products/2039488.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[38]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.90 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[38]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 91f3496f878e62aadb8dff6e16113c30
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[39]/form[1]/input[6]/@id
+            name:
+              - text: Machland Delikatess Gurken 6-9cm
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[39]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Konserven/Dosengemuese/Machland-Delikatess-Gurken-6-9cm.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[39]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_222110.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[39]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.59 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[39]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: f0476eae5eccc852ca2c99f5efcc420f
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[40]/form[1]/input[6]/@id
+            name:
+              - text: JT Katzentrockenfutter Geflügel 5 Sorten
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[40]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/JT-Katzentrockenfutter-Gefluegel-5-Sorten.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[40]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939552/mpreis/products/1951055.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[40]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.09 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[40]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 48bf0f5e18dda837d99f28e6d14a9b38
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[41]/form[1]/input[6]/@id
+            name:
+              - text: Katjes Yoghurt Gums
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[41]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Suessigkeiten/Bonbons/Katjes-Yoghurt-Gums.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[41]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939209/mpreis/products/2050672.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[41]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.90 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[41]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 72ac0e9b4a798812e052107899550bbd
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[42]/form[1]/input[6]/@id
+            name:
+              - text: JT Katzen Sticks mit Pute und Leber 10er
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[42]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/JT-Katzen-Sticks-mit-Pute-und-Leber-10er.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[42]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939557/mpreis/products/1946030.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[42]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.89 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[42]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 38a8003ec07153e96e16416841708b01
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[43]/form[1]/input[6]/@id
+            name:
+              - text: PROBIO Muskatnuss gemahlen Dose
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[43]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Wuerzen-Verfeinern/Gewuerze/PROBIO-Muskatnuss-gemahlen-Dose.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[43]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593500797/mpreis/products/2263323.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[43]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 4.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[43]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: a452fa6ebd17497b1f1a57528e789f39
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[44]/form[1]/input[6]/@id
+            name:
+              - text: JT Katzentrockenfutter Fleisch 5 Sorten
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[44]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/JT-Katzentrockenfutter-Fleisch-5-Sorten.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[44]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1590710479/mpreis/products/1995970.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[44]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.09 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[44]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: afc74efdbff9abeb4fbc7f97237085c7
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[45]/form[1]/input[6]/@id
+            name:
+              - text: JT Katzen Multipack 12x100g in Gelee
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[45]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/JT-Katzen-Multipack-12x100g-in-Gelee.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[45]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1591197415/mpreis/products/721628.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[45]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.39 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[45]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 1b30971983515c838e7110d8d2bb9f6b
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[46]/form[1]/input[6]/@id
+            name:
+              - text: JT Katze feine Pastete Lachs/Forelle
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[46]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/JT-Katze-feine-Pastete-Lachs-Forelle.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[46]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939522/mpreis/products/417081.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[46]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.19 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[46]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 30dee4345dec4832176d8deea5165e6a
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[47]/form[1]/input[6]/@id
+            name:
+              - text: ALN Delikatess Mayonnaise
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[47]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Senf-Ketchup-Co/Mayonnaise/ALN-Delikatess-Mayonnaise.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[47]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941663/mpreis/products/2196459.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[47]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.60 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[47]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: f2bb937884d9c7824a113ed680f08248
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[48]/form[1]/input[6]/@id
+            name:
+              - text: Harry dvK Katen
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[48]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Brot/Brot/Harry-dvK-Katen.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[48]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588937182/mpreis/products/2019868.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[48]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.09 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[48]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: fb375921021a955d57babfe2879255a7
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[49]/form[1]/input[6]/@id
+            name:
+              - text: Kotanyi Muskatnuss gem. 153901
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[49]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Wuerzen-Verfeinern/Gewuerze/Kotanyi-Muskatnuss-gem-153901.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[49]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1587876912/mpreis/products/1361597.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[49]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[49]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: f6802242223798ff13fc93dd4ebfe92a
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[50]/form[1]/input[6]/@id
+            name:
+              - text: Mein Freund Katzentrockenfutter Sensitiv
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[50]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Mein-Freund-Katzentrockenfutter-Sensitiv.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[50]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939752/mpreis/products/508717.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[50]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.85 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[50]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: ae45c8f138ad4581ebd4d6274b8dd3e7
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[51]/form[1]/input[6]/@id
+            name:
+              - text: ALN Muskatnuss, ganz 3 Stück
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[51]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Wuerzen-Verfeinern/Gewuerze/ALN-Muskatnuss-ganz-3-Stueck.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[51]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941371/mpreis/products/1912464.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[51]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[51]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 885e64e76ee855f15890bc8c30e65bff
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[52]/form[1]/input[6]/@id
+            name:
+              - text: Mein Freund Katze Huhn/Fisch 12x100
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[52]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Mein-Freund-Katze-Huhn-Fisch-12x100.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[52]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939656/mpreis/products/974250.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[52]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.60 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[52]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 2446dce8fdf6b1682804e319308e9358
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[53]/form[1]/input[6]/@id
+            name:
+              - text: Fiedler Muskat Ottonel
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[53]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Alkoholische-Getraenke/Weine/Weisswein/Fiedler-Muskat-Ottonel.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[53]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588938006/mpreis/products/2197618.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[53]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 6.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[53]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 182edacc679c53f1d8f5dc386bbcb508
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[54]/form[1]/input[6]/@id
+            name:
+              - text: JT Katzen Multipack 12x100g Fisch
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[54]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/JT-Katzen-Multipack-12x100g-Fisch.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[54]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939643/mpreis/products/1452003.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[54]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.39 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[54]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 4076eafb9e66fb65526307efd59fe10f
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[55]/form[1]/input[6]/@id
+            name:
+              - text: JT Katzen Multipack 12x100g in Sauce
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[55]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/JT-Katzen-Multipack-12x100g-in-Sauce.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[55]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939624/mpreis/products/1546755.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[55]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.39 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[55]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: cdccaa6ce5616c996298842029d54329
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[56]/form[1]/input[6]/@id
+            name:
+              - text: Mein Freund Katze Senior Pastete Huhn
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[56]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Mein-Freund-Katze-Senior-Pastete-Huhn.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[56]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939673/mpreis/products/952505.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[56]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.45 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[56]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 22cb0bc6943d31d28241dfb679c3e2c4
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[57]/form[1]/input[6]/@id
+            name:
+              - text: Felix Delikatess Gurken
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[57]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Konserven/Dosengemuese/Felix-Delikatess-Gurken.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[57]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588940001/mpreis/products/1541670.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[57]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[57]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: a735509b0fdbd992697c9a6e3ea643de
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[58]/form[1]/input[6]/@id
+            name:
+              - text: LM Gelber Muskateller 2019
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[58]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Alkoholische-Getraenke/Weine/Weisswein/LM-Gelber-Muskateller-2019.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[58]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1595854048/mpreis/products/117a80a5-2efb-4ff7-be59-0e25ce5cad69.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[58]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 9.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[58]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: b40e3a13aa5816d54e32fa6691a3d976
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[59]/form[1]/input[6]/@id
+            name:
+              - text: JT Katzen Sticks mit Lachs und Forelle
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[59]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/JT-Katzen-Sticks-mit-Lachs-und-Forelle.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[59]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939565/mpreis/products/1946033.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[59]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.89 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[59]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 53becced21a79f5d9b48b957c0ebaaa8
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[60]/form[1]/input[6]/@id
+            name:
+              - text: Mein Freund Katzentrockenfutter Senior
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[60]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Mein-Freund-Katzentrockenfutter-Senior.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[60]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939753/mpreis/products/508716.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[60]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.85 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[60]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 17e3a5dd2ba0ad2f60ae7376cb6539fb
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[61]/form[1]/input[6]/@id
+            name:
+              - text: Mein Freund Katze Genuss Happen Fisch
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[61]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Mein-Freund-Katze-Genuss-Happen-Fisch.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[61]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939761/mpreis/products/974240.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[61]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[61]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 1d1bcaf7bdb119c9c760c93f9837780b
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[62]/form[1]/input[6]/@id
+            name:
+              - text: ALN Knäckebrot Delikatess
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[62]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Brot/Brot/ALN-Knaeckebrot-Delikatess.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[62]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941465/mpreis/products/1912877.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[62]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.60 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[62]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 82e8f7e72145831308108c183c581d69
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[63]/form[1]/input[6]/@id
+            name:
+              - text: Whiskas Katzenmilch 6Pack
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[63]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Whiskas-Katzenmilch-6Pack.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[63]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939454/mpreis/products/1668425.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[63]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 5.20 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[63]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: b2590aaa55263706b05d0563b3e46565
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[64]/form[1]/input[6]/@id
+            name:
+              - text: Mein Freund Katze Ragout mit Pute
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[64]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Mein-Freund-Katze-Ragout-mit-Pute.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[64]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939680/mpreis/products/952500.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[64]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.45 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[64]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 150dba2decb3b3906a1d19de2ed2c575
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[65]/form[1]/input[6]/@id
+            name:
+              - text: Kattus Frizzante Rose 750 ml
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[65]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Alkoholische-Getraenke/Schaumwein/Kattus-Frizzante-Rose-750-ml.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[65]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/124255_i01.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[65]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 5.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[65]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 4a702ff58d002c5d2921a7f4966a47d8
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[66]/form[1]/input[6]/@id
+            name:
+              - text: Mein Freund Katze Junior Geflügel
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[66]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Mein-Freund-Katze-Junior-Gefluegel.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[66]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939667/mpreis/products/952501.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[66]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.45 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[66]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 4b1ccfffc75d61245ccf36973831d98f
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[67]/form[1]/input[6]/@id
+            name:
+              - text: JT Katze Multipack 48x100g in Gelee
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[67]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/JT-Katze-Multipack-48x100g-in-Gelee.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[67]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939546/mpreis/products/2063401.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[67]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 9.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[67]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 2d2151b28429fd1f1fb53ec5ff39783f
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[68]/form[1]/input[6]/@id
+            name:
+              - text: Mein Freund Katze Genuss Happen Rind
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[68]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Mein-Freund-Katze-Genuss-Happen-Rind.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[68]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939756/mpreis/products/974242.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[68]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[68]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 5840f19da98a1929828d0c5a7d36ef3f
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[69]/form[1]/input[6]/@id
+            name:
+              - text: Mein Freund Katze Genuss Happen Huhn
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[69]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Mein-Freund-Katze-Genuss-Happen-Huhn.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[69]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939761/mpreis/products/974241.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[69]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[69]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: a0418ba894beb45338a79cd672b9beaf
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[70]/form[1]/input[6]/@id
+            name:
+              - text: JT Katze Pastete Senior 3 Sorten Geflüg.
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[70]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/JT-Katze-Pastete-Senior-3-Sorten-Geflueg.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[70]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939533/mpreis/products/417086.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[70]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.19 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[70]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 9f7d3654df286b05e5f9b220d9061681
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[71]/form[1]/input[6]/@id
+            name:
+              - text: Efko Delikatess Gurken 3-9cm
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[71]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Konserven/Dosengemuese/Efko-Delikatess-Gurken-3-9cm.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[71]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_222941.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[71]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[71]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 81455a37be934baac16ee7babdbb1c93
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[72]/form[1]/input[6]/@id
+            name:
+              - text: JT Katze zarte Stücke wild/geflügel/kar.
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[72]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/JT-Katze-zarte-Stuecke-wild-gefluegel-kar.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[72]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593648041/mpreis/products/2284924.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[72]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.40 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[72]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 7dc2b0b6d7b415364d03bf46f6ed5fe2
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[73]/form[1]/input[6]/@id
+            name:
+              - text: WK Weinmanufaktur Gelber Muskateller
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[73]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Alkoholische-Getraenke/Weine/Weisswein/WK-Weinmanufaktur-Gelber-Muskateller.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[73]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1587875132/mpreis/products/1060125.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[73]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 7.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[73]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 1ce9ce4eecf08bb272101858909dcdf6
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[74]/form[1]/input[6]/@id
+            name:
+              - text: JT Katzenstreu Ultra klumpend
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[74]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Pflegezubehoer/JT-Katzenstreu-Ultra-klumpend.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[74]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941860/mpreis/products/1359108.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[74]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.60 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[74]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 519d62012ea616ef871d1a3e7ba9166e
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[75]/form[1]/input[6]/@id
+            name:
+              - text: Seeberger Delikatess Feigen Extra
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[75]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Nuesse-Trockenfruechte/Trockenfruechte/Seeberger-Delikatess-Feigen-Extra.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[75]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941881/mpreis/products/2077542.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[75]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 4.30 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[75]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 79556c0011b55c787ad89c3db10ca583
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[76]/form[1]/input[6]/@id
+            name:
+              - text: Mein Freund Katzensticks Lachs 3er
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[76]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Mein-Freund-Katzensticks-Lachs-3er.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[76]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939684/mpreis/products/507460.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[76]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.85 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[76]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 3af7d429aa5280cfed7d1314aae0b3dc
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[77]/form[1]/input[6]/@id
+            name:
+              - text: Axe Bodywash Skateboard & Fresh Roses
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[77]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Koerper-Gesundheit/Baden-Duschen/Axe-Bodywash-Skateboard-Fresh-Roses.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[77]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[77]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[77]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: f64ba620150cceee49398421f3d19f37
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[78]/form[1]/input[6]/@id
+            name:
+              - text: JT Katze zarte Stücke Seelachs
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[78]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/JT-Katze-zarte-Stuecke-Seelachs.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[78]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593648048/mpreis/products/2284923.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[78]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.40 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[78]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 9b6f92179e5d75495d3214d7acddf9cf
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[79]/form[1]/input[6]/@id
+            name:
+              - text: JT Katze zarte Stücke Huhn in Sauce
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[79]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/JT-Katze-zarte-Stuecke-Huhn-in-Sauce.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[79]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593648041/mpreis/products/2284921.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[79]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.40 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[79]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: d8ade7df3de2dd37f0d62dcddd74f668
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[80]/form[1]/input[6]/@id
+            name:
+              - text: Axe Deo Skateboard & Fresh Rose Spray
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[80]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Koerper-Gesundheit/Deodorant/Axe-Deo-Skateboard-Fresh-Rose-Spray.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[80]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1602115236/mpreis/products/2210169.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[80]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.45 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[80]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 1b0f1877f7e47853c615a3fa3f23f50d
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[81]/form[1]/input[6]/@id
+            name:
+              - text: Sheba FB Delikatesse Feine Vielfalt
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[81]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Sheba-FB-Delikatesse-Feine-Vielfalt.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[81]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1601511923/mpreis/products/2399759.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[81]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[81]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: d8a257e1233c1d4e7aa3ac69959d39ab
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[82]/form[1]/input[6]/@id
+            name:
+              - text: Efko Delikatess Gurken 3-6cm
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[82]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Konserven/Dosengemuese/Efko-Delikatess-Gurken-3-6cm.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[82]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_222930.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[82]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.80 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[82]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: ce3f4c638e69aa578f3635d191b30065
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[83]/form[1]/input[6]/@id
+            name:
+              - text: Mein Freund Katzensticks Truthahn 3er
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[83]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Mein-Freund-Katzensticks-Truthahn-3er.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[83]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939695/mpreis/products/507468.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[83]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.85 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[83]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 9a87481e42576ec62bb12a063ca07d9b
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[84]/form[1]/input[6]/@id
+            name:
+              - text: IAMS Naturally Katze Senior Lachs 85g
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[84]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/IAMS-Naturally-Katze-Senior-Lachs-85g.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[84]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[84]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[84]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 3116190e208cc0cd142c9f99e1e30d9b
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[85]/form[1]/input[6]/@id
+            name:
+              - text: Mein Freund Katze Ragout Kalb&Huhn
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[85]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Mein-Freund-Katze-Ragout-Kalb-Huhn.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[85]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939699/mpreis/products/952499.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[85]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.45 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[85]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 32d43ec6b06d915ad8fc74cf04722e51
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[86]/form[1]/input[6]/@id
+            name:
+              - text: JT Katze saft. Ragout Junior Kalb/Geflüg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[86]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/JT-Katze-saft-Ragout-Junior-Kalb-Geflueg.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[86]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939519/mpreis/products/418226.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[86]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.19 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[86]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: fd609191f33fc65b3ed2420e4328c2a7
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[87]/form[1]/input[6]/@id
+            name:
+              - text: JT Katze feine Pastete Rind&Wild
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[87]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/JT-Katze-feine-Pastete-Rind-Wild.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[87]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939539/mpreis/products/417076.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[87]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.19 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[87]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: d23252546c564ebd8c7dfae38f4d0195
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[88]/form[1]/input[6]/@id
+            name:
+              - text: IAMS Naturally Katze Erw. Hunh&Lamm 85g
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[88]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/IAMS-Naturally-Katze-Erw-Hunh-Lamm-85g.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[88]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[88]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[88]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: f825ea4dbbe98c5a5d880d60cf34de12
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[89]/form[1]/input[6]/@id
+            name:
+              - text: JT Katze zarte Stücke rind/leber
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[89]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/JT-Katze-zarte-Stuecke-rind-leber.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[89]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1590796964/mpreis/products/422591.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[89]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.40 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[89]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: a13c59caabb6f0f13ac86fb6c0d56d5e
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[90]/form[1]/input[6]/@id
+            name:
+              - text: Leth Muskateller fresh & easy KHT
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[90]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Alkoholische-Getraenke/Weine/Weisswein/Leth-Muskateller-fresh-easy-KHT.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[90]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_118163.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[90]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 8.90 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[90]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: fc20ba234ed57512c46149ac0671330b
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[91]/form[1]/input[6]/@id
+            name:
+              - text: Kaiser Brustkaramellen Beutel
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[91]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Suessigkeiten/Bonbons/Kaiser-Brustkaramellen-Beutel.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[91]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1597363407/mpreis/products/2275710.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[91]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[91]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: d306a145e05afa272ddc7c68230c3c26
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[92]/form[1]/input[6]/@id
+            name:
+              - text: Katinka Universalstreu
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[92]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Pflegezubehoer/Katinka-Universalstreu.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[92]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_601400.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[92]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.69 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[92]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 80f80871676e6f0fc3a17b34cf66a472
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[93]/form[1]/input[6]/@id
+            name:
+              - text: Amigo Universal Katzenstreu 8L
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[93]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Pflegezubehoer/Amigo-Universal-Katzenstreu-8L.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[93]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1594684851/mpreis/products/2200329.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[93]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.69 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[93]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: f19e670a793bfc7815aab827f477caaf
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[94]/form[1]/input[6]/@id
+            name:
+              - text: Einkaufskarton MPreis
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[94]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Kueche-Haushalt/Sonstiges/Einkaufskarton-MPreis.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[94]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[94]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[94]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 255b7c5778fdb2eaf6fae97166b60518
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[95]/form[1]/input[6]/@id
+            name:
+              - text: Darbo Delikatess Powidl
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[95]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Suesse-pikante-Aufstriche/Marmelade/Darbo-Delikatess-Powidl.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[95]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1602720119/mpreis/products/1231538.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[95]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[95]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 738fa20ad836abde1e595a7dab1016fc
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[96]/form[1]/input[6]/@id
+            name:
+              - text: Durgol Universal Schnellentk.
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[96]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Waschen-Reinigen/Putzen-Reinigen/Allzweck-Spezialreiniger/Durgol-Universal-Schnellentk.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[96]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_344201.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[96]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.95 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[96]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: f9054aecc41022c155301bdb2ebcb865
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[97]/form[1]/input[6]/@id
+            name:
+              - text: Ab. Kokosschnitte m.Konfitüre a.Tirol
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[97]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Brot/Kuchen-Konditorei/Ab-Kokosschnitte-m-Konfituere-a-Tirol.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[97]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[97]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[97]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 334eb2674a8529f7cbc05f080585fc0f
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[98]/form[1]/input[6]/@id
+            name:
+              - text: Sabathi H. G. Muskateller Klassik KHT
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[98]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Alkoholische-Getraenke/Weine/Weisswein/Sabathi-H-G-Muskateller-Klassik-KHT.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[98]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_118142.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[98]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 12.40 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[98]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 9858e51334beb9e21eeb7fae6e802404
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[99]/form[1]/input[6]/@id
+            name:
+              - text: ALN Delikatess Senf
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[99]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Senf-Ketchup-Co/Senf/ALN-Delikatess-Senf.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[99]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1590087169/mpreis/products/2202664.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[99]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.80 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[99]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 79dd81f53bbeca00e4e0101704a170be
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[100]/form[1]/input[6]/@id
+            name:
+              - text: Durgol Universal Bio Schnellentk.
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[100]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Waschen-Reinigen/Putzen-Reinigen/Allzweck-Spezialreiniger/Durgol-Universal-Bio-Schnellentk.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[100]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1598018637/mpreis/products/2294129.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[100]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.95 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[100]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 2cde0119b370486f0fa46b60925c793a
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[101]/form[1]/input[6]/@id
+            name:
+              - text: Excelencia grüne Oliven mit Knoblauch
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[101]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Konserven/Dosengemuese/Excelencia-gruene-Oliven-mit-Knoblauch.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[101]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_262697.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[101]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.19 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[101]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 76678cddeb443afe18d98b0078173d57
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[102]/form[1]/input[6]/@id
+            name:
+              - text: Belamy Ultra Klumpstreu 5 Liter
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[102]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Pflegezubehoer/Belamy-Ultra-Klumpstreu-5-Liter.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[102]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941858/mpreis/products/2200330.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[102]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[102]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 423913158a32a88774b29889b78216ab
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[103]/form[1]/input[6]/@id
+            name:
+              - text: Praxmarer Gold
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[103]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Kaffee/Praxmarer-Gold.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[103]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1598019017/mpreis/products/2294452.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[103]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 6.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[103]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 6e3381f0d29ff7c382ba497026d45b6c
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[104]/form[1]/input[6]/@id
+            name:
+              - text: Swiffer Staubmagnet XXL
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[104]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Waschen-Reinigen/Putzen-Reinigen/Reinigunshilfsmittel/Swiffer-Staubmagnet-XXL.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[104]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593434081/mpreis/products/1905299.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[104]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 7.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[104]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 5fb9274bb24647614157520cd13414fa
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[105]/form[1]/input[6]/@id
+            name:
+              - text: JT Caffe Crema Bohne 1kg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[105]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Kaffee/JT-Caffe-Crema-Bohne-1kg.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[105]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588940122/mpreis/products/1838112.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[105]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 7.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[105]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: d8cae4f1cac2fedb0e06582c6fe0135c
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[106]/form[1]/input[6]/@id
+            name:
+              - text: J. Hornig Caffe Crema Classico Bohne
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[106]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Kaffee/J-Hornig-Caffe-Crema-Classico-Bohne.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[106]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_142814.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[106]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 15.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[106]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 4bcf5055ca879257793363fd4242bba7
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[107]/form[1]/input[6]/@id
+            name:
+              - text: Felix Crunchy&Soft Rind,Huhn & Gemüse
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[107]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Felix-Crunchy-Soft-Rind-Huhn-Gemuese.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[107]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939667/mpreis/products/2064941.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[107]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[107]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: d70ecc196fda0f48beff92bd0071fa7d
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[108]/form[1]/input[6]/@id
+            name:
+              - text: Purina One Cat Senior 7+ Huhn&Vollkorn
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[108]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Purina-One-Cat-Senior-7-Huhn-Vollkorn.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[108]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939490/mpreis/products/1938848.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[108]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 4.49 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[108]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: c9752b081c9ea668dd115dff47e225ea
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[109]/form[1]/input[6]/@id
+            name:
+              - text: Segafredo Selezione Crema
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[109]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Kaffee/Segafredo-Selezione-Crema.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[109]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1591195758/mpreis/products/2244567.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[109]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 16.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[109]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 94b9446c5727b50395a743d1b5b21329
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[110]/form[1]/input[6]/@id
+            name:
+              - text: TM Jausenduo 45%
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[110]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Molkerei-Eier/Kaese/Schnittkaese/TM-Jausenduo-45.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[110]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[110]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[110]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 138f49ff8fc4e8517f588d6aad6a2a2b
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[111]/form[1]/input[6]/@id
+            name:
+              - text: Purina One Sterilcat Rind&Weizen
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[111]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Purina-One-Sterilcat-Rind-Weizen.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[111]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939486/mpreis/products/1938846.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[111]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 4.49 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[111]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 5d7b641d636b4f6248f76f3035962f0e
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[112]/form[1]/input[6]/@id
+            name:
+              - text: Bio v.Berg QT Tiroler Emmentaler Scheib.
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[112]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Molkerei-Eier/Kaese/Hartkaese/Bio-v-Berg-QT-Tiroler-Emmentaler-Scheib.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[112]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588940221/mpreis/products/1723631.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[112]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[112]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 108798170388599fc43efc8e2469a663
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[113]/form[1]/input[6]/@id
+            name:
+              - text: Finish Maschinentiefenreiniger Lemon
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[113]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Waschen-Reinigen/Putzen-Reinigen/Geschirrspuelmittel/Finish-Maschinentiefenreiniger-Lemon.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[113]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588940720/mpreis/products/1441402.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[113]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.95 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[113]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 4824b0c61c9c6daffa629fbec0093924
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[114]/form[1]/input[6]/@id
+            name:
+              - text: Eduscho Gala Nr.1 Vac 2x250g
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[114]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Kaffee/Eduscho-Gala-Nr-1-Vac-2x250g.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[114]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_149109.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[114]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 5.49 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[114]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 4d95768f04c9e1fd535c7ed2e4590ee0
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[115]/form[1]/input[6]/@id
+            name:
+              - text: Eduscho Cafissimo Crema Elegante
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[115]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Kaffee/Eduscho-Cafissimo-Crema-Elegante.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[115]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1594771256/mpreis/products/2281067.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[115]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.89 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[115]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 94647ca093a26760879b3d45fc2fb23e
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[116]/form[1]/input[6]/@id
+            name:
+              - text: Finish Maschinenpfleger Tabs
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[116]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Waschen-Reinigen/Putzen-Reinigen/Geschirrspuelmittel/Finish-Maschinenpfleger-Tabs.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[116]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588940720/mpreis/products/1751061.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[116]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[116]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: b4de692fb042b67e1782cc852913e81c
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[117]/form[1]/input[6]/@id
+            name:
+              - text: Storck Nimm 2 Soft + Cola
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[117]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Suessigkeiten/Bonbons/Storck-Nimm-2-Soft-Cola.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[117]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1595550039/mpreis/products/2283366.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[117]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.80 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[117]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 098795316772a84b8ad5ccb350307e68
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[118]/form[1]/input[6]/@id
+            name:
+              - text: Purina One Adult Huhn & Vollkorn
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[118]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Purina-One-Adult-Huhn-Vollkorn.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[118]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939483/mpreis/products/1938852.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[118]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 4.49 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[118]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 2ff828eca333e9c552f473bd8f55578b
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[119]/form[1]/input[6]/@id
+            name:
+              - text: Purina One Dual Nature Adult Huhn 750g
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[119]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Purina-One-Dual-Nature-Adult-Huhn-750g.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[119]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939478/mpreis/products/1946899.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[119]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[119]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: b2ece7ebf3ffe56e72496231524aef1b
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[120]/form[1]/input[6]/@id
+            name:
+              - text: ALN Café Peru
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[120]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Kaffee/ALN-Caf-Peru.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[120]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593499553/mpreis/products/2272144.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[120]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 8.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[120]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 4c84a82e8f862673c77a813570c6bf40
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[121]/form[1]/input[6]/@id
+            name:
+              - text: Felix Knabber Mix Grillspaß
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[121]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Felix-Knabber-Mix-Grillspass.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[121]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939656/mpreis/products/1938967.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[121]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[121]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 7e6574a16e99960d0731e6c972f7c98d
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[122]/form[1]/input[6]/@id
+            name:
+              - text: Gourmet Perle Erlesene Streifen Thunf.
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[122]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Gourmet-Perle-Erlesene-Streifen-Thunf.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[122]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939643/mpreis/products/1939086.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[122]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.29 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[122]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 816fee4aa7f13decf2fb0b06325b3271
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[123]/form[1]/input[6]/@id
+            name:
+              - text: Gourmet Gold Pastete mit Thunfisch
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[123]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Gourmet-Gold-Pastete-mit-Thunfisch.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[123]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593426752/mpreis/products/1939291.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[123]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.75 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[123]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 9cab2ec566b193da27abb3deeb67ae86
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[124]/form[1]/input[6]/@id
+            name:
+              - text: Wiener Zucker Sticks
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[124]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Wuerzen-Verfeinern/Zucker-Suessstoffe/Wiener-Zucker-Sticks.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[124]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593522436/mpreis/products/2252901.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[124]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.79 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[124]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 9d3d26e815ae84e1daaaddff7e12647d
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[125]/form[1]/input[6]/@id
+            name:
+              - text: Gourmet Gold Schmelz. Kern Rind
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[125]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Gourmet-Gold-Schmelz-Kern-Rind.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[125]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1594425654/mpreis/products/2134773.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[125]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.75 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[125]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: a675624e5eb195f4771d3f7f80893bcd
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[126]/form[1]/input[6]/@id
+            name:
+              - text: Gourmet Gold Feine Pastete mit Huhn
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[126]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Gourmet-Gold-Feine-Pastete-mit-Huhn.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[126]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939620/mpreis/products/1938999.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[126]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.75 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[126]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: beb00c15506db48d0133d04f519027cb
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[127]/form[1]/input[6]/@id
+            name:
+              - text: Gourmet Perle Lachs
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[127]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Gourmet-Perle-Lachs.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[127]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939734/mpreis/products/1939236.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[127]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.85 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[127]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: d5ecb88a5377ad6cacb32e60fb19effa
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[128]/form[1]/input[6]/@id
+            name:
+              - text: Gourmet Perle Huhn in Sauce
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[128]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Gourmet-Perle-Huhn-in-Sauce.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[128]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939727/mpreis/products/1938766.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[128]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.85 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[128]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: dfc7d01091581e10b0a20deee3adeae2
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[129]/form[1]/input[6]/@id
+            name:
+              - text: Dreamies Mega Pack Huhn
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[129]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Dreamies-Mega-Pack-Huhn.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[129]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939541/mpreis/products/1033863.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[129]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[129]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 3a2606691e3e5e15f4c01b16566a749c
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[130]/form[1]/input[6]/@id
+            name:
+              - text: Gourmet Perle Thunfisch
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[130]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Gourmet-Perle-Thunfisch.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[130]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939633/mpreis/products/1939132.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[130]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.85 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[130]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 548acc300a684e34f6e8c7000b3fbc9b
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[131]/form[1]/input[6]/@id
+            name:
+              - text: Felix Sensations Rind,Huhn,Ente 12x85g
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[131]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Felix-Sensations-Rind-Huhn-Ente-12x85g.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[131]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1596182807/mpreis/products/2315591.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[131]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 5.39 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[131]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 577c1eac61ec6db5a70997e5bbf52fdf
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[132]/form[1]/input[6]/@id
+            name:
+              - text: Gourmet Perle 12x85g XXL
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[132]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Gourmet-Perle-12x85g-XXL.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[132]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/208477_i01.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[132]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 5.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[132]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 76d61e118d0a44484ea4bfa86ce315ab
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[133]/form[1]/input[6]/@id
+            name:
+              - text: Gourmet Gold Schmelz. Kern Lachs 85g
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[133]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Gourmet-Gold-Schmelz-Kern-Lachs-85g.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[133]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939590/mpreis/products/2134775.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[133]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.75 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[133]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 91cb4a38b2509bab6ddaec011e1cbc7a
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[134]/form[1]/input[6]/@id
+            name:
+              - text: Purina Gourmet mon Petit Wild/Leber/Rind
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[134]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Purina-Gourmet-mon-Petit-Wild-Leber-Rind.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[134]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939631/mpreis/products/1938872.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[134]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.89 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[134]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 9b65eb24cdc215f6889ceda1f330aa02
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[135]/form[1]/input[6]/@id
+            name:
+              - text: Purina Gourmet mon Petit Thunf./Lachs
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[135]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Purina-Gourmet-mon-Petit-Thunf-Lachs.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[135]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939629/mpreis/products/1938933.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[135]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.89 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[135]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 9e57d36e00ea431cca06a1c46c1fb2c1
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[136]/form[1]/input[6]/@id
+            name:
+              - text: Gourmet Perle Rind
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[136]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Gourmet-Perle-Rind.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[136]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939729/mpreis/products/1939234.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[136]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.85 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[136]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: a06e838aa626e263eaec0331409f579d
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[137]/form[1]/input[6]/@id
+            name:
+              - text: Gourmet Perle 4x85 Huhn,Rind,Lachs
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[137]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Gourmet-Perle-4x85-Huhn-Rind-Lachs.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[137]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939638/mpreis/products/1939089.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[137]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.29 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[137]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: a8a7b91aed5df3a869bf8d457ba48f7d
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[138]/form[1]/input[6]/@id
+            name:
+              - text: Felix Rind,Huhn,Kaninchen&Lamm 24x85g
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[138]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Felix-Rind-Huhn-Kaninchen-Lamm-24x85g.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[138]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1598017847/mpreis/products/2315596.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[138]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 9.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[138]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: ad51bb510622a04c00a8174a0d78b389
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[139]/form[1]/input[6]/@id
+            name:
+              - text: Gourmet Gold Feine Komposition Ente&Trut
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[139]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Gourmet-Gold-Feine-Komposition-Ente-Trut.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[139]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939738/mpreis/products/1939299.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[139]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.75 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[139]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: b22459d48638d340ed23b958e4137b34
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[140]/form[1]/input[6]/@id
+            name:
+              - text: HB Mildessa Genießer Rotkohl m.Portwein
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[140]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Konserven/Dosengemuese/HB-Mildessa-Geniesser-Rotkohl-m-Portwein.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[140]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1601079049/mpreis/products/2138259.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[140]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[140]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: b6cf320e436f50f68932ccbc4f1e1d0f
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[141]/form[1]/input[6]/@id
+            name:
+              - text: Purina Gourmet mon Petit Ente/Huhn
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[141]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Purina-Gourmet-mon-Petit-Ente-Huhn.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[141]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939626/mpreis/products/1938935.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[141]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.89 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[141]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: de3a06ed9a4f93d037a2cb359d34b379
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[142]/form[1]/input[6]/@id
+            name:
+              - text: Gourmet Gold Häppchen Kalb und Gemüse
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[142]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Gourmet-Gold-Haeppchen-Kalb-und-Gemuese.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[142]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939613/mpreis/products/1939295.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[142]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.75 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[142]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 41a71f1f1e392d8c1911ee035603e3ca
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[143]/form[1]/input[6]/@id
+            name:
+              - text: Calgon 3in1 Tabs 45er
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[143]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Waschen-Reinigen/Waesche-Textilpflege/Wasserenthaerter/Calgon-3in1-Tabs-45er.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[143]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941893/mpreis/products/1800838.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[143]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 9.95 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[143]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 4fca1c733b32cbf090e8719dc3cffde5
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[144]/form[1]/input[6]/@id
+            name:
+              - text: Meinl Präsident gemahlen
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[144]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Kaffee/Meinl-Praesident-gemahlen.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[144]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588938686/mpreis/products/2160578.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[144]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 6.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[144]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 5163e4fea7be8f4ccdb1b20efc1e33ef
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[145]/form[1]/input[6]/@id
+            name:
+              - text: Eduscho NC Lungo Elegante Kapseln
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[145]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Kaffee/Eduscho-NC-Lungo-Elegante-Kapseln.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[145]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1594771457/mpreis/products/2281088.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[145]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.29 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[145]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 63de2d465d8c93b7b5a5d91cde7a07d4
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[146]/form[1]/input[6]/@id
+            name:
+              - text: Frosch Essig Kalklöse Essenz
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[146]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Waschen-Reinigen/Putzen-Reinigen/Allzweck-Spezialreiniger/Frosch-Essig-Kalkloese-Essenz.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[146]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593426848/mpreis/products/2264384.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[146]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[146]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 80f85a35c64c6fce0427a909b77917c3
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[147]/form[1]/input[6]/@id
+            name:
+              - text: ALN Espresso, gemahlen
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[147]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Kaffee/ALN-Espresso-gemahlen.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[147]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593499547/mpreis/products/2272143.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[147]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 4.05 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[147]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: ac62494c58feb2c939ff77aa907c3019
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[148]/form[1]/input[6]/@id
+            name:
+              - text: Eduscho NC Lungo Cremoso Kapseln
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[148]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Kaffee/Eduscho-NC-Lungo-Cremoso-Kapseln.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[148]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1594771468/mpreis/products/2281084.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[148]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.29 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[148]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: aca3d84bd8332e3c27730ed9c6856305
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[149]/form[1]/input[6]/@id
+            name:
+              - text: Meinl Classic Frühstückskaffee gemahlen
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[149]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Kaffee/Meinl-Classic-Fruehstueckskaffee-gemahlen.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[149]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1590083751/mpreis/products/1896842.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[149]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 5.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[149]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: ba85c32ca31549af49132039458299b2
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[150]/form[1]/input[6]/@id
+            name:
+              - text: Eduscho NC Espresso Intenso Kapseln
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[150]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Kaffee/Eduscho-NC-Espresso-Intenso-Kapseln.html?listtype=search&searchparam=Kitkat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[150]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1594771478/mpreis/products/2281081.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[150]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.29 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[150]/form[1]/div[2]/div[1]/a[1]/strong[1]
         xpath: /html
-    timestamp: 1610524641892
+    timestamp: 1611045446476

@@ -2,240 +2,2259 @@ input:
   keywords: Kakaopulver
   _url: http://mpreis.at
 extractions:
-  - html: https://workbench.import.io/html/run=1b1131b3-cae5-457b-b8c0-cafbed7a7e32/task=2f5ad3fe-a30f-4e6e-9245-314d1f8942a5/d4a2ab01-1278-4525-aa90-a0e9ff1ed868.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=cc0aa6d8-006f-45f1-b2a8-62792942c15d/task=695b18d0-c36d-487e-918a-8524b64c59c2/47298112-c570-42d8-8e63-ccbd94feda8c.html
     extractionConfigId: product/search/stores/m/mpreis/AT/extract
     data:
       - group:
           - id:
-              - text: "182833"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/@href
+              - text: 9a33de73c82166cb7f29575c404023c4
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[1]/form[1]/input[6]/@id
             name:
-              - text: Nesquik Kakaopulver
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/div[1]/div[2]/h2[1]/span[1]
+              - text: EZA Bio Equita-Löskakao
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[1]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
-              - text: https://www.mpreis.at/shop/p/nestle-nesquik-kakaopulver-182833
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/@href
-            gtin:
-              - text: "182833"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/@href
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Kakao/EZA-Bio-Equita-Loeskakao.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[1]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1602583146/mpreis/products/2429475.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1590083671/mpreis/products/2217482.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[1]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 3,99
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/div[4]/div[1]/div[2]
-            manufacturer:
-              - text: NESTLE
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/div[1]/div[2]/h2[1]/span[2]
+              - text: 4.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[1]/form[1]/div[2]/div[1]/a[1]/strong[1]
           - id:
-              - text: "182602"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2]/@href
+              - text: 50ee8e4a4c123bb9b1c5bafa935c9714
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[2]/form[1]/input[6]/@id
             name:
-              - text: Kakaopulver
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2]/div[1]/div[2]/h2[1]/span[1]
+              - text: Bensdorp Kakao
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[2]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
-              - text: https://www.mpreis.at/shop/p/bensdorp-kakaopulver-182602
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2]/@href
-            gtin:
-              - text: "182602"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2]/@href
+              - text: https://shop.mpreis.at/Getraenke/Bensdorp-Kakao.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[2]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_182602.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_182602.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[2]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1,59
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2]/div[4]/div[1]/div[2]
-            manufacturer:
-              - text: BENSDORP
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2]/div[1]/div[2]/h2[1]/span[2]
+              - text: 1.59 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[2]/form[1]/div[2]/div[1]/a[1]/strong[1]
           - id:
-              - text: "182842"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[3]/@href
+              - text: 61ca9d05fb88f854e1bc88a30605e797
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[3]/form[1]/input[6]/@id
             name:
-              - text: Nesquik Kakaopulver zuckerreduziert
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[3]/div[1]/div[2]/h2[1]/span[1]
+              - text: ALN Kakao, schwach entölt
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[3]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
-              - text: https://www.mpreis.at/shop/p/nestle-nesquik-kakaopulver-zuckerreduziert-182842
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[3]/@href
-            gtin:
-              - text: "182842"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[3]/@href
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Backen-Desserts/Backzutaten/ALN-Kakao-schwach-entoelt.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[3]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1602583149/mpreis/products/2429476.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[3]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941439/mpreis/products/1912376.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[3]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 2,99
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[3]/div[4]/div[1]/div[2]
-            manufacturer:
-              - text: NESTLE
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[3]/div[1]/div[2]/h2[1]/span[2]
+              - text: 2.39 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[3]/form[1]/div[2]/div[1]/a[1]/strong[1]
           - id:
-              - text: "146119"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[4]/@href
+              - text: cf6041ce04cdf1853fe91c2898ef1e38
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[4]/form[1]/input[6]/@id
             name:
-              - text: Bio Trinkkakaopulver Equita
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[4]/div[1]/div[2]/h2[1]/span[1]
+              - text: ALN Hafer Riegel Kakao
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[4]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
-              - text: https://www.mpreis.at/shop/p/eza-bio-trinkkakaopulver-equita-146119
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[4]/@href
-            gtin:
-              - text: "146119"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[4]/@href
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Riegel/ALN-Hafer-Riegel-Kakao.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[4]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1590083671/mpreis/products/2217482.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[4]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1598017330/mpreis/products/2319181.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[4]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 4,99
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[4]/div[4]/div[1]/div[2]
-            manufacturer:
-              - text: EZA
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[4]/div[1]/div[2]/h2[1]/span[2]
+              - text: 1.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[4]/form[1]/div[2]/div[1]/a[1]/strong[1]
           - id:
-              - text: "200197"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[5]/@href
+              - text: 783895de6008572b29f00216a68c7dff
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[5]/form[1]/input[6]/@id
             name:
-              - text: Schokodrink Kakaopulver
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[5]/div[1]/div[2]/h2[1]/span[1]
+              - text: Haas Backpulver 3er
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[5]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
-              - text: https://www.mpreis.at/shop/p/jeden-tag-schokodrink-kakaopulver-200197
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[5]/@href
-            gtin:
-              - text: "200197"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[5]/@href
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Backen-Desserts/Backzutaten/Haas-Backpulver-3er.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[5]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1588939348/mpreis/products/290804.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[5]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588938851/mpreis/products/1975951.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[5]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 2,39
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[5]/div[4]/div[1]/div[2]
-            manufacturer:
-              - text: Jeden Tag
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[5]/div[1]/div[2]/h2[1]/span[2]
+              - text: 0.30 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[5]/form[1]/div[2]/div[1]/a[1]/strong[1]
           - id:
-              - text: "182839"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[6]/@href
+              - text: 6b6eb8884253ba831dbf1c2b1395f8fb
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[6]/form[1]/input[6]/@id
             name:
-              - text: Nesquik Kakaopulver Stick 10er-Packung
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[6]/div[1]/div[2]/h2[1]/span[1]
+              - text: Persil Normalpulver 30WG
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[6]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
-              - text: https://www.mpreis.at/shop/p/nestle-nesquik-kakaopulver-stick-10er-packung-182839
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[6]/@href
-            gtin:
-              - text: "182839"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[6]/@href
+              - text: https://shop.mpreis.at/Drogeriemarkt/Waschen-Reinigen/Waesche-Textilpflege/Waschmittel/Persil-Normalpulver-30WG.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[6]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1588939238/mpreis/products/2224851.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[6]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_435819.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[6]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1,50
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[6]/div[4]/div[1]/div[2]
-            manufacturer:
-              - text: NESTLE
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[6]/div[1]/div[2]/h2[1]/span[2]
+              - text: 6.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[6]/form[1]/div[2]/div[1]/a[1]/strong[1]
           - id:
-              - text: "183500"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[7]/@href
+              - text: 67184da1eb65509afa5e616534b50902
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[7]/form[1]/input[6]/@id
             name:
-              - text: Der Klassiker Getränkepulver Kakao und Malz
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[7]/div[1]/div[2]/h2[1]/span[1]
+              - text: JT Kakaodoppelkeks
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[7]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
-              - text: https://www.mpreis.at/shop/p/ovomaltine-der-klassiker-getraenkepulver-kakao-und-malz-183500
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[7]/@href
-            gtin:
-              - text: "183500"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[7]/@href
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Kekse-Biskotten/JT-Kakaodoppelkeks.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[7]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1588939253/mpreis/products/2144260.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[7]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939882/mpreis/products/1442837.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[7]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 4,99
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[7]/div[4]/div[1]/div[2]
-            manufacturer:
+              - text: 1.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[7]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 8f1edc558178803d414acede0416b79c
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[8]/form[1]/input[6]/@id
+            name:
+              - text: Frosch Voll-Waschpulver Citrus 18WG
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[8]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Waschen-Reinigen/Waesche-Textilpflege/Waschmittel/Frosch-Voll-Waschpulver-Citrus-18WG.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[8]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593500770/mpreis/products/2264401.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[8]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 5.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[8]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 4cd2622bbc142964f5fd1e3e805af88a
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[9]/form[1]/input[6]/@id
+            name:
+              - text: Ariel Pulver Regulär 30MB
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[9]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Waschen-Reinigen/Waesche-Textilpflege/Waschmittel/Ariel-Pulver-Regulaer-30MB.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[9]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1590087473/mpreis/products/2218532.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[9]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 8.45 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[9]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: e2a51f1e65b32e54716ba0916f9b83ce
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[10]/form[1]/input[6]/@id
+            name:
+              - text: Frosch Waschpulver Sensitiv 18WG
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[10]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Waschen-Reinigen/Waesche-Textilpflege/Waschmittel/Frosch-Waschpulver-Sensitiv-18WG.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[10]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593426839/mpreis/products/2264402.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[10]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 5.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[10]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 01be7964efbc7a88fa9babd8a74f1e0f
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[11]/form[1]/input[6]/@id
+            name:
+              - text: Bref Citro Scheuerpulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[11]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Waschen-Reinigen/Putzen-Reinigen/Scheuermittel/Bref-Citro-Scheuerpulver.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[11]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_316300.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[11]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[11]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: dee09ca3d20d9245335ec911f0ab0a8f
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[12]/form[1]/input[6]/@id
+            name:
+              - text: Ariel Pulver Color 100WG
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[12]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Waschen-Reinigen/Waesche-Textilpflege/Waschmittel/Ariel-Pulver-Color-100WG.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[12]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941815/mpreis/products/2203964.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[12]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 16.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[12]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 79f883d5bade54ec9c91c7346650f991
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[13]/form[1]/input[6]/@id
+            name:
+              - text: Dr.Oetker Backpulver 3er
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[13]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Backen-Desserts/Backzutaten/Dr-Oetker-Backpulver-3er.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[13]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_160313.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[13]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[13]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 55143bedb7c41576e24862a2233bbd00
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[14]/form[1]/input[6]/@id
+            name:
+              - text: Isostar Pulver Zitrone 400 gr.
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[14]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Saefte-Sirup/Sport-Energy-Drinks/Isostar-Pulver-Zitrone-400-gr.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[14]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593302451/mpreis/products/2253823.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[14]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 7.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[14]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 156f2eb96cbe2e004cb4e8066077d4cf
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[15]/form[1]/input[6]/@id
+            name:
+              - text: ALN Trinkkakao
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[15]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Kakao/ALN-Trinkkakao.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[15]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941338/mpreis/products/2164096.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[15]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[15]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 6350e6ef8233e4258660ea923551ee4b
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[16]/form[1]/input[6]/@id
+            name:
+              - text: Calgon 3in1 Pulver 46WG
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[16]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Waschen-Reinigen/Waesche-Textilpflege/Wasserenthaerter/Calgon-3in1-Pulver-46WG.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[16]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588940736/mpreis/products/1974373.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[16]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 9.95 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[16]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: c22f860aed54fe06b67b078746616cf8
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[17]/form[1]/input[6]/@id
+            name:
+              - text: Ariel Pulver Regulär 100WG
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[17]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Waschen-Reinigen/Waesche-Textilpflege/Waschmittel/Ariel-Pulver-Regulaer-100WG.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[17]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593434086/mpreis/products/1904902.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[17]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 16.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[17]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: f2a13e173a31fd3c5b7e3d251c2e7b15
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[18]/form[1]/input[6]/@id
+            name:
+              - text: Manner Kakao
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[18]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Kakao/Manner-Kakao.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[18]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1600128175/mpreis/products/2369350.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[18]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.49 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[18]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 46edad2dc5fb9d6f33c79994e8a09ec7
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[19]/form[1]/input[6]/@id
+            name:
+              - text: ALN Reinweinstein Backpulver 4er Pack
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[19]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Backen-Desserts/Backzutaten/ALN-Reinweinstein-Backpulver-4er-Pack.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[19]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941454/mpreis/products/1912834.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[19]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[19]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: dd9ec428331c86ddf343ddb15a03197c
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[20]/form[1]/input[6]/@id
+            name:
+              - text: Persil Pulver 100WG
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[20]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Waschen-Reinigen/Waesche-Textilpflege/Waschmittel/Persil-Pulver-100WG.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[20]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593608908/mpreis/products/2166906.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[20]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 15.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[20]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 63ca0a601c710642de6fe8d161daeb11
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[21]/form[1]/input[6]/@id
+            name:
+              - text: Persil Pulver 60WG
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[21]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Waschen-Reinigen/Waesche-Textilpflege/Waschmittel/Persil-Pulver-60WG.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[21]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_437877.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[21]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 21.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[21]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 4c4b6d18dc586a643f10b3307ca33dea
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[22]/form[1]/input[6]/@id
+            name:
+              - text: Omo F4 Pulver 5 Wäschen
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[22]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Waschen-Reinigen/Waesche-Textilpflege/Waschmittel/Omo-F4-Pulver-5-Waeschen.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[22]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593671404/mpreis/products/2008381.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[22]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.60 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[22]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 5f9d982d5f5c720088b1ba1a8fc14256
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[23]/form[1]/input[6]/@id
+            name:
+              - text: Claro Öko Pulver Classic 50AW
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[23]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Waschen-Reinigen/Putzen-Reinigen/Geschirrspuelmittel/Claro-Oeko-Pulver-Classic-50AW.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[23]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941939/mpreis/products/2210430.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[23]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 5.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[23]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 2e5e73c573cbbaee7dac8fb5e20b0da9
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[24]/form[1]/input[6]/@id
+            name:
+              - text: Jomo Kakaoroulade
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[24]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Brot/Kuchen-Konditorei/Jomo-Kakaoroulade.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[24]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1602633851/mpreis/products/2430166.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[24]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.15 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[24]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 6a3af6d01d78d39fe9b72e30d8646e07
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[25]/form[1]/input[6]/@id
+            name:
+              - text: Ariel Pulver Color&Style 30MB
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[25]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Waschen-Reinigen/Waesche-Textilpflege/Waschmittel/Ariel-Pulver-Color-Style-30MB.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[25]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1590087470/mpreis/products/2218531.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[25]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 8.45 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[25]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: f1a413ab065071b9f85ef6d26d42b2f4
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[26]/form[1]/input[6]/@id
+            name:
+              - text: Jomo Schoko Guglhupf
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[26]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Brot/Kuchen-Konditorei/Jomo-Schoko-Guglhupf.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[26]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588937151/mpreis/products/1920232.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[26]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.29 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[26]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: b1e5001487976435b63733771ab21698
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[27]/form[1]/input[6]/@id
+            name:
+              - text: JT Schoko Folienkuchen
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[27]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Brot/Kuchen-Konditorei/JT-Schoko-Folienkuchen.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[27]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588937977/mpreis/products/1141928.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[27]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.49 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[27]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 0e1823c34b7cfdd13b01d977b3942673
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[28]/form[1]/input[6]/@id
+            name:
+              - text: JT Marmor Folienkuchen
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[28]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Brot/Kuchen-Konditorei/JT-Marmor-Folienkuchen.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[28]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588937977/mpreis/products/1141930.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[28]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.49 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[28]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 00e444a65335a0d2abc78073e83a410a
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[29]/form[1]/input[6]/@id
+            name:
+              - text: Nesquik Kakao 10 Sticks
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[29]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Nesquik-Kakao-10-Sticks.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[29]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939238/mpreis/products/2224851.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[29]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[29]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: bdac404441c3f011c6aaaaacc8873802
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[30]/form[1]/input[6]/@id
+            name:
+              - text: ALN Kakaobutter
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[30]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Backen-Desserts/Backzutaten/ALN-Kakaobutter.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[30]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588940802/mpreis/products/2202372.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[30]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.25 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[30]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: e021264954713f0c4833ec1df291d14c
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[31]/form[1]/input[6]/@id
+            name:
+              - text: Bensdorp Kakao Express
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[31]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Kakao/Bensdorp-Kakao-Express.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[31]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_182751.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[31]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[31]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 5017888b2badb1156b69363538829cd3
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[32]/form[1]/input[6]/@id
+            name:
+              - text: Bahlsen Leibniz Kakaokeks
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[32]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Kekse-Biskotten/Bahlsen-Leibniz-Kakaokeks.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[32]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588942061/mpreis/products/1005934.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[32]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[32]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: b849e4cd12faa6ca7bbcba9c36dfacbf
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[33]/form[1]/input[6]/@id
+            name:
+              - text: TM Kakao aus Tiroler Bergbauernmilch
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[33]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Molkerei-Eier/Milch/Molke-Milchgetraenke/TM-Kakao-aus-Tiroler-Bergbauernmilch-oxid-1.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[33]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1602288087/mpreis/products/2425351.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[33]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.59 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[33]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: e45b0337410a27beb2d045e348fa7808
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[34]/form[1]/input[6]/@id
+            name:
+              - text: Tassimo Milka Kakao
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[34]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Kakao/Tassimo-Milka-Kakao.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[34]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1590083700/mpreis/products/1128605.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[34]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 5.49 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[34]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 0edb9940aa5e6cf69eda96f25c44df29
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[35]/form[1]/input[6]/@id
+            name:
+              - text: ALN Kakaonibs
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[35]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Backen-Desserts/Backzutaten/ALN-Kakaonibs.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[35]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1600301062/mpreis/products/2375199.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[35]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 4.85 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[35]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 7d4a49ac2c3c9ad31372abd0a6de8cb9
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[36]/form[1]/input[6]/@id
+            name:
+              - text: SIGGI Kakao Milch 220ml
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[36]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Molkerei-Eier/Milch/Molke-Milchgetraenke/SIGGI-Kakao-Milch-220ml.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[36]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941733/mpreis/products/2212857.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[36]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.95 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[36]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 1f313f6c8a180761e45e6ef4777525dc
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[37]/form[1]/input[6]/@id
+            name:
+              - text: JT Doppelkeks 46% Kakaocreme
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[37]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Kekse-Biskotten/JT-Doppelkeks-46-Kakaocreme.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[37]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939835/mpreis/products/1838138.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[37]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.19 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[37]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 17f162f0a7c97a9a77f148bcdc374d8b
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[38]/form[1]/input[6]/@id
+            name:
+              - text: Milka Schokolade Triple Kakao
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[38]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Schokolade/Tafelschokolade/Milka-Schokolade-Triple-Kakao.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[38]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1587876027/mpreis/products/1550758.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[38]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.19 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[38]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 12c106e4a82356ac51fb7570fd1d40c7
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[39]/form[1]/input[6]/@id
+            name:
+              - text: SRD Kakao 3,6%
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[39]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Molkerei-Eier/Milch/Molke-Milchgetraenke/SRD-Kakao-3-6.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[39]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588937404/mpreis/products/1877198.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[39]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.85 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[39]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 4671cfa80e6bd99dd6f3d8460378b373
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[40]/form[1]/input[6]/@id
+            name:
+              - text: ALN Fruchtriegel Kakao
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[40]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Riegel/ALN-Fruchtriegel-Kakao.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[40]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941644/mpreis/products/2163977.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[40]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.20 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[40]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 6faa8e34595fdcf40c6010801300327f
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[41]/form[1]/input[6]/@id
+            name:
+              - text: TM Kakao aus Tiroler Bergbauernmilch
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[41]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Molkerei-Eier/Milch/Molke-Milchgetraenke/TM-Kakao-aus-Tiroler-Bergbauernmilch.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[41]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1596585668/mpreis/products/2316120.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[41]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.79 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[41]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: e0f130014584e6448be9380d9af7a0c5
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[42]/form[1]/input[6]/@id
+            name:
+              - text: Dr.Oetker Glasur Kakao
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[42]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Backen-Desserts/Backzutaten/Dr-Oetker-Glasur-Kakao.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[42]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_182200.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[42]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[42]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 57a9ebf39f3868b248b1ecc394f779e1
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[43]/form[1]/input[6]/@id
+            name:
+              - text: Lindt Excellence 85% Kakao
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[43]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Schokolade/Tafelschokolade/Lindt-Excellence-85-Kakao.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[43]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588938933/mpreis/products/289101.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[43]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.30 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[43]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: a1f904bade7eee54e311a958751617ac
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[44]/form[1]/input[6]/@id
+            name:
+              - text: Nestle Nesquik Snack Kakao 4er
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[44]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Molkerei-Eier/Nestle-Nesquik-Snack-Kakao-4er.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[44]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_60733.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[44]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.69 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[44]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 093618f228190edfbde0d08f3163ca8f
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[45]/form[1]/input[6]/@id
+            name:
+              - text: Ritter Sport Kakao Kl. 74% Die Kräftige
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[45]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Schokolade/Tafelschokolade/Ritter-Sport-Kakao-Kl-74-Die-Kraeftige.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[45]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1590083632/mpreis/products/2218651.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[45]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[45]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 51be796c138928b21a569f58e4cf422d
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[46]/form[1]/input[6]/@id
+            name:
+              - text: ALN Selection Kakaomandeln
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[46]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Schokolade/Pralinen/ALN-Selection-Kakaomandeln.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[46]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941433/mpreis/products/2164106.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[46]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[46]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: e8e40312707bff4ac8e9f0ac757ab0a5
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[47]/form[1]/input[6]/@id
+            name:
+              - text: Lindt Excellence 70% Kakao
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[47]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Schokolade/Tafelschokolade/Lindt-Excellence-70-Kakao.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[47]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588938922/mpreis/products/289100.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[47]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.30 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[47]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: e7483b9d16f1060667c319ec47e819b4
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[48]/form[1]/input[6]/@id
+            name:
+              - text: Willi Dungl Bio Kraftriegel Kakao-Nuss
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[48]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Riegel/Willi-Dungl-Bio-Kraftriegel-Kakao-Nuss.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[48]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588940570/mpreis/products/1944722.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[48]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.79 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[48]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 336a204b294594d3858a6a5f6103a02a
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[49]/form[1]/input[6]/@id
+            name:
+              - text: Ritter Sport Kakao Klasse 61% Die Feine
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[49]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Schokolade/Tafelschokolade/Ritter-Sport-Kakao-Klasse-61-Die-Feine.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[49]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1599869078/mpreis/products/2364692.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[49]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[49]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 604aaa4d9bab10f38dbb7e6b396a4e54
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[50]/form[1]/input[6]/@id
+            name:
+              - text: Koala Kekse Kakao
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[50]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Kekse-Biskotten/Koala-Kekse-Kakao.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[50]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_179751.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[50]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.80 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[50]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 82ae654b7c06f493323d76c72a5baca4
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[51]/form[1]/input[6]/@id
+            name:
+              - text: Haas Quittin Gelierpulver 2:1
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[51]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Wuerzen-Verfeinern/Zucker-Suessstoffe/Haas-Quittin-Gelierpulver-2-1.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[51]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593500909/mpreis/products/2259166.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[51]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[51]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: d6f124d19338240d8544e82679577844
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[52]/form[1]/input[6]/@id
+            name:
+              - text: ALN Schokopudding 3x46g
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[52]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/ALN-Schokopudding-3x46g.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[52]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941420/mpreis/products/1912562.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[52]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.15 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[52]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 4efa23597b229b5c9deb0d2ad13b27f1
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[53]/form[1]/input[6]/@id
+            name:
+              - text: ALN Protein Porridge Dattel & Kakao
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[53]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/ALN-Protein-Porridge-Dattel-Kakao.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[53]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593500440/mpreis/products/2252487.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[53]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[53]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 12dc2d4c33ec04cef73fd65133b02d5d
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[54]/form[1]/input[6]/@id
+            name:
+              - text: Haas Quittin Gelierpulver 1:1
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[54]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Backen-Desserts/Backzutaten/Haas-Quittin-Gelierpulver-1-1.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[54]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593500904/mpreis/products/2259165.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[54]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.59 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[54]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 84e9e3b1c80a5c850f2c6887c1a6ece4
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[55]/form[1]/input[6]/@id
+            name:
+              - text: Haas Quittin Gelierpulver 3:1
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[55]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Backen-Desserts/Backzutaten/Haas-Quittin-Gelierpulver-3-1.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[55]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593500914/mpreis/products/2259167.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[55]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[55]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: b6d15f135c2b5ecf48ee54a26f16fb62
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[56]/form[1]/input[6]/@id
+            name:
+              - text: Sierra Tequila Silver (*)
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[56]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Alkoholische-Getraenke/Spirituosen/Tequila/Sierra-Tequila-Silver.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[56]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1587875513/mpreis/products/1384603.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[56]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 16.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[56]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: fff3c6e5d2951770712cd266446e69ca
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[57]/form[1]/input[6]/@id
+            name:
+              - text: JT Schokodrink
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[57]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Kakao/JT-Schokodrink.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[57]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939348/mpreis/products/290804.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[57]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.39 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[57]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: ba4ca509172d23d4df1e589f736ecefc
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[58]/form[1]/input[6]/@id
+            name:
+              - text: Brigl Südt. Edelvernatsch DOP
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[58]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Alkoholische-Getraenke/Weine/Rotwein/Brigl-Suedt-Edelvernatsch-DOP.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[58]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593500730/mpreis/products/2264827.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[58]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 6.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[58]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: b30a4790379a95b2d7909d88989e63ca
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[59]/form[1]/input[6]/@id
+            name:
+              - text: Lindt Excellence 90% Kakao
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[59]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Schokolade/Tafelschokolade/Lindt-Excellence-90-Kakao.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[59]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588938919/mpreis/products/336923.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[59]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.30 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[59]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: ec44652199dc2a24be785ff7c0b4ac04
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[60]/form[1]/input[6]/@id
+            name:
+              - text: Auer Baumstämme Kakao 4er
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[60]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Waffeln-Schnitten/Auer-Baumstaemme-Kakao-4er.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[60]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939524/mpreis/products/2222193.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[60]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[60]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 3e1903f876aad530f2236bd53ce9a8b0
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[61]/form[1]/input[6]/@id
+            name:
+              - text: Ovomaltine Nachfüllpackung
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[61]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Kakao/Ovomaltine-Nachfuellpackung.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[61]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939253/mpreis/products/1457303.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[61]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 8.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[61]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: bc02415d63d8026cd55c597c054dc104
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[62]/form[1]/input[6]/@id
+            name:
+              - text: Lindt Excellence 70% Kakao Mild
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[62]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Schokolade/Tafelschokolade/Lindt-Excellence-70-Kakao-Mild.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[62]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588938906/mpreis/products/1931045.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[62]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.30 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[62]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: bb6b3e4577b7bd509f790c60ecb46f9e
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[63]/form[1]/input[6]/@id
+            name:
+              - text: Nesquik Nachfüllbeutel
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[63]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Kakao/Nesquik-Nachfuellbeutel.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[63]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1602583146/mpreis/products/2429475.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[63]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[63]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: e023609e51986025ba80c3b1d7764fa8
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[64]/form[1]/input[6]/@id
+            name:
+              - text: Fa Duschcreme Kakaobutter&Cocosöl
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[64]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Koerper-Gesundheit/Baden-Duschen/Fa-Duschcreme-Kakaobutter-Cocosoel.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[64]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_307039.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[64]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.25 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[64]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 1cd499bc5d83d655be48d80a6de0c144
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[65]/form[1]/input[6]/@id
+            name:
               - text: Ovomaltine
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[7]/div[1]/div[2]/h2[1]/span[2]
-          - id:
-              - text: "200215"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[8]/@href
-            name:
-              - text: Cappuccino Pulver Classic
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[8]/div[1]/div[2]/h2[1]/span[1]
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[65]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
-              - text: https://www.mpreis.at/shop/p/jeden-tag-cappuccino-pulver-classic-200215
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[8]/@href
-            gtin:
-              - text: "200215"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[8]/@href
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Kakao/Ovomaltine.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[65]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1588939377/mpreis/products/1873840.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[8]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939253/mpreis/products/2144260.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[65]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1,99
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[8]/div[4]/div[1]/div[2]
-            manufacturer:
-              - text: Jeden Tag
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[8]/div[1]/div[2]/h2[1]/span[2]
+              - text: 4.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[65]/form[1]/div[2]/div[1]/a[1]/strong[1]
           - id:
-              - text: "149193"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[9]/@href
+              - text: 4d9345bd4cee779d0ce2fc8cb482ea87
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[66]/form[1]/input[6]/@id
             name:
-              - text: Cappuccino Pulver
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[9]/div[1]/div[2]/h2[1]/span[1]
+              - text: Nesquik zuckerreduziert
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[66]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
-              - text: https://www.mpreis.at/shop/p/jacobs-cappuccino-pulver-149193
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[9]/@href
-            gtin:
-              - text: "149193"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[9]/@href
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Kakao/Nesquik-zuckerreduziert-oxid.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[66]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1590083766/mpreis/products/1862825.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[9]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1602583149/mpreis/products/2429476.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[66]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 4,80
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[9]/div[4]/div[1]/div[2]
-            manufacturer:
-              - text: JACOBS
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[9]/div[1]/div[2]/h2[1]/span[2]
+              - text: 2.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[66]/form[1]/div[2]/div[1]/a[1]/strong[1]
           - id:
-              - text: "149217"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[10]/@href
+              - text: 6c1740127562a45a888a4dc054300e5e
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[67]/form[1]/input[6]/@id
             name:
-              - text: Cappuccino Pulver
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[10]/div[1]/div[2]/h2[1]/span[1]
+              - text: Weißer Riese Riesenfr. 45WG
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[67]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
-              - text: https://www.mpreis.at/shop/p/maxwell-house-cappuccino-pulver-149217
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[10]/@href
-            gtin:
-              - text: "149217"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[10]/@href
+              - text: https://shop.mpreis.at/Drogeriemarkt/Waschen-Reinigen/Waesche-Textilpflege/Waschmittel/Weisser-Riese-Riesenfr-45WG.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[67]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1591195878/mpreis/products/1859229.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[10]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1596943529/mpreis/products/1935610.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[67]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 3,99
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[10]/div[4]/div[1]/div[2]
-            manufacturer:
-              - text: MAXWELL HOUSE
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[10]/div[1]/div[2]/h2[1]/span[2]
+              - text: 7.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[67]/form[1]/div[2]/div[1]/a[1]/strong[1]
           - id:
-              - text: "200216"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[11]/@href
+              - text: fb420693067befbef9234d7b8d27d77c
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[68]/form[1]/input[6]/@id
             name:
-              - text: Cappuccino Pulver Schoko
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[11]/div[1]/div[2]/h2[1]/span[1]
+              - text: Nescafe Dolce Gusto Nesquik
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[68]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
-              - text: https://www.mpreis.at/shop/p/jeden-tag-cappuccino-pulver-schoko-200216
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[11]/@href
-            gtin:
-              - text: "200216"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[11]/@href
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Kakao/Nescafe-Dolce-Gusto-Nesquik.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[68]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1588939388/mpreis/products/1959445.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[11]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588938564/mpreis/products/2202033.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[68]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 3,00
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[11]/div[4]/div[1]/div[2]
-            manufacturer:
-              - text: Jeden Tag
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[11]/div[1]/div[2]/h2[1]/span[2]
+              - text: 5.70 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[68]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 437cef7f2f7cc752dd421ad402f6d3ed
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[69]/form[1]/input[6]/@id
+            name:
+              - text: Kukident Haftcreme Duo Kraft
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[69]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Koerper-Gesundheit/Zahnhygiene/Zahnpflege/Kukident-Haftcreme-Duo-Kraft.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[69]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941236/mpreis/products/2218656.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[69]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[69]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: ed36d5d532b3fbe48a56822830d46251
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[70]/form[1]/input[6]/@id
+            name:
+              - text: Vanish Oxi Action Powerweiss Kübel
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[70]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Waschen-Reinigen/Waesche-Textilpflege/Fleckenmittel-Entfaerber/Vanish-Oxi-Action-Powerweiss-Kuebel.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[70]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1595635406/mpreis/products/2219512.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[70]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 4.95 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[70]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 776662bd6428be8308c25cb050bf8907
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[71]/form[1]/input[6]/@id
+            name:
+              - text: Weinrich Premium Kuvertüre zartb.70 %
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[71]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Backen-Desserts/Backzutaten/Weinrich-Premium-Kuvertuere-zartb-70.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[71]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939152/mpreis/products/2153249.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[71]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.20 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[71]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: cf7c50d59e7c968305049fcc9318708a
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[72]/form[1]/input[6]/@id
+            name:
+              - text: Weinrich Premium Kuvertüre weiss
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[72]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Backen-Desserts/Backzutaten/Weinrich-Premium-Kuvertuere-weiss.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[72]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939157/mpreis/products/2153247.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[72]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.20 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[72]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 8288362985953335d909dc51f926ea41
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[73]/form[1]/input[6]/@id
+            name:
+              - text: Vanish Oxi Action Ex.Hygiene Kübel
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[73]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Waschen-Reinigen/Waesche-Textilpflege/Fleckenmittel-Entfaerber/Vanish-Oxi-Action-Ex-Hygiene-Kuebel.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[73]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/437976_i01.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[73]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 4.95 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[73]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: d5e2ef88625623feb43f59e6766043dc
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[74]/form[1]/input[6]/@id
+            name:
+              - text: Weinrich Premium Kuvertüre Vollmilch
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[74]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Backen-Desserts/Backzutaten/Weinrich-Premium-Kuvertuere-Vollmilch.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[74]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939152/mpreis/products/2153248.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[74]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.20 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[74]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 8b4adf7d259f351197647a2ce7041493
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[75]/form[1]/input[6]/@id
+            name:
+              - text: Alpenmetzgerei Krakauer
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[75]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Fleisch-Fisch/Wurst/Wurst-Stangenwurst/Alpenmetzgerei-Krakauer.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[75]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1598018997/mpreis/products/2294497.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[75]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[75]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: b883986f1e6a8f7e63aff6507e8a57f8
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[76]/form[1]/input[6]/@id
+            name:
+              - text: Benco Power Plus
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[76]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Kakao/Benco-Power-Plus.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[76]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_183205.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[76]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[76]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 1106eb00815343e8deba8f1be349785f
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[77]/form[1]/input[6]/@id
+            name:
+              - text: Omo Aktiv 35 Wäschen
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[77]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Waschen-Reinigen/Waesche-Textilpflege/Waschmittel/Omo-Aktiv-35-Waeschen.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[77]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1587877712/mpreis/products/2031001.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[77]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 6.95 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[77]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: ec762119400123a2d40c09c6a816661a
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[78]/form[1]/input[6]/@id
+            name:
+              - text: Omo Aktiv Megapack 100WG
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[78]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Waschen-Reinigen/Waesche-Textilpflege/Waschmittel/Omo-Aktiv-Megapack-100WG.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[78]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593216500/mpreis/products/2081825.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[78]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 15.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[78]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 25e5ff9dd0918e68713ecfb83c552544
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[79]/form[1]/input[6]/@id
+            name:
+              - text: Vanish Oxi Action Kübel
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[79]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Waschen-Reinigen/Waesche-Textilpflege/Fleckenmittel-Entfaerber/Vanish-Oxi-Action-Kuebel.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[79]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1595635393/mpreis/products/2234163.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[79]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 4.95 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[79]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 31572fa1e5be5a0fad1379e268d14583
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[80]/form[1]/input[6]/@id
+            name:
+              - text: PowerBar ProteinPlus 100% Whey Vanilla
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[80]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Riegel/PowerBar-ProteinPlus-100-Whey-Vanilla.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[80]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1591194907/mpreis/products/2233897.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[80]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 17.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[80]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 3094e0063cd050b89b9d759ac281b218
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[81]/form[1]/input[6]/@id
+            name:
+              - text: RO. Montepulciano d´Abruzzo DOC
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[81]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Alkoholische-Getraenke/Weine/Rotwein/RO-Montepulciano-d-Abruzzo-DOC.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[81]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_100333.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[81]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[81]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 8ece9266ba68f824c47d469ef56cd139
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[82]/form[1]/input[6]/@id
+            name:
+              - text: Yutaka Reisessig
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[82]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Wuerzen-Verfeinern/Essig-Oel/Yutaka-Reisessig.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[82]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593433967/mpreis/products/2277038.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[82]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[82]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 97b2edd19c5578f8870e9629a790e743
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[83]/form[1]/input[6]/@id
+            name:
+              - text: Vodka Belvedere Pure 0,7L
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[83]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Alkoholische-Getraenke/Spirituosen/Wodka/Vodka-Belvedere-Pure-0-7L.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[83]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/122529_i01.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[83]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 34.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[83]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 518956caab7ccba2afb6feae2a00984c
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[84]/form[1]/input[6]/@id
+            name:
+              - text: Finish Powerpowder 140AW
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[84]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Waschen-Reinigen/Putzen-Reinigen/Geschirrspuelmittel/Finish-Powerpowder-140AW.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[84]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941900/mpreis/products/2104296.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[84]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 14.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[84]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: f8e94b2780061cfc0ff9dea9610c7645
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[85]/form[1]/input[6]/@id
+            name:
+              - text: Manner Belvedere Gebäckmischung
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[85]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Kekse-Biskotten/Manner-Belvedere-Gebaeckmischung.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[85]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1601597656/mpreis/products/2402491.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[85]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.29 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[85]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 7e9d196b37ea7524ff25493f08418fc4
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[86]/form[1]/input[6]/@id
+            name:
+              - text: Coral Black Velvet 22AW
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[86]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Waschen-Reinigen/Waesche-Textilpflege/Waschmittel/Coral-Black-Velvet-22AW.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[86]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1597191510/mpreis/products/1983640.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[86]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 7.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[86]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 797332fe2adb756da3393e5ccf2250db
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[87]/form[1]/input[6]/@id
+            name:
+              - text: JT Colorwaschmittel 30WL
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[87]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Waschen-Reinigen/Waesche-Textilpflege/Waschmittel/JT-Colorwaschmittel-30WL.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[87]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588940874/mpreis/products/1275535.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[87]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[87]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 8b1b56f34a8cebb39390825595ec0cc5
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[88]/form[1]/input[6]/@id
+            name:
+              - text: Dr.Oetker Schoko Pudding 3er
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[88]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Backen-Desserts/Dessert-Pudding/Dr-Oetker-Schoko-Pudding-3er.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[88]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_179300.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[88]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[88]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 5d155f2649c7b680bc7dbee7f2aa0c19
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[89]/form[1]/input[6]/@id
+            name:
+              - text: SRD H-Schokomilch 0,2l
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[89]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Molkerei-Eier/Milch/Molke-Milchgetraenke/SRD-H-Schokomilch-0-2l.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[89]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593434057/mpreis/products/2274366.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[89]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.39 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[89]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: b4b6f4bb8e03b8a7d18138032bd59077
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[90]/form[1]/input[6]/@id
+            name:
+              - text: Haribo Milchbären
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[90]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Suessigkeiten/Bonbons/Haribo-Milchbaeren.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[90]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939044/mpreis/products/2203885.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[90]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[90]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 65db46833979a552e8ee16477be726de
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[91]/form[1]/input[6]/@id
+            name:
+              - text: Jacobs Cappuccino Pads
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[91]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Kaffee/Jacobs-Cappuccino-Pads.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[91]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588938501/mpreis/products/1859222.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[91]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[91]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 1c39ca45fb31bd298edda0bece1f4c46
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[92]/form[1]/input[6]/@id
+            name:
+              - text: ILIKE Pulled Beef Bowl mit Wildreis
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[92]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Fertiggerichte/ILIKE-Pulled-Beef-Bowl-mit-Wildreis.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[92]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1595850745/mpreis/products/ff8fc764-e413-46c9-959c-1c5fc3dea28e.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[92]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 4.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[92]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 24c57c6ec0296744a3c2247b25ef8138
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[93]/form[1]/input[6]/@id
+            name:
+              - text: Ablinger Krakauer geschnitten
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[93]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Fleisch-Fisch/Wurst/Wurst-Stangenwurst/Ablinger-Krakauer-geschnitten.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[93]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588942137/mpreis/products/2208286.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[93]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.80 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[93]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 3b2e0fe7a2001e558fd167c42db1091c
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[94]/form[1]/input[6]/@id
+            name:
+              - text: Dr.Oetker Flana Vanille Pudding
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[94]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Backen-Desserts/Dessert-Pudding/Dr-Oetker-Flana-Vanille-Pudding.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[94]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_186300.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[94]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.30 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[94]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 453674de5334f4f16cc44b7d8f984507
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[95]/form[1]/input[6]/@id
+            name:
+              - text: Dr.Oetker Flana Schoko Pudding
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[95]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Backen-Desserts/Dessert-Pudding/Dr-Oetker-Flana-Schoko-Pudding.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[95]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_186400.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[95]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.30 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[95]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 7b0b4cb9960cd82078a61b3580a38cca
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[96]/form[1]/input[6]/@id
+            name:
+              - text: Dr.Oetker Paradiescreme Schoko
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[96]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Backen-Desserts/Dessert-Pudding/Dr-Oetker-Paradiescreme-Schoko.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[96]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1600905703/mpreis/products/1361974.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[96]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[96]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: cbf1987776a0ba087c7a9bbc7ec5b7a1
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[97]/form[1]/input[6]/@id
+            name:
+              - text: Dr.Oetker Schlagschaum Dpkg.
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[97]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Backen-Desserts/Backzutaten/Dr-Oetker-Schlagschaum-Dpkg.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[97]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_186901.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[97]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.20 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[97]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 1bf9c9beb3b5593876651b7299e99026
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[98]/form[1]/input[6]/@id
+            name:
+              - text: De Beukelaer Prinzenrolle Schoko
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[98]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Kekse-Biskotten/De-Beukelaer-Prinzenrolle-Schoko.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[98]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588938650/mpreis/products/1843766.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[98]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.90 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[98]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 47b95b73e82744cf1b01f9377a7acffb
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[99]/form[1]/input[6]/@id
+            name:
+              - text: JT Spaghetti mit Ei
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[99]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Teigwaren-Reis-Saucen/Nudeln/JT-Spaghetti-mit-Ei.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[99]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588937464/mpreis/products/1442850.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[99]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.48 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[99]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 48bf0f5e18dda837d99f28e6d14a9b38
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[100]/form[1]/input[6]/@id
+            name:
+              - text: Katjes Yoghurt Gums
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[100]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Suessigkeiten/Bonbons/Katjes-Yoghurt-Gums.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[100]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939209/mpreis/products/2050672.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[100]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.90 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[100]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 7dcafb901c4097c1217644cb7b176e1f
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[101]/form[1]/input[6]/@id
+            name:
+              - text: Dixan Extra Frisch 30WG
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[101]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Waschen-Reinigen/Waesche-Textilpflege/Waschmittel/Dixan-Extra-Frisch-30WG.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[101]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1595938440/mpreis/products/1640728.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[101]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 5.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[101]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 9cb7cffe6dec7f92639e58f91f7bd43c
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[102]/form[1]/input[6]/@id
+            name:
+              - text: Dr.Oetker Dessertsoße o.Kochen Vanille
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[102]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Backen-Desserts/Dessert-Pudding/Dr-Oetker-Dessertsosse-o-Kochen-Vanille.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[102]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1600905739/mpreis/products/1462970.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[102]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[102]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: feb9cdc5d3e9d6707b7ba8968f13f2d6
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[103]/form[1]/input[6]/@id
+            name:
+              - text: PowerBar ProteinPlus 100% Whey Chocolate
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[103]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Riegel/PowerBar-ProteinPlus-100-Whey-Chocolate.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[103]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1591194910/mpreis/products/2233895.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[103]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 17.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[103]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 4314d74081c575f3d138d984d7f36cbd
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[104]/form[1]/input[6]/@id
+            name:
+              - text: Haas Tortengelee rot 3er
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[104]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Backen-Desserts/Backzutaten/Haas-Tortengelee-rot-3er.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[104]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593500944/mpreis/products/2259164.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[104]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.90 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[104]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 6cd059e2afc5d3b55cda643372d90c1d
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[105]/form[1]/input[6]/@id
+            name:
+              - text: Milka Cookie Sensations Choco innen soft
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[105]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Kekse-Biskotten/Milka-Cookie-Sensations-Choco-innen-soft.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[105]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1587876059/mpreis/products/1021261.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[105]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[105]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 9912f6b8b0e0c498cd3a02218ce1d91e
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[106]/form[1]/input[6]/@id
+            name:
+              - text: Ölz Milchlaible
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[106]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Brot/Hefeteig/Oelz-Milchlaible.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[106]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593501018/mpreis/products/2255363.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[106]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.65 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[106]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: bc5a2d87f554d35179fd81a4f0070412
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[107]/form[1]/input[6]/@id
+            name:
+              - text: JT Cappuccino Classic UTZ
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[107]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Kaffee/JT-Cappuccino-Classic-UTZ.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[107]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939377/mpreis/products/1873840.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[107]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[107]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: e5c538fadf4892da14b755f6d9462363
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[108]/form[1]/input[6]/@id
+            name:
+              - text: Calve Erdnussbutter Crunch
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[108]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Suesse-pikante-Aufstriche/Suesse-Aufstriche/Calve-Erdnussbutter-Crunch.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[108]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593670613/mpreis/products/1988182.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[108]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[108]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 515f168085a6a2f17b7534171240fb62
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[109]/form[1]/input[6]/@id
+            name:
+              - text: Ovomaltine Schoko Riegel Klassiker 4er
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[109]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Riegel/Ovomaltine-Schoko-Riegel-Klassiker-4er.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[109]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939242/mpreis/products/1884781.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[109]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[109]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 4c5f7d1eecf5b45f4b3007fe0b96d2e2
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[110]/form[1]/input[6]/@id
+            name:
+              - text: Hörtnagl Helle Krakauer geschnitten
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[110]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Fleisch-Fisch/Wurst/Wurst-Stangenwurst/Hoertnagl-Helle-Krakauer-geschnitten.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[110]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588942130/mpreis/products/2212485.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[110]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[110]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 5a300e5d7f43f19c7510eec341845234
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[111]/form[1]/input[6]/@id
+            name:
+              - text: Dolomiti Willi/ Stamperlverschluss 100ml
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[111]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Alkoholische-Getraenke/Spirituosen/Klare-Branntweine/Dolomiti-Willi-Stamperlverschluss-100ml.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[111]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1596240090/mpreis/products/1667592.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[111]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 4.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[111]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 84f21c926df0500c7a2be2af6e9e72d8
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[112]/form[1]/input[6]/@id
+            name:
+              - text: Yutaka Bambusmatte
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[112]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Kueche-Haushalt/Kueche/Diverses/Yutaka-Bambusmatte.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[112]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593433953/mpreis/products/2277037.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[112]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[112]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: ca3fc72d45c85a94bb7f0db640002c64
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[113]/form[1]/input[6]/@id
+            name:
+              - text: Dolomiti Marille/Stamperlverschluss100ml
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[113]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Alkoholische-Getraenke/Spirituosen/Klare-Branntweine/Dolomiti-Marille-Stamperlverschluss100ml.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[113]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1596240032/mpreis/products/1667593.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[113]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 4.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[113]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 03d9c2c1addbdc1c8626997811efa445
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[114]/form[1]/input[6]/@id
+            name:
+              - text: ALN Vanillepudding 3x40g
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[114]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/ALN-Vanillepudding-3x40g.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[114]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941425/mpreis/products/1912561.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[114]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.29 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[114]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 3c9ae86c7dd47e3eb5daf272ccdf5ad2
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[115]/form[1]/input[6]/@id
+            name:
+              - text: Dr.Oetker Seelenwärmer Schokolade
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[115]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Backen-Desserts/Dessert-Pudding/Dr-Oetker-Seelenwaermer-Schokolade.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[115]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1592438433/mpreis/products/2160221.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[115]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[115]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 72e2a015a19111aadbae1ce30c77721a
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[116]/form[1]/input[6]/@id
+            name:
+              - text: Dr.Oetker Seelenwärmer Vanille
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[116]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Backen-Desserts/Dessert-Pudding/Dr-Oetker-Seelenwaermer-Vanille.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[116]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1592438431/mpreis/products/2160220.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[116]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[116]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 96bf980881554a9d3c84de32b565c098
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[117]/form[1]/input[6]/@id
+            name:
+              - text: Dr.Oetker Vanille Pudding 3er
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[117]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Backen-Desserts/Dessert-Pudding/Dr-Oetker-Vanille-Pudding-3er.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[117]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_179240.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[117]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[117]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: e173b86fac5d4d5a7142956daaf2e1d0
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[118]/form[1]/input[6]/@id
+            name:
+              - text: ALN Gummibären Mix
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[118]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Suessigkeiten/Bonbons/ALN-Gummibaeren-Mix.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[118]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941439/mpreis/products/2164054.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[118]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.70 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[118]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: fa19192f62c6acecef1907b5e3d84e14
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[119]/form[1]/input[6]/@id
+            name:
+              - text: Dr.Oetker Paradiescreme Vanille
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[119]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Backen-Desserts/Dessert-Pudding/Dr-Oetker-Paradiescreme-Vanille.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[119]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1601511158/mpreis/products/1361978.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[119]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[119]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 478ff6a6e08b8c87ef894749948e1b8b
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[120]/form[1]/input[6]/@id
+            name:
+              - text: De Beukelaer Prinzenrolle Minis
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[120]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Kekse-Biskotten/De-Beukelaer-Prinzenrolle-Minis.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[120]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588938663/mpreis/products/1506834.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[120]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.90 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[120]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: f42ab1061c59d42c62f87614f2fc0baf
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[121]/form[1]/input[6]/@id
+            name:
+              - text: Dr.Oetker Tortencreme
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[121]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Backen-Desserts/Backzutaten/Dr-Oetker-Tortencreme.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[121]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_182300.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[121]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.30 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[121]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: c992bfeb9026ad014c6824ae49956324
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[122]/form[1]/input[6]/@id
+            name:
+              - text: Venea Nico Montepulciano d'Abruzzo DOC
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[122]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Alkoholische-Getraenke/Weine/Rotwein/Venea-Nico-Montepulciano-d-Abruzzo-DOC.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[122]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_113332.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[122]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 6.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[122]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 6ee58fa9e455f62078946374bae24cb2
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[123]/form[1]/input[6]/@id
+            name:
+              - text: Ovomaltine Schokolade
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[123]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Schokolade/Tafelschokolade/Ovomaltine-Schokolade.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[123]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939262/mpreis/products/1676472.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[123]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[123]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: bc6594f3821c854c6c8e7c9a7adec9d9
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[124]/form[1]/input[6]/@id
+            name:
+              - text: Camille Bloch Ragusa blond
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[124]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Schokolade/Tafelschokolade/Camille-Bloch-Ragusa-blond.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[124]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_210609.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[124]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[124]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: e82d7ee7a2e0d79d18236b13823797de
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[125]/form[1]/input[6]/@id
+            name:
+              - text: Dr.Oetker Tortenhilfe Topfen Joghurt
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[125]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Backen-Desserts/Backzutaten/Dr-Oetker-Tortenhilfe-Topfen-Joghurt.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[125]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_182401.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[125]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.70 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[125]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 6db39f1b80f4f97436abd7a3e93e62f7
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[126]/form[1]/input[6]/@id
+            name:
+              - text: Lorenz Nic Nacs Wasabi
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[126]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Knabbergebaeck/Sonstige/Lorenz-Nic-Nacs-Wasabi.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[126]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[126]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.29 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[126]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 2aa3870093b66456a4cbd99bc4ca1c3a
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[127]/form[1]/input[6]/@id
+            name:
+              - text: Ovomaltine Crunchy Cream
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[127]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Suesse-pikante-Aufstriche/Suesse-Aufstriche/Ovomaltine-Crunchy-Cream.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[127]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_260913.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[127]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 4.19 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[127]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 81b5dcaac7d87d36b5b4436907dd718f
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[128]/form[1]/input[6]/@id
+            name:
+              - text: Dr.Oetker Schoko feinherb Pudding 3er
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[128]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Backen-Desserts/Dessert-Pudding/Dr-Oetker-Schoko-feinherb-Pudding-3er.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[128]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1601078442/mpreis/products/2394472.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[128]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[128]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: c3326efc2006b0d33ac308f2eba89432
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[129]/form[1]/input[6]/@id
+            name:
+              - text: Dr.Oetker Paradiescreme Sahne Karamell
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[129]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Backen-Desserts/Dessert-Pudding/Dr-Oetker-Paradiescreme-Sahne-Karamell.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[129]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1600905710/mpreis/products/1361985.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[129]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[129]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: afc47fffb8b7a5f336a34689928a8594
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[130]/form[1]/input[6]/@id
+            name:
+              - text: Storck Merci große Vielfalt
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[130]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Schokolade/Pralinen/Storck-Merci-grosse-Vielfalt-oxid.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[130]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1587875905/mpreis/products/1046124.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[130]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[130]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: f221fd967f091ffd68a83268391524fa
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[131]/form[1]/input[6]/@id
+            name:
+              - text: Landliebe Sahnepudding Schoko
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[131]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Molkerei-Eier/Pudding/Landliebe-Sahnepudding-Schoko.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[131]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_62877.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[131]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.89 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[131]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: fef526c0e43652a7069972b39e3738b8
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[132]/form[1]/input[6]/@id
+            name:
+              - text: ALN Akazienhonig Spenderflasche
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[132]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Suesse-pikante-Aufstriche/Honig/ALN-Akazienhonig-Spenderflasche.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[132]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941572/mpreis/products/2196488.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[132]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 6.30 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[132]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 0cdd4ac47ac8374122c8805f89af6e31
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[133]/form[1]/input[6]/@id
+            name:
+              - text: Nescafe Dolce Gusto Cafe au Lait
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[133]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Kaffee/Nescafe-Dolce-Gusto-Cafe-au-Lait.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[133]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588938555/mpreis/products/2093481.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[133]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 5.70 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[133]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 29ff2914c67541fdd897200d43337ac9
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[134]/form[1]/input[6]/@id
+            name:
+              - text: Nescafe Dolce Gusto Cappuccino
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[134]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Kaffee/Nescafe-Dolce-Gusto-Cappuccino-oxid.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[134]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588938592/mpreis/products/2148523.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[134]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 5.70 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[134]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 2440f40462ef9cbafbea1184cd4ff237
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[135]/form[1]/input[6]/@id
+            name:
+              - text: Jacobs 2in1 10 Sticks
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[135]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Kaffee/Jacobs-2in1-10-Sticks.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[135]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1590083695/mpreis/products/1859050.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[135]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[135]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: f238d0eca0e309542fe4ab8e9f0570cd
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[136]/form[1]/input[6]/@id
+            name:
+              - text: Yutaka Sushi Ingwer
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[136]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Kueche-Haushalt/Kueche/Diverses/Yutaka-Sushi-Ingwer.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[136]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[136]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[136]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 8c2a9da9eff15b78f7ddbc0c4c19975f
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[137]/form[1]/input[6]/@id
+            name:
+              - text: Starbucks DG Cappuccino
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[137]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Kaffee/Starbucks-DG-Cappuccino.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[137]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593433513/mpreis/products/2214557.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[137]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 4.79 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[137]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 1623dd3eecb32c5badf9436b58ce7e61
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[138]/form[1]/input[6]/@id
+            name:
+              - text: Yutaka Sushi Reis
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[138]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Teigwaren-Reis-Saucen/Yutaka-Sushi-Reis.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[138]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939443/mpreis/products/1612276.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[138]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.80 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[138]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 3dd705f46a2a5deb10be72dd1ddb50e6
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[139]/form[1]/input[6]/@id
+            name:
+              - text: Nescafe Cappuccino Cremoso gesüßt
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[139]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Kaffee/Nescafe-Cappuccino-Cremoso-gesuesst.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[139]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588938509/mpreis/products/2064882.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[139]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.40 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[139]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: d51ba37cc82b3aa568d23e9b3982ff32
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[140]/form[1]/input[6]/@id
+            name:
+              - text: Jacobs Momente Cappuccino
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[140]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Kaffee/Jacobs-Momente-Cappuccino.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[140]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1590083766/mpreis/products/1862825.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[140]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 4.80 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[140]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: d4690b56dbdae0ee9f8e9601eca35172
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[141]/form[1]/input[6]/@id
+            name:
+              - text: Hansaplast Universal
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[141]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Koerper-Gesundheit/Gesundheit/Hansaplast-Universal.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[141]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_345500.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[141]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 4.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[141]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 3e7ae9212bb540248d1723c5723b0030
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[142]/form[1]/input[6]/@id
+            name:
+              - text: JT Cappuccino Schoko UTZ
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[142]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Kaffee/JT-Cappuccino-Schoko-UTZ.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[142]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939388/mpreis/products/1959445.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[142]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[142]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 4ee6de28370faac3a8fc82daef0ec121
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[143]/form[1]/input[6]/@id
+            name:
+              - text: ALN Streichcreme Curry Mango Papaya
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[143]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Suesse-pikante-Aufstriche/Pikante-Aufstriche/ALN-Streichcreme-Curry-Mango-Papaya.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[143]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941505/mpreis/products/2164104.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[143]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.40 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[143]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 96fe4aee383d4e4b676ab3336a013bdb
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[144]/form[1]/input[6]/@id
+            name:
+              - text: Nescafe Latte Macchiato
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[144]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Kaffee/Nescafe-Latte-Macchiato-oxid.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[144]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593499562/mpreis/products/2252573.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[144]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.40 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[144]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: b43bfbb2942659009c14478ee364bf3a
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[145]/form[1]/input[6]/@id
+            name:
+              - text: Haas Tortengelee klar 3er
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[145]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Backen-Desserts/Backzutaten/Haas-Tortengelee-klar-3er.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[145]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593500944/mpreis/products/2259163.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[145]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.90 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[145]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: d8145db03119c24f4a0e8b378e5bb812
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[146]/form[1]/input[6]/@id
+            name:
+              - text: Nescafe Frappe Eiskaffee
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[146]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Eiskaffee/Nescafe-Frappe-Eiskaffee.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[146]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593522238/mpreis/products/2252589.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[146]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[146]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: abc89753319043488db0052c31fcd39e
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[147]/form[1]/input[6]/@id
+            name:
+              - text: Yutaka Sushi Nori
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[147]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Fertiggerichte/Yutaka-Sushi-Nori.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[147]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593433961/mpreis/products/2277036.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[147]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[147]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 437dd5fcbe1ca5fdfb9fec5b607df581
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[148]/form[1]/input[6]/@id
+            name:
+              - text: Hofbauer für Verwöhnte
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[148]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Schokolade/Pralinen/Hofbauer-fuer-Verwoehnte.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[148]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1602115286/mpreis/products/2411728.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[148]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 9.90 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[148]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 1f72bde888162d79a086ab420cf752c6
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[149]/form[1]/input[6]/@id
+            name:
+              - text: Loacker Waffeln Double Choc
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[149]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Waffeln-Schnitten/Loacker-Waffeln-Double-Choc.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[149]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[149]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.30 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[149]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 0f9133eec7671a1e98c5f32481a79cc6
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[150]/form[1]/input[6]/@id
+            name:
+              - text: Nescafe Cappuccino unges.
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[150]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Kaffee-Tee-Kakao/Kaffee/Nescafe-Cappuccino-unges-oxid.html?listtype=search&searchparam=Kakaopulver
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[150]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593499565/mpreis/products/2252574.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[150]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.40 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[150]/form[1]/div[2]/div[1]/a[1]/strong[1]
         xpath: /html
-    timestamp: 1610524644545
+    timestamp: 1611045449989

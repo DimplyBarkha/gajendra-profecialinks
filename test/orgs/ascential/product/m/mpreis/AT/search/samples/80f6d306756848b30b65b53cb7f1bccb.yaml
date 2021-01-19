@@ -2,387 +2,2259 @@ input:
   keywords: knuspermüsli
   _url: http://mpreis.at
 extractions:
-  - html: https://workbench.import.io/html/run=1b1131b3-cae5-457b-b8c0-cafbed7a7e32/task=8f7c28ca-39e5-4c6f-bf85-72b935b4a446/3bc32d7c-6f21-4e2d-a077-48ccd1b7e19f.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=cc0aa6d8-006f-45f1-b2a8-62792942c15d/task=7960a25e-8572-4776-9e11-0e7eaf8dcf5b/da22cfe9-4b28-4743-957a-d28d29ecddc0.html
     extractionConfigId: product/search/stores/m/mpreis/AT/extract
     data:
       - group:
           - id:
-              - text: "828200"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/@href
+              - text: f77085cb1a7179d09a5ae2c540ecad76
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[1]/form[1]/input[6]/@id
             name:
-              - text: Knuspermüsli Erdbeer & Weiße Schokolade
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/div[1]/div[2]/h2[1]/span[1]
+              - text: JT Knuspermüsli weniger süß 750g
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[1]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
-              - text: https://www.mpreis.at/shop/p/knusperli-knuspermuesli-erdbeer-weisse-schokolade-828200
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/@href
-            gtin:
-              - text: "828200"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/@href
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/JT-Knuspermuesli-weniger-suess-750g.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[1]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1603846897/mpreis/products/2407063.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939279/mpreis/products/1927004.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[1]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 4,50
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/div[4]/div[1]/div[2]
-            manufacturer:
-              - text: KNUSPERLI
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/div[1]/div[2]/h2[1]/span[2]
+              - text: 1.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[1]/form[1]/div[2]/div[1]/a[1]/strong[1]
           - id:
-              - text: "212215"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2]/@href
+              - text: 4d9c45479d4482f7e36d062745a8300d
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[2]/form[1]/input[6]/@id
             name:
-              - text: Vitalis Knuspermüsli Plus Double Chocolate
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2]/div[1]/div[2]/h2[1]/span[1]
+              - text: JT Knuspermüsli Schoko-Keks 750g
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[2]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
-              - text: https://www.mpreis.at/shop/p/dr-oetker-vitalis-knuspermuesli-plus-double-chocolate-212215
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2]/@href
-            gtin:
-              - text: "212215"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2]/@href
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/JT-Knuspermuesli-Schoko-Keks-750g.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[2]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1601078489/mpreis/products/2364365.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939724/mpreis/products/1670200.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[2]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 3,50
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2]/div[4]/div[1]/div[2]
-            manufacturer:
-              - text: Dr. Oetker
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2]/div[1]/div[2]/h2[1]/span[2]
+              - text: 1.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[2]/form[1]/div[2]/div[1]/a[1]/strong[1]
           - id:
-              - text: "828201"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[3]/@href
+              - text: 27420800686edbf8db18ba9c22c0f7a5
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[3]/form[1]/input[6]/@id
             name:
-              - text: Knuspermüsli Himbeer & Joghurt
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[3]/div[1]/div[2]/h2[1]/span[1]
+              - text: JT Knusper Schoko-Müsli 600 g
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[3]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
-              - text: https://www.mpreis.at/shop/p/knusperli-knuspermuesli-himbeer-joghurt-828201
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[3]/@href
-            gtin:
-              - text: "828201"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[3]/@href
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/JT-Knusper-Schoko-Muesli-600-g.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[3]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mpreis.at/img/noImage_detail.9dc03909.png
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[3]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939583/mpreis/products/1927007.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[3]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 4,50
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[3]/div[4]/div[1]/div[2]
-            manufacturer:
-              - text: KNUSPERLI
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[3]/div[1]/div[2]/h2[1]/span[2]
+              - text: 1.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[3]/form[1]/div[2]/div[1]/a[1]/strong[1]
           - id:
-              - text: "828170"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[4]/@href
+              - text: 967c7fb28933b7a9ad6cd0e7d5de2785
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[4]/form[1]/input[6]/@id
             name:
-              - text: Vitalis Knuspermüsli
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[4]/div[1]/div[2]/h2[1]/span[1]
+              - text: Manner Knusper Müsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[4]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
-              - text: https://www.mpreis.at/shop/p/dr-oetker-vitalis-knuspermuesli-828170
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[4]/@href
-            gtin:
-              - text: "828170"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[4]/@href
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/Manner-Knusper-Muesli.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[4]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1601079111/mpreis/products/2394773.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[4]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1601597223/mpreis/products/2402607.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[4]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 6,99
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[4]/div[4]/div[1]/div[2]
-            manufacturer:
-              - text: Dr. Oetker
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[4]/div[1]/div[2]/h2[1]/span[2]
+              - text: 3.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[4]/form[1]/div[2]/div[1]/a[1]/strong[1]
           - id:
-              - text: "200101"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[5]/@href
+              - text: 4616d40f1d34957fa2554953a50cec6d
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[5]/form[1]/input[6]/@id
             name:
-              - text: Knuspermüsli Schoko
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[5]/div[1]/div[2]/h2[1]/span[1]
+              - text: Casali Schoko Bananen Knusper Müsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[5]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
-              - text: https://www.mpreis.at/shop/p/jeden-tag-knuspermuesli-schoko-200101
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[5]/@href
-            gtin:
-              - text: "200101"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[5]/@href
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/Casali-Schoko-Bananen-Knusper-Muesli.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[5]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1588939583/mpreis/products/1927007.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[5]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1602201978/mpreis/products/2409708.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[5]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1,99
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[5]/div[4]/div[1]/div[2]
-            manufacturer:
-              - text: Jeden Tag
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[5]/div[1]/div[2]/h2[1]/span[2]
+              - text: 3.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[5]/form[1]/div[2]/div[1]/a[1]/strong[1]
           - id:
-              - text: "828203"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[6]/@href
+              - text: 606482eae2dc8217a966a01e596c0db7
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[6]/form[1]/input[6]/@id
             name:
-              - text: Knuspermüsli mit 0% Zuckerzusatz Waldbeer
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[6]/div[1]/div[2]/h2[1]/span[1]
+              - text: Napoli Dragee Keksi Knusper Müsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[6]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
-              - text: https://www.mpreis.at/shop/p/knusperli-knuspermuesli-mit-0-zuckerzusatz-waldbeer-828203
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[6]/@href
-            gtin:
-              - text: "828203"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[6]/@href
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/Napoli-Dragee-Keksi-Knusper-Muesli.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[6]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1603846855/mpreis/products/2414078.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[6]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1600214456/mpreis/products/2371412.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[6]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 4,50
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[6]/div[4]/div[1]/div[2]
-            manufacturer:
-              - text: KNUSPERLI
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[6]/div[1]/div[2]/h2[1]/span[2]
+              - text: 3.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[6]/form[1]/div[2]/div[1]/a[1]/strong[1]
           - id:
-              - text: "200146"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[7]/@href
+              - text: 23fcfbb7581ae2cc3af9255a997ce2f1
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[7]/form[1]/input[6]/@id
             name:
-              - text: Knuspermüsli weniger süß
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[7]/div[1]/div[2]/h2[1]/span[1]
+              - text: Knusperli Himbeer & Joghurt
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[7]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
-              - text: https://www.mpreis.at/shop/p/jeden-tag-knuspermuesli-weniger-sss-200146
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[7]/@href
-            gtin:
-              - text: "200146"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[7]/@href
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/Knusperli-Himbeer-Joghurt.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[7]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1588939279/mpreis/products/1927004.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[7]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[7]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1,99
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[7]/div[4]/div[1]/div[2]
-            manufacturer:
-              - text: Jeden Tag
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[7]/div[1]/div[2]/h2[1]/span[2]
+              - text: 4.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[7]/form[1]/div[2]/div[1]/a[1]/strong[1]
           - id:
-              - text: "212107"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[8]/@href
+              - text: 763f3de6842f40afb986db9627ea9397
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[8]/form[1]/input[6]/@id
             name:
-              - text: Vitalis Knuspermüsli Schoko-Banane
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[8]/div[1]/div[2]/h2[1]/span[1]
+              - text: Dr.Oetker Vitalis Knusper Honeys
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[8]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
-              - text: https://www.mpreis.at/shop/p/dr-oetker-vitalis-knuspermuesli-schoko-banane-212107
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[8]/@href
-            gtin:
-              - text: "212107"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[8]/@href
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/Dr-Oetker-Vitalis-Knusper-Honeys-oxid.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[8]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1600905758/mpreis/products/2160259.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[8]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1600905829/mpreis/products/1366121.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[8]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 3,50
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[8]/div[4]/div[1]/div[2]
-            manufacturer:
-              - text: Dr. Oetker
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[8]/div[1]/div[2]/h2[1]/span[2]
+              - text: 4.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[8]/form[1]/div[2]/div[1]/a[1]/strong[1]
           - id:
-              - text: "200149"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[9]/@href
+              - text: d35ebcf75d15ba2f4dda321756802cfc
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[9]/form[1]/input[6]/@id
             name:
-              - text: Knuspermüsli Schoko-Keks
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[9]/div[1]/div[2]/h2[1]/span[1]
+              - text: Dr.Oetker Vitalis Knusper Schoko
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[9]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
-              - text: https://www.mpreis.at/shop/p/jeden-tag-knuspermuesli-schoko-keks-200149
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[9]/@href
-            gtin:
-              - text: "200149"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[9]/@href
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/Dr-Oetker-Vitalis-Knusper-Schoko.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[9]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1588939724/mpreis/products/1670200.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[9]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1601078819/mpreis/products/2394731.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[9]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1,99
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[9]/div[4]/div[1]/div[2]
-            manufacturer:
-              - text: Jeden Tag
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[9]/div[1]/div[2]/h2[1]/span[2]
+              - text: 4.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[9]/form[1]/div[2]/div[1]/a[1]/strong[1]
           - id:
-              - text: "212106"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[10]/@href
+              - text: bc5e7193199a361a4b3eac9bce244220
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[10]/form[1]/input[6]/@id
             name:
-              - text: Vitalis Knuspermüsli Schokolade
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[10]/div[1]/div[2]/h2[1]/span[1]
+              - text: Knusperli Schoko & Banane
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[10]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
-              - text: https://www.mpreis.at/shop/p/dr-oetker-vitalis-knuspermuesli-schokolade-212106
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[10]/@href
-            gtin:
-              - text: "212106"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[10]/@href
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/Knusperli-Schoko-Banane.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[10]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1601078819/mpreis/products/2394731.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[10]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[10]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 3,50
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[10]/div[4]/div[1]/div[2]
-            manufacturer:
-              - text: Dr. Oetker
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[10]/div[1]/div[2]/h2[1]/span[2]
+              - text: 4.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[10]/form[1]/div[2]/div[1]/a[1]/strong[1]
           - id:
-              - text: "212214"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[11]/@href
+              - text: c6796745e5eb7f67f66dd8010ea175fa
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[11]/form[1]/input[6]/@id
             name:
-              - text: Vitalis Knuspermüsli Plus Honig-Mandel
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[11]/div[1]/div[2]/h2[1]/span[1]
+              - text: Dr.Oetker Vitalis Knusper Nuss-Nougat
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[11]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
-              - text: https://www.mpreis.at/shop/p/dr-oetker-vitalis-knuspermuesli-plus-honig-mandel-212214
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[11]/@href
-            gtin:
-              - text: "212214"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[11]/@href
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/Dr-Oetker-Vitalis-Knusper-Nuss-Nougat.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[11]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1604711297/mpreis/products/2160134.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[11]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1601079050/mpreis/products/2394638.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[11]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 3,50
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[11]/div[4]/div[1]/div[2]
-            manufacturer:
-              - text: Dr. Oetker
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[11]/div[1]/div[2]/h2[1]/span[2]
+              - text: 4.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[11]/form[1]/div[2]/div[1]/a[1]/strong[1]
           - id:
-              - text: "828199"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[12]/@href
+              - text: 955d2e8a7746e3f7cf182a835f636f08
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[12]/form[1]/input[6]/@id
             name:
-              - text: Knuspermüsli Schokolade & Banane
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[12]/div[1]/div[2]/h2[1]/span[1]
+              - text: Dr.Oetker Vitalis Knusper Flakes+Mandel
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[12]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
-              - text: https://www.mpreis.at/shop/p/knusperli-knuspermuesli-schokolade-banane-828199
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[12]/@href
-            gtin:
-              - text: "828199"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[12]/@href
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/Dr-Oetker-Vitalis-Knusper-Flakes-Mandel.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[12]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1603846863/mpreis/products/2414072.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[12]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1601511088/mpreis/products/1539024.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[12]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 4,50
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[12]/div[4]/div[1]/div[2]
-            manufacturer:
-              - text: KNUSPERLI
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[12]/div[1]/div[2]/h2[1]/span[2]
+              - text: 4.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[12]/form[1]/div[2]/div[1]/a[1]/strong[1]
           - id:
-              - text: "828202"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[13]/@href
+              - text: c621f03ef2928a0e786c613bb2d99d1e
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[13]/form[1]/input[6]/@id
             name:
-              - text: Knuspermüsli mit 0% Zuckerzusatz Pur
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[13]/div[1]/div[2]/h2[1]/span[1]
+              - text: Knusperli 0% Zuckerzusatz Pur
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[13]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
-              - text: https://www.mpreis.at/shop/p/knusperli-knuspermuesli-mit-0-zuckerzusatz-pur-828202
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[13]/@href
-            gtin:
-              - text: "828202"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[13]/@href
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/Knusperli-0-Zuckerzusatz-Pur.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[13]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mpreis.at/img/noImage_detail.9dc03909.png
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[13]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[13]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 4,50
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[13]/div[4]/div[1]/div[2]
-            manufacturer:
-              - text: KNUSPERLI
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[13]/div[1]/div[2]/h2[1]/span[2]
+              - text: 4.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[13]/form[1]/div[2]/div[1]/a[1]/strong[1]
           - id:
-              - text: "212253"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[14]/@href
+              - text: aa27e6562180e931687a3a8dc549a2e3
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[14]/form[1]/input[6]/@id
             name:
-              - text: Vitalis Knuspermüsli Nuss-Nougat
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[14]/div[1]/div[2]/h2[1]/span[1]
+              - text: Knusperli Erdbeer & Weiße Schoko
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[14]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
-              - text: https://www.mpreis.at/shop/p/dr-oetker-vitalis-knuspermuesli-nuss-nougat-212253
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[14]/@href
-            gtin:
-              - text: "212253"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[14]/@href
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/Knusperli-Erdbeer-Weisse-Schoko.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[14]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1601078835/mpreis/products/2160223.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[14]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[14]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 3,50
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[14]/div[4]/div[1]/div[2]
-            manufacturer:
-              - text: Dr. Oetker
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[14]/div[1]/div[2]/h2[1]/span[2]
+              - text: 4.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[14]/form[1]/div[2]/div[1]/a[1]/strong[1]
           - id:
-              - text: "212252"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[15]/@href
+              - text: 24463312b0b08404cc67c6e62ea554c5
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[15]/form[1]/input[6]/@id
             name:
-              - text: Vitalis Knuspermüsli Flakes-Mandeln
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[15]/div[1]/div[2]/h2[1]/span[1]
+              - text: Dr.Oetker Vitalis Knusper Schoko Banane
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[15]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
-              - text: https://www.mpreis.at/shop/p/dr-oetker-vitalis-knuspermuesli-flakes-mandeln-212252
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[15]/@href
-            gtin:
-              - text: "212252"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[15]/@href
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/Dr-Oetker-Vitalis-Knusper-Schoko-Banane.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[15]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1601511088/mpreis/products/1539024.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[15]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1601079126/mpreis/products/2394747.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[15]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 3,50
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[15]/div[4]/div[1]/div[2]
-            manufacturer:
-              - text: Dr. Oetker
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[15]/div[1]/div[2]/h2[1]/span[2]
+              - text: 4.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[15]/form[1]/div[2]/div[1]/a[1]/strong[1]
           - id:
-              - text: "188355"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[16]/@href
+              - text: f8243811603cac6b8b5aa370a358810d
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[16]/form[1]/input[6]/@id
             name:
-              - text: Knusper Müsli
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[16]/div[1]/div[2]/h2[1]/span[1]
+              - text: Knusperli 0% Zuckerzusatz Waldbeer
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[16]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
-              - text: https://www.mpreis.at/shop/p/manner-knusper-muesli-188355
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[16]/@href
-            gtin:
-              - text: "188355"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[16]/@href
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/Knusperli-0-Zuckerzusatz-Waldbeer.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[16]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1601597223/mpreis/products/2402607.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[16]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[16]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 3,50
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[16]/div[4]/div[1]/div[2]
-            manufacturer:
-              - text: Manner
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[16]/div[1]/div[2]/h2[1]/span[2]
+              - text: 4.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[16]/form[1]/div[2]/div[1]/a[1]/strong[1]
           - id:
-              - text: "188377"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[17]/@href
+              - text: bbf2fd64ec5a7faff62c51bbb2fdeb8d
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[17]/form[1]/input[6]/@id
             name:
-              - text: Schoko Bananen Knusper Müsli
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[17]/div[1]/div[2]/h2[1]/span[1]
+              - text: Dr.Oetker Vitalis WS Knusper pur
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[17]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
-              - text: https://www.mpreis.at/shop/p/casali-schoko-bananen-knusper-muesli-188377
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[17]/@href
-            gtin:
-              - text: "188377"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[17]/@href
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/Dr-Oetker-Vitalis-WS-Knusper-pur.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[17]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1606525329/mpreis/products/2489398.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[17]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1601511083/mpreis/products/1366136.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[17]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 3,50
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[17]/div[4]/div[1]/div[2]
-            manufacturer:
-              - text: Casali
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[17]/div[1]/div[2]/h2[1]/span[2]
+              - text: 4.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[17]/form[1]/div[2]/div[1]/a[1]/strong[1]
           - id:
-              - text: "188376"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[18]/@href
+              - text: 4578f3a6b741fb25813832316d707d2e
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[18]/form[1]/input[6]/@id
             name:
-              - text: Dragee Keksi Knusper Müsli
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[18]/div[1]/div[2]/h2[1]/span[1]
+              - text: SRD Knuspertraum Vanillejogh.-Manner
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[18]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
-              - text: https://www.mpreis.at/shop/p/napoli-dragee-keksi-knusper-muesli-188376
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[18]/@href
-            gtin:
-              - text: "188376"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[18]/@href
+              - text: https://shop.mpreis.at/Lebensmittel/Molkerei-Eier/Joghurt/Fruchtjoghurt/SRD-Knuspertraum-Vanillejogh-Manner.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[18]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/w_130,h_130,c_pad,q_auto:best,f_auto/v1600214456/mpreis/products/2371412.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[18]/div[1]/div[2]/h2[1]/span[1]/@thumbnail
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1597066158/mpreis/products/2323857.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[18]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 3,50
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[18]/div[4]/div[1]/div[2]
-            manufacturer:
-              - text: Napoli
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[18]/div[1]/div[2]/h2[1]/span[2]
+              - text: 1.49 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[18]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: fb993641ce35458e5ab5dbd4eccca9e2
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[19]/form[1]/input[6]/@id
+            name:
+              - text: Kellogg's Crunchy Müsli Classic
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[19]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/Kellogg-s-Crunchy-Muesli-Classic-oxid.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[19]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_163985.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[19]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.30 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[19]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 56dcab164fb1f0af6319bb2db09de192
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[20]/form[1]/input[6]/@id
+            name:
+              - text: Kellogg's Crunchy Müsli Fruit
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[20]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/Kellogg-s-Crunchy-Muesli-Fruit-oxid.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[20]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_163987.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[20]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.30 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[20]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: f9bdb315b1ce6ea621114ce63c002c19
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[21]/form[1]/input[6]/@id
+            name:
+              - text: Berger Knusperschinken
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[21]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Fleisch-Fisch/Wurst/Schinken/Berger-Knusperschinken.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[21]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588935895/mpreis/products/1516016.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[21]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.20 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[21]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 9ab6dad7ac81f0ca9297328a1a8bbca3
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[22]/form[1]/input[6]/@id
+            name:
+              - text: Kellogg's Crunchy Müsli Choco & Pistazie
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[22]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/Kellogg-s-Crunchy-Muesli-Choco-Pistazie.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[22]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[22]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.30 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[22]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 33c906b2fb9336b5617d04f77fa93bd4
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[23]/form[1]/input[6]/@id
+            name:
+              - text: ALN Knusper Bär
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[23]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/ALN-Knusper-Baer.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[23]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941318/mpreis/products/2164119.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[23]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.70 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[23]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 63fc0392047bb7b24b87441479e594e4
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[24]/form[1]/input[6]/@id
+            name:
+              - text: Kellogg's Crunchy Müsli Coconut&Cashew
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[24]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/Kellogg-s-Crunchy-Muesli-Coconut-Cashew.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[24]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588938852/mpreis/products/2113468.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[24]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.80 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[24]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 7ac24b6329be484ba832b758819e3fe2
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[25]/form[1]/input[6]/@id
+            name:
+              - text: Schär Knusperbrot
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[25]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Brot/Brot/Schaer-Knusperbrot.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[25]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1590085755/mpreis/products/2218854.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[25]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.69 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[25]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: df7d4a18a90ae119a777430a7e37ad32
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[26]/form[1]/input[6]/@id
+            name:
+              - text: Alnavit Bio Knusperbrot Buchweizen
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[26]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Brot/Brot/Alnavit-Bio-Knusperbrot-Buchweizen.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[26]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1600301139/mpreis/products/2373731.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[26]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.29 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[26]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: a278fd3f4352c74e4befe421f740380e
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[27]/form[1]/input[6]/@id
+            name:
+              - text: Kellogg's Crunchy Müsli Choco & Nuts
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[27]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/Kellogg-s-Crunchy-Muesli-Choco-Nuts-oxid.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[27]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588938838/mpreis/products/2044979.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[27]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.30 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[27]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: bfaedc951aa9c7b76af3a020bd02f57a
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[28]/form[1]/input[6]/@id
+            name:
+              - text: Kellogg's Crunchy Müsli Red Berries
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[28]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/Kellogg-s-Crunchy-Muesli-Red-Berries.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[28]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[28]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.30 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[28]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 7b0f1ec2ed0d0c6c0e54007090bdff7d
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[29]/form[1]/input[6]/@id
+            name:
+              - text: Schär Knusperbrot Dunkel
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[29]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Brot/Schaer-Knusperbrot-Dunkel.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[29]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1590085773/mpreis/products/2218838.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[29]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[29]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 9a87cc9aa58ea450d701e3f4eebd4375
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[30]/form[1]/input[6]/@id
+            name:
+              - text: Kellogg's Crunchy Müsli o.Zucker Apf/Kar
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[30]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/Kellogg-s-Crunchy-Muesli-o-Zucker-Apf-Kar.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[30]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588938855/mpreis/products/2113416.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[30]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.80 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[30]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 35a5a936aeb418408a5464cb8914a222
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[31]/form[1]/input[6]/@id
+            name:
+              - text: Zuckermelonen
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[31]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Obst-Gemuese/Obst/Zuckermelonen.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[31]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_526110.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[31]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[31]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: aadb27de34c9e63355c4f6ffe878cd1f
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[32]/form[1]/input[6]/@id
+            name:
+              - text: SRD Knuspertraum Natur
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[32]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Molkerei-Eier/Joghurt/Naturjoghurt/SRD-Knuspertraum-Natur.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[32]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1597449798/mpreis/products/2332342.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[32]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.49 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[32]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: aa0b1a985cb13814bf51dd51a9ba34dd
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[33]/form[1]/input[6]/@id
+            name:
+              - text: Rispentomaten ca. 1 Rispe
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[33]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Obst-Gemuese/Gemuese/Rispentomaten-ca-1-Rispe.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[33]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_546050.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[33]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.40 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[33]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 07d757ec84eb87da384212c794c353f2
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[34]/form[1]/input[6]/@id
+            name:
+              - text: BIOvomBERG Pastinaken
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[34]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Obst-Gemuese/Gemuese/BIOvomBERG-Pastinaken.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[34]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_585105.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[34]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.49 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[34]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: aded6e5a2f6aa46420788a90eeb7e0b8
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[35]/form[1]/input[6]/@id
+            name:
+              - text: Midi Rispentomaten
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[35]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Obst-Gemuese/Gemuese/Midi-Rispentomaten.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[35]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[35]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.19 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[35]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 94e21edd4a5110e3238105a61ec35fa8
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[36]/form[1]/input[6]/@id
+            name:
+              - text: Kartoffel 2kg Speckig "QT"
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[36]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Obst-Gemuese/Gemuese/Kartoffel-2kg-Speckig-QT.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[36]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/599970_i01.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[36]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.79 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[36]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 1fe5f7960547d0bd151d501438c0d80e
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[37]/form[1]/input[6]/@id
+            name:
+              - text: SRD Knuspertraum Himbeere-Kirsche
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[37]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Molkerei-Eier/Joghurt/Fruchtjoghurt/SRD-Knuspertraum-Himbeere-Kirsche.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[37]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1597449776/mpreis/products/2332337.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[37]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.49 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[37]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: a4571cb15b54ec959e1f6a1b30c31cc1
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[38]/form[1]/input[6]/@id
+            name:
+              - text: BIO Zwiebel Netz
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[38]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Obst-Gemuese/Gemuese/BIO-Zwiebel-Netz.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[38]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1599814049/mpreis/products/b187e7ac-18ed-4ec5-9092-df31310591ff.png
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[38]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.49 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[38]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 352310f71e7762144f4e70603ba417b3
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[39]/form[1]/input[6]/@id
+            name:
+              - text: Orangen 2kg Netz
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[39]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Obst-Gemuese/Obst/Orangen-2kg-Netz.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[39]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/500397_i01.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[39]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.69 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[39]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 254f46d532a232ddda2b0ffd3b42d201
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[40]/form[1]/input[6]/@id
+            name:
+              - text: Kartoffel Pfanni Österreich
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[40]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Obst-Gemuese/Gemuese/Kartoffel-Pfanni-Oesterreich.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[40]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941899/mpreis/products/2081516.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[40]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[40]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 403ac5e996c80c956a667b046d724545
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[41]/form[1]/input[6]/@id
+            name:
+              - text: Dr.Oetker Vitalis Knusper Plus D.Schoko
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[41]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/Dr-Oetker-Vitalis-Knusper-Plus-D-Schoko.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[41]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1601512394/mpreis/products/1366101.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[41]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 4.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[41]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: cb7e85ba9350e7c148b8387e86e9950b
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[42]/form[1]/input[6]/@id
+            name:
+              - text: ALN Knusper Hafer
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[42]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/ALN-Knusper-Hafer.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[42]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941644/mpreis/products/2164047.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[42]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[42]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 90f903a0fa03b82d80b4d5fea0baceeb
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[43]/form[1]/input[6]/@id
+            name:
+              - text: ALN Knusper Mix
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[43]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Knabbergebaeck/Cocktailgebaeck/ALN-Knusper-Mix.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[43]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941428/mpreis/products/1912530.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[43]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.90 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[43]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 5af310266b25233777dff3c78c951846
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[44]/form[1]/input[6]/@id
+            name:
+              - text: Whiskas Knuspertaschen Lachs
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[44]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Whiskas-Knuspertaschen-Lachs.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[44]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1601392699/mpreis/products/2399263.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[44]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[44]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: d6ccb9562d85427965fa56d9bae8a750
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[45]/form[1]/input[6]/@id
+            name:
+              - text: BIOvomBERG Karotten Tirol
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[45]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Obst-Gemuese/Gemuese/BIOvomBERG-Karotten-Tirol.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[45]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1598857067/mpreis/products/efe6f8bd-d2ec-4bcf-9d8e-1562dbdf91db.png
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[45]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.29 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[45]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 791bc485b6f6dc84c1212e81b0d3e4a4
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[46]/form[1]/input[6]/@id
+            name:
+              - text: BIOvomBERG Knoblauch Netz
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[46]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Obst-Gemuese/Gemuese/BIOvomBERG-Knoblauch-Netz.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[46]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/562006_i01.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[46]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[46]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 502ac04d81349cad141e72bf781a5757
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[47]/form[1]/input[6]/@id
+            name:
+              - text: Whiskas Knuspertaschen Huhn+Käse
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[47]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Whiskas-Knuspertaschen-Huhn-Kaese.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[47]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1601392818/mpreis/products/2399264.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[47]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[47]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: e111a1fa10391414a0d0028ae00abe8b
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[48]/form[1]/input[6]/@id
+            name:
+              - text: ALN Knusper Gebäck
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[48]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Kekse-Biskotten/ALN-Knusper-Gebaeck.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[48]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941532/mpreis/products/1912851.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[48]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.30 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[48]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 6c139b4c760aa33158841c27738b019a
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[49]/form[1]/input[6]/@id
+            name:
+              - text: Whiskas Knuspertaschen Rind
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[49]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Whiskas-Knuspertaschen-Rind.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[49]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1601392814/mpreis/products/2399265.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[49]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[49]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 27af5236c62a2026e9dfc3e687b36ad4
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[50]/form[1]/input[6]/@id
+            name:
+              - text: Storck Merci Mandel Knusper Vielfalt
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[50]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Schokolade/Pralinen/Storck-Merci-Mandel-Knusper-Vielfalt.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[50]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1587875948/mpreis/products/1046142.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[50]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[50]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 0df5ea19d8ebf984240fe7a23372f85b
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[51]/form[1]/input[6]/@id
+            name:
+              - text: TM Bergbauern Joghurt Bircher Müsli Glas
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[51]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Molkerei-Eier/Joghurt/Fruchtjoghurt/TM-Bergbauern-Joghurt-Bircher-Muesli-Glas.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[51]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1599004865/mpreis/products/2348075.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[51]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.59 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[51]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: e5a2d7bb0617243def2f3531851b3510
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[52]/form[1]/input[6]/@id
+            name:
+              - text: JT Müsliriegel Nuss
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[52]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/JT-Muesliriegel-Nuss.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[52]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939516/mpreis/products/1260798.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[52]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[52]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 70ceb5be272a9cf253e180436b125b5f
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[53]/form[1]/input[6]/@id
+            name:
+              - text: Gittis Schoko Müsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[53]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/Gittis-Schoko-Muesli.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[53]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588942268/mpreis/products/2140831.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[53]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[53]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 56ff2ccd31af578d6a1e493b3e14e150
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[54]/form[1]/input[6]/@id
+            name:
+              - text: JT Schoko Müsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[54]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/JT-Schoko-Muesli.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[54]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/200047_i01.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[54]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.89 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[54]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 9b0e8795cdb74c8c7a0e6669b3547f4e
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[55]/form[1]/input[6]/@id
+            name:
+              - text: Müller Original Jogh.m.d.Ecke
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[55]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Molkerei-Eier/Joghurt/Fruchtjoghurt/Mueller-Original-Jogh-m-d-Ecke.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[55]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588937247/mpreis/products/1551938.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[55]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.80 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[55]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: e27c2ab508e11464bab6f2f2d1c57171
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[56]/form[1]/input[6]/@id
+            name:
+              - text: Gittis Bircher Müsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[56]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/Gittis-Bircher-Muesli.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[56]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588942270/mpreis/products/2140832.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[56]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[56]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 8cdbf9555362f0c56c96b23d157599ac
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[57]/form[1]/input[6]/@id
+            name:
+              - text: ALN Nuss Müsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[57]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/ALN-Nuss-Muesli.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[57]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941320/mpreis/products/2066457.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[57]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.90 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[57]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: e711bdd2bcb5adb5922010abc4d812cd
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[58]/form[1]/input[6]/@id
+            name:
+              - text: Schär Früchtemüsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[58]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Schaer-Fruechtemuesli.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[58]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_280575.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[58]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 4.20 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[58]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: ab9f7823d09b3d63db4e3ebfa5bcc14b
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[59]/form[1]/input[6]/@id
+            name:
+              - text: JT Trauben Nuss Müsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[59]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/JT-Trauben-Nuss-Muesli.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[59]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939536/mpreis/products/1321963.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[59]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.69 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[59]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 381cca3d2f62990195dc284577c524ad
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[60]/form[1]/input[6]/@id
+            name:
+              - text: Ovomaltine Crisp Müsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[60]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/Ovomaltine-Crisp-Muesli.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[60]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939247/mpreis/products/2144255.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[60]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 5.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[60]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 88624a92e32e3457350a014fff21c805
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[61]/form[1]/input[6]/@id
+            name:
+              - text: JT Müsliriegel Schoko
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[61]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/JT-Muesliriegel-Schoko.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[61]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939512/mpreis/products/1409254.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[61]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[61]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: d3c177d89298d42aaba717521b9845f8
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[62]/form[1]/input[6]/@id
+            name:
+              - text: JT Früchte Müsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[62]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/JT-Fruechte-Muesli.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[62]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/200079_i01.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[62]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.69 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[62]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: a797af2d6cbcd2c4d4c9c19cf01236df
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[63]/form[1]/input[6]/@id
+            name:
+              - text: NFU Bio Nussmüsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[63]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/NFU-Bio-Nussmuesli.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[63]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_286097.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[63]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.30 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[63]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 66b22df61e5b8a7581ffd12e2a385563
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[64]/form[1]/input[6]/@id
+            name:
+              - text: ALN Kinder Früchte Müsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[64]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/ALN-Kinder-Fruechte-Muesli.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[64]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941315/mpreis/products/2163978.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[64]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[64]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 8f6980b93bebbc596517ee27c80fef2b
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[65]/form[1]/input[6]/@id
+            name:
+              - text: ALN Schoko Müsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[65]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/ALN-Schoko-Muesli.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[65]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941322/mpreis/products/2134726.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[65]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[65]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 23e2628d9dd2071c52405e478d4561e8
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[66]/form[1]/input[6]/@id
+            name:
+              - text: ALN Müsli Riegel Schoko
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[66]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Riegel/ALN-Muesli-Riegel-Schoko.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[66]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941502/mpreis/products/2163922.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[66]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.10 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[66]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 966b1691bb590f891aef1eeffdf5175e
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[67]/form[1]/input[6]/@id
+            name:
+              - text: Gittis Sport Müsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[67]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/Gittis-Sport-Muesli.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[67]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1587878760/mpreis/products/1652837.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[67]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[67]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: bf8a20b117e934f2b00a6be766b39efa
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[68]/form[1]/input[6]/@id
+            name:
+              - text: ALN Protein Müsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[68]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/ALN-Protein-Muesli.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[68]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941691/mpreis/products/2163894.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[68]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[68]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 054c1937b1ea7e8e8bb361ebaa9cf0a4
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[69]/form[1]/input[6]/@id
+            name:
+              - text: Dr.Oetker Vitalis Schoko Müsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[69]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/Dr-Oetker-Vitalis-Schoko-Muesli-oxid.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[69]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1601078558/mpreis/products/2394712.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[69]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 4.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[69]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 6b49439206b77d73f4bfcf423913d809
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[70]/form[1]/input[6]/@id
+            name:
+              - text: ALN Früchte Müsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[70]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/ALN-Fruechte-Muesli.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[70]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_365173.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[70]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[70]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: aed635b5c71fa10b3af22ce35ef2dbb7
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[71]/form[1]/input[6]/@id
+            name:
+              - text: NFU Bio Beerenmüsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[71]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/NFU-Bio-Beerenmuesli.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[71]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[71]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.30 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[71]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 81b5c4e1879d15f65690761a224ae814
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[72]/form[1]/input[6]/@id
+            name:
+              - text: JT Müsliriegel Schoko-Banane
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[72]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/JT-Muesliriegel-Schoko-Banane.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[72]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939516/mpreis/products/1329405.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[72]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[72]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 66a73c62176b9b7e5e733b0f2cad253d
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[73]/form[1]/input[6]/@id
+            name:
+              - text: Sterzinger Joghurt Früchtemüsli DUO
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[73]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Molkerei-Eier/Joghurt/Fruchtjoghurt/Sterzinger-Joghurt-Fruechtemuesli-DUO.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[73]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593501051/mpreis/products/2253667.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[73]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[73]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 141b41a975eed98b98e287360ecd43b9
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[74]/form[1]/input[6]/@id
+            name:
+              - text: ALN Beeren Müsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[74]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/ALN-Beeren-Muesli.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[74]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941586/mpreis/products/2163967.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[74]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 4.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[74]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 460eca22b5e0af3c5ea7edc0a3659470
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[75]/form[1]/input[6]/@id
+            name:
+              - text: ALN Maxi Müsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[75]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/ALN-Maxi-Muesli.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[75]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941317/mpreis/products/2163968.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[75]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[75]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 89f0a9e64ef6a59ea0e2714036239c03
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[76]/form[1]/input[6]/@id
+            name:
+              - text: ALN Bircher Müsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[76]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/ALN-Bircher-Muesli.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[76]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941585/mpreis/products/2164121.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[76]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.20 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[76]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: b12880e51175178ecaf6f5328b456091
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[77]/form[1]/input[6]/@id
+            name:
+              - text: Schär Choco Müsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[77]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/Schaer-Choco-Muesli.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[77]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588940542/mpreis/products/2218852.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[77]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 4.49 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[77]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: c54849145695bef628b932ef8ea0675b
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[78]/form[1]/input[6]/@id
+            name:
+              - text: ALN Basis Müsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[78]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/ALN-Basis-Muesli-oxid.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[78]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941540/mpreis/products/2163966.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[78]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.30 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[78]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 622e97582abcb7493b02e15c4b9aa050
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[79]/form[1]/input[6]/@id
+            name:
+              - text: ALN Müsli Riegel Ahorn Dattel
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[79]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Riegel/ALN-Muesli-Riegel-Ahorn-Dattel.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[79]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941496/mpreis/products/2163924.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[79]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[79]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 1a32e8cb65edef7a04ca2c1c926f7499
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[80]/form[1]/input[6]/@id
+            name:
+              - text: Dr.Oetker Vitalis Joghurt/Erdbeer Müsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[80]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/Dr-Oetker-Vitalis-Joghurt-Erdbeer-Muesli.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[80]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1601511094/mpreis/products/1366134.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[80]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 4.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[80]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 5a1dcbb977e17d035142ac7a0b91a830
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[81]/form[1]/input[6]/@id
+            name:
+              - text: Corny Müsliriegel Schoko 6er
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[81]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Riegel/Corny-Muesliriegel-Schoko-6er.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[81]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_261242.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[81]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.79 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[81]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 0df7773d0db6bc919708997f4caa747e
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[82]/form[1]/input[6]/@id
+            name:
+              - text: Corny Müsliriegel Apfel 6er
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[82]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Riegel/Corny-Muesliriegel-Apfel-6er.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[82]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[82]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.79 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[82]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 34f50303c1cb3c93cf7afb724b79527f
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[83]/form[1]/input[6]/@id
+            name:
+              - text: ALN Urkorn Müsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[83]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/ALN-Urkorn-Muesli.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[83]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941419/mpreis/products/1912368.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[83]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.19 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[83]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 8b5dd70ec8fa3a69acf01130693e5510
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[84]/form[1]/input[6]/@id
+            name:
+              - text: Dr.Oetker Vitalis Früchte Müsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[84]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/Dr-Oetker-Vitalis-Fruechte-Muesli-oxid-1.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[84]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1601078490/mpreis/products/2394602.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[84]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 4.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[84]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 571e23121b6037f3cb62096429541564
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[85]/form[1]/input[6]/@id
+            name:
+              - text: Dr.Oetker Vitalis Kn.Plus Nussmischung
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[85]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/Dr-Oetker-Vitalis-Kn-Plus-Nussmischung.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[85]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_212209.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[85]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 4.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[85]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 543a052e958f1d0aeb6d6b4abf3500b8
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[86]/form[1]/input[6]/@id
+            name:
+              - text: Dr.Oetker Vitalis Schoko Müsli feinherb
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[86]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/Dr-Oetker-Vitalis-Schoko-Muesli-feinherb.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[86]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1601511097/mpreis/products/1366138.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[86]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 4.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[86]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 48a2f9409f5a652fcdb4cca0256aa5a5
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[87]/form[1]/input[6]/@id
+            name:
+              - text: Balisto Riegel Müsli Mix 9er
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[87]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Riegel/Balisto-Riegel-Muesli-Mix-9er.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[87]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588938870/mpreis/products/2026032.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[87]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[87]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: c86e61fd090d0fe0a69cdb8ae06c9ea9
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[88]/form[1]/input[6]/@id
+            name:
+              - text: NFU Bio Basis Müsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[88]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/NFU-Bio-Basis-Muesli.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[88]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_286031.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[88]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.90 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[88]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 86c314f76906b153057c31583fa81c2c
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[89]/form[1]/input[6]/@id
+            name:
+              - text: Corny Müsliriegel Schoko-Banane 6er
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[89]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Riegel/Corny-Muesliriegel-Schoko-Banane-6er.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[89]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_261243.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[89]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.79 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[89]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 87f8a24017c54972d72b3346cc410794
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[90]/form[1]/input[6]/@id
+            name:
+              - text: Clif Bar Alpine Müsli Mix 68g
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[90]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Riegel/Clif-Bar-Alpine-Muesli-Mix-68g.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[90]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588937960/mpreis/products/2066895.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[90]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[90]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: c734124753b35435a521dbd10597efa0
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[91]/form[1]/input[6]/@id
+            name:
+              - text: Hipp 8M Apfel/Bananen Müsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[91]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Babynahrung/Hipp-8M-Apfel-Bananen-Muesli.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[91]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588942734/mpreis/products/2031259.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[91]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.25 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[91]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 8bec4b97fb0dca6f37227e05c03e3016
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[92]/form[1]/input[6]/@id
+            name:
+              - text: Hipp 12M Beeren Müsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[92]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Babynahrung/Hipp-12M-Beeren-Muesli.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[92]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1600128338/mpreis/products/2367840.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[92]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[92]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 9f14140d5946ea1879b051891b4813b9
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[93]/form[1]/input[6]/@id
+            name:
+              - text: Hipp 6M Feines Bircher Müsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[93]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Babynahrung/Hipp-6M-Feines-Bircher-Muesli.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[93]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588942713/mpreis/products/2031257.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[93]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.25 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[93]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 7519e9aadb00f6df0655827e6f84bcee
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[94]/form[1]/input[6]/@id
+            name:
+              - text: ALN Hafer Crunchy Nuss
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[94]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/ALN-Hafer-Crunchy-Nuss.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[94]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593500449/mpreis/products/2264687.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[94]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[94]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: a95679ab5a772eee8f28afe8f61821b3
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[95]/form[1]/input[6]/@id
+            name:
+              - text: Nestle Nesquik Knusper Frühstück
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[95]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/Nestle-Nesquik-Knusper-Fruehstueck.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[95]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939662/mpreis/products/2225713.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[95]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.40 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[95]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 675156bfa561cdaaad10306b98294a1c
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[96]/form[1]/input[6]/@id
+            name:
+              - text: Hipp 10M Früchte Joghurt Müsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[96]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Babynahrung/Hipp-10M-Fruechte-Joghurt-Muesli.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[96]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588942812/mpreis/products/2027041.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[96]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.30 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[96]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: ea99d85a2d320740543442cebec968df
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[97]/form[1]/input[6]/@id
+            name:
+              - text: Desperados Tequilabeer
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[97]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Alkoholische-Getraenke/Bier/Bier/Desperados-Tequilabeer.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[97]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1591202094/mpreis/products/2244458.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[97]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.79 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[97]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 42df70966ffa1e00873c1999eb7d617e
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[98]/form[1]/input[6]/@id
+            name:
+              - text: Hipp 10M Erd/Apf/Joghurt Müsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[98]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Babynahrung/Hipp-10M-Erd-Apf-Joghurt-Muesli.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[98]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588942807/mpreis/products/2027039.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[98]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.30 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[98]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: c8f959609f366b9251172f527f03ad36
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[99]/form[1]/input[6]/@id
+            name:
+              - text: Kneipp Körpermilch Mandelblüten
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[99]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Koerper-Gesundheit/Creme-Hautpflege/Franzbranntwein/Kneipp-Koerpermilch-Mandelblueten.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[99]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588940888/mpreis/products/2038065.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[99]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 7.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[99]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 1c8981b7faafd6506ef9261b3a2ed2fa
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[100]/form[1]/input[6]/@id
+            name:
+              - text: Knorr Cup a Soup Gemüsesuppe
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[100]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Suppen-Saucen/Bouillons-Gewuerze/Knorr-Cup-a-Soup-Gemuesesuppe.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[100]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593609705/mpreis/products/2152221.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[100]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.49 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[100]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 2ebe78797bd265720728170eee98b09d
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[101]/form[1]/input[6]/@id
+            name:
+              - text: Wrigley Orbit Peppermint 10er
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[101]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Kaugummi/Wrigley-Orbit-Peppermint-10er.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[101]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939321/mpreis/products/1668135.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[101]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.80 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[101]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 2eb292060718770137c50afe51a01b88
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[102]/form[1]/input[6]/@id
+            name:
+              - text: Kellogg's Crunchy Müsli Protein Choco
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[102]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/Kellogg-s-Crunchy-Muesli-Protein-Choco.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[102]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[102]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.80 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[102]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: f7c9294beace72b37e62567c29ac3db0
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[103]/form[1]/input[6]/@id
+            name:
+              - text: Desperados Tequilabeer 4er Dose
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[103]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Alkoholische-Getraenke/Bier/Bier/Desperados-Tequilabeer-4er-Dose.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[103]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1591202103/mpreis/products/2244462.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[103]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 7.60 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[103]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 9a8601e1fe6eabda7f95c00ee0a4958e
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[104]/form[1]/input[6]/@id
+            name:
+              - text: Wrigley Orbit Peppermint Bottle
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[104]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Kaugummi/Wrigley-Orbit-Peppermint-Bottle.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[104]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939308/mpreis/products/1890840.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[104]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.20 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[104]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: eeeee6ad3e43772171b6b5fbcb689a32
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[105]/form[1]/input[6]/@id
+            name:
+              - text: Wrigley Orbit Peppermint 5x10er
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[105]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Kaugummi/Wrigley-Orbit-Peppermint-5x10er.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[105]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_186005.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[105]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[105]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: daa0b2f8dd72588ab7d7d765c61304fb
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[106]/form[1]/input[6]/@id
+            name:
+              - text: Dr.Oetker Vitalis Kn.Plus Honig/Mandel
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[106]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/Dr-Oetker-Vitalis-Kn-Plus-Honig-Mandel.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[106]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_212214.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[106]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 4.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[106]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: b37f87ae4710f413b11a8319bf41e826
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[107]/form[1]/input[6]/@id
+            name:
+              - text: Leicht & Cross Weizen
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[107]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Brot/Brot/Leicht-Cross-Weizen.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[107]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1587876478/mpreis/products/1764055.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[107]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.30 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[107]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: e3691bd59918bd505477a730e5c21a20
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[108]/form[1]/input[6]/@id
+            name:
+              - text: Leicht & Cross Vital
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[108]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Brot/Brot/Leicht-Cross-Vital.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[108]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1587876482/mpreis/products/1655038.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[108]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.30 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[108]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: f68762786c0fae920a7c63a7f4f8b661
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[109]/form[1]/input[6]/@id
+            name:
+              - text: Leicht & Cross Roggen
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[109]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Brot/Brot/Leicht-Cross-Roggen.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[109]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1587876479/mpreis/products/1764056.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[109]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.30 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[109]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: c85afda054fbb2dbe7d608f643ee74bc
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[110]/form[1]/input[6]/@id
+            name:
+              - text: Mautner Markhof Hesperiden Essig 7,5%
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[110]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Wuerzen-Verfeinern/Essig-Oel/Mautner-Markhof-Hesperiden-Essig-7-5-oxid.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[110]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1587875747/mpreis/products/1862273.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[110]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[110]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: d4c85e062662cf2af21b7d69d6671abd
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[111]/form[1]/input[6]/@id
+            name:
+              - text: Alpenriegel Frucht und Nuss 5er
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[111]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Riegel/Alpenriegel-Frucht-und-Nuss-5er.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[111]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_211409.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[111]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[111]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 52a95e68eb6d75c869a74b0b911278a9
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[112]/form[1]/input[6]/@id
+            name:
+              - text: Mautner Markhof Hesperiden Essig 7,5%
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[112]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Wuerzen-Verfeinern/Essig-Oel/Mautner-Markhof-Hesperiden-Essig-7-5.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[112]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1587875748/mpreis/products/1862274.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[112]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.79 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[112]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 981dbe0aa39018d2bd5f3df06a26a5ed
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[113]/form[1]/input[6]/@id
+            name:
+              - text: Bahlsen Leibniz Minis Schoko Superpack
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[113]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Kekse-Biskotten/Bahlsen-Leibniz-Minis-Schoko-Superpack.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[113]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1602583170/mpreis/products/2426346.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[113]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[113]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: a9061c89224ef3090564515572e1974b
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[114]/form[1]/input[6]/@id
+            name:
+              - text: ALN Kokos Crunchy
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[114]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/ALN-Kokos-Crunchy.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[114]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941644/mpreis/products/1912222.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[114]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.69 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[114]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 673a8827f1c175ac8cf7ba8444dc5ab9
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[115]/form[1]/input[6]/@id
+            name:
+              - text: BvB Tiroler Dinkelcrunchy
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[115]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/BvB-Tiroler-Dinkelcrunchy.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[115]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/286207_i01.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[115]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.79 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[115]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 8ea530c9b84d6265686b996a28082aac
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[116]/form[1]/input[6]/@id
+            name:
+              - text: ALN Hafer Crunchy
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[116]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/ALN-Hafer-Crunchy.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[116]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941312/mpreis/products/2164153.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[116]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 4.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[116]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 1af5c27bf38fc902b3a23be50235a6a3
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[117]/form[1]/input[6]/@id
+            name:
+              - text: Alnavit Bio Nuss-Crunchy
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[117]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Brot/Brot/Alnavit-Bio-Nuss-Crunchy.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[117]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1600301142/mpreis/products/2373708.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[117]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.49 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[117]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 203676b99fb49f61a2ce4bf46fb887f1
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[118]/form[1]/input[6]/@id
+            name:
+              - text: ALN Dinkel Crunchy
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[118]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/ALN-Dinkel-Crunchy.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[118]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593500440/mpreis/products/2264681.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[118]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 4.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[118]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 68407e8ab5bd4219e281e3bcdb175303
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[119]/form[1]/input[6]/@id
+            name:
+              - text: ALN Crunchy Waldbeere
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[119]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/ALN-Crunchy-Waldbeere.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[119]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593500436/mpreis/products/2264682.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[119]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[119]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: b299a05333db7f436c8db486e75d81db
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[120]/form[1]/input[6]/@id
+            name:
+              - text: Milka Nussini Haselnuss Single
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[120]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Riegel/Milka-Nussini-Haselnuss-Single.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[120]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1587875907/mpreis/products/1117956.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[120]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[120]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 231ade44c1f24e03f9ecaaf41a317d08
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[121]/form[1]/input[6]/@id
+            name:
+              - text: ALN Hafer Crunchy Schoko
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[121]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/ALN-Hafer-Crunchy-Schoko.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[121]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941314/mpreis/products/2137260.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[121]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 4.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[121]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: a1def8e3491db85341b45b3adf10a128
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[122]/form[1]/input[6]/@id
+            name:
+              - text: NFU Bio Chia Crunchy
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[122]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/NFU-Bio-Chia-Crunchy.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[122]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[122]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[122]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: ac1410b82b4a486d8b7045bd7197d332
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[123]/form[1]/input[6]/@id
+            name:
+              - text: ALN Hafer Riegel Mandel + Haselnuss
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[123]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Riegel/ALN-Hafer-Riegel-Mandel-Haselnuss.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[123]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[123]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.29 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[123]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 5fefde31b0606b6bbbce2c76740c0ab8
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[124]/form[1]/input[6]/@id
+            name:
+              - text: ALN Crunchy Schoko feinherb
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[124]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/ALN-Crunchy-Schoko-feinherb.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[124]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941589/mpreis/products/2137261.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[124]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[124]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: eca2cdda936fde7bbd4a8f0f784766fa
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[125]/form[1]/input[6]/@id
+            name:
+              - text: ALN Dinkel Hafer Crunchy mit Reissirup
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[125]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/ALN-Dinkel-Hafer-Crunchy-mit-Reissirup.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[125]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593500442/mpreis/products/2264683.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[125]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[125]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 9308b7083de5802b565f530ac0c0ba1f
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[126]/form[1]/input[6]/@id
+            name:
+              - text: Estermann Erdnussöl
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[126]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Wuerzen-Verfeinern/Essig-Oel/Estermann-Erdnussoel.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[126]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1590084687/mpreis/products/2234153.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[126]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[126]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 9d58bba2a8f0391a16a1687427ae0f31
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[127]/form[1]/input[6]/@id
+            name:
+              - text: Ritter Sport Bunte Vielfalt Alpenmilch
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[127]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Schokolade/Tafelschokolade/Ritter-Sport-Bunte-Vielfalt-Alpenmilch.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[127]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1587875632/mpreis/products/1741251.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[127]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.60 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[127]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 4f1fa87952f6e099f4cd817cd9c05add
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[128]/form[1]/input[6]/@id
+            name:
+              - text: Corny Nuss Dreierlei Nuss&Karamell 4er
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[128]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Riegel/Corny-Nuss-Dreierlei-Nuss-Karamell-4er.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[128]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_261269.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[128]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.79 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[128]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: cef09f6ca52bf0952bbca8ccf38456f3
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[129]/form[1]/input[6]/@id
+            name:
+              - text: Knoppers Nussriegel Erdnuss
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[129]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Waffeln-Schnitten/Knoppers-Nussriegel-Erdnuss.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[129]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[129]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.80 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[129]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: c69036a575cb04d9b4c58209b8278ae3
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[130]/form[1]/input[6]/@id
+            name:
+              - text: Knoppers Nussriegel
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[130]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Waffeln-Schnitten/Knoppers-Nussriegel.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[130]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939337/mpreis/products/2144416.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[130]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.80 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[130]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 662ede56cee1ddcd5bc4ef6b57c6e5d9
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[131]/form[1]/input[6]/@id
+            name:
+              - text: NFU Bio Crunchy Schoko
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[131]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Muesli-Cerealien/NFU-Bio-Crunchy-Schoko.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[131]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[131]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[131]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: eade530dce988ddaa1074d0e1d529660
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[132]/form[1]/input[6]/@id
+            name:
+              - text: Ferrero Die Besten Nuss T26
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[132]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Schokolade/Pralinen/Ferrero-Die-Besten-Nuss-T26.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[132]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1598486441/mpreis/products/2100453.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[132]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 7.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[132]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: e0b57b3e890d82987190147c71163817
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[133]/form[1]/input[6]/@id
+            name:
+              - text: JT Gemüsemais
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[133]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Konserven/Dosengemuese/JT-Gemuesemais.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[133]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939891/mpreis/products/2181252.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[133]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.59 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[133]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 192b6943b3ca9a2301b9249ee90986e0
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[134]/form[1]/input[6]/@id
+            name:
+              - text: Nature Valley Crunchy Hafer & Honig
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[134]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Riegel/Nature-Valley-Crunchy-Hafer-Honig.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[134]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_710353.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[134]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.39 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[134]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: d29c3721b3aa8f11e42d2648392a0214
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[135]/form[1]/input[6]/@id
+            name:
+              - text: JT Kokosraspeln
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[135]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Backen-Desserts/Backzutaten/JT-Kokosraspeln.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[135]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588940585/mpreis/products/2030812.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[135]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[135]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 61ed3ba0a9c5bba03b594f0ab630feef
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[136]/form[1]/input[6]/@id
+            name:
+              - text: JT Slipeinlagen Normal
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[136]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Koerper-Gesundheit/Damenhygiene/Slipeinlagen/JT-Slipeinlagen-Normal.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[136]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941245/mpreis/products/181335.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[136]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.97 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[136]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 94ab09641379a4f9354eb767405985b3
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[137]/form[1]/input[6]/@id
+            name:
+              - text: Knoppers Nussriegel Erdnuss 3er
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[137]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Waffeln-Schnitten/Knoppers-Nussriegel-Erdnuss-3er.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[137]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[137]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.80 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[137]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 0c4c4c8c04ba2a126c726a3ab1f4b0ef
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[138]/form[1]/input[6]/@id
+            name:
+              - text: Lambertz Vital Gebäck Schoko
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[138]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Kekse-Biskotten/Lambertz-Vital-Gebaeck-Schoko.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[138]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939422/mpreis/products/2098731.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[138]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[138]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: ae43fc2415007294ed186a44282da9b2
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[139]/form[1]/input[6]/@id
+            name:
+              - text: JT Slipeinlagen Lang
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[139]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Koerper-Gesundheit/Damenhygiene/Slipeinlagen/JT-Slipeinlagen-Lang.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[139]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941248/mpreis/products/181329.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[139]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.84 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[139]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: c0a31884dab5267868866871e0eefb9f
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[140]/form[1]/input[6]/@id
+            name:
+              - text: JT Süßstoffspender
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[140]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Vorratsschrank/Wuerzen-Verfeinern/Zucker-Suessstoffe/JT-Suessstoffspender.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[140]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939548/mpreis/products/1670204.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[140]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[140]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: c70fe492b4b184b525bb7d682e3fffc4
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[141]/form[1]/input[6]/@id
+            name:
+              - text: Bahlsen Ohne Gleichen Vollmilch
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[141]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Waffeln-Schnitten/Bahlsen-Ohne-Gleichen-Vollmilch.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[141]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588942086/mpreis/products/1343956.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[141]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[141]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: c61cc9a8809dee4dd5f5650ad8edda74
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[142]/form[1]/input[6]/@id
+            name:
+              - text: Nature Valley Crunchy Kan. Ahornsirup
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[142]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Riegel/Nature-Valley-Crunchy-Kan-Ahornsirup.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[142]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_710352.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[142]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.39 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[142]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 4adb3d89646812f6d747cbba56494345
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[143]/form[1]/input[6]/@id
+            name:
+              - text: M & M´s Crispy Standbeutel
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[143]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Schokolade/Schokoladiges/M-M-s-Crispy-Standbeutel.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[143]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1599523590/mpreis/products/2312883.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[143]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 2.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[143]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 50c46ea9053a19034b125908f09f4c8c
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[144]/form[1]/input[6]/@id
+            name:
+              - text: Twix 4er
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[144]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Riegel/Twix-4er.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[144]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588938930/mpreis/products/1033887.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[144]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[144]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: a1de748c39b120fe83316a57c55448c0
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[145]/form[1]/input[6]/@id
+            name:
+              - text: Bahlsen Leibniz Afrika Edelherb
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[145]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Kekse-Biskotten/Bahlsen-Leibniz-Afrika-Edelherb.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[145]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_710192.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[145]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[145]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 9e397fff95939d0d9aa851cbace4c438
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[146]/form[1]/input[6]/@id
+            name:
+              - text: Gmundnermilch Speisetopfen 20% FiT
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[146]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Molkerei-Eier/Topfen/Gmundnermilch-Speisetopfen-20-FiT.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[146]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/87908_i01.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[146]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.10 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[146]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 019b8317548a0a6bcb31b295d3027225
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[147]/form[1]/input[6]/@id
+            name:
+              - text: ALN Weiße Crisp Schokolade
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[147]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Schokolade/Tafelschokolade/ALN-Weisse-Crisp-Schokolade.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[147]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941525/mpreis/products/2209363.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[147]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[147]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 41433bf48f69590bcf8d22f6ce7b69c2
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[148]/form[1]/input[6]/@id
+            name:
+              - text: M&M´s Crispy
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[148]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Schokolade/Schokoladiges/M-M-s-Crispy.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[148]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1602892947/mpreis/products/2399771.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[148]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[148]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: 0f46890ff38cafde4279ab4c9b52210e
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[149]/form[1]/input[6]/@id
+            name:
+              - text: Bahlsen Leibniz Minis Superpack
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[149]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Lebensmittel/Suesses-Pikantes/Kekse-Biskotten/Bahlsen-Leibniz-Minis-Superpack.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[149]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1587878328/mpreis/products/1006070.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[149]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1.99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[149]/form[1]/div[2]/div[1]/a[1]/strong[1]
+          - id:
+              - text: a800943d847355b6e17c7b82ecefcab8
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[150]/form[1]/input[6]/@id
+            name:
+              - text: Gourmet Perle Genuss des Meeres
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[150]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Haustiere/Katzenfutter/Gourmet-Perle-Genuss-des-Meeres.html?listtype=search&searchparam=knusperm%C3%BCsli
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[150]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939646/mpreis/products/1939082.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[150]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 3.29 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[150]/form[1]/div[2]/div[1]/a[1]/strong[1]
         xpath: /html
-    timestamp: 1610524644862
+    timestamp: 1611045448050
