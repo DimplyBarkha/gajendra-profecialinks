@@ -15,16 +15,18 @@ fields:
 - name: image
   singleValue: true
   description: URL of the main product image
-  xpath: //img[@class="js_product_img"]/@src
+  # xpath: //img[@class="js_product_img"]/@src
+  xpath: //ol[@id="alternate_images_list"]/li[position() = 1]/@src
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
-  xpath: //img[@class="js_product_img"]/@alt
+  # xpath: //img[@class="js_product_img"]/@alt
+  xpath: //ol[@id="alternate_images_list"]/li[position() = 1]/@alt
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
   # xpath: (//div[contains(@class, "js_show-more-gallery")]//img)[position() > 1]/@src
-  xpath: //ol[@id="alternate_images_list"]/li
+  xpath: //ol[@id="alternate_images_list"]/li[position() > 1]/@src
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
@@ -128,7 +130,6 @@ fields:
 - name: aggregateRating
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
-  # xpath: //div[@class="rating-horizontal__average-score"]/@rating
   xpath: //div[@id="aggregate_rating"]
 - name: shippingInfo
   singleValue: true

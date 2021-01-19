@@ -102,14 +102,17 @@ const implementation = async (inputs, { transform }, context, { productDetails }
     altImagesList.style.display = 'none';
     document.body.appendChild(altImagesList);
     const imgThumbnails = document.querySelectorAll('div[data-test="product-images"] ul > li');
-    for (let i = 1; i < imgThumbnails.length; i++) {
+    for (let i = 0; i < imgThumbnails.length; i++) {
       const elem = imgThumbnails[i];
       elem.click();
       await new Promise((resolve) => setTimeout(resolve, 500));
       const image = document.querySelector('div[data-test="product-image-content"] img');
       if (image) {
         const listItem = document.createElement('li');
-        listItem.innerHTML = image.getAttribute('src');
+        const src = image.getAttribute('src');
+        const alt = image.getAttribute('alt');
+        listItem.setAttribute('src', src);
+        listItem.setAttribute('alt', alt);
         altImagesList.appendChild(listItem);
       }
     }
@@ -224,7 +227,7 @@ const implementation = async (inputs, { transform }, context, { productDetails }
     if (descriptionElement && descriptionUlElement) {
       descriptionElement.removeChild(descriptionUlElement);
     }
-    let descriptionText = descriptionElement ? descriptionElement.textContent : '';
+    let descriptionText = descriptionElement ? descriptionElement.innerText : '';
     const descriptionLiTexts = [];
     descriptionLiElements.forEach((li) => {
       descriptionLiTexts.push(li.textContent ? li.textContent : '');
@@ -232,8 +235,8 @@ const implementation = async (inputs, { transform }, context, { productDetails }
     const descriptionBulletsText = descriptionLiTexts.length ? ' || ' + descriptionLiTexts.join(' || ') : '';
     descriptionText += descriptionBulletsText;
 
-    const count = (descriptionText.match(/•/g) || []).length + descriptionLiElements.length;
-    const modifiedDesc = descriptionText.replace(/•/gi, ' || ');
+    const count = (descriptionText.match(/•/g) || []).length + (descriptionText.match(/^-\s/gm) || []).length + descriptionLiElements.length;
+    const modifiedDesc = descriptionText.replace(/•/gi, ' || ').replace(/\n+/g, ' ');
     if (count) addElementToDom(count, 'bulletsCount');
     addElementToDom(modifiedDesc, 'description');
     addElementToDom(descriptionBulletsText, 'additionalDescBulletInfo');
@@ -309,7 +312,7 @@ const implementation = async (inputs, { transform }, context, { productDetails }
       const valueElem = titleElem.nextElementSibling;
       directionsTextArr.push(`${titleElem.textContent.trim()} ${valueElem.textContent.trim()}`);
     }
-    addElementToDom(directionsTextArr.join('|'), 'added_directions');
+    addElementToDom(directionsTextArr.join(' | '), 'added_directions');
 
     const manufacturerDescArr = [];
     const manufacturerDesc = document.evaluate(
@@ -321,9 +324,9 @@ const implementation = async (inputs, { transform }, context, { productDetails }
     );
     for (let i = 0; i < manufacturerDesc.snapshotLength; i++) {
       const elem = manufacturerDesc.snapshotItem(i);
-      manufacturerDescArr.push(elem.textContent.trim());
+      manufacturerDescArr.push(`${elem.textContent.trim()} ||`);
     }
-    addElementToDom(manufacturerDescArr.join(' || '), 'manufacturer_description');
+    addElementToDom(manufacturerDescArr.join(' '), 'manufacturer_description');
 
     const ratingElem = document.querySelector('div.rating-horizontal__average-score');
     const ratingText = ratingElem ? ratingElem.textContent.replace('.', ',') : '';
@@ -351,8 +354,8 @@ const implementation = async (inputs, { transform }, context, { productDetails }
     variantsList.style.display = 'none';
     document.body.appendChild(variantsList);
 
-    const selectedVariantId = window.location.href.match(/(\d+)\/\?.*$/)
-      ? window.location.href.match(/(\d+)\/\?.*$/)[1]
+    const selectedVariantId = window.location.href.match(/(\d{16}).*$/)
+      ? window.location.href.match(/(\d{16}).*$/)[1]
       : '';
     let selectedVariantName = '';
     const availableVariants = document.evaluate(
