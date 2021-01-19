@@ -8,12 +8,11 @@ fields:
     description: Product brand shown - this may actually NOT be just a brand name e.g. "Visit the Gillette Store"
     defaultValue: Blu
   - name: productRange
-    singleValue: false
     description: Product range
+    xpath: ancestor::html//div[@id="productFamily"]/@productRange
   - name: productFamily
-    singleValue: false
     description: Product family
-    xpath: ancestor::html//div[@data-testid='productDetailsBlock']//h1[@data-testid='details-product-title']
+    xpath: ancestor::html//div[@id="productFamily"]/@productFamily
   - name: colour
     singleValue: false
     description: Product colour

@@ -72,6 +72,19 @@ module.exports = {
             });
           }
         }
+
+        let url = window.location.href;
+        let productFamily = url.replace('https://www.blu.com/en/GB/','');
+        let range = productFamily.split('/');
+        productFamily = url.replace('.html','');
+        range = range[0];
+
+        const newEle = document.createElement('div');
+        newEle.id = 'productFamily';
+        newEle.setAttribute('productFamily', productFamily);
+        newEle.setAttribute('productRange', range);
+        newEle.style.display = 'none';
+        document.body.appendChild(newEle);
       }
     });
 

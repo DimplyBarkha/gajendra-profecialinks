@@ -78,8 +78,9 @@ module.exports = {
           moreReviews = false;
         } else {
           const data = await response.json();
-          console.log('API called! Adding data..');
-          console.log(data);
+          //console.log('API called! Adding data..');
+
+          //console.log(data);
           if (data) {
             data.reviews.forEach((review) => {
               addHiddenDiv('my-reviews', review.timeAgoInWords, review.rating, review.title, review.message);
@@ -89,6 +90,17 @@ module.exports = {
         }
       }
       // }
+      let url = window.location.href;
+      let productFamily = url.replace('https://www.blu.com/en/US/','');
+      let range = productFamily.split('/');
+      range = range[0];
+
+      const newEle = document.createElement('div');
+      newEle.id = 'productFamily';
+      newEle.setAttribute('productFamily', productFamily);
+      newEle.setAttribute('productRange', range);
+      newEle.style.display = 'none';
+      document.body.appendChild(newEle);
     });
 
     return await context.extract(productReviews, { transform });
