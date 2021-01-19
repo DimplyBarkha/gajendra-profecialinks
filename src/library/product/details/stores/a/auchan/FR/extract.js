@@ -331,6 +331,35 @@ module.exports = {
         console.log('Error: ', error);
       }
     });
+    async function addPDP() {
+      const productId = window.location.pathname.match(/[^\-]+$/)[0]
+      const response = await fetch("https://www.auchan.fr/cross-sell", {
+        "headers": {
+          "accept": "application/json",
+          "accept-language": "en-US,en;q=0.9",
+          "content-type": "application/x-www-form-urlencoded",
+          "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-fetch-dest": "empty",
+          "sec-fetch-mode": "cors",
+          "sec-fetch-site": "same-origin",
+          "x-output-versioning": "true",
+          "x-requested-with": "XMLHttpRequest"
+        },
+        "body": `path=%2FElectromenager%2FClimatisation_chauffage%2FPurificateur_d_air%2FDYSON_Ventilateur_purifiant_BP01_PURE_COOL_ME&productList=${productId}&productPrice=349&productStockLevel=inStock&orderProductList=&orderQuantityList=&orderPriceList=&pageType=PRODUCT&sendTrackingRequest=true&blocks%5B0%5D.externalId=1200-1&blocks%5B0%5D.htmlContainerId=ZNQ5Z2UN2MY8Q2-1200-1&blocks%5B0%5D.htmlContentComponent=t2s_pdp_tpl_api_aussiachete&blocks%5B0%5D.thirdParty=TARGET2SELL&blocks%5B0%5D.analytics=&blocks%5B1%5D.externalId=1200-15&blocks%5B1%5D.htmlContainerId=ZNQ5Z2UN2MY8Q2-1200-15&blocks%5B1%5D.htmlContentComponent=T2S_pdp_history_html&blocks%5B1%5D.thirdParty=TARGET2SELL&blocks%5B1%5D.analytics=`,
+        "method": "POST",
+        "mode": "cors",
+        "credentials": "include"
+      });
+      const json = await response.json();
+      const htmls = json.map(elm => elm.html);
+      for(const html of htmls) {
+       const div = document.createElement('div');
+       div.setAttribute('class', 'added-pdp');
+       div.innerHTML = html;
+       document.body.append(div);
+    }}
+    await context.evaluate(addPDP);
     return await context.extract(data, { transform });
   },
 };
