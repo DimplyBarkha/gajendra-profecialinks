@@ -20,6 +20,8 @@ fields:
     # xpath: //a[contains(@class, 'product-card__link')]/@producturl
     xpath: //a[contains(@class, 'product-card__link')]/@href
     singleValue: false
+    regExp: (\/produkt\/.*)
+    regExpReplace: https://www.bilkatogo.dk$1
   - name: gtin
     description: GTIN code (includes UPC/EAN)
     singleValue: false

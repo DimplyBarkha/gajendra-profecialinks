@@ -28,7 +28,7 @@ async function implementation (
 
     const searchUrl = window.location.href;
     addElementToDocument('searchUrl', searchUrl);
-    console.log('search url is :',searchUrl);
+    console.log('search url is :', searchUrl);
 
     const numberOfProductsExists = document.evaluate('//div[contains(@class, \'secondary\') and contains(@class, \'search__bar\')]/preceding-sibling::text()',
       document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue;
@@ -54,20 +54,19 @@ async function implementation (
     const allProducts = document.querySelectorAll('a[class*=\'product-card__link\']');
     const integerPrice = document.querySelectorAll('span[class*=\'product-price__integer\']');
     const decimalPrice = document.querySelectorAll('span[class*=\'product-price__decimals\']');
-    try{
-    for (let i = 0; i < allProducts.length; i++) {
-      allProducts[i].focus();
-      await new Promise((resolve, reject) => setTimeout(resolve, 100));
-      addProp('a[class*=\'product-card__link\']', i, 'productPrice',
-        integerPrice[i].innerText.trim() + ',' + decimalPrice[i].innerText.trim());
-      addProp('a[class*=\'product-card__link\']', i, 'rankOrganic',
+    try {
+      for (let i = 0; i < allProducts.length; i++) {
+        allProducts[i].focus();
+        await new Promise((resolve, reject) => setTimeout(resolve, 100));
+        addProp('a[class*=\'product-card__link\']', i, 'productPrice',
+          integerPrice[i].innerText.trim() + ',' + decimalPrice[i].innerText.trim());
+        addProp('a[class*=\'product-card__link\']', i, 'rankOrganic',
         `${i + 1}`);
-      addProp('a[class*=\'product-card__link\']', i, 'productUrl', allProducts[i].href);
+        addProp('a[class*=\'product-card__link\']', i, 'productUrl', allProducts[i].href);
+      }
+    } catch (error) {
+      console.log('the error is : ', error.message);
     }
-  }
-  catch(error){
-    console.log('the error is : ',error.message);
-  }
   });
   return await context.extract(productDetails, { transform });
 }
