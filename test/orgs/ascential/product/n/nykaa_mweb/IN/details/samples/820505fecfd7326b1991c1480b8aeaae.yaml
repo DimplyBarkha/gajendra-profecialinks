@@ -2,7 +2,7 @@ input:
   _url: http://nykaa.com
   URL: https://www.nykaa.com/G/p/365703
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=952be7ff-a188-404e-9cc7-614ae9a98069/task=767270de-41e0-4339-87c5-2f7f28f588d9/24091cb9-7125-47fe-94df-0e21e7bd8591.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=768a3cee-ba93-4bb3-8f22-e8ce1bb37dad/task=abe07552-c699-4e49-8413-fb7f38077b2e/174de2a6-b0f7-475b-98d6-97a3d6f0ce5d.html
     extractionConfigId: product/details/stores/n/nykaa_mweb/IN/extract
     data:
       - group:
@@ -16,8 +16,8 @@ extractions:
               - text: Wristwatch by Ted Baker London
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
-              - text: https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/8/9/8901526547036_2.jpg,https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/8/9/8901526547036_3.jpg,https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/8/9/8901526547036_4.jpg,https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/8/9/8901526547036_5.jpg,https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/8/9/8901526547036_6.jpg,https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/8/9/8901526547036_0.jpg,https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/n/y/nygarnier_acert.jpg_1_85.jpg
-                xpath: /html/body/div[8]
+              - text: https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/8/9/8901526547036_2.jpg|https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/8/9/8901526547036_3.jpg|https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/8/9/8901526547036_4.jpg|https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/8/9/8901526547036_5.jpg|https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/8/9/8901526547036_6.jpg|https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/8/9/8901526547036_0.jpg|https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/n/y/nygarnier_acert.jpg_1_85.jpg
+                xpath: /html/body/div[9]
             metaKeywords:
               - text: Garnier Light Complete Moisturising Serum-In-Lotion, Skin, Body, Lotion &
                   Cream
@@ -63,19 +63,24 @@ extractions:
                   Night Cream
                   Lotion
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]
+              - text: You can now avail amazing offers during Nykaa's Mega Republic Day Sale
+                  from 18 - 27 January. Also, enjoy great republic day offers
+                  across all beauty products on all your favourite brands.
+                  Hurry!
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
               - text: Explore the entire range of Face Moisturizer & Day Cream available on
                   Nykaa. Shop more Garnier products here.You can browse through
                   the complete world of Garnier Face Moisturizer & Day Cream .
-                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
-              - text: "MRP: 149"
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]
-              - text: "Expiry Date: 15 October 2021"
+              - text: "MRP: 149"
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[3]
-              - text: "Country of Origin: India"
+              - text: "Expiry Date: 15 October 2021"
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[4]
+              - text: "Country of Origin: India"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[5]
             brandText:
               - text: Garnier
-                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]/a[2]
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]/a[2]
             quantity:
               - text: 125ml
                 xpath: /html/body/div[11]
@@ -92,12 +97,12 @@ extractions:
               - text: Smooth generously over entire body daily.
                 xpath: /html/body/div[15]
             ratingCount:
-              - text: "275"
+              - text: "280"
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/meta[3]/@content
                 type: NUMBER
-                raw: "275"
+                raw: "280"
                 locale: en
-                value: 275
+                value: 280
             aggregateRating:
               - text: "4.3"
                 xpath: /html/body/div[13]
@@ -138,7 +143,7 @@ extractions:
                 xpath: /html/body/div[14]
             secondaryImageTotal:
               - text: "7"
-                xpath: /html/body/div[9]
+                xpath: /html/body/div[8]
                 type: NUMBER
                 raw: "7"
                 locale: en
@@ -164,4 +169,4 @@ extractions:
             variantCount:
               - text: "0"
         xpath: /
-    timestamp: 1610714248624
+    timestamp: 1611042214979

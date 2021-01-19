@@ -40,10 +40,12 @@ module.exports = {
       const data = {};
       const preloadedState = document.evaluate('//script[contains(text(), "window.__PRELOADED_STATE__")]', document, null, XPathResult.STRING_TYPE, null).stringValue;
       if (preloadedState) data.sku = preloadedState.match(/"sku":"(.*?)"/) ? preloadedState.match(/"sku":"(.*?)"/)[1] : '';
-      data.url = window.location.href;
+
+      data.url = window.location.href.replace('nykaaman', 'nykaa');
       // @ts-ignore
-      data.alternateImages = [...document.querySelectorAll('div.product_description div.slick-track img')].map(el => el.src.replace(/-50,/g, '-344,')).slice(1);
-      data.alternateImagesCount = data.alternateImages.length;
+      const alternateImages = [...document.querySelectorAll('div.product_description div.slick-track img')].map(el => el.src.replace(/-50,/g, '-344,')).slice(1);
+      data.alternateImagesCount = alternateImages.length;
+      data.alternateImages = alternateImages.join('|');
       const isAvailable = document.querySelector('div.product_description button.combo-add-to-btn')
         ? document.querySelector('div.product_description button.combo-add-to-btn').textContent.includes('ADD TO BAG') : false;
       data.availability = isAvailable ? 'In Stock' : 'Out Of Stock';

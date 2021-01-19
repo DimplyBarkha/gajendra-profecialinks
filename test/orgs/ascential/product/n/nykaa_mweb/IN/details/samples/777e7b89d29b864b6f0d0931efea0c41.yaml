@@ -2,7 +2,7 @@ input:
   _url: http://nykaa.com
   URL: https://www.nykaa.com/P/p/152918
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=952be7ff-a188-404e-9cc7-614ae9a98069/task=eb4f05f1-39d8-4d8e-917f-1b8efb2e5b5f/97ee970d-a5b9-4801-a0cc-d7d4ab67eea9.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=768a3cee-ba93-4bb3-8f22-e8ce1bb37dad/task=7e35c196-68a9-41e0-b739-8c811087098e/48c4ada7-c9b4-46f6-a198-0e045fc61425.html
     extractionConfigId: product/details/stores/n/nykaa_mweb/IN/extract
     data:
       - group:
@@ -16,8 +16,8 @@ extractions:
               - text: Wristwatch by Ted Baker London
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
-              - text: https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/7/1/71249338568.2.jpg,https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/7/1/71249338568.3.jpg,https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/7/1/71249338568.4.jpg,https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/7/1/71249338568.5.jpg,https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/7/1/71249338568.0.jpg,https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/n/y/nylp_acert.jpg_4_203.jpg
-                xpath: /html/body/div[8]
+              - text: https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/7/1/71249338568.2.jpg|https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/7/1/71249338568.3.jpg|https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/7/1/71249338568.4.jpg|https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/7/1/71249338568.5.jpg|https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/7/1/71249338568.0.jpg|https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/n/y/nylp_acert.jpg_4_203.jpg
+                xpath: /html/body/div[9]
             metaKeywords:
               - text: >-
                   L'Oreal Paris Pure Clay Mask Exfoliate & Refine Pores, Face
@@ -61,19 +61,24 @@ extractions:
               - text: In Stock
                 xpath: /html/body/div[10]
             description:
+              - text: You can now avail amazing offers during Nykaa's Mega Republic Day Sale
+                  from 18 - 27 January. Also, enjoy great republic day offers
+                  across all beauty products on all your favourite brands.
+                  Hurry!
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]
               - text: Explore the entire range of Masks & Peels available on Nykaa. Shop more
                   L'Oreal Paris products here.You can browse through the
                   complete world of L'Oreal Paris Masks & Peels .
-                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]
-              - text: "MRP: 750"
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[3]
-              - text: "Expiry Date: 15 April 2022"
+              - text: "MRP: 750"
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[4]
-              - text: "Country of Origin: United States of America (the)"
+              - text: "Expiry Date: 15 April 2022"
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[5]
+              - text: "Country of Origin: United States of America (the)"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[6]
             brandText:
               - text: L'Oreal Paris
-                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]/a[2]
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[3]/a[2]
             quantity:
               - text: 48gm
                 xpath: /html/body/div[11]
@@ -87,12 +92,12 @@ extractions:
               - text: "152918"
                 xpath: /html/body/div[12]
             ratingCount:
-              - text: "386"
+              - text: "389"
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/meta[3]/@content
                 type: NUMBER
-                raw: "386"
+                raw: "389"
                 locale: en
-                value: 386
+                value: 389
             aggregateRating:
               - text: "4.2"
                 xpath: /html/body/div[13]
@@ -100,9 +105,12 @@ extractions:
               - text: SOLD BY :Nykaa
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]/div[3]/div[1]
             manufacturerDescription:
-              - text: Explore the entire range of Masks & Peels available on Nykaa. Shop more
-                  L'Oreal Paris products here.You can browse through the
-                  complete world of L'Oreal Paris Masks & Peels .
+              - text: You can now avail amazing offers during Nykaa's Mega Republic Day Sale
+                  from 18 - 27 January. Also, enjoy great republic day offers
+                  across all beauty products on all your favourite brands.
+                  Hurry!Explore the entire range of Masks & Peels available on
+                  Nykaa. Shop more L'Oreal Paris products here.You can browse
+                  through the complete world of L'Oreal Paris Masks & Peels .
                 xpath: /html/body/div[18]
             manufacturerImages:
               - text: https://www.nykaa.com/media/wysiwyg/71249338568img1.jpg
@@ -140,7 +148,7 @@ extractions:
                 xpath: /html/body/div[14]
             secondaryImageTotal:
               - text: "6"
-                xpath: /html/body/div[9]
+                xpath: /html/body/div[8]
                 type: NUMBER
                 raw: "6"
                 locale: en
@@ -166,4 +174,4 @@ extractions:
             variantCount:
               - text: "0"
         xpath: /
-    timestamp: 1610714243367
+    timestamp: 1611042212728

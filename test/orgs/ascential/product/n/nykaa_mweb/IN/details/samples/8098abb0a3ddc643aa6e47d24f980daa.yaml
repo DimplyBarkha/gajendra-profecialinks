@@ -2,7 +2,7 @@ input:
   _url: http://nykaa.com
   URL: https://www.nykaa.com/L/p/10635
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=952be7ff-a188-404e-9cc7-614ae9a98069/task=f4b0f50c-bf96-4e15-b3ba-c2dc78de9756/b76e83b7-6af4-4db4-8346-4f1684302f99.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=768a3cee-ba93-4bb3-8f22-e8ce1bb37dad/task=3cb5671a-447e-4161-b915-fa514eda227b/dbc583df-7fee-42c8-b5dd-f7ce6c76f6b5.html
     extractionConfigId: product/details/stores/n/nykaa_mweb/IN/extract
     data:
       - group:
@@ -16,8 +16,8 @@ extractions:
               - text: Wristwatch by Ted Baker London
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
-              - text: https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/8/9/8901526103386-1.png,https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/n/y/nylp_acert.jpg_4_118.jpg
-                xpath: /html/body/div[8]
+              - text: https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/8/9/8901526103386-1.png|https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/n/y/nylp_acert.jpg_4_118.jpg
+                xpath: /html/body/div[9]
             metaKeywords:
               - text: L'Oreal Paris 6 Oil Nourish Conditioner, Loreal Shampoo, Loreal Shampoo
                   Conditioner, Loreal 6 Oil Nourish, Loreal Nourish Shampoo, 6
@@ -89,12 +89,12 @@ extractions:
               - text: "10635"
                 xpath: /html/body/div[12]
             ratingCount:
-              - text: "740"
+              - text: "742"
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/meta[3]/@content
                 type: NUMBER
-                raw: "740"
+                raw: "742"
                 locale: en
-                value: 740
+                value: 742
             aggregateRating:
               - text: "4.4"
                 xpath: /html/body/div[13]
@@ -134,7 +134,7 @@ extractions:
                 xpath: /html/body/div[14]
             secondaryImageTotal:
               - text: "2"
-                xpath: /html/body/div[9]
+                xpath: /html/body/div[8]
                 type: NUMBER
                 raw: "2"
                 locale: en
@@ -157,4 +157,4 @@ extractions:
             variantCount:
               - text: "0"
         xpath: /
-    timestamp: 1610714244489
+    timestamp: 1611042215079
