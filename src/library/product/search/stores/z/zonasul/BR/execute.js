@@ -6,7 +6,7 @@ module.exports = {
     store: 'zonasul',
     domain: 'zonasul.com.br',
     url: 'https://www.zonasul.com.br/busca/{searchTerms}',
-    loadedSelector: 'div.container_vitrine_lista div.item_vitrine',
+    loadedSelector: 'div.vtex-flex-layout-0-x-flexRow--productListDesktop',
     noResultsXPath: '//h2[contains(text(),"Desculpe, não encontramos nenhum resultado para")]',
     zipcode: "''",
   },

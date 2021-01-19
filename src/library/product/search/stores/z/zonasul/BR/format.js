@@ -30,6 +30,17 @@ const transform = (data) => {
           item.text = item.text.replace('226x226', '1000X1000');
         });
       }
+      if (row.productUrl) {
+        row.productUrl.forEach(item => {
+          item.text = 'https://www.zonasul.com.br' + item.text;
+        });
+      }
+      if (row.price) {
+        row.price.forEach(item => {
+          item.text = item.text.replace('por:', '');
+          item.text = item.text.trim();
+        });
+      }
       if (!row.price) {
         if (row.price_1) {
           row.price = row.price_1;

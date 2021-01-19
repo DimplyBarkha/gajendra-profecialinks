@@ -1,27 +1,30 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,"container_vitrine_lista")]//div[contains(@class,"item_vitrine") and @data-id]
+recordXPath: //div[contains(@class,'vtex-flex-layout-0-x-flexRow--productListDesktop')]//div[contains(@class,'vtex-search-result-3-x-galleryItem')]
 fields:
   - name: id
     SingleValue: false
-    xpath: //div[contains(@class,"item_vitrine")]/@data-id
+    xpath: //a[contains(@class,'vtex-product-summary-2-x-clearLink')]/@href
+    # "/queijo-gouda-president-185-g-935921/p"
+    regExp: .+-(\d+)\/p
+    regExpReplace: $1
   - name: productUrl
     SingleValue: false
-    xpath: //div[contains(@class,"item_vitrine") and @data-id]/a/@href
+    xpath: //a[contains(@class,'vtex-product-summary-2-x-clearLink')]/@href
   - name: price
     SingleValue: false
-    xpath: //div[contains(@class,"item_vitrine") and @data-id]//div[@class="price_desconto "]
+    xpath: //div[@class='vtex-product-price-zonasul']//span[@class='vtex-difference__por']
   - name: price_1
     SingleValue: false
     xpath: //div[contains(@class,"item_vitrine") and @data-id]//div[@class="price"]
   - name: thumbnail
     SingleValue: false
-    xpath: //div[contains(@class,"item_vitrine") and @data-id]//img[contains(@src,".jpg")]/@src
+    xpath: //img[contains(@class,'vtex-product-summary-2-x-imageNormal')]/@src
   - name: name
     SingleValue: false
-    xpath: //div[contains(@class,"item_vitrine") and @data-id]//span[@class="name"]
+    xpath: //h3[contains(@class,'vtex-product-summary-2-x-productNameContainer')]
   - name: rankOrganic
-    SingleValue: true
+    SingleValue: false
   - name: rank
-    SingleValue: true
+    SingleValue: false
