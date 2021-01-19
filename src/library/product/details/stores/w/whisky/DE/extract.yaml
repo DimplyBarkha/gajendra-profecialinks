@@ -3,7 +3,7 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-- name: _url
+- name: url
   description: URL of the main product page
   xpath: //link[@hreflang='de-DE']/@href
 - name: image
@@ -41,16 +41,15 @@ fields:
   singleValue: true
   description: The stated undiscounted price for the product
 - name: price
-  type: CURRENCY
   description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   xpath: (//span[@class='article-price-default article-club-hidden'])[1]
 - name: availabilityText
   singleValue: true
   xpath: //meta[@itemprop="availability"]/@content
-  defaultValue: In stock
+  defaultValue: In Stock
   regExp: OutOfStock
-  regExpReplace: Out of Stock
+  regExpReplace: Out Of Stock
 - name: description
   singleValue: false
   type: TEXT[]
