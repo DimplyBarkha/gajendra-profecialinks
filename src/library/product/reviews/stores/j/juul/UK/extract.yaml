@@ -20,12 +20,12 @@ fields:
   regExp: https://www.juul.co.uk/shop/(.*)/
   regExpReplace: $1
 - name: productFamily
-  xpath: ancestor::html//meta[@property="og:url"]/@content 
+  xpath: ancestor::html//meta[@property="og:url"]/@content
   regExp: https://www.juul.co.uk/(.*)
   regExpReplace: $1
 - name: colour
 - name: flavour
-  xpath: ancestor::html//div[@class="product-information__description-markdown"]/p[contains(text(),"flavor")] | ancestor::html//h1[@class="product-information__header__title__name heading--large"]
+  xpath: ancestor::html//h1[@class="product-information__header__title__name heading--large"]
 - name: sku
   xpath: ancestor::html//div[@class="product-page-sections"]/@data-sku | ancestor::html//h1[@class="product-information__header__title__name heading--large"]
 - name: reviewText
