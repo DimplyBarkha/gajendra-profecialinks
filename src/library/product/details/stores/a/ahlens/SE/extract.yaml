@@ -4,31 +4,31 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    xpath: (//td[@class="xxlarge depth_3"])[1]
+    xpath: (//td[@class="images depth_1"]//td[@class="xxlarge depth_3"])[1]
     regExp: (/.+)
     regExpReplace: https://www.ahlens.se$1
-  - name: url
+  - name: productUrl
     xpath: //td[@class="uri depth_1"]
   - name: category
     xpath: //td[@class="title depth_1"]    
   - name: alternateImages
     singleValue: false
-    xpath: (//td[@class="xxlarge depth_3"])[position()>=2]  
+    xpath: (//td[@class="images depth_1"]//td[@class="xxlarge depth_3"])[position()>=2]  
     regExp: (/.+)
     regExpReplace: https://www.ahlens.se$1
   - name: nameExtended  
     xpath: concat(//td[@class="brand depth_1"] ," ", //td[@class="name depth_1"])   
   - name: price
-    xpath: //td[@class="trackPrice depth_2"]
+    xpath: //div[@class="price"]
   - name: availabilityText
-    xpath: (//td[contains(@class,"discontinued depth")][text()='false'])[1]
+    xpath: (//td[@class="cartable depth_1"][text()='true'])[1]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out Of Stock
   - name: description
-    xpath: //td[@class="long_description depth_1"]
+    xpath: //div[@class="manu"]
   - name: directions 
-    xpath: (//td[@class="text depth_2"])[1]
+    xpath: (//td[@class="title depth_2"][text()=' Användning']//following-sibling::td | //td[@class="title depth_2"][text()=' Hållbarhet']//following-sibling::td)
   - name: quantity
     xpath: //td[@class="LISTITEM_9872649 depth_3"]
     regExp: (\d+).*$
@@ -36,4 +36,6 @@ fields:
     xpath: //td[@class="brand depth_1"]
   - name: sku
     xpath: //td[@class="sku depth_1"]
+  - name: ingredientsList
+    xpath: //td[@class="title depth_2"][text()=' Ingredienser']//following-sibling::td
   
