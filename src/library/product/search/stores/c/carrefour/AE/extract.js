@@ -13,13 +13,13 @@ module.exports = {
     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
-        let count = document.querySelectorAll('ul[data-testid="scrollable-list-view"] div[class="ltr-jyyiad"]').length;
+        let count = document.querySelectorAll('ul[data-testid="scrollable-list-view"] div[class="ltr-6hrfmx"]').length;
 
         while (count < 150) {
           const oldCount = count;
           document.querySelector('button.ltr-1upsixo') && document.querySelector('button.ltr-1upsixo').click();
           await new Promise(resolve => setTimeout(resolve, 2000));
-          count = document.querySelectorAll('ul[data-testid="scrollable-list-view"] div[class="ltr-jyyiad"]').length;
+          count = document.querySelectorAll('ul[data-testid="scrollable-list-view"] div[class="ltr-6hrfmx"]').length;
           const scrollElement = document.querySelector('ul[data-testid="scrollable-list-view"] > li');
 
           if (scrollElement) {
