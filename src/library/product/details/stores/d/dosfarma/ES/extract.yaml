@@ -43,17 +43,18 @@ fields:
       clicks add to basket this is the price they would be charged
   - name: availabilityText
     singleValue: true
-    xpath: (//div[@class='disponibilidad__mobile']//span[@class='disponible']//text())[1]
+    xpath: //div[@id='availabilityText']
+      # (//div[@class='disponibilidad__mobile']//span[@class='disponible']//text())[1]
     # xpath: //div[@id='availabilityText']
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+
   - name: description
     singleValue: false
-    xpath: //div[contains(@class, "product__shortdesc")]|//div[contains(@id, 'descripcion')]//div[contains(@class, 'description')]
+    xpath: //div[@id='description']
+      # //div[contains(@class, "product__shortdesc")] and //div[contains(@id, 'descripcion')]//div[contains(@class, 'description')]//h2
+      # //div[contains(@class, "product__shortdesc")]|//div[contains(@id, 'descripcion')]//div[contains(@class, 'description')]
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: brandText
@@ -78,13 +79,15 @@ fields:
   #   # regExp: (([\d\.]+\s{0,1}?)([sS]ticks|[cC]omprimidos|[cC]capsulas|[gG]el|[lL]íquid[oa]|Liquid[\.]?).?)$|(([\d\.]+\s{0,1}?)([sS]ticks|[cC]omprimidos|[cC]capsulas|[gG]el|[lL]íquid[oa]|Liquid??).?\s)
   #   # regExpReplace: $1
   - name: directions
-    singleValue: true
-    xpath: //div[@class='description']//*[contains(text(), 'Cómo')]/ancestor::h3/following-sibling::p[position()<2] | //div[@id='collapse_descripcion']//*[contains(text(), 'Cómo')]/ancestor::span//following-sibling::p[position()<2] | //div[@id='collapse_descripcion']//*[contains(text(), 'Cómo')]/ancestor::p//following-sibling::p[position()<2]
+    singleValue: false
+    xpath: //div[@id='directions']
+      # //div[@class='description']//*[contains(text(), 'Cómo')]/ancestor::h3/following-sibling::p[position()<2] | //div[@id='collapse_descripcion']//*[contains(text(), 'Cómo')]/ancestor::span//following-sibling::p[position()<2] | //div[@id='collapse_descripcion']//*[contains(text(), 'Cómo')]/ancestor::p//following-sibling::p[position()<2]
   - name: warnings
-    singleValue: true
-    xpath: //div[@class='description']//*[contains(text(), 'Recomendación')]/ancestor::h3/following-sibling::p[position()<3] | //div[@id='collapse_descripcion']//*[contains(text(), 'Recomendación')]/ancestor::span//following-sibling::p[position()<3] | //div[@id='collapse_descripcion']//*[contains(text(), 'Recomendación ')]/ancestor::p//following-sibling::p[position()<3] | //div[@class='description']//*[contains(text(), 'Recomendación')]/ancestor::h2/following-sibling::p[position()<3]
+    singleValue: false
+    xpath: //div[@id='warnings']
+      # //div[@class='description']//*[contains(text(), 'Recomendación')]//ancestor::h3/following-sibling::p[position()<3] | //div[@id='collapse_descripcion']//*[contains(text(), 'Recomendación')]/ancestor::span//following-sibling::p[position()<3] | //div[@id='collapse_descripcion']//*[contains(text(), 'Recomendación ')]/ancestor::p//following-sibling::p[position()<3] | //div[@class='description']//*[contains(text(), 'Recomendación')]/ancestor::h2/following-sibling::p[position()<3]
   - name: ingredientsList
-    singleValue: true
+    singleValue: false
     xpath: //div[@class='description']//*[contains(text(), 'Composición')]/ancestor::h3/following-sibling::p | //div[@class='description']//*[contains(text(), 'Composición')]/ancestor::h3/following-sibling::ul | //div[@id='collapse_descripcion']//*[contains(text(), 'Composición')]/ancestor::span//following-sibling::p | //div[@class='description']//*[contains(text(), 'Composición')]/ancestor::span//following-sibling::ul
     # regExp: >-
     #   \d+   
@@ -96,7 +99,7 @@ fields:
     xpath: (//@href)[1]
   - name: videos
     singleValue: true
-    xpath: //iframe[@id='ytplayer']//@src
+    xpath: //iframe[@id='ytplayer']//@src | //iframe[@class='iframe_youtube']//@src
     # regExp: (.+)
     # regExpReplace: https://www.douglas.de$1
   - name: alternateImages
