@@ -41,7 +41,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class='gn-accordionElement'][1]//div/div[@class='bop-info__content'][not(preceding-sibling::h6)]/text() | //div[@class='gn-accordionElement'][1]//div/div[@class='bop-info__content'][not(preceding-sibling::h6)]/p | //span[contains(@class,'bop-lifestyleBadge')]
+    xpath: //div[@class='gn-accordionElement'][1]//div/div[@class='bop-info__content'][not(preceding-sibling::h6)] | //div[@class='gn-accordionElement'][1]//div/div[@class='bop-info__content'][not(preceding-sibling::h6)]/p | //span[contains(@class,'bop-lifestyleBadge')]
   - name: ingredientsList
     singleValue: true
     description: List of Ingredients from site - can be string of data if no
@@ -55,7 +55,7 @@ fields:
     xpath: //h6[contains(.,'Brand')]/following-sibling::div
   - name: manufacturer
     description: Product manufacturer
-    xpath: //h6[contains(.,'Manufacturer')]/following-sibling::div/text()
+    xpath: //h6[contains(.,'Manufacturer')]/following-sibling::div
   - name: quantity
     description: Quantity as described on the page
     xpath: //header[contains(@class,'bop-title')]/h2/span
@@ -83,26 +83,26 @@ fields:
     regExpReplace: $1
   - name: directions
     description: Content under "directions" header
-    xpath: //h6[contains(.,'Preparation and Usage')]/following-sibling::div/text()
+    xpath: //h6[contains(.,'Preparation and Usage')]/following-sibling::div |  //h6[contains(.,'Serving Suggestions')]/following-sibling::div/text() | //h6[contains(.,'Recipes')]/following-sibling::div
   - name: warnings
     description: Content under "warnings" header
-    xpath: //h6[contains(.,'Other Information')]/following-sibling::div/text()
+    xpath: //b[contains(.,'Warning')]/following-sibling::text()[not(contains(.,'Hungary'))] |//b[contains(.,'Warning')]/following-sibling::* | //p[contains(.,'Warning')] | //h6[contains(.,'Instructions')]/following-sibling::div| //br/following-sibling::text()[contains(.,'Warning')]/following-sibling::text()[1]
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
     xpath: (//th[contains(.,'Typical Values')]/following-sibling::th[1])[1]
     regExp: .+[^:]
   - name: servingSizeUom
-    singleValue: true
-    description: Unit of measure of serving
-    xpath: (//th[contains(.,'Typical Values')]/following-sibling::th[1])[1]
+    # singleValue: true
+    # description: Unit of measure of serving
+    # xpath: (//th[contains(.,'Typical Values')]/following-sibling::th[1])[1]
   - name: numberOfServingsInPackage
     singleValue: true
     description: Suggested number of servings of the product.
   - name: caloriesPerServing
     description: Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
-    xpath: (//td[contains(.,'Energy')]/following-sibling::td[1])[1] | (//td[contains(.,'Energy')]/parent::tr/following-sibling::tr[1]/td[contains(.,'kcal') and not(contains(.,'Energy'))])[1] | //tr[contains(.,'Energy')][preceding-sibling::tr[contains(.,'Energy')]]/td[2]
+    xpath: (//td[contains(.,'Energy')]/following-sibling::td[1])[1] | (//td[contains(.,'kcal')]/following-sibling::td[1])[1] | (//td[contains(.,'kcal')])[1]
   - name: caloriesFromFatPerServing
     singleValue: true
     description: Nutritional Information for Calories From Fat content - Usually
@@ -111,7 +111,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Total Fat content - Usually based on
       per 100g serving
-    xpath: (//td[contains(.,'Fat') or contains(.,'fat')]/following-sibling::td[1])[1]
+    xpath: (//td[contains(.,'Fat') or contains(.,'fat')]/following-sibling::td[1])[1] | (//td[contains(.,'FAT') or contains(.,'fat')]/following-sibling::td[1])[1]
   - name: totalFatPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Fat content
@@ -277,7 +277,7 @@ fields:
   - name: allergyAdvice
     singleValue: true
     description: Allergy information associated with the product
-    xpath: //h6[contains(.,'Allergen Information')]/following-sibling::div
+    xpath: //h6[contains(.,'Allergen Information')]/following-sibling::div | //b[contains(text(),'Allergy Advice!')] | //b[contains(text(),'May contain')]
   - name: recyclingInformation
     singleValue: true
     description: Recycling information associated with the product

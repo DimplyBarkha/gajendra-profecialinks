@@ -9,12 +9,19 @@ module.exports = {
     transform,
     domain: 'ocado.com',
   },
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async (
+    inputs,
+    parameters,
+    context,
+    dependencies,
+  ) => {
     await context.evaluate(() => {
       if (document.querySelector('div.nf-resourceNotFound')) {
         throw new Error('Not a product Page');
       }
     });
-    await context.extract(productDetails);
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
+    return await context.extract(productDetails, { transform });
   },
 };

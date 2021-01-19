@@ -5,6 +5,18 @@
 * @returns {ImportIO.Group[]}
 */
 const transform = (data) => {
+  const clean = text => text.toString()
+    .replace(/\r\n|\r|\n/g, ' ')
+    .replace(/&amp;nbsp;/g, ' ')
+    .replace(/&amp;#160/g, ' ')
+    .replace(/\u00A0/g, ' ')
+    .replace(/\s{2,}/g, ' ')
+    .replace(/"\s{1,}/g, '"')
+    .replace(/\s{1,}"/g, '"')
+    .replace(/^ +| +$|( )+/g, ' ')
+    // eslint-disable-next-line no-control-regex
+    .replace(/[\x00-\x1F]/g, '')
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   const nutritionalProps = ['totalFatPerServing', 'saturatedFatPerServing', 'totalCarbPerServing', 'sodiumPerServing', 'dietaryFibrePerServing', 'totalSugarsPerServing', 'proteinPerServing', 'vitaminAPerServing', 'vitaminCPerServing', 'calciumPerServing', 'ironPerServing', 'saltPerServing'];
 
   for (const { group } of data) {
@@ -45,25 +57,35 @@ const transform = (data) => {
         row.directions = [{ text: text.trim() }];
       }
 
-      if (row.warnings) {
+      // if (row.warnings) {
+      //   let text = '';
+      //   let warningExists = false;
+      //   for (let i = 0; i < row.warnings.length; i++) {
+      //     if (row.warnings[i].text.match(/safety warning/i)) {
+      //       warningExists = true;
+      //       continue;
+      //     }
+
+      //     if (row.warnings[i].text.match(/Origin:/i)) {
+      //       break;
+      //     }
+
+      //     if (warningExists) {
+      //       text += `${row.warnings[i].text} `;
+      //     }
+      //   }
+      //   row.warnings = [{ text: text.trim() }];
+      // }
+
+  if (row.warnings) {
         let text = '';
-        let warningExists = false;
-        for (let i = 0; i < row.warnings.length; i++) {
-          if (row.warnings[i].text.match(/safety warning/i)) {
-            warningExists = true;
-            continue;
-          }
-
-          if (row.warnings[i].text.match(/Origin:/i)) {
-            break;
-          }
-
-          if (warningExists) {
-            text += `${row.warnings[i].text} `;
-          }
-        }
-        row.warnings = [{ text: text.trim() }];
+        row.warnings.forEach(item => {
+          text = row.warnings.map(elm => elm.text).join(' ');
+        });
+        row.warnings = [{text:clean(text).replace(/Additional Information: Caplets|Origin/gm,'').trim()}];
       }
+
+
 
       if (row.productOtherInformation) {
         let text = '';
@@ -71,6 +93,15 @@ const transform = (data) => {
           text += `${item.text} `;
         });
         row.productOtherInformation = [{ text: text.trim() }];
+      }
+
+      if (row.caloriesPerServing) {
+        let text = '';
+        row.caloriesPerServing.splice(1,1);
+        row.caloriesPerServing.forEach((item)=> {
+          text = row.caloriesPerServing.map(elm => elm.text).join(' / ');
+        });
+        row.caloriesPerServing = [{text}];
       }
 
       if (row.promotion) {
@@ -90,25 +121,52 @@ const transform = (data) => {
           servingSize = servingSize.replace(servingSize.match(/(\d+)(g|mg|ml|Mg|Ml)/)[0], servingSize.match(/(\d+)(g|mg|ml|Mg|Ml)/)[1]);
           row.servingSize = [{ text: servingSize }];
         } else if (servingSize.match(/(g|mg|Mg|ml|Ml)\/(ml|Ml|l|L|litre)/)) {
-          row.servingSize = [{ text: '' }];
+          row.servingSize = [{ text: row.servingSize[0].text }];
           row.servingSizeUom = [{ text: servingSize.match(/(g|mg|Mg|ml|Ml)\/(ml|Ml|l|L|litre)/)[0] }];
         } else if (servingSize.match(/analytical constituents(.+)%/i)) {
-          row.servingSize = [{ text: '' }];
-
-          row.servingSizeUom = [{ text: '%' }];
+          row.servingSize = [{ text: row.servingSize[0].text }];
+          row.servingSizeUom = [{ text: '' }];
+        } 
+        else if (servingSize.match(/100/i)) {
+          row.servingSize = [{ text: row.servingSize[0].text }];
+          row.servingSizeUom = [{ text: 'g' }];
         } else {
-          row.servingSize = [{ text: '' }];
+          row.servingSize = [{ text: row.servingSize[0].text }];
           row.servingSizeUom = [{ text: '' }];
         }
       }
+      // if (row.servingSize) {
+      //   let text = '';
+      //   row.servingSize.forEach(item => {
+      //     if(item.text.includes('Analytical constituents')) {
+      //       text = item.text;
+      //       row.servingSizeUom = [{text:''}];
+      //     } else if(item.text.includes('Typical Analysis')) {
+      //       text = item.text;
+      //       row.servingSizeUom = [{text:'mg'}];
+      //     }else if(item.text.includes('Per 100')) {
+      //       text = item.text;
+      //       row.servingSizeUom = [{text:'g'}];
+      //     }else if(item.text.includes('100')) {
+      //       text = item.text;
+      //       row.servingSizeUom = [{text:'g'}];
+      //     }
+      //     else {
+      //       text = item.text;
+      //       row.servingSizeUom = [{text:''}];
+      //     }
+      //   });
+      //   row.servingSize = [{text}];
+      // }
 
-      if (row.caloriesPerServing && row.caloriesPerServing.length === 2) {
-        row.caloriesPerServing = [
-          {
-            text: `${row.caloriesPerServing[0].text}/${row.caloriesPerServing[1].text}`,
-          },
-        ];
-      }
+
+      // if (row.caloriesPerServing) {
+      //   row.caloriesPerServing = [
+      //     {
+      //       text: `${row.caloriesPerServing[0].text}/${row.caloriesPerServing[1].text}`,
+      //     },
+      //   ];
+      // }
 
       for (let i = 0; i < nutritionalProps.length; i++) {
         const nutritionalProp = nutritionalProps[i];
@@ -150,18 +208,7 @@ const transform = (data) => {
   }
 
   // Clean up data
-  const clean = text => text.toString()
-    .replace(/\r\n|\r|\n/g, ' ')
-    .replace(/&amp;nbsp;/g, ' ')
-    .replace(/&amp;#160/g, ' ')
-    .replace(/\u00A0/g, ' ')
-    .replace(/\s{2,}/g, ' ')
-    .replace(/"\s{1,}/g, '"')
-    .replace(/\s{1,}"/g, '"')
-    .replace(/^ +| +$|( )+/g, ' ')
-    // eslint-disable-next-line no-control-regex
-    .replace(/[\x00-\x1F]/g, '')
-    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+ 
 
 
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
