@@ -1,9 +1,10 @@
+// @ts-nocheck
 const { transform } = require('../../../../shared');
 
 async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-
+  await new Promise((resolve, reject) => setTimeout(resolve, 5000));
   await context.evaluate(async () => {
     function addElementToDocument (key, value) {
       const catElement = document.createElement('div');
@@ -13,7 +14,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       document.body.appendChild(catElement);
     }
     // set id
-    const idPrefix = 'MLA-';
+    const idPrefix = 'MLA';
     const prefixUrl = 'https://articulo.mercadolibre.com.ar/';
     const ids = document.querySelectorAll('form[action*="bookmarks"]');
     if (ids !== null) {
@@ -28,11 +29,29 @@ async function implementation (inputs, parameters, context, dependencies) {
     // set rank
     const products = document.querySelectorAll('li[class*="layout__item"]');
     products.forEach((product, index) => product.setAttribute('rank', `${index + 1}`));
+
     // set soldBy
     const soldBy = document.querySelectorAll('p[class*="store-label"]');
 
     // @ts-ignore
     if (soldBy !== null) soldBy.forEach(e => e.setAttribute('soldBy', e.innerText.split('por').pop()));
+    // reduce number of results
+
+    const last = products.length;
+    if (searchUrl.includes('O:pedidosfarma]') || searchUrl.includes('redirect'))sessionStorage.setItem('item1', last);
+    if (searchUrl.includes('Desde_51') || searchUrl.includes('Desde_49'))sessionStorage.setItem('item2', last);
+    if (searchUrl.includes('Desde_101') || searchUrl.includes('Desde_97'))sessionStorage.setItem('item3', last);
+    if (searchUrl.includes('Desde_145'))sessionStorage.setItem('item4', last);
+    if ((searchUrl.includes('Desde_101') || searchUrl.includes('Desde_97')) && sessionStorage.getItem('item4') === null) {
+      const sum = 150 - parseInt(sessionStorage.getItem('item1')) - parseInt(sessionStorage.getItem('item2'));
+      [...products].filter(e => e.getAttribute('rank') > sum)
+        .forEach(e => e.setAttribute('trim', ''));
+    }
+    if (searchUrl.includes('Desde_145') && sessionStorage.getItem('item4') !== null) {
+      const sum = 150 - parseInt(sessionStorage.getItem('item1')) - parseInt(sessionStorage.getItem('item2')) - parseInt(sessionStorage.getItem('item3'));
+      [...products].filter(e => e.getAttribute('rank') > sum)
+        .forEach(e => e.setAttribute('trim', ''));
+    }
   });
 
   return await context.extract(productDetails, { transform });
