@@ -2,7 +2,7 @@ input:
   id: 406020
   _url: http://petshop.ru
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=d61e5a0d-76e4-4ebb-a1c5-73fc0c40f3e3/task=9bf4a914-2b50-468c-9971-dd0ccfb81141/e5502213-4e55-4745-b5cd-42571f2bfb43.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=8909ad04-3302-40fa-ab1c-fcb11cb8f815/task=974a598a-da63-41f2-b30d-606d1cd0a189/89c33371-5599-4b97-ab28-8cee1daa8669.html
     extractionConfigId: product/details/stores/p/petshop/RU/extract
     data:
       - group:
@@ -216,7 +216,7 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
           - productUrl:
-              - text: https://www.petshop.ru/catalog/dogs/syxoi/vzroslye_1_6let/dlya_sobak_krupnyh_porod_s_moschnym_teloslozheniem_s_chuvstvitelnym_pischevareniem_s_yagnenkom_large_adult_robust_lamb_12294786_40602/?oid=513231
+              - text: https://www.petshop.ru/catalog/dogs/syxoi/vzroslye_1_6let/dlya_sobak_krupnyh_porod_s_moschnym_teloslozheniem_s_chuvstvitelnym_pischevareniem_s_yagnenkom_large_adult_robust_lamb_12294786_40602/?oid=386888
                 xpath: /html/body/ol[1]/li[3]/@product_url
             image:
               - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/7f/75/52/386001_400x400.jpg
@@ -234,14 +234,11 @@ extractions:
                   чувствительным пищеварением с ягненком, Large Adult Robust
                   Lamb
                 xpath: /html/body/ol[1]/li[3]/@name_extended
-            listPrice:
-              - text: 1 234 ₽
-                xpath: /html/body/ol[1]/li[3]/@list_price
             price:
-              - text: 740 ₽
+              - text: 1 406 ₽
                 xpath: /html/body/ol[1]/li[3]/@price
             availabilityText:
-              - text: Out of Stock
+              - text: In Stock
                 xpath: /html/body/ol[1]/li[3]/@availability_text
             description:
               - text: >-
@@ -262,7 +259,7 @@ extractions:
               - text: 3 кг
                 xpath: /html/body/ol[1]/li[3]/@weight
             variantId:
-              - text: 40604.акция.сроки
+              - text: "40604"
                 xpath: /html/body/ol[1]/li[3]/@variant_id
             ratingCount:
               - text: "349"
@@ -322,7 +319,7 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
           - productUrl:
-              - text: https://www.petshop.ru/catalog/dogs/syxoi/vzroslye_1_6let/dlya_sobak_krupnyh_porod_s_moschnym_teloslozheniem_s_chuvstvitelnym_pischevareniem_s_yagnenkom_large_adult_robust_lamb_12294786_40602/?oid=386888
+              - text: https://www.petshop.ru/catalog/dogs/syxoi/vzroslye_1_6let/dlya_sobak_krupnyh_porod_s_moschnym_teloslozheniem_s_chuvstvitelnym_pischevareniem_s_yagnenkom_large_adult_robust_lamb_12294786_40602/?oid=513231
                 xpath: /html/body/ol[1]/li[4]/@product_url
             image:
               - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/7f/75/52/386001_400x400.jpg
@@ -340,11 +337,14 @@ extractions:
                   чувствительным пищеварением с ягненком, Large Adult Robust
                   Lamb
                 xpath: /html/body/ol[1]/li[4]/@name_extended
+            listPrice:
+              - text: 1 234 ₽
+                xpath: /html/body/ol[1]/li[4]/@list_price
             price:
-              - text: 1 406 ₽
+              - text: 740 ₽
                 xpath: /html/body/ol[1]/li[4]/@price
             availabilityText:
-              - text: In Stock
+              - text: Out of Stock
                 xpath: /html/body/ol[1]/li[4]/@availability_text
             description:
               - text: >-
@@ -365,7 +365,7 @@ extractions:
               - text: 3 кг
                 xpath: /html/body/ol[1]/li[4]/@weight
             variantId:
-              - text: "40604"
+              - text: 40604.акция.сроки
                 xpath: /html/body/ol[1]/li[4]/@variant_id
             ratingCount:
               - text: "349"
@@ -425,4 +425,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1610970949541
+    timestamp: 1611045945513

@@ -198,7 +198,8 @@ module.exports = {
           const couponText = document.querySelector('div.product-info div.flag')
             ? document.querySelector('div.product-info div.flag').textContent
             : '';
-          const nameExtended = brandName && !name.toLowerCase().includes(brandName.toLowerCase()) ? `${brandName} - ${name}` : name;
+          const nameExtended =
+            brandName && !name.toLowerCase().includes(brandName.toLowerCase()) ? `${brandName} - ${name}` : name;
 
           listElem.setAttribute('product_url', productUrl);
           listElem.setAttribute('product_name', name);
@@ -243,16 +244,37 @@ module.exports = {
           listElem.setAttribute('serving_size_uom', servingSizeUom);
           listElem.setAttribute('calories_per_serving', caloriesPerServing);
 
-          const fatText = document.evaluate(
-            '(//*[(name()="tr" or name()="li") and contains(translate(. , "ЖИР", "жир"), "жир")])[last()]',
+          // const fatText = document.evaluate(
+          //   '(//*[(name()="tr" or name()="li") and contains(translate(. , "ЖИР", "жир"), "жир")])[last()]',
+          //   document,
+          //   null,
+          //   XPathResult.STRING_TYPE,
+          //   null,
+          // ).stringValue;
+
+          let fatElem;
+          const fatSnapshot = document.evaluate(
+            '//*[(name()="tr" or name()="li") and contains(translate(. , "ЖИР", "жир"), "жир")]',
             document,
             null,
-            XPathResult.STRING_TYPE,
+            XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
             null,
-          ).stringValue;
-          const fatRegexp = /([\d.,]+)\s?(.+)/;
+          );
+          for (let i = 0; i < fatSnapshot.snapshotLength; i++) {
+            const elem = fatSnapshot.snapshotItem(i);
+            const elemText = elem.textContent.toLowerCase().trim();
+            if (elemText.startsWith('жир') || elemText.match(/жиры?[\s,:]/)) {
+              fatElem = elem;
+              break;
+            }
+          }
+          if (!fatElem) fatElem = fatSnapshot.snapshotItem(fatSnapshot.snapshotLength - 1);
+          const fatText = fatElem ? fatElem.textContent : '';
+
+          const fatRegexp = /((\d+)([.,]\d+)?)\s?(.+)?/;
           const totalFatPerServing = fatText.match(fatRegexp) ? fatText.match(fatRegexp)[1] : '';
-          const totalFatPerServingUom = fatText.match(fatRegexp) ? fatText.match(fatRegexp)[2] : '';
+          let totalFatPerServingUom = fatText.match(fatRegexp) && fatText.match(fatRegexp)[4] ? fatText.match(fatRegexp)[4].replace(',', '') : '';
+          if (!totalFatPerServingUom && fatText.includes('%')) totalFatPerServingUom = '%';
 
           listElem.setAttribute('total_fat_per_serving', totalFatPerServing);
           listElem.setAttribute('total_fat_per_serving_uom', totalFatPerServingUom);
@@ -315,7 +337,7 @@ module.exports = {
           listElem.setAttribute('total_sugar_per_serving_uom', totalSugarsPerServingUom);
 
           const proteinText = document.evaluate(
-            '//*[(name()="tr" or name()="li") and (contains(translate(. , "БЕЛОК", "белок"), "белок") or contains(translate(. , "БЕЛКИ", "белки"), "белки"))]',
+            '(//*[(name()="tr" or name()="li") and (contains(translate(. , "БЕЛОК", "белок"), "белок") or contains(translate(. , "БЕЛКИ", "белки"), "белки"))])[last()]',
             // '//tr[td[contains(. , "белок") or contains(. , "белки")] and contains(. , "г") and not(contains(. , "%"))]',
             document,
             null,

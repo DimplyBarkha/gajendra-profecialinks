@@ -2,7 +2,7 @@ input:
   id: 25199
   _url: http://petshop.ru
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=d61e5a0d-76e4-4ebb-a1c5-73fc0c40f3e3/task=4d64887c-7364-4db8-9f14-32eab31083dd/38bb279f-b38b-4f11-aa3b-6626222db0e4.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=8909ad04-3302-40fa-ab1c-fcb11cb8f815/task=2d28a8bd-bad1-4b4c-87f9-c340950d0412/f3ebaa7a-36dc-40cd-93be-ff2a4df94e3a.html
     extractionConfigId: product/details/stores/p/petshop/RU/extract
     data:
       - group:
@@ -71,9 +71,6 @@ extractions:
             secondaryImageTotal:
               - text: "3"
                 xpath: /html/body/ol[1]/li[1]/ol[1]/@total
-            totalFatPerServing:
-              - text: ","
-                xpath: /html/body/ol[1]/li[1]/@total_fat_per_serving
             Image360Present:
               - text: "true"
                 xpath: /html/body/ol[1]/li[1]/@image_360_present
@@ -112,4 +109,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1610970939999
+    timestamp: 1611045935227
