@@ -402,7 +402,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     addHiddenDiv('proteinDataUOM', proteinDataUOM);
 
     var xpath =
-      "//span[contains(text() , 'Состав')]/../following-sibling::div/span";
+      "//span[text() ='Состав']/../following-sibling::div/span";
     var ingredientsData = document.evaluate(
       xpath,
       document,

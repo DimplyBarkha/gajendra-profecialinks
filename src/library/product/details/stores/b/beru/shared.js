@@ -105,6 +105,17 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.ingredientsList) {
+        let text;
+        row.ingredientsList.forEach(item => {
+          text = `${item.text.replace('состав: ','')}`;
+        });
+        row.ingredientsList = [
+          {
+            text: text,
+          },
+        ];
+      }
       if (row.specifications) {
         let text = '';
         row.specifications.forEach((item) => {

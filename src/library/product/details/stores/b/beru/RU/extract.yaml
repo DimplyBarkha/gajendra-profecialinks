@@ -258,7 +258,7 @@ fields:
     description: null
   - name: ingredientsList
     singleValue: false
-    xpath: //div[@class="b_3_bNW20rUd"]//span[contains(text() , 'Состав')]/../following-sibling::div/span | //div[@id='ingredients'] | //div[@id="ingredients_added"]
+    xpath: //div[@class="b_3_bNW20rUd"]//span[text() ='Состав']/../following-sibling::div/span | //div[@id='ingredients'] | //div[@data-zone-name="specs"]//ul//li[last()]
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
   - name: servingSize
