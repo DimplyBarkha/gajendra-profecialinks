@@ -26,7 +26,7 @@ const transform = (data) => {
     for (const row of group) {
       if (row.specifications) {
         let specs = '';
-        let xpath = ''
+        let xpath = '';
         for (const item of row.specifications) {
           specs += item.text.replace('\n', ':') + ' || ';
           xpath = item.xpath;
@@ -35,10 +35,7 @@ const transform = (data) => {
       }
       if (row.availabilityText) {
         let stockPos = row.availabilityText[0].text;
-        if (stockPos == "inStock")
-          stockPos = "In Stock";
-        else if (stockPos == "outOfStock")
-          stockPos = "Out Of Stock";
+        if (stockPos == 'inStock') { stockPos = 'In Stock'; } else if (stockPos == 'outOfStock') { stockPos = 'Out Of Stock'; }
 
         row.availabilityText[0].text = stockPos;
       }
@@ -55,8 +52,8 @@ const transform = (data) => {
           if (image.text.indexOf('.jpg') !== -1 || image.text.indexOf('.jpeg') !== -1) {
             mI.push({
               text: image.text.indexOf('https:') === -1 ? ('https:' + image.text) : image.text,
-              xpath: image.xpath
-            })
+              xpath: image.xpath,
+            });
           }
         }
         row.manufacturerImages = mI;
@@ -66,8 +63,8 @@ const transform = (data) => {
         for (var item of row.image) {
           pI.push({
             text: item.text.indexOf('https:') === -1 ? ('https:' + item.text) : item.text,
-            xpath: item.xpath
-          })
+            xpath: item.xpath,
+          });
         }
         row.image = pI;
       }
@@ -76,8 +73,8 @@ const transform = (data) => {
         for (var item of row.alternateImages) {
           aI.push({
             text: item.text.indexOf('https:') === -1 ? ('https:' + item.text) : item.text,
-            xpath: item.xpath
-          })
+            xpath: item.xpath,
+          });
         }
         row.alternateImages = aI;
       }
@@ -91,24 +88,32 @@ const transform = (data) => {
       if (row.servingSizeUom && row.servingSizeUom.length) {
         row.servingSizeUom = [{
           text: row.servingSizeUom[0].text.replace(/\d+/, ''),
-          xpath: ''
-        }]
+          xpath: '',
+        }];
       }
 
       if (row.imageZoomFeaturePresent && row.imageZoomFeaturePresent.length) {
         row.imageZoomFeaturePresent = [{
           text: 'Yes',
-          xpath: ''
-        }]
+          xpath: '',
+        }];
       } else {
         row.imageZoomFeaturePresent = [{
           text: 'No',
-          xpath: ''
-        }]
+          xpath: '',
+        }];
       }
       if (row.unInterruptedPDP) {
         const pdp = Array.from(new Set(row.unInterruptedPDP.map(elm => elm.text.trim())));
         row.unInterruptedPDP = pdp.map(text => ({ text }));
+      }
+      if (row.inTheBoxUrl) {
+        const witb = Array.from(new Set(row.inTheBoxUrl.map(elm => elm.text.trim())));
+        row.inTheBoxUrl = witb.map(text => ({ text }));
+      }
+      if (row.inTheBoxText) {
+        const witb = Array.from(new Set(row.inTheBoxText.map(elm => elm.text.trim())));
+        row.inTheBoxText = witb.map(text => ({ text }));
       }
     }
   }

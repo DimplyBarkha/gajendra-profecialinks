@@ -61,6 +61,49 @@ module.exports = {
     }
     */
 
+    async function addEnhancedContent () {
+      const jsApi = document.querySelector('[src*="ws.cnetcontent.com"]') && document.querySelector('[src*="ws.cnetcontent.com"]').src;
+      let jsApi2 = document.querySelector('#flix-minisite no-script, #flix-inpage > script') && document.querySelector('#flix-minisite no-script, #flix-inpage > script').getAttribute('src');
+      if (jsApi) {
+        const clean = text => text.toString()
+          .replace(/\r\n|\r|\n/g, ' ')
+          .replace(/&amp;nbsp;/g, ' ')
+          .replace(/&amp;#160/g, ' ')
+          .replace(/\u00A0/g, ' ')
+          .replace(/\s{2,}/g, ' ')
+          .replace(/"\s{1,}/g, '"')
+          .replace(/\s{1,}"/g, '"')
+          .replace(/^ +| +$|( )+/g, ' ')
+        // eslint-disable-next-line no-control-regex
+          .replace(/[\x00-\x1F]/g, '')
+          .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+        const response = await fetch(jsApi);
+        const text = await response.text();
+        const text2 = clean(text);
+        const array = text2.match(/"htmlBlocks"\s*:\s*(\[.+])\s*,\s*"sites"/)[1];
+        const html = unescape(array.match(/ccs-inline-content","html":"(.+)"/)[1].replace(/\\n/g, '')).replace(/\\"/g, '"').replace(/\\'/g, "'");
+        const div = document.createElement('div');
+        div.id = 'enhanced-content';
+        div.innerHTML = html;
+        document.body.append(div);
+      } else {
+        const [sku, ean] = Array.from(document.querySelectorAll('.product-detail--reference > span')).map(elm => elm.innerText.trim().match(/[^\s]+$/));
+        jsApi2 = `https://media.flixcar.com/delivery/js/inpage/219/fr/mpn/${sku}/ean/${ean}`;
+        let response = await fetch(jsApi2);
+        if (response.status !== 200) throw Error('Enhanced content API Failed');
+        const js = await response.text();
+        if (js.match(/flixJsCallbacks.pid\s*='([^']+)/)) {
+          const id = js.match(/flixJsCallbacks.pid\s*='([^']+)/)[1];
+          response = await fetch(`https://media.flixcar.com/delivery/inpage/show/219/fr/${id}/json`);
+          const html = JSON.parse((await response.text()).match(/^\((.+)\)$/)[1]).html;
+          const div = document.createElement('div');
+          div.id = 'enhanced-content';
+          div.innerHTML = html;
+          document.body.append(div);
+        }
+      }
+    }
+    await context.evaluate(addEnhancedContent);
     async function scrollToRec (node) {
       await context.evaluate(async (node) => {
         const element = document.querySelector(node) || null;
@@ -331,35 +374,36 @@ module.exports = {
         console.log('Error: ', error);
       }
     });
-    async function addPDP() {
-      const productId = window.location.pathname.match(/[^\-]+$/)[0]
-      const response = await fetch("https://www.auchan.fr/cross-sell", {
-        "headers": {
-          "accept": "application/json",
-          "accept-language": "en-US,en;q=0.9",
-          "content-type": "application/x-www-form-urlencoded",
-          "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
-          "sec-ch-ua-mobile": "?0",
-          "sec-fetch-dest": "empty",
-          "sec-fetch-mode": "cors",
-          "sec-fetch-site": "same-origin",
-          "x-output-versioning": "true",
-          "x-requested-with": "XMLHttpRequest"
+    async function addPDP () {
+      const productId = window.location.pathname.match(/[^\-]+$/)[0];
+      const response = await fetch('https://www.auchan.fr/cross-sell', {
+        headers: {
+          accept: 'application/json',
+          'accept-language': 'en-US,en;q=0.9',
+          'content-type': 'application/x-www-form-urlencoded',
+          'sec-ch-ua': '"Google Chrome";v="87", " Not;A Brand";v="99", "Chromium";v="87"',
+          'sec-ch-ua-mobile': '?0',
+          'sec-fetch-dest': 'empty',
+          'sec-fetch-mode': 'cors',
+          'sec-fetch-site': 'same-origin',
+          'x-output-versioning': 'true',
+          'x-requested-with': 'XMLHttpRequest',
         },
-        "body": `path=%2FElectromenager%2FClimatisation_chauffage%2FPurificateur_d_air%2FDYSON_Ventilateur_purifiant_BP01_PURE_COOL_ME&productList=${productId}&productPrice=349&productStockLevel=inStock&orderProductList=&orderQuantityList=&orderPriceList=&pageType=PRODUCT&sendTrackingRequest=true&blocks%5B0%5D.externalId=1200-1&blocks%5B0%5D.htmlContainerId=ZNQ5Z2UN2MY8Q2-1200-1&blocks%5B0%5D.htmlContentComponent=t2s_pdp_tpl_api_aussiachete&blocks%5B0%5D.thirdParty=TARGET2SELL&blocks%5B0%5D.analytics=&blocks%5B1%5D.externalId=1200-15&blocks%5B1%5D.htmlContainerId=ZNQ5Z2UN2MY8Q2-1200-15&blocks%5B1%5D.htmlContentComponent=T2S_pdp_history_html&blocks%5B1%5D.thirdParty=TARGET2SELL&blocks%5B1%5D.analytics=`,
-        "method": "POST",
-        "mode": "cors",
-        "credentials": "include"
+        body: `path=%2FElectromenager%2FClimatisation_chauffage%2FPurificateur_d_air%2FDYSON_Ventilateur_purifiant_BP01_PURE_COOL_ME&productList=${productId}&productPrice=349&productStockLevel=inStock&orderProductList=&orderQuantityList=&orderPriceList=&pageType=PRODUCT&sendTrackingRequest=true&blocks%5B0%5D.externalId=1200-1&blocks%5B0%5D.htmlContainerId=ZNQ5Z2UN2MY8Q2-1200-1&blocks%5B0%5D.htmlContentComponent=t2s_pdp_tpl_api_aussiachete&blocks%5B0%5D.thirdParty=TARGET2SELL&blocks%5B0%5D.analytics=&blocks%5B1%5D.externalId=1200-15&blocks%5B1%5D.htmlContainerId=ZNQ5Z2UN2MY8Q2-1200-15&blocks%5B1%5D.htmlContentComponent=T2S_pdp_history_html&blocks%5B1%5D.thirdParty=TARGET2SELL&blocks%5B1%5D.analytics=`,
+        method: 'POST',
+        mode: 'cors',
+        credentials: 'include',
       });
       const json = await response.json();
       const htmls = json.map(elm => elm.html);
-      for(const html of htmls) {
-       const div = document.createElement('div');
-       div.setAttribute('class', 'added-pdp');
-       div.innerHTML = html;
-       document.body.append(div);
-    }}
-    async function addSponsored() {
+      for (const html of htmls) {
+        const div = document.createElement('div');
+        div.setAttribute('class', 'added-pdp');
+        div.innerHTML = html;
+        document.body.append(div);
+      }
+    }
+    async function addSponsored () {
       const productId = window.location.pathname.match(/[^\-]+$/)[0];
       const API = `https://d.eu.criteo.com/delivery/v2/api/page?~it=js&key=263&page-id=viewItem_Web&viewed-sku=${productId}&in-stock=1&abe=1`;
       const response = await fetch(API);
@@ -369,17 +413,17 @@ module.exports = {
       div.id = 'sponsored';
       div.innerHTML = sponsored;
       document.body.append(div);
-     }
-     try {      
-       await context.evaluate(addPDP);
-     } catch (error) {
-       console.log('Failed to add PDP');
-     }
-     try {
+    }
+    try {
+      await context.evaluate(addPDP);
+    } catch (error) {
+      console.log('Failed to add PDP');
+    }
+    try {
       await context.evaluate(addSponsored);
-     } catch (error) {
-       console.log('Failed to add ponsored');
-     }
+    } catch (error) {
+      console.log('Failed to add ponsored');
+    }
     return await context.extract(data, { transform });
   },
 };
