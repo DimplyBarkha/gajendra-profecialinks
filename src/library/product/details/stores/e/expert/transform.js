@@ -13,7 +13,7 @@ const transform = (data, context) => {
     .replace(/"\s{1,}/g, '"')
     .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
-  // eslint-disable-next-line no-control-regex
+    // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
 
@@ -190,6 +190,12 @@ const transform = (data, context) => {
         // if (row.listPrice && row.listPrice[0]) {
         //   row.listPrice[0].text = row.listPrice[0].text.replace('.', ',');
         // }
+
+        if (row.price) {
+          if (row.price[0].text == 0) {
+            row.price[0].text = row.price[0].text.replace('0', '');
+          }
+        }
 
         if (row.termsAndConditions && row.termsAndConditions[0]) {
           if (row.termsAndConditions[0].text.includes('Term')) {
