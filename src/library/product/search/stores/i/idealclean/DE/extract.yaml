@@ -19,10 +19,10 @@ fields:
     type: TEXT
     # xpath: //div[@class='ProductCard_productDescription__3l4j5']/span[@class='ant-typography ant-typography-secondary'][2]/text()[3]
     xpath: //span[contains(text(),"Artikelnummer")]//text()[3]
-  - name: aggregateRating2
-    xpath: //div[@class='ts-reviewSummary-averageRating']//span[@class='ts-reviewSummary-ratingValue']//text()
+  - name: aggregateRating
+    xpath: //span[@class="ts-reviewSummary-ratingValue"]//text()
   - name: reviewCount
-    xpath: //div[@class='ts-rating-light ts-rating de_DE productreviewsSummary']//span[@class='ts-stars-reviewCount']//text()
+    xpath: //span[@class='ts-stars-reviewCount']//text()
   - name: price
     description: The offered price for the product
     # xpath: //div[@class='ProductPrice_mainPriceHolder__250xx']
