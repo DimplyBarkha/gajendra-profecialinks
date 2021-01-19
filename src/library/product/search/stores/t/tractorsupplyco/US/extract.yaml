@@ -31,3 +31,6 @@ fields:
   - name: ratingCount
     singleValue: false
     xpath: //div[@class="all-components"]/div[@class="rating"]/a/span[last()]
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id='search-url']

@@ -6,7 +6,7 @@ module.exports = {
     store: 'tractorsupplyco',
     domain: 'tractorsupply.com',
     url: 'https://www.tractorsupply.com/tsc/search/{searchTerms}',
-    loadedSelector: 'div#content[role="main"]',
+    loadedSelector: 'div#grid',
     noResultsXPath: null,
     zipcode: '',
   },
