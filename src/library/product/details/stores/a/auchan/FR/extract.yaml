@@ -281,7 +281,8 @@ fields:
     xpath: //div[@id='custom-product-enhanced-content']/text()
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //div[contains(@class, "product-list--container")]//div[contains(@class, "product-item--wrapper")]//a//span[@itemprop="name"]
+    xpath: //div[contains(@class, "product-list--container")]//div[contains(@class, "product-item--wrapper")]//a//span[@itemprop="name"] | //div[@id="sponsored"] | //div[@class="added-pdp"]
+    regExp: '[^|]+'
   - name: inTheBoxUrl
     singleValue: false
     xpath: //div[@id='flix-std-inpage']//div[contains(@class, "InTheBox")]//div[contains(@class, "box")]//img/@data-flixsrcset

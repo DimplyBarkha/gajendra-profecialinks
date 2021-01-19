@@ -359,7 +359,27 @@ module.exports = {
        div.innerHTML = html;
        document.body.append(div);
     }}
-    await context.evaluate(addPDP);
+    async function addSponsored() {
+      const productId = window.location.pathname.match(/[^\-]+$/)[0];
+      const API = `https://d.eu.criteo.com/delivery/v2/api/page?~it=js&key=263&page-id=viewItem_Web&viewed-sku=${productId}&in-stock=1&abe=1`;
+      const response = await fetch(API);
+      const json = await response.json();
+      const sponsored = Object.values(json).find(prop => prop.hasOwnProperty('ProductAd')).ProductAd.map(elm => elm.ProductName).join('|');
+      const div = document.createElement('div');
+      div.id = 'sponsored';
+      div.innerHTML = sponsored;
+      document.body.append(div);
+     }
+     try {      
+       await context.evaluate(addPDP);
+     } catch (error) {
+       console.log('Failed to add PDP');
+     }
+     try {
+      await context.evaluate(addSponsored);
+     } catch (error) {
+       console.log('Failed to add ponsored');
+     }
     return await context.extract(data, { transform });
   },
 };
