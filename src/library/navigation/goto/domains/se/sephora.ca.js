@@ -16,9 +16,15 @@ module.exports = {
     await context.setBypassCSP(false);
     await context.setUseRelayProxy(false);
     await context.setLoadAllResources(true);
-    /* await context.goto("sephora.com");
-    await context.clickAndWaitForNavigation("span[data-at='country_ca']")
- */ await context.goto(url, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: true, enable_cache: false, cookies: [] });
+    try {
+      await context.goto("sephora.com");
+      await context.clickAndWaitForNavigation("span[data-at='country_ca']")
+      await context.clickAndWaitForNavigation("[data-at='modal_dialog_continue_btn']")
+    }
+    catch(error){
+      console.log(error)
+    }
+    await context.goto(url, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: true, enable_cache: false, cookies: [] });
 
     console.log(zipcode);
     if (zipcode) {
