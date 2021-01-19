@@ -51,6 +51,9 @@ const transform = (data) => {
         });
         row.specifications = [{ text: arrSpecs.join(' || ') }];
       }
+      if (row.backUpInTheBoxText && !row.inTheBoxText) {
+        row.inTheBoxText = row.backUpInTheBoxText;
+      }
       // if (row.price) {
       //   row.price.forEach(item => {
       //     item.text = item.text.replace(',', '');
