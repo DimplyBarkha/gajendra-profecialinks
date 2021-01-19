@@ -196,6 +196,13 @@ console.log('*************newPage' ,(await newPage()) === 'true');
     addHiddenDiv('bulletList', bulletList);
     addHiddenDiv('bulletListTemp', bulletListTemp);
 
+    //des for second type format page
+    let desc2 = document.querySelector('span.b_3JsGNgDHFb');
+    if(desc2) {
+      addHiddenDiv('desList', desc2);
+    }
+
+
     let imgClick = document.querySelector('div.b_2ke8Y2fll7');
 
     if (imgClick) {

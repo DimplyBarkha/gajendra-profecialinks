@@ -54,7 +54,7 @@ fields:
       should be "In Stock"
   - name: description
     singleValue: false
-    xpath: //div[@id='bulletList']
+    xpath: //div[@id='bulletList'] | //div[@id='desList']
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
