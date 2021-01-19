@@ -19,15 +19,6 @@ const transform = (data) => {
       // eslint-disable-next-line no-control-regex
       .replace(/[\x00-\x1F]/g, '')
       .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
-  data.forEach((obj) =>
-    obj.group.forEach((row) =>
-      Object.keys(row).forEach((header) =>
-        row[header].forEach((el) => {
-          el.text = clean(el.text);
-        })
-      )
-    )
-  );
 
   for (const { group } of data) {
     for (const row of group) {
@@ -35,14 +26,14 @@ const transform = (data) => {
         var obj = {};
 
         for (var i = 0, len = row.variantUrl.length; i < len; i++) {
-          obj[row.variantUrl[i]['text']] = row.variantUrl[i];
+          obj[row.variantUrl[i].text] = row.variantUrl[i];
           console.log(
-            (obj[row.variantUrl[i]['text']]),
-            'p1'
+            (obj[row.variantUrl[i].text]),
+            'p1',
           );
           console.log(
             (row.variantUrl[i]),
-            'p2'
+            'p2',
           );
         }
       }
@@ -50,8 +41,8 @@ const transform = (data) => {
         var obj = {};
 
         for (var i = 0, len = row.variantId.length; i < len; i++) {
-          obj[row.variantId[i]['text']] = row.variantId[i];
-          console.log((obj[row.variantId[i]['text']] = row.variantId[i]), 'p');
+          obj[row.variantId[i].text] = row.variantId[i];
+          console.log((obj[row.variantId[i].text] = row.variantId[i]), 'p');
         }
 
         //     row.variantId = new Array();
@@ -90,7 +81,7 @@ const transform = (data) => {
         ];
       }
       if (row.availabilityText) {
-        let text = '';
+        const text = '';
         row.availabilityText.forEach((item) => {
           row.availabilityText = [
             {
@@ -106,7 +97,7 @@ const transform = (data) => {
       if (row.aggregateRating) {
         let text;
         row.aggregateRating.forEach(item => {
-            text = `${item.text / 20}`;
+          text = `${item.text / 20}`;
         });
         row.aggregateRating = [
           {
@@ -128,8 +119,22 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.unInterruptedPDP) {
+        const pdp = Array.from(new Set(row.unInterruptedPDP.map(elm => elm.text.trim())));
+        row.unInterruptedPDP = pdp.map(text => ({ text }));
+      }
     }
   }
+
+  data.forEach((obj) =>
+    obj.group.forEach((row) =>
+      Object.keys(row).forEach((header) =>
+        row[header].forEach((el) => {
+          el.text = clean(el.text);
+        }),
+      ),
+    ),
+  );
   return data;
 };
 
