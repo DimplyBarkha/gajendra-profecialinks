@@ -11,6 +11,8 @@ fields:
   - name: thumbnail
     description: The URL for the product thumbnail image 
     xpath: //picture[@class="product-image product-image-opaque-full"]/img/@src
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: name
     type: TEXT
     xpath: //div//a[@class='product-title']//text()
