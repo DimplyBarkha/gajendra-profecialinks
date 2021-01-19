@@ -1,17 +1,17 @@
 /**
  *
- * @param { { URL: string, zipcode: string } } inputs
+ * @param { { URL: string, zipcode: string, query: string } } inputs
  * @param { { store: any, country: any, zipcode: any, storeId: any } } parameters
  * @param { ImportIO.IContext } context
  * @param { { execute: ImportIO.Action, extract: ImportIO.Action } } dependencies
  */
 async function implementation (inputs, parameters, context, dependencies) {
-  const { URL } = inputs;
+  const { URL, query } = inputs;
   const { execute, extract } = dependencies;
   const url = URL;
   const zipcode = inputs.zipcode || parameters.zipcode;
 
-  const newInput = { ...inputs, zipcode, url };
+  const newInput = { ...inputs, zipcode, url, query };
 
   const resultsReturned = await execute(newInput);
   if (!resultsReturned) {

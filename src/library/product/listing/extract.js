@@ -1,6 +1,6 @@
 /**
  *
- * @param { { url } } inputs
+ * @param { { url,query } } inputs
  * @param { Record<string, any> } parameters
  * @param { ImportIO.IContext } context
  * @param { Record<string, any> } dependencies
@@ -22,11 +22,16 @@ async function implementation (
   const totalPages = Number(resultsCount) / numberResultPerPage;
 
   const urlArray = [];
-  const { url } = inputs;
-  const itemId = url.match(regExpForIdFromUrl)[0];
+  const { url, query } = inputs;
+
+  const itemId = regExpForIdFromUrl ? url.match(regExpForIdFromUrl)[0] : '';
+  const queryToSwap = query || '';
 
   for (let i = 1; i < totalPages; i++) {
-    urlArray.push(urlTemplate.replace('{id}', itemId).replace('{page}', i));
+    urlArray.push(urlTemplate
+      .replace('{queryParams}', queryToSwap)
+      .replace('{id}', itemId)
+      .replace('{page}', i));
   }
 
   await helper.addArrayToDocument('my-urls', urlArray);
