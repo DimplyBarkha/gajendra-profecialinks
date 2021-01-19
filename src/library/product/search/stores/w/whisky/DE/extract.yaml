@@ -3,14 +3,10 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  # - name: _url
-    # type: URL
-    # xpath: //link[@hreflang="de-DE"]/@href
   - name: productUrl
     description: The URL for the product details page
     xpath: //div[@class='panel-body']//div[@class="article-title"]//a[not(contains(@class,'article-video'))]/@href
   - name: thumbnail
-    type: FILE
     description: The URL for the product thumbnail image
     xpath: //div[@class='panel-body']//div[@class="article-left article-thumbnail"]/a//img/@src
   - name: name
@@ -30,4 +26,5 @@ fields:
     xpath: //div[@class='panel-body']//span[@class='rating-count']
   - name: price
     description: The offered price for the product
+    type: CURRENCY
     xpath: //div[@class='article-priceicons article-club-hidden']/following-sibling::span
