@@ -32,6 +32,13 @@ module.exports = {
       });
     };
     await applyScroll(context);
+    await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+    try{
+      await context.waitForSelector('div[class*="flix-std-table"] img');
+    }
+    catch(e){
+      console.log("Couldn't find selector");
+    }
     return await context.extract(productDetails, { transform });
   },
 };

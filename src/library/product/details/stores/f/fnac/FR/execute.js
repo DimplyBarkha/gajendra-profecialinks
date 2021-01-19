@@ -33,7 +33,7 @@ async function implementation (
     await context.evaluate(function () {
       document.querySelector('section#BrandWord div.productStrate__seeMore__container button').click();
     });
-    await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 5000));
   } catch (e) {
     console.log(e);
   }

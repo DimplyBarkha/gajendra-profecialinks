@@ -128,13 +128,13 @@ fields:
     singleValue: false  
     xpath: //div[contains(@class, "summaryStrate__raw")] | //div[contains(@class, "characteristicsStrate__item") and contains(@class, "item--long")]
   - name: unInterruptedPDP
-    xpath: //span[@class="miniFA__title"]
+    xpath: //div[contains(@class,"miniFA__top")]//img/@alt
   - name: hasComparisonTable
     defaultValue: No
-    xpath: (//div[contains(text(),'Tableau de comparaison')])[1]
+    xpath: //div[@class="flix-comp-container"]
     regExp: .+
     regExpReplace: 'Yes'
   - name: inTheBoxUrl
-    xpath: //div[contains(text(),'Contenu de la boîte')]/..//img/@srcset
+    xpath:  //div[@class="flix-std-table"]//img[not(ancestor::div[@class="flix-dimensional-image"])]/@data-flixsrcset
   - name: inTheBoxText
-    xpath: //div[contains(text(),'Contenu de la boîte')]/..//span
+    xpath: //div[@class="flix-std-content"]//span
