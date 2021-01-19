@@ -1,6 +1,6 @@
 /**
  *
- * @param { { } } inputs
+ * @param { { url } } inputs
  * @param { Record<string, any> } parameters
  * @param { ImportIO.IContext } context
  * @param { Record<string, any> } dependencies
@@ -11,7 +11,7 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { transform, urlTemplate, resultsCountSelector, numberResultPerPage } = parameters;
+  const { transform, urlTemplate, resultsCountSelector, numberResultPerPage, regExpForIdFromUrl } = parameters;
   const { productDetails, Helpers: { Helpers } } = dependencies;
   const helper = new Helpers(context);
 
@@ -22,9 +22,11 @@ async function implementation (
   const totalPages = Number(resultsCount) / numberResultPerPage;
 
   const urlArray = [];
+  const { url } = inputs;
+  const itemId = url.match(regExpForIdFromUrl)[0];
 
   for (let i = 1; i < totalPages; i++) {
-    urlArray.push(urlTemplate.replace('{page}', i));
+    urlArray.push(urlTemplate.replace('{id}', itemId).replace('{page}', i));
   }
 
   await helper.addArrayToDocument('my-urls', urlArray);
@@ -54,6 +56,10 @@ module.exports = {
     {
       name: 'numberResultPerPage',
       description: 'set as number of results shown per page',
+    },
+    {
+      name: 'regExpForIdFromUrl',
+      description: 'regular expression to capture item id from the input url',
     },
     {
       name: 'transform',
