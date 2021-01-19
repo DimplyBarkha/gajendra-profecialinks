@@ -97,7 +97,7 @@ fields:
   - name: colorCode
     xpath :
   - name: manufacturerDescription
-    xpath : //div[contains(@class,'inpage_selector')][not(contains(@class,'video'))] | //div[@id="manufacdesc"][not(//div[@class="inpage_selector_feature"])]
+    xpath : //div[@id="manufacdesc"] | //div[contains(@class,'inpage_selector')][not(contains(@class,'video'))][not(//div[@id="manufacdesc"])]
   - name: manufacturerImages
     xpath : //div[@id='manufacturerImages'] | //div[contains(@class,'inpage_selector')][not(contains(@class,'video'))]//img/@data-flixsrcset
   - name: termsAndConditions

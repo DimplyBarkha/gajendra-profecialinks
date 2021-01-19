@@ -176,10 +176,11 @@ module.exports = {
       manufacturerImagesArray = await context.evaluate(async () => {
         const allImagesFromEnhancedContent = document.querySelectorAll('img');
         // @ts-ignore
-        return [...allImagesFromEnhancedContent].filter(image => image.getAttribute('src')).map(image => image.src); // use of double map is an hack to avoid certail things
+        return [...allImagesFromEnhancedContent].filter(image => image.getAttribute('src')).map(image => image.src); // use of double map is an hack to avoid certain things
       });
       await context.waitForSelector('.thumbnails-slider div[data-type="picture"]').catch(() => console.log('no thumbnail present in div'));
       const extraManImages = await context.evaluate(() => {
+        // @ts-ignore
         const extraImages = [...document.querySelectorAll('.thumbnails-slider div[data-type="picture"]')];
         const manufacturerImagesArray = [];
         for (let i = 0; i < extraImages.length; i++) {
