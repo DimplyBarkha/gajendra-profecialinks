@@ -120,7 +120,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[@class='how-to-use-inner clearfix']//ul[@id='videosList']//li//a//@href
+    xpath: //div[@class='how-to-use-inner clearfix']//ul[@id='videosList']//li//a//@href | //*[@id="thumbnails"]//div/a/@href
   - name: name
     singleValue: true
     description: The product name
