@@ -2,7 +2,7 @@ input:
   id: DF25497_2
   _url: http://monsterpetsupplies.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=d970568d-8e74-4c45-a36b-48bfbcee0650/task=9b2afce2-288e-4f7e-9d1f-da3bcaddcf0a/bc491633-982f-4b2c-97fe-a7ae459e30a0.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=1b48ea95-6d7d-4cb9-b2ab-962ce946fb48/task=f9ecc9fd-1331-4c19-b5d6-ed0aeb793ece/ed68be46-6163-4e42-b776-bb0098aad82d.html
     extractionConfigId: product/details/stores/m/monsterpetsupplies/UK/extract
     data:
       - group:
@@ -49,67 +49,44 @@ extractions:
               - text: In Stock
                 xpath: /html/body/div[20]
             description:
-              - text: >-
-                  PURINA Beyond Simply 9 Rich in Chicken with Whole Barley is
-                  made with nine key ingredients, carefully selected to work
-                  together and provide a complete food for your adult dog,
-                  providing balanced nourishment.
-
-                  With delicious cuts of high quality chicken, Beyond is an excellent source of vital protein, necessary in maintaining lean body mass whilst also supporting a thriving immune system. Beyond also contains essential omega oils and fats to nourish your canine's coat and skin from the inside out, whilst dried vegetables, whole barley and other cereals provide your dog with slow burning complex carbohydrates, keeping your four legged friend going all day long!
-
-                  Ingredients: Chicken* (20%), Dehydrated Chicken Protein (18.5%), Whole Barley** (18.5%), Oat Groats**, Rice**, Poultry Fat, Digest, Minerals, Dried Carrot (0.5%), Dried Pea (0.5%) **Cereals (50%) *Natural ingredients
-
-                  Analytical Constituents: Protein 25.0%, Fat content 15.0%, Omega 6 fatty acid: Linoleic acid 2.0%, Crude ash 7.5%, Crude fibres 3.0%, Additives: , Nutritional additives: , IU/kg: , Vit A: 21 000, Vit D3: 680, Vit E: 110, mg/kg: , Ferrous sulphate monohydrate: 220, Calcium Iodate anhydrous: 2.8, Cupric sulphate pentahydrate: 44, Manganous sulphate monohydrate: 105, Zinc sulphate monohydrate: 370, Sodium selenite: 0.26. With antioxidants.
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]
+              - text: "PURINA Beyond Simply 9 Rich in Chicken with Whole Barley is made with
+                  nine key ingredients, carefully selected to work together and
+                  provide a complete food for your adult dog, providing balanced
+                  nourishment. With delicious cuts of high quality chicken,
+                  Beyond is an excellent source of vital protein, necessary in
+                  maintaining lean body mass whilst also supporting a thriving
+                  immune system. Beyond also contains essential omega oils and
+                  fats to nourish your canine's coat and skin from the inside
+                  out, whilst dried vegetables, whole barley and other cereals
+                  provide your dog with slow burning complex carbohydrates,
+                  keeping your four legged friend going all day long!
+                  Ingredients: Chicken* (20%), Dehydrated Chicken Protein
+                  (18.5%), Whole Barley** (18.5%), Oat Groats**, Rice**, Poultry
+                  Fat, Digest, Minerals, Dried Carrot (0.5%), Dried Pea (0.5%)
+                  **Cereals (50%) *Natural ingredients Analytical Constituents:
+                  Protein 25.0%, Fat content 15.0%, Omega 6 fatty acid: Linoleic
+                  acid 2.0%, Crude ash 7.5%, Crude fibres 3.0%, Additives: ,
+                  Nutritional additives: , IU/kg: , Vit A: 21 000, Vit D3: 680,
+                  Vit E: 110, mg/kg: , Ferrous sulphate monohydrate: 220,
+                  Calcium Iodate anhydrous: 2.8, Cupric sulphate pentahydrate:
+                  44, Manganous sulphate monohydrate: 105, Zinc sulphate
+                  monohydrate: 370, Sodium selenite: 0.26. With antioxidants."
+                xpath: /html/body/div[23]
             brandText:
               - text: PURINA BEYOND
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/meta[1]/@content
+            quantity:
+              - text: 9 Ch
+                xpath: /html/body/div[22]
             sku:
               - text: DF25497_2
                 xpath: /html/body/div[16]
             variantId:
               - text: DF25497_2
                 xpath: /html/body/div[16]
-            manufacturerDescription:
-              - text: PURINA Beyond Simply 9 Rich in Chicken with Whole Barley is made with nine
-                  key ingredients, carefully selected to work together and
-                  provide a complete food for your adult dog, providing balanced
-                  nourishment.
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/p[1]
-              - text: With delicious cuts of high quality chicken, Beyond is an excellent source
-                  of vital protein, necessary in maintaining lean body mass
-                  whilst also supporting a thriving immune system. Beyond also
-                  contains essential omega oils and fats to nourish your
-                  canine's coat and skin from the inside out, whilst dried
-                  vegetables, whole barley and other cereals provide your dog
-                  with slow burning complex carbohydrates, keeping your four
-                  legged friend going all day long!
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/p[2]
             name:
               - text: Purina Beyond Simply 9 Chicken & Barley Adult Dog Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/h1[1]
-            ingredientsList:
-              - text: >-
-                  Chicken* (20%), Dehydrated Chicken Protein (18.5%), Whole
-                  Barley** (18.5%), Oat Groats**, Rice**, Poultry Fat, Digest,
-                  Minerals, Dried Carrot (0.5%), Dried Pea (0.5%) **Cereals
-                  (50%) *Natural ingredients
-
-                  Analytical Constituents: Protein 25.0%, Fat content 15.0%, Omega 6 fatty acid: Linoleic acid 2.0%, Crude ash 7.5%, Crude fibres 3.0%, Additives: , Nutritional additives: , IU/kg: , Vit A: 21 000, Vit D3: 680, Vit E: 110, mg/kg: , Ferrous sulphate monohydrate: 220, Calcium Iodate anhydrous: 2.8, Cupric sulphate pentahydrate: 44, Manganous sulphate monohydrate: 105, Zinc sulphate monohydrate: 370, Sodium selenite: 0.26. With antioxidants.
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]
-            totalFatPerServing:
-              - text: >-
-                  PURINA Beyond Simply 9 Rich in Chicken with Whole Barley is
-                  made with nine key ingredients, carefully selected to work
-                  together and provide a complete food for your adult dog,
-                  providing balanced nourishment.
-
-                  With delicious cuts of high quality chicken, Beyond is an excellent source of vital protein, necessary in maintaining lean body mass whilst also supporting a thriving immune system. Beyond also contains essential omega oils and fats to nourish your canine's coat and skin from the inside out, whilst dried vegetables, whole barley and other cereals provide your dog with slow burning complex carbohydrates, keeping your four legged friend going all day long!
-
-                  Ingredients: Chicken* (20%), Dehydrated Chicken Protein (18.5%), Whole Barley** (18.5%), Oat Groats**, Rice**, Poultry Fat, Digest, Minerals, Dried Carrot (0.5%), Dried Pea (0.5%) **Cereals (50%) *Natural ingredients
-
-                  Analytical Constituents: Protein 25.0%, Fat content 15.0%, Omega 6 fatty acid: Linoleic acid 2.0%, Crude ash 7.5%, Crude fibres 3.0%, Additives: , Nutritional additives: , IU/kg: , Vit A: 21 000, Vit D3: 680, Vit E: 110, mg/kg: , Ferrous sulphate monohydrate: 220, Calcium Iodate anhydrous: 2.8, Cupric sulphate pentahydrate: 44, Manganous sulphate monohydrate: 105, Zinc sulphate monohydrate: 370, Sodium selenite: 0.26. With antioxidants.
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]
             promotion:
               - text: You Save £1.31 (5%)
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[2]/section[1]/div[3]/p[1]
@@ -121,8 +98,8 @@ extractions:
                 xpath: /html/body/div[16]
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[22]
+                xpath: /html/body/div[25]
             variantCount:
               - text: "2"
         xpath: /
-    timestamp: 1610976790496
+    timestamp: 1611055409131

@@ -63,7 +63,7 @@ fields:
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: //div[@itemprop="description"]
+  xpath: //div[@id="description"]
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -78,6 +78,7 @@ fields:
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
+  xpath: //div[@id="quantity"]
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page
@@ -142,7 +143,6 @@ fields:
 - name: manufacturerDescription
   singleValue: false
   description: The extended description of the product supplied by the lister
-  xpath: //div[@itemprop="description"]//p
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
@@ -256,9 +256,7 @@ fields:
   singleValue: true
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
-  xpath: //div[@itemprop="description"]
-  regExp: '.*Ingredients:\s?([\S\s]+)'
-  regExpReplace: $1
+  xpath: //div[@id="ingredients"]
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.
@@ -280,8 +278,6 @@ fields:
   singleValue: true
   description: Nutritional Information for Total Fat content - Usually based on per
     100g serving
-  xpath: //div[@itemprop="description"]
-  regExp: 
 - name: totalFatPerServingUom
   singleValue: true
   description: Unit of Measure Data for Total Fat content

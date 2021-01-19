@@ -2,7 +2,7 @@ input:
   id: CF19061_1
   _url: http://monsterpetsupplies.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=9a2b5950-a3d1-4eed-b098-b7fcb6a74587/task=01bf11d9-5138-4117-89be-73ab2fae024e/2c7e34fd-b7fe-4f01-89e8-0b6a461ef9d7.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=1b48ea95-6d7d-4cb9-b2ab-962ce946fb48/task=fd2dabd1-b5b1-4971-9535-999424e91de8/cbb6c6c4-1463-4113-9354-c35cfaa6461d.html
     extractionConfigId: product/details/stores/m/monsterpetsupplies/UK/extract
     data:
       - group:
@@ -10,17 +10,15 @@ extractions:
               - text: https://www.monsterpetsupplies.co.uk/cat/wet-cat-food/gourmet-perle-mini-fillets-with-chicken-24-x-85g
                 xpath: /html/head[1]/link[11]/@href
             image:
-              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/f_auto,c_pad,w_500,h_500,q_75/v1607444328/users/5000161030149_t517_qaoxdj.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/span[1]/img[2]/@src
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1607444328/users/5000161030149_t517_qaoxdj.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/img[1]/@src
             imageAlt:
               - text: Gourmet Perle Mini Chicken Fillets Cat Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/span[1]/img[1]/@alt
             alternateImages:
-              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/f_auto,c_pad,w_500,h_500,q_75/v1607444328/users/5000161030149_t517_qaoxdj.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/img[1]/@src
-              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/f_auto,c_pad,w_50,h_50,q_75/v1551176013/5000161030149_vquud1.jpg
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1551176013/5000161030149_vquud1.jpg
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/img[1]/@src
-              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/f_auto,c_pad,w_50,h_50,q_75/v1607444326/users/5000161030149_t3_ac59ty.jpg
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1607444326/users/5000161030149_t3_ac59ty.jpg
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/img[1]/@src
             metaKeywords:
               - text: gourmet perle mini chicken fillets cat food
@@ -37,26 +35,36 @@ extractions:
               - text: £14.15
                 xpath: /html/body/div[18]
             availabilityText:
-              - text: InStock
+              - text: In Stock
                 xpath: /html/body/div[20]
-            sku:
-              - text: CF19061_1
-                xpath: /html/body/div[16]
-            manufacturerDescription:
-              - text: Gourmet Gold Perle is a tantalising recipe of chicken in a rich gravy for
+            description:
+              - text: "Gourmet Gold Perle is a tantalising recipe of chicken in a rich gravy for
                   a delectable & nutritionally complete cat food that even the
                   most highly refined feline will find completely irresistible!
                   We know that connoisseurs can be incredibly fussy eaters, but
                   your furry sophisticate won’t be able to turn their nose up at
                   these exquisite morsels of meat, cut into fine fillets &
                   gently cooked in their own juices, making for an elegant
-                  every-day treat to excite their senses.
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/p[2]
-              - text: What’s more each pouch of this balanced pet food, individually portioned
-                  to ensure every meal is deliciously fresh, provides total &
-                  balanced nourishment to keep your furry sophisticate looking
-                  fabulous and feeling fantastic.
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/p[3]
+                  every-day treat to excite their senses. What’s more each pouch
+                  of this balanced pet food, individually portioned to ensure
+                  every meal is deliciously fresh, provides total & balanced
+                  nourishment to keep your furry sophisticate looking fabulous
+                  and feeling fantastic. Ingredients: Meat and animal
+                  derivatives (of which beef 4%), vegetable protein extracts,
+                  fish and fish derivatives, minerals, various sugars."
+                xpath: /html/body/div[23]
+            brandText:
+              - text: Gourmet
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/meta[1]/@content
+            quantity:
+              - text: 85g
+                xpath: /html/body/div[22]
+            sku:
+              - text: CF19061_1
+                xpath: /html/body/div[16]
+            variantId:
+              - text: CF19061_1
+                xpath: /html/body/div[16]
             name:
               - text: Gourmet Perle Mini Chicken Fillets Cat Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/h1[1]
@@ -68,8 +76,8 @@ extractions:
                 xpath: /html/body/div[16]
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[22]
+                xpath: /html/body/div[25]
             variantCount:
               - text: "1"
         xpath: /
-    timestamp: 1610704929641
+    timestamp: 1611055413403

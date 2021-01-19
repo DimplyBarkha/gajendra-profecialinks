@@ -2,7 +2,7 @@ input:
   id: CF21491_1
   _url: http://monsterpetsupplies.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=d970568d-8e74-4c45-a36b-48bfbcee0650/task=f48c69ea-839c-4980-bd92-9a68a0decba7/22c65aa7-5e24-466f-9b00-226c81afc67b.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=1b48ea95-6d7d-4cb9-b2ab-962ce946fb48/task=1cbd7ac8-4da2-42be-895a-21a2d9b0227f/51262353-fbb4-4ce6-8a64-f6d2d8795f5d.html
     extractionConfigId: product/details/stores/m/monsterpetsupplies/UK/extract
     data:
       - group:
@@ -36,65 +36,36 @@ extractions:
               - text: Out Of Stock
                 xpath: /html/body/div[20]
             description:
-              - text: >-
-                  Gourmet Gold Perle Delicate Meat Duo are nutritionally
-                  balanced & thoroughly delectable recipes to tickle the fancy
-                  of even the most acutely refined cat connoisseur. Treat your
-                  furry sophisticate every day with exquisite morsels of meat or
-                  fish, cut into fine fillets & gently cooked in a sumptuously
-                  savoury sauce for a delight even the most discerning feline
-                  won’t turn their nose up at!
-
-                  Even better, this complete pet food provides complete nourishment, to keep your cat feeling healthy and looking beautiful every day. This mouth-watering Chef's Selection of elegant flavours, such as Chicken & Beef, Turkey & Lamb, Duck & Liver, and Rabbit & Game, ensures your pampered puss will be absolutely spoiled for choice!
-
-                  Ingredients: Meat and animal derivatives (meat 14%), vegetable protein extracts, fish and fish derivatives, minerals, various sugars.
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]
+              - text: "Gourmet Gold Perle Delicate Meat Duo are nutritionally balanced &
+                  thoroughly delectable recipes to tickle the fancy of even the
+                  most acutely refined cat connoisseur. Treat your furry
+                  sophisticate every day with exquisite morsels of meat or fish,
+                  cut into fine fillets & gently cooked in a sumptuously savoury
+                  sauce for a delight even the most discerning feline won’t turn
+                  their nose up at! Even better, this complete pet food provides
+                  complete nourishment, to keep your cat feeling healthy and
+                  looking beautiful every day. This mouth-watering Chef's
+                  Selection of elegant flavours, such as Chicken & Beef, Turkey
+                  & Lamb, Duck & Liver, and Rabbit & Game, ensures your pampered
+                  puss will be absolutely spoiled for choice! Ingredients: Meat
+                  and animal derivatives (meat 14%), vegetable protein extracts,
+                  fish and fish derivatives, minerals, various sugars."
+                xpath: /html/body/div[23]
             brandText:
               - text: Gourmet
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/meta[1]/@content
+            quantity:
+              - text: 85g
+                xpath: /html/body/div[22]
             sku:
               - text: CF21491_1
                 xpath: /html/body/div[16]
             variantId:
               - text: CF21491_1
                 xpath: /html/body/div[16]
-            manufacturerDescription:
-              - text: Gourmet Gold Perle Delicate Meat Duo are nutritionally balanced &
-                  thoroughly delectable recipes to tickle the fancy of even the
-                  most acutely refined cat connoisseur. Treat your furry
-                  sophisticate every day with exquisite morsels of meat or fish,
-                  cut into fine fillets & gently cooked in a sumptuously savoury
-                  sauce for a delight even the most discerning feline won’t turn
-                  their nose up at!
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/p[1]
-              - text: Even better, this complete pet food provides complete nourishment, to keep
-                  your cat feeling healthy and looking beautiful every day. This
-                  mouth-watering Chef's Selection of elegant flavours, such as
-                  Chicken & Beef, Turkey & Lamb, Duck & Liver, and Rabbit &
-                  Game, ensures your pampered puss will be absolutely spoiled
-                  for choice!
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/p[2]
             name:
               - text: Gourmet Perle Delicate Meats Duo Cat Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/h1[1]
-            ingredientsList:
-              - text: Meat and animal derivatives (meat 14%), vegetable protein extracts, fish
-                  and fish derivatives, minerals, various sugars.
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]
-            totalFatPerServing:
-              - text: >-
-                  Gourmet Gold Perle Delicate Meat Duo are nutritionally
-                  balanced & thoroughly delectable recipes to tickle the fancy
-                  of even the most acutely refined cat connoisseur. Treat your
-                  furry sophisticate every day with exquisite morsels of meat or
-                  fish, cut into fine fillets & gently cooked in a sumptuously
-                  savoury sauce for a delight even the most discerning feline
-                  won’t turn their nose up at!
-
-                  Even better, this complete pet food provides complete nourishment, to keep your cat feeling healthy and looking beautiful every day. This mouth-watering Chef's Selection of elegant flavours, such as Chicken & Beef, Turkey & Lamb, Duck & Liver, and Rabbit & Game, ensures your pampered puss will be absolutely spoiled for choice!
-
-                  Ingredients: Meat and animal derivatives (meat 14%), vegetable protein extracts, fish and fish derivatives, minerals, various sugars.
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]
             variantInformation:
               - text: 85g x 12
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/h5[1]
@@ -103,8 +74,8 @@ extractions:
                 xpath: /html/body/div[16]
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[22]
+                xpath: /html/body/div[25]
             variantCount:
               - text: "1"
         xpath: /
-    timestamp: 1610976788699
+    timestamp: 1611055411188
