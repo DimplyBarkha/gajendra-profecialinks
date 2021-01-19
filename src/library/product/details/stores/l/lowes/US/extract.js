@@ -59,19 +59,23 @@ module.exports = {
         document.body.appendChild(catElement);
       }
       const enhancedContent = document.querySelector('div[class*="syndi_powerpage"]');
-      if (enhancedContent) {
-        const witbData = Array.from([...enhancedContent.shadowRoot.querySelectorAll('[class="syndigo-widget-section-header"]')].find(elm => elm.innerText.match(/in the box/i)).nextElementSibling.querySelectorAll('[class="syndigo-featureset-feature"]'));
-        witbData.forEach(element => {
-          element.querySelector('h3') && addElementToDocument('witbText', element.querySelector('h3').innerText);
-          element.querySelector('img') && addElementToDocument('witbImg', element.querySelector('img').src);
-        });
-      }
-      const comparisonTable = document.querySelector('div[class*="syndi_powerpage"]');
-      if (comparisonTable) {
-        const witbData1 = [...comparisonTable.shadowRoot.querySelectorAll('div[class="syndi_powerpage"] div[class*="syndigo"]')];
-        witbData1.forEach(element => {
-          element.querySelector('h2[class="syndigo-widget-section-header"]') && addElementToDocument('witbTable', element.querySelector('h2[class="syndigo-widget-section-header"]'));
-        });
+      try {
+        if (enhancedContent) {
+          const witbData = Array.from([...enhancedContent.shadowRoot.querySelectorAll('[class="syndigo-widget-section-header"]')].find(elm => elm.innerText.match(/in the box/i)).nextElementSibling.querySelectorAll('[class="syndigo-featureset-feature"]'));
+          witbData.forEach(element => {
+            element.querySelector('h3') && addElementToDocument('witbText', element.querySelector('h3').innerText);
+            element.querySelector('img') && addElementToDocument('witbImg', element.querySelector('img').src);
+          });
+        }
+        const comparisonTable = document.querySelector('div[class*="syndi_powerpage"]');
+        if (comparisonTable) {
+          const witbData1 = [...comparisonTable.shadowRoot.querySelectorAll('div[class="syndi_powerpage"] div[class*="syndigo"]')];
+          witbData1.forEach(element => {
+            element.querySelector('h2[class="syndigo-widget-section-header"]') && addElementToDocument('witbTable', element.querySelector('h2[class="syndigo-widget-section-header"]'));
+          });
+        }
+      } catch (error) {
+        console.log(error);
       }
 
       // const expandDataT = document.querySelector('div[class="prev-container"]>div[class="prev-body"] div[class="divTableRow"]:first-child div[class="optionCont"]');
@@ -90,18 +94,22 @@ module.exports = {
 
       //   addElementToDocument('elementDataT', finalValue);
       // }
-      console.log(document.querySelector('b').innerText == 'Dyson');
-      console.log(document.querySelector('b').innerText.match(/dyson/i));
-      const videoApi = JSON.parse(document.evaluate('//script[contains(text(),"__PRELOADED_STATE__")]', document).iterateNext().textContent &&
-                document.evaluate('//script[contains(text(),"__PRELOADED_STATE__")]', document).iterateNext().textContent.match(/videos":([^\]]+])/) &&
-                document.evaluate('//script[contains(text(),"__PRELOADED_STATE__")]', document).iterateNext().textContent.match(/videos":([^\]]+])/)[1]);
-      if (videoApi && videoApi.length) {
-        videoApi.map(ele => {
-          const newlink = document.createElement('a');
-          newlink.setAttribute('class', 'videoUrls');
-          newlink.setAttribute('href', `https://lda.lowes.com/is/content/Lowes/${ele}`);
-          document.body.appendChild(newlink);
-        });
+      //   console.log(document.querySelector('b').innerText == 'Dyson');
+      //   console.log(document.querySelector('b').innerText.match(/dyson/i));
+      try {
+        const videoApi = JSON.parse(document.evaluate('//script[contains(text(),"__PRELOADED_STATE__")]', document).iterateNext().textContent &&
+                    document.evaluate('//script[contains(text(),"__PRELOADED_STATE__")]', document).iterateNext().textContent.match(/videos":([^\]]+])/) &&
+                    document.evaluate('//script[contains(text(),"__PRELOADED_STATE__")]', document).iterateNext().textContent.match(/videos":([^\]]+])/)[1]);
+        if (videoApi && videoApi.length) {
+          videoApi.map(ele => {
+            const newlink = document.createElement('a');
+            newlink.setAttribute('class', 'videoUrls');
+            newlink.setAttribute('href', `https://lda.lowes.com/is/content/Lowes/${ele}`);
+            document.body.appendChild(newlink);
+          });
+        }
+      } catch (error) {
+        console.log('Video fetch: ', error);
       }
     });
     const { transform } = parameters;
