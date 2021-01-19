@@ -427,6 +427,8 @@ fields:
 - name: promotion
   singleValue: true
   description: promotion text on product page
+  xpath: //script[@type='text/javascript']
+  regExp: (?<=promocion = ')\w+(?=';)
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information

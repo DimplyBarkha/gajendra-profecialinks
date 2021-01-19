@@ -2,7 +2,7 @@ input:
   _url: http://mifarma.es
   URL: https://www.mifarma.es/colutorio-encias-herbal-parodontax-500ml
 extractions:
-  - html: https://workbench.import.io/html/run=eed74d36-50ef-4cf8-b28a-a72ae3723576/task=b77f7b6f-f840-45b6-9400-639260fd71bf/587889bf-4ebe-48f6-826b-3dc1e7955ccd.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=6b672d21-7fb7-4a72-bbab-4fc0a8bc9658/task=d0931fa1-f80c-484e-b027-d4cdab1509dc/c24ca5a6-b9ec-4a3a-8aee-adbc957a73e9.html
     extractionConfigId: product/details/stores/m/mifarma/ES/extract
     data:
       - group:
@@ -97,6 +97,9 @@ extractions:
             name:
               - text: Colutorio Encías Herbal Parodontax 500ml
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[3]/h1[1]/text()[1]
+            promotion:
+              - text: Ofertas
+                xpath: /html/body/script[101]
             imageZoomFeaturePresent:
               - text: Yes
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[5]/@zoom
@@ -105,4 +108,4 @@ extractions:
             Image360Present:
               - text: No
         xpath: /
-    timestamp: 1608042857316
+    timestamp: 1611048508980

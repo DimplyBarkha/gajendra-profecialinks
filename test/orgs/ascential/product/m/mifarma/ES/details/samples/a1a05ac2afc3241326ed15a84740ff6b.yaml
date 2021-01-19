@@ -2,7 +2,7 @@ input:
   _url: http://mifarma.es
   URL: https://www.mifarma.es/sesderma-babyses-agua-de-colonia-250ml
 extractions:
-  - html: https://workbench.import.io/html/run=eed74d36-50ef-4cf8-b28a-a72ae3723576/task=38c497b1-1032-491e-ba4e-42ed17d9417b/265b9dd3-e166-41f4-ab04-17bfe277977a.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=6b672d21-7fb7-4a72-bbab-4fc0a8bc9658/task=7ddb3655-a46c-4c43-a524-8dc85a2f4ae3/da03a9d2-e2a1-459c-bba7-fbb391cf66fc.html
     extractionConfigId: product/details/stores/m/mifarma/ES/extract
     data:
       - group:
@@ -23,15 +23,9 @@ extractions:
             nameExtended:
               - text: Sesderma Babyses Agua de Colonia 250ml
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[3]/h1[1]/text()[1]
-            listPrice:
-              - text: 9,95 €
-                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/p[1]/span[2]/text()[1]
             price:
-              - text: 6,24 €
-                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/p[2]/span[2]/text()[1]
-            availabilityText:
-              - text: In Stock
-                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/button[1]/@title
+              - text: 6,50€
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[1]/div[3]/p[1]/span[1]/@correctprice
             description:
               - text: Agua de colonia de la nueva gama infantil Babyses de Sesderma formulada
                   con una fragancia con notas florales. En su agradable aroma
@@ -91,12 +85,17 @@ extractions:
                   ESTERS, POTASSIUM SORBATE, PROPYLENE, GLYCOL, TRIETHYL
                   CITRATE.
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[2]/p[2]
+            promotion:
+              - text: Ofertas
+                xpath: /html/body/script[98]
             imageZoomFeaturePresent:
               - text: Yes
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[5]/@zoom
+            availabilityText:
+              - text: Out of Stock
             variantCount:
               - text: "0"
             Image360Present:
               - text: No
         xpath: /
-    timestamp: 1608042858925
+    timestamp: 1611048510972

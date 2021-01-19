@@ -2,7 +2,7 @@ input:
   _url: http://mifarma.es
   URL: https://www.mifarma.es/pasta-dentifrica-natural-lacer-natur-100ml
 extractions:
-  - html: https://workbench.import.io/html/run=eed74d36-50ef-4cf8-b28a-a72ae3723576/task=8f177f3d-f366-4da7-ab7b-0915ce0c1d23/365d60c4-fe77-43b9-a8ab-d062c64d2d0d.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=6b672d21-7fb7-4a72-bbab-4fc0a8bc9658/task=dbfbe731-9110-4dbd-b715-37e30f8770fa/62ab1125-6e41-4737-9339-1d8d550a52ee.html
     extractionConfigId: product/details/stores/m/mifarma/ES/extract
     data:
       - group:
@@ -26,10 +26,10 @@ extractions:
               - text: Pasta Dentífrica Natural Lacer Natur 100ml
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[3]/h1[1]/text()[1]
             listPrice:
-              - text: 6,90 €
+              - text: 8,35 €
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/p[1]/span[2]/text()[1]
             price:
-              - text: 5,85 €
+              - text: 5,75 €
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/p[2]/span[2]/text()[1]
             availabilityText:
               - text: In Stock
@@ -67,7 +67,7 @@ extractions:
                   comida.
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[4]/p[2]/text()[1]
             ratingCount:
-              - text: "11"
+              - text: "12"
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[1]/a[2]/span[2]
             aggregateRating:
               - text: 4,7
@@ -91,6 +91,9 @@ extractions:
             ingredientsList:
               - text: No contiene mentol. Sin gluten.
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[2]/p[2]
+            promotion:
+              - text: Ofertas
+                xpath: /html/body/script[98]
             imageZoomFeaturePresent:
               - text: Yes
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[5]/@zoom
@@ -99,4 +102,4 @@ extractions:
             Image360Present:
               - text: No
         xpath: /
-    timestamp: 1608042860342
+    timestamp: 1611048512531
