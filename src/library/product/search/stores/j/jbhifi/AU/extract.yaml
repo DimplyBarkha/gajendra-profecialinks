@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: id
     SingleValue: false
-    xpath: //div[contains(@class,"product-tile__container")]/@data-variant-id
+    xpath: //div[contains(@class,"product-tile__container")]//a[@class="ais-details-a product-tile"]/@data-product-sku
   - name: productUrl
     SingleValue: false
     xpath: //div[contains(@class,"product-tile__container")]//a[@class="ais-details-a product-tile"]/@href
