@@ -37,7 +37,7 @@ module.exports = {
     country: 'NZ',
     store: 'paknsave',
     domain: 'paknsaveonline.co.nz',
-    url: 'https://www.paknsaveonline.co.nz/search#q={searchTerms}',
+    url: 'https://www.paknsaveonline.co.nz/Search?q={searchTerms}',
     loadedSelector: 'div.fs-product-card',
     noResultsXPath: '//div[@class="no-results"]',
     zipcode: "''",
