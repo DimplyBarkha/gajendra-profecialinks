@@ -54,7 +54,7 @@ module.exports = {
     domain: 'telemercados.cl',
     url: 'https://www.telemercados.cl/busca/?ft={searchTerms}',
     loadedSelector: 'div.page',
-    noResultsXPath: '//div[@class="busqueda-vacia-wrapper"]//h2[contains(text(),"No encontramos resultados para tu búsqueda")]',
+    noResultsXPath: '//article[@id="main-content"]//h2[contains(text(),"No encontramos resultados para tu búsqueda")]',
     zipcode: '',
   },
   implementation,
