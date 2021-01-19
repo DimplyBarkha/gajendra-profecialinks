@@ -5,7 +5,7 @@ recordXPath: //div[@id="shopify-section-product-template"]//div[@class="product-
 fields:
   - name: brand
     description: Product brand shown - this may actually NOT be just a brand name e.g. "Visit the Gillette Store"
-    xpath: ancestor::html//div[@class='vapordna_brand']
+    xpath: ancestor::html//div[@class='vapordna_brand'] | ancestor::html//div[@id="shopify-section-product-template"]//div[@class="product-section"][1]//h1[@class='h2 product-single__title']
   - name: colour
     description: Product colour
   - name: flavour
