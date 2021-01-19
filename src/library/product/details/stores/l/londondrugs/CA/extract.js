@@ -33,23 +33,6 @@ async function implementation (
     // XPATH Data Extraction For Additional Description Bullet
     const addDescBulletInfo = getAllXpath("//div[@id='pdp-overview']", 'nodeValue');
     pipeSeparatorDouble('addDescBulletInfo', addDescBulletInfo);
-    let scrollTop = 0;
-    while (scrollTop <= 20000) {
-      await stall(500);
-      scrollTop += 1000;
-      window.scroll(0, scrollTop);
-      if (scrollTop === 20000) {
-        await stall(8000);
-        break;
-      }
-    }
-    function stall (ms) {
-      return new Promise(resolve => {
-        setTimeout(() => {
-          resolve();
-        }, ms);
-      });
-    }
   });
   return await context.extract(productDetails, { transform });
 }
