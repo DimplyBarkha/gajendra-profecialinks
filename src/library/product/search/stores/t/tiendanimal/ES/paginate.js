@@ -1,10 +1,10 @@
 
 module.exports = {
-  implements: 'product/search/paginate',
+  implements: 'navigation/paginate',
   parameterValues: {
     country: 'ES',
     store: 'tiendanimal',
-    nextLinkSelector: '//li/a[contains(text(),\'Sig\')]',
+    nextLinkXpath: '//li/a[contains(text(),\'Sig\')]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div.productList',
