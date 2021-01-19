@@ -38,7 +38,9 @@ fields:
     defaultValue: In_Stock
   - name: description
     singleValue: false
-    xpath: //div[contains(@class,"product-description")]/text()
+    xpath: //script[contains(@type,"application/ld+json") and contains(text(), "sku")]
+    regExp: description\W+([^"]+)
+    regExpReplace: $1
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
