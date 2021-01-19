@@ -19,9 +19,9 @@ module.exports = {
       await context.evaluate(async function () {
         let scrollTop = 0;
         while (scrollTop !== 20000) {
-          scrollTop += 400;
+          scrollTop += 500;
           window.scroll(0, scrollTop);
-          await stall(2000);
+          await stall(1000);
         }
         function stall(ms) {
           return new Promise((resolve, reject) => {
@@ -37,16 +37,23 @@ module.exports = {
       const seeAllSelector1 = document.querySelector('div[class*="x-customers-also-viewed"] ul>div >a');
       const seeAllSelector2 = document.querySelector('div[data-automation*="sponsored"] ul>div >a');
       const seeAllSelector3 = document.querySelector('div[class*="recently"] ul>div >a');
-      for(let i=0; i<3; i++) {
-        seeAllSelector1.click();
+      if (seeAllSelector1) {
+        for (var i = 0; i < 3; i++) {
+          seeAllSelector1.click();
+        }
       }
-      for(let i=0; i<3; i++) {
-        seeAllSelector2.click();
+      if (seeAllSelector2) {
+        for (var i = 0; i < 3; i++) {
+          seeAllSelector2.click();
+        }
       }
-      for(let i=0; i<3; i++) {
-        seeAllSelector3.click();
+      if (seeAllSelector3) {
+        for (var i = 0; i < 3; i++) {
+          seeAllSelector3.click();
+        }
       }
     });
+    await applyScroll(context);
     await context.evaluate(async function () {
       const buttonSelector = 'button#detailsAndSpecs';
       let available = document.querySelector(buttonSelector);
@@ -59,7 +66,7 @@ module.exports = {
       console.log('Warranty element not found');
     }
     await context.evaluate(async function () {
-      function addElementToDocument (key, value) {
+      function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -102,7 +109,7 @@ module.exports = {
         // @ts-ignore
         const elementTxt = element.innerText;
         if ((elementTxt === 'Width') || (elementTxt === 'Height') || (elementTxt === 'Depth') || (elementTxt === 'Width (Inches)') || (elementTxt === 'Height (Inches)') || (elementTxt === 'Depth (Inches)')) {
-        // @ts-ignore
+          // @ts-ignore
           dimensionTxtField = element.innerText;
           // @ts-ignore
           dimensionTxtFieldVal = element.nextSibling.innerText;
@@ -110,18 +117,18 @@ module.exports = {
           dimensionTxtArr.push(dimensionTxt);
         }
         if ((elementTxt === 'Country of Origin')) {
-        // @ts-ignore
+          // @ts-ignore
           originTxtField = element.innerText;
           // @ts-ignore
           originTxtFieldVal = element.nextSibling.innerText;
           originTxtArr.push(originTxtFieldVal);
         }
         if ((elementTxt === 'Weight') || (elementTxt === 'Weight (lbs)')) {
-        // @ts-ignore
+          // @ts-ignore
           netWeightTxt = element.nextSibling.innerText;
         }
         if ((elementTxt === 'Colour') || (elementTxt === 'Band Colour')) {
-        // @ts-ignore
+          // @ts-ignore
           colorTxt = element.nextSibling.innerText;
         }
       }
@@ -144,7 +151,7 @@ module.exports = {
     }
     await context.evaluate(async function () {
       document.querySelectorAll('div#moreInfo ul li').forEach((ele) => ele.textContent = `|| ${ele.textContent}`);
-      function addElementToDocument (key, value) {
+      function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -212,7 +219,7 @@ module.exports = {
     // ------------------------------------------------------------
     // await context.waitForSelector('img[class="middle_1qXv8"]');
     await context.evaluate(async function () {
-      function addElementToDocument (key, value) {
+      function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -278,7 +285,6 @@ module.exports = {
     //     document.body.appendChild(catElement);
     //   }
     //  });
-
     return await context.extract(productDetails, { transform });
   },
 };
