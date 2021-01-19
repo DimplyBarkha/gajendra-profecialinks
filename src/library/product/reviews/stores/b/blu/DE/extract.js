@@ -78,7 +78,7 @@ async function implementation (
       let url = window.location.href;
       let productFamily = url.replace('https://www.blu.com/de/DE/','');
       let range = productFamily.split('/');
-      productFamily = url.replace('.html','');
+      productFamily = productFamily.replace('.html','');
       range = range[0];
 
       const newEle = document.createElement('div');
