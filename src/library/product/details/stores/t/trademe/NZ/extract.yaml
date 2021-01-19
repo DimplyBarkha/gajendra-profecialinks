@@ -44,8 +44,8 @@ fields:
     defaultValue: 0
   - name: availabilityText
     singleValue: false
+    xpath: //div[contains(@class,'tm-buy-now-box')]/form/button[contains(.,'Buy Now')]
     defaultValue: Out of Stock
-    xpath: //form[@class='ng-untouched ng-valid ng-dirty']//button[contains(text(),'Buy Now')]
   - name: weightNet
     singleValue: false
     xpath: //tg-col[@id='tm-marketplace-listing-body-item-description']//ul[@class='o-list2 o-list2--bullet']//li[contains (text(), 'Weight:')]
