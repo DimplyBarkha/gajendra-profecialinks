@@ -23,8 +23,8 @@ fields:
   - name: id
     singleValue: false
     xpath: //a[contains(@role,"link")][contains(@class,"lister-name")]/@href
-    regExp: \/p\/(\d+)
-    regExpReplace: $1    
+    regExp: (.+)\/p\/(.+)
+    regExpReplace: $2   
   - name: aggregateRating2
     singleValue: false
     xpath: //div[@class='star-ratings-css-bottom']//span[contains(@class,"star-ratings-text")]/text()
