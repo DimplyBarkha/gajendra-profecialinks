@@ -58,7 +58,7 @@ module.exports = {
       }
       var jsonString = document.querySelectorAll(
         "[type='application/ld+json']"
-      )[0];
+      )[1];
       var jsonParsed = JSON.parse(jsonString.innerText);
       var json_list = jsonParsed.itemListElement;
 
