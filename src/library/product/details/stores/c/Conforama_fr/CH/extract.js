@@ -120,16 +120,25 @@ module.exports = {
         });
         await context.goto(locationUrl, { timeout: 90000 });
         await context.evaluate((manufactDes, manufactImg) => {
-          try {
-            let listPrice, price;
-            // @ts-ignore
-            listPrice = document.querySelectorAll('span[class="old-infos oldPrice"]')[0].innerText;
-            var listpriceUpdated = listPrice.replace("€", ".");
-            addHiddenDiv('listpriceUpdated', '€ ' + listpriceUpdated);
-          } catch (error) {
-
+          addHiddenDiv('ii_manu', manufactDes);
+          addHiddenDiv('ii_img', manufactImg);
+          function addHiddenDiv(id, content) {
+            const newDiv = document.createElement('div');
+            newDiv.id = id;
+            newDiv.textContent = content;
+            newDiv.style.display = 'none';
+            document.body.appendChild(newDiv);
           }
-
+          // }, manufactDes);
+        }, manufactDes, manufactImg);
+        await context.evaluate(async () => {
+          function addHiddenDiv(id, content) {
+            const newDiv = document.createElement('div');
+            newDiv.id = id;
+            newDiv.textContent = content;
+            newDiv.style.display = 'none';
+            document.body.appendChild(newDiv);
+          }
           // Method to Retrieve Xpath content of a Multiple Nodes
           const getAllXpath = (xpath, prop) => {
             const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
@@ -150,22 +159,32 @@ module.exports = {
             var SingleSeparatorText = data.join(' | ');
             addHiddenDiv(id, SingleSeparatorText);
           };
+          try {
+            // XPATH Data Extraction For Additional Description Bullet
+            const addDescBulletInfo = getAllXpath("//div[@id='tabs-1']/ul/li/text()", 'nodeValue');
+            pipeSeparatorDouble('addDescBulletInfo', addDescBulletInfo);
+          } catch (error) {
 
-          // XPATH Data Extraction For Additional Description Bullet
-          const addDescBulletInfo = getAllXpath("//div[@id='tabs-1']/ul/li/text()", 'nodeValue');
-          pipeSeparatorDouble('addDescBulletInfo', addDescBulletInfo);
-
-          const addDescInfo = getAllXpath("//div[@id='tabs-1']//text()", 'nodeValue');
-          var addDescInfoFinal = [];
-          for (let i = 0; i < addDescInfo.length; i++) {
-            if (addDescInfo[i].length > 2) {
-              addDescInfoFinal.push(addDescInfo[i]);
-            }
           }
-          pipeSeparatorDouble('addDescInfo', addDescInfoFinal);
-          const variants = getAllXpath("//div[@class='tab-content subList']/div/@data-color", 'nodeValue');
-          pipeSeparatorSingle('variants', variants);
+          try {
+            const addDescInfo = getAllXpath("//div[@id='tabs-1']/*[not(contains(@class,'inpage'))]//text()", 'nodeValue');
+            var addDescInfoFinal = [];
+            for (let i = 0; i < addDescInfo.length; i++) {
+              if (addDescInfo[i].length > 2) {
+                addDescInfoFinal.push(addDescInfo[i]);
+              }
+            }
+            pipeSeparatorDouble('addDescInfo', addDescInfoFinal);
+          } catch (error) {
 
+          }
+          try {
+            const variants = getAllXpath("//div[@class='tab-content subList']/div/@data-color", 'nodeValue');
+            pipeSeparatorSingle('variants', variants);
+
+          } catch (error) {
+
+          }
           try {
             let specificationsFinal = "";
             let specifications = document.querySelectorAll('table[class="productSpecifications"]');
@@ -190,30 +209,26 @@ module.exports = {
 
           }
           try {
-            let price;
-            // @ts-ignore
-            price = document.querySelectorAll('div[class="currentPrice"]')[0].innerText;
-            var priceUpdated = price.replace("€", ".");
-            addHiddenDiv('priceUpdated', '€ ' + priceUpdated);
-          } catch (error) {
-          }
-          var brandName = "";
-          try {
+            var brandName = "";
             var temp;
             let dataScript = document.querySelectorAll('script[type="application/ld+json"]');
             for (let i = 0; i < dataScript.length; i++) {
               // @ts-ignore
               temp = dataScript[i].innerText;
               if (temp.includes('availability')) {
-                temp = JSON.parse(temp);
+                try {
+                  temp = JSON.parse(temp);
+                } catch (error) {
+                  temp = temp.split('"brand": {');
+                  temp = temp[1].split('},')
+                  temp = temp[0];
+                  temp = "{\"brand\": {" + temp + "}}"
+                  temp = JSON.parse(temp);
+                }
                 // addHiddenDiv('availabilty', temp.offers.availability);
                 brandName = temp.brand.name;
               }
             }
-          } catch (error) {
-
-          }
-          try {
             if (brandName.length == 0 || brandName == 'Conforama') {
               // @ts-ignore
               brandName = document.querySelector('div[class="productTitle"]>div>h1>a').innerText;
@@ -226,23 +241,124 @@ module.exports = {
           } catch (error) {
 
           }
-          addHiddenDiv('ii_manu', manufactDes);
-          addHiddenDiv('ii_img', manufactImg);
-          function addHiddenDiv(id, content) {
-            const newDiv = document.createElement('div');
-            newDiv.id = id;
-            newDiv.textContent = content;
-            newDiv.style.display = 'none';
-            document.body.appendChild(newDiv);
-          }
-          // }, manufactDes);
-        }, manufactDes, manufactImg);
+        })
         return await context.extract(productDetails, { transform }, { type: 'APPEND' });
       }
     } catch (e) {
+      console.log('error')
       console.log(e);
     }
+    await context.evaluate(async () => {
+      function addHiddenDiv(id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+      // Method to Retrieve Xpath content of a Multiple Nodes
+      const getAllXpath = (xpath, prop) => {
+        const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        const result = [];
+        for (let index = 0; index < nodeSet.snapshotLength; index++) {
+          const element = nodeSet.snapshotItem(index);
+          if (element) result.push(prop ? element[prop] : element.nodeValue);
+        }
+        return result;
+      };
+      // Double Pipe Concatenation
+      const pipeSeparatorDouble = (id, data) => {
+        var doubleSeparatorText = data.join(' || ');
+        addHiddenDiv(id, doubleSeparatorText);
+      };
+      // Single Pipe Concatenation
+      const pipeSeparatorSingle = (id, data) => {
+        var SingleSeparatorText = data.join(' | ');
+        addHiddenDiv(id, SingleSeparatorText);
+      };
+      try {
+        // XPATH Data Extraction For Additional Description Bullet
+        const addDescBulletInfo = getAllXpath("//div[@id='tabs-1']/ul/li/text()", 'nodeValue');
+        pipeSeparatorDouble('addDescBulletInfo', addDescBulletInfo);
+      } catch (error) {
 
+      }
+      try {
+        const addDescInfo = getAllXpath("//div[@id='tabs-1']/*[not(contains(@class,'inpage'))]//text()", 'nodeValue');
+        var addDescInfoFinal = [];
+        for (let i = 0; i < addDescInfo.length; i++) {
+          if (addDescInfo[i].length > 2) {
+            addDescInfoFinal.push(addDescInfo[i]);
+          }
+        }
+        pipeSeparatorDouble('addDescInfo', addDescInfoFinal);
+      } catch (error) {
+
+      }
+      try {
+        const variants = getAllXpath("//div[@class='tab-content subList']/div/@data-color", 'nodeValue');
+        pipeSeparatorSingle('variants', variants);
+
+      } catch (error) {
+
+      }
+      try {
+        let specificationsFinal = "";
+        let specifications = document.querySelectorAll('table[class="productSpecifications"]');
+        for (let i = 0; i < specifications.length; i++) {
+          // @ts-ignore
+          specificationsFinal += specifications[i].innerText;
+        }
+        specificationsFinal = specificationsFinal.replace(/\s/g, ' ');
+        addHiddenDiv('specifications', specificationsFinal);
+      } catch (error) {
+
+      }
+      try {
+        const availability = getAllXpath('//script[@type="application/ld+json" and contains(text(),"InStock")]/text()', 'nodeValue');
+        if (availability[0].includes('InStock')) {
+          addHiddenDiv('availability', 'In Stock')
+        }
+        else {
+          addHiddenDiv('availability', 'Out Of Stock')
+        }
+      } catch (error) {
+
+      }
+      try {
+        var brandName = "";
+        var temp;
+        let dataScript = document.querySelectorAll('script[type="application/ld+json"]');
+        for (let i = 0; i < dataScript.length; i++) {
+          // @ts-ignore
+          temp = dataScript[i].innerText;
+          if (temp.includes('availability')) {
+            try {
+              temp = JSON.parse(temp);
+            } catch (error) {
+              temp = temp.split('"brand": {');
+              temp = temp[1].split('},')
+              temp = temp[0];
+              temp = "{\"brand\": {" + temp + "}}"
+              temp = JSON.parse(temp);
+            }
+            // addHiddenDiv('availabilty', temp.offers.availability);
+            brandName = temp.brand.name;
+          }
+        }
+        if (brandName.length == 0 || brandName == 'Conforama') {
+          // @ts-ignore
+          brandName = document.querySelector('div[class="productTitle"]>div>h1>a').innerText;
+          brandName = brandName.split(' ')[0];
+          addHiddenDiv('brand', brandName);
+        }
+        else {
+          addHiddenDiv('brand', brandName);
+        }
+      } catch (error) {
+
+      }
+    })
     return await context.extract(productDetails, { transform });
   },
 };

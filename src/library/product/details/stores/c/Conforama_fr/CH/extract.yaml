@@ -25,10 +25,10 @@ fields:
     xpath: concat(//div[@class="name"]/h1/a/text(),' ',//ul[@class="small ui-tabsWarp"]/li/text())
   - name: listPrice
     singleValue: true
-    xpath: //html//div[@id='listpriceUpdated']
+    xpath: //span[@class="old-infos oldPrice"]
   - name: price
     singleValue: true
-    xpath: //html//div[@id='priceUpdated']
+    xpath: //div[@class="currentPrice"]
   - name: availabilityText
     singleValue: false
     xpath: //html//div[@id='availability']

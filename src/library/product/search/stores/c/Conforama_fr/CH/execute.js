@@ -7,7 +7,7 @@ module.exports = {
     domain: 'conforama.ch',
     url: 'https://www.conforama.ch/fr/recherche-conforama/{searchTerms}?fromSearch={searchTerms}',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="paymentWarning"]',
     zipcode: '',
   },
   implementation,
