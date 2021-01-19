@@ -22,26 +22,6 @@ async function implementation (
   } catch (e) {
     console.log(e);
   }
-
-  while (1) {
-    await stall(500);
-    const oldScroll = await context.evaluate(() => { return document.querySelector('.quicksearch-scrolling-container').scrollHeight; });
-    await context.evaluate(() => { document.querySelector('.quicksearch-scrolling-container').scrollBy(0, document.querySelector('.quicksearch-scrolling-container').scrollHeight + 1000); });
-    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
-    const newScroll = await context.evaluate(() => { return document.querySelector('.quicksearch-scrolling-container').scrollHeight; });
-    if (newScroll === oldScroll) {
-      await stall(5000);
-      break;
-    }
-  }
-  function stall (ms) {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve();
-      }, ms);
-    });
-  }
-
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
