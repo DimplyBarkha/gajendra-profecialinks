@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'emag.ro',
-    timeout: null,
+    timeout: 3000,
     country: 'RO',
     store: 'emag',
     zipcode: '',

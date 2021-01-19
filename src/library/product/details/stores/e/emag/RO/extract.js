@@ -62,11 +62,13 @@ module.exports = {
       }
     });
     const dataRef = await context.extract(productDetails, { transform });
-    const description = dataRef[0].group[0].description;
-    reduceInfoToOneField(description);
+
+    dataRef[0].group[0].description = dataRef[0].group[0].description.filter((v, i, a) => a.findIndex(t => (t.text === v.text)) === i);
+    reduceInfoToOneField(dataRef[0].group[0].description);
     const directions = dataRef[0].group[0].directions;
     reduceInfoToOneField(directions);
     if (dataRef[0].group[0].manufacturerDescription && dataRef[0].group[0].manufacturerDescription.length > 1) {
+      dataRef[0].group[0].manufacturerDescription = dataRef[0].group[0].manufacturerDescription.filter((v, i, a) => a.findIndex(t => (t.text === v.text)) === i);
       reduceInfoToOneField(dataRef[0].group[0].manufacturerDescription);
     }
     if (dataRef[0].group[0].listPrice) {
@@ -94,6 +96,11 @@ module.exports = {
     }
     if (dataRef[0].group[0].manufacturerDescription) {
       dataRef[0].group[0].manufacturerDescription[0].text = dataRef[0].group[0].manufacturerDescription[0].text.replace(/\|\| /g, '');
+    }
+    if (dataRef[0].group[0].price) {
+      if (/oferte/.test(dataRef[0].group[0].price[0].text)) {
+        dataRef[0].group[0].price[0].text = dataRef[0].group[0].price[0].text.match(/(\d+,?\d+ Lei)/)[1];
+      }
     }
     if (dataRef[0].group[0].videos) {
       dataRef[0].group[0].videos.forEach((element, index) => {
