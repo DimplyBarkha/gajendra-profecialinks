@@ -202,10 +202,9 @@ async function implementation (
       await new Promise(resolve => setTimeout(resolve, 5000));
     }
     const iFrameSrc = document.querySelector('iframe.manufacturer-content-iframe') && document.querySelector('iframe.manufacturer-content-iframe').getAttribute('src');
-    console.log('IFRAME', document.querySelector('iframe.manufacturer-content-iframe'));
     return iFrameSrc;
   });
-  let manufacturerData = '';
+  let manufacturerData;
   const timeout = parameters.timeout ? parameters.timeout : 130000;
   if (iFrameSrc) {
     console.log('IFRAME SRC found', iFrameSrc);
@@ -259,31 +258,31 @@ async function implementation (
                   });
                 }
                 // if (shadowText === '') {
-                const tabButtons = document.querySelectorAll('div[id="navbar"] ul li[class*="wc-selected"] ~ li a');
-                if (tabButtons) {
-                  for (let index = 0; index < tabButtons.length; index++) {
-                    const tabButtonsHref = tabButtons[index].href;
-                    const responseData = await fetch(tabButtonsHref).then(x =>
-                      x.text(),
-                    );
-                    const domParser = new DOMParser();
-                    const parsedData = domParser.parseFromString(responseData, 'text/html');
-                    const fetchedData = parsedData.querySelector('div[class*=wc-pc-tabbed-content] div[class*="wc-pc-content"]');
-                    if (shadowText) {
-                      shadowText += fetchedData.innerText;
-                    }
-                  }
-                  // }
-                  // const tabButtons = document.querySelectorAll('div.wc-ms-navbar ul li a');
-                  // for (let index = 0; index < tabButtons.length; index++) {
-                  //   const element = tabButtons[index];
-                  //   console.log(element);
-                  //   const data = document.querySelector('#wc-pc-content');
-                  //   if (data) { shadowText = data.innerText; }
-                  //   element.click();
-                  //   await new Promise((resolve, reject) => setTimeout(resolve, 500));
-                  // }
-                }
+                // const tabButtons = document.querySelectorAll('div[id="navbar"] ul li[class*="wc-selected"] ~ li a');
+                // if (tabButtons) {
+                //   for (let index = 0; index < tabButtons.length; index++) {
+                //     const tabButtonsHref = tabButtons[index].href;
+                //     const responseData = await fetch(tabButtonsHref).then(x =>
+                //       x.text(),
+                //     );
+                //     const domParser = new DOMParser();
+                //     const parsedData = domParser.parseFromString(responseData, 'text/html');
+                //     const fetchedData = parsedData.querySelector('div[class*=wc-pc-tabbed-content] div[class*="wc-pc-content"]');
+                //     if (shadowText) {
+                //       shadowText += fetchedData.innerText;
+                //     }
+                //   }
+                // }
+                // const tabButtons = document.querySelectorAll('div.wc-ms-navbar ul li a');
+                // for (let index = 0; index < tabButtons.length; index++) {
+                //   const element = tabButtons[index];
+                //   console.log(element);
+                //   const data = document.querySelector('#wc-pc-content');
+                //   if (data) { shadowText = data.innerText; }
+                //   element.click();
+                //   await new Promise((resolve, reject) => setTimeout(resolve, 500));
+                // }
+                // }
               } else {
                 manuData = document.querySelectorAll('#inpage_container');
                 if (manuData && manuData.length) {
@@ -306,20 +305,98 @@ async function implementation (
     }
     await context.goto(`${mainUrl}&intl=nosplash#[!opt!]{"block_ads":false,"anti_fingerprint":false,"first_request_timeout":60,"load_timeout":30,"load_all_resources":true,"enable_cache":false,"discard_CSP_header":true}[/!opt!]`, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: true });
   }
-  await context.evaluate(async function (manufacturerData) {
-    function addHiddenDiv (id, content) {
-      const newDiv = document.createElement('div');
-      newDiv.id = id;
-      newDiv.textContent = content;
-      newDiv.style.display = 'none';
-      document.body.appendChild(newDiv);
+
+  let shadowTextApiData;
+  async function getEnhancedHtmlJS () {
+    if (mainUrl.match(/(\d+).p\?/)) {
+      const id = mainUrl.match(/(\d+).p\?/)[1];
+      await context.goto('https://scontent.webcollage.net/', { checkBlocked: false });
+      return await context.evaluate(async (id) => {
+        const api = `https://scontent.webcollage.net/bestbuy/power-page?ird=true&channel-product-id=${id}`;
+        const response = await fetch(api);
+        const text = await response.text();
+        return text;
+        // return text.match(/html\s*:\s*"([^\n]+)/)[1].replace(/"$/, '').replace(/\\/g, '');
+      }, id);
     }
-    console.log('---------->', manufacturerData);
-    manufacturerData.shadowText && addHiddenDiv('pd_manu_desc', manufacturerData.shadowText);
-    manufacturerData.shadowImage && manufacturerData.shadowImage.length && manufacturerData.shadowImage.forEach(element => {
-      addHiddenDiv('aplus_img', element);
+    return false;
+  }
+  let enhacnedContentJS;
+  try {
+    enhacnedContentJS = await getEnhancedHtmlJS();
+  } catch (error) {
+    console.log('error getting enhanced content');
+  }
+  // Get Enhanced HTML.
+  if (enhacnedContentJS) {
+    await context.evaluate((enhacnedContentJS) => {
+      eval(enhacnedContentJS);
+      const html = window._wccontent.aplus.html;
+      const newDiv = document.createElement('div');
+      newDiv.id = 'webcollage-content';
+      newDiv.innerHTML = html;
+      document.body.appendChild(newDiv);
+      function getIframeHTML (parentIFrame) {
+        if (parentIFrame.tagName === 'IFRAME') {
+          parentIFrame = parentIFrame.contentDocument;
+        }
+        const iframes = Array.from(parentIFrame.querySelectorAll('iframe'));
+        console.log(iframes);
+        for (const iframe of iframes) {
+          const html = getIframeHTML(iframe);
+          iframe.parentElement.innerHTML = html;
+        }
+        if (parentIFrame.querySelector('html')) {
+          return parentIFrame.querySelector('html').outerHTML;
+        }
+      }
+      getIframeHTML(document.querySelector('#webcollage-content'));
+      Array.from(document.querySelectorAll('#webcollage-content .wc-json-data')).forEach(elm => elm.remove());
+      shadowTextApiData = document.querySelector('#webcollage-content') && document.querySelector('#webcollage-content').innerText;
+
+      function addHiddenDiv (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+      if (shadowTextApiData) {
+        addHiddenDiv('pd_manu_desc', shadowTextApiData);
+      }
+    }, enhacnedContentJS);
+    await context.extract(productDetails, { transform, type: 'MERGE_ROWS' });
+  }
+  await context.goto(`${mainUrl}&intl=nosplash#[!opt!]{"block_ads":false,"anti_fingerprint":false,"first_request_timeout":60,"load_timeout":30,"load_all_resources":true,"enable_cache":false,"discard_CSP_header":true}[/!opt!]`, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: true });
+
+  if (manufacturerData != null) {
+    await context.evaluate(async function (manufacturerData) {
+      function addHiddenDiv (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+      manufacturerData.shadowText && addHiddenDiv('pd_manu_desc', manufacturerData.shadowText);
+      manufacturerData.shadowImage && manufacturerData.shadowImage.length && manufacturerData.shadowImage.forEach(element => {
+        addHiddenDiv('aplus_img', element);
+      });
+    }, manufacturerData);
+  } else {
+    await context.evaluate(async function (shadowTextApiData) {
+      function addHiddenDiv (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+      if (shadowTextApiData) {
+        addHiddenDiv('pd_manu_desc', shadowTextApiData);
+      }
     });
-  }, manufacturerData);
+  }
   return await context.extract(productDetails, { transform, type: 'MERGE_ROWS' });
 }
 
