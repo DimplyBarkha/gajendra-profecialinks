@@ -11,6 +11,17 @@ module.exports = {
     zipcode: "''",
   },
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
+    try {
+      await context.waitForSelector('div.modal-content', { timeout: 15000 });
+    } catch (error) {
+      console.log('Modal not loading');
+    }
+    const buttonExists = await context.evaluate(async function () {
+      return document.querySelector('button#btnAll-on');
+    });
+    if (buttonExists) {
+      await context.click('button#btnAll-on');
+    }
     async function scrollToRec (node) {
       await context.evaluate(async (node) => {
         const element = document.querySelector(node) || null;
