@@ -433,7 +433,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       var specificationList1;
       let specification1 = '';
 
-      specificationList1 = document.querySelectorAll('div.b_E8vloAGwWm');
+      specificationList1 = spec2.querySelectorAll('div.b_E8vloAGwWm');
       specificationList1.forEach((element, index, array) => {
         specification1 +=
       element.children[0].innerText + ':' + element.children[2].innerText + '||';
