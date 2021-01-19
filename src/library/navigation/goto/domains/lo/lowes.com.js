@@ -23,25 +23,7 @@ module.exports = {
       timeout: timeout,
       waitUntil: 'load',
     });
-    async function autoScroll (page) {
-      await page.evaluate(async () => {
-        await new Promise((resolve, reject) => {
-          var totalHeight = 0;
-          var distance = 100;
-          var timer = setInterval(() => {
-            var scrollHeight = document.body.scrollHeight;
-            window.scrollBy(0, distance);
-            totalHeight += distance;
 
-            if (totalHeight >= scrollHeight) {
-              clearInterval(timer);
-              resolve();
-            }
-          }, 100);
-        });
-      });
-    }
-    await autoScroll(context);
     const isStorePresent = await context.evaluate(async function () {
       const isStorePresent = document.querySelector('#store-search-handler');
       // @ts-ignore
@@ -80,6 +62,5 @@ module.exports = {
     if (zipcode) {
       await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
     }
-    await autoScroll(context);
   },
 };
