@@ -73,15 +73,6 @@ const transform = (data) => {
           })
           row.specifications=[{"text":inf.join(' || ')}];
         }
-        if(row.manufacturerDescription) {
-          var mar1 = [];
-          var joiner = " || ";
-          row.manufacturerDescription.forEach(item=>{
-              mar1.push(item.text);
-          })
-          var mdescription = mar1.join(" || ");
-          row.manufacturerDescription = [{"text":joiner + mdescription}];
-        }
         if(row.additionalDescBulletInfo){
           let array1 = [];
           row.additionalDescBulletInfo.forEach(item=>{

@@ -5,17 +5,13 @@ parameters:
   store: harveynorman
   zipcode: ""
 proxy:
-  zone: GBR
+  zone: ZUS
   type: DATA_CENTER
-policy:
-  numberRetries: 4
-  priority: MEDIUM
-  retryDelay: 120
-  backoffPolicy: EXPONENTIAL
-  retryWithResidentialProxyAfter: 3
 meta:
   branches:
     dev:
       extractor: 1cae5bac-7b18-425b-a376-81a545377e49
       legacyAccountId: 85e1dabd-5c4e-414e-925b-b1692098d5f0
-  
+    dyson:
+      extractor: 5b10f735-62ad-434f-89d8-022c2638bf37
+      legacyAccountId: 85e1dabd-5c4e-414e-925b-b1692098d5f0
