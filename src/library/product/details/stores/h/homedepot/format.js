@@ -95,6 +95,11 @@ const transform = (data) => {
           item.text = item.text.replace(/.*?#/, '').trim();
         });
       }
+      if (row.inTheBoxText) {
+        row.inTheBoxText.forEach(item => {
+          item.text = item.text.replace(/,/g, ' || ').trim();
+        });
+      }
     }
   }
   const clean = text => text.toString()

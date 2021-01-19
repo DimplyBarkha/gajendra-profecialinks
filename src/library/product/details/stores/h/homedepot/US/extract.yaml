@@ -133,3 +133,17 @@ fields:
     regExp: (.+)
     regExpReplace: 'Yes'
     defaultValue: 'No' 
+  - name: inTheBoxUrl
+    xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset
+    regExp: (.+800w,\s)(.+(.png|.jpg))(.+)
+    regExpReplace: $2
+  - name: inTheBoxText
+    xpath: //div[contains(@class,'specs__cell')][contains(.,'Accessories')]/following-sibling::*
+  - name: unInterruptedPDP
+    xpath: //span[contains(text(),'Customers Who Viewed')]/ancestor::div[1]/following-sibling::div//a|//section[@id="product-section-irg"]//div[contains(@class, "title__product")]|//div[@id="pip_sponsored"]//div[contains(@class, "productdescription")]|//div[@id="pip_alternatives"]//div[contains(@class, "productdescription")]
+    # xpath: //h2[contains(text(),'Customers Who Viewed this Item Bought')]/following-sibling::div//a[contains(@class,'hdca-product-box__main-info-label')] | //h2[contains(text(),'Related Products')]/following-sibling::div//h4  | //h2[contains(text(),'Top Sellers')]/following-sibling::div//a[contains(@class,'hdca-product-box__main-info-label')] | //h1/@recommend-products | //h2[contains(text(),'Customers Also Viewed')]/following-sibling::div//a[contains(@class,'hdca-product-box__main-info-label')]
+  - name: hasComparisonTable
+    xpath: //h2[contains(text(),'Compare')]/ancestor::div//table/ancestor::div//h2[contains(text(),'Compare')]
+    regExp: (.+)
+    regExpReplace: Yes
+    DefaultValue: No 
