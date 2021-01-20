@@ -20,8 +20,8 @@ async function implementation (
     await context.evaluate(async function () {
       let scrollTop = 0;
       while (scrollTop !== 20000) {
-        await stall(2000);
-        scrollTop += 100;
+        await stall(1500);
+        scrollTop += 500;
         window.scroll(0, scrollTop);
         if (scrollTop === 20000) {
           await stall(5000);
@@ -38,7 +38,35 @@ async function implementation (
     });
   };
   await applyScroll(context);
-  await new Promise((resolve, reject) => setTimeout(resolve, 7000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+  try{
+    await context.waitForSelector('div.-mx-2>div>button',{timeout:500});
+    await context.click('div.-mx-2>div>button');
+    await new Promise((resolve, reject) => setTimeout(resolve, 500));
+    await applyScroll(context);
+  }catch(e){
+
+  }
+
+  try{
+    await context.waitForSelector('div.-mx-2>div>button',{timeout:500});
+    await context.click('div.-mx-2>div>button');
+    await new Promise((resolve, reject) => setTimeout(resolve, 500));
+    await applyScroll(context);
+  }catch(e){
+
+  }
+
+  try{
+    await context.waitForSelector('div.-mx-2>div>button',{timeout:500});
+    await context.click('div.-mx-2>div>button');
+    await new Promise((resolve, reject) => setTimeout(resolve, 500));
+    await applyScroll(context);
+  }catch(e){
+
+  }
+
+
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());

@@ -39,7 +39,9 @@ const transform = (data) => {
           row.id.forEach(item=>{
             let objTmp=item.text.split('|');
             objTmp.forEach(element => {
-              console.log('element:',element);
+              if(element.indexOf('productId:')>-1){
+                item.text=element.replace('productId:','');
+              }
             });
           })
         }            
