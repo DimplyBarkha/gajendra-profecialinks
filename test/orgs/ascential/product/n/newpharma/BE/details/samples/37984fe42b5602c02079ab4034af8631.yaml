@@ -2,13 +2,13 @@ input:
   id: 188302
   _url: http://newpharma.be
 extractions:
-  - html: https://workbench.import.io/html/run=dd7f2932-7aeb-4d6b-b86f-6ff2a445f1b1/task=f3d475a6-a85c-43cc-a429-46d1621e0c4c/cc39e3ec-99f1-4e7d-9adb-fcd46ad26d8e.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=e3085ba2-bf62-470e-9e5f-6dbd78f099bf/task=e6cf5708-80eb-4892-8a30-e7070ef1e3c8/9f5f6cb5-5a32-47d6-82e8-ed5e5ceb045c.html
     extractionConfigId: product/details/stores/n/newpharma/BE/extract
     data:
       - group:
           - productUrl:
               - text: https://www.newpharma.be/pharmacie/gaviscon/188302/gaviscon-menthe-suspension-buvable-500ml.html
-                xpath: /html/body/div[13]
+                xpath: /html/body/div[12]
             image:
               - text: https://img.newpharma.net/images/products/fr/500/gaviscon-menthe-suspension-buvable-500ml.2002.jpg
                 xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@src
@@ -31,7 +31,7 @@ extractions:
               - text: 13,44
                 xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]
             availabilityText:
-              - text: In Stock
+              - text: Out Of Stock
                 xpath: /html/body/div[20]
             brandText:
               - text: Gaviscon
@@ -60,66 +60,16 @@ extractions:
                   teneurs en acide gastrique sont très faibles. Si les symptômes
                   ne s'améliorent pas après sept jours, il faut réexaminer la
                   situation clinique.
-                xpath: /html/body/div[17]
+                xpath: /html/body/div[16]
             ratingCount:
               - text: "0"
                 xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]
-            shippingInfo:
-              - text: Commandé avant 16h, livré chez vous demain ou en 24h en point relais
-                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[3]
-            manufacturerDescription:
-              - text: "Gaviscon Menthe Suspension Buvable 500ml Indications: Traitement des
-                  symptômes du reflux gastro-oesophagien tels que la
-                  régurgitation acide, les brûlures d'estomac, l'indigestion,
-                  qui se produisent lors du reflux du contenu gastrique, par
-                  exemple après une intervention chirurgicale gastrique, lors
-                  d'une hernie hiatale, pendant la grossesse, ou suite à une
-                  oesophagite par reflux. Composition: Alginate de sodium 500 mg
-                  — Bicarbonate de sodium 267 mg — Carbonate de calcium —
-                  Carbomère — Parahydroxybenzoate de méthyle —
-                  Parahydroxybenzoate de propyle — Saccharinate de sodium —
-                  Essence de menthe — Hydroxyde de sodium — Eau purifiée ad 10
-                  ml. Posologie et mode d'emploi: Bien agiter avant l'emploi.
-                  Adultes et enfants de plus de 12 ans: 10 à 20 ml (2 à 4
-                  cuillerées à café) après les repas et au coucher. Enfants de
-                  moins de 12 ans : 5 à 10 ml après les repas et au coucher. Si
-                  on le désire, ces doses peuvent être diluées dans de l'eau,
-                  mais il est conseillé de ne pas ajouter plus d'une quantité
-                  égale d'eau. Bien mélanger. Caractéristiques : Marque Gaviscon
-                  Catégorie Liquides et sirops anti acide et digestion difficile
-                  Prix 13,44 Poids 846 gr Contre-indications: Hypersensibilité à
-                  un des constituants, y compris les esters d'hydroxybenzoate
-                  (parahydroxybenzoates). Précautions particulières: En cas de
-                  régime désodé strict, comme lors de certaines pathologies
-                  rénales et cardiovasculaires, il faut tenir compte de la
-                  présence de sodium qui est de 145 mg (6,3 mmol)/10 ml. La
-                  prise de suspension sera évitée. Chez les enfants, en raison
-                  de la teneur en sodium élevée de la suspension buvable, il est
-                  important de respecter la posologie recommandée. Une dose de
-                  10 ml de suspension buvable contient 160 mg de carbonate de
-                  calcium. La prudence est de rigueur lors du traitement de
-                  patients qui souffrent d'hypercalcémie, de néphrocalcinose et
-                  de calculs rénaux récurrents contenant du calcium. Une
-                  efficacité réduite est possible chez les patients dont les
-                  teneurs en acide gastrique sont très faibles. Si les symptômes
-                  ne s'améliorent pas après sept jours, il faut réexaminer la
-                  situation clinique. Grossesse et lactation: Ce médicament peut
-                  être utilisé tel qu'indiqué en cas de grossesse et
-                  d'allaitement. Effets indésirables: Dans de très rares cas,
-                  les patients sensibles à certains constituants peuvent
-                  présenter des manifestations allergiques telles qu'urticaire
-                  ou bronchospasme. Surdosage: En cas de surdosage, on
-                  administrera un traitement symptomatique. Le patient peut
-                  éprouver un ballonnement abdominal. Interactions: Aucune
-                  interaction médicamenteuse n'est à ce jour connue avec le
-                  Gaviscon."
-                xpath: /html/body/div[11]
             name:
               - text: Gaviscon Menthe Suspension Buvable 500ml
                 xpath: /html/body/div[6]/div[1]/div[1]/div[1]/h1[1]
             brandLink:
               - text: https://www.newpharma.be/pharmacie/brands/gaviscon/04903.html
-                xpath: /html/body/div[14]
+                xpath: /html/body/div[13]
             privacyPolicy:
               - text: Yes
                 xpath: /html/body/div[22]
@@ -130,4 +80,4 @@ extractions:
               - text: Yes
                 xpath: /html/body/div[24]
         xpath: /
-    timestamp: 1610619743386
+    timestamp: 1611062585631

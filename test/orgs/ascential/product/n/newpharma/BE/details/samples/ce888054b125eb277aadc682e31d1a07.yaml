@@ -2,13 +2,13 @@ input:
   id: 512802
   _url: http://newpharma.be
 extractions:
-  - html: https://workbench.import.io/html/run=dd7f2932-7aeb-4d6b-b86f-6ff2a445f1b1/task=a815e836-47e4-472c-b8e6-382e8b760c81/830898ab-dd1e-4d45-b1a9-0a1103dbabf2.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=e3085ba2-bf62-470e-9e5f-6dbd78f099bf/task=33b6521f-d240-4cc0-a883-98253c3ea4b4/1b1e5e3b-3f40-475c-b498-a793e042d6a5.html
     extractionConfigId: product/details/stores/n/newpharma/BE/extract
     data:
       - group:
           - productUrl:
               - text: https://www.newpharma.be/pharmacie/tena/512802/tena-pants-normal-extra-large-120-160cm-pieces-15-791715.html
-                xpath: /html/body/div[14]
+                xpath: /html/body/div[13]
             image:
               - text: https://img.newpharma.net/images/products/fr/500/tena-pants-normal-extra-large-120-160cm-pieces-15-791715.2001.jpg
                 xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@src
@@ -64,13 +64,13 @@ extractions:
                   matière extérieure aérée qui permet à l'air de circuler. Pas
                   d'humidité inutile, une peau saine et tout le confort que
                   mérite votre proche. Tour de hanches 120 à 160 cm
-                xpath: /html/body/div[20]
+                xpath: /html/body/div[19]
             brandText:
               - text: Tena
                 xpath: /html/body/div[7]/div[1]/div[1]/div[1]/div[1]/a[1]
             quantity:
               - text: 15 pièces
-                xpath: /html/body/div[16]
+                xpath: /html/body/div[15]
             weightNet:
               - text: 816 gr
                 xpath: /html/body/div[7]/div[1]/div[1]/div[4]/div[2]/div[1]/div[2]/div[2]/table[1]/tbody[1]/tr[5]/td[1]
@@ -90,10 +90,9 @@ extractions:
               - text: Commandé avant 16h, livré chez vous demain ou en 24h en point relais
                 xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[3]
             manufacturerDescription:
-              - text: "Tena Pants Normal Extra-Large 120-160cm Pièces 15 (791715) Propriétés :
-                  Les culottes de protection anti-fuites garantissent à vos
-                  proches sécurité, fraîcheur et confiance, tout au long de la
-                  journée. Tena Pants Normal 20% plus fins, confortables et sûrs
+              - text: Les culottes de protection anti-fuites garantissent à vos proches
+                  sécurité, fraîcheur et confiance, tout au long de la journée.
+                  Tena Pants Normal 20% plus fins, confortables et sûrs
                   garantissant la qualité Tena habituelle Plus de confort pour
                   une meilleure qualité de vie. Grâce à ce nouveau concept, les
                   matériaux absorbants ne sont placés que là où ils sont
@@ -115,18 +114,14 @@ extractions:
                   les coutures latérales. Les Tena Pants sont composées d'une
                   matière extérieure aérée qui permet à l'air de circuler. Pas
                   d'humidité inutile, une peau saine et tout le confort que
-                  mérite votre proche. Tour de hanches : 120 à 160 cm
-                  Indications : Pour des fuites urinaires modérées à fortes
-                  Présentation : 15 pièces Caractéristiques : Marque Tena
-                  Catégorie Couches adultes - Fuites urinaires Prix 20,99 Avis
-                  4.4/5 (10 avis) Poids 816 gr"
-                xpath: /html/body/div[12]
+                  mérite votre proche. Tour de hanches 120 à 160 cm
+                xpath: /html/body/div[20]
             name:
               - text: Tena Pants Normal Extra-Large 120-160cm Pièces 15 (791715)
                 xpath: /html/body/div[7]/div[1]/div[1]/div[1]/h1[1]
             brandLink:
               - text: https://www.newpharma.be/pharmacie/brands/tena/01822.html
-                xpath: /html/body/div[15]
+                xpath: /html/body/div[14]
             promotion:
               - text: -34% Réduction online
                 xpath: /html/body/div[22]
@@ -140,4 +135,4 @@ extractions:
               - text: Yes
                 xpath: /html/body/div[25]
         xpath: /
-    timestamp: 1610619746480
+    timestamp: 1611062588455

@@ -77,7 +77,6 @@ module.exports = {
 
       const data = {};
       // @ts-ignore
-      data.manufacturerDescription = [...document.querySelectorAll('div[class=text-description] > div.text-description-content')].map(el => el.innerText).join(' ');
       const descHeaders = document.querySelectorAll('div.text-description-content strong');
       const headersArr = [];
       let lastHeader;
@@ -108,6 +107,8 @@ module.exports = {
       data.warnings = extractParagraph('Précautions', description, headersArr);
       data.ingredients = extractParagraph('Ingrédients', description, headersArr);
       data.additionalDesc = extractParagraph('Propriétés', description, headersArr);
+      data.manufacturerDescription = data.additionalDesc;
+
       if (document.querySelector('div.c-price__unit span')) {
         data.pricePer = document.querySelector('div.c-price__unit span').textContent;
         data.pricePerUnit = document.querySelector('div.c-price__unit').textContent.match((/\/\s?(.+)\)/))
