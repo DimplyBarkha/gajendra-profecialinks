@@ -6,10 +6,18 @@ fields:
 - name: image
   singleValue: true
   xpath: //div[@class="productImageContainer"]//div//img//@src
+- name: manufacturerImages
+  singleValue: false
+  description: Images within the third party description
+  xpath: //div[@id="aplus_added"]
+- name: manufacturerDescription
+  singleValue: true
+  description: The extended description of the product supplied by the lister
+  xpath: //div[@id="enhanced_added"]     
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
-  xpath: //ul[@id='thumbList']/li/a/div/img/@src
+  xpath: //div[@id="altimgs_added"]
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
@@ -34,7 +42,7 @@ fields:
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: //div[@class="product-description"]/text()
+  xpath: //div[@class="product-overview"]
 - name: descriptionBullets
   singleValue: true
   xpath: count(//div[@class="col-xs-12 col-sm-8 col-md-9 col-lg-9"]//div[@class="product-bullets"]/ul/li)
@@ -67,10 +75,10 @@ fields:
   xpath: //div[@id="video_added"]
 - name: specifications
   singleValue: true
-  xpath: //div[@id="collapseSpecsTab"]
+  xpath: //div[@id="collapseSpecsTab"]/div[@class='panel-body']/ul
 - name: warranty
-  singleValue: true
-  xpath: //ul[@id='productSpecsContainer']/li/div[contains(@id,"product_spec_")][contains(.,'Warranty')]//span[contains(.,'Warranty')]/following-sibling::span
+  singleValue: false
+  xpath: //div[@id='warranty_added']
 - name: promotion
   singleValue: true
   xpath: //div[@class="clearfix price-savings"]
@@ -86,7 +94,7 @@ fields:
 - name: secondaryImageTotal
   singleValue: true
   description: null
-  xpath: count(//div[@class='carousel-inner']//img/@src)
+  xpath: count(//ul[@id='thumbList']/li[position()>1]/a//img/@src)
 - name: variantCount
   singleValue: true
   description: Number of variants listed
@@ -96,7 +104,7 @@ fields:
 - name: manufacturerDescription
   singleValue: false
   description: The extended description of the product supplied by the lister
-  xpath: //div[@class='product-overview']//div[@class='ccs-cc-inline-header-description']/text()
+  xpath: //div[@class='product-overview']//div[@class='ccs-cc-inline-header-description']/text() | //div[@class='ccs-cc-inline-feature-content ccs-cc-inline-feature-description'] | //div[@class='ccs-cc-inline-section ccs-cc-inline-assets']
 - name: imageZoomFeaturePresent
   singleValue: true
   description: If Zoom feature is available for Main image or images in the
@@ -106,4 +114,4 @@ fields:
 - name: name
   singleValue: true
   description: The product name
-  xpath: //div[@class='product-description']/text()    
+  xpath: //div[@class='product-description']/text()     

@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@id="searchResultContainer"]
 fields:
 - name: id
   singleValue: true
@@ -11,8 +11,8 @@ fields:
   xpath: //div[@class="product-name-list"]/a/@title
 - name: productUrl
   singleValue: true
-  xpath: //table[@class="table"]//tbody//tr[@class="product-container"]//td[@class="list-image"]/div/a/@href
-  regExp: [^(.*)$] 
+  xpath: //table[@class="table"]/tbody/tr[@class="product-container"]/td/div[@class="product-name-list"]/a/@href
+  regExp: ^(.*)
   regExpReplace: 'https://www.connection.com$1'
 - name: thumbnail
   singleValue: true
@@ -26,4 +26,9 @@ fields:
 - name: availabilityText
   singleValue: true
   xpath: //table[@class="table"]//tbody//tr[@class="product-container"]//td[@class="list-availability"]/div/span/text()
-  
+- name: rank
+  description: search/listing rank
+  type: NUMBER
+- name: rankOrganic
+  description: The position (rank) within the list excluding sponsored/paid results
+  type: NUMBER
