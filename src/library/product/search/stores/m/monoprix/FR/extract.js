@@ -47,9 +47,9 @@ module.exports = {
         const productTitle = document.querySelectorAll('div[class*=\'item-range\']');
         for (let i = 0; i < productUrl.length; i++) {
           productUrl[i].focus();
-          await new Promise((resolve, reject) => setTimeout(resolve, 100));
+          await new Promise((resolve, reject) => setTimeout(resolve, 300));
           addProp('div[class*=\'item__description-offre\']>a', i, 'product_url', productUrl[i].href);
-          addProp('div[class*=\'item-brand\']', i, 'product_title', productBrand[i].innerText +
+          addProp('div[class*=\'item-brand\']', i, 'product_title', productBrand[i].textContent +
             ' ' + productTitle[i].innerText);
         }
       }

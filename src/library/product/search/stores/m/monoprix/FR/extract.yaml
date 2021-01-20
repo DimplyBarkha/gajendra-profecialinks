@@ -23,6 +23,8 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //div[contains(@class, 'product-img')]/img/@src
+    regExp: ^(.*width=)(\d+)(,.*)$
+    regExpReplace: $1580$3
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
