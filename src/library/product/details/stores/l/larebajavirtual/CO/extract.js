@@ -60,12 +60,12 @@ module.exports = {
         addElementToDocument('secondaryImages', secondaryImages);
       }
       var url = getXpath("(//ol[@class='breadcrumb']/li/a/@href)[1]", 'nodeValue');
-      var url1 = 'https://www.larebajavirtual.com' + url;
+      var url1 = 'https://www.larebajavirtual.com' + url + '/';
       var rem = getXpath("(//div[@class='descripciones']/div/h1/text())[4]", 'nodeValue');
       if (rem.includes(' ')) {
         rem = rem.replaceAll(' ', '-').replaceAll('+', '%2B');
       }
-      var url2 = url1 + rem;
+      var url2 = url1 + rem + '.html';
       addElementToDocument('URL', url2);
     });
     await context.extract(productDetails);
