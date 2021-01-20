@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: id
     singleValue: false
-    xpath: //a[@class="lst-product-item-media"]/@id
+    xpath: //a[@class="lst-product-item-media"]/@id | //article[@class="product-box-category"]/@data-scroll-id
   - name: name
     singleValue: false
     description: The product name
