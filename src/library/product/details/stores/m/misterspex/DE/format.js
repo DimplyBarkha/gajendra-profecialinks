@@ -90,9 +90,10 @@ const transform = (data) => {
         if (row.availabilityText){
           let info = [];
           row.availabilityText.forEach(item => {
-            item.text = item.text.replace(/In den Warenkorb/, "In stock");
+            item.text1 = item.text1.replace(/In den Warenkorb/, "");
+            item.text1 = "In stock"+item.text1;
             // item.text = item.text.replace(/NULL/, "Out of stock");
-            info.push(item.text);
+            info.push(item.text1);
           });
         }
         if(row.variantInformation){
