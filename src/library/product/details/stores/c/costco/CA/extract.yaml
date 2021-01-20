@@ -1,7 +1,7 @@
 singleRecord: true
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //html
 fields:
   - name: image
     description: URL of the main product image
@@ -10,14 +10,12 @@ fields:
     description: Alt text of the main product image
     #xpath: //img[contains(@id,"RICHFXViewerContainer___richfx_id_0_zoomImage")]/@alt
   - name: alternateImages
-    singleValue: false
     description: Other product images (not in manufacturer description)
     #xpath: //div[@class="slick-track"]//a[contains(@class,"RICHFXColorChangeLink")]//img[contains(@class,"RICHFXColorChangeView")]/@src
     xpath: //div[@class="slick-track"]//a[contains(@class,"RICHFXColorChangeLink") and not(contains(@data-slick-index,"0"))]//img[contains(@class,"RICHFXColorChangeView") ]/@src
   - name: metaKeywords
     description: The <meta> keywords content
   - name: category
-    singleValue: false
     description: The categories (e.g. from breadcrumbs)
     xpath: //div[contains(@class,'col-md-12')]//li[position()>1]//span[contains(@itemprop,'name')]
     regExp: (Go to )(.*)
@@ -41,7 +39,6 @@ fields:
     #xpath: //meta[@property='og:availability']/@content
     #xpath: //input[@id='add-to-cart-btn']/@value
   - name: description
-    singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
     #xpath: //h1[contains(@itemprop,'name')]/text()
@@ -126,13 +123,10 @@ fields:
   - name: colorCode
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
-    singleValue: false
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
-    singleValue: false
     description: Images within the third party description
   - name: videos
-    singleValue: false
     description: URLs of videos on page
     #xpath: //div[@class="flix-videodiv inpage_selector_video"]//iframe/@src | //div[@id="html5videostage"]//video/@src
     xpath: //div[@id="added_video_url"]/text()
@@ -154,11 +148,9 @@ fields:
   - name: internationalShipping
     description: Text next to bullet point
   - name: salesRank
-    singleValue: false
     description: Amazon best selling rank from product details (linked back) - needs
       to be collapsed
   - name: salesRankCategory
-    singleValue: false
     description: Amazon best selling rank from product details (linked back) - needs
       to be collapsed
   - name: subscriptionPrice
@@ -174,7 +166,6 @@ fields:
   - name: pasin
     description: Parent asin
   - name: videoLength
-    singleValue: false
     description: null
   - name: ingredientImagePresent
     description: null
@@ -195,17 +186,13 @@ fields:
   - name: lbbPrice
     description: null
   - name: featureBullets
-    singleValue: false
     description: null
     #xpath: //div[@id="featureBullets"]/text()
   - name: otherSellersName
-    singleValue: false
     description: null
   - name: otherSellersPrice
-    singleValue: false
     description: null
   - name: otherSellersShipping
-    singleValue: false
     description: null
   - name: secondaryImageTotal
     description: null
@@ -344,7 +331,6 @@ fields:
   - name: recyclingInformation
     description: Recycling information associated with the product
   - name: productOtherInformation
-    singleValue: false
     description: Any other product information
   - name: packaging
     description: Packaging information
@@ -381,10 +367,8 @@ fields:
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
   - name: variants
-    singleValue: false
     description: null
   - name: additionalDescBulletInfo
-    singleValue: false
     description: null
     #xpath: //div[@id="additionalDescBulletInfo"]/text()
   - name: prop65Warning
