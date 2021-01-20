@@ -66,23 +66,40 @@ module.exports = {
         ing = ing.split("Ingredients:")[1];
         addElementToDocument('ing', ing);
       }
+      else{
+        var ing1 = getXpath("//div[@class='product-details-desc']/ul/li/strong[contains(text(),'Ingredients')]/parent::li/text()", 'nodeValue');
+        // ing1 = ing1.split("Ingredients:")[1];
+        addElementToDocument('ing', ing1);
+      }
 
-      
+      //brand//
+      var brand = getXpath("//div[@class='product-details-desc']/ul/li[contains(text(),'Brand')]/text()", 'nodeValue');
+      if (brand != null) {
+        brand = brand.split("Brand:")[1];
+        addElementToDocument('brand', brand);
+      }
+      else{
+        var brand1 = getXpath("//meta[@name='keyword']/@content", 'nodeValue');
+        // ing1 = ing1.split("Ingredients:")[1];
+        addElementToDocument('brand', brand1);
+      }
+
+
       //addition_desc//
       var desc1 = getXpath("//div[@class='product-details-desc']/p[1]/text()", 'nodeValue');
       var desc2 = getAllXpath("//div[@class='product-details-desc']/ul/li/text()", 'nodeValue');
       var desc3 = getXpath("//div[@class='product-details-desc']/p[2]/text()", 'nodeValue');
       var additional = "";
       if (desc1 != null) {
-        additional = additional +" " + desc1;
+        additional = additional + desc1;
       }
       if (desc2.length >=1) { 
         for (var i=0; i<desc2.length; i++){
-          additional = additional +" " + desc2[i];
+          additional = additional + desc2[i];
         }
       }
       if (desc3 != null) {
-        additional = additional +" " + desc3;
+        additional = additional + desc3;
       }
       if (additional != null){
         addElementToDocument('additional', additional);
