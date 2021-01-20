@@ -17,7 +17,13 @@ module.exports = {
         let currScroll = document.querySelector('.quicksearch-scrolling-container').scrollHeight;
         while (count < 150) {
           const oldScroll = currScroll;
-          document.querySelector('.quicksearch-scrolling-container').scrollBy(0, 1000);
+
+          const loadMore = document.querySelector('div.ais-infinite-hits--showmore button.ais-infinite-hits--showmoreButton');
+          if (loadMore) {
+            document.querySelector('div.ais-infinite-hits--showmore button.ais-infinite-hits--showmoreButton').click();
+          } else {
+            document.querySelector('.quicksearch-scrolling-container').scrollBy(0, 1000);
+          }
           await new Promise(resolve => setTimeout(resolve, 4000));
           currScroll = document.querySelector('.quicksearch-scrolling-container').scrollHeight;
 
