@@ -53,7 +53,7 @@ fields:
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
-  xpath: //span[@class='product-stock-message__title']/text()
+  xpath: (//div[@id='productDetailsPanel']//span[@class='product-add-to-cart-panel__text'])[contains(text(), 'In den Warenkorb')]
   regExp: (.+?)
   regExpReplace: 'In Stock'
   defaultValue: 'Out Of Stock'
