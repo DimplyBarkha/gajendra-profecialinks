@@ -29,28 +29,20 @@ fields:
   type: TEXT[]
   description: The categories (e.g. from breadcrumbs)
   xpath: //div[@itemprop="breadcrumb"]//a[not(contains(@class,'main'))]//span//text()
-- name: nameExtended
-  singleValue: true
-  description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per feed)
-  type: TEXT
-  xpath: //div[@class="product_short_description"]//text()
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
-  type: CURRENCY
-  xpath: //div[@class="wide-6 productInformations offerDetails"]//dd[@class="listPrice"]
+  xpath: //div[@class="wide-6 productInformations offerDetails"]//dd[@class="listPrice"]//text()
 - name: price
-  type: CURRENCY
   description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-  xpath: //div[@class="wide-6 productInformations offerDetails"]//dd[@class="yourPrice"]
+  xpath: //dl[@class="productPrice"]//dd[@class="yourPrice price" or @class="yourPrice"]//text()
 - name: availabilityText
   singleValue: true
   xpath: //div[@class='wide-6 productInformations offerDetails']//dl[@class="productAvailability"]//span[@class="value-title"]/@title
   defaultValue: In Stock
   regExp: out_of_stock
-  regExpReplace: Out Of Stock
+  regExpReplace: Out of Stock
 - name: description
   singleValue: false
   type: TEXT[]
@@ -88,10 +80,12 @@ fields:
 - name: sku
   singleValue: true
   description: The store-specific product identifier
-  xpath: //div[@class="wide-6 productInformations offerDetails"]//dd[@itemprop="productID"]//text()
+  # xpath: //div[@class="wide-6 productInformations offerDetails"]//dd[@itemprop="productID"]//text()
+  xpath: (//dl[@class="productInfos"]//dd[@itemprop="productID"]//text())[1]
 - name: variantId
   singleValue: true
-  xpath: //div[@class="wide-6 productInformations offerDetails"]//dd[@itemprop="productID"]//text()
+  # xpath: //div[@class="wide-6 productInformations offerDetails"]//dd[@itemprop="productID"]//text()
+  xpath: (//dl[@class="productInfos"]//dd[@itemprop="productID"]//text())[1]
 - name: mpc
   singleValue: true
   description: The manufacturer model code (unique) of the product
@@ -105,14 +99,15 @@ fields:
   singleValue: true
   description: Content under "legal disclaimer" header
 - name: directions
-  singleValue: true
+  type: TEXT[]
   description: Content under "directions" header
+  xpath: //dd[@class="productContraindication" or @class="productDosage"]//text()
 - name: warnings
   singleValue: true
   description: Content under "warnings" header
 - name: aggregateRating2
   description: The number of ratings
-  xpath: //div[@class="fr wide-6"]//span[@class="rank"]
+  xpath: //div[@class="fr wide-6"]//span[@class="rank"]//text()[6]
   regExp: '\d+\.\d+'
 - name: ratingCount
   singleValue: true
@@ -122,7 +117,6 @@ fields:
   singleValue: false
   xpath: //dd[@class="productLongDescription"]//img/@src
 - name: manufacturerDescription
-  singleValue: false
   type: TEXT[]
   xpath: //dd[@class="productLongDescription"]//text()
 - name: aggregateRating
@@ -161,7 +155,7 @@ fields:
 - name: nameExtended
   type: TEXT
   description: The product name
-  xpath: //meta[@name="description"]/@content
+  xpath: //h1[@class="name fn"]//text()
 - name: name
   singleValue: true
   type: TEXT
@@ -269,9 +263,9 @@ fields:
   singleValue: true
   description: null
 - name: ingredientsList
-  singleValue: true
   description: List of Ingredients from site - can be string of data if no
       discernible start/end point
+  xpath: //dd[@class="productActiveSubstance"]//text()
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.
