@@ -133,7 +133,6 @@ async function implementation (inputs, parameters, context, dependencies) {
   const popUps = ['button[data-click="close"]', 'a[data-click="close"][class="bx-close bx-close-link bx-close-inside"]'];
   await Promise.all(popUps.map(selector => helper.checkAndClick(selector, 'CSS', { waitUntil: 'load' })));
 
-
   const variantSelector = '#sizeSelect ul[aria-label="options"] > li:not(.selected) > button, [id*="swatches"] ul[aria-label="options"] > li:not(.selected) > button';
   const variant = await context.evaluate((selector) => !!document.querySelector(selector), variantSelector);
   if (variant) {
@@ -143,6 +142,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   // get iframe videos from enhanced content.
   await context.evaluate(() => {
     let videos = [];
+
     const iframes = Array.from(document.querySelectorAll('[title="Product Videos"]'));
     for (const iframe of iframes) {
       // @ts-ignore
@@ -262,7 +262,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     await helper.ifThereClickOnIt(`${carrouselSelector} > button`);
   }
 
-  const enhancedContent = await context.evaluate(() => document.querySelector('#syndi_powerpage>div'));
+  const enhancedContent = await helper.checkSelector('#syndi_powerpage>div', 'CSS');
 
   if (enhancedContent) {
     // close the zoom image
@@ -272,10 +272,25 @@ async function implementation (inputs, parameters, context, dependencies) {
       // @ts-ignore
       const videos = [...shadow.querySelectorAll('video')];
 
-      await Promise.all(videos.map(vid => {
+      // monkey patch ajax calls
+      const originalRequestOpen = XMLHttpRequest.prototype.open;
+      let response = [];
+      XMLHttpRequest.prototype.open = function () {
+        if (arguments[0] === 'GET' && arguments[1].includes('https://content.syndigo.com/asset/') && arguments[1].endsWith('.ts')) {
+          response.push(arguments[1]);
+        }
+        originalRequestOpen.apply(this, arguments);
+      };
+
+      await Promise.all(videos.map(async (vid) => {
         vid.click();
-        return new Promise((resolve) => setTimeout(resolve, 4000));
+        await new Promise((resolve) => setTimeout(resolve, 4000));
+        vid.click();
       }));
+
+      await new Promise(resolve => setTimeout(resolve, 5e3));
+      XMLHttpRequest.prototype.open = originalRequestOpen;
+
       // @ts-ignore
       const images = [...shadow.querySelectorAll('div[class*="syndigo"] img')].map(im => im.getAttribute('src'));
       document.querySelector('body').setAttribute('manu-imgs', images.join(' | '));
@@ -285,14 +300,14 @@ async function implementation (inputs, parameters, context, dependencies) {
         .map(div => div.innerText);
       document.querySelector('body').setAttribute('manu-desc', description[0]);
 
-      document.querySelector('body').setAttribute('manu-videos', videos.map(vid => vid.src).join(' | '));
+      document.querySelector('body').setAttribute('manu-videos', [...new Set(response)].join(' | '));
     });
   }
 
   const { transform: transformParam } = parameters;
   const { productDetails } = dependencies;
   return await context.extract(productDetails, { transform: transformParam });
-}
+}w
 
 module.exports = {
   implements: 'product/details/extract',

@@ -15,6 +15,7 @@ module.exports = {
     await context.setLoadImages(true);
     await context.setJavaScriptEnabled(true);
     await context.setAntiFingerprint(false);
+    await context.captureRequests();
     // await context.setUseRelayProxy(false);
     const response = await context.goto(url, { timeout: timeout, waitUntil: 'load' });
     const errorPage = await context.evaluate(() => {

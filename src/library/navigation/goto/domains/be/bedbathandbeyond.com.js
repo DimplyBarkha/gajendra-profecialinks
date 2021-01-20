@@ -9,6 +9,7 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ url }, { timeout }, context, dependencies) => {
+    await context.captureRequests();
     url = `${url}#[!opt!]{"force200": true}[/!opt!]`;
     const response = await context.goto(url);
     const errorPage = await context.evaluate(() => {
