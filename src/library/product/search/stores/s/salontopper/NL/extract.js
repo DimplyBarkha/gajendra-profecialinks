@@ -38,10 +38,13 @@ async function implementation (inputs, parameters, context, dependencies) {
       addProp('div[class*="product-gallery"] div.cell', i, 'rankorganic', `${i + 1}`);
     }
     // reducing number of results
+    const numOfRes = document.querySelector('div[class*="cell small-5"]')
+      // @ts-ignore
+      ? document.querySelector('div[class*="cell small-5"]').innerText : '';
     const last = allProducts.length;
     // @ts-ignore
-    if (searchUrl.includes('ipp=3')) sessionStorage.setItem('item1', last);
-    if (searchUrl.includes('&pag=2')) {
+    if (searchUrl.includes('ipp=3') || numOfRes.includes('1 -')) sessionStorage.setItem('item1', last);
+    if (searchUrl.includes('pag=2')) {
       const rest = 150 - parseInt(sessionStorage.getItem('item1'));
       // @ts-ignore
       [...allProducts].filter(e => e.getAttribute('rankorganic') > rest)
