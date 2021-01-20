@@ -17,7 +17,7 @@ fields:
     description: The <meta> keywords content
   - name: category
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[@id="BreadCrumbs"]//div[@class="BreadCrumbs-crumb"]
+    xpath: //div[@id="BreadCrumbs"]//div[@class="BreadCrumbs-inner"]//div[@itemprop="itemListElement"]
   - name: nameExtended
     description:
       The product name, prefixing "${brand} - " if not included in "name"
@@ -42,7 +42,7 @@ fields:
     description:
       Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //h2[contains(text(),"Description")]/../div/div/div/div/p
+    xpath: //div[@class="PageProduct-details"]/div
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -132,11 +132,11 @@ fields:
     description: The product name
     xpath: //div[contains(@class,"desktop")]//h1[contains(@class,"productHeader")]
   - name: variantInformationAppend
-    xpath: //div[contains(@class,"desktop")]//h5[contains(@class,"variantDescription")] | //div[contains(@class,"desktop")]//select[contains(@id,"SelectVariant")]
-    regExp: Bottle\s\/\s(\w+)
+    xpath: //div[contains(@class,"desktop")]//h5[contains(@class,"variantDescription")]/option[1] | //div[contains(@class,"desktop")]//select[contains(@id,"SelectVariant")]/option[1]
+    # regExp: Bottle\s\/\s(\w+)
     defaultValue: " "
-  - name: appendPart
-    xpath: //div[contains(@class,"desktop")]//span[contains(@itemprop,"price")]/text()
+  # - name: appendPart
+  #   xpath: //div[contains(@class,"desktop")]//span[contains(@itemprop,"price")]/text()
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store

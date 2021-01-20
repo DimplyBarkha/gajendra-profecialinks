@@ -18,14 +18,19 @@ const cleanUp = (data, context) => {
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
     for (const row of group) {
-      if (row.name && row.nameExtended && row.appendPart && row.variantInformationAppend) {
+      if (row.nameExtended && row.variantInformationAppend) {
         if (row.variantInformationAppend[0].text === ' ') {
           row.variantInformationAppend[0].text = ''
         }
-        let text = `${row.name[0].text} ${row.variantInformationAppend[0].text} - ${row.appendPart[0].text}`;
-        row.name = [{ text: text.trim() }]
+        let text = `${row.name[0].text} ${row.variantInformationAppend[0].text}`;
+        // row.name = [{ text: text.trim() }]
         row.nameExtended = [{ text: text.trim() }]
       }
+      if (row.description) {
+        for (let i = 0; i < row.description.length; i++) {
+        row.description[i].text = row.description[i].text.replace('Description', '');
+        }
+    }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
