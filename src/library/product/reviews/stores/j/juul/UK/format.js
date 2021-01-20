@@ -26,31 +26,29 @@ const transform = (data) => {
     for (const row of group) {
       if (row.productFamily) {
         row.productFamily.forEach(item => {
-          if (item.text.includes("?")) {
-            let split = item.text.split('?');
+          if (item.text.includes('?')) {
+            const split = item.text.split('?');
             item.text = `${split[0]}`;
           }
-        })
+        });
       }
-
 
       if (row.sourceUrl) {
         row.sourceUrl.forEach(item => {
-          if (item.text.includes("/pods/")) {
+          if (item.text.includes('/pods/')) {
             if (row.flavour) {
               row.flavour.forEach(item => {
                 item.text = item.text;
               });
             }
-          }
-          else {
+          } else {
             if (row.flavour) {
               row.flavour.forEach(item => {
                 item.text = '';
               });
             }
           }
-        })
+        });
       }
     }
   }
@@ -58,4 +56,3 @@ const transform = (data) => {
 };
 
 module.exports = { transform };
-

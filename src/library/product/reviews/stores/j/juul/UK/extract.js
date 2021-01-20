@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'juul',
-    transform: transform ,
+    transform: transform,
     domain: 'juul.co.uk',
     zipcode: '',
   },
