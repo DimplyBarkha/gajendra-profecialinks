@@ -9,7 +9,7 @@ fields:
   xpath: ancestor::html//h1[@class="page-product-view--title"]
 - name: commentCount
 - name: reviewDate
-  xpath: //p[@class="mb-0"]/text() | //div[@id="my-reviews"]/@review_at
+  xpath: (//p[@class="mb-0"]/text())[1] | //div[@id="my-reviews"]/@review_at
 - name: user
   xpath: //p[@class="mb-0"]/strong/text() | //div[@id="my-reviews"]/@nickname
 - name: brand
@@ -22,6 +22,9 @@ fields:
   xpath: concat(//ol[@class="breadcrumb"]/li[1]/a/text(),'/',//ol[@class="breadcrumb"]/li[2]/text())
 - name: colour
 - name: flavour
+  xpath: ancestor::html//h1[@class="page-product-view--title"]
+  regExp: (?<=Pods )(.*)(?= \() | (?<=ePod )(.*)(?= Pods)
+  regExpReplace: $1$2
 - name: sku
   xpath: ancestor::html//span[@class="d-none"]/text()[2]
 - name: reviewText

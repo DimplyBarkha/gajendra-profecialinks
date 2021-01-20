@@ -39,6 +39,16 @@ const transform = (data) => {
           }
         });
       }
+      if (row.flavour) {
+        row.flavour.forEach(item => {
+          item.text = item.text.replace(":","");
+        });
+      }
+      if (row.reviewDate) {
+        row.reviewDate.forEach(item => {
+          item.text = item.text.replace("- 0:00 -","").trim();
+        });
+      }
     }
   }
   return data;
