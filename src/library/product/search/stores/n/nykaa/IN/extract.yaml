@@ -7,6 +7,7 @@ fields:
     singleValue: false
   - name: searchUrl
     singleValue: true
+    xpath: //ancestor::html//div[@id="searchUrl"][last()]
   - name: name
     singleValue: false
   - name: productUrl
@@ -25,6 +26,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
+    xpath: //span[@class="post-card__content-price-offer"]
   - name: manufacturer
     singleValue: true
   - name: soldBy
