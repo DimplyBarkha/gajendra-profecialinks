@@ -4,11 +4,11 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: productUrl
-    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//a[@itemprop="url"]/@href
+    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//div[@class="h3"]/a/@href
   - name: thumbnail
     description: The URL for the product thumbnail image
-    # xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//div[@class="figure"]//img[@class="photo"]/@src
-    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//img[@class="photo"]/@src
+    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//div[@class="figure"]//img[@class="photo"]/@src
+    # xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//img[@class="photo"]/@src
     regExp: (.+)
     regExpReplace: https://www.medikamente-per-klick.de$1
   - name: name
@@ -24,7 +24,8 @@ fields:
     regExpReplace: $1
   - name: price
     # xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//dd[@class="price lowPrice"]//text()
-    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//span[@itemprop="price"]/@content
+    type: CURRENCY
+    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//dd[@class="yourPrice price"]
   - name: aggregateRating2
     xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//span[@itemprop='ratingValue']
   - name: reviewCount
