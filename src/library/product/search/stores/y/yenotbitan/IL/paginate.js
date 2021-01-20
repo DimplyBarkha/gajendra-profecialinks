@@ -4,8 +4,8 @@ module.exports = {
   parameterValues: {
     country: 'IL',
     store: 'yenotbitan',
-    nextLinkSelector: null,
-    nextLinkXpath: '//div[@class="loading-wrapper"]/img',
+    nextLinkSelector: 'div.loading-wrapper img',
+    nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
