@@ -2,24 +2,28 @@ input:
   keywords: вологий корм для котів
   _url: http://metro.ua
 extractions:
-  - html: https://workbench.import.io/html/run=28a8ca16-e13b-43a9-acb8-0f6bbab1e157/task=d7ed462b-ba8b-4ae4-938c-8c6e0fa0f17d/8074a48b-7d0f-4c9b-845a-a97ec32e74b7.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=f44b2294-a61a-4551-9119-7eb125744145/task=751cf46a-4575-4361-aa6c-664157066edd/ba4cb94b-aba4-409b-a011-41ada30d8eb8.html
     extractionConfigId: product/search/stores/m/metro/UA/extract
     data:
       - group:
           - id:
-              - text: "07613038273358"
+              - text: "08595602506033"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/@product-id
+            searchUrl:
+              - text: https://metro.zakaz.ua/ru/search/?q=%D0%B2%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D0%B9%20%D0%BA%D0%BE%D1%80%D0%BC%20%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%BE%D1%82%D1%96%D0%B2
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/@search-url
             name:
-              - text: Корм Purina One Sterilcat с индейкой и зеленой фасолью для кошек 85г
+              - text: Влажный корм для стерилизованных кошек Brit Premium Cat Chicken Slices for
+                  Sterilised pouch кусочки курицы 100г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/a[1]/div[4]/div[2]/span[1]
             productUrl:
-              - text: https://metro.zakaz.ua/ru/products/07613038273358/food-purina_one-85g/
+              - text: https://metro.zakaz.ua/ru/products/08595602506033/korm-brit-100g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/1.1588582493.ad72436478c_2020-05-04_Tatyana_L/1.1588582493.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img2.zakaz.ua/upload.version_1.0.4a8c616d51bd859d399c839e263adfaf.150x150.jpeg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
             price:
-              - text: 23.90 грн
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/a[1]/div[4]/div[1]/div[2]
+              - text: 17,90
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/@product-price
         xpath: /html
-    timestamp: 1605794363932
+    timestamp: 1611050906890

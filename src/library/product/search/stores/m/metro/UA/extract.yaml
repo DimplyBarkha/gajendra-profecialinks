@@ -7,6 +7,7 @@ fields:
     singleValue: false
     xpath: //@product-id
   - name: searchUrl
+    xpath: //@search-url
     singleValue: true
   - name: name
     singleValue: false
@@ -29,7 +30,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //div[@data-marker="Discounted Price"]
+    xpath: //@product-price
   - name: manufacturer
     singleValue: true
   - name: soldBy
