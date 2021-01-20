@@ -6,8 +6,8 @@ module.exports = {
     store: 'staples',
     domain: 'staples.ca',
     url: 'https://www.staples.ca/search?query={searchTerms}',
-    loadedSelector: 'div.ais-results-as-block  div.ais-hits--item',
-    noResultsXPath: '//div[@class="ais-hit-empty"]',
+    loadedSelector: 'div.ais-results-as-block',
+    noResultsXPath: '//div[@class="ais-hit-empty"]//li[contains(text(),"Try different keywords")]',
     zipcode: "''",
   },
 };

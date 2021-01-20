@@ -44,7 +44,7 @@ const transform = (data, context) => {
           }
         });
       }
-      row.rank = row.rankOrganic = [{ "text": rank }];
+      row.rank = row.rankOrganic = [{ text: rank }];
       rank++;
     }
   }

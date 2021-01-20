@@ -11,10 +11,10 @@ fields:
     xpath: //a[@class="product-link"]/@href
   - name: price
     singleValue: false
-    xpath: //div[@class="product-thumbnail__price"]//span[@class="money pre-money"]
+    xpath: //span[@class="money pre-money"]
   - name: listPrice
     singleValue: false
-    xpath: //div[@class="product-thumbnail__price"]//div[@class="top-product"]
+    xpath: //div[@class="top-product"]
   - name: thumbnail
     singleValue: false
     xpath: //img[@class="product-thumbnail__image"]/@src
