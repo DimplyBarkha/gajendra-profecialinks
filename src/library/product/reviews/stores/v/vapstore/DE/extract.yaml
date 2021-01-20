@@ -10,11 +10,11 @@ fields:
   - name: productRange
     singleValue: false
     description: Product range
-    xpath: ancestor::html//div//ol[@id='bc']//li[5]//a/@title
+    xpath: ancestor::html//div//ol[@id='bc']//li[@class='bc-item'][position() = count(//div//ol[@id='bc']//li[@class='bc-item'])]
   - name: productFamily
     singleValue: false
     description: Product family
-    xpath: ancestor::html//div//ol[@id='bc']
+    xpath: ancestor::html//div//ol[@id='bc']//li[contains(@class,'bc-item')]
   - name: colour
     singleValue: false
     description: Product colour

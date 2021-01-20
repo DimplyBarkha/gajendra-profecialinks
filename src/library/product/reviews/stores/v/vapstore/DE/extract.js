@@ -23,6 +23,20 @@ const transform = (data) => {
           const url = row.mediaURL[0].text;
           row.mediaURL[0].text = 'https://www.vapstore.de/' + url;
         }
+
+        if (row.productFamily) {
+          let productFamily1 = '';
+          row.productFamily.forEach(item => {
+              productFamily1 += `${item.text}`  +  "/" ;
+          });
+           productFamily1 =  productFamily1.slice(0,-1).trim();
+          row.productFamily = [
+            {
+              text: productFamily1
+            },
+          ];
+        }
+
         if (row.aggregateRating) {
           let aggregateRating = row.aggregateRating[0].text;
           aggregateRating = aggregateRating.replace('Durchschnittliche Artikelbewertung: ', '');
