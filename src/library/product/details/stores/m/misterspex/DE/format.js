@@ -91,7 +91,7 @@ const transform = (data) => {
           let info = [];
           row.availabilityText.forEach(item => {
             item.text = item.text.replace(/In den Warenkorb/, "In stock");
-            item.text = item.text.replace(/NULL/, "Out of stock");
+            // item.text = item.text.replace(/NULL/, "Out of stock");
             info.push(item.text);
           });
         }
