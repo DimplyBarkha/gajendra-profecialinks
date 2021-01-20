@@ -61,7 +61,7 @@ module.exports = {
     country: 'NL',
     store: 'gall',
     domain: 'gall.nl',
-    url: 'https://www.gall.nl/zoeken/?lang=nl_NL&q={searchTerms}',
+    url: 'https://www.gall.nl/zoeken/?q={searchTerms}&start=0',
     loadedSelector: 'div.c-product-grid',
     noResultsXPath: null,
     zipcode: "''",
