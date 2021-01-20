@@ -156,6 +156,6 @@ module.exports = {
     });
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    await context.extract(productDetails, { transform });
+    return await context.extract(productDetails, { transform });
   },
 };
