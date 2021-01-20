@@ -20,7 +20,7 @@ module.exports = {
     await context.goto(url,
       {
         timeout: 150000,
-        waitUntil: 'load',
+        waitUntil: 'networkidle0',
       });
     console.log(zipcode);
     if (zipcode) {
