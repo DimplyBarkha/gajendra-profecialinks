@@ -1,30 +1,38 @@
 const { transform } = require('../../../../shared');
+
 async function implementation (inputs, parameters, context, dependencies) {
   const { productDetails } = dependencies;
   const { transform } = parameters;
 
-  await context.evaluate(async () => {
-    function stall (ms) {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve();
-        }, ms);
-      });
+  await context.evaluate(() => {
+    function createDiv () {
+      const div = document.createElement('div');
+      div.className = 'productinfo';
+      document.querySelector('body').appendChild(div);
     }
 
-    // scroll
-
-    let scrollTop = 0;
-    const scrollLimit = 10000;
-    await stall(3000);
-    while (scrollTop <= scrollLimit) {
-      scrollTop += 1006;
-      window.scroll(0, scrollTop);
-      await stall(1000);
+    function addProp (iterator, name, value) {
+      document.querySelectorAll('div.productinfo')[iterator].setAttribute(name, value);
     }
 
+    const bodyContent = document.querySelector('body').textContent;
+    const json = JSON.parse(bodyContent);
 
+    for (let i = 0; i < json.data.length; i++) {
+      createDiv();
 
+      const name = json.data[i].attributes.name;
+      const image = json.data[i].attributes.image_large_url;
+      const id = json.data[i].attributes.href.match('(products.)(.*)')[2];
+      const productUrl = json.data[i].attributes.href;
+      const price = json.data[i].attributes.price;
+
+      addProp(i, 'name', name);
+      addProp(i, 'image', image);
+      addProp(i, 'id', id);
+      addProp(i, 'producturl', productUrl);
+      addProp(i, 'price', String(price));
+    }
   });
 
   return await context.extract(productDetails, { transform }, 'MERGE_ROWS');

@@ -1,30 +1,24 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: .mq-grid-item
-recordXPath: null # //div[@class="mq-grid-item"]
+recordSelector: null
+recordXPath: //div[@class="productinfo"]
 fields:
   - name: id
     singleValue: false
-    # xpath: //div[@class="productinfo"]/@id
-    xpath: //div[@class="mq-grid-item"]/article/@id
+    xpath: //div[@class="productinfo"]/@id
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
-    # xpath: //div[@class="productinfo"]/@name
-    xpath: //h2[@class="mq-product-title"]
+    xpath: //div[@class="productinfo"]/@name
   - name: productUrl
     singleValue: false
-    # xpath: //div[@class="productinfo"]/@producturl
-    xpath: //h2[@class='mq-product-title']/a/@href
-    regExp: (.*)
-    regExpReplace: https:/$1
+    xpath: //div[@class="productinfo"]/@producturl
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
-    # xpath: //div[@class="productinfo"]/@image
-    xpath: //img[@class="v-lazy-image-loaded"]/@src
+    xpath: //div[@class="productinfo"]/@image
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -35,8 +29,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    # xpath: //div[@class="productinfo"]/@price
-    xpath: //div[@class="mq-product-prices"]/h3
+    xpath: //div[@class="productinfo"]/@price
   - name: manufacturer
     singleValue: true
   - name: soldBy
