@@ -22,16 +22,6 @@ const transform = (data) => {
     el.text = clean(el.text);
   }))));
 
-  for (const { group } of data) {
-    for (const row of group) {
-      if (row.flavour) {
-        row.flavour.forEach(item => {
-          item.text = item.text.replace(/MyBLU/g, '').replace(/Pods/g, '').replace(/VUSE/g, '').replace(/Alto/, '');
-          item.text = item.text.replace(new RegExp('[0-9]', 'g'), ' ').trim();
-        });
-      }
-    }
-  }
   return data;
 };
 
