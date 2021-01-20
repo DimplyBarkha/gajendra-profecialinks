@@ -11,7 +11,7 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { transform, urlTemplate, resultsCountSelector, numberResultPerPage, regExpForIdFromUrl } = parameters;
+  const { transform, urlTemplate, resultsCountSelector, numberResultPerPage, regExpForIdFromUrl, pageIndexMultiplier, pageStartNb } = parameters;
   const { productDetails, Helpers: { Helpers } } = dependencies;
   const helper = new Helpers(context);
 
@@ -19,7 +19,14 @@ async function implementation (
     return document.querySelector(resultsCountSelector).textContent.replace(',', '');
   }, resultsCountSelector);
 
-  const totalPages = Number(resultsCount) / numberResultPerPage;
+  console.log('results12Count')
+  console.log('numberRe121sultPerPage')
+
+  console.log(resultsCount)
+  console.log(numberResultPerPage)
+
+  // @ts-ignore
+  const totalPages = Number(parseInt(resultsCount)) / numberResultPerPage;
 
   const urlArray = [];
   const currentUrl = await context.evaluate(() => {
@@ -28,10 +35,39 @@ async function implementation (
 
   const itemId = regExpForIdFromUrl ? String(currentUrl).match(regExpForIdFromUrl)[0] : '';
 
+  
+  console.log('itemId232')
+
+  console.log(itemId)
+
+  
+  console.log('totalPages2')
+
+  console.log(totalPages)
   for (let i = 1; i < totalPages; i++) {
+
+    console.log(urlTemplate)
+
+    console.log(itemId)
+
+
+    // if (!url && openSearchDefinition) {
+    //   const { pageStartNb = 1, indexOffset, pageOffset, pageIndexMultiplier, template } = openSearchDefinition;
+    //   const pageNb = page + pageStartNb - 1;
+    //   url = template
+    //     .replace(/{searchTerms}/g, encodeURIComponent(keywords))
+    //     .replace(/{query}/g, query)
+    //     .replace(/{id}/g, encodeURIComponent(id))
+    //     .replace(/{date}/g, encodeURIComponent(date))
+    //     .replace(/{page}/g, (pageNb + (pageOffset || 0)).toString())
+    //     .replace(/{index}/g, (pageNb * (pageIndexMultiplier || 0)).toString())
+    //     .replace(/{offset}/g, (offset + (indexOffset || 0)).toString());
+    // }
+    const pageNb = i + pageStartNb - 1;
     urlArray.push(urlTemplate
       .replace('{id}', itemId)
-      .replace('{page}', i));
+      .replace('{page}', i)
+      .replace(/{index}/g, (pageNb * (pageIndexMultiplier || 0)).toString()));
   }
 
   await helper.addArrayToDocument('my-urls', urlArray);

@@ -3,11 +3,12 @@ module.exports = {
   implements: 'navigation/paginate',
   parameterValues: {
     template: null,
-    openSearchDefinition: {
-      template: 'https://www.saksfifthavenue.com/{query}&start={index}&sz=24',
-      pageIndexMultiplier: 24,
-      pageStartNb: 0,
-    },
+    // openSearchDefinition: {
+    //   template: 'https://www.saksfifthavenue.com/{query}&start={index}&sz=24',
+    //   pageIndexMultiplier: 24,
+    //   pageStartNb: 0,
+    // },
+    openSearchDefinition: null,
     country: 'US',
     store: 'saksfifthavenue',
     // nextLinkSelector: 'p.page-item.next',

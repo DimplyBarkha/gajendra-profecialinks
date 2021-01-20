@@ -35,35 +35,35 @@ async function implementation (
     }
   });
 
-  // async function scrollToRec(node) {
-  //   await context.evaluate(async (node) => {
-  //     const element = document.querySelector(node) || null;
-  //     if (element) {
-  //       element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
-  //       await new Promise((resolve) => {
-  //         setTimeout(resolve, 5000);
-  //       });
-  //     }
-  //   }, node);
-  // }
-  // async function paginationNext () {
-  //   return await context.evaluate(async () => {
-  //     return !!document.querySelector('p.page-item.next');
-  //   });
-  // }
+  async function scrollToRec(node) {
+    await context.evaluate(async (node) => {
+      const element = document.querySelector(node) || null;
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+        await new Promise((resolve) => {
+          setTimeout(resolve, 5000);
+        });
+      }
+    }, node);
+  }
+  async function paginationNext () {
+    return await context.evaluate(async () => {
+      return !!document.querySelector('p.page-item.next');
+    });
+  }
 
-  // let pageNextExists = await paginationNext();
-  // console.log('pageNextExists!@');
-  // console.log(pageNextExists);
-  // while (pageNextExists === false) {
-  //   await scrollToRec('footer.footer-content');
-  //   await new Promise((resolve) => {
-  //     setTimeout(resolve, 5000);
-  //   });
-  //   console.log('pageNextExists!2');
-  //   console.log(pageNextExists);
-  //   pageNextExists = await paginationNext();
-  // }
+  let pageNextExists = await paginationNext();
+  console.log('pageNextExists!@');
+  console.log(pageNextExists);
+  while (pageNextExists === false) {
+    await scrollToRec('footer.footer-content');
+    await new Promise((resolve) => {
+      setTimeout(resolve, 5000);
+    });
+    console.log('pageNextExists!2');
+    console.log(pageNextExists);
+    pageNextExists = await paginationNext();
+  }
 
   return await context.extract(productDetails, { transform });
 }
