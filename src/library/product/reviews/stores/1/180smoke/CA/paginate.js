@@ -6,7 +6,7 @@ module.exports = {
     country: 'CA',
     store: '180smoke',
     nextLinkSelector: null,
-    nextLinkXpath: '//a[contains(text(),"Next")]',
+    nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'article.page-product-view--review',

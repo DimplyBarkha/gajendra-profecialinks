@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="page-product-view--review--content--item"]
+recordXPath: //div[@class="page-product-view--review--content--item"] | //div[@id="my-reviews"]
 fields:
 - name: aggregateRating
   xpath: ancestor::html//div[@id="main_custom_rating"]
@@ -9,9 +9,9 @@ fields:
   xpath: ancestor::html//h1[@class="page-product-view--title"]
 - name: commentCount
 - name: reviewDate
-  xpath: //p[@class="mb-0"]/text()
+  xpath: //p[@class="mb-0"]/text() | //div[@id="my-reviews"]/@review_at
 - name: user
-  xpath: //p[@class="mb-0"]/strong/text()
+  xpath: //p[@class="mb-0"]/strong/text() | //div[@id="my-reviews"]/@nickname
 - name: brand
   xpath: ancestor::html//h1[@class="page-product-view--title"]
 - name: productRange
@@ -25,8 +25,9 @@ fields:
 - name: sku
   xpath: ancestor::html//span[@class="d-none"]/text()[2]
 - name: reviewText
-  xpath: //p[@class="page-product-view--review--description"]
+  xpath: //p[@class="page-product-view--review--description"] | //div[@id="my-reviews"]/@detail
 - name: reviewTitle
+  xpath: //div[@class="card-body"]//h4 | //div[@id="my-reviews"]/@title
 - name: mediaURL
   xpath: ancestor::html//meta[@property="og:image"]/@content
 - name: location
@@ -34,8 +35,10 @@ fields:
 - name: helpful
 - name: verifiedPurchase
 - name: rating
-  xpath: //ul[contains(@class,"reviews-stars")]/@custom_rating
+  xpath: //ul[contains(@class,"reviews-stars")]/@custom_rating | //div[@id="my-reviews"]/@ratings
 - name: pageTitle
   xpath: ancestor::html//meta[@property="og:title"]/@content
 - name: sourceUrl
   xpath: ancestor::html//meta[@property="og:url"]/@content
+  regExp: (.+)
+  regExpReplace: https://www.180smoke.ca$1
