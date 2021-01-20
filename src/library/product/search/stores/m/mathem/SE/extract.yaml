@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: id
     singleValue: false
-    xpath: //button[@class="decrease"]/@aria-controls
+    xpath: //div[@class="add-to-cart"]/button[@data-cy="decrease-quantity"]/@aria-controls
     # type: NUMBER
     regExp: \d+
     # regExpReplace: ''
