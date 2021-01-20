@@ -1,0 +1,84 @@
+input:
+  id: 123$32&
+  _url: http://booker.co.uk
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=ba9440dd-506f-423e-9be3-b05e85a638f0/task=0124a929-d116-4197-983a-34ed81afcc60/88e13b20-a220-4d93-9d34-1b9f34a5190f.html
+    extractionConfigId: product/details/stores/b/booker/UK/extract
+    data:
+      - group:
+          - image:
+              - text: http://www.booker.co.uk/bbimages/1/47657f68-36e6-4320-9ed7-23d86b02a612.jpg
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/a[1]/figure[1]/figure[1]/img[1]/@src
+            nameExtended:
+              - text: Oral-B 123 Fresh Mint Toothpaste 75ml
+                xpath: /html/body/main[1]/div[2]/div[2]/h4[1]
+            description:
+              - text: >-
+                  Anti-cavity toothpaste with active fluoride that helps prevent
+                  tooth decay 
+                   Cleans and helps teeth regain their natural whiteness in a gentle way 
+                   Freshening flavour 
+                   Ideal for adults and children from 6 years old
+                xpath: /html/body/main[1]/div[2]/div[2]/div[5]/p[1]
+              - text: Oral-B 123 toothpaste is an effective and enjoyable toothpaste promoting
+                  healthy smiles for all the family. It protects against
+                  cavities and helps reveal the natural whiteness of your teeth
+                  with a freshening flavour!
+                xpath: /html/body/main[1]/div[2]/div[2]/div[5]/p[2]
+            brandText:
+              - text: Oral-B
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/p[4]/a[1]
+            variantId:
+              - text: "121942"
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]/@data-item
+            legalDisclaimer:
+              - text: >-
+                  The image and summary details have been prepared for
+                  illustration and information purposes only. On occasion the
+                  actual product may differ from that shown. 
+                   
+                   Whilst we have taken every care in preparing this summary and believe it to be accurate, it is not a substitute for reading the product packaging or label prior to use. You should note that products and their ingredients are subject to change. If you do require precise ingredient information you should consult the manufacturer, whose contact details will appear on the packaging or label. 
+                   
+                   Booker is therefore unable to accept liability for any incorrect information. Where this description contains a link to another party's website for further information on the product, please note that Booker has no control over and no liability for the contents of that website. This data is supplied for personal use only. It may not be reproduced in any way whatsoever without Booker's prior consent, nor without due acknowledgement.
+                xpath: /html/body/main[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]
+            name:
+              - text: Oral-B 123 Fresh Mint Toothpaste 75ml
+                xpath: /html/body/main[1]/div[2]/div[2]/h4[1]
+            ingredientsList:
+              - text: Aqua, Hydrated Silica, Sorbitol, Sodium Lauryl Sulfate, Cellulose Gum,
+                  Aroma, Sodium Saccharin, Sodium Fluoride, Carbomer, CI 77891,
+                  Trisodium Phosphate, Limonene, Polysorbate 80, CI 74160
+                xpath: /html/body/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/p[1]
+            countryOfOrigin:
+              - text: Germany
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/p[1]/a[1]
+            productOtherInformation:
+              - text: Show less...
+                xpath: /html/body/main[1]/div[2]/div[2]/div[5]/p[3]
+            packaging:
+              - text: Tube
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/p[3]/a[1]
+            productUrl:
+              - text: https://www.booker.co.uk/products/product%20detail?Code=121942&returnUrl=http%3a%2f%2fwww.booker.co.uk%2fproducts%2fproduct-list%3fkeywords%3d123%252432%2526
+                xpath: /html/body/div[3]
+            metaKeywords:
+              - text: booker wholesale,wholesale uk,wholesaler,foodservice,food wholesaler
+                xpath: /html/body/div[4]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[5]
+            termsAndConditions:
+              - text: Yes
+                xpath: /html/body/div[6]
+            variantCount:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+        xpath: /html/body
+    timestamp: 1611161858851

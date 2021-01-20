@@ -13,7 +13,7 @@ module.exports = {
     const url = `${inputs.url}`;
     await context.goto(url, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
     const LogoutBtn = await context.evaluate(async () => {
-      return document.querySelector('a#SHC_ASC_HyperLink2');
+      return document.querySelector('a.logout-btn');
     });
     const branchSelected = await context.evaluate(async () => {
       return document.querySelector('a#SHC_ASC_BrowseUserLink');
@@ -22,14 +22,14 @@ module.exports = {
       await context.click('a#SHC_ASC_BrowseUserLink');
     };
     if (!LogoutBtn) {
-      await context.waitForSelector('input[name="OutsideHomePageControl$CustomerNumber"]');
-      await context.setInputValue('input[name="OutsideHomePageControl$CustomerNumber"]', '703636209');
-      await context.click('input[name="OutsideHomePageControl$cmdCustomerNumber"]');
-      await context.waitForSelector('input[name="LoginControl$EmailSingle"]');
-      await context.setInputValue('input[name="LoginControl$EmailSingle"]', 'russell.kirkham@unilever.com');
-      await context.setInputValue('input[name="LoginControl$PasswordSingle"]', 'george');
-      await context.click('input[name="LoginControl$EnterEmailPasswordSubmit"]');
-      await context.waitForSelector('ul[id="tabmenu"]');
+      await context.waitForSelector('input#CustomerNumber');
+      await context.setInputValue('input#CustomerNumber', '703636209');
+      await context.click('input#CustomerNumber+button');
+      await context.waitForSelector('form[action="/login"]');
+      await context.setInputValue('input#Email', 'russell.kirkham@unilever.com');
+      await context.setInputValue('input#Password', 'george');
+      await context.click('button.login-btn');
+      await context.waitForSelector('div#navbarMenuItems');
       await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
     }
   },

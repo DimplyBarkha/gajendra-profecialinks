@@ -13,14 +13,14 @@ fields:
 - name: _pageTimeStamp
   singleValue: false
 - name: image
-  xpath: (//div[contains(@class,"piTopInfo")]/div[1]/div/a/img/@src)[1]
+  xpath: (//div[@class="product-image"]//a//img/@src)[1]
   regExp: (.+)
   regExpReplace: http://www.booker.co.uk$1
   singleValue: true
   description: URL of the main product image
 - name: imageAlt
   singleValue: true
-  xpath: //div[contains(@class,"piTopInfo")]/div[1]/div/a/img/@alt
+  xpath: (//div[@class="product-image"]//a//img/@alt)[1]
   description: Alt text of the main product image
 - name: alternateImages
   singleValue: false
@@ -32,21 +32,18 @@ fields:
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
-  xpath: //div[@id="csmpc"]//*[contains(@class,'Selected')][position()>2]
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
-  xpath: //div[@class="pip"]/h3
+  xpath: //div[contains(@class,'product-main')]/h4
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
-  xpath: //div[@id='listPrice']
 - name: price
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
-  xpath: //li[@id="BPIH_liWSP"]/span
 - name: availabilityText
   singleValue: true
   description: Availability as described on page for the selected variant. If there
@@ -57,7 +54,7 @@ fields:
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: //h1[contains(.,'Description')]/following-sibling::p
+  xpath: //div[@id="product-details-show-more"]//comment()[contains(.,'Product Description')]//following-sibling::*[following-sibling::comment()[contains(.,'Other Information')]]
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -65,16 +62,15 @@ fields:
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
-  xpath: //ul[@id="catLinks"]/li/b[contains(.,'By Brand:')]/following-sibling::span
+  xpath: //div[@id="categories"]//*[contains(text(),'Brand')]//following-sibling::a
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
-  xpath: //h1[contains(.,'Manufacturer')]/following-sibling::p
+  xpath: //div[@class="desplegabledesktop"]//div[@data-parent="#brandAndSupplierInformation"]//p[contains(text(),'Manufacturer')]//following-sibling::p[1]
   regExp: ^([^,]+)
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
-  xpath: //div[contains(@class,"piTopInfo")]/div[2]/ul/li[contains(.,'Size:')]/span
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page
@@ -87,14 +83,13 @@ fields:
 - name: sku
   singleValue: true
   description: The store-specific product identifier
-  xpath: //div[contains(@class,"piTopInfo")]/div[2]/ul/li[contains(.,'Code:')]/span
 - name: variantId
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
-  xpath: //div[contains(@class,"piTopInfo")]/div[2]/ul/li[contains(.,'Code:')]/span
+  xpath: //div[@class="product-price"]//@data-item
 - name: mpc
-  singleValue: tru
+  singleValue: true
   description: The manufacturer model code (unique) of the product
 - name: packSize
   singleValue: true
@@ -102,16 +97,15 @@ fields:
     site to quantity)
 - name: legalDisclaimer
   singleValue: true
-  xpath: //new-disclaimer
+  xpath: //div[@class="desplegabledesktop"]//div[@data-parent="#productDisclaimer"]//div[@class="card-body"]
   description: Content under "legal disclaimer" header
 - name: directions
   singleValue: true
   description: Content under "directions" header
-  xpath: //div[@class="piSection"]/h1[contains(text(),'Prepare and Use')]/following-sibling::*
 - name: warnings
   singleValue: true
   description: Content under "warnings" header
-  xpath: //div[@class="piSection"]/h1[contains(text(),'Allergy Advice')]/following-sibling::*
+  xpath: //div[@id="allergens"]
 - name: ratingCount
   singleValue: true
   description: The number of ratings
@@ -152,7 +146,7 @@ fields:
 - name: name
   singleValue: true
   description: The product name
-  xpath: //div[@class="pip"]/h3
+  xpath: //div[contains(@class,'product-main')]/h4
 - name: inStorePrice
   singleValue: true
   description: Price in the selected store
@@ -171,7 +165,7 @@ fields:
 - name: brandLink
   singleValue: true
   description: 
-  xpath: //ul[@id="catLinks"]/li/b[contains(.,'By Brand:')]/following-sibling::span/a/@href
+  xpath: //div[@id="categories"]//*[contains(text(),'Brand')]//following-sibling::a/@href
   regExp: (.+)
   regExpReplace: https://www.booker.co.uk$1
 - name: internationalShipping
@@ -259,15 +253,16 @@ fields:
   singleValue: true
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
-  xpath: //div[@class="piSection"]/h1[contains(text(),'Ingredients')]/following-sibling::*
+  xpath: //div[@class="desplegabledesktop"]//div[@data-parent="#ingredientsAndAllergens"]//comment()[contains(.,'Ingredients')]//following-sibling::*[following-sibling::comment()[contains(.,'Information')]]
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.
-  xpath: //h1[contains(.,"Nutrition")]/following-sibling::div/table//tr[1]/th[2]
+  xpath: //div[@class="desplegabledesktop"]//div[@data-parent="#nutrition"]//tr[1]/th[contains(.,'Per 100') or contains(.,'per 100')]
   regExp: \d+\s?\w+
 - name: servingSizeUom
   singleValue: true
-  xpath: //div[@id='servingSizeUom']
+  xpath: //div[@class="desplegabledesktop"]//div[@data-parent="#nutrition"]//tr[1]/th[contains(.,'Per 100') or contains(.,'per 100')]
+  regExp: ml|mL|g|kg|mg|dg|l
   description: Unit of measure of serving
 - name: numberOfServingsInPackage
   singleValue: true
@@ -276,7 +271,7 @@ fields:
   singleValue: true
   description: Nutritional Information for Calories Per Serving content - Usually
     based on per 100g serving
-  xpath: (//h1[contains(.,'Nutrition')]/following-sibling::div/table//th[contains(.,'Energy')]/following-sibling::td[1])[1]
+  xpath: //div[@id='caloriesPerServing']
 - name: caloriesFromFatPerServing
   singleValue: true
   description: Nutritional Information for Calories From Fat content - Usually based
@@ -285,20 +280,20 @@ fields:
   singleValue: true
   description: Nutritional Information for Total Fat content - Usually based on per
     100g serving
-  xpath:  (//h1[contains(.,'Nutrition')]/following-sibling::div/table//tr/th[contains(.,'Fat') or contains(.,'fat')]/following-sibling::td[1])[1]
+  xpath:  //div[@id='totalFatPerServing']
   regExp: ^<?>?\s?\d+(\,?\.?\d+)?%?%?
 - name: totalFatPerServingUom
   singleValue: true
-  xpath:  (//h1[contains(.,'Nutrition')]/following-sibling::div/table//tr/th[contains(.,'Fat') or contains(.,'fat')]/following-sibling::td[1])[1]
-  regExp: ([^\d\.\,\(\)\*\s<>]+)
+  xpath:  //div[@id='totalFatPerServing']
+  regExp: ([^\d\.\,\(\)\*\s<>\%]+)
   description: Unit of Measure Data for Total Fat content
 - name: saturatedFatPerServing
-  xpath: (//h1[contains(.,'Nutrition')]/following-sibling::div/table//th[contains(.,'aturates')]/following-sibling::td[1])[1]
+  xpath: //div[@id='saturatedFatPerServing']
   regExp: ^<?>?\s?\d+(\,?\.?\d+)?%?
   singleValue: true
 - name: saturatedFatPerServingUom
-  xpath: (//h1[contains(.,'Nutrition')]/following-sibling::div/table//th[contains(.,'aturates')]/following-sibling::td[1])[1]
-  regExp: ([^\d\.\,\(\)\*\s<>]+)
+  xpath: //div[@id='saturatedFatPerServing']
+  regExp: ([^\d\.\,\(\)\*\s<>\%]+)
   singleValue: false
 - name: transFatPerServing
   singleValue: true
@@ -318,101 +313,89 @@ fields:
   singleValue: true
   description: Nutritional Information for Sodium content - Usually based on per 100g
     serving
-  xpath: (//h1[contains(.,'Nutrition')]/following-sibling::div/table//tr/th[contains(.,'Sodium') or contains(.,'sodium')]/following-sibling::td[1])[1]
+  xpath: //div[@id='sodiumPerServing']
   regExp: ^<?>?\s?\d+(\,?\.?\d+)?%?
 - name: sodiumPerServingUom
   singleValue: true
   description: Unit of Measure Data for Sodium content
-  xpath: (//h1[contains(.,'Nutrition')]/following-sibling::div/table//tr/th[contains(.,'Sodium') or contains(.,'sodium')]/following-sibling::td[1])[1]
-  regExp: ([^\d\.\,\(\)\*\s<>]+)
+  xpath: //div[@id='sodiumPerServing']
+  regExp: ([^\d\.\,\(\)\*\s<>\%]+)
 - name: totalCarbPerServing
   singleValue: true
-  xpath: (//h1[contains(.,'Nutrition')]/following-sibling::div/table//tr/th[contains(.,'arbohydrate')]/following-sibling::td[1])[1]
+  xpath: //div[@id='carbPerServing']
   regExp: ^<?>?\s?\d+(\,?\.?\d+)?%?
   description: Nutritional Information for Total Carbohydrate content - Usually based
     on per 100g serving
 - name: totalCarbPerServingUom
   singleValue: true
-  xpath: (//h1[contains(.,'Nutrition')]/following-sibling::div/table//tr/th[contains(.,'arbohydrate')]/following-sibling::td[1])[1]
-  regExp: ([^\d\.\,\(\)\*\s<>]+)
+  xpath: //div[@id='carbPerServing']
+  regExp: ([^\d\.\,\(\)\*\s<>\%]+)
   description: Unit of Measure Data for Total Carbohydrate content
 - name: dietaryFibrePerServing
   singleValue: true
-  xpath: (//h1[contains(.,'Nutrition')]/following-sibling::div/table//tr/th[contains(.,'ibre')]/following-sibling::td[1])[1]
+  xpath: //div[@id='fibrePerServing']
   regExp: ^<?>?\s?\d+(\,?\.?\d+)?%?
   description: Nutritional Information for Dietary Fibre content - Usually based on
     per 100g serving
 - name: dietaryFibrePerServingUom
   singleValue: true
-  xpath: (//h1[contains(.,'Nutrition')]/following-sibling::div/table//tr/th[contains(.,'ibre')]/following-sibling::td[1])[1]
-  regExp: ([^\d\.\,\(\)\*\s<>]+)
+  xpath: //div[@id='fibrePerServing']
+  regExp: ([^\d\.\,\(\)\*\s<>\%]+)
   description: Unit of Measure Data for Dietary Fibre content
 - name: totalSugarsPerServing
   singleValue: true
-  xpath: (//h1[contains(.,'Nutrition')]/following-sibling::div/table//tr/th[contains(.,'ugars')]/following-sibling::td[1])[1]
+  xpath: //div[@id='sugarPerServing']
   regExp: ^<?>?\s?\d+(\,?\.?\d+)?%?
   description: Nutritional Information for Total Sugar content - Usually based on
     per 100g serving
 - name: totalSugarsPerServingUom
   singleValue: true
-  xpath: (//h1[contains(.,'Nutrition')]/following-sibling::div/table//tr/th[contains(.,'ugars')]/following-sibling::td[1])[1]
-  regExp: ([^\d\.\,\(\)\*\s<>]+)
+  xpath: //div[@id='sugarPerServing']
+  regExp: ([^\d\.\,\(\)\*\s<>\%]+)
   description: Unit of Measure Data for Total Sugar content
 - name: proteinPerServing
   singleValue: true
-  xpath: (//h1[contains(.,'Nutrition')]/following-sibling::div/table//tr/th[contains(.,'rotein')]/following-sibling::td[1])[1]
+  xpath: //div[@id='proteinPerServing']
   regExp: ^<?>?\s?\d+(\,?\.?\d+)?%?
   description: Nutritional Information for Protein content - Usually based on per
     100g serving
 - name: proteinPerServingUom
   singleValue: true
-  xpath: (//h1[contains(.,'Nutrition')]/following-sibling::div/table//tr/th[contains(.,'rotein')]/following-sibling::td[1])[1]
-  regExp: ([^\d\.\,\(\)\*\s<>]+)
+  xpath: //div[@id='proteinPerServing']
+  regExp: ([^\d\.\,\(\)\*\s<>\%]+)
   description: Unit of Measure Data for Protein
 - name: vitaminAPerServing
   singleValue: true
   description: Nutritional Information for Vitamin A content - Usually based on per
     100g serving
-  xpath: (//h1[contains(.,'Nutrition')]/following-sibling::div/table//tr/th[contains(.,'itamin A') or contains(.,'itamin a') or contains(.,'it. A')]/following-sibling::td[1])[1]
-  regExp: ^<?>?\s?\d+(\,?\.?\d+)?%?
 - name: vitaminAPerServingUom
   singleValue: true
   description: Unit of Measure Data for Vitamin A
-  xpath: (//h1[contains(.,'Nutrition')]/following-sibling::div/table//tr/th[contains(.,'itamin A') or contains(.,'itamin a') or contains(.,'it. A')]/following-sibling::td[1])[1]
-  regExp: ([^\d\.\,\(\)\*\s<>]+)
 - name: vitaminCPerServing
   singleValue: true
   description: Nutritional Information for Vitamin C content - Usually based on per
     100g serving
-  xpath: (//h1[contains(.,'Nutrition')]/following-sibling::div/table//tr/th[contains(.,'itamin C') or contains(.,'itamin c') or contains(.,'it. C')]/following-sibling::td[1])[1]
-  regExp: ^<?>?\s?\d+(\,?\.?\d+)?%?
 - name: vitaminCPerServingUom
   singleValue: true
   description: Unit of Measure Data for Vitamin C
-  xpath: (//h1[contains(.,'Nutrition')]/following-sibling::div/table//tr/th[contains(.,'itamin C') or contains(.,'itamin c') or contains(.,'it. C')]/following-sibling::td[1])[1]
-  regExp: ([^\d\.\,\(\)\*\s<>]+)
 - name: calciumPerServing
   singleValue: true
   description: Nutritional Information for Calcium content - Usually based on per
     100g serving
-  xpath: (//h1[contains(.,'Nutrition')]/following-sibling::div/table//th[contains(., 'alcium')]/following-sibling::td[1])[1]
+  xpath: //div[@id='calciumPerServing']
   regExp: ^<?>?\s?\d+(\,?\.?\d+)?%?
 - name: calciumPerServingUom
   singleValue: true
-  xpath: (//h1[contains(.,'Nutrition')]/following-sibling::div/table//th[contains(.,'alcium')]/following-sibling::td[1])[1]
-  regExp: ([^\d\.\,\(\)\*\s<>]+)
+  xpath: //div[@id='calciumPerServing']
+  regExp: ([^\d\.\,\(\)\*\s<>\%]+)
   description: Unit of Measure Data for Calcium
 - name: ironPerServing
   singleValue: true
   description: Nutritional Information for Iron content - Usually based on per 100g
     serving
-  xpath: (//h1[contains(.,'Nutrition')]/following-sibling::div/table//th[contains(.,'ron')]/following-sibling::td[1])[1]
-  regExp: ^<?>?\s?\d+(\,?\.?\d+)?%?
 - name: ironPerServingUom
   singleValue: true
   description: Unit of Measure Data for Iron
-  xpath: (//h1[contains(.,'Nutrition')]/following-sibling::div/table//th[contains(.,'ron')]/following-sibling::td[1])[1]
-  regExp: ([^\d\.\,\(\)\*\s<>]+)
 - name: dietarySymbols
   singleValue: true
   description: Information related to the dietary symbols of a specific product
@@ -420,23 +403,23 @@ fields:
   singleValue: true
   description: Nutritional Information for Magnesium content - Usually based on per
     100g serving
-  xpath: (//h1[contains(.,'Nutrition')]/following-sibling::div/table//th[contains(.,'agnesium')]/following-sibling::td[1])[1]
+  xpath: //div[@id='magnesiumPerServing']
   regExp: ^<?>?\s?\d+(\,?\.?\d+)?%?
 - name: magnesiumPerServingUom
   singleValue: true
-  xpath: (//h1[contains(.,'Nutrition')]/following-sibling::div/table//th[contains(.,'agnesium')]/following-sibling::td[1])[1]
-  regExp: ([^\d\.\,\(\)\*\s<>]+)
+  xpath: //div[@id='magnesiumPerServing']
+  regExp: ([^\d\.\,\(\)\*\s<>\%]+)
   description: Unit of Measure Data for Magnesium
 - name: saltPerServing
   singleValue: true
   description: Nutritional Information for Salt content - Usually based on per 100g
     serving
-  xpath: (//h1[contains(.,'Nutrition')]/following-sibling::div/table//tr/th[contains(.,'alt')]/following-sibling::td[1])[1]
+  xpath: //div[@id='saltPerServing']
   regExp: ^<?>?\s?\d+(\,?\.?\d+)?%?
 - name: saltPerServingUom
   singleValue: true
-  xpath: (//h1[contains(.,'Nutrition')]/following-sibling::div/table//tr/th[contains(.,'alt')]/following-sibling::td[1])[1]
-  regExp: ([^\d\.\,\(\)\*\s<>]+)
+  xpath: //div[@id='saltPerServing']
+  regExp: ([^\d\.\,\(\)\*\s<>\%]+)
   description: Unit of Measure Data for Salt
 - name: dietaryInformation
   singleValue: true
@@ -451,27 +434,27 @@ fields:
 - name: storage
   singleValue: true
   description: Suggested storage location for product
-  xpath: //ul[@id="catLinks"]/li/b[contains(.,'Storage')]/following-sibling::span
+  xpath: //div[@class="desplegabledesktop"]//div[@data-parent="#handlingAndCooking"]//p[contains(text(),'Storage')]/following-sibling::p[1]
 - name: countryOfOrigin
   singleValue: true
-  xpath: //h1[contains(.,'Country')]/following-sibling::ul/li/span
+  xpath: //div[@id='categories']//p[span[contains(text(),'Origin')]]/a
   description: The country from which the product originates
 - name: allergyAdvice
   singleValue: true
-  xpath: //h1[contains(.,"Allergy Advice")]/following-sibling::*
+  xpath: //div[@id='allergens']
   description: Allergy information associated with the product
 - name: recyclingInformation
   singleValue: true
-  xpath: //h1[contains(.,"Recycling")]/following-sibling::*
+  xpath: //div[@class="desplegabledesktop"]//div[@data-parent="#productPackagingInfo"]//comment()[contains(.,'Recycling')]//following-sibling::p[2]
   description: Recycling information associated with the product
 - name: productOtherInformation
   singleValue: false
   description: Any other product information
-  xpath: normalize-space(//h1[contains(.,'Additional Information')]/following-sibling::*)
+  xpath: //div[@id='product-details-show-more']//comment()[contains(.,'Other Info')]//following-sibling::p[1]
 - name: packaging
   singleValue: true
   description: Packaging information
-  xpath: //h1[contains(.,'Packaging')]/following-sibling::*
+  xpath: //div[@id='categories']//p[span[contains(text(),'Pack Type')]]/a
 - name: additives
   singleValue: true
   description: List of additives in the product
@@ -484,11 +467,11 @@ fields:
 - name: promotion
   singleValue: true
   description: promotion text on product page
-  xpath: (//div[@class="prodPromo"][//img[@alt="Prices Down"]/following-sibling::*]//li)[1]
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information
-  xpath: //div[contains(@class,"piTopInfo")]/div[2]/ul/li[contains(.,'Alcohol by Volume:')]/span
+  xpath: //p[contains(.,'Alcohol By Volume:')]/text()[1]
+  regExp: (\d+)\,?\.?(\d+)?
 - name: newVersion
   singleValue: true
   description: In product page, information about a new version of the product (https://www.amazon.es/DODOT-Sensitive-Pa%C3%B1ales-Talla-240/dp/B01ELA8U0Q/ref=sr_1_4?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=dodot%2B-%2Bpa%C3%B1ales%2Bpara%2Bni&qid=1589984387&sr=8-4&th=1)
@@ -560,4 +543,4 @@ fields:
   singleValue: true
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  defaultValue: 'No'
+  defaultValue: 'Yes'

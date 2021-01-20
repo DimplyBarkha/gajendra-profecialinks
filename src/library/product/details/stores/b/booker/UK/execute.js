@@ -17,11 +17,11 @@ const implementation = async (inputs, { loadedSelector, noResultsXPath }, contex
       noResultsXPath,
     );
     const productPageSelector = await context.evaluate(
-      async () => document.querySelector('div.resultTable td.info div.info_r1>div>a'),
+      async () => document.querySelector('div.product-list div.product-name-priceMarked>p:first-child.product-name'),
     );
     if (productPageSelector) {
-      await context.click('div.resultTable td.info div.info_r1>div>a');
-      await context.waitForSelector('div#mainContent');
+      await context.click('div.product-list div.product-name-priceMarked>p:first-child.product-name');
+      await context.waitForSelector('main#product_detail');
     } else return await context.evaluate((xpath) => !document.evaluate(xpath, document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue, noResultsXPath);
   }
   return await context.evaluate((xpath) => !document.evaluate(xpath, document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue, noResultsXPath);
@@ -33,8 +33,9 @@ module.exports = {
     country: 'UK',
     store: 'booker',
     domain: 'booker.co.uk',
-    loadedSelector: 'td.siteContent',
-    noResultsXPath: '//div[@id="filters"]//h2[contains(text(), "0 Results")] | //div[@id="TempRegLeft"] | //div[@id="OHPLeft"] | //div[@class="YourBookerLeft"]',
+    loadedSelector: 'main.container-fluid, div.mainSubcategories',
+    // noResultsXPath: '//div[@id="filters"]//h2[contains(text(), "0 Results")] | //div[@id="TempRegLeft"] | //div[@id="OHPLeft"] | //div[@class="YourBookerLeft"] | //h1[contains(text(),"The website is undergoing essential maintenance")] | //h1[contains(text(),"Sorry, this page does not exist")]',
+    noResultsXPath: '//p[contains(text(),"search returned no results")] | //h1[contains(text(),"The website is undergoing essential maintenance")] | //h1[contains(text(),"Sorry, this page does not exist")]',
     zipcode: '',
   },
   implementation,

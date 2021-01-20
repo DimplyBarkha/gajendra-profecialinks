@@ -2,173 +2,128 @@ input:
   id: "256795"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=552fba50-2098-4d1b-a2f2-908ac6672526/task=fcf23ad3-0d1d-432d-9a2b-1d3d693bd4be/cd859574-4da4-4c62-803e-01c10e507d24.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=ba9440dd-506f-423e-9be3-b05e85a638f0/task=5fdda0e4-f427-488e-b875-28f71118f6a8/120c6c6c-ec84-4a6d-ae77-2797bb2a2419.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
-          - category:
-              - text: Grocery - Catering
-                xpath: /html/body/form[1]/div[3]/div[1]/div[3]/a[3]
-              - text: Gravy & Stock Catering
-                xpath: /html/body/form[1]/div[3]/div[1]/div[3]/a[4]
-              - text: Gravy & Gravy Browning
-                xpath: /html/body/form[1]/div[3]/div[1]/div[3]/span[5]
+          - image:
+              - text: http://www.booker.co.uk/images/ni200.jpg
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/a[1]/figure[1]/figure[1]/img[1]/@src
             nameExtended:
-              - text: Bisto Gluten Free Gravy Granules 1.9kg
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/h3[1]
-            name:
-              - text: Bisto Gluten Free Gravy Granules 1.9kg
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/h3[1]
-            price:
-              - text: £9.99
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[3]/span[1]
-            quantity:
-              - text: 1.9kg
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[2]/span[1]
-            sku:
-              - text: "256795"
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[1]
-            variantId:
-              - text: "256795"
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[1]
+              - text: Bisto Gluten Free Fine Gravy Granules 1.9kg
+                xpath: /html/body/main[1]/div[2]/div[2]/h4[1]
+            description:
+              - text: |-
+                  Gluten free 
+                   Makes 27 litres 
+                   Just add boiling water 
+                   Nation's favourite 
+                   No added MSG 
+                   Suitable for vegans
+                xpath: /html/body/main[1]/div[2]/div[2]/div[5]/p[2]
+              - text: Suitable for Vegans
+                xpath: /html/body/main[1]/div[2]/div[2]/div[5]/ul[1]
+              - text: DH 2017 Compliant* *Based on Government salt target 2017 (per 100ml as per
+                  make up instructions)
+                xpath: /html/body/main[1]/div[2]/div[2]/div[5]/p[3]
             brandText:
               - text: Bisto
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[3]/span[1]
-            brandLink:
-              - text: https://www.booker.co.uk/catalog/similarproducts.aspx?sp=467&searchTerm=By+Brand%3a+Bisto
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[3]/span[1]/a[1]/@href
-            storage:
-              - text: Ambient
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[4]/span[1]
-            description:
-              - text: Gluten free. Makes 27 litres. Just add boiling water. Nation's favourite.
-                  No added MSG. Suitable for vegans. DH 2017 Compliant* *Based
-                  on Government salt target 2017 (per 100ml as per make up
-                  instructions) For recipes visit www.premierfoodservice.co.uk
-                  For information, call Caterer Advice Line 0800 328 4246 Monday
-                  - Friday 9am - 5pm
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[2]/p[1]
-            dietaryInformation:
-              - text: Free From Added MSG
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[3]/ul[1]
-            ingredientsList:
-              - text: |-
-                  Maltodextrin,
-                  Potato Starch,
-                  Salt,
-                  Flavourings,
-                  Colour (Plain Caramel),
-                  Vegetable Oils (Palm, Rapeseed, Sunflower),
-                  Sugar,
-                  Stabiliser (Guar Gum),
-                  Onion Powder,
-                  Yeast Extract
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[4]/ul[1]
-            servingSize:
-              - text: 100g
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[5]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
-            caloriesPerServing:
-              - text: 1489kJ
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[5]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
-            totalFatPerServing:
-              - text: "3.1"
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[5]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
-            totalFatPerServingUom:
-              - text: g
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[5]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
-            saturatedFatPerServing:
-              - text: "0.8"
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[5]/div[1]/table[1]/tbody[1]/tr[4]/td[1]
-            saturatedFatPerServingUom:
-              - text: g
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[5]/div[1]/table[1]/tbody[1]/tr[4]/td[1]
-            totalCarbPerServing:
-              - text: "78.2"
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[5]/div[1]/table[1]/tbody[1]/tr[5]/td[1]
-            totalCarbPerServingUom:
-              - text: g
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[5]/div[1]/table[1]/tbody[1]/tr[5]/td[1]
-            dietaryFibrePerServing:
-              - text: "1.6"
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[5]/div[1]/table[1]/tbody[1]/tr[7]/td[1]
-            dietaryFibrePerServingUom:
-              - text: g
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[5]/div[1]/table[1]/tbody[1]/tr[7]/td[1]
-            totalSugarsPerServing:
-              - text: "4.8"
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[5]/div[1]/table[1]/tbody[1]/tr[6]/td[1]
-            totalSugarsPerServingUom:
-              - text: g
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[5]/div[1]/table[1]/tbody[1]/tr[6]/td[1]
-            proteinPerServing:
-              - text: "1.9"
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[5]/div[1]/table[1]/tbody[1]/tr[8]/td[1]
-            proteinPerServingUom:
-              - text: g
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[5]/div[1]/table[1]/tbody[1]/tr[8]/td[1]
-            saltPerServing:
-              - text: "10.14"
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[5]/div[1]/table[1]/tbody[1]/tr[9]/td[1]
-            saltPerServingUom:
-              - text: g
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[5]/div[1]/table[1]/tbody[1]/tr[9]/td[1]
-            directions:
-              - text: "Cooking / Serving Instructions To make delicious gluten free Bisto Gravy,
-                  just add boiling water and whisk! Boiling Water (Litres): 1
-                  Litre; Granules (g): 75g; Granules (Heaped tbsp): 2 1/2 tbsp;
-                  Servings (50ml): 21 Boiling Water (Litres): 3 Litres; Granules
-                  (g): 225g; Granules (Heaped tbsp): 8 tbsp; Servings (50ml): 64
-                  Boiling Water (Litres): 5 Litres; Granules (g): 375g; Granules
-                  (Heaped tbsp): 13 tbsp; Servings (50ml): 107 Boiling Water
-                  (Litres): 25 Litres; Granules (g): Whole Pack; Granules
-                  (Heaped tbsp): Whole Pack; Servings (50ml): 538 Easy to use!
-                  Self dosing - When it's the right thickness, it's the right
-                  flavour and colour too. A great base - Supports all other
-                  flavours, allowing you to tailor your own. No waste - Make and
-                  use what you need."
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/p[1]
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/p[3]/a[1]
             manufacturer:
               - text: Premier Foods ROI
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/p[1]
-            packaging:
-              - text: Type Tub
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[8]/ul[1]
+                xpath: /html/body/main[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/p[2]
+            variantId:
+              - text: "256795"
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]/@data-item
             legalDisclaimer:
-              - text: The image and summary details have been prepared for illustration and
-                  information purposes only. On occasion the actual product may
-                  differ from that shown. Whilst we have taken every care in
-                  preparing this summary and believe it to be accurate, it is
-                  not a substitute for reading the product packaging or label
-                  prior to use. You should note that products and their
-                  ingredients are subject to change. If you do require precise
-                  ingredient information you should consult the manufacturer,
-                  whose contact details will appear on the packaging or label.
-                  Booker is therefore unable to accept liability for any
-                  incorrect information. Where this description contains a link
-                  to another party's website for further information on the
-                  product, please note that Booker has no control over and no
-                  liability for the contents of that website. This data is
-                  supplied for personal use only. It may not be reproduced in
-                  any way whatsoever without Booker's prior consent, nor without
-                  due acknowledgement.
-                xpath: /html/body/new-disclaimer[1]
-            productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=256795&categoryName=305268
-                xpath: /html/body/div[1]
-            metaKeywords:
-              - text: Booker, cash & carry, cash and carry, wholesale service, wholesalers, Big
-                  Food Group, Booker Premier, Happy Shopper, Tuck Shop, Malt
-                  House Vintners, Chef's Larder, Drop Shipment
-                xpath: /html/body/div[2]
-            availabilityText:
-              - text: In Stock
-                xpath: /html/body/div[3]
-            termsAndConditions:
-              - text: Yes
-                xpath: /html/body/div[4]
+              - text: >-
+                  The image and summary details have been prepared for
+                  illustration and information purposes only. On occasion the
+                  actual product may differ from that shown. 
+                   
+                   Whilst we have taken every care in preparing this summary and believe it to be accurate, it is not a substitute for reading the product packaging or label prior to use. You should note that products and their ingredients are subject to change. If you do require precise ingredient information you should consult the manufacturer, whose contact details will appear on the packaging or label. 
+                   
+                   Booker is therefore unable to accept liability for any incorrect information. Where this description contains a link to another party's website for further information on the product, please note that Booker has no control over and no liability for the contents of that website. This data is supplied for personal use only. It may not be reproduced in any way whatsoever without Booker's prior consent, nor without due acknowledgement.
+                xpath: /html/body/main[1]/div[3]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]
+            name:
+              - text: Bisto Gluten Free Fine Gravy Granules 1.9kg
+                xpath: /html/body/main[1]/div[2]/div[2]/h4[1]
+            ingredientsList:
+              - text: Maltodextrin, Potato Starch, Salt, Flavourings, Colour (Plain Caramel),
+                  Vegetable Oils (Palm, Rapeseed, Sunflower), Sugar, Stabiliser
+                  (Guar Gum), Onion Powder, Yeast Extract
+                xpath: /html/body/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/p[1]
+            servingSize:
+              - text: 100g
+                xpath: /html/body/main[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
             servingSizeUom:
               - text: g
+                xpath: /html/body/main[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
+            storage:
+              - text: Store in a cool dry place away from direct heat and sunlight. Keep pack
+                  tightly sealed after part use. Once made up, the gravy is bain
+                  marie stable, although you should dispose of gravy not used
+                  after service.
+                xpath: /html/body/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/p[2]
+            productOtherInformation:
+              - text: Crossed Grain Symbol - CUK-M-270 Green Dot Widely Recycled Bisto trade
+                  marks, designs and logos appearing on this pack are owned by
+                  the Premier Foods Group.
+                xpath: /html/body/main[1]/div[2]/div[2]/div[5]/p[4]
+            packaging:
+              - text: Tub
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/p[2]/a[1]
+            productUrl:
+              - text: https://www.booker.co.uk/products/product%20detail?Code=256795&returnUrl=http%3a%2f%2fwww.booker.co.uk%2fproducts%2fproduct-list%3fkeywords%3d256795
+                xpath: /html/body/div[3]
+            metaKeywords:
+              - text: booker wholesale,wholesale uk,wholesaler,foodservice,food wholesaler
+                xpath: /html/body/div[4]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[5]
+            termsAndConditions:
+              - text: Yes
                 xpath: /html/body/div[6]
+            caloriesPerServing:
+              - text: 1489kJ
+                xpath: /html/body/div[9]
+            totalFatPerServing:
+              - text: "3.1"
+                xpath: /html/body/div[10]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[10]
+            totalCarbPerServing:
+              - text: "78.2"
+                xpath: /html/body/div[13]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[13]
+            dietaryFibrePerServing:
+              - text: "1.6"
+                xpath: /html/body/div[14]
+            dietaryFibrePerServingUom:
+              - text: g
+                xpath: /html/body/div[14]
+            totalSugarsPerServing:
+              - text: "4.8"
+                xpath: /html/body/div[15]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[15]
+            proteinPerServing:
+              - text: "1.9"
+                xpath: /html/body/div[16]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[16]
+            saltPerServing:
+              - text: "10.14"
+                xpath: /html/body/div[18]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[18]
             variantCount:
               - text: "0"
             technicalInformationPdfPresent:
@@ -178,10 +133,6 @@ extractions:
             Image360Present:
               - text: No
             imageZoomFeaturePresent:
-              - text: No
-            productOtherInformation:
-              - text: Crossed Grain Symbol - CUK-M-270 Green Dot Widely Recycled Bisto trade
-                  marks, designs and logos appearing on this pack are owned by
-                  the Premier Foods Group.
-        xpath: /html
-    timestamp: 1610571994134
+              - text: Yes
+        xpath: /html/body
+    timestamp: 1611161858514
