@@ -19,7 +19,7 @@ const transform = (data, context) => {
         flavour = flavour.replace('Saveur :', '');
         row.flavour[0].text = flavour;
       }
-      
+
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));

@@ -56,6 +56,8 @@ fields:
     singleValue: false
     description: The url of the page title
     xpath: ancestor::html//head/title
+    regExp: (?:(?:[\d,]+€\s)?(.+))
+    regExpReplace: $1
   - name: sourceUrl
     singleValue: false
     description: The url of the product url
