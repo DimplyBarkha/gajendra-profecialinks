@@ -13,7 +13,7 @@ fields:
   - name: user
   - name: brand
     xpath: ancestor::html//title/text()
-    regExp: ((Vype)|(VYPE)|(Juul)|(juul)|(Blu)|(BLU)|(Vuse)|(VUSE))
+    regExp: ((Vype)|(VYPE)|(Juul)|(juul)|(Blu)|(BLU)|(Vuse)|(VUSE)|(JUUL))
   - name: productRange
     xpath: ancestor::html//nav[@aria-label="Breadcrumb"]//ol/li[3]//span/text()
   - name: productFamily
