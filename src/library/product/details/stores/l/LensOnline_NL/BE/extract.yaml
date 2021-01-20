@@ -1,0 +1,109 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: (//img[@itemprop="image"])[1]/@src
+  - name: imageAlt
+    singleValue: true
+    xpath: (//img[@itemprop="image"])[1]/@alt
+  - name: category
+    singleValue: false
+    xpath: //span[@itemprop="itemListElement"]/a/span[not(contains(text(),'LensOnline'))]
+  - name: nameExtended
+    singleValue: true
+    xpath: //h1[@itemprop="name"]
+  - name: price
+    singleValue: true
+    type: CURRENCY
+    xpath: //html//div[@id='price']
+  - name: availabilityText
+    singleValue: true
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out Of Stock
+    xpath: //link[@itemprop="availability"]/@href
+  - name: description
+    singleValue: false
+    xpath: //html//div[@id='description']
+  - name: descriptionBullets
+    singleValue: true
+    type: NUMBER
+    xpath: count(//div[@id='descr']/div/ul/li)
+  - name: brandText
+    singleValue: true
+    xpath: //meta[@itemprop="brand"]/@content
+  - name: quantity
+    singleValue: true
+    xpath: //tr[@class="row"]/td[contains(text(),'Verpakkingshoeveelheid')]/following-sibling::td/text() | //h1[@class="product_name"]/span
+  - name: sku
+    singleValue: true
+    xpath: //meta[@itemprop="sku"]/@content
+  - name: variantId
+    singleValue: true
+    xpath: //meta[@itemprop="sku"]/@content
+  - name: ratingCount
+    singleValue: true
+    type: NUMBER
+    xpath: //span[@class="heading_comments__rating"]/span/text()
+  - name: aggregateRating
+    singleValue: true
+    type: NUMBER
+    xpath: //span[@itemprop="ratingValue"]/text()
+  - name: variantCount
+    singleValue: true
+    type: NUMBER
+    xpath: count(//div[@class="product_variants "]/div)
+  - name: name
+    singleValue: true
+    xpath: //meta[@name="twitter:title"]/@content
+  - name: variants
+    singleValue: false
+    xpath: //div[@class="variant__text__name"]/text()
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //html//div[@id='addDescBulletInfo']
+  - name: technicalInformationPdfPresent
+    singleValue: true
+    defaultValue: No
+  - name: termsAndConditions
+    singleValue: true
+    defaultValue: Yes
+  - name: privacyPolicy
+    singleValue: true
+    defaultValue: No
+  - name: customerServiceAvailability
+    singleValue: true
+    defaultValue: Yes
+  - name: materials
+    singleValue: true
+    xpath: //tr[@class="row a"]/td[contains(text(),'Materiaal')]/following-sibling::td/text() | //tr[@class="row"]/td[contains(text(),'Materiaal')]/following-sibling::td/text()
+  - name: Image360Present
+    singleValue: true
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    defaultValue: No
+  - name: otherSellersName
+    singleValue: false
+    xpath: //tr[@class="row a"]/td[contains(text(),'Producent')]/following-sibling::td/text() | //tr[@class="row"]/td[contains(text(),'Producent')]/following-sibling::td/text()
+  - name: manufacturer
+    singleValue: false
+    xpath: //tr[@class="row a"]/td[contains(text(),'Producent')]/following-sibling::td/text() | //tr[@class="row"]/td[contains(text(),'Producent')]/following-sibling::td/text()
+  - name: variantInformation
+    singleValue: false
+    xpath: //a[@class="link_variation variant variant--selected"]/div[@class="variant__text"]/div[@class="variant__text__name"]/text()
+  - name: specifications
+    singleValue: false
+    xpath: //html//div[@id='specifications']
+  - name: videos
+    singleValue: false
+    xpath: //div[@class="video-container"]/iframe/@src
+  - name: secondaryImageTotal
+    singleValue: true
+    defaultValue: '0'
+  - name: numberOfServingsInPackage
+    singleValue: true
+    xpath: //html//div[@id='servingPackage']
