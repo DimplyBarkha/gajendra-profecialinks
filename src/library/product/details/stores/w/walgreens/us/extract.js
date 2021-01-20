@@ -15,14 +15,7 @@ module.exports = {
   implementation: async ({ url, id }, { country, domain, transform: transformParam }, context, dependencies) => {
     const { helperModule: { Helpers }, productDetails } = dependencies;
     const helper = new Helpers(context);
-
-    const loadMoreManufacturer = await context.evaluate(function () {
-      return document.querySelector('li#prodCollage') ? (document.querySelector('li#prodCollage').innerText.match('Loading manufacturer content') !== null) : false;
-    });
-
-    const noManufacturerContent = await context.evaluate(function () {
-      return document.querySelector('li#prodCollage') ? (document.querySelector('li#prodCollage').innerText.match('Could not get manufacturer content') !== null) : false;
-    });
+    const hasManufacturerContent = async () => await helper.checkSelector('li#prodCollage', 'CSS') && !(await helper.checkAndReturnProp('li#prodCollage', 'CSS', 'innerText')).includes('Could not get manufacturer content');
 
     const ignoreSurveyPopups = async () => {
       await helper.ifThereClickOnIt('button.fsrDeclineButton');
@@ -63,21 +56,21 @@ module.exports = {
 
     // wait for manufacturer nodes and review nodes
     await autoScroll();
-    await helper.waitForSelector('li#prodbv', { timeout: 55000 });
-    await helper.waitForSelector('li#prodCollage', { timeout: 55000 });
+    await helper.waitForSelector('div#wc-aplus', { timeout: 5000 });
+    await helper.waitForSelector('div.wc-fragment', { timeout: 3000 });
     await autoScroll();
-    await helper.waitForSelector('li#prodCollage > div.inner', { timeout: 135000 });
-    await helper.waitForSelector('li#prodCollage a.view-more-trigger', { timeout: 55000 }, false)
-      .catch(() => {
-        if (noManufacturerContent) console.log('No manufacturer content loading');
-        else throw new Error('Manufacturer content loading issue');
+    await helper.waitForSelector('li#prodbv', { timeout: 20000 });
+    await helper.waitForSelector('li#prodCollage', { timeout: 20000 });
+    await autoScroll();
+    if (!(await hasManufacturerContent())) await context.waitForMutation('li#prodCollage', { timeout: 5000 }).catch(() => console.log('Manufacturer content finished loading'));
+    await helper.waitForSelector('li#prodCollage > div.inner', { timeout: 9000 });
+    await helper.waitForSelector('li#prodCollage a.view-more-trigger', { timeout: 9000 }, false)
+      .catch(async () => {
+        if (await hasManufacturerContent()) throw new Error('Manufacturer content loading issue');
+        else console.log('No manufacturer content loading');
       });
-    if (!noManufacturerContent && loadMoreManufacturer) {
-      await helper.waitForSelector('div#wc-aplus', { timeout: 55000 });
-      await helper.waitForSelector('div.wc-fragment', { timeout: 35000 });
-    }
 
-    await helper.waitForSelector('#BVRRSummaryContainer', { timeout: 2000 })
+    await helper.waitForSelector('#BVRRSummaryContainer', { timeout: 2000 });
     await helper.waitForSelector('div.bv-cleanslate', { timeout: 30000 });
 
     const variantArray = await context.evaluate(async () => {

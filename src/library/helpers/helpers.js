@@ -120,7 +120,7 @@ module.exports.Helpers = class {
 
   // Function which checks if the provided object of selectors is there then navigate and click
   async checkAndReturnProp (selector, type, property) {
-    if (!this.checkSelector(selector, type)) return;
+    if (!this.checkSelector(selector, type)) return '';
     return await this.context.evaluate(({ selector, property, type }) => {
       let elem;
       if (type.toLowerCase() === 'xpath') elem = document.evaluate(selector, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
