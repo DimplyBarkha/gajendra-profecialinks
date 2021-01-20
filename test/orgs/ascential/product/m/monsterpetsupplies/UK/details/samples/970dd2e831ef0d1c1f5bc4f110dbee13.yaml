@@ -2,7 +2,7 @@ input:
   id: CF19061_1
   _url: http://monsterpetsupplies.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=1b48ea95-6d7d-4cb9-b2ab-962ce946fb48/task=fd2dabd1-b5b1-4971-9535-999424e91de8/cbb6c6c4-1463-4113-9354-c35cfaa6461d.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=3199b42b-e9bd-4eeb-8828-044900093400/task=046d6943-17a0-407f-8a99-c4bd6734faf7/9cb1b65c-6c37-4095-8c41-6d71073d78e4.html
     extractionConfigId: product/details/stores/m/monsterpetsupplies/UK/extract
     data:
       - group:
@@ -29,8 +29,8 @@ extractions:
               - text: Wet Cat Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]/a[4]
             nameExtended:
-              - text: Gourmet Perle Mini Chicken Fillets Cat Food 85g x 24
-                xpath: /html/body/div[17]
+              - text: Gourmet Perle Mini Chicken Fillets Cat Food
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/h1[1]
             price:
               - text: £14.15
                 xpath: /html/body/div[18]
@@ -52,13 +52,13 @@ extractions:
                   and feeling fantastic. Ingredients: Meat and animal
                   derivatives (of which beef 4%), vegetable protein extracts,
                   fish and fish derivatives, minerals, various sugars."
-                xpath: /html/body/div[23]
+                xpath: /html/body/div[22]
             brandText:
               - text: Gourmet
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/meta[1]/@content
             quantity:
               - text: 85g
-                xpath: /html/body/div[22]
+                xpath: /html/body/div[24]
             sku:
               - text: CF19061_1
                 xpath: /html/body/div[16]
@@ -77,7 +77,9 @@ extractions:
             imageZoomFeaturePresent:
               - text: Yes
                 xpath: /html/body/div[25]
+            descriptionBullets:
+              - text: "0"
             variantCount:
               - text: "1"
         xpath: /
-    timestamp: 1611055413403
+    timestamp: 1611129768964

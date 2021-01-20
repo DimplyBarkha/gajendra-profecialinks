@@ -2,7 +2,7 @@ input:
   id: CF27386_1
   _url: http://monsterpetsupplies.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=c7f9186e-b2f5-4ee8-9b23-867e579bf336/task=2893d526-bf21-4f25-b686-adc8de2f48af/ad785dcb-efd6-47d3-83c4-f2fa3b2ac2a6.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=3199b42b-e9bd-4eeb-8828-044900093400/task=62abff91-5461-4644-9cd3-9d4c863697ff/72162c1f-5d35-423d-9648-479b5762e42b.html
     extractionConfigId: product/details/stores/m/monsterpetsupplies/UK/extract
     data:
       - group:
@@ -27,8 +27,8 @@ extractions:
               - text: Wet Cat Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]/a[4]
             nameExtended:
-              - text: Felix Sensations Mixed Selection Crunchies Adult Cat Food 100g x 40
-                xpath: /html/body/div[17]
+              - text: Felix Sensations Mixed Selection Crunchies Adult Cat Food
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/h1[1]
             price:
               - text: £21.59
                 xpath: /html/body/div[18]
@@ -54,13 +54,13 @@ extractions:
                   4%); minerals; various sugars. 40g Crunchy Crumbles Topping:
                   Cereals; Meat and animal derivatives; Oils and fats; Vegetable
                   protein extracts; Various sugars; Minerals; Yeast."
-                xpath: /html/body/div[23]
+                xpath: /html/body/div[22]
             brandText:
               - text: FELIX
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/meta[1]/@content
             quantity:
               - text: 100g
-                xpath: /html/body/div[22]
+                xpath: /html/body/div[24]
             sku:
               - text: CF27386_1
                 xpath: /html/body/div[16]
@@ -71,18 +71,8 @@ extractions:
               - text: Felix Sensations Mixed Selection Crunchies Adult Cat Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/h1[1]
             ingredientsList:
-              - text: "100g Pouches: Meat and animal derivatives; vegetable protein extracts;
-                  fish and fish derivatives (tuna 4%); minerals; various sugars.
-                  40g Crunchy Crumbles Topping: Cereals; Meat and animal
-                  derivatives; Oils and fats; Vegetable protein extracts;
-                  Various sugars; Minerals; Yeast."
-                xpath: /html/body/div[26]
-            totalFatPerServing:
-              - text: "100"
-                xpath: /html/body/div[24]
-            totalFatPerServingUom:
-              - text: "%"
-                xpath: /html/body/div[25]
+              - text: Ingredients
+                xpath: /html/body/div[23]
             variantInformation:
               - text: 100g x 40
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/h5[1]
@@ -91,10 +81,10 @@ extractions:
                 xpath: /html/body/div[16]
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[27]
+                xpath: /html/body/div[25]
             descriptionBullets:
               - text: "5"
             variantCount:
               - text: "2"
         xpath: /
-    timestamp: 1611064097049
+    timestamp: 1611129768419

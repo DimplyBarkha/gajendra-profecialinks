@@ -2,7 +2,7 @@ input:
   id: DFNNN050_1
   _url: http://monsterpetsupplies.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=c7f9186e-b2f5-4ee8-9b23-867e579bf336/task=bf032b8c-0cfa-47e4-9218-7d14cedb60fe/0d4ffa6a-2ddc-4906-85f3-b4d4ad2cb1c7.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=3199b42b-e9bd-4eeb-8828-044900093400/task=47a621d0-9f64-4cc1-bea5-6317c16f7926/5934fc41-10c0-49b0-84ab-bbb63526df23.html
     extractionConfigId: product/details/stores/m/monsterpetsupplies/UK/extract
     data:
       - group:
@@ -31,8 +31,8 @@ extractions:
               - text: Dry Dog Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]/a[4]
             nameExtended:
-              - text: PRO PLAN Canine JM Joint Mobility Dog Food 12kg
-                xpath: /html/body/div[17]
+              - text: PRO PLAN Canine JM Joint Mobility Dog Food
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/h1[1]
             listPrice:
               - text: £69.00
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[2]/section[1]/div[2]/p[2]
@@ -66,13 +66,13 @@ extractions:
                   Fat, Minerals, Cellulose Analytical Constituents Protein:
                   30.0%, Fat content: 12.0%, Crude ash: 7.0%, Crude fibres:
                   2.5%, EPA and DHA: 0.8%"
-                xpath: /html/body/div[23]
+                xpath: /html/body/div[22]
             brandText:
               - text: PURINA PRO PLAN
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/meta[1]/@content
             quantity:
               - text: 12kg
-                xpath: /html/body/div[22]
+                xpath: /html/body/div[26]
             sku:
               - text: DFNNN050_1
                 xpath: /html/body/div[16]
@@ -83,16 +83,14 @@ extractions:
               - text: PRO PLAN Canine JM Joint Mobility Dog Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/h1[1]
             ingredientsList:
-              - text: Rice, Dehydrated Salmon Protein, Wheat Flour, Dehydrated Poultry Protein,
-                  Soya Protein, Maize, Dried Egg, Digest, Fish Oil, Pea Fibre,
-                  Animal Fat, Minerals, Cellulose
-                xpath: /html/body/div[32]
+              - text: Ingredients
+                xpath: /html/body/div[25]
             totalFatPerServing:
-              - text: ","
-                xpath: /html/body/div[24]
+              - text: "12.0"
+                xpath: /html/body/div[23]
             totalFatPerServingUom:
               - text: "%"
-                xpath: /html/body/div[31]
+                xpath: /html/body/div[24]
             promotion:
               - text: You Save £10.81 (16%)
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[2]/section[1]/div[3]/p[1]
@@ -104,10 +102,10 @@ extractions:
                 xpath: /html/body/div[16]
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[33]
+                xpath: /html/body/div[27]
             descriptionBullets:
               - text: "3"
             variantCount:
               - text: "3"
         xpath: /
-    timestamp: 1611064093926
+    timestamp: 1611129766480

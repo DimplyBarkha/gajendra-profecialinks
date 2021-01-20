@@ -2,7 +2,7 @@ input:
   id: DF28725_2
   _url: http://monsterpetsupplies.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=c7f9186e-b2f5-4ee8-9b23-867e579bf336/task=4ddcdb08-a500-45a3-9aa5-217620745735/846e1887-47c3-4d2c-8adb-3231c727bd0c.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=3199b42b-e9bd-4eeb-8828-044900093400/task=b0122942-492a-4558-a673-6f5086fe694a/156f34d6-b4bf-407f-a93b-26d6e807db13.html
     extractionConfigId: product/details/stores/m/monsterpetsupplies/UK/extract
     data:
       - group:
@@ -38,8 +38,8 @@ extractions:
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]/a[4]
             nameExtended:
               - text: PRO PLAN OPTIDIGEST Turkey Sensitive Digestion Grain Free Medium & Large
-                  Adult Dog Food 12kg x 2
-                xpath: /html/body/div[17]
+                  Adult Dog Food
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/h1[1]
             listPrice:
               - text: £109.90
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/div[2]/p[2]
@@ -70,13 +70,13 @@ extractions:
                   Protein, Dried Beet Pulp, Digest, Dried Egg, Minerals, Fish
                   Oil Analytical Constituents Protein: 28.0%, Fat content:
                   16.0%, Crude ash: 8.0%, Crude fibres: 3.0%"
-                xpath: /html/body/div[23]
+                xpath: /html/body/div[22]
             brandText:
               - text: PURINA PRO PLAN
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/meta[1]/@content
             quantity:
               - text: 12kg
-                xpath: /html/body/div[22]
+                xpath: /html/body/div[26]
             sku:
               - text: DF28725_2
                 xpath: /html/body/div[16]
@@ -88,16 +88,14 @@ extractions:
                   Adult Dog Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/h1[1]
             ingredientsList:
-              - text: Turkey (16%), Dehydrated Chicken Protein, Pea Starch, Cassava (12%), Dried
-                  Pea, Animal Fat, Soya Meal, Pea Protein, Dried Beet Pulp,
-                  Digest, Dried Egg, Minerals, Fish Oil
-                xpath: /html/body/div[28]
+              - text: Ingredients
+                xpath: /html/body/div[25]
             totalFatPerServing:
-              - text: ","
-                xpath: /html/body/div[24]
+              - text: "16.0"
+                xpath: /html/body/div[23]
             totalFatPerServingUom:
               - text: "%"
-                xpath: /html/body/div[27]
+                xpath: /html/body/div[24]
             promotion:
               - text: You Save £37.51 (34%)
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/div[3]/p[1]
@@ -109,10 +107,10 @@ extractions:
                 xpath: /html/body/div[16]
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[29]
+                xpath: /html/body/div[27]
             descriptionBullets:
               - text: "5"
             variantCount:
               - text: "2"
         xpath: /
-    timestamp: 1611064094671
+    timestamp: 1611129766130

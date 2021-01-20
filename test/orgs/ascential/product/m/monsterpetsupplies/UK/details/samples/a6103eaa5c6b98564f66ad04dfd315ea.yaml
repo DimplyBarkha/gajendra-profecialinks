@@ -2,7 +2,7 @@ input:
   id: CF21491_1
   _url: http://monsterpetsupplies.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=c7f9186e-b2f5-4ee8-9b23-867e579bf336/task=04e42ec8-8df8-4e12-a056-47ccf2a73b5f/ee2a098b-c47d-4bc5-a9df-aed9cd71b9b8.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=3199b42b-e9bd-4eeb-8828-044900093400/task=b69c0a97-2a15-414c-84e0-1a80fce1b88b/4b4b5b82-a652-4aee-a171-5c1d127ab6f7.html
     extractionConfigId: product/details/stores/m/monsterpetsupplies/UK/extract
     data:
       - group:
@@ -27,8 +27,8 @@ extractions:
               - text: Wet Cat Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]/a[4]
             nameExtended:
-              - text: Gourmet Perle Delicate Meats Duo Cat Food 85g x 12
-                xpath: /html/body/div[17]
+              - text: Gourmet Perle Delicate Meats Duo Cat Food
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/h1[1]
             price:
               - text: £5.99
                 xpath: /html/body/div[18]
@@ -50,13 +50,13 @@ extractions:
                   puss will be absolutely spoiled for choice! Ingredients: Meat
                   and animal derivatives (meat 14%), vegetable protein extracts,
                   fish and fish derivatives, minerals, various sugars."
-                xpath: /html/body/div[23]
+                xpath: /html/body/div[22]
             brandText:
               - text: Gourmet
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/meta[1]/@content
             quantity:
               - text: 85g
-                xpath: /html/body/div[22]
+                xpath: /html/body/div[24]
             sku:
               - text: CF21491_1
                 xpath: /html/body/div[16]
@@ -80,4 +80,4 @@ extractions:
             variantCount:
               - text: "1"
         xpath: /
-    timestamp: 1611064089734
+    timestamp: 1611129761863

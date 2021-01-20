@@ -2,7 +2,7 @@ input:
   id: DF25497_2
   _url: http://monsterpetsupplies.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=c7f9186e-b2f5-4ee8-9b23-867e579bf336/task=0906af32-2c5e-41d8-8063-cb3af8a771cf/61e7db69-f9ac-4e98-9f4c-5dafbf2f2ce4.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=3199b42b-e9bd-4eeb-8828-044900093400/task=6a014b02-18ff-4707-9491-7dca7e432a46/0f84e5ff-b58a-4dee-98ff-b741c71e058c.html
     extractionConfigId: product/details/stores/m/monsterpetsupplies/UK/extract
     data:
       - group:
@@ -37,8 +37,8 @@ extractions:
               - text: Natural Dog Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]/a[4]
             nameExtended:
-              - text: Purina Beyond Simply 9 Chicken & Barley Adult Dog Food 7.5kg
-                xpath: /html/body/div[17]
+              - text: Purina Beyond Simply 9 Chicken & Barley Adult Dog Food
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/h1[1]
             listPrice:
               - text: £28.50
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[2]/section[1]/div[2]/p[2]
@@ -71,13 +71,13 @@ extractions:
                   Calcium Iodate anhydrous: 2.8, Cupric sulphate pentahydrate:
                   44, Manganous sulphate monohydrate: 105, Zinc sulphate
                   monohydrate: 370, Sodium selenite: 0.26. With antioxidants."
-                xpath: /html/body/div[23]
+                xpath: /html/body/div[22]
             brandText:
               - text: PURINA BEYOND
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/meta[1]/@content
             quantity:
-              - text: 9 Ch
-                xpath: /html/body/div[22]
+              - text: 7.5kg
+                xpath: /html/body/div[26]
             sku:
               - text: DF25497_2
                 xpath: /html/body/div[16]
@@ -88,7 +88,10 @@ extractions:
               - text: Purina Beyond Simply 9 Chicken & Barley Adult Dog Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/h1[1]
             totalFatPerServing:
-              - text: ","
+              - text: "15.0"
+                xpath: /html/body/div[23]
+            totalFatPerServingUom:
+              - text: "%"
                 xpath: /html/body/div[24]
             promotion:
               - text: You Save £1.31 (5%)
@@ -107,4 +110,4 @@ extractions:
             variantCount:
               - text: "2"
         xpath: /
-    timestamp: 1611064091486
+    timestamp: 1611129763366
