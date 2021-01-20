@@ -8,7 +8,7 @@ fields:
     xpath: //div[@class="product-info"]/span[@class="nombre"]/a
   - name: id
     singlevalue: false
-    xpath: //div[@class="campo_produto"]/div[2]/ul/li
+    xpath: //div[@class="campo_produto"]/div[contains(text(),"SkuData")]/ul/li
   - name: productUrl
     singlevalue: false
     xpath: //div[@class="product-info"]/span[@class="nombre"]/a/@href
