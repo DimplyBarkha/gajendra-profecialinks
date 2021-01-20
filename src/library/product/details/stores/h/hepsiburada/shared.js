@@ -21,12 +21,26 @@ const transform = (data) => {
         });
         row.ingredientsList = [{ text }];
       }
+      if (row.caloriesPerServing) {
+        let text = '';
+        row.caloriesPerServing.forEach(item => {
+          text = row.caloriesPerServing.map(elm => elm.text).join(' ');
+        });
+        row.caloriesPerServing = [{ text }];
+      }
       if (row.promotion) {
         let text = '';
         row.promotion.forEach(item => {
           text = row.promotion.map(elm => elm.text).join(' | ');
         });
         row.promotion = [{ text }];
+      }
+      if (row.otherSellersName) {
+        let text = '';
+        row.otherSellersName.forEach(item => {
+          text = row.otherSellersName.map(elm => elm.text).join(' | ');
+        });
+        row.otherSellersName = [{ text }];
       }
       if (row.manufacturerDescription) {
         let text = '';

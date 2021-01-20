@@ -82,7 +82,7 @@ fields:
     xpath: //div[@id="productDescriptionContent"]//text()[not(contains(.,'{'))]
   - name: manufacturerImages
     description: Images within the third party description
-    xpath: //div[@id="productDescriptionContent"]//img//@src[contains(.,'jpg')]
+    xpath: //div[@id="productDescriptionContent"]//img//@src[contains(.,'jpg') or contains(.,'png') or contains(.,'')]
   - name: videos
     description: URLs of videos on page
     xpath: //div[@class="desc-video"]//@data-video
@@ -132,3 +132,49 @@ fields:
     defaultValue: No
     regExp: (.+)
     regExpReplace: 'Yes'
+  - name: calciumPerServing
+    xpath: //span[contains(.,'Kalsiyum')]/../following-sibling::td[2]
+  - name: calciumPerServingUom
+    xpath: //span[contains(.,'Kalsiyum')]/../following-sibling::td[1]
+  - name: caloriesPerServing
+    xpath: //td[contains(.,'Enerji')]/following-sibling::td
+  - name: allergyAdvice
+    xpath: //h4[contains(.,'Alerjen Bilgisi')]/following-sibling::p[1]
+  - name: proteinPerServing
+    xpath: //td[contains(.,'Protein')]/following-sibling::td[2]
+  - name: proteinPerServingUom
+    xpath: //td[contains(.,'Protein')]/following-sibling::td[1]
+  - name: totalCarbPerServing
+    xpath: //td[contains(.,'Karbonhidrat')]/following-sibling::td[2]
+  - name: totalCarbPerServingUom
+    xpath: //td[contains(.,'Karbonhidrat')]/following-sibling::td[1]
+  - name: warnings
+    xpath: //div[@class="col"]//p[contains(.,'ÖNEMLİ UYARI')]
+    regExp: (ÖNEMLİ UYARI:\s)(.+)
+    regExpReplace: $2
+  - name: saturatedFatPerServing
+    xpath: //span[contains(.,'Doymuş yağ')]/../following-sibling::td[2]
+  - name: saturatedFatPerServingUom
+    xpath: //span[contains(.,'Doymuş yağ')]/../following-sibling::td[1]
+  - name: sodiumPerServing
+    xpath: //span[contains(.,'Sodyum')]/../following-sibling::td[2]
+  - name: sodiumPerServingUom
+    xpath: //span[contains(.,'Sodyum')]/../following-sibling::td[1]
+  - name: storage
+    xpath: //h4[contains(.,'Saklama Önerisi')]/following-sibling::p
+  - name: ironPerServing
+    xpath: //span[contains(.,'Demir')]/../following-sibling::td[2]
+  - name: ironPerServingUom
+    xpath: //span[contains(.,'Demir')]/../following-sibling::td[1]
+  - name: magnesiumPerServing
+    xpath: //span[contains(.,'Magnezyum')]/../following-sibling::td[2]
+  - name: magnesiumPerServingUom
+    xpath: //span[contains(.,'Magnezyum')]/../following-sibling::td[1]
+  - name: vitaminAPerServing
+    xpath: //span[contains(.,'A Vitamini')]/../following-sibling::td[2]
+  - name: vitaminAPerServingUom
+    xpath: //span[contains(.,'A Vitamini')]/../following-sibling::td[1]
+  - name: vitaminCPerServing
+    xpath: //span[contains(.,'C Vitamini')]/../following-sibling::td[2]
+  - name: vitaminCPerServingUom
+    xpath: //span[contains(.,'C Vitamini')]/../following-sibling::td[1]
