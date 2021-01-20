@@ -126,9 +126,9 @@ module.exports = {
             ? document.querySelector('div.product-resume').innerText.split('\n')
             : [];
           descriptionArr = descriptionArr.filter((item) => !!item);
-          descriptionArr = descriptionArr.map((item) => item.replace(/^\s*-\s*/, '').replace(/\n+/g, ' '));
+          descriptionArr = descriptionArr.map((item) => item.replace(/^\s*-\s*/, ' || ').replace(/\n+/g, ' '));
           variantElem.setAttribute('description_bullets', descriptionArr.length);
-          variantElem.setAttribute('description', descriptionArr.join(' '));
+          variantElem.setAttribute('description', descriptionArr.join(' ').trim());
 
           const unavailableLabel = document.querySelector('div.label-stock.unavailable');
           const remindButton = document.querySelector('div#reminder-area:not(.hidden) button#btn-reminder');
