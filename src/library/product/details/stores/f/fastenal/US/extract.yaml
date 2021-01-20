@@ -46,7 +46,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@id='note']/p/text() | (//div[@id='note']/text())[1]s
+    xpath: //div[@id='note']/p/text() | (//div[@id='note']/text())[1]  |  //div[@id='note']/text()
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -93,8 +93,7 @@ fields:
       the site to quantity)
     xpath: (//td[span[contains(text(),"Size")]]/following-sibling::td)[2]
   - name: highQualityImages
-    singleValue: true
-    description: Content under "legal disclaimer" header
+    singleValue: false
     xpath: //div[@class='product--img']/img/@src |  //div[@class='product--thumbnail-wrap']/a[position()>1]/img/@src
   - name: directions
     singleValue: true
@@ -224,7 +223,7 @@ fields:
   - name: featureBullets
     singleValue: false
     description: null
-    xpath: //div[@id='note']//ul/li
+    xpath: (//div[@id='note']//ul)[1]/li
   - name: otherSellersName
     singleValue: false
     description: null

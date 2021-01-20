@@ -37,12 +37,6 @@ const transform = (data) => {
         });
       }
 
-      if (row.sku) {
-        row.sku.forEach(item => {
-          item.text = "fastenal_" + item.text;
-        });
-      }
-
       if (row.description) {
         let desc = '';
         row.description.forEach(item => {
