@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: div.product-list div.product-list-item
-recordXPath: null
+recordSelector: null
+recordXPath: //div[@id="product-list"]//div[contains(@class,"product-list")]//div[contains(@class,"product-list-item")]
 fields:
   - name: id
     SingleValue: false
@@ -22,3 +22,6 @@ fields:
     SingleValue: true
   - name: rank
     SingleValue: true
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id='search-url']    

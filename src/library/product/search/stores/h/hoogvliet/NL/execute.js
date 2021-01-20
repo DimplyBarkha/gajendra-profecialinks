@@ -18,36 +18,20 @@ async function implementation (
   try {
     await context.waitForSelector('input[name="SearchTerm"]');
     await context.setInputValue('input[name="SearchTerm"]', inputs.keywords);
-    await context.click('input[name="SearchTerm"]');
+    //await context.click('div.hidden-xs button[name="search"]');
+    await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+    await context.evaluate(async function () {
+      document.querySelector('div.hidden-xs button[name="search"]') && document.querySelector('div.hidden-xs button[name="search"]').click();
+    });
     await new Promise((resolve, reject) => setTimeout(resolve, 1000));
   } catch (e) {
     console.log(e);
   }
-  await context.clickAndWaitForNavigation('div.search-container-sticky button[type="submit"]');
-
-  await new Promise((resolve, reject) => setTimeout(resolve, 1000));
-  const applyScroll = async function (context) {
-    await context.evaluate(async function () {
-      let scrollTop = 0;
-      while (scrollTop !== 20000) {
-        await stall(500);
-        scrollTop += 1000;
-        window.scroll(0, scrollTop);
-        if (scrollTop === 20000) {
-          await stall(5000);
-          break;
-        }
-      }
-      function stall (ms) {
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            resolve();
-          }, ms);
-        });
-      }
-    });
-  };
-  await applyScroll(context);
+  try {
+    await context.click('button.cookie-consent-approve-all');
+  } catch (e) {
+    console.log(e);
+  }
 
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
