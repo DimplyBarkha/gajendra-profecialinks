@@ -66,6 +66,7 @@ module.exports = {
     const products = await getProducts(searchTerm, 0);
     const dataRef = await context.extract(productDetails, { transform });
     dataRef[0].group = products;
-    return dataRef;
+    console.log(products);
+    return products === null ? null : dataRef;
   },
 };
