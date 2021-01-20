@@ -59,6 +59,16 @@ module.exports = {
       // if (abc != null) {
       //   addElementToDocument('abc', abc);
       // }
+
+      //intgredient_list//
+      var ing = getXpath("//div[@class='product-details-desc']/ul/li[contains(text(),'Ingredients')]/text()", 'nodeValue');
+      if (ing != null) {
+        ing = ing.split("Ingredients:")[1];
+        addElementToDocument('ing', ing);
+      }
+
+      
+      //addition_desc//
       var desc1 = getXpath("//div[@class='product-details-desc']/p[1]/text()", 'nodeValue');
       var desc2 = getAllXpath("//div[@class='product-details-desc']/ul/li/text()", 'nodeValue');
       var desc3 = getXpath("//div[@class='product-details-desc']/p[2]/text()", 'nodeValue');
