@@ -14,13 +14,51 @@ module.exports = {
     context,
     dependencies,
   ) => {
+    const isStorePresent = await context.evaluate(async function () {
+      const isStorePresent = document.querySelector('#store-search-handler');
+      // @ts-ignore
+      return isStorePresent ? !!isStorePresent.innerText.trim().includes('Burbank Lowe') : false;
+    });
+    try {
+      console.log('Is store present-->', isStorePresent);
+      if (!isStorePresent) {
+        await context.waitForSelector('span#store-search-handler');
+        await context.evaluate(async function () {
+          const storeButton = document.querySelector('span#store-search-handler');
+          if (storeButton) {
+            // @ts-ignore
+            storeButton.click();
+          }
+        });
+        await context.evaluate(async function () {
+          const inputElement = document.querySelector('input[class*="type--text incomplete"]');
+          inputElement && inputElement.setAttribute('value', 'Burbank Lowe');
+        });
+        await context.waitForSelector('input[value*="Burbank Lowe"]');
+        await context.evaluate(async function () {
+          const formButton = document.querySelector('form button[class*="variant--primary"]');
+          // @ts-ignore
+          formButton && formButton.click();
+        });
+
+        await context.waitForSelector('ul[class*="styles__StoreListWrapper"] li button[class*="variant--primary"]');
+        await context.evaluate(async function () {
+          const selectButton = document.querySelector('ul[class*="styles__StoreListWrapper"] li button[class*="variant--primary"]');
+          // @ts-ignore
+          selectButton && selectButton.click();
+        });
+        await context.waitForNavigation();
+      }
+    } catch (error) {
+      console.log('Faild to set store location', error);
+    }
     await context.evaluate(async function () {
       let scrollSelector = document.querySelector('div#footerApp');
       // @ts-ignore
       let scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
       let yPos = 0;
       while (scrollLimit && yPos < scrollLimit) {
-        yPos = yPos + 350;
+        yPos = yPos + 1000;
         window.scrollTo(0, yPos);
         scrollSelector = document.querySelector('div#footerApp');
         // @ts-ignore
