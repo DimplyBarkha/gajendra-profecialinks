@@ -35,7 +35,7 @@ module.exports = {
             productDiv.setAttribute('thumbnail', images[images.length - 1].url);
           }
           if (stock.inStock) {
-            const stringPrice = price.formattedValue.replace(',', '.');
+            const stringPrice = price.formattedValue;
             productDiv.textContent = stringPrice;
           }
           productDiv.setAttribute('manufacturer', manufacturerName);
