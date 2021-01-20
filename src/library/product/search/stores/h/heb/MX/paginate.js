@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'body',
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="message info empty"]',
     resultsDivSelector: null,
     openSearchDefinition: {
       //pageStartNb: 1,
