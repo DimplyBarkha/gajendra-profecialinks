@@ -21,8 +21,11 @@ async function implementation (
   });
 
   const iframeUrl = await context.evaluate(function () {
-    if (document.getElementById('loadbeeTabContent')) {
-      return document.getElementById('loadbeeTabContent').getAttribute('src');
+    // if (document.getElementById('loadbeeTabContent')) {
+    //   return document.getElementById('loadbeeTabContent').getAttribute('src');
+    // }
+    if (document.getElementById('loadbeeIframeId')) {
+      return document.getElementById('loadbeeIframeId').getAttribute('src');
     }
     return null;
   });
