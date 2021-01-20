@@ -2,13 +2,15 @@ singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: //section[contains(@class,"list")]//article
-fields:
-  - name: id
-    SingleValue: false
-    xpath: //div[@class="formfields"]//a[@class="img"]/@href
+fields:  
   - name: productUrl
     SingleValue: false
     xpath: //div[@class="formfields"]//a[@class="img"]/@href
+  - name: id
+    SingleValue: false
+    xpath: //div[@class="formfields"]//a[@class="img"]/@href
+    regExp: product/(.+)
+    regExpReplace: $1
   - name: price
     SingleValue: false
     xpath: //footer//div[@class="prices"]
@@ -19,6 +21,6 @@ fields:
     SingleValue: false
     xpath: //header[@class="productHeader"]//a
   - name: rankOrganic
-    SingleValue: true
+    SingleValue: false
   - name: rank
-    SingleValue: true
+    SingleValue: false
