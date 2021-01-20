@@ -24,15 +24,18 @@ const transform = (data) => {
   };
   for (const { group } of data) {
     for (const row of group) {
-      if (row.brand) {
-        row.brand.forEach(item => {
-          if (item.text.includes('My Blu')) {
-            item.text = item.text.split(' ').slice(0, 2).join(' ');
-          } else {
-            item.text = item.text.split(' ').slice(0, 1);
-          }
-        });
-      }
+      // if (row.brand) {
+        // let completeItemTitle = row.brand[0].text;
+
+
+        // row.brand.forEach(item => {
+        //   if (item.text.includes('My Blu')) {
+        //     item.text = item.text.split(' ').slice(0, 2).join(' ');
+        //   } else {
+        //     item.text = item.text.split(' ').slice(0, 1);
+        //   }
+        // });
+      // }
     }
   }
   return cleanUp(data);

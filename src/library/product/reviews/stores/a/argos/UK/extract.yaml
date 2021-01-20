@@ -19,6 +19,7 @@ fields:
   - name: brand
     type: STRING
     xpath: ancestor::html//span[@data-test="product-title"]
+    regExp: ((Vype)|(VYPE)|(Juul)|(juul)|(Blu)|(BLU)|(Vuse)|(VUSE))
   - name: productRange
     type: STRING
   - name: productFamily
