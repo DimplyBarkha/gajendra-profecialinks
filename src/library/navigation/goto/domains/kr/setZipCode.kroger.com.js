@@ -211,6 +211,7 @@ async function implementation (
 
   await context.reload();
   await context.waitForNavigation({ waitUntil: 'load', timeout: 30000 });
+  await context.waitForSelector('.ProductImages-image').catch(() => { console.log('no product'); });
   await new Promise((resolve, reject) => setTimeout(resolve, 2000));
 
   await context.evaluate(() => {
