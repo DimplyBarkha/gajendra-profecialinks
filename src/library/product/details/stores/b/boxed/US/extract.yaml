@@ -58,11 +58,11 @@ fields:
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: //article[contains(@class, '270b-less')]/p[1]
+  xpath: //meta[@id='meta-og-description']/@content
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
-  xpath: //@bullets
+  xpath: //@desc
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
