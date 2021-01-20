@@ -1,0 +1,31 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"_8P5KBX")]//div[contains(@class,"rQP559 C3wGFf JT3_zV")]//div[contains(@class,"adFHlH _0xLoFW")]//div[contains(@class,"qMZa55 SQGpu8 iOzucJ JT3_zV DvypSJ")]
+fields:
+  - name: id
+    xpath: //article/a[contains(@class,"g88eG_ oHRBzn LyRfpJ")]/@href
+    regExp: ([a-z.]+)(\d.+)\.html
+    regExpReplace: $1$2
+  - name: name
+    xpath: //h3[contains(@class,"u-6V88 ka2E9k uMhVZi")]
+  - name: productUrl
+    singleValue: false
+    xpath: //article/a[contains(@class,"g88eG_ oHRBzn LyRfpJ")]/@href
+    regExp: (.+)
+    regExpReplace: https://www.zalando.it$1 
+  - name: gtin
+    singleValue: true
+  - name: thumbnail
+    singleValue: false
+    xpath: //article[contains(@class,"_0mW-4D")]//figure[@class="heWLCX"]//div[contains(@class,"JT3_zV")]//img[1]/@src
+  - name: price
+    singleValue: false
+    xpath: //span[contains(@class,"u-6V88 ka2E9k uMhVZi FxZV-M z-oVg8 pVrzNP cMfkVL")] | //span[contains(@class,"u-6V88 ka2E9k uMhVZi dgII7d")]
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: rank
+  - name: endorsementText
+    singleValue: true

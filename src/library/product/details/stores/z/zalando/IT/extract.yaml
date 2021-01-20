@@ -1,0 +1,128 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"productinformation")]
+fields:
+  - name: image
+    description: URL of the main product image
+    xpath: //@productmainimage
+  - name: imageAlt
+    description: Alt text of the main product image
+    xpath: ancestor::html//div[contains(@class, "sticky-gallery")]//div[contains(@class, "z-pdp__escape-grid")]//ul/li[1]//img/@alt
+  - name: alternateImages
+    description: Other product images (not in manufacturer description)
+    xpath: //@productsecondaryimages
+  - name: nameExtended
+    description:
+      The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: ancestor::html//x-wrapper-re-1-3/h1
+  - name: listPrice
+    description: The stated undiscounted price for the product
+    xpath: //@listprice
+  - name: price
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+    xpath: //@price
+  - name: availabilityText
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    xpath: //@availabilitystatus
+    regExp: (In Stock)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    description:
+      Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    xpath: ancestor::html//meta[@name="description"]/@content
+  - name: brandText
+    description:
+      Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    xpath: //@brandname
+  - name: manufacturer
+    description: Product manufacturer
+    xpath: //@manufacturer
+  - name: quantity
+    description: Quantity as described on the page
+    xpath: //@productsize
+    defaultValue: " "
+  - name: sku
+    description: The store-specific product identifier
+    xpath: //@sku
+  - name: variantId
+    description: Identifier for a variant from a store where variants share the same sku
+    xpath: //@variantid
+  - name: mpc
+    description: The manufacturer model code (unique) of the product
+    xpath: //@mpc
+  - name: packSize
+    description:
+      The number of packs in the product offer (if stated separately on
+      the site to quantity)
+    xpath: ancestor::html//x-wrapper-re-1-3/h1
+    regExp: (\d+) (pack|PACK)
+    regExpReplace: $1
+  - name: directions
+    description: Content under "directions" header
+    xpath: html//div[@class="z-pdp__escape-grid"]//button//span[contains(text(), "care")]/ancestor::h2/following-sibling::div//span[contains(text(), "Care instructions")]/following-sibling::span
+  - name: warnings
+    description: Content under "warnings" header
+    xpath: ancestor::html//span[contains(text(),"Avvertenze")]/following-sibling::span
+  - name: ratingCount
+    description: The number of ratings
+    xpath: //@productreviews
+  - name: aggregateRating
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: //@productrating
+  - name: variantCount
+    description: Number of variants listed
+    type: NUMBER
+    xpath: count(ancestor::html//div[contains(@class,"productinformation")])
+  - name: color
+    description: A textual description of the colour
+    xpath: ancestor::html//span[contains(text(),'Colore')]/following-sibling::span
+    defaultValue: " "
+  - name: name
+    description: The product name
+    xpath: ancestor::html//x-wrapper-re-1-3/h1
+  - name: ingredientImagePresent
+    description: null
+    xpath: ancestor::html//div[@class="z-pdp__escape-grid"]//button//span[text()="Ingredients"]/ancestor::h2/following-sibling::div//span[text()="Ingredients"]/following-sibling::span
+  - name: secondaryImageTotal
+    description: null
+    xpath: //@totalsecondaryimages
+  - name: promotion
+    description: promotion text on product page
+    xpath: ancestor::html//x-wrapper-re-1-3/h1/following-sibling::div/div/preceding-sibling::span
+  - name: variantInformation
+    description: colour / scent / flavour / other
+    defaultValue: " "
+  - name: firstVariant
+    description: Unique identifier for a collection of variants. For a subset of
+      core feeds (43) we have a column "first_variant" that is populated with a
+      common code to link all variants for a product. method 1 (Preferred) = use
+      common tag (Could be parent sku) that is same value for all variants of a
+      product. method 2 = first_variant method technique, Identify the first
+      varient in the sequence and use this rpc to populate "first_variant" for
+      all variants of a product, this rpc becomes the common link between other
+      variants. method 3 = apply some logic to determine link between variants,
+      this will need analysis
+    xpath: ancestor::html//div[contains(@class,"productinformation")][1]//@variantid
+  - name: variants
+    description: null
+    xpath: ancestor::html//div[contains(@class,"productinformation")]//@variantid
+  - name: materials
+    description: Materials used to make the product
+    example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+    xpath: ancestor::html//span[contains(text(),"Materiale")]/following-sibling::span
+  - name: imageZoomFeaturePresent
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    defaultValue: Yes
+  - name: weightNet
+    description: Net weight as described on the page
+    xpath: ancestor::html//x-wrapper-re-1-3/h1/following-sibling::div/div/following-sibling::span
