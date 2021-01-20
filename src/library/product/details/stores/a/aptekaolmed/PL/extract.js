@@ -42,18 +42,34 @@ module.exports = {
       }
     }
     // @ts-ignore
-    xyz = xyz.join(" || ");
+    xyz = xyz.join(" ");
     addElementToDocument('xyz', xyz);
     console.log(xyz,'xyz------------')
-    var backgroundURL1 = getAllXpath('//td/span[contains(text(),"Marka")]/following::td[1]//text()', 'nodeValue');
-    var brandd;
-    if (backgroundURL1.length > 0 ) {
-      brandd = backgroundURL1
+    // var backgroundURL1 = getAllXpath('//td/span[contains(text(),"Marka")]/following::td[1]//text()', 'nodeValue');
+    // var brandd;
+    // if (backgroundURL1.length > 0 ) {
+    //   brandd = backgroundURL1
+    // }
+    // else{
+    //   brandd = backgroundURL1 = getAllXpath('//a[@class="brand"]//text()', 'nodeValue');
+    // }
+    // addElementToDocument('brandd', brandd);
+    // @ts-ignore
+    const rawdata = document.querySelectorAll('script[type="application/ld+json"]')[3].innerText;
+    const jsondata = JSON.parse(rawdata);
+    const availability1 = (jsondata.offers[0].availability);
+    var availability=''
+    if (availability1.includes('Out of Stock')){
+      availability = "Out of Stock"
     }
     else{
-      brandd = backgroundURL1 = getAllXpath('//a[@class="brand"]//text()', 'nodeValue');
+      availability="In Stock"
     }
-    addElementToDocument('brandd', brandd);
+    const price = jsondata.offers[0].price;
+    addElementToDocument('availability', availability);
+
+    addElementToDocument('price', price);
+
   });
   await context.extract(productDetails);
   },
