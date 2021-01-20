@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'NZ',
     store: 'thewarehouse',
-    nextLinkSelector: 'li a.paging.next',
+    nextLinkSelector: 'div.pagination li.active+li a',
     nextLinkXpath: null,
     mutationSelector: null,
-    spinnerSelector: null,
+    spinnerSelector: 'div.loader-bg',
     loadedSelector: 'ul#search-result-items .grid-tile',
     loadedXpath: null,
     noResultsXPath: '//div[@class="no-search-result"]',
