@@ -1,0 +1,113 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    description: URL of the main product image
+    xpath: (//div/ul[@class="carousel_navigation_items"]/li/span/img/@src)[1]
+  - name: imageAlt
+    singleValue: true 
+    description: Alt text of the main product image
+    xpath: (//div/img[@itemprop="image"]/@alt)[1]
+  - name: alternateImages
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath: //div/ul[@class="carousel_navigation_items"]/li[position()>1 and position() <= last()]/span/img/@src
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    xpath: (//ul[@class="breadcrumb t-test1"]//li)[position()>1 and position()<last()]
+  - name: nameExtended
+    singleValue: true
+    description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //html//div[@id='ab']
+  - name: price
+    singleValue: true
+    description: The offered price for the selected product variant - if a user clicks add to basket this is the price they would be charged
+    xpath: //div[@id="product_content"]/div[1]/div/p/text()
+  - name: availabilityText
+    singleValue: true
+    description: Availability as described on page for the selected variant. If there is no availability but the product can be added to cart, this field should be "In Stock"
+    xpath: //div[@class="availability wrapper-in_stock "]/p[2]/span
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    description: Product description supplied by website - may be concatenanted from multiple places; specifically not the manufacturer description
+    xpath: //div[@class="product_detail_description"]/p | //div[@class="product_detail_description "]/ul/li
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+    xpath: //div[@id="pdpMain"]/meta[4]/@content
+  - name: sku
+    singleValue: true
+    description: The store-specific product identifier
+    xpath: //div[@id="pdpMain"]/meta[3]/@content
+  - name: variantId
+    singleValue: true
+    description: Identifier for a variant from a store where variants share the same sku
+    xpath: //div/ul/li[@class="selected"]/a/@data-variantid   
+  - name: directions
+    singleValue: true
+    description: Content under "directions" header
+    xpath: //div[@id="tab_tips"]/p
+  - name: ratingCount
+    singleValue: true
+    description: The number of ratings
+    type: NUMBER
+    xpath: //div/dl/dd[2]/span/span/span
+    //regExp: (^\d+)
+    //regExpReplace: $1
+  - name: aggregateRating
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+    xpath: //div/a/span[@itemprop="ratingValue"]
+  - name: shippingInfo
+    singleValue: true
+    description: Shipping information for the product
+    xpath: (//div[@class="shipping"])[1]
+  - name: variantCount
+    singleValue: true
+    description: Number of variants listed
+    type: NUMBER
+    xpath: count(//div/ul/li/a/@data-variantid)
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //div/h1[@class="product_name"]/span[1]
+  - name: ingredientsList
+    singleValue: true
+    description: List of Ingredients from site - can be string of data if no discernible start/end point
+    xpath: //div[@id="ing-ingredienArea"]/div
+  - name: variantInformation
+    singleValue: true
+    description: colour / scent / flavour / other
+    xpath: //div[@id="product_content"]/div[1]/ul[1]/li[1]/div/ul/li[1]/a/@title
+  - name: firstVariant
+    singleValue: true
+    description: Unique identifier for a collection of variants. For a subset of
+      core feeds (43) we have a column "first_variant" that is populated with a
+      common code to link all variants for a product. method 1 (Preferred) = use
+      common tag (Could be parent sku) that is same value for all variants of a
+      product. method 2 = first_variant method technique, Identify the first
+      varient in the sequence and use this rpc to populate "first_variant" for
+      all variants of a product, this rpc becomes the common link between other
+      variants. method 3 = apply some logic to determine link between variants,
+      this will need analysis
+    xpath: (//div/ul/li/a/@data-variantid)[1]
+  - name: variants
+    singleValue: false
+    description: null
+    xpath: //div/ul/li/a/@data-variantid
+
+
+
+
+
+
+
+
