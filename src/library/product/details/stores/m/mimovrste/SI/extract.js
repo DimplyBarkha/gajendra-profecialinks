@@ -254,7 +254,7 @@ module.exports = {
 
       const aggregateRating = getXpath("//span[@itemprop='ratingValue']", 'innerText');
       if (aggregateRating) {
-        addElementToDocument('added_aggregateRating', aggregateRating.replace('.', ','));
+        addElementToDocument('added_aggregateRating', aggregateRating);
       }
 
       const listPrice = getXpath("//del[@class='rrp-price']", 'innerText');
