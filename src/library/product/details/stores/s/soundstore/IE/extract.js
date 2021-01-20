@@ -69,6 +69,18 @@ module.exports = {
         return value;
       });
 
+      const specificationText = await context.evaluate(() => {
+        const text = document.querySelectorAll('div.eky-specs-container p');
+        const value = [];
+        retrieve(text);
+        function retrieve (text) {
+          for (let i = 0; i < text.length; i++) {
+            value.push(text[i].innerText);
+          }
+        }
+        return value;
+      });
+
       const desc = await context.evaluate(() => {
         const src = document.querySelectorAll('h1,h2,h3,h4,p,div.eky-accessory>div');
         const value = [];
@@ -99,6 +111,11 @@ module.exports = {
         desc = desc.join(' ');
         document.querySelector('body').setAttribute('desc', desc);
       }, desc);
+
+      await context.evaluate((specificationText) => {
+        specificationText = specificationText.join('||')
+        document.querySelector('body').setAttribute('added_specifications', specificationText);
+      }, specificationText);
     }
 
     await context.evaluate(async function () {

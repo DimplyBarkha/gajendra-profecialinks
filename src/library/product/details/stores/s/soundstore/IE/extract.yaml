@@ -407,7 +407,7 @@ fields:
     singleValue: true
     description: The physical dimensions of the product including packaging.
     # xpath: //table[@class='flix-std-specs-table']//tbody//tr//td
-    xpath: //div[@id='added_specifications']
+    xpath: //div[@id='added_specifications'] | //body/@added_specifications
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
