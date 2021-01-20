@@ -90,7 +90,9 @@ const transform = (data) => {
         if (row.availabilityText){
           let info = [];
           row.availabilityText.forEach(item => {
-           if(item.text == "[NULL]") {info.push("out of stock")} else {info.push("in stock")}
+            item.text = item.text.replace(/Jetzt anmelden/, "Out of stock");
+            item.text = item.text.replace(/  mehr erfahren/, "In stock");
+            info.push(item.text);
           });
         }
         if(row.variantInformation){
