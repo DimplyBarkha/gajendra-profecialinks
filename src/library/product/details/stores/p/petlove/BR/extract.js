@@ -49,8 +49,8 @@ module.exports = {
                     (node, index) => !node.textContent.includes('%') && index > 0,
                   );
                 }
-                const hasMin = firstElem.textContent.toLowerCase().includes('mín');
-                const hasMax = firstElem.textContent.toLowerCase().includes('máx');
+                const hasMin = firstElem.textContent.toLowerCase().includes('mín') || firstElem.textContent.toLowerCase().includes('min');
+                const hasMax = firstElem.textContent.toLowerCase().includes('máx') || firstElem.textContent.toLowerCase().includes('max');
                 if (hasMin && hasMax) {
                   const valuesArr = secondElem.textContent.split(' /');
                   if (valuesArr.length === 2) {
@@ -116,12 +116,7 @@ module.exports = {
           const currency = document.querySelector('meta[name="currency"]')
             ? document.querySelector('meta[name="currency"]').getAttribute('content')
             : 'R$';
-          // const listPrice = document.querySelector('div.product-info div:not([class]) div.variant-list-price')
-          //   ? document.querySelector('div.product-info div:not([class]) div.variant-list-price').textContent
-          //   : '';
-          // const price = document.querySelector('div.product-info div:not([class]) div.product-price')
-          //   ? document.querySelector('div.product-info div:not([class]) div.product-price').textContent
-          //   : '';
+
           const couponText = document.querySelector('div.product-info div.flag')
             ? document.querySelector('div.product-info div.flag').textContent
             : '';
