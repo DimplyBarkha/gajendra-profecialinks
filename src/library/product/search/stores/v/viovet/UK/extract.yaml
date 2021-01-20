@@ -19,6 +19,8 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //li[@itemtype="http://schema.org/Product"]/@image_url
+    regExp: (.+?),.*?(\/.+)
+    regExpReplace: $1$2
   - name: aggregateRating
     singleValue: false
     xpath: //li[@itemtype="http://schema.org/Product"]//i[@itemprop="ratingValue"]/@content
