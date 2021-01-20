@@ -21,13 +21,13 @@ while(!!document.querySelector(("#content-main > mh-search-result > mh-tabs > mh
 document.querySelector(("#content-main > mh-search-result > mh-tabs > mh-tab.active > mh-product-list > section > mathem-fetch-more-btn > section > button > i")).click()
 await new Promise(r => setTimeout(r, 6000));
 }
-const doesPopupExist = await context.evaluate(function () {
-  return Boolean(document.querySelector('div[class="two-col"] div button[class="btn full-width"]'));
-});
+// const doesPopupExist = await context.evaluate(function () {
+//   return Boolean(document.querySelector('div[class="two-col"] div button[class="btn full-width"]'));
+// });
 
-if (doesPopupExist) {
-  await context.click('div[class="two-col"] div button[class="btn full-width"]');
-}
+// if (doesPopupExist) {
+//   await context.click('div[class="two-col"] div button[class="btn full-width"]');
+// }
 })
 return await context.extract(productDetails, { transform });
 }
