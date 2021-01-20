@@ -4,9 +4,9 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: name
-    manualSelector: h1[itemprop="name"]
+    xpath: //h1[contains(@class,"productName")]
   - name: price
-    xpath: concat("$", "",//span[@itemprop="offers"]/meta[@itemprop="price"]/@content)
+    xpath: (//div[contains(@class,"pricingContainer_9GyCd")]//span[contains(@class,"screenReaderOnly_3anTj large_3aP7Z")])[1]
     # regExp: (.+)
     # regExpReplace: $1
   - name: availabilityText
@@ -42,7 +42,8 @@ fields:
   - name: promotion
     xpath: //div[@class="productPricingContainer_3gTS3"]/span[@class="productSaving_3YmNX top_3XDS1"]
   - name: sku
-    manualSelector: span[itemprop="sku"]
+    # manualSelector: span[itemprop="sku"]
+    xpath: //div[contains(@class,"modelInformation")]/strong[contains(text(),'Web Code:')]/following-sibling::span
   - name: specificationsLabel
     manualSelector: div#detailsAndSpecs div[class*="itemName"]
   - name: specifications
@@ -50,17 +51,19 @@ fields:
   # - name: specifications
   #   xpath: //div[@id="detailsAndSpecs"]/div/div
   - name: variantId
-    manualSelector: span[itemprop="sku"]
+    # manualSelector: span[itemprop="sku"]
+    xpath: //div[contains(@class,"modelInformation")]/strong[contains(text(),'Web Code:')]/following-sibling::span
   - name: mpc
-    manualSelector: span[itemprop="model"]
+    # manualSelector: span[itemprop="model"]
+    xpath: //div[contains(@class,"modelInformation")]/strong[contains(text(),'Model Number:')]/following-sibling::span
   - name: category
     xpath: //ol[@class="breadcrumbList_16xQ3 x-breadcrumbs"]/li[position()>1][position()<last()]
   - name: nameExtended
-    xpath: //h1[@itemprop="name"]
+    xpath: //h1[contains(@class,"productName")]
   - name: listPrice
     xpath: concat("$", "",//span[@itemprop="offers"]/meta[@itemprop="price"]/@content)
-    regExp: (.+)
-    regExpReplace: $$1
+    # regExp: (.+)
+    # regExpReplace: $$1
   - name: productOtherInformation
     manualSelector: div[id="bb_productOtherInformation"]
   - name: additionalDescBulletInfo
@@ -87,7 +90,7 @@ fields:
     xpath: //div[contains(.,"Dimensions (cm)")]/following-sibling::div[@class="itemValue_XPfaq"]
   - name: countryOfOrigin
   - name: brandText
-    xpath: //h1[@itemprop="name"]
+    xpath: //h1[contains(@class,"productName")]
     regExp: ^\w+
   - name: brandText2
     xpath: //h1[@itemprop="name"]
@@ -129,9 +132,9 @@ fields:
     xpath: //h1[@itemprop="name"]/text()
     regExp: (\d+)(\")
     regExpReplace: $1
-  - name: variantId
-    description: variant id, to uniquely identify variant
-    xpath: //div[@class="sizeVariantWrapper_2FRMM"]//a[@class="link_3hcyN"]/@href
+  # - name: variantId
+  #   description: variant id, to uniquely identify variant
+  #   xpath: //div[@class="sizeVariantWrapper_2FRMM"]//a[@class="link_3hcyN"]/@href
   - name: variantUrl
     xpath:  //div[@class="sizeVariantWrapper_2FRMM"]//a[@class="link_3hcyN"]/@href
 #  Custom fields
