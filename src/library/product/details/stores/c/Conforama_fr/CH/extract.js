@@ -198,15 +198,10 @@ module.exports = {
 
           }
           try {
-            const availability = getAllXpath('//script[@type="application/ld+json" and contains(text(),"InStock")]/text()', 'nodeValue');
-            if (availability[0].includes('InStock')) {
-              addHiddenDiv('availability', 'In Stock')
-            }
-            else {
-              addHiddenDiv('availability', 'Out Of Stock')
-            }
+            const availability = getAllXpath('//script[@type="application/ld+json" and (contains(text(),"PreOrder"))]/text()|//script[@type="application/ld+json" and contains(text(),"InStock")]/text()', 'nodeValue');
+            addHiddenDiv('availability', 'In Stock')
           } catch (error) {
-
+            addHiddenDiv('availability', 'Out Of Stock')
           }
           try {
             var brandName = "";
@@ -315,15 +310,10 @@ module.exports = {
 
       }
       try {
-        const availability = getAllXpath('//script[@type="application/ld+json" and contains(text(),"InStock")]/text()', 'nodeValue');
-        if (availability[0].includes('InStock')) {
-          addHiddenDiv('availability', 'In Stock')
-        }
-        else {
-          addHiddenDiv('availability', 'Out Of Stock')
-        }
+        const availability = getAllXpath('//script[@type="application/ld+json" and (contains(text(),"PreOrder"))]/text()|//script[@type="application/ld+json" and contains(text(),"InStock")]/text()', 'nodeValue');
+        addHiddenDiv('availability', 'In Stock')
       } catch (error) {
-
+        addHiddenDiv('availability', 'Out Of Stock')
       }
       try {
         var brandName = "";
