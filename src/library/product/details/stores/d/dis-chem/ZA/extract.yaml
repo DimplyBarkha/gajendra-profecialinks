@@ -23,7 +23,7 @@ fields:
     xpath: //meta[@itemprop="name"]/@content
   - name: listPrice
     description: The stated undiscounted price for the product
-    xpath: (//div[contains(@id,"old-price")]/span)[1]
+    xpath: translate((//div[contains(@id,"old-price")]/span)[1], '.', ',')
   - name: price
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
