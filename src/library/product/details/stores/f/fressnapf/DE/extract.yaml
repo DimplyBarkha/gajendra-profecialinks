@@ -20,7 +20,7 @@ fields:
     description: The <meta> keywords content
   - name: category
     singleValue: false
-    xpath: //ul[@class='b-items']/li[position()>2 and position()< last()]
+    xpath: //ul[@class='b-items']/li[position()>1 and position()< last()]
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: true
