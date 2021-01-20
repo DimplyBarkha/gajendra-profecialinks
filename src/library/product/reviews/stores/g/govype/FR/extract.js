@@ -9,12 +9,41 @@ async function implementation (
   const { transform } = parameters;
   const { productReviews } = dependencies;
   await context.evaluate(async () => {
-    if (!document.querySelector('div.netreviews-stars')) {
-      const newDiv = document.createElement('div');
-      newDiv.id = 'custom_noReview';
-      newDiv.style.display = 'none';
-      document.body.appendChild(newDiv);
+    // if (!document.querySelector('div.netreviews-stars')) {
+    //   const newDiv = document.createElement('div');
+    //   newDiv.id = 'custom_noReview';
+    //   newDiv.style.display = 'none';
+    //   document.body.appendChild(newDiv);
+    // }
+
+  // start click logic
+    async function clickElement(selector, type) {
+        var element = document.querySelector(selector);
+        let evt = document.createEvent("Events");
+        evt.initEvent(type, true, false);
+        element.dispatchEvent(evt);
     }
+
+    let reviewsPresent = !!document.querySelector('#netreviews_button_more_reviews:not([style^="display: none;"])');
+    let i = 0
+
+    while (reviewsPresent){
+      document.querySelector('#netreviews_button_more_reviews:not([style^="display: none;"])').scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
+      console.log('Scrolling into view..')
+      await new Promise(res=>setTimeout(res,3500));
+
+      await clickElement('#netreviews_button_more_reviews:not([style^="display: none;"])','hover');
+      await clickElement('#netreviews_button_more_reviews:not([style^="display: none;"])','click');
+      // document.querySelector('#netreviews_button_more_reviews:not([style^="display: none;"])').click();
+      console.log(`Clicked, getting more reviews! ${i}th iteration!`);
+      console.log(`reviews on page: ${document.querySelectorAll('div.netreviews_review_part').length}`)
+      i++;
+      await new Promise(res=>setTimeout(res,3500));
+      reviewsPresent = !!document.querySelector('#netreviews_button_more_reviews:not([style^="display: none;"])');
+    }
+  // end click logic
+
+
     // if (document.querySelector('#netreviews_button_more_reviews')) {
     //   const reviewString = document.querySelector('p.netreviews_subtitle').textContent;
     //   const totalReviewsCount = Number(reviewString.match(/\d+/g)[0]);
