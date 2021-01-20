@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'saksfifthavenue',
-    urlTemplate: 'https://www.saksfifthavenue.com/{id}&start={index}&sz=24',
+    urlTemplate: '{id}&start={index}&sz=24',
     resultsCountSelector: 'span.search-result-count span',
     numberResultPerPage: 96,
     regExpForIdFromUrl: /(?<=com\/)(.*)/,
