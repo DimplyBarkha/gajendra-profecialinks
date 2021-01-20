@@ -21,6 +21,38 @@ module.exports = {
 
     // Extracting product description
     const productDescription = await context.evaluate(async () => {
+      const getDescription = () => {
+        const digForDescription = (parent, descriptionArr) => {
+          for (let i = 0; i < parent.childNodes.length; i++) {
+            const child = parent.childNodes[i];
+            if (child.nodeType === 3) descriptionArr.push(child.textContent.trim());
+            else if (child.nodeName === 'TABLE') break;
+            else digForDescription(child, descriptionArr);
+          }
+        };
+
+        const descriptionArr = [];
+        const descriptionParent = document.evaluate(
+          '//button[div[text()="Описание"]]/following-sibling::div[position()=1]//div[@name="active-tab"]//div[@data-testid="ProductDescription__content"]/div[contains(@class, "style_text")]/div/div',
+          document,
+          null,
+          XPathResult.ANY_UNORDERED_NODE_TYPE,
+          null,
+        ).singleNodeValue;
+
+        if (descriptionParent) digForDescription(descriptionParent, descriptionArr);
+        const alternateDescription = document.querySelector('div#product-detail-text')
+          ? document.querySelector('div#product-detail-text').textContent
+          : '';
+
+        const description = descriptionArr
+          .filter((item) => !!item)
+          .join(' ')
+          .replace(/\n+/g, ' ');
+
+        return description || alternateDescription;
+      };
+
       const descriptionButton = document.evaluate(
         '//button[div[text()="Описание"]]',
         document,
@@ -42,34 +74,32 @@ module.exports = {
       ).stringValue;
       document.body.setAttribute('directions', directions);
 
-      const descriptionArr = [];
-      const descriptionParent = document.evaluate(
-        '//button[div[text()="Описание"]]/following-sibling::div[position()=1]//div[@name="active-tab"]//div[@data-testid="ProductDescription__content"]/div[contains(@class, "style_text")]/div/div',
-        document,
-        null,
-        XPathResult.ANY_UNORDERED_NODE_TYPE,
-        null,
-      ).singleNodeValue;
-      if (descriptionParent) {
-        for (let i = 0; i < descriptionParent.childNodes.length; i++) {
-          const row = descriptionParent.childNodes[i];
-          if (row.nodeName === 'TABLE') break;
-          const hasTable = !!(row.nodeType === 1 && row.querySelector('table'));
-          if (!hasTable) descriptionArr.push(row.textContent);
-          else {
-            for (let j = 0; j < row.childNodes.length; j++) {
-              const child = row.children[j];
-              if (child.nodeType === 1 && (child.querySelector('table') || child.nodeName === 'TABLE')) break;
-              descriptionArr.push(child.textContent);
-            }
-          }
-        }
-      }
-      const alternateDescription = document.querySelector('div#product-detail-text')
-        ? document.querySelector('div#product-detail-text').textContent
-        : '';
-      const description = descriptionArr.map((item) => item.trim()).join(' ');
-      return description || alternateDescription;
+      // const descriptionArr = [];
+      // const descriptionParent = document.evaluate(
+      //   '//button[div[text()="Описание"]]/following-sibling::div[position()=1]//div[@name="active-tab"]//div[@data-testid="ProductDescription__content"]/div[contains(@class, "style_text")]/div/div',
+      //   document,
+      //   null,
+      //   XPathResult.ANY_UNORDERED_NODE_TYPE,
+      //   null,
+      // ).singleNodeValue;
+      // if (descriptionParent) {
+      //   for (let i = 0; i < descriptionParent.childNodes.length; i++) {
+      //     const row = descriptionParent.childNodes[i];
+      //     if (row.nodeName === 'TABLE') break;
+      //     const hasTable = !!(row.nodeType === 1 && row.querySelector('table'));
+      //     if (!hasTable) descriptionArr.push(row.textContent);
+      //     else {
+      //       for (let j = 0; j < row.childNodes.length; j++) {
+      //         const child = row.children[j];
+      //         if (child.nodeType === 1 && (child.querySelector('table') || child.nodeName === 'TABLE')) break;
+      //         descriptionArr.push(child.textContent);
+      //       }
+      //     }
+      //   }
+      // }
+
+      // const description = descriptionArr.map((item) => item.trim()).join(' ');
+      return getDescription();
 
       // return document.evaluate(
       //   '//button[div[text()="Описание"]]/following-sibling::div[position()=1]//div[@name="active-tab"]',
@@ -451,6 +481,9 @@ module.exports = {
             'div[class^="style_info"] div[class^="style_tile_wrapper"] > label[class*="style_active"] div[data-testid="WeightContent"]',
           );
           if (weightElem) listElem.setAttribute('weight', weightElem.textContent.trim());
+
+          const ingredients = document.evaluate('html//div[contains(@class, "style_composition__composition")]//*[b[contains(text(), "Ингредиенты") or contains(text(), "Состав")]] | html//div[contains(@class, "style_composition__composition")]//*[*[name() = "b" or name()="strong"][text() = "Ингредиенты" or text() = "Состав"]]/following-sibling::*[position() = 1]', document, null, XPathResult.STRING_TYPE, null).stringValue;
+          listElem.setAttribute('ingredients', ingredients.replace(/\n+/g, ' ').trim());
 
           addedList.appendChild(listElem);
         },
