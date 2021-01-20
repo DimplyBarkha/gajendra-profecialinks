@@ -2,7 +2,7 @@ singleRecord: false
 regionsSelector: null
 recordSelector: null
 # recordXPath: null
-recordXPath: "//div[contains(@class,'search-results-4-grid')]"
+recordXPath: "//div[contains(@class,'search-results-4-grid')] | //div[contains(@class,'search-results-list')]"
 
 fields:
   - name: id
@@ -40,3 +40,6 @@ fields:
     singleValue: false
   - name: rankOrganic
     singleValue: true
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id='search-url']
