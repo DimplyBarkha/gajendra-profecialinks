@@ -42,7 +42,7 @@ fields:
   - name: availabilityText
     singleValue: false
     # defaultValue: 'In Stock'
-    xpath: //button[last()]
+    xpath: //button[@id='PurchaseSubmit']/var[@id='addToBasketButtonText']
   - name: brandText
     singleValue: false
     xpath: //script[contains(@type, "application/ld+json") and contains(text(), "brand")][1]/text()

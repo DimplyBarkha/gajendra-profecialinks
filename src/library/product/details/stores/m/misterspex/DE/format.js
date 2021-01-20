@@ -90,11 +90,8 @@ const transform = (data) => {
         if (row.availabilityText){
           let info = [];
           row.availabilityText.forEach(item => {
-            item.text = item.text.replace(/Jetzt anmelden/, "Out of stock");
-            info.push(item.text);
-          });
-          row.availabilityText.forEach(item => {
-            item.text = item.text.replace(/  mehr erfahren/, "In stock");
+            item.text = item.text.replace(/In den Warenkorb/, "In stock");
+            item.text = item.text.replace(/[NULL]/, "Out of stock");
             info.push(item.text);
           });
         }
