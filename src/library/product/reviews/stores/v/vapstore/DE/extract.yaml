@@ -48,6 +48,9 @@ fields:
     xpath: //span[@itemprop='bestRating']
   - name: verifiedPurchase
     singleValue: false
+    xpath: //div[@itemprop='review']//span[@class='color-green-dark text-success']
+    regExp: (.+)
+    regExpReplace: 'Yes'
     description: Whether this of an item the reviewer purchased. "Yes" if true else ""
   - name: aggregateRating
     singleValue: false
