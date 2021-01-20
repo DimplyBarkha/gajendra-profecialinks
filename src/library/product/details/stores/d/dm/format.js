@@ -25,7 +25,7 @@ const transform = (data) => {
       }
       if (row.ingredientsList) {
         const ingredientsListArr = row.ingredientsList.map((item) => {
-          return typeof (item.text) === 'string' ? item.text.replace(/\n/gm, '').replace(/(\\|")+/gm, '') : '|';
+          return typeof (item.text) === 'string' ? item.text.replace('[There is a trailing space here]', '').replace(/\n/gm, '').replace(/(\\|")+/gm, '') : '|';
         });
         row.ingredientsList = [{ text: ingredientsListArr.join(' | '), xpath: row.ingredientsList[0].xpath }];
       }
@@ -64,12 +64,12 @@ const transform = (data) => {
         const alternateImagesResult = alternateImagesArr && alternateImagesArr.slice(1);
         row.alternateImages = alternateImagesResult;
       }
-      if (row.pricePerUnit) {
-        const pricePerUnitArr = row.pricePerUnit.map((item) => {
-          return clean(typeof (item.text) === 'string' ? item.text.replace(/(.*)\((?:([\d.,]+)\s?)€(.*)/g, '$2') : '|');
-        });
-        row.pricePerUnit = [{ text: pricePerUnitArr.join('|'), xpath: row.pricePerUnit[0].xpath }];
-      }
+      // if (row.pricePerUnit) {
+      //   const pricePerUnitArr = row.pricePerUnit.map((item) => {
+      //     return clean(typeof (item.text) === 'string' ? item.text.replace(/(.*)\((?:([\d.,]+)\s?)€(.*)/g, '$2') : '|');
+      //   });
+      //   row.pricePerUnit = [{ text: pricePerUnitArr.join('|'), xpath: row.pricePerUnit[0].xpath }];
+      // }
       if (row.pricePerUnitUom) {
         const pricePerUnitUomArr = row.pricePerUnitUom.map((item) => {
           return typeof (item.text) === 'string' ? item.text.replace(/.*\s(.*)\)/g, '$1') : '|';
@@ -114,9 +114,6 @@ const transform = (data) => {
       }
       if (row.sku) {
         clean(row.sku[0].text = row.sku[0].text.match(/(.*)([a-z])(\d+)(.html)/)[3]);
-      }
-      if (row.variantId) {
-        clean(row.variantId[0].text = row.variantId[0].text.match(/(.*)([a-z])(\d+)(.html)/)[3]);
       }
       if (row.sodiumPerServingUom) {
         const sodiumPerServingUomArr = row.sodiumPerServingUom.map((item) => {
@@ -164,6 +161,18 @@ const transform = (data) => {
           }
         });
         row.totalFatPerServing = [{ text: totalFatPerServingArr.join('|'), xpath: row.totalFatPerServing[0].xpath }];
+      }
+      if (row.quantity) {
+        const quantityArr = row.quantity.map((item) => {
+          return typeof (item.text) === 'string' ? item.text.replace(',', '.') : '';
+        });
+        row.quantity = [{ text: quantityArr.join(''), xpath: row.quantity[0].xpath }];
+      }
+      if (row.pricePerUnit) {
+        const pricePerUnitArr = row.pricePerUnit.map((item) => {
+          return typeof (item.text) === 'string' ? item.text.replace(',', '.') : '';
+        });
+        row.pricePerUnit = [{ text: pricePerUnitArr.join(''), xpath: row.pricePerUnit[0].xpath }];
       }
       if (row.totalFatPerServingUom) {
         const totalFatPerServingUomArr = row.totalFatPerServingUom.map((item) => {
