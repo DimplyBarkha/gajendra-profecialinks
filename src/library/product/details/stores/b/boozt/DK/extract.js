@@ -10,11 +10,10 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
-
     await context.evaluate(async () => {
       // await new Promise((resolve, reject) => setTimeout(resolve, 3000));
 
-      function addElementToDocument(id, value, key) {
+      function addElementToDocument (id, value, key) {
         const catElement = document.createElement('div');
         catElement.id = id;
         catElement.innerText = value;
@@ -35,6 +34,7 @@ module.exports = {
         prodInfo: '',
         careTips: '',
         shippingInfo: '',
+        ingredients: '',
       };
 
       // iteration through all the buttons and click on them for loading the div with text
@@ -44,6 +44,12 @@ module.exports = {
           await new Promise((resolve, reject) => setTimeout(resolve, 1000));
           const careTips = document.querySelector('div.pp-tabs__content.pp-content').innerText;
           allInfoRaw.careTips = careTips;
+        }
+        if (infoBtns[i].innerText === 'INGREDIENSER') {
+          infoBtns[i].click();
+          await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+          const ingredients = document.querySelector('div.pp-tabs__content.pp-content div.pp-content__text').innerText;
+          allInfoRaw.ingredients = ingredients;
         }
       }
       return allInfoRaw;
@@ -57,6 +63,13 @@ module.exports = {
       dataRef[0].data[0].group[0].productOtherInformation[0].text = allInfo.careTips;
     } else {
       dataRef[0].data[0].group[0].productOtherInformation[0].push({ text: allInfo.careTips });
+    }
+    if (!('ingredientsList' in dataRef[0].data[0].group[0])) {
+      dataRef[0].data[0].group[0].ingredientsList = [{ text: allInfo.ingredients }];
+    } else if ('text' in dataRef[0].data[0].group[0].ingredientsList[0]) {
+      dataRef[0].data[0].group[0].ingredientsList[0].text = allInfo.ingredients;
+    } else {
+      dataRef[0].data[0].group[0].ingredientsList[0].push({ text: allInfo.ingredients });
     }
   },
 };

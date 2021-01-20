@@ -32,7 +32,7 @@ fields:
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
 - name: nameExtended
-  xpath: normalize-space(concat(//a[@data-track-id="pdp_brandname"], //h1[@class="pp-info__name"]))
+  xpath: normalize-space(concat(//a[@data-track-id="pdp_brandname"], //h1[@class="pp-info__name"], //div[@class="pp-size-selector"]/button|//div[@class="pp-colour-selector"]//span))
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
@@ -52,7 +52,7 @@ fields:
     is no availability but the product can be added to cart, this field should be
     "In Stock"
 - name: description
-  xpath: //div[@class="pp-content__left"]//div
+  xpath: //div[@class="pp-content__heading"][contains(text(), 'Produktinformation')]/following-sibling::div
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
@@ -79,6 +79,9 @@ fields:
   singleValue: true
   description: Gross weight as described on the page
 - name: gtin
+  xpath: //span[@class="pp-content__meta-text"][1]/text()
+  regExp: (\d{1,})$
+  regExpReplace: $1
   singleValue: true
   description: GTIN code (includes UPC/EAN)
 - name: sku
@@ -94,7 +97,7 @@ fields:
     sku
 - name: mpc
   xpath: //span[@class="pp-content__meta-text"][1]/text()
-  regExp: (\d{1,}) 
+  regExp: (\d{1,})$
   regExpReplace: $1
   singleValue: true
   description: The manufacturer model code (unique) of the product
@@ -106,6 +109,7 @@ fields:
   singleValue: true
   description: Content under "legal disclaimer" header
 - name: directions
+  xpath: //div[@class="pp-content__heading"][contains(text(), 'Anvendelse')]/following-sibling::div
   singleValue: true
   description: Content under "directions" header
 - name: warnings
@@ -259,6 +263,7 @@ fields:
   singleValue: true
   description: 
 - name: ingredientsList
+  xpath: //div[@class="pp-tabs__content pp-content pp-content--ingredients clearfix"]//div[@class="pp-content__text"]
   singleValue: true
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
