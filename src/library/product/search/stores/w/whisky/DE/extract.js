@@ -11,22 +11,36 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(() => {
-      function addHiddenDiv (id, content,index) {
-        const newDiv = document.createElement('div');
-        newDiv.id = id;
-        newDiv.textContent = content;
-        newDiv.style.display = 'none';
-      }
+  function getAllXpath(xpath, prop) {
+        const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        const result = [];
+        for (let index = 0; index < nodeSet.snapshotLength; index++) {
+          const element = nodeSet.snapshotItem(index);
+          if (element)
+            result.push(prop ? element[prop] : element.nodeValue);
+        }
+        return result;
 
-      const priceSelector=document.querySelectorAll("span[class='article-price-default article-club-hidden'] font font")
-      let priceValue;
-      for(let i=0;i<=priceSelector.length;i++)
-      {
-      priceValue=priceSelector[0].childNodes[0].textContent;
       }
-      addHiddenDiv('price',priceValue)
-    });
-    return await context.extract(productDetails, { transform });
-  },
-
+  function addHiddenDiv(id, content, index) {
+  const newDiv = document.createElement('div');
+  newDiv.id = id;
+  newDiv.textContent = content;
+  newDiv.style.display = 'none';
+  const originalDiv = document.querySelectorAll('div[class="rating-box"] div[class="rating-stars"]')[index];
+  originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+  }
+  var arr1 = getAllXpath('//div[@class="article-metadata"]//span[@class="article-price-default article-club-hidden"]/text()', 'nodeValue');
+  if(arr1!= null) {
+  var abc = "";for(var j=0; j<arr1.length;j=j+2){
+  if (arr1[j] != null && arr1[j+1] != null){
+  abc = abc + arr1[j].trim() +" , "+arr1[j+1].trim();
+   }
+        
+   }
+   }
+  addHiddenDiv('price', abc, j);
+});
+return await context.extract(productDetails, { transform });
+}
 };
