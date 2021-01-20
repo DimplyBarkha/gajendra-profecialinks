@@ -15,12 +15,6 @@ module.exports = {
     const LogoutBtn = await context.evaluate(async () => {
       return document.querySelector('a.logout-btn');
     });
-    const branchSelected = await context.evaluate(async () => {
-      return document.querySelector('a#SHC_ASC_BrowseUserLink');
-    });
-    if (branchSelected) {
-      await context.click('a#SHC_ASC_BrowseUserLink');
-    };
     if (!LogoutBtn) {
       await context.waitForSelector('input#CustomerNumber');
       await context.setInputValue('input#CustomerNumber', '703636209');
