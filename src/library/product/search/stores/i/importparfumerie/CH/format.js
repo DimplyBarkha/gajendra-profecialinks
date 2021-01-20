@@ -11,8 +11,8 @@ const transform = (data, context) => {
       .replace(/&amp;#160/g, ' ')
       .replace(/\u00A0/g, ' ')
       .replace(/\s{2,}/g, ' ')
-    // .replace(/"\s{1,}/g, '"')
-    // .replace(/\s{1,}"/g, '"')
+      .replace(/"\s{1,}/g, '"')
+      .replace(/\s{1,}"/g, '"')
       .replace(/^ +| +$|( )+/g, ' ')
     // eslint-disable-next-line no-control-regex
       .replace(/[\x00-\x1F]/g, '')
@@ -22,10 +22,18 @@ const transform = (data, context) => {
     }))));
     return data;
   };
+  let productUrlObj;
+  try {
+    // @ts-ignore
+    productUrlObj = JSON.parse(data[0].group[0].productUrlObj[0].text);
+  } catch (error) {
+    console.log('no data found');
+  }
   const state = context.getState();
   let rank = state.rank || 1;
   for (const { group } of data) {
-    for (const row of group) {
+    // @ts-ignore
+    for (const [i, row] of group.entries()) {
       if (row.productUrl) {
         row.productUrl.forEach(item => {
           item.text = 'https://www.impo.ch' + item.text;
