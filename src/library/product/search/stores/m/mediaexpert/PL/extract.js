@@ -44,7 +44,7 @@ module.exports = {
     await applyScroll();
     await context.evaluate(() => {
       var searchUrl = window.location.href;
-      var appendElements = document.querySelectorAll('div[class*="c-grid_col is-grid-col-1"]');
+      var appendElements = document.querySelectorAll('div[class*="c-grid is-equal"] div[class*="c-grid_col is-grid-col-1"]');
       if (appendElements.length) {
         appendElements.forEach((element) => {
           element.setAttribute('searchurl', searchUrl);
