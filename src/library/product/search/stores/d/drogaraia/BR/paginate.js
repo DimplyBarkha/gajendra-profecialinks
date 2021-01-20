@@ -10,7 +10,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div h2',
-    loadedXpath: null,
+    loadedXpath: '//li[contains(@class, "marca show")]',
     noResultsXPath: '//div[contains(@class, "noresults")]',
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
