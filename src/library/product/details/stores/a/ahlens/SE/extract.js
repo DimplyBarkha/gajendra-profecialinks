@@ -9,7 +9,7 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
-    await context.evaluate(async function () {
+    await context.evaluate(async function () {      
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.className = key;
@@ -33,7 +33,7 @@ module.exports = {
           if (element) result.push(prop ? element[prop] : element.nodeValue);
         }
         return result;
-      };
+      };      
       const sliceURL = (data) => {
         for (let index = 0; index < data.length; index++) {
           if (data[index].includes(":")) {
@@ -55,6 +55,7 @@ module.exports = {
       } catch (error) {
       }
     });
+    await context.waitForSelector('td[class="long_description depth_1"]', 3000)
     await context.extract(productDetails, { transform: transformParam });
   },
 };
