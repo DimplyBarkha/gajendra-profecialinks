@@ -15,7 +15,7 @@ const transform = (data) => {
     .replace(/"\s{1,}/g, '"')
     .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
-    // eslint-disable-next-line no-control-regex
+  // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
@@ -24,6 +24,17 @@ const transform = (data) => {
 
   for (const { group } of data) {
     for (const row of group) {
+      if (row.image) {
+        const image = [];
+        row.image.forEach(item => {
+          if (item.text.includes('http')) {
+            image.push({ text: item.text });
+          } else {
+            image.push({ text: `https:${item.text}` });
+          }
+        });
+        row.image = image;
+      }
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {
@@ -47,7 +58,7 @@ const transform = (data) => {
         const specificationsArr = row.specifications.map((item) => {
           return typeof (item.text) === 'string' ? item.text.replace(/\n/, ' : ') : '';
         });
-        row.specifications = [{ text: specificationsArr.join('||'), xpath: row.specifications[0].xpath }];
+        row.specifications = [{ text: specificationsArr.join(' || '), xpath: row.specifications[0].xpath }];
       }
       if (row.additionalDescBulletInfo) {
         const additionalDescBulletInfoArr = row.additionalDescBulletInfo.map((item) => {
@@ -64,6 +75,30 @@ const transform = (data) => {
       }
       if (row.secondaryImageTotal) {
         if (row.secondaryImageTotal[0].text.toString() === '0') { row.secondaryImageTotal = [{ text: '' }]; }
+      }
+      if (row.description || row.descriptionBulletsLiTags) {
+        let textOne = '';
+        if (row.description) {
+          const description = row.description;
+          description && description.length && description.forEach(item => {
+            textOne += `${item.text.replace(/\n \n/g, '')}`;
+          });
+          textOne = textOne.trim();
+        }
+        let textTwo = '';
+        if (row.descriptionBulletsLiTags) {
+          const descriptionLiTags = row.descriptionBulletsLiTags;
+          descriptionLiTags && descriptionLiTags.length && descriptionLiTags.forEach(item => {
+            textTwo += ` || ${item.text.replace(/\n \n/g, '')}`;
+          });
+          textTwo = textTwo.trim();
+        }
+        const data = [textOne, textTwo];
+        row.description = [
+          {
+            text: data.join(' ').trim(),
+          },
+        ];
       }
       // if (row.description) {
       //   let text = '';
