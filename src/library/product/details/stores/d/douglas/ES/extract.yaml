@@ -14,7 +14,7 @@ fields:
     singleValue: false
     description: URL of the main product image
     #xpath: //div[contains(@class,'slick-current')]//img[@itemprop='image' and contains(@class,"rd__img sd__img loading")]/@src
-    xpath: (//img[@itemprop="image"]/@src)[1]
+    xpath: (//img[@itemprop="image" and @class="rd__img sd__img loading"]/@src)[1]
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
@@ -35,12 +35,12 @@ fields:
     #xpath: //button[contains@class="rd__back-to-top rd__col--lg-12 rd__product-details__description rd__button rd__button--primary rd__button--md bb__add-chart add2chart"]
     xpath: //div[@id="my-availab1"][last()]  |//div[@id="my-availab"][last()] 
     regExp: (.+)
-    regExpReplace: Out of Stock 
+    regExpReplace: Out Of Stock 
     defaultValue: In Stock
   - name: description
     singleValue: false
     #xpath: //div//span[contains(text(),"Información del producto")]//..//..//..//..//..//following-sibling::div[1]//div[@class="rd__checkout-details__section__description"] | //span[@class="rd__copytext rd__copytext--70"]
-    xpath: (//div[@class="rd__checkout-details__section__description"])[1] | //span[@class="rd__copytext rd__copytext--80"]/strong | //span/span[@class="rd__copytext rd__copytext--70"] #//span[@class="rd__headline rd__headline--80"]//text()
+    xpath: (//div[@class="rd__checkout-details__section__description"])[1] #| //span[@class="rd__copytext rd__copytext--80"]/strong | //span/span[@class="rd__copytext rd__copytext--70"] #//span[@class="rd__headline rd__headline--80"]//text()
   - name: brandText
     singleValue: false
     xpath: //div[@class="rd__product-header"]//img[contains(@class,'rd__img sd__img')]/@alt | //div[@class="rd__global--hidden-sm"]//strong/text()
@@ -48,7 +48,7 @@ fields:
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
     xpath: //div[@id="my-variantId"] [last()] | //div[@data-vendor]/@data-product-id
-    #xpath: //div[@class="rd__blob"]/img/@src
+    # xpath: //div[@class="rd__blob"]/img/@src
     regExp: \d{5,}
     # regExpReplace:
   - name: reviewCount
@@ -69,6 +69,10 @@ fields:
     singleValue: false
     description: The product name
     xpath:  //h2[contains(@class,"rd__headlline rd__headline--80")]/text() | //h1[@itemprop="name"]/div[1]  
+  - name: name2
+    singleValue: false
+    description: The product name
+    xpath: //h1[contains(@class,'rd__headline')]
     #regExp: (?<=\s).*
   # - name: packSize
   #   singleValue: false
