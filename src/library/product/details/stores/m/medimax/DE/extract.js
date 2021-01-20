@@ -18,7 +18,8 @@ async function implementation(
         return window.location.href;
     });
     const src = await context.evaluate(async function () {
-        const iframe = document.querySelector('#loadbeeTabContent');
+        // const iframe = document.querySelector('#loadbeeTabContent');
+        let iframe = document.querySelector('#loadbeeIframeId');
         // const src = iframe ? (iframe.src||iframe._src) : '';
         let src = '';
         if (iframe) {
