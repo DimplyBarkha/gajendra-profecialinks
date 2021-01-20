@@ -55,7 +55,7 @@ module.exports = {
           break;
         }
       }
-      const description = getAllXpath("//section[@class='pro-column'][2]//h3/text() | //section[@class='pro-column'][2]//p[@itemprop='description']/text()", 'nodeValue').join(' ');
+      const description = getAllXpath("//section[@class='pro-column'][2]//h3/text() | //section[@class='pro-column'][2]//p[@itemprop='description']/text() | //a[@class='product-detail-more-link']/text() | //div[@class='col-sm-6']//span/text() | //div[@class='col-sm-6']//span/strong/text() |  //div[@class='col-sm-6']//span/a/text()", 'nodeValue').join(' ');
       addElementToDocument('added_description', description);
 
       var servingSize = getXpath("//td[contains(text(),'skodelice')]//following::td/b/text()", 'nodeValue');
@@ -241,8 +241,10 @@ module.exports = {
           addElementToDocument('added_salt_unit', saltValueElements[1]);
         }
       }
-      const specifications = getAllXpath("//h2[contains(text(), 'Tehnične')]//following::section[@class='panel-inner']//table//tr", 'innerText').join(' || ');
-      addElementToDocument('added_specifications', specifications);
+      const specificationHeader = getXpath("//h2[contains(text(), 'Tehnične')]//following::section[@class='panel-inner']//h3[@class='lay-off']/text()", 'nodeValue');
+      const specifications = getAllXpath("//h2[contains(text(), 'Tehnične')]//following::section[@class='panel-inner']//table//tr", 'innerText').join(' ');
+      const finalSpec = specificationHeader + ' ' + specifications;
+      addElementToDocument('added_specifications', finalSpec);
 
       const dimensions = getXpath("//tr//td[contains(text(), 'Dimenzije škatle')]//following-sibling::td//b", 'innerText');
       addElementToDocument('added_dimensions', dimensions);
@@ -264,7 +266,7 @@ module.exports = {
       if (availability) {
         addElementToDocument('added_availability', 'In Stock');
       } else {
-        addElementToDocument('added_availability', 'Out of Stock');
+        addElementToDocument('added_availability', 'Out Of Stock');
       }
 
       var price = getXpath("//b[contains(@class, 'pro-price')]", 'innerText');
