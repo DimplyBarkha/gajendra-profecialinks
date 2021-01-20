@@ -7,7 +7,7 @@ module.exports = {
     urlTemplate: '{id}&start={index}&sz=24',
     resultsCountSelector: 'span.search-result-count span',
     numberResultPerPage: 96,
-    regExpForIdFromUrl: /(?<=com\/)(.*)/,
+    regExpForIdFromUrl: '(?<=com\/)(.*)',
     transform: null,
     domain: 'saksfifthavenue.com',
     zipcode: '',
