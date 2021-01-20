@@ -15,7 +15,7 @@ module.exports = {
     context,
     dependencies,
   ) => {
-    // const { transform } = parameters;
+    const { transform } = parameters;
     // const { cleanUp } = parameters;
     const { productDetails } = dependencies;
     const applyScroll = async function (context) {
@@ -173,6 +173,6 @@ module.exports = {
     return await context.extract(productDetails, { transform });
     // await context.extract(productDetails);
   },
-  // implementation,
+  // implementation,const { transform } = parameters;
   // Updated code
 };
