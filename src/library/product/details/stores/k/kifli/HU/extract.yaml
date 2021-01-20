@@ -25,8 +25,13 @@ fields:
     singleValue: true
     xpath: //span[@class='currentPrice']
   - name: availabilityText
-    singleValue: true
-    xpath: //div[@id='availabilityText_id']
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out Of Stock
+    xpath: //button[@class="sc-1tiied5-2 bkyfBN"]
+  # - name: availabilityText
+  #   singleValue: true
+  #   xpath: //div[@id='availabilityText_id']
   - name: description
     singleValue: false
     xpath: //div[@class="ckContent"]/p[1]

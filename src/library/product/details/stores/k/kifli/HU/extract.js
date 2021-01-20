@@ -24,7 +24,6 @@ async function implementation(
     let jsonParsed = {};
     if (jsonString && jsonString.trim()) {
       jsonParsed = JSON.parse(jsonString);
-      console.log("jsonParsed ::" + jsonParsed);
       let availabilityText;
       let productName;
       let availabilityTextStr = jsonParsed.offers["availability"]
