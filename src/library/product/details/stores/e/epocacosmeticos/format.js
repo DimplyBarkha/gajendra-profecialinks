@@ -55,33 +55,54 @@ const transform = (data, context) => {
       // }
       if (row.manufacturerImages) {
         const manufacturerImagesArr = row.manufacturerImages.map((item) => {
-          return item.text;
+          return clean(item.text);
         });
         row.manufacturerImages = [{ text: manufacturerImagesArr.join(' | '), xpath: row.manufacturerImages[0].xpath }];
       }
+      if (row.brandText) {
+        row.brandText = [{ text: clean(row.brandText[0].text), xpath: row.brandText[0].xpath }];
+      }
+      if (row.nameExtended) {
+        const nameExtendedArr = row.nameExtended.map((item) => {
+          return clean(item.text);
+        });
+        row.nameExtended = [{ text: nameExtendedArr.join(' '), xpath: row.nameExtended[0].xpath }];
+      }
+      if (row.name) {
+        const nameArr = row.name.map((item) => {
+          return clean(item.text);
+        });
+        row.name = [{ text: nameArr.join(' '), xpath: row.name[0].xpath }];
+      }
+      if (row.warranty) {
+        const warrantyArr = row.warranty.map((item) => {
+          return clean(item.text);
+        });
+        row.warranty = [{ text: warrantyArr.join(' '), xpath: row.warranty[0].xpath }];
+      }
       if (row.description) {
         const newDescription = row.description.map((item) => {
+          row.descriptionBullets = [{ text: (row.description[0].text.match(/•/g) || []).length, xpath: row.description[0].xpath }];
           const searchItemIndex = item.text.search(/Modo de Usar/i);
           if (searchItemIndex > -1) {
-            return item.text.replace('[There is a trailing space here]','').substring(0, searchItemIndex);
+            return clean(item.text.replace(/•/g, '||').replace('[There is a trailing space here]', '').substring(0, searchItemIndex));
           } else {
-            return item.text.replace('[There is a trailing space here]','');
+            return clean(item.text.replace(/•/g, '||').replace('[There is a trailing space here]', ''));
           }
-        })
-        row.description = [{ text: newDescription[0] }]
+        });
+        row.description = [{ text: newDescription[0] }];
       }
       if (row.directions) {
         const newDirections = row.directions.map((item) => {
           const searchItemIndex = item.text.search(/Modo de Usar/i);
           if (searchItemIndex > -1) {
-            return item.text.replace('[There is a trailing space here]','').substring(searchItemIndex + 13, item.text.length);
+            return clean(item.text.replace('[There is a trailing space here]', '').substring(searchItemIndex + 13, item.text.length));
           }
-        })
-        row.directions = [{ text: newDirections && newDirections[0] }]
-
+        });
+        row.directions = [{ text: newDirections && newDirections[0] }];
       }
       Object.keys(row).forEach(header => row[header].forEach(el => {
-        el.text = clean(el.text);
+        // el.text = clean(el.text);
       }));
     }
   }
