@@ -5,20 +5,18 @@ recordXPath: null
 fields:
   - name: productUrl
     description: The URL for the product details page
-    xpath: //div[@class='panel-body']//div[@class="article-title"]//a[not(contains(@class,'article-video'))]/@href
+    xpath: //div[@class="row"]/div[@class="article-left article-thumbnail"]/a/@href
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //div[@class='panel-body']//div[@class="article-left article-thumbnail"]/a//img/@src
+    xpath: //div[@class="row"]/div[@class="article-left article-thumbnail"]/a/img/@src
   - name: name
     type: TEXT
-    # xpath: //div[@class='panel-body']//div[@class="article-title"]//a[not(contains(@class,'article-video'))]//text()
-    xpath:  //div[@class='panel-body']//a[@class="title"]/@title
+    xpath: //div[@class="row"]/div[@class="article-left article-thumbnail"]/a/img/@alt
   - name: id
     description: The store-specific product identifier
     xpath: //div[@class='form-group to-basket-default']//button/@data-datamints-enhancedga-product
     regExp: '(\"id\"\:\ ")([^"]+)'
     regExpReplace: $2
-  - name: manufacturer
   - name: aggregateRating2
     xpath: //div[@class='panel-body']//div[@class='rating ']/@data-rating
   - name: reviewCount
@@ -26,5 +24,4 @@ fields:
     xpath: //div[@class='panel-body']//span[@class='rating-count']
   - name: price
     description: The offered price for the product
-    type: CURRENCY
-    xpath: //div[@class='article-priceicons article-club-hidden']/following-sibling::span
+    xpath: //html//div[@id="price"]

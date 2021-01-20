@@ -6,7 +6,7 @@ module.exports = {
     nextLinkSelector:null,
     mutationSelector: null,
     spinnerSelector:null,
-    loadedSelector:null,
+    loadedSelector:'body',
     openSearchDefinition: null,
     domain: 'whisky.de',
   },
