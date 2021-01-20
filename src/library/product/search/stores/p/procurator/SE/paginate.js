@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'a.item-box-image img',
-    noResultsXPath: '//h2[text()="Tyvärr så gav din sökning på "Anil" inga träffar."]',
+    noResultsXPath: '//h2[contains(text(),"Tyvärr så gav din sökning " )]',
     openSearchDefinition: null,
     domain: 'procurator.net',
     zipcode: '',
