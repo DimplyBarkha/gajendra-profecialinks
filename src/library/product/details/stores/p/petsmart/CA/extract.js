@@ -18,6 +18,11 @@ module.exports = {
     // extracting single product/variant data
     const extractSingleProductData = async () => {
       await new Promise(resolve => setTimeout(resolve, 3000));
+      const doesProductExist = await context.evaluate(async () => {
+        return document.querySelector('h1.pdp-product-name') !== null;
+      });
+      if (!doesProductExist) return;
+
       await context.evaluate(async () => {
         const body = document.querySelector('body');
 
@@ -137,7 +142,6 @@ module.exports = {
     };
 
     // checking if product has variants
-    // const checkIfProductHasVariants = async () => {
     const variantUrls = await context.evaluate(async () => {
       var variantsData = [];
       const variantElements = document.querySelectorAll('head > script[type="application/ld+json"]');
@@ -156,16 +160,8 @@ module.exports = {
     } else {
       await extractSingleProductData();
     }
-    // };
 
-    // await checkIfProductHasVariants();
-
-    // removing empty rows
-    dataRef = dataRef.filter(variant => {
-      return variant.group[0].nameExtended === undefined;
-    });
-
-    dataRef.forEach(variant => {
+    dataRef.forEach((row, index) => {
       // formatting nutritional information
       const nutritionalInfoFormatter = path => {
         if (path) {
@@ -177,23 +173,23 @@ module.exports = {
           path[0].text = path[0].text.match(/\d[^)(\n]+/g)[0].replace(/[\d., ]/g, '');
         }
       };
-      for (var field in variant.group[0]) {
+      for (var field in row.group[0]) {
         if (field.includes('PerServing') && !field.includes('calories') && !field.includes('Uom')) {
-          nutritionalInfoFormatter(variant.group[0][field]);
+          nutritionalInfoFormatter(row.group[0][field]);
         }
       }
-      for (var fieldUom in variant.group[0]) {
+      for (var fieldUom in row.group[0]) {
         if (fieldUom.includes('PerServingUom')) {
-          nutritionalInfoUnitFormatter(variant.group[0][fieldUom]);
+          nutritionalInfoUnitFormatter(row.group[0][fieldUom]);
         }
       }
       // formatting directions and ingredients
-      const directions = variant.group[0].directions;
+      const directions = row.group[0].directions;
       if (directions && directions[0].text.includes('Ingredients')) {
         const endCharIndex = directions[0].text.indexOf('Ingredients');
         directions[0].text = directions[0].text.slice(0, endCharIndex).trim();
       }
-      const ingredients = variant.group[0].ingredientsList;
+      const ingredients = row.group[0].ingredientsList;
       if (ingredients && (ingredients[0].text.includes('Directions') || ingredients[0].text.includes('Instructions') || ingredients[0].text.includes('Guaranteed Analysis'))) {
         const startCharIndex = ingredients[0].text.includes('Ingredients') ? ingredients[0].text.indexOf('Ingredients') + 12 : 0;
         const endCharIndex = ingredients[0].text.indexOf('Guaranteed Analysis') || -1;
