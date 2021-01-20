@@ -68,7 +68,7 @@ fields:
   regExpReplace: $2
 - name: asin
   singleValue: false
-  xpath: //div[contains(@class,'wm-item-number')]  
+  xpath: //div[contains(@class,'wm-item-number')]
 - name: variantId
   singleValue: true
   xpath: //meta[@itemprop='sku']/@content
@@ -95,7 +95,8 @@ fields:
   xpath: //p[@class='Warnings']
 - name: ratingCount
   singleValue: true
-  xpath: //span[@class='stars-reviews-count-node']
+  #xpath: //span[@class='stars-reviews-count-node']
+  xpath: //dd[contains(@class,'bv-rating-ratio-count')]//a
   regExp: (\d*)
   regExpReplace: $1
 - name: aggregateRatingText
@@ -104,7 +105,7 @@ fields:
   singleValue: true
   xpath: //*[@itemprop='ratingValue']
 - name: shippingInfo
-  singleValue: true 
+  singleValue: true
   xpath: //section[contains(@class, 'prod-SellerSection')]//*[@data-tl-id="ProductSellerInfo-SellerName"]
 - name: shippingDimensions
   singleValue: true
@@ -123,14 +124,14 @@ fields:
   singleValue: true
   manualSelector: script[id='item']
   regExp: \{\"name\"\:\"(\w*_\w*)\",\"value\"\:\"(\w*_\w*)-([^\"]*)\"\}
-  regExpReplace: $3  
+  regExpReplace: $3
 - name: variants
   singleValue: false
   manualSelector: script[id='item']
   regExp: ({"productId":")(\w+)
   regExpReplace: $2
 - name: color
-  singleValue: true 
+  singleValue: true
   manualSelector: script[id='item']
   regExp: \{\"name\"\:\"actual_color\",\"value\"\:\"actual_color-([^\"]*)\"\}
   regExpReplace: $1
@@ -168,7 +169,7 @@ fields:
   regExp: Walmart
   regExpReplace: No
 - name: additionalDescBulletInfo
-  singleValue: false  
+  singleValue: false
   xpath: //div[contains(@class,'about-desc')]//ul/li
 - name: promotion
   singleValue: false
@@ -177,18 +178,18 @@ fields:
   singleValue: false
   xpath: //td[contains(text(),'Age Range')]/following-sibling::td[@class='s-padding-ends s-padding-sides']
 - name: energyEfficiency
-  singleValue: false  
+  singleValue: false
 - name: technicalInformationPdfPresent
-  singleValue: false  
+  singleValue: false
   defaultValue: No
 - name: termsAndConditions
-  singleValue: false  
+  singleValue: false
   defaultValue: No
 - name: privacyPolicy
   singleValue: false
   defaultValue: No
 - name: customerServiceAvailability
-  singleValue: false 
+  singleValue: false
   defaultValue: No
 - name: materials
   singleValue: false
@@ -209,7 +210,6 @@ fields:
   regExpReplace: $1
 - name: servingSize
   singleValue: false
-    
 - name: servingSizeUom
   singleValue: false
 
@@ -218,7 +218,7 @@ fields:
 
 - name: caloriesPerServing
   singleValue: false
-  
+
 - name: caloriesFromFatPerServing
   singleValue: false
 
@@ -241,13 +241,13 @@ fields:
   singleValue: false
 
 - name: cholesterolPerServing
-  singleValue: false 
+  singleValue: false
 - name: cholesterolPerServingUom
   singleValue: false
 - name: saltPerServing
-  singleValue: true   
+  singleValue: true
 - name: saltPerServingUom
-  singleValue: true   
+  singleValue: true
 - name: sodiumPerServing
   singleValue: false
 - name: sodiumPerServingUom
@@ -265,7 +265,7 @@ fields:
 
 - name: totalSugarsPerServing
   singleValue: false
-  
+
 - name: totalSugarsPerServingUom
   singleValue: false
 
@@ -273,14 +273,14 @@ fields:
   singleValue: false
 
 - name: proteinPerServingUom
-  singleValue: false  
+  singleValue: false
 
 - name: vitaminAPerServing
   singleValue: false
 
 - name: vitaminAPerServingUom
   singleValue: false
- 
+
 - name: vitaminCPerServing
   singleValue: false
 
@@ -298,4 +298,3 @@ fields:
 
 - name: ironPerServingUom
   singleValue: false
-  

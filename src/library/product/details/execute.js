@@ -12,6 +12,7 @@ const implementation = async (inputs, { loadedSelector, noResultsXPath }, contex
     if (!id) throw new Error('No id provided');
     else builtUrl = await dependencies.createUrl(inputs);
   }
+
   await dependencies.goto({ ...inputs, url: builtUrl || url });
 
   if (loadedSelector) {

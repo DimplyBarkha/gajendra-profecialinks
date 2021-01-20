@@ -68,10 +68,21 @@ module.exports.Helpers = class {
 
   // Function which easily checks if a selector exists, and returns it, or returns false
   async checkCSSSelector (selector) {
-    return await this.context.evaluate((selector) => {
+    return this.context.evaluate((selector) => {
       const elem = document.querySelector(selector);
       return !!elem;
     }, selector);
+  }
+
+  // simple wrapper with console output of the wait for function
+  async waitForSelector (selector, timneoutOptions, doNotThrow = true) {
+    return this.context.waitForSelector(selector, timneoutOptions)
+      .then(() => console.log(`The following selector loaded: ${selector}`))
+      .catch((e) => {
+        console.log(`The following selector did not load: ${selector}`);
+        if (doNotThrow) return;
+        throw e;
+      });
   }
 
   // Function which easily checks if a selector exists, and returns it, or returns false
@@ -101,29 +112,30 @@ module.exports.Helpers = class {
   // Function which checks a selecor
   async checkSelector (selector, type) {
     let elemIsThere;
-    if (type === 'xpath') elemIsThere = await this.checkXpathSelector(selector);
-    else if (type === 'css') elemIsThere = await this.checkCSSSelector(selector);
+    if (type.toLowerCase() === 'xpath') elemIsThere = await this.checkXpathSelector(selector);
+    else if (type.toLowerCase() === 'css') elemIsThere = await this.checkCSSSelector(selector);
     else return false;
     return elemIsThere;
   }
 
   // Function which checks if the provided object of selectors is there then navigate and click
   async checkAndReturnProp (selector, type, property) {
-    if (!this.checkSelector(selector, type)) return;
+    if (!this.checkSelector(selector, type)) return '';
     return await this.context.evaluate(({ selector, property, type }) => {
       let elem;
-      if (type === 'xpath') elem = document.evaluate(selector, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
-      else if (type === 'css') elem = document.querySelector(selector);
+      if (type.toLowerCase() === 'xpath') elem = document.evaluate(selector, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
+      else if (type.toLowerCase() === 'css') elem = document.querySelector(selector);
       return elem[property];
     }, { selector, property, type });
   }
 
   // Function which makes a click
-  async ifThereClickOnIt (selector) {
+  async ifThereClickOnIt (selector, timeoutOptions) {
+    const { wait = timeoutOptions || 3000, click = timeoutOptions || 3000 } = timeoutOptions || {};
     try {
-      await this.context.waitForSelector(selector, { timeout: 5000 });
+      await this.context.waitForSelector(selector, { timeout: wait });
     } catch (error) {
-      console.log(`The following selector was not found: ${selector}`);
+      console.log(`The following selector was not found: ${selector}`, `timeout: wait: ${wait}, click: ${click}`);
       return false;
     }
     const hasItem = await this.context.evaluate((selector) => {
@@ -132,7 +144,7 @@ module.exports.Helpers = class {
     if (hasItem) {
       // try both click
       try {
-        await this.context.click(selector, { timeout: 2000 });
+        await this.context.click(selector, { timeout: click });
       } catch (error) {
         // context click did not work and that is ok
       }
@@ -143,7 +155,7 @@ module.exports.Helpers = class {
       return true;
     }
     return false;
-  }
+  };
 
   // Function which allows to wait for an element within an iframe or a shadowroot
   async waitForInDifferentContext (selector, documentSelector, options) {

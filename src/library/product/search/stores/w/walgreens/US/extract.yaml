@@ -27,12 +27,12 @@ fields:
     regExpReplace: https:$1300.jpg
   - name: aggregateRating
     singleValue: false
-    xpath: //*[contains(@class,"product__rating")]//img//@title
+    xpath: //div[@class='flex-align-center wag-prod-ratings']/span/img/@title
     regExp: >-
       ^.{0,3}
   - name: aggregateRating2
     singleValue: false
-    xpath: //*[contains(@class,"product__rating")]//img//@title
+    xpath: //div[@class='flex-align-center wag-prod-ratings']/span/img/@title
     regExp: >-
       ^.{0,3}
   - name: reviewCount
@@ -43,7 +43,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,"product__details")]//*[contains(@class,"price__contain")]//*[contains(@class,"product__price")]/text()
+    xpath: //div[@class='extra-info']/@data-price
   - name: manufacturer
     singleValue: true
   - name: soldBy
@@ -62,4 +62,5 @@ fields:
     singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
-    xpath: //*[contains(@class,"card__product")]//*[contains(@class,"sponsored")]//span
+    # xpath: //div[@class='extra-info']/@data-sponsor
+    xpath: //div[contains(@class, 'sponsored-text')]
