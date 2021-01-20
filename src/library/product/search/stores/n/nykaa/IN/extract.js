@@ -1,10 +1,11 @@
+const { transform } = require('../../../../shared');
 
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'IN',
     store: 'nykaa',
-    transform: null,
+    transform: transform,
     domain: 'nykaa.com',
     zipcode: '',
   },
@@ -66,7 +67,6 @@ module.exports = {
     const products = await getProducts(searchTerm, 0);
     const dataRef = await context.extract(productDetails, { transform });
     dataRef[0].group = products;
-    console.log(products);
-    return products === null ? null : dataRef;
+    return dataRef;
   },
 };
