@@ -63,7 +63,7 @@ module.exports = {
             addedVariant.setAttribute('thumbnail', thumbnailPart ? `https://www.perfumesecompanhia.pt${thumbnailPart}` : '');
             addedVariant.setAttribute('thumbnail-alt', thumbnailAlt);
             addedVariant.setAttribute('promotion', promotion);
-            const ean = document.evaluate(`//span[@title="${variantId}"]/preceding-sibling::span[1]/meta[@itemprop="gtin13"]/@content`,
+            const ean = document.evaluate(`//span[@title="${variantId}"]/following-sibling::span[1]/meta[@itemprop="gtin13"]/@content`,
               document, null, XPathResult.STRING_TYPE, null).stringValue ||
                  document.evaluate(`//div[@id="${variantId}"]/preceding-sibling::span[1]/meta[@itemprop="gtin13"]/@content`,
                    document, null, XPathResult.STRING_TYPE, null).stringValue;
