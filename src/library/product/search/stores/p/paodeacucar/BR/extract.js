@@ -10,7 +10,31 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
-    await new Promise((resolve, reject) => setTimeout(resolve, 7000));
+    // scrol to the end of the page
+    const applyScroll = async function (context) {
+      await context.evaluate(async function () {
+        const stall = (ms) => {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve();
+            }, ms);
+          });
+        };
+        let scrollTop = 0;
+        while (scrollTop !== 20000 && document.querySelectorAll('div[class^="product-cardstyles__Container"]').length < 150) {
+          await stall(1000);
+          scrollTop += 400;
+          console.log(scrollTop);
+          window.scroll(0, scrollTop);
+          if (scrollTop >= 20000) {
+            break;
+          }
+        }
+      });
+    };
+    await applyScroll(context);
+
+    await new Promise((resolve, reject) => setTimeout(resolve, 1500));
     await context.evaluate(async function () {
       const lastProductPosition = localStorage.getItem('prodCount') ? Number(localStorage.getItem('prodCount')) : 1;
       const products = document.querySelectorAll('div[class^="product-cardstyles__Container"]');
