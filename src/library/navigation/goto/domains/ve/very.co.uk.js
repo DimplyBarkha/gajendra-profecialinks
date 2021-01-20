@@ -11,13 +11,16 @@ module.exports = {
   implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
     await context.setBlockAds(false);
     await context.setFirstRequestTimeout(100000);
+    await context.setCssEnabled(true);
+    await context.setLoadAllResources(true);
+    await context.setLoadImages(true);
+    await context.setJavaScriptEnabled(true);
+    await context.setAntiFingerprint(false);
+    await context.setUseRelayProxy(false);
     await context.goto(url,
       {
-        block_ads: false,
-        timeout: 100000,
+        timeout: 150000,
         waitUntil: 'load',
-        load_all_resources: true,
-        images_enabled: true,
       });
     console.log(zipcode);
     if (zipcode) {
