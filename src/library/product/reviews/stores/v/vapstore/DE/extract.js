@@ -27,12 +27,12 @@ const transform = (data) => {
         if (row.productFamily) {
           let productFamily1 = '';
           row.productFamily.forEach(item => {
-              productFamily1 += `${item.text}`  +  "/" ;
+            productFamily1 += `${item.text}` + ' / ';
           });
-           productFamily1 =  productFamily1.slice(0,-1).trim();
+          productFamily1 = productFamily1.slice(0, -1).trim();
           row.productFamily = [
             {
-              text: productFamily1
+              text: productFamily1,
             },
           ];
         }
