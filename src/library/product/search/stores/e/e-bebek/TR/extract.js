@@ -1,3 +1,4 @@
+// @ts-nocheck
 const { transform } = require('../../../../shared');
 async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
@@ -21,8 +22,27 @@ async function implementation (inputs, parameters, context, dependencies) {
       const productUrl = product.querySelector('a.product-btn');
       if (productUrl !== undefined) product.setAttribute('producturl', prefix.concat(productUrl.getAttribute('href')));
     });
+    [...products].filter(e => e.innerText.includes('Promosyonlu')).forEach(e => e.setAttribute('sponsored', 'true'));
   });
-  return await context.extract(productDetails, { transform });
+  await new Promise((resolve, reject) => setTimeout(resolve, 1500));
+  await context.evaluate(async () => {
+    const notSponsoredProducts = document.querySelectorAll('section[class="product-list"] div[class*="product gtmProductClick w-100"]:not([sponsored])');
+    if (notSponsoredProducts.length !== 0 && notSponsoredProducts !== null) {
+      notSponsoredProducts.forEach((product, index) => {
+        product.setAttribute('rankorganic', `${index + 1}`);
+      });
+    }
+  });
+  var dataRef = await context.extract(productDetails, { transform });
+
+  dataRef[0].group.forEach((row) => {
+    if (row.id) {
+      row.id.forEach(item => {
+        item.text = item.text ? item.text.toLowerCase() : '';
+      });
+    }
+  });
+  return dataRef;
 }
 
 module.exports = {
