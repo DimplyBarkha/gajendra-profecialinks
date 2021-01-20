@@ -30,11 +30,12 @@ async function implementation (
 
     for (let j = 0; j < variantLength; j++) {
       await context.evaluate(async (j) => {
+        document.querySelectorAll('ul.topic li label')[j].click();
         await new Promise((resolve, reject) => setTimeout(resolve, 5000));
         const sku = document.querySelectorAll('meta[itemprop="sku"]')[j].getAttribute('content');
         document.querySelector('#selectedSKU').setAttribute('data-sku', sku);
         // document.querySelector('#gtin-data') && document.querySelector('#gtin-data').setAttribute('data-gtin', gtinArray[j]);
-        return document.querySelectorAll('ul.topic li label')[j].click();
+        return true;
       }, j);
 
       // await context.click(`ul.topic li label`);

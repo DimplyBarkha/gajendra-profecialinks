@@ -60,7 +60,7 @@ const transform = (data, context) => {
         row.manufacturerImages = [{ text: manufacturerImagesArr.join(' | '), xpath: row.manufacturerImages[0].xpath }];
       }
       if (row.brandText) {
-        row.brandText = [{ text: clean(row.brandText[0].text), xpath: row.brandText[0].xpath }];
+        row.brandText = [{ text: row.brandText[0].text, xpath: row.brandText[0].xpath }];
       }
       if (row.nameExtended) {
         const nameExtendedArr = row.nameExtended.map((item) => {
@@ -82,24 +82,31 @@ const transform = (data, context) => {
       }
       if (row.description) {
         const newDescription = row.description.map((item) => {
-          row.descriptionBullets = [{ text: (row.description[0].text.match(/•/g) || []).length, xpath: row.description[0].xpath }];
           const searchItemIndex = item.text.search(/Modo de Usar/i);
           if (searchItemIndex > -1) {
-            return clean(item.text.replace(/•/g, '||').replace('[There is a trailing space here]', '').substring(0, searchItemIndex));
+            return clean(item.text.substring(0, searchItemIndex).replace('[There is a trailing space here]', ''));
           } else {
-            return clean(item.text.replace(/•/g, '||').replace('[There is a trailing space here]', ''));
+            return clean(item.text.replace('[There is a trailing space here]', ''));
           }
         });
-        row.description = [{ text: newDescription[0] }];
+        row.descriptionBullets = [{ text: (newDescription[0].match(/•/g) || []).length, xpath: row.description[0].xpath }];
+        row.description = [{ text: newDescription[0].replace(/•/g, '||') }];
       }
       if (row.directions) {
         const newDirections = row.directions.map((item) => {
           const searchItemIndex = item.text.search(/Modo de Usar/i);
           if (searchItemIndex > -1) {
-            return clean(item.text.replace('[There is a trailing space here]', '').substring(searchItemIndex + 13, item.text.length));
+            return clean(item.text.substring(searchItemIndex + 13, item.text.length).replace('[There is a trailing space here]', ''));
           }
         });
         row.directions = [{ text: newDirections && newDirections[0] }];
+      }
+      if (row.aggregateRating) {
+        const aggregateRatingArr = row.aggregateRating.map((item) => {
+          return clean(item.text.replace('.', ','));
+        });
+        row.aggregateRating = [{ text: aggregateRatingArr[0], xpath: row.aggregateRating[0].xpath }];
+        row.aggregateRating2 = [{ text: aggregateRatingArr[0], xpath: row.aggregateRating[0].xpath }];
       }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         // el.text = clean(el.text);
