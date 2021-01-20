@@ -200,10 +200,10 @@ module.exports = {
 
           const productUrl = window.location.href;
           const name = document.querySelector('div[class^="style_info_product_name"] h1, h1.product-name')
-            ? document.querySelector('div[class^="style_info_product_name"] h1, h1.product-name').textContent
+            ? document.querySelector('div[class^="style_info_product_name"] h1, h1.product-name').innerText
             : '';
           const brandElem = document.querySelector('a[class*="brand_name"], a[class*="ProductBrand"]');
-          const brandName = brandElem ? brandElem.textContent.trim() : '';
+          const brandName = brandElem ? brandElem.innerText.trim() : '';
           const brandLink = brandElem ? `https://www.petshop.ru${brandElem.getAttribute('href')}` : '';
 
           const listPrice = document.evaluate(
@@ -235,7 +235,7 @@ module.exports = {
           listElem.setAttribute('product_name', name);
           listElem.setAttribute('brand', brandName);
           listElem.setAttribute('brand_link', brandLink);
-          listElem.setAttribute('name_extended', nameExtended);
+          listElem.setAttribute('name_extended', nameExtended.replace(/\n+/g, ' '));
           listElem.setAttribute('variant_count', variantsTotal);
           listElem.setAttribute('list_price', listPrice);
           listElem.setAttribute('price', price);
@@ -245,6 +245,18 @@ module.exports = {
           if (productObj && productObj.rating) {
             listElem.setAttribute('rating_count', productObj.rating.voteCount);
             listElem.setAttribute('aggregate_rating', productObj.rating.value.toString().replace('.', ','));
+          } else {
+            const ratingText = document.querySelector('div[class^="rating-level rating-level"]')
+              ? document.querySelector('div[class^="rating-level rating-level"]').getAttribute('class')
+              : '';
+            const ratingMatch = ratingText.match(/(\d)(\d).*$/);
+            if (ratingMatch) listElem.setAttribute('aggregate_rating', `${ratingMatch[1]},${ratingMatch[2]}`);
+
+            const ratingCountText = document.querySelector('div.rating-caption')
+              ? document.querySelector('div.rating-caption').textContent
+              : '';
+            const ratingCountMatch = ratingCountText.match(/^.*?(\d+)/);
+            if (ratingCountMatch) listElem.setAttribute('rating_count', ratingCountMatch[1]);
           }
 
           const servingText = document.evaluate(
@@ -375,8 +387,9 @@ module.exports = {
             XPathResult.STRING_TYPE,
             null,
           ).stringValue;
-          const proteinPerServing = proteinText.match(/(\d+)\s?(.+)/) ? proteinText.match(/(\d+)\s?(.+)/)[1] : '';
-          const proteinPerServingUom = proteinText.match(/(\d+)\s?(.+)/) ? proteinText.match(/(\d+)\s?(.+)/)[2] : '';
+          const proteinRegExp = /([\d.,]+)\s?(.+)/;
+          const proteinPerServing = proteinText.match(proteinRegExp) ? proteinText.match(proteinRegExp)[1] : '';
+          const proteinPerServingUom = proteinText.match(proteinRegExp) ? proteinText.match(proteinRegExp)[2] : '';
 
           listElem.setAttribute('protein_per_serving', proteinPerServing);
           listElem.setAttribute('protein_per_serving_uom', proteinPerServingUom);
@@ -482,7 +495,14 @@ module.exports = {
           );
           if (weightElem) listElem.setAttribute('weight', weightElem.textContent.trim());
 
-          const ingredients = document.evaluate('html//div[contains(@class, "style_composition__composition")]//*[b[contains(text(), "Ингредиенты") or contains(text(), "Состав")]] | html//div[contains(@class, "style_composition__composition")]//*[*[name() = "b" or name()="strong"][text() = "Ингредиенты" or text() = "Состав"]]/following-sibling::*[position() = 1]', document, null, XPathResult.STRING_TYPE, null).stringValue;
+          let ingredients = document.evaluate(
+            'html//div[contains(@class, "style_composition__composition")]//*[b[contains(text(), "Ингредиенты") or contains(text(), "Состав")]] | html//div[contains(@class, "style_composition__composition")]//*[*[name() = "b" or name()="strong"][text() = "Ингредиенты" or text() = "Состав"]]/following-sibling::*[position() = 1]',
+            document,
+            null,
+            XPathResult.STRING_TYPE,
+            null,
+          ).stringValue;
+          if (!ingredients) ingredients = document.querySelector('div.composition-text__content') ? document.querySelector('div.composition-text__content').textContent : '';
           listElem.setAttribute('ingredients', ingredients.replace(/\n+/g, ' ').trim());
 
           addedList.appendChild(listElem);

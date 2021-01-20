@@ -2,7 +2,7 @@ input:
   id: 11122
   _url: http://petshop.ru
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=b7a178d0-09d6-4028-bcab-cb9aa64cb88c/task=8043459e-60fd-4650-9724-a4897ce8e16d/8d99ed36-3dc7-4e01-9127-c09b4c32df77.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=0b2585b6-0859-4084-a7e3-ecc6c08a4ff9/task=f0a8495a-0e6d-47e8-834f-923c7ccf2187/17075485-a39b-4ba0-b19c-e63b4e865b52.html
     extractionConfigId: product/details/stores/p/petshop/RU/extract
     data:
       - group:
@@ -24,8 +24,18 @@ extractions:
                   пищеварительной системы и способствует нормальному стулу.
                 xpath: /html/body/ol[1]/li[1]/@description
             variantId:
-              - text: "40955"
+              - text: "11122"
                 xpath: /html/body/ol[1]/li[1]/@variant_id
+            ratingCount:
+              - text: "423"
+                xpath: /html/body/ol[1]/li[1]/@rating_count
+            aggregateRating:
+              - text: "5"
+                xpath: /html/body/ol[1]/li[1]/@aggregate_rating
+                type: NUMBER
+                raw: 5,0
+                locale: ru
+                value: 5
             variantCount:
               - text: "0"
                 xpath: /html/body/ol[1]/li[1]/@variant_count
@@ -39,6 +49,19 @@ extractions:
             secondaryImageTotal:
               - text: "-1"
                 xpath: /html/body/ol[1]/li[1]/ol[1]/@total
+            ingredientsList:
+              - text: "Дегидратированные белки (птица), кукуруза, рис, животные жиры, L.I.P,
+                  гидролизат белков животного происхождения, рыбий жир,
+                  свекольный жом, минеральные вещества, фруктоолигосахариды,
+                  соевое масло, экстракт бархатцев, дрожжи, подорожник,
+                  гидролизат дрожжей, хряща и панциря ракообразных.  Кормовая
+                  смесь Royal Canin Giant Junior обогащена рядом полезных
+                  добавок, а именно витаминами A и D3, железом, йодом,
+                  марганцем, цинк, сeлeном и L-карнитином. Доля белков
+                  составляет не менее 12%. Состав питательных веществ: Белки: 31
+                  % Жиры: 16 % Минеральные вещества: 7,1 % Клетчатка пищевая:
+                  1,5 % Кальций: 1,26 % Фосфор: 1 % L-карнитин: 300 мг/кг."
+                xpath: /html/body/ol[1]/li[1]/@ingredients
             totalFatPerServing:
               - text: "16"
                 xpath: /html/body/ol[1]/li[1]/@total_fat_per_serving
@@ -80,4 +103,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "false"
         xpath: /html
-    timestamp: 1611138294922
+    timestamp: 1611146747970
