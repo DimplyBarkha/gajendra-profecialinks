@@ -24,26 +24,31 @@ async function implementation(
     let jsonParsed = {};
     if (jsonString && jsonString.trim()) {
       jsonParsed = JSON.parse(jsonString);
+      console.log("jsonParsed ::" + jsonParsed);
       let availabilityText;
       let productName;
       let availabilityTextStr = jsonParsed.offers["availability"]
-      if (availabilityTextStr.search("InStock")) {
-        availabilityText = "In Stock";
-      } else {
-        availabilityText = "'Out of stock";
+      if (availabilityTextStr != null) {
+        if (availabilityTextStr.search("InStock")) {
+          console.log(" availabilityTextStr  ::" + availabilityTextStr);
+          availabilityText = "In Stock";
+        } else {
+          availabilityText = "Out Of Stock";
+        }
+        addHiddenDiv('availabilityText_id', availabilityText);
       }
 
       let priceCurrency = jsonParsed.offers["priceCurrency"]
+      if (priceCurrency != null) {
+        addHiddenDiv('priceCurrency_id', priceCurrency);
+      }
       //  let price = jsonParsed.offers["price"]
-      if (jsonParsed.name) {
+      if (productName != null) {
         //alert(jsonParsed.name)
         productName = jsonParsed.name;
-        var brandName = productName.replace(/ .*/,'');
+        var brandName = productName.replace(/ .*/, '');
+        addHiddenDiv('brandName_id', brandName);
       }
-      addHiddenDiv('brandName_id', brandName);
-      addHiddenDiv('priceCurrency_id', priceCurrency);
-      addHiddenDiv('availabilityText_id', availabilityText);
-      //addHiddenDiv('price_id', price);
     }
   });
 
