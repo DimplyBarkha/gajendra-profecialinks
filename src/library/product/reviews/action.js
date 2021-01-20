@@ -8,7 +8,7 @@
  */
 async function implementation (
   inputs,
-  { mergeType, zipcode },
+  { zipcode },
   context,
   { execute, extract, paginate },
 ) {
@@ -26,20 +26,29 @@ async function implementation (
     return;
   }
 
+  // try gettings some search results
   const pageOne = await extract({});
-  let collected = length(pageOne);
+  // Check added for backward compatibility
+  let collected = pageOne.data ? length(pageOne.data) : length(pageOne);
 
   console.log(`Got initial number of results: ${collected}`);
 
   // check we have some data
-  if (collected === 0) return;
+  if (collected === 0) {
+    console.log('Was not able to collect any data on the first page');
+    return;
+  }
 
   let page = 2;
   while (results > collected && await paginate({ id, page, offset: collected, date })) {
-    const data = await extract({});
-    const count = length(data);
-    if (count === 0) break; // no results
-    collected = (mergeType && (mergeType === 'MERGE_ROWS') && count) || (collected + count);
+    const results = await extract({});
+    // Check added for backward compatibility
+    const count = results.data ? length(results.data) : length(results);
+    if (count === 0) {
+      // no results
+      break;
+    }
+    collected = (results.mergeType && (results.mergeType === 'MERGE_ROWS') && count) || (collected + count);
     console.log('Got more results', collected);
     page++;
   }
@@ -61,11 +70,6 @@ module.exports = {
     {
       name: 'zipcode',
       description: 'to set location',
-      optional: true,
-    },
-    {
-      name: 'mergeType',
-      description: 'For merge rows results calculation.',
       optional: true,
     },
   ],
