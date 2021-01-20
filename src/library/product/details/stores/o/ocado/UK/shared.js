@@ -21,33 +21,43 @@ const transform = (data) => {
 
   for (const { group } of data) {
     for (const row of group) {
+      // if (row.description) {
+      //   let bulletCount = 0;
+      //   let text = '';
+      //   row.description.forEach(item => {
+      //     if (item.text.match(/^- (.+)/)) {
+      //       text += `|| ${item.text.match(/^- (.+)/)[1]} `;
+      //       bulletCount++;
+      //     } else {
+      //       text += `${item.text} `;
+      //     }
+      //   });
+      //   row.description = [{ text: text.trim() }];
+      //   row.descriptionBullets = [{ text: bulletCount }];
+      // }
+
       if (row.description) {
-        let bulletCount = 0;
         let text = '';
         row.description.forEach(item => {
-          if (item.text.match(/^- (.+)/)) {
-            text += `|| ${item.text.match(/^- (.+)/)[1]} `;
-            bulletCount++;
-          } else {
-            text += `${item.text} `;
-          }
+          text += row.description.map(elm => elm.text);
         });
-        row.description = [{ text: text.trim() }];
-        row.descriptionBullets = [{ text: bulletCount }];
+       
+        row.description = [{text:text.replace(/- /g,'|| ')}];
       }
+    
       // if(row.nameExtended){
       //   let nameExtended =''
       //   nameExtended = nameExtended.replace(/[0-9]/g, '');
       //   console.log('here is product name',nameExtended);
       // }
 
-      if (row.manufacturer) {
-        let text = '';
-        row.manufacturer.forEach(item => {
-          text += `${item.text} `;
-        });
-        row.manufacturer = [{ text: text.trim() }];
-      }
+      // if (row.manufacturer) {
+      //   let text = '';
+      //   row.manufacturer.forEach(item => {
+      //     text += `${item.text} `;
+      //   });
+      //   row.manufacturer = [{ text: text.trim() }];
+      // }
 
       if (row.directions) {
         let text = '';
@@ -82,10 +92,67 @@ const transform = (data) => {
         row.warnings.forEach(item => {
           text = row.warnings.map(elm => elm.text).join(' ');
         });
-        row.warnings = [{text:clean(text).replace(/Additional Information: Caplets|Origin/gm,'').trim()}];
+       const text2 =  clean(text);
+       row.warnings = [{text:text2}]
+       let fWarning = '';
+       if(text.includes('Origin:')) {
+        fWarning= text.split('Origin:')[0].trim();
+       }
+       if(text.includes('Usage:')) {
+        fWarning= text.split('Usage:')[0].trim();
+       }
+       else if(text.includes('Additional Information:')) {
+        fWarning= text.split('Additional Information:')[0].trim();
+       }else{
+        fWarning = text2;
+       }
+        row.warnings = [{text:fWarning.replace(/Additional Information: Caplets| Additional Information: Capsules/gm,'').trim()}];
+      }
+      if (row.manufacturer) {
+        let text = '';
+        row.manufacturer.forEach(item => {
+          text = row.manufacturer.map(elm => elm.text).join(' ');
+        });
+       const text2 =  clean(text);
+       row.manufacturer = [{text:text2}]
+       let fmanufacturer = '';
+       if(text.includes('Country of Packing')) {
+        fmanufacturer= text.split('Country of Packing')[0].trim();
+       }
+       else if(text.includes('Return To Address')) {
+        fmanufacturer= text.split('Return To Address')[0].trim();
+       }else{
+        fmanufacturer = text2;
+       }
+        row.manufacturer = [{text:fmanufacturer.replace(/Additional Information: Caplets| Additional Information: Capsules/gm,'').trim()}];
       }
 
 
+      if (row.storage) {
+        let text = '';
+        row.storage.forEach(item => {
+          text = row.storage.map(elm => elm.text).join(' ');
+        });
+       const text2 =  clean(text);
+       row.storage = [{text:text2}]
+       let fstorage = '';
+      if(text.includes('Safety Warning:')) {
+        fstorage= text.split('Safety Warning:')[0].trim();
+       }  else if(text.includes('Usage:')) {
+        fstorage= text.split('Usage:')[0].trim();
+       }else if(text.includes('Origin:')) {
+        fstorage= text.split('Origin:')[0].trim();
+       }
+       else if(text.includes('Additional Information:')) {
+        fstorage= text.split('Additional Information:')[0].trim();
+       }
+         else if(text.includes('Distributor:')) {
+        fstorage= text.split('Distributor:')[0].trim();
+       }else{
+        fstorage = text2;
+       }
+        row.storage = [{text:fstorage}];
+      }
 
       if (row.productOtherInformation) {
         let text = '';

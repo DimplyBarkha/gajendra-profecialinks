@@ -41,7 +41,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class='gn-accordionElement'][1]//div/div[@class='bop-info__content'][not(preceding-sibling::h6)] | //div[@class='gn-accordionElement'][1]//div/div[@class='bop-info__content'][not(preceding-sibling::h6)]/p | //span[contains(@class,'bop-lifestyleBadge')]
+    xpath: //div[@class='gn-accordionElement'][1]//div/div[@class='bop-info__content'][not(preceding-sibling::h6)] | //div[@class='gn-accordionElement'][1]//div/div[@class='bop-info__content'][not(preceding-sibling::h6)]/p
   - name: ingredientsList
     singleValue: true
     description: List of Ingredients from site - can be string of data if no
@@ -55,7 +55,7 @@ fields:
     xpath: //h6[contains(.,'Brand')]/following-sibling::div
   - name: manufacturer
     description: Product manufacturer
-    xpath: //h6[contains(.,'Manufacturer')]/following-sibling::div
+    xpath: //h6[contains(.,'Manufacturer')]/following-sibling::div | //h6[contains(.,'Manufacturer')]/parent::div/following-sibling::div
   - name: quantity
     description: Quantity as described on the page
     xpath: //header[contains(@class,'bop-title')]/h2/span
@@ -86,7 +86,10 @@ fields:
     xpath: //h6[contains(.,'Preparation and Usage')]/following-sibling::div |  //h6[contains(.,'Serving Suggestions')]/following-sibling::div/text() | //h6[contains(.,'Recipes')]/following-sibling::div
   - name: warnings
     description: Content under "warnings" header
-    xpath: //b[contains(.,'Warning')]/following-sibling::text()[not(contains(.,'Hungary'))] |//b[contains(.,'Warning')]/following-sibling::* | //p[contains(.,'Warning')] | //h6[contains(.,'Instructions')]/following-sibling::div| //br/following-sibling::text()[contains(.,'Warning')]/following-sibling::text()[1]
+    xpath: //div[contains(text(),'Safety Warning:')] | //b[contains(.,'Warning')]/following-sibling::text()[not(contains(.,'Hungary'))] |//b[contains(.,'Warning')]/following-sibling::* | //p[contains(.,'Warning')] | //br/following-sibling::text()[contains(.,'Warning')]/following-sibling::text()
+  # - name: instruction
+  #   description: Content under "warnings" header
+  #   xpath: //h6[contains(.,'Instructions')]/following-sibling::div
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
@@ -267,9 +270,9 @@ fields:
     singleValue: true
     description: Guarantee associated with the product
   - name: storage
-    singleValue: true
+    singleValue: false
     description: Suggested storage location for product
-    xpath: //h6[contains(.,'Storage')]/following-sibling::div
+    xpath: //div[@class="bop-info__content"]/text()[contains(.,'Storage:')]/following-sibling::text()
   - name: countryOfOrigin
     singleValue: true
     description: The country from which the product originates
