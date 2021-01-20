@@ -23,7 +23,7 @@ fields:
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //h1[contains(@class, "page-title price-item-title")]
+    xpath: //h1[contains(@class, "page-title price-item-title")]|//h1[contains(@class,"page-title")]
   - name: listPrice
     singleValue: false
     xpath: //span[contains(@class, 'product-card-price__previous')]
@@ -112,7 +112,7 @@ fields:
   - name: name
     singleValue: false
     description: The product name
-    xpath: //h1[contains(@class, "page-title price-item-title")] | //*/@data-product-price
+    xpath: //h1[contains(@class, "page-title price-item-title")]|//h1[contains(@class,"page-title")]
   - name: brandLink
     singleValue: false
     xpath: //div[contains(@class, 'brand-logo')]/a/@href
