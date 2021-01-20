@@ -41,9 +41,10 @@ fields:
     xpath: //html//div[@id='listprice']
   - name: url
     singleValue: false
-    xpath: (//ol[@class='breadcrumb']/li/a/@href)[1]
-    regExp: (\/catalogo.+)
-    regExpReplace: https://www.larebajavirtual.com$1
+    xpath: //html//div[@id='URL']
+    # xpath: (//ol[@class='breadcrumb']/li/a/@href)[1]
+    # regExp: (\/catalogo.+)
+    # regExpReplace: https://www.larebajavirtual.com$1
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
