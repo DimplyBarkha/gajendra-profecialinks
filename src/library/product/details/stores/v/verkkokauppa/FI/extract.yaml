@@ -46,7 +46,8 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[@class="price-tag-content__price-tag-price price-tag-content__price-tag-price--current"]
+    # xpath: //div[@class="price-tag-content__price-tag-price price-tag-content__price-tag-price--current"]
+    xpath: //div[contains(@class,"sc-1e5wly-1")]//span[contains(@class,"Price")]/data
     type: CURRENCY
   - name: availabilityText
     singleValue: true
@@ -74,7 +75,7 @@ fields:
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
     xpath: //script[@type="application/ld+json"][contains(text(),"brand")]
-    regExp: brand":{"@type":"Brand","name":"(\w+)"
+    regExp: brand":{"@type":"Brand","name":"(\w+)
     regExpReplace: $1
     # xpath: (//tr[contains(@class,'product-details-row')]//td[contains(@class,'product-details-row__value')]/a | //div[contains(@id,'brand-text')])[1]
     # xpath: //div[@id='brandText']/text()
