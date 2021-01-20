@@ -12,7 +12,7 @@ module.exports = {
   },
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     try {
-      await context.waitForSelector('div.modal-content', { timeout: 15000 });
+      await context.waitForSelector('div.modal-content', { timeout: 25000 });
     } catch (error) {
       console.log('Modal not loading');
     }
