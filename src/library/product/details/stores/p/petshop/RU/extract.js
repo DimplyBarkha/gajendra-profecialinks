@@ -51,15 +51,15 @@ module.exports = {
         null,
       ).singleNodeValue;
       if (descriptionParent) {
-        for (let i = 0; i < descriptionParent.children.length; i++) {
-          const row = descriptionParent.children[i];
+        for (let i = 0; i < descriptionParent.childNodes.length; i++) {
+          const row = descriptionParent.childNodes[i];
           if (row.nodeName === 'TABLE') break;
-          const hasTable = !!row.querySelector('table');
+          const hasTable = !!(row.nodeType === 1 && row.querySelector('table'));
           if (!hasTable) descriptionArr.push(row.textContent);
           else {
-            for (let j = 0; j < row.children.length; j++) {
+            for (let j = 0; j < row.childNodes.length; j++) {
               const child = row.children[j];
-              if (child.querySelector('table') || child.nodeName === 'TABLE') break;
+              if (child.nodeType === 1 && (child.querySelector('table') || child.nodeName === 'TABLE')) break;
               descriptionArr.push(child.textContent);
             }
           }
@@ -273,7 +273,8 @@ module.exports = {
 
           const fatRegexp = /((\d+)([.,]\d+)?)\s?(.+)?/;
           const totalFatPerServing = fatText.match(fatRegexp) ? fatText.match(fatRegexp)[1] : '';
-          let totalFatPerServingUom = fatText.match(fatRegexp) && fatText.match(fatRegexp)[4] ? fatText.match(fatRegexp)[4].replace(',', '') : '';
+          let totalFatPerServingUom =
+            fatText.match(fatRegexp) && fatText.match(fatRegexp)[4] ? fatText.match(fatRegexp)[4].replace(',', '') : '';
           if (!totalFatPerServingUom && fatText.includes('%')) totalFatPerServingUom = '%';
 
           listElem.setAttribute('total_fat_per_serving', totalFatPerServing);
