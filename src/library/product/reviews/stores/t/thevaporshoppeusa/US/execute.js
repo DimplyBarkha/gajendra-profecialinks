@@ -32,8 +32,7 @@ async function implementation (
   if (Brands) {
     const onDesiredBrand = await context.evaluate((Brands) => {
       const BrandEl = document.querySelector('ul.productvendorsmallinfo li');
-      console.log(BrandEl.textContent);
-      console.log("=========================================");
+
       return (BrandEl && BrandEl.textContent.toLowerCase().includes(Brands.toLowerCase()));
     }, Brands);
     if (!onDesiredBrand) {
