@@ -22,6 +22,17 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
+
+      const descriptionIterator = document.evaluate('//div[@class="o-ProductDescriptions"]//div[contains(@class,"o-ProductDescriptions__general")]/section', document, null, XPathResult.ORDERED_NODE_ITERATOR_TYPE, null);
+      let description = descriptionIterator.iterateNext();
+      let descriptionString = '';
+      while (description) {
+        descriptionString += `${description.innerText};`;
+        description = descriptionIterator.iterateNext();
+      }
+      if (descriptionString) {
+        addElementToDocument('pd_description', descriptionString.trim());
+      }
       if (dataObj) {
         addElementToDocument('pd_category', dataObj.categoryPath ? dataObj.categoryPath : '');
         addElementToDocument('pd_price', dataObj.priceBrutto);
