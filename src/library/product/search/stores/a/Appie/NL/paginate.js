@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'NL',
     store: 'Appie',
-    nextLinkSelector: '#start-of-content > div.f-load-more > button',
+    nextLinkSelector: '#start-of-content > div[class*="load-more"] > button',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,

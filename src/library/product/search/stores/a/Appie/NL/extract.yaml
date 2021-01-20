@@ -4,18 +4,18 @@ recordSelector: null
 recordXPath: //div[@id="app"]//div[@data-testhook="search-lane"]/article[@data-testhook="product-card"]
 fields:
   - name: productUrl
-    xpath: //div[@class="header_root__3b4tI"]/a/@href
-    regExp: ((.+)(wi+\d+))
+    xpath: //div[contains(@class,"header_root")]/a/@href
+    regExp: (.+)
     regExpReplace: https://www.ah.nl$1
   - name: thumbnail
-    xpath: //div[@class="header_root__3b4tI"]//img/@src
+    xpath: //div[contains(@class,"header_root")]//img/@src
   - name: name
-    xpath: //div[@class="product-card-portrait_content__KKpmv"]//strong[@data-testhook="product-title"]
+    xpath: //div[contains(@class,"product-card-portrait_content")]//strong[@data-testhook="product-title"]/span
   - name: price
-    xpath: //div[@class="price_portrait__1yoeR"]/div[contains(@class,"price-amount_highlight__8fdrD")]
+    xpath: //div[contains(@class,"price_portrait")]/div[contains(@class,"price-amount_highlight")]
   - name: rank   
   - name: rankOrganic
   - name: id
-    xpath: //div[@class="header_root__3b4tI"]/a/@href
-    regExp: (wi+\d+)
-    regExpReplace: $1
+    xpath: //div[contains(@class,"header_root")]/a/@href
+    regExp: (product)\/(\w+)\/
+    regExpReplace: $2
