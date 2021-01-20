@@ -63,9 +63,7 @@ module.exports = {
       var url1 = 'https://www.larebajavirtual.com' + url;
       var rem = getXpath("(//div[@class='descripciones']/div/h1/text())[4]", 'nodeValue');
       if (rem.includes(' ')) {
-        rem = rem.replaceAll(' ', '-');
-      } else if (rem.includes('+')) {
-        rem = rem.replaceAll('+', '%2B');
+        rem = rem.replaceAll(' ', '-').replaceAll('+', '%2B');
       }
       var url2 = url1 + rem;
       addElementToDocument('URL', url2);
