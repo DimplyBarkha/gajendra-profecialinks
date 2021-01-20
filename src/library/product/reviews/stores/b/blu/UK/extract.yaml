@@ -19,6 +19,9 @@ fields:
   - name: flavour
     singleValue: false
     description: Product flavour
+    xpath: ancestor::html//head/link[@rel='canonical'][contains(@href,'flavours')]/ancestor::html/body//h1[@data-testid="details-product-title"]
+    regExp: ^(?:.+[E-Liquid|Liquidpod]\s(.+)\sFlavour)$|^(?:.+(Multi)\sFlavour)
+    regExpReplace: $1$2
   - name: sku
     singleValue: false
     description: The store-specific product identifier
