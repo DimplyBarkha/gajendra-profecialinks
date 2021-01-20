@@ -79,12 +79,12 @@ const transform = (data) => {
         row.manufacturerDescription = [{ text: manufacturerDesc.replace('Les merProduktinformasjon', '').replace('Mer informasjon', '') }];
       }
 
-      if (row.mpcFromDescription) {
-        row.mpc = row.mpcFromDescription;
-      } else if (row.name && row.mpc) {
-        const brand = row.name[0].text.split(' ')[0];
-        row.mpc[0].text = `${brand} ${row.mpc[0].text}`;
-      }
+      // if (row.mpcFromDescription) {
+      //   row.mpc = row.mpcFromDescription;
+      // } else if (row.name && row.mpc) {
+      //   const brand = row.name[0].text.split(' ')[0];
+      //   row.mpc[0].text = `${brand} ${row.mpc[0].text}`;
+      // }
 
       if (row.largeImage) {
         row.image = row.largeImage;
