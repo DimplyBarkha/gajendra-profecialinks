@@ -25,13 +25,14 @@ module.exports = {
         }
         return result;
       };
+
+      // Product Description
+      
+
+      // Product Name 
       var pn = getAllXpath('(//div[@class="product_detail pdp__detail small-12 medium-6 large-5 columns"]//span[@class="product_name"])/text()', 'nodeValue');
       var pq = getAllXpath('((//div[contains(@class,"product_detail pdp__detail")][2])/div[1]/*[(self::h2)])/text()', 'nodeValue');
-      if (pn != null && pq != null) {
-        var ab = pn + ' | ' + pq;
-        addElementToDocument('ab', ab);
-      }
-
+      var ab;
       // First Variant  color,ml
       var firstVar;
       var fVarBySize = getAllXpath('(//div[contains(@class,"product-variation-size__inner product-variation-size--change")]/text())[1]', 'nodeValue');
@@ -40,9 +41,13 @@ module.exports = {
       if (fVarBySize.length > 0) {
         // fVarBySize = fVarBySize[0].trim();
         firstVar = fVarBySize;
+        ab = pn + ' | ' + firstVar;
+        addElementToDocument('ab', ab);
         addElementToDocument('fvar', firstVar);
       } else if (fVarByColor.length > 0) {
         firstVar = fVarByColor;
+        ab = pn + ' | ' + firstVar;
+        addElementToDocument('ab', ab);
         addElementToDocument('fvar', firstVar);
       }
 
@@ -74,12 +79,20 @@ module.exports = {
       }
 
       // Ingredient List
-      var ingredientList = getAllXpath('(//div[@id="tab_ingredients"]//p[position() < last()])/text()', 'nodeValue');
-      var ingList = ingredientList.toString().replaceAll('•', ' || ');
+      var ingredientList = getAllXpath('//div[@id="tab_ingredients"]/text()[2]', 'nodeValue');
+      var ingList1 = ingredientList.toString();
+      var ingList = "";
+      if (ingList1.match('•') != null) {
+        ingList = ingList1.replaceAll('•', ' || ');
+      } else if (ingList1.match('●') != null) {
+        ingList = ingList1.replaceAll('●', ' || ');
+      }else if (ingList1.match(',') != null) {
+        ingList = ingList1.replaceAll(',', ' || ');
+      }
       addElementToDocument('ingList', ingList);
 
 
-      var desc = getAllXpath("//div[@class='b-details-content']/ul/li/text()", 'nodeValue');
+      var desc = getAllXpath('(//div[@id="tab_description"]/p)/text()', 'nodeValue');
       if (desc != null) {
         var specs = desc.join(' || ');
         addElementToDocument('specs', specs);
