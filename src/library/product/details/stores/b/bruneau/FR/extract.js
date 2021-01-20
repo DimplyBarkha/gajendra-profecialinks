@@ -38,7 +38,13 @@ module.exports = {
         image360.setAttribute('image360', 'yes');
       }
     });
-
+    await context.evaluate(() => {
+      const video = document.querySelector('.default-video-container > iframe');
+      const product = document.querySelector('#product-baseline');
+      if (video) {
+        product.setAttribute('video', video.getAttribute('src'));
+      }
+    });
     await context.evaluate(() => {
       const rating = document.querySelector('.rating > span');
       const ratingAlt = document.querySelector('.rating-container > span');

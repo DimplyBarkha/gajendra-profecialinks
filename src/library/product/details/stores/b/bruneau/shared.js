@@ -21,10 +21,10 @@ const transform = (data) => {
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
     el.text = clean(el.text);
   }))));
-  const concatFunction = (item, index) => {
+  const concatFunction = (item, index, separator = '||') => {
     let text = '';
     if ((index + 1) % 2 === 0) {
-      text += `${item.text} || `;
+      text += `${item.text} ${separator} `;
     } else {
       text += `${item.text} `;
     }
@@ -46,7 +46,7 @@ const transform = (data) => {
       if (row.description) {
         let text = '';
         row.description.forEach((item, i) => {
-          text += concatFunction(item, i);
+          text += concatFunction(item, i, '');
         });
         row.description = [
           {
@@ -68,7 +68,7 @@ const transform = (data) => {
       if (row.additionalDescBulletInfo) {
         let text = '';
         row.manufacturerDescription.forEach((item, i) => {
-          text += concatFunction(item, i);
+          text += concatFunction(item, i, '');
         });
         row.manufacturerDescription = [
           {
