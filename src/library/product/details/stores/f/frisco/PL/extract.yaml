@@ -24,6 +24,7 @@ fields:
   - name: price
     singleValue: true
     xpath: //span[@class="main-price"]
+    type: CURRENCY
   - name: availabilityText
     singleValue: true
     xpath: //div[@itemprop="availability"]/@content
@@ -107,9 +108,9 @@ fields:
   - name: pricePerUnitUom
     singleValue: true
     xpath: //div[@class='product-page_labels-single green']
-  - name: onlinepricecurrency
-    singleValue: true
-    xpath: //meta[@itemprop="currency"]/@content
+  # - name: onlinepricecurrency
+  #   singleValue: true
+  #   xpath: //meta[@itemprop="currency"]/@content
   - name: url
     singleValue: true
     xpath: //link[@rel="canonical"]/@href
