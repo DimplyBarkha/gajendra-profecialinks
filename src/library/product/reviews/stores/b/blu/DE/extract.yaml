@@ -22,6 +22,9 @@ fields:
   xpath: ancestor::html//div[@id="productFamily"]/@productFamily
 - name: colour
 - name: flavour
+  xpath: ancestor::html//head/link[@rel='canonical'][contains(@href,'aromen')]/ancestor::html/body//h1[@data-testid="details-product-title"]
+  regExp: ^(?:myblu\s(.+)\sLiquidpod)$|(?:\sLiquidpod\s(.+))$
+  regExpReplace: $1$2
 - name: sku
   xpath: ancestor::html//h1[@data-testid="details-product-title"]
 - name: reviewText
