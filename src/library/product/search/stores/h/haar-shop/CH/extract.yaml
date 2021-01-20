@@ -5,9 +5,8 @@ recordXPath: //ol[contains(@class,"products")]/li
 fields:
   - name: id
     SingleValue: false
-    xpath: //div[@class="cs-product-tile__thumbnail"]/a/@href
-    # href="https://www.haar-shop.ch/de/60025726-airwrap-complete.html"
-    regExp: /de/(\d+)-
+    xpath: //input[contains(@name,'fl-item-id-')]/@name    
+    regExp: fl-item-id-(.+)
     regExpReplace: $1
   - name: productUrl
     SingleValue: false
