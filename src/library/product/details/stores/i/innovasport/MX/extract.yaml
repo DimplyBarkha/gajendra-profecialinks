@@ -4,11 +4,11 @@ recordSelector: ul.product-size__list>li
 recordXpath: //ul[contains(@class,'product-size__list')]/li
 fields:
   - name: image
-    xpath: ancestor::html//div[contains(@class, 'gallery col-md-8')]//div[contains(@class, 'product-slider')][1]//div[contains(@class, 'slider-main') and not(contains(@class, 'slider-main-zoom'))]/div[1]/img/@src
+    xpath: ancestor::html//div[contains(@class,"gallery col-md-8 col-xs-12")]//div[contains(@class, 'slider-main') and not(contains(@class, 'slider-main-zoom'))]//div[contains(@class,"slick-track")]/div[1]/img/@src
     regExp: (.+)
     regExpReplace: https://www.innovasport.com/$1
   - name: imageAlt
-    xpath: ancestor::html//div[contains(@class, 'gallery col-md-8')]//div[contains(@class, 'product-slider')][1]//div[contains(@class, 'slider-main') and not(contains(@class, 'slider-main-zoom'))]/div[1]/img/@alt
+    xpath: ancestor::html//div[contains(@class,"gallery col-md-8 col-xs-12")]//div[contains(@class, 'slider-main') and not(contains(@class, 'slider-main-zoom'))]//div[contains(@class,"slick-track")]/div[1]/img/@alt
   - name: category
     xpath: ancestor::*//body/@category
     regExp: ([^,]+)
@@ -53,11 +53,11 @@ fields:
     type: text
     xpath: //a[contains(@class, 'product-size__option')]/@data-option-code
   - name: alternateImages
-    xpath: ancestor::html//div[contains(@class, 'gallery col-md-8')]//div[contains(@class, 'product-slider')][1]//div[contains(@class, 'slider-main') and not(contains(@class, 'slider-main-zoom'))]/div[position()>1]/img/@src
+    xpath: ancestor::html//div[contains(@class,"gallery col-md-8 col-xs-12")]//div[contains(@class, 'slider-main') and not(contains(@class, 'slider-main-zoom'))]//div[contains(@class,"slick-track")]/div[position()>1]/img/@src
     regExp: (.+)
     regExpReplace: https://www.innovasport.com/$1
   - name: secondaryImageTotal
-    xpath: count(ancestor::html//div[contains(@class, 'gallery col-md-8')]//div[contains(@class, 'product-slider')][1]//div[contains(@class, 'slider-main') and not(contains(@class, 'slider-main-zoom'))]/div[position()>1]/img/@src)
+    xpath: count(ancestor::html//div[contains(@class,"gallery col-md-8 col-xs-12")]//div[contains(@class, 'slider-main') and not(contains(@class, 'slider-main-zoom'))]//div[contains(@class,"slick-track")]/div[position()>1]/img/@src)
     regExp: (.+)
     regExpReplace: https://www.innovasport.com/$1
   - name: listPrice
