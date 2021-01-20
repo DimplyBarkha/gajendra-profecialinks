@@ -5,8 +5,9 @@ recordXPath: null
 fields:
   - name: id
     SingleValue: false
-    xpath: //div[@class="product-image"]//a/@href
-    regExp: .+\/(.+?)\.html
+    xpath: //div[contains(@class,'product-tile')]/@data-line-item
+    # "productCode":"9300673834355"
+    regExp: \"productCode\"\s*:\s*\"(.+?)\"
     regExpReplace: $1    
   - name: productUrl
     SingleValue: false
