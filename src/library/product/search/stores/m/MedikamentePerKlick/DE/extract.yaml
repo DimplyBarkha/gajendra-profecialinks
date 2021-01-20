@@ -8,7 +8,7 @@ fields:
   - name: thumbnail
     description: The URL for the product thumbnail image
     # xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//div[@class="figure"]//img[@class="photo"]/@src
-    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//img[@itemprop="image" and @class="photo"]/@src
+    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//img[@class="photo"]/@src
     regExp: (.+)
     regExpReplace: https://www.medikamente-per-klick.de$1
   - name: name
