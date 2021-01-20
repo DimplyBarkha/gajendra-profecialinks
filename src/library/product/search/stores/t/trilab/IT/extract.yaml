@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: id
     SingleValue: false
-    xpath: //li[contains(@class,"product-item")]//@data-clerk-product-id
+    xpath: //form[@data-role='tocart-form']/@data-product-sku
   - name: productUrl
     SingleValue: false
     xpath: //li[contains(@class,"product-item")]//strong[contains(@class,"name product-item-name")]//a/@href
