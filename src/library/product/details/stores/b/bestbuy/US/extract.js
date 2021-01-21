@@ -18,9 +18,9 @@ async function implementation (
     await context.evaluate(async function () {
       let scrollTop = 0;
       while (scrollTop !== 20000) {
-        scrollTop += 500;
+        scrollTop += 1000;
         window.scroll(0, scrollTop);
-        await stall(1000);
+        await stall(500);
       }
       function stall (ms) {
         return new Promise((resolve, reject) => {
@@ -154,7 +154,7 @@ async function implementation (
       const vidSel = document.querySelector('li.video-thumbnail button');
       if (vidSel) {
         vidSel.click();
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        await new Promise(resolve => setTimeout(resolve, 1000));
       }
       const videos = [];
       const videoElem = document.querySelectorAll('div.video-thumbnail-wrapper li button');
@@ -175,7 +175,7 @@ async function implementation (
       // console.log("imgSel:::: ", imgSel);
       if (imgSel) {
         imgSel.click();
-        await new Promise(resolve => setTimeout(resolve, 4000));
+        await new Promise(resolve => setTimeout(resolve, 1000));
       }
       const imgEle = document.querySelectorAll('li.thumbnail-content button');
       // console.log("imgEle:: ", imgEle);
@@ -220,7 +220,7 @@ async function implementation (
       const iframe = document.querySelector('iframe.manufacturer-content-iframe');
       if (iframe) {
         iframe.scrollIntoView({ behavior: 'smooth' });
-        await new Promise(resolve => setTimeout(resolve, 5000));
+        await new Promise(resolve => setTimeout(resolve, 500));
         try {
           const container = document.querySelector('div.shop-manufacturer-content');
           const manufaturerContents = iframe.contentDocument.documentElement.innerHTML.replace(/<div\s*class="wc-json-data".*?<\/div>/g, ' ');
@@ -258,7 +258,7 @@ async function implementation (
       if (videoElem && videoElem.length > 0) {
         for (let i = 0; i < videoElem.length; i++) {
           videoElem[i].click();
-          await new Promise(resolve => setTimeout(resolve, 1000));
+          await new Promise(resolve => setTimeout(resolve, 500));
 
           const videoUrl = document.querySelector('video source').getAttribute('src');
           // console.log("videoUrl:: ", videoUrl);
@@ -276,14 +276,14 @@ async function implementation (
     const manuf = document.querySelector('button[data-track*="From the Manufacturer');
     if (manuf) {
       manuf.click();
-      await new Promise(resolve => setTimeout(resolve, 5000));
+      await new Promise(resolve => setTimeout(resolve, 500));
     }
     const iFrameSrc = document.querySelector('iframe.manufacturer-content-iframe') && document.querySelector('iframe.manufacturer-content-iframe').getAttribute('src');
     console.log('IFRAME', document.querySelector('iframe.manufacturer-content-iframe'));
     return iFrameSrc;
   });
   let manufacturerData = '';
-  const timeout = parameters.timeout ? parameters.timeout : 130000;
+  const timeout = parameters.timeout ? parameters.timeout : 60000;
   if (iFrameSrc) {
     console.log('IFRAME SRC found', iFrameSrc);
     try {
