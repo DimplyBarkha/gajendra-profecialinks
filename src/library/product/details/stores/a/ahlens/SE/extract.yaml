@@ -4,38 +4,37 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    xpath: (//td[@class="images depth_1"]//td[@class="xxlarge depth_3"])[1]
+    xpath: (//div[@class="ah-pdp-images__actions text--center"]/a/@href)[1]
     regExp: (/.+)
-    regExpReplace: https://www.ahlens.se$1
-  - name: productUrl
-    xpath: //td[@class="uri depth_1"]
+    regExpReplace: https://www.ahlens.se$1    
   - name: category
-    xpath: //td[@class="title depth_1"]    
+    xpath: //ul[@class="ah-breadcrumbs"]//li/a//text()    
   - name: alternateImages
-    singleValue: false
-    xpath: (//td[@class="images depth_1"]//td[@class="xxlarge depth_3"])[position()>=2]  
-    regExp: (/.+)
-    regExpReplace: https://www.ahlens.se$1
-  - name: nameExtended  
-    xpath: concat(//td[@class="brand depth_1"] ," ", //td[@class="name depth_1"])   
+    xpath: //html//div[@class='altImage'] 
+    regExp: (.+)(ProductList)(.+)
+    regExpReplace: $1PDPMegazoom$3 
+  - name: nameExtended
+    xpath: concat(//div[@ng-if="product.brand && !product.attributes.new"]/a/text()," ", //div[@class="ah-pdp-info pt"]//h1/text())       
   - name: price
-    xpath: //div[@class="price"]
+    xpath: //html//div[@class='altImage1'] 
   - name: availabilityText
-    xpath: (//td[@class="cartable depth_1"][text()='true'])[1]
+    xpath: //div[@class="ah-pdp-cta"]//span[contains(text(),'Lägg i varukorg')]
     regExp: (.+)
     regExpReplace: In Stock
-    defaultValue: Out Of Stock
+    defaultValue: Out of Stock
   - name: description
-    xpath: //div[@class="manu"]
-  - name: directions 
-    xpath: (//td[@class="title depth_2"][text()=' Användning']//following-sibling::td | //td[@class="title depth_2"][text()=' Hållbarhet']//following-sibling::td)
-  - name: quantity
-    xpath: //td[@class="LISTITEM_9872649 depth_3"]
-    regExp: (\d+).*$
+    xpath: //div[@class='ah-layout__item u-1/2'][2]/ng-include[1]/div[@class='ah-pdp-info']/div/p
+  - name: directions  
+    xpath: //ul[@class="ah-pdp-info-list ah-faq"]/li/h2[contains(text(),'Användning')]/ancestor::li//div
+  - name: quantity   
+    xpath: //ul[@class="ul--plain"]/li[contains(text(),'Volym')]
+    regExp: \d.+
   - name: brandText
-    xpath: //td[@class="brand depth_1"]
+    xpath: //div[@class='zeta mb-']/a[@class='weight--bold a--no-decoration']/text()
   - name: sku
-    xpath: //td[@class="sku depth_1"]
+    xpath: (//a[@class="a--light ah-favorite ah-svg-icon-btn"]/@sku)[1]
   - name: ingredientsList
-    xpath: //td[@class="title depth_2"][text()=' Ingredienser']//following-sibling::td
+    xpath: //ul[@class="ah-pdp-info-list ah-faq"]/li/h2[contains(text(),'Ingredienser')]/ancestor::li/div//text()
+  - name: variantId
+    xpath: //li[@class="rainbow--light-gray"]/@content  
   

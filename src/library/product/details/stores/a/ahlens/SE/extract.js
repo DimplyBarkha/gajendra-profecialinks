@@ -4,13 +4,16 @@ module.exports = {
   parameterValues: {
     country: 'SE',
     store: 'ahlens',
-    transform: null,
+    transform: cleanUp,
     domain: 'ahlens.se',
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
-    await context.evaluate(async function () {      
-      function addElementToDocument(key, value) {
+    await context.waitForSelector('div[data-testid="ProductList_list"] a[href]', 5000)
+    await context.click('div[data-testid="ProductList_list"] a[href]');
+    await context.waitForSelector('div[class="ah-pdp-cta"]', 10000)
+    await context.evaluate(async function () {
+        function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.className = key;
         catElement.textContent = value;
@@ -33,29 +36,62 @@ module.exports = {
           if (element) result.push(prop ? element[prop] : element.nodeValue);
         }
         return result;
-      };      
+      };
+      var getXpath = (xpath, prop) => {
+        var elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+        let result;
+        if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+        else result = elem ? elem.singleNodeValue : '';
+        return result && result.trim ? result.trim() : result;
+      };
       const sliceURL = (data) => {
+        for (let index = 0; index < data.length; index++) {
+          if (data[index].includes(":-")) {
+            var temp = data[index].replace(":-", "");
+          } else if (data[index].includes(":")){
+            var temp = data[index].replace(":", ",");
+          } else {
+            temp = data[index].replace(".", ",");
+          }
+          addElementToDocument('altImage1', temp);
+        }
+      };
+      var backgroundURL = getAllXpath("(//b[@class='ah-price'])[1]/text()", 'nodeValue');
+      sliceURL(backgroundURL);
+      const sliceURL1 = (data) => {
         for (let index = 0; index < data.length; index++) {
           if (data[index].includes(":")) {
             var temp = data[index].replace(":", ",");
-          } else if (data[index].includes(".")) {
-            var temp = data[index].replace(".", ",");
+          } else if (data[index].includes(",")){
+            var temp = data[index].replace(",", ",");
           } else {
             temp = data[index].replace(":-", ",");
           }
-          addElementToDocument('price', temp);
+          addElementToDocument('altImage2', temp);
         }
       };
-      var backgroundURL = getAllXpath("//td[@class='trackPrice depth_2']/text()", 'nodeValue');
-      sliceURL(backgroundURL);
-      try {
-        // @ts-ignore        
-        var man = document.querySelector('td[class="long_description depth_1"]').innerText
-        addElementToDocument('manu', man);
-      } catch (error) {
+      var backgroundURL1 = getAllXpath("//div[@class='ah-pdp-product-price pt-- mb--']/div[@class='ah-product-price nobreak-ellipsis']/div[1]/span[@class='ah-offer ah-offer--old-price']/text()", 'nodeValue');
+      sliceURL1(backgroundURL1);
+      function getUnique(array){
+        var uniqueArray = [];
+        var i = 0
+        // Loop through array values
+        for(i=0; i < array.length; i++){
+        if(uniqueArray.indexOf(array[i]) === -1) {
+        uniqueArray.push(array[i]);
+        }
+        }
+        return uniqueArray;
+        }
+      var images = getAllXpath('//ul[@class="ul--inline"]//span[@ng-repeat][position()>1]/@content', 'nodeValue');
+      if (images != null){
+        var uniqueNames = getUnique(images);
+        for(var j = 0; j<uniqueNames.length;j++){
+          uniqueNames[j]="https://www.ahlens.se"+uniqueNames[j]
+          addElementToDocument('altImage', uniqueNames[j]);
+        }
       }
     });
-    await context.waitForSelector('td[class="long_description depth_1"]', 3000)
     await context.extract(productDetails, { transform: transformParam });
   },
 };
