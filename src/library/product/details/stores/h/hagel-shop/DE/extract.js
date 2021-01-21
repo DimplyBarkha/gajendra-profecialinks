@@ -1,13 +1,22 @@
+// const { cleanUp } = require("@library/product/details/shared");
+const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'DE',
     store: 'hagel-shop',
-    transform: null,
+    transform: cleanUp,
     domain: 'hagel-shop.de',
     zipcode: '',
   },
-  implementation: async ({ inputstring }, { country, domain }, context, { productDetails }) => {
+  implementation:async function implementation(
+    inputs,
+    parameters,
+    context,
+    dependencies,
+    ) {
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
     await context.evaluate(() => {
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
@@ -46,6 +55,21 @@ module.exports = {
       if (agg != null) {
         var aggregate = agg.split(":")[1].slice(0, -1);
         aggregate = (aggregate * 5) / 100;
+        var str = aggregate.toString();
+        if(str.includes(".")){
+          var real = str.split(".")[0];
+          var dec = str.split(".")[1];
+          if(dec.length > 1){
+            var first = Number(dec[0]);
+            var sec = Number(dec[1]);
+            if(sec > 5){
+              first = first + 1
+            }
+            var final = Number(real)+"."+first;
+            aggregate = Number(final);
+          }
+
+        }
         addElementToDocument('aggregate', aggregate);
       }
 
@@ -68,7 +92,7 @@ module.exports = {
       //price 
       var price = getXpath('//div[@class="price-details"]/div[@class="price-box"]/p[@class="special-price"]/span[@class="price"]/text() | //div[@class="simple-product-list"]/table/tbody/tr[1]//p[@class="special-price"]/span[@class="price"]/text() | //div[@class="price-details"]/div[@class="price-box"]/span[@class="regular-price"]//span[@class="price"]/text()', 'nodeValue');
       if (price != null) {
-        price = price.replace(",", ".");
+        // price = price.replace(",", ".");
         addElementToDocument('price', price);
       }
 
@@ -76,7 +100,7 @@ module.exports = {
       var list_price = getXpath('(//p[@class="old-price"]/span[@class="price"])[1]/text()', 'nodeValue');
       if (list_price != null){
         if(list_price.includes(",")){
-          list_price = list_price.replace(",", ".");
+          // list_price = list_price.replace(",", ".");
         }
         addElementToDocument('list_price', list_price);
       }
@@ -103,16 +127,37 @@ module.exports = {
         aval = arr[arr.length-1];
         if(aval.includes("In")){
           aval = "In Stock"
-        }else{
+        }else if(aval.includes("PreOrder")){
+          aval = "In Stock"; 
+          }else{
           aval = "Out Of Stock"
         }
         addElementToDocument('aval', aval);
+      }
+
+      // alternate image
+      var secondary_image = getAllXpath('//div[@class="more-views"]/ul/li/a/@href', 'nodeValue');
+      if(secondary_image.length >= 1){
+        var alt_img = "";
+        if(secondary_image.length == 2){
+          alt_img = secondary_image[0];
+        }else{
+          for(var i=0; i<secondary_image.length; i++){
+            if(i == 1){
+
+            }else{
+              alt_img = alt_img + secondary_image[i] + " | ";
+            }
+          }
+          alt_img = alt_img.slice(0,-3);
+        }
+        addElementToDocument('alt_img', alt_img);
       }
 
 
 
 
     });
-    await context.extract(productDetails);
+    await context.extract(productDetails, { transform });
   },
 };
