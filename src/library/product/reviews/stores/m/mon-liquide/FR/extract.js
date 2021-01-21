@@ -34,15 +34,6 @@ const transform = (data, context) => {
       }));
     }
   }
-  // for (const { group } of data) {
-  //   for (const row of group) {
-  //     if (row.brand) {
-  //       if (row.brand.length > 1) {
-  //         row.brand = row.brand[1];
-  //       }
-  //     }
-  //   }
-  // }
   return data;
 };
 module.exports = {
