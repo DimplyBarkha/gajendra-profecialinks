@@ -62,6 +62,15 @@ module.exports = {
         const imageList = images.split('|');
         addElementToDocument('added_image', imageList[0]);
       }
+      const promotion = getXpath('//div[contains(@class,"label--round-sale ")]//text()', 'nodeValue');
+      if (promotion) {
+        addElementToDocument('added_promotion', promotion);
+      }
+      const secondaryImageTotal = getAllXpath('(//div[contains(@class, "gallery-thumbnails__item")]//img//@src)[position()>1]', 'nodeValue');
+      if (secondaryImageTotal) {
+        addElementToDocument('added_secondaryImageTotal', secondaryImageTotal.length);
+      }
+
       const description = getAllXpath("//section[@class='pro-column'][2]//h3/text() | //section[@class='pro-column'][2]//p[@itemprop='description']/text() | //a[@class='product-detail-more-link']/text() | //div[@class='col-sm-6']//span/text() | //div[@class='col-sm-6']//span/strong/text() |  //div[@class='col-sm-6']//span/a/text()", 'nodeValue').join(' ');
       addElementToDocument('added_description', description);
 

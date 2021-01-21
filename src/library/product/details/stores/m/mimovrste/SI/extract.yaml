@@ -242,7 +242,8 @@ fields:
     singleValue: true
     description: null
     type: NUMBER
-    xpath: count((//div[contains(@class, 'gallery-thumbnails__item')]//img//@src)[position()>1])
+    #xpath: count((//div[contains(@class, 'gallery-thumbnails__item')]//img//@src)[position()>1])
+    xpath: //div[@id='added_secondaryImageTotal']
   - name: news
     singleValue: true
     description: null
@@ -458,7 +459,8 @@ fields:
   - name: promotion
     singleValue: true
     description: promotion text on product page
-    xpath: //div[contains(@class,'label--round-sale ')]//text()
+    #xpath: //div[contains(@class,'label--round-sale ')]//text()
+    xpath: //div[@id='added_promotion']
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
