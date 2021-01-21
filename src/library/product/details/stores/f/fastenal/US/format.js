@@ -72,7 +72,16 @@ const transform = (data) => {
 
          });
       }
-
+ if (row.availabilityText) {
+        row.availabilityText.forEach(item => {
+          if (item.text == "false"){
+            item.text = "In Stock";
+          }
+          else{
+             item.text = "Out Of Stock";
+          }
+        });
+      }
     }
   }
   return data;
