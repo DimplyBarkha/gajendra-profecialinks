@@ -2,7 +2,7 @@ input:
   id: 36158
   _url: http://petshop.ru
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=0b2585b6-0859-4084-a7e3-ecc6c08a4ff9/task=da4db580-ca36-46da-bd51-69bfb2e384cd/9a0bf15c-5de0-4ee6-bfde-63f0c5481191.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=3dcb24d1-5524-4def-beb8-f146b40c22c5/task=dcff936a-7122-4b32-9c74-6e8451f2f817/030430a1-8adc-47f2-8f67-3ed327c03ec6.html
     extractionConfigId: product/details/stores/p/petshop/RU/extract
     data:
       - group:
@@ -74,6 +74,12 @@ extractions:
             secondaryImageTotal:
               - text: "0"
                 xpath: /html/body/ol[1]/li[1]/ol[1]/@total
+            ingredientsList:
+              - text: Мясо и продукты его переработки, злаки, животный жир, экстракты
+                  растительного белка, рыба и продукты ее переработки,
+                  минеральные вещества, сахара, дрожжи, консерванты,
+                  аминокислоты, красители, витамины, антиоксиданты, загустители.
+                xpath: /html/body/ol[1]/li[1]/@ingredients
             servingSize:
               - text: "1"
                 xpath: /html/body/ol[1]/li[1]/@serving_size
@@ -130,4 +136,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1611146747311
+    timestamp: 1611216277394

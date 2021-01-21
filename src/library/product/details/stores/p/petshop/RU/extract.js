@@ -22,12 +22,12 @@ module.exports = {
     // Extracting product description
     const productDescription = await context.evaluate(async () => {
       const getDescription = () => {
-        const digForDescription = (parent, descriptionArr) => {
+        const digForText = (parent, descriptionArr) => {
           for (let i = 0; i < parent.childNodes.length; i++) {
             const child = parent.childNodes[i];
             if (child.nodeType === 3) descriptionArr.push(child.textContent.trim());
             else if (child.nodeName === 'TABLE') break;
-            else digForDescription(child, descriptionArr);
+            else digForText(child, descriptionArr);
           }
         };
 
@@ -40,7 +40,7 @@ module.exports = {
           null,
         ).singleNodeValue;
 
-        if (descriptionParent) digForDescription(descriptionParent, descriptionArr);
+        if (descriptionParent) digForText(descriptionParent, descriptionArr);
         const alternateDescription = document.querySelector('div#product-detail-text')
           ? document.querySelector('div#product-detail-text').textContent
           : '';
@@ -141,6 +141,15 @@ module.exports = {
       }
       await context.evaluate(
         async ({ variantsTotal, productDescription }) => {
+          const digForText = (parent, descriptionArr) => {
+            for (let i = 0; i < parent.childNodes.length; i++) {
+              const child = parent.childNodes[i];
+              if (child.nodeType === 3) descriptionArr.push(child.textContent.trim());
+              else if (child.nodeName === 'TABLE') break;
+              else digForText(child, descriptionArr);
+            }
+          };
+
           const addedList = document.querySelector('ol#variants_list');
           const listElem = document.createElement('li');
           const variantElem = document.evaluate(
@@ -285,14 +294,6 @@ module.exports = {
           listElem.setAttribute('serving_size', servingSize);
           listElem.setAttribute('serving_size_uom', servingSizeUom);
           listElem.setAttribute('calories_per_serving', caloriesPerServing);
-
-          // const fatText = document.evaluate(
-          //   '(//*[(name()="tr" or name()="li") and contains(translate(. , "ЖИР", "жир"), "жир")])[last()]',
-          //   document,
-          //   null,
-          //   XPathResult.STRING_TYPE,
-          //   null,
-          // ).stringValue;
 
           let fatElem;
           const fatSnapshot = document.evaluate(
@@ -502,7 +503,28 @@ module.exports = {
             XPathResult.STRING_TYPE,
             null,
           ).stringValue;
-          if (!ingredients) ingredients = document.querySelector('div.composition-text__content') ? document.querySelector('div.composition-text__content').textContent : '';
+          if (!ingredients) {
+            ingredients = document.querySelector('div.composition-text__content')
+              ? document.querySelector('div.composition-text__content').textContent
+              : '';
+          }
+          if (!ingredients) {
+            ingredients = document
+              .evaluate(
+                'html//div[contains(@class, "style_composition__composition")]//span[contains(. , "Состав:")]',
+                document,
+                null,
+                XPathResult.STRING_TYPE,
+                null,
+              )
+              .stringValue.replace('Состав:', '');
+          }
+          if (!ingredients) {
+            const ingredientsElem = document.querySelector('div[class*="style_composition_composition"]');
+            const ingredientsArr = [];
+            if (ingredientsElem) digForText(ingredientsElem, ingredientsArr);
+            ingredients = ingredientsArr.join(' ');
+          }
           listElem.setAttribute('ingredients', ingredients.replace(/\n+/g, ' ').trim());
 
           addedList.appendChild(listElem);
