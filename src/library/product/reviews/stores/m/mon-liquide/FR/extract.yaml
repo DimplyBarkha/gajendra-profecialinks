@@ -6,11 +6,11 @@ fields:
   - name: brand
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name e.g. "Visit the Gillette Store"
-    xpath: ancestor::html//div[@itemprop='brand']
+    xpath: ancestor::html//div[@itemprop='brand'] | ancestor::html//h1[@itemprop="name"]
   - name: productRange
     singleValue: false
     description: Product range
-    xpath: ancestor::html//div[@class='bg-breadcrumb']//span[contains(@class, 'navigation_page')]//span[@itemprop='itemListElement'][2]
+    xpath: ancestor::html//div[@class='bg-breadcrumb']//span[contains(@class, 'navigation_page')]//span[@itemprop='itemListElement'][position()=count(//span[contains(@class, 'navigation_page')]//span[@itemprop='itemListElement'])]
   - name: productFamily
     singleValue: false
     description: Product family
@@ -56,7 +56,7 @@ fields:
     singleValue: false
     description: The url of the page title
     xpath: ancestor::html//head/title
-    regExp: (?:(?:[\d,]+€\s)?(.+))
+    regExp: \€ (.*)
     regExpReplace: $1
   - name: sourceUrl
     singleValue: false
