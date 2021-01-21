@@ -5,7 +5,7 @@ module.exports = {
     template: null,
     country: 'US',
     store: 'juul',
-    nextLinkSelector: null,
+    nextLinkSelector: '#noPagination',
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,
