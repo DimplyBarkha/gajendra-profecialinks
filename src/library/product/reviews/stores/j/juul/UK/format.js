@@ -37,9 +37,7 @@ const transform = (data) => {
         row.sourceUrl.forEach(item => {
           if (item.text.includes('/pods/')) {
             if (row.flavour) {
-              row.flavour.forEach(item => {
-                item.text = item.text;
-              });
+              // nothing to do
             }
           } else {
             if (row.flavour) {
