@@ -26,9 +26,5 @@ fields:
   - name: id
     singleValue: false
     xpath: //h3/a/@href
-    regExp: (\d.*)[$.]
-    regExpReplace: $1
-  - name: sku
-    xpath: //h3/a/@href
-    regExp: (\d.*)[$.]
+    regExp: ([^\/]+)(.html)$
     regExpReplace: $1
