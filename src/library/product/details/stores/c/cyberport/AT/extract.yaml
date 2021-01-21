@@ -408,7 +408,8 @@ fields:
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
-    xpath: //td[contains(text(),'Herstellergarantie')]//following::p[1]|//td//font[contains(text(),'Manufacturer guarantee')]//following::p[1]
+    # xpath: //td[contains(text(),'Herstellergarantie')]//following::p[1]|//td//font[contains(text(),'Manufacturer guarantee')]//following::p[1]
+    xpath: //span[contains(text(),'Garantie ')]
   - name: storage
     singleValue: true
     description: Suggested storage location for product
