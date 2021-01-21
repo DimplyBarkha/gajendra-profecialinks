@@ -1,17 +1,17 @@
 /**
  *
- * @param { { URL: string, zipcode: string, query: string } } inputs
+ * @param { { URL: string, zipcode: string, query: string, maxPages: string } } inputs
  * @param { { store: any, country: any, zipcode: any, storeId: any } } parameters
  * @param { ImportIO.IContext } context
  * @param { { execute: ImportIO.Action, extract: ImportIO.Action } } dependencies
  */
 async function implementation (inputs, parameters, context, dependencies) {
-  const { URL, query } = inputs;
+  const { URL, query, maxPages } = inputs;
   const { execute, extract } = dependencies;
   const url = URL;
   const zipcode = inputs.zipcode || parameters.zipcode;
 
-  const newInput = { ...inputs, zipcode, url, query };
+  const newInput = { ...inputs, zipcode, url, query, maxPages };
 
   const resultsReturned = await execute(newInput);
   if (!resultsReturned) {
@@ -46,6 +46,18 @@ module.exports = {
     {
       name: 'URL',
       description: 'direct url for product',
+      type: 'string',
+      optional: true,
+    },
+    {
+      name: 'query',
+      description: 'query string input if given',
+      type: 'string',
+      optional: true,
+    },
+    {
+      name: 'maxPages',
+      description: 'limit of pages to return if needed',
       type: 'string',
       optional: true,
     },

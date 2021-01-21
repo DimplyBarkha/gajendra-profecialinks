@@ -1,6 +1,6 @@
 /**
  *
- * @param { { url,query } } inputs
+ * @param { { url, query, maxPages } } inputs
  * @param { Record<string, any> } parameters
  * @param { ImportIO.IContext } context
  * @param { Record<string, any> } dependencies
@@ -11,7 +11,8 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { transform, urlTemplate, resultsCountSelector, numberResultPerPage, regExpForIdFromUrl } = parameters;
+  const { maxPages } = inputs;
+  const { transform, urlTemplate, resultsCountSelector, numberResultPerPageXPath, regExpForIdFromUrl } = parameters;
   const { productDetails, Helpers: { Helpers } } = dependencies;
   const helper = new Helpers(context);
 
@@ -19,16 +20,21 @@ async function implementation (
     return document.querySelector(resultsCountSelector).textContent.replace(',', '');
   }, resultsCountSelector);
 
-  const totalPages = Number(resultsCount) / numberResultPerPage;
+  const numberResultPerPage = await context.evaluate((numberResultPerPageXPath) => {
+    return document.evaluate(numberResultPerPageXPath, document, null, XPathResult.NUMBER_TYPE, null).numberValue;
+  }, numberResultPerPageXPath);
 
-  const urlArray = [];
+  const totalPages = Number(resultsCount) / Number(numberResultPerPage);
+
   const currentUrl = await context.evaluate(() => {
     return window.location.href;
   });
 
   const itemId = regExpForIdFromUrl ? String(currentUrl).match(regExpForIdFromUrl)[0] : '';
 
-  for (let i = 1; i < totalPages; i++) {
+  const urlArray = [];
+
+  for (let i = 1; i < (Number(maxPages) + 1 || totalPages); i++) {
     urlArray.push(urlTemplate
       .replace('{id}', itemId)
       .replace('{page}', i));
@@ -59,8 +65,8 @@ module.exports = {
       description: 'selector for total number of results',
     },
     {
-      name: 'numberResultPerPage',
-      description: 'set as number of results shown per page',
+      name: 'numberResultPerPageXPath',
+      description: 'xpath to count number results shown per page, ex. count(//div..)',
     },
     {
       name: 'regExpForIdFromUrl',

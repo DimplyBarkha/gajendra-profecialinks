@@ -11,7 +11,7 @@ module.exports = {
   implementation: async ({ url, zipcode }, parameters, context, dependencies) => {
     const timeout = parameters.timeout ? parameters.timeout : 30000;
     await context.goto(url, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: true });
-  
+
     await context.waitForSelector('a[class="button confirmm-age"]', { timeout: 7000 })
       .catch(() => console.log('age selector not found'));
 
@@ -21,6 +21,5 @@ module.exports = {
         document.querySelector('a.button.confirmm-age').click();
       }
     });
-
   },
 };

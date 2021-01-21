@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'njoy',
     domain: 'shop.njoy.com',
-    loadedSelector: null,
+    loadedSelector: 'div.yotpo-review-wrapper',
     noResultsXPath: null,
     gotoUrlTemplate: null,
     zipcode: '',

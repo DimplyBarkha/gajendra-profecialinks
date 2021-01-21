@@ -7,8 +7,10 @@ module.exports = {
     store: 'reviews',
     urlTemplate: 'https://www.reviews.io/company-reviews/store/{id}/{page}',
     resultsCountSelector: 'span.statistics__totalReviews span:nth-child(2) strong',
-    numberResultPerPage: 20,
+    numberResultPerPageXPath: 'count(//div[@class="Review "])',
+    /* eslint-disable */
     regExpForIdFromUrl: '([^\/]+$)',
+    /* eslint-enable */
     transform,
     domain: 'reviews.co.uk',
     zipcode: '',
