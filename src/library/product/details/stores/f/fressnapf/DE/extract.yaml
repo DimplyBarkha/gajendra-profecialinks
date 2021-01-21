@@ -12,7 +12,7 @@ fields:
     xpath: (//div[@class='zoom-image']/img/@alt)[1]
     description: Alt text of the main product image
   - name: alternateImages
-    # singleValue: false
+    singleValue: false
     xpath: //html//div[@id='abc']
     description: Other product images (not in manufacturer description)
   - name: category
@@ -105,6 +105,6 @@ fields:
     xpath: //div[@class='section-content']/div[@class='product-overview']/div/div/div/div/div/div/div/label/span/div/div[1]
     description: colour / scent / flavour / other
   - name: variants
-    # singleValue: false
+    singleValue: false
     xpath: //html//div[@id='variant']
     description: null
