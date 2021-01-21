@@ -29,10 +29,11 @@ fields:
     singleValue: true
     description: The stated undiscounted price for the product
   - name: price
-    singleValue: true
+    singleValue: false
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[@class='qty__items pricing-margin-override']//div[contains(@class,'whole__sale--label')]//span[contains(text()," Wholesale:")]/following-sibling::text()
+    xpath: //span[contains(.,'Online Price:')]/following-sibling::text()
+    #xpath: //div[@class='qty__items pricing-margin-override']//div[contains(@class,'whole__sale--label')]//span[contains(text()," Wholesale:")]/following-sibling::text()
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -517,3 +518,5 @@ fields:
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
     xpath: //div[@id='note']/p/text() | (//div[@id='note']/text())[1]
+  - name: priceCurrency
+    xpath: //span[contains(.,'Online Price:')]/following-sibling::text()

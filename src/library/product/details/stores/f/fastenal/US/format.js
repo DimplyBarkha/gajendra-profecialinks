@@ -60,8 +60,18 @@ const transform = (data) => {
           },
         ];
       }
+      if(row.price){
+        row.price.forEach(item => {
+          item.text=item.text.replace(' / each','').trim();
+        });
+      }
+      if(row.priceCurrency){
+        row.priceCurrency.forEach(item =>{
+        item.text = item.text.replace (' / each', '').replace (/[0-9.]/g, '');
+        item.text = item.text.replace ('$', 'USD').trim();
 
-
+         });
+      }
 
     }
   }
