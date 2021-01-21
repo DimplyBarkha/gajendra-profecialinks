@@ -9,9 +9,10 @@ async function implementation(inputs, parameters, context, dependencies){
     }, xpath);
   }
   let allVariants = [];
-  try{
+  
     let jsonString = await getElementByXpath('//script[@id="hz-ctx"]/text()');
     var jsonParsed = JSON.parse(jsonString);
+    try{
     var datavar = Object.keys(jsonParsed.data.stores.data.ProductVariationsStore.data)[0]
     var variantsArr = Object.keys(jsonParsed.data.stores.data.ProductVariationsStore.data[datavar].variationProducts)
   
@@ -20,7 +21,7 @@ async function implementation(inputs, parameters, context, dependencies){
     });
   }catch(e){
     console.log("Variants not available")
-    let main_URL = Array(window.location.href.split("vr~")[1])
+    let main_URL = Array(jsonParsed.data.pageContentData.spaceId)
     allVariants = main_URL.filter(function (item, pos) {
       return main_URL.indexOf(item) === pos;
     });
