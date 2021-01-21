@@ -5,7 +5,7 @@ module.exports = {
     // template: null,
     country: 'BR',
     store: 'panvel',
-    nextLinkSelector: 'ul.pagination__list li:last-child a',
+    nextLinkSelector: 'ul.pagination__list li:last-child a.pagination__arrow',
     loadedSelector: 'div.search-result__products>div',
     noResultsXPath: '//div[@class="search-result--empty"]/div[contains(.,"Nenhum produto encontrado para o termo pesquisado!")]',
     // nextLinkXpath: null,
