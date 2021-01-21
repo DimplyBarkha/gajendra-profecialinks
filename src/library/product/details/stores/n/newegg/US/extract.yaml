@@ -53,7 +53,7 @@ fields:
     regExpReplace: $1
   - name: brandText
     singleValue: false
-    xpath: //div[contains(@class,'product-view-brand')]//a/@title
+    xpath: //div[contains(@class,'product-view-brand')]//a/@title | //span[@class="brand"]
   - name: gtin
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"gtin")]
