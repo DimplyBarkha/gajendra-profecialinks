@@ -32,7 +32,8 @@ fields:
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
 - name: nameExtended
-  xpath: normalize-space(concat(//a[@data-track-id="pdp_brandname"], //h1[@class="pp-info__name"], //div[@class="pp-size-selector"]/button|//div[@class="pp-colour-selector"]//span))
+  # xpath: normalize-space(concat(//a[@data-track-id="pdp_brandname"], //h1[@class="pp-info__name"], //div[@class="pp-size-selector"]/button|//div[@class="pp-colour-selector"]//span))
+  xpath: //div[@id="nameext"]
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
@@ -52,7 +53,7 @@ fields:
     is no availability but the product can be added to cart, this field should be
     "In Stock"
 - name: description
-  xpath: //div[@class="pp-content__heading"][contains(text(), 'Produktinformation')]/following-sibling::div
+  xpath: normalize-space(//div[@class="pp-content__heading"][contains(text(), 'Produktinformation')]/following-sibling::div)
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
@@ -109,7 +110,7 @@ fields:
   singleValue: true
   description: Content under "legal disclaimer" header
 - name: directions
-  xpath: //div[@class="pp-content__heading"][contains(text(), 'Anvendelse')]/following-sibling::div
+  xpath: normalize-space(//div[@class="pp-content__heading"][contains(text(), 'Anvendelse')]/following-sibling::div)
   singleValue: true
   description: Content under "directions" header
 - name: warnings
@@ -136,7 +137,7 @@ fields:
   singleValue: true
   description: Stated shipping weight
 - name: variantCount
-  xpath: count(//div[@class="pp-colour-selector"]//img) + count(//div[@class="pp-size-selector"]/button)
+  xpath: count(//div[@class="pp-colour-selector"]/button) + count(//div[@class="pp-size-selector"]/button)
   singleValue: true
   description: Number of variants listed
 - name: color
@@ -448,9 +449,11 @@ fields:
   description: In product page, information about a new version of the product - new
     desription info
 - name: variantInformation
+  xpath: //div[@id='variant-information']
   singleValue: true
   description: colour / scent / flavour / other
 - name: firstVariant
+  xpath: //div[@id="first-var"]
   singleValue: true
   description: Unique identifier for a collection of variants. For a subset of core
     feeds (43) we have a column "first_variant" that is populated with a common code
@@ -461,6 +464,7 @@ fields:
     common link between other variants. method 3 = apply some logic to determine link
     between variants, this will need analysis
 - name: variants
+  xpath: //div[@class="pp-size-selector"]/button
   singleValue: false
   description: 
 - name: additionalDescBulletInfo
