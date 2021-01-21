@@ -1,11 +1,11 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //li[contains(@class, 'ui-search-layout__item')]
 fields:
   - name: name
     singleValue: true
-    xpath: //*[@id="root-app"]/div/div/section/ol/li/div/div/a/div/div/h2 | //h2[@class='ui-search-item__title'] | //h2[@class='ui-search-item__title ui-search-item__group__element']
+    xpath: //*[@id="root-app"]/div/div/section/ol/li/div/div/a/div/div/h2 | //h2[@class='ui-search-item__title'] | //h2[@class='ui-search-item__title ui-search-item__group__element'] | //div/div/div[2]/div/a/h2
 #    xpath: //h2[@class='ui-search-item__title'] | //h2[@class='ui-search-item__title ui-search-item__group__element']
   - name: _pageTimestamp
     singleValue: true
@@ -18,10 +18,12 @@ fields:
     xpath: //ol/li/div/div/div/a/@href
   - name: thumbnail
     singleValue: true
-    xpath: //div[@class='slick-track']/div[@class='slick-slide slick-active']/img[@class='ui-search-result-image__element']/@src
+#    xpath: //div[@class='slick-track']/div[@class='slick-slide slick-active']/img[@class='ui-search-result-image__element']/@src
+    xpath: //img/@src
   - name: price
     singleValue: true
-    xpath: //div[@class='ui-search-price ui-search-price--size-medium ui-search-item__group__element']/div[@class='ui-search-price__second-line'] | //div[@class='ui-search-price ui-search-price--size-x-tiny ui-search-item__pds-best-price ui-search-item__group__element ui-search-color--black']
+#    xpath: //div[@class='ui-search-price ui-search-price--size-medium ui-search-item__group__element']/div[@class='ui-search-price__second-line'] | //div[@class='ui-search-price ui-search-price--size-x-tiny ui-search-item__pds-best-price ui-search-item__group__element ui-search-color--black']
+    xpath: //div[1]/div[1]/a/div[1]/div[1]/div[1]/div/span[1] | //div[1]/div[1]/a/div[1]/div[2]/div[1]/div[1]/span[1] | //div/div/div[2]/div[2]/div[1]/div/div/div | //div/div/div[2]/div[3]/div[1]/div/div/div
   - name: soldBy
     singleValue: true
     xpath: //div[@class='ui-search-item__group ui-search-item__group--title']/a/p
