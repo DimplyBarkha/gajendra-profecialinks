@@ -17,7 +17,7 @@ const transform = (data, context) => {
       if (row.flavour) {
         let flavour = row.flavour[0].text;
         flavour = flavour.replace('Saveur :', '');
-        row.flavour[0].text = flavour;
+        row.flavour = [{ text: flavour }];
       }
 
       Object.keys(row).forEach(header => row[header].forEach(el => {
