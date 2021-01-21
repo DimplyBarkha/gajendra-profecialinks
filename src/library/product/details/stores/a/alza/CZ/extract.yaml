@@ -6,6 +6,8 @@ fields:
   - name: image
     description: URL of the main product image
     xpath: //div[@class="imageCont"]/img/@data-src
+  - name: descriptionBullets
+    xpath: count(//div[@id="celek"]//ul//li)
   - name: imageAlt
     description: Alt text of the main product image
     xpath: //div[@class="imageCont"]/img/@alt
@@ -15,6 +17,8 @@ fields:
   - name: metaKeywords
     description: The <meta> keywords content
     xpath: //meta[@name="keywords"]/@content
+  - name: productUrl
+    xpath: //link[@rel="canonical"]/@href
   - name: category
     description: The categories (e.g. from breadcrumbs)
     xpath: //div[@class="breadcrumbs"]//a[not(@class="first")][not(contains(@class,"last"))]
@@ -30,22 +34,17 @@ fields:
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: //span[@class="bigPrice price_withVat"] | //tr[@class="pricenormal"]/td[@class="c2"]
-    regExp: '[0-9\s]+'  
+    regExp: '[0-9\s]+'
   - name: availabilityText
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //a[contains(@class,"btnx")and contains(@class,"buy")]  
+    xpath: //a[contains(@class,"btnx")and contains(@class,"buy")]
     regExp: (.+)
     regExpReplace: In Stock
-    defaultValue: Out of Stock  
+    defaultValue: Out of Stock
   - name: description
-    description: Product description supplied by website - may be concatenanted from
-      multiple places; specifically not the manufacturer description
-    xpath: //div[@class="nameextc"]
-  - name: descriptionBullets
-    description: Number of ul > li tags in the description
-    type: NUMBER
+    xpath: //div[@class="nameextc"] | //div[@id="desc"]//div[@id="celek"]
   - name: brandText
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
@@ -68,29 +67,28 @@ fields:
     description: Gross weight as described on the page
   - name: gtin
     description: GTIN code (includes UPC/EAN)
-    xpath: //script[@type="application/ld+json"]
+    xpath: //script[@type="application/ld+json"][contains(.,"gtin")]
     regExp: (gtin13":\s?")(.+)"
     regExpReplace: $2
   - name: sku
     description: The store-specific product identifier
-    xpath: //script[@type="application/ld+json"]
-    regExp: (.+)(sku":\ ")(\w+)(".+)  
-    regExpReplace: $3
+    xpath: //meta[@id="deepLinkUrl"]/@content
+    regExp: \d+
   - name: variantId
     description: Identifier for a variant from a store where variants share the same sku
     xpath: //span[@class="moreInfo"]//span[contains(.,"Kód:")]/following-sibling::*
   - name: mpc
-    description: The manufacturer model code (unique) of the product  
-    xpath: //span[@class="moreInfo"]//span[contains(.,"Prod. číslo:")]/following-sibling::*
+    description: The manufacturer model code (unique) of the product
+    xpath: //span[@class="moreInfo"]//span[contains(.,"Prod. číslo:")]/following-sibling::* | //span[@class="moreInfo"]//span[contains(.,"Kód:")]/following-sibling::*
   - name: ratingCount
     description: The number of ratings
     type: NUMBER
     xpath: //span[@class="ratingCount"]
-    regExp: '[0-9]+'  
+    regExp: '[0-9]+'
   - name: aggregateRating
     description: The stated aggregate rating normalized to be out of 5
     xpath: //div[@id="popis"]//div[contains(@class,"c12")]
-    type: NUMBER    
+    type: NUMBER
   - name: manufacturerDescription
     description: The extended description of the product supplied by the lister
     xpath: //div[@id="celek"]
@@ -99,13 +97,13 @@ fields:
     xpath: //div[@id="celek"]//img/@data-src
   - name: videos
     description: URLs of videos on page
-    xpath: //div[@class="youtube articleVideoWrapper"]//iframe/@src  
+    xpath: //div[@class="youtube articleVideoWrapper"]//iframe/@src
   - name: brandLink
     description: null
     xpath: //div[@class="blockMoreInfoG"]//span[not(contains(@id,"rowWarranty"))][last()]/a/@href
   - name: secondaryImageTotal
     description: null
-    xpath: count(//div[@class="inner"]//a[position()>2]/img/@data-src)    
+    xpath: count(//div[@class="inner"]//a[position()>2]/img/@data-src)
   - name: warranty
     description: Guarantee associated with the product
     xpath: //span[@id="rowWarranty"]//a
@@ -124,7 +122,7 @@ fields:
     xpath: count(//div[contains(@class,"blok_pp")]//ul//li)
   - name: name
     description: The product name
-    xpath: //div[@id="h1c"] 
+    xpath: //div[@id="h1c"]
   - name: technicalInformationPdfPresent
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6

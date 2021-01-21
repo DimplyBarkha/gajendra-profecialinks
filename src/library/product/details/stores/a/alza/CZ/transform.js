@@ -14,6 +14,14 @@ const transform = (data) => {
         });
         row.specifications = [{ text }];
       }
+
+      if (row.description) {
+        let text = '';
+        row.description.forEach(item => {
+          text = text + (text ? ' ' : ' ') + item.text;
+        });
+        row.description = [{ text }];
+      }
     }
   }
 
@@ -33,6 +41,7 @@ const transform = (data) => {
 
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
     el.text = clean(el.text);
+    el.text = el.text.trim();
   }))));
 
   return data;

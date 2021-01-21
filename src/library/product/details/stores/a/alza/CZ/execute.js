@@ -6,7 +6,7 @@ module.exports = {
     store: 'alza',
     domain: 'alza.cz',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[@id="noresult"]',
     zipcode: '',
   },
 };

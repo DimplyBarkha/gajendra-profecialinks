@@ -17,6 +17,25 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     try {
+      await context.evaluate(async function () {
+        let scrollTop = 0;
+        while (scrollTop <= 20000) {
+          await stall(500);
+          scrollTop += 1000;
+          window.scroll(0, scrollTop);
+          if (scrollTop === 20000) {
+            await stall(8000);
+            break;
+          }
+        }
+        function stall (ms) {
+          return new Promise(resolve => {
+            setTimeout(() => {
+              resolve();
+            }, ms);
+          });
+        }
+      });
       let rpc = await context.evaluate(() => {
         return window.location.href.split('=')[1];
       });
@@ -78,8 +97,9 @@ module.exports = {
       } catch (e) {
         console.log(e.message);
       }
+
       try {
-        await context.evaluate(() => {
+        await context.evaluate(async function () {
           document.querySelector('.lazyDescription').scrollIntoView({ behavior: 'smooth' });
         });
         await context.waitForSelector('#celek img', { timeout: 60000 });
