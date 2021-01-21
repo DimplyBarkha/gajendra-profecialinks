@@ -32,10 +32,11 @@ fields:
     xpath: (//h3[contains(@class,"product-price")]/text())[1] | //h3[@class="product-price product-real-price"]/text()[1]
   - name: availabilityText
     singleValue: false
-    xpath: //button[@class="primary-button-filled"]
+    # xpath: //button[@class="primary-button-filled"]
+    xpath: //button[@class="primary-button-filled"]/text()
     regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: In Stock
+    regExpReplace: In_Stock
+    defaultValue: Out of Stock
   - name: description
     singleValue: false
     xpath: //div[contains(@class,"product-description")]/text()
