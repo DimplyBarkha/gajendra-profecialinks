@@ -22,8 +22,8 @@ async function implementation (
 
   }*/
 
-  //await new Promise((resolve, reject) => setTimeout(resolve, 2000));
-
+  
+  
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
       let scrollTop = 0;
@@ -46,7 +46,8 @@ async function implementation (
     });
   };
   //await applyScroll(context);
-  await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+  
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
