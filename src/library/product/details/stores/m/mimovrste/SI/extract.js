@@ -55,6 +55,13 @@ module.exports = {
           break;
         }
       }
+
+      const images = getAllXpath("//div[contains(@class, 'gallery-magnifier')]//img/@src", 'nodeValue').join('|');
+
+      if (images) {
+        const imageList = images.split('|');
+        addElementToDocument('added_image', imageList[0]);
+      }
       const description = getAllXpath("//section[@class='pro-column'][2]//h3/text() | //section[@class='pro-column'][2]//p[@itemprop='description']/text() | //a[@class='product-detail-more-link']/text() | //div[@class='col-sm-6']//span/text() | //div[@class='col-sm-6']//span/strong/text() |  //div[@class='col-sm-6']//span/a/text()", 'nodeValue').join(' ');
       addElementToDocument('added_description', description);
 
