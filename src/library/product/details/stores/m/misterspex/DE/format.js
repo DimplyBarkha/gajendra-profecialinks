@@ -87,14 +87,26 @@ const transform = (data) => {
             info.push(item.text);
           });
         }
+        // if (row.availabilityText){
+        //   let info = [];
+        //   row.availabilityText.forEach(item =>{
+        //     item.text = item.text.replace(/In den Warenkorb/, "");
+        //     item.text = "In stock"+item.text;
+        //     info.push(item.text);
+        //   });
+        // }
+
         if (row.availabilityText){
           let info = [];
           row.availabilityText.forEach(item => {
-            item.text = item.text.replace(/In den Warenkorb/, "");
-            item.text = "In stock"+item.text;
-            info.push(item.text);
+           if(item.text === null){
+             info.push("out of stock")
+            } else {
+              info.push("in stock")
+            }
           });
         }
+
         if(row.variantInformation){
           var strVariantInfo = ''
           row.variantInformation.forEach(item => {
