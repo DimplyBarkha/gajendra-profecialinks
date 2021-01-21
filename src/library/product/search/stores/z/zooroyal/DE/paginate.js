@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'zooroyal',
-    nextLinkSelector: null,
+    nextLinkSelector: 'ul.pagination li:nth-last-child(2) a[rel="next"]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div#article-list.article-list-container.row.list-group.flex__wrapper',
