@@ -29,7 +29,7 @@ fields:
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
-  xpath: //ul[@class="breadcrumb"]/li/a
+  xpath: //ul[@class="breadcrumb"]/li[position()>1]/a
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
@@ -51,13 +51,13 @@ fields:
     "In Stock"
   xpath: //div[contains(@class,"_outofstock")]/@class
   regExp: (.*)
-  regExpReplace: Out of Stock
+  regExpReplace: Out Of Stock
   defaultValue: In Stock
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: //div[@class="product-description"]/p
+  xpath: //div[@id="added-additional-desc"]
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -83,6 +83,7 @@ fields:
 - name: gtin
   singleValue: true
   description: GTIN code (includes UPC/EAN)
+  xpath: //td[text()="Stok Kodu"]/following-sibling::td
 - name: sku
   description: The store-specific product identifier
   xpath: //td[text()="Stok Kodu"]/following-sibling::td
@@ -143,12 +144,13 @@ fields:
 - name: manufacturerDescription
   singleValue: false
   description: The extended description of the product supplied by the lister
-  xpath: //div[contains(@class,"product-card-description")]
+  xpath: //div[@id="added-additional-desc"]
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
   xpath: //div[contains(@class,"product-card-description")]//img/@src
 - name: videos
+  xpath: //div[@id="added-video"]
   singleValue: false
   description: URLs of videos on page
 - name: name
@@ -362,7 +364,7 @@ fields:
 - name: warranty
   singleValue: true
   description: Guarantee associated with the product
-  xpath: //div[@class="card warranty"]
+  xpath: //div[@id="added-warranty"]
 - name: storage
   singleValue: true
   description: Suggested storage location for product

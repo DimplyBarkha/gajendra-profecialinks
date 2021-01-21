@@ -2,7 +2,7 @@ input:
   id: mol-5034436
   _url: http://e-bebek.com
 extractions:
-  - html: https://workbench.import.io/html/run=76389e26-6bac-4bc3-89e6-7d5630d6a817/task=5304976f-2dfa-40a1-a489-75fa5d589e50/4a7303b5-5146-41f1-82d3-78e6f8a322e3.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=bf460b78-0180-49c0-9682-232293bf926f/task=18bd7a72-fe90-4238-b468-80cdb88763f8/07bca078-2b84-451f-b89b-6b1e5d2e896a.html
     extractionConfigId: product/details/stores/e/e-bebek/TR/extract
     data:
       - group:
@@ -20,8 +20,6 @@ extractions:
               - text: https://cdn.e-bebek.com/mnresize/1600/1600/y.ebebek/prod/productImage/8690536802920_4.jpg
                 xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[7]/a[1]/img[1]/@src
             category:
-              - text: ebebek
-                xpath: /html/body/div[2]/main[1]/div[2]/div[2]/ul[1]/li[1]/a[1]
               - text: Bez & Mendil
                 xpath: /html/body/div[2]/main[1]/div[2]/div[2]/ul[1]/li[2]/a[1]
               - text: Bebek Bezleri
@@ -34,12 +32,19 @@ extractions:
             price:
               - text: 59,99 TL
                 xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/text()[1]
+            description:
+              - text: Ürün Özellikleri Genel Özellikler Marka Molfix Stok Kodu MOL-5034436
+                  Üretim Yeri Türkiye
+                xpath: /html/body/div[12]
             brandText:
               - text: Molfix
                 xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[1]
             manufacturer:
               - text: Molfix
                 xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[1]
+            gtin:
+              - text: MOL-5034436
+                xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
             sku:
               - text: MOL-5034436
                 xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
@@ -56,6 +61,10 @@ extractions:
             aggregateRating:
               - text: 3,3
                 xpath: /html/body/div[7]
+            manufacturerDescription:
+              - text: Ürün Özellikleri Genel Özellikler Marka Molfix Stok Kodu MOL-5034436
+                  Üretim Yeri Türkiye
+                xpath: /html/body/div[12]
             manufacturerImages:
               - text: https://asset.ebebek.com/y.ebebek/i/st/p_content/molfix-bezz.jpg
                 xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/p[1]/img[1]/@src
@@ -66,56 +75,64 @@ extractions:
               - text: https://www.e-bebek.com/molfix-b587/
                 xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[1]/a[1]/@href
             warranty:
-              - text: >-
-                  Hızlı iade sistem ile 5 adımda ürün iadesi yapabilirsiniz.
-                  Üstelik kargo firmasını aramanıza gerek kalmadan iade
-                  paketiniz adresinizden alınacaktır. 
-                   
-                   1- Üyelik girişinden sonra “Siparişlerim” sayfasını açın
-                   
-                   2- İade talebinde bulunmak istediğiniz siparişte yer alan “İşlemlerim” seçeneğini tıklayın
-                   
-                   3- İade etmek istediğiniz ürünleri işaretleyin ve iade formunu doldurun
-                   
-                   4- İade edilecek ürünü adresinize gelen kargoya teslim edin
-                   
-                   5- İade işlemlerinizi ilgili siparişiniz içinde yer alan “İadem nerede” seçeneği ile kolayca takip edin.
-
-                   
-                  Ürün iadesinde dikkat edilmesi gerekenler nelerdir? 
-                   
-                   • Hızlı iade seçeneği 14 günlük cayma süresi için geçerlidir.
-                   
-                   • İade etmek istediğiniz siparişi ve ürünleri seçerek, iade formundaki bilgileri tamamlamanız gerekmektedir.
-                   
-                   • Kargo görevlisi gelmeden önce iade edilecek ürünlerin, hasar görmeyecek şekilde ayrıca bir kutu içine koyarak hazırlanmış olması gerekiyor. Paketlenmemiş, ağzı açık olan ürünler, kargo şirketlerinin ürün taşıma koşullarına aykırı olduğu için teslim alınmayacaktır.
-                   
-                   • Satın aldığınız ürünün iadesi sistemsel olarak kampanya veya promosyon hesaplaması ile tamamlanır.
-                   
-                   • Hediye çeki olarak kazanılan ürün ya da ürünlerin iadesinde, hediye çeki iptal olur. Eğer çek iade işleminden önce kullanılmış ise oluşan fark iade bedelinden düşer.
-                   
-                   • İade ürünleriniz depomuza teslim edildikten sonra kontrol edilerek 2 iş günü içinde sonuç bilgisi paylaşılacaktır.
-                   
-                   • Anne ve bebek sağlığı için orjinal ambalajı açılmış ürünlerin iade ve değişimi bulunmamaktadır.
-                   
-                   • Kullanılmış ürünlerde yaşanabilecek teknik sorunlar Gümrük ve Ticaret Bakanlığı’nın belirlediği kapsamlara göre değerlendirilir. Bu ürünlerin Türkiye’de bulunan yetkili teknik servisler tarafından, garanti kapsamı dahilinde incelenmesi gerekmektedir.
-                   
-                   • Kurumsal fatura seçeneğiyle verilen siparişlerde, iade talebi girilmemelidir. Eğer ürünün faturası şirket adına kesilmiş ise iade işlemi için kurumun düzenlemiş olduğu 'iade faturası' ve 'iade irsaliyesi' (ya da irsaliyeli fatura) gönderilmesi zorunludur. Aksi durumda, faturası kurumlar adına düzenlenen siparişlerin iadeleri yapılamamaktadır.
-                   
-                   Bunun dışında yapılacak olan iadeler için dikkat edilmesi gerekenler: 
-                   
-                   • Ürünü orijinal faturası ile birlikte göndermeli ve faturanızı mutlaka göndereceğiniz paketin içerisine koymalısınız.
-                   
-                   • Faturasız gönderilen iadeler kabul edilememektedir. Faturanın arka yüzündeki iade formu eksiksiz doldurulmalı ve iade alanı imzalanmalıdır. İade formunda yer alan açıklama alanları ve iade nedeni eksiksiz ve dikkatli doldurulmalıdır.
-                   
-                   • Ayıplı ürünler için iade ya da değişim tercihi mutlaka seçilmelidir.
-                   
-                   • İade edeceğiniz ürünün kullanılmamış, kullanım hatası sonucu zarar görmemiş ya da paketinin hasar görmemiş olması gerekmektedir.
-                   
-                   • İade etmek istediğiniz ürünleri tüm aksesuarları ve orijinal kutusu ile göndermeniz gerekmektedir. Ürünler adresimize gönderilirken orijinal kutusu zarar görmeyecek şekilde muhafaza edilmelidir. Yani; ürünler kargoya direkt orijinal kutusu ile değil, orijinal kutusunun koruyucu bir koliye yerleştirilmesinden sonra gönderilmelidir.
-                   
-                   • Eğer ürünün faturası şirket adına kesilmiş ise iade işlemi için kurumun düzenlemiş olduğu 'iade faturası' ve 'iade irsaliyesi' (ya da irsaliyeli fatura) gönderilmesi zorunludur. Aksi durumda, faturası kurumlar adına düzenlenen siparişlerin iadeleri yapılamamaktadır.
-                xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[7]/div[1]/div[1]
+              - text: "Hızlı iade sistem ile 5 adımda ürün iadesi yapabilirsiniz. Üstelik kargo
+                  firmasını aramanıza gerek kalmadan iade paketiniz adresinizden
+                  alınacaktır. 1- Üyelik girişinden sonra “Siparişlerim”
+                  sayfasını açın 2- İade talebinde bulunmak istediğiniz
+                  siparişte yer alan “İşlemlerim” seçeneğini tıklayın 3- İade
+                  etmek istediğiniz ürünleri işaretleyin ve iade formunu
+                  doldurun 4- İade edilecek ürünü adresinize gelen kargoya
+                  teslim edin 5- İade işlemlerinizi ilgili siparişiniz içinde
+                  yer alan “İadem nerede” seçeneği ile kolayca takip edin.Ürün
+                  iadesinde dikkat edilmesi gerekenler nelerdir? • Hızlı iade
+                  seçeneği 14 günlük cayma süresi için geçerlidir. • İade etmek
+                  istediğiniz siparişi ve ürünleri seçerek, iade formundaki
+                  bilgileri tamamlamanız gerekmektedir. • Kargo görevlisi
+                  gelmeden önce iade edilecek ürünlerin, hasar görmeyecek
+                  şekilde ayrıca bir kutu içine koyarak hazırlanmış olması
+                  gerekiyor. Paketlenmemiş, ağzı açık olan ürünler, kargo
+                  şirketlerinin ürün taşıma koşullarına aykırı olduğu için
+                  teslim alınmayacaktır. • Satın aldığınız ürünün iadesi
+                  sistemsel olarak kampanya veya promosyon hesaplaması ile
+                  tamamlanır. • Hediye çeki olarak kazanılan ürün ya da
+                  ürünlerin iadesinde, hediye çeki iptal olur. Eğer çek iade
+                  işleminden önce kullanılmış ise oluşan fark iade bedelinden
+                  düşer. • İade ürünleriniz depomuza teslim edildikten sonra
+                  kontrol edilerek 2 iş günü içinde sonuç bilgisi
+                  paylaşılacaktır. • Anne ve bebek sağlığı için orjinal ambalajı
+                  açılmış ürünlerin iade ve değişimi bulunmamaktadır. •
+                  Kullanılmış ürünlerde yaşanabilecek teknik sorunlar Gümrük ve
+                  Ticaret Bakanlığı’nın belirlediği kapsamlara göre
+                  değerlendirilir. Bu ürünlerin Türkiye’de bulunan yetkili
+                  teknik servisler tarafından, garanti kapsamı dahilinde
+                  incelenmesi gerekmektedir. • Kurumsal fatura seçeneğiyle
+                  verilen siparişlerde, iade talebi girilmemelidir. Eğer ürünün
+                  faturası şirket adına kesilmiş ise iade işlemi için kurumun
+                  düzenlemiş olduğu 'iade faturası' ve 'iade irsaliyesi' (ya da
+                  irsaliyeli fatura) gönderilmesi zorunludur. Aksi durumda,
+                  faturası kurumlar adına düzenlenen siparişlerin iadeleri
+                  yapılamamaktadır. Bunun dışında yapılacak olan iadeler için
+                  dikkat edilmesi gerekenler: • Ürünü orijinal faturası ile
+                  birlikte göndermeli ve faturanızı mutlaka göndereceğiniz
+                  paketin içerisine koymalısınız. • Faturasız gönderilen iadeler
+                  kabul edilememektedir. Faturanın arka yüzündeki iade formu
+                  eksiksiz doldurulmalı ve iade alanı imzalanmalıdır. İade
+                  formunda yer alan açıklama alanları ve iade nedeni eksiksiz ve
+                  dikkatli doldurulmalıdır. • Ayıplı ürünler için iade ya da
+                  değişim tercihi mutlaka seçilmelidir. • İade edeceğiniz ürünün
+                  kullanılmamış, kullanım hatası sonucu zarar görmemiş ya da
+                  paketinin hasar görmemiş olması gerekmektedir. • İade etmek
+                  istediğiniz ürünleri tüm aksesuarları ve orijinal kutusu ile
+                  göndermeniz gerekmektedir. Ürünler adresimize gönderilirken
+                  orijinal kutusu zarar görmeyecek şekilde muhafaza edilmelidir.
+                  Yani; ürünler kargoya direkt orijinal kutusu ile değil,
+                  orijinal kutusunun koruyucu bir koliye yerleştirilmesinden
+                  sonra gönderilmelidir. • Eğer ürünün faturası şirket adına
+                  kesilmiş ise iade işlemi için kurumun düzenlemiş olduğu 'iade
+                  faturası' ve 'iade irsaliyesi' (ya da irsaliyeli fatura)
+                  gönderilmesi zorunludur. Aksi durumda, faturası kurumlar adına
+                  düzenlenen siparişlerin iadeleri yapılamamaktadır."
+                xpath: /html/body/div[13]
             countryOfOrigin:
               - text: Türkiye
                 xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
@@ -143,4 +160,4 @@ extractions:
                 locale: tr_TR
                 value: 1
         xpath: /
-    timestamp: 1610357369695
+    timestamp: 1610701919223
