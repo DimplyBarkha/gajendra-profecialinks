@@ -42,7 +42,7 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[@id='addedonlinePrice']
+    xpath: //div[@id='addedonlinePrice']|//div[@class="col-md-6 col-xs-12 col-sm-6 pdp-info-main"]/span[1]
     # xpath: //section[@class="product-details-page-main"]//div[@class='prod-price']//ul//li//span[not(@class='product-discount-badge')]/text()
     # regExp: (.+)
     # regExpReplace: AED $1
@@ -52,7 +52,7 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     xpath: //span[@class="stock-available"]|//button[@class="btn btn-block js-add-to-cart outOfStock add-cart-btn not-available-btn"]
-    DefaultValue: Out of Stock
+    defaultValue: Out of Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -67,7 +67,7 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //meta[@property="product:brand"]/@content
+    xpath: //*[contains (text(),"Brand")]/following-sibling::*[1]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -167,7 +167,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
-    xpath: //div[@id='addedDescriptionContent']/text()
+    xpath: //h1[@class="pdp-productname"]/text()
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
