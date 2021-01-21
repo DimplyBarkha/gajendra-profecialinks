@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'SE',
     store: 'procurator',
-    nextLinkSelector: 'ul.pagination li.hide-for-small a',
+    nextLinkSelector: 'ul.pagination li.hide-for-small a[rel="next"]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'a.item-box-image img',
