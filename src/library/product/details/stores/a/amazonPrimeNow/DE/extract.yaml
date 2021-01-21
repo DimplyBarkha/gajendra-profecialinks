@@ -1,2 +1,7 @@
 extends: ../../amazon/DE/extract
+fields:
+  - name: weightNet
+    singleValue: false
+    xpath: //*[contains(text(),"Netto-Gewicht")]/following-sibling::*[1]
    
+    
