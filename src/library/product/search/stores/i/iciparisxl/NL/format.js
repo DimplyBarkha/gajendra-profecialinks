@@ -37,6 +37,11 @@ const transform = (data, context) => {
             item.text = 'https://www.iciparisxl.nl'+item.text;
           });
       }
+      if (row.id) {
+        row.id.forEach(item => {
+          item.text = item.text.replace('BP_', '').trim();
+        });
+      }
       if (row.name) {
           row.name.forEach(item => {
             item.text = item.text.replace(/\s\n/g, '').trim();
