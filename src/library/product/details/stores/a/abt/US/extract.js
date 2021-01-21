@@ -1,6 +1,6 @@
 const { cleanUp } = require('../../../../shared');
 
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -10,14 +10,14 @@ async function implementation (
   const { productDetails } = dependencies;
   await new Promise(resolve => setTimeout(resolve, 3000));
   await context.evaluate(async function () {
-    function addElementToDocument (key, value) {
+    function addElementToDocument(key, value) {
       const catElement = document.createElement('div');
       catElement.id = key;
       catElement.textContent = value;
       catElement.style.display = 'none';
       document.body.appendChild(catElement);
     }
-    function timeout (ms) {
+    function timeout(ms) {
       return new Promise((resolve) => setTimeout(resolve, ms));
     }
     const tabs = document.querySelectorAll('ul#product-tabs>li>a');
@@ -126,6 +126,20 @@ async function implementation (
       const videoUrl = iframeVideoContents.querySelector('video').src;
       if (videoUrl) addElementToDocument('video1', videoUrl);
     }
+    
+    //retrieving videos from dataLayer.
+    try {
+      let temp = null;
+      dataLayer.forEach(q => {
+        if (JSON.stringify(q).includes('play')) { console.log(q); temp = q }
+      })
+      let videoUrls = JSON.stringify(temp).replace(/(.+)("event_label":")(.+)(",)(.+)/, 'https://www.youtube.com/watch?v=$3');
+      addElementToDocument('videoUrls', videoUrls);
+    }
+    catch (e) {
+      console.log("video section not present.");
+    }
+
     let priceText = '';
     if (document.querySelector('div[id="product_pricing_container"] span[itemprop="price"]')) {
       priceText += document.querySelector('div[id="product_pricing_container"] span[itemprop="price"]').innerText;
