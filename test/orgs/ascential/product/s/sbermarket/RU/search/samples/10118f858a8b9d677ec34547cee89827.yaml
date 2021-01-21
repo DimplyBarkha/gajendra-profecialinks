@@ -1,0 +1,64 @@
+input:
+  keywords: Диспенсер для туалетной бумаги
+  _url: http://sbermarket.ru/metro
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=1ccdffb0-6f11-4bd1-be63-958c5dd8bcaa/task=5fbe7f17-5f72-4d52-99bb-21b28357e30c/95e7fccc-f830-41e7-a85b-e5f6117f5172.html
+    extractionConfigId: product/search/stores/s/sbermarket/RU/extract
+    data:
+      - group:
+          - id:
+              - text: "229753"
+                xpath: /html/body/div[1]/div[3]/div[2]/div[1]/div[1]/ul[1]/li[1]/a[1]/div[1]/div[1]/@data-retailer_sku
+            searchUrl:
+              - text: https://sbermarket.ru/metro/search?keywords=%D0%94%D0%B8%D1%81%D0%BF%D0%B5%D0%BD%D1%81%D0%B5%D1%80%20%D0%B4%D0%BB%D1%8F%20%D1%82%D1%83%D0%B0%D0%BB%D0%B5%D1%82%D0%BD%D0%BE%D0%B9%20%D0%B1%D1%83%D0%BC%D0%B0%D0%B3%D0%B8
+                xpath: /html/body/div[1]/div[3]/div[2]/div[1]/div[1]/ul[1]/li[1]/@search-url
+            name:
+              - text: Диспенсер для туалетной бумаги Tork Elevation T2 mini белый
+                xpath: /html/body/div[1]/div[3]/div[2]/div[1]/div[1]/ul[1]/li[1]/a[1]/p[1]
+            productUrl:
+              - text: https://sbermarket.ru/metro/dispiensier-dlia-polotieniets-tork-rulonnyie-bielyie-mini?sid=1
+                xpath: /html/body/div[1]/div[3]/div[2]/div[1]/div[1]/ul[1]/li[1]/@product-url
+            thumbnail:
+              - text: https://sbermarket.ru/spree/products/7856/small/18878.jpg?1608296150
+                xpath: /html/body/div[1]/div[3]/div[2]/div[1]/div[1]/ul[1]/li[1]/@product-photo
+            price:
+              - text: 2 616,00 ₽
+                xpath: /html/body/div[1]/div[3]/div[2]/div[1]/div[1]/ul[1]/li[1]/a[1]/div[2]/div[1]
+          - id:
+              - text: "27297"
+                xpath: /html/body/div[1]/div[3]/div[2]/div[1]/div[1]/ul[1]/li[2]/a[1]/div[2]/div[1]/@data-retailer_sku
+            searchUrl:
+              - text: https://sbermarket.ru/metro/search?keywords=%D0%94%D0%B8%D1%81%D0%BF%D0%B5%D0%BD%D1%81%D0%B5%D1%80%20%D0%B4%D0%BB%D1%8F%20%D1%82%D1%83%D0%B0%D0%BB%D0%B5%D1%82%D0%BD%D0%BE%D0%B9%20%D0%B1%D1%83%D0%BC%D0%B0%D0%B3%D0%B8
+                xpath: /html/body/div[1]/div[3]/div[2]/div[1]/div[1]/ul[1]/li[2]/@search-url
+            name:
+              - text: Туалетная бумага Tork Universal T2 1-слойная белая 200 м 12 шт
+                xpath: /html/body/div[1]/div[3]/div[2]/div[1]/div[1]/ul[1]/li[2]/a[1]/p[1]
+            productUrl:
+              - text: https://sbermarket.ru/metro/bumagha-tualietnaia-tork-odnosloinaia-univiersalnaia-200-m?sid=1
+                xpath: /html/body/div[1]/div[3]/div[2]/div[1]/div[1]/ul[1]/li[2]/@product-url
+            thumbnail:
+              - text: https://sbermarket.ru/spree/products/96208/small/18868.jpg?1608296147
+                xpath: /html/body/div[1]/div[3]/div[2]/div[1]/div[1]/ul[1]/li[2]/@product-photo
+            price:
+              - text: 80,19 ₽
+                xpath: /html/body/div[1]/div[3]/div[2]/div[1]/div[1]/ul[1]/li[2]/a[1]/div[3]/div[1]
+          - id:
+              - text: "600120"
+                xpath: /html/body/div[1]/div[3]/div[2]/div[1]/div[1]/ul[1]/li[3]/a[1]/div[1]/div[1]/@data-retailer_sku
+            searchUrl:
+              - text: https://sbermarket.ru/metro/search?keywords=%D0%94%D0%B8%D1%81%D0%BF%D0%B5%D0%BD%D1%81%D0%B5%D1%80%20%D0%B4%D0%BB%D1%8F%20%D1%82%D1%83%D0%B0%D0%BB%D0%B5%D1%82%D0%BD%D0%BE%D0%B9%20%D0%B1%D1%83%D0%BC%D0%B0%D0%B3%D0%B8
+                xpath: /html/body/div[1]/div[3]/div[2]/div[1]/div[1]/ul[1]/li[3]/@search-url
+            name:
+              - text: Туалетная бумага Tork Premium Т4 2-слойная 8 шт
+                xpath: /html/body/div[1]/div[3]/div[2]/div[1]/div[1]/ul[1]/li[3]/a[1]/p[1]
+            productUrl:
+              - text: https://sbermarket.ru/metro/tualietnaia-bumagha-tork-premium-t4-2-sloia-bielaia-8-rulonov?sid=1
+                xpath: /html/body/div[1]/div[3]/div[2]/div[1]/div[1]/ul[1]/li[3]/@product-url
+            thumbnail:
+              - text: https://sbermarket.ru/spree/products/73881/small/82142.jpg?1608296306
+                xpath: /html/body/div[1]/div[3]/div[2]/div[1]/div[1]/ul[1]/li[3]/@product-photo
+            price:
+              - text: 179,00 ₽
+                xpath: /html/body/div[1]/div[3]/div[2]/div[1]/div[1]/ul[1]/li[3]/a[1]/div[2]/div[1]
+        xpath: /html
+    timestamp: 1611228975840

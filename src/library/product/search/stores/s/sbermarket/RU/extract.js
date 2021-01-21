@@ -12,12 +12,11 @@ async function implementation (inputs, parameters, context, dependencies) {
     const allProducts = document.querySelectorAll('li.product');
     allProducts.forEach((product, index) => {
       const productUrl = `https://sbermarket.ru${product.querySelector('a.product__link').getAttribute('href')}`;
-      const photoUrlPart = product.querySelector('div.product__img > img').getAttribute('src');
+      const photoUrlPart = product.querySelector('div.product__img > img').getAttribute('data-src');
       const photoUrl = `https://sbermarket.ru${photoUrlPart}`;
       product.setAttribute('product-url', productUrl);
       product.setAttribute('search-url', searchUrl);
       if (photoUrlPart) product.setAttribute('product-photo', photoUrl);
-      product.setAttribute('rank', `${index + 1}`);
     });
   });
   return await context.extract(productDetails, { transform });
