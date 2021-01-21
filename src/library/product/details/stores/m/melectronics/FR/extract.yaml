@@ -20,7 +20,7 @@ fields:
     xpath: //div[@class='skel']/header//ol//a[@class='u-reset']
   - name: name
     singleValue: false
-    xpath: //span[@class='detail-showcase--description']
+    xpath: //h1[contains(@class,'detail-showcase--title')]
   - name: nameExtended
     singleValue: false
     xpath: //h1[contains(@class,'detail-showcase--title')]
@@ -38,16 +38,16 @@ fields:
     xpath: //div[@class='detail-options--price']//span[@class='_3Zi7dtkU2jBQ9sI3wlbCp0']/span
   - name:  description
     singleValue: false
-    xpath: //div[contains(@class,'detail-navigation-section--description')]//p
-  # - name: additionalDescBulletInfo
-  #   singleValue: false
-  #   xpath: 
-  # - name: descriptionBullets
-  #   singleValue: false
-  #   xpath: 
+    xpath: //div[contains(@class,'detail-navigation-section--description')]
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //ul[@class="detail-options--topfacts"]//li | //div[@name="description"]//ul//li
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div[@name="description"]//ul//li) + count(//ul[@class="detail-options--topfacts"]//li)
   - name: brandText
     singleValue: false
-    xpath: //div[@class='detail-showcase--brand']/img/@alt
+    xpath: (//meta[@property="og:brand"]/@content | //div[@class='detail-showcase--brand']/img/@alt)[1]
   # - name: brandLink
   #   singleValue: false
   #   xpath: 
@@ -59,17 +59,19 @@ fields:
     xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item'][div[contains(text(),'MPN')]]//span
   - name: gtin
     singleValue: false
-    xpath: (//script[@type='application/ld+json'])[2]
-    regExp: \"gtin13\"\s*:\s*\"(.+?)\"
-    regExpReplace: $1
-  # - name: eangtin
-  #   singleValue: false
-  #   xpath: 
+    xpath: //script[contains(text(),'gtin13')]
+    regExp: (\"gtin13\"\s*:\s*\"(.+?)\")
+    regExpReplace: $2
+  - name: eangtin
+    singleValue: false
+    xpath: //script[contains(text(),'gtin13')]
+    regExp: (\"gtin13\"\s*:\s*\"(.+?)\")
+    regExpReplace: $2 
   - name: sku
     singleValue: false
-    xpath: (//script[@type='application/ld+json'])[2]
-    regExp: \"sku\"\s*:\s*\"(.+?)\"
-    regExpReplace: $1
+    xpath: //script[contains(text(),'SKU')]
+    regExp: (\"SKU\"\s*:\s*\"(.+?)\")
+    regExpReplace: $2
   # - name: variants
   #   singleValue: false
   #   xpath: 
@@ -81,7 +83,6 @@ fields:
   - name: variantCount
     singleValue: false    
     defaultValue: '0'
-    type: NUMBER
   - name: variantInformation
     singleValue: false
     xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item'][div[contains(text(),'Farbe')]]
@@ -106,9 +107,10 @@ fields:
   - name: specifications
     singleValue: false
     xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item']
-  # - name: warranty
-  #   singleValue: false
-  #   xpath: 
+  - name: warranty
+    singleValue: false
+    xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item'][div[contains(text(),'M-garantie')]]//span
+  # xpath: //div[@class="detail-navigation-section--specification-item"]//span[contains(text(),'ans')]
   # - name: manufacturerImages
   #   singleValue: false
   #   xpath: //div[@class='detail-showcase--brand']/img/@src
@@ -129,12 +131,14 @@ fields:
   #   xpath: 
   - name: ratingCount
     singleValue: false
-    xpath: //div[@class='p-product-detail--item__options']//div[@id='msrc-widget']//span[contains(@class,'sc-fzoYkl')]
-    regExp: ([\d\.]+)
-    regExpReplace: $1
+    xpath: //script[contains(text(),'reviewCount')]
+    regExp: (\"reviewCount\"\s*:\s*\"(.+?)\")
+    regExpReplace: $2
   - name: aggregateRating
     singleValue: false
-    xpath: //div[@class='p-product-detail--item__options']//div[@id='msrc-widget']//span[@class='sc-fzoKki diNcbM']
+    xpath: //script[contains(text(),'ratingValue')]
+    regExp: (\"ratingValue\"\s*:\s*\"(.+?)\")
+    regExpReplace: $2
   # - name: numberOfServingsInPackage
   #   singleValue: false
   #   xpath: 
@@ -149,10 +153,10 @@ fields:
   #   xpath: 
   - name: color
     singleValue: false
-    xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item'][div[contains(text(),'Farbe')]]//span
+    xpath: (//div[@name='specification']//div[@class='detail-navigation-section--specification-item'][div[contains(text(),'Couleur')]]//span)[1]
   - name: weightNet
     singleValue: false
-    xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item'][div[contains(text(),'Gewicht')]]//span
+    xpath: (//div[@name='specification']//div[@class='detail-navigation-section--specification-item'][div[contains(text(),'Poids')]]//span)[1]
   # - name: weightGross
   #   singleValue: false
   #   xpath: 
@@ -164,16 +168,16 @@ fields:
   #   xpath: 
   # - name: shippingDimensions
   #   singleValue: false
-  #   xpath: 
+  #   xpath: concat(//div[@name='specification']//div[@class='detail-navigation-section--specification-item'][div[contains(text(),'Largeur')]]//span, " x ", //div[@name='specification']//div[@class='detail-navigation-section--specification-item'][div[contains(text(),'Hauteur')]]//span, " x " ,//div[@name='specification']//div[@class='detail-navigation-section--specification-item'][div[contains(text(),'Profondeur')]]//span)
   # - name: materials
   #   singleValue: false
   #   xpath: 
   # - name: productOtherInformation
   #   singleValue: false
   #   xpath: 
-  # - name: energyEfficiency
-  #   singleValue: false
-  #   xpath: 
+  - name: energyEfficiency
+    singleValue: false
+    xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item'][div[contains(text(),'énergétique')]]//span
   # - name: alcoholContent
   #   singleValue: false
   #   xpath: 

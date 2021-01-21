@@ -24,9 +24,17 @@ const transform = (data) => {
   };
   for (const { group } of data) {
     for (const row of group) {
+      if (row.image) {
+        row.image.forEach(item => {
+          item.text = item.text.replace('fm-sm', 'fm-lg2').replace('fm-md', 'fm-lg2').replace(/\/fm-lg\//g, 'fm-lg2').replace('fm-xl', 'fm-lg2');
+        });
+      }
+      if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0] && row.additionalDescBulletInfo[0].text.length > 1) {
+        row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
+      }
       if (row.alternateImages) {
         row.alternateImages.forEach(item => {
-          item.text = item.text.replace('fm-thumbnail', 'fm-xl');
+          item.text = item.text.replace('fm-thumbnail', 'fm-lg2');
         });
       }
       if (row.description) {
@@ -46,9 +54,16 @@ const transform = (data) => {
       }
       if (row.nameExtended) {
         if (row.brandText) {
-          row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.nameExtended[0].text }];
+          var nameExtendedText = row.nameExtended[0].text.includes(row.brandText[0].text) ? row.nameExtended[0].text.replace(row.brandText[0].text, row.brandText[0].text + ' -') : row.brandText[0].text + ' - ' + row.nameExtended[0].text;
+          row.nameExtended = [{ text: nameExtendedText }];
         }
       }
+      if (row.sku) {
+        if (row.sku.length > 1) {
+          row.sku.shift();
+        }
+      }
+
       // if (row.price) {
       //   row.price.forEach(item => {
       //     item.text = item.text.replace(',', '');
@@ -76,13 +91,6 @@ const transform = (data) => {
       //     }
       //   }
       //   row.variants = [{ text: varientIds.join(' | ') }];
-      // }
-      // if (row.additionalDescBulletInfo) {
-      //   var arrBullets = [];
-      //   row.additionalDescBulletInfo.forEach(item => {
-      //     arrBullets.push(item.text);
-      //   });
-      //   row.additionalDescBulletInfo = [{ text: '||' + arrBullets.join('||') }];
       // }
       // if (row.aggregateRating) {
       //   row.aggregateRating.forEach(item => {
