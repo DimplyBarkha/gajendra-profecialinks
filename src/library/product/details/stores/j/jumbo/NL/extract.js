@@ -25,7 +25,6 @@ module.exports = {
       function extractNutritionInfo () {
         // column position in table data where nutrition data per 100 g/ml is stored
         let columnPosition = document.evaluate('count((//thead)[1]/tr//th[contains(.,"100")][not(contains(.,"*"))][1]/preceding-sibling::th)', document, null, XPathResult.STRING_TYPE, null).stringValue;
-        console.log(columnPosition);
         if (columnPosition === '0') {
           columnPosition = document.evaluate('count((//thead)[1]/tr//th[contains(.,"100")][1]/preceding-sibling::th)', document, null, XPathResult.STRING_TYPE, null).stringValue;
           if (columnPosition === '0') {
@@ -35,7 +34,6 @@ module.exports = {
             }
           }
         }
-        console.log(columnPosition);
         const servingSize = document.evaluate(`//thead/tr/th[@class="jum-nutiriton-heading"][${columnPosition}]`, document, null, XPathResult.STRING_TYPE, null).stringValue;
         let caloriesPerServing = document.evaluate(`//th[contains(translate(., "Energ", "energ"), "energ")]/parent::tr/following-sibling::tr[1]/th[not(text())]/following-sibling::td[${columnPosition}] | //th[contains(translate(., "Energ", "energ"), "energ")]/following-sibling::td[${columnPosition}][contains(text(),"kcal")] | //th[contains(translate(., "Kcal", "kcal"), "kcal")]/following-sibling::td[${columnPosition}][contains(text(),"kcal")] |  //th[contains(translate(., "Kcal", "kcal"), "kcal")]/following-sibling::td[${columnPosition}] | //th[contains(translate(., "Energ", "energ"), "energ")]/following-sibling::td[${columnPosition}]`, document, null, XPathResult.STRING_TYPE, null).stringValue;
         // if calories cant be found in any rational way we scrape text from any td element containing phrase 'kcal'
