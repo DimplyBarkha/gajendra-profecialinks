@@ -5,9 +5,9 @@ module.exports = {
     country: 'FR',
     store: 'coradrive',
     domain: 'coradrive.fr',
-    url: 'https://www.coradrive.fr/arcueil/rechercher.html?searchquery={searchTerms}',
-    loadedSelector: 'div[class*="grille"] > div[class*="col1"]  a[class*="picture"]',
-    noResultsXPath: '//h2[contains(text(),"Aucun résultat n’a été trouvé")]',
+    url: 'https://www.cora.fr/recherche?keywords={searchTerms}',
+    loadedSelector: 'ul[class*="c-product-list-container-products"] li:last-child',
+    noResultsXPath: '//p[contains(@class,"c-search-result-no-suggestion__heading")] | //p[contains(text(),"Site en maintenance")]',
     zipcode: '',
   },
 };

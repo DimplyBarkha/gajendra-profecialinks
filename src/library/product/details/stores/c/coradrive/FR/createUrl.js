@@ -3,7 +3,7 @@ module.exports = {
   parameterValues: {
     domain: 'coradrive.fr',
     prefix: null,
-    url: 'https://www.coradrive.fr/arcueil/rechercher.html?searchquery={id}',
+    url: 'https://www.coradrive.fr/arcueil/article/{id}',
     country: 'FR',
     store: 'coradrive',
     zipcode: '',

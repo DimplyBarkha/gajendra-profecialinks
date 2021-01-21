@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,"grille")]/div[contains(@class,"col1") and .//div[contains(@class,"picture")]//img[contains(@class,"photo")]/@src]
+recordXPath: //ul[contains(@class,"c-product-list-container-products")]/li[contains(@class,"c-list__item") and contains(@id,"prd-list")]
 fields:
   - name: paid
     singleValue: false
@@ -25,10 +25,10 @@ fields:
     xpath: //a[contains(@class,"picture") and @title]/@href
   - name: thumbnail
     singleValue: false
-    xpath: //div[contains(@class,"picture")]//img[contains(@class,"photo")]/@src
+    xpath: //picture[contains(@class,"c-product-image__fixed-image")]/img/@src
   - name: name
     singleValue: false
-    xpath: normalize-space(.//div[contains(@class,"desc")])
+    xpath: normalize-space(.//a[contains(@class,"c-product-list-item--grid__title")])
     description: The product name
   - name: sku
     singleValue: false
@@ -39,18 +39,27 @@ fields:
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
-  - name: aggregateRatingText
+  - name: aggregateRating2
     singleValue: false
+    xpath: //p[contains(@class,"u-sr-only")]
+    regExp: note\s*:\s*(.+)\s*sur
+    regExpReplace: $1
     description: The stated aggregate rating
   - name: ratingCount
     singleValue: false
+    xpath: //a[contains(@class,"c-rate-star__count")]
+    regExp: \((\d+)\)
+    regExpReplace: $1
     description: The number of ratings
   - name: reviewCount
     singleValue: false
+    xpath: //a[contains(@class,"c-rate-star__count")]
+    regExp: \((\d+)\)
+    regExpReplace: $1
     description: The number of reviews
   - name: price
     singleValue: false
-    xpath: normalize-space(.//span[contains(@class,"prix-produit")]) 
+    xpath: normalize-space(.//p[contains(@class,"c-price__amount")]) 
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
@@ -80,8 +89,8 @@ fields:
     type: BOOLEAN
   - name: id
     singleValue: false
-    xpath: //div[contains(@class,"picture")]//img[contains(@class,"photo")]/@src
-    regExp: \/([0-9]+)\/
+    xpath: //@id
+    regExp: prd-list-(\d+)
     regExpReplace: $1
   - name: nameExtended
     singleValue: false
