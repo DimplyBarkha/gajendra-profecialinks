@@ -16,7 +16,7 @@ fields:
     xpath: //*[@id="right-column"]/div/div[1]/div/div[2]/div[1]/div[1]/h1
   - name: gtin
     singleValue: true
-    xpath: //*[@id="schema-offer"]/div[3]/meta[3]/@content
+    xpath: //*[@id="right-column"]/div/meta/@content
   - name: description
     singleValue: true
     xpath: //div[@class='footer-content']/div[1]
@@ -54,7 +54,7 @@ fields:
     xpath: //div[@class="variation clearfix active"]//div[@class="font-headline description mbs1"]/text()
   - name: variantId
     singleValue: false
-    xpath: (//*[@id="schema-offer"]/div[1]/div/input/@value|(//meta[@itemprop='sku']/@content[1])[1])[2]
+    xpath: //*[@id="schema-offer"]/div[3]/meta[2]/@content
   - name: availabilityText
     singleValue: true
     xpath: //html//div[@id="name"]
