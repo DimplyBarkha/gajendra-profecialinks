@@ -11,25 +11,29 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(() => {
-  function getAllXpath(xpath, prop) {
+      const getAllXpath = (xpath, prop) => {
         const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         const result = [];
         for (let index = 0; index < nodeSet.snapshotLength; index++) {
-          const element = nodeSet.snapshotItem(index);
-          if (element)
-            result.push(prop ? element[prop] : element.nodeValue);
+        const element = nodeSet.snapshotItem(index);
+        if (element) result.push(prop ? element[prop] : element.nodeValue);
         }
         return result;
+        };
+        function addElementToDocument(key, value) {
 
-      }
-  function addHiddenDiv(id, content, index) {
-  const newDiv = document.createElement('div');
-  newDiv.id = id;
-  newDiv.textContent = content;
-  newDiv.style.display = 'none';
-  const originalDiv = document.querySelectorAll('div[class="rating-box"] div[class="rating-stars"]')[index];
-  // originalDiv.parentNode.insertBefore(newDiv, originalDiv);
-  }
+
+          const catElement = document.createElement('div');
+          
+          catElement.className = key;
+          
+          catElement.textContent = value;
+          
+          catElement.style.display = 'none';
+          
+          document.body.appendChild(catElement);
+          
+          }
   var arr1 = getAllXpath('//div[@class="article-metadata"]//span[@class="article-price-default article-club-hidden"]/text()', 'nodeValue');
   if(arr1!= null) {
   var abc = "";for(var j=0; j<arr1.length;j=j+2){
@@ -39,7 +43,7 @@ module.exports = {
         
    }
    }
-  addHiddenDiv('price', abc, j);
+   addElementToDocument('price', abc);
 });
 return await context.extract(productDetails, { transform });
 }
