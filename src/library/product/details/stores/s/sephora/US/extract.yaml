@@ -35,15 +35,14 @@ fields:
     xpath: //div[@id="ii_Ingredients"]|//div[contains(@id, "ingredients")]
   - name: price
     singleValue: true
-    xpath: //div[contains(@data-comp,"Price Box")]/span[last()]|(//p[contains(@data-comp,"Price")]//span[contains(@data-comp,"Rflex")]//span)[1]
+    xpath: //div[contains(@data-comp,"Price Box")]/span[last()]|(//p[contains(@data-comp,"Price")]//span[contains(@data-comp,"Rflex")]//span)[1] |  //span[contains(@data-at,"price")] | //p[contains(@data-comp,'Price')]//b
   - name: description
     singleValue: true
     xpath: //div[@id="ii_Details"]|//div[contains(@data-comp,"RegularProduct")]//h2[contains(text(), "About the Product")]//following-sibling::div[1]//div//div[@data-comp="StyledComponent BaseComponent "]|//div[contains(@data-comp,"Box StyledComponent BaseComponent")]//div[@id="tabpanel0"]
   - name: brandText
-    singleValue: false
-    xpath: //h1[contains(@data-comp, "DisplayName")]/a[contains(@data-comp, "Link Box")]/span
+    xpath: //h1[contains(@data-comp, "DisplayName")]/a[contains(@data-comp, "Link Box")]/span | //h1[contains(@data-comp, "DisplayName")]//a
   - name: brandLink
-    xpath: //h1[contains(@data-comp, "DisplayName")]/a[contains(@data-comp, "Link Box")]/@href
+    xpath: //h1[contains(@data-comp, "DisplayName")]/a[contains(@data-comp, "Link Box")]/@href |  //h1[contains(@data-comp, "DisplayName")]/a/@href
   - name: directions
     singleValue: true
     xpath: //div[contains(@id, "How to Use")]
@@ -61,15 +60,13 @@ fields:
   - name: variantInformation
     xpath: //div[@id="ii_variantInfo"]
   - name: sku
-    # xpath: //div[@id='ii_url']
-    xpath: //div[@data-at='sku_size']
+    xpath: //div[@id='ii_url']
     regExp: ([0-9]+$)
   - name: variantId
-    # xpath: //div[@id='ii_url']
-    xpath: //div[@data-at='sku_size']
+    xpath: //div[@id='ii_url']
     regExp: ([0-9]+$)
   - name: variantCount
-    xpath: //div[@id="ii_variantCount"]
+    xpath: count(//div[@data-comp='ProductSwatchItem ']//img/@src)
   - name: highQualityImages
     singleValue: false
     xpath: ((//div[contains(@data-comp,"Carousel")])[1]//img[@width="300"])/@src|((//div[contains(@data-comp,"Carousel")])[1]//img)/@src[contains(.,"jpg") and not(contains(., 'Video'))]
@@ -83,9 +80,6 @@ fields:
   - name: otherSellersName
     singleValue: false
     defaultValue: Sephora
-  - name: otherSellersId
-    singleValue: false
-    defaultValue: 1
 
 
 
