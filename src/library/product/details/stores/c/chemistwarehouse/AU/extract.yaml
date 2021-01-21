@@ -19,7 +19,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //*[@id="slider_pi_container"]/div/div/div/div/a/img/@src
+    xpath: //*[@id="product_images"]/div[contains(@class, "sub_images")]/div[position()>1]/img/@src
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content
@@ -46,10 +46,10 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //div[@class="button_div"]//img[@id="AddToCartButton"]/@alt
-    regExp: (.+)
-    regExpReplace: In stock
-    defaultValue: Out of Stock
+    xpath: //div[@id="availabilityText"]/text()
+    #regExp: (.+)
+    # regExpReplace: In stock
+    # defaultValue: Out of Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -57,7 +57,7 @@ fields:
     xpath: //div[@class="product-info-container"]//section[@class="product-info-section general-info "]//h2[contains(text(), "General Information")]/following-sibling::div[contains(@class, "details")]
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//*[@id="Left-Content"]/div/section/div/p[contains(text(),"KEY FEATURES")]/following-sibling::br)
+    xpath: //div[@id="pipeCount"]/text()
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText

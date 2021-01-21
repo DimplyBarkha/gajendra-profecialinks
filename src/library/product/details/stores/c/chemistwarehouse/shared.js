@@ -11,7 +11,7 @@ const transform = (data) => {
           let text = '';
           row.description.forEach(item => {
             // @ts-ignore
-            text = item.text ? item.text.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').trim() : '';
+            text = item.text ? item.text.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/\s{2,}/, ' ').trim() : '';
           });
           row.description = [{ text }];
         }
