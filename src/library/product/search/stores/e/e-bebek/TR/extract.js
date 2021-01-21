@@ -3,6 +3,7 @@ const { transform } = require('../../../../shared');
 async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
 
   await context.evaluate(async () => {
     function addElementToDocument (id, value) {
