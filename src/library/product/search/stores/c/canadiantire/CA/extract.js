@@ -1,5 +1,5 @@
 const { transform } = require('../format');
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -7,7 +7,30 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  async function paginate() {
+  await context.evaluate(async function () {
+    function addHiddenDiv (id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+    let productId = document.querySelector('a.global-header__header-top-bar__input__language') && document.querySelector('a.global-header__header-top-bar__input__language').getAttribute('href');
+    const productPrice = document.querySelector('span.price__reg-value') && document.querySelector('span.price__reg-value');
+    let productImage = document.querySelector('img.product-tile-srp__image') ? document.querySelector('img.product-tile-srp__image').src : document.querySelector('div#pdp-product-image img') && document.querySelector('div#pdp-product-image img').src;
+    if (!(productImage && productImage.includes('https:'))) {
+      productImage = `https:${productImage}`;
+    }
+    const regExp = '(\\d+)(.*?).html';
+    if (productId && productId.includes('p.html')) {
+      console.log('-------->', productId);
+      productId = productId.match(regExp)[0].replace('.html', '');
+    }
+    addHiddenDiv('pd_productId', productId);
+    addHiddenDiv('pd_productPrice', productPrice);
+    addHiddenDiv('pd_productImage', productImage);
+  });
+  async function paginate () {
     try {
       const hasNextLink = await context.evaluate((selector) => !!document.querySelector('div[style*="block"]>a.search-results-grid__load-more-results__link'));
       if (hasNextLink) {
