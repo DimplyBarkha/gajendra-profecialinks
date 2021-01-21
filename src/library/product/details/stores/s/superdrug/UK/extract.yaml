@@ -92,7 +92,7 @@ fields:
 - name: directions
   singleValue: false
   description: Content under "directions" header
-  xpath: //h3[@class="pdp-details__sub-title"][contains(.,"Uses")]/parent::article
+  xpath: //div[@id="pdp__details"]//h3[@class="pdp-details__sub-title"][contains(.,"Uses")]/parent::article
 - name: warnings
   singleValue: false
   xpath: //h3[@class="pdp-details__sub-title"][contains(.,"Warnings")]/following-sibling::p
