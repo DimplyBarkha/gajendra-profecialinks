@@ -76,7 +76,7 @@ module.exports = {
               sku: variant.relatedSkuIds[0],
               value: variant.value,
               price: data ? data.priceString : '',
-              listPrice: data ? data.originalPriceString : '',
+              listPrice: data ? data.previousPriceString : '',
               avail: variant.isAvailable,
               inventory: variant.optionThirdTextArea,
             });
