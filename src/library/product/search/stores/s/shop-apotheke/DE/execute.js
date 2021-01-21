@@ -6,6 +6,6 @@ module.exports = {
     domain: 'shop-apotheke.com',
     url: 'https://www.shop-apotheke.com/search.htm?&query={searchTerms}',
     loadedSelector: 'ul div[data-qa-id="result-list-entry"]',
-    noResultsXPath: '//h1[contains(.,"Kein Suchergebnis gefunden")]',
+    noResultsXPath: `//div[@id="algolia-instant-search"][contains(.,'Kein Suchergebnis gefunden')]`,
   },
 };
