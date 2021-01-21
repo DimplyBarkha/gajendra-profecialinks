@@ -87,13 +87,13 @@ const transform = (data) => {
             info.push(item.text);
           });
         }
-        if (row.availabilityText){
-          let info = [];
-          row.availabilityText.forEach(item => {
-            item.text = item.text.replace(/In den Warenkorb/, "In stock");
-            info.push(item.text);
-          });
-        }
+        // if (row.availabilityText){
+        //   let info = [];
+        //   row.availabilityText.forEach(item => {
+        //     item.text = item.text.replace(/In den Warenkorb/, "In stock");
+        //     info.push(item.text);
+        //   });
+        // }
         if(row.variantInformation){
           var strVariantInfo = ''
           row.variantInformation.forEach(item => {
