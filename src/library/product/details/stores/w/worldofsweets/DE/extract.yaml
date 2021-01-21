@@ -269,8 +269,9 @@ fields:
     singleValue: true
     description: Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
-    #xpath: //div[contains(@class,'nutrition-table')]//strong[contains(.,'Nährwert pro 100g:')]/../following-sibling::div/text()
-    xpath: //div[contains(@class,'nutrition-table')]//div[contains(.,'Energie')]/following-sibling::div[1]/text()
+    xpath: //div[contains(@class,'nutrition-table')]//div[contains(.,'Energie:')]/following-sibling::div[1]/text()
+    #xpath: //div[contains(@class,'nutrition-table')]//strong[contains(.,'Nährwert pro 100g:')]/../following-sibling::div/text() |
+    #xpath: //div[contains(@class,'nutrition-table')]//div[contains(.,'Energie')]/following-sibling::div[1]/text() | //div[contains(@class,'nutrition-table')]//div[contains(.,'Nährwerte pro 100g')]/following-sibling::div[1]/text()
   - name: caloriesFromFatPerServing
     singleValue: true
     description: Nutritional Information for Calories From Fat content - Usually

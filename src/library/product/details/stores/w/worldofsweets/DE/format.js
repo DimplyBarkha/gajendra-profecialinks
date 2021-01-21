@@ -69,12 +69,15 @@ const transform = (data) => {
           }
 
         })
-      /*  if(row.caloriesPerServing){
+        if(row.caloriesPerServing){
                       row.caloriesPerServing.forEach(item =>{
-                      item.text = item.text.split('Fett:');
+                        //if(item.text.split("Brennwert:")){
+                         item.text = item.text.slice(0,72);
+                         item.text = item.text.replace(/Brennwert:/g, "").replace(/Kilokalorien/g, "").replace(/Kilojoule/g, "").replace(/Fe/g, "");
+                         console.log("here is formated", item.text);
+                       // }
                  })
-          }
-      } */
+      }
       }
     }
 
