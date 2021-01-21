@@ -68,7 +68,7 @@ fields:
     description: Gross weight as described on the page
   - name: gtin
     description: GTIN code (includes UPC/EAN)
-    xpath: //meta[@itemprop="gtin"]/@content
+    xpath: //meta[@itemprop="gtin"][@content!="null"]/@content
   - name: sku
     description: The store-specific product identifier
     xpath: //span[@itemprop="productID"]
