@@ -28,7 +28,8 @@ async function implementation(
   }
   await context.evaluate(async function () {
     // @ts-ignore
-    const productInfo = JSON.parse(document.querySelector('script#INITIAL_STATE').innerText.trim()).products;
+    const productInfo = JSON.parse(document.querySelector('script#INITIAL_STATE') && document.querySelector('script#INITIAL_STATE').innerText.trim()).products;
+
     function addEleToDoc(key, value, code) {
       const productCode = new RegExp(`--p${code}`);
       const productsDiv = document.querySelectorAll('div.wQ1zdx._14LFJJ._1ryioq');

@@ -1,12 +1,12 @@
-const { transform } = require('../format');
 
+const { transform } = require('../format');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
-    country: 'CH',
+    country: 'FR',
     store: 'microspot',
     transform,
-    domain: 'microspot.ch',
+    domain: 'microspot.ch/fr',
     zipcode: '',
   },
   implementation: async (inputs,
@@ -39,6 +39,7 @@ module.exports = {
         document.body.appendChild(catElement);
       }
       const productKey = window.location.href.replace(/(.*)--p(\d+)/gm, '$2');
+      console.log('==== productKey =>', productKey);
       try {
         if (productKey) {
           // @ts-ignore

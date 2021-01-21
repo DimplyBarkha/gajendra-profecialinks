@@ -4,16 +4,12 @@ module.exports = {
   parameterValues: {
     country: 'FR',
     store: 'microspot',
-    nextLinkSelector: null,
+    nextLinkSelector: 'div.INCD3A ul li:last-child a',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: '#container-productlist > div:last-child img',
-    noResultsXPath: '//*[contains(text(),"Tipps für Ihre Suche:")]',
-    openSearchDefinition: {
-      template: 'https://www.microspot.ch/fr/search?search={searchTerms}&page={page}',
-    },
+    noResultsXPath: '//*[contains(text(),"Votre recherche de Machine")]',
     domain: 'microspot.ch/fr',
-    zipcode: '',
-
-  },
+    zipcode: ''
+  }
 };
