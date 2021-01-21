@@ -50,11 +50,6 @@ module.exports = {
       description: 'brands to search for',
       type: 'string',
     },
-    {
-      name: 'query',
-      description: 'Part of a uniform resource locator (URL)',
-      type: 'string',
-    },
   ],
   dependencies: {
     execute: 'action:product/search/execute',
@@ -63,19 +58,16 @@ module.exports = {
   },
   path: './search/stores/${store[0:1]}/${store}/${country}/search',
   implementation: async (inputs, { country, store, domain, zipcode }, context, { execute, extract, paginate }) => {
-    const { keywords, Keywords, results = 150, Brands, query } = inputs;
-
+    let { keywords, Keywords, results, Brands } = inputs;
+    results = 150;
     const inputKeywords = Keywords || keywords || Brands;
-
     // TODO: consider moving this to a reusable function
     const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
+    zipcode = inputs.zipcode || zipcode;
+    keywords = (Keywords) || (keywords) || (Brands);
+    console.log('zip:' + zipcode);
 
-    const resultsReturned = await execute({
-      ...inputs,
-      keywords: inputKeywords,
-      zipcode: inputs.zipcode || zipcode,
-      query: query,
-    });
+    const resultsReturned = await execute({ keywords, zipcode });
 
     // do the search
 
@@ -89,13 +81,10 @@ module.exports = {
 
     let collected = length(pageOne);
 
-    console.log(`Got initial number of results: ${collected}`);
+    console.log('Got initial number of results', collected);
 
     // check we have some data
-    if (collected === 0) {
-      console.log('Was not able to collect any data on the first page');
-      return;
-    }
+    if (collected === 0) return;
 
     let page = 2;
     while (collected < results && await paginate({ keywords: inputKeywords, page, offset: collected })) {
