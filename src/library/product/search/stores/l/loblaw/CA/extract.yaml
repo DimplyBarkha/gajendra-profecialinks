@@ -7,7 +7,7 @@ fields:
    singleValue: false
    description: The URL for the product details page
    xpath: //h3[contains(@class,"product")]//a/@href
-   regExp: (\/Food.+)
+   regExp: (.+)
    regExpReplace: https://www.loblaws.ca$1
  - name: price
    singleValue: false
