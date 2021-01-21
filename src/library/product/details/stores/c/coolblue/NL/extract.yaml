@@ -8,8 +8,8 @@ fields:
 - name: _url
   singleValue: false
 - name: productUrl
+  xpath: //link[@rel="canonical"]/@href
   singleValue: false
-  xpath: //div[@id="url"]
 - name: _pageTimeStamp
   singleValue: false
 - name: image
@@ -32,9 +32,9 @@ fields:
   description: The categories (e.g. from breadcrumbs)
   xpath: //li[contains(@class,"breadcrumbs__item hide")]//a/text()
 - name: nameExtended
-  singleValue: true
+  xpath: //h1
   description: The product name, prefixing "${brand} - " if not included in "name"
-    and appending " - ${variantType}" if necessary (fixed per feed)
+    and appending
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
@@ -499,3 +499,14 @@ fields:
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
   defaultValue: Yes
+- name: inTheBoxUrl
+  xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset
+  regExp: (.+800w,\s)(.+(.png|.jpg))(.+)
+  regExpReplace: $2
+- name: inTheBoxText
+  xpath: //div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")]
+- name: hasComparisonTable
+  xpath: //h1/@has-comparison
+  defaultValue: No
+- name: unInterruptedPDP
+  xpath: //div[contains(@class,'alternative-products')]//table//td//strong[contains(@class,"h3")]| (//h2[contains(text(),'Gerelateerde producten')])[1]/following-sibling::div//a[@class="pill"]/text()

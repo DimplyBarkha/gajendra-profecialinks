@@ -10,18 +10,18 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
-/*     function reduceInfoToOneField (field) {
-      if (field && field.length > 1) {
-        let fieldText = '';
-        field.forEach(element => {
-          fieldText += ' -' + element.text;
-        });
-        field[0].text = fieldText.replace(/\n/g, ': ');
-        return field.splice(1);
-      }
-    } */
+    /*     function reduceInfoToOneField (field) {
+          if (field && field.length > 1) {
+            let fieldText = '';
+            field.forEach(element => {
+              fieldText += ' -' + element.text;
+            });
+            field[0].text = fieldText.replace(/\n/g, ': ');
+            return field.splice(1);
+          }
+        } */
     await context.evaluate(async function () {
-      function addElementToDocument (key, value) {
+      function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -46,6 +46,14 @@ module.exports = {
       if (pdfPresent) {
         console.log('jest pdfik');
         pdfPresent.setAttribute('pdf-present', 'Yes');
+      }
+
+      const hasComparison = document.evaluate("//h2[contains(text(),'vergelijken')] | //span[contains(text(),'Bekijk volledige vergelijking')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null) && document.evaluate("//h2[contains(text(),'vergelijken')] | //span[contains(text(),'Bekijk volledige vergelijking')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+     
+      if (hasComparison) {
+        document.querySelector('h1') ? document.querySelector('h1').setAttribute('has-comparison', 'Yes') : null;
+      } else {
+        document.querySelector('h1') ? document.querySelector('h1').setAttribute('has-comparison', 'No') : null;
       }
     });
     const dataRef = await context.extract(productDetails, { transform });
