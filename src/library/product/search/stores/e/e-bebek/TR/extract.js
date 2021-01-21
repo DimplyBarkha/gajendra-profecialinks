@@ -14,6 +14,15 @@ async function implementation (inputs, parameters, context, dependencies) {
     };
     const searchUrl = window.location.href;
     addElementToDocument('searchurl', searchUrl);
+    function stall (ms) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve();
+        }, ms);
+      });
+    }
+    // waits for script loaded
+    await stall(4000);
     const products = document.querySelectorAll('section[class="product-list"] div[class*="product gtmProductClick w-100"]');
 
     products.forEach((product, index) => {
