@@ -151,6 +151,7 @@ const transform = (data) => {
 
       if (!row.inTheBoxText && row.inTheBoxTextFromP) {
         let inTheBoxText = row.inTheBoxTextFromP[0].text;
+        inTheBoxText = inTheBoxText.replace('In the box:', '');
         inTheBoxText = inTheBoxText.replace(/,/g, ' || ');
         row.inTheBoxText = [{ text: inTheBoxText }];
       }

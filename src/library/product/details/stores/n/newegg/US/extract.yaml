@@ -645,13 +645,13 @@ fields:
   # //img[@class="wc-media wc-image wc-rf-banner-image"]
 - name: inTheBoxUrl
   singleValue: false
-  xpath: //div[@id='witbImg']|//div[@data-section-tag="in-the-box"]//ul//li//img/@src|//div[@class="a-plus-info"]/h3[contains(text(),"included")]/following::div[contains(@class,"img-is-large")]/div[@class="a-plus-img"]/img/@src
+  xpath: //div[@id='witbImg']|//div[@data-section-tag="in-the-box"]//ul//li//img/@src|//div[@class="a-plus-info"]/h3[contains(text(),"included")]/following::div[contains(@class,"img-is-large")]/div[@class="a-plus-img"]/img/@src|//div[contains(@class, 'a_plus_module') and contains(., 'In the box')]/following-sibling::div//div[contains(@class, 'a_plus_img')]//img/@src
 - name: inTheBoxText
   singleValue: false
   description: Must include text to show the accessories/tools which come with the product
-  xpath: //div[@id='witbText']|//div[@data-section-tag="in-the-box"]//ul//li//h3|//div[@class="a-plus-info"]/h3[contains(text(),"included")]/following::div[@class="a-plus-info"]/p/strong
+  xpath: //div[@id='witbText']|//div[@data-section-tag="in-the-box"]//ul//li//h3|//div[@class="a-plus-info"]/h3[contains(text(),"included")]/following::div[@class="a-plus-info"]/p/strong|//div[contains(@class, 'a_plus_module')]/div/h3[contains(., 'In the box')]/../../following-sibling::div//div[contains(@class, 'a_plus_info')]
 - name: inTheBoxTextFromP
-  xpath: //h3[contains(., 'In The Box')]/following-sibling::p
+  xpath: //h3[contains(., 'In The Box')]/following-sibling::p | //p[contains(., 'In the box:')]
 - name: unInterruptedPDP
   xpath: //div[@class="product-sponsored"]//div[@class="item-cell"]//a|//div[contains(@class,"swiper-wrapper")]//a[contains(@class,"title")]|//ul[contains(@class,"swiper-wrapper")]//a[contains(@class,"title")]
   description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
