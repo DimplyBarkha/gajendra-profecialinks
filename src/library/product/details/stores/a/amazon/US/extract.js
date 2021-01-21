@@ -56,6 +56,17 @@ async function implementation (
     let totalCount = 0;
     while (notLastPage) {
       const response = await fetch(api);
+      if (response.status !== 200) {
+        data = Array.from(document.querySelectorAll('#mbc > div.mbc-offer-row')).map(offer => {
+          const sellerPrice = offer.querySelector('span[id^="mbc-price"]') && offer.querySelector('span[id^="mbc-price"]').innerText || '';
+          const sellerName = offer.querySelector('span.mbcMerchantName') && offer.querySelector('span.mbcMerchantName').innerText || '';
+          const shippingPrice = offer.querySelector('span[id^="mbc-shipping-fixed"]') && offer.querySelector('span[id^="mbc-shipping-fixed"]').textContent || '0.00';
+          const sellerId = offer.querySelector('span[data-a-popover]') && offer.querySelector('span[data-a-popover]').getAttribute('data-a-popover');
+          const sellerPrime = offer.querySelector('[target="AmazonHelp"]') && 'YES' || 'NO';
+          return { sellerPrice, sellerName, shippingPrice, sellerPrime, sellerId };
+        });
+        break;
+      }
       const html = await response.text();
       const doc = new DOMParser().parseFromString(html, 'text/html');
       if (page === 1) {
@@ -104,7 +115,7 @@ async function implementation (
     const sellerPrime = data.map(seller => seller.sellerPrime.trim()).join('|');
     const sellerId = data.map(seller => {
       if (seller.sellerId && seller.sellerId.match(/seller=(\w+)/)) {
-        return seller.sellerId.match(/seller=(\w+)/)[1];
+        return seller.sellerId.match(/(seller|&me)=(\w+)/)[2];
       }
     }).join('|');
     document.body.setAttribute('seller-price', sellerPrice);

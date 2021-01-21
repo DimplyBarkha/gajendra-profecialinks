@@ -5,12 +5,14 @@
  * @param { ImportIO.IContext } context
  * @param { { goto: ImportIO.Action, createUrl: ImportIO.Action} } dependencies
  */
-const implementation = async ({ url, id, zipcode, storeId }, { loadedSelector, noResultsXPath }, context, dependencies) => {
+const implementation = async (inputs, { loadedSelector, noResultsXPath }, context, dependencies) => {
+  const { url, id } = inputs;
+  let builtUrl;
   if (!url) {
     if (!id) throw new Error('No id provided');
-    else url = await dependencies.createUrl({ id });
+    else builtUrl = await dependencies.createUrl(inputs);
   }
-  await dependencies.goto({ url, zipcode, storeId });
+  await dependencies.goto({ ...inputs, url: builtUrl || url });
 
   if (loadedSelector) {
     await context.waitForFunction(
@@ -71,6 +73,12 @@ module.exports = {
     {
       name: 'storeId',
       description: 'storeId for product',
+      type: 'string',
+      optional: true,
+    },
+    {
+      name: 'zipcode',
+      description: 'zipcode to set  location',
       type: 'string',
       optional: true,
     },

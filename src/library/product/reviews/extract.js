@@ -31,6 +31,16 @@ module.exports = {
       description: 'transform function for the extraction',
       optional: true,
     },
+    {
+      name: 'filterReviews',
+      description: 'Boolean (true or false), filters out reviews outside given date.',
+      optional: true,
+    },
+    {
+      name: 'mergeType',
+      description: 'In case of MERGE_ROWS, pass here',
+      optional: true,
+    },
   ],
   inputs: [
   ],
