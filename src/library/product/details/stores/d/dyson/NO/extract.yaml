@@ -9,4 +9,8 @@ fields:
     xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),'levering ')] or .//*[contains(text(),'retur')]])[1]
   - name: warranty
     xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),' garanti')]])[1]
+  - name: alternateImages
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath: (//div[contains(@class,"product-hero")]//div[contains(@class,"product-gallery--image") and not(contains(@class,"slick-cloned"))]//img/@data-src)
    
