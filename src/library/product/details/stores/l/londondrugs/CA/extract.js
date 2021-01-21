@@ -1,4 +1,15 @@
-// const { transform } = require('../../../../../details/shared');
+//  const { transform } = require('../../../../shared');
+module.exports = {
+  implements: 'product/details/extract',
+  parameterValues: {
+    country: 'CA',
+    store: 'londondrugs',
+    transform: null,
+    domain: 'londondrugs.com',
+    zipcode: '',
+  },
+  implementation,
+};
 async function implementation (
   inputs,
   parameters,
@@ -24,26 +35,29 @@ async function implementation (
       }
       return result;
     };
-    // Double Pipe Concatenation
-    const pipeSeparatorDouble = (id, data) => {
-      var doubleSeparatorText = data.join(' || ');
-      addElementToDocument(id, doubleSeparatorText);
-    };
-
-    // XPATH Data Extraction For Additional Description Bullet
-    const addDescBulletInfo = getAllXpath("//div[@id='pdp-overview']", 'nodeValue');
-    pipeSeparatorDouble('addDescBulletInfo', addDescBulletInfo);
+    let scrollTop = 0;
+    while (scrollTop !== 20000) {
+      await stall(500);
+      scrollTop += 1000;
+      window.scroll(0, scrollTop);
+      if (scrollTop === 20000) {
+        await stall(5000);
+        break;
+      }
+    }
+    function stall (ms) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve();
+        }, ms);
+        const pipeSeparatorDouble = (id, data) => {
+          var doubleSeparatorText = data.join(' || ');
+          addElementToDocument(id, doubleSeparatorText);
+        };
+        const addDescBulletInfo = getAllXpath("//div[@id='pdp-overview']", 'nodeValue');
+        pipeSeparatorDouble('addDescBulletInfo', addDescBulletInfo);
+      });
+    }
   });
   return await context.extract(productDetails, { transform });
 }
-module.exports = {
-  implements: 'product/details/extract',
-  parameterValues: {
-    country: 'CA',
-    store: 'londondrugs',
-    transform: null,
-    domain: 'londondrugs.com',
-    zipcode: '',
-  },
-  implementation,
-};
