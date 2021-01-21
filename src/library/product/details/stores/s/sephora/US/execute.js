@@ -6,6 +6,6 @@ module.exports = {
     store: 'sephora',
     domain: 'sephora.com',
     loadedSelector: 'div[rootid="ProductPage"], div[data-comp^=ProductGrid] a[data-comp^="ProductItem"]',
-    noResultsXPath: '//h1[contains(text(), "0 Product results")] | //div[@id="zeroResult"]',
+    noResultsXPath: '//h1[contains(text(), "0 Product results")] | //div[@id="zeroResult"] | //p[contains(text(),"Please check your search terms and try again.")]',
   },
 };
