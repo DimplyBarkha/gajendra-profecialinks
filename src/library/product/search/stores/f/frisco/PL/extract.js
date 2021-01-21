@@ -10,7 +10,9 @@ module.exports = {
   dependencies: {
     productDetails: 'extraction:product/search/stores/${store[0:1]}/${store}/${country}/extract',
   },
-  // implementation: async ({ inputString }, { country, store, transform: transformParam }, context, dependencies) => {
+ 
+  implementation: async ({ inputString }, { country, store, transform: transformParam }, context, dependencies) => {
+    await new Promise((resolve, reject) => setTimeout(resolve, 8000));
   //   async function getID() {
   //     function addHiddenDiv(id, content, index) {
   //       const newDiv = document.createElement('div');
@@ -31,6 +33,6 @@ module.exports = {
   //     }
   //   }
   //   await context.evaluate(getID);
-  //   return await context.extract(dependencies.productDetails, { transform: transform });
-  // }
+    return await context.extract(dependencies.productDetails, { transform: transform });
+  }
 };
