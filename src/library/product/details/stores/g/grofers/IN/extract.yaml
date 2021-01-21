@@ -23,13 +23,16 @@ fields:
     xpath: //h1[@class='pdp-product__name']
   - name: availabilityText
     singleValue: false
-    xpath: //div[@class='pdp-product']//button[@class='add-to-cart__add-btn']//span[@class='add-to-cart__text' and text()='ADD']
+    xpath: //div[@class="pdp-product__add-to-cart"]//button[@class="add-to-cart__add-btn"]
     regExp: (.+)
     regExpReplace: In Stock
-    defaultValue: Out of Stock
+    defaultValue: Out Of Stock
   - name: price
     singleValue: false
     xpath: //div[@class='pdp-product__price']//span[contains(@class,'pdp-product__price--new')]
+  - name: secondaryImageTotal
+    singleValue: true
+    xpath: count(//ul[@class="slick-dots"]//li[position()>1])
   - name: listPrice
     singleValue: false
     xpath: //div[@class='pdp-product__price']//span[@class='pdp-product__price--old']
