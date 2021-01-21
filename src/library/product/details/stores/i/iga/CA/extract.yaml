@@ -15,12 +15,12 @@ fields:
   - name: name
     singleValue: true
     description: The product name
-    xpath: concat(//h1[@class="h3-like product-detail__name js-product-detail__name"]/span/text()," ",//h1[@class="h3-like product-detail__name js-product-detail__name"]/text()[2])
+    xpath: //h1[@class="h3-like product-detail__name js-product-detail__name"]|//div[@class="item-product__info--product-detail push-half--bottom js-item-product__info--product-detail"]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: concat(//span[@itemprop="brand"]/text(),"; ",//h1[@class="h3-like product-detail__name js-product-detail__name"]/span/text()," ",//h1[@class="h3-like product-detail__name js-product-detail__name"]/text()[2])
+    xpath: normalize-space(concat(//h1[@class="h3-like product-detail__name js-product-detail__name"]," ",//div[@class="item-product__info--product-detail push-half--bottom js-item-product__info--product-detail"]))
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
