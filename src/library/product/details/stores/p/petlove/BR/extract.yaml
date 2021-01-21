@@ -360,7 +360,7 @@ fields:
 - name: proteinPerServingUom
   description: Unit of Measure Data for Protein
   xpath: ancestor::html//tr//tr[td[contains(text(), "Proteína")]]
-  regExp: ([\d,.]+) ?([a-zA-Z]+)
+  regExp: ([\d,.]+) ?([a-zA-Z\/]+)
   regExpReplace: $2
 - name: vitaminAPerServing
   description: Nutritional Information for Vitamin A content - Usually based on per
@@ -371,7 +371,7 @@ fields:
 - name: vitaminAPerServingUom
   description: Unit of Measure Data for Vitamin A
   xpath: ancestor::html//tr//tr[td[contains(text(), "Vitamina A")]]
-  regExp: ([\d,.]+) ?([a-zA-Z]+)
+  regExp: ([\d,.]+) ?([a-zA-Z\/]+)
   regExpReplace: $2
 - name: vitaminCPerServing
   description: Nutritional Information for Vitamin C content - Usually based on per
@@ -382,7 +382,7 @@ fields:
 - name: vitaminCPerServingUom
   description: Unit of Measure Data for Vitamin C
   xpath: ancestor::html//tr//tr[td[contains(text(), "Vitamina C")]]
-  regExp: ([\d,.]+) ?([a-zA-Z]+)
+  regExp: ([\d,.]+) ?([a-zA-Z\/]+)
   regExpReplace: $2
 - name: calciumPerServing
   description: Nutritional Information for Calcium content - Usually based on per
@@ -402,7 +402,7 @@ fields:
 - name: ironPerServingUom
   description: Unit of Measure Data for Iron
   xpath: ancestor::html//tr//tr[td[contains(text(), "Ferro")]]
-  regExp: ([\d,.]+) ?([a-zA-Z]+)
+  regExp: ([\d,.]+) ?([a-zA-Z\/]+)
   regExpReplace: $2
 - name: dietarySymbols
   singleValue: true
@@ -416,7 +416,7 @@ fields:
 - name: magnesiumPerServingUom
   description: Unit of Measure Data for Magnesium
   xpath: ancestor::html//tr//tr[td[contains(text(), "Magnésio")]]
-  regExp: ([\d,.]+) ?([a-zA-Z]+)
+  regExp: ([\d,.]+) ?([a-zA-Z\/]+)
   regExpReplace: $2
 - name: saltPerServing
   description: Nutritional Information for Salt content - Usually based on per 100g
@@ -427,7 +427,7 @@ fields:
 - name: saltPerServingUom
   description: Unit of Measure Data for Salt
   xpath: ancestor::html//tr//tr[td[contains(text(), "Sal")]]
-  regExp: ([\d,.]+) ?([a-zA-Z]+)
+  regExp: ([\d,.]+) ?([a-zA-Z\/]+)
   regExpReplace: $2
 - name: dietaryInformation
   singleValue: true
