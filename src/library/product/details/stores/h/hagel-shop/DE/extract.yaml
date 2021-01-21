@@ -55,7 +55,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: concat((//div[@class="std col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"])[1]," ",//span[@itemprop="description"]/text())
+    xpath: concat((//div[@class="std col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"])[1]," ",//span[@itemprop="description"]/text() | //span[@itemprop="description"]/p/text())
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -65,7 +65,7 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //div[@class="product-img-box"]/span[@class="seal-brand-name"]/@data-brand-name | //div[@class="col-xs-6 col-xxs-12 col-sm-6"]//span[@itemprop="brand"]/@content
+    xpath: //div[@class="col-xs-6 col-xxs-12 col-sm-6"]//span[@itemprop="brand"]/@content | //div[@class="product-img-box"]/span[@class="seal-brand-name"]/@data-brand-name
   - name: manufacturer
     singleValue: true
     description: Product manufacturer

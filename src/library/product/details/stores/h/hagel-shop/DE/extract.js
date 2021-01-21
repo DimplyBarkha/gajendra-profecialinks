@@ -66,8 +66,8 @@ module.exports = {
             if(sec > 5){
               first = first + 1
             }
-            var final = Number(real)+"."+first;
-            aggregate = Number(final);
+            var final = Number(real)+","+first;
+            aggregate = final;
           }
 
         }
@@ -91,7 +91,7 @@ module.exports = {
       }
 
       //price 
-      var price = getXpath('//div[@class="price-details"]/div[@class="price-box"]/p[@class="special-price"]/span[@class="price"]/text() | //div[@class="simple-product-list"]/table/tbody/tr[1]//p[@class="special-price"]/span[@class="price"]/text() | //div[@class="price-details"]/div[@class="price-box"]/span[@class="regular-price"]//span[@class="price"]/text()', 'nodeValue');
+      var price = getXpath('//div[@class="price-details"]/div[@class="price-box"]/p[@class="special-price"]/span[@class="price"]/text() | //div[@class="simple-product-list"]/table/tbody/tr[1]//p[@class="special-price"]/span[@class="price"]/text() | //div[@class="price-details"]/div[@class="price-box"]/span[@class="regular-price"]//span[@class="price"]/text() | //div[@class="simple-product-list"]/table/tbody/tr[1]//div[@class="price-box"]/span/span/span[@class="price"]/text()', 'nodeValue');
       if (price != null) {
         // price = price.replace(",", ".");
         addElementToDocument('price', price);
