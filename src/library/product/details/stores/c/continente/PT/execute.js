@@ -35,6 +35,7 @@ module.exports = {
     domain: 'continente.pt',
     loadedSelector: null,
     noResultsXPath: null,
+    nextLinkSelector: 'li._40',
     zipcode: '',
   },implementation
 };
