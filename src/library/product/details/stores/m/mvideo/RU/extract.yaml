@@ -128,11 +128,15 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     description: The extended description of the product supplied by the lister
+    xpath: //div[contains(@id,"pdp-dynamic")]
   - name: manufacturerImages
     description: Images within the third party description
+    xpath: //div[contains(@id,"pdp-dynamic")]//img[contains(@class,"lazy") and not(contains(@src,"stub")) and not(contains(@src,"gif"))]//@src
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: videos
     description: URLs of videos on page
-    xpath: //div[@data-init="add-youtube-video-statistic"]//iframe[@id="media-container-player"]/@src | //a[@data-type='video']//@data-src
+    xpath: //div[@data-init="add-youtube-video-statistic"]//iframe[@id="media-container-player"]/@src | //a[@data-type='video']//@data-src | //iframe[contains(@id,"feature-video")]//@src
     regExp: (www.+)
   - name: nameExtended
     description: The product name
@@ -405,6 +409,7 @@ fields:
     description: Energy rating of a product.
       https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
     example: A+, A+++, B
+    xpath: //tr[contains(.,"энергоэффективности")]//td[2]//span[contains(@class,"specification")]
   - name: technicalInformationPdfPresent
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
