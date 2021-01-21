@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'njoy',
     domain: 'shop.njoy.com',
-    loadedSelector: 'div[data-review-id]:not(.yotpo-hidden),a[class="button confirmm-age"]',
+    loadedSelector: 'div.container',
     noResultsXPath: null,
     reviewUrl: null,
     sortButtonSelectors: null,

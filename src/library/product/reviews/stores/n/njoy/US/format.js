@@ -33,7 +33,7 @@ const transform = (data) => {
       }
       if (row.productFamily) {
         row.productFamily.forEach(item => {
-          item.text = item.text.replace('https://shop.njoy.com/', '').trim();
+          item.text = item.text.replace('https://njoy.com/us/', '').trim();
           var lastChar = item.text.slice(-1);
           if (lastChar === '/') {
             item.text = item.text.slice(0, -1);

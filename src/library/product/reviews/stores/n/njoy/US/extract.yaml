@@ -12,7 +12,7 @@ fields:
     singleValue: false
   - name: flavour
     singleValue: false
-    xpath: ancestor::html//div[@class='productView-product']//h1[@class='productView-title']
+    xpath: ancestor::html//div[contains(@class,'product_detail')]//h2
     regExp: :(.*)
     regExpReplace: $1
   - name: reviewText
@@ -25,7 +25,7 @@ fields:
     manualSelector: div.content-title.yotpo-font-bold
   - name: mediaURL
     description: product media url
-    xpath: ancestor::html//div[@class='productView-images']//@src
+    xpath: ancestor::html//div[@class='product_main_image']//img/@src
   - name: location
     description: reviewer location
     defaultValue: US
@@ -48,7 +48,7 @@ fields:
     xpath: ancestor::html//head/link[@rel='canonical']/@href
   - name: name
     description: The product name
-    xpath: ancestor::html//div[@class='productView-product']//h1[@class='productView-title']
+    xpath: ancestor::html//div[contains(@class,'product_detail')]//h2
   - name: commentCount
     type: NUMBER
     description: Number of comments on the review
@@ -66,7 +66,9 @@ fields:
     xpath: //div[contains(@class,'yotpo-header-element')]//span[contains(@class, 'yotpo-user-name')]
   - name: sku
     description: The sku
-    xpath: ancestor::html//div[@class='productView-product']//h1[@class='productView-title']
+    xpath: ancestor::html//div[@class='cart-wrapper']/a/@href
+    regExp: sku\=(.*)\&
+    regExpReplace: $1
   - name: productRange
     singleValue: false
     xpath: ancestor::html//head/link[@rel='canonical']/@href
