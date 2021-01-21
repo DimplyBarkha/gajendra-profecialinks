@@ -18,8 +18,8 @@ module.exports = {
     // await context.evaluate(async () => {
       // const usernameElements = document.querySelector('input#validZipcode');     
       await context.setInputValue('[id="validZipcode"]', wantedZip);
-      await context.waitForSelector('button[class="fp-button fp-button--primary zip--button"]', 6000)
-      await context.click('button[class="fp-button fp-button--primary zip--button"]');    
+      await context.waitForSelector('button[class="fp-button fp-button--primary zip--button fontSizeL"]', 6000)
+      await context.click('button[class="fp-button fp-button--primary zip--button fontSizeL"]');    
     
     return await context.extract(productDetails, { transform });
   },
