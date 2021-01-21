@@ -326,7 +326,7 @@ fields:
 - name: sodiumPerServingUom
   description: Unit of Measure Data for Sodium content
   xpath: ancestor::html//tr//tr[td[contains(text(), "Sódio")]]
-  regExp: ([\d,.]+) ?([a-zA-Z]+)
+  regExp: ([\d,.]+) ?([a-zA-Z\/]+)
   regExpReplace: $2
 - name: totalCarbPerServing
   singleValue: true
