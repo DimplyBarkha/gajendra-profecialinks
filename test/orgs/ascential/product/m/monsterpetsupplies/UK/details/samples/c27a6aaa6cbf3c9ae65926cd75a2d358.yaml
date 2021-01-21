@@ -2,7 +2,7 @@ input:
   id: DFNNN050_1
   _url: http://monsterpetsupplies.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=3199b42b-e9bd-4eeb-8828-044900093400/task=47a621d0-9f64-4cc1-bea5-6317c16f7926/5934fc41-10c0-49b0-84ab-bbb63526df23.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=4f521001-6bce-4d48-9dbc-039c8e57baac/task=f7645131-afce-4370-a0f9-fbd40394846f/30a25963-4900-4d21-91ec-d6ba8482fa75.html
     extractionConfigId: product/details/stores/m/monsterpetsupplies/UK/extract
     data:
       - group:
@@ -72,7 +72,7 @@ extractions:
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/meta[1]/@content
             quantity:
               - text: 12kg
-                xpath: /html/body/div[26]
+                xpath: /html/body/div[30]
             sku:
               - text: DFNNN050_1
                 xpath: /html/body/div[16]
@@ -84,13 +84,25 @@ extractions:
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/h1[1]
             ingredientsList:
               - text: Ingredients
-                xpath: /html/body/div[25]
+                xpath: /html/body/div[29]
             totalFatPerServing:
               - text: "12.0"
                 xpath: /html/body/div[23]
             totalFatPerServingUom:
               - text: "%"
                 xpath: /html/body/div[24]
+            dietaryFibrePerServing:
+              - text: "2.5"
+                xpath: /html/body/div[27]
+            dietaryFibrePerServingUom:
+              - text: "%"
+                xpath: /html/body/div[28]
+            proteinPerServing:
+              - text: "30.0"
+                xpath: /html/body/div[25]
+            proteinPerServingUom:
+              - text: "%"
+                xpath: /html/body/div[26]
             promotion:
               - text: You Save £10.81 (16%)
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[2]/section[1]/div[3]/p[1]
@@ -102,10 +114,10 @@ extractions:
                 xpath: /html/body/div[16]
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[27]
+                xpath: /html/body/div[31]
             descriptionBullets:
               - text: "3"
             variantCount:
               - text: "3"
         xpath: /
-    timestamp: 1611129766480
+    timestamp: 1611234217896

@@ -324,9 +324,11 @@ fields:
   singleValue: true
   description: Nutritional Information for Dietary Fibre content - Usually based on
     per 100g serving
+  xpath: //div[@id="fibre_value"]
 - name: dietaryFibrePerServingUom
   singleValue: true
   description: Unit of Measure Data for Dietary Fibre content
+  xpath: //div[@id="fibre_uom"]
 - name: totalSugarsPerServing
   singleValue: true
   description: Nutritional Information for Total Sugar content - Usually based on
@@ -338,30 +340,38 @@ fields:
   singleValue: true
   description: Nutritional Information for Protein content - Usually based on per
     100g serving
+  xpath: //div[@id="protein_value"]
 - name: proteinPerServingUom
   singleValue: true
   description: Unit of Measure Data for Protein
+  xpath: //div[@id="protein_uom"]
 - name: vitaminAPerServing
   singleValue: true
   description: Nutritional Information for Vitamin A content - Usually based on per
     100g serving
+  xpath: //div[@id="vit_a_value"]
 - name: vitaminAPerServingUom
   singleValue: true
   description: Unit of Measure Data for Vitamin A
+  xpath: //div[@id="vit_a_uom"]
 - name: vitaminCPerServing
   singleValue: true
   description: Nutritional Information for Vitamin C content - Usually based on per
     100g serving
+  xpath: //div[@id="vit_c_value"]
 - name: vitaminCPerServingUom
   singleValue: true
   description: Unit of Measure Data for Vitamin C
+  xpath: //div[@id="vit_c_uom"]
 - name: calciumPerServing
   singleValue: true
   description: Nutritional Information for Calcium content - Usually based on per
     100g serving
+  xpath: //div[@id="calcium_value"]
 - name: calciumPerServingUom
   singleValue: true
   description: Unit of Measure Data for Calcium
+  xpath: //div[@id="calcium_uom"]
 - name: ironPerServing
   singleValue: true
   description: Nutritional Information for Iron content - Usually based on per 100g

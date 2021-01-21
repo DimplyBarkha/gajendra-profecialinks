@@ -2,7 +2,7 @@ input:
   id: DF25497_2
   _url: http://monsterpetsupplies.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=3199b42b-e9bd-4eeb-8828-044900093400/task=6a014b02-18ff-4707-9491-7dca7e432a46/0f84e5ff-b58a-4dee-98ff-b741c71e058c.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=4f521001-6bce-4d48-9dbc-039c8e57baac/task=f5329654-2583-4e3f-9405-ee11848023c8/9afe86d9-af57-4ccf-bfd2-32d818a1dc87.html
     extractionConfigId: product/details/stores/m/monsterpetsupplies/UK/extract
     data:
       - group:
@@ -77,7 +77,7 @@ extractions:
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/meta[1]/@content
             quantity:
               - text: 7.5kg
-                xpath: /html/body/div[26]
+                xpath: /html/body/div[30]
             sku:
               - text: DF25497_2
                 xpath: /html/body/div[16]
@@ -93,6 +93,18 @@ extractions:
             totalFatPerServingUom:
               - text: "%"
                 xpath: /html/body/div[24]
+            dietaryFibrePerServing:
+              - text: "3.0"
+                xpath: /html/body/div[27]
+            dietaryFibrePerServingUom:
+              - text: "%"
+                xpath: /html/body/div[28]
+            proteinPerServing:
+              - text: "18.5"
+                xpath: /html/body/div[25]
+            proteinPerServingUom:
+              - text: "%"
+                xpath: /html/body/div[26]
             promotion:
               - text: You Save £1.31 (5%)
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[2]/section[1]/div[3]/p[1]
@@ -104,10 +116,10 @@ extractions:
                 xpath: /html/body/div[16]
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[27]
+                xpath: /html/body/div[31]
             descriptionBullets:
               - text: "0"
             variantCount:
               - text: "2"
         xpath: /
-    timestamp: 1611129763366
+    timestamp: 1611234216330

@@ -78,11 +78,46 @@ module.exports = {
       const description = descriptionElem ? descriptionElem.innerText.replace(/\n+/g, ' ').trim() : '';
       addElementToDom(description, 'description');
 
-      const fatRegexp = /[fF]at\s?([^\d\s]+)?\s?([\d,.]+)([\w%]{1,2})/;
-      const fatMatch = description.toLowerCase().match(fatRegexp);
+      const fatRegExp = /fat\s?([^\d\s]+)?\s?([\d,.]+)([\w%]{1,2})/i;
+      const fatMatch = description.match(fatRegExp);
       if (fatMatch) {
         addElementToDom(fatMatch[2], 'fat_value');
         addElementToDom(fatMatch[3], 'fat_uom');
+      }
+
+      const proteinRegExp = /protein\s?([^\d\s]+)?\s?([\d,.]+)([\w%]{1,2})/i;
+      const proteinMatch = description.match(proteinRegExp);
+      if (proteinMatch) {
+        addElementToDom(proteinMatch[2], 'protein_value');
+        addElementToDom(proteinMatch[3], 'protein_uom');
+      }
+
+      const fibreRegExp = /fibre\s?([^\d\s]+)?\s?([\d,.]+)([\w%]{1,2})/i;
+      const fibreMatch = description.match(fibreRegExp);
+      if (fibreMatch) {
+        addElementToDom(fibreMatch[2], 'fibre_value');
+        addElementToDom(fibreMatch[3], 'fibre_uom');
+      }
+
+      const calciumRegExp = /calcium\s?([^\d\s]+)?\s?([\d,.]+)([\w%]{1,2})/i;
+      const calciumMatch = description.match(calciumRegExp);
+      if (calciumMatch) {
+        addElementToDom(calciumMatch[2], 'calcium_value');
+        addElementToDom(calciumMatch[3], 'calcium_uom');
+      }
+
+      const vitARegExp = /\((.{1,2}\/kg)\).*vit\. a\s?([^\d\s]+)?\s?([\d,.]+)/i;
+      const vitAMatch = description.match(vitARegExp);
+      if (vitAMatch) {
+        addElementToDom(vitAMatch[3], 'vit_a_value');
+        addElementToDom(vitAMatch[1], 'vit_a_uom');
+      }
+
+      const vitCRegExp = /\((.{1,2}\/kg)\).*vit\. c\s?([^\d\s]+)?\s?([\d,.]+)/i;
+      const vitCMatch = description.match(vitCRegExp);
+      if (vitCMatch) {
+        addElementToDom(vitCMatch[3], 'vit_c_value');
+        addElementToDom(vitCMatch[1], 'vit_c_uom');
       }
 
       const ingredientsText = document.evaluate(
