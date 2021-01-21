@@ -30,6 +30,9 @@ module.exports = {
           columnPosition = document.evaluate('count((//thead)[1]/tr//th[contains(.,"100")][1]/preceding-sibling::th)', document, null, XPathResult.STRING_TYPE, null).stringValue;
           if (columnPosition === '0') {
             columnPosition = document.evaluate('count((//thead)[1]/tr//th[contains(translate(., "Per", "per"), "per")][not(contains(.,"%"))][1]/preceding-sibling::th)', document, null, XPathResult.STRING_TYPE, null).stringValue;
+            if (columnPosition === '0') {
+              columnPosition = document.evaluate('count((//thead)[1]/tr//th[last()]/preceding-sibling::th)', document, null, XPathResult.STRING_TYPE, null).stringValue;
+            }
           }
         }
         console.log(columnPosition);
