@@ -52,7 +52,7 @@ fields:
     xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "Net inhoud")]/following::p[1]
   - name: sku
     singleValue: false
-    xpath: substring-after(//div[@class="color_grey_5"]//p[contains(text(), "ID:")], "ID:")
+    xpath: substring-after(//div[@class="color_grey_5"]//p[contains(text(), "ID :")], "ID :")
   - name: variantId
     singleValue: false
     xpath: //div[contains(@class,"product-details")]//div[contains(@class,"Product")]//@data-item-id
@@ -67,19 +67,19 @@ fields:
     xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "bewaarvoorschriften")]/following::p[1]
   - name: allergyAdvice
     singleValue: false
-    xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "Allergenen")]/following::p[1]
+    xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "Allergènes")]/following::p[1]
   - name: numberofServingsInPackage
     singleValue: false
     xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "verpakking")]/following::p[1]
   - name: servingSize
     singleValue: false
     xpath: //h3[contains(text(), "Voeding")]/following::div//table//thead//th[not(contains(text(), "Per")) and not (contains(text(),"Portie")) ]
-    regExp: (\d.+)([a-zA-Z])
+    regExp: (\d+)
     regExpReplace: $1
   - name: servingSizeUom
     singleValue: false
     xpath: //h3[contains(text(), "Voeding")]/following::div//table//thead//th[not(contains(text(), "Per")) and not (contains(text(),"Portie")) ]
-    regExp: (\d.+)([a-zA-Z])
+    regExp: (\d+)([a-zA-Z].*)
     regExpReplace: $2
   - name: caloriesPerServing
     singleValue: false
