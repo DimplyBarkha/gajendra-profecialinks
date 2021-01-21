@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: (//a[@class="projector_medium_image"]/img[@class="photo"]/@src)[1]
+    xpath: (//li[2]/a[@class="projector_medium_image"]/img[@class="photo"]/@src)
     regExp: (.+)
     regExpReplace: https://www.aptekaolmed.pl$1
   - name: imageAlt

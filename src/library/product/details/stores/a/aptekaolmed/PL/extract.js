@@ -58,15 +58,28 @@ module.exports = {
     const rawdata = document.querySelectorAll('script[type="application/ld+json"]')[3].innerText;
     const jsondata = JSON.parse(rawdata);
     const availability1 = (jsondata.offers[0].availability);
+    console.log('availabilty----------',availability1)
     var availability=''
-    if (availability1.includes('Out of Stock')){
+    if (availability1.includes('Out Of Stock')){
       availability = "Out of Stock"
     }
     else{
       availability="In Stock"
     }
-    const price = jsondata.offers[0].price;
+    console.log('availabilty----------',availability)
+    var price=''
+    // @ts-ignore
+    price = getXpath('//*[@id="projector_price_value"]//text()', 'nodeValue');
+    
+    if (price.length > 0){
+      price = price.replace(',','.')
+    }
+    else{
+      price = ''
+    }
+    // const price = jsondata.offers[0].price;
     addElementToDocument('availability', availability);
+    console.log('price----------',price)
 
     addElementToDocument('price', price);
 
