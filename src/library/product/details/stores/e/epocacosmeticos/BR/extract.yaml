@@ -32,7 +32,8 @@ fields:
     xpath: //div[contains(@class,'fn')]
   - name: availabilityText
     singleValue: false
-    xpath: (//div[@itemprop="offers"]//link[@itemprop="availability"]/@href)[1]
+    #xpath: (//div[@itemprop="offers"]//link[@itemprop="availability"]/@href)[1]
+    xpath: //div[@id='availabilityText']/@data-availability
   - name: price
     singleValue: false
     xpath: //strong[@class="skuBestPrice"]

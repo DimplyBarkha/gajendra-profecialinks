@@ -10,49 +10,59 @@ async function implementation (
   var variantLength = await context.evaluate(async () => {
     return (document.querySelectorAll('ul.topic li input')) ? document.querySelectorAll('ul.topic li input').length : 0;
   });
-  if (variantLength > 0) {
-    // await preparePageForCommonElement(0, variantLength);
-    // const gtinArray = await context.evaluate(async () => {
+  if (variantLength > 1) {
     await context.evaluate(async () => {
       const skuDiv = document.createElement('div');
-      // let gtinArray = [];
       skuDiv.id = 'selectedSKU';
       document.body.appendChild(skuDiv);
-      // const gtin = document.createElement('div');
-      // gtin.id = 'gtin-data';
-      // document.body.appendChild(gtin);
-      // const scriptData = document.evaluate('//script[contains(text(), "vtex.events.addData")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-      // if (scriptData) {
-      //  gtinArray = JSON.parse(scriptData.innerText.match(/\"productEans":(.*),"skuStocks/)[1]);
-      // }
-      // return gtinArray;
+
+      const availabilityTextDiv = document.createElement('div');
+      availabilityTextDiv.id = 'availabilityText';
+      document.body.appendChild(availabilityTextDiv);
     });
 
     for (let j = 0; j < variantLength; j++) {
       await context.evaluate(async (j) => {
         document.querySelectorAll('ul.topic li label')[j].click();
-        await new Promise((resolve, reject) => setTimeout(resolve, 5000));
-        const sku = document.querySelectorAll('meta[itemprop="sku"]')[j].getAttribute('content');
+        await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+        var sku = '';
+        if (document.querySelectorAll('meta[itemprop="sku"]')[j]) {
+          sku = document.querySelectorAll('meta[itemprop="sku"]')[j].getAttribute('content');
+        } else {
+          sku = document.querySelector('#___rc-p-sku-ids').getAttribute('value');
+        }
         document.querySelector('#selectedSKU').setAttribute('data-sku', sku);
-        // document.querySelector('#gtin-data') && document.querySelector('#gtin-data').setAttribute('data-gtin', gtinArray[j]);
+        var availability = '';
+        console.log('===> ', document.querySelectorAll('div[itemprop="offers"] link[itemprop="availability"]'));
+        if (document.querySelectorAll('div[itemprop="offers"] link[itemprop="availability"]')[j]) {
+          availability = document.querySelectorAll('div[itemprop="offers"] link[itemprop="availability"]')[j].getAttribute('href');
+        }
+        document.querySelector('#availabilityText').setAttribute('data-availability', availability);
         return true;
       }, j);
-
-      // await context.click(`ul.topic li label`);
-      console.log('Inside variants', j);
-      // await preparePage(j, variantLength);
       if (j !== variantLength - 1) { await context.extract(productDetails, { transform }, { type: 'APPEND' }); }
     }
   } else {
-    await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
     await context.evaluate(async () => {
       const skuDiv = document.createElement('div');
       skuDiv.id = 'selectedSKU';
       document.body.appendChild(skuDiv);
-      const sku = document.querySelector('meta[itemprop="sku"]').getAttribute('content');
-      // const gtinValue = document.querySelector('meta[itemprop="gtin13"]').getAttribute('content');
-      // document.querySelector('#gtin-data') && document.querySelector('#gtin-data').setAttribute('data-gtin', gtinValue)
+      const availabilityTextDiv = document.createElement('div');
+      availabilityTextDiv.id = 'availabilityText';
+      document.body.appendChild(availabilityTextDiv);
+      var sku = '';
+      if (document.querySelector('meta[itemprop="sku"]')) {
+        sku = document.querySelector('meta[itemprop="sku"]').getAttribute('content');
+      } else {
+        sku = document.querySelector('#___rc-p-sku-ids').getAttribute('value');
+      }
       document.querySelector('#selectedSKU').setAttribute('data-sku', sku);
+      var availability = '';
+      if (document.querySelectorAll('div[itemprop="offers"] link[itemprop="availability"]')[0]) {
+        availability = document.querySelectorAll('div[itemprop="offers"] link[itemprop="availability"]')[0].getAttribute('href');
+      }
+      document.querySelector('#availabilityText').setAttribute('data-availability', availability);
     });
   }
   return await context.extract(productDetails, { transform });

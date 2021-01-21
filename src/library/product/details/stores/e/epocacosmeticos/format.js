@@ -35,7 +35,7 @@ const transform = (data, context) => {
       }
       if (row.alternateImages) {
         row.alternateImages.shift();
-        row.secondaryImageTotal = [{ text: row.alternateImages.length, xpath: row.alternateImages[0].xpath }];
+        row.secondaryImageTotal = [{ text: row.alternateImages.length }];
       }
       if (row.specifications) {
         const specificationsArr = row.specifications.map((item) => {
@@ -45,9 +45,9 @@ const transform = (data, context) => {
       }
       if (row.manufacturerDescription) {
         const manufacturerDescriptionArr = row.manufacturerDescription.map((item) => {
-          return clean(typeof (item.text) === 'string' ? item.text.replace(/\n \n \n \n \n \n \n/g, ' | ').replace(/\n \n \n \n/g, ' | ').replace(/\n \n/g, ':').replace(/\n/g, ' ') : ' | ');
+          return clean(typeof (item.text) === 'string' ? item.text.replace(/\n \n \n \n \n \n \n/g, ' ').replace(/\n \n \n \n/g, ' ').replace(/\n \n/g, ':').replace(/\n/g, ' ') : ' ');
         });
-        row.manufacturerDescription = [{ text: manufacturerDescriptionArr.join(' | '), xpath: row.manufacturerDescription[0].xpath }];
+        row.manufacturerDescription = [{ text: manufacturerDescriptionArr.join(' '), xpath: row.manufacturerDescription[0].xpath }];
       }
       // if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0] && row.additionalDescBulletInfo[0].text.length > 1) {
       //   row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
@@ -84,19 +84,21 @@ const transform = (data, context) => {
         const newDescription = row.description.map((item) => {
           const searchItemIndex = item.text.search(/Modo de Usar/i);
           if (searchItemIndex > -1) {
-            return clean(item.text.substring(0, searchItemIndex).replace('[There is a trailing space here]', ''));
+            return clean(item.text.substring(0, searchItemIndex));
           } else {
-            return clean(item.text.replace('[There is a trailing space here]', ''));
+            return clean(item.text);
           }
         });
         row.descriptionBullets = [{ text: (newDescription[0].match(/•/g) || []).length, xpath: row.description[0].xpath }];
-        row.description = [{ text: newDescription[0].replace(/•/g, '||') }];
+        row.description = [{ text: newDescription[0].replace(/•/g, '||').replace('[There is a trailing space here]', '') }];
       }
       if (row.directions) {
         const newDirections = row.directions.map((item) => {
           const searchItemIndex = item.text.search(/Modo de Usar/i);
           if (searchItemIndex > -1) {
-            return clean(item.text.substring(searchItemIndex + 13, item.text.length).replace('[There is a trailing space here]', ''));
+            var text = '';
+            text = clean(item.text.substring(searchItemIndex + 13, item.text.length));
+            return text.replace('[There is a trailing space here]', '');
           }
         });
         row.directions = [{ text: newDirections && newDirections[0] }];
