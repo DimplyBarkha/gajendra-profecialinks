@@ -34,9 +34,8 @@ const transform = (data) => {
             item.text = `${split1[0]}`;
           } else if (item.text.includes('Vuse ePod')) {
             const split1 = item.text.split('ePod');
-            const split2 = `${split1[1]}`;
-            if (split2.toLowerCase().trim() === 'starter kit') {
-              item.text = split2;
+            item.text = `${split1[1]}`;
+            if (item.text.toLowerCase().trim() === 'starter kit' || item.text.toLowerCase().trim() === 'solo device') {
               item.text = '';
             }
           } else if (item.text.includes('Logic Pods –')) {
