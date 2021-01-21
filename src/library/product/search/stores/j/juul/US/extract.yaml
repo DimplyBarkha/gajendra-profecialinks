@@ -1,0 +1,9 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="product-tile"] | //div[contains(@class,"product-display__container")]
+fields:
+  - name: productUrl
+    type: STRING
+    description: The URL for the product details page
+    xpath: //a[@class="product-tile__link"]/@href | //a[@class="product-display__image"]/@href
