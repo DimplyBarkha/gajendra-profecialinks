@@ -23,10 +23,10 @@ fields:
   - name: availabilityText
     xpath: //div[@class="add"]//button/@data-button-action
     regExp: (add-to-cart)
-    regExpReplace: In Stock
+    regExpReplace: In stock
     defaultValue: Out of Stock
   - name: description
-    xpath: //div[contains(@class,"product__main-infos")]//span[contains(@class,"cat__name")] | //div[contains(@class,"product-information")]//div[@class="product-description__short"] | //div[@id="description"] | //div[@id="description"]//a/@href
+    xpath: //div[@id="description"] | //div[contains(@class,"product__main-infos")]//span[contains(@class,"cat__name")] | //div[contains(@class,"product-information")]//div[@class="product-description__short"]
   - name: descriptionBullets
   - name: brandText
     xpath: //div[@class="product__main-infos"]//span[@itemprop="brand"]
