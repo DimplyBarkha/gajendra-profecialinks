@@ -4,12 +4,16 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'lowes',
-    nextLinkSelector: 'ul[data-selector="splp-pag-lst"] li:last-child a:not(.disabled)',
-    mutationSelector: 'div.plt div[data-selector="splp-prd-lst-ttl"]',
+    openSearchDefinition: {
+      template: 'https://www.lowes.com/search?searchTerm={searchTerms}&page={page}'
+    },
+    // nextLinkSelector: 'ul[data-selector="splp-pag-lst"] li:last-child a:not(.disabled)',
+    // nextLinkXpath: "//ul[@data-selector='splp-pag-lst']//li[last()]//a[not(contains(@class,'disabled'))]",
+    mutationSelector: 'div.plt div',
     spinnerSelector: null,
-    loadedSelector: 'div.pl>div',
+    loadedSelector: 'section#main',
     noResultsXPath: '//h1[contains(text(),"NO RESULTS FOUND FOR")]',
-    openSearchDefinition: null,
+    
     domain: 'lowes.com',
     zipcode: '',
   },
