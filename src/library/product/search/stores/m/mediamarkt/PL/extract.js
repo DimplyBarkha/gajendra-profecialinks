@@ -1,55 +1,51 @@
 const { transform } = require('./transform');
 module.exports = {
-  implements: 'product/search/extract',
-  parameterValues: {
-    country: 'PL',
-    store: 'mediamarkt',
-    transform,
-    domain: 'mediamarkt.pl',
-    zipcode: '',
-  },
-  implementation: async function (
-    inputs,
-    parameters,
-    context,
-    dependencies,
-  ) {
-    const { productDetails } = dependencies;
-    const { transform } = parameters;
-    await context.evaluate(() => {
-      const searchUrl = window.location.href;
-      const appendElements = document.querySelectorAll("a[class='b-ofr_headDataTitle']");
-      if (appendElements.length) {
-        appendElements.forEach((element) => {
-          element.setAttribute('searchurl', searchUrl);
+    implements: 'product/search/extract',
+    parameterValues: {
+        country: 'PL',
+        store: 'mediamarkt',
+        transform,
+        domain: 'mediamarkt.pl',
+        zipcode: '',
+    },
+    implementation: async function(
+        inputs,
+        parameters,
+        context,
+        dependencies,
+    ) {
+        const { productDetails } = dependencies;
+        const { transform } = parameters;
+        await context.evaluate(() => {
+            const searchUrl = window.location.href;
+            const appendElements = document.querySelectorAll("a[class='b-ofr_headDataTitle']");
+            if (appendElements.length) {
+                appendElements.forEach((element) => {
+                    element.setAttribute('searchurl', searchUrl);
+                });
+            }
         });
-      }
-    });
 
-    const applyScroll = async function (context) {
-      await context.evaluate(async function () {
-        let scrollTop = 0;
-        while (scrollTop !== 20000) {
-          await stall(2000);
-          scrollTop += 1000;
-          window.scroll(0, scrollTop);
-          if (scrollTop === 20000) {
-            await stall(4000);
-            break;
-          }
-        }
+        async function autoScroll(page) {
+            await page.evaluate(async() => {
+                await new Promise((resolve, reject) => {
+                    var totalHeight = 0;
+                    var distance = 100;
+                    var timer = setInterval(() => {
+                        var scrollHeight = document.body.scrollHeight;
+                        window.scrollBy(0, distance);
+                        totalHeight += distance;
 
-        function stall (ms) {
-          return new Promise((resolve, reject) => {
-            setTimeout(() => {
-              resolve();
-            }, ms);
-          });
+                        if (totalHeight >= scrollHeight) {
+                            clearInterval(timer);
+                            resolve();
+                        }
+                    }, 500);
+                });
+            });
         }
-      });
-    };
-    await applyScroll(context);
-    return await context.extract(productDetails, { transform });
-  },
+        await autoScroll(context);
+        return await context.extract(productDetails, { transform });
+    },
 
 };
