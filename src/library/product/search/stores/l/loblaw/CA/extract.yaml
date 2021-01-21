@@ -23,5 +23,6 @@ fields:
  - name: name
    singleValue: false
    xpath: //h3[@class='product-tile__details__info__name']/a/span
- - name: manifacturer
+ - name: manufacturer
    singleValue: false 
+   xpath: //h3[@class='product-tile__details__info__name']/a//span[contains(@class,"item--brand")]
