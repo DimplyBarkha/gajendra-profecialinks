@@ -39,6 +39,10 @@ async function implementation (
       dirToUse = dirToUse.nextElementSibling;
     }
     addHiddenDiv('ii_dirToUseText', dirToUseText);
+    const productID = window.dataLayer[0].productID;
+    addHiddenDiv('ii_product_id', productID);
+    const productSku = window.dataLayer[0].productSku;
+    addHiddenDiv('ii_product_sku', productSku);
   });
   return await context.extract(productDetails, { transform });
 }

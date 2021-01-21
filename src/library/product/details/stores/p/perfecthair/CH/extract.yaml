@@ -68,7 +68,7 @@ fields:
     xpath: //span[@class = "rating--count"]
   - name: sku
     singleValue: false
-    xpath: //span[@itemprop = "sku"] | //div[@data-main-ordernumber]/@data-main-ordernumber
+    xpath: //span[@itemprop = "sku"] | //div[@data-main-ordernumber]/@data-main-ordernumber | //div[@id='ii_product_sku']
   - name: specifications
     singleValue: false
     xpath: //table[contains(@class, "product--properties-table")]//tr[@class = "product--properties-row"]
@@ -77,7 +77,7 @@ fields:
     defaultValue: "0"
   - name: variantId
     singleValue: false
-    xpath: //meta[@itemprop = "productID"]/@content
+    manualSelector: div#ii_product_id
   - name: videos
     singleValue: false
     xpath: //iframe[contains(@src, "youtube")]/@src
