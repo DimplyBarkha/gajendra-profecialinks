@@ -11,6 +11,7 @@ fields:
     xpath: //meta[contains(@name,"Keyword")]/@content
   - name: category
     singleValue: true
+    xpath: //div[@class="breadcrumbs"]//ul//li[@class="breadcrumbs_item breadcrumbs_item-active"]//text()
   - name: nameExtended
     singleValue: true
     xpath: //div[@id='ii_nameExtended']
