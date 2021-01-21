@@ -4,9 +4,9 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    xpath: //button[@class="sc-image-viewer-img-button"]/img/@src
+    xpath: //button[@class="sc-image-viewer-img-button"]//img/@src | //div[@class="sc-pc-image"]//img/@src
   - name: imageAlt
-    xpath: //div[@class="sc-pc-large-desktop-layout"]/meta[1]/@content
+    xpath: //div[@class="sc-pc-large-desktop-layout"]/meta[1]/@content | //div[@class="sc-pc-image"]//img/@alt
   - name: alternateImages
     xpath: //div[@class="slider-frame"]//ul[@class="slider-list"]/li[position()>1]//img/@src
     regExp: (.+)\$(.+)
@@ -16,9 +16,9 @@ fields:
   - name: url
     xpath: //link[@rel="canonical"]/@href
   - name: category
-    xpath: //div[@class="sc-pc-breadcrumbs"]/ol/li[position()>1]
+    xpath: //div[@class="sc-pc-breadcrumbs"]/ol/li[position()>1] | //nav[contains(@class,"breadcrumbs")]/ol/li[position()>1] 
   - name: nameExtended
-    xpath: //div[@class="sc-pc-title-full-desktop"]//h1
+    xpath: //div[@class="sc-pc-title-full-desktop"]//h1 | //meta[@itemprop="name"]/@content
   - name: listPrice
     xpath: //span[@class="sc-channel-savings-list-price"]
   - name: price
@@ -35,28 +35,29 @@ fields:
   - name: descriptionBullets
     xpath: count(//div[@class="sc-pc-about-this-item"]//li)
   - name: brandText
-    xpath: //div[@class="main-wrapper"]//div[@class="sc-pc-large-desktop-layout"]/meta[@itemprop="brand"]/@content
+    xpath: //div[@class="main-wrapper"]//div[@class="sc-pc-large-desktop-layout"]/meta[@itemprop="brand"]/@content | //meta[@itemprop="brand"]/@content
   - name: sku
-    xpath: //div[@class="main-wrapper"]//div[@class="sc-pc-large-desktop-layout"]/meta[@itemprop="sku"]/@content
+    xpath: //div[@class="main-wrapper"]//div[@class="sc-pc-large-desktop-layout"]/meta[@itemprop="sku"]/@content | //meta[@itemprop="sku"]/@content
   - name: variantId
     xpath: //div[@class="sc-product-header"]//div[@class="sc-product-header-item-number"]
     regExp: (\d+)
     regExpReplace: $1
   - name: mpc
-    xpath: //div[@class="main-wrapper"]//div[@class="sc-pc-large-desktop-layout"]/meta[@itemprop="mpn"]/@content
+    xpath: //div[@class="main-wrapper"]//div[@class="sc-pc-large-desktop-layout"]/meta[@itemprop="mpn"]/@content | //meta[@itemprop="mpn"]/@content
   - name: ratingCount
     xpath: //div[@class="bv_numReviews_component_container"]/meta/@content
   - name: aggregateRating
     xpath: //div[@itemprop="ratingValue"]
   - name: variantCount
     defaultValue: "0"
-  # - name: manufacturerDescription
-  #   xpath: 
-  # - name: manufacturerImages
-  #   xpath: //div[@class="syndi_powerpage"]//img/@srcset
+  - name: manufacturerDescription
+    xpath: //div[contains(@id, 'aplus')] | //div[@class="enhancedContent"]
+  - name: manufacturerImages
+    xpath: //div[contains(@class,"aplus-body")]//img/@src | //div[@class="enhancedContent"]//img/@src
   # - name: videos
+  #   xpath: 
   - name: name
-    xpath: //div[@class="sc-pc-title-full-desktop"]//h1
+    xpath: //div[@class="sc-pc-title-full-desktop"]//h1 | //meta[@itemprop="name"]/@content
   - name: secondaryImageTotal
     xpath: count(//div[@class="slider-frame"]//ul[@class="slider-list"]/li[position()>1]//img/@src) 
   - name: specifications
@@ -82,3 +83,7 @@ fields:
     regExp: (.+)
     regExpReplace: Yes
     defaultValue: No
+  - name: gtin
+    xpath: //meta[@itemprop="image"]/@content
+    regExp: (.*)/(.*?)_(.*)
+    regExpReplace: $2
