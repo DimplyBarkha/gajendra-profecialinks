@@ -13,6 +13,8 @@ fields:
   - name: flavour
     description: Product flavour
     xpath: ancestor::html//div[@class='swatches-container']//select[@class='form-control select-inline']/option
+    regExp: (.*)\%+
+    regExpReplace: $1
   - name: helpful
     type: NUMBER
     description: Number of people who said the review was helpful
