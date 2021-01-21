@@ -1,4 +1,5 @@
 const { transform } = require('../shared');
+const { implementation } = require('./extractImplementation');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
