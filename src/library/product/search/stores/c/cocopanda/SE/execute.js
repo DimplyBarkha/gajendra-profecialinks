@@ -16,15 +16,6 @@ async function implementation (
 
   await dependencies.goto({ url, zipcode: inputs.zipcode });
   
-  //await context.click('button[aria-label="Accepter alle"]');
-  //await new Promise((resolve, reject) => setTimeout(resolve, 1000));
-
-  //await context.click('div.wca-batch-1-r1-webchannel-accelerate-ribbon-close');
-  //await context.click('button.pushcrew-btn-close"]');
-  //await new Promise((resolve, reject) => setTimeout(resolve, 500));
-  //await context.click('div.roulette-iframe-close a');
-  //await new Promise((resolve, reject) => setTimeout(resolve, 500));
-
   try{
     await context.waitForSelector('button[aria-label="Accepter alle"]');
     await new Promise((resolve, reject) => setTimeout(resolve, 1000));
@@ -41,32 +32,7 @@ async function implementation (
     //
   }
 
-  const applyScroll = async function (context) {
-    await context.evaluate(async function () {
-      let scrollTop = 0;
-      while (scrollTop !== 20000) {
-        await stall(500);
-        scrollTop += 1000;
-        window.scroll(0, scrollTop);
-        if (scrollTop === 20000) {
-          await stall(5000);
-          break;
-        }
-      }
-      function stall (ms) {
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            resolve();
-          }, ms);
-        });
-      }
-    });
-  };
-  console.log('going to call scroll');
-  await applyScroll(context);
-  console.log('just called call scroll');
-  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-  console.log('after call scroll timeout');
+  await new Promise((resolve, reject) => setTimeout(resolve, 1000));
   
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {

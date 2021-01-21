@@ -63,9 +63,9 @@ async function implementation (
     });
   };
   console.log('going to call scroll');
-  await applyScroll(context);
+  //await applyScroll(context);
   console.log('just called call scroll');
-  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+  //await new Promise((resolve, reject) => setTimeout(resolve, 3000));
   console.log('after call scroll timeout');
   
   if (parameters.loadedSelector) {
