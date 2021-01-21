@@ -24,21 +24,28 @@ const transform = (data) => {
 
   for (const { group } of data) {
     for (const row of group) {
-      // if (row.price) {
-      //   row.price.forEach(item => {
-      //     item.text = item.text.replace('£', ' ').trim();
-      //   });
-      // }
+      if (row.price) {
+        let textCurrency; 
+        row.price.forEach(item => {
+          if( item.text.includes('p') ) {
+            item.text = item.text.replace('p','')/100;
+          }
+          // textCurrency = (item.text.includes('£') || item.text.includes('p')) ? 'GBP' : ''; 
+        });
+        // row.priceCurrency = [{text: textCurrency}];
+      }
       // if (row.listPrice) {
       //   row.listPrice.forEach(item => {
       //     item.text = item.text.replace('£', ' ').trim();
       //   });
       // }
-      if (row.priceCurrency) {
-        row.priceCurrency.forEach(item => {
-          item.text = item.text.includes('£') ? 'GBP' : item.text;
-        });
-      }
+      // if (row.priceCurrency) {
+      //   let textCurrency;
+      //   row.priceCurrency.forEach(item => {
+      //     textCurrency = (item.text.includes('£') || item.text.includes('p')) ? 'GBP' : item.text;
+      //   });
+      //   row.priceCurrency = [{text: textCurrency}];
+      // }
       if (row.availabilityText) {
         row.availabilityText.forEach(item => {
           item.text = ('Add' === item.text) ? 'In stock' : 'Out of stock';
@@ -75,10 +82,12 @@ const transform = (data) => {
         row.highQualityImages = images1;
       }
       if (row.aggregateRating) {
+        let text;
         row.aggregateRating.forEach(item => {
-          let text = parseFloat(item.text.replace(/[^\d.-]/g, '')).toFixed(1);
-          item.text = text;
+          text = Number(parseFloat(item.text.replace(/[^\d.-]/g, '')).toFixed(1));
+          // item.text = text;
         });
+        row.aggregateRating = [{ text: text }]
       }
       if (row.ratingCount) {
         row.ratingCount.forEach(item => {
