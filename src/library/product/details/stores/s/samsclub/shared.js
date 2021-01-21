@@ -22,9 +22,9 @@ const cleanUp = (data, context) => {
         let text = '';
         row.specifications.forEach((element) => {
           if (element.xpath.includes('li')) {
-            text += ` ${element.text}`;
+            text += ` ${element.text} ||`;
           } else {
-            text += ` ${element.text}`;
+            text += ` ${element.text} ||`;
           }
         });
         row.specifications = [{ text: text.trim() }];

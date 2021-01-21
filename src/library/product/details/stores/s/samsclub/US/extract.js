@@ -35,12 +35,27 @@ module.exports = {
       });
     };
     await applyScroll(context);
+    try {
+      await context.waitForSelector('div.syndi_powerpage', { timeout: 20000 });
+    } catch (error) {
+      console.log('error loading enhanced content' + error);
+    }
     await context.evaluate(async () => {
       const closePopupButton = document.querySelector('.sc-modal-content > div button');
       if (closePopupButton) {
         // didn't work with context.click() outside context.evaluate()
         // @ts-ignore
         closePopupButton.click();
+      }
+      await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+      var enhancedContent = document.querySelector('div.syndi_powerpage');
+      await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+      if (enhancedContent) {
+        const enhancedData = document.createElement('div');
+        enhancedData.setAttribute('class', 'enhancedContent');
+        // @ts-ignore
+        enhancedData.innerHTML = enhancedContent.shadowRoot.querySelector('div').innerHTML;
+        document.body.appendChild(enhancedData);
       }
     });
     return await context.extract(productDetails, { transform });
