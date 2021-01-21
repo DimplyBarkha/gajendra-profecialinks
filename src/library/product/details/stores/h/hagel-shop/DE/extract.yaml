@@ -152,6 +152,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
+    xpath: //iframe[contains(@src,"youtube.com")]/@src
   - name: name
     singleValue: true
     description: The product name
