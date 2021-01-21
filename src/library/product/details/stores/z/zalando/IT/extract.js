@@ -6,6 +6,14 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+
+  // await context.evaluate(function() {
+  //   const noResultsFound = Boolean(document.querySelector('div.z-pathfinder-404'));
+  //   if (noResultsFound) {
+  //     throw new Error('Product not found');
+  //   }
+  // });
+
   const addOptionalWait = async (selector, wait) => {
     try {
       await context.waitForSelector(selector, { timeout: `${wait}` })
