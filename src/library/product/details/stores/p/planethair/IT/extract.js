@@ -42,6 +42,15 @@ module.exports = {
         if ('price' in data[k].group[i]) {
           data[k].group[i].price[0].text = data[k].group[i].price[0].text.replace('.', ',');
         }
+        if ('quantity' in data[k].group[i]) {
+          const size = data[k].group[i].quantity[0].text.split(' ').slice(-1);
+          const reg = new RegExp('\\d+');
+          if (reg.test(size)) {
+            data[k].group[i].quantity[0].text = size;
+          } else {
+            data[k].group[i].quantity[0].text = '';
+          }
+        }
         if ('aggregateRating' in data[k].group[i]) {
           data[k].group[i].aggregateRating[0].text = data[k].group[i].aggregateRating[0].text.replace('.', ',');
         }
