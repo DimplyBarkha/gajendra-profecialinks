@@ -10,8 +10,7 @@ module.exports = {
   },
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
    // await context.waitForSelector('ul[id="ProductAngleImagesAreaList"] > li > a > img', {}, { timeout: 5000000 });
-   // await context.waitForSelector('span[class="sku"]', {}, { timeout: 5000000 });
-    //await context.waitForSelector('div[class="flix-feature-image"] > img', {}, { timeout: 5000000 });    
+   // await context.waitForSelector('span[class="sku"]', {}, { timeout: 5000000 });    
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
         let scrollTop = 0;
@@ -34,6 +33,8 @@ module.exports = {
       });
     };
     await applyScroll(context);
+    await context.waitForSelector('div[class="flix-tech-spacs-contents"]', {}, { timeout: 500000 });
+    await context.waitForSelector('div[class="flix-carousel flix-carousel-stage"]', {}, { timeout: 200000 });
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -75,6 +76,31 @@ module.exports = {
         addElementToDocument('gtin_added',gtinupc);
         }
 
+        const size = getXpath("//div[@class='flix-tech-spacs-contents']/ul/li/div[contains(.,'Tamaño de la pantalla')]/div[@class='flix-dd']",'innerText');
+        if(size != null){
+        console.log("size: ", size);
+        addElementToDocument('size_added',size);
+        }
+
+
+        const altxpath = getXpath("//*[@id='Zoomer']/figure/img/@alt",'nodeValue');
+        if(altxpath != null){
+        const altimg = altxpath.split('|');
+        const splittedalt = altimg[1].split('&#034;'); 
+        if(splittedalt[0] != null){
+          console.log("altxpath: ", splittedalt[0]);
+          addElementToDocument('alt_added',splittedalt[0]);
+        } else {
+          addElementToDocument('alt_added',splittedalt);
+        }     
+        }
+
+        const sizeValue = getXpath("//input[contains(@id,'quantity_')]/@value",'nodeValue');
+        if(sizeValue != null){
+        console.log("size: ", sizeValue);
+        addElementToDocument('size_added',sizeValue);
+        }
+
         const gtinXpath = getXpath("//input[@id='gtin']/@value",'nodeValue');
         if(gtinXpath != null){
           console.log("gtin: ", gtinXpath);
@@ -89,13 +115,16 @@ module.exports = {
         }
       
         const aplusImagesXpath = getAllXpath("//div[@class='flix_feat']/img/@data-flixsrcset",'nodeValue');
-        const aplusFlixImagesXpath = getAllXpath("//div[@class='flix-carousel flix-carousel-stage']/ul/li/img/@data-flixsrcset",'nodeValue');
+        const aplusFlixImagesXpath = getAllXpath("//div[@class='flix-carousel flix-carousel-stage']/ul/li/img/@srcset",'nodeValue');
+
+        if(aplusFlixImagesXpath.length > 0){
+          console.log("Aplus Flix Images:", aplusFlixImagesXpath.join(' | '));
+          addElementToDocument('aplusImages_added',aplusFlixImagesXpath.join(' | '));  
+        }
+
         if(aplusImagesXpath.length > 0) {
         console.log("Aplus Images:", aplusImagesXpath);
         addElementToDocument('aplusImages_added',aplusImagesXpath);
-        } else if(aplusFlixImagesXpath.length > 0){
-          console.log("Aplus Flix Images:", aplusFlixImagesXpath);
-          addElementToDocument('aplusImages_added',aplusFlixImagesXpath);  
         }
 
         const allSpecs = getAllXpath("//div[contains(@class,'flix-tech-spacs-contents')]/ul/li/div/div[2]/font/font/text()",'nodeValue').join('|');

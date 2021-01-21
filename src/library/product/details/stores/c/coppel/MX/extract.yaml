@@ -10,7 +10,7 @@ fields:
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
-    xpath: //*[@id="Zoomer"]/figure/img/@alt
+    xpath: //div[@id='alt_added']
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
@@ -67,9 +67,7 @@ fields:
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
-    xpath: //input[contains(@id,"quantity_")]/@value
+    xpath: //div[@id='size_added'] 
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -96,7 +94,7 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: //table[@class='table table-bordered']/tbody/tr/td[contains(.,'Model')]/following-sibling::td[1]
+    xpath: //table[@class='table table-bordered']/tbody/tr/td[contains(.,concat(Modelo,'#'))]/following-sibling::td[1]
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
