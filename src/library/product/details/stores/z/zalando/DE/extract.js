@@ -93,22 +93,22 @@ module.exports = {
           let availabilityText = inStock && !outOfStockText ? 'In stock' : 'Out of stock';
 
           if (variantElement) {
-            const sku = document.evaluate(
-              '//div[@class="z-pdp__escape-grid"]//button//span[text()="Details" or text()="Highlights"]/ancestor::h2/following-sibling::div//span[text()="Article number"]/following-sibling::span',
-              document,
-              null,
-              XPathResult.STRING_TYPE,
-              null,
-            ).stringValue;
+            // const sku = document.evaluate(
+            //   '//div[@class="z-pdp__escape-grid"]//button//span[text()="Details" or text()="Highlights"]/ancestor::h2/following-sibling::div//span[text()="Article number"]/following-sibling::span',
+            //   document,
+            //   null,
+            //   XPathResult.STRING_TYPE,
+            //   null,
+            // ).stringValue;
             const productCode = variantElement.querySelector('input').value;
-            const currentVariantId = productCode.replace(sku, '');
+            const currentVariantId = productCode;
             addedVariant.setAttribute('variant_id', currentVariantId);
 
             const firstVariantElem = document.querySelector(
               'form[name="size-picker-form"] div[role="presentation"]:nth-of-type(1) > input',
             );
             const firstVariantValue = firstVariantElem.getAttribute('value');
-            if (firstVariantValue) addedVariant.setAttribute('first_variant', firstVariantValue.replace(sku, ''));
+            if (firstVariantValue) addedVariant.setAttribute('first_variant', firstVariantValue);
 
             // const variantName = variantElement.querySelector('span > div > span:nth-of-type(1)')
             //   ? variantElement.querySelector('span > div > span:nth-of-type(1)').textContent
@@ -139,7 +139,7 @@ module.exports = {
                 'form[name="size-picker-form"] div[role="presentation"] > input',
               );
               for (let j = 0; j < totalVariants.length; j++) {
-                const variantId = totalVariants[j].getAttribute('value').replace(sku, '');
+                const variantId = totalVariants[j].getAttribute('value');
                 if (variantId !== currentVariantId) {
                   const listItem = document.createElement('li');
                   listItem.textContent = variantId;
