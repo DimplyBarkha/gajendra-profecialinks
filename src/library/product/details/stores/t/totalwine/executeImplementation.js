@@ -71,11 +71,11 @@ const implementation = async function (
   }
 
   try {
-    id = id || url.match(/\/p\/(\d+)/)[1];
+    id = id || url && url.match(/\/p\/(\d+)/) && url.match(/\/p\/(\d+)/)[1];
     if (id) {
-    // API call to fetch variants
-      const sku = url.match(/\/p\/(\d+)/)[1];
-      const storeUniqueId = zipcode === '95825' ? 1108 : url.match(/\/p\/(\d+)/)[1];
+      // API call to fetch variants
+      const sku = url && url.match(/\/p\/(\d+)/) && url.match(/\/p\/(\d+)/)[1];
+      const storeUniqueId = zipcode === '95825' ? 1108 : url && url.match(/\/p\/(\d+)/) && url.match(/\/p\/(\d+)/)[1];
       await new Promise((resolve, reject) => setTimeout(resolve, 6000));
       const productDetails = await getData(`https://www.totalwine.com/product/api/product/product-detail/v1/getProduct/${sku}?shoppingMethod=INSTORE_PICKUP&state=US-CA&storeId=${currentStoreId ? currentStoreId : storeUniqueId}`);
       console.log('API call done');
