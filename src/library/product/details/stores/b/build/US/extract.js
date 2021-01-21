@@ -19,7 +19,7 @@ module.exports = {
       const videoFrame = document.evaluate(`(//script[contains(text(),'VideoObject')])[1]`, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       if(videoFrame) {
         let video = videoFrame.textContent.match(/(embedUrl":")(.+)(\","up)/)[2]
-        document.body.setAttribute('video', video);
+        document.head.setAttribute('video', video);
       }
 
       let shownImage = document.querySelectorAll("#PDP-Media-Gallery > div > div img");
