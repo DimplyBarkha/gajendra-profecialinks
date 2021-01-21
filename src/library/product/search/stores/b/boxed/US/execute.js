@@ -7,8 +7,7 @@ module.exports = {
     domain: 'boxed.com',
     url: 'https://www.boxed.com/products/search/{searchTerms}',
     loadedSelector: 'div[class*="ab4-less"] > ul[class*="g-product-list"]',
-    noResultsXPath: null,
-    // '//span[contains(text(), "Oh no!")]',
+    noResultsXPath: '//span[contains(text(), "Oh no!")]',
     zipcode: '',
   },
 };
