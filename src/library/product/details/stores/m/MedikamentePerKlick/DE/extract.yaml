@@ -3,7 +3,7 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-- name: _url
+- name: url
   description: URL of the main product page
   xpath: //link[@rel="canonical"]/@href
 - name: image
@@ -36,13 +36,13 @@ fields:
 - name: price
   description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-  xpath: //dl[@class="productPrice"]//dd[@class="yourPrice price" or @class="yourPrice"]//text()
+  xpath: //dl[@class="productPrice"]//dd[@class="yourPrice price" or @class="yourPrice"]
 - name: availabilityText
   singleValue: true
   xpath: //div[@class='wide-6 productInformations offerDetails']//dl[@class="productAvailability"]//span[@class="value-title"]/@title
-  defaultValue: In Stock
-  regExp: out_of_stock
-  regExpReplace: Out of Stock
+  defaultValue: Out of Stock
+  regExp: in_stock
+  regExpReplace: In Stock
 - name: description
   singleValue: false
   type: TEXT[]
@@ -53,7 +53,7 @@ fields:
   singleValue: true
   description: Number of ul > li tags in the description
   type: NUMBER
-  xpath: count(//dd[@class="productLongDescription"]//ul//li//text())
+  xpath: count(//dd[@class="productLongDescription"]//ul//li)
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name,
