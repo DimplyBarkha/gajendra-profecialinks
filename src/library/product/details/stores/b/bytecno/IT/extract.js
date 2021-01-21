@@ -107,16 +107,17 @@ module.exports = {
       console.log('we do not have the src for iframe');
     }
 
-    const videoEle = await context.evaluate(async () => {
-      const videoEle = document.querySelector('.demoupUI-playimage');
-      if (videoEle) {
-        videoEle.click();
-        return videoEle;
-      }
-    });
-    if (videoEle) {
-      await context.waitForSelector('div.demoupUI-videocontainer video source');
-    }
+    // const videoEle = await context.evaluate(async () => {
+    //   const videoEle = document.querySelector('.demoupUI-playimage');
+    //   if (videoEle) {
+    //     videoEle.click();
+    //     return videoEle;
+    //   }
+    // });
+    // if (videoEle) {
+    //   await context.waitForSelector('div.demoupUI-videocontainer video source');
+    // }
+
     const ImgaeEleNode = await context.evaluate(async () => {
       const ImgaeEle = document.querySelectorAll('div#inpage_container');
       if (ImgaeEle) {
@@ -126,25 +127,39 @@ module.exports = {
     if (ImgaeEleNode && Object.keys(ImgaeEleNode).length) {
       await context.waitForSelector('div#inpage_container img');
     }
-    await context.evaluate(async () => {
-      var src = '';
+    await context.evaluate(async (context) => {
+      // var src = '';
       const imageEle = document.querySelectorAll('div#inpage_container img');
       const imageMan = document.querySelectorAll('div.longdesc img');
-      var ele = document.querySelectorAll('source');
-      if (ele && ele.length) {
-        ele.forEach(e => {
-          if (e.src.includes('.mp4') || e.src.includes('.webm')) {
-            src = e.src;
-          }
-        });
-      };
-      if (src) {
-        addHiddenDiv('video-url', src);
-      }
+      const videoUrl = document.querySelectorAll('img.demoupUI-thumb');
+      // var ele = document.querySelectorAll('source');
+      // if (ele && ele.length) {
+      //   ele.forEach(e => {
+      //     if (e.src.includes('.mp4') || e.src.includes('.webm')) {
+      //       src = e.src;
+      //     }
+      //   });
+      // };
+      // if (src) {
+      //   addHiddenDiv('video-url', src);
+      // }
 
-      let videoId = document.evaluate("//div[contains(@class,'flix-videocontainer')]//input/@value", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-      let video = videoId && videoId.textContent.replace(/(.*){"file":"\\\/\\\/(.+)(.mp4)"(.*)/g, 'https://$2$3').replace(/\\\//g, '/').trim();
+      const videoId = document.evaluate("//div[contains(@class,'flix-videocontainer')]//input/@value", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const video = videoId && videoId.textContent.replace(/(.*){"file":"\\\/\\\/(.+)(.mp4)"(.*)/g, 'https://$2$3').replace(/\\\//g, '/').trim();
       addHiddenDiv('added_video', video);
+
+      let videoUrls = '';
+      const videoEle = document.querySelector('.demoupUI-playimage');
+      if (videoEle) {
+        videoEle.click();
+
+        if (videoUrl) {
+
+          for (let i = 0; i < videoUrl.length; i++) videoUrls += videoUrl[i].src + ' | ';
+        }
+
+      }
+      addHiddenDiv('video-url', videoUrls);
 
       var urls = [];
       if (imageEle) {

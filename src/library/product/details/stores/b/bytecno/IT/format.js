@@ -76,6 +76,18 @@ const transform = (data) => {
           },
         ];
       }
+
+      // if (row.videos) {
+      //   let text = '';
+      //   row.videos.forEach(item => {
+      //     text += `${item.text} | `;
+      //   });
+      //   row.specifications = [
+      //     {
+      //       text: text,
+      //     },
+      //   ];
+      // }
     }
   }
   const clean = text => text.toString()
