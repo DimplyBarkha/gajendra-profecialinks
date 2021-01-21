@@ -87,27 +87,13 @@ const transform = (data) => {
             info.push(item.text);
           });
         }
-        // if (row.availabilityText){
-        //   let info = [];
-        //   row.availabilityText.forEach(item =>{
-        //     item.text = item.text.replace(/In den Warenkorb/, "");
-        //     item.text = "In stock"+item.text;
-        //     info.push(item.text);
-        //   });
-        // }
-
-        if (row.availabilityText){
-          let info = [];
-          row.availabilityText.forEach(item => {
-           if(item.text === null){
-            item.text = "Out of stock";
-            info.push(item.text);
-            } else {
-            item.text = item.text.replace(/In den Warenkorb/, "");
-            item.text = "In stock"+item.text;
-            info.push(item.text);
-            }
-          });
+        if (row.availabilityText) {
+          const availabilityText = row.availabilityText[0].text;
+          if (availabilityText.includes('In den Warenkorb')) {
+            row.availabilityText = [{ text: 'In Stock' }];
+          } else {
+            row.availabilityText = [{ text: 'Out of stock' }];
+          }
         }
 
         if(row.variantInformation){
