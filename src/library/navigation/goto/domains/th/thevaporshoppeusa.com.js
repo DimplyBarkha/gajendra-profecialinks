@@ -25,6 +25,5 @@ module.exports = {
     if (ageBtnAvailable) {
       await context.click(ageBtn);
     }
-
   },
 };
