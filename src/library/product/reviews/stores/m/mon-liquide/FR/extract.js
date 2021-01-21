@@ -29,6 +29,15 @@ const transform = (data, context) => {
         }
       }
 
+      if (!row.pageTitle && row.backupPageTitle) {
+        row.pageTitle = [{
+          text: row.backupPageTitle[0].text
+            .replace('€', '')
+            .replace(/[0-9]/g, '')
+            .replace(',', ''),
+        }];
+      }
+
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));

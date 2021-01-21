@@ -60,6 +60,8 @@ fields:
     xpath: ancestor::html//head/title
     regExp: \€ (.*)
     regExpReplace: $1
+  - name: backupPageTitle
+    xpath: ancestor::html//head/title
   - name: sourceUrl
     singleValue: false
     description: The url of the product url
