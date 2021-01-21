@@ -29,6 +29,17 @@ const transform = (data) => {
           item.text = item.text.replace('https://vapordna.com/', '').trim();
         });
       }
+      if (row.brand) {
+        row.brand.forEach(item => {
+          if(item.text.toLowerCase().includes("logic")){
+            item.text = 'Logic';
+          }else if(item.text.toLowerCase().includes("juul")){
+            item.text = 'Juul';
+          }else{
+            item.text = '';
+          }
+        });
+      }
     }
   }
   return data;
