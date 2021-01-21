@@ -22,10 +22,10 @@ fields:
     xpath: //p[@class="productPrice_savingAmount"]//text()
   - name: availabilityText
     singleValue: true
-    xpath: //button[@class="productAddToBasket productAddToBasket-buyNow js-e2e-add-basket"]
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out Of Stock
+    xpath: //p[@class="productStockInformation_prefix"]//text()
+    # regExp: (.+)
+    # regExpReplace: In Stock
+    # defaultValue: Out Of Stock
   - name: brandText
     singleValue: true
     xpath: //div[@id='ii_brandText']
