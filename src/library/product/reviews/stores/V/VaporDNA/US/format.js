@@ -31,11 +31,11 @@ const transform = (data) => {
       }
       if (row.brand) {
         row.brand.forEach(item => {
-          if(item.text.toLowerCase().includes("logic")){
+          if (item.text.toLowerCase().includes('logic')) {
             item.text = 'Logic';
-          }else if(item.text.toLowerCase().includes("juul")){
+          } else if (item.text.toLowerCase().includes('juul')) {
             item.text = 'Juul';
-          }else{
+          } else {
             item.text = '';
           }
         });
