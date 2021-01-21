@@ -13,7 +13,7 @@ module.exports = {
     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
-        const recordSelector = 'div.product-list div.product-list-item';
+        const recordSelector = 'ul.product-list li.product-cell';
         let count = document.querySelectorAll(recordSelector).length;
         let currScroll = document.documentElement.scrollTop;
         while (count < 150) {
