@@ -40,7 +40,7 @@ async function implementation (
   console.log('Variant Length', variantLength);
   if (variantLength > 1) {
     for (let j = 1; j < variantLength; j++) {
-      await preparePage(j, variantLength, true);
+      await preparePage(j, variantLength);
       console.log('Inside variants', j);
       if (j !== variantLength - 1) { await context.extract(productDetails, { transform }); }
     }
@@ -105,6 +105,25 @@ async function implementation (
       const color = getSingleText(colorXpath, document, index - 1);
       addHiddenDiv('my-color', color);
 
+      const tabHeaders = document.querySelectorAll('div.rd__product-details__description div.rd__priority-scroll > div > nav > ul > li');
+      const tabPanels = document.querySelectorAll('div.rd__product-details__description >div.rd__product-details__description div.rd__tabs__content');
+      if (tabHeaders) {
+        const length = tabHeaders.length;
+        if (length > 1) {
+          for (let i = 0; i < length; i++) {
+            const tabHeader = tabHeaders[i].textContent;
+            if (tabHeader.indexOf('Usos') > -1) {
+              const usageInfo = tabPanels[i].textContent;
+              addHiddenDiv('my-usage-text', usageInfo);
+            }
+            if (tabHeader.indexOf('Ingredientes') > -1) {
+              const ingredientesInfo = tabPanels[i].textContent;
+              addHiddenDiv('my-ingredient-text', ingredientesInfo);
+            }
+          }
+        }
+      }
+
       return [`#qty:${quantity}`, `#variantInf:${variantInf}`, `#availab1:${availab1}`, `#availab:${availab}`, `#variantId:${variantId}`, `#price:${price}`, `#color:${color}`, `#listPrice:${listPrice}`]; // `#nameExt:${nameExt}`,
     }, index, variantLength);
   }
@@ -145,9 +164,19 @@ async function implementation (
       const quantity = getSingleText(qtyXpath, document, index);
       addHiddenDiv1('my-qty', quantity);
 
-      const variantIdXpath = '//div[@data-vendor]/@data-product-id | //h2[contains(@class,"rd__headline--80")]/@title';
-      const variantId = getSingleText(variantIdXpath, document, index - 1);
-      addHiddenDiv1('my-variantId', variantId);
+      const check = document.querySelectorAll('div[class="rd__blob"] img[src]') ? document.querySelectorAll('div[class="rd__blob"] img[src]') : '';
+      const checkVariant = check[0].src.match(/\d{5,}-0-/);
+      console.log('Valid src---------------------->', checkVariant);
+      let variantId = '';
+      if (checkVariant && checkVariant.length) {
+        const variantIdXpath = '//div[@class="rd__blob"]/img/@src';
+        variantId = getSingleText(variantIdXpath, document, index - 1);
+        addHiddenDiv1('my-variantId', variantId);
+      } else {
+        const variantIdXpath = '//div[@data-vendor]/@data-product-id | //h2[contains(@class,"rd__headline--80")]/@title';
+        variantId = getSingleText(variantIdXpath, document, index - 1);
+        addHiddenDiv1('my-variantId', variantId);
+      }
 
       const priceXpath = '//span[contains(@class,"rd__headline--130")]/text() | //div[contains(@class,"rd__order-detail__header rd__list-services__headline")]//span[contains(@class,"rd__headline--130")]/text()';
       const price = getSingleText(priceXpath, document, index);
@@ -175,6 +204,25 @@ async function implementation (
       const availabXpath1 = '//div[contains(text(),"No disponible hoy")]';
       const availab1 = getSingleText(availabXpath1, document, index - 1);
       addHiddenDiv1('my-availab1', availab1);
+
+      const tabHeaders = document.querySelectorAll('div.rd__product-details__description div.rd__priority-scroll > div > nav > ul > li');
+      const tabPanels = document.querySelectorAll('div.rd__product-details__description >div.rd__product-details__description div.rd__tabs__content');
+      if (tabHeaders) {
+        const length = tabHeaders.length;
+        if (length > 1) {
+          for (let i = 0; i < length; i++) {
+            const tabHeader = tabHeaders[i].textContent;
+            if (tabHeader.indexOf('Usos') > -1) {
+              const usageInfo = tabPanels[i].textContent;
+              addHiddenDiv1('my-usage-text', usageInfo);
+            }
+            if (tabHeader.indexOf('Ingredientes') > -1) {
+              const ingredientesInfo = tabPanels[i].textContent;
+              addHiddenDiv1('my-ingredient-text', ingredientesInfo);
+            }
+          }
+        }
+      }
 
       return [`#variantId:${variantId}`, `#availab:${availab}`, `#availab1:${availab1}`, `#color1:${color}`, `#listPrice1:${listPrice}`, `#variantInf1:${variantInf}`];
     }, index, variantLength1);

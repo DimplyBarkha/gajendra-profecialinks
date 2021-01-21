@@ -92,6 +92,16 @@ const transform = (data) => {
           item.text = item.text === '1' ? '' : item.text;
         });
       };
+      if (row.variantId && row.variantId.length > 1) {
+        row.variantId[0].text = row.variantId[1].text;
+        row.variantId.pop();
+      };
+      if (row.ingredientsList && row.ingredientsList.length > 1) {
+        row.ingredientsList = row.ingredientsList.filter((thing, index, self) => self.findIndex(t => t.text === thing.text) === index);
+      };
+      if (row.directions && row.directions.length > 1) {
+        row.directions = row.directions.filter((thing, index, self) => self.findIndex(t => t.text === thing.text) === index);
+      };
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
