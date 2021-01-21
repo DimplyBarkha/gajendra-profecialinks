@@ -41,10 +41,10 @@ const transform = (data) => {
         row.description.forEach(item => {
           text += row.description.map(elm => elm.text);
         });
-       
-        row.description = [{text:text.replace(/- /g,'|| ')}];
+
+        row.description = [{ text: text.replace(/- /g, '|| ') }];
       }
-    
+
       // if(row.nameExtended){
       //   let nameExtended =''
       //   nameExtended = nameExtended.replace(/[0-9]/g, '');
@@ -87,44 +87,44 @@ const transform = (data) => {
       //   row.warnings = [{ text: text.trim() }];
       // }
 
-  if (row.warnings) {
+      if (row.warnings) {
         let text = '';
         row.warnings.forEach(item => {
           text = row.warnings.map(elm => elm.text).join(' ');
         });
-       const text2 =  clean(text);
-       row.warnings = [{text:text2}]
-       let fWarning = '';
-       if(text.includes('Origin:')) {
-        fWarning= text.split('Origin:')[0].trim();
-       }
-       if(text.includes('Usage:')) {
-        fWarning= text.split('Usage:')[0].trim();
-       }
-       else if(text.includes('Additional Information:')) {
-        fWarning= text.split('Additional Information:')[0].trim();
-       }else{
-        fWarning = text2;
-       }
-        row.warnings = [{text:fWarning.replace(/Additional Information: Caplets| Additional Information: Capsules/gm,'').trim()}];
+        const text2 = clean(text);
+        row.warnings = [{ text: text2 }];
+        let fWarning = '';
+        if (text.includes('Origin:')) {
+          fWarning = text.split('Origin:')[0].trim();
+        }
+        if (text.includes('Usage:')) {
+          fWarning = text.split('Usage:')[0].trim();
+        }
+        else if (text.includes('Additional Information:')) {
+          fWarning = text.split('Additional Information:')[0].trim();
+        } else {
+          fWarning = text2;
+        }
+        row.warnings = [{ text: fWarning.replace(/Additional Information: Caplets| Additional Information: Capsules/gm, '').trim() }];
       }
       if (row.manufacturer) {
         let text = '';
         row.manufacturer.forEach(item => {
           text = row.manufacturer.map(elm => elm.text).join(' ');
         });
-       const text2 =  clean(text);
-       row.manufacturer = [{text:text2}]
-       let fmanufacturer = '';
-       if(text.includes('Country of Packing')) {
-        fmanufacturer= text.split('Country of Packing')[0].trim();
-       }
-       else if(text.includes('Return To Address')) {
-        fmanufacturer= text.split('Return To Address')[0].trim();
-       }else{
-        fmanufacturer = text2;
-       }
-        row.manufacturer = [{text:fmanufacturer.replace(/Additional Information: Caplets| Additional Information: Capsules/gm,'').trim()}];
+        const text2 = clean(text);
+        row.manufacturer = [{ text: text2 }]
+        let fmanufacturer = '';
+        if (text.includes('Country of Packing')) {
+          fmanufacturer = text.split('Country of Packing')[0].trim();
+        }
+        else if (text.includes('Return To Address')) {
+          fmanufacturer = text.split('Return To Address')[0].trim();
+        } else {
+          fmanufacturer = text2;
+        }
+        row.manufacturer = [{ text: fmanufacturer.replace(/Additional Information: Caplets| Additional Information: Capsules/gm, '').trim() }];
       }
 
 
@@ -133,25 +133,25 @@ const transform = (data) => {
         row.storage.forEach(item => {
           text = row.storage.map(elm => elm.text).join(' ');
         });
-       const text2 =  clean(text);
-       row.storage = [{text:text2}]
-       let fstorage = '';
-      if(text.includes('Safety Warning:')) {
-        fstorage= text.split('Safety Warning:')[0].trim();
-       }  else if(text.includes('Usage:')) {
-        fstorage= text.split('Usage:')[0].trim();
-       }else if(text.includes('Origin:')) {
-        fstorage= text.split('Origin:')[0].trim();
-       }
-       else if(text.includes('Additional Information:')) {
-        fstorage= text.split('Additional Information:')[0].trim();
-       }
-         else if(text.includes('Distributor:')) {
-        fstorage= text.split('Distributor:')[0].trim();
-       }else{
-        fstorage = text2;
-       }
-        row.storage = [{text:fstorage}];
+        const text2 = clean(text);
+        row.storage = [{ text: text2 }]
+        let fstorage = '';
+        if (text.includes('Safety Warning:')) {
+          fstorage = text.split('Safety Warning:')[0].trim();
+        } else if (text.includes('Usage:')) {
+          fstorage = text.split('Usage:')[0].trim();
+        } else if (text.includes('Origin:')) {
+          fstorage = text.split('Origin:')[0].trim();
+        }
+        else if (text.includes('Additional Information:')) {
+          fstorage = text.split('Additional Information:')[0].trim();
+        }
+        else if (text.includes('Distributor:')) {
+          fstorage = text.split('Distributor:')[0].trim();
+        } else {
+          fstorage = text2;
+        }
+        row.storage = [{ text: fstorage }];
       }
 
       if (row.productOtherInformation) {
@@ -164,11 +164,11 @@ const transform = (data) => {
 
       if (row.caloriesPerServing) {
         let text = '';
-        row.caloriesPerServing.splice(1,1);
-        row.caloriesPerServing.forEach((item)=> {
+        row.caloriesPerServing.splice(1, 1);
+        row.caloriesPerServing.forEach((item) => {
           text = row.caloriesPerServing.map(elm => elm.text).join(' / ');
         });
-        row.caloriesPerServing = [{text}];
+        row.caloriesPerServing = [{ text }];
       }
 
       if (row.promotion) {
@@ -193,7 +193,7 @@ const transform = (data) => {
         } else if (servingSize.match(/analytical constituents(.+)%/i)) {
           row.servingSize = [{ text: row.servingSize[0].text }];
           row.servingSizeUom = [{ text: '' }];
-        } 
+        }
         else if (servingSize.match(/100/i)) {
           row.servingSize = [{ text: row.servingSize[0].text }];
           row.servingSizeUom = [{ text: 'g' }];
@@ -275,7 +275,7 @@ const transform = (data) => {
   }
 
   // Clean up data
- 
+
 
 
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
