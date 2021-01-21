@@ -6,7 +6,7 @@ module.exports = {
     country: 'CA',
     store: 'sephora',
     transform,
-    domain: 'sephora.com',
+    domain: 'sephora.ca',
     zipcode: '',
   },
   // implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {

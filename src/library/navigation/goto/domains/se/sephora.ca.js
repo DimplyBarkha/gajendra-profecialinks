@@ -14,18 +14,18 @@ module.exports = {
     await context.setBlockAds(false);
     await context.setAntiFingerprint(false);
     await context.setBypassCSP(false);
-    await context.setUseRelayProxy(false);
-    await context.setLoadAllResources(true);
+    await context.setUseRelayProxy(false);    
     try {
-      await context.goto("sephora.com");
+      await context.goto("www.sephora.com");
       await context.click("span[data-at='country_ca']")
       await context.clickAndWaitForNavigation("[data-at='modal_dialog_continue_btn']")
     }
     catch(error){
       console.log(error)
     }
+    await context.setLoadAllResources(true);
     await context.goto(url, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: true, enable_cache: false, cookies: [] });
-
+    
     console.log(zipcode);
     if (zipcode) {
       await dependencies.setZipCode({ url, zipcode });
