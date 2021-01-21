@@ -1,3 +1,4 @@
+
 const { transform } = require('../shared');
 
 async function implementation(
@@ -48,20 +49,18 @@ async function implementation(
     }
     if (productInfo) {
       const info = Object.keys(productInfo);
-      if (info) {
-        for (var i = 0; i < info.length; i++) {
-          var code = info[i];
-          var item = productInfo[code].code;
-          var aggregateRating = productInfo[code].averageRating;
-          if (item && aggregateRating !== 0) {
-            addEleToDoc('rating', `${aggregateRating}`, `${item}`);
-          }
-          const manufacturer = productInfo[code].manufacturer;
-          if (manufacturer) {
-            addEleToDoc('pd_manufacturer', `${manufacturer}`, `${item}`);
-          }
-          await new Promise(resolve => setTimeout(resolve, 1000));
+      for (var i = 0; i < info.length; i++) {
+        var code = info[i];
+        var item = productInfo[code].code;
+        var aggregateRating = productInfo[code].averageRating;
+        if (item && aggregateRating !== 0) {
+          addEleToDoc('rating', `${aggregateRating}`, `${item}`);
         }
+        const manufacturer = productInfo[code].manufacturer;
+        if (manufacturer) {
+          addEleToDoc('pd_manufacturer', `${manufacturer}`, `${item}`);
+        }
+        await new Promise(resolve => setTimeout(resolve, 1000));
       }
     }
   });
@@ -84,10 +83,10 @@ async function implementation(
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
-    country: 'CH',
+    country: 'FR',
     store: 'microspot',
     transform,
-    domain: 'microspot.ch',
+    domain: 'microspot.ch/fr',
     zipcode: '',
   },
   implementation,
