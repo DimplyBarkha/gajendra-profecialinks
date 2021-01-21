@@ -23,9 +23,7 @@ fields:
     regExp: cart(\w+)_.*
     regExpReplace: $1
   - name: price
-    # xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//dd[@class="price lowPrice"]//text()
-    type: CURRENCY
-    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//dd[@class="yourPrice price"]
+    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//dd[@class="yourPrice" or @class="yourPrice price"]//text()
   - name: aggregateRating2
     xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//span[@itemprop='ratingValue']
   - name: reviewCount
