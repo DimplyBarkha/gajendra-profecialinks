@@ -1,10 +1,10 @@
-const { transform } = require('../../../../shared');
+const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'MX',
     store: 'coppel',
-    transform: null,
+    transform: cleanUp,
     domain: 'coppel.com',
     zipcode: '',
   },
@@ -66,21 +66,26 @@ module.exports = {
       if(skuXpath != null  ){
         const sku = skuXpath ? skuXpath.split(':') : [];
         addElementToDocument('sku_added',sku[1]);
-        console.log(sku[1]);
+        }
+
+
+        const gtinupc = getXpath("//table[@class='table table-bordered']/tbody/tr/td[contains(.,'Modelo #:')]/following-sibling::td",'innerText');
+        if(gtinupc != null){
+        console.log("upc: ", gtinupc);
+        addElementToDocument('gtin_added',gtinupc);
         }
 
         const gtinXpath = getXpath("//input[@id='gtin']/@value",'nodeValue');
-        console.log("gtin: ", gtinXpath);
-        if(gtinXpath != null  ){
+        if(gtinXpath != null){
+          console.log("gtin: ", gtinXpath);
           const gtinValue = gtinXpath ? gtinXpath.split(':') : [];
           addElementToDocument('gtin_added',gtinValue[1]);
-          console.log(gtinValue[1]);
-          }
+          } 
 
         const altImgXpath = getAllXpath("//div[@id='ProductAngleImagesArea']/ul/li[position()>1]/a/img/@src",'nodeValue');
         if(altImgXpath.length > 0){
           console.log("AltImgXpath:", altImgXpath.join('|'));
-          addElementToDocument('altImgs_added',altImgXpath.join('|'));
+          addElementToDocument('altImgs_added',altImgXpath.join(' | '));
         }
       
         const aplusImagesXpath = getAllXpath("//div[@class='flix_feat']/img/@data-flixsrcset",'nodeValue');

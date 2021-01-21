@@ -146,6 +146,7 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
+    xpath: concat(//*[@id="inpage_container"]//div[@class='flix-model-name'],//*[@id="inpage_container"]//div[@class='flix-model-title'],//*[@class='flix-key-feature'],//div[@id="inpage_selector_specification"]//div[@class='flix-tech-spacs-title'],//div[@id="inpage_selector_specification"]//div[@class='flix-tech-spacs-contents']/*)
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
