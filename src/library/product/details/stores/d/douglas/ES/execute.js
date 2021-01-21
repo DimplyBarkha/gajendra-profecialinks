@@ -6,7 +6,7 @@ module.exports = {
     store: 'douglas',
     domain: 'douglas.es',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="rd__not-found"]',
     zipcode: '',
   },
 };

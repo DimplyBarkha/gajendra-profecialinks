@@ -22,7 +22,7 @@ const transform = (data) => {
     for (const row of group) {
       if (row.description) {
         row.description.forEach(item => {
-          item.text = item.text.replace(/(\s?\n)+/g, ' || ').trim();
+          item.text = item.text.replace(/(\s?\n)+/g, ' ').trim();
         });
       }
       if ((!row.name || !row.name.length) && row.name1) {
@@ -65,12 +65,16 @@ const transform = (data) => {
         });
         row.name = nDesc;
       }
-      if (row.aggregateRating) {
-        let text = '';
-        row.aggregateRating.forEach(item => {
-          text = item.text.replace('.', ',');
-        });
-        row.aggregateRating = [{ text }];
+      // if (row.aggregateRating) {
+      //   let text = '';
+      //   row.aggregateRating.forEach(item => {
+      //     text = item.text.replace('.', ',');
+      //   });
+      //   row.aggregateRating = [{ text }];
+      // }
+      if (!row.aggregateRating && row.aggregateRating1 && row.aggregateRating1.length) {
+        row.aggregateRating1[0].text = row.aggregateRating1[0].text.trim();
+        row.aggregateRating = row.aggregateRating1;
       }
       if ((!row.nameExtended || !row.nameExtended.length) && row.name) {
         row.nameExtended = row.name;

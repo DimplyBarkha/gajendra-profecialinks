@@ -60,6 +60,10 @@ fields:
     singleValue: false
     description: The stated aggregate rating
     xpath: //div[@itemprop='ratingValue']
+  - name: aggregateRating1
+    singleValue: false
+    description: The stated aggregate rating
+    xpath: (//span[@class="bv-secondary-rating-summary-rating bv-table-cell"])[1]
     defaultValue: '0'
   - name: name
     singleValue: false
