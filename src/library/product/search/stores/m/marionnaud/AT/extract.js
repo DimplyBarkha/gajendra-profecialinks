@@ -70,8 +70,12 @@ module.exports = {
             const thumbnail = product.primaryImageUrl ? `https://www.marionnaud.at${product.primaryImageUrl}` : '';
             document.querySelector(productElemId).setAttribute('product-tile-thumbnail', thumbnail);
             document.querySelector(productElemId).setAttribute('product-tile-aggRating', product.averageRating);
-            const price = product.price ? product.price.formattedValue : '';
-            document.querySelector(productElemId).setAttribute('product-tile-price', price);
+            const priceDown = product.variantOptions && product.variantOptions[0].igcMarkDownPrice ? product.variantOptions[0].igcMarkDownPrice.formattedValue : '';
+            console.log('priceDown', priceDown);
+            const priceOriginal = product.price ? product.price.formattedValue : '';
+            if (priceDown) {
+              document.querySelector(productElemId).setAttribute('product-tile-price', priceDown);
+            } else document.querySelector(productElemId).setAttribute('product-tile-price', priceOriginal); ;
           }
         }
       }
