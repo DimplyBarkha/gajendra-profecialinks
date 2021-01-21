@@ -99,8 +99,8 @@ const transform = (data) => {
         if (row.availabilityText){
           let info = [];
           row.availabilityText.forEach(item => {
-           if(item.text == null){
-            item.text = "Out of stock"+item.text;
+           if(item.text === null){
+            item.text = "Out of stock";
             info.push(item.text);
             } else {
             item.text = item.text.replace(/In den Warenkorb/, "");
