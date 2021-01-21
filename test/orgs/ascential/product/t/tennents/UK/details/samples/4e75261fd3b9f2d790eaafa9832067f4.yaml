@@ -1,0 +1,77 @@
+input:
+  id: GRE004
+  _url: http://new.tennentsdirect.com
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5d38afea-d8d7-4159-ba3a-f926f30c9470/task=fb0feca8-278a-469b-91fe-5b1ffeeb2d46/a8bd633d-aba6-4205-a5b1-2bcfe669ade6.html
+    extractionConfigId: product/details/stores/t/tennents/UK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://new.tennentsdirect.com/products/GRE004_p
+                xpath: /html/body/@url
+            image:
+              - text: https://new.tennentsdirect.com/netalogue/zoom/gre004_mcw.jpg
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/a[1]/@href
+            metaKeywords:
+              - text: ",Grey,Goose,Vodka,40.0%,70cl,,"
+                xpath: /html/head[1]/meta[6]/@content
+            category:
+              - text: Spirits
+                xpath: /html/body/form[1]/div[5]/div[5]/div[1]/div[3]/div[1]/span[1]/a[2]
+              - text: Vodka
+                xpath: /html/body/form[1]/div[5]/div[5]/div[1]/div[3]/div[1]/span[1]/a[3]
+              - text: Vodka
+                xpath: /html/body/form[1]/div[5]/div[5]/div[1]/div[3]/div[1]/span[1]/a[4]
+            nameExtended:
+              - text: Grey Goose Vodka 40.0% 70cl
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
+            price:
+              - text: --
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[2]/input[1]/@value
+            availabilityText:
+              - text: Out Of Stock
+                xpath: /html/body/@availability
+            description:
+              - text: Grey Goose Vodka is one of the first premium vodkas made in France.
+                  Perfect to enjoy chilled and neat.
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[2]/div[1]/div[2]/div[1]/div[1]
+            quantity:
+              - text: " 70cl"
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
+            sku:
+              - text: GRE004
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]
+            variantId:
+              - text: GRE004
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]
+            name:
+              - text: Grey Goose Vodka 40.0% 70cl
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
+            countryOfOrigin:
+              - text: France
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]
+            allergyAdvice:
+              - text: |-
+                  Contains: Wheat Gluten
+                  Vegan: Yes
+                  Vegetarian: Yes
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[2]/div[1]/div[2]/div[2]/div[1]
+            alcoholContent:
+              - text: "40.0"
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: Yes
+            privacyPolicy:
+              - text: Yes
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+            descriptionBullets:
+              - text: "0"
+        xpath: /
+    timestamp: 1611217882357

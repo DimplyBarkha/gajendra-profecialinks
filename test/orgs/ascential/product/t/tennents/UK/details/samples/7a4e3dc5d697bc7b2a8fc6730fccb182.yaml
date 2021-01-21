@@ -1,0 +1,77 @@
+input:
+  id: BAC003
+  _url: http://new.tennentsdirect.com
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5d38afea-d8d7-4159-ba3a-f926f30c9470/task=2674c724-f129-4928-a27a-b21f4dd9838c/9d38a423-4226-48bc-a501-e20731b6c8a3.html
+    extractionConfigId: product/details/stores/t/tennents/UK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://new.tennentsdirect.com/products/BAC003_p
+                xpath: /html/body/@url
+            image:
+              - text: https://new.tennentsdirect.com/netalogue/zoom/bac003_mcw.jpg
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/a[1]/@href
+            metaKeywords:
+              - text: ",Bacardi,White,(Blanca),Rum,37.5%,70cl,,"
+                xpath: /html/head[1]/meta[6]/@content
+            category:
+              - text: Spirits
+                xpath: /html/body/form[1]/div[5]/div[5]/div[1]/div[3]/div[1]/span[1]/a[2]
+              - text: Rum
+                xpath: /html/body/form[1]/div[5]/div[5]/div[1]/div[3]/div[1]/span[1]/a[3]
+              - text: White Rum
+                xpath: /html/body/form[1]/div[5]/div[5]/div[1]/div[3]/div[1]/span[1]/a[4]
+            nameExtended:
+              - text: Bacardi White (Blanca) Rum 37.5% 70cl
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
+            price:
+              - text: --
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[2]/input[1]/@value
+            availabilityText:
+              - text: Out Of Stock
+                xpath: /html/body/@availability
+            description:
+              - text: Bacardi White Rum has distinctive vanilla and almond notes, which are
+                  developed in white oak barrels and treated with a secret blend
+                  of charcoal for a distinctive smoothness.
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[2]/div[1]/div[2]/div[1]/div[1]
+            quantity:
+              - text: " 70cl"
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
+            sku:
+              - text: BAC003
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]
+            variantId:
+              - text: BAC003
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]
+            name:
+              - text: Bacardi White (Blanca) Rum 37.5% 70cl
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
+            countryOfOrigin:
+              - text: Cuba
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]
+            allergyAdvice:
+              - text: |-
+                  Vegan: Yes
+                  Vegetarian: Yes
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[2]/div[1]/div[2]/div[2]/div[1]
+            alcoholContent:
+              - text: "37.5"
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: Yes
+            privacyPolicy:
+              - text: Yes
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+            descriptionBullets:
+              - text: "0"
+        xpath: /
+    timestamp: 1611217917506

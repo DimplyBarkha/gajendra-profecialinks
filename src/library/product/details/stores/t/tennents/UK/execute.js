@@ -4,9 +4,8 @@ module.exports = {
     country: 'UK',
     store: 'tennents',
     domain: 'new.tennentsdirect.com',
-    loadedSelector: 'div.ProductTitleBar_Title, div.spinner-wrap',
-    noResultsXPath: null,
-    // noResultsXPath: '//div[@class="spinner-wrap"][contains(@style, "block")] | //h1[@class="not-found"]',
+    loadedSelector: 'img.primaryImage',
+    noResultsXPath: '//div[@class="sub-banner-container"]',
     zipcode: '',
   },
   implementation: async (
@@ -17,7 +16,7 @@ module.exports = {
   ) => {
     const userLogin = 'promotions.tennents@tennents.com';
     const userPassword = 'Supplierdemo1!';
-    const searchUrl = await dependencies.createUrl(inputs);
+    const productUrl = await dependencies.createUrl(inputs);
 
     await dependencies.goto({
       ...inputs,
@@ -51,17 +50,7 @@ module.exports = {
     }
 
     await context.waitForNavigation();
-    await dependencies.goto({ ...inputs, url: searchUrl });
-    await context.waitForNavigation();
-    await context.waitForXPath('//div[contains(@class, "product-card")]//img | //h1[@class="not-found"] | //div[@class="spinner-wrap"][contains(@style, "block")]');
-    const productUrl = await context.evaluate(async () => {
-      const productLinkElement = document.querySelector('div.product-card a.product-image');
-      return productLinkElement ? productLinkElement.getAttribute('href') : null;
-    });
-    if (productUrl) {
-      await dependencies.goto({ ...inputs, url: productUrl });
-      await context.waitForNavigation();
-    }
+    await dependencies.goto({ ...inputs, url: productUrl });
 
     if (loadedSelector) {
       await context.waitForFunction(

@@ -1,0 +1,76 @@
+input:
+  id: SMI007
+  _url: http://new.tennentsdirect.com
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5d38afea-d8d7-4159-ba3a-f926f30c9470/task=94672ed9-3f20-41c4-826d-bb8d3a2f8ef1/072e4ed1-e375-4034-ba97-560ce787faf6.html
+    extractionConfigId: product/details/stores/t/tennents/UK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://new.tennentsdirect.com/products/SMI007_p
+                xpath: /html/body/@url
+            image:
+              - text: https://new.tennentsdirect.com/netalogue/zoom/smi007_mcw.jpg
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/a[1]/@href
+            metaKeywords:
+              - text: ",Smirnoff,Black,Label,Vodka,40.0%,70cl,,"
+                xpath: /html/head[1]/meta[6]/@content
+            category:
+              - text: Spirits
+                xpath: /html/body/form[1]/div[5]/div[5]/div[1]/div[3]/div[1]/span[1]/a[2]
+              - text: Vodka
+                xpath: /html/body/form[1]/div[5]/div[5]/div[1]/div[3]/div[1]/span[1]/a[3]
+              - text: Vodka
+                xpath: /html/body/form[1]/div[5]/div[5]/div[1]/div[3]/div[1]/span[1]/a[4]
+            nameExtended:
+              - text: Smirnoff Black Label Vodka 40.0% 70cl
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
+            price:
+              - text: --
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[2]/input[1]/@value
+            availabilityText:
+              - text: Out Of Stock
+                xpath: /html/body/@availability
+            description:
+              - text: Smirnoff Black Label Vodka is of rare purity due to the special
+                  distillation process it undertakes.
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[2]/div[1]/div[2]/div[1]/div[1]
+            quantity:
+              - text: " 70cl"
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
+            sku:
+              - text: SMI007
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]
+            variantId:
+              - text: SMI007
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]
+            name:
+              - text: Smirnoff Black Label Vodka 40.0% 70cl
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
+            countryOfOrigin:
+              - text: England
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]
+            allergyAdvice:
+              - text: |-
+                  Vegan: Yes
+                  Vegetarian: Yes
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[2]/div[1]/div[2]/div[2]/div[1]
+            alcoholContent:
+              - text: "40.0"
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: Yes
+            privacyPolicy:
+              - text: Yes
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+            descriptionBullets:
+              - text: "0"
+        xpath: /
+    timestamp: 1611217895559
