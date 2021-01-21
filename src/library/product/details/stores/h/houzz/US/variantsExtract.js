@@ -20,10 +20,7 @@ async function implementation(inputs, parameters, context, dependencies){
     });
   }catch(e){
     console.log("Variants not available")
-
-    let mainURL = await getElementByXpath('//link[@rel="canonical"]/@href'); 
-
-    let main_URL = Array(mainURL.split("vr~")[1])
+    let main_URL = Array(window.location.href.split("vr~")[1])
     allVariants = main_URL.filter(function (item, pos) {
       return main_URL.indexOf(item) === pos;
     });
