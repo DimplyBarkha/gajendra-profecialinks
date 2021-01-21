@@ -12,6 +12,9 @@ fields:
     singleValue: false
   - name: flavour
     singleValue: false
+    xpath: ancestor::html//div[@class='productView-product']//h1[@class='productView-title']
+    regExp: :(.*)
+    regExpReplace: $1
   - name: reviewText
     singleValue: false
     description: The text of the review
@@ -42,6 +45,7 @@ fields:
     xpath: ancestor::html//meta[@property="og:url"]/@content
   - name: productFamily
     singleValue: false
+    xpath: ancestor::html//head/link[@rel='canonical']/@href
   - name: name
     description: The product name
     xpath: ancestor::html//div[@class='productView-product']//h1[@class='productView-title']
@@ -63,3 +67,6 @@ fields:
   - name: sku
     description: The sku
     xpath: ancestor::html//div[@class='productView-product']//h1[@class='productView-title']
+  - name: productRange
+    singleValue: false
+    xpath: ancestor::html//head/link[@rel='canonical']/@href

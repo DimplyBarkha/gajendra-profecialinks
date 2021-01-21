@@ -1,24 +1,4 @@
-const transform = (data) => {
-  const cleanUp = (data, context) => {
-    const clean = text => text.toString()
-      .replace(/\r\n|\r|\n/g, ' ')
-      .replace(/&amp;nbsp;/g, ' ')
-      .replace(/&amp;#160/g, ' ')
-      .replace(/\u00A0/g, ' ')
-      .replace(/\s{2,}/g, ' ')
-      .replace(/"\s{1,}/g, '"')
-      .replace(/\s{1,}"/g, '"')
-      .replace(/^ +| +$|( )+/g, ' ')
-      // eslint-disable-next-line no-control-regex
-      .replace(/[\x00-\x1F]/g, '')
-      .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
-    data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
-      el.text = clean(el.text);
-    }))));
-    return data;
-  };  
-  return cleanUp(data);
-};
+const { transform } = require('./format');
 
 async function implementation (
   inputs,
@@ -26,6 +6,7 @@ async function implementation (
   context,
   dependencies,
 ) {
+  const { transform } = parameters;
   const { productReviews } = dependencies;
   try {
     await context.waitForSelector('a[class="button confirmm-age"]', { timeout: 7000 });
@@ -41,30 +22,14 @@ async function implementation (
     return !!ageConfIframe;
   });
 
-
   await new Promise(resolve => setTimeout(resolve, 10000));
 
-  try{
+  try {
     await context.waitForSelector('div[data-review-id]:not(.yotpo-hidden)');
-  }
-  catch(e){
+  } catch (e) {
     console.log('selector not found', e);
   }
-/*
-  await context.evaluate(async function () {
-    var parentel = document.querySelector('div[data-review-id]:not(.yotpo-hidden)');
-    if(parentel){
-      console.log("============================================================");
-      var childel = parentel.querySelector('div.content-title.yotpo-font-bold');
-      console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",childel.innerText);
-    }
-  });
-*/
-
-
-
-  // const mergeOptions = mergeType ? { transform, type: mergeType } : { transform };
-  return await context.extract(productReviews);
+  return await context.extract(productReviews, { transform });
 }
 
 module.exports = {
