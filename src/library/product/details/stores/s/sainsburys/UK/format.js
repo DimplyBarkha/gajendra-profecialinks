@@ -51,6 +51,14 @@ const transform = (data) => {
           item.text = ('Add' === item.text) ? 'In stock' : 'Out of stock';
         });
       }
+      if (row.nameExtended) {
+        let brandName;
+        row.nameExtended.forEach(item => {
+          brandName = item.text.split(' ')[0];
+        });
+        row.brandText = [{text: brandName}];
+      }
+       
       if (row.shownImages) {
         let text = '';
         let element = '';

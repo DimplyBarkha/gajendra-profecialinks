@@ -37,7 +37,7 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //div[@class='pt-button']/button[contains(@class,'pt__add-button')]
+    xpath: //div[@class="pd__price-wrapper"]//div[@class='pt-button']/button[contains(@class,'pt__add-button')]
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
