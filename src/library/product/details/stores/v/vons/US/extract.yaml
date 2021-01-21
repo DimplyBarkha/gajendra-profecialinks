@@ -257,17 +257,16 @@ fields:
     singleValue: true
     description: null
   - name: ingredientsList
-    singleValue: true
     type: TEXT[]
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
-    xpath: //div[@id='ingredients']//div/following-sibling::div//text()
-    # xpath: //div[@id='ingredients']//table[@class="tableOfIngredients"]//text()
+    # xpath: //div[@id='ingredients']//div/following-sibling::div//text()
+    xpath: //div[@id='ingredients']//table[@class="tableOfIngredients"]//text()
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
     xpath: //span[contains(text(),"Serving Size")]//text()
-    regExp: '\d.+'  
+    regExp: '\d+\.?\d*'  
   - name: servingSizeUom
     singleValue: true
     type: TEXT
@@ -279,7 +278,7 @@ fields:
     description: Suggested number of servings of the product.
     type: TEXT
     xpath: //span[contains(text(),"Servings Per Container")]//text()
-    regExp: ':(.*)'
+    regExp: ': (.*)'
     regExpReplace: $1
   - name: caloriesPerServing
     singleValue: true
