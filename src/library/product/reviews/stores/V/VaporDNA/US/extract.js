@@ -25,10 +25,14 @@ module.exports = {
         document.body.appendChild(newDiv);
       }
 
+      if (document.querySelector('#submit_birthdate')) {
+        document.querySelector('#submit_birthdate').click();
+      }
+
       if (document.querySelector('.product-single__meta')) {
-      		var url = window.location.href;
-      		var brand = null;
-      		brand = url.match(/Logic|Juul|juul|logic/);
+        var url = window.location.href;
+        var brand = null;
+        brand = url.match(/Logic|Juul|juul|logic/);
         addHiddenDiv('vapordna_brand', brand);
       }
     });
