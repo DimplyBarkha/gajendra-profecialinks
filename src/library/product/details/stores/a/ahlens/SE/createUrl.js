@@ -8,5 +8,5 @@ module.exports = {
     country: 'SE',
     store: 'ahlens',
     zipcode: '',
-  },
+  },  
 };
