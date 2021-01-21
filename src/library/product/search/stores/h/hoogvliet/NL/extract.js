@@ -19,7 +19,9 @@ module.exports = {
         while (count < 150) {
           const oldScroll = currScroll;
           window.scrollBy(0, 500);
-          await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+          await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+          window.scrollBy(0, 500);
+          await new Promise((resolve, reject) => setTimeout(resolve, 2000));
           currScroll = document.documentElement.scrollTop;
           count = document.querySelectorAll(recordSelector).length;
           if (oldScroll === currScroll) {

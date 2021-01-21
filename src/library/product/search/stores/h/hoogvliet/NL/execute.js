@@ -16,6 +16,12 @@ async function implementation (
   await dependencies.goto({ url, zipcode: inputs.zipcode });
 
   try {
+    await context.click('button.cookie-consent-approve-all');
+  } catch (e) {
+    console.log(e);
+  }
+
+  try {
     await context.waitForSelector('input[name="SearchTerm"]');
     await context.setInputValue('input[name="SearchTerm"]', inputs.keywords);
     //await context.click('div.hidden-xs button[name="search"]');
@@ -24,11 +30,6 @@ async function implementation (
       document.querySelector('div.hidden-xs button[name="search"]') && document.querySelector('div.hidden-xs button[name="search"]').click();
     });
     await new Promise((resolve, reject) => setTimeout(resolve, 1000));
-  } catch (e) {
-    console.log(e);
-  }
-  try {
-    await context.click('button.cookie-consent-approve-all');
   } catch (e) {
     console.log(e);
   }
