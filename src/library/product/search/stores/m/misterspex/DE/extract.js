@@ -20,8 +20,25 @@ module.exports = {
     await context.setJavaScriptEnabled(true);
     await context.setLoadAllResources(true);
     await context.setLoadImages(true);
-    await new Promise((resolve, reject) => setTimeout(resolve, 5000));
-    context.evaluate(async() => {
+    // await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+    await context.evaluate(async() => {
+      let scrollTop = 0;
+      while (scrollTop <= 20000) {
+        await stall(100);
+        scrollTop += 1000;
+        window.scroll(0, scrollTop);
+        if (scrollTop === 20000) {
+          await stall(3000);
+          break;
+        }
+      }
+      function stall(ms) {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
