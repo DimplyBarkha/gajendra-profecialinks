@@ -406,33 +406,99 @@ async function implementation (
     console.log('error getting enhanced content');
   }
   // Get Enhanced HTML.
+  try {
+    if (enhacnedContentJS) {
+      await context.evaluate((enhacnedContentJS) => {
+        eval(enhacnedContentJS);
+        const html = window._wccontent.aplus.html;
+        const newDiv = document.createElement('div');
+        newDiv.id = 'webcollage-content';
+        newDiv.innerHTML = html;
+        document.body.appendChild(newDiv);
+        function getIframeHTML (parentIFrame) {
+          if (parentIFrame.tagName === 'IFRAME') {
+            parentIFrame = parentIFrame.contentDocument;
+          }
+          const iframes = Array.from(parentIFrame.querySelectorAll('iframe'));
+          console.log(iframes);
+          for (const iframe of iframes) {
+            const html = getIframeHTML(iframe);
+            iframe.parentElement.innerHTML = html;
+          }
+          if (parentIFrame.querySelector('html')) {
+            return parentIFrame.querySelector('html').outerHTML;
+          }
+        }
+        getIframeHTML(document.querySelector('#webcollage-content'));
+        Array.from(document.querySelectorAll('#webcollage-content .wc-json-data')).forEach(elm => elm.remove());
+        shadowTextApiData = document.querySelector('#webcollage-content') && document.querySelector('#webcollage-content').innerText;
 
-if (enhacnedContentJS) {
-    await context.evaluate((enhacnedContentJS) => {
-      eval(enhacnedContentJS);
-      const html = window._wccontent.aplus.html;
-      const newDiv = document.createElement('div');
-      newDiv.id = 'webcollage-content';
-      newDiv.innerHTML = html;
-      document.body.appendChild(newDiv);
-      function getIframeHTML (parentIFrame) {
-        if (parentIFrame.tagName === 'IFRAME') {
-          parentIFrame = parentIFrame.contentDocument;
+        function addHiddenDiv (id, content) {
+          const newDiv = document.createElement('div');
+          newDiv.id = id;
+          newDiv.textContent = content;
+          newDiv.style.display = 'none';
+          document.body.appendChild(newDiv);
         }
-        const iframes = Array.from(parentIFrame.querySelectorAll('iframe'));
-        console.log(iframes);
-        for (const iframe of iframes) {
-          const html = getIframeHTML(iframe);
-          iframe.parentElement.innerHTML = html;
+        if (shadowTextApiData) {
+          addHiddenDiv('pd_manu_desc', shadowTextApiData);
         }
-        if (parentIFrame.querySelector('html')) {
-          return parentIFrame.querySelector('html').outerHTML;
-        }
+      }, enhacnedContentJS);
+      await context.extract(productDetails, { transform, type: 'MERGE_ROWS' });
+    }
+  } catch (error) {
+    console.log('Could not execute enhanced content js. Error: ', error);
+  }
+  await context.goto(`${mainUrl}&intl=nosplash#[!opt!]{"block_ads":false,"anti_fingerprint":false,"first_request_timeout":60,"load_timeout":30,"load_all_resources":true,"enable_cache":false,"discard_CSP_header":true}[/!opt!]`, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: true });
+
+  if (manufacturerData != null) {
+    await context.evaluate(async function (manufacturerData) {
+      function addHiddenDiv (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
       }
-      getIframeHTML(document.querySelector('#webcollage-content'));
-      Array.from(document.querySelectorAll('#webcollage-content .wc-json-data')).forEach(elm => elm.remove());
-      shadowTextApiData = document.querySelector('#webcollage-content') && document.querySelector('#webcollage-content').innerText;
 
+      console.log('---------->', manufacturerData);
+      manufacturerData.shadowText && addHiddenDiv('pd_manu_desc', manufacturerData.shadowText);
+      manufacturerData.shadowImage && manufacturerData.shadowImage.length && manufacturerData.shadowImage.forEach(element => {
+        addHiddenDiv('aplus_img', element);
+      });
+      function addElementToDocument (key, value) {
+        const catElement = document.createElement('div');
+        catElement.id = key;
+        catElement.textContent = value;
+        catElement.style.display = 'none';
+        document.body.appendChild(catElement);
+      }
+      const enhancedContent = document.querySelector('div[class*="syndi_powerpage"]');
+      if (enhancedContent) {
+        const witbData = Array.from([...enhancedContent.shadowRoot.querySelectorAll('[class="syndigo-widget-section-header"]')].find(elm => elm.innerText.match(/in the box/i)).nextElementSibling.querySelectorAll('[class="syndigo-featureset-feature"]'));
+        witbData.forEach(element => {
+          element.querySelector('h3') && addElementToDocument('witbText', element.querySelector('h3').innerText);
+          element.querySelector('img') && addElementToDocument('witbImg', element.querySelector('img').src);
+        });
+      }
+
+      function addElementToDocument (key, value) {
+        const catElement = document.createElement('div');
+        catElement.id = key;
+        catElement.textContent = value;
+        catElement.style.display = 'none';
+        document.body.appendChild(catElement);
+      }
+      const documentFrame = document.querySelector('div[class="analytics-adsense-ads"]> iframe[title="Ads by Google"]');
+      if (documentFrame) {
+        const witbData = [...documentFrame.shadowRoot.querySelectorAll('[style*="ms-flex-direction"] div[style*="ms-flex-direction"]')];
+        witbData.forEach(element => {
+          element.querySelector('a[class*="lc_ si6"]') && addElementToDocument('witbDocument', element.querySelector('a[class*="lc_ si6"]'));
+        });
+      }
+    }, manufacturerData);
+  } else {
+    await context.evaluate(async function (shadowTextApiData) {
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
@@ -443,57 +509,8 @@ if (enhacnedContentJS) {
       if (shadowTextApiData) {
         addHiddenDiv('pd_manu_desc', shadowTextApiData);
       }
-    }, enhacnedContentJS);
-    await context.extract(productDetails, { transform, type: 'MERGE_ROWS' });
-  }
-  await context.goto(`${mainUrl}&intl=nosplash#[!opt!]{"block_ads":false,"anti_fingerprint":false,"first_request_timeout":60,"load_timeout":30,"load_all_resources":true,"enable_cache":false,"discard_CSP_header":true}[/!opt!]`, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: true });
-
-  if (manufacturerData != null) {
-  await context.evaluate(async function (manufacturerData) {
-    function addHiddenDiv (id, content) {
-      const newDiv = document.createElement('div');
-      newDiv.id = id;
-      newDiv.textContent = content;
-      newDiv.style.display = 'none';
-      document.body.appendChild(newDiv);
-    }
-
-    console.log('---------->', manufacturerData);
-    manufacturerData.shadowText && addHiddenDiv('pd_manu_desc', manufacturerData.shadowText);
-    manufacturerData.shadowImage && manufacturerData.shadowImage.length && manufacturerData.shadowImage.forEach(element => {
-      addHiddenDiv('aplus_img', element);
     });
-    function addElementToDocument (key, value) {
-      const catElement = document.createElement('div');
-      catElement.id = key;
-      catElement.textContent = value;
-      catElement.style.display = 'none';
-      document.body.appendChild(catElement);
-    }
-    const enhancedContent = document.querySelector('div[class*="syndi_powerpage"]');
-    if (enhancedContent) {
-      const witbData = Array.from([...enhancedContent.shadowRoot.querySelectorAll('[class="syndigo-widget-section-header"]')].find(elm => elm.innerText.match(/in the box/i)).nextElementSibling.querySelectorAll('[class="syndigo-featureset-feature"]'));
-      witbData.forEach(element => {
-        element.querySelector('h3') && addElementToDocument('witbText', element.querySelector('h3').innerText);
-        element.querySelector('img') && addElementToDocument('witbImg', element.querySelector('img').src);
-      });
-    }
-
-    function addElementToDocument (key, value) {
-      const catElement = document.createElement('div');
-      catElement.id = key;
-      catElement.textContent = value;
-      catElement.style.display = 'none';
-      document.body.appendChild(catElement);
-    }
-    const documentFrame = document.querySelector('div[class="analytics-adsense-ads"]> iframe[title="Ads by Google"]');
-    if (documentFrame) {
-      const witbData = [...documentFrame.shadowRoot.querySelectorAll('[style*="ms-flex-direction"] div[style*="ms-flex-direction"]')];
-      witbData.forEach(element => {
-        element.querySelector('a[class*="lc_ si6"]') && addElementToDocument('witbDocument', element.querySelector('a[class*="lc_ si6"]'));
-      });
-    }
-  }, manufacturerData);
+  }
 
   async function addWitbandCRT () {
     async function getWitbAndComparison () {
@@ -520,7 +537,8 @@ if (enhacnedContentJS) {
     }
     const json = await getWitbAndComparison();
     if (json) {
-      const witb = Object.values(Object.values(Object.values(json.experiences).find(elm => elm.hasOwnProperty('experiences')).experiences).find(elm => elm.hasOwnProperty('widgets')).widgets).filter(elm => elm.headerText.match(/in the box/i))[0].items[0].features.map(elm => ({ text: elm.caption, img: elm.asset.url.replace('{0}', elm.asset.originalWidth) }));
+      let witb = Object.values(Object.values(Object.values(json.experiences).find(elm => elm.hasOwnProperty('experiences')).experiences).find(elm => elm.hasOwnProperty('widgets')).widgets).filter(elm => elm.headerText.match(/in the box/i));
+      witb = (witb[0] && witb[0].items[0].features.map(elm => ({ text: elm.caption, img: elm.asset.url.replace('{0}', elm.asset.originalWidth) }))) || [];
       const hasComparision = Object.values(Object.values(Object.values(json.experiences).find(elm => elm.hasOwnProperty('experiences')).experiences).find(elm => elm.hasOwnProperty('widgets')).widgets).filter(elm => elm.widgetType.match(/ComparisonTable/i));
       document.body.setAttribute('has-comparison', Boolean(hasComparision && hasComparision.length));
       document.body.setAttribute('witb-text', witb.map(elm => elm.text).join('|'));
@@ -529,20 +547,6 @@ if (enhacnedContentJS) {
       document.body.setAttribute('has-comparison', await getCompareTable());
     }
   }
-} else {
-  await context.evaluate(async function (shadowTextApiData) {
-    function addHiddenDiv (id, content) {
-      const newDiv = document.createElement('div');
-      newDiv.id = id;
-      newDiv.textContent = content;
-      newDiv.style.display = 'none';
-      document.body.appendChild(newDiv);
-    }
-    if (shadowTextApiData) {
-      addHiddenDiv('pd_manu_desc', shadowTextApiData);
-    }
-  });
-}
   try {
     await context.evaluate(addWitbandCRT);
   } catch (error) {
