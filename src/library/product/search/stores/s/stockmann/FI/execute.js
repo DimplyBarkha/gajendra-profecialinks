@@ -63,43 +63,43 @@ async function implementation(
   }
 
   // Apply scroll
-  const applyScroll = async function (context) {
-    await context.evaluate(async function () {
-      let scrollTop = 0;
-      while (scrollTop !== 20000) {
-        const doesLoadMoreExists = document.querySelector('div.show-more-wrapper button');
+  // const applyScroll = async function (context) {
+  //   await context.evaluate(async function () {
+  //     let scrollTop = 0;
+  //     while (scrollTop !== 20000) {
+  //       const doesLoadMoreExists = document.querySelector('div.show-more-wrapper button');
 
-        if (doesLoadMoreExists) {
-          console.log('Clicking on load more btn');
-          // @ts-ignore
-          document.querySelector('div.show-more-wrapper button').click();
-          await stall(5000);
-        } else {
-          console.log('load more btn is not present - ' + doesLoadMoreExists);
-          break;
-        }
+  //       if (doesLoadMoreExists) {
+  //         console.log('Clicking on load more btn');
+  //         // @ts-ignore
+  //         document.querySelector('div.show-more-wrapper button').click();
+  //         await stall(5000);
+  //       } else {
+  //         console.log('load more btn is not present - ' + doesLoadMoreExists);
+  //         break;
+  //       }
 
-        const products = document.evaluate('//div[@class="product-grid"]//div[@class="product"]', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        const productsCount = products.snapshotLength;
-        scrollTop += 3000;
-        await stall(2000);
-        window.scroll(0, scrollTop);
-        if (scrollTop >= 80000) {
-          await stall(2000);
-          break;
-        }
-      }
-      function stall(ms) {
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            resolve();
-          }, ms);
-        });
-      }
-    });
-  };
+  //       const products = document.evaluate('//div[@class="product-grid"]//div[@class="product"]', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+  //       const productsCount = products.snapshotLength;
+  //       scrollTop += 3000;
+  //       await stall(2000);
+  //       window.scroll(0, scrollTop);
+  //       if (scrollTop >= 80000) {
+  //         await stall(2000);
+  //         break;
+  //       }
+  //     }
+  //     function stall(ms) {
+  //       return new Promise((resolve, reject) => {
+  //         setTimeout(() => {
+  //           resolve();
+  //         }, ms);
+  //       });
+  //     }
+  //   });
+  // };
 
-  await applyScroll(context);
+  //await applyScroll(context);
 
   console.log('Checking no results', parameters.noResultsXPath);
   return await context.evaluate(function (xp) {

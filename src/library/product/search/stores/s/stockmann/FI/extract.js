@@ -49,6 +49,18 @@ module.exports = {
         appendDiv[i].setAttribute('skudetail', id[i]);
       }
     });
+    await context.evaluate(async function () {
+      let count = document.querySelectorAll('.tile-wrapper').length;
+      while (count <= 150) {
+        if (document.querySelector('.show-more-wrapper>button')) {
+          document.querySelector('.show-more-wrapper>button').click();
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          count = document.querySelectorAll('.tile-wrapper').length;   
+        } else {
+          break;
+        }      
+      }
+    });
 
     return await context.extract(productDetails, { transform });
   },
