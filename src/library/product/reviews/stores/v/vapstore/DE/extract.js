@@ -23,7 +23,11 @@ const transform = (data) => {
           const url = row.mediaURL[0].text;
           row.mediaURL[0].text = 'https://www.vapstore.de/' + url;
         }
-
+        if (row.flavour) {
+          row.flavour.forEach(item => {
+            item.text = item.text.replace("4ER PACK","");
+          });
+        }
         if (row.productFamily) {
           let productFamily1 = '';
           row.productFamily.forEach(item => {
