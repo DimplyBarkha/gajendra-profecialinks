@@ -7,19 +7,17 @@ fields:
     xpath: //div[contains(@class, 'u-margin--bottom')]/form[@class="o-ProductPriceInfo"]/@name
     regExp: buy-(.+)
     regExpReplace: $1
-  - name: rankOrganic
+    # xpath: //div[contains(@class,'hidden@medium')]//form[@data-qa-id="add-to-cart-button"]//input[@name="product"]/@value
   - name: name
     xpath: //h2[@data-qa-id="product-name"]
   - name: productUrl
     xpath: //h2[@data-qa-id="product-name"]/ancestor::a/@href
     regExp: (.+)
     regExpReplace: https://www.shop-apotheke.com$1
-  - name: gtin
   - name: thumbnail
-    xpath: //picture/source/@srcset
-    regExp: (.+),(.+)
-    regExpReplace: $1
-  - name: url
+    xpath: //picture/img/@src | //div[@class="m-ImageWithDiscountBadge"]/img/@src
+    # regExp: (.+),(.+)
+    # regExpReplace: $1
   - name: aggregateRating2
     xpath: //div[@data-qa-id="product-rating"]
     regExp: ((\d+)(\.?)(\d+)?)\svon
@@ -32,6 +30,4 @@ fields:
     xpath: //div[contains(@class, 'u-margin--bottom')]/form/div[2]/div/div/div[@data-qa-id="entry-price"]/span
     regExp: ((\d+)(,?)(\d+)?)
     regExpReplace: $1
-  - name: manufacturer
-  - name: soldBy
-  - name: rank
+  
