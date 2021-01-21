@@ -5,7 +5,7 @@ module.exports = {
     country: 'IT',
     store: 'zalando',
     domain: 'zalando.it',
-    url: 'https://www.zalando.it/bambini/?q={searchTerms}',
+    url: 'https://www.zalando.it/donna/?q={searchTerms}',
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
