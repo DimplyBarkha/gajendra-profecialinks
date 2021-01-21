@@ -9,7 +9,18 @@ const transform = (data, context) => {
       if (row.availabilityText) {
         row.availabilityText = [{ text: 'In Stock' }];
       } else {
-        row.availabilityText = [{ text: 'Out of Stock' }];
+        row.availabilityText = [{ text: 'Out Of Stock' }];
+      }
+      if (row.packSize) {
+        let text = '';
+        row.packSize.forEach(item => {
+          text += item.text.replace(new RegExp('(\\d+\\sPacks?)(.+)', 'g'), '$1');
+        });
+        row.packSize = [
+          {
+            text: text,
+          },
+        ];
       }
     }
   }
@@ -19,8 +30,8 @@ const transform = (data, context) => {
     .replace(/&amp;#160/g, ' ')
     .replace(/\u00A0/g, ' ')
     .replace(/\s{2,}/g, ' ')
-    .replace(/"\s{1,}/g, '"')
-    .replace(/\s{1,}"/g, '"')
+    .replace(/"\s{1,}/g, '" ')
+    .replace(/\s{1,}"/g, ' "')
     .replace(/^ +| +$|( )+/g, ' ')
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')

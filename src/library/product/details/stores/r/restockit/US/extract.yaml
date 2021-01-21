@@ -5,9 +5,9 @@ recordXPath: //div[contains(@class,"main-content")]
 fields:
   - name: image
     description: URL of the main product image
-    xpath: //div[@class="magnifier-thumb-wrapper"]//img/@data-large-img-url
+    xpath: //div[@class="magnifier-thumb-wrapper"]//img/@src
     regExp: (.+)
-    regExpReplace: https://www.restockit.com$1
+    regExpReplace: https://www.restockit.com/$1
   - name: imageAlt
     description: Alt text of the main product image
     xpath: //div[@class="magnifier-thumb-wrapper"]//img/@alt
@@ -22,7 +22,7 @@ fields:
   - name: nameExtended
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: concat(//div[@class="product__brand"]/h1[@itemprop="name"], '',  //div[@class="product__brand"]/p[@class="subtitle"])
+    xpath: concat(//div[@class="product__brand"]/h1[@itemprop="name"],' ',  //div[@class="product__brand"]/p[@class="subtitle"])
   - name: listPrice
     description: The stated undiscounted price for the product
   - name: price
@@ -53,7 +53,7 @@ fields:
     xpath: //div[contains(@class,"product__specs")]//div[contains(@class,"specs-name")][contains(.,"Size")]/following-sibling::div
   - name: weightNet
     description: Net weight as described on the page
-    xpath: //div[contains(@class,"product__specs")]//div[contains(@class,"specs-name")][.="Weight"]/following-sibling::div
+    xpath: //div[contains(@class,"product__specs")]//div[contains(@class,"specs-name")][contains(.,"(Weight)")]/following-sibling::div
   - name: weightGross
     description: Gross weight as described on the page
   - name: gtin
@@ -65,12 +65,12 @@ fields:
   - name: sku
     description: The store-specific product identifier
     xpath: //div[@class="product__brand"]/p[@class="sku"]
-    regExp: (.+:\s?)(\w+)
+    regExp: (.+:\s?)(\w+-?\w+)
     regExpReplace: $2
   - name: variantId
     description: Identifier for a variant from a store where variants share the same sku
     xpath: //div[@class="product__brand"]/p[@class="sku"]
-    regExp: (.+:\s?)(\w+)
+    regExp: (.+:\s?)(\w+-?\w+)
     regExpReplace: $2
   - name: mpc
     description: The manufacturer model code (unique) of the product
