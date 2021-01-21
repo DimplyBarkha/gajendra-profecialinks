@@ -3,7 +3,7 @@ module.exports = {
   parameterValues: {
     domain: "houzz.com",
     prefix: null,
-    url: null,
+    url: "https://www.houzz.com/products/prvw-vr~{id}",
     country: "US",
     store: "houzz",
     zipcode: "",
