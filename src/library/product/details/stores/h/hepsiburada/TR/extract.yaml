@@ -79,7 +79,7 @@ fields:
     xpath: //div[@id="productTechSpecContainer"]//tr[contains(.,'Renk')]//following-sibling::td
   - name: manufacturerDescription
     description: The extended description of the product supplied by the lister
-    xpath: //div[@id="productDescriptionContent"]//text()[not(contains(.,'{'))]
+    xpath: //div[@id="productDescriptionContent"]//text()[not(contains(.,'{'))] | //div[@id="manufacturer_content"]
   - name: manufacturerImages
     description: Images within the third party description
     xpath: //div[@id="productDescriptionContent"]//img//@src[contains(.,'jpg') or contains(.,'png') or contains(.,'')]

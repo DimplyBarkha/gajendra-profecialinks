@@ -45,7 +45,7 @@ const transform = (data) => {
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {
-          text = row.manufacturerDescription.map(elm => elm.text).join(' ');
+          text = row.manufacturerDescription.map(elm => elm.text).join(' ').replace(new RegExp('(.+)(\\s#vir(.+))', 'g'), '$1');
         });
         row.manufacturerDescription = [{ text }];
       }

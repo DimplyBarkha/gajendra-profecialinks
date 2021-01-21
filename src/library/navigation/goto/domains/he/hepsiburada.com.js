@@ -21,6 +21,14 @@ module.exports = {
       return inBox;
     }
 
+    async function getManufacturerDescription (url) {
+      const manufacturerDescription = document.querySelector('#flix-inpage');
+      if (manufacturerDescription && manufacturerDescription.textContent) {
+        const manufacturerContent = manufacturerDescription.textContent.trim();
+        return manufacturerContent.replace(/\s{2,}/g, ' ');
+      }
+    }
+
     async function inBoxUrl (url) {
       // const inBoxImageSelector = 'div.inpage_selector_InTheBox div.flix-background-image img';
       const element = document.querySelectorAll('div.inpage_selector_InTheBox div.flix-background-image img');
@@ -69,9 +77,11 @@ module.exports = {
         try { await context.waitForSelector('div.inpage_selector_InTheBox div.flix-background-image img', { timeout: 90000 }); } catch (error) { console.log(error); }
         const html = await context.evaluate(getHtml, enhancedContentLink);
         const inBoxManufactureUrl = await context.evaluate(inBoxUrl, enhancedContentLink);
+        const manufacturerDescription = await context.evaluate(getManufacturerDescription, enhancedContentLink);
         await context.goto(url);
         await context.evaluate(addHtml, html, 'inboxtext');
         await context.evaluate(addHtml, inBoxManufactureUrl, 'inboxurl');
+        await context.evaluate(addHtml, manufacturerDescription, 'manufacturer_content');
       }
     }
     await context.setBlockAds(false);
