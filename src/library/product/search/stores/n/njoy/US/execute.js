@@ -5,9 +5,9 @@ module.exports = {
     country: 'US',
     store: 'njoy',
     domain: 'shop.njoy.com',
-    url: 'https://shop.njoy.com/search.php?search_query={searchTerms}&section=product',
-    loadedSelector: 'div[data-review-id]:not(.yotpo-hidden),a[class="button confirmm-age"]',
-    noResultsXPath: '//h2[contains(text(),"0 Results Available")]',
+    url: 'https://njoy.com/us/shop/',
+    loadedSelector: 'div.container',
+    noResultsXPath: '//h1[contains(text(),"Sorry, No Results.")]',
     zipcode: '',
   },
 };

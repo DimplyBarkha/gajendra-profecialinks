@@ -1,8 +1,8 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //li[@class='product']
+recordXPath: //div[@class="product-grid"]
 fields:
   - name: productUrl
     singleValue: false
-    xpath: //a[@class='list-item__a']/@href
+    xpath: //div[@class="product-body"]/a/@href
