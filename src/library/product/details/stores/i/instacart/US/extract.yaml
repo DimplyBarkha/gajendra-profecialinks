@@ -4,26 +4,32 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    xpath: //main[@id="main-content"]/div[contains(@class, 'rmq-55d4a504')]/div/div[1]/img/@src
+    xpath: //div[contains(@class, "image-container")]//img/@src
+    # xpath: //main[@id="main-content"]/div[contains(@class, 'rmq-55d4a504')]/div/div[1]/img/@src
   - name: imageAlt
-    description: //main[@id="main-content"]/div[contains(@class, 'rmq-55d4a504')]/div/div[1]/img/@alt
-  # - name: alternateImages
-  #   xpath: //main[@id="main-content"]//div[contains(@class, 'rmq-c76db721')]/div[position()>1]/img/@src
+    xpath: //div[contains(@class, "image-container")]//img/@alt
+  - name: alternateImages
+    xpath: //div[contains(@aria-label, "Item images")]//li[position()>1]//img/@src
+    # xpath: //main[@id="main-content"]//div[contains(@class, 'rmq-c76db721')]/div[position()>1]/img/@src
   - name: metaKeywords
     description: The <meta> keywords content
   - name: category
-    xpath: //div[@aria-label="breadcrumbs"]/div[position()>1]/a|//div[@aria-label="breadcrumbs"]/div[last()]
+    xpath: //div[contains(@aria-label, "breadcrumbs")][@class=""]//a
+    # xpath: //div[@aria-label="breadcrumbs"]/div[position()>1]/a|//div[@aria-label="breadcrumbs"]/div[last()]
   - name: nameExtended
-    xpath: //main[@id="main-content"]/div[4]/div/div[2]/h3
+    xpath: concat(//div[contains(@class, "itemModalHeader")]//h2[contains(@class, "item-title")], " - ", //ul[contains(@aria-labelledby, "variant-selections")]//li//button[contains(@aria-label, "select")])
+    # xpath: //main[@id="main-content"]/div[4]/div/div[2]/h3
   - name: listPrice
+    xpath: //div[contains(@class, "itemModalHeader")]//span[contains(text(), "Original Price:")]/following-sibling::span[contains(@class, "item-full-price")]
     description: The stated undiscounted price for the product
   - name: price
-    xpath: //main[@id="main-content"]/div[contains(@class, 'rmq-ff')]/div/div[@style]/div[1]
-    regExp: (.)(.+)
-    regExpReplace: $2
+    xpath: //div[contains(@class, "item-price")]//span[contains(text(), "Current price:")]/following-sibling::span
+    # xpath: //main[@id="main-content"]/div[contains(@class, 'rmq-ff')]/div/div[@style]/div[1]
+    # regExp: (.)(.+)
+    # regExpReplace: $2
   - name: availabilityText
-    xpath: //section//button[contains(text(), 'Add to Cart')]
-    regExp: Add to Cart
+    xpath: //form//button[contains(text(), 'Add to cart')]
+    regExp: (.*)
     regExpReplace: In stock
     defaultValue: Out of Stock
   - name: description
@@ -32,7 +38,7 @@ fields:
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
-    xpath: //main[@id="main-content"]/div[4]/div/div[2]/h3
+    xpath: //div[contains(@class, "itemModalHeader")]//h2[contains(@class, "item-title")]
     regExp: (^\w+)
     regExpReplace: $1 
   - name: manufacturer
@@ -48,7 +54,7 @@ fields:
   - name: gtin
     description: GTIN code (includes UPC/EAN)
   - name: sku
-    xpath: //meta[@property="og:url"]/@content
+    xpath: //meta[@property="og:url"]/@content|//link[contains(@href, "instacart.com/store/items/item_")]/@href
     regExp: /(\d+)
     regExpReplace: $1 
   - name: variantId
@@ -59,8 +65,10 @@ fields:
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
   - name: directions
-    xpath: //main[@id="main-content"]/div[contains(@class, 'rmq')]/div/div[contains(@style, 'flex:2')]//h3[contains(text(), 'Directions')]/following-sibling::div
+    xpath: //h3[contains(text(),'Directions')]/following-sibling::div
+    # xpath: //main[@id="main-content"]/div[contains(@class, 'rmq')]/div/div[contains(@style, 'flex:2')]//h3[contains(text(), 'Directions')]/following-sibling::div
   - name: warnings
+    xpath: //h3[contains(text(),'Warning')]/following-sibling::div
     description: Content under "warnings" header
   - name: ratingCount
     description: The number of ratings
@@ -93,6 +101,7 @@ fields:
     singleValue: false
     description: URLs of videos on page
   - name: name
+    xpath: //div[contains(@class, "itemModalHeader")]//h2[contains(@class, "item-title")]
     description: The product name
   - name: inStorePrice
     description: Price in the selected store
@@ -172,85 +181,115 @@ fields:
   - name: ingredientsList
     xpath: //h3[contains(text(),'Ingredients')]/following-sibling::div
   - name: servingSize
-    xpath: //main[@id="main-content"]//div[contains(text(), 'Serving Size')]
-    regExp: (Serving Size (.+))
-    regExpReplace: $2
+    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//div[contains(text(), 'Serving Size')]
+    type: NUMBER
   - name: servingSizeUom
-    xpath: //main[@id="main-content"]//div[contains(text(), 'Serving Size')]
+    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//div[contains(text(), 'Serving Size')]
     regExp: (Serving Size (.+) (\w+))
     regExpReplace: $3
   - name: numberOfServingsInPackage
+    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//div[contains(text(), 'Servings Per')]
+    regExp: (Servings Per Container (.+))
+    regExpReplace: $2
     description: Suggested number of servings of the product.
     type: NUMBER
   - name: caloriesPerServing
-    xpath: //main[@id="main-content"]/div[contains(@class, 'rmq')]//ul/li/strong[contains(text(), 'Calories')]/following-sibling::text()[2]
+    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Calories')]/ancestor::li
+    type: NUMBER
   - name: caloriesFromFatPerServing
     description: Nutritional Information for Calories From Fat content - Usually
       based on per 100g serving
     type: NUMBER
   - name: totalFatPerServing
-    xpath: //main[@id="main-content"]/div[contains(@class, 'rmq')]//li/strong[contains(text(), 'Total Fat')]/following-sibling::text()[2]
-    regExp: ((\d+).?(\d+))?(\w)
-    regExpReplace: $1
+    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Total Fat')]/ancestor::li/text()
+    type: NUMBER    
+    # xpath: //main[@id="main-content"]/div[contains(@class, 'rmq')]//li/strong[contains(text(), 'Total Fat')]/following-sibling::text()[2]
+    # regExp: ((\d+).?(\d+))?(\w)
+    # regExpReplace: $1
   - name: totalFatPerServingUom
-    xpath: //main[@id="main-content"]/div[contains(@class, 'rmq')]//li/strong[contains(text(), 'Total Fat')]/following-sibling::text()[2]
-    regExp: ((\d+).?(\d+))?(\w)
-    regExpReplace: $4
+    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Total Fat')]/ancestor::li/text()
+    regExp: ([g|mg|mcg|IU]+$)
+    # xpath: //main[@id="main-content"]/div[contains(@class, 'rmq')]//li/strong[contains(text(), 'Total Fat')]/following-sibling::text()[2]
+    # regExp: ((\d+).?(\d+))?(\w)
+    # regExpReplace: $4
   - name: saturatedFatPerServing
+    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//li[contains(text(), 'Saturated Fat')]/text()[not(.="Saturated Fat")]
+    regExp: >-   
+      [0-9,<,.]+
     description: Nutritional Information for Saturated Fat content - Usually based
       on per 100g serving
     type: NUMBER
   - name: saturatedFatPerServingUom
+    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//li[contains(text(), 'Saturated Fat')]/text()[not(.="Saturated Fat")]
+    regExp: ([g|mg|mcg|IU]+$)
     description: Unit of Measure Data for Saturated Fat content
   - name: transFatPerServing
+    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//li[contains(text(), 'Trans Fat')]
+    regExp: >-   
+      [0-9,<,.]+
     description: Nutritional Information for Trans Fat content - Usually based on
       per 100g serving
     type: NUMBER
   - name: transFatPerServingUom
     description: Unit of Measure Data for Trans Fat content
+    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//li[contains(text(), 'Trans Fat')]
+    regExp: ([g|mg|mcg|IU]+$)
   - name: cholesterolPerServing
+    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Cholesterol')]/ancestor::li/text()[not(.=" ")]
     description: Nutritional Information for Cholesterol content - Usually based on
       per 100g serving
     type: NUMBER
   - name: cholesterolPerServingUom
     description: Unit of Measure Data for Cholesterol content
+    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Cholesterol')]/ancestor::li/text()[not(.=" ")]
+    regExp: (?:([\d\.]+)\s?(\w+))
+    regExpReplace: $2    
   - name: sodiumPerServing
-    xpath: //main[@id="main-content"]/div[contains(@class, 'rmq')]//li/strong[contains(text(), 'Sodium')]/following-sibling::text()[2]
+    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Sodium')]/ancestor::li/text()
     regExp: ((\d+).?(\d+))?(\w)
     regExpReplace: $1
   - name: sodiumPerServingUom
-    xpath: //main[@id="main-content"]/div[contains(@class, 'rmq')]//li/strong[contains(text(), 'Sodium')]/following-sibling::text()[2]
+    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Sodium')]/ancestor::li/text()
     regExp: ((\d+).?(\d+))?(\w+)
     regExpReplace: $4
   - name: totalCarbPerServing
-    xpath: //main[@id="main-content"]/div[contains(@class, 'rmq')]//li/strong[contains(text(), 'Total Carb')]/following-sibling::text()[2]
+    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Total Carbohydrate')]/ancestor::li/text()
     regExp: ((\d+).?(\d+))?(\w)
     regExpReplace: $1
   - name: totalCarbPerServingUom
-    xpath: //main[@id="main-content"]/div[contains(@class, 'rmq')]//li/strong[contains(text(), 'Total Carb')]/following-sibling::text()[2]
+    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Total Carbohydrate')]/ancestor::li/text()
     regExp: ((\d+).?(\d+))?(\w)
     regExpReplace: $4
   - name: dietaryFibrePerServing
-    xpath: //main[@id="main-content"]//ul[2]/div[4]/li[contains(text(), 'Dietary')]/text()[3]
-    regExp: ((\d+).?(\d+))?(\w)
-    regExpReplace: $1
+    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//li[contains(text(), 'Dietary Fiber')]/text()[not(.="Dietary Fiber")]
+    type: NUMBER
+    # regExp: ((\d+).?(\d+))?(\w)
+    # regExpReplace: $1
   - name: dietaryFibrePerServingUom
-    xpath: //main[@id="main-content"]//ul[2]/div[4]/li[contains(text(), 'Dietary')]/text()[3]
-    regExp: ((\d+).?(\d+))?(\w)
-    regExpReplace: $4
+    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//li[contains(text(), 'Dietary Fiber')]/text()[not(.="Dietary Fiber")]
+    regExp: ([g|mg|mcg|IU]+$)
+    # regExp: ((\d+).?(\d+))?(\w)
+    # regExpReplace: $4
   - name: totalSugarsPerServing
-    xpath: //main[@id="main-content"]//ul[2]/div[4]/li[contains(text(), 'Sugars')]/text()[3]
-    regExp: ((\d+).?(\d+))?(\w)
-    regExpReplace: $1
+    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//li[contains(text(), 'Sugars')]/text()[not(.="Sugars")]
+    type: NUMBER
+    # regExp: ((\d+).?(\d+))?(\w)
+    # regExpReplace: $1
   - name: totalSugarsPerServingUom
-    xpath: //main[@id="main-content"]//ul[2]/div[4]/li[contains(text(), 'Sugars')]/text()[3]
-    regExp: ((\d+).?(\d+))?(\w)
-    regExpReplace: $4
+    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//li[contains(text(), 'Sugars')]/text()[not(.="Sugars")]
+    regExp: ([g|mg|mcg|IU]+$)
+    # regExp: ((\d+).?(\d+))?(\w)
+    # regExpReplace: $4
   - name: proteinPerServing
+    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Protein')]/ancestor::li/text()
     description: Nutritional Information for Protein content - Usually based on per
       100g serving
     type: NUMBER
   - name: proteinPerServingUom
+    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Protein')]/ancestor::li/text()
+    regExp: ([g|mg|mcg|IU]+$)
+    # regExp: ((\d+).?(\d+))?(\w)
+    # regExpReplace: $4
     description: Unit of Measure Data for Protein
   - name: vitaminAPerServing
     description: Nutritional Information for Vitamin A content - Usually based on
