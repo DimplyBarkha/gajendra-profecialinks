@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@data-selector="splp-prd-lst-plpo"]//div/article | //div[contains(@class , "ProductDetailsWrapper")] | //div[contains(@id ,"pd_row")]
+recordXPath: //div[@data-selector="splp-prd-lst-plpo"]//div/article | //div[contains(@id ,"pd_row")] | //div[contains(@class , "ProductDetailsWrapper")]
 fields:
   - name: productUrl
     singleValue: false
@@ -29,7 +29,7 @@ fields:
     xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@aria-label="product details"]//div[@data-selector="splp-prd-act-$"] | //div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@aria-label="product details"]//div[@data-selector="splp-prd-rng"] | //span[@class="finalPrice"]/div | //div[@class="prdt-actl-pr"]
   - name: id
     singleValue: false
-    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@data-selector="splp-prd-tl-img"]//@id | //div[@id='idDetails'] | //div[@data-selector="splp-prd-tl-img"]/@id
+    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@data-selector="splp-prd-tl-img"]//@id | //div[@id='idDetails'] | //div[@data-selector="splp-prd-tl-img"]/@id | //div[contains(@class , "ProductDetailsWrapper")]//div[@id='idDetails']
   - name: aggregateRating2
     singleValue: false
     xpath: //div[@data-selector="splp-prd-lst-plpo"]//div/article//div[contains(@class,"styles__RatingDiv")]//@aria-label | (//div[contains(@class , "ProductDetailsWrapper")]//div[contains(@class,"styles__RatingDiv")]//@aria-label)[1] | //div[@class="rating-tooltip"]/div/@aria-label
