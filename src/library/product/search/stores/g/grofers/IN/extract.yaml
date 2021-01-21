@@ -1,11 +1,14 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="plp-product"]
+recordXPath: //a[@data-test-id='plp-product']
 fields:
   - name: id
     SingleValue: false
     xpath: //a[@class="product__wrapper"]/@href
+    #prid/443258
+    regExp: prid/(.+)
+    regExpReplace: $1
   - name: productUrl
     SingleValue: false
     xpath: //a[@class="product__wrapper"]/@href
