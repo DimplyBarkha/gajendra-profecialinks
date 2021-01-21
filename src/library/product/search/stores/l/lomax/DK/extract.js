@@ -10,30 +10,40 @@ module.exports = {
   },
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     await context.evaluate(async function () {
-      function addElementToDocument(key, value) {
-        const catElement = document.createElement('div');
-        catElement.id = key;
-        catElement.textContent = value;
-        catElement.style.display = 'none';
-        document.body.appendChild(catElement);
+      function addHiddenDiv(id, content, index) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        const originalDiv = document.querySelectorAll("a[class='product-link'] h5")[index];
+        originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
-      const getXpath = (xpath, prop) => {
-        const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
-        let result;
-        if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
-        else result = elem ? elem.singleNodeValue : '';
-        return result && result.trim ? result.trim() : result;
-      };
-      const aggr = getXpath("//div[@class='product-info border-bottom py-3']/@data-gtm-rating", 'nodeValue');
-      try {
-        if (aggr != null) {
-          let str = aggr
-          var a = str.replace('.', ',')
-          addElementToDocument('aggr', a)
+      const getAllXpath = (xpath, prop) => {
+        const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        const result = [];
+        for (let index = 0; index < nodeSet.snapshotLength; index++) {
+          const element = nodeSet.snapshotItem(index);
+          if (element) result.push(prop ? element[prop] : element.nodeValue);
         }
+        return result;
+      };
+      const aggr = getAllXpath('//div[@class="product-info border-bottom py-3 "]/@data-gtm-rating', 'nodeValue');
+      for (let i = 0; i < aggr.length; i++) {
+        // @ts-ignore
+        let str = aggr[i];
+        var a = str.replace('.', ',')
+        addHiddenDiv('aggr', a, i)
       }
-      catch (error) {
-      }
+      //const aggr = getAllXpath('//div[@class="product-info border-bottom py-3 col-xxl-3 col-md-4 col-6 border-right"]/@data-gtm-rating', 'nodeValue');
+      //try {
+      // if (aggr != null) {
+      // let str = aggr
+      //     var a = str.replace('.', ',')
+      //     addElementToDocument('aggr', a)
+      //   }
+      // }
+      // catch (error) {
+      // }
     });
     return await context.extract(productDetails, { transform });
   },
