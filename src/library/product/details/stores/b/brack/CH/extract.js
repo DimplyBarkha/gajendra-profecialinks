@@ -19,6 +19,38 @@ module.exports = {
     // extracting single product/variant data
     const extractSingleProductData = async () => {
       await context.evaluate(async () => {
+        let scrollTop = 0;
+        while (scrollTop !== 15000) {
+          await stall(1000);
+          scrollTop += 1000;
+          window.scroll(0, scrollTop);
+          if (scrollTop === 15000) {
+            await stall(1000);
+            break;
+          }
+        }
+        function stall (ms) {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve();
+            }, ms);
+          });
+        }
+
+        const body = document.querySelector('body');
+        const productInfoJSON = document.querySelector('div.pdp__stage script[type="application/ld+json"]');
+        if (productInfoJSON) {
+          const productInfo = JSON.parse(productInfoJSON.textContent);
+          if (productInfo.aggregateRating) {
+            const rating = productInfo.aggregateRating.ratingValue;
+            const ratingCount = productInfo.aggregateRating.ratingCount;
+            const reviewCount = productInfo.aggregateRating.reviewCount;
+            body.setAttribute('rating', rating);
+            body.setAttribute('ratingcount', ratingCount);
+            body.setAttribute('reviewcount', reviewCount);
+          }
+        }
+
         const topDescriptionBullets = document.querySelectorAll('div.productStage__infoText li');
         let generalDescription = '';
         if (topDescriptionBullets && topDescriptionBullets.length > 0) {
@@ -50,7 +82,7 @@ module.exports = {
           bottomDescriptionBox.setAttribute('manufacturerdesc', manufacturerDesc);
           generalDescription += '|' + manufacturerDesc;
         }
-        document.querySelector('body').setAttribute('description', generalDescription);
+        body.setAttribute('description', generalDescription);
       });
 
       dataRef = dataRef.concat(await context.extract(productDetails, { transform }));

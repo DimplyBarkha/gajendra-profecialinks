@@ -89,7 +89,9 @@ fields:
 - name: gtin
   singleValue: true
   description: GTIN code (includes UPC/EAN)
-  # xpath: //th[text()="Herstellernummer"]/following-sibling::td[1]
+  xpath: //script[@type="application/ld+json" and contains(text(), "gtin8")]
+  regExp: ("gtin8"[:]) "(.+?)"
+  regExpReplace: $2
 - name: sku
   singleValue: true
   description: The store-specific product identifier
@@ -123,15 +125,19 @@ fields:
 - name: ratingCount
   singleValue: true
   description: The number of ratings
-  xpath: //span[@class="num__ratings"]
+  # xpath: //span[@class="num__ratings"] || //body/@reviewcount
+  xpath: //body/@ratingcount
   regExp: \d+
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
+  # xpath: //span[@class="total__rating"] || //body/@rating
+  xpath: //body/@rating
 - name: aggregateRating
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
-  xpath: //span[@class="total__rating"]
+  # xpath: //span[@class="total__rating"] || //body/@rating
+  xpath: //body/@rating
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
@@ -502,6 +508,7 @@ fields:
 - name: variantInformation
   singleValue: true
   description: colour / scent / flavour / other
+  xpath: //span[@class="productStage__variants__label"]
 - name: firstVariant
   singleValue: true
   description: Unique identifier for a collection of variants. For a subset of core
@@ -515,7 +522,8 @@ fields:
 - name: variants
   singleValue: false
   description: 
-  xpath: //div[@class="variant__itemWrap"]
+  xpath: //form[@id="AddToCartForm"]//li[contains(@class, "productStage__variantItem")]/a/@href
+  regExp: (\d+)$
 - name: additionalDescBulletInfo
   singleValue: false
   description: 
@@ -540,7 +548,7 @@ fields:
 - name: termsAndConditions
   singleValue: true
   description: Terms and conditions information text ['Yes','No']
-  defaultValue: "No"
+  defaultValue: "Yes"
 - name: privacyPolicy
   singleValue: true
   description: Privacy Policy information text ['Yes','No']
