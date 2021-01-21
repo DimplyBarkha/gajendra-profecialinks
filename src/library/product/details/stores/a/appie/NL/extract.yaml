@@ -13,7 +13,7 @@ fields:
   - name: category
     xpath: //nav[@aria-label="Breadcrumb"]/ol/li[position()>1]
   - name: nameExtended
-    xpath: //div[@class="product-card-header_root__1GTl1"]/h1
+    xpath: concat(//div[@class="product-card-header_root__1GTl1"]/h1," ",//div[contains(@class,"product-card-header")]/text())
   - name: listPrice
     xpath: //div[contains(@class, 'price_root')]//div[contains(@class, 'price-amount_was')]
   - name: price

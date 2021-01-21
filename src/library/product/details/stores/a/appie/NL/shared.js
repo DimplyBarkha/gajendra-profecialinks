@@ -8,7 +8,7 @@ const transform = (data, context) => {
     for (const row of group) {
       if (row.description) {
         for (let i = 1; i < row.description.length; i++) {
-          row.description[i].text = `|| ${row.description[i].text}`;
+          row.description[i].text = `| ${row.description[i].text}`;
         }
       }
 
