@@ -28,7 +28,7 @@ module.exports = {
   newDiv.textContent = content;
   newDiv.style.display = 'none';
   const originalDiv = document.querySelectorAll('div[class="rating-box"] div[class="rating-stars"]')[index];
-  originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+  // originalDiv.parentNode.insertBefore(newDiv, originalDiv);
   }
   var arr1 = getAllXpath('//div[@class="article-metadata"]//span[@class="article-price-default article-club-hidden"]/text()', 'nodeValue');
   if(arr1!= null) {
