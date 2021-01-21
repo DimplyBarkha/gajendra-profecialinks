@@ -2,7 +2,7 @@ input:
   keywords: bier
   _url: http://mpreis.at
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=cc0aa6d8-006f-45f1-b2a8-62792942c15d/task=a04c8681-6d2b-415b-9721-b5cb755c3492/24ffed61-204e-47b1-86e8-9f3ece7484ce.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=3ad8dd0d-da58-4105-9b0f-cee35265e645/task=1cc7b755-fa17-45c3-8f42-fc407c2f3511/0d102fe8-cb55-4920-8fef-323f949e1c04.html
     extractionConfigId: product/search/stores/m/mpreis/AT/extract
     data:
       - group:
@@ -19,8 +19,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1587878047/mpreis/products/1650431.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[1]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.89 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[1]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,89 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[1]/@priceid
           - id:
               - text: 26de2fe5b620b86b83bb8da11eefcc1c
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[2]/form[1]/input[6]/@id
@@ -34,8 +34,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1591195448/mpreis/products/2244260.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[2]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 6.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[2]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 6,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[2]/@priceid
           - id:
               - text: 3908e9391bab550a3c2a079fc4f75a0a
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[3]/form[1]/input[6]/@id
@@ -49,8 +49,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_801109.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[3]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 0.45 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[3]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 0,45 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[3]/@priceid
           - id:
               - text: d6b58e0aa3e32838c1af6b57698763a2
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[4]/form[1]/input[6]/@id
@@ -64,8 +64,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1601510872/mpreis/products/2342442.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[4]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 2.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[4]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 2,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[4]/@priceid
           - id:
               - text: ff0d709264af9ee1e1c55b8888f933b4
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[5]/form[1]/input[6]/@id
@@ -79,8 +79,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_544507.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[5]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[5]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[5]/@priceid
           - id:
               - text: ac751afd5eb113e9b93c9a15d9fe7c20
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[6]/form[1]/input[6]/@id
@@ -94,8 +94,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1587875231/mpreis/products/1385636.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[6]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.03 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[6]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,03 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[6]/@priceid
           - id:
               - text: 51e01245fb1da109adac3b4dd09e1ed0
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[7]/form[1]/input[6]/@id
@@ -109,8 +109,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588937670/mpreis/products/2221409.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[7]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.35 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[7]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,35 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[7]/@priceid
           - id:
               - text: 1171bdbf71739beb79ee4126f39f4c94
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[8]/form[1]/input[6]/@id
@@ -124,8 +124,8 @@ extractions:
               - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[8]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 6.49 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[8]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 6,49 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[8]/@priceid
           - id:
               - text: 80ff19ee5a468f18e28b420d626eb8d3
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[9]/form[1]/input[6]/@id
@@ -139,8 +139,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1590083574/mpreis/products/2038898.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[9]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.39 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[9]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,39 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[9]/@priceid
           - id:
               - text: 123e2355e6c49e2cd5a737e6e6a125f2
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[10]/form[1]/input[6]/@id
@@ -154,8 +154,8 @@ extractions:
               - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/602845_i01.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[10]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 8.94 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[10]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 8,94 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[10]/@priceid
           - id:
               - text: 458410e5a566de229b62018dd90683b2
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[11]/form[1]/input[6]/@id
@@ -169,8 +169,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588938791/mpreis/products/2035153.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[11]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.49 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[11]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,49 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[11]/@priceid
           - id:
               - text: a7d572f90a176f950e4f51f9082d32a2
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[12]/form[1]/input[6]/@id
@@ -184,8 +184,8 @@ extractions:
               - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/103609_i01.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[12]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 19.20 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[12]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 19,20 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[12]/@priceid
           - id:
               - text: 8bf6afd8f9c4fe1c16e18fb71a1e1f20
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[13]/form[1]/input[6]/@id
@@ -199,8 +199,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1587875142/mpreis/products/1385647.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[13]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 0.95 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[13]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 0,95 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[13]/@priceid
           - id:
               - text: fd1f331c24dfd854ec03e36131c339ee
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[14]/form[1]/input[6]/@id
@@ -214,8 +214,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1587875144/mpreis/products/1385617.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[14]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 15.50 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[14]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 15,50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[14]/@priceid
           - id:
               - text: eb0131abc8f29f57bf3476fad4a3179a
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[15]/form[1]/input[6]/@id
@@ -229,8 +229,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_103637.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[15]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.89 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[15]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,89 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[15]/@priceid
           - id:
               - text: ea99d85a2d320740543442cebec968df
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[16]/form[1]/input[6]/@id
@@ -244,8 +244,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1591202094/mpreis/products/2244458.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[16]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.79 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[16]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,79 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[16]/@priceid
           - id:
               - text: caa8c572e40067b5dee2a40436469339
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[17]/form[1]/input[6]/@id
@@ -259,8 +259,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1587875231/mpreis/products/1385636.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[17]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 24.72 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[17]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 24,72 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[17]/@priceid
           - id:
               - text: 8a2a4ed9ad8e802064687c6876d8e51d
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[18]/form[1]/input[6]/@id
@@ -274,8 +274,8 @@ extractions:
               - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/103601_i01.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[18]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 22.80 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[18]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 22,80 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[18]/@priceid
           - id:
               - text: fb6495a9e6ead003be66b465d51d21e0
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[19]/form[1]/input[6]/@id
@@ -289,8 +289,8 @@ extractions:
               - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/103604_i01.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[19]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.20 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[19]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,20 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[19]/@priceid
           - id:
               - text: 628b32cca50b1bb9f2494ff0bd02f740
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[20]/form[1]/input[6]/@id
@@ -304,8 +304,8 @@ extractions:
               - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[20]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 0.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[20]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 0,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[20]/@priceid
           - id:
               - text: 1f562a48f988f99161c486c9b8a3dcbb
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[21]/form[1]/input[6]/@id
@@ -319,8 +319,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588937791/mpreis/products/1535503.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[21]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 14.70 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[21]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 14,70 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[21]/@priceid
           - id:
               - text: a70d4970c87a1c44e8e5ad050956605f
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[22]/form[1]/input[6]/@id
@@ -334,8 +334,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588937825/mpreis/products/1385397.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[22]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 5.79 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[22]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 5,79 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[22]/@priceid
           - id:
               - text: 4cb1443f6517af5e0e60712db94e8838
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[23]/form[1]/input[6]/@id
@@ -349,8 +349,8 @@ extractions:
               - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/103608_i01.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[23]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.19 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[23]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,19 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[23]/@priceid
           - id:
               - text: b7954697041c2d1144fe30c9d396fcbe
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[24]/form[1]/input[6]/@id
@@ -364,68 +364,68 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1587875134/mpreis/products/1423351.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[24]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.15 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[24]/form[1]/div[2]/div[1]/a[1]/strong[1]
-          - id:
-              - text: 3902a6303fcf86a06a3f3c4899921bc4
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[25]/form[1]/input[6]/@id
-            name:
-              - text: Starkenberger Tiroler Märzen 9er
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[25]/form[1]/div[2]/a[1]/h2[1]
-            productUrl:
-              - text: https://shop.mpreis.at/Getraenke/Alkoholische-Getraenke/Bier/Bier/Starkenberger-Tiroler-Maerzen-9er.html?listtype=search&searchparam=bier
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[25]/form[1]/div[2]/div[1]/a[1]/@href
-            thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1599609744/mpreis/products/2346873.jpg
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[25]/form[1]/div[1]/a[1]/img[1]/@src
-            price:
-              - text: 6.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[25]/form[1]/div[2]/div[1]/a[1]/strong[1]
-          - id:
-              - text: bfd59d8059bb3b68b1878dc1ed7af447
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[26]/form[1]/input[6]/@id
-            name:
-              - text: Zipfer Urtyp EW 6x0,33 lt.
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[26]/form[1]/div[2]/a[1]/h2[1]
-            productUrl:
-              - text: https://shop.mpreis.at/Getraenke/Alkoholische-Getraenke/Bier/Bier/Zipfer-Urtyp-EW-6x0-33-lt.html?listtype=search&searchparam=bier
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[26]/form[1]/div[2]/div[1]/a[1]/@href
-            thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_801079.jpg
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[26]/form[1]/div[1]/a[1]/img[1]/@src
-            price:
-              - text: 5.79 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[26]/form[1]/div[2]/div[1]/a[1]/strong[1]
-          - id:
-              - text: c2a7061831f5bf18aa7dfafb6816b7ac
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[27]/form[1]/input[6]/@id
-            name:
-              - text: Peroni Nastro Azzurro 3x330 ml (*)
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[27]/form[1]/div[2]/a[1]/h2[1]
-            productUrl:
-              - text: https://shop.mpreis.at/Getraenke/Alkoholische-Getraenke/Bier/Bier/Peroni-Nastro-Azzurro-3x330-ml.html?listtype=search&searchparam=bier
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[27]/form[1]/div[2]/div[1]/a[1]/@href
-            thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1605057383/mpreis/products/2461275.jpg
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[27]/form[1]/div[1]/a[1]/img[1]/@src
-            price:
-              - text: 3.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[27]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,15 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[24]/@priceid
           - id:
               - text: 5e9675dac3deabe8b8796cf537370f28
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[28]/form[1]/input[6]/@id
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[25]/form[1]/input[6]/@id
             name:
               - text: Zipfer Märzen 12er EW
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[28]/form[1]/div[2]/a[1]/h2[1]
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[25]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
               - text: https://shop.mpreis.at/Getraenke/Alkoholische-Getraenke/Bier/Bier/Zipfer-Maerzen-12er-EW.html?listtype=search&searchparam=bier
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[28]/form[1]/div[2]/div[1]/a[1]/@href
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[25]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588937791/mpreis/products/1384816.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[25]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 13,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[25]/@priceid
+          - id:
+              - text: 3902a6303fcf86a06a3f3c4899921bc4
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[26]/form[1]/input[6]/@id
+            name:
+              - text: Starkenberger Tiroler Märzen 9er
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[26]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Alkoholische-Getraenke/Bier/Bier/Starkenberger-Tiroler-Maerzen-9er.html?listtype=search&searchparam=bier
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[26]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1599609744/mpreis/products/2346873.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[26]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 6,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[26]/@priceid
+          - id:
+              - text: bfd59d8059bb3b68b1878dc1ed7af447
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[27]/form[1]/input[6]/@id
+            name:
+              - text: Zipfer Urtyp EW 6x0,33 lt.
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[27]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Alkoholische-Getraenke/Bier/Bier/Zipfer-Urtyp-EW-6x0-33-lt.html?listtype=search&searchparam=bier
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[27]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_801079.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[27]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 5,79 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[27]/@priceid
+          - id:
+              - text: c2a7061831f5bf18aa7dfafb6816b7ac
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[28]/form[1]/input[6]/@id
+            name:
+              - text: Peroni Nastro Azzurro 3x330 ml (*)
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[28]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Alkoholische-Getraenke/Bier/Bier/Peroni-Nastro-Azzurro-3x330-ml.html?listtype=search&searchparam=bier
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[28]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1605057383/mpreis/products/2461275.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[28]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 13.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[28]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 3,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[28]/@priceid
           - id:
               - text: 032334ab45d3b6e07a85b8897de426fb
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[29]/form[1]/input[6]/@id
@@ -439,8 +439,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_800984.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[29]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 0.69 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[29]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 0,69 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[29]/@priceid
           - id:
               - text: 0551696e6b22ec771160e3d4c9e5d8ea
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[30]/form[1]/input[6]/@id
@@ -454,8 +454,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_122818.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[30]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.59 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[30]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,59 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[30]/@priceid
           - id:
               - text: 527c1ffd282f6e8d26259cd99628fa6e
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[31]/form[1]/input[6]/@id
@@ -469,8 +469,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1591202557/mpreis/products/1623003.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[31]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 5.60 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[31]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 5,60 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[31]/@priceid
           - id:
               - text: 5dc94ff41b189f5f10b1b7bbcd1866f3
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[32]/form[1]/input[6]/@id
@@ -484,8 +484,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588937790/mpreis/products/2166964.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[32]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.49 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[32]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,49 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[32]/@priceid
           - id:
               - text: 0c67dcd5030c98c08305f3e1549789aa
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[33]/form[1]/input[6]/@id
@@ -499,8 +499,8 @@ extractions:
               - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[33]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 8.94 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[33]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 8,94 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[33]/@priceid
           - id:
               - text: 551812ecf26103adaf59a1dd5f34fd77
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[34]/form[1]/input[6]/@id
@@ -514,8 +514,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1587875166/mpreis/products/1384796.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[34]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.25 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[34]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,25 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[34]/@priceid
           - id:
               - text: b029185a5c4a04fcae23bbe859d3f640
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[35]/form[1]/input[6]/@id
@@ -529,8 +529,8 @@ extractions:
               - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/105556_i01.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[35]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.29 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[35]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,29 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[35]/@priceid
           - id:
               - text: 2a0f52186c6c1ab6e63a85a0980d5d7b
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[36]/form[1]/input[6]/@id
@@ -544,53 +544,53 @@ extractions:
               - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[36]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 3.59 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[36]/form[1]/div[2]/div[1]/a[1]/strong[1]
-          - id:
-              - text: 5952f570c620b5635eea2213ead81b31
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[37]/form[1]/input[6]/@id
-            name:
-              - text: Zipfer Hops Bi.Orange 6x0,33l Tray EW
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[37]/form[1]/div[2]/a[1]/h2[1]
-            productUrl:
-              - text: https://shop.mpreis.at/Getraenke/Alkoholische-Getraenke/Bier/Radler/Zipfer-Hops-Bi-Orange-6x0-33l-Tray-EW.html?listtype=search&searchparam=bier
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[37]/form[1]/div[2]/div[1]/a[1]/@href
-            thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1591194650/mpreis/products/2246272.jpg
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[37]/form[1]/div[1]/a[1]/img[1]/@src
-            price:
-              - text: 5.70 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[37]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 3,59 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[36]/@priceid
           - id:
               - text: 0a405ad67a827878bdf2db57656b1106
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[38]/form[1]/input[6]/@id
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[37]/form[1]/input[6]/@id
             name:
               - text: Clausthaler Original alkoholfrei Dose
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[38]/form[1]/div[2]/a[1]/h2[1]
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[37]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
               - text: https://shop.mpreis.at/Getraenke/Alkoholische-Getraenke/Bier/alkoholfreies-Bier/Clausthaler-Original-alkoholfrei-Dose.html?listtype=search&searchparam=bier
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[38]/form[1]/div[2]/div[1]/a[1]/@href
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[37]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1598014840/mpreis/products/2309172.jpg
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[38]/form[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[37]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 0.89 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[38]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 0,89 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[37]/@priceid
           - id:
               - text: 0da51923cef669d04b29fc3b784c4030
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[39]/form[1]/input[6]/@id
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[38]/form[1]/input[6]/@id
             name:
               - text: Original Oettinger alkoholfrei Dose
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[39]/form[1]/div[2]/a[1]/h2[1]
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[38]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
               - text: https://shop.mpreis.at/Getraenke/Alkoholische-Getraenke/Bier/alkoholfreies-Bier/Original-Oettinger-alkoholfrei-Dose.html?listtype=search&searchparam=bier
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[39]/form[1]/div[2]/div[1]/a[1]/@href
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[38]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_801014.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[38]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 0,39 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[38]/@priceid
+          - id:
+              - text: 5952f570c620b5635eea2213ead81b31
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[39]/form[1]/input[6]/@id
+            name:
+              - text: Zipfer Hops Bi.Orange 6x0,33l Tray EW
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[39]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Alkoholische-Getraenke/Bier/Radler/Zipfer-Hops-Bi-Orange-6x0-33l-Tray-EW.html?listtype=search&searchparam=bier
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[39]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1591194650/mpreis/products/2246272.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[39]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 0.39 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[39]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 5,70 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[39]/@priceid
           - id:
               - text: ee3ccad2fc2c648df7321f912ee83ef7
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[40]/form[1]/input[6]/@id
@@ -604,83 +604,83 @@ extractions:
               - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[40]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 5.70 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[40]/form[1]/div[2]/div[1]/a[1]/strong[1]
-          - id:
-              - text: 1e9ed82e6308bc775cb2ee5180e0984b
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[41]/form[1]/input[6]/@id
-            name:
-              - text: San Miguel 0,33l (*)
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[41]/form[1]/div[2]/a[1]/h2[1]
-            productUrl:
-              - text: https://shop.mpreis.at/Getraenke/Alkoholische-Getraenke/Bier/Bier/San-Miguel-0-33l.html?listtype=search&searchparam=bier
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[41]/form[1]/div[2]/div[1]/a[1]/@href
-            thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1597708833/mpreis/products/2246049.jpg
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[41]/form[1]/div[1]/a[1]/img[1]/@src
-            price:
-              - text: 1.49 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[41]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 5,70 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[40]/@priceid
           - id:
               - text: 42077bece3532538aa3e6c5751cf4181
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[42]/form[1]/input[6]/@id
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[41]/form[1]/input[6]/@id
             name:
               - text: Delirium Tremens EW 0,33lt. (*)
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[42]/form[1]/div[2]/a[1]/h2[1]
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[41]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
               - text: https://shop.mpreis.at/Getraenke/Alkoholische-Getraenke/Bier/Bier/Delirium-Tremens-EW-0-33lt.html?listtype=search&searchparam=bier
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[42]/form[1]/div[2]/div[1]/a[1]/@href
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[41]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
               - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[42]/form[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[41]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 3.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[42]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 3,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[41]/@priceid
           - id:
               - text: debf47629ca57ab03c5fa568045d6e7c
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[43]/form[1]/input[6]/@id
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[42]/form[1]/input[6]/@id
             name:
               - text: Bitburger Pils Dose
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[43]/form[1]/div[2]/a[1]/h2[1]
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[42]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
               - text: https://shop.mpreis.at/Getraenke/Alkoholische-Getraenke/Bier/Bier/Bitburger-Pils-Dose.html?listtype=search&searchparam=bier
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[43]/form[1]/div[2]/div[1]/a[1]/@href
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[42]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_105552.jpg
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[43]/form[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[42]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.29 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[43]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,29 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[42]/@priceid
           - id:
               - text: dfa3331d55fa6bcc26b5bc75483f69b0
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[44]/form[1]/input[6]/@id
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[43]/form[1]/input[6]/@id
             name:
               - text: Warsteiner Premium Dose 0,5 lt.
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[44]/form[1]/div[2]/a[1]/h2[1]
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[43]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
               - text: https://shop.mpreis.at/Getraenke/Alkoholische-Getraenke/Bier/Bier/Warsteiner-Premium-Dose-0-5-lt.html?listtype=search&searchparam=bier
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[44]/form[1]/div[2]/div[1]/a[1]/@href
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[43]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1597708868/mpreis/products/2246045.jpg
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[44]/form[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[43]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.19 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[44]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,19 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[43]/@priceid
           - id:
               - text: 0d2f455b81c725550f9d0ee7c31e3211
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[45]/form[1]/input[6]/@id
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[44]/form[1]/input[6]/@id
             name:
               - text: Zipfer Hops 4x0,5l Dose
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[45]/form[1]/div[2]/a[1]/h2[1]
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[44]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
               - text: https://shop.mpreis.at/Getraenke/Alkoholische-Getraenke/Bier/Radler/Zipfer-Hops-4x0-5l-Dose.html?listtype=search&searchparam=bier
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[45]/form[1]/div[2]/div[1]/a[1]/@href
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[44]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_103743.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[44]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 5,70 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[44]/@priceid
+          - id:
+              - text: 1e9ed82e6308bc775cb2ee5180e0984b
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[45]/form[1]/input[6]/@id
+            name:
+              - text: San Miguel 0,33l (*)
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[45]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Getraenke/Alkoholische-Getraenke/Bier/Bier/San-Miguel-0-33l.html?listtype=search&searchparam=bier
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[45]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1597708833/mpreis/products/2246049.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[45]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 5.70 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[45]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,49 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[45]/@priceid
           - id:
               - text: 0ca14bd3c285cddf923b87ba27650629
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[46]/form[1]/input[6]/@id
@@ -694,8 +694,8 @@ extractions:
               - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[46]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[46]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[46]/@priceid
           - id:
               - text: aebbcec345e8b5cd6c489dd700930379
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[47]/form[1]/input[6]/@id
@@ -709,8 +709,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588942681/mpreis/products/2209417.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[47]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 2.49 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[47]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 2,49 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[47]/@priceid
           - id:
               - text: 654873fed42db7141b266a571e9f24a4
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[48]/form[1]/input[6]/@id
@@ -724,8 +724,8 @@ extractions:
               - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[48]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 0.89 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[48]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 0,89 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[48]/@priceid
           - id:
               - text: 2ba46443be6a1f2580fa9e8fd2160ea8
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[49]/form[1]/input[6]/@id
@@ -739,8 +739,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_103622.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[49]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 0.65 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[49]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 0,65 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[49]/@priceid
           - id:
               - text: e745fbfc1d546a90e4827b89160a5173
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[50]/form[1]/input[6]/@id
@@ -754,8 +754,8 @@ extractions:
               - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[50]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 13.20 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[50]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 13,20 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[50]/@priceid
           - id:
               - text: 00bf54699812ee415626c92f2bd2c7be
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[51]/form[1]/input[6]/@id
@@ -769,8 +769,8 @@ extractions:
               - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[51]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 6.49 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[51]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 6,49 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[51]/@priceid
           - id:
               - text: 93428414f23e60fdb2ffe1704a8a0051
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[52]/form[1]/input[6]/@id
@@ -784,8 +784,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_105557.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[52]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 6.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[52]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 6,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[52]/@priceid
           - id:
               - text: 306dfd317887f272c0f77b6d72ade6c9
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[53]/form[1]/input[6]/@id
@@ -799,8 +799,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588942156/mpreis/products/1480091.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[53]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.19 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[53]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,19 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[53]/@priceid
           - id:
               - text: a0554029acc732f1d2607e8a38feb514
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[54]/form[1]/input[6]/@id
@@ -814,8 +814,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1591194611/mpreis/products/2244253.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[54]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 5.39 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[54]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 5,39 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[54]/@priceid
           - id:
               - text: bd017e69c7dd6eeec1398008900c0f6d
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[55]/form[1]/input[6]/@id
@@ -829,8 +829,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588942676/mpreis/products/2209418.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[55]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 2.49 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[55]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 2,49 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[55]/@priceid
           - id:
               - text: 43c13279855d24e5ad4fe77eae3184ee
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[56]/form[1]/input[6]/@id
@@ -844,8 +844,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_800977.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[56]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 0.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[56]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 0,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[56]/@priceid
           - id:
               - text: eb79cf0bd002328401134ec3c411f416
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[57]/form[1]/input[6]/@id
@@ -859,8 +859,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1602892831/mpreis/products/2244452.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[57]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 6.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[57]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 6,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[57]/@priceid
           - id:
               - text: f7c9294beace72b37e62567c29ac3db0
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[58]/form[1]/input[6]/@id
@@ -874,8 +874,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1591202103/mpreis/products/2244462.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[58]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 7.60 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[58]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 7,60 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[58]/@priceid
           - id:
               - text: f0cb7a063205c229a9035a5e0d41f028
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[59]/form[1]/input[6]/@id
@@ -889,8 +889,8 @@ extractions:
               - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[59]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.69 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[59]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,69 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[59]/@priceid
           - id:
               - text: 60e0a443441e34adf8496cf6351bf57b
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[60]/form[1]/input[6]/@id
@@ -904,8 +904,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588942416/mpreis/products/1545354.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[60]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 12.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[60]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 12,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[60]/@priceid
           - id:
               - text: a29986d72f3d439f5fda1e825a6f1f48
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[61]/form[1]/input[6]/@id
@@ -919,8 +919,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588937856/mpreis/products/1567989.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[61]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 6.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[61]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 6,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[61]/@priceid
           - id:
               - text: 3cce684e351b86e3f0bc694fddf6e16d
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[62]/form[1]/input[6]/@id
@@ -934,8 +934,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1602892854/mpreis/products/2293871.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[62]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 6.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[62]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 6,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[62]/@priceid
           - id:
               - text: d470adf1bce93365bfd418acf86e8bb6
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[63]/form[1]/input[6]/@id
@@ -949,8 +949,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1591194757/mpreis/products/2244236.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[63]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 7.40 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[63]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 7,40 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[63]/@priceid
           - id:
               - text: 34f56064d464a2736e1b2607a67bb84e
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[64]/form[1]/input[6]/@id
@@ -964,8 +964,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1591194627/mpreis/products/2246301.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[64]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 6.50 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[64]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 6,50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[64]/@priceid
           - id:
               - text: 5a935198eb1a55b12393dea54e447202
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[65]/form[1]/input[6]/@id
@@ -979,8 +979,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1591194619/mpreis/products/2246306.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[65]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 12.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[65]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 12,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[65]/@priceid
           - id:
               - text: 2fc7136d77d9f39f2bf6f157efa7b4b2
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[66]/form[1]/input[6]/@id
@@ -994,8 +994,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_105583.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[66]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 6.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[66]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 6,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[66]/@priceid
           - id:
               - text: 0fb7f5a9196dab39fc00bd76ec550672
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[67]/form[1]/input[6]/@id
@@ -1009,8 +1009,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_105933.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[67]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.19 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[67]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,19 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[67]/@priceid
           - id:
               - text: 10497633344f8de9ee8f9f110a7b8c88
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[68]/form[1]/input[6]/@id
@@ -1024,8 +1024,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_103751.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[68]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 12.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[68]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 12,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[68]/@priceid
           - id:
               - text: 47d5a1ce7d575ffadb93b412a1817920
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[69]/form[1]/input[6]/@id
@@ -1039,8 +1039,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588937648/mpreis/products/1357815.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[69]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.39 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[69]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,39 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[69]/@priceid
           - id:
               - text: 1ab42cedd632cc638fc0c08a83008fbe
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[70]/form[1]/input[6]/@id
@@ -1054,8 +1054,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593501028/mpreis/products/2253914.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[70]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.49 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[70]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,49 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[70]/@priceid
           - id:
               - text: 3c695a81c83c71e218f7de5fff4560e3
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[71]/form[1]/input[6]/@id
@@ -1069,8 +1069,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_103894.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[71]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.19 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[71]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,19 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[71]/@priceid
           - id:
               - text: 9e353bb6cc9e398221c5727078ef5d33
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[72]/form[1]/input[6]/@id
@@ -1084,8 +1084,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1601392583/mpreis/products/2403470.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[72]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.35 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[72]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,35 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[72]/@priceid
           - id:
               - text: be8d7ef5cdc2b8c1aea34f1f2e0cfd69
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[73]/form[1]/input[6]/@id
@@ -1099,8 +1099,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588942179/mpreis/products/1741032.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[73]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 18.96 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[73]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 18,96 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[73]/@priceid
           - id:
               - text: 76c2f42e3a799318542d93c6fa1b9d83
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[74]/form[1]/input[6]/@id
@@ -1114,8 +1114,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588942130/mpreis/products/1741035.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[74]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 15.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[74]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 15,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[74]/@priceid
           - id:
               - text: 7de80bcfc7b09c71af1f6d4f35ddbd12
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[75]/form[1]/input[6]/@id
@@ -1129,8 +1129,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588942179/mpreis/products/1741032.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[75]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 0.95 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[75]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 0,95 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[75]/@priceid
           - id:
               - text: e780d8ce50dd02f446f0596d5cc01384
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[76]/form[1]/input[6]/@id
@@ -1144,8 +1144,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588940731/mpreis/products/2212858.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[76]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 2.50 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[76]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 2,50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[76]/@priceid
           - id:
               - text: af79975a7cfd6f3140e45f049e921b83
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[77]/form[1]/input[6]/@id
@@ -1159,8 +1159,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_109133.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[77]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 5.00 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[77]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 5,00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[77]/@priceid
           - id:
               - text: d7a6420bfa79583474585d28478f9e5e
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[78]/form[1]/input[6]/@id
@@ -1174,8 +1174,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1598017350/mpreis/products/2294274.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[78]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 4.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[78]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 4,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[78]/@priceid
           - id:
               - text: aa66439a21c4a0986a45eec8f19d17f2
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[79]/form[1]/input[6]/@id
@@ -1189,8 +1189,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588938068/mpreis/products/1700616.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[79]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 17.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[79]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 17,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[79]/@priceid
           - id:
               - text: cdf79807792855d8842cb196552202ac
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[80]/form[1]/input[6]/@id
@@ -1204,8 +1204,8 @@ extractions:
               - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[80]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 5.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[80]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 5,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[80]/@priceid
           - id:
               - text: f5c7ef6edcfdd5e6c9fdca7c5301785d
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[81]/form[1]/input[6]/@id
@@ -1219,8 +1219,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1594944530/mpreis/products/2299026.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[81]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 8.49 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[81]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 8,49 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[81]/@priceid
           - id:
               - text: 95659a3f94aa1e8b071f3274bfff12cc
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[82]/form[1]/input[6]/@id
@@ -1234,8 +1234,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1599609640/mpreis/products/2329707.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[82]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.39 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[82]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,39 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[82]/@priceid
           - id:
               - text: 1d67858d9dbae0228b4bbdc60ac9de85
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[83]/form[1]/input[6]/@id
@@ -1249,8 +1249,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1591194605/mpreis/products/2246282.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[83]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 26.40 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[83]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 26,40 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[83]/@priceid
           - id:
               - text: 33bd5e60f8687fd675ce2198ca4b1186
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[84]/form[1]/input[6]/@id
@@ -1264,8 +1264,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588940738/mpreis/products/1676517.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[84]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 2.50 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[84]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 2,50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[84]/@priceid
           - id:
               - text: 45baceededecb02eb1ec2270808e7f2f
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[85]/form[1]/input[6]/@id
@@ -1279,8 +1279,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1591194605/mpreis/products/2246282.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[85]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.25 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[85]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,25 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[85]/@priceid
           - id:
               - text: 8c889de5c873cd116dabf54da74723a4
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[86]/form[1]/input[6]/@id
@@ -1294,8 +1294,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1601392414/mpreis/products/2399452.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[86]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 10.80 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[86]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 10,80 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[86]/@priceid
           - id:
               - text: 3786ef206a1465582482cd2f97a122b4
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[87]/form[1]/input[6]/@id
@@ -1309,8 +1309,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593501036/mpreis/products/2253915.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[87]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.49 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[87]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,49 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[87]/@priceid
           - id:
               - text: 9eff0392385ed08c14bf117a6be222cf
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[88]/form[1]/input[6]/@id
@@ -1324,8 +1324,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1597709054/mpreis/products/2327133.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[88]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 4.50 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[88]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 4,50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[88]/@priceid
           - id:
               - text: c2c3fd27f4717015c5db93c538ccfbe2
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[89]/form[1]/input[6]/@id
@@ -1339,8 +1339,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_109135.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[89]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 2.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[89]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 2,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[89]/@priceid
           - id:
               - text: 4e42b48962772f9f63d7679771ca9b1b
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[90]/form[1]/input[6]/@id
@@ -1354,8 +1354,8 @@ extractions:
               - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[90]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 15.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[90]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 15,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[90]/@priceid
           - id:
               - text: d5097aa9c18f95c98082625af4fda87b
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[91]/form[1]/input[6]/@id
@@ -1369,8 +1369,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939637/mpreis/products/438216.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[91]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.50 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[91]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[91]/@priceid
           - id:
               - text: 8f91e14caa772b34c9b788a613d8ce63
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[92]/form[1]/input[6]/@id
@@ -1384,8 +1384,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_103843.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[92]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 12.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[92]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 12,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[92]/@priceid
           - id:
               - text: 613fcf39acaa6945012ac5ec88ee64fa
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[93]/form[1]/input[6]/@id
@@ -1399,8 +1399,8 @@ extractions:
               - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[93]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 2.09 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[93]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 2,09 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[93]/@priceid
           - id:
               - text: f75e686d0755372cbe11653d8a5ec3d6
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[94]/form[1]/input[6]/@id
@@ -1414,8 +1414,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588940691/mpreis/products/392816.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[94]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.29 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[94]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,29 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[94]/@priceid
           - id:
               - text: bb24fd7e5faa7963606e3313b247b0be
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[95]/form[1]/input[6]/@id
@@ -1429,8 +1429,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1595980871/mpreis/products/2294891.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[95]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 10.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[95]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 10,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[95]/@priceid
           - id:
               - text: b405bca097f2f67eb681d9b0baa098bd
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[96]/form[1]/input[6]/@id
@@ -1444,8 +1444,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_204407.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[96]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 3.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[96]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 3,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[96]/@priceid
           - id:
               - text: 73206f9b97a603ed9712e52a512342bf
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[97]/form[1]/input[6]/@id
@@ -1459,8 +1459,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1590083132/mpreis/products/2234155.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[97]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 5.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[97]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 5,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[97]/@priceid
           - id:
               - text: fff2b70dfd36facbe72e6855a46ef152
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[98]/form[1]/input[6]/@id
@@ -1474,8 +1474,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939909/mpreis/products/287691.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[98]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 0.79 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[98]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 0,79 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[98]/@priceid
           - id:
               - text: 85abe3d6fe70324b098a353007a14987
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[99]/form[1]/input[6]/@id
@@ -1489,8 +1489,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593500832/mpreis/products/2252891.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[99]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.49 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[99]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,49 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[99]/@priceid
           - id:
               - text: e9dcbfab400c88c4717054779fac0ce0
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[100]/form[1]/input[6]/@id
@@ -1504,8 +1504,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_300586.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[100]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 0.59 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[100]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 0,59 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[100]/@priceid
           - id:
               - text: 3241e28c9b86b65f37f695ce723f242e
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[101]/form[1]/input[6]/@id
@@ -1519,8 +1519,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588940701/mpreis/products/1899607.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[101]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.05 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[101]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,05 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[101]/@priceid
           - id:
               - text: ffaf6928dba0f53ec56c49e3240d1d2f
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[102]/form[1]/input[6]/@id
@@ -1534,8 +1534,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1596586014/mpreis/products/2319516.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[102]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.49 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[102]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,49 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[102]/@priceid
           - id:
               - text: ffde380f6a6d4113674ce32d4f32c946
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[103]/form[1]/input[6]/@id
@@ -1549,8 +1549,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_300594.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[103]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 0.79 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[103]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 0,79 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[103]/@priceid
           - id:
               - text: 8bc5a27cdc2d3dd4de750a38723aed1d
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[104]/form[1]/input[6]/@id
@@ -1564,8 +1564,8 @@ extractions:
               - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/156502_i01.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[104]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 0.45 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[104]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 0,45 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[104]/@priceid
           - id:
               - text: 73765a9948826bd57e6516308bcee983
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[105]/form[1]/input[6]/@id
@@ -1579,8 +1579,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1598018517/mpreis/products/2294346.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[105]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.50 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[105]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[105]/@priceid
           - id:
               - text: 7cc13a9eb983f4b37b8f21fd26bb10f1
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[106]/form[1]/input[6]/@id
@@ -1594,8 +1594,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1598019197/mpreis/products/2294349.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[106]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.79 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[106]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,79 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[106]/@priceid
           - id:
               - text: bd691bea7fde5c4b6b8fbb9df7e4bcff
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[107]/form[1]/input[6]/@id
@@ -1609,8 +1609,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1590710510/mpreis/products/2218413.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[107]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.60 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[107]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,60 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[107]/@priceid
           - id:
               - text: 2156b24bb3a859d6dae8264daddaa47b
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[108]/form[1]/input[6]/@id
@@ -1624,8 +1624,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1598019181/mpreis/products/2294347.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[108]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 2.29 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[108]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 2,29 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[108]/@priceid
           - id:
               - text: 1e0aa305ad562bbe1822e5fa58397d3d
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[109]/form[1]/input[6]/@id
@@ -1639,8 +1639,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1600388131/mpreis/products/1912405.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[109]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 3.20 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[109]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 3,20 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[109]/@priceid
           - id:
               - text: b640763d3099a09630e1eda7c498ca33
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[110]/form[1]/input[6]/@id
@@ -1654,8 +1654,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593500849/mpreis/products/2252885.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[110]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.49 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[110]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,49 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[110]/@priceid
           - id:
               - text: ffec63809dbdf68a129ffb49a3c2a070
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[111]/form[1]/input[6]/@id
@@ -1669,8 +1669,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593500831/mpreis/products/2246739.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[111]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 2.50 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[111]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 2,50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[111]/@priceid
           - id:
               - text: e630b2fbcf1a9e3de2dbd4ed43f74cbd
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[112]/form[1]/input[6]/@id
@@ -1684,38 +1684,38 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941943/mpreis/products/1187715.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[112]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 2.00 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[112]/form[1]/div[2]/div[1]/a[1]/strong[1]
-          - id:
-              - text: d1e06e31e8ce7611dd41dba8e8b36b4c
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[113]/form[1]/input[6]/@id
-            name:
-              - text: JT Toilettenpapier 10x160 4l
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[113]/form[1]/div[2]/a[1]/h2[1]
-            productUrl:
-              - text: https://shop.mpreis.at/Drogeriemarkt/Hygienepapier/Toilettenpapier/JT-Toilettenpapier-10x160-4l.html?listtype=search&searchparam=bier
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[113]/form[1]/div[2]/div[1]/a[1]/@href
-            thumbnail:
-              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939238/mpreis/products/2146464.jpg
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[113]/form[1]/div[1]/a[1]/img[1]/@src
-            price:
-              - text: 2.95 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[113]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 2,00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[112]/@priceid
           - id:
               - text: d831a4a628141e6ab184cf22c84f4d3d
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[114]/form[1]/input[6]/@id
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[113]/form[1]/input[6]/@id
             name:
               - text: JT Men Einwegrasierer
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[114]/form[1]/div[2]/a[1]/h2[1]
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[113]/form[1]/div[2]/a[1]/h2[1]
             productUrl:
               - text: https://shop.mpreis.at/Drogeriemarkt/Koerper-Gesundheit/Rasieren/Rasierer-Klingen/JT-Men-Einwegrasierer.html?listtype=search&searchparam=bier
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[114]/form[1]/div[2]/div[1]/a[1]/@href
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[113]/form[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941102/mpreis/products/835096.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[113]/form[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 1,89 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[113]/@priceid
+          - id:
+              - text: d1e06e31e8ce7611dd41dba8e8b36b4c
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[114]/form[1]/input[6]/@id
+            name:
+              - text: JT Toilettenpapier 10x160 4l
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[114]/form[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://shop.mpreis.at/Drogeriemarkt/Hygienepapier/Toilettenpapier/JT-Toilettenpapier-10x160-4l.html?listtype=search&searchparam=bier
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[114]/form[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939238/mpreis/products/2146464.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[114]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.89 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[114]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 2,95 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[114]/@priceid
           - id:
               - text: 82ae654b7c06f493323d76c72a5baca4
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[115]/form[1]/input[6]/@id
@@ -1729,8 +1729,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593500909/mpreis/products/2259166.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[115]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[115]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[115]/@priceid
           - id:
               - text: dbd271dcd01a6784fd8638a18c07d47c
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[116]/form[1]/input[6]/@id
@@ -1744,8 +1744,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588938756/mpreis/products/2035158.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[116]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.50 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[116]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[116]/@priceid
           - id:
               - text: f20d75b709c306b1f3c6e4cf023a2409
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[117]/form[1]/input[6]/@id
@@ -1759,8 +1759,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941102/mpreis/products/835098.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[117]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.25 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[117]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,25 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[117]/@priceid
           - id:
               - text: 4212febfbd27cf8f74730b6b1a7b0d84
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[118]/form[1]/input[6]/@id
@@ -1774,8 +1774,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1601078471/mpreis/products/2394806.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[118]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.69 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[118]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,69 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[118]/@priceid
           - id:
               - text: de5f5c1690f5208f2508a52c59b7968a
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[119]/form[1]/input[6]/@id
@@ -1789,8 +1789,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593500597/mpreis/products/2265575.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[119]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 0.45 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[119]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 0,45 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[119]/@priceid
           - id:
               - text: 27f30aff5fada3085fcc817e2ad33e1b
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[120]/form[1]/input[6]/@id
@@ -1804,8 +1804,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588940269/mpreis/products/1231603.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[120]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 2.19 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[120]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 2,19 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[120]/@priceid
           - id:
               - text: 12dc2d4c33ec04cef73fd65133b02d5d
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[121]/form[1]/input[6]/@id
@@ -1819,8 +1819,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593500904/mpreis/products/2259165.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[121]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.59 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[121]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,59 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[121]/@priceid
           - id:
               - text: 7d2dc8e738544396607e6e564c70b58b
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[122]/form[1]/input[6]/@id
@@ -1834,8 +1834,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593500867/mpreis/products/2259227.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[122]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[122]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[122]/@priceid
           - id:
               - text: e91e808aa9f517d91a17b610e345b386
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[123]/form[1]/input[6]/@id
@@ -1849,8 +1849,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941143/mpreis/products/2185577.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[123]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.45 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[123]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,45 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[123]/@priceid
           - id:
               - text: b5fe99698d9a07d67b44125e09073980
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[124]/form[1]/input[6]/@id
@@ -1864,8 +1864,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1598616492/mpreis/products/e1ac999d-9fb8-4c65-acd7-3a802fbda529.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[124]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 8.07 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[124]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 8,07 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[124]/@priceid
           - id:
               - text: 04b1b20774dd2f581c4a03fdf4151081
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[125]/form[1]/input[6]/@id
@@ -1879,8 +1879,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1601511099/mpreis/products/1366142.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[125]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.69 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[125]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,69 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[125]/@priceid
           - id:
               - text: 3a1f4c0980d4b45a6ffada2ddcc2ed25
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[126]/form[1]/input[6]/@id
@@ -1894,8 +1894,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941159/mpreis/products/1485190.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[126]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 2.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[126]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 2,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[126]/@priceid
           - id:
               - text: 6c54d10689911d1aa4d0dd818b9a45b8
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[127]/form[1]/input[6]/@id
@@ -1909,8 +1909,8 @@ extractions:
               - text: https://shop.mpreis.at/out/pictures/generated/product/1/185_150_75/nopic.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[127]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 16.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[127]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 16,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[127]/@priceid
           - id:
               - text: b6d15f135c2b5ecf48ee54a26f16fb62
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[128]/form[1]/input[6]/@id
@@ -1924,8 +1924,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1587875513/mpreis/products/1384603.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[128]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 16.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[128]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 16,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[128]/@priceid
           - id:
               - text: 30904070dd8438c76d39fd7d1a6d9e1c
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[129]/form[1]/input[6]/@id
@@ -1939,8 +1939,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_500132.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[129]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.69 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[129]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,69 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[129]/@priceid
           - id:
               - text: 8e3995ee2d5c51e7f429211bc237917d
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[130]/form[1]/input[6]/@id
@@ -1954,8 +1954,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1590087548/mpreis/products/2226554.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[130]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 2.60 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[130]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 2,60 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[130]/@priceid
           - id:
               - text: 7441c99b9f9d26da543d8b0eeb9fd275
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[131]/form[1]/input[6]/@id
@@ -1969,8 +1969,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1598018517/mpreis/products/2294345.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[131]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 2.19 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[131]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 2,19 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[131]/@priceid
           - id:
               - text: b46467da866ca94eb50c063581cea623
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[132]/form[1]/input[6]/@id
@@ -1984,8 +1984,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593434087/mpreis/products/1949361.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[132]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 2.75 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[132]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 2,75 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[132]/@priceid
           - id:
               - text: 5c283301aec2d847285cd08227e7922b
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[133]/form[1]/input[6]/@id
@@ -1999,8 +1999,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1590087556/mpreis/products/2225776.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[133]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 3.70 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[133]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 3,70 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[133]/@priceid
           - id:
               - text: cee17b93959ca9cf88b39df5c13ddc64
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[134]/form[1]/input[6]/@id
@@ -2014,8 +2014,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941894/mpreis/products/2225108.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[134]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 3.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[134]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 3,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[134]/@priceid
           - id:
               - text: 3f350fe425799fd69a8ba4af97d097ad
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[135]/form[1]/input[6]/@id
@@ -2029,8 +2029,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1598018886/mpreis/products/2294246.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[135]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 2.60 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[135]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 2,60 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[135]/@priceid
           - id:
               - text: 4b8f8b88ef3d79b3517048d71bc87071
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[136]/form[1]/input[6]/@id
@@ -2044,8 +2044,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588941905/mpreis/products/2225107.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[136]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 4.70 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[136]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 4,70 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[136]/@priceid
           - id:
               - text: 645b9b2c7764ea9206073767b7f36e2a
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[137]/form[1]/input[6]/@id
@@ -2059,8 +2059,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1590087551/mpreis/products/2225777.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[137]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 2.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[137]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 2,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[137]/@priceid
           - id:
               - text: ec608d1770de8937b7f9541d8ebf393a
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[138]/form[1]/input[6]/@id
@@ -2074,8 +2074,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1590710517/mpreis/products/2218414.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[138]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.30 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[138]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,30 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[138]/@priceid
           - id:
               - text: 84e9e3b1c80a5c850f2c6887c1a6ece4
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[139]/form[1]/input[6]/@id
@@ -2089,8 +2089,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593500914/mpreis/products/2259167.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[139]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[139]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[139]/@priceid
           - id:
               - text: 08589ed4b1a19fccddbb040942d30f0f
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[140]/form[1]/input[6]/@id
@@ -2104,8 +2104,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588940478/mpreis/products/1361560.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[140]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[140]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[140]/@priceid
           - id:
               - text: 358063cedad07aaa16d82f90fbe62705
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[141]/form[1]/input[6]/@id
@@ -2119,8 +2119,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1587875512/mpreis/products/1384602.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[141]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 16.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[141]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 16,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[141]/@priceid
           - id:
               - text: bb5dedbd9900f05e8f2756abad9e3d67
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[142]/form[1]/input[6]/@id
@@ -2134,8 +2134,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_333263.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[142]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 3.05 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[142]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 3,05 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[142]/@priceid
           - id:
               - text: 81806a15b4890cd6e2b89b5b448cbd90
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[143]/form[1]/input[6]/@id
@@ -2149,8 +2149,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1600128227/mpreis/products/2361536.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[143]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 7.99 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[143]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 7,99 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[143]/@priceid
           - id:
               - text: 13fbe57d1c14bc0f39a32e70afa4f8af
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[144]/form[1]/input[6]/@id
@@ -2164,8 +2164,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1593500875/mpreis/products/2259268.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[144]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.00 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[144]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[144]/@priceid
           - id:
               - text: 6cbd6e750e5ec3b7145d9a9b00ba6e3e
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[145]/form[1]/input[6]/@id
@@ -2179,8 +2179,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588939978/mpreis/products/1685580.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[145]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.70 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[145]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,70 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[145]/@priceid
           - id:
               - text: e350c19d7de0f346ca3fa704cdee7d23
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[146]/form[1]/input[6]/@id
@@ -2194,8 +2194,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1590087562/mpreis/products/2226552.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[146]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 2.60 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[146]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 2,60 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[146]/@priceid
           - id:
               - text: 59c09e64ab8aae2868203c8aa5f72bec
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[147]/form[1]/input[6]/@id
@@ -2209,8 +2209,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/mpreis/products/manual/manual_345002.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[147]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 3.75 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[147]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 3,75 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[147]/@priceid
           - id:
               - text: 504ed427a6ededd14e780672bcce9b97
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[148]/form[1]/input[6]/@id
@@ -2224,8 +2224,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588938762/mpreis/products/2035159.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[148]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.50 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[148]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,50 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[148]/@priceid
           - id:
               - text: d91ad851d1adfc93d6cc466dedb93fbb
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[149]/form[1]/input[6]/@id
@@ -2239,8 +2239,8 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1588940422/mpreis/products/2064817.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[149]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.49 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[149]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,49 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[149]/@priceid
           - id:
               - text: ee9c33f4183ffd3aeaae3b905f1f46a9
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[150]/form[1]/input[6]/@id
@@ -2254,7 +2254,7 @@ extractions:
               - text: https://res.cloudinary.com/saas-ag/image/upload/h_150,c_pad,q_auto:best,f_auto/v1599609698/mpreis/products/2352261.jpg
                 xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[150]/form[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 1.00 €
-                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[150]/form[1]/div[2]/div[1]/a[1]/strong[1]
+              - text: 1,00 €
+                xpath: /html/body/div[1]/div[6]/div[1]/ul[1]/li[150]/@priceid
         xpath: /html
-    timestamp: 1611045444251
+    timestamp: 1611217558533

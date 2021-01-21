@@ -35,6 +35,15 @@ const implementation = async (inputs, { transform }, context, { productDetails }
   await applyScroll(context);
   await new Promise((resolve, reject) => setTimeout(resolve, 3000));
 
+  await context.evaluate(async function () {
+    const products = document.querySelectorAll('li[class="productData"]');
+    for (let i = 0; i < products.length; i++) {
+      const price = document.evaluate('.//span[@class="productPriceUnit"]/following-sibling::strong', products[i], null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
+      const priceText = price ? price.textContent.replace('.', ',') : '';
+      products[i].setAttribute('priceid', priceText);
+    }
+  });
+
   return await context.extract(productDetails, { transform });
 };
 
