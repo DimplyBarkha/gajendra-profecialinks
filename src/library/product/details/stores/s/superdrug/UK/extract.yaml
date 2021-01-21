@@ -43,7 +43,8 @@ fields:
   xpath: //div[@id="added-availability"]
 - name: description
   singleValue: false
-  xpath: normalize-space(concat(//p[@itemprop="description"],//p[@itemprop="description"]/following-sibling::article/h3[contains(text(), "Features")]/parent::article,//p[@itemprop="description"]/following-sibling::article/h3[contains(text(), "Benefits")]/parent::article))
+  xpath: //div[@id='description']
+  # xpath: normalize-space(concat(//p[@itemprop="description"],//p[@itemprop="description"]/following-sibling::article/h3[contains(text(), "Features")]/parent::article,//p[@itemprop="description"]/following-sibling::article/h3[contains(text(), "Benefits")]/parent::article))
 - name: descriptionBullets
   xpath: count(//h3[text()="Features"]/following-sibling::li|//h3[text()="Benefits"]/following-sibling::li)
   singleValue: true
@@ -104,6 +105,7 @@ fields:
 - name: aggregateRating
   singleValue: false
   xpath: //span[@itemprop="ratingValue"]
+  defaultValue: '0'
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
@@ -239,7 +241,6 @@ fields:
 - name: ingredientsList
   singleValue: false
   xpath: //div[@id='ingredients']
-  # xpath: //strong[@class="itemHeader"][contains(text(),"Ingredients")]/../../following-sibling::p[not(preceding-sibling::div)]|//p[@itemprop="description"]/following-sibling::article/h3[contains(text(), "Product Specification")]/following-sibling::p[contains(text(), "Aqua")]|//p[@itemprop="description"]/following-sibling::article/h3[contains(text(), "Product Specification")]/following-sibling::div[contains(text(), "Aqua")]|//p[@itemprop="description"]/following-sibling::article/h3[contains(text(), "Product Specification")]/following::strong[contains(text(), "ingredient")]|//p[@itemprop="description"]/following-sibling::article/h3[contains(text(), "Product Specification")]/following::strong[contains(text(), "ingredient")]/parent::p/following::p[2]|//p[@itemprop="description"]/following-sibling::article/h3[contains(text(), "Product Specification")]/following::p[contains(text(), "INGREDIENTS")]|//p[@itemprop="description"]/following-sibling::article/h3[contains(text(), "Product Specification")]/following::p[contains(text(), "Dimethicone")]|//p[@itemprop="description"]/following-sibling::article/h3[contains(text(), "Product Specification")]/following::p[contains(text(), "DIMETHICONE")]|//p[@itemprop="description"]/following-sibling::article/h3[contains(text(), "Product Specification")]/following::p[contains(text(), "LABEL")]|//p[@itemprop="description"]/following-sibling::article/h3[contains(text(), "Product Specification")]/following::*[contains(text(), "COLOUR CRÈME")]|//p[@itemprop="description"]/following::article/h3[contains(text(), "Product Specification")]/following::p[contains(text(), "Aqua")]|//p[@itemprop="description"]/following::article/h3[contains(text(), "Product Specification")]/following::p[contains(text(), "AQUA")]|//p[@itemprop="description"]/following::article/h3[contains(text(), "Product Specification")]/following::span[contains(text(), "Aqua")]|//p[@itemprop="description"]/following::article/h3[contains(text(), "Product Specification")]/following::p[contains(text(), "Sodium")]|//p[@itemprop="description"]/following-sibling::article/h3[contains(text(), "Product Specification")]/following::strong[contains(text(), "ingredient")]/parent::p//following-sibling::text()
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.

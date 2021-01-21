@@ -5,7 +5,7 @@ async function implementation(inputs, parameters, context, dependencies) {
   const { productDetails } = dependencies;
 
   await context.evaluate(async () => {
-    // await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 1000));
 
     function addElementToDocument(id, value, key) {
       const catElement = document.createElement('div');
@@ -27,6 +27,7 @@ async function implementation(inputs, parameters, context, dependencies) {
     const addFollowingParagraphs = (key, node, startTitle, stopTitleArray) => {
       const elements = document.createElement('div');
       elements.id = key;
+      elements.style.display = 'none';
       let reading;
       const allElements = node.childNodes;
       for (let i = 0; i < allElements.length; i++) {
@@ -39,6 +40,12 @@ async function implementation(inputs, parameters, context, dependencies) {
       }
       document.body.appendChild(elements);
     };
+
+    const description = document.querySelector("#pdp__details section");
+    const descriptionHeading = ['Product Information'];
+    const descriptionEnd = ['Product Specification', 'Warnings or Restrictions', 'Product Uses'];
+    if (description) addFollowingParagraphs('description', description, descriptionHeading, descriptionEnd);
+
 
     const allHeadings = document.querySelectorAll("#pdp__details article h3.pdp-details__sub-title");
     for (let i = 0; i < allHeadings.length; i++) {
@@ -100,6 +107,17 @@ async function implementation(inputs, parameters, context, dependencies) {
 
   if (dataRef[0].group[0].brandText) {
     dataRef[0].group[0].brandText[0].text = dataRef[0].group[0].brandText[0].text.replace("'", '');
+  }
+  if (dataRef[0].group[0].description) {
+    dataRef[0].group[0].description[0].text = dataRef[0].group[0].description[0].text.replace("Product Information", '').trim();
+    let descriptionTxt = dataRef[0].group[0].description[0].text;
+    let index = descriptionTxt.indexOf('Product Specification');
+    let index2 = descriptionTxt.indexOf('Warnings or Restrictions');
+    if (index !== -1) {
+      dataRef[0].group[0].description[0].text = dataRef[0].group[0].description[0].text.slice(0, index).trim();
+    } if (index2 !== -1) {
+      dataRef[0].group[0].description[0].text = dataRef[0].group[0].description[0].text.slice(0, index2).trim();
+    }
   }
   if (dataRef[0].group[0].ingredientsList) {
     dataRef[0].group[0].ingredientsList[0].text = dataRef[0].group[0].ingredientsList[0].text.replace("Product Specification", '').trim();
