@@ -33,10 +33,8 @@ fields:
       and appending " - ${variantType}" if necessary (fixed per feed)
     xpath: //div[@class='product-content']//product-detail/@data-product-name
   - name: listPrice
-    singleValue: true
-    type: CURRENCY
     description: The stated undiscounted price for the product
-    xpath: //div[@class="product-prices-wrapper"]//span[contains(text(),"Original Price")]/following-sibling::text()
+    xpath: (//del[@class="product-strike-base-price"]//text())[2]
   - name: price
     singleValue: true
     description: The offered price for the selected product variant
@@ -54,8 +52,8 @@ fields:
       should be "In Stock"
     manualSelector: script[type='application/ld+json']
     regExp: '(\"availability\"\: ")([^["]+)'
-    defaultvalue: Out Of Stock
     regExpReplace: In Stock
+    defaultValue: Out Of Stock
   - name: description
     type: TEXT[]
     description: Product description supplied by website - may be concatenanted from
@@ -526,10 +524,8 @@ fields:
     xpath: //div[@class='product-quantity']/span[1]//text()
     regExp: '[A-Za-z]+'
   - name: promotion
-    singleValue: true
-    type: TEXT
     description: promotion text on product page
-    xpath: //div[@class='product-offer-desc']//text()
+    xpath: (//div[@class='product-offer-desc']//text())[1]
     regExp: 'Save.*'
   - name: alcoholContent
     singleValue: true
