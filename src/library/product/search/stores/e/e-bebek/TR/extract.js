@@ -17,32 +17,16 @@ async function implementation (inputs, parameters, context, dependencies) {
     const products = document.querySelectorAll('section[class="product-list"] div[class*="product gtmProductClick w-100"]');
 
     products.forEach((product, index) => {
-      product.setAttribute('rank', `${index + 1}`);
       const prefix = 'https://www.e-bebek.com';
       const productUrl = product.querySelector('a.product-btn');
-      if (productUrl !== undefined) product.setAttribute('producturl', prefix.concat(productUrl.getAttribute('href')));
+      if (productUrl !== null && productUrl !== undefined) product.setAttribute('producturl', prefix.concat(productUrl.getAttribute('href')));
+      const id = product.querySelector('form[action*="wishlist"] > input');
+      if (id !== null && id !== undefined) product.setAttribute('sku', id.getAttribute('value').toLowerCase());
+      if (product.innerText.includes('Promosyonlu')) product.setAttribute('sponsored', 'true');
     });
-    [...products].filter(e => e.innerText.includes('Promosyonlu')).forEach(e => e.setAttribute('sponsored', 'true'));
   });
-  await new Promise((resolve, reject) => setTimeout(resolve, 1500));
-  await context.evaluate(async () => {
-    const notSponsoredProducts = document.querySelectorAll('section[class="product-list"] div[class*="product gtmProductClick w-100"]:not([sponsored])');
-    if (notSponsoredProducts.length !== 0 && notSponsoredProducts !== null) {
-      notSponsoredProducts.forEach((product, index) => {
-        product.setAttribute('rankorganic', `${index + 1}`);
-      });
-    }
-  });
-  var dataRef = await context.extract(productDetails, { transform });
 
-  dataRef[0].group.forEach((row) => {
-    if (row.id) {
-      row.id.forEach(item => {
-        item.text = item.text ? item.text.toLowerCase() : '';
-      });
-    }
-  });
-  return dataRef;
+  return await context.extract(productDetails, { transform });
 }
 
 module.exports = {
