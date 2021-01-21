@@ -117,7 +117,7 @@ fields:
   - name: aggregateRating
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
-    xpath: (//button[@id='ratings-summary']/div[@class='bv_avgRating_component_container notranslate'])[1]
+    xpath: translate((//button[@id='ratings-summary']/div[@class='bv_avgRating_component_container notranslate'])[1],".",",")
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
