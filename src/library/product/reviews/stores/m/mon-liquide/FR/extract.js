@@ -20,6 +20,15 @@ const transform = (data, context) => {
         row.flavour = [{ text: flavour }];
       }
 
+      if (!row.brand && row.pageTitle) {
+        const downcasePageTitle = row.pageTitle[0].text.toLowerCase();
+        const brandRegExp = '((vype|blu|juul|logic))';
+        const brand = downcasePageTitle.match(brandRegExp) ? downcasePageTitle.match(brandRegExp)[0] : null;
+        if (brand) {
+          row.brand = [{ text: brand.slice(0, 1).toUpperCase() + brand.slice(1, brand.length) }];
+        }
+      }
+
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
@@ -28,8 +37,8 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.brand) {
-        if(row.brand.length>1){
-          row.brand=row.brand[1];
+        if (row.brand.length > 1) {
+          row.brand = row.brand[1];
         }
       }
     }

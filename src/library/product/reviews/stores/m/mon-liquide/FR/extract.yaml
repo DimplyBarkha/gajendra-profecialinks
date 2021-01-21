@@ -6,7 +6,8 @@ fields:
   - name: brand
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name e.g. "Visit the Gillette Store"
-    xpath: ancestor::html//div[@itemprop='brand'] | ancestor::html//h1[@itemprop="name"]
+    xpath: ancestor::html//div[@itemprop='brand'] 
+    # | ancestor::html//h1[@itemprop="name"]
   - name: productRange
     singleValue: false
     description: Product range
