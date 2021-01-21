@@ -26,12 +26,11 @@ module.exports = {
         return result;
       };
 
-      // Product Description
-      
 
       // Product Name 
       var pn = getAllXpath('(//div[@class="product_detail pdp__detail small-12 medium-6 large-5 columns"]//span[@class="product_name"])/text()', 'nodeValue');
       var pq = getAllXpath('((//div[contains(@class,"product_detail pdp__detail")][2])/div[1]/*[(self::h2)])/text()', 'nodeValue');
+      var qty = getAllXpath('(//span[@id="quantitySelectBoxItText"]/text())[2]', 'nodeValue');
       var ab;
       // First Variant  color,ml
       var firstVar;
@@ -49,6 +48,9 @@ module.exports = {
         ab = pn + ' | ' + firstVar;
         addElementToDocument('ab', ab);
         addElementToDocument('fvar', firstVar);
+      }else{
+        ab = pn + ' | ' + qty;
+        addElementToDocument('ab', ab);
       }
 
       // Code for variant piping {ml , gm , color}
@@ -79,24 +81,76 @@ module.exports = {
       }
 
       // Ingredient List
-      var ingredientList = getAllXpath('//div[@id="tab_ingredients"]/text()[2]', 'nodeValue');
-      var ingList1 = ingredientList.toString();
-      var ingList = "";
-      if (ingList1.match('•') != null) {
-        ingList = ingList1.replaceAll('•', ' || ');
-      } else if (ingList1.match('●') != null) {
-        ingList = ingList1.replaceAll('●', ' || ');
-      }else if (ingList1.match(',') != null) {
-        ingList = ingList1.replaceAll(',', ' || ');
+      // function getIngredientList(ingredient) {
+      //   var ingList1 = ingredient.toString();
+      //   var ingList = "";
+      //   if (ingList1.match('•') != null) {
+      //     ingList = ingList1.replaceAll('•', ' || ');
+      //   } else if (ingList1.match('●') != null) {
+      //     ingList = ingList1.replaceAll('●', ' || ');
+      //   } else if (ingList1.match(',') != null) {
+      //     ingList = ingList1.replaceAll(',', ' || ');
+      //   }
+      //   addElementToDocument('ingList', ingList);
+      // }
+      
+      const getIngredientList = (d) => {
+        var arr = "";
+        var ingList;
+        for (var i = 0; i < d.length; i++) {
+          arr += d[i];
+        }
+        var ingList1 = arr.replace('Print', '').trim();
+        if (ingList1.match('●') != null) {
+          ingList = ingList1.replaceAll('●', ' || ');
+        } else if (ingList1.match('•') != null) {
+          ingList = ingList1.replaceAll('•', ' || ');
+        } else if (ingList1.match(',') != null) {
+          ingList = ingList1.replaceAll(',', ' || ');
+        } else {
+          ingList = ingList1;
+        }
+
+        addElementToDocument('ingList', ingList);
       }
-      addElementToDocument('ingList', ingList);
+      var ingredientList = getAllXpath('//div[@id="tab_ingredients"]/descendant::text()[position()<last()]', 'nodeValue');
+      // var ingredientListP = getAllXpath('//div[@id="tab_ingredients"]//p/text()[2]', 'nodeValue');
+      // if (ingredientList.length > 1) {
+      //   getIngredientList(ingredientList);
+      // } else if (ingredientListP.length > 0) {
+      //   getIngredientList(ingredientListP);
+      // }
+      getIngredientList(ingredientList);
 
-
-      var desc = getAllXpath('(//div[@id="tab_description"]/p)/text()', 'nodeValue');
-      if (desc != null) {
-        var specs = desc.join(' || ');
+      // Product Description 
+      // const getDescription = (desc) => {
+      //   var specs = desc.join(' || ');
+      //   addElementToDocument('specs', specs);
+      // }
+      // var descriptionP = getAllXpath('//div[@id="tab_description"]//p/text()', 'nodeValue');
+      // var description = getAllXpath('(//div[@id="tab_description"])//text()', 'nodeValue');
+      // if (descriptionP.length > 1) {
+      //   getDescription(descriptionP);
+      // } else if (description.length > 1) {
+      //   var descrip = "";
+      //   for (var i = 0; i < description.length; i++) {
+      //     descrip += description[i];
+      //   }
+      //   var specs1 = descrip.replace('Print','');
+      //   var specs = specs1.trim().replaceAll('\n',' || ');
+      //   addElementToDocument('specs', specs);
+      // }
+      const getDescription = (d) => {
+        var arr = "";
+        for (var i = 0; i < d.length; i++) {
+          arr += d[i];
+        }
+        var rmP = arr.replace('Print', '');
+        var specs = rmP.trim().replaceAll('\n', '||');
         addElementToDocument('specs', specs);
       }
+      var description = getAllXpath('(//div[@id="tab_description"])/descendant::text()', 'nodeValue');
+      getDescription(description);
 
       // Directions 
       var directions = getAllXpath('(//div[@id="tab_productvideo"]//p)/text()', 'nodeValue');
@@ -112,10 +166,7 @@ module.exports = {
         else result = elem ? elem.singleNodeValue : '';
         return result && result.trim ? result.trim() : result;
       };
-      var description = getXpath('//div[@class="js-target"]/a/text()', 'nodeValue');
-      var description1 = getXpath("(//div[@class='b-pdp-carousel-item']/picture/img/@alt)[1]", 'nodeValue');
-      description = description + ' ' + description1;
-      addElementToDocument('description', description);
+
       var aval = getXpath('//span[@class="b-availability-label-message js-availability-label-message"]/text()[1]', 'nodeValue');
       if (aval != null) {
         if (aval.includes('Dieser Artikel ist online leider nicht mehr verfügbar.')) {
