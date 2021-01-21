@@ -95,10 +95,20 @@ async function implementation (
     document.body.setAttribute('witbText', witbText);
     document.body.setAttribute('witbUrl', witbUrl);
   }
+  async function addCTR () {
+    if (document.querySelector('.syndigo-shadowed-powerpage').shadowRoot.querySelector('[class="wc-comparison-table-responsive"]')) {
+      document.body.setAttribute('ctr', 'Yes');
+    }
+  }
   try {
     await context.evaluate(addWITB);
   } catch (error) {
     console.log('Error adding WITB', error);
+  }
+  try {
+    await context.evaluate(addCTR);
+  } catch (error) {
+    console.log('Error adding CTR', error);
   }
   return await context.extract(productDetails, { transform });
 }
