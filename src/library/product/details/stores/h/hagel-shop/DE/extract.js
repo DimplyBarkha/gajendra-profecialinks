@@ -1,5 +1,6 @@
 // const { cleanUp } = require("@library/product/details/shared");
 const { cleanUp } = require('../../../../shared');
+// const { transform } = require('../../../a/amazon/shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
