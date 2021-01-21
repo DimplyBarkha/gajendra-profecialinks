@@ -12,7 +12,7 @@ fields:
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class, "gallerystyles__Slider")]/div[position()>1]//@src
+    xpath: //div[@class='slick-list']//a[@class='imagestyles__Image-ezbu3h-0 clsHFv']/img/@src
     description: Other product images (not in manufacturer description)
   - name: metaKeywords
     singleValue: true
@@ -40,7 +40,8 @@ fields:
   - name: availabilityText
     singleValue: true
     xpath: //div[contains(@class,"buy-box-contentstyles__WithoutStockContainer")]//text()
-    defaultValue: In Stock
+    regExReplace: In stock
+    defaultValue: Out of stock
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
@@ -86,6 +87,8 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: true
+    xpath: //p[@class='textstyles__TextComponent-w4b5ef-0 kpBcNm']
+    regExp: \d+
     description: The store-specific product identifier
   - name: variantId
     singleValue: true
@@ -101,6 +104,7 @@ fields:
     singleValue: true
     description: Content under "legal disclaimer" header
   - name: directions
+    xpath: concat(//*[contains(text(), "Modo de Preparo:")],' ', //*[contains(text(), "Modo de Preparo:")]/following-sibling::text()) | concat(//*[contains(text(), "Instruções de Uso")],' ', //*[contains(text(), "Instruções de Uso")]/following-sibling::text())
     singleValue: true
     description: Content under "directions" header
   - name: warnings
@@ -139,6 +143,7 @@ fields:
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
+    xpath: //div[@id='manufDesc']
     singleValue: false
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
@@ -253,9 +258,9 @@ fields:
     description: null
   - name: ingredientsList
     singleValue: true
-    xpath: //*[contains(text(), "Descrição do produto")]/../..
-    regExp: (?<=Ingredientes:)(\s*)(.*?)[\n]
-    regExpReplace: $2
+    xpath: //*[contains(text(), "Descrição do produto")]/../.. | //*[contains(text(), " ")]/../..
+    regExp: (Ingredientes:|Composição.)(\s*)(.*?)[.]
+    regExpReplace: $3
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
   - name: servingSize
@@ -275,7 +280,7 @@ fields:
   - name: caloriesPerServing
     singleValue: true
     xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
-    regExp: (Valor\s+calórico\s*|Valor\s+energético\s*)[\s]*(\d+,?\d*\s*[K,k]?cal)
+    regExp: (Valor\s+calórico\s*|Valor\s+[E,e]?nergético\s*)[\s]*(\d+,?\d*\s*[K,k]?cal)
     regExpReplace: $2
     description: Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
@@ -363,7 +368,7 @@ fields:
   - name: totalSugarsPerServing
     singleValue: true
     xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
-    regExp: (?<=Açúcar\s*)\d+,?\d*\s*(?=[K,k,m]?g)
+    regExp: (?<=Açúcares)\d+,?\d*\s*(?=[K,k,m]?g)
     description: Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
   - name: totalSugarsPerServingUom
@@ -477,9 +482,8 @@ fields:
     description: The country from which the product originates
   - name: allergyAdvice
     singleValue: false
-    xpath: //div[contains(@class,"MuiGrid-root gridstyles")]//*[contains(text(), "ALÉRGICOS")]/..
-    regExp: (ALÉRGICOS:)([\s\S]*)
-    regExpReplace: $2
+    xpath: //div[contains(@class,"MuiGrid-root gridstyles")]//*[(contains(text(), "GLÚTEN")) and not(contains(text(), "NÃO"))]/..
+    regExp: CONTÉM\sGLÚTEN
     description: Allergy information associated with the product
   - name: recyclingInformation
     singleValue: true
