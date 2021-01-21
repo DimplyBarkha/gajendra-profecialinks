@@ -6,7 +6,7 @@ fields:
   - name: id
     description: Unique id (within this extractor)
     xpath: div[contains(@class,"header_root")]//a/@href
-    regExp: wi\d+
+    regExp: wi\d+|pakket
   - name: productUrl
     description: The URL for the product details page
     xpath: div[contains(@class,"header_root")]//a/@href
