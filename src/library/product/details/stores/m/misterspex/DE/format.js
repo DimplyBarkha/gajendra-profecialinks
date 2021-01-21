@@ -89,10 +89,10 @@ const transform = (data) => {
         }
         if (row.availabilityText) {
           const availabilityText = row.availabilityText[0].text;
-          if (availabilityText.includes('In den Warenkorb')) {
-            row.availabilityText = [{ text: 'In Stock' }];
-          } else {
+          if (availabilityText.includes(null)) {
             row.availabilityText = [{ text: 'Out of stock' }];
+          } else {
+            row.availabilityText = [{ text: 'In stock' }];
           }
         }
 
