@@ -50,7 +50,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'njoy',
-    urlTemplate: 'https://shop.njoy.com/shop/{id}?yoReviewsPage={page}',
+    urlTemplate: 'https://njoy.com/us/shop/{id}?yoReviewsPage={page}',
     resultsCountSelector: 'div.yotpo-nav-wrapper span[class*="nav-tab-sum"]',
     numberResultPerPageXPath: 'count(//div[@class="yotpo-review-wrapper"])',
     /* eslint-disable */
