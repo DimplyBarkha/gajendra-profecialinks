@@ -35,7 +35,7 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"s
   - name: description
-    xpath: concat(//div[@class="content-detail"]/div[1],//div[@class="content-detail"]/div[2])
+    xpath: concat(//div[@id="detailsTab"]//div[contains(@class,"detail-section")],' ',//div[@class="disclaimer-row"]//div[contains(@data-emptytext,"Content")])
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
