@@ -30,39 +30,41 @@ const transform = (data) => {
         });
       }
 
-      if (row.unInterruptedPDP) {
-        let brand = ''
-        row.unInterruptedPDP.forEach( (item, index ) => {
-          brand = ( row.productBrand[index].text ) ? row.productBrand[index].text : '';
-          item.text = brand + ' ' + item.text.replace(/(\/fm-sm\/)/g, '/fm-xl/').trim();
+      if (row.unInterruptedPDP && row.productBrand) {
+        let brand = '';
+        row.unInterruptedPDP.forEach((item, index) => {
+          if (row.productBrand[index]) {
+            brand = (row.productBrand[index].text) ? row.productBrand[index].text : '';
+            item.text = brand + ' ' + item.text.replace(/(\/fm-sm\/)/g, '/fm-xl/').trim();
+          }
         });
       }
 
       if (row.description) {
-        let desc = [];
+        const desc = [];
         row.description.forEach(item => {
           item.text = item.text.replace(/(\s*\n\s*)+/g, ' ').trim();
           desc.push(item.text);
         });
-        let bullet_info = [];
+        const bulletInfo = [];
         if (row.descriptionBullets) {
           row.descriptionBullets.forEach(item => {
-            bullet_info.push(item.text);
+            bulletInfo.push(item.text);
           });
         }
         if (desc.length) {
           let str = '';
-          if (bullet_info.length) {
-            str = "|| " + bullet_info.join(" || ");
+          if (bulletInfo.length) {
+            str = '|| ' + bulletInfo.join(' || ');
           }
-          row.description = [{ "text": str + " " + desc.join(" | ") }]
+          row.description = [{ text: str + ' ' + desc.join(' | ') }];
         }
       }
       if (row.descriptionBullets) {
-        row.descriptionBullets = [{ "text": row.descriptionBullets.length }];
+        row.descriptionBullets = [{ text: row.descriptionBullets.length }];
       }
       if (row.specifications) {
-        let info = [];
+        const info = [];
         if (row.specification1) {
           row.specification1.forEach(item => {
             info.push(item.text.replace(/(\s*\n\s*)+/g, ' : ').trim());
@@ -71,16 +73,15 @@ const transform = (data) => {
         row.specifications.forEach(item => {
           info.push(item.text.replace(/(\s*\n\s*)+/g, ' : ').trim());
         });
-        row.specifications = [{ 'text': info.join(' || '), 'xpath': row.specifications[0].xpath }];
+        row.specifications = [{ text: info.join(' || '), xpath: row.specifications[0].xpath }];
       }
       delete row.specification1;
       if (row.ratingCount) {
         row.ratingCount.forEach(item => {
           var matches = /(\d+)/isg.exec(item.text);
           if (matches) {
-            item.text = matches[1]
-          }
-          else {
+            item.text = matches[1];
+          } else {
             item.text = '';
           }
         });
@@ -89,17 +90,17 @@ const transform = (data) => {
         row.listPrice.forEach(item => {
           item.text = item.text.replace(/(\s*statt\s*)/g, '').trim();
           item.text = item.text.replace(/–/g, '').trim();
-          item.text = item.text.replace(/\’/g, '').trim();
+          item.text = item.text.replace(/’/g, '').trim();
           item.text = item.text.replace(/\./g, ',').trim();
-          item.text = item.text.replace(/\,$/g, '').trim();
+          item.text = item.text.replace(/,$/g, '').trim();
         });
       }
       if (row.price) {
         row.price.forEach(item => {
           item.text = item.text.replace(/–/g, '').trim();
-          item.text = item.text.replace(/\’/g, '').trim();
+          item.text = item.text.replace(/’/g, '').trim();
           item.text = item.text.replace(/\./g, ',').trim();
-          item.text = item.text.replace(/\,$/g, '').trim();
+          item.text = item.text.replace(/,$/g, '').trim();
         });
       }
       if (row.aggregateRating) {
@@ -109,41 +110,39 @@ const transform = (data) => {
         });
       }
       if (row.variants) {
-        var temp_variant_ids = [];
-        var temp_variant_infos = [];
+        var tempVariantIds = [];
+        var tempVariantInfos = [];
         row.variants.forEach(item => {
-          var matches = /window.__INITIAL_STATE__\s+=\s*(.*?\})\;/isg.exec(item.text);
+          var matches = /window.__INITIAL_STATE__\s+=\s*(.*?\});/isg.exec(item.text);
           if (matches) {
-            var match_data = matches[1].replace(/(undefined)+/g, 'null');
-            let j_data = JSON.parse(match_data);
-            j_data['product']['data']['variantMatrix'];
-            if (j_data['product']['data']['variantMatrix'] && j_data['product']['data']['variantMatrix'].length > 0) {
-              j_data['product']['data']['variantMatrix'].forEach(variants_data => {
-                let tmp_variations = {};
-                tmp_variations["variantUrl"] = [];
-                tmp_variations["variant"] = [];
-                if (variants_data['variantOption']['code']) {
-                  temp_variant_ids.push(variants_data['variantOption']['code']);
+            var matchData = matches[1].replace(/(undefined)+/g, 'null');
+            const jData = JSON.parse(matchData);
+            // jData.product.data.variantMatrix;
+            if (jData.product.data.variantMatrix && jData.product.data.variantMatrix.length > 0) {
+              jData.product.data.variantMatrix.forEach(variantsData => {
+                const tmpVariations = {};
+                tmpVariations.variantUrl = [];
+                tmpVariations.variant = [];
+                if (variantsData.variantOption.code) {
+                  tempVariantIds.push(variantsData.variantOption.code);
                 }
-                if (variants_data['variantValueCategory']['name']) {
-                  temp_variant_infos.push(variants_data['variantValueCategory']['name']);
+                if (variantsData.variantValueCategory.name) {
+                  tempVariantInfos.push(variantsData.variantValueCategory.name);
                 }
               });
-            }
-            else {
+            } else {
               item.text = '';
             }
           } else {
             item.text = '';
           }
         });
-        if (temp_variant_ids.length) {
-          row.firstVariant = [{ 'text': row.variantId[0].text }];
-          row.variantCount = [{ 'text': temp_variant_ids.length }];
-          row.variants = [{ 'text': temp_variant_ids.join(' | ') }];
-          row.variantInformation = [{ 'text': temp_variant_infos.join(' | ') }];
-        }
-        else {
+        if (tempVariantIds.length) {
+          row.firstVariant = [{ text: row.variantId[0].text }];
+          row.variantCount = [{ text: tempVariantIds.length }];
+          row.variants = [{ text: tempVariantIds.join(' | ') }];
+          row.variantInformation = [{ text: tempVariantInfos.join(' | ') }];
+        } else {
           delete row.variants;
         }
       }
@@ -154,17 +153,17 @@ const transform = (data) => {
         }
       }
       if (row.inTheBoxText) {
-        let arrInTheBox = [];
+        const arrInTheBox = [];
         row.inTheBoxText.forEach(item => {
-            arrInTheBox.push(item.text);
+          arrInTheBox.push(item.text);
         });
-        let arrUniqueText =  [...new Set(arrInTheBox)];
-        row.inTheBoxText = [ 
-          { text: arrUniqueText.toString().replace(/,/g, '||').replace(/und\b/g, '||') }
-        ]
+        const arrUniqueText = [...new Set(arrInTheBox)];
+        row.inTheBoxText = [
+          { text: arrUniqueText.toString().replace(/,/g, '||').replace(/und\b/g, '||') },
+        ];
       }
     }
   }
   return cleanUp(data);
 };
-module.exports = { transform } 
+module.exports = { transform };
