@@ -30,9 +30,20 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       };
+
+      // price
+      const scriptInfo = document.querySelector('script#script-schema-data');
+      if (scriptInfo !== null) {
+        // @ts-ignore
+        const toJSON = JSON.parse(document.querySelector('script#script-schema-data').innerText);
+        const price = toJSON.offers.price;
+        addElementToDocument('price', '$'.concat(price));
+      }
+
       const description = document.querySelector('meta#meta-og-description')
         ? document.querySelector('meta#meta-og-description').getAttribute('content') : null;
       if (description !== null && document.querySelector('meta#meta-og-description') !== null) {
+        if (description.includes('Ingredients')) addElementToDocument('ingred', description.split('Ingredients:').pop().trim());
         // @ts-ignore
         if (description.includes('•')) document.querySelector('meta#meta-og-description').setAttribute('desc', description.match(/•/gm).length);
       }
