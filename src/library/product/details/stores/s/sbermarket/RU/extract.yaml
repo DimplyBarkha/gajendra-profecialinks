@@ -54,7 +54,7 @@ fields:
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: //div[@itemprop="description"]
+  xpath: //div[@id='description_text']
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -433,7 +433,7 @@ fields:
 - name: promotion
   singleValue: true
   description: promotion text on product page
-  xpath: //div[@itemprop="offers"]//div[contains(text(), "-") and contains(text(), "%")]
+  xpath: //h1[@itemprop="name"]/parent::div/div[contains(@class, "components")]/div[contains(text(), '%')]
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information

@@ -36,7 +36,7 @@ module.exports = {
       if (retailerSku) addElementToDocument('retailer_sku_id', retailerSku);
 
       const availability = getEleByXpath('//link[@itemprop="availability"]/@href[contains(., "InStock")]');
-      const availabilityText = availability ? 'In stock' : 'Out of Stock';
+      const availabilityText = availability ? 'In Stock' : 'Out Of Stock';
       const servingSize = document.querySelector('h3.nutrition__title');
       const servingSizeValue = servingSize ? servingSize.textContent.replace(/\W+\s+([\d,.]+)\s+\W+/, '$1') : '';
       const servingSizeUom = servingSize ? servingSize.textContent.replace(/\W+\s+[\d,.]+\s+(\W+)/, '$1') : '';
@@ -54,7 +54,10 @@ module.exports = {
       const currencyElement = document.querySelector('meta[itemprop="priceCurrency"]');
       const currency = currencyElement ? currencyElement.getAttribute('content') : '';
       const price = priceText.replace('.', ',') + ' ' + currency;
+      const descripion = getEleByXpath('//div[@itemprop="description"]');
+      const descripionText = descripion ? descripion.trim() : '';
 
+      addElementToDocument('description_text', descripionText);
       addElementToDocument('price_text', price);
       addElementToDocument('total_fat_value', totalFatValue);
       addElementToDocument('total_fat_uom', totalFatUom);

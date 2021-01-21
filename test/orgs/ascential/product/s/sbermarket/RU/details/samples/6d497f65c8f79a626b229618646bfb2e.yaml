@@ -2,77 +2,83 @@ input:
   _url: http://sbermarket.ru/metro
   URL: https://sbermarket.ru/metro/konverty-dlya-priborov-tork-linstyle-kremovye-60-sht
 extractions:
-  - html: https://workbench.import.io/html/run=3372641a-0aca-4f58-a1fc-b6d81e4cf5d3/task=ed877494-6f81-4a05-b8e3-04723dcf3667/04835ea8-7e98-4442-935a-68a233b53946.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=9758d46c-5d37-4fc5-91de-63f4e9123eba/task=125f35a1-e8f2-45c9-ac58-95c4f12a983c/7b9a4148-c7db-4916-87bb-9eeb451f5fc6.html
     extractionConfigId: product/details/stores/s/sbermarket/RU/extract
     data:
       - group:
           - image:
-              - text: https://sbermarket.ru/spree/products/198555/preview/146969_1.png?1592572484
+              - text: https://sbermarket.ru/spree/products/198555/preview/146969.jpg?1608292590
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/meta[1]/@content
             imageAlt:
-              - text: Конверты для приборов Tork Linstyle кремовые 60 шт
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+              - text: Конверты для столовых приборов Tork LinStyle Premium бумажные нетканые 39
+                  × 39 см кремовые 60 шт
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@alt
             category:
-              - text: Товары для офиса
+              - text: Товары для дома
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/a[1]
-              - text: Одноразовая посуда и принадлежности
+              - text: Сервировка стола
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]/a[1]
-              - text: Бумажные салфетки, диспенсеры, скатерти
+              - text: Предметы сервировки
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[3]/a[1]
             nameExtended:
-              - text: Конверты для приборов Tork Linstyle кремовые 60 шт
+              - text: Конверты для столовых приборов Tork LinStyle Premium бумажные нетканые 39
+                  × 39 см кремовые 60 шт
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/h1[1]
             listPrice:
               - text: 708,00 ₽
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/span[1]
-            description:
-              - text: >-
-                  Конверты Tork Linstyle - лучшее решение для ресторанов
-                  высокого класса. Больше не нужно тратить время на складывание
-                  салфетки под приборы: Tork уже позаботился о вас! Конверты
-                  выглядят и ощущаются как ткань, однако, значительно мягче,
-                  объемнее и гигиеничнее. Могут использоваться в качестве
-                  салфетки.
-                   
-                  Конверты LinStyle надежные и прочные и прослужат так же долго, как и тканевые Экономьте на стирках - больше они не понадобятся Печать логотипа сделает ваши конверты уникальными - до 75% посетителей обращают внимание на принт на продукции для декора стола Упаковка Tork Easy Handling® - легко нести, удобно нести, просто открыть.
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]
             brandText:
               - text: Tork
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[2]
             manufacturer:
-              - text: Essity
+              - text: Эссити ООО
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[2]
             quantity:
-              - text: 1 шт
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/p[1]
+              - text: 60 шт
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/p[1]
             sku:
               - text: "146969"
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[7]/@data-fl-item-id
-            variantId:
-              - text: "146969"
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[7]/@data-fl-item-id
             name:
-              - text: Конверты для приборов Tork Linstyle кремовые 60 шт
+              - text: Конверты для столовых приборов Tork LinStyle Premium бумажные нетканые 39
+                  × 39 см кремовые 60 шт
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/h1[1]
             brandLink:
-              - text: https://sbermarket.ru/metro/tovary-dlia-ofisa/odnorazovaia-posuda-i-prinadliezhnosti/bumazhnyie-salfietki-dispiensiery-skatierti/b/tork
+              - text: https://sbermarket.ru/metro/dlia-doma-i-dachi/siervirovka-stola/priedmiety-siervirovki/b/tork
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[2]/div[1]/a[1]/@href
+            storage:
+              - text: В сухом прохладном месте
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/div[2]
             countryOfOrigin:
               - text: Россия
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[2]
             materials:
               - text: Целлюлоза
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/div[2]
+            variantId:
+              - text: "21323"
+                xpath: /html/body/div[6]
+            description:
+              - text: Салфетки конверты для столовых приборов Tork Premium LinStyle® — идеальное
+                  решение для ресторанов полного цикла обслуживания, где
+                  необходимо высокое качество, чтобы произвести хорошее
+                  впечатление на гостей. Удобно сложены для быстрой и элегантной
+                  сервировки столовых приборов, а также использования в качестве
+                  салфетки. Они заметно мягче и объемнее, чем стандартные
+                  бумажные салфетки, но при этом обладают повышенной
+                  впитываемостью и представлены в широком ассортименте
+                  современных и классических цветов.
+                xpath: /html/body/div[7]
             price:
               - text: 708,00 RUB
-                xpath: /html/body/div[5]
+                xpath: /html/body/div[8]
             availabilityText:
-              - text: Out of Stock
-                xpath: /html/body/div[14]
+              - text: Out Of Stock
+                xpath: /html/body/div[17]
             productUrl:
               - text: https://sbermarket.ru/metro/konverty-dlya-priborov-tork-linstyle-kremovye-60-sht
-                xpath: /html/body/div[15]
+                xpath: /html/body/div[18]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html/body
-    timestamp: 1606378645858
+    timestamp: 1611222790410

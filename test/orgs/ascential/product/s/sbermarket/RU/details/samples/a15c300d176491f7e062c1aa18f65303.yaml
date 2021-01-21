@@ -2,7 +2,7 @@ input:
   _url: http://sbermarket.ru/metro
   URL: https://sbermarket.ru/metro/dispenser-tork-xpressnap-dlya-bolshoy-emkosti
 extractions:
-  - html: https://workbench.import.io/html/run=3372641a-0aca-4f58-a1fc-b6d81e4cf5d3/task=f091cf05-e89a-4784-9cd6-819222428c39/56d10ef4-e824-491b-adaa-b2a08de8970c.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=9758d46c-5d37-4fc5-91de-63f4e9123eba/task=5c9a177b-860a-4831-9088-3bf0b06bd7f9/9fda77c7-4f18-4951-a82b-e2bc5a32d4be.html
     extractionConfigId: product/details/stores/s/sbermarket/RU/extract
     data:
       - group:
@@ -11,33 +11,25 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/meta[1]/@content
             imageAlt:
               - text: Диспенсер для салфеток Tork Xpressnap для большой емкости N4
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@alt
             alternateImages:
-              - text: https://sbermarket.ru/spree/products/147487/preview/149283_4.jpg?1559210355
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/img[1]/@src
-              - text: https://sbermarket.ru/spree/products/147485/preview/149283_5.jpg?1559210355
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/img[1]/@src
-              - text: https://sbermarket.ru/spree/products/147488/preview/149283_6.jpg?1559210356
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/img[1]/@src
+              - text: https://imgproxy.sbermarket.ru/imgproxy/size-500-500/aHR0cHM6Ly9zYmVybWFya2V0LnJ1L3NwcmVlL3Byb2R1Y3RzLzE0NzQ4Ny9vcmlnaW5hbC8xNDkyODNfNC5qcGc_MTU1OTIxMDM1NQ.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/picture[1]/img[1]/@src
+              - text: https://imgproxy.sbermarket.ru/imgproxy/size-500-500/aHR0cHM6Ly9zYmVybWFya2V0LnJ1L3NwcmVlL3Byb2R1Y3RzLzE0NzQ4NS9vcmlnaW5hbC8xNDkyODNfNS5qcGc_MTU1OTIxMDM1NQ.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/picture[1]/img[1]/@src
+              - text: https://imgproxy.sbermarket.ru/imgproxy/size-500-500/aHR0cHM6Ly9zYmVybWFya2V0LnJ1L3NwcmVlL3Byb2R1Y3RzLzE0NzQ4OC9vcmlnaW5hbC8xNDkyODNfNi5qcGc_MTU1OTIxMDM1Ng.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/picture[1]/img[1]/@src
             category:
-              - text: Товары для офиса
+              - text: Товары для дома
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/a[1]
-              - text: Товары для гигиены
+              - text: Хозяйственные товары
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]/a[1]
-              - text: Профессиональная бумажная продукция и диспенсеры
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[3]/a[1]
             nameExtended:
               - text: Диспенсер для салфеток Tork Xpressnap для большой емкости N4
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/h1[1]
             listPrice:
               - text: 3 507,00 ₽
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/span[1]
-            description:
-              - text: Отличное решение для объектов с большим расходом салфеток. Обеспечивает
-                  полистовой отбор салфеток, повышая уровень гигиены и
-                  значительно снижая расход салфеток по сравнению с
-                  традиционными диспенсерами.
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]
             brandText:
               - text: Tork
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[2]
@@ -46,18 +38,15 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[2]
             quantity:
               - text: 1 шт
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/p[1]
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/p[1]
             sku:
-              - text: "149283"
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[7]/@data-fl-item-id
-            variantId:
               - text: "149283"
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[7]/@data-fl-item-id
             name:
               - text: Диспенсер для салфеток Tork Xpressnap для большой емкости N4
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/h1[1]
             brandLink:
-              - text: https://sbermarket.ru/metro/tovary-dlia-ofisa/tovary-dlia-ghighiieny/profiessionalnaia-bumazhnaia-produktsiia-i-dispiensiery/b/tork
+              - text: https://sbermarket.ru/metro/dlia-doma-i-dachi/khoziaistviennyie-tovary/b/tork
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[2]/div[1]/a[1]/@href
             countryOfOrigin:
               - text: Россия
@@ -65,16 +54,25 @@ extractions:
             materials:
               - text: Пластик
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/div[2]
+            variantId:
+              - text: "464323"
+                xpath: /html/body/div[6]
+            description:
+              - text: Отличное решение для объектов с большим расходом салфеток. Обеспечивает
+                  полистовой отбор салфеток, повышая уровень гигиены и
+                  значительно снижая расход салфеток по сравнению с
+                  традиционными диспенсерами.
+                xpath: /html/body/div[7]
             price:
               - text: 3507,00 RUB
-                xpath: /html/body/div[6]
+                xpath: /html/body/div[8]
             availabilityText:
-              - text: Out of Stock
-                xpath: /html/body/div[15]
+              - text: Out Of Stock
+                xpath: /html/body/div[17]
             productUrl:
               - text: https://sbermarket.ru/metro/dispenser-tork-xpressnap-dlya-bolshoy-emkosti
-                xpath: /html/body/div[16]
+                xpath: /html/body/div[18]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html/body
-    timestamp: 1606378641864
+    timestamp: 1611222796981
