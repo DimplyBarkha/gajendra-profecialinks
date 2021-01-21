@@ -32,7 +32,7 @@ fields:
 - name: reviewTitle
   xpath: //div[@class="card-body"]//h4 | //div[@id="my-reviews"]/@title
 - name: mediaURL
-  xpath: ancestor::html//meta[@property="og:image"]/@content
+  xpath: ancestor::html//div[@class='media-gallery']//ul[contains(@class,'alice-carousel__stage')]/li[1]/img/@src
 - name: location
   defaultValue: CA
 - name: helpful
