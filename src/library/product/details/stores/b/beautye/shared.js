@@ -15,6 +15,7 @@ const transform = (data) => {
     .replace(/"\s{1,}/g, '"')
     .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
+    .replace(/['"]/g, '')
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
@@ -28,18 +29,25 @@ const transform = (data) => {
         row.sku.forEach(item => {
           if(item.text.indexOf("conf_") !== -1){
             item.text = item.text.replace(/conf_/, '');
-            row.variantId[0].text = item.text;
+            //row.variantId[0].text = item.text;
           }
         });
       }
       if (row.variantId) {
+        row.variantId.forEach(item=> {
+          if(item.text.indexOf("conf_") !== -1){
+            item.text = item.text.replace(/conf_/, '');
+            //row.variantId[0].text = item.text;
+          }});
+        
+        if(row.variantId.length>1){
         //remove duplicate from array
-        let a=row.variantId.pop();
+        let a=row.variantId[1].text;
         row.variantId = [
           {
-            text: a,
+             text:a,
           },
-        ];
+        ];}
       }
       if (row.specifications) {
         let text = '';
@@ -64,7 +72,7 @@ const transform = (data) => {
         ];
       }
       let brand = '';
-      if (row.brandText) {
+      /*if (row.brandText) {
         if (row.brandText.length > 1) {
           row.brandText = row.brandText.slice(0);
           brand = row.brandText[0].text;
@@ -79,14 +87,15 @@ const transform = (data) => {
           brand = text;
           row.brandText = [{text: text } ];
         }
-      }
+      }*/
 
       if (row.nameExtended) {
-        let text = brand + ' ';
+        let text=brand;
         row.nameExtended.forEach(item => {
-          text += item.text + ' '; 
-        });
-        row.nameExtended = [{text: text } ];
+          text += item.text+' '; 
+        });   
+        let finalName=(row.brandText[0].text)?(row.brandText[0].text+' '+text):text;
+        row.nameExtended = [{text: finalName.trim()} ];
       }
 
       if (row.variants) {

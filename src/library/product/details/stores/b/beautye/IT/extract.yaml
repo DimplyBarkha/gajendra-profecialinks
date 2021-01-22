@@ -25,7 +25,7 @@ fields:
     # //ul[@class="items"]/li[position()>1][position()<last()]
   - name: nameExtended
     singleValue: false
-    xpath: //h1[@class="page-title"]/span | //div[@itemprop="description"]
+    xpath: //h1[@class="page-title"]/span | //div[@itemprop="description"] | //div[contains(@id,"pd_description_add")]
     #xpath: //meta[@name="title"]/@content 
     #xpath: //div[@class="fotorama__caption__wrap"][1] | //div[@itemprop="description"]
     # xpath: concat(//span[@class='brand-no-link'],' ',//div[@class='fotorama__caption__wrap'][1])
@@ -51,7 +51,7 @@ fields:
     xpath: //span[contains(text(),"Consigli")]//..//..//following-sibling::div[1][@data-role="content"]    
   - name: brandText
     singleValue: false
-    xpath: //div[@class="box-tocart"]//button/@data-brand | //span[@class="brand-no-link"]
+    xpath: //span[contains(@id,"new_brand_name")]
     #| //div[@class="product_logo_link"]//img/@src
     # //span[@class="brand-no-link"]
   - name: quantity
@@ -67,9 +67,9 @@ fields:
     # regExpReplace: $1
   - name: variantId
     singleValue: false
-    xpath: //div[contains(@id,"pd_vairiant_id")]
-    # regExp: conf_([^"]+)
-    # regExpReplace: $1
+    xpath: //div[contains(@id,"pd_vairiant_id")] | //meta[@itemprop="sku"]/@content
+    #regExp: conf_([^"]+)
+    #regExpReplace: $1
     #xpath: //div[@class="fotorama__caption__wrap"]/@id
     # regExp: labelledby(.+)
     # regExpReplace: $1
@@ -89,10 +89,10 @@ fields:
   - name: variantInformation
     singleValue: false
     # xpath: //div[contains(@class,"swatch-attribute")]/@attribute-code
-    xpath: //span[@class="swatch-attribute-selected-option"]
+    xpath: //div[contains(@id,"pd_description_add")]
   - name: ingredientsList
     singleValue: false
-    xpath: //span[contains(text(),"Ingredienti")]//..//..//following-sibling::div[1][@data-role="content"]/text()
+    xpath: //span[contains(text(),"Ingredienti")]//..//..//following-sibling::div[1][@data-role="content"]
   - name: customerServiceAvailability
     singleValue: false
     description: Information related to customer service availability (text), ['Yes','No']
