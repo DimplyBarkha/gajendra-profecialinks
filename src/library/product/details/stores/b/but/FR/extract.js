@@ -55,7 +55,7 @@ module.exports = {
     const { productDetails } = dependencies;
     await context.evaluate(async function () {
       // function to get the json data from the string
-    // function findJsonData (scriptSelector, startString, endString) {
+      // function findJsonData (scriptSelector, startString, endString) {
 
       //     const xpath = `//script[contains(.,'${scriptSelector}')]`;
       //     let element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -65,7 +65,7 @@ module.exports = {
       // };
       // let videoContent = findJsonData ('reviewListStatistics',' var appData =','};')
       // addHiddenDiv('videos', videoContent);
-      function addHiddenDiv (id, content) {
+      function addHiddenDiv(id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
@@ -109,12 +109,12 @@ module.exports = {
       await context.waitForXPath('//video');
       const video = await context.evaluate(() => {
         const src = ele('video');
-        function ele (tag) {
+        function ele(tag) {
           return document.querySelectorAll(tag);
         }
         const value = [];
         retrieve(src);
-        function retrieve (src) {
+        function retrieve(src) {
           for (let i = 0; i < src.length; i++) {
             value.push(src[i].currentSrc);
           }
@@ -133,7 +133,7 @@ module.exports = {
         const src = document.querySelectorAll('div[class="eky-row left-padding divider-line"] img');
         const value = [];
         retrieve(src);
-        function retrieve (src) {
+        function retrieve(src) {
           for (let i = 0; i < src.length; i++) {
             value.push(src[i].currentSrc);
           }
@@ -145,7 +145,7 @@ module.exports = {
         const src = document.querySelectorAll('h1,h2,h3,h4,p,div.eky-accessory>div');
         const value = [];
         retrieve(src);
-        function retrieve (src) {
+        function retrieve(src) {
           for (let i = 0; i < src.length; i++) {
             value.push(src[i].innerText);
           }
@@ -173,6 +173,14 @@ module.exports = {
       }, desc);
     }
     await delay(5000);
+    
+    try{
+    await context.waitForXPath(`//div[@class="availability nomargin"]/div[@class="l-available"] | //div[@class="availability"]|//div[@class='no-availability']`, { timeout: 5000 });
+    }
+    catch(e){
+      console.log("availability section not present.");
+    }
+
     return await context.extract(productDetails, { transform });
   },
 };
