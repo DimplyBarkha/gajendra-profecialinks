@@ -61,9 +61,9 @@ module.exports = {
     country: 'BE',
     store: 'iciparisxl_fr',
     domain: 'iciparisxl_fr.be',
-    url: 'https://www.iciparisxl.be/fr/search?resultsForPage=50&q={searchTerms}',
+    url: 'https://www.iciparisxl.be/fr/search?resultsForPage=100&q={searchTerms}',
     loadedSelector: 'section.product-grid',
-    noResultsXPath: '//p[contains(text(),"Nous avons trouvé 0 produits.")]',
+    noResultsXPath: '//div[contains(@class,"pagination-sort top")]//div[@class="pagination"]//li[@class="next"]//a[contains(@class,"disabled button")]',
     zipcode: "''",
   },
 };
