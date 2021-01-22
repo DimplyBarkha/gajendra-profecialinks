@@ -18,7 +18,7 @@ fields:
   - name: category
     xpath: //div[@class="sc-pc-breadcrumbs"]/ol/li[position()>1] | //nav[contains(@class,"breadcrumbs")]/ol/li[position()>1] 
   - name: nameExtended
-    xpath: //title
+    xpath: //div[@class="sc-pc-title-full-desktop"]//h1 | //meta[@itemprop="name"]/@content
   - name: listPrice
     xpath: //span[@class="sc-channel-savings-list-price"]
   - name: price
@@ -34,7 +34,7 @@ fields:
   - name: brandText
     xpath: //div[@class="main-wrapper"]//div[@class="sc-pc-large-desktop-layout"]/meta[@itemprop="brand"]/@content | //meta[@itemprop="brand"]/@content
   - name: sku
-    xpath: substring-after(//span[contains(@class, 'item-number')][last()],'# ')
+    xpath: //div[@class="main-wrapper"]//div[@class="sc-pc-large-desktop-layout"]/meta[@itemprop="sku"]/@content | //meta[@itemprop="sku"]/@content
   - name: variantId
     xpath: //div[@class="sc-product-header"]//div[@class="sc-product-header-item-number"]
     regExp: (\d+)
@@ -48,11 +48,9 @@ fields:
   - name: variantCount
     defaultValue: "0"
   - name: manufacturerDescription
-    xpath: //div[contains(@id, 'aplus')]//div[contains(@class,'text-wrap')] | //div[@class="enhancedContent"]
+    xpath: //div[contains(@id, 'aplus')] | //div[@class="enhancedContent"]
   - name: manufacturerImages
-    xpath: //div[contains(@class,"aplus-body")]//img/@src | //div[@class="enhancedContent"]//img/@src | //div[contains(@class, 'inpage_selector')]//img/@srcset
-    regExp: (.*?)//(.*)
-    regExpReplace: http://$2
+    xpath: //div[contains(@class,"aplus-body")]//img/@src | //div[@class="enhancedContent"]//img/@src
   # - name: videos
   #   xpath: 
   - name: name
