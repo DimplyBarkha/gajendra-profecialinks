@@ -24,45 +24,14 @@ module.exports = {
           element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
           await new Promise((resolve) => setTimeout(resolve, 10000));
         }
-        let apikey = document.querySelector('div.loadbee-inpage div.loadbeeTabContent') ? document.querySelector('div.loadbee-inpage div.loadbeeTabContent').getAttribute('data-loadbee-apikey') : null;
-        let gtin = document.querySelector('div.loadbee-inpage div.loadbeeTabContent') ? document.querySelector('div.loadbee-inpage div.loadbeeTabContent').getAttribute('data-loadbee-gtin') : null;
-        let iframeObj = {};
-        iframeObj.apikey = apikey;
-        iframeObj.gtin = gtin;
-        return iframeObj;
+        var iframeApiResUrl = document.querySelectorAll('div.loadbee-inpage div.loadbeeTabContent iframe')[0].getAttribute('src');
+        return iframeApiResUrl;
       });
+
+
       if (iframeObj) {
-        console.log('iframeObj:---------------------------------- ', iframeObj);
-        var iframeApiResUrl = await context.evaluate(async function (iframeObj1) {
-          console.log('iframeObj1: ', iframeObj1);
-          let apiKey = iframeObj1.apikey;
-          console.log('apiKey: ', apiKey);
-          let gtin = iframeObj1.gtin;
-          console.log('gtin: ', gtin);
-          async function getData(url = '') {
-            const response = await fetch(url, {
-              method: 'GET',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-            });
-            console.log('response.json:------------------------------- ', response.json);
-            return response.json();
-
-          };
-          let url = `https://availability.loadbee.com/v3/EAN/${gtin}/de_CH?template=default&apiKey=${apiKey}`
-          console.log('url: ', url);
-          const iframeApiRes = await getData(url);
-          console.log('iframeApiRes: ', iframeApiRes);
-          let urlIframe = iframeApiRes ? iframeApiRes.url : null;
-          console.log('urlIframe: ', urlIframe);
-          return urlIframe;
-        }, iframeObj);
-      }
-
-      if (iframeApiResUrl) {
-        console.log('iframe: ', iframeApiResUrl);
-        await context.goto(iframeApiResUrl, { timeout: 60000 });
+        console.log('iframe: ', iframeObj);
+        await context.goto(iframeObj, { timeout: 60000 });
         await new Promise((resolve) => setTimeout(resolve, 10000));
         const manufactDes = await context.evaluate(async () => {
           let descArr = [];
@@ -104,6 +73,25 @@ module.exports = {
           }
         });
         const manufactImg = await context.evaluate(() => {
+
+          const getAllXpath = (xpath, prop) => {
+            const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+            const result = [];
+            for (let index = 0; index < nodeSet.snapshotLength; index++) {
+              const element = nodeSet.snapshotItem(index);
+              if (element) result.push(prop ? element[prop] : element.nodeValue);
+            }
+            return result;
+          };
+          function getDataFromBGURL(data) {
+            var returnURLs = [];
+            var temp;
+            for (let i = 0; i < data.length; i++) {
+              temp = data[i];
+              returnURLs.push(temp.split('background-image: url("').join('")').split('")')[1]);
+            }
+            return returnURLs;
+          }
           const arrImgSel1 = document.querySelectorAll("div[class*='container-fluid main-container'] img[src]") ? Array.from(document.querySelectorAll("div[class*='container-fluid main-container'] img[src]")) : '';
           console.log('arrImgSel1: ', arrImgSel1);
           // @ts-ignore
@@ -115,6 +103,9 @@ module.exports = {
           const img2 = arrImgSel2.map((imgSelector) => imgSelector && imgSelector.src ? imgSelector.src : '');
           console.log('img2: ', img2);
           let imgUrlArr = img2.concat(img1)
+          let BGUrls = getAllXpath('//*[contains(@style,"background-image")]/@style', 'nodeValue');
+          let updatedBGUrls = getDataFromBGURL(BGUrls);
+          img1.push(updatedBGUrls);
           let arr = imgUrlArr.join(' | ')
           return arr;
         });
