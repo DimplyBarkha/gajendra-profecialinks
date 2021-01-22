@@ -16,7 +16,8 @@ const transform = (data) => {
     .replace(/^ +| +$|( )+/g, ' ')
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
-    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ')
+    .trim();
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
     el.text = clean(el.text);
   }))));
@@ -27,10 +28,11 @@ const transform = (data) => {
         row.flavour.forEach(item => {
           if (item.text.includes('-')) {
             item.text = item.text.split('-');
-            item.text = item.text[0];
+            item.text = item.text[0].replace(/[0-9,\-,\–]/g, '').trim();
           }
         });
       }
+
       if (row.productFamily) {
         row.productFamily.forEach(item => {
           item.text = item.text.replace('https://njoy.com/us/', '').trim();

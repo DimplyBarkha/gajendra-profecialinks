@@ -35,7 +35,7 @@ module.exports = {
     country: 'US',
     store: 'njoy',
     transform: null,
-    domain: 'shop.njoy.com',
+    domain: 'njoy.com',
     zipcode: '',
   },
   implementation,

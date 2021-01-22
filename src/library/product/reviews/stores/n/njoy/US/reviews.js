@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'njoy',
-    domain: 'shop.njoy.com',
+    domain: 'njoy.com',
     zipcode: "''",
     mergeType: null,
   },

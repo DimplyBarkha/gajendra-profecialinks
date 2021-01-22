@@ -15,7 +15,7 @@ module.exports = {
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
     openSearchDefinition: null,
-    domain: 'shop.njoy.com',
+    domain: 'njoy.com',
     zipcode: "''",
   },
 };
