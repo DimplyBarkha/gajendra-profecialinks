@@ -33,10 +33,6 @@ const transform = (data) => {
         });
       }
 
-      if (!row.sku && row.name){
-        row.sku = [{ text: row.name[0].text }];
-      }
-
       if (row.productFamily) {
         row.productFamily.forEach(item => {
           item.text = item.text.replace('https://njoy.com/us/', '').trim();

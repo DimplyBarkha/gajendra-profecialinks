@@ -64,9 +64,10 @@ fields:
     xpath: //div[contains(@class,'yotpo-header-element')]//span[contains(@class, 'yotpo-user-name')]
   - name: sku
     description: The sku
-    xpath: ancestor::html//div[@class='cart-wrapper']/a/@href
-    regExp: sku\=(.*)\&
-    regExpReplace: $1
+    xpath: ancestor::html//div[contains(@class,'product_detail')]//h2
+    # xpath: ancestor::html//div[@class='cart-wrapper']/a/@href
+    # regExp: sku\=(.*)\&
+    # regExpReplace: $1
   - name: productRange
     singleValue: false
     xpath: ancestor::html//head/link[@rel='canonical']/@href
