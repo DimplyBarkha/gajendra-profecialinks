@@ -8,7 +8,14 @@ module.exports = {
     domain: 'lomax.dk',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
+  implementation: async function implementation(
+    inputs,
+    parameters,
+    context,
+    dependencies,
+    ) {
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
     await context.evaluate(async function () {
       function addHiddenDiv(id, content, index) {
         const newDiv = document.createElement('div');
