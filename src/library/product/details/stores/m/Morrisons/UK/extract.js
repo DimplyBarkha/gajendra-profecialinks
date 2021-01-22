@@ -99,6 +99,21 @@ async function implementation(inputs, parameters, context, dependencies) {
   } else if (dataRef[0].group[0].alcoholContent[0]) {
     dataRef[0].group[0].alcoholContent[0].text = dataRef[0].group[0].alcoholContent[0].text + '% | ' + dataRef[0].group[0].alcoholContent[0].text;
   }
+  if (dataRef[0].group[0].totalSugarsPerServing === undefined) {
+    delete dataRef[0].group[0].totalSugarsPerServing;
+  } else if (dataRef[0].group[0].totalSugarsPerServing[0]) {
+    dataRef[0].group[0].totalSugarsPerServing[0].text = dataRef[0].group[0].totalSugarsPerServing[0].text.replace('g', '').trim();
+  }
+  if (dataRef[0].group[0].totalFatPerServing === undefined) {
+    delete dataRef[0].group[0].totalFatPerServing;
+  } else if (dataRef[0].group[0].totalFatPerServing[0]) {
+    dataRef[0].group[0].totalFatPerServing[0].text = dataRef[0].group[0].totalFatPerServing[0].text.replace('g', '').trim();
+  }
+  if (dataRef[0].group[0].warnings === undefined) {
+    delete dataRef[0].group[0].warnings;
+  } else if (dataRef[0].group[0].warnings[0]) {
+    dataRef[0].group[0].warnings[0].text = dataRef[0].group[0].warnings[0].text.replace('Safety Warning:', '').trim();
+  }
   return dataRef;
 }
 
