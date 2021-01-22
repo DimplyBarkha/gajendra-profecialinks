@@ -1,7 +1,13 @@
-proxy:
-  zone: ZCA
-  type: DATA_CENTER
 robot: product/search
+proxy:
+  zone: CAN
+  type: DATA_CENTER
+policy:
+  numberRetries: 5
+  priority: MEDIUM
+  retryDelay: 60
+  backoffPolicy: LINEAR
+  retryWithResidentialProxyAfter: 1
 parameters:
   country: CA
   domain: costco.ca

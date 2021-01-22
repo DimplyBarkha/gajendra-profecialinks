@@ -21,6 +21,7 @@ module.exports = {
     try {
       await context.waitForSelector('input[id="language-region-set"]', { timeout });
       await context.click('input[id="language-region-set"]');
+      await context.setFirstRequestTimeout(50000);
       await context.goto(URL, { timeout: timeout, waitUntil: 'networkidle0', checkBlocked: true });
       await context.waitForNavigation({ timeout, waitUntil: 'networkidle0' });
     } catch (err) {
