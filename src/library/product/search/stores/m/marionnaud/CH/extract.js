@@ -63,7 +63,7 @@ module.exports = {
             addElementToDoc(`productElement-${i * 20 + j}`, i * 20 + j);
             const product = data.results[j];
             const productElemId = `div#productElement-${i * 20 + j}`;
-            const productId = product.code ? product.code.match(/\d+/g) : '';
+            const productId = product.defaultVariantCode ? product.defaultVariantCode : product.code.match(/\d+/g);
             document.querySelector(productElemId).setAttribute('product-tile-id', productId);
             const productBrand = product.brandData ? product.brandData.name ? capitalizeFirstChar(product.brandData.name) : '' : '';
             document.querySelector(productElemId).setAttribute('product-tile-name', `${productBrand} ${product.name}`);
