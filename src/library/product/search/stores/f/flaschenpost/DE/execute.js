@@ -6,7 +6,7 @@ module.exports = {
     store: 'flaschenpost',
     domain: 'flaschenpost.de',
     url: "https://www.flaschenpost.de/katalog/suche/?searchTerm={searchTerms}",
-    // loadedSelector: 'body',
+    loadedSelector: 'p[class="fontSizeM"]',
     noResultsXPath: null,
     zipcode: '28203',
   },
