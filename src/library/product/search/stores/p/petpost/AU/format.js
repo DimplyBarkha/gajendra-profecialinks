@@ -46,7 +46,12 @@ const transform = (data, context) => {
             row.thumbnail.forEach(item=>{
                 item.text=item.text.replace('background-image: url("','').replace('");','');
                 let tmp=item.text.split('/').pop().split('-');
-                skyIdStr=tmp[0];
+                let tmp1=tmp[0];
+                if(tmp1.indexOf('?v=')>-1){
+                  skyIdStr=tmp1.split('?v=').pop();
+                }else{
+                  skyIdStr=tmp1;
+                }
             })
         }
         if(row.id){
