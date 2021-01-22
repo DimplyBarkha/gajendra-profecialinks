@@ -32,7 +32,7 @@ module.exports = {
         });
         scrollTop += 1000;
         window.scroll(0, scrollTop);
-        if (scrollTop === 40000 || productsCount > 160) {
+        if (scrollTop === 40000 || productsCount >= 5) {
           await stall(5000);
           break;
         }
@@ -51,7 +51,7 @@ module.exports = {
         const id = element.replace(/(fop-wrapper:)(.+)/g, '$2');
         actualidArray.push(id);
       });
-      const requiredArray = actualidArray.slice(0, 150);
+      const requiredArray = actualidArray.slice(0, 50);
       const idAfterJoin = requiredArray.join(',');
       const apilink = `https://voila.ca/api/v4/products/decorate?productIds=${idAfterJoin}`;
       const productData = await fetch(apilink);
