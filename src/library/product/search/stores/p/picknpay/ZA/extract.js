@@ -38,7 +38,7 @@ async function implementation (inputs, parameters, context, dependencies) {
         product.setAttribute('rating', ratingObject.rating);
       }
       // set price
-      const priceElem = product.querySelector('div.currentPrice');
+      const priceElem = product.querySelector('div.currentPrice,span.priceDiv div.normalPrice');
       if (priceElem) {
         const priceOne = priceElem.childNodes[0].textContent.match(priceReg);
         const priceTwo = priceElem.childNodes[1].textContent.match(priceReg);
