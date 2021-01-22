@@ -5,8 +5,10 @@ recordXPath: //div[contains(@class,'product-grid--tile')]
 fields:
   - name: id
     singleValue: false
-    xpath: //a[@class="shelfProductTile-imageWrapper"]/img/@src
-    regExp: \d{4,}
+    xpath: //a[@class="shelfProductTile-imageWrapper"]/@href
+    # www.woolworths.com.au/shop/productdetails/855572/sunbites-crackers-with-quinoa-cheddar-chives
+    regExp: productdetails\/(.+?)\/
+    regExpReplace: $1
   - name: name
     singleValue: false
     xpath: //a[@class="shelfProductTile-imageWrapper"]/img/@title
