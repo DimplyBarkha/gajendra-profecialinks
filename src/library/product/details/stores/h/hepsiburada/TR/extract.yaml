@@ -104,7 +104,8 @@ fields:
   - name: otherSellersName
     xpath: //a[contains(@class,'merchant-name')]
   - name: unInterruptedPDP
-    xpath: //div[contains(@class,'RecommendationProducts')][contains(.,'Bu kategorinin') or contains(.,'Sıklıkla birlikte alınanlar') or contains(.,'Bu ürüne bakanların') or contains(.,"Bu ürüne bakanlar bu ürünlere de baktılar")]//div[contains(@class,"owl-stage")]//div[contains(@class,'owl-item')]//a/span
+    xpath: //@updp | //div[contains(@class,'RecommendationProducts')][contains(.,'Bu kategorinin') or contains(.,'Sıklıkla birlikte alınanlar') or contains(.,'Bu ürüne bakanların') or contains(.,"Bu ürüne bakanlar bu ürünlere de baktılar")]//div[contains(@class,"owl-stage")]//div[contains(@class,'owl-item')]//a/span
+    regExp: '[^|]+'
   - name: otherSellersPrice
     xpath: //tr//span[contains(@class,'product-price')] | //td//div[@class="price-value"]
   - name: firstVariant
@@ -128,7 +129,8 @@ fields:
   - name: inTheBoxUrl
     xpath: //table//tr//@inboxurl
   - name: hasComparisonTable
-    xpath: //div[contains(@class,"product-comparison-body")]/../div[contains(@class,"title")]
+    # removed CTR as its comparing difference products from the category, not the dyson products which is usually present in EC.
+    # xpath: //div[contains(@class,"product-comparison-body")]/../div[contains(@class,"title")]
     defaultValue: No
     regExp: (.+)
     regExpReplace: 'Yes'

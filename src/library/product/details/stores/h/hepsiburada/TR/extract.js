@@ -72,6 +72,20 @@ module.exports = {
       });
     };
     await applyScroll(context);
+    async function getRecommended () {
+      const productId = utagData.product_ids[0];
+      const skuList = utagData.product_skus[0];
+      const API = `https://recommendation.hepsiburada.com/api/v1/recommendations/withproductinfo?placements=item_page.web-RemovedItem&productId=${productId}&skuList=${skuList}`;
+      const response = await fetch(API);
+      const json = await response.json();
+      const pdp = json.data.placements.map(elm => elm.products).flat().map(elm => elm.name).join('|');
+      document.body.setAttribute('updp', pdp);
+    }
+    try {
+      await context.evaluate(getRecommended);
+    } catch (error) {
+      console.log('Error adding domains updp', error);
+    }
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.extract(productDetails, { transform });
