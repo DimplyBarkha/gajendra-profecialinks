@@ -84,3 +84,9 @@ fields:
   - name: unInterruptedPDP
     singleValue: false
     xpath: //div[@id="related-items"]//span[@class="variant-title"]/a
+  - name: inTheBoxUrl
+    singleValue: false
+    xpath: //div[contains(@class, 'inpage_selector_InTheBox')]//img//@srcset
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //div[contains(@class, 'inpage_selector_InTheBox')]//div[contains(@class, 'content')]//span
