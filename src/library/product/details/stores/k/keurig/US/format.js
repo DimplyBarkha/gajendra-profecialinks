@@ -29,12 +29,12 @@ const transform = (data) => {
         });
         row.manufacturerDescription = [
           {
-            text: text,
+            text: text.trim(),
           },
         ];
       }
       if (row.description) {
-        row.description = [{ text: row.description[0].text.replace(/•/gm, '||').replace(/Nutritional Information$/, '') }];
+        row.description = [{ text: row.description[0].text.replace(/•/gm, '||').replace(/Nutritional Information$/, '').trim() }];
       }
       if (row.variants1 && row.variants1.length > 1) {
         row.variants = row.variants1;
@@ -53,7 +53,7 @@ const transform = (data) => {
         row.additionalDescBulletInfo.forEach(item => {
           item.text.match(/•/gm) && additionalDescBulletInfo.push({ text: item.text });
         });
-        if (additionalDescBulletInfo.length >= 1) {
+        if (additionalDescBulletInfo && additionalDescBulletInfo.length >= 1) {
           row.additionalDescBulletInfo = additionalDescBulletInfo;
         }
         row.descriptionBullets = [{ text: additionalDescBulletInfo.length }];
@@ -72,6 +72,18 @@ const transform = (data) => {
         if (manufacturerImages) {
           row.manufacturerImages = manufacturerImages;
         }
+      }
+      if (!row.videos && row.videos1) {
+        row.videos = row.videos1;
+      }
+      if (row.imagejson && row.imagejson[0] && row.imagejson[0].text === 'Yes' && row.alter1s) {
+        row.alternateImages = row.alter1s;
+        row.secondaryImageTotal = [{ text: row.alternateImages.length }];
+      } else if(row.alternateImages){
+        row.secondaryImageTotal = [{ text: row.alternateImages.length }];
+      }
+      if (!row.variantId && row.variantId1) {
+        row.variantId = row.variantId1;
       }
     }
   }

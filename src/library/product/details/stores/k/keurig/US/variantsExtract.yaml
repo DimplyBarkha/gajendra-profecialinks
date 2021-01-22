@@ -1,4 +1,4 @@
-singleRecord: true
+singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -10,3 +10,4 @@ fields:
   - name: variantUrl
     singleValue: false
     description: variant Url
+    xpath: //li[contains(@class,"selectVariant")]/@data-varianturlsuffix | //div[contains(@class,"productVariantColor")]//a/@data-variantUrlSuffix
