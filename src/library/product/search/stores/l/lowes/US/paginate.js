@@ -1,19 +1,16 @@
 
 module.exports = {
-  implements: 'product/search/paginate',
+  implements: 'navigation/paginate',
   parameterValues: {
     country: 'US',
     store: 'lowes',
     openSearchDefinition: {
-      template: 'https://www.lowes.com/search?searchTerm={searchTerms}&page={page}'
+      template: 'https://www.lowes.com/search?searchTerm={searchTerms}&page={page}',
     },
-    //nextLinkSelector: 'ul[data-selector="splp-pag-lst"] li:last-child a:not(.disabled)',
-    // nextLinkXpath: "//ul[@data-selector='splp-pag-lst']//li[last()]//a[not(contains(@class,'disabled'))]",
-    mutationSelector: 'section#main',
+    mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'section#main',
-    noResultsXPath: '//h1[contains(text(),"NO RESULTS FOUND FOR")]',
-    
+    loadedSelector: 'div[class="items"] div[class="tile_group"]:last-child , section#main , div[id*="pd_row"]',
+    noResultsXPath: '//h1[contains(text(),"NO RESULTS FOUND FOR")] | //h1[contains(text(),"Something Went Wrong")] | //h1[contains(text(),"Access Denied")]',
     domain: 'lowes.com',
     zipcode: '',
   },

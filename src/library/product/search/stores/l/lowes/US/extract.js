@@ -1,5 +1,5 @@
 const { transform } = require('../../../../shared');
-async function implementation(inputs, parameters, context, dependencies) {
+async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
@@ -54,7 +54,7 @@ async function implementation(inputs, parameters, context, dependencies) {
           break;
         }
       }
-      function stall(ms) {
+      function stall (ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
@@ -65,18 +65,18 @@ async function implementation(inputs, parameters, context, dependencies) {
   };
   await applyScroll(context);
   await context.evaluate(async function () {
-    function addHiddenDiv(id, content) {
+    function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
       newDiv.textContent = content;
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
- 
+
     const row = document.querySelectorAll(
-      'div[class="items"] div[class="tile_group"]'
+      'div[class="items"] div[class="tile_group"]',
     );
-    if(row) {
+    if (row) {
       for (let index = 0; index < row.length; index++) {
         const element = row[index];
         const array = element.children;
@@ -88,14 +88,16 @@ async function implementation(inputs, parameters, context, dependencies) {
           }
         }
       }
-    } 
+    }
     const rowOne = document.querySelectorAll(
-      'div[class="items"] div[class="tile_group"] > *'
+      'div[class="items"] div[class="tile_group"] > *',
     );
-    if(rowOne) {
+    if (rowOne) {
       for (let ind = 0; ind < rowOne.length; ind++) {
         const innerElement = rowOne[ind];
         const attValue = innerElement.getAttribute('data-tile');
+        // @ts-ignore
+        innerElement.style.display = 'none';
         document.getElementById(`pd_row${attValue}`).appendChild(innerElement);
       }
     }
@@ -118,7 +120,7 @@ async function implementation(inputs, parameters, context, dependencies) {
     }
     const product = document.querySelectorAll('article[data-selector=" splp-prd-tl-dsktp"]');
     // select query selector and loop and add div
-    if(product) {
+    if (product) {
       for (let i = 0; i < product.length; i++) {
         addHiddenDiv('page_url', URL, i);
       }
@@ -132,7 +134,7 @@ async function implementation(inputs, parameters, context, dependencies) {
       originalDiv.appendChild(newDiv);
     }
     const wholeDiv = document.querySelector('div.style__ProductDetailsWrapper-PDP__sc-18s9jld-0');
-    if (wholeDiv) { 
+    if (wholeDiv) {
       const url = window.location.href;
       addHiddenDivDetails('Prod_url', url);
       addHiddenDivDetails('Search_url', url);
@@ -158,7 +160,7 @@ async function implementation(inputs, parameters, context, dependencies) {
     }
     const product2 = document.querySelectorAll('div[data-selector="prd-compare-holder"]');
     // select query selector and loop and add div
-    if(product2) {
+    if (product2) {
       for (let i = 0; i < product2.length; i++) {
         addHiddenDiv2('page_url_1', URL, i);
       }
