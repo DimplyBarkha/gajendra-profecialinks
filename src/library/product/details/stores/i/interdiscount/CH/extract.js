@@ -37,8 +37,12 @@ module.exports = {
             dataObj.ean && addElementToDocument('pd_gtin', dataObj.ean);
             dataObj.code && addElementToDocument('pd_sku', dataObj.code);
             dataObj.ratings && addElementToDocument('pd_aggregateRating', dataObj.ratings.ratingAvg);
-            dataObj.ratings && addElementToDocument('pd_ratingCount', dataObj.ratings.ratingCount);
-            dataObj.ratings && addElementToDocument('pd_ratingCount', dataObj.ratings.ratingCount);
+            const reviewArr = dataObj.reviewDistribution;
+            let ratCount = 0;
+            for (let i = 1; i <= 5; i++) { ratCount += reviewArr[i]; }
+            // dataObj.ratings && addElementToDocument('pd_ratingCount', dataObj.ratings.ratingCount);
+            // dataObj.ratings && addElementToDocument('pd_ratingCount', dataObj.ratings.ratingCount);
+            if (ratCount !== 0) addElementToDocument('pd_ratingCount', ratCount);
             const image = dataObj.customImageData ? dataObj.customImageData[0].sizes.pop() : '';
             image && addElementToDocument('pd_image', `https://www.interdiscount.ch/${image.url}`);
             const alternateImages = dataObj.customImageData;

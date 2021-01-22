@@ -95,7 +95,10 @@ fields:
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: false
-    xpath: //div[@id="pd_aggregateRating"]
+    # xpath: //div[@id="pd_aggregateRating"]
+    xpath: //h4[contains(text(),'Gesamtbewertung')]/..//p
+    regExp: (.+)( von)(.+)
+    regExpReplace: $1
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
