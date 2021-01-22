@@ -1,13 +1,13 @@
 const { cleanUp } = require('../../../../shared');
 
-async function implementation(inputs, parameters, context, dependencies) {
+async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
   await context.evaluate(async () => {
     await new Promise((resolve, reject) => setTimeout(resolve, 1000));
 
-    function addElementToDocument(id, value, key) {
+    function addElementToDocument (id, value, key) {
       const catElement = document.createElement('div');
       catElement.id = id;
       catElement.innerText = value;
@@ -41,13 +41,12 @@ async function implementation(inputs, parameters, context, dependencies) {
       document.body.appendChild(elements);
     };
 
-    const description = document.querySelector("#pdp__details section");
+    const description = document.querySelector('#pdp__details section');
     const descriptionHeading = ['Product Information'];
     const descriptionEnd = ['Product Specification', 'Warnings or Restrictions', 'Product Uses'];
     if (description) addFollowingParagraphs('description', description, descriptionHeading, descriptionEnd);
 
-
-    const allHeadings = document.querySelectorAll("#pdp__details article h3.pdp-details__sub-title");
+    const allHeadings = document.querySelectorAll('#pdp__details article h3.pdp-details__sub-title');
     for (let i = 0; i < allHeadings.length; i++) {
       if (allHeadings[i].textContent === 'Product Specification') {
         const ingredientsText = allHeadings[i].parentElement;
@@ -107,10 +106,10 @@ async function implementation(inputs, parameters, context, dependencies) {
     dataRef[0].group[0].brandText[0].text = dataRef[0].group[0].brandText[0].text.replace("'", '');
   }
   if (dataRef[0].group[0].description) {
-    dataRef[0].group[0].description[0].text = dataRef[0].group[0].description[0].text.replace("Product Information", '').trim();
-    let descriptionTxt = dataRef[0].group[0].description[0].text;
-    let index = descriptionTxt.indexOf('Product Specification');
-    let index2 = descriptionTxt.indexOf('Warnings or Restrictions');
+    dataRef[0].group[0].description[0].text = dataRef[0].group[0].description[0].text.replace('Product Information', '').trim();
+    const descriptionTxt = dataRef[0].group[0].description[0].text;
+    const index = descriptionTxt.indexOf('Product Specification');
+    const index2 = descriptionTxt.indexOf('Warnings or Restrictions');
     if (index !== -1) {
       dataRef[0].group[0].description[0].text = dataRef[0].group[0].description[0].text.slice(0, index).trim();
     } if (index2 !== -1) {
