@@ -53,7 +53,7 @@ fields:
     # regExp: >-
     #  [+-]?\d+(,d{3})*(\.\d+)?(e[+-]?\d+)?
     xpath: >-
-      //div[contains(@data-comp,"Price Box")]/span[last()]
+      //div[contains(@data-comp,"Price Box")]/span[last()] | //span[@data-at="price"]
   - name: description
     singleValue: true
     xpath: //div[@id="ii_Details"]
@@ -77,9 +77,9 @@ fields:
     xpath: //span[@data-at="sale_price"]
   - name: listPrice
     singleValue: true
-    regExp: >-
-     [+-]?\d+(,d{3})*(\.\d+)?(e[+-]?\d+)?
-    xpath: //span[@data-at="price"]
+    # regExp: >-
+    #  [+-]?\d+(,d{3})*(\.\d+)?(e[+-]?\d+)?
+    xpath: //span[@data-at="value_price"]
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image

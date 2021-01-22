@@ -59,7 +59,10 @@ module.exports = {
           }
         }, videos, i);
         if (selectorCheck) {
+          try{
           await context.click(`img[src='${videos[i]}']`);
+          }
+          catch(error){}
           // await context.click('#tabItem_ogt_3_0 > button.css-snmyc5.e65zztl0[type="button"] > div.css-38q71r > div.css-5ix92y.e65zztl0 > div.css-16g8jcx.e65zztl0 > div.css-10aokas.e65zztl0 > div.css-1u6gbn2.e65zztl0 > svg.css-1a5s7yv.e65zztl0');
           console.log(`img[src='${videos[i]}']`);
           console.log('finished click');
@@ -94,7 +97,7 @@ module.exports = {
       const videoIdForUrl = [];
       if (videoEle) {
         const videoObj = JSON.parse(videoEle.innerText);
-        if (videoObj[4].props.currentProduct) {
+        if (videoObj[4] && videoObj[4].props.currentProduct) {
           const videoIds = videoObj[4].props.currentProduct.productVideos;
           if (videoIds) {
             videoIds.forEach(obj => {

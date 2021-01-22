@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'sephora.com',
     timeout: 100000,
-    country: 'CA',
+    country: 'US',
     store: 'sephora',
     zipcode: '',
   },
