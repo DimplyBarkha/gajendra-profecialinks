@@ -125,8 +125,10 @@ module.exports = {
       return videos;
     });
 
+    try {
     var reqAccept = 'application/json;pk=BCpkADawqM2Q0u_EMhwh6sG-XavxnNSGgRmPVZqaQsilEjLYeUK24ofKhllzQeA8owqhzPCRuGbPh9FkCBxnD8mYW4RHulG2uVuwr363jOYU8lRht0dPdw7n31iz7t3LvGdQWkUrxdxrXrqk';
     if (videos && videos.length) {
+      console.log("videos.length",videos.length);
       for (let i = 0; i < videos.length; i++) {
         // Click a link on the page
         var selectorCheck = await context.evaluate(function (videos, i) {
@@ -157,6 +159,11 @@ module.exports = {
         }
       }
     }
+  }
+  catch (error) {
+    console.log('not getting ..................');
+  }
+
 
     const videoIdArray = await context.evaluate(function () {
       const videoEle = document.querySelector('#linkJSON');
