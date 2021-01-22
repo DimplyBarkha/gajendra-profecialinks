@@ -33,8 +33,8 @@ module.exports = {
       });
     };
     await applyScroll(context);
-    await context.waitForSelector('div[class="flix-tech-spacs-contents"]', {}, { timeout: 500000 });
-    await context.waitForSelector('div[class="flix-carousel flix-carousel-stage"]', {}, { timeout: 200000 });
+  //  await context.waitForSelector('div[class="flix-tech-spacs-contents"]', {}, { timeout: 3000 });
+  //  await context.waitForSelector('div[class="flix-carousel flix-carousel-stage"]', {}, { timeout: 3000 });
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
