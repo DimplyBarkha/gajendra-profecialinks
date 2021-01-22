@@ -47,6 +47,7 @@ async function implementation(
         availabilityStatus = availabilityArray[index];
       }
     })
+    
     appendElements('gtinvalue', gtin);
     appendElements('availabilitystatus', availabilityStatus);
     const getVariantData = () => {
@@ -126,8 +127,16 @@ async function implementation(
     if (videoPlayButton) {
       videoPlayButton.click()
     }
+
     const videoLink = document.evaluate('//div[contains(@class,"ReactModalPortal")]//video[contains(@class,"video")]/source/@src', document).iterateNext() && document.evaluate('//div[contains(@class,"ReactModalPortal")]//video[contains(@class,"video")]/source/@src', document).iterateNext().textContent;
-    appendElements('productvideolink', videoLink);
+    const videoLink2 = document.evaluate('//div[@id="description-tabs-row"]//video/@src', document).iterateNext() && document.evaluate('//div[@id="description-tabs-row"]//video/@src', document).iterateNext().textContent;
+
+    if (videoLink) {
+      appendElements('productvideolink', videoLink);
+    } else {
+      appendElements('productvideolink', videoLink2);
+    }
+
   });
 
   try {
