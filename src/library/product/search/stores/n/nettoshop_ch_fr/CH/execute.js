@@ -7,7 +7,7 @@ module.exports = {
     domain: 'nettoshop.ch',
     url: 'https://www.nettoshop.ch/fr/search?text={searchTerms}',
     loadedSelector: 'div[class="c-product-grid__item"]',
-    noResultsXPath: null,
+    noResultsXPath: '//h1[contains(.,"0 Résultats pour")]',
     zipcode: '',
   },
 };
