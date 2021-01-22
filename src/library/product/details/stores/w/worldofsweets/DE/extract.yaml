@@ -527,7 +527,7 @@ fields:
     singleValue: true
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[contains(@class,'details-toggle-content is--open')]//p | //div[contains(@class,'details-toggle-content is--open')]//p
+    xpath: //div[contains(@class,'details-toggle-content is--open')]//p | //div[contains(@class,'details-toggle-content is--open')]//p | //div[contains(@class,'details-toggle-content is--open')]/text()[1] | //div[contains(@class,'details-toggle-content is--open')]//span[1]
     #xpath: //div[@class="row"]//p[contains(@class,'MsoNormal')]
   - name: productUrl
     singleValue: false
