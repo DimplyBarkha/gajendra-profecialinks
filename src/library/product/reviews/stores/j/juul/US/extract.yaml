@@ -47,6 +47,6 @@ fields:
   regExp: ([0-9\.]{1,}) star rating
   regExpReplace: $1
 - name: pageTitle
-  xpath: ancestor::html//meta[@property="og:title"]/@content
+  xpath: ancestor::html//h1[@class="product-information__header__title__name heading--large"]
 - name: sourceUrl
   xpath: ancestor::html//meta[@property="og:url"]/@content
