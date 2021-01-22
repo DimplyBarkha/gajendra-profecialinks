@@ -8,8 +8,8 @@ fields:
 - name: _url
   singleValue: false
 - name: productUrl
-  singleValue: false
-  xpath: //body/@url
+  singleValue: true
+  xpath: //meta[@property="og:url"]/@content | //body/@url
 - name: _pageTimeStamp
   singleValue: false
 - name: image
@@ -30,6 +30,7 @@ fields:
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
+  # xpath: (//div[@class="breadcrumb clearfix"]/a)[position()>1]
   xpath: //div[@class="breadcrumb clearfix"]/a/@category
 - name: nameExtended
   singleValue: true
@@ -104,7 +105,8 @@ fields:
 - name: directions
   singleValue: true
   description: Content under "directions" header
-  xpath: //div[@id="conseil-d-utilisation"]//following-sibling::section[1]//div[@class="wrapper-content-tabs"]
+  xpath: //div[@data-tab="21"]//div[@class="wrapper-content-tabs"]
+  # xpath: //div[@id="conseil-d-utilisation"]//following-sibling::section[1]//p
 - name: warnings
   singleValue: true
   description: Content under "warnings" header
@@ -146,6 +148,9 @@ fields:
 - name: videos
   singleValue: false
   description: URLs of videos on page
+  xpath: //div[@class="cat_desc rte"]//video/source/@src
+  regExp: (.+)
+  regExpReplace: https://www.pharmasimple.com$1
 - name: name
   singleValue: true
   description: The product name
@@ -168,7 +173,6 @@ fields:
 - name: brandLink
   singleValue: true
   description: 
-  xpath: //p[@id="product-manufacturer"]/a/@href
 - name: internationalShipping
   singleValue: true
   description: Text next to bullet point
@@ -404,7 +408,6 @@ fields:
 - name: productOtherInformation
   singleValue: false
   description: Any other product information
-  xpath: //div[@data-tab="21"]//div[@class="wrapper-content-tabs"]
 - name: packaging
   singleValue: true
   description: Packaging information
