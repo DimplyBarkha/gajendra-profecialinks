@@ -45,7 +45,7 @@ fields:
   - name: price
     # regExp: >-
     #  [+-]?\d+(,d{3})*(\.\d+)?(e[+-]?\d+)?
-    xpath: //div[contains(@data-comp,"Price Box")]/span[last()]|(//p[contains(@data-comp,"Price")]//span[contains(@data-comp,"Rflex")]//span)[1] | //p[contains(@data-comp,"Price")]//b
+    xpath: //div[contains(@data-comp,"Price Box")]/span[last()]|(//p[contains(@data-comp,"Price")]//span[contains(@data-comp,"Rflex")]//span)[1] | //p[contains(@data-comp,"Price")]//b | //div[contains(@data-comp,"RegularProductTop")]//span[contains(@data-at,"price")]
   - name: description
     xpath: //h1/@description
   - name: brandText

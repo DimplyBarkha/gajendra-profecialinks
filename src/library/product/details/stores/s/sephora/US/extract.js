@@ -9,59 +9,59 @@ module.exports = {
     domain: 'sephora.com',
   },
   implementation: async ({ parentInput }, { country, domain, transform: transformParam }, context, { productDetails }) => {
-    try {
-      await context.waitForSelector('a#spEl div[data-at="product_carousel_title"]', { timeout: 30000 });
-    } catch (error) {
-      console.log(error);
-      console.log('Similar product not found => ', error);
-    }
-    const itemUrl = await context.evaluate(function () {
-      const resultsCheck = '(//h1//text()[not(parent::b)])[1]';
-      var checkResults = document.evaluate(resultsCheck, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-      if (checkResults.snapshotLength > 0) {
-        const checkNone = checkResults.snapshotItem(0).textContent;
-        if (checkNone === '0 Product results:') {
-          // throw new Error("notFound");
-          console.log('NO PRODUCTS FOUND');
-        }
-      }
+    // try {
+    //   await context.waitForSelector('a#spEl div[data-at="product_carousel_title"]', { timeout: 30000 });
+    // } catch (error) {
+    //   console.log(error);
+    //   console.log('Similar product not found => ', error);
+    // }
+    // const itemUrl = await context.evaluate(function () {
+    //   const resultsCheck = '(//h1//text()[not(parent::b)])[1]';
+    //   var checkResults = document.evaluate(resultsCheck, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+    //   if (checkResults.snapshotLength > 0) {
+    //     const checkNone = checkResults.snapshotItem(0).textContent;
+    //     if (checkNone === '0 Product results:') {
+    //       // throw new Error("notFound");
+    //       console.log('NO PRODUCTS FOUND');
+    //     }
+    //   }
 
-      const itemCheck = '//div[@data-comp="ProductGrid "]//a';
-      var checkElement = document.evaluate(itemCheck, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-      if (checkElement.snapshotLength > 0) {
-        const url = checkElement.snapshotItem(0).href;
-        const splits = url.split('&');
-        return splits[0];
-      } else {
-        return null;
-      }
-    });
-    if (itemUrl) {
-      await context.goto(itemUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
-    } else {
-      let prodUrl = await context.evaluate(function () {
-        return window.location.href;
-      });
-      if (prodUrl.includes('/ca/en')) {
-        prodUrl = prodUrl.replace('/ca/en', '');
-        await context.goto(prodUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
-      }
-    }
+    //   const itemCheck = '//div[@data-comp="ProductGrid "]//a';
+    //   var checkElement = document.evaluate(itemCheck, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+    //   if (checkElement.snapshotLength > 0) {
+    //     const url = checkElement.snapshotItem(0).href;
+    //     const splits = url.split('&');
+    //     return splits[0];
+    //   } else {
+    //     return null;
+    //   }
+    // });
+    // if (itemUrl) {
+    //   await context.goto(itemUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
+    // } else {
+    //   let prodUrl = await context.evaluate(function () {
+    //     return window.location.href;
+    //   });
+    //   if (prodUrl.includes('/ca/en')) {
+    //     prodUrl = prodUrl.replace('/ca/en', '');
+    //     await context.goto(prodUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
+    //   }
+    // }
 
-    const pageCheck = await context.evaluate(function () {
-      const pageLoaded = '//main[contains(@data-comp, "ProductPage")]';
-      var checkElement = document.evaluate(pageLoaded, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-      if (checkElement.snapshotLength > 0) {
-        return true;
-      } else {
-        return false;
-      }
-    });
+    // const pageCheck = await context.evaluate(function () {
+    //   const pageLoaded = '//main[contains(@data-comp, "ProductPage")]';
+    //   var checkElement = document.evaluate(pageLoaded, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+    //   if (checkElement.snapshotLength > 0) {
+    //     return true;
+    //   } else {
+    //     return false;
+    //   }
+    // });
 
-    if (!pageCheck) {
-      // throw new Error("productPageNotLoaded");
-      return false;
-    }
+    // if (!pageCheck) {
+    //   // throw new Error("productPageNotLoaded");
+    //   return false;
+    // }
 
     // await context.evaluate(async function () {
     //   if (document.querySelector('span[data-at^="number_of_reviews"]')) {
@@ -83,11 +83,11 @@ module.exports = {
 
 
 
-    try {
-      await context.waitForSelector('div[data-comp~="StyledComponent"] h2, div#tabpanel0', { timeout: 20000 });
-    } catch (error) {
-      console.log('Loading details');
-    }
+    // try {
+    //   await context.waitForSelector('div[data-comp~="StyledComponent"] h2, div#tabpanel0', { timeout: 20000 });
+    // } catch (error) {
+    //   console.log('Loading details');
+    // }
 
     await context.evaluate(async function () {
       function addHiddenDiv(id, content) {
