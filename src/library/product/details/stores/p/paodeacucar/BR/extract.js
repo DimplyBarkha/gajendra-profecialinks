@@ -9,10 +9,11 @@ const implementation = async (inputs, parameters, context, dependencies) => {
   if (sku === null) {
     await context.waitForSelector('div.product-cardstyles__CardStyled-sc-1uwpde0-0.jRrfZx.cardstyles-yvvqkp-0.fkRPuy > .product-cardstyles__Container-sc-1uwpde0-1.eaVrql');
   };
-  async function firstItemLink () {
+  async function firstItemLink() {
     return await context.evaluate(function () {
       const firstItem = document.querySelector('div.product-cardstyles__CardStyled-sc-1uwpde0-0.jRrfZx.cardstyles-yvvqkp-0.fkRPuy > .product-cardstyles__Container-sc-1uwpde0-1.eaVrql > a');
       if (firstItem !== null) {
+        //@ts-ignore
         return firstItem.href;
       }
     });
@@ -21,11 +22,22 @@ const implementation = async (inputs, parameters, context, dependencies) => {
   if (url !== null && url !== undefined) {
     await context.goto(url, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
   }
-  console.log('test');
-  const pageUrl = document.URL;
-  console.log('test1');
-  await context.evaluate(async function () {
-    function addHiddenDiv (id, content, parentDiv = null) {
+  const currentUrl = await context.evaluate(() => {
+    return document.URL
+  })
+  await context.waitForSelector('div#lett-econtent-placeholder > iframe');
+  const manufLink = await context.evaluate(async function () {
+    //@ts-ignore
+    return document.querySelector('div#lett-econtent-placeholder > iframe').src;
+  });
+  await context.goto(manufLink);
+  const manufText = await context.evaluate(async function () {
+    return document.querySelector('body').innerText;
+  });
+  await context.goto(currentUrl)
+  await context.evaluate(async function (manufText) {
+
+    function addHiddenDiv(id, content, parentDiv = null) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
       newDiv.textContent = content;
@@ -38,15 +50,8 @@ const implementation = async (inputs, parameters, context, dependencies) => {
       return newDiv
     };
 
-    await context.waitForSelector('div#lett-econtent-placeholder > iframe');
-    const manufLink = document.querySelector('div#lett-econtent-placeholder > iframe').src;
-    await context.goto(manufLink);
-    const text = await context.evaluate(async function () {
-      return document.querySelector('body').innerText;
-    });
-    await context.goto(pageUrl);
-    addHiddenDiv('manufDesc', text);
-  });
+    addHiddenDiv('manufDesc', manufText);
+  }, manufText);
   return await context.extract(productDetails, { cleanUp });
 
 };
