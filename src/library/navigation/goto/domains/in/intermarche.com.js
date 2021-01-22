@@ -72,7 +72,7 @@ module.exports = {
 
       // check if hard blocked before solving the captcha
       if (await isHardBlocked(hardBlockedParam)) {
-        return context.reportBlocked(responseStatus.status, 'Hard Blocked');
+        return await context.reportBlocked(responseStatus.status, 'Hard Blocked');
         // throw new Error('Hard blocked')
       };
 
