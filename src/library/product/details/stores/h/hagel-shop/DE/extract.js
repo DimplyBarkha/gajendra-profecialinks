@@ -156,6 +156,21 @@ module.exports = {
       }
 
 
+      //directions
+      var dir1 = getXpath('//*[contains(.,"Anwendung")]/text()', 'nodeValue');
+      var dir2 = getXpath('//*[contains(.,"Anwendung")]/following::p[1]/text()', 'nodeValue');
+      var directions = "";
+      if(dir1 != null){
+        directions = directions + dir1;
+      }
+      if(dir2 != null){
+        directions = directions + dir2;
+      }
+      if(directions.length >= 1){
+        addElementToDocument('directions', directions);
+      }
+
+
 
 
     });

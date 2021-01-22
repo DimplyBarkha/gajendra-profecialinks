@@ -105,7 +105,8 @@ fields:
   - name: directions
     singleValue: true
     description: Content under "directions" header
-    xpath: concat(//*[contains(text(),"Anwendung")]/text()," ",//*[contains(text(),"Anwendung")]/following::p[1]/text())
+    xpath: //html//div[@id="directions"]
+      # concat(//*[contains(text(),"Anwendung")]/text()," ",//*[contains(text(),"Anwendung")]/following::p[1]/text())
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
