@@ -46,7 +46,11 @@ module.exports = {
                 });
             }
         });
-        await context.waitForSelector('div[class="b-listing_toolBarPagination"] > nav > a[class*="pagination_next"] , a[class*="is-nextPage"]>i', { timeout: 10000 });
+        try {
+            await context.waitForSelector('div[class="b-listing_toolBarPagination"] > nav > a[class*="pagination_next"] , a[class*="is-nextPage"]>i', { timeout: 5000 });
+        } catch (error) {
+            console.log(error)
+        }
         return await context.extract(productDetails, { transform });
     },
 
