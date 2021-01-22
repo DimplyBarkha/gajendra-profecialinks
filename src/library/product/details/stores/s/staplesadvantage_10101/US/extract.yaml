@@ -13,12 +13,12 @@ fields:
   singleValue: false
 - name: image
   singleValue: false
-  xpath: //img[@class="image-gallery-ux2dot0__image_element picture__img_resp"]/@alt
+  xpath: //div[@class="image-gallery-ux2dot0__image_element_wrapper active_hero_image slider_images"]/img/@alt
 - name: imageAlt
   singleValue: true
 - name: alternateImages
   singleValue: false
-  xpath: //div[@class="grid__row undefined grid__margin"]/descendant::img/@data-srcset
+  xpath: //img[contains(@aria-label, 'Product Image')][not(contains(@aria-label, '1'))]/@alt
 - name: metaKeywords
   singleValue: false
 - name: category
@@ -27,7 +27,8 @@ fields:
 - name: nameExtended
   singleValue: true
   xpath: //h1[@id='product_title']
-  regExp: '^.*(?=(, ))'
+  regExp: '(.*)'
+  regExpReplace: $1
 - name: listPrice
   singleValue: false
   xpath: //span[@class='price-info__originalPrice']
@@ -39,10 +40,10 @@ fields:
   defaultValue: "In Stock"
 - name: description
   singleValue: false
-  xpath: //div[@id='ProductDetailsSummaryWrapper']/ul/@description
+  xpath: normalize-space(//div[@id="ProdDescSpec"])
 - name: descriptionBullets
   singleValue: false
-  xpath: //body/@bulletsnumber
+  xpath: count(//div[@id="ProdDescSpec"]/descendant::ul/li)
 - name: brandText
   singleValue: false
   xpath: //div[@class="tab__tab"]/descendant::th[contains(., "Brand Name")]/following-sibling::td
@@ -64,9 +65,7 @@ fields:
   regExpReplace: $2
 - name: sku
   singleValue: false
-  xpath: //h1[@id='product_title']
-  regExp: '.+(\((.+)).$'
-  regExpReplace: $2
+  xpath: //span[@id="manufacturer_number"]/@skunumber
 - name: variantId
   singleValue: true
   xpath: //span[@id="item_number"]
@@ -90,7 +89,7 @@ fields:
   singleValue: false
   description: The number of ratings
   xpath: //div[@class='review-snapshot-ux2dot0__review_block']/descendant::span[@class='rating__reviewLinkWrapper rating__review_link rating__textDecoration']
-  regExp: '([0-9]\w+)'
+  regExp: '([0-9]+)'
 - name: aggregateRatingText
   singleValue: false
   description: The stated aggregate rating
@@ -98,7 +97,7 @@ fields:
   singleValue: false
   type: STRING
   description: The stated aggregate rating normalized to be out of 5
-  xpath: //span[@class='rating__rating_label']
+  xpath: (//span[@class="rating__rating_label"])[1]
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
@@ -122,7 +121,7 @@ fields:
 - name: manufacturerDescription
   singleValue: false
   description: The extended description of the product supplied by the lister
-  xpath: //div[@class="manufacturer-info"]/@description
+  xpath: normalize-space(//div[@class="manufacturer-info"]/@description)
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
@@ -371,7 +370,7 @@ fields:
 - name: specifications
   singleValue: false
   description: The physical dimensions of the product including packaging.
-  xpath: //div[@id="ProdSpecSection"]/descendant::tbody
+  xpath: normalize-space(//div[@id="ProdSpecSection"]/descendant::tbody)
 - name: warranty
   singleValue: true
   xpath: (//td[contains(., 'Warranty')]/following-sibling::td)[1]
