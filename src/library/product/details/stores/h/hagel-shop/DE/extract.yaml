@@ -65,7 +65,8 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //div[@class="col-xs-6 col-xxs-12 col-sm-6"]//span[@itemprop="brand"]/@content | //div[@class="product-img-box"]/span[@class="seal-brand-name"]/@data-brand-name
+    xpath: (//span[@class="prod-brand"]/span[@itemprop="brand"])[1]/@content
+      # //div[@class="col-xs-6 col-xxs-12 col-sm-6"]//span[@itemprop="brand"]/@content | //div[@class="product-img-box"]/span[@class="seal-brand-name"]/@data-brand-name
   - name: manufacturer
     singleValue: true
     description: Product manufacturer

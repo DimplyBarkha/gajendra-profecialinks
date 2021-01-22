@@ -10,12 +10,12 @@ module.exports = {
     domain: 'hagel-shop.de',
     zipcode: '',
   },
-  implementation:async function implementation(
+  implementation: async function implementation(
     inputs,
     parameters,
     context,
     dependencies,
-    ) {
+  ) {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(() => {
@@ -56,22 +56,27 @@ module.exports = {
       if (agg != null) {
         var aggregate = agg.split(":")[1].slice(0, -1);
         aggregate = (aggregate * 5) / 100;
+        aggregate = aggregate.toFixed(1);
         var str = aggregate.toString();
-        if(str.includes(".")){
-          var real = str.split(".")[0];
-          var dec = str.split(".")[1];
-          if(dec.length > 1){
-            var first = Number(dec[0]);
-            var sec = Number(dec[1]);
-            if(sec > 5){
-              first = first + 1
-            }
-            var final = Number(real)+","+first;
-            aggregate = final;
-          }
+        var final = str.replace(".",",");
 
-        }
-        addElementToDocument('aggregate', aggregate);
+        // Number(real) + "," + first;
+        // aggregate = final;
+        // if(str.includes(".")){
+        //   var real = str.split(".")[0];
+        //   var dec = str.split(".")[1];
+        //   if(dec.length > 1){
+        //     var first = Number(dec[0]);
+        //     var sec = Number(dec[1]);
+        //     if(sec > 5){
+        //       first = first + 1
+        //     }
+        //     var final = Number(real)+","+first;
+        //     aggregate = final;
+        //   }
+
+        // }
+        addElementToDocument('aggregate', final);
       }
 
       //specifications
@@ -99,8 +104,8 @@ module.exports = {
 
       //List price 
       var list_price = getXpath('(//p[@class="old-price"]/span[@class="price"])[1]/text()', 'nodeValue');
-      if (list_price != null){
-        if(list_price.includes(",")){
+      if (list_price != null) {
+        if (list_price.includes(",")) {
           // list_price = list_price.replace(",", ".");
         }
         addElementToDocument('list_price', list_price);
@@ -123,14 +128,14 @@ module.exports = {
 
       //availability
       var aval = getXpath('//link[@itemprop="availability"]/@href', 'nodeValue');
-      if(aval != null){
+      if (aval != null) {
         var arr = aval.split("/");
-        aval = arr[arr.length-1];
-        if(aval.includes("In")){
+        aval = arr[arr.length - 1];
+        if (aval.includes("In")) {
           aval = "In Stock"
-        }else if(aval.includes("PreOrder")){
-          aval = "In Stock"; 
-          }else{
+        } else if (aval.includes("PreOrder")) {
+          aval = "In Stock";
+        } else {
           aval = "Out Of Stock"
         }
         addElementToDocument('aval', aval);
@@ -138,35 +143,35 @@ module.exports = {
 
       // alternate image
       var secondary_image = getAllXpath('//div[@class="more-views"]/ul/li/a/@href', 'nodeValue');
-      if(secondary_image.length >= 1){
+      if (secondary_image.length >= 1) {
         var alt_img = "";
-        if(secondary_image.length == 2){
+        if (secondary_image.length == 2) {
           alt_img = secondary_image[0];
-        }else{
-          for(var i=0; i<secondary_image.length; i++){
-            if(i == 1){
+        } else {
+          for (var i = 0; i < secondary_image.length; i++) {
+            if (i == 1) {
 
-            }else{
+            } else {
               alt_img = alt_img + secondary_image[i] + " | ";
             }
           }
-          alt_img = alt_img.slice(0,-3);
+          alt_img = alt_img.slice(0, -3);
         }
         addElementToDocument('alt_img', alt_img);
       }
 
 
       //directions
-      var dir1 = getXpath('//*[contains(.,"Anwendung")]/text()', 'nodeValue');
-      var dir2 = getXpath('//*[contains(.,"Anwendung")]/following::p[1]/text()', 'nodeValue');
+      var dir1 = getXpath('//*[contains(text(),"Anwendung")]/text()', 'nodeValue');
+      var dir2 = getXpath('//*[contains(text(),"Anwendung")]/following::p[1]/text()', 'nodeValue');
       var directions = "";
-      if(dir1 != null){
+      if (dir1 != null) {
         directions = directions + dir1;
       }
-      if(dir2 != null){
+      if (dir2 != null) {
         directions = directions + dir2;
       }
-      if(directions.length >= 1){
+      if (directions.length >= 1) {
         addElementToDocument('directions', directions);
       }
 
