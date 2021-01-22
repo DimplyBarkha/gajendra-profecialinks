@@ -4,12 +4,13 @@
  * @returns {ImportIO.Group[]}
  */
 
+// @ts-ignore
 const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.aggregateRating) {
         row.aggregateRating.forEach(item => {
-          item.text = item.raw.replace('.', ',');
+          // item.text = item.raw.replace('.', ',');
         });
       }
       if (row.category) {
@@ -25,6 +26,17 @@ const transform = (data, context) => {
           text = text + (text ? ' ' : '') + item.text;
         });
         row.manufacturerDescription = [{ text }];
+      }
+      if (!row.quantity) {
+        // @ts-ignore
+        const size = row.name[0].text.trim().split('-');
+        // @ts-ignore
+        row.quantity = [{ text: size[size.length - 1].trim() }];
+      }
+      if (row.manufacturerImages) {
+        row.manufacturerImages.forEach(item => {
+          item.text = item.text.startsWith('data:image') ? '' : item.text;
+        });
       }
     }
   }
