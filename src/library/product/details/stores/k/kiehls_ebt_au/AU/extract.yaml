@@ -3,6 +3,12 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: id
+    singleValue: true
+    xpath: //div[@id="pdpMain"]/meta[2]/@content
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@id="pdpMain"]/meta[1]/@content
   - name: image
     singleValue: true
     description: URL of the main product image
@@ -22,7 +28,7 @@ fields:
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //html//div[@id='ab']
+    xpath: //html//div[@id='xy']
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user clicks add to basket this is the price they would be charged
@@ -37,7 +43,7 @@ fields:
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from multiple places; specifically not the manufacturer description
-    xpath: //div[@class="product_detail_description"]/p | //div[@class="product_detail_description "]/ul/li
+    xpath: //html//div[@id='descrip']
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
@@ -53,7 +59,7 @@ fields:
   - name: directions
     singleValue: true
     description: Content under "directions" header
-    xpath: //div[@id="tab_tips"]/p
+    xpath: //html//div[@id='specs']
   - name: ratingCount
     singleValue: true
     description: The number of ratings
@@ -78,11 +84,15 @@ fields:
   - name: name
     singleValue: true
     description: The product name
-    xpath: //div/h1[@class="product_name"]/span[1]
+    xpath: //html//div[@id='ab']
   - name: ingredientsList
     singleValue: true
     description: List of Ingredients from site - can be string of data if no discernible start/end point
-    xpath: //div[@id="ing-ingredienArea"]/div
+    xpath: //div[@class="ingredient"]/descendant::text()[1]
+  - name: warnings
+    singleValue: true
+    description: Content under "warnings" header
+    xpath: //div[@class="ingredient"]/descendant::text()[2]
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
