@@ -42,6 +42,7 @@ async function implementation(
       var elems = document.querySelectorAll(xpathforpagination);
       elems[0].classList.add('pagination');
     }
+    await new Promise((resolve, reject) => setTimeout(resolve, 10000));
     function addElementToDocument(key, value) {
       const catElement = document.createElement('div');
       catElement.id = key;
