@@ -2,28 +2,28 @@ input:
   RPC: 12782_457
   _url: http://planetparfum.com
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=ca694516-2a0a-4635-8963-98655f26dcd1/task=6a31fb9f-7fd3-47ca-afb0-ca831821b516/48773a33-7f5e-4dc1-b01a-329e9093211c.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5b2ccc2f-da83-4fff-a26b-8ea6f952f8e3/task=9ca1b6b5-f3fd-4eb0-94c5-72a5f004363c/154a1d35-2f0d-4265-94cb-f0c52a7e95bd.html
     extractionConfigId: product/details/stores/p/planetParfum/BE/extract
     data:
       - group:
           - alternateImages:
-              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dwe74592e4/thumbnails/20015902_C1.jpg?sw=405&sh=405&sm=fit
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dwe74592e4/thumbnails/20015902_C1.jpg
                 xpath: /html/body/div[3]/a[1]/@href
-              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw65754f25/thumbnails/20015902_C2.jpg?sw=405&sh=405&sm=fit
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw65754f25/thumbnails/20015902_C2.jpg
                 xpath: /html/body/div[3]/a[2]/@href
-              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw10df4709/thumbnails/20015902_C3.jpg?sw=405&sh=405&sm=fit
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw10df4709/thumbnails/20015902_C3.jpg
                 xpath: /html/body/div[3]/a[3]/@href
-              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw823bae99/thumbnails/20015902_C4.jpg?sw=405&sh=405&sm=fit
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw823bae99/thumbnails/20015902_C4.jpg
                 xpath: /html/body/div[3]/a[4]/@href
-              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dwcd9a4990/thumbnails/20015902_C5.jpg?sw=405&sh=405&sm=fit
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dwcd9a4990/thumbnails/20015902_C5.jpg
                 xpath: /html/body/div[3]/a[5]/@href
-              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw94e009ad/thumbnails/20015902_C6.jpg?sw=405&sh=405&sm=fit
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw94e009ad/thumbnails/20015902_C6.jpg
                 xpath: /html/body/div[3]/a[6]/@href
             productUrl:
               - text: https://www.planetparfum.com/fr/product/1-million/20015903.html
                 xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/span[1]
             image:
-              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw6178d8ae/zoom/20015902_M.jpg?sw=405&sh=405&sm=fit
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw6178d8ae/zoom/20015902_M.jpg
                 xpath: /html/body/div[3]/@product_img
             imageAlt:
               - text: 1 Million zoom | Planetparfum.com
@@ -41,8 +41,11 @@ extractions:
             nameExtended:
               - text: PACO RABANNE - 1 Million - Eau de Toilette - 50 ml - Vaporisateur
                 xpath: /html/body/div[3]/@name_extended
-            price:
+            listPrice:
               - text: 64,90 €
+                xpath: /html/body/div[3]/@list_price
+            price:
+              - text: 51,27 €
                 xpath: /html/body/div[3]/@price
             availabilityText:
               - text: In Stock
@@ -56,23 +59,14 @@ extractions:
                   Gentleman. Un beau Cuir épicé au charme insolent qui sait
                   provoquer la chance. Déroutant.
 
-                  Cuir-épicé insolent. Captiver d'abord, conquérir ensuite. Rose-cannelle au masculin. Cuir blond, bois blanc. Chaud! 
-                   
-                   Famille olfactive : Cuir- Epicé- Frais 
-                   
-                   Composition : Notes de tête: mandarine sanguine & menthe poivrée - Notes de coeur: absolu de rose & cannelle - Notes de base: accord de cuir & ambre kétal 
-                   
-                   Prix par litre: 589,50 €
-                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[1]
+                  Cuir-épicé insolent. Captiver d'abord, conquérir ensuite. Rose-cannelle au masculin. Cuir blond, bois blanc. Chaud!
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[1]/p[1]
             brandText:
               - text: PACO RABANNE
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
             quantity:
               - text: 50 ml
                 xpath: /html/body/div[3]/@quantity_text
-            gtin:
-              - text: "20015902"
-                xpath: /html/body/div[3]/@upc_value
             sku:
               - text: P0062804
                 xpath: /html/body/div[3]/@product_sku_id
@@ -87,17 +81,6 @@ extractions:
                   qui dure toute la journée, vous pouvez également utiliser les
                   produits de bain 1 Million pour tout le corps.
                 xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[2]/p[1]
-            shippingInfo:
-              - text: >-
-                  La livraison est offerte en magasin et sur toutes les
-                  commandes à partir de 50 € d'achat, quel que soit le mode de
-                  livraison choisi (à domicile ou au bureau, dans un magasin
-                  Planet Parfum, ou en point de retrait). Nous livrons partout
-                  en Belgique en 24h : commandez avant 17h pour une livraison le
-                  surlendemain (hors weekends et jours fériés).
-                   
-                   Vous disposez de 14 jours pour retourner votre produit. Les retours en magasin sont gratuits.
-                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[4]
             variantCount:
               - text: "3"
             name:
@@ -118,6 +101,9 @@ extractions:
             pricePerUnitUom:
               - text: litre
                 xpath: /html/body/div[3]/@price_per_unit_uom
+            promotion:
+              - text: -21% sur tout l'assortiment
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/p[1]/span[2]
             variants:
               - text: 50 ml - Vaporisateur
                 xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/div[1]
@@ -128,23 +114,23 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
           - alternateImages:
-              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw6e7f4fe3/thumbnails/20015901_C1.jpg?sw=405&sh=405&sm=fit
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw6e7f4fe3/thumbnails/20015901_C1.jpg
                 xpath: /html/body/div[4]/a[1]/@href
-              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw2cbc2f37/thumbnails/20015901_C2.jpg?sw=405&sh=405&sm=fit
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw2cbc2f37/thumbnails/20015901_C2.jpg
                 xpath: /html/body/div[4]/a[2]/@href
-              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw53e928ec/thumbnails/20015901_C3.jpg?sw=405&sh=405&sm=fit
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw53e928ec/thumbnails/20015901_C3.jpg
                 xpath: /html/body/div[4]/a[3]/@href
-              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw62534f7e/thumbnails/20015901_C4.jpg?sw=405&sh=405&sm=fit
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw62534f7e/thumbnails/20015901_C4.jpg
                 xpath: /html/body/div[4]/a[4]/@href
-              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw1f0ca5b7/thumbnails/20015901_C5.jpg?sw=405&sh=405&sm=fit
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw1f0ca5b7/thumbnails/20015901_C5.jpg
                 xpath: /html/body/div[4]/a[5]/@href
-              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw08d65311/thumbnails/20015901_C6.jpg?sw=405&sh=405&sm=fit
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw08d65311/thumbnails/20015901_C6.jpg
                 xpath: /html/body/div[4]/a[6]/@href
             productUrl:
               - text: https://www.planetparfum.com/fr/product/1-million/20015903.html
                 xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/span[1]
             image:
-              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw44179b2a/zoom/20015901_M.jpg?sw=405&sh=405&sm=fit
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw44179b2a/zoom/20015901_M.jpg
                 xpath: /html/body/div[4]/@product_img
             imageAlt:
               - text: 1 Million zoom | Planetparfum.com
@@ -162,8 +148,11 @@ extractions:
             nameExtended:
               - text: PACO RABANNE - 1 Million - Eau de Toilette - 100 ml - Vaporisateur
                 xpath: /html/body/div[4]/@name_extended
-            price:
+            listPrice:
               - text: 85,90 €
+                xpath: /html/body/div[4]/@list_price
+            price:
+              - text: 67,86 €
                 xpath: /html/body/div[4]/@price
             availabilityText:
               - text: Out Of Stock
@@ -177,23 +166,14 @@ extractions:
                   Gentleman. Un beau Cuir épicé au charme insolent qui sait
                   provoquer la chance. Déroutant.
 
-                  Cuir-épicé insolent. Captiver d'abord, conquérir ensuite. Rose-cannelle au masculin. Cuir blond, bois blanc. Chaud! 
-                   
-                   Famille olfactive : Cuir- Epicé- Frais 
-                   
-                   Composition : Notes de tête: mandarine sanguine & menthe poivrée - Notes de coeur: absolu de rose & cannelle - Notes de base: accord de cuir & ambre kétal 
-                   
-                   Prix par litre: 589,50 €
-                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[1]
+                  Cuir-épicé insolent. Captiver d'abord, conquérir ensuite. Rose-cannelle au masculin. Cuir blond, bois blanc. Chaud!
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[1]/p[1]
             brandText:
               - text: PACO RABANNE
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
             quantity:
               - text: 100 ml
                 xpath: /html/body/div[4]/@quantity_text
-            gtin:
-              - text: "20015901"
-                xpath: /html/body/div[4]/@upc_value
             sku:
               - text: P0062804
                 xpath: /html/body/div[4]/@product_sku_id
@@ -208,17 +188,6 @@ extractions:
                   qui dure toute la journée, vous pouvez également utiliser les
                   produits de bain 1 Million pour tout le corps.
                 xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[2]/p[1]
-            shippingInfo:
-              - text: >-
-                  La livraison est offerte en magasin et sur toutes les
-                  commandes à partir de 50 € d'achat, quel que soit le mode de
-                  livraison choisi (à domicile ou au bureau, dans un magasin
-                  Planet Parfum, ou en point de retrait). Nous livrons partout
-                  en Belgique en 24h : commandez avant 17h pour une livraison le
-                  surlendemain (hors weekends et jours fériés).
-                   
-                   Vous disposez de 14 jours pour retourner votre produit. Les retours en magasin sont gratuits.
-                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[4]
             variantCount:
               - text: "3"
             name:
@@ -239,6 +208,9 @@ extractions:
             pricePerUnitUom:
               - text: litre
                 xpath: /html/body/div[4]/@price_per_unit_uom
+            promotion:
+              - text: -21% sur tout l'assortiment
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/p[1]/span[2]
             variants:
               - text: 50 ml - Vaporisateur
                 xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/div[1]
@@ -249,23 +221,23 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
           - alternateImages:
-              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dwf3ed8f4a/thumbnails/20015903_C1.jpg?sw=405&sh=405&sm=fit
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dwf3ed8f4a/thumbnails/20015903_C1.jpg
                 xpath: /html/body/div[6]/a[1]/@href
-              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dweb20ffeb/thumbnails/20015903_C2.jpg?sw=405&sh=405&sm=fit
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dweb20ffeb/thumbnails/20015903_C2.jpg
                 xpath: /html/body/div[6]/a[2]/@href
-              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw6874ecbf/thumbnails/20015903_C3.jpg?sw=405&sh=405&sm=fit
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw6874ecbf/thumbnails/20015903_C3.jpg
                 xpath: /html/body/div[6]/a[3]/@href
-              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dwae3c5196/thumbnails/20015903_C4.jpg?sw=405&sh=405&sm=fit
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dwae3c5196/thumbnails/20015903_C4.jpg
                 xpath: /html/body/div[6]/a[4]/@href
-              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw25ee4825/thumbnails/20015903_C5.jpg?sw=405&sh=405&sm=fit
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw25ee4825/thumbnails/20015903_C5.jpg
                 xpath: /html/body/div[6]/a[5]/@href
-              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw803d19f4/thumbnails/20015903_C6.jpg?sw=405&sh=405&sm=fit
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw803d19f4/thumbnails/20015903_C6.jpg
                 xpath: /html/body/div[6]/a[6]/@href
             productUrl:
               - text: https://www.planetparfum.com/fr/product/1-million/20015903.html
                 xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/span[1]
             image:
-              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw34329dec/zoom/20015903_M.jpg?sw=405&sh=405&sm=fit
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw34329dec/zoom/20015903_M.jpg
                 xpath: /html/body/div[6]/@product_img
             imageAlt:
               - text: 1 Million zoom | Planetparfum.com
@@ -283,8 +255,11 @@ extractions:
             nameExtended:
               - text: PACO RABANNE - 1 Million - Eau de Toilette - 200 ml - Vaporisateur
                 xpath: /html/body/div[6]/@name_extended
-            price:
+            listPrice:
               - text: 117,90 €
+                xpath: /html/body/div[6]/@list_price
+            price:
+              - text: 93,14 €
                 xpath: /html/body/div[6]/@price
             availabilityText:
               - text: In Stock
@@ -298,23 +273,14 @@ extractions:
                   Gentleman. Un beau Cuir épicé au charme insolent qui sait
                   provoquer la chance. Déroutant.
 
-                  Cuir-épicé insolent. Captiver d'abord, conquérir ensuite. Rose-cannelle au masculin. Cuir blond, bois blanc. Chaud! 
-                   
-                   Famille olfactive : Cuir- Epicé- Frais 
-                   
-                   Composition : Notes de tête: mandarine sanguine & menthe poivrée - Notes de coeur: absolu de rose & cannelle - Notes de base: accord de cuir & ambre kétal 
-                   
-                   Prix par litre: 589,50 €
-                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[1]
+                  Cuir-épicé insolent. Captiver d'abord, conquérir ensuite. Rose-cannelle au masculin. Cuir blond, bois blanc. Chaud!
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[1]/p[1]
             brandText:
               - text: PACO RABANNE
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
             quantity:
               - text: 200 ml
                 xpath: /html/body/div[6]/@quantity_text
-            gtin:
-              - text: "20015903"
-                xpath: /html/body/div[6]/@upc_value
             sku:
               - text: P0062804
                 xpath: /html/body/div[6]/@product_sku_id
@@ -329,17 +295,6 @@ extractions:
                   qui dure toute la journée, vous pouvez également utiliser les
                   produits de bain 1 Million pour tout le corps.
                 xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[2]/p[1]
-            shippingInfo:
-              - text: >-
-                  La livraison est offerte en magasin et sur toutes les
-                  commandes à partir de 50 € d'achat, quel que soit le mode de
-                  livraison choisi (à domicile ou au bureau, dans un magasin
-                  Planet Parfum, ou en point de retrait). Nous livrons partout
-                  en Belgique en 24h : commandez avant 17h pour une livraison le
-                  surlendemain (hors weekends et jours fériés).
-                   
-                   Vous disposez de 14 jours pour retourner votre produit. Les retours en magasin sont gratuits.
-                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[4]
             variantCount:
               - text: "3"
             name:
@@ -360,6 +315,9 @@ extractions:
             pricePerUnitUom:
               - text: litre
                 xpath: /html/body/div[6]/@price_per_unit_uom
+            promotion:
+              - text: -21% sur tout l'assortiment
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/p[1]/span[2]
             variants:
               - text: 50 ml - Vaporisateur
                 xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/div[1]
@@ -370,4 +328,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1610723316307
+    timestamp: 1611318604815

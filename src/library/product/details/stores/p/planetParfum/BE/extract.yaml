@@ -55,14 +55,15 @@ fields:
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: ancestor::html//dl[@class="accordion"]//p[@class="description long"]/parent::dd
+  xpath: ancestor::html//dl[@class="accordion"]//p[@class="description long"]
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
+  xpath: "@description_bullets_count"
 - name: brandText
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
-  xpath: ancestor::html//h2[@class="title product-brand"]
+  xpath: ancestor::html//h2[@class="title product-brand"]|//div[contains(@class, "header") and not(//h2[@class="title product-brand"])]/a/@title
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
@@ -79,7 +80,6 @@ fields:
 - name: gtin
   singleValue: true
   description: GTIN code (includes UPC/EAN)
-  xpath: "@upc_value"
 - name: sku
   singleValue: true
   description: The store-specific product identifier
@@ -115,7 +115,6 @@ fields:
   description: The stated aggregate rating normalized to be out of 5
 - name: shippingInfo
   description: Shipping information for the product
-  xpath: ancestor::html//dd[@class="delivery-rma-pdp-tab"]
 - name: shippingDimensions
   singleValue: true
   description: Stated shipping dimensions

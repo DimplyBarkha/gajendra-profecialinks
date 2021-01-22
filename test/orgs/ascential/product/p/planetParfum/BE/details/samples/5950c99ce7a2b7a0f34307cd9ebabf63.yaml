@@ -2,7 +2,7 @@ input:
   RPC: 14519_409
   _url: http://planetparfum.com
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=ca694516-2a0a-4635-8963-98655f26dcd1/task=172d58bb-a2b4-47fc-9237-ae7a8f9e0586/279a1435-d79c-4bee-be44-6fc8e2246d2e.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5b2ccc2f-da83-4fff-a26b-8ea6f952f8e3/task=bec34c13-f3df-4812-abe0-47fea6208e07/0078bfec-310a-463c-ab37-556195293d4f.html
     extractionConfigId: product/details/stores/p/planetParfum/BE/extract
     data:
       - group:
@@ -10,7 +10,7 @@ extractions:
               - text: https://www.planetparfum.com/fr/product/ombre-hypnose-mono-mate/20014426.html
                 xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/span[1]
             image:
-              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw8848a982/zoom/20014423_M.jpg?sw=405&sh=405&sm=fit
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw8848a982/zoom/20014423_M.jpg
                 xpath: /html/body/div[3]/@product_img
             imageAlt:
               - text: Ombre Hypnôse Mono Mate zoom | Planetparfum.com
@@ -28,8 +28,11 @@ extractions:
             nameExtended:
               - text: LANCÔME - Ombre Hypnôse Mono Mate - Ombre à Paupières - 102 Beige Nu
                 xpath: /html/body/div[3]/@name_extended
-            price:
+            listPrice:
               - text: 30,90 €
+                xpath: /html/body/div[3]/@list_price
+            price:
+              - text: 24,41 €
                 xpath: /html/body/div[3]/@price
             availabilityText:
               - text: Out Of Stock
@@ -42,30 +45,16 @@ extractions:
                   et intense, notre formule offre une tenue parfaite et une
                   couvrance douce, homogène et superposable à chaque
                   application.
-                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[1]
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[1]/p[1]
             brandText:
               - text: LANCÔME
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
-            gtin:
-              - text: "20014423"
-                xpath: /html/body/div[3]/@upc_value
             sku:
               - text: M0033214
                 xpath: /html/body/div[3]/@product_sku_id
             variantId:
               - text: 14519_409
                 xpath: /html/body/div[3]/@variant_id
-            shippingInfo:
-              - text: >-
-                  La livraison est offerte en magasin et sur toutes les
-                  commandes à partir de 50 € d'achat, quel que soit le mode de
-                  livraison choisi (à domicile ou au bureau, dans un magasin
-                  Planet Parfum, ou en point de retrait). Nous livrons partout
-                  en Belgique en 24h : commandez avant 17h pour une livraison le
-                  surlendemain (hors weekends et jours fériés).
-                   
-                   Vous disposez de 14 jours pour retourner votre produit. Les retours en magasin sont gratuits.
-                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[3]
             variantCount:
               - text: "2"
             color:
@@ -95,6 +84,9 @@ extractions:
 
                   * THIS INGREDIENT LIST IS SUBJECT TO CHANGE, CUSTOMERS SHOULD REFER TO THE PRODUCT PACKAGING FOR THE MOST UP-TO-DATE INGREDIENT LIST.
                 xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[2]/span[1]
+            promotion:
+              - text: -21% sur tout l'assortiment
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/p[1]/span[2]
             variants:
               - text: 204 Très Chocolat
                 xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[2]
@@ -106,7 +98,7 @@ extractions:
               - text: https://www.planetparfum.com/fr/product/ombre-hypnose-mono-mate/20014426.html
                 xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/span[1]
             image:
-              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw3159ccbd/zoom/20014426_M.jpg?sw=405&sh=405&sm=fit
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw3159ccbd/zoom/20014426_M.jpg
                 xpath: /html/body/div[5]/@product_img
             imageAlt:
               - text: Ombre Hypnôse Mono Mate zoom | Planetparfum.com
@@ -124,8 +116,11 @@ extractions:
             nameExtended:
               - text: LANCÔME - Ombre Hypnôse Mono Mate - Ombre à Paupières - 204 Très Chocolat
                 xpath: /html/body/div[5]/@name_extended
-            price:
+            listPrice:
               - text: 30,90 €
+                xpath: /html/body/div[5]/@list_price
+            price:
+              - text: 24,41 €
                 xpath: /html/body/div[5]/@price
             availabilityText:
               - text: Out Of Stock
@@ -138,30 +133,16 @@ extractions:
                   et intense, notre formule offre une tenue parfaite et une
                   couvrance douce, homogène et superposable à chaque
                   application.
-                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[1]
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[1]/p[1]
             brandText:
               - text: LANCÔME
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
-            gtin:
-              - text: "20014426"
-                xpath: /html/body/div[5]/@upc_value
             sku:
               - text: M0033214
                 xpath: /html/body/div[5]/@product_sku_id
             variantId:
               - text: 16003_409
                 xpath: /html/body/div[5]/@variant_id
-            shippingInfo:
-              - text: >-
-                  La livraison est offerte en magasin et sur toutes les
-                  commandes à partir de 50 € d'achat, quel que soit le mode de
-                  livraison choisi (à domicile ou au bureau, dans un magasin
-                  Planet Parfum, ou en point de retrait). Nous livrons partout
-                  en Belgique en 24h : commandez avant 17h pour une livraison le
-                  surlendemain (hors weekends et jours fériés).
-                   
-                   Vous disposez de 14 jours pour retourner votre produit. Les retours en magasin sont gratuits.
-                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[3]
             variantCount:
               - text: "2"
             color:
@@ -191,6 +172,9 @@ extractions:
 
                   * THIS INGREDIENT LIST IS SUBJECT TO CHANGE, CUSTOMERS SHOULD REFER TO THE PRODUCT PACKAGING FOR THE MOST UP-TO-DATE INGREDIENT LIST.
                 xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[2]/span[1]
+            promotion:
+              - text: -21% sur tout l'assortiment
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/p[1]/span[2]
             variants:
               - text: 204 Très Chocolat
                 xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[2]
@@ -199,4 +183,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1610723306410
+    timestamp: 1611318595976

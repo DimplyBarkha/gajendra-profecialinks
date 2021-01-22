@@ -2,18 +2,18 @@ input:
   RPC: 12751_457
   _url: http://planetparfum.com
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=ca694516-2a0a-4635-8963-98655f26dcd1/task=1d26c0b0-1bad-4955-bc3a-fc39473b5631/68a7fd2f-19dd-4b4b-8ba7-be3c76fe72ea.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5b2ccc2f-da83-4fff-a26b-8ea6f952f8e3/task=b92836d1-fd2c-4f14-ad69-351b92a42bfa/2f20913b-721c-415c-851d-6d70d549c2be.html
     extractionConfigId: product/details/stores/p/planetParfum/BE/extract
     data:
       - group:
           - alternateImages:
-              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw46d88cac/thumbnails/20020729_C1.jpg?sw=405&sh=405&sm=fit
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw46d88cac/thumbnails/20020729_C1.jpg
                 xpath: /html/body/div[4]/a[1]/@href
             productUrl:
               - text: https://www.planetparfum.com/fr/product/invictus/20020729.html
                 xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/span[1]
             image:
-              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dwd96e6adb/zoom/20020729_M.jpg?sw=405&sh=405&sm=fit
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dwd96e6adb/zoom/20020729_M.jpg
                 xpath: /html/body/div[4]/@product_img
             imageAlt:
               - text: Invictus zoom | Planetparfum.com
@@ -31,8 +31,11 @@ extractions:
             nameExtended:
               - text: PACO RABANNE - Invictus - Gel Douche
                 xpath: /html/body/div[4]/@name_extended
-            price:
+            listPrice:
               - text: 28,90 €
+                xpath: /html/body/div[4]/@list_price
+            price:
+              - text: 22,83 €
                 xpath: /html/body/div[4]/@price
             availabilityText:
               - text: In Stock
@@ -45,25 +48,14 @@ extractions:
                   cinglante et sensualité animale. Deux forces auxquelles rien
                   (ni personne) ne résiste.
 
-                  Boisé-frais héroïque.Deux forces: fraîcheur cinglante et chaleur animale. Qui l'emporte ? Pamplemousse-marin et bois de Gaïac s'entrechoquent. Le vibrant répond au musclé. Double victoire. 
-                   
-                   Texture : Gel 
-                   
-                   Famille olfactive : Boisé; Frais 
-                   
-                   Composition : Ecorce de pamplemousse; Accord marin; Feuille de laurier; Bois de gaïac; Patchouli; Accord d'ambre gris 
-                   
-                   Prix par litre: 192,67 €
-                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[1]
+                  Boisé-frais héroïque.Deux forces: fraîcheur cinglante et chaleur animale. Qui l'emporte ? Pamplemousse-marin et bois de Gaïac s'entrechoquent. Le vibrant répond au musclé. Double victoire.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[1]/p[1]
             brandText:
               - text: PACO RABANNE
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
             quantity:
               - text: 150 ml
                 xpath: /html/body/div[4]/@quantity_text
-            gtin:
-              - text: "20020729"
-                xpath: /html/body/div[4]/@upc_value
             sku:
               - text: P0083858
                 xpath: /html/body/div[4]/@product_sku_id
@@ -78,17 +70,6 @@ extractions:
                   qui dure toute la journée, vous pouvez également utiliser les
                   produits de bain Invictus pour tout le corps.
                 xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[2]/p[1]
-            shippingInfo:
-              - text: >-
-                  La livraison est offerte en magasin et sur toutes les
-                  commandes à partir de 50 € d'achat, quel que soit le mode de
-                  livraison choisi (à domicile ou au bureau, dans un magasin
-                  Planet Parfum, ou en point de retrait). Nous livrons partout
-                  en Belgique en 24h : commandez avant 17h pour une livraison le
-                  surlendemain (hors weekends et jours fériés).
-                   
-                   Vous disposez de 14 jours pour retourner votre produit. Les retours en magasin sont gratuits.
-                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[4]
             variantCount:
               - text: "0"
             name:
@@ -116,7 +97,10 @@ extractions:
             pricePerUnitUom:
               - text: litre
                 xpath: /html/body/div[4]/@price_per_unit_uom
+            promotion:
+              - text: -21% sur tout l'assortiment
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/p[1]/span[2]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1610723298975
+    timestamp: 1611318588540

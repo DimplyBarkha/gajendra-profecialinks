@@ -36,10 +36,14 @@ module.exports = {
           addedVariant.setAttribute('price', price);
           addedVariant.setAttribute('list_price', listPrice);
 
+          const description = document.querySelector('dl.accordion p.description.long');
+          const descriptionBullets = description ? description.innerText.match(new RegExp(/\n•/, 'g')) : '';
+          const descriptionBulletsCount = descriptionBullets ? descriptionBullets.length : '';
+          addedVariant.setAttribute('description_bullets_count', descriptionBulletsCount);
+
           const productInfoElem = document.querySelector('input#pid');
           const upcValue = productInfoElem ? productInfoElem.getAttribute('value') : '';
           addedVariant.setAttribute('upc_value', upcValue);
-
 
           const linkElem = document.querySelector('link[rel="canonical"]');
           const productUrl = linkElem ? linkElem.getAttribute('href') : '';
@@ -51,7 +55,7 @@ module.exports = {
           addedVariant.setAttribute('availability_text', availabilityText);
 
           const mainImage = getEleByXpath('//div[@id="thumbnails"]//li[position()=1]//img/@data-lgimg');
-          const matchRegEx = /{"url":"(.+)", "title/;
+          const matchRegEx = /{"url":"(.+.jpg)/;
           const productImg = mainImage && mainImage.match(matchRegEx) ? mainImage.match(matchRegEx)[1] : '';
           const productImgAlt = getEleByXpath('//div[@id="thumbnails"]//li[position()=1]//img/@alt');
           const alternateImages = [];
@@ -77,12 +81,25 @@ module.exports = {
           const variantElement = document.querySelector('a.select-color-element.swatchanchor.selected, div.volume-row.clearfix.selected div.variation-description');
           const variantName = variantElement ? variantElement.textContent.trim() : '';
 
-          const brand = document.querySelector('h2.title.product-brand') ? document.querySelector('h2.title.product-brand').textContent.trim() : '';
-          const productName = document.querySelector('h1.title.product-name') ? document.querySelector('h1.title.product-name').textContent.trim() : '';
-          const productSubname = document.querySelector('h2.subtitle') ? document.querySelector('h2.subtitle').textContent.trim() : '';
-          const nameExtended = [brand, productName, productSubname];
+          const brand = document.querySelector('h2.title.product-brand') ? document.querySelector('h2.title.product-brand').textContent.trim() : null;
+          const productName = document.querySelector('h1.title.product-name') ? document.querySelector('h1.title.product-name').textContent.trim() : null;
+          const productSubname = document.querySelector('h2.subtitle') ? document.querySelector('h2.subtitle').textContent.trim() : null;
+          let nameExtended = [];
+          if (brand && productName && productSubname) {
+            nameExtended = [brand, productName, productSubname];
+          } else if (!brand && productName && productSubname) {
+            nameExtended = [productName, productSubname];
+          } else if (brand && productName && !productSubname) {
+            nameExtended = [brand, productName];
+          } else if (brand && !productName && productSubname) {
+            nameExtended = [brand, productSubname];
+          } else nameExtended = [];
+
           if (variantName) nameExtended.push(variantName);
-          addedVariant.setAttribute('name_extended', nameExtended.join(' - '));
+
+          const nameExtendedText = nameExtended.length ? nameExtended.join(' - ') : '';
+
+          addedVariant.setAttribute('name_extended', nameExtendedText);
 
           const vainantIdElem = document.querySelector('div.product-variations.attributes');
           const variantIdData = vainantIdElem ? vainantIdElem.getAttribute('data-current') : null;

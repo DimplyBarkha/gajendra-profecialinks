@@ -2,7 +2,7 @@ input:
   RPC: 14808_457
   _url: http://planetparfum.com
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=ca694516-2a0a-4635-8963-98655f26dcd1/task=6de141ff-773c-47d4-b8ae-734b999f3eea/579d2d20-2b33-428f-a6a1-3244e0b1fbd5.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5b2ccc2f-da83-4fff-a26b-8ea6f952f8e3/task=27a118dc-619d-4308-8b48-eed59e33f117/7a2b7e99-747f-477e-9da2-f3f810afe9c4.html
     extractionConfigId: product/details/stores/p/planetParfum/BE/extract
     data:
       - group:
@@ -10,7 +10,7 @@ extractions:
               - text: https://www.planetparfum.com/fr/product/haute-exigence-jour-toutes-peaux/20023064.html
                 xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/span[1]
             image:
-              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dwc36a9193/zoom/20023064_M.jpg?sw=405&sh=405&sm=fit
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dwc36a9193/zoom/20023064_M.jpg
                 xpath: /html/body/div[4]/@product_img
             imageAlt:
               - text: Haute Exigence Jour Toutes Peaux zoom | Planetparfum.com
@@ -28,33 +28,28 @@ extractions:
             nameExtended:
               - text: CLARINS - Haute Exigence Jour Toutes Peaux - Crème Jour
                 xpath: /html/body/div[4]/@name_extended
-            price:
+            listPrice:
               - text: 89,90 €
+                xpath: /html/body/div[4]/@list_price
+            price:
+              - text: 71,02 €
                 xpath: /html/body/div[4]/@price
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[4]/@availability_text
             description:
-              - text: >-
-                  L'unique soin qui combine une action redensifiante à tous les
-                  niveaux et une action embellissante de la peau immédiate. Pour
-                  les femmes de plus de 50 ans dont la peau est fragilisée par
-                  les modifications hormonales et qui souhaitent combattre les
-                  rides et la perte de densité de la peau. 
-                   
-                   Texture : Crème 
-                   
-                   Type de peau : Peaux normales
-                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[1]
+              - text: L'unique soin qui combine une action redensifiante à tous les niveaux et
+                  une action embellissante de la peau immédiate. Pour les femmes
+                  de plus de 50 ans dont la peau est fragilisée par les
+                  modifications hormonales et qui souhaitent combattre les rides
+                  et la perte de densité de la peau.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[1]/p[1]
             brandText:
               - text: CLARINS
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
             quantity:
               - text: 50 ml
                 xpath: /html/body/div[4]/@quantity_text
-            gtin:
-              - text: "20023064"
-                xpath: /html/body/div[4]/@upc_value
             sku:
               - text: S0047459
                 xpath: /html/body/div[4]/@product_sku_id
@@ -65,17 +60,6 @@ extractions:
               - text: Appliquer chaque matin sur le visage et le cou parfaitement nettoyés en
                   effectuant des pressions du centre du visage vers l'extérieur.
                 xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[2]/p[1]
-            shippingInfo:
-              - text: >-
-                  La livraison est offerte en magasin et sur toutes les
-                  commandes à partir de 50 € d'achat, quel que soit le mode de
-                  livraison choisi (à domicile ou au bureau, dans un magasin
-                  Planet Parfum, ou en point de retrait). Nous livrons partout
-                  en Belgique en 24h : commandez avant 17h pour une livraison le
-                  surlendemain (hors weekends et jours fériés).
-                   
-                   Vous disposez de 14 jours pour retourner votre produit. Les retours en magasin sont gratuits.
-                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[4]
             variantCount:
               - text: "0"
             name:
@@ -105,7 +89,10 @@ extractions:
                   reporter également à la liste d'ingrédients figurant sur
                   l'emballage du produit & faisant seule foi.
                 xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[3]/span[1]
+            promotion:
+              - text: -21% sur tout l'assortiment
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/p[1]/span[2]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1610723300961
+    timestamp: 1611318590007
