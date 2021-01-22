@@ -19,6 +19,9 @@ dependencies,
 ) {
 const { transform } = parameters;
 const { productDetails } = dependencies;
+const { waitForSelector } = context;
+await context.waitForSelector('button[class="js-cookie-notification-accept close"]');
+await context.click('button[class="js-cookie-notification-accept close"]');
 await context.evaluate(async function () {
 //for rank
 function addHiddenDiv(id, content, index) {
@@ -36,5 +39,6 @@ for (let k = 0; k < abc.length;k++) {
   addHiddenDiv('name', firstChildNode, k);
   }
 })
+await new Promise((resolve, reject) => setTimeout(resolve, 10000));
 return await context.extract(productDetails, { transform });
 }
