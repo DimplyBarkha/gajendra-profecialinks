@@ -12,6 +12,6 @@ module.exports = {
     resultsDivSelector: null,
     openSearchDefinition: null,
     domain: 'foodie.fi',
-    zipcode: "''",
+    zipcode: '',
   },
 };
