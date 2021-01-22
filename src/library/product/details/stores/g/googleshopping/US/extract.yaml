@@ -10,10 +10,11 @@ fields:
     singleValue: false
   - name: alternateImages
     singleValue: false
-    xpath: (//div[contains(@class, "sh-div__viewport")])[1]//div[contains(@class, "sh-div__zoomed")]/@style
+    # xpath: (//div[contains(@class, "sh-div__viewport")])[1]//div[contains(@class, "sh-div__zoomed")]/@style
     # xpath: //div[@class='TiQ3Vc main-image']//img[not(@xpath=1)][position()>1]/@src
-    regExp: background-image\Wurl\W(.+)\W
-    regExpReplace: $1
+    # regExp: background-image\Wurl\W(.+)\W
+    # regExpReplace: $1
+    xpath: //ol[contains(@aria-label, "Images")]//li//div[contains(@aria-label,"See image")]/img/@src
   - name: metaKeywords
     singleValue: false
   - name: category
