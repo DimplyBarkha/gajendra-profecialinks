@@ -1,0 +1,62 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="Review "]
+fields:
+  - name: aggregateRating
+    type: STRING
+    xpath: ancestor::html//span[@class="statistics__totalReviews"]/span[1]/strong/text()
+  - name: name
+    type: STRING
+    xpath: ancestor::html//div[@class="header__ratingText"]/h1
+  - name: commentCount
+    type: STRING
+  - name: reviewDate
+    type: STRING
+  - name: user
+    type: STRING
+    xpath: //a[@class="Review__author"]
+  - name: brand
+    type: STRING
+    xpath: ancestor::html//div[@class="header__ratingText"]/h1
+    regExp: (Blu|Juul|Logic|Njoy|SMOK|Stlth|VIP|Vuse|Vype|blu|juul|logic|njoy|smok|stlth|vip|vuse|vype)*
+    regExpReplace: $1
+  - name: productRange
+    type: STRING
+  - name: productFamily
+    type: STRING
+  - name: colour
+    type: STRING
+  - name: flavour
+    type: STRING
+  - name: sku
+    type: STRING
+    xpath: ancestor::html//h1[contains(@class,"TextHeading")]
+  - name: reviewText
+    type: STRING
+    xpath: //span[@class="Review__body"]/text()
+  - name: reviewTitle
+    type: STRING
+  - name: manufacturerResponse
+    type: STRING
+    xpath: //div[@class="Review__reply"]//span[@class="reply__body"]
+  - name: mediaURL
+    type: STRING
+    xpath: ancestor::html//img[@class="LogoComponent__image "]/@src
+  - name: location
+    type: STRING
+    defaultValue: 'UK'
+  - name: helpful
+    type: STRING
+    xpath: //small[@class="counter"]
+  - name: verifiedPurchase
+    type: STRING
+  - name: rating
+    type: STRIN
+    xpath: //div[@class="Review__overallStars__stars"]/@custom_rating
+  - name: pageTitle
+    type: STRING
+    xpath: ancestor::html//meta[@property="og:title"]/@content
+  - name: sourceUrl
+    type: STRING
+    xpath: ancestor::html//meta[@property="og:url"]/@content
