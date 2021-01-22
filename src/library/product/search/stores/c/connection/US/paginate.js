@@ -9,7 +9,8 @@ module.exports = {
     loadedSelector: null,
     noResultsXPath: null,
     openSearchDefinition:  {
-      template: 'https://www.connection.com/product/searchpage?SearchType=1&term={searchTerms}&pageNumber={page}&pageSize=48&url=https://www.connection.com/IPA/Shop/Product/Search&mode=List',
+      page: 1,
+      template: 'https://www.connection.com/product/searchpage?SearchType=1&term={searchTerms}&pageNumber={page}&url=https%3A%2F%2Fwww.connection.com%2FIPA%2FShop%2FProduct%2FSearch&mode=List',
     },
     domain: 'connection.com',
   },
