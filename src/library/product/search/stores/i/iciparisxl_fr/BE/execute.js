@@ -63,7 +63,7 @@ module.exports = {
     domain: 'iciparisxl_fr.be',
     url: 'https://www.iciparisxl.be/fr/search?resultsForPage=100&q={searchTerms}',
     loadedSelector: 'section.product-grid',
-    noResultsXPath: '//div[contains(@class,"pagination-sort top")]//div[@class="pagination"]//li[@class="next"]//a[contains(@class,"disabled button")]',
+    noResultsXPath: '//p[contains(text(),"Nous avons trouvé 0 produits.")]',
     zipcode: "''",
   },
 };

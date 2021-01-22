@@ -4,11 +4,11 @@ module.exports = {
   parameterValues: {
     country: 'BE',
     store: 'iciparisxl_fr',
-    nextLinkSelector: 'li.next',
+    nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'section.product-grid',
-    noResultsXPath: '//div[contains(@class,"pagination-sort top")]//div[@class="pagination"]//li[@class="next"]//a[contains(@class,"disabled button")]',
+    noResultsXPath: '//p[contains(text(),"Nous avons trouvé 0 produits.")]',
     openSearchDefinition: null,
     domain: 'iciparisxl_fr.be',
     zipcode: "''",
