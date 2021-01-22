@@ -4,7 +4,7 @@ module.exports = {
     country: "US",
     store: "houzz",
     domain: "houzz.com",
-    url: "https://www.houzz.com/products/query/{shower-installation}",
+    url: "https://www.houzz.com/products/query/{searchTerms}",
     loadedSelector: "[type='application/ld+json']",
     noResultsXPath: null,
     zipcode: "",
