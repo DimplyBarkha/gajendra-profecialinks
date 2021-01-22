@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'FR',
     store: 'voussert',
-    nextLinkSelector: 'span[id="ctl00_cphProduits_DataPagerHaut"] a[class="pagination-next"]',
+    nextLinkSelector: 'span[id="ctl00_cphProduits_DataPagerHaut"] a[class="pagination-next"]:not([disabled])',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
