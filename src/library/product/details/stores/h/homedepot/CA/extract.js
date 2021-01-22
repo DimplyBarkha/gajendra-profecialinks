@@ -91,14 +91,21 @@ module.exports = {
       }
 
       async function getUnInterruptedPDP() {
-        const sku = document.evaluate('//nav[@id="breadcrumbs"]//ol//li[@itemscope="false"]', document, null, XPathResult.ANY_TYPE, null).iterateNext().textContent;
-         const jsApi = `https://www.homedepot.ca/api/rec/v1/recommendations?scheme=product1_rr&trackingId=900360419029528&products=${sku}&store=7077&fields=FULL&catalogVersion=Online&lang=en`
-           const response = await fetch(jsApi);
-          if(response) {
-            const jsonData = await response.json();
-            const data = jsonData && jsonData.schemes[0] && jsonData.schemes[0].items && jsonData.schemes[0].items.map(e=> e.manufacturer+ ' '+ e.name);
-            return data;
+        const skutemp = document.evaluate('//nav[@id="breadcrumbs"]//ol//li[@itemscope="false"]', document, null, XPathResult.ANY_TYPE, null).iterateNext();
+        
+        if (skutemp){
+          const sku = skutemp.textContent;
+          if (sku && sku.length){            
+            const jsApi = `https://www.homedepot.ca/api/rec/v1/recommendations?scheme=product1_rr&trackingId=900360419029528&products=${sku}&store=7077&fields=FULL&catalogVersion=Online&lang=en`
+            const response = await fetch(jsApi);
+            if(response) {
+              const jsonData = await response.json();
+              const data = jsonData && jsonData.schemes[0] && jsonData.schemes[0].items && jsonData.schemes[0].items.map(e=> e.manufacturer+ ' '+ e.name);
+              return data;
+            }
           }
+        }
+        return ;
     }
    
     const unInterruptedPDP = await getUnInterruptedPDP();
