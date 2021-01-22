@@ -52,7 +52,7 @@ fields:
     xpath: ancestor::html//a[contains(@id, "product-results-query-anchor")]/following-sibling::h1
   - name: sku
     singleValue: false
-    # xpath: //h3/a/@href
-    # regExp: (.*)/(\d+)\?(.*)
-    # regExpReplace: $2
+    xpath: //h3/a/@href
+    regExp: (.*)/(\d+)\?(.*)
+    regExpReplace: $2
     description: The store-specific product identifier
