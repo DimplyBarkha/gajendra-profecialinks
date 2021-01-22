@@ -182,5 +182,11 @@ fields:
     singleValue: false
     xpath: //td[contains(text(), "Zout")]/following::td[1]
     regExp: (g|mg)
-    regExpReplace: $1   
+    regExpReplace: $1
+  - name: temp_sku
+    singleValue: false
+    xpath: substring-after(//div[@class="color_grey_5"]//p[contains(text(), "ID:")], "ID:")   
+  - name: temp_allergyAdvice
+    singleValue: false
+    xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "Allergenen")]/following::p[1]    
   

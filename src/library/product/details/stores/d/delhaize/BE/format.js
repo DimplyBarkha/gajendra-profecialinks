@@ -17,6 +17,18 @@ const transform = (data) => {
           },
         ];
       }
+      if(row.temp_sku)
+      {
+        row.sku=[{text:''}]
+        row.sku[0].text=row.temp_sku[0].text
+        delete row.temp_sku
+      }
+      if(row.temp_allergyAdvice)
+      {
+        row.allergyAdvice=[{text:''}]
+        row.allergyAdvice[0].text=row.temp_allergyAdvice[0].text
+        delete row.temp_allergyAdvice
+      }
       if (row.totalFatPerServing) {
         let text = '';
         row.totalFatPerServing.forEach(item => {
