@@ -41,12 +41,25 @@ const transform = (data) => {
       }
 
       if (row.highQualityImages) {
-         row.highQualityImages.forEach(item => {
-          item.text = item.text.replace('thumbnail','original').trim();
-        });
-
+        let uniqueImages = [... new Set( row.highQualityImages.map( images => images.text))].map(image => { return ({text:image})});
+        row.highQualityImages = uniqueImages;
       }
 
+      if (row.shownImages) {
+        let uniqueImages = [... new Set( row.highQualityImages.map( images => images.text))].map(image => { return ({text:image})});
+        row.shownImages =Array.from( uniqueImages );
+      }
+
+      if (row.brandText) {
+        row.brandText.forEach(item => {
+          if(item.text === 'Star Wars'){
+            item.text = 'LEGO ' + item.text;
+          }
+          else{
+            item.text = item.text;
+          }
+        });
+      }
       if (row.shortDescription) {
 
         let shortDesc = '';

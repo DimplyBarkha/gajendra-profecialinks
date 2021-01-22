@@ -6,10 +6,10 @@ fields:
   - name: highQualityImages
     singleValue: false
     description: Materials used to make the product
-    xpath: //div[contains(@class,"mobileviewdisable")]//div[@id="gallery-image-thumb"]//img/@data-src
+    xpath: //div[contains(@class,"owl-item")]/div[@class='item']/picture/source[1]/@data-srcset | //div[contains(@class,"owl-item")]/div[@class='item']/picture/source[1]/@srcset
   - name: shownImages
     singleValue: false
-    xpath: //div[contains(@class,"mobileviewdisable")]//div[@id="gallery-image-thumb"]//img/@data-src
+    xpath: //div[contains(@class,"owl-item")]/div[@class='item']/picture/source[1]/@data-srcset | //div[contains(@class,"owl-item")]/div[@class='item']/picture/source[1]/@srcset
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
@@ -138,7 +138,7 @@ fields:
     description: Price in the selected store
   - name: priceCurrency
     singleValue: true
-    xpath: //span[@itemprop='priceCurrency']
+    xpath: //span[@itemprop='priceCurrency']/@content
   - name: amazonChoice
     singleValue: true
     description: YES or Blank
@@ -209,8 +209,7 @@ fields:
   - name: otherSellersName
     singleValue: false
     description: null
-    defaultValue: 'smythstoys'
-    xpath: //div[@class="AddToCart-AddToCartAction"]//input[@id="storeName"]/@value
+    defaultValue: 'Smyths Toys'
   - name: otherSellersPrice
     singleValue: false
     description: null
