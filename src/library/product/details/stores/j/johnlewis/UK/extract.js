@@ -49,18 +49,45 @@ module.exports = {
   }
   await scrollToRec('div.product-breadcrumb-carousel__container');
   await scrollToRec('jl-recommendations-panel');
+
+  await context.evaluate(async () => {
+    async function infiniteScroll () {
+      let prevScroll = document.documentElement.scrollTop;
+      while (true) {
+        window.scrollBy(0, document.documentElement.clientHeight);
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        const currentScroll = document.documentElement.scrollTop;
+        if (currentScroll === prevScroll) {
+          break;
+        }
+        prevScroll = currentScroll;
+      }
+    }
+    await infiniteScroll();
+  });
+
+  await new Promise(resolve => setTimeout(resolve, 5000));
   
     await context.evaluate(async function () {
       console.log(document.querySelector('jl-recommendations-panel'))
-      console.log(document.querySelector('jl-recommendations-panel').recommendationGroups)
-      const recommendations = document.querySelector('jl-recommendations-panel') ? document.querySelector('jl-recommendations-panel').recommendationGroups : null;
-      if (recommendations && recommendations.length) {
-        console.log(recommendations)
-        const products = recommendations[0].recommendedProducts;
-        products.forEach(element => {
-          addHiddenDiv('ii_recommended_products', element.title);
-        });
+      let allRecommendedPords = document.querySelectorAll('jl-recommendations-panel');
+      for(let i = 0; i < allRecommendedPords.length; i++) {
+        if(!allRecommendedPords[i]) {
+          console.log('nothing here!!');
+          continue;
+        }
+        console.log(allRecommendedPords[i].recommendationGroups);
+        let recommendations = allRecommendedPords[i] ? allRecommendedPords[i].recommendationGroups : null;
+        if (recommendations && recommendations.length) {
+          console.log(recommendations)
+          const products = recommendations[0].recommendedProducts;
+          products.forEach(element => {
+            addHiddenDiv('ii_recommended_products', element.title);
+          });
+        }
       }
+      
+      
       // try {
       //   await new Promise((resolve) => setTimeout(resolve, 5000));
       // } catch (error) {
