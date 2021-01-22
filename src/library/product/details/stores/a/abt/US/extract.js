@@ -10,13 +10,6 @@ async function implementation(
   const { productDetails } = dependencies;
   await new Promise(resolve => setTimeout(resolve, 3000));
   await context.evaluate(async function () {
-    function addElementToDocument(key, value) {
-      const catElement = document.createElement('div');
-      catElement.id = key;
-      catElement.textContent = value;
-      catElement.style.display = 'none';
-      document.body.appendChild(catElement);
-    }
     function timeout(ms) {
       return new Promise((resolve) => setTimeout(resolve, ms));
     }
@@ -27,6 +20,27 @@ async function implementation(
         await timeout(3000);
       }
     }
+    async function infiniteScroll () {
+      let prevScroll = document.documentElement.scrollTop;
+      while (true) {
+      window.scrollBy(0, document.documentElement.clientHeight);
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      const currentScroll = document.documentElement.scrollTop;
+      if (currentScroll === prevScroll) {
+      break;
+      }
+      prevScroll = currentScroll;
+      }
+      }
+      await infiniteScroll();
+    function addElementToDocument(key, value) {
+      const catElement = document.createElement('div');
+      catElement.id = key;
+      catElement.textContent = value;
+      catElement.style.display = 'none';
+      document.body.appendChild(catElement);
+    }
+      
     const specificationArr = document.querySelectorAll('div#specifications_content tr');
     const specification = [];
     if (specificationArr) {
@@ -86,6 +100,7 @@ async function implementation(
     if (image360Exists) addElementToDocument('image360Exists', 'Yes');
     let manufacturerDescription = document.querySelector('div#from_manufacturer_content')
       ? document.querySelector('div#from_manufacturer_content').innerText.replace(/\n{2,}|\s{2,}/g, '') : '';
+      let inTheBoxUrl='';
     if (document.querySelector('.syndi_powerpage')) {
       const manDescSelector = [...document.querySelector('.syndi_powerpage').shadowRoot.querySelectorAll('.syndigo-featureset-feature')];
       let manDescArray = [];
@@ -98,6 +113,28 @@ async function implementation(
       const manDesc = manDescArray.join(' | ');
       manufacturerDescription = manufacturerDescription + manDesc;
       if (manufacturerDescription) addElementToDocument('manufacturerDescription', manufacturerDescription);
+
+      let array = [];
+      let inTheBoxHeader = [...document.querySelector('.syndi_powerpage').shadowRoot.querySelectorAll(".syndigo-widget-section-header")]
+      for (let i = 0; i < inTheBoxHeader.length; i++) {
+        if (inTheBoxHeader[i].innerText.match('In')) {
+          array = [...inTheBoxHeader[i].parentElement.querySelectorAll('.syndigo-featureset img')];
+        }
+      }
+      let inTheBoxImages = [];
+      if(array.length) {
+      for (let i = 0; i < array.length; i++) {
+        if (array[i].getAttribute('src')) {
+          inTheBoxImages.push(array[i].getAttribute('src'));
+        }
+      }
+      }
+      console.log('in the box images are: ',inTheBoxImages);
+      inTheBoxImages = [...new Set(inTheBoxImages)];
+      const inTheBox = inTheBoxImages.join(' | ');
+      inTheBoxUrl = inTheBoxUrl + inTheBox;
+      if (inTheBoxUrl) addElementToDocument('inTheBoxUrl', inTheBoxUrl);
+
 
       const manImageSelector = [...document.querySelector('.syndi_powerpage').shadowRoot.querySelectorAll('img')];
       let manImagesArray = [];
