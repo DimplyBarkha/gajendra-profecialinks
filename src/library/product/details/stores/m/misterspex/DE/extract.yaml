@@ -41,8 +41,8 @@ fields:
     xpath: //div[@class="spex-accordion"]//div[@class="spex-accordion__content"]//ul//li
   - name: availabilityText
     singleValue: false
-    # xpath: //div[@id='spex_availability']
     xpath: //button[@id='PurchaseSubmit']/var[@id='addToBasketButtonText'] | //div[@class='spex-buttonContainer']/a[@class='spex-button200 spex-button200--fullWidth']
+    defaultValue: 'Out of stock'
   - name: brandText
     singleValue: false
     xpath: //script[contains(@type, "application/ld+json") and contains(text(), "brand")][1]/text()
@@ -57,5 +57,3 @@ fields:
   - name: manufacturer
     singleValue: false
     xpath: //div[@class='spex-accordion__content']/ul[@class='spex-list']/li[@class='spex-list__item'][last()]
-    # regExp: //.{0,}Hersteller:/
-  

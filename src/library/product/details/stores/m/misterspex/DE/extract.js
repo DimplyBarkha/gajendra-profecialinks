@@ -7,4 +7,5 @@ module.exports = {
     transform,
     domain: 'misterspex.de',
     zipcode: "''",
-  }
+  },
+};
