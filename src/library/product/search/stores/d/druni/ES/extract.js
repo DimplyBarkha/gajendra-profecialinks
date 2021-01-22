@@ -66,7 +66,7 @@ module.exports = {
             document.querySelector(productElemId).setAttribute('product-tile-thumbnail', thumbnail);
             if (product.sale_price === null) {
               const price = product.price;
-              const priceDec = price.toFixed(2); 
+              const priceDec = price.toFixed(2);
               document.querySelector(productElemId).setAttribute('product-tile-price', priceDec);
             } else {
               const price = product.sale_price;
