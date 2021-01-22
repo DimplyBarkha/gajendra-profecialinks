@@ -49,7 +49,21 @@ const transform = (data, context) => {
                 skyIdStr=tmp[0];
             })
         }
-        row.id=[{"text":skyIdStr}];            
+        if(row.id){
+          let rowIdData=false;
+          row.id.forEach(item=>{
+            if(skyIdStr!=''){
+              item.text=skyIdStr;
+            }else{
+              let objTmp=item.text.split('|');
+              objTmp.forEach(element => {
+                if(element.indexOf('productId:')>-1){
+                  item.text=element.replace('productId:','');
+                }
+              });
+            }
+          })
+        }            
       }
     }
     context.setState({ rankCounter });
