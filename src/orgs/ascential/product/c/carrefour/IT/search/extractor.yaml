@@ -6,8 +6,14 @@ parameters:
   zipcode: ""
 proxy:
   zone: ZIT
+extractionGlobals:
+  screenCapture: true
+  screenCaptureType: 'png'
 meta:
   branches:
     DS-search-carrefour_fr:
       extractor: 14052ab5-7a73-4608-8bec-2b44830845c5
       legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    Salsify_carrefout_it_search:
+      extractor: fb008bb0-f5e7-41d7-ac63-d0f816c19c3c
+      legacyAccountId: c77cb423-f919-4092-848b-9915f9794e9c

@@ -40,27 +40,6 @@ module.exports = {
         return products.snapshotLength;
       });
     }
-    let productsCount = 0;
-    while (productsCount < 150) {
-      const doesLoadMoreExists = await context.evaluate(function () {
-        return Boolean(document.querySelector('.text-center > button'));
-      });
-      if (doesLoadMoreExists) {
-        await context.evaluate(async function () {
-          console.log('Clicking on load more button');
-          document.querySelector('.text-center > button').click();
-          await new Promise((resolve, reject) => setTimeout(resolve, 10000));
-        });
-        productsCount = await getProductsCount(context);
-        console.log('productsCount' + productsCount);
-        if (productsCount >= 150) {
-          break;
-        }
-        await applyScroll(context);
-      } else {
-        break;
-      }
-    }
     return await context.extract(productDetails, { transform, type: 'MERGE_ROWS' });
   },
 };

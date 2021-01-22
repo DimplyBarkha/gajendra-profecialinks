@@ -67,9 +67,11 @@ fields:
   # - name: sku
   #   singleValue: false
   #   description: The store-specific product identifier
-  # - name: manufacturer
-  #   singleValue: false
-  #   description: Product manufacturer
+  - name: manufacturer
+    singleValue: false
+    description: Product manufacturer
+    xpath: //h2[@class="brand"]
+    regExp: ^\w.+
   # - name: soldBy
   #   singleValue: false
   #   description: The name of the seller of the item (if available)
