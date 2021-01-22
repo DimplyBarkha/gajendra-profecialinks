@@ -1,13 +1,13 @@
 
 // eslint-disable-next-line no-unused-vars
-const { cleanUp } = require('../../../../shared');
+const { cleanUp } = require('../shared');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'FR',
     store: 'nocibe',
-    transform: null,
+    transform: cleanUp,
     domain: 'nocibe.fr',
     zipcode: '',
   },
