@@ -331,9 +331,9 @@ module.exports = {
             XPathResult.STRING_TYPE,
             null,
           ).stringValue;
-          const sodiumRegexp = /([\d.,]+)\s?(.+)/;
+          const sodiumRegexp = /((\d+)([.,]\d+)?)\s?(.+)?/;
           const sodiumPerServing = sodiumText.match(sodiumRegexp) ? sodiumText.match(sodiumRegexp)[1] : '';
-          const sodiumPerServingUom = sodiumText.match(sodiumRegexp) ? sodiumText.match(sodiumRegexp)[2] : '';
+          const sodiumPerServingUom = sodiumText.match(sodiumRegexp) ? sodiumText.match(sodiumRegexp)[4] : '';
 
           listElem.setAttribute('sodium_per_serving', sodiumPerServing);
           listElem.setAttribute('sodium_per_serving_uom', sodiumPerServingUom);
@@ -358,9 +358,9 @@ module.exports = {
             XPathResult.STRING_TYPE,
             null,
           ).stringValue;
-          const fibreRegexp = /([\d.,]+)\s?(.+)/;
+          const fibreRegexp = /((\d+)([.,]\d+)?)\s?(.+)?/;
           const dietaryFibrePerServing = fibreText.match(fibreRegexp) ? fibreText.match(fibreRegexp)[1] : '';
-          const dietaryFibrePerServingUom = fibreText.match(fibreRegexp) ? fibreText.match(fibreRegexp)[2] : '';
+          const dietaryFibrePerServingUom = fibreText.match(fibreRegexp) ? fibreText.match(fibreRegexp)[4] : '';
 
           listElem.setAttribute('dietary_fibre_per_serving', dietaryFibrePerServing);
           listElem.setAttribute('dietary_fibre_per_serving_uom', dietaryFibrePerServingUom);
@@ -373,9 +373,9 @@ module.exports = {
             XPathResult.STRING_TYPE,
             null,
           ).stringValue;
-          const sugarMatch = sugarText.match(/([\d.,]+)\s?(.+)/);
+          const sugarMatch = sugarText.match(/((\d+)([.,]\d+)?)\s?(.+)?/);
           const totalSugarsPerServing = sugarMatch ? sugarMatch[1] : '';
-          const totalSugarsPerServingUom = sugarMatch ? sugarMatch[2] : '';
+          const totalSugarsPerServingUom = sugarMatch ? sugarMatch[4] : '';
 
           listElem.setAttribute('total_sugar_per_serving', totalSugarsPerServing);
           listElem.setAttribute('total_sugar_per_serving_uom', totalSugarsPerServingUom);
@@ -388,35 +388,37 @@ module.exports = {
             XPathResult.STRING_TYPE,
             null,
           ).stringValue;
-          const proteinRegExp = /([\d.,]+)\s?(.+)/;
+          const proteinRegExp = /((\d+)([.,]\d+)?)\s?(.+)?/;
           const proteinPerServing = proteinText.match(proteinRegExp) ? proteinText.match(proteinRegExp)[1] : '';
-          const proteinPerServingUom = proteinText.match(proteinRegExp) ? proteinText.match(proteinRegExp)[2] : '';
+          const proteinPerServingUom = proteinText.match(proteinRegExp) ? proteinText.match(proteinRegExp)[4] : '';
 
           listElem.setAttribute('protein_per_serving', proteinPerServing);
           listElem.setAttribute('protein_per_serving_uom', proteinPerServingUom);
 
           const vitaminAText = document.evaluate(
-            '//tr[td[contains(. , "витамин А")] and not(contains(. , "%"))]',
+            '(//*[(name()="tr" or name()="li") and contains(translate(. , "ВИТАМИН A", "витамин a"), "витамин a")])[last()]',
             document,
             null,
             XPathResult.STRING_TYPE,
             null,
           ).stringValue;
-          const vitaminAPerServing = vitaminAText.match(/(\d+)\s?(.+)/) ? vitaminAText.match(/(\d+)\s?(.+)/)[1] : '';
-          const vitaminAPerServingUom = vitaminAText.match(/(\d+)\s?(.+)/) ? vitaminAText.match(/(\d+)\s?(.+)/)[2] : '';
+          const vitaminARegExp = /((\d+)([.,]\d+)?)\s?(.+)?/;
+          const vitaminAPerServing = vitaminAText.match(vitaminARegExp) ? vitaminAText.match(vitaminARegExp)[1] : '';
+          const vitaminAPerServingUom = vitaminAText.match(vitaminARegExp) ? vitaminAText.match(vitaminARegExp)[4] : '';
 
           listElem.setAttribute('vitamin_a_per_serving', vitaminAPerServing);
           listElem.setAttribute('vitamin_a_per_serving_uom', vitaminAPerServingUom);
 
           const vitaminCText = document.evaluate(
-            '//tr[td[contains(. , "витамин C")] and not(contains(. , "%"))]',
+            '(//*[(name()="tr" or name()="li") and contains(translate(. , "ВИТАМИН С", "витамин с"), "витамин с")])[last()]',
             document,
             null,
             XPathResult.STRING_TYPE,
             null,
           ).stringValue;
-          const vitaminCPerServing = vitaminCText.match(/(\d+)\s?(.+)/) ? vitaminCText.match(/(\d+)\s?(.+)/)[1] : '';
-          const vitaminCPerServingUom = vitaminCText.match(/(\d+)\s?(.+)/) ? vitaminCText.match(/(\d+)\s?(.+)/)[2] : '';
+          const vitaminCRegExp = /((\d+)([.,]\d+)?)\s?(.+)?/;
+          const vitaminCPerServing = vitaminCText.match(vitaminCRegExp) ? vitaminCText.match(vitaminCRegExp)[1] : '';
+          const vitaminCPerServingUom = vitaminCText.match(vitaminCRegExp) ? vitaminCText.match(vitaminCRegExp)[4] : '';
 
           listElem.setAttribute('vitamin_c_per_serving', vitaminCPerServing);
           listElem.setAttribute('vitamin_c_per_serving_uom', vitaminCPerServingUom);

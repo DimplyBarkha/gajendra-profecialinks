@@ -2,7 +2,7 @@ input:
   id: 36158
   _url: http://petshop.ru
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=3dcb24d1-5524-4def-beb8-f146b40c22c5/task=dcff936a-7122-4b32-9c74-6e8451f2f817/030430a1-8adc-47f2-8f67-3ed327c03ec6.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=78ed1659-91fb-4bdb-9a3c-098852c22a62/task=47fe06d4-c28c-420a-a4cd-f79ac12a0ac7/61c6b34c-d241-4c25-8cce-dc0a41180a1e.html
     extractionConfigId: product/details/stores/p/petshop/RU/extract
     data:
       - group:
@@ -53,7 +53,7 @@ extractions:
               - text: "36158"
                 xpath: /html/body/ol[1]/li[1]/@variant_id
             ratingCount:
-              - text: "39"
+              - text: "41"
                 xpath: /html/body/ol[1]/li[1]/@rating_count
             aggregateRating:
               - text: "4.7"
@@ -104,12 +104,6 @@ extractions:
             proteinPerServingUom:
               - text: "%"
                 xpath: /html/body/ol[1]/li[1]/@protein_per_serving_uom
-            vitaminAPerServing:
-              - text: "32000"
-                xpath: /html/body/ol[1]/li[1]/@vitamin_a_per_serving
-            vitaminAPerServingUom:
-              - text: МЕ
-                xpath: /html/body/ol[1]/li[1]/@vitamin_a_per_serving_uom
             ironPerServing:
               - text: "1"
                 xpath: /html/body/ol[1]/li[1]/@iron_per_serving
@@ -136,4 +130,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1611216277394
+    timestamp: 1611305127140
