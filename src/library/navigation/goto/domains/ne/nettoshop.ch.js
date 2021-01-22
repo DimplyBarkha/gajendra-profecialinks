@@ -9,7 +9,7 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ url, zipcode }, parameters, context, dependencies) => {
-    const timeout = parameters.timeout ? parameters.timeout : 10000;
+    const timeout = parameters.timeout ? parameters.timeout : 100000;
     // await context.setBypassCSP(true);
     await context.setCssEnabled(true);
     await context.setAntiFingerprint(false);

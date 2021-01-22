@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'navigation/paginate',
   parameterValues: {
-    // template: null,
+    template: null,
     country: 'CH',
     store: 'nettoshop_ch_fr',
     // nextLinkSelector: null,
@@ -11,7 +11,7 @@ module.exports = {
     // spinnerSelector: null,
     loadedSelector: 'div[class="c-product-grid__item"]',
     // loadedXpath: null,
-    noResultsXPath: '//h1[contains(.,"0 Résultats pour")]',
+    noResultsXPath: '//h1[contains(.," 0 Résultats pour")]',
     // stopConditionSelectorOrXpath: null,
     // resultsDivSelector: null,
     openSearchDefinition: {
