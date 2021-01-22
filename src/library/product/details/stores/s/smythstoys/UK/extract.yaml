@@ -459,7 +459,7 @@ fields:
     description: Recommended age displayed on the product page.
       https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
     example: 4 - 99 years
-    xpath: //b[contains(text(),'Age Suitability')]/ancestor::div[1]
+    xpath: //b[contains(text(),'Age Suitability')]//following-sibling::text()
   - name: energyEfficiency
     singleValue: true
     description: Energy rating of a product.
@@ -482,3 +482,8 @@ fields:
     singleValue: true
     description: Information related to customer service availability (text), ['Yes','No']
     defaultValue: No
+  - name: shortDescription
+    singleValue: false
+    xpath: //h3[normalize-space(text())="Product Description"]/following-sibling::p/text()
+
+
