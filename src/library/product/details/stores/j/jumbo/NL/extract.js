@@ -24,9 +24,22 @@ module.exports = {
 
       function extractNutritionInfo () {
         // column position in table data where nutrition data per 100 g/ml is stored
-        const columnPosition = document.evaluate('count((//thead)[1]/tr//th[contains(.,"100")][1]/preceding-sibling::th)', document, null, XPathResult.STRING_TYPE, null).stringValue;
+        let columnPosition = document.evaluate('count((//thead)[1]/tr//th[contains(.,"100")][not(contains(.,"*"))][1]/preceding-sibling::th)', document, null, XPathResult.STRING_TYPE, null).stringValue;
+        if (columnPosition === '0') {
+          columnPosition = document.evaluate('count((//thead)[1]/tr//th[contains(.,"100")][1]/preceding-sibling::th)', document, null, XPathResult.STRING_TYPE, null).stringValue;
+          if (columnPosition === '0') {
+            columnPosition = document.evaluate('count((//thead)[1]/tr//th[contains(translate(., "Per", "per"), "per")][not(contains(.,"%"))][1]/preceding-sibling::th)', document, null, XPathResult.STRING_TYPE, null).stringValue;
+            if (columnPosition === '0') {
+              columnPosition = document.evaluate('count((//thead)[1]/tr//th[last()]/preceding-sibling::th)', document, null, XPathResult.STRING_TYPE, null).stringValue;
+            }
+          }
+        }
         const servingSize = document.evaluate(`//thead/tr/th[@class="jum-nutiriton-heading"][${columnPosition}]`, document, null, XPathResult.STRING_TYPE, null).stringValue;
-        const caloriesPerServing = document.evaluate(`//th[contains(translate(., "Energ", "energ"), "energ")]/parent::tr/following-sibling::tr[1]/th[not(text())]/following-sibling::td[${columnPosition}] | //th[contains(translate(., "Energ", "energ"), "energ")]/following-sibling::td[${columnPosition}][contains(text(),"kcal")] | //th[contains(translate(., "Kcal", "kcal"), "kcal")]/following-sibling::td[${columnPosition}][contains(text(),"kcal")]`, document, null, XPathResult.STRING_TYPE, null).stringValue;
+        let caloriesPerServing = document.evaluate(`//th[contains(translate(., "Energ", "energ"), "energ")]/parent::tr/following-sibling::tr[1]/th[not(text())]/following-sibling::td[${columnPosition}] | //th[contains(translate(., "Energ", "energ"), "energ")]/following-sibling::td[${columnPosition}][contains(text(),"kcal")] | //th[contains(translate(., "Kcal", "kcal"), "kcal")]/following-sibling::td[${columnPosition}][contains(text(),"kcal")] |  //th[contains(translate(., "Kcal", "kcal"), "kcal")]/following-sibling::td[${columnPosition}] | //th[contains(translate(., "Energ", "energ"), "energ")]/following-sibling::td[${columnPosition}]`, document, null, XPathResult.STRING_TYPE, null).stringValue;
+        // if calories cant be found in any rational way we scrape text from any td element containing phrase 'kcal'
+        if (!caloriesPerServing) {
+          caloriesPerServing = document.evaluate('//td[contains(translate(., "Kcal", "kcal"), "kcal")]', document, null, XPathResult.STRING_TYPE, null).stringValue;
+        }
         const totalFatPerServing = document.evaluate(`//th[contains(translate(., "Vet", "vet"), "vet")]/following-sibling::td[${columnPosition}] | //th[contains(translate(., "Fat", "fat"), "fat")]/following-sibling::td[${columnPosition}]`, document, null, XPathResult.STRING_TYPE, null).stringValue;
         const saturatedFatPerServing = document.evaluate(`//th[contains(translate(., 'Verzadigd', 'verzadigd'), 'verzadigd')]/following-sibling::td[${columnPosition}] | //th[contains(translate(., 'Saturates', 'saturates'), 'saturates')]/following-sibling::td[${columnPosition}]`, document, null, XPathResult.STRING_TYPE, null).stringValue;
         const sodiumPerServing = document.evaluate(`//th[contains(translate(., 'Natrium', 'natrium'), 'natrium')]/following-sibling::td[${columnPosition}] | //th[contains(translate(., 'Sodium', 'sodium'), 'sodium')]/following-sibling::td[${columnPosition}]`, document, null, XPathResult.STRING_TYPE, null).stringValue;

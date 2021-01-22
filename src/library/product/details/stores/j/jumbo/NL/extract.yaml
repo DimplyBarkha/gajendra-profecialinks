@@ -287,7 +287,7 @@ fields:
   description: Nutritional Information for Total Fat content - Usually based on per
     100g serving
   xpath: //div[@id="totalFatPerServing"]/text()
-  regExp: ^(<?\d+\.?\d*)
+  regExp: (<?\d+\.?\d*)
 - name: totalFatPerServingUom
   singleValue: false
   description: Unit of Measure Data for Total Fat content
@@ -298,7 +298,7 @@ fields:
   description: Nutritional Information for Saturated Fat content - Usually based on
     per 100g serving
   xpath: //div[@id="saturatedFatPerServing"]/text()
-  regExp: ^(<?\d+\.?\d*)
+  regExp: (<?\d+\.?\d*)
 - name: saturatedFatPerServingUom
   singleValue: false
   description: Unit of Measure Data for Saturated Fat content
@@ -323,7 +323,7 @@ fields:
   description: Nutritional Information for Sodium content - Usually based on per 100g
     serving
   xpath: //div[@id="sodiumPerServing"]/text()
-  regExp: ^(<?\d+\.?\d*)
+  regExp: (<?\d+\.?\d*)
 - name: sodiumPerServingUom
   singleValue: false
   description: Unit of Measure Data for Sodium content
@@ -334,7 +334,7 @@ fields:
   description: Nutritional Information for Total Carbohydrate content - Usually based
     on per 100g serving
   xpath: //div[@id="totalCarbPerServing"]/text()
-  regExp: ^(<?\d+\.?\d*)
+  regExp: (<?\d+\.?\d*)
 - name: totalCarbPerServingUom
   singleValue: false
   description: Unit of Measure Data for Total Carbohydrate content
@@ -345,7 +345,7 @@ fields:
   description: Nutritional Information for Dietary Fibre content - Usually based on
     per 100g serving
   xpath: //div[@id="dietaryFibrePerServing"]/text()
-  regExp: ^(<?\d+\.?\d*)
+  regExp: (<?\d+\.?\d*)
 - name: dietaryFibrePerServingUom
   singleValue: false
   description: Unit of Measure Data for Dietary Fibre content
@@ -356,7 +356,7 @@ fields:
   description: Nutritional Information for Total Sugar content - Usually based on
     per 100g serving
   xpath: //div[@id="totalSugarsPerServing"]/text()
-  regExp: ^(<?\d+\.?\d*)
+  regExp: (<?\d+\.?\d*)
 - name: totalSugarsPerServingUom
   singleValue: false
   description: Unit of Measure Data for Total Sugar content
@@ -367,7 +367,7 @@ fields:
   description: Nutritional Information for Protein content - Usually based on per
     100g serving
   xpath: //div[@id="proteinPerServing"]/text()
-  regExp: ^(<?\d+\.?\d*)
+  regExp: (<?\d+\.?\d*)
 - name: proteinPerServingUom
   singleValue: false
   description: Unit of Measure Data for Protein
@@ -378,7 +378,7 @@ fields:
   description: Nutritional Information for Vitamin A content - Usually based on per
     100g serving
   xpath: //div[@id="vitaminAPerServing"]/text()
-  regExp: ^(<?\d+\.?\d*)
+  regExp: (<?\d+\.?\d*)
 - name: vitaminAPerServingUom
   singleValue: false
   description: Unit of Measure Data for Vitamin A
@@ -389,7 +389,7 @@ fields:
   description: Nutritional Information for Vitamin C content - Usually based on per
     100g serving
   xpath: //div[@id="vitaminCPerServing"]/text()
-  regExp: ^(<?\d+\.?\d*)
+  regExp: (<?\d+\.?\d*)
 - name: vitaminCPerServingUom
   singleValue: false
   description: Unit of Measure Data for Vitamin C
@@ -400,7 +400,7 @@ fields:
   description: Nutritional Information for Calcium content - Usually based on per
     100g serving
   xpath: //div[@id="calciumPerServing"]/text()
-  regExp: ^(<?\d+\.?\d*)
+  regExp: (<?\d+\.?\d*)
 - name: calciumPerServingUom
   singleValue: false
   description: Unit of Measure Data for Calcium
@@ -421,7 +421,7 @@ fields:
   description: Nutritional Information for Magnesium content - Usually based on per
     100g serving
   xpath: //div[@id="magnesiumPerServing"]/text()
-  regExp: ^(<?\d+\.?\d*)
+  regExp: (<?\d+\.?\d*)
 - name: magnesiumPerServingUom
   singleValue: false
   description: Unit of Measure Data for Magnesium
@@ -432,7 +432,7 @@ fields:
   description: Nutritional Information for Salt content - Usually based on per 100g
     serving
   xpath: //div[@id="saltPerServing"]/text()
-  regExp: ^(<?\d+\.?\d*)
+  regExp: (<?\d+\.?\d*)
 - name: saltPerServingUom
   singleValue: false
   description: Unit of Measure Data for Salt
@@ -459,7 +459,7 @@ fields:
 - name: allergyAdvice
   singleValue: false
   description: Allergy information associated with the product
-  xpath: //div[contains(@class, 'jum-product-allergy-info')]/ul/li
+  xpath: //div[contains(@class, "jum-product-allergy-info")]//ul/li
 - name: recyclingInformation
   singleValue: false
   description: Recycling information associated with the product

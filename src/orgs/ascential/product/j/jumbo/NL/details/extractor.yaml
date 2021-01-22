@@ -2,6 +2,13 @@ robot: product/details
 proxy:
   zone: GBR
   type: RESIDENTIAL
+policy:
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 120
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 3
+  queryGapInMs: 5000
 parameters:
   country: NL
   domain: jumbo.com
