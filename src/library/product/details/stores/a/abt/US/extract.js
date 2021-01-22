@@ -134,7 +134,9 @@ async function implementation(
         if (JSON.stringify(q).includes('play')) { console.log(q); temp = q }
       })
       let videoUrls = JSON.stringify(temp).replace(/(.+)("event_label":")(.+)(",)(.+)/, 'https://www.youtube.com/watch?v=$3');
-      addElementToDocument('videoUrls', videoUrls);
+      if(videoUrls !== 'null'){
+        addElementToDocument('videoUrls', videoUrls);
+      }
     }
     catch (e) {
       console.log("video section not present.");
