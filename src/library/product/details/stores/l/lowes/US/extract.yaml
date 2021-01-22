@@ -11,10 +11,10 @@ fields:
     xpath: //h1//span[@class="desc-brand"]
   - name: image
     singleValue: false
-    xpath: (//div[@id="main-section"]//div[@class="tile"]/img/@src)[1]
+    xpath: (//div[@id="main-section"]//div[@class="tile"]/img/@src)[1] | (//div[@id="main-section"]//div[contains(@class,"styles__ImageTileWrapper")]//img/@src)[1]
   - name: imageAlt
     singleValue: false
-    xpath: (//div[@id="main-section"]//div[@class="tile"]/img/@alt)[1]
+    xpath: (//div[@id="main-section"]//div[@class="tile"]/img/@alt)[1] | (//div[@id="main-section"]//div[contains(@class,"styles__ImageTileWrapper")]//img/@alt)[1]
   - name: alternateImages
     singleValue: false
     xpath: //a[@class="alternateImages"]/@href
