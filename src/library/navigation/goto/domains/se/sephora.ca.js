@@ -19,13 +19,21 @@ module.exports = {
       await context.goto("www.sephora.com");
       await context.click("span[data-at='country_ca']")
       await context.clickAndWaitForNavigation("[data-at='modal_dialog_continue_btn']")
+      await context.waitForSelector('div[data-comp="RegularProduct "]')
     }
     catch(error){
       console.log(error)
     }
     await context.setLoadAllResources(true);
     await context.goto(url, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: true, enable_cache: false, cookies: [] });
+    try {
+      
+      await context.waitForSelector('div[data-comp="RegularProduct "]')
+    }
+    catch(error){
+      await context.goto(url, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: true, enable_cache: false, cookies: [] });
     
+    }
     console.log(zipcode);
     if (zipcode) {
       await dependencies.setZipCode({ url, zipcode });
