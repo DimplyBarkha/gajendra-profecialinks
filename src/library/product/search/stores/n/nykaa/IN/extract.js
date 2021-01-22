@@ -47,19 +47,32 @@ module.exports = {
         offset += 20;
       }
       fetchedProductsArray.forEach((product, index) => {
-        const rowObject = {
-          id: [{ text: product.parent_id }],
-          SearchUrl: [{ text: SearchUrl }],
-          name: [{ text: product.name }],
-          productUrl: [{ text: product.product_url }],
-          thumbnail: [{ text: product.image_url }],
-          aggregateRating2: [{ text: product.rating }],
-          ratingCount: [{ text: product.rating_count }],
-          reviewCount: [{ text: product.rating_count }],
-          price: [{ text: `₹${product.final_price}` }],
-          rank: [{ text: index + 1 }],
-          rankOrganic: [{ text: index + 1 }],
-        };
+        const rowObject = {};
+        if (product.parent_id) {
+          rowObject.id = [{ text: product.parent_id }];
+        }
+        rowObject.searchUrl = [{ text: SearchUrl }];
+        if (product.name) {
+          rowObject.name = [{ text: product.name }];
+        }
+        if (product.product_url) {
+          rowObject.productUrl = [{ text: product.product_url }];
+        }
+        if (product.image_url) {
+          rowObject.thumbnail = [{ text: product.image_url }];
+        }
+        if (product.rating) {
+          rowObject.aggregateRating2 = [{ text: product.rating }];
+        }
+        if (product.rating_count) {
+          rowObject.ratingCount = [{ text: product.rating_count }];
+          rowObject.reviewCount = [{ text: product.rating_count }];
+        }
+        if (product.final_price) {
+          rowObject.price = [{ text: `₹${product.final_price}` }];
+        }
+        rowObject.rank = [{ text: index + 1 }];
+        rowObject.rankOrganic = [{ text: index + 1 }];
         productsArray.push(rowObject);
       });
       return productsArray;
