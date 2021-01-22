@@ -63,7 +63,8 @@ fields:
     singleValue: true
     xpath: //body/@varinatId | //div[@id="store-stock-app"]/@data-product-code
   - name: mpc
-    xpath: //dl[@class="product-specifications-list"]/dt[contains(text(),'Manufacturer Part Number (MPN)')]/following-sibling::dd[1]/text()
+    xpath: //div[contains(@data-cy,"product-specification-value-Model number")]
+    # xpath: //dl[@class="product-specifications-list"]/dt[contains(text(),'Manufacturer Part Number (MPN)')]/following-sibling::dd[1]/text()
     # xpath: //div[@id="store-stock-app"]/@data-sku-id
   - name: packSize
     description:
