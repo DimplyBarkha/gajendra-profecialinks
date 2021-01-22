@@ -2,7 +2,7 @@ input:
   id: DF25497_2
   _url: http://monsterpetsupplies.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=4f521001-6bce-4d48-9dbc-039c8e57baac/task=f5329654-2583-4e3f-9405-ee11848023c8/9afe86d9-af57-4ccf-bfd2-32d818a1dc87.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=94f3ad02-2835-4141-9044-162581ac94cf/task=d683b708-9718-4c34-b9b7-93f2fbc89bdb/b6512fbb-377b-44fc-85ef-08e8b0cbaa70.html
     extractionConfigId: product/details/stores/m/monsterpetsupplies/UK/extract
     data:
       - group:
@@ -37,8 +37,8 @@ extractions:
               - text: Natural Dog Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]/a[4]
             nameExtended:
-              - text: Purina Beyond Simply 9 Chicken & Barley Adult Dog Food
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/h1[1]
+              - text: Purina Beyond Simply 9 Chicken & Barley Adult Dog Food 7.5kg
+                xpath: /html/body/div[17]
             listPrice:
               - text: £28.50
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[2]/section[1]/div[2]/p[2]
@@ -87,6 +87,12 @@ extractions:
             name:
               - text: Purina Beyond Simply 9 Chicken & Barley Adult Dog Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/h1[1]
+            ingredientsList:
+              - text: Chicken* (20%), Dehydrated Chicken Protein (18.5%), Whole Barley**
+                  (18.5%), Oat Groats**, Rice**, Poultry Fat, Digest, Minerals,
+                  Dried Carrot (0.5%), Dried Pea (0.5%) **Cereals (50%) *Natural
+                  ingredients
+                xpath: /html/body/div[29]
             totalFatPerServing:
               - text: "15.0"
                 xpath: /html/body/div[23]
@@ -122,4 +128,4 @@ extractions:
             variantCount:
               - text: "2"
         xpath: /
-    timestamp: 1611234216330
+    timestamp: 1611323523251

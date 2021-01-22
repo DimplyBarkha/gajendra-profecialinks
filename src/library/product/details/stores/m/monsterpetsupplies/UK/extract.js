@@ -120,13 +120,34 @@ module.exports = {
         addElementToDom(vitCMatch[1], 'vit_c_uom');
       }
 
-      const ingredientsText = document.evaluate(
+      let ingredientsText = document.evaluate(
         '//p[. = "Ingredients:"]/following-sibling::*[position() = 1] | //p[starts-with(. , "Ingredients") or starts-with(. , "With Chicken:") or starts-with(. , "With Turkey:") or starts-with(. , "With Duck:") or starts-with(. , "With Poultry:") or starts-with(. , "With Salmon:") or starts-with(. , "With Fish:") or starts-with(. , "With Beef:")]',
         document,
         null,
         XPathResult.STRING_TYPE,
         null,
       ).stringValue;
+
+      const ingredientsTextArr = [];
+      if (!ingredientsText && descriptionElem) {
+        let reading;
+        for (let i = 0; i < descriptionElem.childNodes.length; i++) {
+          const elem = descriptionElem.childNodes[i];
+          if (elem.textContent.toLowerCase().trim().startsWith('ingredients')) reading = true;
+          if (
+            elem.textContent.toLowerCase().trim().startsWith('analytical constituent') ||
+            elem.textContent.toLowerCase().trim().startsWith('nutritional additive') ||
+            elem.textContent.toLowerCase().trim().startsWith('feeding guideline')
+          ) {
+            break;
+          }
+          if (reading) ingredientsTextArr.push(elem.textContent);
+        }
+        ingredientsText = ingredientsTextArr
+          .join(' ')
+          .replace(/^ingredients:?/i, '')
+          .trim();
+      }
 
       addElementToDom(ingredientsText.replace('Ingredients:', '').replace(/\n+/g, ' '), 'ingredients');
 
