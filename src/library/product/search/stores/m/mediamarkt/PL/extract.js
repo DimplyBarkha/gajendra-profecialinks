@@ -16,15 +16,7 @@ module.exports = {
     ) {
         const { productDetails } = dependencies;
         const { transform } = parameters;
-        await context.evaluate(() => {
-            const searchUrl = window.location.href;
-            const appendElements = document.querySelectorAll("a[class='b-ofr_headDataTitle']");
-            if (appendElements.length) {
-                appendElements.forEach((element) => {
-                    element.setAttribute('searchurl', searchUrl);
-                });
-            }
-        });
+
 
         async function autoScroll(page) {
             await page.evaluate(async() => {
@@ -40,11 +32,21 @@ module.exports = {
                             clearInterval(timer);
                             resolve();
                         }
-                    }, 500);
+                    }, 200);
                 });
             });
         }
         await autoScroll(context);
+        await context.evaluate(() => {
+            const searchUrl = window.location.href;
+            const appendElements = document.querySelectorAll("a[class='b-ofr_headDataTitle']");
+            if (appendElements.length) {
+                appendElements.forEach((element) => {
+                    element.setAttribute('searchurl', searchUrl);
+                });
+            }
+        });
+        await new Promise((resolve, reject) => setTimeout(resolve, 2000));
         return await context.extract(productDetails, { transform });
     },
 
