@@ -61,7 +61,7 @@ const transform = (data, context) => {
             // id
             if(fieldName.id){
                 let idText = fieldName.id[0].text;
-                let firstMatch = idText.match(/-\d{0,}$/g);
+                let firstMatch = idText.match(/(-\d{0,}$|-prod\d{0,}$)/g);
                 if(firstMatch){
                     fieldName.id[0].text = firstMatch[0].replace(/\D/g, '');
                 } else {
