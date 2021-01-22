@@ -14,7 +14,10 @@ fields:
   singleValue: false
 - name: image
   description: URL of the main product image
-  xpath: ancestor::html//div[contains(@class, "sticky-gallery")]//div[contains(@class, "z-pdp__escape-grid")]//ul/li[1]//img/@src
+  xpath: ancestor::html//ol[@id="added_alternate_images"]/li[1]
+  # xpath: ancestor::html//div[contains(@class, "sticky-gallery")]//div[contains(@class, "z-pdp__escape-grid")]//ul/li[1]//img/@src
+  # regExp: (.+?)\?
+  # regExpReplace: $1
 - name: imageAlt
   description: Alt text of the main product image
   xpath: ancestor::html//div[contains(@class, "sticky-gallery")]//div[contains(@class, "z-pdp__escape-grid")]//ul/li[1]//img/@alt
@@ -22,7 +25,7 @@ fields:
   singleValue: false
   description: Other product images (not in manufacturer description)
   # xpath: ancestor::html//div[contains(@class, "sticky-gallery")]//div[contains(@class, "z-pdp__escape-grid")]//ul/li[position() > 1]//img/@src
-  xpath: ancestor::html//ol[@id="added_alternate_images"]/li
+  xpath: ancestor::html//ol[@id="added_alternate_images"]/li[position() > 1]
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
@@ -53,6 +56,7 @@ fields:
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
+  xpath: '@description'
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -239,7 +243,7 @@ fields:
 - name: secondaryImageTotal
   singleValue: true
   description: 
-  xpath: count((ancestor::html//x-wrapper-re-1-2//ul)[last()]/li//img)
+  xpath: count((ancestor::html//x-wrapper-re-1-2//ul)[last()]/li[position() > 1]//img)
 - name: news
   singleValue: true
   description: 
@@ -417,7 +421,7 @@ fields:
 - name: promotion
   singleValue: true
   description: promotion text on product page
-  xpath: ancestor::html//x-wrapper-re-1-3/h1/following-sibling::div/div/preceding-sibling::span
+  xpath: '@promotion'
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information
