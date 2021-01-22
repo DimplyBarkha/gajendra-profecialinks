@@ -87,15 +87,16 @@ const transform = (data) => {
             info.push(item.text);
           });
         }
-        // if (row.availabilityText) {
-        //   const availabilityText = row.availabilityText[0].text;
-        //   if (availabilityText.includes(null)) {
-        //     row.availabilityText = [{ text: 'Out of stock' }];
-        //   } else {
-        //     row.availabilityText = [{ text: 'In stock' }];
-        //   }
-        // }
-
+        if (row.availabilityText){
+          let info = [];
+          row.availabilityText.forEach(item =>{
+            item.text = item.text.replace(/In den Warenkorb/, "");
+            item.text = "In stock"+item.text;
+            item.text = item.text.replace(/Weitere Kontaktlinsen entdecken/, "");
+            item.text = "Out of stock"+item.text;
+            info.push(item.text);
+          });
+        }
         if(row.variantInformation){
           var strVariantInfo = ''
           row.variantInformation.forEach(item => {
