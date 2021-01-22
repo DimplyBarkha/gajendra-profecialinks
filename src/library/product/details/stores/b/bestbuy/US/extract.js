@@ -267,7 +267,7 @@ async function implementation (
         }
       }
     });
-    await context.extract(productDetails, { transform });
+    await context.extract(productDetails, { transform, type: 'MERGE_ROWS'  });
   } catch (error) {
     console.log(error);
   }
