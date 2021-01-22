@@ -4,14 +4,12 @@ module.exports = {
   parameterValues: {
     country: 'NL',
     store: 'jumbo',
-    // nextLinkSelector: 'span.d-xs-inline.d-l-none',
+    nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: '.rw',
-    noResultsXPath: '//div[@class="error-state-wrapper text-center cl ctr"]/div[@class="server-error"]',
-    // openSearchDefinition: {
-    //   template: 'https://www.jumbo.com/producten/?offSet={offset}&searchTerms={searchTerms}&pageSize=25',
-    // },
+    loadedSelector: 'div[analytics-tag="product list"]',
+    noResultsXPath: '//div[@class="error-state-wrapper text-center cl ctr"]',
+    openSearchDefinition: null,
     domain: 'jumbo.com',
     zipcode: '',
   },
