@@ -3,10 +3,10 @@ module.exports = {
   implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'interdiscount.ch',
-    prefix: null,
-    url: null,
+    prefix: 'de',
+    url: 'https://www.interdiscount.ch/de/--p{id}',
     country: 'CH',
-    store: 'interdiscount_fr',
+    store: 'interdiscount',
     zipcode: '',
   },
 };
