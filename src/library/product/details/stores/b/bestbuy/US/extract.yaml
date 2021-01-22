@@ -143,15 +143,15 @@ fields:
   - name: variantCount
     singleValue: false
     defaultValue: '0'
-# custom Fields
+# custom Fields, removed some as they are behind a button.
   - name: inTheBoxUrl
-    xpath: //@witb-url
-    regExp: '[^|]+'
+    # xpath: //@witb-url
+    # regExp: '[^|]+'
   - name: inTheBoxText
-    xpath: //@witb-text
-    regExp: '[^|]+'
+    # xpath: //@witb-text
+    # regExp: '[^|]+'
   - name: hasComparisonTable
-    xpath: boolean(//*[@has-comparison="true"]/@has-comparison | //span[contains(text(),"Compare Upgrades")])
+    # xpath: //*[@has-comparison="true"]/@has-comparison | //span[contains(text(),"Compare Upgrades")])
   - name: unInterruptedPDP
     # manualSelector: div[style*="ms-flex-direction"] div[style*="ms-flex-direction"] >a[class*="lc_ si6"]
     xpath: //div[@id='elementData1']|//div[@class="shop-product-carousels"]//div[contains(@class,"title-block")]/text()
