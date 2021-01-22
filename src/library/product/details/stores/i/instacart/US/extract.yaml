@@ -4,9 +4,11 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    xpath: //div[contains(@class, "image-container")]//img/@src
+    singleValue: true 
+    xpath: //div[contains(@class, "image-container")]//img/@src[1]
     # xpath: //main[@id="main-content"]/div[contains(@class, 'rmq-55d4a504')]/div/div[1]/img/@src
   - name: imageAlt
+    singleValue: true 
     xpath: //div[contains(@class, "image-container")]//img/@alt
   - name: alternateImages
     xpath: //div[contains(@aria-label, "Item images")]//li[position()>1]//img/@src
@@ -28,6 +30,7 @@ fields:
     # regExp: (.)(.+)
     # regExpReplace: $2
   - name: availabilityText
+    singleValue: true 
     xpath: //form//button[contains(text(), 'Add to cart')]
     regExp: (.*)
     regExpReplace: In stock
@@ -187,110 +190,110 @@ fields:
     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//div[contains(text(), 'Serving Size')]
     regExp: (Serving Size (.+) (\w+))
     regExpReplace: $3
-  - name: numberOfServingsInPackage
-    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//div[contains(text(), 'Servings Per')]
-    regExp: (Servings Per Container (.+))
-    regExpReplace: $2
-    description: Suggested number of servings of the product.
-    type: NUMBER
-  - name: caloriesPerServing
-    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Calories')]/ancestor::li
-    type: NUMBER
-  - name: caloriesFromFatPerServing
-    description: Nutritional Information for Calories From Fat content - Usually
-      based on per 100g serving
-    type: NUMBER
-  - name: totalFatPerServing
-    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Total Fat')]/ancestor::li/text()
-    type: NUMBER    
-    # xpath: //main[@id="main-content"]/div[contains(@class, 'rmq')]//li/strong[contains(text(), 'Total Fat')]/following-sibling::text()[2]
-    # regExp: ((\d+).?(\d+))?(\w)
-    # regExpReplace: $1
-  - name: totalFatPerServingUom
-    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Total Fat')]/ancestor::li/text()
-    regExp: ([g|mg|mcg|IU]+$)
-    # xpath: //main[@id="main-content"]/div[contains(@class, 'rmq')]//li/strong[contains(text(), 'Total Fat')]/following-sibling::text()[2]
-    # regExp: ((\d+).?(\d+))?(\w)
-    # regExpReplace: $4
-  - name: saturatedFatPerServing
-    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//li[contains(text(), 'Saturated Fat')]/text()[not(.="Saturated Fat")]
-    regExp: >-   
-      [0-9,<,.]+
-    description: Nutritional Information for Saturated Fat content - Usually based
-      on per 100g serving
-    type: NUMBER
-  - name: saturatedFatPerServingUom
-    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//li[contains(text(), 'Saturated Fat')]/text()[not(.="Saturated Fat")]
-    regExp: ([g|mg|mcg|IU]+$)
-    description: Unit of Measure Data for Saturated Fat content
-  - name: transFatPerServing
-    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//li[contains(text(), 'Trans Fat')]
-    regExp: >-   
-      [0-9,<,.]+
-    description: Nutritional Information for Trans Fat content - Usually based on
-      per 100g serving
-    type: NUMBER
-  - name: transFatPerServingUom
-    description: Unit of Measure Data for Trans Fat content
-    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//li[contains(text(), 'Trans Fat')]
-    regExp: ([g|mg|mcg|IU]+$)
-  - name: cholesterolPerServing
-    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Cholesterol')]/ancestor::li/text()[not(.=" ")]
-    description: Nutritional Information for Cholesterol content - Usually based on
-      per 100g serving
-    type: NUMBER
-  - name: cholesterolPerServingUom
-    description: Unit of Measure Data for Cholesterol content
-    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Cholesterol')]/ancestor::li/text()[not(.=" ")]
-    regExp: (?:([\d\.]+)\s?(\w+))
-    regExpReplace: $2    
-  - name: sodiumPerServing
-    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Sodium')]/ancestor::li/text()
-    regExp: ((\d+).?(\d+))?(\w)
-    regExpReplace: $1
-  - name: sodiumPerServingUom
-    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Sodium')]/ancestor::li/text()
-    regExp: ((\d+).?(\d+))?(\w+)
-    regExpReplace: $4
-  - name: totalCarbPerServing
-    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Total Carbohydrate')]/ancestor::li/text()
-    regExp: ((\d+).?(\d+))?(\w)
-    regExpReplace: $1
-  - name: totalCarbPerServingUom
-    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Total Carbohydrate')]/ancestor::li/text()
-    regExp: ((\d+).?(\d+))?(\w)
-    regExpReplace: $4
-  - name: dietaryFibrePerServing
-    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//li[contains(text(), 'Dietary Fiber')]/text()[not(.="Dietary Fiber")]
-    type: NUMBER
-    # regExp: ((\d+).?(\d+))?(\w)
-    # regExpReplace: $1
-  - name: dietaryFibrePerServingUom
-    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//li[contains(text(), 'Dietary Fiber')]/text()[not(.="Dietary Fiber")]
-    regExp: ([g|mg|mcg|IU]+$)
-    # regExp: ((\d+).?(\d+))?(\w)
-    # regExpReplace: $4
-  - name: totalSugarsPerServing
-    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//li[contains(text(), 'Sugars')]/text()[not(.="Sugars")]
-    type: NUMBER
-    # regExp: ((\d+).?(\d+))?(\w)
-    # regExpReplace: $1
-  - name: totalSugarsPerServingUom
-    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//li[contains(text(), 'Sugars')]/text()[not(.="Sugars")]
-    regExp: ([g|mg|mcg|IU]+$)
-    # regExp: ((\d+).?(\d+))?(\w)
-    # regExpReplace: $4
-  - name: proteinPerServing
-    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Protein')]/ancestor::li/text()
-    description: Nutritional Information for Protein content - Usually based on per
-      100g serving
-    type: NUMBER
-  - name: proteinPerServingUom
-    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Protein')]/ancestor::li/text()
-    regExp: ([g|mg|mcg|IU]+$)
-    # regExp: ((\d+).?(\d+))?(\w)
-    # regExpReplace: $4
-    description: Unit of Measure Data for Protein
+#   - name: numberOfServingsInPackage
+#     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//div[contains(text(), 'Servings Per')]
+#     regExp: (Servings Per Container (.+))
+#     regExpReplace: $2
+#     description: Suggested number of servings of the product.
+#     type: NUMBER
+#   - name: caloriesPerServing
+#     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Calories')]/ancestor::li
+#     type: NUMBER
+#   - name: caloriesFromFatPerServing
+#     description: Nutritional Information for Calories From Fat content - Usually
+#       based on per 100g serving
+#     type: NUMBER
+#   - name: totalFatPerServing
+#     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Total Fat')]/ancestor::li/text()
+#     type: NUMBER    
+#     # xpath: //main[@id="main-content"]/div[contains(@class, 'rmq')]//li/strong[contains(text(), 'Total Fat')]/following-sibling::text()[2]
+#     # regExp: ((\d+).?(\d+))?(\w)
+#     # regExpReplace: $1
+#   - name: totalFatPerServingUom
+#     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Total Fat')]/ancestor::li/text()
+#     regExp: ([g|mg|mcg|IU]+$)
+#     # xpath: //main[@id="main-content"]/div[contains(@class, 'rmq')]//li/strong[contains(text(), 'Total Fat')]/following-sibling::text()[2]
+#     # regExp: ((\d+).?(\d+))?(\w)
+#     # regExpReplace: $4
+#   - name: saturatedFatPerServing
+#     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//li[contains(text(), 'Saturated Fat')]/text()[not(.="Saturated Fat")]
+#     regExp: >-   
+#       [0-9,<,.]+
+#     description: Nutritional Information for Saturated Fat content - Usually based
+#       on per 100g serving
+#     type: NUMBER
+#   - name: saturatedFatPerServingUom
+#     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//li[contains(text(), 'Saturated Fat')]/text()[not(.="Saturated Fat")]
+#     regExp: ([g|mg|mcg|IU]+$)
+#     description: Unit of Measure Data for Saturated Fat content
+#   - name: transFatPerServing
+#     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//li[contains(text(), 'Trans Fat')]
+#     regExp: >-   
+#       [0-9,<,.]+
+#     description: Nutritional Information for Trans Fat content - Usually based on
+#       per 100g serving
+#     type: NUMBER
+#   - name: transFatPerServingUom
+#     description: Unit of Measure Data for Trans Fat content
+#     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//li[contains(text(), 'Trans Fat')]
+#     regExp: ([g|mg|mcg|IU]+$)
+#   - name: cholesterolPerServing
+#     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Cholesterol')]/ancestor::li/text()[not(.=" ")]
+#     description: Nutritional Information for Cholesterol content - Usually based on
+#       per 100g serving
+#     type: NUMBER
+#   - name: cholesterolPerServingUom
+#     description: Unit of Measure Data for Cholesterol content
+#     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Cholesterol')]/ancestor::li/text()[not(.=" ")]
+#     regExp: (?:([\d\.]+)\s?(\w+))
+#     regExpReplace: $2    
+#   - name: sodiumPerServing
+#     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Sodium')]/ancestor::li/text()
+#     regExp: ((\d+).?(\d+))?(\w)
+#     regExpReplace: $1
+#   - name: sodiumPerServingUom
+#     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Sodium')]/ancestor::li/text()
+#     regExp: ((\d+).?(\d+))?(\w+)
+#     regExpReplace: $4
+#   - name: totalCarbPerServing
+#     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Total Carbohydrate')]/ancestor::li/text()
+#     regExp: ((\d+).?(\d+))?(\w)
+#     regExpReplace: $1
+#   - name: totalCarbPerServingUom
+#     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Total Carbohydrate')]/ancestor::li/text()
+#     regExp: ((\d+).?(\d+))?(\w)
+#     regExpReplace: $4
+#   - name: dietaryFibrePerServing
+#     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//li[contains(text(), 'Dietary Fiber')]/text()[not(.="Dietary Fiber")]
+#     type: NUMBER
+#     # regExp: ((\d+).?(\d+))?(\w)
+#     # regExpReplace: $1
+#   - name: dietaryFibrePerServingUom
+#     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//li[contains(text(), 'Dietary Fiber')]/text()[not(.="Dietary Fiber")]
+#     regExp: ([g|mg|mcg|IU]+$)
+#     # regExp: ((\d+).?(\d+))?(\w)
+#     # regExpReplace: $4
+#   - name: totalSugarsPerServing
+#     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//li[contains(text(), 'Sugars')]/text()[not(.="Sugars")]
+#     type: NUMBER
+#     # regExp: ((\d+).?(\d+))?(\w)
+#     # regExpReplace: $1
+#   - name: totalSugarsPerServingUom
+#     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//li[contains(text(), 'Sugars')]/text()[not(.="Sugars")]
+#     regExp: ([g|mg|mcg|IU]+$)
+#     # regExp: ((\d+).?(\d+))?(\w)
+#     # regExpReplace: $4
+#   - name: proteinPerServing
+#     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Protein')]/ancestor::li/text()
+#     description: Nutritional Information for Protein content - Usually based on per
+#       100g serving
+#     type: NUMBER
+#   - name: proteinPerServingUom
+#     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Protein')]/ancestor::li/text()
+#     regExp: ([g|mg|mcg|IU]+$)
+#     # regExp: ((\d+).?(\d+))?(\w)
+#     # regExpReplace: $4
+#     description: Unit of Measure Data for Protein
   - name: vitaminAPerServing
     description: Nutritional Information for Vitamin A content - Usually based on
       per 100g serving
@@ -420,18 +423,3 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
-#salsify
-  # - name: priceCurrency
-  #   xpath: //script[@type="application/json"][contains(text(), 'currency')]
-  #   regExp: ("currency\\"(:)\\"(\w+))
-  #   regExpReplace: $3
-  - name: highQualityImages
-    xpath: //main[@id="main-content"]//div[contains(@class, 'rmq-c76db721')]/div/img/@src
-    regExp: ^((?!4bbe82b8555e4d1c12626fd482cb2409713e8e30835645ff3650ef66a725d03c).)*$
-  - name: shownImages
-    xpath: //main[@id="main-content"]//div[contains(@class, 'rmq-c76db721')]/div/img/@src
-    regExp: ^((?!4bbe82b8555e4d1c12626fd482cb2409713e8e30835645ff3650ef66a725d03c).)*$
-  - name: legalDisclaimer
-    xpath: //h3[contains(text(),'Warnings')]/following-sibling::div
-    description: Content under "legal disclaimer" header
-
