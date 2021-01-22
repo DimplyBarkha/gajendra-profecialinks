@@ -18,7 +18,7 @@ fields:
     regExpReplace: $2
   - name: mediaURL
     singleValue: false
-    xpath: ancestor::html//div[@id="product-details-box"]//img/@src
+    xpath: ancestor::html//*[@data-gallery-role="stage-shaft"]/div[@data-active="true"]/@href
   - name: productRange
     singleValue: false
     xpath: ancestor::html//ul[@class="items"]/li[@class="item category"]/a/text()
