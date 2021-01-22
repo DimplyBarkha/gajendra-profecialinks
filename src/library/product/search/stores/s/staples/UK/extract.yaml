@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@id="divResults"]//div[@id="ResultsSection"]//div[@class="detailsBlk"]
+recordXPath: //div[@id="divResults"]//div[@id="ResultsSection"]//div[contains(@class,"BrowseItem")]
 fields:
   - name: name
     singleValue: false
@@ -21,14 +21,14 @@ fields:
     regExpReplace: https:$1
   - name: id
     singleValue: false
-    xpath: //div[@itemprop='productID']
-    regExp: (\d*)
-    regExpReplace: $1
+    xpath: //div[@itemprop='productID']/@content
+    regExp: (-)(.*)
+    regExpReplace: $2
   - name: gtin
     singleValue: false
-    xpath: //div[@itemprop='ean']
-    regExp: (\d*)
-    regExpReplace: $1  
+    xpath: //div[@itemprop='ean']//span[contains(text(),'EAN')]//following-sibling::text()
+    # regExp: (\d*)
+    # regExpReplace: $1  
   - name: aggregateRating
     singleValue: false
     xpath: //div[@itemprop="aggregateRating"]//span[@id="productRating"]//text() 
