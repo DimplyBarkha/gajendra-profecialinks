@@ -48,7 +48,7 @@ module.exports = {
         ab = pn + ' | ' + firstVar;
         addElementToDocument('ab', ab);
         addElementToDocument('fvar', firstVar);
-      }else{
+      } else {
         ab = pn + ' | ' + qty;
         addElementToDocument('ab', ab);
       }
@@ -81,19 +81,6 @@ module.exports = {
       }
 
       // Ingredient List
-      // function getIngredientList(ingredient) {
-      //   var ingList1 = ingredient.toString();
-      //   var ingList = "";
-      //   if (ingList1.match('•') != null) {
-      //     ingList = ingList1.replaceAll('•', ' || ');
-      //   } else if (ingList1.match('●') != null) {
-      //     ingList = ingList1.replaceAll('●', ' || ');
-      //   } else if (ingList1.match(',') != null) {
-      //     ingList = ingList1.replaceAll(',', ' || ');
-      //   }
-      //   addElementToDocument('ingList', ingList);
-      // }
-      
       const getIngredientList = (d) => {
         var arr = "";
         var ingList;
@@ -114,32 +101,9 @@ module.exports = {
         addElementToDocument('ingList', ingList);
       }
       var ingredientList = getAllXpath('//div[@id="tab_ingredients"]/descendant::text()[position()<last()]', 'nodeValue');
-      // var ingredientListP = getAllXpath('//div[@id="tab_ingredients"]//p/text()[2]', 'nodeValue');
-      // if (ingredientList.length > 1) {
-      //   getIngredientList(ingredientList);
-      // } else if (ingredientListP.length > 0) {
-      //   getIngredientList(ingredientListP);
-      // }
       getIngredientList(ingredientList);
 
       // Product Description 
-      // const getDescription = (desc) => {
-      //   var specs = desc.join(' || ');
-      //   addElementToDocument('specs', specs);
-      // }
-      // var descriptionP = getAllXpath('//div[@id="tab_description"]//p/text()', 'nodeValue');
-      // var description = getAllXpath('(//div[@id="tab_description"])//text()', 'nodeValue');
-      // if (descriptionP.length > 1) {
-      //   getDescription(descriptionP);
-      // } else if (description.length > 1) {
-      //   var descrip = "";
-      //   for (var i = 0; i < description.length; i++) {
-      //     descrip += description[i];
-      //   }
-      //   var specs1 = descrip.replace('Print','');
-      //   var specs = specs1.trim().replaceAll('\n',' || ');
-      //   addElementToDocument('specs', specs);
-      // }
       const getDescription = (d) => {
         var arr = "";
         for (var i = 0; i < d.length; i++) {
