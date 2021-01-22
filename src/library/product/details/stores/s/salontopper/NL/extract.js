@@ -30,10 +30,15 @@ module.exports = {
             ? e.nextElementSibling.textContent : '';
           directions.push(main);
         }
-        if (e.textContent.includes('Gebruik') && !e.textContent.includes('Resultaat na gebruik')) {
+        if (e.textContent.includes('Gebruik:') && !e.textContent.includes('Resultaat na gebruik')) {
           const directionsMain = e.parentElement
             ? e.parentElement.textContent : '';
           directions.push(directionsMain.split('Gebruik:').pop().trim());
+        }
+        if (e.textContent.includes('Gebruik') && !e.textContent.includes('Gebruik:') && !e.textContent.includes('Resultaat na gebruik')) {
+          const directionsMain = e.textContent.split('Gebruik').pop()
+            ? e.parentElement.textContent : '';
+          directions.push('Gebruik'.concat(directionsMain.split('Gebruik:').pop()));
         }
       });
 
@@ -56,7 +61,7 @@ module.exports = {
       addElementToDocument('desc', desc.join(''));
       // rating
       const ratingValue = document.querySelector('meta[itemprop="ratingValue"]');
-      if (ratingValue !== null) ratingValue.setAttribute('ratingValue', ratingValue.getAttribute('content').replace('.', ','));
+      if (ratingValue !== null) ratingValue.setAttribute('ratingvalue', ratingValue.getAttribute('content').replace('.', ','));
       // video url
       const ytPrefix = 'https://www.youtube-nocookie.com/embed/';
       const keyword = document.querySelector('a[class*="thumb youtube"]')
@@ -89,8 +94,8 @@ module.exports = {
     dataRef[0].group.forEach((row) => {
       if (row.aggregateRating) {
         row.aggregateRating.forEach(item => {
-          item.text = !item.text.includes('.') || !item.text.includes(',') ? item.text.concat('.0') : item.text;
-          if (item.text === '0.0') item.text = item.text.split('.').shift();
+          item.text = !item.text.includes('.') || !item.text.includes(',') ? item.text.concat(',0') : item.text;
+          if (item.text === '0,0') item.text = item.text.split(',').shift();
         });
       }
       if (row.variantInformation) {
