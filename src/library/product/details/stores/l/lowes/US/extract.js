@@ -52,19 +52,37 @@ module.exports = {
     } catch (error) {
       console.log('Faild to set store location', error);
     }
+    async function scrollToRec (node) {
+      await context.evaluate(async (node) => {
+        const element = document.querySelector(node) || null;
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+          await new Promise((resolve) => {
+            setTimeout(resolve, 5000);
+          });
+        }
+      }, node);
+    }
+    await scrollToRec('div#footerApp');
+    await scrollToRec('div.recommendation-wrapper');
+    try {
+      await context.waitForSelector('div.recommendation-wrapper div.product-card', { timeout: 35000 });
+    } catch(e) {
+      console.log('Not loading recommended products');
+    }
     await context.evaluate(async function () {
-      let scrollSelector = document.querySelector('div#footerApp');
-      // @ts-ignore
-      let scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
-      let yPos = 0;
-      while (scrollLimit && yPos < scrollLimit) {
-        yPos = yPos + 1000;
-        window.scrollTo(0, yPos);
-        scrollSelector = document.querySelector('div#footerApp');
-        // @ts-ignore
-        scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
-        await new Promise(resolve => setTimeout(resolve, 1000));
-      }
+      // let scrollSelector = document.querySelector('div#footerApp');
+      // // @ts-ignore
+      // let scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
+      // let yPos = 0;
+      // while (scrollLimit && yPos < scrollLimit) {
+      //   yPos = yPos + 1000;
+      //   window.scrollTo(0, yPos);
+      //   scrollSelector = document.querySelector('div#footerApp');
+      //   // @ts-ignore
+      //   scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
+      //   await new Promise(resolve => setTimeout(resolve, 1000));
+      // }
       try {
         const button = document.querySelector('div[id="preview-specifications"] div[class*="preview-btn"] button');
         // @ts-ignore
