@@ -26,7 +26,7 @@ fields:
     xpath: //h1[@itemprop='name']
   - name: availabilityText
     singleValue: false
-    xpath: //link[@itemprop='availability' and contains(@href,'InStock')]/@href
+    xpath: //input[@id="addbasket"]/@id
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -39,7 +39,7 @@ fields:
   - name: promotion
     singleValue: false
     xpath: //div[contains(@class,'productDetailImgContainer')]//div[@class='awardbox-under-image']//div//div
-  - name:  description
+  - name: description
     singleValue: false
     xpath: //div[@itemprop='description']
   - name: brandText
@@ -62,7 +62,7 @@ fields:
     xpath: //div[contains(@class,'js-storefinderproductdetail')]//input[@name='storeProductId']/@value
   - name: variantCount
     singleValue: false
-    defaultValue: '0'
+    defaultValue: "0"
     type: NUMBER
   - name: specifications
     singleValue: false
