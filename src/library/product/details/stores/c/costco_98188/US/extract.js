@@ -130,44 +130,6 @@ module.exports = {
         document.body.appendChild(newDiv);
       }
     });
-    await new Promise(resolve => setTimeout(resolve, 11000));
-    await context.evaluate(async () => {
-      const parentNode1 = document.querySelector('div.syndi_powerpage');
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      if (parentNode1 && parentNode1.shadowRoot) {
-        let manuFacturerDesc = '';
-        const images = [];
-        const fetchNode = parentNode1.shadowRoot.firstChild;
-        // @ts-ignore
-        var text = fetchNode.innerText;
-        text = text.replace(/\n{1,}"/g, ' ').replace(/\s{1,}"/g, ' ').trim();
-        manuFacturerDesc = manuFacturerDesc + text;
-        // @ts-ignore
-        const manImages = fetchNode.querySelectorAll('img');
-        if (manImages && manImages.length > 0) {
-          for (let i = 0; i < manImages.length; i++) {
-            let img = manImages[i].src;
-            img = img.replace('/240.', '/480.');
-            images.push(img);
-          }
-        }
-        if (manuFacturerDesc) {
-          addHiddenDiv('descriptionMenu', manuFacturerDesc);
-        }
-        if (images.length > 0) {
-          for (let x = 0; x < images.length; x++) {
-            addHiddenDiv(`manuf-images-${x}`, images[x]);
-          }
-        }
-      }
-      function addHiddenDiv (id, content) {
-        const newDiv = document.createElement('div');
-        newDiv.id = id;
-        newDiv.textContent = content;
-        newDiv.style.display = 'none';
-        document.body.appendChild(newDiv);
-      }
-    });
     await context.evaluate(async function () {
       try {
         const iframe = document.querySelector('[title="Product Videos"]');
