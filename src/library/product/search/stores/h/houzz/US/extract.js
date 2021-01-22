@@ -48,7 +48,7 @@ module.exports = {
         }
 
       }
-      let scrollTop = 500;
+      let scrollTop =500;
       while (true) {
         window.scroll(0, scrollTop);
         stall(500);
@@ -68,11 +68,13 @@ module.exports = {
         originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
       var link = document.getElementsByClassName("hz-product-card__link")
+      var temp = 0
       if (link != null){
         for (let i = 0; i < link.length; i++) {
           console.log("Loop is working");
           const searchURL = window.location.href.split("?")[0]
-          addHiddenDiv("ii_searchURL", searchURL, i);
+          addHiddenDiv("ii_searchURL", searchURL, temp);
+          temp++;
         }
       }
 
