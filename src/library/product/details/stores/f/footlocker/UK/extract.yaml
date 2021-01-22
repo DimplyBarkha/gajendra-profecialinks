@@ -41,7 +41,7 @@ fields:
     description:
       Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //*[contains(@class,"fl-panel fl-panel")]//div[@itemprop="description"]/..
+    xpath: //*[contains(@class,"fl-panel fl-panel")]//div[@itemprop="description"]/../div[1] | //*[contains(@class,"fl-panel fl-panel")]//div[@itemprop="description"]/../*[2]/*
   - name: descriptionBullets
     description: Number of ul > li tags in the description
     type: NUMBER
@@ -95,9 +95,7 @@ fields:
   - name: aggregateRating
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
-    xpath: //div[@class="fl-panel"]//div[@data-testid="fl-rating"]/@class
-    regExp: (\d)(\d)
-    regExpReplace: $1.$2
+    xpath: (//span[@itemprop='ratingValue'])[1]
   - name: shippingInfo
     description: Shipping information for the product
   - name: shippingDimensions
@@ -346,6 +344,7 @@ fields:
     description: The unit of measurement used in price_per_unit
   - name: promotion
     description: promotion text on product page
+    xpath: //*[@class='fl-price--sale-hint']
   - name: alcoholContent
     description: Alcohol content information
   - name: newVersion
