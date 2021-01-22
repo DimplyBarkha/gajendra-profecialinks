@@ -33,7 +33,7 @@ const transform = (data) => {
       if (row.alternateImages) {
         let text = '';
         row.alternateImages.forEach(item => {
-          text += `${item.text.replace('hei=40', 'hei=153').replace('wid=40', 'wid=280')}|`;
+          text += `${item.text.replace('hei=40', 'hei=153').replace('wid=40', 'wid=280').replace('&fmt=png','')}|`;
         });
         row.alternateImages = [
           {

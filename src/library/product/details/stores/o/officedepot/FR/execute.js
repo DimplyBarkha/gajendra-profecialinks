@@ -5,7 +5,7 @@ module.exports = {
     store: 'officedepot',
     domain: 'officedepot.fr',
     loadedSelector: 'div#skuImage',
-    noResultsXPath: "//h2[contains(text(), 'Nous sommes désolés mais la page')]",
+    noResultsXPath: "//h2[contains(text(), 'Nous sommes désolés mais la page')] | //div[contains(@class, 'noResults')] | //div[contains(@id, 'error')]",
     zipcode: '',
   },
 };
