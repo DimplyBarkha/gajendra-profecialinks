@@ -32,11 +32,6 @@ const transform = (data, context) => {
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
-      if(row.thumbnail){
-        row.thumbnail.forEach(item=>{
-            item.text="https://www.sephora.com"+item.text;
-        })
-      }   
         if(row.productUrl){
             row.productUrl.forEach(item=>{
                 item.text="https://www.petpost.com.au"+item.text;
