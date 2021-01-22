@@ -1,34 +1,38 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="productListingContainer_1Iyio"]//ul//div[contains(@class,"x-productListItem")]
+recordXPath: //div[contains(@class,"productListItem")]
 fields:
-  - name: thumbnail
+  - name: id
     singleValue: false
-    xpath: //div[@class="displayingImage_3xp0y"]/img[@class="productItemImage_1en8J"]/@srcset
+    xpath: //a[@itemprop="url"]/@href
+    regExp: \b[\w=.]+$
   - name: name
     singleValue: false
-    manualSelector: div[data-automation="productItemName"]
+    description: The product name
+    xpath: //div[contains(@class, "productItemName")]/text()
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@itemprop="url"]/@href
+    regExp: (/.+)
+    regExpReplace: https://www.bestbuy.ca$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //img[contains(@class, "productItemImage")]/@src
+  - name: price
+    singleValue: false
+    description: The offered price for the product
+    xpath: //span[contains(@class, "screenReaderOnly")]/text()
   - name: aggregateRating
     singleValue: false
     xpath: //meta[@itemprop="ratingValue"]/@content
   - name: reviewCount
     singleValue: false
-    xpath: //span[@itemprop="ratingCount"]
-    regExp: ([0-9]{1,}) évaluations
-    regExpReplace: $1
-  - name: ratingCount
+    xpath: //meta[@itemprop="reviewCount"]/@content
+  - name: rankOrganic
     singleValue: false
-    xpath: //span[@itemprop="ratingCount"]
-    regExp: ([0-9]{1,}) évaluations
-    regExpReplace: $1
-  - name: price
+  - name: rank
     singleValue: false
-    xpath: //div[@class="productPricingContainer_3gTS3"]//meta[@itemprop="price"]/@content
-  - name: productUrl
+  - name: soldBy
     singleValue: false
-    xpath: //div[contains(@class,"x-productListItem")]/div/a/@href
-  - name: id
-    singleValue: false
-    xpath: //a[@itemprop="url"]/@href
-    regExp: \b[\w=.]+$
+    xpath: //span[contains(@class, "marketplaceName")]/text()
