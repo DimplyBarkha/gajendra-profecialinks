@@ -27,8 +27,11 @@ fields:
     xpath: //div[@id="pd_listPrice"]
   - name: price
     singleValue: false
+    xpath: //script[@type="application/ld+json" and (contains(.,"price"))]/text()
+    regExp: price":"([^"]+)
+    regExpReplace: $1
     # xpath: //div[@id="pd_price"]
-    xpath: //div[contains(@class="krweWr czipba")]//div[@class="_3H04_H"]//text()
+    # xpath: //div[contains(@class="krweWr czipba")]//div[@class="_3H04_H"]//text()
   - name: availabilityText
     singleValue: false
     xpath: //div[@class="_3UBePl _2JOdwn _2jG9NZ _2yeV2t"][contains(.,"Disponible")]/text()
@@ -37,11 +40,13 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[@id="details"]//div[contains(@class,"_7fKVR9")]
+    xpath: //div[@class="_1-jn4i"]//div[@class="_3UBePl"]//section//text()
+    # xpath: //div[@id="details"]/div[@class="ulvVbt"]
+    # xpath: //div[@id="details"]//div[contains(@class,"_7fKVR9")]
   - name: descriptionBullets
     singleValue: false
-    description: Number of ul > li tags in the description
-    type: NUMBER
+    xpath: count(//div[@class="_2f8bnF _2_5SM5"]/ul/li)
+    # type: NUMBER
   - name: brandText
     singleValue: false
     xpath: (//div[contains(@class,"_29EfLc")]/img)[1]/@alt
@@ -49,19 +54,26 @@ fields:
       e.g. "Visit the Gillette Store"
   - name: manufacturer
     singleValue: false
-    xpath: //div[@id="pd_manufacturer"]
+    xpath: //script[contains(.,"ean") and (contains(.,"manufacturer"))]/text()
+    regExp: manufacturer":"([^"]+)
+    regExpReplace: $1
+    # xpath: //div[@id="pd_manufacturer"]
     description: Product manufacturer
   - name: quantity
     singleValue: false
   - name: weightNet
     singleValue: false
-    xpath: ((//div[@id="classifications"])[1]//table//tr/th[(contains(text(),"Gewicht"))])[1]/following-sibling::td
+    xpath: ((//div[@id="classifications"])[1]//table//tr/th[(contains(text(),"Poids"))])[1]/following-sibling::td
+    # xpath: ((//div[@id="classifications"])[1]//table//tr/th[(contains(text(),"Gewicht"))])[1]/following-sibling::td
   - name: weightGross
     singleValue: false
     description: Gross weight as described on the page
   - name: gtin
     singleValue: false
-    xpath: //div[@id="pd_gtin"]
+    xpath: //script[contains(.,"ean")]/text()
+    regExp: ean":"([^"]+)
+    regExpReplace: $1
+    # xpath: //div[@id="pd_gtin"]
   - name: sku
     singleValue: false
     xpath: //span[contains(text(),"Numéro d’article:")]
@@ -95,14 +107,17 @@ fields:
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: false
-    xpath: //div[@id="pd_ratingCount"]
+    xpath: //h2[contains(.,"Evaluations des clients")]/text()
+    regExp: \d
+    # regExpReplace: \d
+    # xpath: //div[@id="pd_ratingCount"]
     type: NUMBER
   - name: aggregateRatingText
     singleValue: false
-    description: The stated aggregate rating
+    xpath: //p[@class="_1X48sk"]/text()
   - name: aggregateRating
     singleValue: false
-    xpath: //div[@id="pd_aggregateRating"]
+    xpath: //p[@class="_1X48sk"]/text()
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
@@ -169,7 +184,7 @@ fields:
     xpath: //div[@id="pd_variants"]
   - name: additionalDescBulletInfo
     singleValue: false
-    description: null
+    xpath: //div[@class="_2f8bnF _2_5SM5"]/ul/li
   - name: technicalInformationPdfPresent
     singleValue: false
     description: If there is for example a manual in pdf format on the website. ['Yes','No']

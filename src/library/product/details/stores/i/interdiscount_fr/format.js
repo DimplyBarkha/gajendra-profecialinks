@@ -45,6 +45,49 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.alternateImages) {
+        const pdps = [];
+
+        row.alternateImages.forEach(item => {
+          console.log('item:: ', item.text);
+
+          if (pdps.indexOf(item.text) === -1) {
+            pdps.push(item.text);
+          }
+        });
+        row.alternateImages = pdps.map((el) => {
+          return {
+            text: el,
+          };
+        });
+      };
+      if (row.description) {
+        let text = '';
+        row.description.forEach(item => {
+          text += `${item.text.replace('Description du produit', '')}`;
+        });
+        row.description = [
+          {
+            text: text.slice(0, -1),
+          },
+        ];
+      }
+      if (row.videos) {
+        const pdps = [];
+
+        row.videos.forEach(item => {
+          console.log('item:: ', item.text);
+
+          if (pdps.indexOf(item.text) === -1) {
+            pdps.push(item.text);
+          }
+        });
+        row.videos = pdps.map((el) => {
+          return {
+            text: el,
+          };
+        });
+      };
       if (row.specifications) {
         let text = '';
         let count = 0;

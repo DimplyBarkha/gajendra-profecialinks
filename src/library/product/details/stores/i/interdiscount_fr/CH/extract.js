@@ -5,7 +5,7 @@ module.exports = {
   parameterValues: {
     country: 'CH',
     store: 'interdiscount_fr',
-    transform,
+    transform: transform,
     domain: 'interdiscount.ch',
     zipcode: '',
   },
