@@ -96,7 +96,7 @@ fields:
     type: NUMBER
   - name: aggregateRating
     singleValue: true
-    xpath: //span[@class="sr-only"]/text()
+    xpath: //div[@class="bottom-line-items"]/span/span[@class="sr-only"]/text()
     regExp: (\d{1}.\d{1})
     type: NUMBER
   - name: shippingInfo
