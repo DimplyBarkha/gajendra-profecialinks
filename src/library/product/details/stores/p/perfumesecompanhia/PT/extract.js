@@ -91,8 +91,9 @@ module.exports = {
         }
         const data = {};
         // @ts-ignore
-        data.altImages = [...document.querySelectorAll('img[class="thumb mySlides"][id*=thumb-]')].filter(el => !el.id.includes('thumb-0')).map(el => el.src);
-        data.altImagesCount = data.altImages.length;
+        const altImages = [...document.querySelectorAll('img[class="thumb mySlides"][id*=thumb-]')].filter(el => !el.id.includes('thumb-0')).map(el => el.src);
+        data.altImagesCount = altImages.length;
+        data.altImages = altImages.join('|');
         data.ratingCount = document.querySelector('div.rating-nr').textContent.match(/\((\d+)\)/)[1];
         data.aggregateRating = document.querySelector('div.rating-nr').textContent.match(/(\d(.\d+)?)\s?\/\s?5/)[1].replace('.', ',');
         data.zoomPresent = document.querySelector('#thumb-0-lens') ? 'Yes' : 'No';
