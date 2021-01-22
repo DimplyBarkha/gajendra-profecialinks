@@ -87,8 +87,8 @@ module.exports = {
             var returnURLs = [];
             var temp;
             for (let i = 0; i < data.length; i++) {
-              temp = data[i];
-              returnURLs.push(temp.split('background-image: url("').join('")').split('")')[1]);
+              temp = data[i].replace(/background-image: url\("/g,'').replace(/"\).*$/g,'').replace(/background-image:url\('/g,'').replace(/'\).*$/g,'').replace(/background-image: url\('/g,'').replace(/'\).*$/g,'')
+              returnURLs.push(temp);
             }
             return returnURLs;
           }
@@ -102,10 +102,12 @@ module.exports = {
           // @ts-ignore
           const img2 = arrImgSel2.map((imgSelector) => imgSelector && imgSelector.src ? imgSelector.src : '');
           console.log('img2: ', img2);
-          let imgUrlArr = img2.concat(img1)
           let BGUrls = getAllXpath('//*[contains(@style,"background-image")]/@style', 'nodeValue');
           let updatedBGUrls = getDataFromBGURL(BGUrls);
-          img1.push(updatedBGUrls);
+          updatedBGUrls.forEach(element => {
+            img1.push(element);
+          });
+          let imgUrlArr = img2.concat(img1)
           let arr = imgUrlArr.join(' | ')
           return arr;
         });
