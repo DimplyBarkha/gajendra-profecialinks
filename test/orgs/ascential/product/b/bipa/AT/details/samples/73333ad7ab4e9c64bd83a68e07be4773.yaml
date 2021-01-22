@@ -1,0 +1,76 @@
+input:
+  id: 293467
+  _url: http://bipa.at
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=200e5a0e-bee8-44bb-8786-04abdc5d8e8e/task=97ab8e0a-c80a-48da-af67-b1f6966fb405/163e1484-ee2e-4865-b04d-01b67cfa06ad.html
+    extractionConfigId: product/details/stores/b/bipa/AT/extract
+    data:
+      - group:
+          - image:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1611298543489/original/293467.png?sw=450&sfrm=png
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: TENA Silhouette Lady Pants Creme M
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@alt
+            category:
+              - text: Home
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/a[1]/text()[1]
+              - text: Pflege
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/a[1]/text()[1]
+              - text: Hygiene
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/a[1]/text()[1]
+              - text: Blasenschwäche
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/a[1]/text()[1]
+            nameExtended:
+              - text: TENA Silhouette Lady Pants Creme M
+                xpath: /html/head[1]/meta[10]/@content
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[1]/div[1]/div[1]/span[1]/text()[1]
+            brandText:
+              - text: TENA
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/text()[1]
+            quantity:
+              - text: 9 Stück
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/text()[1]
+            mpc:
+              - text: "7322541065670"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/script[1]
+            aggregateRatingText:
+              - text: 4,1
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/@ratingextracted
+            aggregateRating:
+              - text: 4,1
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/@ratingextracted
+            name:
+              - text: Silhouette Lady Pants Creme M
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]/text()[1]
+            imageZoomFeaturePresent:
+              - text: yes
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/@zoom
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            price:
+              - text: 9,99
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: de_AT
+                value: 0
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: de_AT
+                value: 0
+        xpath: /
+    timestamp: 1611324607383
