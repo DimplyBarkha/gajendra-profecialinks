@@ -11,6 +11,7 @@ module.exports = {
   implementation: async (inputs, parameters, context, dependencies) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
+    await new Promise(resolve => setTimeout(resolve, 10000));
     await context.evaluate(() => {
       function stall(ms) {
         return new Promise((resolve, reject) => {
