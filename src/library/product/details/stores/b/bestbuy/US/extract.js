@@ -385,19 +385,24 @@ async function implementation (
   }
 
   let shadowTextApiData;
+
   async function getEnhancedHtmlJS () {
-    if (mainUrl.match(/(\d+).p\?/)) {
-      const id = mainUrl.match(/(\d+).p\?/)[1];
-      await context.goto('https://scontent.webcollage.net/', { checkBlocked: false });
-      return await context.evaluate(async (id) => {
-        const api = `https://scontent.webcollage.net/bestbuy/power-page?ird=true&channel-product-id=${id}`;
-        const response = await fetch(api);
-        const text = await response.text();
-        return text;
+    try {
+      if (mainUrl.match(/(\d+).p\?/)) {
+        const id = mainUrl.match(/(\d+).p\?/)[1];
+        await context.goto('https://scontent.webcollage.net/', { checkBlocked: false });
+        return await context.evaluate(async (id) => {
+          const api = `https://scontent.webcollage.net/bestbuy/power-page?ird=true&channel-product-id=${id}`;
+          const response = await fetch(api);
+          const text = await response.text();
+          return text;
         // return text.match(/html\s*:\s*"([^\n]+)/)[1].replace(/"$/, '').replace(/\\/g, '');
-      }, id);
+        }, id);
+      }
+      return false;
+    } catch (error) {
+      console.log('getEnhancedHtmlJS api not available');
     }
-    return false;
   }
   let enhacnedContentJS;
   try {
