@@ -258,7 +258,7 @@ fields:
     description: null
   - name: ingredientsList
     singleValue: true
-    xpath: //*[contains(text(), "Descrição do produto")]/../.. | //*[contains(text(), " ")]/../..
+    xpath: //*[contains(text(), "Descrição do produto")]/../..
     regExp: (Ingredientes:|Composição.)(\s*)(.*?)[.]
     regExpReplace: $3
     description: List of Ingredients from site - can be string of data if no
