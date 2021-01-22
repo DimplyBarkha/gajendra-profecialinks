@@ -8,7 +8,7 @@ fields:
 - name: _url
   singleValue: false
 - name: productUrl
-  xpath: //link[@rel="canonical"]/@href
+  xpath: //div[@id="url"]
   singleValue: false
 - name: _pageTimeStamp
   singleValue: false
@@ -509,4 +509,4 @@ fields:
   xpath: //h1/@has-comparison
   defaultValue: No
 - name: unInterruptedPDP
-  xpath: //div[contains(@class,'alternative-products')]//table//td//strong[contains(@class,"h3")]| (//h2[contains(text(),'Gerelateerde producten')])[1]/following-sibling::div//a[@class="pill"]/text()
+  xpath: //div[contains(@class,'alternative-products')]//table//td[position()>2]//strong[contains(@class,"h3")]
