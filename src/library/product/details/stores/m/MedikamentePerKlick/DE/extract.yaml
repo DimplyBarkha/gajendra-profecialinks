@@ -40,9 +40,6 @@ fields:
   description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   xpath: //dl[@class="productPrice"]//dd[@class="yourPrice price" or @class="yourPrice"]//text()
-  # manualSelector: script[type='text/javascript']
-  # regExp: '(price: ')(\d.\d+)'
-  # regExpReplace: $2
 - name: availabilityText
   singleValue: true
   xpath: //div[@class='wide-6 productInformations offerDetails']//dl[@class="productAvailability"]//span[@class="value-title"]/@title
@@ -124,6 +121,7 @@ fields:
   xpath: //dd[@class="productLongDescription"]//img/@src
 - name: manufacturerDescription
   singleValue: false
+  type: TEXT[]
   xpath: //dd[@class="productLongDescription"]//text()
 - name: shippingInfo
   singleValue: true
@@ -265,9 +263,12 @@ fields:
   singleValue: true
   description: null
 - name: ingredientsList
+  type: TEXT[]
   description: List of Ingredients from site - can be string of data if no
       discernible start/end point
   xpath: //dd[@class="productActiveSubstance"]//text()
+  # regExp: '/\n+/g'
+  # regExpReplace: ''
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.
