@@ -8,4 +8,20 @@ module.exports = {
     domain: 'kidkraft.com',
     zipcode: "''",
   },
+   implementation: async (inputs,
+    parameters,
+    context,
+    dependencies,
+  ) => {
+    await context.evaluate(async function () {
+      let readmore = document.querySelector('div.morecontent button');
+      console.log("here is tyui",readmore);
+      if (readmore) {
+        readmore.click();
+      }
+    });
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
+    return await context.extract(productDetails, { transform });
+  },
 };

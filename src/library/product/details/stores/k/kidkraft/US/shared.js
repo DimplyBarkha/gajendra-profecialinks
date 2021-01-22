@@ -93,8 +93,50 @@ const transform = (data) => {
 
           }
 
-        })
+        });
       }
+     if (row.description) {
+  let desc = '';
+  row.description.forEach (item => {
+    desc += `${item.text}`;
+  });
+  row.description = [
+    {
+      text: desc,
+    },
+  ];
+}
+
+if (row.shortDescription) {
+  let shortDesc = '';
+  row.shortDescription.forEach (item => {
+    shortDesc += `${item.text}`;
+  });
+  row.shortDescription = [
+    {
+      text: shortDesc,
+    },
+  ];
+}
+if (row.highQualityImages) {
+  row.highQualityImages.forEach (item => {
+    if (item.text.includes ('?')) {
+      let split1 = item.text.split ('?');
+      item.text = `${split1[0]}`;
+    }
+  });
+}
+if(row.gtin){
+  row.gtin.forEach(item =>{
+    item.text=item.text.replace("UPC:"," ").trim();
+  })
+}
+if (row.quetionCount) {
+  row.quetionCount.forEach (item => {
+    item.text = item.text.replace ('Questions', ' ').trim ();
+    item.text= item.text.replace (/[()]/g, '');
+  });
+}
 
     }
   }
