@@ -4,45 +4,35 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: false
     xpath: //img[contains(@id,"RICHFXViewerContainer___richfx_id_0_zoomImage")]/@src
     # //img[@id="initialProductImage"]/@src
   - name: imageAlt
-    singleValue: false
     xpath: //img[@id="initialProductImage"]/@alt
   - name: alternateImages
-    singleValue: false
     xpath: //a[contains(@class,'RICHFXColorChangeLink')][position()>1]/img//@src[contains(.,'735')]
     regExp: (.+)recipeId=735
     regExpReplace: $1recipeId=729
   - name: nameExtended
     xpath: //h1[@itemprop="name"]
-    singleValue: false
   - name: metaKeywords
-    singleValue: false
   - name: category
-    singleValue: false
     xpath: //ul[@id="crumbs_ul"]//li[position()>1]//span[@itemprop="name"]/text()
   # //li[position()>1]//span[@itemprop="name"]/text()
   # - name: inStorePrice
   #   xpath: //div[@class="online-price active"]//span[@class="op-value"] | //div[@class="online-price active"]//span[@class="currency"]
   - name: listPrice
-    singleValue: false
     # xpath: //div[@class="math-table"][not(@style)]//div[@id="pull-right-price"]
     # xpath: //div[@class="online-price active"]//span[@class="op-value"] | //div[@class="online-price active"]//span[@class="currency"]
     manualSelector: div#listPrice
   - name: myPrice
-    singleValue: false
     xpath: //div[@class="math-table"][not(@style)]//div[@id="pull-right-price"]
   - name: price
-    singleValue: false
     # xpath: //meta[@property="product:price:amount"]/@content | //div[@class="online-price active"]//span[@class="currency"]
     xpath: //div[@class="online-price active"]//span[@class="op-value"] | //div[@class="online-price active"]//span[@class="currency"]
     # | //div[@class="online-price active"]//span[@class="op-value"] | //div[@class="online-price active"]//span[@class="currency"]
     # regExpReplace: (.+)
     # defaultValue: $$1
   - name: availabilityText
-    singleValue: false
     # xpath: //input[contains(@value,"Out of Stock")]
     # regExp: (.+)
     # regExpReplace: Out of Stock
@@ -53,220 +43,154 @@ fields:
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
-    singleValue: false
     xpath: //div[@class="features-container form-group"] | //div[@id="manufacturer-desc"] | //div[@id="addDesc"]
     # | (//div[@class="product-info-description"])[1]//*[not(contains(@class,'wc-json-data'))]
     # //ul[@class="pdp-features"]/li
   - name: myDescription
-    singleValue: false
     xpath: //div[@id='manufacturer-desc']
   - name: descriptionBullets
-    singleValue: false
     xpath: count(//ul[contains(@class,'pdp-features')]//li |  //div[@id='nav-pdp-tab-header-3']//div[@class='panel-body col-xs-12']//div[@class='product-info-description']/ul/li)
     # count(//div[@id='nav-pdp-tab-header-3']//div[@class='panel-body col-xs-12']//div[@class='product-info-description']/ul/li | //ul[contains(@class,'pdp-features')]//li)
     # count(//ul[@class="pdp-features"]/li)
   - name: brandText
-    singleValue: false
     xpath: //div[@itemprop="brand"]
   - name: manufacturer
-    singleValue: false
   - name: quantity
-    singleValue: false
     xpath: //div[contains(@class,'product-info-specs')]/div//div[contains(.,'Package Quantity (Count)')]/../div[position() > 1]
   - name: weightNet
-    singleValue: false
     xpath: //li[contains(text(), "Weight")] | //div[@class="row"]/div[(text()="Weight") or (contains(text(), "Weight - with Stand"))]/following-sibling::div | //li//div[@class="flix-dt"][contains(text(), "Weight") and contains(text(), "(Product)")]/following-sibling::div
     regExp: (?![Weight\s])\d.*
   - name: weightGross
-    singleValue: false
     # xpath: //div[@class="row"]//div[contains(.,'Package Quantity (Volume)')]/../div[2]
     xpath: //div[contains(text(),"Package Quantity (Volume)")]/following-sibling::div
   - name: gtin
-    singleValue: false
     xpath: //div[@class="wc-fragment"]/@data-gtin
   - name: eangtin
-    singleValue: false
     xpath: //div[@class="wc-fragment"]/@data-gtin
   - name: sku
-    singleValue: false
     # xpath: //span[contains(@class,"model-number")]//span | //p[contains(@id,"product-body-model-number")]//span | //p[contains(@id,"product-body-model-number")]
     xpath: //p[@class="model-number "] | //p[contains(@id,"product-body-model-number")]
   - name: sku1
-    singleValue: false
     # xpath: //div[contains(@class,'product-info-specs')]//div[contains(text(),'Model')]/following::div[1]
     xpath: //span[contains(@class,"model-number")]//span
   - name: variantId
-    singleValue: false
     xpath: //p[@id="product-body-item-number"]/span | //p[@class="item-number"]
   #   regExp: (\d+)
   - name: mpc
-    singleValue: false
     xpath: //p[@class="model-number "] | //p[contains(@id,"product-body-model-number")]
   - name: mpc1
-    singleValue: false
     # xpath: //div[contains(@class,'product-info-specs')]//div[contains(text(),'Model')]/following::div[1]
     xpath: //span[contains(@class,"model-number")]//span
   - name: mpcValid
-    singleValue: false
     xpath: //span[contains(@role,'radiogroup')]
   - name: mpcforAll
-    singleValue: false
     xpath: //div[contains(@class,'product-info-specs')]//div[contains(text(),'Model')]/following::div[1]
   # - name: packSize
-  #   singleValue: false
   #   xpath: //div[@class="row"]//div[contains(.,'Package Quantity (Count)')]/../div[2]
   # - name: legalDisclaimer
-  #   singleValue: false
   - name: directions
-    singleValue: false
     xpath: //b[contains(.,'Directions:')]/..
   - name: warnings
-    singleValue: false
   - name: reviewCount
-    singleValue: false
     xpath: //span[@itemprop="reviewCount"]
     regExp: (.+)
   - name: ratingCount
-    singleValue: false
     xpath: //span[@itemprop="reviewCount"]
     #xpath: //dd[@class="bv-rating-ratio-count"]/a/span[@class="bv-rating-ratio-count"]/@aria-label
     regExp: (.+)
   - name: aggregateRating
-    singleValue: false
     xpath: //span[@itemprop="ratingValue"]
   # - name: aggregateRating2
-  #   singleValue: false
   #   xpath: //span[@itemprop="ratingValue"]
   - name: shippingInfo
-    singleValue: false
     # xpath: //div[@class="product-info-shipping"]/text()
   - name: shippingDimensions
-    singleValue: false
     xpath: //span[contains(text(),"Additional Dimensions")]//following-sibling::ul//text()
   # - name: shippingWeight
-  #   singleValue: false
   - name: variantCount
-    singleValue: false
     xpath: count(//div[@id="theSwatches" and not(contains(@class,"hide"))]/a) | count(//div[contains(@class,"swatches-v2")]//span[contains(@class,"variant-")])
   #   type: NUMBER
   - name: color
     xpath: //div[@id="theSwatches"]/a/span[@id="selectedOffScreenSwatch"]/../@data-content |//div[contains(@class,"product-info-specs")]//div[contains(text(),"Color") or contains(text(), "Colour")]/following-sibling::div
     #//div[@id="theSwatches"]/a/span[@id="selectedOffScreenSwatch"]/../@data-content
   - name: manufacturerDescription
-    singleValue: false
     # //div[@id="product-desc"] |
     # xpath: (//div[@class="product-info-description"])[1] | //div[@class="wc-rich-content-description"] | //div[@id="wc-power-page"] | //h2[contains(@Class,"wc-first-header")]//following-sibling::div
     xpath: //div[@id="manufacturer-desc"]
     # | //h2[contains(@Class,"wc-first-header")]//following-sibling::div
     #| (//div[@class="product-info-description"])[1]//*[not(contains(@class,'wc-json-data'))]
   - name: manufacturerImages
-    singleValue: false
     xpath: //div[contains(@id,"manuf-images")] | //div[@class="product-info-description"]//img//@srcset | //div[@class="wc-aplus-body"]//img/@src | //div[@class="product-info-description"]//img//@src[contains(.,'img/') or (contains(.,'http') and contains(.,'.jpg'))]
     # xpath: //div[@class="wc-aplus-body"]//img/@src | //div[@class="product-info-description"]//img//@src[contains(.,'img/') or (contains(.,'http') and contains(.,'.jpg'))]
   - name: videos
-    singleValue: false
     xpath: //div[@class="wc-player-outer-wrap wc-vp"]//video/@src | //meta[@itemprop="contentUrl"]/@content | //body/@videos | //meta//@content[contains(.,'.mp4')] | //head/@*[contains(.,'http')] | //head/@video | //head/@*[contains(.,'http')] | div[@id='videos'] | div[@id='videoSrc'] | //form[contains(@action,"video-player")]/@action
   - name: name
-    singleValue: false
     xpath: //h1[@itemprop="name"]
   - name: secondaryImageTotal
-    singleValue: false
     xpath: count(//a[contains(@class,'RICHFXColorChangeLink')][position()>1]/img//@src[contains(.,'735')])
   - name: ingredientsList
-    singleValue: false
     xpath: (//div[contains(.,'Ingredients')])
     #//div[@class="row"]//div[contains(.,'Ingredients')]/../div[2]
   # - name: dietaryInformation
-  #   singleValue: false
   - name: specifications
-    singleValue: false
     # xpath: //div[@class="product-info-specs body-copy"]//div[@class="row"] | //div[contains(@class,"product-info-specs")]//div[contains(@class,'spec-name')] |//div[contains(@class,"product-info-specs")]//div[contains(@class,'spec-name')]/following-sibling::div
     xpath: //h2[contains(.,'Specifications')]/../div//table//tbody | //div[@class="product-info-specs body-copy"]//div[@class="row"]
   - name: warranty
-    singleValue: false
     xpath: //div[@class='a-column a-span6 a-span-last']//div[contains(.,'Warranty')]/div | //figure[@class="product-concierge"]/ul/li/p
   - name: storage
-    singleValue: false
   # - name: countryOfOrigin
-  #   singleValue: false
   # - name: allergyAdvice
-  #   singleValue: false
   # - name: recyclingInformation
-  #   singleValue: false
   # - name: productOtherInformation
-  #   singleValue: false
   # - name: packaging
-  #   singleValue: false
   # - name: additives
-  #   singleValue: false
   - name: pricePerUnit
-    singleValue: false
     xpath: //span[contains(@class,"unitcurrency")]
   - name: pricePerUnitUom
-    singleValue: false
   - name: promotion
-    singleValue: false
     xpath: //p[@class="merchandisingText"]
   # - name: alcoholContent
-  #   singleValue: false
   # - name: newVersion
-  #   singleValue: false
   # - name: newAsin
-  #   singleValue: false
   # - name: newDescription
-  #   singleValue: false
   - name: variantInformation
-    singleValue: false
     description: colour / scent / flavour / other
     xpath: //div[contains(@id,"Swatches") and not(contains(@class,'hide'))]//span[contains(@class,"SwatchName")] | //div[contains(@class,"swatches")]//span[contains(@class,"variant")] | //span[@class="variant-v2 selection-box-v2 "]
     # | //div[@id="product-details"]//label[contains(@for, "productOption")]
   # - name: firstVariant
-  #   singleValue: false
   # - name: variants
-  #   singleValue: false
   - name: additionalDescBulletInfo
-    singleValue: false
     xpath: //div[@class="product-info-description"]/ul/li | //ul[@class="pdp-features"]//li
     # xpath: //div[@class="wc-rich-content-description"]/ul/li
   - name: technicalInformationPdfPresent
-    singleValue: false
     xpath: //ul[@class="list-group product-attachments"]//a/@href | //div[@class="wc-doc-text"]/div/div//a/@href | //div[contains(., 'Specification')]//span[contains(., 'pdf')]//../div/a/@href
     regExp: (.+)
     regExpReplace: Yes
     defaultValue: No
   - name: upc
-    singleValue: false
     xpath: //div[@class="flix-dl"]//div[@class="flix-dt"][contains(text(), "UPC")]/following-sibling::div
   - name: shippingWeight
-    singleValue: false
     xpath: //th[@class="wc-spec-caption"]/span[contains(.,"Shipping Weight")]//..//following-sibling::td/div[@class="wc-cell-container"]/span//text() | //div[@class="flix-dl"]//div[@class="flix-dt"][contains(text(), "Shipping Weight")]/following-sibling::div
   # - name: termsAndConditions
-  #   singleValue: false
   #   defaultValue: No
   # - name: privacyPolicy
-  #   singleValue: false
   #   defaultValue: No
   # - name: customerServiceAvailability
-  #   singleValue: false
   #   defaultValue: No
   - name: materials
-    singleValue: false
     xpath: //div[@class="product-info-specs body-copy"]//div[@class="row"]/div[contains(., "Material")]/following-sibling::div
   - name: Image360Present
-    singleValue: false
     defaultValue: No
     #xpath: //button[contains(.,'360')] | //span[@id="canvasCaption" and contains(text(),  "Roll over")]
   - name: imageZoomFeaturePresent
-    # singleValue: false
     # defaultValue: No
   - name: productUrl
-    singleValue: false
     xpath: //link[@rel="canonical"]/@href
   - name: hasComparisonTable
     xpath: //body/@import-comparision-table
   - name: unInterruptedPDP
     xpath: //import-updp
   - name: inTheBoxText
-    xpath: //h2[contains(., 'In the Box')]/following-sibling::div[1]//li/h3 | //import-custom-description//h2[contains(., 'In the Box')]/following-sibling::div[1]//li/h3
+    xpath: //h2[contains(., 'In the Box') or contains(.,"In the box")]/following-sibling::div[1]//li/h3 | //import-custom-description//h2[contains(., 'In the Box') or contains(.,"In the box")]/following-sibling::div[1]//li/h3 | //import-custom-description//h2[contains(., 'In the Box') or contains(.,"In the box")]/following-sibling::div[1]//h3
   - name: inTheBoxUrl
-    xpath: //h2[contains(., 'In the Box')]/following-sibling::div[1]//li//img/@src | //import-custom-description//h2[contains(., 'In the Box')]/following-sibling::div[1]//img/@src
+    xpath: //h2[contains(., 'In the Box') or contains(.,"In the box")]/following-sibling::div[1]//li//img/@src | //import-custom-description//h2[contains(., 'In the Box')]/following-sibling::div[1]//img/@src | //h2[contains(.,"In the box") or contains(.,"In the box")]/following-sibling::div//div[contains(@class,"syndigo-featureset-feature")]//img/@src
