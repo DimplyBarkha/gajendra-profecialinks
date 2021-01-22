@@ -1,29 +1,16 @@
 
-const { cleanUp } = require('../../../../shared');
+// @ts-ignore
+const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'UK',
     store: 'staples',
-    transform: cleanUp,
+    transform: transform,
     domain: 'staples.co.uk',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
-    const productUrl = await context.evaluate(async function () {
-      const getXpath = (xpath, prop) => {
-        const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
-        let result;
-        if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
-        else result = elem ? elem.singleNodeValue : '';
-        return result && result.trim ? result.trim() : result;
-      };
-      const url = getXpath('//div[@class="detailsBlk"]//div[@class="searchImgContainer"]//@href', 'nodeValue');
-      const urlLatest = 'https://www.staples.co.uk' + url;
-      // console.log(productUrl);
-      return urlLatest;
-    });
-    await context.goto(productUrl);
+  implementation: async ({ inputString }, { country, store, transform: transformParam }, context, { productDetails }) => {
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -42,7 +29,14 @@ module.exports = {
       const price = getXpath('//div[@class="formRow"]//span[@id="SkuPriceUpdate"]//text()', 'nodeValue');
       const pricecurrency = getXpath('//div[@class="formRow"]//span[@content="GBP"]//text()', 'nodeValue');
       addElementToDocument('added_onlinepricecurrency', pricecurrency + price);
+      if (document.querySelector('input[class="accept-all-cookies"]')) {
+        // @ts-ignore
+        document.querySelector('input[class="accept-all-cookies"]').click();
+        // eslint-disable-next-line promise/param-names
+        await new Promise(r => setTimeout(r, 1000));
+      }
     });
-    await context.extract(productDetails);
+    // await context.extract(productDetails);
+    return await context.extract(productDetails, { transform: transformParam });
   },
 };
