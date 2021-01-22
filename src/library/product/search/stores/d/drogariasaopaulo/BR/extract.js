@@ -6,10 +6,17 @@ const implementation = async (inputs, parameters, context, dependencies) => {
   await context.evaluate(async function () {
     let moreItems = document.querySelector('div[class*="text-center btn-load-more"] button[class*="btn btn-primary"]');
     if (moreItems) {
+      let counter = 0;
+      const resultsPerPage = 48;
+      const maxResultsForExtractor = 150 - resultsPerPage;
       do {
+        if(Math.floor(maxResultsForExtractor / resultsPerPage) <= counter) {
+          break;
+        }
         moreItems.click();
         await stall(5000);
         moreItems = document.querySelector('div[class*="text-center btn-load-more"] button[class*="btn btn-primary"]');
+        counter++;
       }
       while (moreItems !== null);
     }
