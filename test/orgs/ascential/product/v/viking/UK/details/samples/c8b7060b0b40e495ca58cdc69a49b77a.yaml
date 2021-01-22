@@ -2,13 +2,13 @@ input:
   _url: http://viking-direct.co.uk
   SKU: 1102075
 extractions:
-  - html: https://workbench.import.io/html/run=85b589cc-0b41-45d0-acb0-d62a2b9f3772/task=249da44f-ca2b-47f8-99b2-c473876f7767/6d43fa5c-d3b7-47fd-9fd0-60eee7017721.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=30810cdb-e34c-4860-9c24-df8625576b99/task=a7578c66-b04d-467e-8ac0-441733d86407/a07c6def-efb6-4e6e-8dd1-c12d93dd1c54.html
     extractionConfigId: product/details/stores/v/viking/UK/extract
     data:
       - group:
           - productUrl:
               - text: https://www.viking-direct.co.uk/en/kimberly-clark-professional-toilet-paper-hostess-2-ply-36-rolls-of-320-sheets-p-1102075
-                xpath: /html/head[1]/link[3]/@href
+                xpath: /html/head[1]/link[1]/@href
             image:
               - text: https://static.viking-direct.co.uk/is/image/odeu13/1102075?wid=400&hei=400&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/picture[1]/img[1]/@src
@@ -114,4 +114,4 @@ extractions:
             variantCount:
               - text: "0"
         xpath: /html
-    timestamp: 1609937759402
+    timestamp: 1611319458456

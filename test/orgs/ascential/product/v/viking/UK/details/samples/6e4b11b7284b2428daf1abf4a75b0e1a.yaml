@@ -1,0 +1,112 @@
+input:
+  _url: http://viking-direct.co.uk
+  SKU: 1042463
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=30810cdb-e34c-4860-9c24-df8625576b99/task=f220b836-b5b9-4661-b9ca-4d793fa806cb/6ddf0509-e17e-4a0f-a015-09dfd3828983.html
+    extractionConfigId: product/details/stores/v/viking/UK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.viking-direct.co.uk/en/s-pellegrino-soft-drinks-lemon-tea-24-pieces-of-250-ml-p-1042463
+                xpath: /html/head[1]/link[1]/@href
+            image:
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/1042463?wid=400&hei=400&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+                xpath: /html/body/div[4]/main[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[4]/picture[1]/img[1]/@src
+            imageAlt:
+              - text: San Pellegrino Organic Sparkling Lemon Tea 250ml 24 Pieces
+                xpath: /html/body/div[4]/main[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[4]/picture[1]/img[1]/@alt
+            category:
+              - text: Facilities & Home
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[2]/a[1]/span[1]
+              - text: Catering & Kitchen
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[3]/a[1]/span[1]
+              - text: Cold Beverages
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[4]/a[1]/span[1]
+              - text: Soft Drinks
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[5]/a[1]/span[1]
+            nameExtended:
+              - text: San Pellegrino Organic Sparkling Lemon Tea 250ml 24 Pieces
+                xpath: /html/body/div[4]/main[1]/div[4]/div[1]/h1[1]
+            availabilityText:
+              - text: Out Of Stock
+                xpath: /html/body/div[4]/main[1]/div[4]/div[2]
+            description:
+              - text: Enjoy a drink with S.Pellegrino Relax and stay hydrated and refreshsed
+                  with a can of S.Pellegrino Lemon Tea. Do you want a taste of
+                  Italy without having to hop on a plane to get there? With a
+                  can of San Pellegrino lemon tea, you can have just that.
+                  Italian lemon juice has been combined black tea to create this
+                  refreshing sparkling soft drink. Each of the aluminium cans
+                  have been made with only recyclable materials so you can be
+                  sure that you’re doing your bit for the environment. With 24
+                  cans in a pack, you will have plenty to keep you and the rest
+                  of the office satisfied.
+                xpath: /html/body/div[4]/main[1]/div[4]/div[8]
+            brandText:
+              - text: S.Pellegrino
+                xpath: /html/body/div[4]/main[1]/div[4]/div[1]/span[3]/a[1]
+            gtin:
+              - text: "8002270376993"
+                xpath: /html/body/div[4]/main[1]/div[4]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
+            sku:
+              - text: "1042463"
+                xpath: /html/body/div[4]/main[1]/div[4]/div[1]/span[4]/span[1]
+            variantId:
+              - text: "1042463"
+                xpath: /html/body/div[4]/main[1]/div[4]/div[1]/span[4]/span[1]
+            mpc:
+              - text: "12369550"
+                xpath: /html/body/div[4]/main[1]/div[4]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
+            packSize:
+              - text: "24"
+                xpath: /html/body/div[4]/main[1]/div[4]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[9]/td[2]
+            name:
+              - text: San Pellegrino Organic Sparkling Lemon Tea 250ml 24 Pieces
+                xpath: /html/body/div[4]/main[1]/div[4]/div[1]/h1[1]
+            ingredientsList:
+              - text: Water, organic cane sugar, Organic lemon juice from concentrate (2.5%),
+                  Organic orange juice from concentrate (2%), Organic tea
+                  extract (1%), Carbon dioxide, Organic natural lemon
+                  flavouring, Natural flavourings.
+                xpath: /html/body/div[4]/main[1]/div[4]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[2]
+            specifications:
+              - text: Viking No. 1042463 || EAN/UPC 8002270376993 || Brand S.Pellegrino ||
+                  Contents 250 ml || Flavour Lemon || Ingredients Water, organic
+                  cane sugar, Organic lemon juice from concentrate (2.5%),
+                  Organic orange juice from concentrate (2%), Organic tea
+                  extract (1%), Carbon dioxide, Organic natural lemon
+                  flavouring, Natural flavourings. || Manufacturer Part No.
+                  12369550 || Model Number Lemon Tea || Packaged Quantity Pack
+                  24 || Pack Quantity 24 Pieces 250 ml || Product Type Sparkling
+                  Tea Can || What's in the box 24 x Cans of Soft Drink
+                xpath: /html/body/div[4]/main[1]/div[4]/div[9]
+            productOtherInformation:
+              - text: >-
+                  Do you want a taste of Italy without having to hop on a plane
+                  to get there? With a can of San Pellegrino lemon tea, you can
+                  have just that. Italian lemon juice has been combined black
+                  tea to create this refreshing sparkling soft drink.
+                   
+                  Each of the aluminium cans have been made with only recyclable materials so you can be sure that you’re doing your bit for the environment. With 24 cans in a pack, you will have plenty to keep you and the rest of the office satisfied.
+                xpath: /html/body/div[4]/main[1]/div[4]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]
+            technicalInformationPdfPresent:
+              - text: No
+                xpath: /html/body/div[4]/main[1]/div[4]/div[3]
+            termsAndConditions:
+              - text: Yes
+                xpath: /html/body/div[4]/main[1]/div[4]/div[4]
+            privacyPolicy:
+              - text: Yes
+                xpath: /html/body/div[4]/main[1]/div[4]/div[5]
+            customerServiceAvailability:
+              - text: Yes
+                xpath: /html/body/div[4]/main[1]/div[4]/div[6]
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[4]/main[1]/div[4]/div[7]
+            secondaryImageTotal:
+              - text: "0"
+            variantCount:
+              - text: "0"
+        xpath: /html
+    timestamp: 1611319459852

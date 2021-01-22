@@ -2,13 +2,13 @@ input:
   _url: http://viking-direct.co.uk
   SKU: 1703181
 extractions:
-  - html: https://workbench.import.io/html/run=85b589cc-0b41-45d0-acb0-d62a2b9f3772/task=081b0983-8841-47fa-ba6e-26d977be3eb7/0c7582f8-a8d1-4b92-968a-6486cd634d37.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=30810cdb-e34c-4860-9c24-df8625576b99/task=003c3d4f-fe68-422d-acfb-778a4534bda5/d1811425-8cdc-4d9f-baea-a7fd36452ea1.html
     extractionConfigId: product/details/stores/v/viking/UK/extract
     data:
       - group:
           - productUrl:
               - text: https://www.viking-direct.co.uk/en/niceday-professional-hand-towels-standard-2-ply-z-fold-white-15-pieces-of-200-sheets-p-1703181
-                xpath: /html/head[1]/link[3]/@href
+                xpath: /html/head[1]/link[1]/@href
             image:
               - text: https://static.viking-direct.co.uk/is/image/odeu13/1703181?wid=400&hei=400&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/picture[1]/img[1]/@src
@@ -160,4 +160,4 @@ extractions:
             variantCount:
               - text: "0"
         xpath: /html
-    timestamp: 1609937757741
+    timestamp: 1611319454739

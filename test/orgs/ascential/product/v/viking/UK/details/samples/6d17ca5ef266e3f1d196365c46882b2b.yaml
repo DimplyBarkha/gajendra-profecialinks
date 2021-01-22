@@ -2,13 +2,13 @@ input:
   _url: http://viking-direct.co.uk
   SKU: 1055504
 extractions:
-  - html: https://workbench.import.io/html/run=85b589cc-0b41-45d0-acb0-d62a2b9f3772/task=467c1de4-4af7-48e2-8c22-d0d4b8bc91e4/e10fdfce-e7c7-4388-a03a-febf0518ac30.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=30810cdb-e34c-4860-9c24-df8625576b99/task=b9e62e1d-58f7-4def-8e39-236c5d2c1a66/b36a0f4d-abb9-4e98-b495-148cf3c3d5cd.html
     extractionConfigId: product/details/stores/v/viking/UK/extract
     data:
       - group:
           - productUrl:
               - text: https://www.viking-direct.co.uk/en/niceday-professional-hand-towels-2-ply-c-fold-white-12-pieces-of-200-sheets-p-1055504
-                xpath: /html/head[1]/link[3]/@href
+                xpath: /html/head[1]/link[1]/@href
             image:
               - text: https://static.viking-direct.co.uk/is/image/odeu13/1055504?wid=400&hei=400&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/picture[1]/img[1]/@src
@@ -123,4 +123,4 @@ extractions:
             variantCount:
               - text: "0"
         xpath: /html
-    timestamp: 1609937761326
+    timestamp: 1611319457088

@@ -2,13 +2,13 @@ input:
   _url: http://viking-direct.co.uk
   SKU: 2895198
 extractions:
-  - html: https://workbench.import.io/html/run=85b589cc-0b41-45d0-acb0-d62a2b9f3772/task=19f7a15d-9088-41d2-bc9e-41a0057c4719/01997e75-d82f-48f9-9741-b1d2abedec0e.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=30810cdb-e34c-4860-9c24-df8625576b99/task=0f427ec3-4efe-438a-82ac-6cd9e51e899f/745cf48f-262d-49e6-9cf3-91a93fdfe9a0.html
     extractionConfigId: product/details/stores/v/viking/UK/extract
     data:
       - group:
           - productUrl:
               - text: https://www.viking-direct.co.uk/en/nescafe-100-arabica-instant-coffee-collections-cap-colombie-500-g-p-2895198
-                xpath: /html/head[1]/link[3]/@href
+                xpath: /html/head[1]/link[1]/@href
             image:
               - text: https://static.viking-direct.co.uk/is/image/odeu13/2895198?wid=400&hei=400&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/picture[1]/img[1]/@src
@@ -137,4 +137,4 @@ extractions:
             variantCount:
               - text: "0"
         xpath: /html
-    timestamp: 1609937761972
+    timestamp: 1611319457279
