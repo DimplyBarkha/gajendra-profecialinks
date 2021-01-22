@@ -11,6 +11,7 @@ module.exports = {
   implementation: async (inputs, parameters, context, dependencies) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
+    await new Promise((resolve, reject) => setTimeout(resolve, 7000));
     await context.evaluate(async () => {
       try {
         // @ts-ignore

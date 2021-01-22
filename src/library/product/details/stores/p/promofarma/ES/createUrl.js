@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'promofarma.com',
     prefix: null,
-    url: "https://www.promofarma.com/pedisilk-lima-electrica-antidurezas",
+    url: null,
     country: 'ES',
     store: 'promofarma',
     zipcode: '',
