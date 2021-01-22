@@ -10,7 +10,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
-    loadedXpath: null,
+    loadedXpath: '//div[contains(@class, "items-list items-grid")]//ul//li|//div[contains(@class, "items-list")]//ul//div',
     noResultsXPath: null,
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,

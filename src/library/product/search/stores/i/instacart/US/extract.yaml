@@ -1,43 +1,44 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class, "items-list items-grid")]//ul//li
+recordXPath: //div[contains(@class, "items-list")]//ul//div[contains(@class, "css-x")]
 fields:
-  # - name: id
-  #   singleValue: false
-  #   xpath: //div[@class="product-image"]//img//@data-productid | //div[@class="sc-AxiKw lgkHlP"]//div//@id | //div[@class="sc-AxgMl ioeiag"]//div//@id
-  # - name: price
-  #   singleValue: false
-  #   xpath: //div[@aria-label="product details"]//div[contains(@aria-label,'Actual Price')] | //div[@aria-label="product details"]//p[contains(@aria-label,'$')][1]
-  # - name: productUrl
-  #   singleValue: false
-  #   xpath: //div[contains(@aria-label,"product details")]//a/@href
-  #   regExp: (.+)
-  #   regExpReplace: https://www.lowes.com$1
-  #   description: The URL for the product details page
-  # - name: thumbnail
-  #   singleValue: false
-  #   xpath: //div[@class="product-image"]//div[contains(@class, 'normalize-size')]//img/@data-src | //img[contains(@class,'product-image')]/@src
-  #   description: The URL for the product thumbnail image
+  - name: id
+    singleValue: false
+    xpath: //a/@href
+    # regExp: item_(.*)
+    regExp: >-
+      ((?<=item_).*?(?=\?)|(?<=item_).*)
+    # regExpReplace: $1
+    # regExpReplace: $2
+  - name: price
+    singleValue: false
+    xpath: //a//div[contains(@class, "item-price")]//span[not(@class="muted")]//span|//a//span[contains(@class, "css-coq")]
+  - name: productUrl
+    singleValue: false
+    xpath: //a/@href
+    regExp: (.+)
+    regExpReplace: https://www.instacart.com$1
+    description: The URL for the product details page
+  - name: thumbnail
+    singleValue: false
+    xpath: //a//div[contains(@class, "item-card-image-wrapper")]//img/@src|//a//img[contains(@class, "css-9")]/@src
+    description: The URL for the product thumbnail image
   - name: name
     singleValue: false
-    xpath: //span[contains(@class, "full-item-name")]
-  # - name: aggregateRating
-  #   singleValue: false
-  #   xpath: //div[contains(@class,'product-rating')]//span//i/@data-rating | //div[@class="no-pointer-events"]//a/@aria-label |  //div[contains(@aria-label,"product details")]//div[contains(@role,"link")]/@aria-label
-  #   regExp: (.+)(\sout.+)
-  #   regExpReplace: $1
-  # - name: ratingCount
-  #   singleValue: false
-  #   xpath: //div[contains(@class,'product-rating v-spacing-small')]//small | //div[@class="no-pointer-events"]//a | //div[contains(@aria-label,"product details")]//div[contains(@role,"link")]
-  #   regExp: \d+
-  # - name: reviewCount
-  #   singleValue: false
-  #   xpath: //div[contains(@class,'product-rating v-spacing-small')]//small | //div[@class="no-pointer-events"]//a | //div[contains(@aria-label,"product details")]//div[contains(@role,"link")]
-  #   regExp: \d+
-  # - name: rank
-  #   singleValue: false
-  #   type: NUMBER
-  # - name: rankOrganic
-  #   singleValue: false
-  #   type: NUMBER
+    xpath: //span[contains(@class, "full-item-name")]|//a//div/@title
+  - name: aggregateRating
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+  - name: sponsored
+    singleValue: false
+    xpath: //div//span[contains(text(), "Featured") or contains(text(), "Store choice")]
+  - name: rank
+    singleValue: false
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: false
+    type: NUMBER
