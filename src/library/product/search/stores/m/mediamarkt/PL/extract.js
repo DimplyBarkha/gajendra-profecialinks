@@ -22,7 +22,7 @@ module.exports = {
             await page.evaluate(async() => {
                 await new Promise((resolve, reject) => {
                     var totalHeight = 0;
-                    var distance = 100;
+                    var distance = 500;
                     var timer = setInterval(() => {
                         var scrollHeight = document.body.scrollHeight;
                         window.scrollBy(0, distance);
@@ -46,7 +46,7 @@ module.exports = {
                 });
             }
         });
-        await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+        await context.waitForSelector('div[class="b-listing_toolBarPagination"] > nav > a[class*="pagination_next"] , a[class*="is-nextPage"]>i', { timeout: 10000 });
         return await context.extract(productDetails, { transform });
     },
 
