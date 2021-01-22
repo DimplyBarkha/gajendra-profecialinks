@@ -66,12 +66,12 @@ module.exports = {
             document.querySelector(productElemId).setAttribute('product-tile-thumbnail', thumbnail);
             if (product.sale_price === null) {
               const price = product.price;
-              // price = price.replace(/./g, ',');
-              document.querySelector(productElemId).setAttribute('product-tile-price', price);
+              const priceDec = price.toFixed(2); 
+              document.querySelector(productElemId).setAttribute('product-tile-price', priceDec);
             } else {
               const price = product.sale_price;
-              // price = price.replace(/./g, ',');
-              document.querySelector(productElemId).setAttribute('product-tile-price', price);
+              const priceDec = price.toFixed(2);
+              document.querySelector(productElemId).setAttribute('product-tile-price', priceDec);
             }
           }
         }
