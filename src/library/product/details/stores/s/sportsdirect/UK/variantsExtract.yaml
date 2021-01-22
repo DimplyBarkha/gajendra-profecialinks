@@ -1,0 +1,9 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@id="ulColourImages"]//li | //div[@id="variants"]
+fields:
+  - name: variantId
+    xpath: //@variantid | //@data-colvarid
+  - name: variantUrl
+    xpath: //@varianturl
