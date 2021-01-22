@@ -66,8 +66,8 @@ fields:
   - name: sku
     singleValue: false
     description: The store-specific product identifier
-    xpath: //h2[contains(@class, 'sku_VikingNumber')]
-    regExp: (\d+)
+    xpath: //script[contains(text(), 'skuID')]
+    regExp: skuID":"(.*?)"
     regExpReplace: $1
   - name: mpc
     singleValue: false
