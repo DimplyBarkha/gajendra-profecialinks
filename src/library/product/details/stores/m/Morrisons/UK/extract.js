@@ -1,11 +1,11 @@
 const { cleanUp } = require('../../../../shared');
 
-async function implementation(inputs, parameters, context, dependencies) {
+async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
   await context.evaluate(async () => {
-    function addElementToDocument(id, value, key) {
+    function addElementToDocument (id, value, key) {
       const catElement = document.createElement('div');
       catElement.id = id;
       catElement.innerText = value;
@@ -43,7 +43,6 @@ async function implementation(inputs, parameters, context, dependencies) {
     const warningEnd = ['Origin:', 'Usage:', 'Additional Information:'];
     console.log(warningParentDiv);
     if (warningParentDiv) addFollowingParagraphs('warnings', warningParentDiv, warningHeading, warningEnd);
-
 
     const isAvailable = document.querySelector('li > div.basketControls__wrapper > button.gn-button--buy')
       ? document.querySelector('li > div.basketControls__wrapper > button.gn-button--buy') : null;
@@ -108,6 +107,8 @@ async function implementation(inputs, parameters, context, dependencies) {
     delete dataRef[0].group[0].totalFatPerServing;
   } else if (dataRef[0].group[0].totalFatPerServing[0]) {
     dataRef[0].group[0].totalFatPerServing[0].text = dataRef[0].group[0].totalFatPerServing[0].text.replace('g', '').trim();
+    dataRef[0].group[0].totalFatPerServing[0].text = dataRef[0].group[0].totalFatPerServing[0].text.replace('%', '').trim();
+    dataRef[0].group[0].totalFatPerServing[0].text = dataRef[0].group[0].totalFatPerServing[0].text.replace('<', '').trim();
   }
   if (dataRef[0].group[0].warnings === undefined) {
     delete dataRef[0].group[0].warnings;
