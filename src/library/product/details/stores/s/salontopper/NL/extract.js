@@ -21,27 +21,31 @@ module.exports = {
       }
       // directions
       const directions = [];
-      const directionsTitle = document.querySelectorAll('div[id*="accordion"] > *')
+      const dirText = document.querySelectorAll('div[id*="accordion"] > *')
         ? document.querySelectorAll('div[id*="accordion"] > *') : [];
-      directionsTitle.forEach((e, i) => {
-        if (e.textContent.includes('Gebruiksaanwijzing')) {
-          directions.push(e.textContent);
-          const main = e.nextElementSibling
-            ? e.nextElementSibling.textContent : '';
-          directions.push(main);
-        }
-        if (e.textContent.includes('Gebruik:') && !e.textContent.includes('Resultaat na gebruik')) {
-          const directionsMain = e.parentElement
-            ? e.parentElement.textContent : '';
-          directions.push(directionsMain.split('Gebruik:').pop().trim());
-        }
-        if (e.textContent.includes('Gebruik') && !e.textContent.includes('Gebruik:') && !e.textContent.includes('Resultaat na gebruik')) {
-          const directionsMain = e.textContent.split('Gebruik').pop()
-            ? e.parentElement.textContent : '';
-          directions.push('Gebruik'.concat(directionsMain.split('Gebruik:').pop()));
-        }
-      });
-
+      // first paragraph contains directions
+      const firstP = [...dirText]
+        .filter(e => e.innerText.includes('Gebruik ') && !e.parentElement.innerText.includes('Gebruiksaanwijzing') && !e.previousElementSibling.innerText.includes('Resultaat') && !e.innerText.includes('Gebruik:'))
+        .pop();
+      if (firstP !== undefined)directions.push('Gebruik'.concat(firstP.innerText.split('Gebruik').pop()));
+      // second paragraph contains directions
+      const secondP = [...dirText].filter(e => e.innerText.includes('Gebruiksaanwijzing') && !e.innerText.includes('Gebruiksaanwijzing:'));
+      if (secondP.length !== 0) {
+        secondP.forEach(e => {
+          directions.push(e.innerText);
+          directions.push(e.nextElementSibling.innerText);
+        });
+      }
+      // third paragraph contains directions
+      const thirdP = [...dirText].filter(e => e.innerText.includes('Gebruik:')).pop();
+      if (thirdP !== undefined) {
+        directions.push(thirdP.innerText.split('Gebruik:').pop().trim());
+      }
+      // fourth paragraph contains directions
+      const fourthP = [...dirText].filter(e => e.innerText.includes('Gebruiksaanwijzing:')).pop();
+      if (fourthP !== undefined) {
+        directions.push('Gebruiksaanwijzing: '.concat(fourthP.innerText.split('Gebruiksaanwijzing:').pop().trim()));
+      }
       addElementToDocument('directions', directions.join(' '));
       // description bullets
       const desc = [];
