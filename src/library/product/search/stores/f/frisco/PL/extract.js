@@ -12,7 +12,7 @@ module.exports = {
   },
  
   implementation: async ({ inputString }, { country, store, transform: transformParam }, context, dependencies) => {
-    await new Promise((resolve, reject) => setTimeout(resolve, 8000));
+   // await new Promise((resolve, reject) => setTimeout(resolve, 8000));
   //   async function getID() {
   //     function addHiddenDiv(id, content, index) {
   //       const newDiv = document.createElement('div');
