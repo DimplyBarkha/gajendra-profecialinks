@@ -4,11 +4,11 @@ module.exports = {
   parameterValues: {
     country: 'BR',
     store: 'magazineluiza',
-    nextLinkSelector: 'li.neemu-pagination-next a',
+    nextLinkSelector: 'div.product-showcase-bottom a.forward',
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'ul.neemu-products-container li.nm-product-item',
+    loadedSelector: 'div#productShowcaseSearch ul.productShowCase li.product',
     loadedXpath: null,
     noResultsXPath: '//div[@class="nm-not-found-message1"]',
     stopConditionSelectorOrXpath: null,
