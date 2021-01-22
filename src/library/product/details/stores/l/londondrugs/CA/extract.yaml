@@ -449,7 +449,7 @@ fields:
   - name: inTheBoxUrl
     xpath: //*[@*="in-the-box" or @*="In The Box"]//img/@src
   - name: inTheBoxText
-    xpath: //*[@*="in-the-box" or @*="In The Box"]//*[contains(@class, 'main-header')]
+    xpath: //*[@*="in-the-box" or @*="In The Box"]//*[contains(@class, 'main-header')][preceding-sibling::div]
   - name: hasComparisonTable
     xpath: //div[contains(@class, 'comparison-table')]
     regExp: (.+)
