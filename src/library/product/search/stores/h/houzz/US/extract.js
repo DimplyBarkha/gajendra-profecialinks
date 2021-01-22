@@ -57,6 +57,20 @@ module.exports = {
           break;
         }
       }
+
+      var jsonString = document.querySelectorAll(
+        "[type='application/ld+json']"
+      );
+      if(jsonString.length === 1){
+        var newjsonString = jsonString[0]
+      }else{
+        var newjsonString = jsonString[1]
+      }
+      var jsonParsed = JSON.parse(newjsonString.innerText);
+      var json_list = jsonParsed.itemListElement;
+
+
+
       function addHiddenDiv(id, content, index) {
         const newDiv = document.createElement("div");
         newDiv.id = id;
@@ -72,6 +86,9 @@ module.exports = {
       if (link != null){
         for (let i = 0; i < link.length; i++) {
           console.log("Loop is working");
+          var single_obj = json_list[temp];
+          var url_web = single_obj.url;
+          addHiddenDiv("ii_produrl", url_web, temp);
           const searchURL = window.location.href.split("?")[0]
           addHiddenDiv("ii_searchURL", searchURL, temp);
           temp++;
@@ -82,3 +99,4 @@ module.exports = {
     return await context.extract(productDetails, { transform });
   }
 }
+
