@@ -18,6 +18,7 @@ async function implementation (
   context,
   dependencies,
 ) {
+  // await new Promise((resolve, reject) => setTimeout(resolve, 7000));
   const destinationUrl = url.replace(/{searchTerms}/g, encodeURIComponent(keywords));
   console.log("destination "+destinationUrl);
   await dependencies.goto({ url: destinationUrl, zipcode });
