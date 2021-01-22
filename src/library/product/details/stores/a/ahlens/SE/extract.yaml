@@ -8,7 +8,7 @@ fields:
     regExp: (/.+)
     regExpReplace: https://www.ahlens.se$1    
   - name: category
-    xpath: //ul[@class="ah-breadcrumbs"]//li/a//text()    
+    xpath: //div[@ng-controller="ProductList"]//ol/li[@class="MuiBreadcrumbs-li"]//text()    
   - name: alternateImages
     xpath: //html//div[@class='altImage'] 
     regExp: (.+)(ProductList)(.+)

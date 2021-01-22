@@ -11,7 +11,7 @@ module.exports = {
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     // await context.waitForSelector('div[data-testid="ProductList_list"] a[href]', 5000)
     // await context.click('div[data-testid="ProductList_list"] a[href]');
-    // await context.waitForSelector('div[class="ah-pdp-cta"]', 10000)
+    // await context.waitForSelector('div[class="ah-pdp-cta"]', 10000)    
     await context.evaluate(async function () {
         function addElementToDocument(key, value) {
         const catElement = document.createElement('div');

@@ -1,4 +1,3 @@
-
 module.exports = {
   implements: 'product/details/createUrl',
   parameterValues: {
@@ -11,39 +10,26 @@ module.exports = {
   },
   implementation,
 };
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
   dependencies,
 ) {
-  await new Promise((resolve) => setTimeout(resolve, 10000));
   const { id } = inputs;
-  if (parameters.url) {
-    const url = parameters.url.replace('{id}', encodeURIComponent(id));
-    return url;
+  try {
+    var firstURL = parameters.url.replace('{id}', encodeURIComponent(id));
+    await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+    await context.goto(firstURL);
+    var finalURL = await context.evaluate(async function () {
+      let wholeData = document.querySelector('pre').innerText;
+      let jsonwholeData = JSON.parse(wholeData);
+      return jsonwholeData.product.uri;
+    });
+    return finalURL;
+
+  } catch (error) {
+
   }
-  var iframeApiResUrl = await context.evaluate(async function () {
-    let url = parameters.url;
-    async function getData(url = "") {
-      const response = await fetch(url, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      console.log('response.json:------------------------------- ', response.json);
-      return response.json();
-    };
-    console.log('sai')
-    console.log(url)
-    const iframeApiRes = await getData(url);
-    let urlIframe = iframeApiRes ? iframeApiRes.uri : null;
-    return urlIframe;
-  });
-  if (iframeApiResUrl) {
-    console.log('iframe: ', iframeApiResUrl);
-    await context.goto(iframeApiResUrl, { timeout: 60000 });
-    await new Promise((resolve) => setTimeout(resolve, 10000));
-  }
+
 }
