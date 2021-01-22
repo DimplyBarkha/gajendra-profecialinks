@@ -155,6 +155,11 @@ fields:
   - name: featureBullets
     singleValue: false
     xpath: //div[contains(@class,'ProductDetail__productContent')]//ul//li
+  - name: servingSize
+    singleValue: false
+    xpath: //p[contains(.,'Size')]/text()
+
+
 
 
 
