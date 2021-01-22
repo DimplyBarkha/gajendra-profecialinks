@@ -3,9 +3,9 @@
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
  */
-const transform = (data) => {  
-    const cleanUp = (data, context) => {
-      const clean = text => text.toString()
+const transform = (data, context) => {
+  const cleanUp = (data) => {
+    const clean = text => text.toString()
       .replace(/\r\n|\r|\n/g, ' ')
       .replace(/&amp;nbsp;/g, ' ')
       .replace(/&amp;#160/g, ' ')
@@ -17,39 +17,41 @@ const transform = (data) => {
       // eslint-disable-next-line no-control-regex
       .replace(/[\x00-\x1F]/g, '')
       .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
-      data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
-        el.text = clean(el.text);
-      }))));
-      return data;
-    };
-    for (const { group } of data) {
-      var rank = 1;
-      for (let row of group) {
-        if(row.aggregateRating){
-            var tot=0;var decimalPoint=false;
-            row.aggregateRating.forEach(item => {
-                if(item.text=='icon--star'){
-                    tot=tot+1;
-                }else if(item.text=='icon--star-half'){
-                  decimalPoint=true;
-                }
-            });
-            if(decimalPoint == false){
-              var totStr=tot.toString();
-            }else{
-              var totStr=tot.toString()+'.5';
-            }
-            row.aggregateRating=[{"text":totStr,"xpath":row.aggregateRating[0]['xpath']}];
-        }
-        if(row.price){
-            var test=row.price[0]['text'].replace(' *','');
-            row.price[0]['text']=test.replace('*','');
-        }
-        row.rank = [{ "text": rank }];
-        row.rankOrganic = [{ "text": rank }];
-        rank++;
-      }
-    }
-    return cleanUp(data);
+    data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+      el.text = clean(el.text);
+    }))));
+    return data;
   };
-  module.exports = { transform };
+  const state = context.getState();
+  let rank = state.rank || 1;
+  for (const { group } of data) {
+    for (const row of group) {
+      if (row.aggregateRating) {
+        var tot = 0; var decimalPoint = false;
+        row.aggregateRating.forEach(item => {
+          if (item.text === 'icon--star') {
+            tot = tot + 1;
+          } else if (item.text === 'icon--star-half') {
+            decimalPoint = true;
+          }
+        });
+        if (decimalPoint === false) {
+          row.aggregateRating = [{ text: tot.toString(), xpath: row.aggregateRating[0].xpath }];
+        } else {
+          var totStr = tot.toString() + '.5';
+          row.aggregateRating = [{ text: totStr, xpath: row.aggregateRating[0].xpath }];
+        }
+      }
+      if (row.price) {
+        var test = row.price[0]['text'].replace(' *', '');
+        row.price[0]['text'] = test.replace('*', '');
+      }
+      row.rank = row.rankOrganic = [{ text: rank }];
+      rank++;
+    }
+  }
+  context.setState({ rank });
+  return cleanUp(data);
+};
+
+module.exports = { transform };
