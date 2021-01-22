@@ -25,7 +25,8 @@ fields:
     manualSelector: div.content-title.yotpo-font-bold
   - name: mediaURL
     description: product media url
-    xpath: ancestor::html//div[@class='product_main_image']//img/@src
+    xpath: ancestor::html//div[@class='product_main_image']//img/@src | ancestor::html//div[@class="product_main_image"]//video/@src
+    # xpath: //div[@class="product_main_image"]//video/@src
   - name: location
     description: reviewer location
     defaultValue: US
