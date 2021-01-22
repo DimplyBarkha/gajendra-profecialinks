@@ -87,14 +87,14 @@ const transform = (data) => {
             info.push(item.text);
           });
         }
-        if (row.availabilityText) {
-          const availabilityText = row.availabilityText[0].text;
-          if (availabilityText.includes(null)) {
-            row.availabilityText = [{ text: 'Out of stock' }];
-          } else {
-            row.availabilityText = [{ text: 'In stock' }];
-          }
-        }
+        // if (row.availabilityText) {
+        //   const availabilityText = row.availabilityText[0].text;
+        //   if (availabilityText.includes(null)) {
+        //     row.availabilityText = [{ text: 'Out of stock' }];
+        //   } else {
+        //     row.availabilityText = [{ text: 'In stock' }];
+        //   }
+        // }
 
         if(row.variantInformation){
           var strVariantInfo = ''
