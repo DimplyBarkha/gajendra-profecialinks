@@ -13,9 +13,10 @@ async function implementation (inputs, parameters, context, dependencies) {
     if (listOfProducts) {
       listOfProducts.forEach((element, index) => {
         const productUrl = element.querySelector('div.product_info div.product_name a').getAttribute('href');
+        const productId = element.querySelector('div.image').getAttribute('dataci_product');
         addAttribute('div.product_listing_container ul li .product', index, 'data-product-url', productUrl);
         const regex = /\d*$/g;
-        const result = productUrl.match(regex);
+        const result = productId.match(regex);
         const price = element.querySelector('.product_price > span.price') ? element.querySelector('.product_price > span.price').innerText.replace('.', ',') : '';
         addAttribute('div.product_listing_container ul li .product', index, 'data-product-id', result[0]);
         addAttribute('div.product_listing_container ul li .product', index, 'data-product-rank', index + 1);
