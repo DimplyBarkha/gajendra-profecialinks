@@ -34,8 +34,9 @@ async function implementation (
     if (variantsCheck.snapshotLength > 0) {
       for (let i = 0; i < variantsCheck.snapshotLength; i++) {
         const checkName = variantsCheck.snapshotItem(i).textContent.toLowerCase();
-        const nameSplit = checkName.split(' ').join('-');
-        const variantUrl = `${urlSplit[0]}/v/${nameSplit}`;
+        const nameSplit = checkName.split(' ').join('-').split('.').join('-');
+        const nameSplit2 = nameSplit.replace(/--(-)?/,'-').replace(/,/g,'');
+        const variantUrl = `${urlSplit[0]}/v/${nameSplit2}`;
         addHiddenDiv('ii_variantUrl', variantUrl);
       }
     }
