@@ -38,3 +38,5 @@ fields:
   - name: featureBullets
     singleValue: false
     xpath: //table//tr[@class="bullets"]/@bullets
+  - name: shortDescription
+    xpath: //h2[contains(text(),"Product Information")]/following-sibling::div[1]
