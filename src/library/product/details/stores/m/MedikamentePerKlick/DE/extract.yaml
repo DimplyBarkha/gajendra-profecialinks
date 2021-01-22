@@ -19,6 +19,8 @@ fields:
   singleValue: false
   description: Other product images (not in manufacturer description)
   xpath: //div[@class="photo with-multiple-photo"]//div[@class="slick-track"]//div[not(contains(@class,"fl slick-slide slick-current slick-active"))]/img/@src
+  regExp: (.+)
+  regExpReplace: https://www.medikamente-per-klick.de$1
 - name: metaKeywords
   singleValue: true
   type: TEXT
@@ -30,13 +32,17 @@ fields:
   description: The categories (e.g. from breadcrumbs)
   xpath: //div[@itemprop="breadcrumb"]//a[not(contains(@class,'main'))]//span//text()
 - name: listPrice
-  singleValue: true
+  type: CURRENCY
   description: The stated undiscounted price for the product
   xpath: //div[@class="wide-6 productInformations offerDetails"]//dd[@class="listPrice"]//text()
 - name: price
+  type: CURRENCY
   description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-  xpath: //dl[@class="productPrice"]//dd[@class="yourPrice price" or @class="yourPrice"]
+  xpath: //dl[@class="productPrice"]//dd[@class="yourPrice price" or @class="yourPrice"]//text()
+  # manualSelector: script[type='text/javascript']
+  # regExp: '(price: ')(\d.\d+)'
+  # regExpReplace: $2
 - name: availabilityText
   singleValue: true
   xpath: //div[@class='wide-6 productInformations offerDetails']//dl[@class="productAvailability"]//span[@class="value-title"]/@title
@@ -105,7 +111,7 @@ fields:
 - name: warnings
   singleValue: true
   description: Content under "warnings" header
-- name: aggregateRating2
+- name: aggregateRating
   description: The number of ratings
   xpath: //div[@class="fr wide-6"]//span[@class="rank"]//text()[6]
   regExp: '\d+\.\d+'
@@ -117,12 +123,8 @@ fields:
   singleValue: false
   xpath: //dd[@class="productLongDescription"]//img/@src
 - name: manufacturerDescription
-  type: TEXT[]
+  singleValue: false
   xpath: //dd[@class="productLongDescription"]//text()
-- name: aggregateRating
-  singleValue: true
-  description: The stated aggregate rating normalized to be out of 5
-  type: NUMBER
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
