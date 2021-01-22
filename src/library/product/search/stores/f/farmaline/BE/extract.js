@@ -22,6 +22,10 @@ module.exports = {
       };
       const searchUrl = window.location.href;
       addElementToDocument('searchUrl', searchUrl);
+
+      document.querySelectorAll('ul#articleList > li img').forEach((img) => {
+        img.setAttribute('src', img.getAttribute('src').replace('200x200', '800x800'));
+      });
     });
     return await context.extract(productDetails, { transform });
   },
