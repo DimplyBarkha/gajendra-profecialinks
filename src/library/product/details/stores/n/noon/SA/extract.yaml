@@ -123,10 +123,10 @@ fields:
   - name: manufacturerImages
     singleValue: false
     # xpath: //div[contains(@class,"richContent")]//div[contains(@class,"bannerWrapper")]//img/@src
-    xpath: //div[contains(@class,'featureBanner')]//img/@src
+    xpath: //div[contains(@class,'bannerModule featureBanner') ]//img/@src
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[contains(@class,"richContent")])]
+    xpath: //div[contains(@class,"richContent")]
   - name: descriptionBullets
     singleValue: false
     xpath: //div[@id='descriptionBulletCount']/text()
