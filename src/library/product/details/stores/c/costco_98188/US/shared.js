@@ -141,6 +141,13 @@ const transform = (data) => {
         });
         row.fastTrack[0].text = fastText;
       }
+      if (row.videos) {
+        row.videos.forEach(item => {
+          if (item.text.includes('.hls.m3u8')) {
+            item.text = item.text.replace('.hls.m3u8', '.mp4.480.mp4');
+          }
+        });
+      }
       if (row.ratingCount) {
         row.ratingCount.forEach(item => {
           item.text = item.text.replace(/s/, '').trim();
