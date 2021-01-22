@@ -15,6 +15,7 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;       
         var wantedZip = '28203'; 
+        await new Promise((resolve, reject) => setTimeout(resolve, 10000));
       await context.click('a[class="fp-changeZipCode fp-footer-changeZipCode"]');   
       await context.setInputValue('[id="validZipcode"]', wantedZip);
       await context.waitForSelector('button[class="fp-button fp-button--primary zip--button fontSizeL"]', 6000)
