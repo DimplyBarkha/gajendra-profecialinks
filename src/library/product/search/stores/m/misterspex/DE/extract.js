@@ -20,7 +20,7 @@ module.exports = {
     await context.setJavaScriptEnabled(true);
     await context.setLoadAllResources(true);
     await context.setLoadImages(true);
-    // await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 5000));
     await context.evaluate(async() => {
       let scrollTop = 0;
       while (scrollTop <= 20000) {
@@ -28,7 +28,7 @@ module.exports = {
         scrollTop += 1000;
         window.scroll(0, scrollTop);
         if (scrollTop === 20000) {
-          await stall(3000);
+          await stall(1000);
           break;
         }
       }
