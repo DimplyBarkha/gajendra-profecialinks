@@ -48,7 +48,7 @@ fields:
     xpath: //div[contains(@id, "How to Use")]
   - name: availabilityText
     singleValue: true
-    xpath: //div[contains(@data-comp,'CallToActions')]//button[contains(@data-comp,'AddToBasketButton')]
+    xpath: //div[contains(@data-comp,'CallToActions')]//button[contains(@data-comp,'AddToBasketButton')] | //button[contains(@data-comp,'AddToBasketButton')]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out Of Stock
@@ -80,6 +80,9 @@ fields:
   - name: otherSellersName
     singleValue: false
     defaultValue: Sephora
+  - name: servingSize
+    singleValue: false
+    xpath: (//div[@data-at='sku_name_label']//span[contains(.,'Size')]//text())[2]
 
 
 
