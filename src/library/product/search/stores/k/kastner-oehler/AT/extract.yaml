@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: id
     description: Unique id (within this extractor)
-    xpath: //div[@id='itemId']
+    xpath: //section[@id="product-list"]/child::article/@data-eec-id
   - name: rankOrganic
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER 
