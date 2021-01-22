@@ -13,26 +13,30 @@ module.exports = {
     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
-        let scrollTop = 0;
-        while (scrollTop !== 5000) {
-          await stall(1000);
-          scrollTop += 1000;
-          window.scroll(0, scrollTop);
-          if (scrollTop === 5000) {
-            await stall(1000);
-            break;
+        let failCount = 0;
+        const recordSelector = 'div.vtex-search-result-3-x-gallery div.vtex-search-result-3-x-galleryItem';
+        let count = document.querySelectorAll(recordSelector).length;
+        while (count < 150) {
+          document.querySelector('div[role="presentation"]') && document.querySelector('div[role="presentation"]').parentNode.removeChild(document.querySelector('div[role="presentation"]'));
+          document.querySelector('div.exito-geolocation-3-x-modalContainer') && document.querySelector('div.exito-geolocation-3-x-modalContainer').parentNode.removeChild(document.querySelector('div.exito-geolocation-3-x-modalContainer'));
+          const oldCount = count;
+          document.querySelector('button.bg-action-primary.min-h-small') && document.querySelector('button.bg-action-primary.min-h-small').click();
+          await new Promise((resolve, reject) => setTimeout(resolve, 400));
+          count = document.querySelectorAll(recordSelector).length;
+          if (oldCount === count) {
+            failCount++;
+            window.scrollBy(0, 1000);
+            if (failCount > 4) {
+              break;
+            }
+          } else {
+            failCount = 0;
           }
-        }
-        function stall (ms) {
-          return new Promise((resolve, reject) => {
-            setTimeout(() => {
-              resolve();
-            }, ms);
-          });
         }
       });
     };
     await applyScroll(context);
+
     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
     return await context.extract(productDetails, { transform });
   },

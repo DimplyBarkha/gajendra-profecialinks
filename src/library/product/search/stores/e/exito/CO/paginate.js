@@ -4,9 +4,9 @@ module.exports = {
   parameterValues: {
     country: 'CO',
     store: 'exito',
-    nextLinkSelector: 'button.bg-action-primary.min-h-small',
+    nextLinkSelector: null,
     mutationSelector: null,
-    spinnerSelector: 'button.bg-disabled',
+    spinnerSelector: null,
     loadedSelector: 'div.vtex-search-result-3-x-gallery',
     noResultsXPath: '//h2[contains(@class,"exito-search-result-4-x-notFoundText")]',
     resultsDivSelector: null,
