@@ -57,7 +57,7 @@ fields:
     regExpReplace: $2
   - name: ratingCount
     singleValue: false
-    xpath: (//span[contains(@class, "total")])[1]
+    xpath: //div[contains(@class,"product-info")]//span[contains(@class, "total")][1]
   - name: aggregateRating
     singleValue: false
     xpath: //div[contains(@class,"fsReviewLinkDefault")]/div/@aria-label
