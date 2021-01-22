@@ -8,7 +8,7 @@ module.exports = {
   },
   // For navigating from home page to search page because search page is redirecting to home page.
   implementation: async (inputs, parameterValues, context, dependencies) => {
-    const url = `${inputs.url}`;
+    const url = `${inputs.url}#[!opt!]{"block_ads":false,"anti_fingerprint":false,"first_request_timeout":60,"load_timeout":30,"proxy":{"use_relay_proxy":false},"load_all_resources":true,"enable_cache":false,"discard_CSP_header":true}[/!opt!]`;
     await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
     await context.waitForSelector('input[name="OutsideHomePageControl$cmdPostCode"]');
     await context.click('input[name="OutsideHomePageControl$cmdPostCode"]');
