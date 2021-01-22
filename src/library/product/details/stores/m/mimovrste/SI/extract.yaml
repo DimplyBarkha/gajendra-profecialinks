@@ -50,12 +50,14 @@ fields:
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
-    xpath: count(//section[@class='panel-inner']//div[@class='container-grid']//li)
+    #xpath: count(//section[@class='panel-inner']//div[@class='container-grid']//li)
+    xpath: //div[@id='added_descriptionBullets']
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //a[@class='link--pro-subtitle-info']//text()
+    #xpath: //a[@class='link--pro-subtitle-info']//text()
+    xpath: //div[@id='added_brandText']
   - name: manufacturer
     singleValue: true
     description: Product manufacturer

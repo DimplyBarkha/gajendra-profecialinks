@@ -70,6 +70,14 @@ module.exports = {
       if (secondaryImageTotal) {
         addElementToDocument('added_secondaryImageTotal', secondaryImageTotal.length);
       }
+      const descriptionBullets = getAllXpath('//section[@class="panel-inner"]//div[@class="container-grid"]//li', 'nodeValue');
+      if (descriptionBullets) {
+        addElementToDocument('added_descriptionBullets', descriptionBullets.length);
+      }
+      const brandText = getXpath('//a[@class="link--pro-subtitle-info"]//text()', 'nodeValue');
+      if (brandText) {
+        addElementToDocument('added_brandText', brandText);
+      }
 
       const description = getAllXpath("//section[@class='pro-column'][2]//h3/text() | //section[@class='pro-column'][2]//p[@itemprop='description']/text() | //a[@class='product-detail-more-link']/text() | //div[@class='col-sm-6']//span/text() | //div[@class='col-sm-6']//span/strong/text() |  //div[@class='col-sm-6']//span/a/text()", 'nodeValue').join(' ');
       addElementToDocument('added_description', description);
@@ -259,7 +267,7 @@ module.exports = {
       }
       const specificationHeader = getXpath("//h2[contains(text(), 'Tehnične')]//following::section[@class='panel-inner']//h3[@class='lay-off']/text()", 'nodeValue');
       const specifications = getAllXpath("//h2[contains(text(), 'Tehnične')]//following::section[@class='panel-inner']//table//tr", 'innerText').join(' ');
-      const finalSpec = specificationHeader + ' ' + specifications;
+      const finalSpec = specificationHeader.replaceAll('%', '') + ' ' + specifications;
       addElementToDocument('added_specifications', finalSpec);
 
       const dimensions = getXpath("//tr//td[contains(text(), 'Dimenzije škatle')]//following-sibling::td//b", 'innerText');
