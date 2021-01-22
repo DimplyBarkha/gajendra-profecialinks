@@ -47,8 +47,8 @@ const transform = (data, context) => {
                 item.text=item.text.replace('background-image: url("','').replace('");','');
                 let tmp=item.text.split('/').pop().split('-');
                 let tmp1=tmp[0];
-                if(tmp1.indexOf('?v=')>-1){
-                  skyIdStr=tmp1.split('?v=').pop();
+                if(isNaN(tmp1)){
+                  //skyIdStr=tmp1.split('?v=').pop();
                 }else{
                   skyIdStr=tmp1;
                 }
