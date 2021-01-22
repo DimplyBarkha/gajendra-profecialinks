@@ -120,7 +120,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     dataRef[0].group[0].ingredientsList[0].text = dataRef[0].group[0].ingredientsList[0].text.replace('Product Specification', '').trim();
     const sizeTxt = dataRef[0].group[0].ingredientsList[0].text;
     const index = sizeTxt.indexOf('Size');
-    if (index != -1) {
+    if (index !== -1) {
       dataRef[0].group[0].ingredientsList[0].text = dataRef[0].group[0].ingredientsList[0].text.slice(0, index).trim();
     }
   }
