@@ -45,7 +45,7 @@ fields:
     xpath: //div[@class="productPricingContainer_3gTS3"]/span[@class="productSaving_3YmNX top_3XDS1"]
   - name: sku
     # manualSelector: span[itemprop="sku"]
-    xpath: //div[contains(@class,"modelInformation")]/strong[contains(text(),'Web Code:')]/following-sibling::span
+    xpath: //div[contains(@class,"modelInformation")]/strong[contains(text(),'Web Code:')]/following-sibling::span | //div[contains(@class,"modelInformation")]/strong[contains(text(),'Code Web :')]/following-sibling::span
   - name: specificationsLabel
     manualSelector: div#detailsAndSpecs div[class*="itemName"]
   - name: specifications
@@ -54,7 +54,7 @@ fields:
   #   xpath: //div[@id="detailsAndSpecs"]/div/div
   - name: variantId
     # manualSelector: span[itemprop="sku"]
-    xpath: //div[contains(@class,"modelInformation")]/strong[contains(text(),'Web Code:')]/following-sibling::span
+    xpath: //div[contains(@class,"modelInformation")]/strong[contains(text(),'Web Code:')]/following-sibling::span | //div[contains(@class,"modelInformation")]/strong[contains(text(),'Code Web :')]/following-sibling::span
   - name: mpc
     # manualSelector: span[itemprop="model"]
     xpath: //div[contains(@class,"modelInformation")]/strong[contains(text(),'Model Number:')]/following-sibling::span
