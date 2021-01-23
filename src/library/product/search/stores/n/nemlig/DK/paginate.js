@@ -3,8 +3,8 @@ module.exports = {
   parameterValues: {
     country: 'DK',
     store: 'nemlig',
-    nextLinkSelector: 'div.searchresult__loadmore_container:not(.ng-hide) button.btn.searchresult__loadmore_button',
-    mutationSelector: 'div#searchscrollable',
+    nextLinkSelector: null,
+    mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div#searchscrollable div.searchresult__item-container productlist-item',
     noResultsXPath: '//div[@id="searchscrollable"]//h3[@class="contact__subhead" and contains(text(),"Kundeservice sidder klar til at hjælpe dig alle ugens dage")]',
