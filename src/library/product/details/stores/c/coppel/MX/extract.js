@@ -9,36 +9,26 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
-   // await context.waitForSelector('ul[id="ProductAngleImagesAreaList"] > li > a > img', {}, { timeout: 5000000 });
-   // await context.waitForSelector('span[class="sku"]', {}, { timeout: 5000000 });    
-    const applyScroll = async function (context) {
-      await context.evaluate(async function () {
-        let scrollTop = 0;
-        while (scrollTop !== 20000) {
-          await stall(500);
-          scrollTop += 1000;
-          window.scroll(0, scrollTop);
-          if (scrollTop === 20000) {
-            await stall(5000);
-            break;
-          }
-        }
-        function stall (ms) {
-          return new Promise((resolve, reject) => {
-            setTimeout(() => {
-              resolve();
-            }, ms);
-          });
-        }
-      });
-    };
-    await applyScroll(context);
-  //  await context.waitForSelector('div[class="flix-tech-spacs-contents"]', {}, { timeout: 3000 });
-  //  await context.waitForSelector('div[class="flix-carousel flix-carousel-stage"]', {}, { timeout: 3000 });
+
+    try {
+      await context.waitForSelector('div[class="flix-tech-spacs-contents"]', {}, { timeout: 300000 });
+     } catch(error){console.log(error)}
+    try {
+     await context.waitForSelector('div[class="flix-carousel flix-carousel-stage"]', {}, { timeout: 300000 });
+     } catch(error){console.log(error)}
+
+     try {
+      await new Promise(resolve => setTimeout(resolve, 5000));
+      await context.waitForXPath("//div[@id='flix-inpage']//img/@srcset | //div[@id='flix-inpage']//img/@data-img-src|//div[@id='flix-inpage']//img/@data-srcset", {}, { timeout: 100000 });
+      await context.waitForSelector('div[id="flix-inpage"] img', {}, { timeout: 100000 });
+    } catch (error) {
+      console.log(error);
+    }
+
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
-        catElement.id = key;
+        catElement.className = key;
         catElement.textContent = value;
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
@@ -62,13 +52,30 @@ module.exports = {
         return result;
       };
 
+      function stall (ms) {
+        // @ts-ignore
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
+      let scrollTop = 500;
+      while (true) {
+        window.scroll(0, scrollTop);
+        await stall(1000);
+        scrollTop += 500;
+        if (scrollTop === 10000) {
+          break;
+        }
+      }
+
       const skuXpath = getXpath("//span[@class='sku']//text()",'nodeValue');
       console.log("sku: ", skuXpath);
       if(skuXpath != null  ){
         const sku = skuXpath ? skuXpath.split(':') : [];
         addElementToDocument('sku_added',sku[1]);
         }
-
 
         const gtinupc = getXpath("//table[@class='table table-bordered']/tbody/tr/td[contains(.,'Modelo #:')]/following-sibling::td",'innerText');
         if(gtinupc != null){
@@ -113,18 +120,61 @@ module.exports = {
           console.log("AltImgXpath:", altImgXpath.join('|'));
           addElementToDocument('altImgs_added',altImgXpath.join(' | '));
         }
-      
-        const aplusImagesXpath = getAllXpath("//div[@class='flix_feat']/img/@data-flixsrcset",'nodeValue');
-        const aplusFlixImagesXpath = getAllXpath("//div[@class='flix-carousel flix-carousel-stage']/ul/li/img/@srcset",'nodeValue');
 
-        if(aplusFlixImagesXpath.length > 0){
-          console.log("Aplus Flix Images:", aplusFlixImagesXpath.join(' | '));
-          addElementToDocument('aplusImages_added',aplusFlixImagesXpath.join(' | '));  
+
+        const manufactureImageXpath = getAllXpath("//div[@id='flix-inpage']//img/@data-img-src|//div[@id='flix-inpage']//img/@data-srcset|//div[@id='flix-inpage']//img/@data-flixsrcset", 'nodeValue');
+        try {
+          if (manufactureImageXpath.length > 0) {
+            console.log('Manufacturer Images ==>',manufactureImageXpath);
+            const manufactureImages = [];
+            manufactureImageXpath.forEach(item => {
+              if (item.includes(',')) {
+                const ImagesSetPath = item.split(',');
+                const imageStr = ImagesSetPath[0];
+                item = imageStr.substr(0, imageStr.lastIndexOf(' '));
+              }
+              manufactureImages.push('http:' + item);
+            });
+            addElementToDocument('aplusImages_added', manufactureImages.join(' | '));
+          }
+        } catch (error) {
+          console.log(error);
         }
 
-        if(aplusImagesXpath.length > 0) {
-        console.log("Aplus Images:", aplusImagesXpath);
-        addElementToDocument('aplusImages_added',aplusImagesXpath);
+
+        const videoUrlPath = getAllXpath("//input[@class='flix-jw']/@value", 'nodeValue');
+        if (videoUrlPath.length > 0) {
+          for (let i = 0; i < videoUrlPath.length; i++) {
+            if (videoUrlPath[i] && typeof videoUrlPath[i] === 'string') {
+              console.log(videoUrlPath[i]);
+              try {
+                var videoUrlObj = JSON.parse(videoUrlPath[i]);
+                videoUrlObj.playlist.forEach(element => {
+                  addElementToDocument('added_video_url', 'https:' + element.file);
+                });
+              } catch (error) {
+                console.log(error);
+              }
+            }
+          }
+        }
+        const videoUrlPath1 = getAllXpath("//div[contains(@class,'flix_jw_videoid')]/@data-jw", 'nodeValue');
+        try {
+          if (videoUrlPath1.length > 0) {
+            for (let i = 0; i < videoUrlPath1.length; i++) {
+              if (videoUrlPath1[i] && typeof videoUrlPath1[i] === 'string') {
+                addElementToDocument('added_video_url', 'https:' + videoUrlPath1[i]);
+              }
+            }
+          }
+        } catch (error) {
+          console.log(error);
+        }
+
+        const manufactureXpath = getAllXpath("//div[@id='flix-inpage']", 'innerText');
+        const paginationPath = getXpath("//p[contains(@class,'fl1xcarousel-pagination')]", 'innerText');
+        if (manufactureXpath.length > 0) {
+          addElementToDocument('added_manufacture', manufactureXpath.join('|').replace(paginationPath, ' '));
         }
 
         const allSpecs = getAllXpath("//div[contains(@class,'flix-tech-spacs-contents')]/ul/li/div/div[2]/font/font/text()",'nodeValue').join('|');

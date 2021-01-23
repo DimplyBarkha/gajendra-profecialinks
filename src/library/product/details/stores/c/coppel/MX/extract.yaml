@@ -10,11 +10,11 @@ fields:
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
-    xpath: //div[@id='alt_added']
+    xpath: //div[@class='alt_added']
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@id="altImgs_added"]
+    xpath: //div[@class="altImgs_added"]
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -67,7 +67,7 @@ fields:
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    xpath: //div[@id='size_added'] 
+    xpath: //div[@class='size_added'] 
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -78,18 +78,18 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: //div[@id="gtin_added"]
+    xpath: //div[@class="gtin_added"]
   - name: eangtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: //div[@id="gtin_added"]  
+    xpath: //div[@class="gtin_added"]  
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //div[@id="sku_added"]
+    xpath: //div[@class="sku_added"]
   - name: variantId
     singleValue: false
-    xpath: //div[@id="sku_added"]
+    xpath: //div[@class="sku_added"]
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: true
@@ -144,15 +144,19 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: concat(//*[@id="inpage_container"]//div[@class='flix-model-name'],//*[@id="inpage_container"]//div[@class='flix-model-title'],//*[@class='flix-key-feature'],//div[@id="inpage_selector_specification"]//div[@class='flix-tech-spacs-title'],//div[@id="inpage_selector_specification"]//div[@class='flix-tech-spacs-contents']/*)
+    xpath: //div[@class="added_manufacture"]
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[@id="aplusImages_added"]
+    xpath: //div[@class="aplusImages_added"]
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //*[@id="ytplayer1"]/@src
+    xpath: //div[@class="added_video_url"]
+  - name: galleryVideos
+    singleValue: false
+    description: URLs of videos on page
+    xpath: //div[@class="added_video_url"]  
   - name: name
     singleValue: true
     description: The product name
