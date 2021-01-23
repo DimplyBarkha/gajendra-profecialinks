@@ -6,7 +6,7 @@ module.exports = {
     store: 'rappi_farmatodo',
     domain: 'rappi.com.co',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//h2[@_ngcontent-ng-rappi-c163]["404"]',
     zipcode: '',
   },
 };

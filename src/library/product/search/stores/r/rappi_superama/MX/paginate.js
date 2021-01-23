@@ -3,7 +3,7 @@ module.exports = {
   parameterValues: {
     country: 'MX',
     store: 'Rappi_Superama',
-    // nextLinkSelector: null,
+    nextLinkXPath: '//button[@class="primary-button-filled"]',
     // nextLinkXpath: null,
     // mutationSelector: null,
     // spinnerSelector: null,
