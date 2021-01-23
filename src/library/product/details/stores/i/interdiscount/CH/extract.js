@@ -14,7 +14,26 @@ module.exports = {
     context,
     dependencies,
   ) => {
+    try{
+      context.waitForXPath(`//h2/p[contains(text(),'Produktmerkmale')]/ancestor::h2/following-sibling::div`);
+      console.log("we have enhanced content loaded");
+    } catch(error){
+      console.log("we got some error",error.message);
+    }
     await context.evaluate(async function () {
+      async function infiniteScroll () {
+        let prevScroll = document.documentElement.scrollTop;
+        while (true) {
+        window.scrollBy(0, document.documentElement.clientHeight);
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        const currentScroll = document.documentElement.scrollTop;
+        if (currentScroll === prevScroll) {
+        break;
+        }
+        prevScroll = currentScroll;
+        }
+        }
+        await infiniteScroll();
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;

@@ -121,9 +121,11 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
+    xpath: //h2/p[contains(text(),'Produktmerkmale')]/ancestor::h2/following-sibling::div
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
+    xpath: //h2/p[contains(text(),'Produktmerkmale')]/ancestor::h2/following-sibling::div//img/@src
   - name: videos
     singleValue: false
     xpath: //meta[@itemprop="contentURL"]/@content
