@@ -33,6 +33,21 @@ module.exports = {
       });
     };
     await applyScroll(context);
+    await context.evaluate(() => {
+      const allScriptsTag = document.querySelectorAll('script');
+      const allProducts = document.querySelectorAll('div[data-qa-locator*="general-products"] div[data-qa-locator*="product-item"]');
+      allScriptsTag.forEach((element, index) => {
+        const match = element.innerHTML.match(/window\.pageData\s*=\s*(.+\})/);
+        if (match) {
+          const jsonData = JSON.parse(match[1]);
+          if (jsonData.mods.listItems.length === allProducts.length) {
+            for (let i = 0; i < jsonData.mods.listItems.length; i++) {
+              allProducts[i].setAttribute('data-item-id', jsonData.mods.listItems[i].sku);
+            }
+          }
+        }
+      });
+    });
     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
     return await context.extract(productDetails, { transform });
   },
