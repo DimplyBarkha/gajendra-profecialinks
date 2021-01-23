@@ -69,7 +69,7 @@ module.exports = {
     await helper.waitForSelector('li#prodCollage a.view-more-trigger', { timeout: 55000 }, false)
       .catch(() => {
         if (noManufacturerContent) console.log('No manufacturer content loading');
-        else throw new Error('Manufacturer content loading issue') 
+        else throw new Error('Manufacturer content loading issue')
       });
     if (!noManufacturerContent && loadMoreManufacturer) {
       await helper.waitForSelector('div#wc-aplus', { timeout: 55000 });
@@ -539,7 +539,7 @@ module.exports = {
 
       await context.extract(productDetails, { transform: transformParam, type: 'APPEND' });
     };
-    
+
     await extract();
 
     for (let index = 0; index < variantArray.length; index++) {
