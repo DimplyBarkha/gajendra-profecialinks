@@ -24,8 +24,13 @@ const transform = (data, context) => {
   };
   const state = context.getState();
   let rank = state.rank || 1;
+  let orgRankCounter = state.orgRankCounter || 1;
   for (const { group } of data) {
     for (const row of group) {
+      if (!row.sponsored) {
+        orgRankCounter += 1;
+        row.rankOrganic = [{ text: orgRankCounter }];
+      }
       if (row.aggregateRating) {
         let counter = 0;
         row.aggregateRating.forEach(item => {
@@ -54,11 +59,12 @@ const transform = (data, context) => {
           item.text = item.text.replace('/medium/', '/large/');
         });
       }
-      row.rank = row.rankOrganic = [{ text: rank }];
+      row.rank = [{ text: rank }];
       rank++;
     }
   }
   context.setState({ rank });
+  context.setState({ orgRankCounter });
   return cleanUp(data);
 };
 
