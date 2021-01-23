@@ -26,7 +26,6 @@ const transform = (data) => {
   };
   for (const { group } of data) {
     for (const row of group) {
-      console.log("hi format")
       if (row.description) {
 
         let desc = '';
@@ -52,13 +51,15 @@ const transform = (data) => {
 
       if (row.brandText) {
         row.brandText.forEach(item => {
-          if(item.text === 'Star Wars'){
+          if( item.text === 'Star Wars' ) {
             item.text = 'LEGO ' + item.text;
           }
-          else{
-            item.text = item.text;
-          }
         });
+
+        if( row.nameExtended[0].text.includes('Star Wars') ) {
+          row.brandText[0].text = 'LEGO Star Wars';
+        }
+
       }
       if (row.shortDescription) {
 
