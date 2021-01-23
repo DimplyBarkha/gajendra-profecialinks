@@ -30,3 +30,7 @@ fields:
   - name: videos
     singleValue: false
     xpath: //div[@class="airy-renderer-container"]//video[@preload="auto"]/@src
+  - name: variantCount
+    singleValue: false
+    xpath: //div[@class="a-section"]//input[@id="ASIN"]/@value
+    #defaultValue: 1 

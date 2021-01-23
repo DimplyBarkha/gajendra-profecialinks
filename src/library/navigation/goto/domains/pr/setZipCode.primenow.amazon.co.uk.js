@@ -1,8 +1,31 @@
+
+// module.exports = {
+//   implements: 'navigation/goto/setZipCode',
+//   parameterValues: {
+//     country: 'UK',
+//     domain: 'primenow.amazon.co.uk',
+//     store: 'amazonPrimeNow',
+//     zipcode: 'ECA1CB',
+//   },
+// };
+
+
+// module.exports = {
+//   implements: 'navigation/goto/setZipCode',
+//   parameterValues: {
+//     country: 'DE',
+//     domain: 'primenow.amazon.de',
+//     store: 'amazonPrimeNow',
+//     zipcode: '10115',
+//   },
+// };
+
 module.exports = {
   parameterValues: {
-    country: 'DE',
-    domain: 'primenow.amazon.de',
+    country: 'UK',
+    domain: 'primenow.amazon.co.uk',
     store: 'amazonPrimeNow',
+    zipcode: 'EC1A1CB',
   },
   // For navigating from home page to search page because we have to enter the zip code in  home page.
   implementation: async ({ url, zipcode }, parameterValues, context, dependencies) => {
@@ -30,3 +53,4 @@ module.exports = {
     }
   },
 };
+

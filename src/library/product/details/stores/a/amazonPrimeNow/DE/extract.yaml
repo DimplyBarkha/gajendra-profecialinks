@@ -1,2 +1,9 @@
 extends: ../../amazon/DE/extract
-   
+fields:
+  - name: weightNet
+    singleValue: false
+    xpath: //*[contains(text(),"Netto-Gewicht")]/following-sibling::*[1]
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //*[normalize-space(text())="Verpackungsabmessungen"]/following-sibling::*[1] | //*[normalize-space(text())="Produktabmessungen"]/following-sibling::*[1]
+    regExp: '^[^,]+'                                             
