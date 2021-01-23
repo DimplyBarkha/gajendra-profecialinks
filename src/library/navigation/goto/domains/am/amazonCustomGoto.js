@@ -74,8 +74,9 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
     if (Object.entries(page).filter(item => item[0] != 'windowLocation').filter(item => item[1] === true).length === 0) {
       context.counter.set('dropped_data', 1);
       await context.reload();
-      await new Promise(r => setTimeout(r, 5000));
       console.log('Waiting for page to reload');
+      await new Promise(r => setTimeout(r, 5000));
+      console.log('Waited 5 seconds for page to reload');
       await context.waitForNavigation({ timeout: 30 });
       return await solveCaptchaIfNecessary(await pageContext());
     }
@@ -113,43 +114,57 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
     return false;
   }
 
-  const setZip = async (zip) => {
-    if (zip) {
-      const csrf = await context.evaluate(getCSRFToken);
-      const apiZipChange = await context.evaluate(async (zipcode, csrf) => {
-        const body = `locationType=LOCATION_INPUT&zipCode=${zipcode}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`;
-        const response = await fetch('/gp/delivery/ajax/address-change.html', {
-          headers: {
-            'anti-csrftoken-a2z': csrf,
-            'content-type': 'application/x-www-form-urlencoded',
-            contenttype: 'application/x-www-form-urlencoded;charset=utf-8',
-            'x-requested-with': 'XMLHttpRequest',
-          },
-          body,
-          method: 'POST',
-          mode: 'cors',
-          credentials: 'include',
-        });
-        return response.status === 200;
-      }, zipcode, csrf);
-
+  const setZip = async (zipcode) => {
+    const csrf = await context.evaluate(getCSRFToken);
+    const apiZipChange = await context.evaluate(async (zipcode, csrf) => {
+      const country = document.querySelector('[lang]').lang.match(/[^-]+$/)[0].toUpperCase();
+      let body;
+      if(zipcode) {
+        body = `locationType=LOCATION_INPUT&zipCode=${zipcode}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`;
+      } else {
+        body = `locationType=COUNTRY&countryCode=${country}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`;
+      }
+      const response = await fetch('/gp/delivery/ajax/address-change.html', {
+        headers: {
+          'anti-csrftoken-a2z': csrf,
+          'content-type': 'application/x-www-form-urlencoded',
+          contenttype: 'application/x-www-form-urlencoded;charset=utf-8',
+          'x-requested-with': 'XMLHttpRequest',
+        },
+        body,
+        method: 'POST',
+        mode: 'cors',
+        credentials: 'include',
+      });
+      return response.status === 200;
+    }, zipcode, csrf);
+    if(zipcode) {
       const onCorrectZip = await context.evaluate((zipcode) => {
         const zipText = document.querySelector('div#glow-ingress-block');
         return zipText ? zipText.textContent.includes(zipcode) : false;
       }, zipcode);
-
       if (!apiZipChange) {
         console.log('API zip change failed');
         // throw new Error('API zip change failed');
       } else if (!onCorrectZip) {
         console.log('not on correct zipcode, reload');
         await context.reload();
-        await new Promise(r => setTimeout(r, 5000));
         console.log('Waiting for page to reload');
+        await new Promise(r => setTimeout(r, 5000));
+        console.log('Waited 5 seconds for page to reload');
         await context.waitForNavigation({ timeout: 30 });
         page = await pageContextCheck(await pageContext());
         await handlePage(page, null);
       }
+    } else {
+      console.log('No zipcode. Reloading to change country');
+      await context.reload();
+      console.log('Waiting for page to reload');
+      await new Promise(r => setTimeout(r, 5000));
+      console.log('Waited 5 seconds for page to reload');
+      await context.waitForNavigation({ timeout: 30 });
+      page = await pageContextCheck(await pageContext());
+      await handlePage(page, null);
     }
   };
 
@@ -265,8 +280,9 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
     await context.waitForNavigation(30);
     if (await context.evaluate(() => !document.querySelector('#a-popover-root'))) {
       await context.reload();
-      await new Promise(r => setTimeout(r, 5000));
       console.log('Waiting for page to reload');
+      await new Promise(r => setTimeout(r, 5000));
+      console.log('Waited 5 seconds for page to reload');
       await context.waitForNavigation({ timeout: 30 });
     }
     console.log('Captcha vanished');
@@ -514,8 +530,9 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
         inSessionRetries += 1;
         context.counter.set('refresh', 1);
         await context.reload();
-        await new Promise(r => setTimeout(r, 5000));
         console.log('Waiting for page to reload');
+        await new Promise(r => setTimeout(r, 5000));
+        console.log('Waited 5 seconds for page to reload');
         await context.waitForNavigation({ timeout: 30 });
         console.log('Page reloaded');
         page = await handlePage(await pageContext(), lastResponseData);
@@ -525,8 +542,9 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
         console.log('reload ------>', 'Missing prodDetails when API history says it is expected, and variants  do not exist.');
         context.counter.set('refresh', 1);
         await context.reload();
-        await new Promise(r => setTimeout(r, 5000));
         console.log('Waiting for page to reload');
+        await new Promise(r => setTimeout(r, 5000));
+        console.log('Waited 5 seconds for page to reload');
         await context.waitForNavigation({ timeout: 30 });
         console.log('Page reloaded');
         page = await handlePage(await pageContext(), lastResponseData);
