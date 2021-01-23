@@ -3,12 +3,19 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields: 
+  - name: rank
+  - name: rankOrganic
+  - name: sponsored
+    defaultValue: false
   - name: name
     singleValue: false
-    xpath: //h2[@class="catalog-products-body__product-name"]/a[2]//text()
+    xpath: //h2[@class="catalog-products-body__product-name"]/a[2]/text()
+  - name: search_term
+    singleValue: false
+    xpath: //div[@class="content-first-filters"]/div[1]/span[1]/pre    
   - name: searchUrl
     singleValue: false
-    xpath: //meta[@property="og:url"]/@content
+    xpath: //meta[@property="og:url"]/@content   
   - name: price
     singleValue: false
     description: The offered price for the product
@@ -26,18 +33,7 @@ fields:
     xpath: //div[@class="catalog-products-body__product-wrapper"]/figure[@class="catalog-products-body__product-img"]/a/@href  
     #regExp: (.*)$
     regExp: (/.+)
-    regExpReplace: https://www.juntoz.com$1    
-  - name: brand
-    singleValue: false
-    description: The brand name
-    xpath: //span[@class="catalog-products-body__product-brand ng-binding"]
-  - name: store
-    singleValue: false
-    description: The store name
-    xpath: //meta[@name="organization"]/@content   
-  - name: rank
-    singleValue: false
-    type: number
-  - name: rankOrganic
-    singleValue: false
-    type: NUMBER         
+    regExpReplace: https://www.juntoz.com$1  
+   
+  
+      
