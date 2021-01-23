@@ -6,6 +6,20 @@ module.exports = {
     store: 'sephora',
     transform,
     domain: 'sephora.com.br',
-    zipcode: '',
+  },
+  implementation: async (inputs,
+    parameters,
+    context,
+    dependencies,
+  ) => {
+    await context.evaluate(async function () {
+      let popUp = document.querySelector('div.overlay-cookies div.terms-accept div.button-progress');
+      if (popUp) {
+        popUp.click();
+      }
+    });
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
+    return await context.extract(productDetails, { transform });
   },
 };
