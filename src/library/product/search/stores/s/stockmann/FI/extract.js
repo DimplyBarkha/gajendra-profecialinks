@@ -19,14 +19,13 @@ module.exports = {
     const { productDetails } = dependencies;
     const { transform } = parameters;
 
-
     await context.evaluate(() => {
       const linkElement = document.querySelectorAll('div[class="img"]>img');
       const link = [];
       linkElement.forEach((elem) => { link.push(elem.src); });
       const idFromLink = [];
       link.forEach((elem1) => {
-        idFromLink.push(elem1.replace(/(.+)(\/)(\d+)(\_\d+|)(\.jpg)/g, "$3"));
+        idFromLink.push(elem1.replace(/(.+)(\/)(\d+)(\_\d+|)(\.jpg)/g, '$3'));
       });
       const skuElement = document.querySelectorAll('div[class="product"]');
       const skuBucket = [];
@@ -36,13 +35,12 @@ module.exports = {
 
       const id = [];
       idFromLink.forEach((element, index) => {
-        if (element.includes("jpg")) {
-          id.push(skuBucket[index])
+        if (element.includes('jpg')) {
+          id.push(skuBucket[index]);
+        } else {
+          id.push(idFromLink[index]);
         }
-        else {
-          id.push(idFromLink[index])
-        }
-      })
+      });
 
       const appendDiv = document.querySelectorAll('div.product-grid div.product');
       for (let i = 0; i < appendDiv.length; i++) {
@@ -55,10 +53,10 @@ module.exports = {
         if (document.querySelector('.show-more-wrapper>button')) {
           document.querySelector('.show-more-wrapper>button').click();
           await new Promise(resolve => setTimeout(resolve, 1000));
-          count = document.querySelectorAll('.tile-wrapper').length;   
+          count = document.querySelectorAll('.tile-wrapper').length;
         } else {
           break;
-        }      
+        }
       }
     });
 
@@ -66,4 +64,3 @@ module.exports = {
   },
 
 };
-

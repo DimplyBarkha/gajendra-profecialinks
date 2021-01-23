@@ -29,7 +29,7 @@ const transform = (data, context) => {
   let orgRankCounter = state.orgRankCounter || 0;
   let rankCounter = state.rankCounter || 0;
   const productCodes = state.productCodes || [];
-  for (let { group } of data) {
+  for (const { group } of data) {
     for (const row of group) {
       rankCounter += 1;
       if (!row.sponsored) {
