@@ -65,12 +65,16 @@ const transform = (data) => {
         if (row.inTheBoxText) {
           let text, arrInTheBox = [];
           row.inTheBoxText.forEach(item => {
-              arrInTheBox.push(item.text);
+            arrInTheBox.push(item.text);
           });
-          let arrUniqueText =  [...new Set(arrInTheBox)];
-          row.inTheBoxText = [ 
+          let arrUniqueText = [...new Set(arrInTheBox)];
+          row.inTheBoxText = [
             { text: arrUniqueText.toString().replace(/,/g, '||').replace(/und\b/g, '||') }
           ]
+        }
+
+        if (row.brandText) {
+          row.brandText = [{ text: row.brandText[0].text.replace("%20", " ") }]
         }
 
         if (descriptionOne) {
