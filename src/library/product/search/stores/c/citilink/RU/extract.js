@@ -10,6 +10,23 @@ module.exports = {
     zipcode: '',
   },
   implementation: async (inputs, { transform }, context, { productDetails: data }) => {
+
+    await context.evaluate(async () => {
+      async function infiniteScroll () {
+        let prevScroll = document.documentElement.scrollTop;
+        while (true) {
+          window.scrollBy(0, document.documentElement.clientHeight);
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          const currentScroll = document.documentElement.scrollTop;
+          if (currentScroll === prevScroll) {
+            break;
+          }
+          prevScroll = currentScroll;
+        }
+      }
+      await infiniteScroll();
+    });
+
     await context.evaluate(async function () {
       const addHiddenDiv = (id, content, container) => {
         const newDiv = document.createElement('div');

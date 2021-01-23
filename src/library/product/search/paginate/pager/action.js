@@ -27,10 +27,34 @@ async function implementation (
   if (spinnerSelector) {
     // this may replace the section with a loader
     await context.click(nextLinkSelector);
+    //await context.setDefaultTimeout(60000);
+    let spinnerIsPresent = true;
+    try {
+      let maxTime = 180000;
+      let thisTime = 0;
+      while(spinnerIsPresent && thisTime < maxTime) {
+        await new Promise(resolve => setTimeout(resolve, 5000));
+        thisTime += 5000;
+        spinnerIsPresent = await context.evaluate(async (spinnerSelector) => {
+          let elm = document.querySelector(spinnerSelector);
+          if(elm) {
+            console.log('spinner selector is still present', spinnerSelector);
+            return true;
+          }
+          return false;
+        },
+        spinnerSelector);
+      }
+      if(spinnerIsPresent) {
+        console.log('we have waited till ' + thisTime + ' ms');
+      }
+    } catch(err) {
+      console.log('we have some error', err.message);
+    }
     await context.waitForFunction((selector) => {
       console.log(selector, document.querySelector(selector));
       return !document.querySelector(selector);
-    }, { timeout: 20000 }, spinnerSelector);
+    }, { timeout: 30000 }, spinnerSelector);
     console.log('Spinner went away', spinnerSelector);
     return true;
   }
