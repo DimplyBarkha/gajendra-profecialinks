@@ -3,8 +3,8 @@
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
  */
-const transform = (data) => {
-  const cleanUp = (data, context) => {
+const transform = (data, context) => {
+  const cleanUp = (data) => {
     const clean = text => text.toString()
       .replace(/\r\n|\r|\n/g, ' ')
       .replace(/&amp;nbsp;/g, ' ')
@@ -22,12 +22,13 @@ const transform = (data) => {
     }))));
     return data;
   };
+  const state = context.getState();
+  let rank = state.rank || 1;
   for (const { group } of data) {
-    let rank = 1;
     for (const row of group) {
       if (row.id) {
         row.id.forEach(item => {
-          var myRegexp = /\/A_(.+?)-/g;
+          var myRegexp = /addToWishList\(\'(.+?)\'\);/;
           var match = myRegexp.exec(item.text);
           if (match) {
             if (match.length) {
@@ -48,6 +49,7 @@ const transform = (data) => {
       rank++;
     }
   }
+  context.setState({ rank });
   return cleanUp(data);
 };
 

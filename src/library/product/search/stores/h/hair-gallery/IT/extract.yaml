@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: id
     SingleValue: false
-    xpath: //div[@class="image"]//img/@src
+    xpath: //a[contains(@onclick,"addToWishList")]/@onclick
   - name: productUrl
     SingleValue: false
     xpath: //div[@class="image"]/a/@href
