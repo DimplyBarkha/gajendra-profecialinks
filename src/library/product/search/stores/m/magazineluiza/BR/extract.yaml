@@ -5,8 +5,9 @@ recordXPath: null
 fields:
   - name: id
     SingleValue: false
-    xpath: //a[@itemprop='url']/@href
-    regExp: .\/p\/(.+?)\/
+    xpath: //a[@itemprop='url']/@data-product
+    #"basketId":"220975600"
+    regExp: \"basketId\":\"(.+?)\"
     regExpReplace: $1
   - name: productUrl
     SingleValue: false
