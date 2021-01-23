@@ -9,7 +9,7 @@ fields:
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class='slick-slider product-image-list-slider product-image-list-slider--product-details-page slick-initialized']//div[@class='slick-slide']//img/@src
+    xpath: //div[@class='slick-slider product-image-list-slider product-image-list-slider--product-details-page slick-initialized']//div[@class='slick-slide']//img/@src|//div[contains(@class, 'slick-slider product-image-list-slider')]//div[@class='slick-track']/div[not(contains(@class, 'cloned'))][position()>1]//img/@src
   - name: metaKeywords
     description: The <meta> keywords content
   - name: category
@@ -146,7 +146,7 @@ fields:
   - name: otherSellersShipping
     description: null
   - name: secondaryImageTotal
-    xpath: count(//div[@class="slick-slider slick-initialized"]//div[@class='slick-slide']//img/@src|//div[@class='slick-slider product-image-list-slider product-image-list-slider--product-details-page slick-initialized']//div[@class='slick-slide']//img/@src)
+    xpath: count(//div[@class='slick-slider product-image-list-slider product-image-list-slider--product-details-page slick-initialized']//div[@class='slick-slide']//img/@src|//div[contains(@class, 'slick-slider product-image-list-slider')]//div[@class='slick-track']/div[not(contains(@class, 'cloned'))][position()>1]//img/@src)
   - name: news
     description: null
   - name: addonItem
@@ -166,80 +166,80 @@ fields:
   - name: numberOfServingsInPackage
     description: Suggested number of servings of the product.
   - name: caloriesPerServing
-    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--calories']/span/span[2]
+    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--calories']/span[2]
   - name: caloriesFromFatPerServing
     description: Nutritional Information for Calories From Fat content - Usually
       based on per 100g serving
   - name: totalFatPerServing
-    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--totalfat']/span/span[2]
+    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--totalfat']/span[2]/span[contains(@class, 'value-gram')]
     regExp: ((\d+)\.?(\d+)?)\s(\w+)
     regExpReplace: $1
   - name: totalFatPerServingUom
-    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--totalfat']/span/span[2]
+    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--totalfat']/span[2]/span[contains(@class, 'value-gram')]
     regExp: ((\d+)\.?(\d+)?)\s(\w+)
     regExpReplace: $4
   - name: saturatedFatPerServing
-    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--saturatedfat']/span/span[2]
+    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--saturatedfat']/span[2]/span[contains(@class, 'value-gram')]
     regExp: ((\d+)\.?(\d+)?)\s(\w+)
     regExpReplace: $1
   - name: saturatedFatPerServingUom
-    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--saturatedfat']/span/span[2]
+    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--saturatedfat']/span[2]/span[contains(@class, 'value-gram')]
     regExp: ((\d+)\.?(\d+)?)\s(\w+)
     regExpReplace: $4
   - name: transFatPerServing
-    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--transfat']/span/span[2]
+    xpath: //div[contains(@class,'transfat')]/span[2]/span[contains(@class, 'value-gram')]
     regExp: ((\d+)\.?(\d+)?)\s(\w+)
     regExpReplace: $1
   - name: transFatPerServingUom
-    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--transfat']/span/span[2]
+    xpath: //div[contains(@class,'transfat')]/span[2]/span[contains(@class, 'value-gram')]
     regExp: ((\d+)\.?(\d+)?)\s(\w+)
     regExpReplace: $4
   - name: cholesterolPerServing
-    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--cholesterol']/span/span[2]
+    xpath: //div[contains(@class,'cholesterol')]/span[2]/span[contains(@class, 'value-gram')]
     regExp: ((\d+)\.?(\d+)?)\s(\w+)
     regExpReplace: $1
   - name: cholesterolPerServingUom
-    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--cholesterol']/span/span[2]
+    xpath: //div[contains(@class,'cholesterol')]/span[2]/span[contains(@class, 'value-gram')]
     regExp: ((\d+)\.?(\d+)?)\s(\w+)
     regExpReplace: $4
   - name: sodiumPerServing
-    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--sodium']/span/span[2]
+    xpath: //div[contains(@class,'sodium')]/span[2]/span[contains(@class, 'value-gram')]
     regExp: ((\d+)\.?(\d+)?)\s(\w+)
     regExpReplace: $1
   - name: sodiumPerServingUom
-    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--sodium']/span/span[2]
+    xpath: //div[contains(@class,'sodium')]/span[2]/span[contains(@class, 'value-gram')]
     regExp: ((\d+)\.?(\d+)?)\s(\w+)
     regExpReplace: $4
   - name: totalCarbPerServing
-    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--totalcarbohydrate']/span/span[2]
+    xpath: //div[contains(@class,'totalcarbohydrate')]/span[2]/span[contains(@class, 'value-gram')]
     regExp: ((\d+)\.?(\d+)?)\s(\w+)
     regExpReplace: $1
   - name: totalCarbPerServingUom
-    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--totalcarbohydrate']/span/span[2]
+    xpath: //div[contains(@class,'totalcarbohydrate')]/span[2]/span[contains(@class, 'value-gram')]
     regExp: ((\d+)\.?(\d+)?)\s(\w+)
     regExpReplace: $4
   - name: dietaryFibrePerServing
-    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--dietaryfiber']/span/span[2]
+    xpath: //div[contains(@class,'dietaryfiber')]/span[2]/span[contains(@class, 'value-gram')]
     regExp: ((\d+)\.?(\d+)?)\s(\w+)
     regExpReplace: $1
   - name: dietaryFibrePerServingUom
-    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--dietaryfiber']/span/span[2]
+    xpath: //div[contains(@class,'dietaryfiber')]/span[2]/span[contains(@class, 'value-gram')]
     regExp: ((\d+)\.?(\d+)?)\s(\w+)
     regExpReplace: $4
   - name: totalSugarsPerServing
-    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--sugar']/span/span[2]
+    xpath: //div[contains(@class,'sugar')]/span[2]/span[contains(@class, 'value-gram')]
     regExp: ((\d+)\.?(\d+)?)\s(\w+)
     regExpReplace: $1
   - name: totalSugarsPerServingUom
-    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--sugar']/span/span[2]
+    xpath: //div[contains(@class,'sugar')]/span[2]/span[contains(@class, 'value-gram')]
     regExp: ((\d+)\.?(\d+)?)\s(\w+)
     regExpReplace: $4
   - name: proteinPerServing
-    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--protein']/span/span[2]
+    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--protein']/span[contains(text(), 'Protein')]/following::span[1]/span[1]
     regExp: ((\d+)\.?(\d+)?)\s(\w+)
     regExpReplace: $1
   - name: proteinPerServingUom
-    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--protein']/span/span[2]
+    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--protein']/span[contains(text(), 'Protein')]/following::span[1]/span[1]
     regExp: ((\d+)\.?(\d+)?)\s(\w+)
     regExpReplace: $4
   - name: vitaminAPerServing

@@ -3,7 +3,7 @@ module.exports = {
   parameterValues: {
     domain: 'realcanadiansuperstore.ca',
     prefix: null,
-    url: 'https://www.realcanadiansuperstore.ca/p/{id}',
+    // url: 'https://www.realcanadiansuperstore.ca/p/{id}',
     country: 'CA',
     store: 'Realcanadiansuperstore',
     zipcode: '',
