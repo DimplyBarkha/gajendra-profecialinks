@@ -9,25 +9,49 @@ module.exports = {
     store: 'google',
   },
   implementation: async ({ url, zipcode }, parameters, context, dependencies) => {
-    
-    await context.goto(url, { 
+    await context.goto(url, {
       timeout: 15000,
+      checkBlocked: false,
       js_enabled: true,
       css_enabled: false,
       random_move_mouse: true,
-     })
-      // .catch((err) => {
-      //   let captchaTypeText = err.data.captchaType;
-      //   console.log(`Recaptcha hit? ${captchaTypeText}`);
-      //   console.log(`${err.message}`)
-      // });
+    });
+    const recaptchaPresent = await context.evaluate(() => {
+      const recaptchaIframe = document.querySelector('div#recaptcha');
+      return !!recaptchaIframe;
+    });
 
-      let test = await context.evaluate(()=>{
-        return "Test";
-      })
+    const captchaSolver = async () => {
+      await context.solveCaptcha({ type: 'RECAPTCHA', inputElement: 'div#recaptcha' });
+    };
 
-      // doesn't reach this code:
-      console.log(test);
+    const currentUrl = await context.evaluate(()=>{
+      return window.location.href;
+    })
 
+    if (recaptchaPresent) {
+      console.log('Hit recaptcha, attempting to solve..');
+      const maxAttempts = 4;
+      let solved = false;
+      let currentAttempts = 1;
+
+      while (!solved && (currentAttempts < maxAttempts)) {
+        console.log(`on attempt: ${currentAttempts}`);
+        await captchaSolver();
+        await context.waitForNavigation({ timeout: 10000, waitUntil: 'load' });
+        console.log(currentUrl)
+        await new Promise((resolve,reject) => setTimeout(resolve, 3000));
+        if (!recaptchaPresent) {
+          solved = true;
+        }
+        currentAttempts++;
+      }
+
+      await context.checkBlocked()
+        .catch((err) => {
+          throw new Error(`Error:${err.message}, failed after ${currentAttempts} attempts`);
+        });
+      console.log('Solved!');
+    }
   },
 };
