@@ -4,3 +4,6 @@ fields:
   singleValue: true
   description: Shipping information for the product
   xpath:  //*[@id="availability"]/span | //*[@id="buyNewInner"]/div[5]
+- name: ingredientsList
+  #singleValue: true
+  xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Ingredientes')]/p | //td[contains(.,"Ingredientes")]/following-sibling::td//span[@class="a-truncate-full a-offscreen"]
