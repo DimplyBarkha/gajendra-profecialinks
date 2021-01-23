@@ -8,7 +8,7 @@ module.exports = {
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div.picture_grid a.prod_visu img',
+    loadedSelector: 'img.imgRoco',
     loadedXpath: null,
     noResultsXPath: '//div[contains(@class,"DidYouMean")]//b',
     stopConditionSelectorOrXpath: null,

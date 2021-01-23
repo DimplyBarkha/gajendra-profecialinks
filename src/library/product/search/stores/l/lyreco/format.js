@@ -26,7 +26,16 @@ const transform = (data) => {
     var p_count = 1;
 
     for (const { group } of data) {
-        for (let row of group) {          
+        for (let row of group) {   
+            let product_id = [];
+            if(row.id){
+                row.id.forEach(item => {                    
+                    item.text =  item.text.split('/').pop().split('.').shift();
+                    product_id = item.text.split('-');
+                    item.text = product_id[product_id.length-1];
+                });
+            }
+
             if (row.rankOrganic && row.rank) {
                 row.rankOrganic = [{'text':p_count}];
                 row.rank = [{'text':p_count}];

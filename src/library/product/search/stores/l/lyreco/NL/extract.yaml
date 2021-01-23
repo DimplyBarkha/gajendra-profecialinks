@@ -1,20 +1,20 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@id="products_display"]//div[contains(@class,'gridSearch')]//div[contains(@class,'list_products')]//div[contains(@class,'grid__item')]
+recordXPath: //div[contains(@class,'row')]//div[contains(@id, 'product_recommended_home')]
 fields:
   - name: id
     SingleValue: false
-    xpath: //div[contains(@class,'grid__item')]//@data-lineid
+    xpath: //a[contains(@id,'descriptionLinkToProductDetails_home')]//@href
   - name: productUrl
     SingleValue: false
-    xpath: //div[contains(@class,'picture_grid')]//a[contains(@class,'prod_visu')]//@href
+    xpath: //a[contains(@id,'descriptionLinkToProductDetails_home')]//@href
   - name: thumbnail
     SingleValue: false
-    xpath: //div[contains(@class,'picture_grid')]//a[contains(@class,'prod_visu')]//img//@src
+    xpath: //a[1]//img[contains(@id,'image_product_home')]//@src
   - name: name
     SingleValue: false
-    xpath: //p[contains(@class,'prod_desc')]//a[@id='productDetails']
+    xpath: //a[contains(@class,'title')]
   - name: rankOrganic
     SingleValue: false
     defaultValue: 1

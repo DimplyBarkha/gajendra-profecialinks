@@ -6,7 +6,7 @@ module.exports = {
     store: 'lyreco',
     domain: 'lyreco.com',
     url: 'https://www.lyreco.com/webshop/NLNL/welcome?lc={searchTerms}',
-    loadedSelector: 'div.picture_grid a.prod_visu img',
+    loadedSelector: 'img.imgRoco',
     noResultsXPath: '//div[contains(@class,"DidYouMean")]//b',
     zipcode: '',
   },
