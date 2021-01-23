@@ -18,7 +18,8 @@ module.exports = {
     await context.setLoadAllResources(true);
     await context.setLoadImages(true);
     const inputUrl = `${url}#[!opt!]{"discard_CSP_header":true, "block_ads": false}[/!opt!]`;
-    await context.goto(inputUrl, { timeout: timeout, waitUntil: 'load', checkBlocked: false });
+    await context.goto(inputUrl, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: false });
+    // await context.goto(inputUrl, { timeout: timeout, waitUntil: 'load', checkBlocked: false });
     console.log(zipcode);
     if (zipcode) {
       await dependencies.setZipCode({ url: url, zipcode: zipcode });
