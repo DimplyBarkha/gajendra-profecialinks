@@ -8,7 +8,7 @@ module.exports = {
     store: 'amazonPrimeNow',
     transform,
     domain: 'primenow.amazon.de',
-    zipcode: '10115',
+    zipcode: '10115',    
   },
   implementation,
 };

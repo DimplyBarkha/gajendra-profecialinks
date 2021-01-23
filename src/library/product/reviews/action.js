@@ -118,7 +118,7 @@ module.exports = {
   dependencies: {
     execute: 'action:product/reviews/execute',
     extract: 'action:product/reviews/extract',
-    paginate: 'action:product/reviews/paginate',
+    paginate: 'action:navigation/paginate',
   },
   path: './reviews/stores/${store[0:1]}/${store}/${country}/reviews',
   implementation,

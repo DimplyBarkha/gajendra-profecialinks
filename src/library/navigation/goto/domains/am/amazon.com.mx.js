@@ -1,11 +1,9 @@
-
 module.exports = {
-  implements: 'navigation/goto',
+  extends: 'navigation/goto/domains/am/amazon',
   parameterValues: {
     domain: 'amazon.com.mx',
-    timeout: null,
     country: 'MX',
     store: 'amazon',
-    zipcode: '',
+    timeout: 90000,
   },
 };

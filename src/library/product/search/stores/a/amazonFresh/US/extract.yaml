@@ -11,7 +11,7 @@ fields:
     regExpReplace: $1
   - name: searchUrl
     singleValue: true
-    xpath: ancestor::html//div[@id='my-search-url']
+    xpath: ancestor::html//body/@current_page_url
   - name: name
     singleValue: true
     xpath: //h2
