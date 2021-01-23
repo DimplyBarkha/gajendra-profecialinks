@@ -81,6 +81,23 @@ module.exports = {
                 );
             }
         };
+        console.time('scroll');
+        await context.evaluate(async () => {
+            async function infiniteScroll () {
+                let prevScroll = document.documentElement.scrollTop;
+                while (true) {
+                  window.scrollBy(0, document.documentElement.clientHeight);
+                  await new Promise(resolve => setTimeout(resolve, 1000));
+                  const currentScroll = document.documentElement.scrollTop;
+                  if (currentScroll === prevScroll) {
+                    break;
+                  }
+                  prevScroll = currentScroll;
+                }
+              }
+              await infiniteScroll();
+        });
+        console.timeEnd('scroll');
         await context.evaluate(async() => {
             function  getDivWithIdAndData(id, data) {
                 const div = document.createElement('div');
@@ -120,7 +137,52 @@ module.exports = {
         });
 
         await new Promise((resolve, reject) => setTimeout(resolve, 5000));
-        await applyScroll(context);
+        //await applyScroll(context);
+        let videoSel = 'input[value*="video"]';
+        let allVideoArr = await context.evaluate(async (videoSel) => {
+            let allVideoArr = [];
+            let allVideoElm = document.querySelectorAll(videoSel);
+            if(!allVideoElm || (allVideoElm.length === 0)) {
+                return allVideoArr;
+            }
+            for(let i = 0; i < allVideoElm.length; i++) {
+                let valueText = '';
+                if(!allVideoElm[i].hasAttribute('value')) {
+                    continue;
+                }
+                try {
+                    valueText = JSON.parse(allVideoElm[i].value);
+                } catch(err) {
+                    console.log('value cannot be parsed into json!!', err.message);
+                }
+                if(valueText && valueText.hasOwnProperty('playlist') && Array.isArray(valueText.playlist) && (valueText.playlist.length > 0) && valueText.playlist[0].hasOwnProperty('file')) {
+                    for(let i = 0; i < valueText.playlist.length; i++) {
+                        console.log(valueText.playlist[i].file);
+                        allVideoArr.push('https:' + valueText.playlist[i].file);
+                    }
+                }
+            }
+            return allVideoArr;
+        }, videoSel);
+
+        if(allVideoArr && allVideoArr.length > 0) {
+            await context.evaluate(async (allVideoArr) => {
+                async function addElementToDocumentAsync (key, value) {
+                    const catElement = document.createElement('div');
+                    catElement.id = key;
+                    catElement.textContent = value;
+                    let rowElm = document.evaluate('//div[contains(@class,"main")]//div[@class="container pl16"]', document, null, 7, null);
+                    if(rowElm  && rowElm.snapshotLength > 0) {
+                        rowElm = rowElm.snapshotItem(0);
+                        rowElm.appendChild(catElement);
+                    } else {
+                        document.body.appendChild(catElement);
+                    }
+                }
+                console.log(allVideoArr.join(' || '));
+                await addElementToDocumentAsync('videos', allVideoArr.join(' | '));
+            }, allVideoArr);
+        }
         return await context.extract(productDetails, { transform });
     },
 };

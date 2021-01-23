@@ -7,8 +7,9 @@ fields:
     singleValue: false
     xpath: (//div[contains(@class,"slider-native slider-preview js-slider-with-preview-gallery")]//img[contains(@class, "slider-item-image")]/@data-src | //div[contains(@class,"slider-native slider-preview js-slider-with-preview-gallery")]//img[contains(@class, "slider-item-image")]/@src)[1]
   - name: videos
-    singleValue: false
-    xpath: //div[@id="cont_description"]//iframe/@src
+    # singleValue: false
+    xpath: //div[@id="cont_description"]//iframe/@src | //div[@id="videos"]
+    # | //ancestor::html//div[@id="videos")] 
   - name: alternateImages
     singleValue: false
     xpath: //div[contains(@class,"slider-native slider-preview js-slider-with-preview-gallery")]//img[contains(@class, "slider-item-image")]/@data-src
