@@ -7,7 +7,7 @@ module.exports = {
     domain: 'interdiscount.ch',
     url: 'https://www.interdiscount.ch/fr/search?search={searchTerms}',
     loadedSelector: 'section .ulvVbt > div:nth-last-child(2) img',
-    noResultsXPath: '//h1[contains(text(),"Ihre Suche nach")]',
+    noResultsXPath: '//h1[contains(text(),"Votre recherche de")]',
     zipcode: '',
   },
 };
