@@ -52,7 +52,7 @@ fields:
     xpath: //script[@type='application/ld+json']/text()
   - name: aggregateRating
     singleValue: false
-    xpath: //div[@class='ratings pull-left flip']//p[@class='rating-links pull-left flip']//a/text()
+    xpath: //div[contains(@class,'text-center pull-right flip Verdict_total')]/child::p/text()
     regExp: (.*)\/.+
     regExpReplace: $1  
   - name: shippingDimensions
