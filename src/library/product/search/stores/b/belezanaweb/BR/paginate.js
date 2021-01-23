@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'BR',
     store: 'belezanaweb',
-    // nextLinkSelector: "div[class='showcase-gondola'] button",
+    //nextLinkSelector: 'button.btn-load-more',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div.showcase-gondola div.showcase-item',

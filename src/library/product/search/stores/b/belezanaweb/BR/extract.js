@@ -32,7 +32,7 @@ module.exports = {
       console.log('moreButton:: ', moreButton.singleNodeValue);
       if (moreButton && moreButton.singleNodeValue != null) {
         let index = 0;
-        while (index < 6) {
+        while (index < 10) {
           await new Promise((resolve, reject) => setTimeout(resolve, 1000));
           try {
             moreButton.singleNodeValue.click();
