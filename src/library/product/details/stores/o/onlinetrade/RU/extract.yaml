@@ -115,9 +115,10 @@ fields:
     singleValue: false
   - name: manufacturerDescription
     singleValue: false
-    xpath:
+    xpath: //div[contains(@class, "descriptionText_cover ")]//p
   - name: manufacturerImages
     singleValue: false
+    xpath: //div[contains(@class, "descriptionText_cover ")]//p//img/@src
   - name: videos
     singleValue: false
     xpath: //iframe[contains(@src, "youtube.com")]/@src
