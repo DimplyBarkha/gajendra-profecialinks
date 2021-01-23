@@ -3,8 +3,8 @@
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
  */
-const transform = (data) => {
-  const cleanUp = (data, context) => {
+const transform = (data, context) => {
+  const cleanUp = (data) => {
     const clean = text => text.toString()
       .replace(/\r\n|\r|\n/g, ' ')
       .replace(/&amp;nbsp;/g, ' ')
@@ -22,41 +22,39 @@ const transform = (data) => {
     }))));
     return data;
   };
+  const state = context.getState();
+  let rank = state.rank || 1;
   for (const { group } of data) {
-    let rank = 1;
     for (const row of group) {
       if (row.productUrl) {
         row.productUrl.forEach(item => {
-          if (item.text.indexOf('https') != 0) {
+          if (item.text.indexOf('https') !== 0) {
             item.text = 'https:' + item.text;
           }
         });
       }
       if (row.thumbnail) {
         row.thumbnail.forEach(item => {
-          if (item.text.indexOf('https') != 0) {
+          if (item.text.indexOf('https') !== 0) {
             item.text = 'https:' + item.text;
           }
           item.text = item.text.replace('300x300', '650x650');
         });
       }
       if (row.id) {
-        row.id.forEach(item => {
-          row.id.forEach(item => {
-            var myRegexp = /.+\/(.+).html/g;
-            var match = myRegexp.exec(item.text);
-            if (match) {
-              item.text = match[1].trim();
-            } else {
-              delete row.id;
-            }
-          });
-        });
+        if (row.id1) {
+          var temp = row.id1[0].text + '-' + row.id1[0].text;
+          row.id = [{ text: temp }];
+        }
+      }
+      if (row.id1) {
+        delete row.id1;
       }
       row.rank = row.rankOrganic = [{ text: rank }];
       rank++;
     }
   }
+  context.setState({ rank });
   return cleanUp(data);
 };
 
