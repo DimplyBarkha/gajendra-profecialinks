@@ -40,10 +40,14 @@ const transform = (data, context) => {
         });
       }
       if (row.id) {
+        let info = [];
         row.id.forEach(item => {
-          item.text = item.text.match(/p-(.*)/)[1];
-          item.text =  item.text
+          item.text = item.text.match(/\/p-.*/g,);
+          info.push(item.text);
         });
+        if (info.length) {
+          row.id = [{ "text": info.join().replace('/p-', ''), 'xpath': row.id[0].xpath }];
+        }
       }
       if (row.reviewCount) {
         row.reviewCount.forEach(item => {
@@ -52,9 +56,9 @@ const transform = (data, context) => {
           item.text=parseInt(item.text);
         });
       }
-      if (row.ratingCount) {
-        row.ratingCount.forEach(item => {
-          item.text=parseInt(item.text);
+      if (row.aggregateRating) {
+        row.aggregateRating.forEach(item => {
+          item.text = item.text.replace('.', ',');
         });
       }
       if (row.soldBy) {

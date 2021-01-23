@@ -21,9 +21,10 @@ fields:
   - name: soldBy
     SingleValue: false
     xpath: //a[contains(@class,'card-soldby')]//span
-  - name: ratingCount
+  - name: aggregateRating
     SingleValue: false
-    xpath: //a[@class="card-soldby ng-scope"]//span
+    xpath: //div[contains(@class,'card-bottom ng-scope')]//div[@class="card-reviews"]//span[@bo-text="product.rating"]
+    type: NUMBER
     defaultValue: 0
   - name: reviewCount
     SingleValue: false
