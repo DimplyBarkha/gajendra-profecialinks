@@ -11,7 +11,10 @@ fields:
     xpath: //div[contains(@class,"item_detail")]//h1 | //div[contains(@class,"item_detail")]//table//td[text()="Merk:"]/parent::*/td[not(@class)]
   - name: availabilityText
     singleValue: false
-    defaultValue: 'In Stock'
+    xpath: //section[@class="sections-price"]//button[contains(@class,"order_btn")]/span
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: 'Out Stock'
   - name: description
     singleValue: false
     xpath: //div[@id="product-description" and @role="tabpanel"]/p
