@@ -74,6 +74,74 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.variants) {
+        let text = '';
+        row.variants.forEach(item => {
+          text += `${item.text.replace(/\n \n/g, ':')}|`;
+        });
+        row.variants = [
+          {
+            text: text.slice(0, -1),
+          },
+        ];
+      }
+      if (row.unInterruptedPDP) {
+        const pdps = [];
+
+        row.unInterruptedPDP.forEach(item => {
+          console.log('item:: ', item.text);
+
+          if (pdps.indexOf(item.text) === -1) {
+            pdps.push(item.text);
+          }
+          // console.log("variantUrls:: ", pdps);
+          // if (urls && urls.length === 1) {
+          //   variantUrls.push(item);
+          // } else {
+          //   if (dupUrl !== item.text) {
+          //     dupUrl = item.text;
+          //     variantUrls.push(item);
+          //   }
+          // }
+        });
+        row.unInterruptedPDP = pdps.map((el) => {
+          return {
+            text: el,
+          };
+        });
+      }
+      if (row.variantInformation) {
+        let text = '';
+        row.variantInformation.forEach(item => {
+          text += item.text.replace(':', ' ').trim();
+        });
+        row.variantInformation = [
+          {
+            text: text,
+          },
+        ];
+      }
+      if ((!row.variantId || !row.variantId.length) && row.variantId1) {
+        console.log('variantId1',row.variantId1);
+        row.variantId = row.variantId1;
+        console.log("variantId", row.variantId);
+      }
+      if ((!row.variantUrl || !row.variantUrl.length) && row.variantUrl1) {
+        console.log('variantUrl1',row.variantUrl1);
+        row.variantUrl = row.variantUrl1;
+        console.log("variantUrl", row.variantUrl);
+      }
+      if (row.variantId) {
+        let text = '';
+        row.variantId.forEach(item => {
+          text += item.text.replace('Réf.', ' ').trim();
+        });
+        row.variantId = [
+          {
+            text: text,
+          },
+        ];
+      }
     }
   }
   return data;

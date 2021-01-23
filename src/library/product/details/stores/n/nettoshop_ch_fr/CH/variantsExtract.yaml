@@ -1,0 +1,24 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    singleValue: false
+    description: variant id, to uniquely identify variant
+    xpath: //ul[@class="c-product-detail__color-variants-list"]/li/a/@href | //span[@class="c-product-detail-infos__code"]/text()
+    regExp: \b(\w+)\W*$
+  # - name: variantId
+  #   singleValue: false
+  #   description: variant id, to uniquely identify variant
+  #   xpath: //span[@class="c-product-detail-infos__code"]/text()
+  - name: variantUrl
+    singleValue: false
+    description: variant Url
+    xpath: //ul[@class="c-product-detail__color-variants-list"]/li/a/@href | (//a[@class="c-language-selector__lang-link"])[1]/@href
+    regExp: (.+)
+    regExpReplace: https://www.nettoshop.ch$1
+  # - name: variantUrl 
+  #   singleValue: false
+  #   description: variant Url
+  #   xpath: //meta[@property="og:url"]/@content
