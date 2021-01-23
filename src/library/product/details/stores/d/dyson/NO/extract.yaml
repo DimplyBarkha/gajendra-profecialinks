@@ -13,4 +13,6 @@ fields:
     singleValue: false
     description: Other product images (not in manufacturer description)
     xpath: (//div[contains(@class,"product-hero")]//div[contains(@class,"product-gallery--image") and not(contains(@class,"slick-cloned"))]//img/@data-src)
+  - name: secondaryImageTotal
+    xpath: count(//div[contains(@class,"product-hero")]//div[contains(@class,"product-gallery--image") and not(contains(@class,"slick-cloned"))]//img/@data-src)
    
