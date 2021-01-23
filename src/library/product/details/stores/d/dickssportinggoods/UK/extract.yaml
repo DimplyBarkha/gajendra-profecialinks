@@ -17,7 +17,8 @@ fields:
     singleValue: false
     description: Other product images (not in manufacturer description)
     #xpath: //div[@class='image-viewer-swatch-wrapper dcsg-card']//picture/source/@srcset
-    xpath: //div[contains(@class,'image-viewer-swatch-wrapper')]//img/@src
+    # xpath: //div[contains(@class,'image-viewer-swatch-wrapper')]//img/@src
+    xpath: //div[@id="shownImages"]
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -25,10 +26,12 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
+    xpath: //nav[contains(@class,'product-breadcrumbs')]//ul//li//a//span
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //div[contains(@class,'product-title')]//h1[contains(@class,'title')]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -144,7 +147,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
-    xpath: //div[contains(@class,'col-12 title product-title')]//h1
+    xpath: //div[contains(@class,'product-title')]//h1[contains(@class,'title')]
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -223,8 +226,7 @@ fields:
   - name: featureBullets
     singleValue: false
     description: null
-   # xpath: //div[contains(@class,'product-component')]//ul[1]
-    xpath: //div[contains(@class,'product-component')]//h3[contains(.,'Product Feature')]//following-sibling::ul[1]/li
+    xpath:
   - name: otherSellersName
     singleValue: false
     description: null
