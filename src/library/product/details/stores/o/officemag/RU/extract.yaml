@@ -14,7 +14,7 @@ fields:
     xpath: //ul[contains(@class,'js-photosList')]/li//img/@src
   - name: availabilityText
     singleValue: false
-    xpath: //div[@class='order__wrapper']//a[contains(@class,'js-addToBasket') and text()='В корзину']
+    xpath: //div[@class='order__wrapper']//a[contains(@class,'js-addToBasket') and text()='В корзину'] | //div[@class='order__wrapper']//div[@class='basket']// div[@class='basket__interaction']//a
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -64,7 +64,7 @@ fields:
     singleValue: false
     xpath: //ul[@class='infoFeatures']/li
   - name: variantCount
-    singleValue: false    
+    singleValue: false
     defaultValue: '0'
   - name: termsAndConditions
     singleValue: true
