@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div._3oe9VX',
-    //noResultsXPath: '//h1[@class="uIyEJC _35UgO3 _1EbEh9"]',
+    noResultsXPath: '//h1[@class="uIyEJC _35UgO3 _1EbEh9"][contains(.,"n’a donné aucun résultat.")]',
     openSearchDefinition: {
       template: '//www.interdiscount.ch/fr/search?search={searchTerms}&page={page}',
     },

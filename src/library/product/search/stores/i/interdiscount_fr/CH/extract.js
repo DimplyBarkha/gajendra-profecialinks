@@ -6,6 +6,7 @@ async function implementation (
   context,
   dependencies,
 ) {
+  /*
   await context.evaluate(async function () {
     let scrollSelector = document.querySelector('section > div:last-child li:last-child>a');
     // @ts-ignore
@@ -17,14 +18,14 @@ async function implementation (
       scrollSelector = document.querySelector('section > div:last-child li:last-child>a');
       // @ts-ignore
       scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
-      await new Promise(resolve => setTimeout(resolve, 3500));
+      await new Promise(resolve => setTimeout(resolve, 500));
     }
   });
   try {
     await context.waitForSelector('section > div:last-child li:last-child>a');
   } catch (error) {
     console.log('img content not loaded');
-  }
+  }*/
   await context.evaluate(async function () {
     // @ts-ignore
     const productInfo = window.__INITIAL_STATE__.products;
@@ -43,6 +44,8 @@ async function implementation (
           const href = doc.querySelector('a.Q_opE0').getAttribute('href');
           if (href) {
             document.querySelector(`a[href='${href}']`).appendChild(prodEle);
+          }else{
+            console.log("########################## href not found to add rating")
           }
         }
       }
@@ -52,7 +55,9 @@ async function implementation (
       for (var i = 0; i < info.length; i++) {
         var code = info[i];
         var item = productInfo[code].code;
+        console.log("item:::: ", item)
         var aggregateRating = productInfo[code].averageRating;
+        console.log("aggregateRating:::: ", aggregateRating)
         if (item && aggregateRating > 0) {
           addEleToDoc('rating', `${aggregateRating}`, `${item}`);
         }
@@ -72,5 +77,5 @@ module.exports = {
     domain: 'interdiscount.ch',
     zipcode: '',
   },
-  //implementation,
+  implementation,
 };

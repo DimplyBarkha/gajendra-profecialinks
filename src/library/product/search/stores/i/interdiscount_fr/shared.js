@@ -22,9 +22,9 @@ const transform = (data, context) => {
     const productCodes = state.productCodes || [];
     for (const { group } of data) {
       for (const row of group) {
-        if (row.aggregateRating2) {
-          row.aggregateRating2 = [{ text: row.aggregateRating2[0].text }];
-        }
+        // if (row.aggregateRating2) {
+        //   row.aggregateRating2 = [{ text: row.aggregateRating2[0].text }];
+        // }
         if (row.thumbnail) {
           row.thumbnail = [{ text: row.thumbnail[0].text }];
         }
