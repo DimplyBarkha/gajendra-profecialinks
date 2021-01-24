@@ -38,7 +38,9 @@ fields:
     # defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[contains(@class,"product-description")]/text()
+    xpath: //script[contains(@type,"application/ld+json") and contains(text(), "sku")]
+    regExp: description\W+([^"]+)
+    regExpReplace: $1
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
@@ -77,6 +79,11 @@ fields:
     xpath: //link[@rel="canonical"]/@href
     regExp: producto\W(.+)
     regExpReplace: $1
+  - name: variantId1
+    singleValue: false 
+    xpath: //script[contains(@type,"application/ld+json") and contains(text(), "sku")]
+    regExp: sku"\W\W"([^"]+)
+    regExpReplace: 33367_$1  
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
