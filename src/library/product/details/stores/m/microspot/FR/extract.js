@@ -26,7 +26,6 @@ module.exports = {
     }
     try {
       await context.click('._2EBsf2');
-      await context.click('._3BsNnh');
     } catch (error) {
       console.log('details missing');
     }
