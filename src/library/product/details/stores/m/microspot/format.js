@@ -26,7 +26,7 @@ const transform = (data) => {
       if (row.specifications && row.spec1) {
         let text = '';
         for (let i = 0; i < row.specifications.length; i++) {
-          text += row.specifications[i].text + ' : ' + row.spec1[i].text + ' | ';
+          text += row.specifications[i].text + ' : ' + row.spec1[i].text + ' || ';
         }
         row.specifications = [
           {

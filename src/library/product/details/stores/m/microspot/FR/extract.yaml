@@ -19,7 +19,7 @@ fields:
     xpath: (//img[@property="image"]/@alt)[1]
   - name: alternateImages
     singleValue: false
-    xpath: //div[@id="pd_alternateImages"]
+    xpath: (//div[contains(@class, "demoup-container")]//div[contains(@class,"swiper-container")])[1]//img/@src
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content
@@ -69,7 +69,7 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //p[contains(@class,"_37dCdy")]
-    regExp: (.+) von (.)
+    regExp: (.+) de (.)
     regExpReplace: $1
   - name: specifications
     singleValue: false
@@ -88,7 +88,7 @@ fields:
     singleValue: false
   - name: secondaryImageTotal
     singleValue: false
-    xpath: count((//img[contains(@class,"swiper-lazy")]/@src)[position()>1] | //img[contains(@class,"swiper-lazy")]/@data-src)
+    xpath: count((//div[contains(@class, "demoup-container")]//div[contains(@class,"swiper-container")])[1]//img/@src)
   - name: warnings
     singleValue: false
   - name: url
@@ -120,7 +120,7 @@ fields:
     xpath: //div[@id="pd_variants"]
   - name: color
     singleValue: false
-    xpath: (//div[contains(@class,"_1k-W7f") and .//h3[contains(text(),"Allgemein")]])[1]//tr/th[contains(text(),"Farbe")]/following-sibling::td
+    xpath: (//div[contains(@class,"_1k-W7f") and .//h3[contains(text(),"Allgemein")]])[1]//tr/th[contains(text(),"Farbe")]/following-sibling::td | (//table[@class="dJHzOF"])[1]//th[contains(text(),'Coloris')]/following-sibling::td[1]
   - name: Image360Present
     singleValue: false
     defaultValue: No
