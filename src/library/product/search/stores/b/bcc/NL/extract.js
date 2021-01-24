@@ -20,7 +20,7 @@ module.exports = {
       const product = document.querySelectorAll('div.lister-product');
       for (let i = 0; i < product.length; i++) {
         const rank = (page * pi) - (pi - 1) + i;
-        product[i].querySelector('h3.h2').setAttribute('rank');
+        product[i].querySelector('h3.h2').setAttribute('rank', rank);
         const rating = product[i].querySelector('div.rating');
         if (rating) {
           const rValue = rating.style.width.match(/[0-9]+/g) / 20;
