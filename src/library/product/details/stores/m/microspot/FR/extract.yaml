@@ -153,3 +153,9 @@ fields:
   - name: unInterruptedPDP
     singleValue: false
     xpath: //h3[@class="_3L3q2V _3ZjYJW _2zLas_"]/div
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    xpath: //*[contains(@class, '_18EXg6')]
+    regExp: (.+)
+    regExpReplace: "Yes"
+    defaultValue: "No"
