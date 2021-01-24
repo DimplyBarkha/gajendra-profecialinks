@@ -1,12 +1,13 @@
 
 module.exports = {
-  implements: 'navigation/paginate',
+  implements: 'product/search/paginate',
   parameterValues: {
     template: null,
     country: 'FR',
     store: 'canadiantire',
+    // nextLinkSelector: null,
+    // nextLinkXpath: '//div[@class="search-results-grid__load-more-results"]/a',
     nextLinkSelector: null,
-    nextLinkXpath: '//div[@class="search-results-grid__load-more-results"]/a',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[class="search-results-grid__content"]',

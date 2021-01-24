@@ -45,9 +45,10 @@ const transform = (data) => {
                     item.text = "https:" + item.text;
                 });
             }
-            if (row.aggregateRating) {
-                row.aggregateRating.forEach(item => {                    
+            if (row.aggregateRating2) {
+                row.aggregateRating2.forEach(item => {                    
                     item.text = item.text.substring(0, item.text.indexOf('étoile')-1);
+                    item.text = item.text.replace('.', ',').trim();
                 });
             }
         }
