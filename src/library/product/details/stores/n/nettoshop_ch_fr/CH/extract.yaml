@@ -39,10 +39,10 @@ fields:
     xpath: count(//div[@class="c-product-detail__gallery"]/div[@id="addAlternateImages"])
   - name: description
     singleValue: false
-    xpath: //html//div[@id='description']
+    xpath: //div[@class="c-tabs__text"]//text()
   - name: description1
     singleValue: false
-    xpath: //div[@class="c-tabs__text"]//text()
+    xpath: //html//div[@id='description'] 
   - name: brandText
     singleValue: false
     xpath: //html//div[@id='brand']
@@ -58,9 +58,9 @@ fields:
   - name: variantId
     singleValue: false
     xpath: //html//div[@id='SKU']
-  - name: manufacturerImages
-    singleValue: false
-    xpath: //html//div[@id='manufcaturer_Images']
+  # - name: manufacturerImages
+  #   singleValue: false
+  #   xpath: //html//div[@id='manufcaturer_Images']
   - name: sku
     singleValue: false
     xpath: //html//div[@id='SKU']

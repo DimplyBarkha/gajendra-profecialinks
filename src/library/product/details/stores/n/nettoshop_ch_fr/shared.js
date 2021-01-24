@@ -46,10 +46,13 @@ const transform = (data) => {
           },
         ];
       }
-      if (row.manufacturerImages && row.manufacturerImages[0] && row.manufacturerImages[0].text.length > 1) {
-        if (!row.manufacturerImages[0].text.includes('http')) {
-          row.manufacturerImages[0].text = 'https:' + row.manufacturerImages[0].text;
-        }
+      if (row.manufacturerImages) {
+        let manufacturerImages = [];
+        row.manufacturerImages.forEach(item => {
+          if (item.text.indexOf('https:') === -1) {
+            item.text = `https:${item.text}`;
+          }
+        });
       }
       if ((!row.description || !row.description.length) && row.description1) {
         console.log('description1',row.description1);
