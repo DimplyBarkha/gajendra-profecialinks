@@ -23,6 +23,9 @@ async function implementation (
     loadedSelector,
     spinnerSelector,
   } = inputs;
+  const {noResultsXPath} = inputs;
+
+  console.log('noResultsXPath', noResultsXPath);
 
   if (spinnerSelector) {
     // this may replace the section with a loader
@@ -48,8 +51,28 @@ async function implementation (
   if (nextLinkSelector) {
     console.log('Clicking', nextLinkSelector);
     await context.clickAndWaitForNavigation(nextLinkSelector, {}, { timeout: 20000 });
+    if(noResultsXPath) {
+      try {
+        await context.waitForXPath(noResultsXPath);
+        console.log('found a xpath showing that the page has no results');
+      } catch(err) {
+        console.log('got into some error while waiting for noresults xpaths', err.message);
+      }
+      let pageHasResults = await context.evaluate(async (noResultsXPath) => {
+        console.log('checking for no results -- ' + noResultsXPath);
+        let elm =  document.evaluate(noResultsXPath, document, null, 7, null);
+        if(elm && elm.snapshotLength > 0 && elm.snapshotItem(0)) {
+          return false;
+        }
+        return true;
+      }, noResultsXPath);
+      console.log('pageHasResults', pageHasResults);
+      if(!pageHasResults) {
+        return pageHasResults;
+      }
+    }
     if (loadedSelector) {
-      await context.waitForSelector(loadedSelector, { timeout: 20000 });
+      await context.waitForSelector(loadedSelector, { timeout: 30000 });
     }
     return true;
   }

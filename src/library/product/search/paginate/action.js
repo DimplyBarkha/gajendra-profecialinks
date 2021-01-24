@@ -33,7 +33,7 @@ async function implementation (
   }
 
   const { pager } = dependencies;
-  const success = await pager({ keywords, nextLinkSelector, loadedSelector, mutationSelector, spinnerSelector });
+  const success = await pager({ keywords, nextLinkSelector, loadedSelector, mutationSelector, spinnerSelector, noResultsXPath });
   if (success) {
     return true;
   }
