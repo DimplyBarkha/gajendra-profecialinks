@@ -18,6 +18,18 @@ module.exports = {
   ) {
     const { productDetails } = dependencies;
     const { transform } = parameters;
+    await context.evaluate(async function () {
+      let count = document.querySelectorAll('div.product-grid div.product').length;
+      while (count < 150) {
+        if (document.querySelector('.show-more-wrapper>button')) {
+          document.querySelector('.show-more-wrapper>button').click();
+          await new Promise(resolve => setTimeout(resolve, 3000));
+          count = document.querySelectorAll('div.product-grid div.product').length;
+        } else {
+          break;
+        }
+      }
+    });
 
     await context.evaluate(() => {
       const linkElement = document.querySelectorAll('div[class="img"]>img');
@@ -45,18 +57,6 @@ module.exports = {
       const appendDiv = document.querySelectorAll('div.product-grid div.product');
       for (let i = 0; i < appendDiv.length; i++) {
         appendDiv[i].setAttribute('skudetail', id[i]);
-      }
-    });
-    await context.evaluate(async function () {
-      let count = document.querySelectorAll('div.product-grid div.product').length;
-      while (count < 150) {
-        if (document.querySelector('.show-more-wrapper>button')) {
-          document.querySelector('.show-more-wrapper>button').click();
-          await new Promise(resolve => setTimeout(resolve, 3000));
-          count = document.querySelectorAll('div.product-grid div.product').length;
-        } else {
-          break;
-        }
       }
     });
 
