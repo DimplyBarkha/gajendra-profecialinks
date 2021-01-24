@@ -7,7 +7,7 @@ fields:
     singleValue: true
     description: URL of the main product image
     xpath: //div[contains(@class,'image-viewer-hero-container')]//picture/img/@src
-   # xpath: //div[contains(@class,'image-viewer-hero-wrapper d-flex flex-row align-items-center justify-content-center dcsg-card')]//picture//img/@src
+    # xpath: //div[contains(@class,'image-viewer-hero-wrapper d-flex flex-row align-items-center justify-content-center dcsg-card')]//picture//img/@src
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -16,9 +16,9 @@ fields:
   - name: shownImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    #xpath: //div[@class='image-viewer-swatch-wrapper dcsg-card']//picture/source/@srcset
-    # xpath: //div[contains(@class,'image-viewer-swatch-wrapper')]//img/@src
-    xpath: //div[@id="shownImages"]
+    xpath: //div[@id='customImages']
+    regExp: (.*)(?=\?)
+    regExpReplace: $1
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -39,7 +39,7 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //span[contains(@class,'product-price ng-star-inserted')]
+    xpath: //div[@class='product-price-summary']
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -80,8 +80,9 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //div[contains(@class,'description-text')]//li[contains(.,'SKU')]
-   # xpath: //ul[contains(@class,'list-unstyled product-numbers')]//li[2]//span
+    # xpath: //div[contains(@class,'description-text')]//li[contains(.,'SKU')]
+    # xpath: //ul[contains(@class,'list-unstyled product-numbers')]//li[2]//span
+    xpath: //span[@itemprop='productID']
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
@@ -226,7 +227,7 @@ fields:
   - name: featureBullets
     singleValue: false
     description: null
-    xpath:
+    xpath: //div[@class='product-component']//ul/li
   - name: otherSellersName
     singleValue: false
     description: null
@@ -514,7 +515,6 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    defaultValue: Yes
   - name: highQualityImages
     singleValue: false
-    xpath: //div[@class='image-viewer-swatch-wrapper dcsg-card']//picture/source/@srcset

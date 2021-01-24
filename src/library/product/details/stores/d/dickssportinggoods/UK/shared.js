@@ -7,7 +7,6 @@
 const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
-
       // if (row.aggregateRating) {
       //   let text = '';
       //   row.aggregateRating.forEach(item => {
@@ -51,32 +50,37 @@ const transform = (data) => {
 
       if (row.availabilityText) {
         row.availabilityText.forEach(item => {
-          if (item.text == "true") {
-            item.text = "In Stock";
+          if (item.text === 'true') {
+            item.text = 'In Stock';
+          } else {
+            item.text = 'Out Of Stock';
           }
-          else {
-            item.text = "Out Of Stock";
-          }
-
-        })
+        });
       }
       if (row.sku) {
-        console.log('row.sku',row.sku);
+        console.log('row.sku', row.sku);
         row.sku.forEach(item => {
-          console.log('item.text',item.text);
+          console.log('item.text', item.text);
           item.text = item.text.replace('SKU:', '');
-          console.log('item.text1',item.text);
-        })
+          console.log('item.text1', item.text);
+        });
       }
       if (row.countryOfOrigin) {
         row.countryOfOrigin.forEach(item => {
           item.text = item.text.replace('Country of Origin :', '');
-        })
+        });
       }
       if (row.brandText) {
         row.brandText.forEach(item => {
-          item.text = item.text.replace('Brand :', '');
-        })
+          item.text = item.text.replace('Brand :', '').trim();
+        });
+      }
+      if (row.price) {
+        row.price.forEach(item => {
+          if (item.text.includes('-')) {
+            item.text = item.text.split('-')[1].trim();
+          }
+        });
       }
       // if (row.descriptionBullets) {
       //   let text = '';
@@ -90,8 +94,6 @@ const transform = (data) => {
       //     },
       //   ];
       // }
-
-
     }
   }
   // Clean up data
