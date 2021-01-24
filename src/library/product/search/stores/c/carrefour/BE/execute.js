@@ -17,12 +17,12 @@ async function implementation (
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
+    }, { timeout: 20000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
   console.log('Checking no results', parameters.noResultsXPath);
 
   try {
-    await context.click('button.cf-oil__btn-optin.cf-js-optin');
+    await context.click('li.pagination-next a[rel="next"] span');
   } catch (e) {
     console.log(e);
   }
@@ -47,5 +47,5 @@ module.exports = {
     noResultsXPath: '//div[@class="slp-container" and contains(.,"Aucun résultat ne correspond à votre recherche. Veuillez faire une nouvelle recherche")]',
     zipcode: "''",
   },
-  implementation,
+  // implementation,
 };

@@ -11,7 +11,7 @@ async function implementation (
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
+    }, { timeout: 20000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
   console.log('Checking no results', parameters.noResultsXPath);
 
@@ -19,40 +19,6 @@ async function implementation (
     await context.setInputValue('input#search', inputs.keywords);
   } catch (e) {
     console.log(e);
-  }
-
-  const applyScroll = async function (context) {
-    await context.evaluate(async function () {
-      let scrollTop = 0;
-      while (scrollTop !== 3000) {
-        await stall(500);
-        scrollTop += 1000;
-        window.scroll(0, scrollTop);
-        if (scrollTop === 3000) {
-          await stall(5000);
-          break;
-        }
-      }
-      function stall (ms) {
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            resolve();
-          }, ms);
-        });
-      }
-    });
-  };
-  for (let i = 0; i < 20; i++) {
-    try {
-      await applyScroll(context);
-    } catch (e) {
-      console.log(e);
-    }
-    try {
-      await context.click('a.ver-mas-productos');
-    } catch (e) {
-      console.log(e);
-    }
   }
 
   return await context.evaluate(function (xp) {
