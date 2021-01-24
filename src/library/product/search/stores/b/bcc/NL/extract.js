@@ -23,7 +23,7 @@ module.exports = {
         product[i].querySelector('h3.h2').setAttribute('rank', Math.round(rank));
         const rating = product[i].querySelector('div.rating');
         if (rating) {
-          const rValue = rating.style.width.match(/[0-9]+/g) / 20;
+          const rValue = rating / 20;
           rating.setAttribute('rvalue', rValue);
         }
       }
