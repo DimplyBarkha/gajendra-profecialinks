@@ -1,4 +1,4 @@
-const { transform } = require('../../../../shared');
+const { transform } = require('./shared');
 
 module.exports = {
   implements: 'product/search/extract',
@@ -26,12 +26,6 @@ module.exports = {
           const rValue = rating.style.width.match(/[0-9]+/g) / 20;
           rating.setAttribute('rvalue', rValue);
         }
-        if(fieldName.aggregateRating2) {
-          let aggregateRatingValue = fieldName.aggregateRating2[0].text;
-          let fixedNumber = Number(aggregateRatingValue).toFixed(1).toString().replace(/\./, ',');
-          fieldName.aggregateRating2[0].text = `${fixedNumber}`;
-        }
-
       }
     });
     return await context.extract(productDetails, { transform });
