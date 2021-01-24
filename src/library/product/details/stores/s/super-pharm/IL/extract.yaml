@@ -20,13 +20,20 @@ fields:
     xpath: //h1/span[@class="product-name"] | //span[@class="product-title"]
   - name: listPrice
     singleValue: false
-    xpath: false
+    xpath: //span[@class="price-container"]//div[contains(@class,"old-price")]
+    regExp: (.+)
+    regExpReplace: ₪ $1
   - name: price
     singleValue: false
     xpath: //span[@class="price-container"]//div[contains(@class,"shekels")]
+    regExp: (.+)
+    regExpReplace: ₪ $1
   - name: availabilityText
     singleValue: false
-    defaultValue: In Stock
+    xpath: //div[@class="bottom-details"]/div[contains(@class,"add-to-basket")]/div[contains(@class,"inStock")]/button/span[@class="inStock-text"]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out Stock
   - name: description
     singleValue: false
     xpath: //div[@id="product-info"]//div[@class="content-side"]/h5[text()="תיאור המוצר"]/following-sibling::p[1]
@@ -38,10 +45,10 @@ fields:
     xpath: //div[@class="quantity-of-product"]
   - name: sku
     singleValue: false
-    xpath: //div[@class="bottom-details"]/div[contains(@class,"add-to-basket")]//button[contains(@class,"favorite-button")]/@data-favorite-id
+    xpath: //div[@class="bottom-details"]/div[contains(@class,"add-to-basket")]/@data-id
   - name: variantId
     singleValue: false
-    xpath: //div[@class="bottom-details"]/div[contains(@class,"add-to-basket")]/@data-id
+    xpath: //div[@class="bottom-details"]/div[contains(@class,"add-to-basket")]//button[contains(@class,"favorite-button")]/@data-favorite-id
   - name: mpc
     singleValue: false
     xpath: //div[@class="bottom-details"]/div[contains(@class,"add-to-basket")]//button[contains(@class,"favorite-button")]/@data-favorite-id
