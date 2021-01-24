@@ -95,6 +95,102 @@ module.exports = {
       }
       }
     });
+    const applyScroll = async function (context) {
+      await context.evaluate(async function () {
+        let scrollTop = 0;
+        while (scrollTop !== 20000) {
+          await stall(500);
+          scrollTop += 500;
+          window.scroll(0, scrollTop);
+          console.log('scrolling again -- ');
+          if (scrollTop === 20000) {
+            await stall(2000);
+            break;
+          }
+        }
+        function stall (ms) {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve();
+            }, ms);
+          });
+        }
+      });
+    };
+    await applyScroll(context);
+    await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+    let iframeSrc = await context.evaluate(async () => {
+      let iframeElm = document.querySelector("#eky-dyson-iframe");
+      let iframrUrl = '';
+      if(iframeElm) {
+        console.log('iframe is present!!');
+        if(iframeElm.hasAttribute('src')) {
+          iframrUrl = iframeElm.getAttribute('src');
+        } else {
+          console.log('no src is present');
+        }
+      } else {
+        console.log('iframe is not present');
+      }
+      return iframrUrl;
+    });
+
+    console.log('iframeSrc', iframeSrc);
+
+    let allVideosEnhancedContentArr = [];
+
+    if(iframeSrc) {
+      let thisProdPageUrl = await context.evaluate(async () => {
+        return document.location.href;
+      });
+      console.log('thisProdPageUrl', thisProdPageUrl);
+      let iframeGotoResp = await context.goto(iframeSrc, { first_request_timeout: 60000, timeout: 30000, waitUntil: 'load'});
+      console.log('iframeGotoResp.status', iframeGotoResp.status);
+      let allVideoEcSel = '*[class*="video"][src*="video"]';
+      await new Promise((resolve, reject) => setTimeout(resolve, 4000));
+      let EChasVideos = false;
+      await applyScroll(context);
+      try {
+        await context.waitForSelector(allVideoEcSel);
+        EChasVideos = true;
+      } catch(err) {
+        console.log('got into some error while waiting for videos in iframe', err.message);
+        try {
+          console.log('waiting again!!')
+          await context.waitForSelector(allVideoEcSel);
+          EChasVideos = true;
+        } catch(err) {
+          console.log('got into some error while waiting for videos in iframe, again', err.message);
+        }
+      }
+      console.log('EChasVideos', EChasVideos);
+      if(EChasVideos) {
+        let regex = /(.+)\/((.+)\.(.+))\?(.+)/g;
+        let videoPrefix = iframeSrc.replace(regex, "$1/");
+        console.log('videoPrefix', videoPrefix);
+        console.log('need to get the videos');
+        allVideosEnhancedContentArr = await context.evaluate(async (allVideoEcSel, videoPrefix) => {
+          let allVideoElms = document.querySelectorAll(allVideoEcSel);
+          let allVideoArr = [];
+          for(let i = 0; i < allVideoElms.length; i++) {
+            let thisUrl = videoPrefix + allVideoElms[i].getAttribute('src');
+            console.log(thisUrl);
+            allVideoArr.push(thisUrl);
+          }
+          return allVideoArr;
+        },
+        allVideoEcSel,
+        videoPrefix);
+      }
+
+      let response = await context.goto(thisProdPageUrl, { first_request_timeout: 60000, timeout: 30000, waitUntil: 'load', checkBlocked: true });
+      console.log('going back to the prod page', response.status);
+      
+    }
+    await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+  
+    await applyScroll(context);
+
     async function addIFrameToMainPage() {
       const iframe = document.querySelector("#eky-dyson-iframe");
       if (iframe) {
@@ -112,30 +208,6 @@ module.exports = {
     }
   await context.evaluate(addIFrameToMainPage);
 
-  await new Promise((resolve, reject) => setTimeout(resolve, 5000));
-  const applyScroll = async function (context) {
-    await context.evaluate(async function () {
-      let scrollTop = 0;
-      while (scrollTop !== 20000) {
-        await stall(500);
-        scrollTop += 500;
-        window.scroll(0, scrollTop);
-        console.log('scrolling again -- ');
-        if (scrollTop === 20000) {
-          await stall(2000);
-          break;
-        }
-      }
-      function stall (ms) {
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            resolve();
-          }, ms);
-        });
-      }
-    });
-  };
-  await applyScroll(context);
   await new Promise((resolve, reject) => setTimeout(resolve, 4000));
   console.log('done scrolling');
 
@@ -172,6 +244,21 @@ module.exports = {
     console.log(videoLinks);
   } catch(err) {
     console.log('error while waiting for video - ', err.messsage);
+  }
+
+  if(allVideosEnhancedContentArr && (allVideosEnhancedContentArr.length > 0)) {
+    console.log('outside context.evaluate',allVideosEnhancedContentArr.join(' | '));
+    await context.evaluate(async (allVideoECText) => {
+      async function addElementToDocumentAsync (key, value) {
+        const catElement = document.createElement('div');
+        catElement.id = key;
+        catElement.textContent = value;
+        document.body.appendChild(catElement);
+      }
+      console.log('inside evaluate', allVideoECText);
+      await addElementToDocumentAsync('ecvideos', allVideoECText);
+    }, 
+    allVideosEnhancedContentArr.join(' | '));
   }
   
 
