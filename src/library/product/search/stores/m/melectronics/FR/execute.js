@@ -44,8 +44,8 @@ module.exports = {
     domain: 'melectronics.ch',
     url: 'https://www.melectronics.ch/fr/s?q={searchTerms}',
     loadedSelector: 'div.p-product-listing--item.p-product-listing--item__content.col-md-9.col-sm-12',
-    noResultsXPath: '//h2[contains(text(),"Nous n’avons malheureusement pas trouvé de résultat pour votre recherche. Peut-être pouvez-vous essayer ainsi:")]',
+    noResultsXPath: '//div[@class="cms-no-result-label"]',
     zipcode: "''",
   },
-  implementation,
+  // implementation,
 };
