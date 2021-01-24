@@ -155,7 +155,8 @@ fields:
 - name: nameExtended
   type: TEXT
   description: The product name
-  xpath: //h1[@class="name fn"]//text()
+  # xpath: //h1[@class="name fn"]//text()
+  xpath:  normalize-space(concat(//h1[@class="name fn"]//text(),(//dd[@class="packageSize"]//text())[1],(//dd[@class="packageSize"]//text())[2]))
 - name: name
   singleValue: true
   type: TEXT
