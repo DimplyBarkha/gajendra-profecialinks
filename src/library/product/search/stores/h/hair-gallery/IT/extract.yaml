@@ -6,6 +6,11 @@ fields:
   - name: id
     SingleValue: false
     xpath: //a[contains(@onclick,"addToWishList")]/@onclick
+  - name: id_1
+    SingleValue: false
+    xpath: //div[@class="image"]/a/@href
+    regExp: -([a-zA-Z]{2}\d+)\?
+    regExpReplace: $1
   - name: productUrl
     SingleValue: false
     xpath: //div[@class="image"]/a/@href

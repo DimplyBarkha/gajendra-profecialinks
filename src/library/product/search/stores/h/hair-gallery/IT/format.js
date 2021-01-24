@@ -39,6 +39,10 @@ const transform = (data, context) => {
           }
         });
       }
+      if (row.id_1) {
+        row.id = row.id_1;
+        delete row.id_1;
+      }
       if (!row.price) {
         if (row.price_1) {
           row.price = [{ text: row.price_1[0].text }];
