@@ -56,6 +56,7 @@ module.exports = {
         const imageEls = document.querySelectorAll('img[id*="eky-"]');
         const specification = document.querySelectorAll('div[id="specifications"] p');
         const boxUrl = document.querySelectorAll('img[id*="eky-accessory-"]');
+        const boxText = document.querySelectorAll('div[class*="eky-accesory-title"]');
 
         let text = '';
         Array.from(textContent).forEach(el => {
@@ -85,8 +86,13 @@ module.exports = {
         Array.from(boxUrl).forEach(el => {
           boxUrls.push(el.src);
         });
+
+        const boxTexts = [];
+        Array.from(boxText).forEach(el => {
+          boxTexts.push(el.innerText)
+        })
          
-        return { description: text.trim(), spec: specifications.trim(), videos, images, weight, boxUrls };
+        return { description: text.trim(), spec: specifications.trim(), videos, images, weight, boxUrls, boxTexts };
       });
 
       console.log('Navigating back to product page.');
@@ -97,6 +103,7 @@ module.exports = {
         let video = '';
         let images = '';
         let boxUrls = '';
+        let boxTexts = '';
         content.videos.forEach(t => {
           video += t ? ` | ${t}` : t;
         });
@@ -106,6 +113,9 @@ module.exports = {
         content.boxUrls.forEach(t => {
           boxUrls += t ? ` | ${t}` : t;
         });
+        content.boxTexts.forEach(t => {
+          boxTexts += t ? ` | ${t}` : t;
+        });
 
         console.log('Adding content to body');
         const body = document.querySelector('body');
@@ -113,7 +123,8 @@ module.exports = {
         body.setAttribute('specifi', content.spec || '');
         body.setAttribute('videos', video);
         body.setAttribute('images', images);
-        body.setAttribute('boxUrls', boxUrls);     
+        body.setAttribute('boxUrls', boxUrls); 
+        body.setAttribute('boxtexts', boxTexts);
         body.setAttribute('weightNet', content.weight || '');
       }, enhancedContentInfo);
     }
