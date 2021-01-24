@@ -48,12 +48,12 @@ module.exports = {
       }
     });
     await context.evaluate(async function () {
-      let count = document.querySelectorAll('.tile-wrapper').length;
-      while (count <= 150) {
+      let count = document.querySelectorAll('div.product-grid div.product').length;
+      while (count < 150) {
         if (document.querySelector('.show-more-wrapper>button')) {
           document.querySelector('.show-more-wrapper>button').click();
-          await new Promise(resolve => setTimeout(resolve, 1000));
-          count = document.querySelectorAll('.tile-wrapper').length;
+          await new Promise(resolve => setTimeout(resolve, 3000));
+          count = document.querySelectorAll('div.product-grid div.product').length;
         } else {
           break;
         }
@@ -62,5 +62,4 @@ module.exports = {
 
     return await context.extract(productDetails, { transform });
   },
-
 };

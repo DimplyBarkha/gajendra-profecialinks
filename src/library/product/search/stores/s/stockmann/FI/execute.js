@@ -1,6 +1,5 @@
 
-
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -99,7 +98,7 @@ async function implementation(
   //   });
   // };
 
-  //await applyScroll(context);
+  // await applyScroll(context);
 
   console.log('Checking no results', parameters.noResultsXPath);
   return await context.evaluate(function (xp) {
