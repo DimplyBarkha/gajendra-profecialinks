@@ -87,7 +87,7 @@ fields:
     regExpReplace: $1
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
-    xpath: //td[span[contains(text(),"Hersteller Artikelnummer")]]/following-sibling::td
+    xpath: //td[span[contains(text(),"Hersteller Artikelnummer")]]/following-sibling::td | //*[contains(text(),"Modellname / -kennzeichen:")]//parent::*[contains(@class,"TableCell")]//following-sibling::*[contains(@class,"TableCell")]
     description: The manufacturer model code (unique) of the product
   - name: packSize
     description: The number of packs in the product offer (if stated separately on
