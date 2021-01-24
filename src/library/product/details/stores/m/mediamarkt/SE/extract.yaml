@@ -105,11 +105,11 @@ fields:
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: false
-    xpath: //span[@itemprop="reviewCount"]
+    xpath: //*[@itemprop="reviewCount"]/@content
     description: The number of ratings
   - name: aggregateRating
     singleValue: false
-    xpath: //span[@itemprop="ratingValue"]
+    xpath: //*[@itemprop="ratingValue"]
     description: The stated aggregate rating normalized to be out of 5
   - name: shippingInfo
     singleValue: false
@@ -135,11 +135,11 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
-    xpath: //article[@class="description"]
+    xpath: normalize-space(//article[@class="description"]|//div[contains(@id,"flix-dyson-new-inpage")])
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
-    xpath: //article[@class="description"]//img/@src
+    xpath: //article[@class="description"]//img/@src | //div[contains(@id,"inpage_container")]//div[contains(@class,"flix-background-image")]//img/@srcset
     description: Images within the third party description
   - name: videos
     singleValue: false
