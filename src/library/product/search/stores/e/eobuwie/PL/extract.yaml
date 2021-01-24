@@ -7,11 +7,13 @@ fields:
     SingleValue: false
     xpath: //img[contains(@class,'products-list__image')]/@src
     # small_image/300x300/5/9/5903419208454_1_.jpg
-    regExp: .+\/(.+?)\_
+    regExp: .+\/small_image\/[^\/]+\/\d+\/\d+\/(.+?)_
     regExpReplace: $1
   - name: id1
     SingleValue: false
-    xpath: (//div[@class='products-list__item-sizes']/span)[1]
+    xpath: //li[@class="products-list__item"]/@data-sizes
+    regExp: (.+?);
+    regExpReplace: $1    
   - name: productUrl
     SingleValue: false
     xpath: //a[@class="products-list__link"]/@href

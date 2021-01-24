@@ -43,7 +43,7 @@ const transform = (data, context) => {
       }
       if (row.id) {
         if (row.id1) {
-          var temp = row.id1[0].text + '-' + row.id1[0].text;
+          var temp = row.id[0].text + '-' + row.id1[0].text;
           row.id = [{ text: temp }];
         }
       }
