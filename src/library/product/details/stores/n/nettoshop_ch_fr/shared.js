@@ -46,6 +46,16 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.manufacturerImages && row.manufacturerImages[0] && row.manufacturerImages[0].text.length > 1) {
+        if (!row.manufacturerImages[0].text.includes('http')) {
+          row.manufacturerImages[0].text = 'https:' + row.manufacturerImages[0].text;
+        }
+      }
+      if ((!row.description || !row.description.length) && row.description1) {
+        console.log('description1',row.description1);
+        row.description = row.description1;
+        console.log("description", row.description);
+      }
       if (row.alternateImages) {
         const variantIds = [];
         let dup = '';
@@ -71,6 +81,17 @@ const transform = (data) => {
         row.manufacturerDescription = [
           {
             text: text,
+          },
+        ];
+      }
+      if (row.specifications) {
+        let text = '';
+        row.specifications.forEach(item => {
+          text += `${item.text.replace(/\n \n/g, ':')}||`;
+        });
+        row.specifications = [
+          {
+            text: text.slice(0, -3),
           },
         ];
       }

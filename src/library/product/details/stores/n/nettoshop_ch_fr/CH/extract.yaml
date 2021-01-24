@@ -34,9 +34,15 @@ fields:
     regExp: ^(.+)$
     regExpReplace: https:$1
     xpath: //div[@class="c-product-detail__gallery"]/div[@id="addAlternateImages"]
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[@class="c-product-detail__gallery"]/div[@id="addAlternateImages"])
   - name: description
     singleValue: false
     xpath: //html//div[@id='description']
+  - name: description1
+    singleValue: false
+    xpath: //div[@class="c-tabs__text"]//text()
   - name: brandText
     singleValue: false
     xpath: //html//div[@id='brand']
