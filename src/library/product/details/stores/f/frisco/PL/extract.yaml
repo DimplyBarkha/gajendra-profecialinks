@@ -13,7 +13,8 @@ fields:
     singleValue: true
   - name: category
     singleValue: false
-    xpath: //div[@class="breadcrumbs"]/div[position()>1 and position()<last()]/a/text()
+    # xpath: //div[@class="breadcrumbs"]/div[position()>1 and position()<last()]/a/text()
+    xpath: //div[@id="cat"]/text()
   - name: nameExtended
     singleValue: true
     xpath: //div[@class="product-page_name-box"]/h1/text()
@@ -24,7 +25,6 @@ fields:
   - name: price
     singleValue: true
     xpath: //span[@class="main-price"]
-    # type: CURRENCY
   - name: availabilityText
     singleValue: true
     xpath: //div[@itemprop="availability"]/@content
