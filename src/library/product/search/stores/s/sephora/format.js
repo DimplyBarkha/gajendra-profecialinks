@@ -22,16 +22,6 @@ const transform = (data, context) => {
   const productCodes = state.productCodes || [];
   for (const { group } of data) {
     for (const row of group) {
-      if (row.thumbnail) {
-        row.thumbnail.forEach(item => {
-          item.text = "https:" + item.text
-        });
-      }
-      if (row.productUrl) {
-        row.productUrl.forEach(item => {
-          item.text = "https:" + item.text
-        });
-      }
       rankCounter += 1;
       if (!row.sponsored) {
         orgRankCounter += 1;

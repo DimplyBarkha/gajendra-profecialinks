@@ -1,23 +1,10 @@
-
-
-// const {transform} = require('../format')
-// module.exports = {
-//   implements: 'product/search/extract',
-//   parameterValues: {
-//     country: 'BR',
-//     store: 'sephora',
-//     transform,
-//     domain: 'sephora.com.br',
-//     zipcode: '',
-//   },
-// };
 const {transform} = require('../format')
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'BR',
     store: 'sephora',
-    transform: null,
+    transform,
     domain: 'sephora.com.br',
   },
   implementation: async (inputs,
