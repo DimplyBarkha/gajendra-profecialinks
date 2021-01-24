@@ -21,7 +21,8 @@ fields:
     xpath: //div[contains(@class, "goodDescriptionText")]//img/@data-src | //div[@id="inpage_container"]//img//@src
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[contains(@class, "goodDescriptionText")]//text()[not(contains(.,'}') or contains(.,'https'))][contains(.,' ')]
+    # xpath: //div[contains(@class, "goodDescriptionText")]//text()[not(contains(.,'}') or contains(.,'https'))][contains(.,' ')]
+    xpath: //div[contains(@id,"info-cont")]//div[contains(@class,"block-text")]|//div[contains(@id,"info-cont")]
   - name: category
     singleValue: false
     xpath: (//div[@class="breadcrumbs qr-breadcrumbs"]/span/a)
