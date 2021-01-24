@@ -31,7 +31,7 @@ fields:
     xpath: //div[contains(@class,'cFhDcg')]//button[contains(@data-ref,'add-to-cart-button')]//span[text()='Add to Cart']
     regExp: (.+)
     regExpReplace: In Stock
-    defaultValue: Out of Stock
+    defaultValue: Out of stock
   - name: price
     singleValue: false
     xpath: //span[@data-ref='product-price-isNotRR']
@@ -130,3 +130,6 @@ fields:
   - name: energyEfficiency
     singleValue: false
     xpath: //ul[contains(@class,'SpecificationsTab__SpecsList')]//li//dt[contains(text(),'Energy Rating')]//following-sibling::dd
+  - name: productUrl
+    singleValue: false
+    xpath: //link[@rel="canonical"]/@href
