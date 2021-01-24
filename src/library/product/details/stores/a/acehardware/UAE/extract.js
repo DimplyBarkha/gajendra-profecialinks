@@ -60,6 +60,55 @@ module.exports = {
         setTimeout(() => resolve('done'), 8000);
       });
     });
+    let videoGalleryXpath = '//div[@class="slider-outer"]//div[@class="slick-track"]/div//*[contains(@class,"video")]//img[contains(@src,"youtube")]/@src';
+    try {
+      await context.waitForXPath(videoGalleryXpath);
+      console.log('we have the video in gallery!!');
+    } catch(err) {
+      console.log('error while waiting for video', err.message);
+      try {
+        console.log('waiting again!');
+        await context.waitForXPath(videoGalleryXpath);
+        console.log('we have the video in gallery -- now!!');
+      } catch(err) {
+        console.log('error while waiting for video, again', err.message);
+      }
+    }
+
+    let allVideoArr = await context.evaluate(async(videoGalleryXpath) => {
+      let allVidArr = [];
+      let regex = /(.+)youtube\.com\/vi\/(.+)\/(.+)/g;
+      let allVideoGallElm = document.evaluate(videoGalleryXpath, document, null, 7, null);
+      if(allVideoGallElm && allVideoGallElm.snapshotLength > 0) {
+        for(let i = 0; i < allVideoGallElm.snapshotLength; i++) {
+          let thisUrl = allVideoGallElm.snapshotItem(0).textContent;
+          if(thisUrl) {
+            thisUrl = thisUrl.trim();
+          }
+          thisUrl = thisUrl.replace(regex, 'https://www.youtube.com/watch?v=$2');
+          console.log(thisUrl);
+          allVidArr.push(thisUrl);
+        }
+      } else {
+        console.log('we do not have video in the gallery !!');
+      }
+      return allVidArr;
+    },
+    videoGalleryXpath);
+
+    if(allVideoArr) {
+      await context.evaluate(async (allVidText) => {
+        async function addElementToDocumentAsync (key, value) {
+          const catElement = document.createElement('div');
+          catElement.id = key;
+          catElement.textContent = value;
+          document.body.appendChild(catElement);
+        }
+        console.log(allVidText);
+        await addElementToDocumentAsync('gallvideos', allVidText);
+      },
+      allVideoArr.join(' | '));
+    }
     await context.extract(productDetails);
   },
 };

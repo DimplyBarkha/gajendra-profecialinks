@@ -84,7 +84,7 @@ fields:
     regExpReplace: $2
   - name: videos
     singleValue: false
-    xpath: //div[@class="b-video"]//iframe[contains(@id,"Youtube_api")]/@src
+    xpath: //div[@class="b-video"]//iframe[contains(@id,"Youtube_api")]/@src | //div[contains(@id,"gallvideos")]
 
   - name: name 
     singleValue: true
