@@ -147,12 +147,12 @@ module.exports = {
         // @ts-ignore
         openDirections.click();
         await new Promise((resolve, reject) => setTimeout(resolve, 4000));
-        const directions = document.querySelector('div#conseils >p');
+        const directions = document.querySelector('div#conseils');
         // @ts-ignore
         if (directions !== undefined && directions !== null) openDirections.setAttribute('directions', directions.innerText.split('\n').join(' '));
       }
     });
-
+    await new Promise((resolve, reject) => setTimeout(resolve, 4000));
     await context.evaluate(async function () {
       const openIngredients = document.querySelector('a[href="#ingredients"]');
       if (openIngredients !== undefined && openIngredients !== null) {
