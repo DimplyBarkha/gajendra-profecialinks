@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'AU',
     store: 'liquorland',
-    nextLinkSelector: 'div.Pager button.btnNext',
+    nextLinkSelector: 'div.Pager button.btnNext:not([aria-label="Already at last page"])',
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: 'div.products-list-container.loading',
