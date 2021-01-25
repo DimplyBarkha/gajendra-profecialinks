@@ -8,43 +8,43 @@ fields:
     xpath: //meta[@name='keywords']/@content
   - name: image
     singleValue: false
-    xpath: //div[@class='detail-showcase--main-img-wrap']//img/@src
+    xpath: (//div[@class='detail-showcase--main-img-wrap']//img/@src)[1]
   - name: imageAlt
     singleValue: false
-    xpath: //div[@class='detail-showcase--main-img-wrap']//img/@alt
+    xpath: (//div[@class='detail-showcase--main-img-wrap']//img/@alt)[1]
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class='detail-showcase--additional-imgs']//div[@class='detail-showcase--additional-img-box' and not(@data-active='1')]/img/@src      
+    xpath: //div[@class='detail-showcase--additional-imgs']//div[@class='detail-showcase--additional-img-box' and not(@data-active='1')]/img/@src
   - name: category
     singleValue: false
     xpath: //div[@class='skel']/header//ol//a[@class='u-reset']
   - name: name
     singleValue: false
-    xpath: //h1[contains(@class,'detail-showcase--title')]
+    xpath: (//h1[contains(@class,'detail-showcase--title')])[1]
   - name: nameExtended
     singleValue: false
     xpath: //h1[contains(@class,'detail-showcase--title')]
   - name: availabilityText
     singleValue: false
-    xpath: //div[@class='buybox--order']/div//span/span
+    xpath: (//div[@class='buybox--order']/div//span/span)[1]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: price
     singleValue: false
-    xpath: //div[@class='detail-options--price']//span[@class='o9HipJE77IlXUHdhYDV3G']
+    xpath: (//div[@class='detail-options--price']//span[@class='o9HipJE77IlXUHdhYDV3G'])[1]
   - name: listPrice
     singleValue: false
-    xpath: //div[@class='detail-options--price']//span[@class='_3Zi7dtkU2jBQ9sI3wlbCp0']/span
+    xpath: (//div[@class='detail-options--price']//span[@class='_3Zi7dtkU2jBQ9sI3wlbCp0']/span)[1]
   - name:  description
     singleValue: false
-    xpath: //div[contains(@class,'detail-navigation-section--description')]
+    xpath: //div[contains(@class,'detail-navigation-section--description')]//p
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //ul[@class="detail-options--topfacts"]//li | //div[@name="description"]//ul//li
   - name: descriptionBullets
-    singleValue: false
-    xpath: count(//div[@name="description"]//ul//li) + count(//ul[@class="detail-options--topfacts"]//li)
+    # singleValue: false
+    # xpath: count(//div[@name="description"]//ul//li) + count(//ul[@class="detail-options--topfacts"]//li)
   - name: brandText
     singleValue: false
     xpath: (//meta[@property="og:brand"]/@content | //div[@class='detail-showcase--brand']/img/@alt)[1]
@@ -56,20 +56,20 @@ fields:
   #   xpath: 
   - name: mpc
     singleValue: false
-    xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item'][div[contains(text(),'MPN')]]//span
+    xpath: (//div[@name='specification']//div[@class='detail-navigation-section--specification-item'][div[contains(text(),'MPN')]]//span)[1]
   - name: gtin
     singleValue: false
-    xpath: //script[contains(text(),'gtin13')]
+    xpath: (//script[contains(text(),'gtin13')])[1]
     regExp: (\"gtin13\"\s*:\s*\"(.+?)\")
     regExpReplace: $2
   - name: eangtin
     singleValue: false
-    xpath: //script[contains(text(),'gtin13')]
+    xpath: (//script[contains(text(),'gtin13')])[1]
     regExp: (\"gtin13\"\s*:\s*\"(.+?)\")
     regExpReplace: $2 
   - name: sku
     singleValue: false
-    xpath: //script[contains(text(),'SKU')]
+    xpath: (//script[contains(text(),'SKU')])[1]
     regExp: (\"SKU\"\s*:\s*\"(.+?)\")
     regExpReplace: $2
   # - name: variants
@@ -79,19 +79,19 @@ fields:
   #   regExpReplace: 
   - name: variantId
     singleValue: false
-    xpath: //div[@class='detail-navigation-section--specification-item']//div[contains(text(),'Numéro d’article')]/following-sibling::div    
+    xpath: (//div[@class='detail-navigation-section--specification-item']//div[contains(text(),'Numéro d’article')]/following-sibling::div)[1]
   - name: variantCount
     singleValue: false    
     defaultValue: '0'
   - name: variantInformation
     singleValue: false
-    xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item'][div[contains(text(),'Farbe')]]
+    xpath: (//div[@name='specification']//div[@class='detail-navigation-section--specification-item'][div[contains(text(),'Farbe')]])[1]
   # - name: firstVariant
   #   singleValue: false
   #   xpath: 
   - name: promotion
     singleValue: false
-    xpath: //div[@class='detail-showcase--discount']/div
+    xpath: (//div[@class='detail-showcase--discount']/div)[1]
   # - name: warnings
   #   singleValue: false
   #   xpath: 
@@ -109,7 +109,7 @@ fields:
     xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item']
   - name: warranty
     singleValue: false
-    xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item'][div[contains(text(),'M-garantie')]]//span
+    xpath: (//div[@name='specification']//div[@class='detail-navigation-section--specification-item'][div[contains(text(),'M-garantie')]]//span)[1]
   # xpath: //div[@class="detail-navigation-section--specification-item"]//span[contains(text(),'ans')]
   # - name: manufacturerImages
   #   singleValue: false
@@ -131,12 +131,12 @@ fields:
   #   xpath: 
   - name: ratingCount
     singleValue: false
-    xpath: //script[contains(text(),'reviewCount')]
+    xpath: (//script[contains(text(),'reviewCount')])[1]
     regExp: (\"reviewCount\"\s*:\s*\"(.+?)\")
     regExpReplace: $2
   - name: aggregateRating
     singleValue: false
-    xpath: //script[contains(text(),'ratingValue')]
+    xpath: (//script[contains(text(),'ratingValue')])[1]
     regExp: (\"ratingValue\"\s*:\s*\"(.+?)\")
     regExpReplace: $2
   # - name: numberOfServingsInPackage
@@ -177,7 +177,7 @@ fields:
   #   xpath: 
   - name: energyEfficiency
     singleValue: false
-    xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item'][div[contains(text(),'énergétique')]]//span
+    xpath: (//div[@name='specification']//div[@class='detail-navigation-section--specification-item'][div[contains(text(),'énergétique')]]//span)[1]
   # - name: alcoholContent
   #   singleValue: false
   #   xpath: 

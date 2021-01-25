@@ -4,59 +4,62 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
-  const cleanUp = (data, context) => {
-    const clean = text => text.toString()
-      .replace(/\r\n|\r|\n/g, ' ')
-      .replace(/&amp;nbsp;/g, ' ')
-      .replace(/&amp;#160/g, ' ')
-      .replace(/\u00A0/g, ' ')
-      .replace(/\s{2,}/g, ' ')
-      .replace(/"\s{1,}/g, '"')
-      .replace(/\s{1,}"/g, '"')
-      .replace(/^ +| +$|( )+/g, ' ')
-      // eslint-disable-next-line no-control-regex
-      .replace(/[\x00-\x1F]/g, '')
-      .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
-    data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
-      el.text = clean(el.text);
-    }))));
-    return data;
-  };
+  const clean = text => text.toString()
+    .replace(/\r\n|\r|\n/g, ' ')
+    .replace(/&amp;nbsp;/g, ' ')
+    .replace(/&amp;#160/g, ' ')
+    .replace(/\u00A0/g, ' ')
+    .replace(/\s{2,}/g, ' ')
+    .replace(/"\s{1,}/g, '"')
+    .replace(/\s{1,}"/g, '"')
+    .replace(/^ +| +$|( )+/g, ' ')
+  // eslint-disable-next-line no-control-regex
+    .replace(/[\x00-\x1F]/g, '')
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
     for (const row of group) {
       if (row.image) {
-        row.image.forEach(item => {
-          item.text = item.text.replace('fm-sm', 'fm-lg2').replace('fm-md', 'fm-lg2').replace(/\/fm-lg\//g, 'fm-lg2').replace('fm-xl', 'fm-lg2');
+        const imageArr = row.image.map((item) => {
+          return item.text.replace('fm-sm', 'fm-lg2').replace('fm-md', 'fm-lg2').replace(/\/fm-lg\//g, 'fm-lg2').replace('fm-xl', 'fm-lg2');
         });
+        row.image = [{ text: imageArr.join(''), xpath: row.image[0].xpath }];
       }
       if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0] && row.additionalDescBulletInfo[0].text.length > 1) {
         row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
+        const additionalDescBulletInfoArr = row.additionalDescBulletInfo.map((item) => {
+          return item.text;
+        });
+        row.additionalDescBulletInfo = [{ text: additionalDescBulletInfoArr.join(' || '), xpath: row.additionalDescBulletInfo[0].xpath }];
+        row.descriptionBullets = [{ text: additionalDescBulletInfoArr.length, xpath: row.additionalDescBulletInfo[0].xpath }];
       }
       if (row.alternateImages) {
-        row.alternateImages.forEach(item => {
-          item.text = item.text.replace('fm-thumbnail', 'fm-lg2');
+        const alternateImagesArr = row.alternateImages.map((item) => {
+          return item.text.replace('fm-thumbnail', 'fm-lg2');
         });
+        row.alternateImages = [{ text: alternateImagesArr.join(' || '), xpath: row.alternateImages[0].xpath }];
       }
       if (row.description) {
-        var arrDesc = [];
-        row.description.forEach(item => {
-          arrDesc.push(item.text);
+        var text = '';
+        row.description.map((item) => {
+          text += item.text + ' ';
         });
-        row.description = [{ text: arrDesc.join(' ') }];
+
+        if (row.additionalDescBulletInfo) {
+          row.additionalDescBulletInfo.map((item) => {
+            text += typeof (item.text) === 'string' && item.text.trim() !== '' ? ' || ' + item.text : '';
+          });
+        }
+        row.description = [{ text: text, xpath: row.description[0].xpath }];
       }
       if (row.specifications) {
-        var arrSpecs = [];
-        row.specifications.forEach(item => {
-          item.text = item.text.replace(/\n+/, ' : ');
-          arrSpecs.push(item.text);
+        const specificationsArr = row.specifications.map((item) => {
+          return item.text.replace(/\n+/, ' : ');
         });
-        row.specifications = [{ text: arrSpecs.join(' || ') }];
+        row.specifications = [{ text: specificationsArr.join(' | '), xpath: row.specifications[0].xpath }];
       }
       if (row.nameExtended) {
-        if (row.brandText) {
-          var nameExtendedText = row.nameExtended[0].text.includes(row.brandText[0].text) ? row.nameExtended[0].text.replace(row.brandText[0].text, row.brandText[0].text + ' -') : row.brandText[0].text + ' - ' + row.nameExtended[0].text;
-          row.nameExtended = [{ text: nameExtendedText }];
-        }
+        var nameExtendedText = row.nameExtended[0].text.includes(row.brandText[0].text) ? row.nameExtended[0].text.replace(row.brandText[0].text, row.brandText[0].text + ' -') : row.brandText[0].text + ' - ' + row.nameExtended[0].text;
+        row.nameExtended = [{ text: nameExtendedText, xpath: row.nameExtended[0].xpath }];
       }
       if (row.sku) {
         if (row.sku.length > 1) {
@@ -99,7 +102,10 @@ const transform = (data) => {
       // }
     }
   }
-  return cleanUp(data);
+  data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+    el.text = clean(el.text);
+  }))));
+  return data;
 };
 
 module.exports = { transform };
