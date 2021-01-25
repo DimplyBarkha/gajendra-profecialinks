@@ -33,9 +33,15 @@ const transform = (data) => {
               row.description = [{ "text": description_ar.join(" || "), 'xpath': row.description[0].xpath }];
             }
         }
-        if (row.aggregateRating) {
-          row.aggregateRating.forEach(item => {
+        
+        if (row.aggregateRating2) {
+          row.aggregateRating2.forEach(item => {
             item.text = Number(item.text);
+            // console.log("row.halfStarCount: ", row.halfStarCount)
+            if(row.halfStarCount){
+              item.text = Number(item.text) + Number(row.halfStarCount[0].text/2);
+            }
+           
           });
         }
         if (row.category) {
@@ -59,9 +65,10 @@ const transform = (data) => {
             row.specifications = [{ "text": specifications_ar.join(" || "), 'xpath': row.specifications[0].xpath }];
           }
         }
-        if (row.descriptionBullets) {
-          row.descriptionBullets = [{'text':row.descriptionBullets.length, 'xpath':row.descriptionBullets[0].xpath}];              
-        } 
+        // if (row.descriptionBullets) {
+        //   row.descriptionBullets = [{'text':row.descriptionBullets.length, 'xpath':row.descriptionBullets[0].xpath}];              
+        // } 
+        
       }
     }
     return cleanUp(data);

@@ -62,7 +62,7 @@ module.exports = {
     store: 'drogistplein',
     domain: 'drogistplein.nl',
     url: 'https://www.plein.nl/zoeken?search={searchTerms}',
-    loadedSelector: null,
+    loadedSelector: 'div[class*="product-view-container"]',
     noResultsXPath: '//div[contains(text(),"Probeer eens een merknaam of beschrijving van je product in te typen.")]',
     zipcode: "''",
   },

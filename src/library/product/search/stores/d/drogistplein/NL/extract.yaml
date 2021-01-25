@@ -11,7 +11,8 @@ fields:
     xpath: //a[contains(@class,'btn btn-addcart')]/@data-modal-js-addtocart
   - name: name
     SingleValue: false
-    xpath: //div[contains(@class,'clear product-grid-view')]//div[@class='product-title']
+    # xpath: //div[contains(@class,'clear product-grid-view')]/div[@class='col-md-12 col-sm-7 col-xs-6 product-view-info']
+    xpath: //div[@class='col-md-12 product-view-name']
   - name: thumbnail
     SingleValue: false
     xpath: //div[contains(@class,'clear product-grid-view')]//div[contains(@class,'col-md-12 product-view-img')]//img/@src

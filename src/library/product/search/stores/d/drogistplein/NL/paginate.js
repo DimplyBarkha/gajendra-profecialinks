@@ -1,15 +1,18 @@
 
 module.exports = {
-  implements: 'product/search/paginate',
+  implements: 'navigation/paginate',
   parameterValues: {
     country: 'NL',
     store: 'drogistplein',
     nextLinkSelector: null,
+    // nextLinkXpath: '//ul[@class="pagination"]/li[last() -1]/a',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
+    loadedSelector: 'div[class*="product-view-container"]',
     noResultsXPath: '//div[contains(text(),"Probeer eens een merknaam of beschrijving van je product in te typen.")]',
-    openSearchDefinition: null,
+    openSearchDefinition: {
+      template: 'https://www.plein.nl/zoeken?search={searchTerms}&p={page}',
+    },
     domain: 'drogistplein.nl',
     zipcode: "''",
   },

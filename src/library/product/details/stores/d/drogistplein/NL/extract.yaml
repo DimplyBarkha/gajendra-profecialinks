@@ -1,17 +1,17 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //div[contains(@class,"owl-stage")]//div[contains(@class,"owl-item active")]//img/@src
+    xpath: //div[contains(@class,"owl-item active")]/figure//img/@src
   - name: imageAlt
     singleValue: false
-    xpath: //div[contains(@class,"owl-stage")]//div[contains(@class,"owl-item active")]//img/@alt
+    xpath: //div[contains(@class,"owl-item active")]/figure//img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class,"owl-stage")]//div[contains(@class,"owl-item active")]//img/@src
+    xpath: //div[contains(@class,"owl-item active")][position()>1]/div[@class="image-container"]/a/img/@src
   - name: category
     singleValue: false
     xpath: //ul[@class="breadcrumb"]//li[not(contains(@class,'breadcrumb-back'))]//a
@@ -35,13 +35,20 @@ fields:
     xpath: //div[@class="product-details product-details-hidden"]//ul//li
   - name: descriptionBullets
     singleValue: false
-    xpath: //div[@class="product-details product-details-hidden"]//ul//li
+    # xpath: //div[@class="product-details product-details-hidden"]//ul//li
+    xpath: count(//div[not (@class)]/ul[not (@class)]/li)
   - name: sku
     singleValue: false
-    xpath: //div[contains(@class,'row hidden-md-down')]//form[@id="frmWithQuantity"]//input[@name='product_id']/@value 
+    # xpath: //div[contains(@class,'row hidden-md-down')]//form[@id="frmWithQuantity"]//input[@name='product_id']/@value 
+    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
+    regExp: sku":\s"([^"]+)
+    regExpReplace: $1
   - name: variantId
     singleValue: false
-    xpath: //div[contains(@class,'row hidden-md-down')]//form[@id="frmWithQuantity"]//input[@name='product_id']/@value
+    # xpath: //div[contains(@class,'row hidden-md-down')]//form[@id="frmWithQuantity"]//input[@name='product_id']/@value
+    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
+    regExp: sku":\s"([^"]+)
+    regExpReplace: $1
   - name: variantCount
     singleValue: false
     defaultValue: 0 
@@ -54,9 +61,25 @@ fields:
   - name: brandText
     singleValue: false
     xpath: //div[@class="product-details product-details-hidden"]//span//a
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: false
+    xpath: count(//div[@class="row"]/div[@class="col-xs-12 col-lg-6"]/div[@class="hidden-md-down"]/a[position() =1]/span/i[@class="fas fa-star"])
+  - name: halfStarCount
+    singleValue: false
+    xpath: count(//div[@class="row"]/div[@class="col-xs-12 col-lg-6"]/div[@class="hidden-md-down"]/a[position() =1]/span/i[@class="fas fa-star-half-alt"])
+  - name: ratingCount
+    singleValue: false
+    # xpath: //div[@class="row"]/div[@class="col-xs-12 col-lg-6"]/div[@class="hidden-md-down"]/a[position() =2]
     xpath: //div[contains(@class,'row hidden-md-down')]//a[contains(@class,'btn product-add-to-cart')]/@data-modal-rating-count
   - name: availabilityText
     singleValue: false
-    defaultValue: 'In Stock'   
+    xpath: //div[contains(@class,"product-block")]//a[@class="btn product-add-to-cart"]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: promotion
+    singleValue: false
+    xpath: //div[@class="product-block"]//div[@class="pricing-row"]//span[@class="product-discount"]
+  - name: directions
+    singleValue: false
+    xpath: //b[contains(text(), "Gebruik")]/following-sibling::text()[1]

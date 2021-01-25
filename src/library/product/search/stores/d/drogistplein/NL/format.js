@@ -3,7 +3,7 @@
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
  */
-const transform = (data) => {
+const transform = (data, context) => {
     const cleanUp = (data, context) => {
       const clean = text => text.toString()
         .replace(/\r\n|\r|\n/g, ' ')
@@ -22,9 +22,19 @@ const transform = (data) => {
       }))));
       return data;
     };
+      const state = context.getState();
+      let orgRankCounter = state.orgRankCounter || 0;
+      let rankCounter = state.rankCounter || 0;
     for (const { group } of data) {
-      let rank = 1;
+      // let rank = 1;
       for (const row of group) {
+        rankCounter += 1;
+        if (!row.sponsored) {
+          orgRankCounter += 1;
+          row.rankOrganic = [{ text: orgRankCounter }];
+        }
+        row.rank = [{ text: rankCounter }];
+        
         if (row.name) {
           row.name.forEach(item => {
             item.text = item.text.replace(/\s\n/g, '').trim();
@@ -43,10 +53,12 @@ const transform = (data) => {
           if (row.descriptionBullets) {
             row.descriptionBullets = [{'text':row.descriptionBullets.length, 'xpath':row.descriptionBullets[0].xpath}];              
           } 
-        row.rank = row.rankOrganic = [{ "text": rank }];
-        rank++;
+        
       }
+       
     }
+    context.setState({ rankCounter });
+    context.setState({ orgRankCounter });
     return cleanUp(data);
   };
   module.exports = { transform };
