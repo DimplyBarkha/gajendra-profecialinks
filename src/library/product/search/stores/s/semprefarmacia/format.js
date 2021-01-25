@@ -19,7 +19,7 @@ const transform = (data, context) => {
     const state = context.getState();
     let orgRankCounter = state.orgRankCounter || 0;
     let rankCounter = state.rankCounter || 0;
-    // const productCodes = state.productCodes || [];
+    const productCodes = state.productCodes || [];
     var p_count = 1;
     for (const { group } of data) {
       for (const row of group) {
@@ -36,8 +36,8 @@ const transform = (data, context) => {
         }));
 
         if (row.id) {
-            row.rankOrganic = [{'text':p_count}];
-            row.rank = [{'text':p_count}];
+            //row.rankOrganic = [{'text':p_count}];
+            //row.rank = [{'text':p_count}];
             p_count = p_count + 1;
         }
         if (row.productUrl) {
@@ -54,8 +54,8 @@ const transform = (data, context) => {
     }
     context.setState({ rankCounter });
     context.setState({ orgRankCounter });
-    // context.setState({ productCodes });
-    // console.log(productCodes);
+    context.setState({ productCodes });
+    console.log(productCodes);
     return data;
   };
   module.exports = { transform };
