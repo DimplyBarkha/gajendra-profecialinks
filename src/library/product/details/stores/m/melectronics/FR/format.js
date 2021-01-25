@@ -25,12 +25,17 @@ const transform = (data) => {
         row.image = [{ text: imageArr.join(''), xpath: row.image[0].xpath }];
       }
       if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0] && row.additionalDescBulletInfo[0].text.length > 1) {
-        row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
+        // row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
         const additionalDescBulletInfoArr = row.additionalDescBulletInfo.map((item) => {
           return item.text;
         });
-        row.additionalDescBulletInfo = [{ text: additionalDescBulletInfoArr.join(' || '), xpath: row.additionalDescBulletInfo[0].xpath }];
-        row.descriptionBullets = [{ text: additionalDescBulletInfoArr.length, xpath: row.additionalDescBulletInfo[0].xpath }];
+        const uniqueDesc = new Set(additionalDescBulletInfoArr);
+        const descBulletsArray = [];
+        uniqueDesc.forEach((item) => {
+          descBulletsArray.push(item)
+        })
+        row.additionalDescBulletInfo = [{ text: '|| ' + descBulletsArray.join(' || '), xpath: row.additionalDescBulletInfo[0].xpath }];
+        row.descriptionBullets = [{ text: descBulletsArray.length, xpath: row.additionalDescBulletInfo[0].xpath }];
       }
       if (row.alternateImages) {
         const alternateImagesArr = row.alternateImages.map((item) => {
@@ -74,6 +79,7 @@ const transform = (data) => {
         console.log('listItems =>', categoryList);
         row.category = categoryList;
       }
+
 
       // if (row.price) {
       //   row.price.forEach(item => {
