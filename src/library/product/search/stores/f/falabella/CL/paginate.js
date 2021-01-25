@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'CL',
     store: 'falabella',
-    nextLinkSelector: 'button#testId-pagination-bottom-arrow-right',
+    nextLinkSelector: 'div.pagination button#testId-pagination-bottom-arrow-right',
     mutationSelector: null,
     spinnerSelector: 'div.loader div.spinner',
     loadedSelector: 'div.jsx-1987097504,main',
