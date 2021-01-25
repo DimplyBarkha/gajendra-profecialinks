@@ -44,6 +44,8 @@ fields:
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
+  xpath: //span[contains(@class,'price-marked')]
+  regExp: £?\d+\.?\,?(\d+)?
 - name: availabilityText
   singleValue: true
   description: Availability as described on page for the selected variant. If there
@@ -54,7 +56,7 @@ fields:
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: //div[@id="product-details-show-more"]//comment()[contains(.,'Product Description')]//following-sibling::*[following-sibling::comment()[contains(.,'Other Information')]]
+  xpath: //div[@id="product-details-show-more"]//comment()[contains(.,'Product Description') or contains(.,'Regulated Product Name')]//following-sibling::*[following-sibling::comment()[contains(.,'Other Information')]]
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -71,6 +73,8 @@ fields:
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
+  xpath: //div[contains(@class,'product-main')]/h4
+  regExp: (\d+\s?x\s?)?\d+[A-z]{1,3}
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page
@@ -95,6 +99,8 @@ fields:
   singleValue: true
   description: The number of packs in the product offer (if stated separately on the
     site to quantity)
+  xpath: //div[@class="product-price"]//div[@class="row filaDesktop"]//*[contains(text(),'Pack')]
+  regExp: (?<=\:\s).+
 - name: legalDisclaimer
   singleValue: true
   xpath: //div[@class="desplegabledesktop"]//div[@data-parent="#productDisclaimer"]//div[@class="card-body"]
@@ -105,7 +111,7 @@ fields:
 - name: warnings
   singleValue: true
   description: Content under "warnings" header
-  xpath: //div[@id="allergens"]
+  xpath: //div[@class="desplegabledesktop"]//div[@data-parent="#safetyInformation"]
 - name: ratingCount
   singleValue: true
   description: The number of ratings
@@ -450,11 +456,11 @@ fields:
 - name: productOtherInformation
   singleValue: false
   description: Any other product information
-  xpath: //div[@id='product-details-show-more']//comment()[contains(.,'Other Info')]//following-sibling::p[1]
+  xpath: //div[@id='product-details-show-more']//comment()[contains(.,'Other Info')]//following-sibling::p[not(contains(@id,'show-less-details'))][1]
 - name: packaging
   singleValue: true
   description: Packaging information
-  xpath: //div[@id='categories']//p[span[contains(text(),'Pack Type')]]/a
+  xpath: //div[@class="desplegabledesktop"]//div[@data-parent="#productPackagingInfo"]//*[contains(text(),'Type')]//following-sibling::*[1]
 - name: additives
   singleValue: true
   description: List of additives in the product

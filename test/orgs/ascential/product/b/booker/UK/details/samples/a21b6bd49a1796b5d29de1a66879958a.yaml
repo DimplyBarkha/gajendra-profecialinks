@@ -2,7 +2,7 @@ input:
   id: "257876"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=ba9440dd-506f-423e-9be3-b05e85a638f0/task=f9ddf639-7dd6-4ae3-bed1-0ed2b435675a/a3fc4035-eb51-4f46-be4b-4b45127cd920.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=e2cc6440-91cc-43a9-bd80-4869ba44b026/task=e9b3961b-0098-400d-8c52-6ab6ee95db54/f779dcce-a72d-42d1-b8b5-8b2d25778409.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
@@ -13,11 +13,13 @@ extractions:
               - text: Chef's Larder Premium Luxury Chocolate Fudge Cake
                 xpath: /html/body/main[1]/div[2]/div[2]/h4[1]
             description:
+              - text: Chocolate sponge, filled and decorated with chocolate fudge icing.
+                xpath: /html/body/main[1]/div[2]/div[2]/div[4]/p[1]
               - text: >-
                   Ideal served hot or cold 
                    Pre-sliced 
-                   Suitable for vegetarians 
                    Three layers of moist, rich, dark chocolate cake between lashings of dark chocolate fudge 
+                   Suitable for vegetarians 
                    Microwave from Frozen 
                    No Artificial Colours or Preservatives 
                    Defrost & Serve Hot or Cold
@@ -30,6 +32,9 @@ extractions:
             variantId:
               - text: "257876"
                 xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]/@data-item
+            packSize:
+              - text: Case of 6
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/p[1]
             legalDisclaimer:
               - text: >-
                   The image and summary details have been prepared for
@@ -68,6 +73,9 @@ extractions:
             productOtherInformation:
               - text: © Booker 000520
                 xpath: /html/body/main[1]/div[2]/div[2]/div[4]/p[3]
+            packaging:
+              - text: Box
+                xpath: /html/body/main[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/p[2]
             productUrl:
               - text: https://www.booker.co.uk/products/product%20detail?Code=257876&SetType=01&returnUrl=http%3a%2f%2fwww.booker.co.uk%2fproducts%2fproduct-list%3fkeywords%3d257876
                 xpath: /html/body/div[3]
@@ -136,4 +144,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: Yes
         xpath: /html/body
-    timestamp: 1611161853330
+    timestamp: 1611587858939

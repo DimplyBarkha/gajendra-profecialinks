@@ -2,7 +2,7 @@ input:
   id: "256795"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=ba9440dd-506f-423e-9be3-b05e85a638f0/task=5fdda0e4-f427-488e-b875-28f71118f6a8/120c6c6c-ec84-4a6d-ae77-2797bb2a2419.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=e2cc6440-91cc-43a9-bd80-4869ba44b026/task=cc5a0ee0-1191-4114-9432-b37062110aea/a15a6b88-0fbe-47b4-8e97-7f3cf807da76.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
@@ -13,6 +13,8 @@ extractions:
               - text: Bisto Gluten Free Fine Gravy Granules 1.9kg
                 xpath: /html/body/main[1]/div[2]/div[2]/h4[1]
             description:
+              - text: Gluten Free Fine Gravy Granules.
+                xpath: /html/body/main[1]/div[2]/div[2]/div[5]/p[1]
               - text: |-
                   Gluten free 
                    Makes 27 litres 
@@ -32,9 +34,15 @@ extractions:
             manufacturer:
               - text: Premier Foods ROI
                 xpath: /html/body/main[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/p[2]
+            quantity:
+              - text: 9kg
+                xpath: /html/body/main[1]/div[2]/div[2]/h4[1]
             variantId:
               - text: "256795"
                 xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]/@data-item
+            packSize:
+              - text: Case of 1
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/p[1]
             legalDisclaimer:
               - text: >-
                   The image and summary details have been prepared for
@@ -72,7 +80,7 @@ extractions:
                 xpath: /html/body/main[1]/div[2]/div[2]/div[5]/p[4]
             packaging:
               - text: Tub
-                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/p[2]/a[1]
+                xpath: /html/body/main[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/p[2]
             productUrl:
               - text: https://www.booker.co.uk/products/product%20detail?Code=256795&returnUrl=http%3a%2f%2fwww.booker.co.uk%2fproducts%2fproduct-list%3fkeywords%3d256795
                 xpath: /html/body/div[3]
@@ -135,4 +143,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: Yes
         xpath: /html/body
-    timestamp: 1611161858514
+    timestamp: 1611587863104

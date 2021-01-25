@@ -40,7 +40,7 @@ module.exports = {
       addElementToDocument('availability', availability);
 
       // Get terms and conditions
-      const tandc = document.querySelector('div#links a[href*="product-terms-and-condition"]') ? 'Yes' : 'No';
+      const tandc = document.querySelector('div#links a[href*="terms"]') ? 'Yes' : 'No';
       addElementToDocument('tandc', tandc);
 
       // Get privacy policy
@@ -52,7 +52,7 @@ module.exports = {
       var allergensArray = [];
       let allergen = allergens.iterateNext();
       while (allergen) {
-        allergensArray.push(allergen.innerText);
+        allergensArray.push(allergen.textContent);
         allergen = allergens.iterateNext();
       }
       addElementToDocument('allergens', allergensArray.join(', ').replace(/By Allergy Advice: /g, ''));
@@ -60,7 +60,7 @@ module.exports = {
       const servingSizeColumns = document.querySelectorAll('div.desplegabledesktop div[data-parent="#nutrition"] tr th');
       if (servingSizeColumns) {
         for (let i = 0; i < servingSizeColumns.length; i++) {
-          if (servingSizeColumns[i] && servingSizeColumns[i].textContent.match(/er\s100/g)) {
+          if (servingSizeColumns[i] && servingSizeColumns[i].textContent.match(/100/g)) {
             const caloriesRow = document.evaluate('//div[@class="desplegabledesktop"]//div[@data-parent="#nutrition"]//tbody//tr[contains(.,"nergy")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
             const caloriesPerServing = caloriesRow && caloriesRow.querySelectorAll('td')[i] ? caloriesRow.querySelectorAll('td')[i].textContent : '';
             addElementToDocument('caloriesPerServing', caloriesPerServing);

@@ -2,7 +2,7 @@ input:
   id: "135923"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=ba9440dd-506f-423e-9be3-b05e85a638f0/task=5293c8a3-279d-47c4-b106-4c8738859ce8/393b0529-ea99-4e70-a898-252b6e36dc7c.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=e2cc6440-91cc-43a9-bd80-4869ba44b026/task=90437514-802a-4d8f-9df9-1fbf157dc500/17183815-cf8f-4847-a946-6d8acb9b7dc4.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
@@ -13,6 +13,9 @@ extractions:
               - text: Chef's Larder Jalfrezi Sauce 2.15 Litres
                 xpath: /html/body/main[1]/div[2]/div[2]/h4[1]
             description:
+              - text: A spicy tomato based curry sauce inspired by East Indian cuisine. Made
+                  with diced red and green bell peppers, chilli and coriander.
+                xpath: /html/body/main[1]/div[2]/div[2]/div[5]/p[1]
               - text: |-
                   Chilli rating - hot - 3 
                    Bain marie stable 
@@ -30,6 +33,9 @@ extractions:
             variantId:
               - text: "135923"
                 xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]/@data-item
+            packSize:
+              - text: Case of 4
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/p[1]
             legalDisclaimer:
               - text: >-
                   The image and summary details have been prepared for
@@ -70,12 +76,9 @@ extractions:
             countryOfOrigin:
               - text: UNITED KINGDOM
                 xpath: /html/body/main[1]/div[2]/div[1]/div[3]/p[4]/a[1]
-            productOtherInformation:
-              - text: Show less...
-                xpath: /html/body/main[1]/div[2]/div[2]/div[5]/p[3]
             packaging:
               - text: Plastic Bottle
-                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/p[5]/a[1]
+                xpath: /html/body/main[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/p[2]
             productUrl:
               - text: https://www.booker.co.uk/products/product%20detail?Code=135923&returnUrl=http%3a%2f%2fwww.booker.co.uk%2fproducts%2fproduct-list%3fkeywords%3d135923
                 xpath: /html/body/div[3]
@@ -88,9 +91,6 @@ extractions:
             termsAndConditions:
               - text: Yes
                 xpath: /html/body/div[6]
-            warnings:
-              - text: Contains Mustard, Contains Wheat
-                xpath: /html/body/div[8]
             allergyAdvice:
               - text: Contains Mustard, Contains Wheat
                 xpath: /html/body/div[8]
@@ -150,4 +150,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: Yes
         xpath: /html/body
-    timestamp: 1611161856832
+    timestamp: 1611587866187

@@ -2,7 +2,7 @@ input:
   id: 123$32&
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=ba9440dd-506f-423e-9be3-b05e85a638f0/task=0124a929-d116-4197-983a-34ed81afcc60/88e13b20-a220-4d93-9d34-1b9f34a5190f.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=e2cc6440-91cc-43a9-bd80-4869ba44b026/task=9fc1c605-5e52-44d1-9591-0e3d1331b309/34b1db8f-e8a9-412a-a268-9d6faeabd91f.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
@@ -12,6 +12,9 @@ extractions:
             nameExtended:
               - text: Oral-B 123 Fresh Mint Toothpaste 75ml
                 xpath: /html/body/main[1]/div[2]/div[2]/h4[1]
+            price:
+              - text: £1.00
+                xpath: /html/body/main[1]/div[2]/div[2]/span[1]
             description:
               - text: >-
                   Anti-cavity toothpaste with active fluoride that helps prevent
@@ -28,9 +31,15 @@ extractions:
             brandText:
               - text: Oral-B
                 xpath: /html/body/main[1]/div[2]/div[1]/div[3]/p[4]/a[1]
+            quantity:
+              - text: 75ml
+                xpath: /html/body/main[1]/div[2]/div[2]/h4[1]
             variantId:
               - text: "121942"
                 xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]/@data-item
+            packSize:
+              - text: Case of 12
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/p[1]
             legalDisclaimer:
               - text: >-
                   The image and summary details have been prepared for
@@ -41,6 +50,11 @@ extractions:
                    
                    Booker is therefore unable to accept liability for any incorrect information. Where this description contains a link to another party's website for further information on the product, please note that Booker has no control over and no liability for the contents of that website. This data is supplied for personal use only. It may not be reproduced in any way whatsoever without Booker's prior consent, nor without due acknowledgement.
                 xpath: /html/body/main[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]
+            warnings:
+              - text: "Children of 6 years and younger: Use a pea sized amount for supervised
+                  brushing to minimize swallowing. In case of intake of fluoride
+                  from other sources consult a dentist or doctor."
+                xpath: /html/body/main[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]
             name:
               - text: Oral-B 123 Fresh Mint Toothpaste 75ml
                 xpath: /html/body/main[1]/div[2]/div[2]/h4[1]
@@ -52,12 +66,9 @@ extractions:
             countryOfOrigin:
               - text: Germany
                 xpath: /html/body/main[1]/div[2]/div[1]/div[3]/p[1]/a[1]
-            productOtherInformation:
-              - text: Show less...
-                xpath: /html/body/main[1]/div[2]/div[2]/div[5]/p[3]
             packaging:
               - text: Tube
-                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/p[3]/a[1]
+                xpath: /html/body/main[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/p[2]
             productUrl:
               - text: https://www.booker.co.uk/products/product%20detail?Code=121942&returnUrl=http%3a%2f%2fwww.booker.co.uk%2fproducts%2fproduct-list%3fkeywords%3d123%252432%2526
                 xpath: /html/body/div[3]
@@ -81,4 +92,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: Yes
         xpath: /html/body
-    timestamp: 1611161858851
+    timestamp: 1611587863618

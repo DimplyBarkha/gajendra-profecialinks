@@ -2,7 +2,7 @@ input:
   id: "237197"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=ba9440dd-506f-423e-9be3-b05e85a638f0/task=b267af41-29e5-4f91-b784-a797ce8121f6/baadaf0a-8a01-42ef-ad2b-1990bdd13274.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=e2cc6440-91cc-43a9-bd80-4869ba44b026/task=79d3a6b1-9978-4114-86f4-b914fd4df92f/e70ed96a-d789-43ef-a83a-b46646e7a95b.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
@@ -13,6 +13,8 @@ extractions:
               - text: Aptamil 2 Follow On Baby Milk Formula 6-12 Months 800g
                 xpath: /html/body/main[1]/div[2]/div[2]/h4[1]
             description:
+              - text: Follow On Milk, with a 28% fermented dairy-based blend
+                xpath: /html/body/main[1]/div[2]/div[2]/div[5]/p[1]
               - text: Tailored to complement a weaning diet
                 xpath: /html/body/main[1]/div[2]/div[2]/div[5]/p[2]
               - text: Our Unique Expertise Nutricia has over 120 years of expertise in early
@@ -41,9 +43,15 @@ extractions:
             manufacturer:
               - text: Nutricia Ltd
                 xpath: /html/body/main[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/p[3]
+            quantity:
+              - text: 800g
+                xpath: /html/body/main[1]/div[2]/div[2]/h4[1]
             variantId:
               - text: "237197"
                 xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]/@data-item
+            packSize:
+              - text: Case of 1
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/p[1]
             legalDisclaimer:
               - text: >-
                   The image and summary details have been prepared for
@@ -54,6 +62,21 @@ extractions:
                    
                    Booker is therefore unable to accept liability for any incorrect information. Where this description contains a link to another party's website for further information on the product, please note that Booker has no control over and no liability for the contents of that website. This data is supplied for personal use only. It may not be reproduced in any way whatsoever without Booker's prior consent, nor without due acknowledgement.
                 xpath: /html/body/main[1]/div[3]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]
+            warnings:
+              - text: Important notice Breastfeeding is best for babies. Aptamil® Follow On Milk
+                  is only for babies over 6 months, as part of a mixed diet. It
+                  should not be used as a breastmilk substitute before 6 months.
+                  The decision to start weaning including the use of this
+                  product before 6 months should be made only on the advice of a
+                  doctor, midwife, health visitor, public health nurse,
+                  dietitian, pharmacist, or other professional responsible for
+                  maternal and child care, based on baby's individual needs.
+                  When bottle feeding do not allow prolonged or frequent contact
+                  of milk feeds with your baby's teeth as this increases the
+                  risk of tooth decay. Ask your healthcare professional or
+                  dentist for advice. Make sure your baby's teeth are cleaned
+                  after the last feed at night.
+                xpath: /html/body/main[1]/div[3]/div[1]/div[2]/div[3]/div[1]/div[2]
             name:
               - text: Aptamil 2 Follow On Baby Milk Formula 6-12 Months 800g
                 xpath: /html/body/main[1]/div[2]/div[2]/h4[1]
@@ -97,8 +120,8 @@ extractions:
                   Nutricia, Aptamil® and Pronutra™ are registered trademarks.
                 xpath: /html/body/main[1]/div[2]/div[2]/div[5]/p[4]
             packaging:
-              - text: Tin
-                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/p[5]/a[1]
+              - text: Can
+                xpath: /html/body/main[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/p[2]
             productUrl:
               - text: https://www.booker.co.uk/products/product%20detail?Code=237197&returnUrl=http%3a%2f%2fwww.booker.co.uk%2fproducts%2fproduct-list%3fkeywords%3d237197
                 xpath: /html/body/div[3]
@@ -111,9 +134,6 @@ extractions:
             termsAndConditions:
               - text: Yes
                 xpath: /html/body/div[6]
-            warnings:
-              - text: Contains Fish, Contains Milk, Contains Soya
-                xpath: /html/body/div[8]
             allergyAdvice:
               - text: Contains Fish, Contains Milk, Contains Soya
                 xpath: /html/body/div[8]
@@ -179,4 +199,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: Yes
         xpath: /html/body
-    timestamp: 1611161851069
+    timestamp: 1611587858298
