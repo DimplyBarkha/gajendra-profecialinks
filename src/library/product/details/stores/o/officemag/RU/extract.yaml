@@ -46,8 +46,9 @@ fields:
     singleValue: false
     xpath: //div[@class='ProductBrand']//a[contains(text(),'Все товары бренда')]/@href
   - name: price
-    singleValue: false
-    xpath: //div[contains(@class,'order__wrapper')]//div[contains(@class,'js-itemPropToRemove')]/span
+    singleValue: true
+    # xpath: //div[contains(@class,'order__wrapper')]//div[contains(@class,'js-itemPropToRemove')]/span
+    xpath: //div[contains(@class,'order__wrapper')]//div[contains(@class,'Product__price--initial')]/span | //div[contains(@class,'order__wrapper')]//div[contains(@class,'js-itemPropToRemove')]/span
   - name: listPrice
     singleValue: false
     xpath: //div[contains(@class,'order__wrapper')]//div[contains(@class,'Product__price--initial')]/span
@@ -81,3 +82,9 @@ fields:
   - name: packSize
     singleValue: false
     xpath: //ul[@class='infoFeatures']//span[contains(text(),'Размер в упаковке')]/parent::li
+  - name: SecondaryImageTotal
+    singleValue: false
+    xpath: count((//ul[contains(@class,'js-photosList')]/li)[position()>1]//img/@src)
+  - name: ratingCount
+    singleValue: false
+    xpath: //ul[@class='tabsList tabsList--elastic js-tabsList accent']//li[contains(@data-ga-id,'ClickToTab_Reviews')]//span
