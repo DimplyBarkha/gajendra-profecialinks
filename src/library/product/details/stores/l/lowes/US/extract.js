@@ -52,6 +52,23 @@ module.exports = {
     } catch (error) {
       console.log('Faild to set store location', error);
     }
+    await context.evaluate(async () => {
+      await new Promise((resolve) => setTimeout(resolve, 5000));
+
+      async function infiniteScroll () {
+        let prevScroll = document.documentElement.scrollTop;
+        while (true) {
+          window.scrollBy(0, document.documentElement.clientHeight);
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          const currentScroll = document.documentElement.scrollTop;
+          if (currentScroll === prevScroll) {
+            break;
+          }
+          prevScroll = currentScroll;
+        }
+      }
+      await infiniteScroll();
+    });
     async function scrollToRec (node, time) {
       await context.evaluate(async (node, time) => {
         const element = document.querySelector(node) || null;
@@ -63,12 +80,12 @@ module.exports = {
         }
       }, node, time);
     }
-    await scrollToRec('div#footerApp', 9000);
+    await scrollToRec('div#footerApp', 8000);
     await scrollToRec('div.recommendation-wrapper', 5000);
     try {
       await context.waitForSelector('div.recommendation-wrapper div.product-card', { timeout: 35000 });
     } catch (e) {
-      await scrollToRec('div#footerApp', 9000);
+      await scrollToRec('div#footerApp', 8000);
       await scrollToRec('div.recommendation-wrapper', 5000);
       console.log('Not loading recommended products');
     }
