@@ -1,9 +1,19 @@
 robot: product/details
+proxy:
+  zone: ZUS  
+  type: DATA_CENTER
+policy:
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 120
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 3
 parameters:
   country: AU
   domain: officeworks.com.au
   store: officeworks
   zipcode: ""
+authenticated: false
 meta:
   branches:
     tdcm:
