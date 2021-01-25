@@ -111,9 +111,9 @@ module.exports = {
   parameterValues: {
     country: 'CA',
     store: 'sephora',
-    domain: 'sephora.com',
+    domain: 'sephora.ca',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//h1[contains(text(), "0 Product results")] | //div[@id="zeroResult"] | //p[contains(text(),"Please check your search terms and try again.")]',
     zipcode: '',
   },
   implementation,
