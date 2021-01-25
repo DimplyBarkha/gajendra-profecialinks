@@ -27,7 +27,7 @@ module.exports = {
     country: 'UK',
     store: 'screwfix',
     domain: 'screwfix.com',
-    url: 'https://www.screwfix.com/search?search={searchTerms}&page_size=150&page_start=20',
+    url: 'https://www.screwfix.com/search?search={searchTerms}',
     loadedSelector: 'div#sticky-right-content',
     noResultsXPath: '//h3[contains(text(),"Hints to improve your search:")]',
     zipcode: "''",
