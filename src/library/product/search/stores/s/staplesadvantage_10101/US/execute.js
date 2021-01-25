@@ -6,9 +6,11 @@ async function implementation (inputs, parameters, context, dependencies) {
   const storeIdUrl = 'https://www.staplesadvantage.com/learn/?storeId=10101';
   const loginUrl = 'https://www.staplesadvantage.com/idm';
   // extractor login credentials:
-  const extrAccount = '1021401';
-  const extrId = 'LLAWSON';
-  const extrPass = 'Norris2017';
+  const credentials = {
+    accountNumber: '1021401',
+    loginUserId: 'LLAWSON',
+    loginUserPassword: 'Norris2017',
+  };
 
   await dependencies.goto({ url, zipcode: inputs.zipcode });
   if (parameters.loadedSelector) {
@@ -38,13 +40,12 @@ async function implementation (inputs, parameters, context, dependencies) {
   await context.goto(storeIdUrl);
   await context.goto(loginUrl);
   // the popup is visible after a moment -> delaying the removal
-  // await context.waitForSelector('div.truste_box_overlay', { timeout: 3000 });
-  await new Promise(resolve => setTimeout(resolve, 3000));
+  await new Promise((resolve) => setTimeout(resolve, 3000));
   const isPopupPresent = await context.evaluate(async () => {
-    return document.querySelector('div.truste_box_overlay');
+    return document.querySelector('div.truste_box_overlay') !== null;
   });
-  // when the popup is present it returns undefined, when not - null
-  if (isPopupPresent !== null) {
+    // when the popup is present it returns undefined, when not - null
+  if (isPopupPresent) {
     await context.evaluate(() => {
       document.querySelector('div.truste_box_overlay').remove();
       document.querySelector('div.truste_overlay').remove();
@@ -56,27 +57,18 @@ async function implementation (inputs, parameters, context, dependencies) {
     const currentUrl = window.location.href;
     return !currentUrl.includes('idm');
   });
-  // when the user is not logged in, the extractor fills out the form
+    // when the user is not logged in, the extractor fills out the form
   if (!isUserLogged) {
-    // filling in the inputs only works after clicking them first
-    await context.click('input#accountNumber');
-    await context.evaluate(async (account = extrAccount) => {
-      document.querySelector('input#accountNumber').setAttribute('value', account);
-    }, extrAccount);
-    await context.click('input#loginUserId');
-    // after filling in the account number input and clicking away, the page is reloaded
-    // and the extractor needs to wait to fill in the rest of the inputs
-    await new Promise((resolve) => setTimeout(resolve, 3000));
-    await context.evaluate(async (userId = extrId) => {
-      document.querySelector('input#loginUserId').setAttribute('value', userId);
-    }, extrId);
-    await context.click('input#loginUserPassword');
-    await context.evaluate(async (pass = extrPass) => {
-      document.querySelector('input#loginUserPassword').setAttribute('value', pass);
-    }, extrPass);
-    // clicking outside the form after filling it out
-    // then clicking the log in button
-    await context.click('section[aria-label="Contact us"]');
+    const isAccountNumberFilledIn = await context.evaluate(async (number) => {
+      return document.querySelector('input#accountNumber').getAttribute('value') === number;
+    }, credentials.accountNumber);
+    if (!isAccountNumberFilledIn) await context.setInputValue('input#accountNumber', credentials.accountNumber);
+    const isLoginUserIdFilledIn = await context.evaluate(async (login) => {
+      return document.querySelector('input#loginUserId').getAttribute('value') === login;
+    }, credentials.loginUserId);
+    if (!isLoginUserIdFilledIn) await context.setInputValue('input#loginUserId', credentials.loginUserId);
+    await context.setInputValue('input#loginUserPassword', credentials.loginUserPassword);
+
     await context.click('div#loginBtn');
   }
   // logging in takes a moment and reloads the page, then goes to the homepage
