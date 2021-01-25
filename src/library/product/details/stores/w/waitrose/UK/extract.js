@@ -33,7 +33,9 @@ module.exports = {
       }
     });
     const productId = await context.evaluate(async function () {
-      return document.querySelector('div[data-bv-v="contentList:1"]').getAttribute('data-product-id');
+      await new Promise((resolve) => setTimeout(resolve, 500));
+      const productId = document.querySelector('div[data-bv-v="contentList:1"]').getAttribute('data-product-id') ? document.querySelector('div[data-bv-v="contentList:1"]').getAttribute('data-product-id') : '';
+      return productId;
     });
     var data = await context.extract(productDetails, { transform });
     for (let k = 0; k < data.length; k++) {
