@@ -36,12 +36,12 @@ fields:
   - name: listPrice
     singleValue: false
     xpath: (//div[@class='detail-options--price']//span[@class='_3Zi7dtkU2jBQ9sI3wlbCp0']/span)[1]
-  - name:  description
+  - name: description
     singleValue: false
     xpath: //div[contains(@class,'detail-navigation-section--description')]//p
   - name: descriptionBulletsPoints
     singleValue: false
-    xpath: //div[@name="description"]//ul//li
+    xpath: //div[@name="description" and contains(@class, "detail-navigation-section") and not(contains(text(),"&"))]//div[contains(@class, "detail-navigation-section--description")]//ul//li
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //ul[@class="detail-options--topfacts"]//li | //div[@name="description"]//ul//li
@@ -53,10 +53,10 @@ fields:
     xpath: (//meta[@property="og:brand"]/@content | //div[@class='detail-showcase--brand']/img/@alt)[1]
   # - name: brandLink
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   # - name: manufacturer
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   - name: mpc
     singleValue: false
     xpath: (//div[@name='specification']//div[@class='detail-navigation-section--specification-item'][div[contains(text(),'MPN')]]//span)[1]
@@ -69,7 +69,7 @@ fields:
     singleValue: false
     xpath: (//script[contains(text(),'gtin13')])[1]
     regExp: (\"gtin13\"\s*:\s*\"(.+?)\")
-    regExpReplace: $2 
+    regExpReplace: $2
   - name: sku
     singleValue: false
     xpath: (//script[contains(text(),'SKU')])[1]
@@ -77,36 +77,36 @@ fields:
     regExpReplace: $2
   # - name: variants
   #   singleValue: false
-  #   xpath: 
-  #   regExp: 
-  #   regExpReplace: 
+  #   xpath:
+  #   regExp:
+  #   regExpReplace:
   - name: variantId
     singleValue: false
     xpath: (//div[@class='detail-navigation-section--specification-item']//div[contains(text(),'Numéro d’article')]/following-sibling::div)[1]
   - name: variantCount
-    singleValue: false    
-    defaultValue: '0'
+    singleValue: false
+    defaultValue: "0"
   - name: variantInformation
     singleValue: false
     xpath: (//div[@name='specification']//div[@class='detail-navigation-section--specification-item'][div[contains(text(),'Farbe')]])[1]
   # - name: firstVariant
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   - name: promotion
     singleValue: false
     xpath: (//div[@class='detail-showcase--discount']/div)[1]
   # - name: warnings
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   # - name: directions
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   # - name: ingredientsList
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   # - name: shippingInfo
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   - name: specifications
     singleValue: false
     xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item']
@@ -119,19 +119,19 @@ fields:
   #   xpath: //div[@class='detail-showcase--brand']/img/@src
   # - name: manufacturerDescription
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   # - name: countryOfOrigin
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   # - name: servingSize
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   # - name: storage
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   # - name: packSize
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   - name: ratingCount
     singleValue: false
     xpath: (//script[contains(text(),'reviewCount')])[1]
@@ -144,16 +144,16 @@ fields:
     regExpReplace: $2
   # - name: numberOfServingsInPackage
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   # - name: packaging
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   # - name: quantity
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   # - name: pricePerUnit
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   - name: color
     singleValue: false
     xpath: (//div[@name='specification']//div[@class='detail-navigation-section--specification-item'][div[contains(text(),'Couleur')]]//span)[1]
@@ -162,82 +162,82 @@ fields:
     xpath: (//div[@name='specification']//div[@class='detail-navigation-section--specification-item'][div[contains(text(),'Poids')]]//span)[1]
   # - name: weightGross
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   # - name: shippingWeight
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   # - name: videos
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   # - name: shippingDimensions
   #   singleValue: false
   #   xpath: concat(//div[@name='specification']//div[@class='detail-navigation-section--specification-item'][div[contains(text(),'Largeur')]]//span, " x ", //div[@name='specification']//div[@class='detail-navigation-section--specification-item'][div[contains(text(),'Hauteur')]]//span, " x " ,//div[@name='specification']//div[@class='detail-navigation-section--specification-item'][div[contains(text(),'Profondeur')]]//span)
   # - name: materials
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   # - name: productOtherInformation
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   - name: energyEfficiency
     singleValue: false
     xpath: (//div[@name='specification']//div[@class='detail-navigation-section--specification-item'][div[contains(text(),'énergétique')]]//span)[1]
   # - name: alcoholContent
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   # - name: allergyAdvice
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   # - name: recyclingInformation
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   # - name: totalCarbPerServing
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   # - name: dietaryFibrePerServing
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   # - name: sodiumPerServing
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   # - name: transFatPerServing
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   # - name: saturatedFatPerServing
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   # - name: cholesterolPerServing
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   # - name: proteinPerServing
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   # - name: totalFatPerServing
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   # - name: calciumPerServing
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   # - name: caloriesPerServing
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   # - name: ironPerServing
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   # - name: vitaminAPerServing
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   # - name: vitaminCPerServing
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   # - name: saltPerServing
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   # - name: totalSugarsPerServing
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   # - name: magnesiumPerServing
   #   singleValue: false
-  #   xpath: 
+  #   xpath:
   # - name: customerServiceAvailability
   #   singleValue: false
   #   xpath: //div[@class='detail-services--serviceinfo-container']/span/span
@@ -246,7 +246,7 @@ fields:
     defaultValue: No
   - name: Image360Present
     singleValue: false
-    defaultValue: No 
+    defaultValue: No
   - name: termsAndConditions
     singleValue: false
     defaultValue: No

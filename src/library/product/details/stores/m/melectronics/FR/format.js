@@ -43,11 +43,14 @@ const transform = (data) => {
         });
         row.alternateImages = [{ text: alternateImagesArr.join(' || '), xpath: row.alternateImages[0].xpath }];
       }
-      if (row.description) {
+      if (row.description || row.descriptionBulletsPoints) {
         var text = '';
-        row.description.map((item) => {
-          text += item.text + ' ';
-        });
+
+        if (row.description) {
+          row.description.map((item) => {
+            text += item.text + ' ';
+          });
+        }
 
         if (row.descriptionBulletsPoints) {
           const descriptionBulletsPointsArr = row.descriptionBulletsPoints.map((item) => {
@@ -55,10 +58,10 @@ const transform = (data) => {
           });
           const uniqueDesc = new Set(descriptionBulletsPointsArr);
           uniqueDesc.forEach((item) => {
-            text += typeof (item.text) === 'string' && item.text.trim() !== '' ? ' || ' + item.text : '';
+            text += typeof (item) === 'string' && item.trim() !== '' ? ' || ' + item : '';
           });
         }
-        row.description = [{ text: text, xpath: row.description[0].xpath }];
+        row.description = [{ text }];
       }
       if (row.specifications) {
         const specificationsArr = row.specifications.map((item) => {
