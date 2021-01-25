@@ -46,12 +46,9 @@ module.exports = {
         if (description.includes('Ingredients')) addElementToDocument('ingred', description.split('Ingredients:').pop().trim());
         // @ts-ignore
         if (description.includes('•')) document.querySelector('meta#meta-og-description').setAttribute('desc', description.match(/•/gm).length);
+        // @ts-ignore
+        if (description.includes('∙')) document.querySelector('meta#meta-og-description').setAttribute('desc', description.match(/∙/gm).length);
       }
-      const descBullets = document.querySelector('article[class*="270b-less"] > p');
-      // @ts-ignore
-      if (descBullets !== null && descBullets.innerText.includes('•')) descBullets.setAttribute('bullets', descBullets.innerText.match(/•/g).length);
-      // @ts-ignore
-      if (descBullets !== null && descBullets.innerText.includes('∙')) descBullets.setAttribute('bullets', descBullets.innerText.match(/∙/g).length);
 
       const quantitySecond = document.evaluate('//span[contains(@class, "a8ac-less")]/following-sibling::text()[1]', document, null, XPathResult.STRING_TYPE).stringValue;
       const quantityFirst = document.evaluate('//span[contains(@class, "a8ac-less")]/preceding-sibling::text()[1]', document, null, XPathResult.STRING_TYPE).stringValue;
