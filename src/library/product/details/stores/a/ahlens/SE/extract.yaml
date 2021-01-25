@@ -10,13 +10,13 @@ fields:
   - name: category
     xpath: //div[@ng-controller="ProductList"]//ol/li[@class="MuiBreadcrumbs-li"]//text()    
   - name: alternateImages
-    xpath: //html//div[@class='altImage'] 
+    xpath: //ul[@class="ul--inline"]//span[@ng-repeat][position()>1]/@content
     regExp: (.+)(ProductList)(.+)
-    regExpReplace: $1PDPMegazoom$3 
+    regExpReplace: https://www.ahlens.se$1PDPMegazoom$3 
   - name: nameExtended
-    xpath: concat(//div[@ng-if="product.brand && !product.attributes.new"]/a/text()," ", //div[@class="ah-pdp-info pt"]//h1/text())       
+    xpath: concat(//div[@ng-if="product.brand && !product.attributes.new"]/a/text()," ", //div[@class="ah-pdp-info"]//h1/text())       
   - name: price
-    xpath: //html//div[@class='altImage1'] 
+    xpath: //div[@class='altImage1'] 
   - name: availabilityText
     xpath: //div[@class="ah-pdp-cta"]//span[contains(text(),'Lägg i varukorg')]
     regExp: (.+)

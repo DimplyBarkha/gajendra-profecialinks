@@ -5,7 +5,7 @@ module.exports = {
     country: 'SE',
     store: 'ahlens',
     domain: 'ahlens.se',
-    loadedSelector: null,
+    loadedSelector: 'div[class="ah-main-content content"]',
     noResultsXPath: null,
     zipcode: '',
   },

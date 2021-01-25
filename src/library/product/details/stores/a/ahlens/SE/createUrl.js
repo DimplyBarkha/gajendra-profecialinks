@@ -21,7 +21,7 @@ async function implementation(
     var firstURL = parameters.url.replace('{id}', encodeURIComponent(id));
     await new Promise((resolve, reject) => setTimeout(resolve, 10000));
     await context.goto(firstURL);
-    var finalURL = await context.evaluate(async function () {
+    var finalURL = await context.evaluate(async function () {   
       let wholeData = document.querySelector('pre').innerText;
       let jsonwholeData = JSON.parse(wholeData);
       return jsonwholeData.product.uri;
