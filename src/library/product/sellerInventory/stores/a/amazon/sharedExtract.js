@@ -27,7 +27,7 @@ const getStockFunc = async function ({ context, sellerId, id, url }) {
         hasdropDownQuantity: '[import=element] span[data-action*=dropdown]',
         hasBuyNewBtn: '#buyNew_cbb',
         hasNoThanksAddOn: '#buybox-see-all-buying-choices-announce',
-        sellerName: 'div[id*="used"] #tabular-buybox>table>tbody>tr:nth-child(1)>td:nth-child(2) span[aria-hidden] a, div[id*="used"] #merchant-info>a[id*="seller"]:nth-child(1), div[id*="used"] #merchant-info>a[id*="seller"], #qualifiedBuybox #tabular-buybox>table>tbody>tr:nth-child(2)>td:nth-child(2) span[aria-hidden] a, div[id*="new"] #tabular-buybox>table>tbody>tr:nth-child(2)>td:nth-child(2) span[aria-hidden] a,#qualifiedBuybox #merchant-info a, div[id*="new"] #merchant-info a'
+        sellerName: 'div[id*="used"] #tabular-buybox>table>tbody>tr:nth-child(1)>td:nth-child(2) span.a-truncate-full a, div[id*="used"] #merchant-info>a[id*="seller"]:nth-child(1), div[id*="used"] #merchant-info>a[id*="seller"], #qualifiedBuybox #tabular-buybox>table>tbody>tr:nth-child(2)>td:nth-child(2) span.a-truncate-full a, div[id*="new"] #tabular-buybox>table>tbody>tr:nth-child(2)>td:nth-child(2) span.a-truncate-full a,#qualifiedBuybox #merchant-info a, div[id*="new"] #merchant-info a'
       };
 
       const elementChecks = {};
