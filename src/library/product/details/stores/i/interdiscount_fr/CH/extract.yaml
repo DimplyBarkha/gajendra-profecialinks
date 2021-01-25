@@ -12,7 +12,11 @@ fields:
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
-    xpath: (//img[@property="image"])[position()>1]/@src
+    xpath: (//div[contains(@class,"swiper-slide _20ncMD ")]/../..//img)[position()>1]/@src
+    # xpath: (//img[@property="image"])[position()>1]/@src
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count((//div[contains(@class,"swiper-slide _20ncMD ")]/../..//img)[position()>1]/@src)
   - name: metaKeywords
     singleValue: false
   - name: category
@@ -24,7 +28,11 @@ fields:
     xpath: //div[@class="wJeOUm"]//h1
   - name: listPrice
     singleValue: false
-    xpath: //div[@id="pd_listPrice"]
+    # xpath: //script[contains(.,"basePrice")]/text()
+    # regExp: insteadPrice\W+([^}]+)
+    # regExpReplace: $1
+    xpath: concat(((//div[@class="_3CzkGr"])[1]//span/text())[1],'.',((//div[@class="_3CzkGr"])[1]//span/text())[last()])
+    # xpath: //div[@id="pd_listPrice"]
   - name: price
     singleValue: false
     xpath: //script[@type="application/ld+json" and (contains(.,"price"))]/text()
@@ -49,7 +57,7 @@ fields:
     # type: NUMBER
   - name: brandText
     singleValue: false
-    xpath: (//div[contains(@class,"_29EfLc")]/img)[1]/@alt
+    xpath: (//div[contains(@class,"_29EfLc")]/img)[1]/@alt | (//div[@class="zU2vvo _94dpa6"])[1]/a/text()
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: manufacturer
@@ -76,14 +84,22 @@ fields:
     # xpath: //div[@id="pd_gtin"]
   - name: sku
     singleValue: false
-    xpath: //span[contains(text(),"Numéro d’article:")]
+    xpath: //span[contains(text(),"Numéro d’article:") or (contains(.,"Numéro d'article"))][1]
+    regExp: \d{5,}
+  - name: sku1
+    singleValue: false
+    xpath: //span[@class="_1zgVnP"]/text()
     regExp: \d{5,}
     # regExpReplace: In Stock
     # xpath: //div[@id="pd_sku"]
-  - name: variantId
+  - name: variantId1
     singleValue: false
     # xpath: //div[@id="pd_sku"]
-    xpath: //span[contains(text(),"Numéro d’article:")]
+    xpath: //span[@class="_1zgVnP"]/text()
+    regExp: \d{5,}
+  - name: variantId
+    singleValue: false
+    xpath: //span[contains(text(),"Numéro d’article:") or (contains(.,"Numéro d'article"))]][1]
     regExp: \d{5,}
     # regExpReplace: In Stock
     description: Identifier for a variant from a store where variants share the same sku
@@ -178,10 +194,14 @@ fields:
     description: promotion text on product page
   - name: variantInformation
     singleValue: false
-    xpath: //*[@id="TOP_CONTENT_ANCHOR"]//div[contains(@class,"_1P5BGO")]//button[@type="submit"]
+    xpath: //b[@class="_18KrC0"]
+    # xpath: //*[@id="TOP_CONTENT_ANCHOR"]//div[contains(@class,"_1P5BGO")]//button[@type="submit"]
   - name: variants
     singleValue: false
-    xpath: //div[@id="pd_variants"]
+    xpath: //script[contains(.,"productVariants")]/text()
+    regExp: code\W+(\d{10})"
+    regExpReplace: $1
+    # xpath: //div[@id="pd_variants"]
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //div[@class="_2f8bnF _2_5SM5"]/ul/li
@@ -219,8 +239,8 @@ fields:
     defaultValue: No
   - name: firstVariant
     singleValue: false
-    xpath: //div[@id="pd_firstVariant"]
-
+    xpath: //span[@class="v94Og5"]
+    # xpath: //div[@id="pd_firstVariant"]
   - name: hasComparisonTable
     defaultValue: No
   - name: unInterruptedPDP
