@@ -28,13 +28,14 @@ fields:
   - name: reviewCount
     singleValue: false
   - name: aggregateRating
-    singleValue: true
-    xpath: //span[@class='bv-off-screen']
-    regExp: (\d+)
+    singleValue: false
+    # xpath: //span[@class='bv-off-screen']
+    # regExp: (\d+)
   - name: price
     singleValue: false
     # type: CURRENCY
-    xpath: //span[@class='price-sell']
+    xpath: //html//div[@id='price']
+      # //span[@class='price-sell']
   - name: manufacturer
     singleValue: false
   - name: soldBy
@@ -43,3 +44,6 @@ fields:
     singleValue: false
   - name: endorsementText
     singleValue: false
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id="pd_url"]
