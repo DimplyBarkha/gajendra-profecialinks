@@ -1,24 +1,37 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
-recordXPath: //div[contains(@class,"catalog-content")]//div[contains(@class,"product-list-mode-grid__item")]
+# recordSelector: div.catalog-content div.product-list-mode-grid div.product-info
+recordXPath: //div[contains(@class,"catalog-content")]//div[contains(@class,"product-list-mode-grid__item")]//div[@class="product"]
 fields:
   - name: id
-    SingleValue: true
+    singleValue: false
     xpath: //div[contains(@class,"product-list-mode-grid__item")]//a[@class="product__title"]/@href
+    regExp: \d+
   - name: productUrl
-    SingleValue: true
+    singleValue: false
     xpath: //div[contains(@class,"product-list-mode-grid__item")]//a[@class="product__title"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.rigla.ru$1
   - name: price
-    SingleValue: true
-    xpath: //div[contains(@class,"product-list-mode-grid__item")]//div[@class="product__active-price"]
+    singleValue: false
+    xpath: //div[contains(@class,"product-list-mode-grid__item")]//div[contains(@class,"product__active-price")]
+  # - name: price1
+  #   singleValue: false
+  #   xpath: //div[@class="product__active-price"]//span[@class="product__active-price-number"]
+    # xpath: //div[contains(@class,"product-list-mode-grid__item")]//div[@class="product__active-price"]//span[@class="product__active-price-number"]
+  # - name: price2
+  #   singleValue: false
+  #   xpath: //div[@class="product__active-price"]//span[@class="product__active-rouble"]
+    # xpath: //div[contains(@class,"product-list-mode-grid__item")]//div[@class="product__active-price"]//span[@class="product__active-rouble"]
   - name: thumbnail
-    SingleValue: true
-    xpath: //div[contains(@class,"product-list-mode-grid__item")]//img[@class="product__img"]/@src
+    singleValue: false
+    xpath: //div[contains(@class,"product-list-mode-grid__item")]//img[@class="product__img"]/@data-src
+    # regExp: (.+)
+    # regExpReplace: https://www.rigla.ru$1
   - name: name
-    SingleValue: true
+    singleValue: false
     xpath: //div[contains(@class,"product-list-mode-grid__item")]//a[@class="product__title"]
   - name: rankOrganic
-    SingleValue: true
+    singleValue: false
   - name: rank
-    SingleValue: true
+    singleValue: false
