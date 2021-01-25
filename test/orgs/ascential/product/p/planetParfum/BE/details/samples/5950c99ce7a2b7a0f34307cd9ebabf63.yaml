@@ -2,13 +2,13 @@ input:
   RPC: 14519_409
   _url: http://planetparfum.com
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5b2ccc2f-da83-4fff-a26b-8ea6f952f8e3/task=bec34c13-f3df-4812-abe0-47fea6208e07/0078bfec-310a-463c-ab37-556195293d4f.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=6f29560a-aa1c-47a0-a7f3-4b1c3da4edc6/task=fcc27690-c932-4c78-bff4-21c3c899552d/43af643e-f50c-417d-ad0a-012cf1e33470.html
     extractionConfigId: product/details/stores/p/planetParfum/BE/extract
     data:
       - group:
           - productUrl:
-              - text: https://www.planetparfum.com/fr/product/ombre-hypnose-mono-mate/20014426.html
-                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/span[1]
+              - text: https://www.planetparfum.com/fr/product/ombre-hypnose-mono-mate/20014423.html
+                xpath: /html/body/div[3]/@product_link_url
             image:
               - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw8848a982/zoom/20014423_M.jpg
                 xpath: /html/body/div[3]/@product_img
@@ -28,11 +28,8 @@ extractions:
             nameExtended:
               - text: LANCÔME - Ombre Hypnôse Mono Mate - Ombre à Paupières - 102 Beige Nu
                 xpath: /html/body/div[3]/@name_extended
-            listPrice:
-              - text: 30,90 €
-                xpath: /html/body/div[3]/@list_price
             price:
-              - text: 24,41 €
+              - text: 30,90 €
                 xpath: /html/body/div[3]/@price
             availabilityText:
               - text: Out Of Stock
@@ -70,23 +67,19 @@ extractions:
               - text: https://www.planetparfum.com/fr/marques/lancome/
                 xpath: /html/body/div[3]/@brand_link
             ingredientsList:
-              - text: >-
-                  CALCIUM ALUMINUM BOROSILICAT - CETEARYL ETHYLHEXANOATE -
-                  GLYCERIN - HDI/TRIMETHYLOL HEXYLLACTONE CROSSPOLYMER - SILICA
-                  - SQUALANE - OCTYLDODECYL STEAROYL STEARATE - TIN OXIDE -
-                  1,2-HEXANEDIOL - DICALCIUM PHOSPHATE - CHONDRUS CRISPUS -
-                  CAPRYLYL GLYCOL - XANTHAN GUM - SYNTHETIC FLUORPHLOGOPITE -
-                  ETHYLHEXYLGLYCERIN - POLYSORBATE 80 - TOCOPHEROL -
-                  PENTAERYTHRITYL TETRA-DI-T-BUTYL HYDROXYHYDROCINNAMATE - [+/-
-                  MAY CONTAIN CI 77288 / CHROMIUM OXIDE GREENS - CI 77491, CI
-                  77492, CI 77499 / IRON OXIDES - CI 77510 / FERRIC FERROCYANIDE
-                  - CI 77891 / TITANIUM DIOXIDE - MICA - ] 
-
-                  * THIS INGREDIENT LIST IS SUBJECT TO CHANGE, CUSTOMERS SHOULD REFER TO THE PRODUCT PACKAGING FOR THE MOST UP-TO-DATE INGREDIENT LIST.
-                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[2]/span[1]
-            promotion:
-              - text: -21% sur tout l'assortiment
-                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/p[1]/span[2]
+              - text: CALCIUM ALUMINUM BOROSILICAT - CETEARYL ETHYLHEXANOATE - GLYCERIN -
+                  HDI/TRIMETHYLOL HEXYLLACTONE CROSSPOLYMER - SILICA - SQUALANE
+                  - OCTYLDODECYL STEAROYL STEARATE - TIN OXIDE - 1,2-HEXANEDIOL
+                  - DICALCIUM PHOSPHATE - CHONDRUS CRISPUS - CAPRYLYL GLYCOL -
+                  XANTHAN GUM - SYNTHETIC FLUORPHLOGOPITE - ETHYLHEXYLGLYCERIN -
+                  POLYSORBATE 80 - TOCOPHEROL - PENTAERYTHRITYL TETRA-DI-T-BUTYL
+                  HYDROXYHYDROCINNAMATE - [+/- MAY CONTAIN CI 77288 / CHROMIUM
+                  OXIDE GREENS - CI 77491, CI 77492, CI 77499 / IRON OXIDES - CI
+                  77510 / FERRIC FERROCYANIDE - CI 77891 / TITANIUM DIOXIDE -
+                  MICA - ] * THIS INGREDIENT LIST IS SUBJECT TO CHANGE,
+                  CUSTOMERS SHOULD REFER TO THE PRODUCT PACKAGING FOR THE MOST
+                  UP-TO-DATE INGREDIENT LIST.
+                xpath: /html/body/div[3]/@ingredient_list
             variants:
               - text: 204 Très Chocolat
                 xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[2]
@@ -96,7 +89,7 @@ extractions:
               - text: "true"
           - productUrl:
               - text: https://www.planetparfum.com/fr/product/ombre-hypnose-mono-mate/20014426.html
-                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/span[1]
+                xpath: /html/body/div[5]/@product_link_url
             image:
               - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw3159ccbd/zoom/20014426_M.jpg
                 xpath: /html/body/div[5]/@product_img
@@ -116,11 +109,8 @@ extractions:
             nameExtended:
               - text: LANCÔME - Ombre Hypnôse Mono Mate - Ombre à Paupières - 204 Très Chocolat
                 xpath: /html/body/div[5]/@name_extended
-            listPrice:
-              - text: 30,90 €
-                xpath: /html/body/div[5]/@list_price
             price:
-              - text: 24,41 €
+              - text: 30,90 €
                 xpath: /html/body/div[5]/@price
             availabilityText:
               - text: Out Of Stock
@@ -158,23 +148,19 @@ extractions:
               - text: https://www.planetparfum.com/fr/marques/lancome/
                 xpath: /html/body/div[5]/@brand_link
             ingredientsList:
-              - text: >-
-                  CALCIUM ALUMINUM BOROSILICAT - CETEARYL ETHYLHEXANOATE -
-                  GLYCERIN - HDI/TRIMETHYLOL HEXYLLACTONE CROSSPOLYMER - SILICA
-                  - SQUALANE - OCTYLDODECYL STEAROYL STEARATE - TIN OXIDE -
-                  1,2-HEXANEDIOL - DICALCIUM PHOSPHATE - CHONDRUS CRISPUS -
-                  CAPRYLYL GLYCOL - XANTHAN GUM - SYNTHETIC FLUORPHLOGOPITE -
-                  ETHYLHEXYLGLYCERIN - POLYSORBATE 80 - TOCOPHEROL -
-                  PENTAERYTHRITYL TETRA-DI-T-BUTYL HYDROXYHYDROCINNAMATE - [+/-
-                  MAY CONTAIN CI 77288 / CHROMIUM OXIDE GREENS - CI 77491, CI
-                  77492, CI 77499 / IRON OXIDES - CI 77510 / FERRIC FERROCYANIDE
-                  - CI 77891 / TITANIUM DIOXIDE - MICA - ] 
-
-                  * THIS INGREDIENT LIST IS SUBJECT TO CHANGE, CUSTOMERS SHOULD REFER TO THE PRODUCT PACKAGING FOR THE MOST UP-TO-DATE INGREDIENT LIST.
-                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[2]/span[1]
-            promotion:
-              - text: -21% sur tout l'assortiment
-                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/p[1]/span[2]
+              - text: CALCIUM ALUMINUM BOROSILICAT - CETEARYL ETHYLHEXANOATE - GLYCERIN -
+                  HDI/TRIMETHYLOL HEXYLLACTONE CROSSPOLYMER - SILICA - SQUALANE
+                  - OCTYLDODECYL STEAROYL STEARATE - TIN OXIDE - 1,2-HEXANEDIOL
+                  - DICALCIUM PHOSPHATE - CHONDRUS CRISPUS - CAPRYLYL GLYCOL -
+                  XANTHAN GUM - SYNTHETIC FLUORPHLOGOPITE - ETHYLHEXYLGLYCERIN -
+                  POLYSORBATE 80 - TOCOPHEROL - PENTAERYTHRITYL TETRA-DI-T-BUTYL
+                  HYDROXYHYDROCINNAMATE - [+/- MAY CONTAIN CI 77288 / CHROMIUM
+                  OXIDE GREENS - CI 77491, CI 77492, CI 77499 / IRON OXIDES - CI
+                  77510 / FERRIC FERROCYANIDE - CI 77891 / TITANIUM DIOXIDE -
+                  MICA - ] * THIS INGREDIENT LIST IS SUBJECT TO CHANGE,
+                  CUSTOMERS SHOULD REFER TO THE PRODUCT PACKAGING FOR THE MOST
+                  UP-TO-DATE INGREDIENT LIST.
+                xpath: /html/body/div[5]/@ingredient_list
             variants:
               - text: 204 Très Chocolat
                 xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[2]
@@ -183,4 +169,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1611318595976
+    timestamp: 1611590894828

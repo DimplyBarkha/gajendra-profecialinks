@@ -2,7 +2,7 @@ input:
   RPC: 12751_457
   _url: http://planetparfum.com
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5b2ccc2f-da83-4fff-a26b-8ea6f952f8e3/task=b92836d1-fd2c-4f14-ad69-351b92a42bfa/2f20913b-721c-415c-851d-6d70d549c2be.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=6f29560a-aa1c-47a0-a7f3-4b1c3da4edc6/task=f40d0172-f8b5-49e8-97c2-a6b3f9e23921/8402ce8d-af3c-4619-97b2-2994a2d51afc.html
     extractionConfigId: product/details/stores/p/planetParfum/BE/extract
     data:
       - group:
@@ -11,7 +11,7 @@ extractions:
                 xpath: /html/body/div[4]/a[1]/@href
             productUrl:
               - text: https://www.planetparfum.com/fr/product/invictus/20020729.html
-                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/span[1]
+                xpath: /html/body/div[4]/@product_link_url
             image:
               - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dwd96e6adb/zoom/20020729_M.jpg
                 xpath: /html/body/div[4]/@product_img
@@ -31,11 +31,8 @@ extractions:
             nameExtended:
               - text: PACO RABANNE - Invictus - Gel Douche
                 xpath: /html/body/div[4]/@name_extended
-            listPrice:
-              - text: 28,90 €
-                xpath: /html/body/div[4]/@list_price
             price:
-              - text: 22,83 €
+              - text: 28,90 €
                 xpath: /html/body/div[4]/@price
             availabilityText:
               - text: In Stock
@@ -90,17 +87,14 @@ extractions:
                   LIMONENE - LINALOOL - COUMARIN - POLYQUATERNIUM-39 -
                   TETRASODIUM - EDTA - BUTYLPHENYL - METHYLPROPIONAL - GERANIOL
                   - CITRONELLOL - ALPHA-ISOMETHYL - IONONE.
-                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[3]/span[1]
+                xpath: /html/body/div[4]/@ingredient_list
             pricePerUnit:
               - text: 192,67 €
                 xpath: /html/body/div[4]/@price_per_unit
             pricePerUnitUom:
               - text: litre
                 xpath: /html/body/div[4]/@price_per_unit_uom
-            promotion:
-              - text: -21% sur tout l'assortiment
-                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/p[1]/span[2]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1611318588540
+    timestamp: 1611590887693

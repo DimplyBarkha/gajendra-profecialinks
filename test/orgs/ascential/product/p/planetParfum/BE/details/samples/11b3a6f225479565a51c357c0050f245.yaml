@@ -2,13 +2,13 @@ input:
   RPC: 14808_457
   _url: http://planetparfum.com
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5b2ccc2f-da83-4fff-a26b-8ea6f952f8e3/task=27a118dc-619d-4308-8b48-eed59e33f117/7a2b7e99-747f-477e-9da2-f3f810afe9c4.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=6f29560a-aa1c-47a0-a7f3-4b1c3da4edc6/task=741e389f-51b1-48e7-b7b2-b65a231dd1a1/c7e52370-efb1-4632-a269-0c713e2447d8.html
     extractionConfigId: product/details/stores/p/planetParfum/BE/extract
     data:
       - group:
           - productUrl:
               - text: https://www.planetparfum.com/fr/product/haute-exigence-jour-toutes-peaux/20023064.html
-                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/span[1]
+                xpath: /html/body/div[4]/@product_link_url
             image:
               - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dwc36a9193/zoom/20023064_M.jpg
                 xpath: /html/body/div[4]/@product_img
@@ -28,11 +28,8 @@ extractions:
             nameExtended:
               - text: CLARINS - Haute Exigence Jour Toutes Peaux - Crème Jour
                 xpath: /html/body/div[4]/@name_extended
-            listPrice:
-              - text: 89,90 €
-                xpath: /html/body/div[4]/@list_price
             price:
-              - text: 71,02 €
+              - text: 89,90 €
                 xpath: /html/body/div[4]/@price
             availabilityText:
               - text: In Stock
@@ -88,11 +85,8 @@ extractions:
                   formules pouvant être amenées à évoluer, veuillez vous
                   reporter également à la liste d'ingrédients figurant sur
                   l'emballage du produit & faisant seule foi.
-                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[3]/span[1]
-            promotion:
-              - text: -21% sur tout l'assortiment
-                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/p[1]/span[2]
+                xpath: /html/body/div[4]/@ingredient_list
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1611318590007
+    timestamp: 1611590888993

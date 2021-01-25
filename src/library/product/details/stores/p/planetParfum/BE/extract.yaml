@@ -9,7 +9,7 @@ fields:
   singleValue: false
 - name: productUrl
   singleValue: false
-  xpath: ancestor::html//span[@itemprop="url"]
+  xpath: "@product_link_url"
 - name: _pageTimeStamp
   singleValue: false
 - name: image
@@ -246,7 +246,7 @@ fields:
 - name: ingredientsList
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
-  xpath: ancestor::html//span[@class="ingredient"]
+  xpath: "@ingredient_list"
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.

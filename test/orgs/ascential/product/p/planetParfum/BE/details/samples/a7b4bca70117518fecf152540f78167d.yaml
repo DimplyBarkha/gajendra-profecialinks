@@ -2,7 +2,7 @@ input:
   RPC: 12764_457
   _url: http://planetparfum.com
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5b2ccc2f-da83-4fff-a26b-8ea6f952f8e3/task=ec46e7c4-938f-496e-b3c3-99d176faf6c2/542272b2-6f21-4644-9830-9b781d1264ca.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=6f29560a-aa1c-47a0-a7f3-4b1c3da4edc6/task=cd681db5-bb91-4bbd-b471-86eb390d0bc9/919a9d7d-e374-4897-bb67-78ae4e9c2482.html
     extractionConfigId: product/details/stores/p/planetParfum/BE/extract
     data:
       - group:
@@ -15,7 +15,7 @@ extractions:
                 xpath: /html/body/div[4]/a[3]/@href
             productUrl:
               - text: https://www.planetparfum.com/fr/product/pour-homme/20015874.html
-                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/span[1]
+                xpath: /html/body/div[4]/@product_link_url
             image:
               - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dwbad345db/zoom/20015874_M.jpg
                 xpath: /html/body/div[4]/@product_img
@@ -35,11 +35,8 @@ extractions:
             nameExtended:
               - text: PACO RABANNE - Pour Homme - Eau de Toilette
                 xpath: /html/body/div[4]/@name_extended
-            listPrice:
-              - text: 83,50 €
-                xpath: /html/body/div[4]/@list_price
             price:
-              - text: 65,96 €
+              - text: 83,50 €
                 xpath: /html/body/div[4]/@price
             availabilityText:
               - text: In Stock
@@ -86,17 +83,14 @@ extractions:
                   CITRONELLOL - HEXYL CINNAMAL - BENZYL BENZOATE - CITRAL -
                   EVERNIA PRUNASTRI (OAKMOSS) EXTRACT - BENZYL SALICYLATE - AMYL
                   CINNAMAL - CINNAMYL ALCOHOL - BENZYL ALCOHOL - CINNAMAL.
-                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[3]/span[1]
+                xpath: /html/body/div[4]/@ingredient_list
             pricePerUnit:
               - text: 835,00 €
                 xpath: /html/body/div[4]/@price_per_unit
             pricePerUnitUom:
               - text: litre
                 xpath: /html/body/div[4]/@price_per_unit_uom
-            promotion:
-              - text: -21% sur tout l'assortiment
-                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/p[1]/span[2]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1611318590848
+    timestamp: 1611590889614

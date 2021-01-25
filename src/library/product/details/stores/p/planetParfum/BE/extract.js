@@ -50,6 +50,14 @@ module.exports = {
           const productSku = productUrl ? productUrl.replace(/.+\/(.+)\.html/, '$1') : '';
           addedVariant.setAttribute('product_sku_id', productSku);
 
+          const productLinkElem = getEleByXpath('//span[@itemprop="url"]');
+          const productLink = productLinkElem || window.location.href;
+          if (productLink) addedVariant.setAttribute('product_link_url', productLink);
+
+          const ingrediens = getEleByXpath('//span[@class="ingredient"]');
+          const ingrediensList = ingrediens || '';
+          if (ingrediensList) addedVariant.setAttribute('ingredient_list', ingrediensList);
+
           const availabilityElem = document.querySelector('div.availability p.in-stock-msg');
           const availabilityText = availabilityElem ? 'In Stock' : 'Out Of Stock';
           addedVariant.setAttribute('availability_text', availabilityText);

@@ -2,7 +2,7 @@ input:
   RPC: 12782_457
   _url: http://planetparfum.com
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5b2ccc2f-da83-4fff-a26b-8ea6f952f8e3/task=9ca1b6b5-f3fd-4eb0-94c5-72a5f004363c/154a1d35-2f0d-4265-94cb-f0c52a7e95bd.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=6f29560a-aa1c-47a0-a7f3-4b1c3da4edc6/task=340fc15f-ca97-4266-8edc-cb1a536eb8de/268872f1-cf3c-4af7-9a34-2324d1615322.html
     extractionConfigId: product/details/stores/p/planetParfum/BE/extract
     data:
       - group:
@@ -20,8 +20,8 @@ extractions:
               - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw94e009ad/thumbnails/20015902_C6.jpg
                 xpath: /html/body/div[3]/a[6]/@href
             productUrl:
-              - text: https://www.planetparfum.com/fr/product/1-million/20015903.html
-                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/span[1]
+              - text: https://www.planetparfum.com/fr/product/1-million/20015902.html
+                xpath: /html/body/div[3]/@product_link_url
             image:
               - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw6178d8ae/zoom/20015902_M.jpg
                 xpath: /html/body/div[3]/@product_img
@@ -41,11 +41,8 @@ extractions:
             nameExtended:
               - text: PACO RABANNE - 1 Million - Eau de Toilette - 50 ml - Vaporisateur
                 xpath: /html/body/div[3]/@name_extended
-            listPrice:
-              - text: 64,90 €
-                xpath: /html/body/div[3]/@list_price
             price:
-              - text: 51,27 €
+              - text: 64,90 €
                 xpath: /html/body/div[3]/@price
             availabilityText:
               - text: In Stock
@@ -94,16 +91,13 @@ extractions:
                   METHYLPROPIONAL - COUMARIN - LIMONENE - HYDROXYCITRONELLAL -
                   ALPHA-ISOMETHYL IONONE - LINALOOL - BENZYL ALCOHOL - CINNAMAL
                   - EUGENOL - CITRAL - ISOEUGENOL - CITRONELLOL.
-                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[3]/span[1]
+                xpath: /html/body/div[3]/@ingredient_list
             pricePerUnit:
               - text: 1.298,00 €
                 xpath: /html/body/div[3]/@price_per_unit
             pricePerUnitUom:
               - text: litre
                 xpath: /html/body/div[3]/@price_per_unit_uom
-            promotion:
-              - text: -21% sur tout l'assortiment
-                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/p[1]/span[2]
             variants:
               - text: 50 ml - Vaporisateur
                 xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/div[1]
@@ -127,8 +121,8 @@ extractions:
               - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw08d65311/thumbnails/20015901_C6.jpg
                 xpath: /html/body/div[4]/a[6]/@href
             productUrl:
-              - text: https://www.planetparfum.com/fr/product/1-million/20015903.html
-                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/span[1]
+              - text: https://www.planetparfum.com/fr/product/1-million/20015901.html
+                xpath: /html/body/div[4]/@product_link_url
             image:
               - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw44179b2a/zoom/20015901_M.jpg
                 xpath: /html/body/div[4]/@product_img
@@ -148,14 +142,11 @@ extractions:
             nameExtended:
               - text: PACO RABANNE - 1 Million - Eau de Toilette - 100 ml - Vaporisateur
                 xpath: /html/body/div[4]/@name_extended
-            listPrice:
-              - text: 85,90 €
-                xpath: /html/body/div[4]/@list_price
             price:
-              - text: 67,86 €
+              - text: 85,90 €
                 xpath: /html/body/div[4]/@price
             availabilityText:
-              - text: Out Of Stock
+              - text: In Stock
                 xpath: /html/body/div[4]/@availability_text
             description:
               - text: >-
@@ -201,16 +192,13 @@ extractions:
                   METHYLPROPIONAL - COUMARIN - LIMONENE - HYDROXYCITRONELLAL -
                   ALPHA-ISOMETHYL IONONE - LINALOOL - BENZYL ALCOHOL - CINNAMAL
                   - EUGENOL - CITRAL - ISOEUGENOL - CITRONELLOL.
-                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[3]/span[1]
+                xpath: /html/body/div[4]/@ingredient_list
             pricePerUnit:
               - text: 859,00 €
                 xpath: /html/body/div[4]/@price_per_unit
             pricePerUnitUom:
               - text: litre
                 xpath: /html/body/div[4]/@price_per_unit_uom
-            promotion:
-              - text: -21% sur tout l'assortiment
-                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/p[1]/span[2]
             variants:
               - text: 50 ml - Vaporisateur
                 xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/div[1]
@@ -235,7 +223,7 @@ extractions:
                 xpath: /html/body/div[6]/a[6]/@href
             productUrl:
               - text: https://www.planetparfum.com/fr/product/1-million/20015903.html
-                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/span[1]
+                xpath: /html/body/div[6]/@product_link_url
             image:
               - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw34329dec/zoom/20015903_M.jpg
                 xpath: /html/body/div[6]/@product_img
@@ -255,11 +243,8 @@ extractions:
             nameExtended:
               - text: PACO RABANNE - 1 Million - Eau de Toilette - 200 ml - Vaporisateur
                 xpath: /html/body/div[6]/@name_extended
-            listPrice:
-              - text: 117,90 €
-                xpath: /html/body/div[6]/@list_price
             price:
-              - text: 93,14 €
+              - text: 117,90 €
                 xpath: /html/body/div[6]/@price
             availabilityText:
               - text: In Stock
@@ -308,16 +293,13 @@ extractions:
                   METHYLPROPIONAL - COUMARIN - LIMONENE - HYDROXYCITRONELLAL -
                   ALPHA-ISOMETHYL IONONE - LINALOOL - BENZYL ALCOHOL - CINNAMAL
                   - EUGENOL - CITRAL - ISOEUGENOL - CITRONELLOL.
-                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[3]/span[1]
+                xpath: /html/body/div[6]/@ingredient_list
             pricePerUnit:
               - text: 589,50 €
                 xpath: /html/body/div[6]/@price_per_unit
             pricePerUnitUom:
               - text: litre
                 xpath: /html/body/div[6]/@price_per_unit_uom
-            promotion:
-              - text: -21% sur tout l'assortiment
-                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/p[1]/span[2]
             variants:
               - text: 50 ml - Vaporisateur
                 xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/div[1]
@@ -328,4 +310,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1611318604815
+    timestamp: 1611590903556
