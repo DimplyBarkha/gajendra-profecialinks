@@ -8,7 +8,7 @@
 const implementation = async (inputs, { loadedSelector, noResultsXPath }, context, dependencies) => {
   const { url, id } = inputs;
   let builtUrl;
-  if (!url || (url && url === 'null')) {
+  if (!url || (url && url.toLowerCase() === 'null')) {
     if (!id) throw new Error('No id provided');
     else builtUrl = await dependencies.createUrl(inputs);
   }
