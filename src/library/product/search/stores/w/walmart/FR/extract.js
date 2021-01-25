@@ -1,15 +1,14 @@
-const {transform} = require('./format');
+const { transform } = require('./format');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'FR',
     store: 'walmart',
-    transform: transform,
+    transform,
     domain: 'walmart.ca',
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
-    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
         let scrollTop = 0;
