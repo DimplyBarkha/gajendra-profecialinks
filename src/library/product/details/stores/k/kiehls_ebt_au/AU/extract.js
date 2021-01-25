@@ -37,10 +37,34 @@ module.exports = {
 
       //nameExtended
       var x = getAllXpath('(//div/h1[@class="product_name"]/span[1])/text()', 'nodeValue');
-      var y = getAllXpath('//div[@id="product_content"]/div[1]/ul[1]/li[1]/div/ul/li[1]/a/@title ', 'nodeValue');
+      var y = getAllXpath('//div[@id="product_content"]/div[1]/ul[1]/li[1]/div/ul/li[@class="selected"]/a/@title ', 'nodeValue');
       if (x != null && y != null) {
         var xy = x + ' | ' + y;
         addElementToDocument('xy', xy);
+      }
+
+      //variants
+      var var1 = getAllXpath('//div/ul/li/a/@data-variantid','nodeValue');
+      var var2 = var1.join(' | ');
+      addElementToDocument('var2', var2);
+
+      //alternate image
+      var img1 = getAllXpath('//div/ul[@class="carousel_navigation_items"]/li[position()>1 and position() <= last()]/span/img/@src','nodeValue');
+      var img = img1.join(' | ');
+      addElementToDocument('img',img);
+
+      //quantity
+      var qty = getAllXpath('//div[@id="product_content"]/div[1]/ul[2]/li[1]/div/ul/li/a/span/text()','nodeValue');
+      var qty1 = getAllXpath('//div[@id="product_content"]/div[1]/ul[1]/li[1]/div/ul/li[1]/a/span/text()','nodeValue');
+      if(qty!=null)
+      {
+        var qty2 = qty.toString();
+        addElementToDocument('qty2',qty2);
+      }
+      else if(qty1!=null)
+      {
+        var qty2 = qty1.toString();
+        addElementToDocument('qty2',qty2);
       }
 
       /*//Ingredient List
@@ -174,23 +198,34 @@ module.exports = {
         else result = elem ? elem.singleNodeValue : '';
         return result && result.trim ? result.trim() : result;
       };
-      var description = getXpath('//div[@class="js-target"]/a/text()', 'nodeValue');
+      /*var description = getXpath('//div[@class="js-target"]/a/text()', 'nodeValue');
       var description1 = getXpath("(//div[@class='b-pdp-carousel-item']/picture/img/@alt)[1]", 'nodeValue');
       description = description + ' ' + description1;
-      addElementToDocument('description', description);
-      var aval = getXpath('//span[@class="b-availability-label-message js-availability-label-message"]/text()[1]', 'nodeValue');
+      addElementToDocument('description', description);*/
+      
+      /*//Availability
+      var aval = getXpath('//div[@class="availability wrapper-in_stock "]/p[2]/span/text()', 'nodeValue');
       if (aval != null) {
-        if (aval.includes('Dieser Artikel ist online leider nicht mehr verfügbar.')) {
-          aval = 'Out of stock';
-          addElementToDocument('aval', aval);
-        } else {
-          aval = 'In stock';
-          addElementToDocument('aval', aval);
-        }
-      } else {
         aval = 'In stock';
         addElementToDocument('aval', aval);
+      } else {
+        aval = 'Out Of Stock'
+        addElementToDocument('aval', aval);
+      }*/
+
+      var aval = getXpath('//div[contains(@class,"availability")]/p[2]/span/text()', 'nodeValue');
+      if (aval != null) {
+        if (aval.includes('Out of stock')) {
+            aval = 'Out Of Stock';
+            addElementToDocument('aval', aval);
+          } else if (aval.includes('In Stock')) 
+          {
+            aval = 'In Stock';
+            addElementToDocument('aval', aval);
+          }
       }
+      
+      
       var str = getXpath('(//div[@class="product_detail pdp__detail small-12 medium-6 large-5 columns"]//span[@class="bv-rating_value "]/@style)[1]', 'nodeValue');
       if (str != null) {
         // for (var i = 0; i < str.length; i++) {
