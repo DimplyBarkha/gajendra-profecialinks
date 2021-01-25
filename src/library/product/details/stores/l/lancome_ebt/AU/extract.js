@@ -28,8 +28,16 @@ module.exports = {
 
 
       // Product Name 
-      var pn = getAllXpath('(//div[@class="product_detail pdp__detail small-12 medium-6 large-5 columns"]//span[@class="product_name"])/text()', 'nodeValue');
+      var pname = getAllXpath('(//div[@class="product_detail pdp__detail small-12 medium-6 large-5 columns"]//span[@class="product_name"])/text()', 'nodeValue');
+      var pn = [];
+      for (var i = 0; i < pname.length; i++) {
+        pn += pname[i];
+      }  
       var pq = getAllXpath('((//div[contains(@class,"product_detail pdp__detail")][2])/div[1]/*[(self::h2)])/text()', 'nodeValue');
+      addElementToDocument('name',pn+'|'+pq);
+      //Name extended
+       
+
       var qty = getAllXpath('(//span[@id="quantitySelectBoxItText"]/text())[2]', 'nodeValue');
       var ab;
       // First Variant  color,ml
@@ -131,18 +139,15 @@ module.exports = {
         return result && result.trim ? result.trim() : result;
       };
 
-      var aval = getXpath('//span[@class="b-availability-label-message js-availability-label-message"]/text()[1]', 'nodeValue');
+      var aval = getXpath('(//p[contains(@class,"availability_value")])//text()', 'nodeValue');
       if (aval != null) {
-        if (aval.includes('Dieser Artikel ist online leider nicht mehr verfügbar.')) {
-          aval = 'Out of stock';
+        if (aval.includes('Out of Stock')) {
+          aval = 'Out Of Stock';
           addElementToDocument('aval', aval);
-        } else {
-          aval = 'In stock';
+        } else if (aval.includes('In Stock')) {
+          aval = 'In Stock';
           addElementToDocument('aval', aval);
         }
-      } else {
-        aval = 'In stock';
-        addElementToDocument('aval', aval);
       }
       var str = getXpath('(//div[@class="product_detail pdp__detail small-12 medium-6 large-5 columns"]//span[@class="bv-rating_value "]/@style)[1]', 'nodeValue');
       if (str != null) {
