@@ -43,17 +43,14 @@ fields:
   - name: rank
     singleValue: false
     description: search/listing rank
-    type: NUMBER
-    xpath: //li[@itemtype="http://schema.org/Product"]/@rank
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
-    type: NUMBER
-    xpath: //li[@itemtype="http://schema.org/Product"]/@rank
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
+    defaultValue: false
   # - name: totalRecordCount
   #   singleValue: true 
   #   type: NUMBER
