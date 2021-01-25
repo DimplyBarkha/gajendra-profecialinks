@@ -57,8 +57,8 @@ module.exports = {
         var aggregate = agg.split(":")[1].slice(0, -1);
         aggregate = (aggregate * 5) / 100;
         aggregate = aggregate.toFixed(1);
-        var str = aggregate.toString();
-        var final = str.replace(".",",");
+        // var str = aggregate.toString();
+        var final = aggregate.replace(".",".");
 
         // Number(real) + "," + first;
         // aggregate = final;
