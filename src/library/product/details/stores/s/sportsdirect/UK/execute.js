@@ -5,7 +5,7 @@ module.exports = {
     country: 'UK',
     store: 'sportsdirect',
     domain: 'sportsdirect.com',
-    loadedSelector: '.bv_numReviews_component_container>.bv_numReviews_text',
+    loadedSelector: 'div#productDetails h1',
     noResultsXPath: '//div[contains(@class,"SubHead")]/h2',
     zipcode: '',
   },
