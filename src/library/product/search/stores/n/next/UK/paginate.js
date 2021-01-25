@@ -11,7 +11,7 @@ module.exports = {
     spinnerSelector: null,
     loadedSelector: 'div[class~="Page"]',
     loadedXpath: null,
-    noResultsXPath: '//div[@class="no-results"] | //div[@class="spell-relaxed"]',
+    noResultsXPath: '//div[@class="no-results"] | //div[@class="spell-relaxed"] | //div[@class="SearchedFor"]//div[contains(text(), "0 results")]',
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
     openSearchDefinition: null,

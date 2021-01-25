@@ -22,12 +22,13 @@ async function implementation (
   });
 
   await context.evaluate(async function () {
+    const productsAmount = parseInt(document.querySelector('input[id="hiddenVerticalFilterResultCount"]').value);
     // scroll the page
-    while (true) {
+    for (let i = 0; i <= 7; i++) {
       window.scrollTo({ top: (document.body.scrollHeight) - 1500, behavior: 'smooth' });
       await new Promise((resolve, reject) => setTimeout(resolve, 2000));
       const elements = document.querySelectorAll('article[class="Item Fashion  "]').length;
-      const productsAmount = parseInt(document.querySelector('div[id="total-results-count"]').innerText.replace(' Products', ''));
+      // const productsAmount = parseInt(document.querySelector('div[id="total-results-count"]').innerText.replace(' Products', ''));
       if (elements >= 150 || elements === productsAmount) {
         break;
       }
