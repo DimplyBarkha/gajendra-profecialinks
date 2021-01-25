@@ -42,6 +42,7 @@ fields:
     xpath: //div[@class="description-container"] | //div[contains(@class,"wettelijke_naam")]//div[@class="prod-attrib-val"]
   - name: descriptionBullets
     description: Number of ul > li tags in the description
+    xpath: //body/@bullet-count
   - name: brandText
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
@@ -70,6 +71,7 @@ fields:
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
     xpath: //div[@class="product-detail-packing"]
+    regExp: ([\d]+\s\w+)
   - name: legalDisclaimer
     description: Content under "legal disclaimer" header
   - name: directions
