@@ -33,12 +33,14 @@ fields:
     xpath: //div[@class='descripciones']/div/h1
   - name: price
     singleValue: true
-    xpath: //html//div[@id='price']
+    xpath: (//span[@class='ahora'])[1]/text() | //section[@class='product_detail']/div[@class='container']//div[@class='descripciones']/div[2]/div/div[@class='subtotal']/span/span/text()
+    # xpath: //html//div[@id='price']
     # regExp: (\$\d+)\.(\d+)
     # regExpReplace: $1,$2
   - name: listPrice
     singleValue: true
-    xpath: //html//div[@id='listprice']
+    xpath: //span[@class='strike2']/text()
+    # xpath: //html//div[@id='listprice']
   - name: productUrl
     singleValue: false
     xpath: //html//div[@id='URL']
