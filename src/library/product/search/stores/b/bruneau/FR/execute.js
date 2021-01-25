@@ -7,7 +7,7 @@ module.exports = {
     domain: 'bruneau.fr',
     url: 'https://www.bruneau.fr/recherche/result.htm?search={searchTerms}',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[@id="no-result-top"]|//div[@id="product-page"]',
     zipcode: '',
   },
 };

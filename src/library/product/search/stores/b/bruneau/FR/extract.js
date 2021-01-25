@@ -6,11 +6,11 @@ const implementation = async (inputs, parameters, context, dependencies) => {
 
   await context.evaluate(async function () {
     let scrollTop = 0;
-    while (scrollTop <= 20000) {
+    while (scrollTop <= 15000) {
       await stall(500);
       scrollTop += 1000;
       window.scroll(0, scrollTop);
-      if (scrollTop === 20000) {
+      if (scrollTop === 15000) {
         await stall(8000);
         break;
       }

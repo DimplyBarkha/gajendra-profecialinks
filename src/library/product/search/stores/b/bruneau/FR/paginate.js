@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[@id="no-result-top"]|//div[@id="product-page"]',
     openSearchDefinition: null,
     domain: 'bruneau.fr',
     zipcode: '',
