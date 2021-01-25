@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'AU',
     store: 'firstchoiceliquor',
-    nextLinkSelector: null,
+    nextLinkSelector: 'button.btnNext.brand-icon.brand-icon-chevron-right',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div.grid-x.grid-margin-x.grid-margin-y',
