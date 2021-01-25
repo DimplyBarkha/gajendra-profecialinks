@@ -13,7 +13,7 @@ module.exports = {
     loadedXpath: null,
     noResultsXPath: null,
     stopConditionSelectorOrXpath: null,
-    resultsDivSelector: 'div[itemprop="item"]',
+    resultsDivSelector: null,
     openSearchDefinition: null,
     // openSearchDefinition: {
     //   template: 'https://www.net-a-porter.com/en-us/shop/search/{queryParams}&pageNumber={page}',

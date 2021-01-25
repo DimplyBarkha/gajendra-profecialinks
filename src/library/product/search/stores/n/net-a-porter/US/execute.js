@@ -5,16 +5,17 @@ async function implementation (
   dependencies,
 ) {
   const { query } = inputs;
-  // clothing query: clothing?cm_sp=topnav-_-clothing-_-allclothing
-  // shoe query: shoes?cm_sp=topnav-_-shoes-_-topbar
+  // const apiUrl = `https://www.net-a-porter.com/legacy-api/polyjuice/search/resources/store/nap_us/productview/byCategory?attrs=true&category=%2Fclothing&cm_sp=topnav-_-clothing-_-allclothing&locale=en_US&pageNumber=${page}&pageSize=600`;
 
-  // if input is clothing: https://www.net-a-porter.com/legacy-api/polyjuice/search/resources/store/nap_us/productview/byCategory?attrs=true&category=%2Fclothing&cm_sp=topnav-_-clothing-_-allclothing&locale=en_US&pageNumber=4&pageSize=60
+  const destinationUrl = url.indexOf('{queryParams}') > -1 ? url.replace('{queryParams}', query) : url;
+  await dependencies.goto({ url: destinationUrl });
 
   await context.evaluate(async (query) => {
     function addDiv (id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
       newDiv.textContent = content;
+      newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
 
@@ -22,7 +23,7 @@ async function implementation (
     let moreItems = true;
 
     while (moreItems) {
-      const apiUrl = `https://www.net-a-porter.com/legacy-api/polyjuice/search/resources/store/nap_us/productview/byCategory?attrs=true&category=%2Fclothing&cm_sp=topnav-_-clothing-_-allclothing&locale=en_US&pageNumber=${page}&pageSize=600`;
+      const apiUrl = `https://www.net-a-porter.com/legacy-api/polyjuice/search/resources/store/nap_us/productview/byCategory?attrs=true&category=%2F${query.replace('?', '&')}&locale=en_US&pageNumber=${page}&pageSize=600`;
       page++;
 
       const response = await fetch(apiUrl
@@ -45,8 +46,11 @@ async function implementation (
         console.log(`Api call successful and on page: ${page}, appending data..`);
         const data = await response.json();
 
+        const overallCategory = data.selectedCategory.label;
+
         data.products.forEach(product => {
-          addDiv('products', JSON.stringify(product.name));
+          product.overallCategory = overallCategory;
+          addDiv('products', JSON.stringify(product));
         });
       }
     }
