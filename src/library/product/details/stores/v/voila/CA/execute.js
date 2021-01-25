@@ -6,6 +6,6 @@ module.exports = {
     store: 'voila',
     domain: 'voila.ca',
     loadedSelector: 'h1',
-    noResultsXPath: '//h1[contains(text(),"Page not found")]',
+    noResultsXPath: '//h1[contains(text(),"Page not found")] | //span[contains(text(),"We couldn\'t find any products")]',
   },
 };
