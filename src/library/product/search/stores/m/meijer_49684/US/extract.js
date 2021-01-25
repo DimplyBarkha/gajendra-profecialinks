@@ -37,12 +37,12 @@ async function implementation(
   //       });
   //   }
   // })
+  await new Promise((resolve, reject) => setTimeout(resolve,10000));
   await context.evaluate(async function () {
     function addclass(xpathforpagination) {
       var elems = document.querySelectorAll(xpathforpagination);
       elems[0].classList.add('pagination');
     }
-    await new Promise((resolve, reject) => setTimeout(resolve, 10000));
     function addElementToDocument(key, value) {
       const catElement = document.createElement('div');
       catElement.id = key;
