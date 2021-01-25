@@ -1,0 +1,38 @@
+singleRecord: false
+regionsSelector: null
+recordXPath: //div[@class="row productGrid "]//div[contains(@class,"productGridItem listing")]
+fields:
+  - name: id
+    singleValue: false
+    description:
+    xpath: //div[@class="product-title"]/a/@href
+    regExp: \/pr-(\d*)
+    regExpReplace: $1
+  - name: thumbnail
+    singleValue: false
+    description:
+    xpath: //img[@class="lazy"]/@src
+    regExp: (.+)
+    regExpReplace: https://www.auchan.ro$1
+  - name: name
+    singleValue: false
+    description:
+    xpath: //a[@class="productMainLink"]/div
+  - name: price
+    singleValue: false
+    description:
+    xpath: //span[@class="big-price-multiple "]/@data-price  
+  - name: reviewCount
+    singleValue: false
+    description:
+    xpath: //div[contains(@class,'product-thumbnail__content-wrapper')]//div[@class='rating-value__wrapper']//span[@itemprop="reviewCount"]/text()
+  - name: soldBy
+    singleValue: false
+    description:
+    xpath: //div[contains(@class, 'product-item--wrapper')]//span[contains(@class, 'product-item--vendorname')]
+  - name: productUrl
+    singleValue: false
+    description:
+    xpath: //div[@class="product-title"]/a/@href
+    regExp: (.*)
+    regExpReplace: https://www.auchan.ro$1
