@@ -173,4 +173,6 @@ fields:
     xpath: //div[contains(@id, "mybox-txt-")]  
   - name: inTheBoxTxt1
     singleValue: false
-    xpath: //div[contains(@id, "added-acces")]   
+    xpath: //div[contains(@id, "added-acces")]
+  - name: secondaryImageTotal
+    xpath: count(//ol[contains(@aria-label, "Images")]//li//div[contains(@aria-label,"See image")]/img/@src)
