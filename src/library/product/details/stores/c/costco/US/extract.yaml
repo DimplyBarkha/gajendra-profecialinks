@@ -1,0 +1,201 @@
+fields:
+  - name: image
+    xpath: //img[contains(@id,"RICHFXViewerContainer___richfx_id_0_zoomImage")]/@src
+  - name: imageAlt
+    xpath: //img[@id='initialProductImage']/@alt
+  - name: alternateImages
+    xpath: //div[@id="theViews"]//div[@class="slick-track"]//a[not(contains(@class,"selectedSlide"))][position()>1]//img/@src
+  - name: metaKeywords
+    xpath: //meta[contains(@name, "keywords")]/@content
+  - name: _pageTimestamp
+  - name: _url
+    xpath: //link[@rel='canonical']/@href
+  - name: category
+    xpath: //ul[@id="crumbs_ul"]//li[position()>1]//a
+  - name: nameExtended
+    xpath: //h1[@itemprop="name"]
+  - name: price
+    xpath: //div[contains(@class,'your-price')]//span[@class='value']
+  - name: listPrice
+    xpath: //div[contains(@class,"online-price")]//span[@class="op-value"] | //div[contains(@class,'online-price active')]//span[@class='op-value']
+  - name: priceCurrency
+  - name: availability
+    xpath: //meta[@property="og:availability"]/@content
+    regExp: instock
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: availabilityText
+    xpath: //meta[@property="og:availability"]/@content
+    regExp: instock
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //ul[@class="pdp-features"]//li | //div[@class="product-info-description"]/ul/li
+  - name: description
+    xpath: //div[@id='costco-product-desc']
+  - name: descriptionBullets
+    # xpath: count(//ul[@class="pdp-features"]//li)
+    xpath: //ul[contains(@class,'pdp-features')]//li |  //div[@id='nav-pdp-tab-header-3']//div[@class='panel-body col-xs-12']//div[@class='product-info-description']/ul/li
+  - name: brandText
+    xpath: //div[@itemprop="brand"]
+  - name: manufacturer
+  - name: quantity
+    xpath: //h1[@itemprop="name"]
+  - name: weightNet
+  - name: weightGross
+  - name: gtin
+  - name: eangtin
+  - name: asin
+  - name: variantId
+    xpath: //span[@itemprop="sku"] | //input[@class='addedItemInput']/@value
+  - name: mpc
+    xpath: //p[@id="product-body-model-number"]//span/@data-model-number
+  - name: packSize
+  - name: legalDisclaimer
+  - name: directions
+  - name: warnings
+  - name: ratingCount
+    xpath: //span[@itemprop="reviewCount"]
+    regExp: (.+)
+    regExpReplace: $1
+    defaultValue: ' '
+  - name: aggregateRatingText
+  - name: aggregateRating
+    xpath: //span[@itemprop="ratingValue"]
+  - name: shippingDimensions
+  - name: shippingWeight
+  - name: variantCount
+  - name: color
+  - name: colorCode
+  - name: manufacturerDescription
+    xpath: //div[@id="descriptionMenu"]
+  - name: manufacturerImages
+    # xpath: //div[@class="wc-reset"]//ul//li//img[@data-asset-type="image"]/@src
+    xpath: //div[contains(@id,"manuf-images")] | //div[@class="product-info-description"]//img//@srcset | //div[@class="wc-aplus-body"]//img/@src | //div[@class="product-info-description"]//img//@src[contains(.,'img/') or (contains(.,'http') and contains(.,'.jpg'))]
+  - name: videos
+    xpath: //div[@class="wc-player-outer-wrap wc-vp"]//video/@src | //meta[@itemprop="contentUrl"]/@content | //body/@videos | //meta//@content[contains(.,'.mp4')] | //head/@*[contains(.,'http')] | //head/@video | //head/@*[contains(.,'http')] | div[@id='videos'] | div[@id='videoSrc'] | //form[contains(@action,"video-player")]/@action
+  - name: name
+    xpath: //h1[@itemprop="name"]
+  - name: inStorePrice
+    xpath: //div[contains(@class,"online-price")]//span[@class="op-value"]
+  - name: sku
+    xpath: //span[@itemprop="sku"] | //input[@class='addedItemInput']/@value
+  - name: coupon
+    xpath: (//div[@id="unclippedCouponSns"]//span[@class="a-color-success"])[1]
+  - name: amazonChoice
+  - name: amazonChoiceCategory
+  - name: brandLink
+  - name: internationalShipping
+  - name: salesRank
+  - name: salesRankCategory
+  - name: subscriptionPrice
+  - name: subscribeAndSave
+  - name: pasin
+  - name: videoLength
+    xpath: (//div[@aria-label="Video Player"]//span[@class="vjs-duration-display"])[1]
+  - name: heroQuickPromoHeadline
+  - name: heroQuickPromoImageUrl
+  - name: heroQuickPromoUrl
+  - name: ingredientImagePresent
+  - name: factImagePresent
+  - name: largeImageCount
+  - name: variantAsins
+  - name: specifications
+    singleValue: false
+    xpath: //div[contains(@class,"product-info-specs")]//div[contains(@class,'spec-name')] |//div[contains(@class,"product-info-specs")]//div[contains(@class,'spec-name')]/following-sibling::div
+  - name: primeFlag
+  - name: lbb
+  - name: lbbPrice
+  - name: featureBullets
+  - name: otherSellersName
+  - name: otherSellersPrime
+  - name: otherSellersShipping
+  - name: secondaryImageTotal
+    xpath: count(//div[@id="theViews"]//div[@class="slick-track"]//a[position()>1])
+  - name: news
+  - name: addonItem
+    xpath: //form[@id="addToCart"]//div[contains(@class, "addOnItem")]
+  - name: fastTrack
+    xpath: //div[@class='product-interaction']//div//center
+  - name: product/food
+  - name: ingredientsList
+    xpath: (//div[contains(.,'Ingredients')])
+  - name: servingSize
+  - name: servingSizeUom
+  - name: numberOfServingsInPackage
+  - name: caloriesPerServing
+  - name: caloriesFromFatPerServing
+  - name: totalFatPerServing
+  - name: totalFatPerServingUom
+  - name: saturatedFatPerServing
+  - name: saturatedFatPerServingUom
+  - name: transFatPerServing
+  - name: transFatPerServingUom
+  - name: cholesterolPerServing
+  - name: cholesterolPerServingUom
+  - name: sodiumPerServing
+  - name: sodiumPerServingUom
+  - name: totalCarbPerServing
+  - name: totalCarbPerServingUom
+  - name: dietaryFibrePerServing
+  - name: dietaryFibrePerServingUom
+  - name: totalSugarsPerServing
+  - name: totalSugarsPerServingUom
+  - name: proteinPerServing
+  - name: proteinPerServingUom
+  - name: vitaminAPerServing
+  - name: vitaminAPerServingUom
+  - name: vitaminCPerServing
+  - name: vitaminCPerServingUom
+  - name: calciumPerServing
+  - name: calciumPerServingUom
+  - name: ironPerServing
+  - name: ironPerServingUom
+  - name: dietarySymbols
+  - name: magnesiumPerServing
+  - name: magnesiumPerServingUom
+  - name: saltPerServing
+  - name: saltPerServingUom
+  - name: dietaryInformation
+    xpath: //div[@id='important-information']//div[contains(.,'Ingredients')]/p
+  - name: warranty
+    xpath: //div[@class='a-column a-span6 a-span-last']//div[contains(.,'Warranty')]/div
+  - name: storage
+  - name: countryOfOrigin
+  - name: allergyAdvice
+    xpath: //div[@id='important-information']//div[contains(.,'Ingredients')]/p
+  - name: recyclingInformation
+  - name: productOtherInformation
+    xpath: //div[@id='aplus_feature_div' and(contains(.,"From"))]//p[contains(.,"") and not(img)]
+  - name: packaging
+  - name: additives
+  - name: pricePerUnit
+    xpath: //span[@class="unitcurrency"]
+  - name: pricePerUnitUom
+    xpath: //span[@class="unitcurrency"]
+  - name: promotion
+    xpath: //p[@class="merchandisingText"]
+  - name: alcoholContent
+  - name: newVersion
+  - name: newAsin
+  - name: newDescription
+  - name: variants
+  - name: firstVariant
+  - name: variantInformation
+  - name: prop65Warning
+  - name: ageSuitability
+  - name: energyEfficiency
+  - name: technicalInformationPdfPresent
+    xpath: //div[contains(., 'Specification')]//span[contains(., 'pdf')]
+  - name: termsAndConditions
+    xpath: //p[@class="PromotionalText"]//a[contains(text(),'Terms')]
+    defaultValue: 'No'
+  - name: privacyPolicy
+  - name: customerServiceAvailability
+  - name: productUrl
+    xpath: //link[@rel='canonical']/@href
+  - name: materials
+  - name: Image360Present
+  - name: imageZoomFeaturePresent
+    xpath: //span[@id="canvasCaption" and contains(text(),  "Roll over")]

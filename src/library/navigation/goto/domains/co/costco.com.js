@@ -21,5 +21,8 @@ module.exports = {
       waitUntil: 'load',
     });
     await context.waitForNavigation();
+    if (zipcode) {
+      await dependencies.setZipCode({ url: url, zipcode: zipcode });
+    }
   },
 };

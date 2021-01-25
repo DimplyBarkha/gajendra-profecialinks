@@ -7,4 +7,23 @@ module.exports = {
     store: 'costco',
     zipcode: '98188',
   },
+  // @ts-ignore
+  implementation: async ({ url, zipcode }, parameterValues, context, dependencies) => {
+    const homePage = await context.evaluate(() => document.querySelector('a#delivery-postal-change'));
+    if (homePage) {
+      // @ts-ignore
+      await context.evaluate((zipcode) => { document.querySelector('a#delivery-postal-change').value = zipcode; }, zipcode);
+      await context.click('a#delivery-postal-change');
+      await new Promise(resolve => setTimeout(resolve, 4000));
+      // @ts-ignore
+      await context.evaluate((zipcode) => { document.querySelector('input#postal-code-input').value = zipcode; }, zipcode);
+      await context.click('input#postal-code-submit');
+      await context.waitForNavigation();
+      await new Promise(resolve => setTimeout(resolve, 4000));
+      // @ts-ignore
+      await context.evaluate((zipcode) => { document.querySelector('div.modal-content').value = zipcode; }, zipcode);
+      await context.click('button#costcoModalBtn2');
+      await new Promise(resolve => setTimeout(resolve, 60000));
+    }
+  },
 };
