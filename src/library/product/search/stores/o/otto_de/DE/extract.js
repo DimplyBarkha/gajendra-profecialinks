@@ -55,7 +55,7 @@ module.exports = {
         newDiv.id = id;
         newDiv.textContent = content;
         newDiv.style.display = 'none';
-        const originalDiv = document.querySelectorAll("article[class='product clearfix']")[index];
+        const originalDiv = document.querySelectorAll("span[class='value']")[index];
         originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
       const getAllXpath = (xpath, prop) => {
