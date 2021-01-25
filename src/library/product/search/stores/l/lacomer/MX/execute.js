@@ -6,8 +6,8 @@ module.exports = {
     store: 'lacomer',
     domain: 'lacomer.com.mx',
     url: 'https://lacomer.buscador.amarello.com.mx/searchArtPrior?col=lacomer_2&npagel=20&p=1&pasilloId=false&s={searchTerms}&succId=14#[!opt!]{"type":"json"}[/!opt!]',
-    loadedSelector: 'body',
-    noResultsXPath: null,
+    loadedSelector: 'td.res.depth_0 > table > tbody > tr',
+    noResultsXPath: 'div.alert.alert-danger',
     zipcode: '',
   },
   implementation,
@@ -18,7 +18,7 @@ async function implementation (
   context,
   dependencies,
 ) {
-  await new Promise((resolve, reject) => setTimeout(resolve, 7000));
+  // await new Promise((resolve, reject) => setTimeout(resolve, 7000));
   const destinationUrl = url.replace(/{searchTerms}/g, encodeURIComponent(keywords));
   console.log("destination "+destinationUrl);
   await dependencies.goto({ url: destinationUrl, zipcode });
