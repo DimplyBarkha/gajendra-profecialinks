@@ -2,26 +2,17 @@ singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: null
-fields: 
-  - name: rank
-  - name: rankOrganic
-  - name: sponsored
-    defaultValue: false
+fields:    
   - name: name
     singleValue: false
     xpath: //h2[@class="catalog-products-body__product-name"]/a[2]/text()
-  - name: search_term
-    singleValue: false
-    xpath: //div[@class="content-first-filters"]/div[1]/span[1]/pre    
-  - name: searchUrl
-    singleValue: false
-    xpath: //meta[@property="og:url"]/@content   
   - name: price
     singleValue: false
     description: The offered price for the product
     xpath: //section[@class="catalog-products-body__product-prices"]/span[contains(@class,"catalog-products-body__product-special-price")]
   - name: thumbnail
     singleValue: false
+    regExp: (.+jpg)
     xpath: //div[@class="catalog-products-body__product-wrapper"]/figure[@class="catalog-products-body__product-img"]/a/img/@src        
   - name: id
     singleValue: false
@@ -31,9 +22,14 @@ fields:
   - name: productUrl
     singleValue: false
     xpath: //div[@class="catalog-products-body__product-wrapper"]/figure[@class="catalog-products-body__product-img"]/a/@href  
-    #regExp: (.*)$
-    regExp: (/.+)
-    regExpReplace: https://www.juntoz.com$1  
-   
+    regExp: ^(.+)$
+    #regExp: (/.+)
+    regExpReplace: https://www.enfabebe.juntoz.com$1     
+  - name: rank
+    singleValue: false
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: false
+    type: NUMBER  
   
       
