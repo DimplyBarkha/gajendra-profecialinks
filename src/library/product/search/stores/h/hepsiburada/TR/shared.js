@@ -34,21 +34,6 @@ const transform = (data, context) => {
       }));
     }
   }
-  data = data.filter(function (item, index, data) {
-    console.log('group length before' + item.group.length);
-    item.group = item.group.filter(function (row) {
-      if (parseInt(row.rankOrganic[0].text) > 150) {
-        return false;
-      }
-      return true;
-    });
-    console.log('group length after' + item.group.length);
-    item.rows = item.group.length;
-    if (item.group.length !== 0) {
-      return true;
-    }
-    return false;
-  });
   context.setState({ rankCounter });
   context.setState({ orgRankCounter });
   context.setState({ productCodes });

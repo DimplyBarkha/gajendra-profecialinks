@@ -23,16 +23,12 @@ async function implementation (
     await context.waitForSelector('ul.product-list.results-container.do-flex.list');
   }
   await context.evaluate(async function () {
-    function timeout (ms) {
-      return new Promise((resolve) => setTimeout(resolve, ms));
-    }
     document.querySelectorAll('span.ratings > span').forEach(item => {
       const per = item.getAttribute('style').match(/(\d+)/)[0];
       const rating = parseInt(per) * 5 / 100;
       item.setAttribute('aggregaterating', rating.toString());
     });
     document.querySelector('.product-list').setAttribute('url', window.location.href);
-    await timeout(5000);
   });
 
   async function autoScroll (page) {
