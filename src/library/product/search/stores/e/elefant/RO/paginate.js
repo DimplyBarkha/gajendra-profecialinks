@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'RO',
     store: 'elefant',
-    nextLinkSelector: 'button.load-more-products',
+    nextLinkSelector: 'li.pagination-list-next > a',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'img.product-image',
+    loadedSelector: 'div.lazy img',
     noResultsXPath: '//div[@class="no-search-result"]//h1',
     openSearchDefinition: null,
     domain: 'elefant.ro',
