@@ -7,13 +7,5 @@ module.exports = {
     transform,
     domain: 'ahlens.se',
     zipcode: '',
-  },
-  implementation: async (inputs, parameters, context, dependencies) => {
-    const { transform } = parameters;
-    const { productDetails } = dependencies;
-    await new Promise((resolve, reject) => setTimeout(resolve, 10000));
-    return await context.extract(productDetails, { transform });
-  },
-
- 
+  }, 
 }
