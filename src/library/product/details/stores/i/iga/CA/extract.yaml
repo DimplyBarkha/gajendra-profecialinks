@@ -28,7 +28,8 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //del[@class="item-product__price push-half--left"]/span/text()
+    # xpath: //del[@class="item-product__price push-half--left"]/span/text()
+    xpath: //html//div[@id='listprice']
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -39,6 +40,11 @@ fields:
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
     xpath: //html//div[@id="rpc"]
+  - name: availabilityText
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out Of Stock
+    xpath: (//button[@class="btn  btn--dark  btn--full-width  relative"])[1]
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -52,7 +58,8 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //span[@class="product-detail__price--sale js-product-detail__price--sale"]/span/text() | //div[@class="item-product__price js-item-product__price"]/span/text()
+    # xpath: //span[@class="product-detail__price--sale js-product-detail__price--sale"]/span/text() | //div[@class="item-product__price js-item-product__price"]/span/text()
+    xpath: //html//div[@id='price']
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
