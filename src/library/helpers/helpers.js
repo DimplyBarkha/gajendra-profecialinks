@@ -202,4 +202,14 @@ module.exports.Helpers = class {
     }
     return isLoaded;
   }
+
+  // remove script tag breaking the html extraction
+  async removeScriptsWhichContains (text) {
+    return this.context.evaluate((text) => {
+      [...document.querySelectorAll('script')]
+        .map(node => ({ node, text: node.textContent, src: node.src }))
+        .filter(({ text, src }) => text.includes(text) || src.includes(text))
+        .forEach(({ node }) => node.remove());
+    }, text);
+  }
 };
