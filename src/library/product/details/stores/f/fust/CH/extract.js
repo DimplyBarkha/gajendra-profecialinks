@@ -76,7 +76,7 @@ module.exports = {
       const manufacturerdescription = getManufacturerDescription.join();
       document.body.setAttribute('manufacturerdescription', manufacturerdescription);
 
-      let stockText = '';
+     /* let stockText = '';
       const availabilityStatus = document.querySelector(availabilitySelector).innerText;
       if (availabilityStatus.includes('sofort lieferbar')) { stockText = 'In Stock'; } else if (availabilityStatus.includes('innert 1-2 Wochen')) { stockText = 'In Stock'; } else if (availabilityStatus.includes('momentan nicht kaufbar')) { stockText = 'Out Of Stock'; } else if (availabilityStatus.includes('Lieferung ab')) { stockText = 'Out Of Stock'; } else if (availabilityStatus.includes('Liefertermin nicht')) {
         const regionalAvailability = 'div[class*="filialeAvailability stati"]';
@@ -84,7 +84,8 @@ module.exports = {
         if (regionalAvailabilityStatus.includes('momentan nicht kaufbar')) { stockText = 'Out Of Stock'; } else { stockText = 'In Stock'; }
       } else { stockText = 'Out Of Stock'; }
       document.body.setAttribute('availability', stockText);
-    }, availabilitySelector);
+    }, availabilitySelector); */
+  });
 
     return await context.extract(productDetails, { transform });
   },

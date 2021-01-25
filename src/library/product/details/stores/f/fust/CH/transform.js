@@ -18,6 +18,20 @@ const transform = (data) => {
           },
         ];
       }
+  if (row.availabilityText) {
+        row.availabilityText.forEach(item => {
+          if (item.text == "true"){
+
+            item.text = "In Stock";
+
+          }
+          else{
+             item.text = "Out Of Stock";
+
+          }
+
+        })
+      }
 
       if (row.manufacturerDescription) {
         let text = '';
@@ -27,6 +41,7 @@ const transform = (data) => {
         row.manufacturerDescription = [{ text }];
       }
     }
+
   }
 
   // Default transform function

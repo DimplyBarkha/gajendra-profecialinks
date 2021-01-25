@@ -27,7 +27,8 @@ fields:
   - name: price
     xpath: concat(//meta[@itemprop="price"]//@content,' ',//meta[@itemprop="priceCurrency"]//@content)
   - name: availabilityText
-    xpath: //body/@availability
+    #xpath: //body/@availability
+    xpath: boolean(//input[contains(@id,'addbasket')])
   - name: description
     xpath: //div[@itemprop='description']
   - name: brandText
@@ -80,3 +81,6 @@ fields:
     singleValue: true
     description: Energy rating of a product.
     xpath: //div[contains(@class,'js-energylabel')]/text()
+  - name: productUrl
+    singleValue: true
+    xpath: //link[contains(@rel, 'canonical')]/@href
