@@ -157,8 +157,12 @@ async function implementation(
         console.log(err)
         };
 
-
-
+        
+      try{
+        findAndInsertLabel(jsonParsed[0], "url", "productURL");
+      }catch(err){
+        console.log(err)
+        };
 
       try{
         addHiddenDiv("ii_bulletcount",jsonParsed[0].description.split("\r\n-").length-1);
