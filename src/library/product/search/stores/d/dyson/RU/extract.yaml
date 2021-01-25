@@ -18,6 +18,8 @@ fields:
   - name: productUrl
     singleValue: false
     xpath: //h5[@class="product-name"]/a/@href
+    regExp: (.+)
+    regExpReplace: https://shop.dyson.ru$1
   #- name: gtin
   #  singleValue: false
   - name: thumbnail

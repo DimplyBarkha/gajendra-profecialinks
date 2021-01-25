@@ -11,7 +11,7 @@ module.exports = {
   implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
     const timeout = parameters.timeout ? parameters.timeout : 40000;
     await context.setBlockAds(false);
-    url = url.replace(/(https:\/\/shop.dyson.ru\/)?(.+)/g, 'https://shop.dyson.ru/$2');
+    url = url.replace(/(https:\/\/shop.dyson.ru\/)?(^\/)?(.+)/g, 'https://shop.dyson.ru/$3');
     await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true, captureRequests: true, blockAds: false });
     console.log(zipcode);
     if (zipcode) {
