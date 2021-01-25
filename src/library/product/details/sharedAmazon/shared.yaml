@@ -35,10 +35,10 @@ fields:
     xpath: //link[@rel='canonical']/@href
   - name: category
     singleValue: false
-    xpath: //div[contains(@id, 'breadcrumbs')]//ul/li[not(@class)]
+    xpath: //div[contains(@id, 'breadcrumbs')]//ul/li//a
   - name: breadcrumbs
     singleValue: false
-    xpath: //div[contains(@id, 'breadcrumbs')]//ul/li[not(@class)]
+    xpath: //div[contains(@id, 'breadcrumbs')]//ul/li//a
   - name: nameExtended
     #singleValue: true
     xpath: //span[@id="productTitle"]
