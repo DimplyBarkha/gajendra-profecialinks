@@ -14,19 +14,24 @@ async function implementation (
   console.log('params', parameters);
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
   await dependencies.goto({ url, zipcode: inputs.zipcode });
-  if (parameters.loadedSelector) {
-    await context.waitForFunction(function (sel, xp) {
-      return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
+  await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+  for(let i=0;i<5;i++){
+    try{
+      await context.waitForSelector('button.btnNext.brand-icon.brand-icon-chevron-right',{timeout:500});
+      await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+      await context.click('button.btnNext.brand-icon.brand-icon-chevron-right');
+      await new Promise((resolve, reject) => setTimeout(resolve, 8000));
+    }catch(e){
+  
+    }
   }
-  console.log('Checking no results', parameters.noResultsXPath);
-
+  
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
       let scrollTop = 0;
       while (scrollTop !== 20000) {
         await stall(500);
-        scrollTop += 1000;
+        scrollTop += 500;
         window.scroll(0, scrollTop);
         if (scrollTop === 20000) {
           await stall(5000);
@@ -44,6 +49,13 @@ async function implementation (
   };
   await applyScroll(context);
 
+  if (parameters.loadedSelector) {
+    await context.waitForFunction(function (sel, xp) {
+      return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
+    }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
+  }
+  console.log('Checking no results', parameters.noResultsXPath);
+  await new Promise((resolve, reject) => setTimeout(resolve, 5000));
   return await context.evaluate(function (xp) {
     const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
     console.log(xp, r);
@@ -51,8 +63,6 @@ async function implementation (
     console.log(e);
     return !e;
   }, parameters.noResultsXPath);
-
-
 }
 
 module.exports = {
@@ -66,4 +76,5 @@ module.exports = {
     noResultsXPath: '//div[@class="notfound"]',
     zipcode: "''",
   },
+  implementation
 };
