@@ -1,6 +1,6 @@
 
 const { implementation } = require('../common');
-const { transform } = require('../transform');
+const { transform } = require('./transform');
 
 module.exports = {
   implements: 'product/details/extract',
@@ -12,8 +12,9 @@ module.exports = {
     zipcode: '',
   },
   implementation: async function implementation (inputs, parameters, context, dependencies) {
-    const { productDetails, Helpers } = dependencies;
-    const helpers = new Helpers(context);
+    const { productDetails } = dependencies;
+    // const { productDetails, Helpers } = dependencies;
+    // const helpers = new Helpers(context);
     await context.evaluate(async () => {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -44,7 +45,7 @@ module.exports = {
       });
       addElementToDocument('added_specs', specs);
 
-      const aggRatingXpath = '(//span[contains(@class,"rating__data__value")] | //div[contains(@class,"product--column")]//div[contains(@class,"rating-summary")]//span[@itemprop="ratingValue"] )[1]';
+      const aggRatingXpath = '(//span[contains(@class,"rating__data__value")] | //div[contains(@class,"product-variant")]//div[contains(@class,"rating-summary")]//span[@itemprop="ratingValue"] )[1]';
       const aggRatingElm = document.evaluate(aggRatingXpath, document, null, 7, null);
       if (aggRatingElm.snapshotLength > 0) {
         console.log('agg rating is present');

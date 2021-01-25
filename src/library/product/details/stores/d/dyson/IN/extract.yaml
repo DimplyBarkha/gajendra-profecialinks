@@ -1,4 +1,5 @@
 extends: ../shared 
+singleRecord: null
 # fields:
 #   - name: image
 #     singleValue: false
@@ -184,6 +185,9 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //div[contains(@id,"aggrating")]
+  - name: aggregateRating1
+    singleValue: false
+    xpath: (//div[contains(@id,"aggrating")])[1]
   - name: shippingInfo #localedependent
     singleValue: true
     description: Shipping information for the product
