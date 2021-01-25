@@ -13,7 +13,7 @@ const transform = (data) => {
     .replace(/"\s{1,}/g, '"')
     .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
-  // eslint-disable-next-line no-control-regex
+    // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
@@ -65,6 +65,14 @@ const transform = (data) => {
         if (row.sku.length > 1) {
           row.sku.shift();
         }
+      }
+      if (row.category) {
+        const categoryList = [];
+        const categoryArray = row.category.map((item) => item.text)
+        const uniqueCategoryList = new Set(categoryArray);
+        uniqueCategoryList.forEach((item) => { categoryList.push({ text: item }) });
+        console.log('listItems =>', categoryList);
+        row.category = categoryList;
       }
 
       // if (row.price) {
