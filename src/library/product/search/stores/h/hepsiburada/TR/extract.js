@@ -33,27 +33,28 @@ async function implementation (
     });
     document.querySelector('.product-list').setAttribute('url', window.location.href);
     await timeout(5000);
-
-    async function autoScroll (page) {
-      await page.evaluate(async () => {
-        await new Promise((resolve, reject) => {
-          var totalHeight = 0;
-          var distance = 100;
-          var timer = setInterval(() => {
-            var scrollHeight = document.body.scrollHeight;
-            window.scrollBy(0, distance);
-            totalHeight += distance;
-
-            if (totalHeight >= scrollHeight) {
-              clearInterval(timer);
-              resolve();
-            }
-          }, 50);
-        });
-      });
-    }
-    await autoScroll(context);
   });
+
+  async function autoScroll (page) {
+    await page.evaluate(async () => {
+      await new Promise((resolve, reject) => {
+        var totalHeight = 0;
+        var distance = 100;
+        var timer = setInterval(() => {
+          var scrollHeight = document.body.scrollHeight;
+          window.scrollBy(0, distance);
+          totalHeight += distance;
+
+          if (totalHeight >= scrollHeight) {
+            clearInterval(timer);
+            resolve();
+          }
+        }, 50);
+      });
+    });
+  }
+  await autoScroll(context);
+
   return await context.extract(productDetails, { transform });
 }
 module.exports = {
