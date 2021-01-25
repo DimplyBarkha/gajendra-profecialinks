@@ -1,15 +1,14 @@
+
 module.exports = {
-  implements: 'navigation/paginate',
+  implements: 'product/search/paginate',
   parameterValues: {
     country: 'DE',
     store: 'medikamente-per-klick',
-    nextLinkSelector: null,
+    nextLinkSelector: 'a[rel="next"]',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'body',
-    openSearchDefinition: {
-      template: 'https://www.medikamente-per-klick.de/keywordsearch/searchitem={searchTerms}&page={page}',
-    },
-    domain: 'medikamenteperklick.de',
+    loadedSelector: 'div.productsList',
+    openSearchDefinition: null,
+    domain: 'medikamente-per-klick.de',
   },
 };
