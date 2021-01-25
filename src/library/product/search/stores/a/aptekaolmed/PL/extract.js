@@ -73,19 +73,25 @@ async function implementation(
         return result && result.trim ? result.trim() : result;
         };
         var product_url=''
+        var price = ''
         var backgroundURL1 = getXpath('//a[@class="product-name"]/@href', 'nodeValue');
         console.log(backgroundURL1,'===========backgroundURL1')
         var backgroundURL = getXpath('//meta[@property="og:url"]/@content', 'nodeValue');
         var product_image = getXpath('(//a[@class="projector_medium_image"]/@href)[1]', 'nodeValue');
+        var price1 =  getXpath('//strong[@id="projector_price_value"]//text()', 'nodeValue');
+        console.log('price1,-----------------------',price1)
         if (backgroundURL1 == null){
           product_url= backgroundURL
           product_image = 'https://www.aptekaolmed.pl'+product_image
+          price = price1.replace(',','.')
           addElementToDocument('product_url', product_url);
           addElementToDocument('product_image', product_image);
+          addElementToDocument('price', price);
         }
         else{
           const aggregateRating = document.querySelectorAll("a[class='product-name']")
           const image = document.querySelectorAll("a.product-icon.align_row > div > div > img")
+          const price1 = document.querySelectorAll("span.price")
           for (let k = 0; k < aggregateRating.length; k++) {
             product_url= 'https://www.aptekaolmed.pl'+aggregateRating[k].getAttribute("href");
             addHiddenDiv('product_url', product_url, k);
@@ -95,6 +101,11 @@ async function implementation(
             product_image= 'https://www.aptekaolmed.pl'+image[k].getAttribute("src");
             addHiddenDiv('product_image', product_image, k);
             // console.log(product_image,'---------------------',product_image)
+          }
+          for (let k = 0; k < price1.length; k++) {
+            var price= (price1[k].textContent).replace(',','.');
+            addHiddenDiv('price', price, k)
+            // console.log(price,'---------------------',price)
           }
 
 

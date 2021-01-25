@@ -23,9 +23,7 @@ fields:
     regExp: (\d+)
   - name: price
     description: The offered price for the product
-    xpath: (//span[@class="price"] | //strong[@class="projector_price_value"])
-    # xpath: (//span[@class="price"])
-    type: CURRENCY
+    xpath: (//div[@id="price"])
   - name: rank
     description: search/listing rank
     type: NUMBER
