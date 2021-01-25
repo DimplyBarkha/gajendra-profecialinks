@@ -19,13 +19,16 @@ fields:
     xpath: //link[@rel="canonical"]/@href  
   - name: category
     singleValue: false
-    xpath: //div[@class="container"]/nav/ol/li[2]/a/text()
+    xpath: //div[@class="container"]/nav/ol/li[position()>1]/a/text()
+  # - name: subCategory
+  #   singleValue: false
+  #   xpath: concat(//ol[@class='breadcrumb bg-transparent pt-3 pl-0 mb-0']/li[position()=3], '>' ,//ol[@class='breadcrumb bg-transparent pt-3 pl-0 mb-0']/li[position()=4], '>' ,//ol[@class='breadcrumb bg-transparent pt-3 pl-0 mb-0']/li[position()=5])  
   - name: nameExtended
     singleValue: true
     xpath: //div[@class="d-inline-block float-left order-2 order-lg-1"]/h1/text() 
   - name: price
     singleValue: true
-    xpath: //div[@class="text-right price-container"]/span
+    xpath: //div[@class="text-right price-container"]/span | (//div[@class="price-conditions-sub-container"]//table//tbody//tr//td[2]/label[1]/text())[1]
   - name: availabilityText
     singleValue: true
     xpath: //div[@class="container productcard"]/@data-gtm-stock-status  
