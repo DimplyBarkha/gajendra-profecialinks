@@ -26,7 +26,7 @@ fields:
     xpath: //div[@class="wQ1zdx _14LFJJ _1ryioq"]/div//div[@class="_165CLk _15M-aT"]//img[@itemprop="contentUrl"]/@alt
   - name: aggregateRating2
     singleValue: false
-    xpath: //div[@class="wQ1zdx _14LFJJ _1ryioq"]//a/div[@id="rating"]
+    xpath: //div[@class="_1_ozUW"]/div[@id="rating"]
   - name: ratingCount
     singleValue: false
   - name: reviewCount
@@ -44,7 +44,7 @@ fields:
     type: NUMBER
   - name: manufacturer
     singleValue: false
-    xpath: //div[@class="wQ1zdx _14LFJJ _1ryioq"]//a/div[@id="pd_manufacturer"] | //div[@class="wQ1zdx _14LFJJ _1ryioq"]/div//div[@class="_165CLk _15M-aT"]//img[@itemprop="contentUrl"]/@alt
+    xpath: //div[@class="wQ1zdx _14LFJJ _1ryioq"]//div[@id="pd_manufacturer"] | //div[@class="wQ1zdx _14LFJJ _1ryioq"]/div//div[@class="_165CLk _15M-aT"]//img[@itemprop="contentUrl"]/@alt
     regExp: ^\s*([a-zA-Z0-9]+)
     regExpReplace: $1
   - name: searchUrl
