@@ -147,3 +147,6 @@ fields:
   - name: ingredientsList
     singleValue: false
     xpath: //h3[text() = 'Ingredients']/following::p[1]
+  - name: shortDescription
+    singleValue: true
+    xpath: //div[@class="sc-full-description-long"]
