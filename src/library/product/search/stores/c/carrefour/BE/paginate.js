@@ -4,9 +4,9 @@ module.exports = {
   parameterValues: {
     country: 'BE',
     store: 'carrefour',
-    nextLinkSelector: 'li.pagination-next a[rel="next"] span',
+    nextLinkSelector: 'li.pagination-next a[rel="next"]',
     mutationSelector: null,
-    spinnerSelector: null,
+    spinnerSelector: 'div.loader-container div',
     loadedSelector: 'ul.product__listing div.product-item',
     noResultsXPath: '//div[@class="slp-container" and contains(.,"Aucun résultat ne correspond à votre recherche. Veuillez faire une nouvelle recherche")]',
     resultsDivSelector: null,
