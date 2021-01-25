@@ -5,7 +5,7 @@ module.exports = {
     country: 'DE',
     store: 'whisky',
     domain: 'whisky.de',
-    url: 'https://www.whisky.de/shop/index.php?cl=search&searchparam={searchTerms}&_artperpage=150',
+    url: 'https://www.whisky.de/shop/index.php?cl=search&searchparam={searchTerms}&searchorigin=0',
     loadedSelector:'body',
     noResultsXPath: null,
     zipcode: '',
