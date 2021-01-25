@@ -6,8 +6,8 @@ module.exports = {
     store: 'vikingdirect',
     domain: 'vikingdirect.nl',
     url: 'https://www.vikingdirect.nl/nl/search/?text={searchTerms}',
-    loadedSelector: 'ol[id="productList"]',
-    noResultsXPath: '//div[@id="searchEmpty"] | //div[@class="product"]',
+    loadedSelector: 'body[id="odeuView"]',
+    noResultsXPath: '//div[@id="searchEmpty"]',
     zipcode: '',
   },
 };

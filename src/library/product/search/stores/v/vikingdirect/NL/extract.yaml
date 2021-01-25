@@ -1,25 +1,25 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //li[@class="search-results__result"]
+recordXPath: //li[@class="search-results__result"]|//div[@id="productPage"]
 fields:
   - name: id
     singleValue: false
-    xpath: //div[contains(@class, "product-lister-item")]/@data-legacy-sku
+    xpath: //div[contains(@class, "product-lister-item")]/@data-legacy-sku|//span[@itemprop='sku']
   - name: searchUrl
     singleValue: true
     xpath: ancestor::html//div[@id="searchUrl"][last()]
   - name: name
     singleValue: false
-    xpath: //div[contains(@class, "product-lister-item")]/@data-product-title
+    xpath: //div[contains(@class, "product-lister-item")]/@data-product-title|//h1[@itemprop="name"]
   - name: productUrl
     singleValue: false
-    xpath: //li[@class="search-results__result"]/@product_url
+    xpath: //li[@class="search-results__result"]/@product_url|//div[@id="productPage"]/@product_url
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
-    xpath: //li[@class="search-results__result"]/@image_url
+    xpath: //li[@class="search-results__result"]/@image_url|//div[@id="productPage"]/@image_url
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -29,14 +29,14 @@ fields:
     type: STRING
   - name: reviewCount
     singleValue: false
-    xpath: //a[@class="product-rating"]/@data-review-count
+    xpath: //a[@class="product-rating"]/@data-review-count|//a[@id="productRating"]/@data-review-count
   - name: ratingCount
     singleValue: false
     xpath: //div[@class="product-rating__reviews"]
     regExp: \d+
   - name: price
     singleValue: false
-    xpath: //div[@class="product-price-panel__price"]
+    xpath: //li[@class="search-results__result"]/@price|//div[@id="productPage"]/@price
   - name: manufacturer
     singleValue: true
   - name: soldBy
