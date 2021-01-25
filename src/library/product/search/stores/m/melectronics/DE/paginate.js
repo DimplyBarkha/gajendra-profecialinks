@@ -7,7 +7,7 @@ module.exports = {
     store: 'melectronics',
     nextLinkSelector: 'div.p-product-listing--item__buttons > button.btn__secondary',
     nextLinkXpath: null,
-    mutationSelector: 'div.p-product-listing--row',
+    mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
     loadedXpath: null,
