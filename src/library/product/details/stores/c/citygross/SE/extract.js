@@ -26,8 +26,9 @@ module.exports = {
       };
       const brand = getXpath('//meta[@itemprop="brand"]//@content', 'nodeValue');
       const title = getXpath('//meta[@property="og:title"]//@content', 'nodeValue');
-      if (!title.includes(brand)) {
-        const productDescription = brand + ' - ' + title;
+      addElementToDocument('added_title', title);
+      if (!title.includes(brand) && brand != null) {
+        const productDescription = brand + ' ' + title;
         addElementToDocument('added_productDescription', productDescription);
       } else {
         addElementToDocument('added_productDescription', title);
@@ -42,12 +43,14 @@ module.exports = {
       }
       const pricePerUnit = getXpath('//div[@class="push-to-bottom"]//span[@class="grey compare-price"]//text()', 'nodeValue');
       if (pricePerUnit != null) {
-        addElementToDocument('added_pricePerUnit', pricePerUnit.split(' ')[2].replace(',', '.'));
+        addElementToDocument('added_pricePerUnit', pricePerUnit.split(' ')[2].replace('.', ','));
         addElementToDocument('added_pricePerUnitUom', pricePerUnit.split(' ')[3]);
       }
       const priceCurrency = getXpath('//meta[@itemprop="priceCurrency"]//@content', 'nodeValue');
       const price = getXpath('//meta[@itemprop="price"]//@content', 'nodeValue');
-      addElementToDocument('added_onlinePrice', priceCurrency + price);
+      if (price != null) {
+        addElementToDocument('added_onlinePrice', priceCurrency + price.replace('.', ','));
+      }
       const availabilityText = getXpath('//meta[@itemprop="availability"]//@content', 'nodeValue');
       if (availabilityText != null && availabilityText.includes('InStock')) {
         addElementToDocument('added_availabilityText', 'In Stock');

@@ -6,7 +6,7 @@ module.exports = {
     store: 'citygross',
     domain: 'citygross.se',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[contains(@class,"not-found")]',
     zipcode: '',
   },
 };
