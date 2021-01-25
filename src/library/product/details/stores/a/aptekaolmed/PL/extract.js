@@ -77,10 +77,19 @@ module.exports = {
     else{
       price = ''
     }
-    // const price = jsondata.offers[0].price;
+    var y='';
+    // var z=''
+    var specification = getAllXpath('//table[@class="n54117_dictionary"]//td//text()', 'nodeValue');
+    for (let k = 0; k < specification.length; k++) {
+      if(specification[k].length > 0){
+        y=y+' '+specification[k].replace(/\s/g, ' ')
+        }
+      }
+    if (y.length>0){
+      y=y.replace(/\s+(\W)/g, "$1")
+    }
+    addElementToDocument('y', y);
     addElementToDocument('availability', availability);
-    console.log('price----------',price)
-
     addElementToDocument('price', price);
 
   });

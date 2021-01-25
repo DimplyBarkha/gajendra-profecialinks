@@ -63,10 +63,11 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //a[@class="brand"]
+    # xpath: //a[@class="brand"]
   - name: quantity
     singleValue: true
-    description: Quantity as described on the page    
+    description: Quantity as described on the page 
+    xpath: //td/span[contains(text(),'Opakowanie')]/following::td[1] 
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -87,14 +88,15 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    type: Number
-    xpath: //div[@class="code"]/strong
+    # type: Number
+    # xpath: //div[@class="code"]/strong
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
-    xpath: //h1
-    regExp: (\d+)\d(?!.*\d)(.+)
+    # xpath: //td/span[contains(text(),'Opakowanie')]/following::td[1]
+    # xpath: //h1
+    # regExp: (\d+)\d(?!.*\d)(.+)
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
@@ -405,6 +407,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
+    xpath: //div[@id="y"]
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
