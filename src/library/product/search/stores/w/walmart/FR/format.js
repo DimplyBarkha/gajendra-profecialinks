@@ -26,7 +26,7 @@ const transform = (data, context) => {
       if (row.productUrl) {
         row.productUrl.forEach(item => {
           if (!item.text.includes('http')) {
-            item.text = 'https://www.walmart.ca/' + item.text;
+            item.text = 'https://www.walmart.ca' + item.text;
           }
         });
       }
