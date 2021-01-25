@@ -1,3 +1,6 @@
+// const { transform } = require('./transform');
+const { transform } = require('../../../../shared');
+
 async function implementation (
   inputs,
   parameters,
@@ -6,28 +9,7 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  const applyScroll = async function (context) {
-    await context.evaluate(async function () {
-      let scrollTop = 0;
-      while (scrollTop !== 20000) {
-        await stall(500);
-        scrollTop += 1000;
-        window.scroll(0, scrollTop);
-        if (scrollTop === 20000) {
-          await stall(5000);
-          break;
-        }
-      }
-      function stall (ms) {
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            resolve();
-          }, ms);
-        });
-      }
-    });
-  };
-  await applyScroll(context);
+
   await context.evaluate(() => {
     function addHiddenDiv (el, myClass, content) {
       const newDiv = document.createElement('div');
@@ -38,16 +20,16 @@ async function implementation (
     }
     const itemContainers = document.querySelectorAll('#center_column > ul > li');
     const arr = document.querySelectorAll('#center_column > ul > li');
-    let rank = 1;
     let i = 0;
+    const thumbnail = document.querySelectorAll('div[class="product-container"] > div> div >a > img');
+
+    const productUrl = document.querySelectorAll('div.center_column > ul> li > div > div > div > h5 > a');
+    console.log(productUrl);
     for (const itemContainer of itemContainers) {
       console.log(itemContainer);
-      const totalRank = itemContainer + rank;
-      addHiddenDiv(itemContainer, 'rank', totalRank);
-      rank++;
       const a = arr[i].getAttribute('data-id-product');
       console.log(a);
-      addHiddenDiv(itemContainer, 'id', a);
+      // addHiddenDiv(itemContainer, 'id', a);
       const a1 = a.concat('-');
       const b = arr[i].getAttribute('data-id-product-attribute');
       const mainDataObj = window.rcTagManagerLib.getInstance.productsListCache[a1.concat(b)].ean13;
@@ -55,6 +37,30 @@ async function implementation (
       if (mainDataObj) {
         addHiddenDiv(itemContainer, 'gtin', mainDataObj);
       }
+
+      const thumb = thumbnail[i].getAttribute('src');
+      if (thumb) {
+        addHiddenDiv(itemContainer, 'thumbnail', thumb);
+      }
+
+      const prodUrl = productUrl[i].getAttribute('href');
+      if (prodUrl) {
+        console.log(prodUrl);
+        addHiddenDiv(itemContainer, 'productUrl', prodUrl);
+      }
+
+      const productCode = window.rcTagManagerLib.getInstance.productsListCache[a1.concat(b)].reference;
+      console.log(productCode);
+      if (productCode) {
+        addHiddenDiv(itemContainer, 'product_code', productCode);
+      } else {
+        const productCodeUpdated = window.rcTagManagerLib.getInstance.productsListCache[a1.concat(b)].id_product;
+        if (productCodeUpdated) {
+          addHiddenDiv(itemContainer, 'product_code', productCodeUpdated);
+        }
+      }
+      const searchUrl = window.location.href;
+      addHiddenDiv(itemContainer, 'search-url', searchUrl);
       i++;
     }
   });
@@ -66,7 +72,7 @@ module.exports = {
   parameterValues: {
     country: 'ES',
     store: 'campoluzenoteca',
-    transform: null,
+    transform: transform,
     domain: 'campoluzenoteca.com',
     zipcode: '',
   },

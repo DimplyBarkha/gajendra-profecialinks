@@ -20,37 +20,45 @@ fields:
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
     # xpath: //div[@class='col-xs-12 col-sm-12 col-md-12 clearfix']/section[@class='breadcrumb']/ul/li[3]/a
-    xpath: //section[@class="breadcrumb"]/ul/li/a
-  
+    # xpath: //section[@class='breadcrumb']/ul/li[position()>2 and position()<last()-1]
+    # xpath: //section[@class='breadcrumb']/ul/li[@typeof="v:Breadcrumb"][position()>1]
+    xpath: //body[@id='product']//section[@class='breadcrumb']/ul/li[@typeof="v:Breadcrumb"][position()>1]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //div[@id="center_column"]/div/div/div[2]/h1[@itemprop="name"]/text()
+    # xpath: //div[@id="center_column"]/div/div/div[2]/h1[@itemprop="name"]/text()
+    xpath: //div[@id="nameExtended"]
+    
   - name: listPrice
-    singleValue: true
+    singleValue: false
     description: The stated undiscounted price for the product
     xpath: //div[@class='pb-center-column col-xs-12 col-sm-7 col-md-7 ']/form[@id='buy_block']/div[@class='box-info-product']/div[@class='content_price_attribute']/div[@class='content_prices clearfix']/div[@class='price_box clearfix']/p[@id='old_price']/span[@id='old_price_display']
-    
+    # regExp: ([\d.]+)(\,)([\d.]+) 
+    # regExpReplace: $1.$3
   - name: price
-    singleValue: true
+    singleValue: false
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[@class="price_box clearfix"]/p/span[@id="our_price_display"]/text()
+    xpath: //div[@class="price_box clearfix"]/p/span[@id="our_price_display"]/text() 
+    # regExp: ([\d.]+)(\,)([\d.]+) 
+    # regExpReplace: $1.$3
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
-    xpath: //div[@class="pb-center-column col-xs-12 col-sm-7 col-md-7 "]/form[@id="buy_block"]/div/div[2]/div/div/p/button[@type="submit"]
+    # regExp: (.+)
+    # regExpReplace: In Stock
+    # defaultValue: Out of Stock
+    # xpath: //div[@class="pb-center-column col-xs-12 col-sm-7 col-md-7 "]/form[@id="buy_block"]/div/div[2]/div/div/p/button[@type="submit"]
+    xpath: //div[@id='availability']
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class='columns-container wide_container']/div[@id='columns']/div[@class='row']/div[@id='center_column']/div/div[@id='bottom_more_info_block']/div[@id='more_info_block']/div[@id='more_info_sheets']
+    # xpath: //div[@class='columns-container wide_container']/div[@id='columns']/div[@class='row']/div[@id='center_column']/div/div[@id='bottom_more_info_block']/div[@id='more_info_block']/div[@id='more_info_sheets']
+    xpath: //div[@id='more_info_block']/div[@id='more_info_sheets']/div[@id='idTab1']/div[@class="pa_content"]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -83,11 +91,14 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //div[@class="product_info_box"]/div/span[@itemprop="sku"]/text()
+    # xpath: //div[@class="product_info_box"]/div/span[@itemprop="sku"]/text()
+    # xpath: //div[@id='sku_number']
+    xpath: //div[@id='sku']
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //div[@class="product_info_box"]/div/span[@itemprop="sku"]/text()
+    # xpath: //div[@class="product_info_box"]/div/span[@itemprop="sku"]/text()
+    xpath: //div[@id='product_id']
     # xpath: //form[@id="buy_block"]/p/input[@name="id_product"]/@value
   - name: mpc
     singleValue: true
@@ -96,7 +107,8 @@ fields:
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
-    xpath: //span[contains(text(), 'Volumen')]/following-sibling::*/text()
+    # xpath: //span[contains(text(), 'Volumen')]/following-sibling::*/text()
+    xpath: //div[@class="con_des_short_xs-5 tooltip t_vo"][position()=1]/span[@class="title-detalle"]
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
@@ -110,14 +122,18 @@ fields:
     singleValue: true
     description: The number of ratings
     type: NUMBER
+    xpath: //span[@itemprop="reviewCount"]
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
   - name: aggregateRating
-    singleValue: true
+    singleValue: false
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
-    xpath: //div[@itemprop="aggregateRating"]/div/div/meta[2]/@content
+    # type: NUMBER
+    # xpath: //div[@itemprop="aggregateRating"]/div/div/meta[2]/@content
+    # regExp: ([\d.]+)(\.)([\d.]+) 
+    # regExpReplace: $1,$3
+    xpath: //div[@id="aggregateRating"]
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -499,6 +515,8 @@ fields:
     singleValue: true
     description: Privacy Policy information text ['Yes','No']
     defaultValue: No
+    regExp: (.+)
+    regExpReplace: Yes
     xpath: //section[@id='multilink_4']/ul[@class='footer_block_content bullet']/li[4]/a/@href
   - name: customerServiceAvailability
     singleValue: true

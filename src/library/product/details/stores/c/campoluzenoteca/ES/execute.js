@@ -6,7 +6,7 @@ module.exports = {
     store: 'campoluzenoteca',
     domain: 'campoluzenoteca.com',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: null, // '//ul[@class="product_list grid row"]',
     zipcode: '',
   },
 };
