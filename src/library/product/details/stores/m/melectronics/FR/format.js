@@ -32,8 +32,8 @@ const transform = (data) => {
         const uniqueDesc = new Set(additionalDescBulletInfoArr);
         const descBulletsArray = [];
         uniqueDesc.forEach((item) => {
-          descBulletsArray.push(item)
-        })
+          descBulletsArray.push(item);
+        });
         row.additionalDescBulletInfo = [{ text: '|| ' + descBulletsArray.join(' || '), xpath: row.additionalDescBulletInfo[0].xpath }];
         row.descriptionBullets = [{ text: descBulletsArray.length, xpath: row.additionalDescBulletInfo[0].xpath }];
       }
@@ -49,8 +49,12 @@ const transform = (data) => {
           text += item.text + ' ';
         });
 
-        if (row.additionalDescBulletInfo) {
-          row.additionalDescBulletInfo.map((item) => {
+        if (row.descriptionBulletsPoints) {
+          const descriptionBulletsPointsArr = row.descriptionBulletsPoints.map((item) => {
+            return item.text;
+          });
+          const uniqueDesc = new Set(descriptionBulletsPointsArr);
+          uniqueDesc.forEach((item) => {
             text += typeof (item.text) === 'string' && item.text.trim() !== '' ? ' || ' + item.text : '';
           });
         }

@@ -39,6 +39,9 @@ fields:
   - name:  description
     singleValue: false
     xpath: //div[contains(@class,'detail-navigation-section--description')]//p
+  - name: descriptionBulletsPoints
+    singleValue: false
+    xpath: //div[@name="description"]//ul//li
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //ul[@class="detail-options--topfacts"]//li | //div[@name="description"]//ul//li
