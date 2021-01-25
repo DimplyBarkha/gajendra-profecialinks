@@ -127,6 +127,7 @@ module.exports = {
         XPathResult.STRING_TYPE,
         null,
       ).stringValue;
+      ingredientsText = ingredientsText.replace(/^ingredients:?/i, '').trim();
 
       const ingredientsTextArr = [];
       if (!ingredientsText && descriptionElem) {
