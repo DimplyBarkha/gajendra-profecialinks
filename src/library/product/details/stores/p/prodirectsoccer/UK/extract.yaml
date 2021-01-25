@@ -91,3 +91,13 @@ fields:
     xpath: ancestor::html//div[contains(@class, 'product-filters js-product-filters')][count(//div[contains(@class, 'select-size')])>0]//div[contains(@class, 'tabs__panels-item--active')]/div[contains(@class, 'product-sizes-list')]/button//span[contains(@class, 'product-sizes-list__value')]/../../button[1]/@data-variant-id | ancestor::html//div[contains(@class, 'product-filters js-product-filters')][count(//div[contains(@class, 'select-size')])=0]//div[contains(@class, 'action-dropdown js-action-dropdown js-size-chart-dropdown')]//button//span[contains(@class, 'product-sizes-list__value')]/../../button/@data-variant-id
   - name: variantCount
     xpath: count(ancestor::html//div[contains(@class, 'product-filters js-product-filters')][count(//div[contains(@class, 'select-size')])>0]//div[contains(@class, 'tabs__panels-item--active')]/div[contains(@class, 'product-sizes-list')]/button//span[contains(@class, 'product-sizes-list__value')]/../../button/@data-variant-id | ancestor::html//div[contains(@class, 'product-filters js-product-filters')][count(//div[contains(@class, 'select-size')])=0]//div[contains(@class, 'action-dropdown js-action-dropdown js-size-chart-dropdown')]//button//span[contains(@class, 'product-sizes-list__value')]/../../button/@data-variant-id)
+    defaultValue: 0
+  - name: singleProdRpc
+    xpath: ancestor::html//script[contains(@type, 'application/ld+json')]
+  - name: singleProdAvailability
+    xpath: ancestor::html//button[contains(@class, 'button--out-of-stock-submit')]
+    defaultValue: In stock
+    regExp: (.+)
+    regExpReplace: Out of stock
+  - name: singleProdSize
+    xpath: ancestor::html//div[contains(@class, 'js-size-chart-dropdown')]//button[@aria-label="Size"]/span

@@ -22,16 +22,43 @@ const transform = (data) => {
         }
       }
 
-      if (row.nameExtended && row.quantity) {
-        row.nameExtended = [{ text: `${row.nameExtended[0].text} ${row.quantity[0].text}` }];
-      }
-
       if (row.alternateImages) {
         row.secondaryImageTotal = [{ text: row.alternateImages.length }];
       }
 
       if (row.variantCount) {
-        row.variantCount = [{ text: row.variantCount[0].text - 1 }];
+        if (row.variantCount[0].text > 0) {
+          row.variantCount = [{ text: row.variantCount[0].text - 1 }];
+        }
+      }
+
+      if (!row.variantId && row.singleProdRpc) {
+        try {
+          let dataString = row.singleProdRpc[0].text;
+          dataString = JSON.parse(dataString);
+          if (dataString.offers && dataString.offers[0] && dataString.offers[0].sku) {
+            row.variantId = [{ text: dataString.offers[0].sku }];
+          }
+        } catch (e) {
+          console.log(e);
+        }
+      }
+
+      if (!row.availabilityText && row.singleProdAvailability) {
+        row.availabilityText = row.singleProdAvailability;
+      }
+
+      if (!row.quantity && row.singleProdSize) {
+        row.quantity = row.singleProdSize;
+        row.variantInformation = row.singleProdSize;
+      }
+
+      if (row.nameExtended && row.quantity) {
+        row.nameExtended = [{ text: `${row.nameExtended[0].text} ${row.quantity[0].text}` }];
+      }
+
+      if (row.variantCount && row.variantCount[0].text == 0 && row.singleProdAvailability) {
+        row.availabilityText = row.singleProdAvailability;
       }
     }
   }

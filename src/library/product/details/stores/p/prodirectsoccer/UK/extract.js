@@ -17,7 +17,7 @@ module.exports = {
   ) {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    const popup = await context.evaluate(() => {
+    const popup = await context.evaluate(async () => {
       return Boolean(document.querySelector('.taxfree-popup'));
     });
     if (popup) {
