@@ -73,11 +73,11 @@ const transform = (data) => {
 
       if (row.availabilityText) {
         row.availabilityText.forEach(item => {
-          console.log("item.text",item.text);
-          if(item.text == 'true'){
+          console.log("item.text", item.text);
+          if (item.text == 'true') {
             item.text = 'In Stock';
           }
-          else{
+          else {
             item.text = 'Out Of Stock';
           }
         });

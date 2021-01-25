@@ -82,7 +82,7 @@ fields:
   - name: packSize
     singleValue: false
     xpath: //ul[@class='infoFeatures']//span[contains(text(),'Размер в упаковке')]/parent::li
-  - name: SecondaryImageTotal
+  - name: secondaryImageTotal
     singleValue: false
     xpath: count((//ul[contains(@class,'js-photosList')]/li)[position()>1]//img/@src)
   - name: ratingCount
