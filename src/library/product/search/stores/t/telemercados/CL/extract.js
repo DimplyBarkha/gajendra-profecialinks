@@ -33,5 +33,4 @@ module.exports = {
     domain: 'telemercados.cl',
     zipcode: '',
   },
-  implementation
 };
