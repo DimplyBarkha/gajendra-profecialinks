@@ -71,10 +71,10 @@ module.exports = {
         findAndInsertLabel(jsonParsed, 'description', 'description');
         findAndInsertLabel(jsonParsed, 'sku', 'sku');
         findAndInsertLabel(jsonParsed, 'mpn', 'mpc');
-        if (jsonParsed.offers && jsonParsed.offers[0]) {
-          const availabilityText = (findLabel(jsonParsed.offers[0], 'availability') && findLabel(jsonParsed.offers[0], 'availability').label.includes('InStock')) ? 'In Stock' : 'Out of stock';
-          addHiddenDiv('ii_availabilityText', availabilityText);
-        }
+        // if (jsonParsed.offers && jsonParsed.offers[0]) {
+        //   // const availabilityText = (findLabel(jsonParsed.offers[0], 'availability') && findLabel(jsonParsed.offers[0], 'availability').label.includes('InStock')) ? 'In Stock' : 'Out of stock';
+        //   // addHiddenDiv('ii_availabilityText', availabilityText);
+        // }
         if (jsonParsed.brand) {
           findAndInsertLabel(jsonParsed.brand, 'name', 'brandText');
         }
