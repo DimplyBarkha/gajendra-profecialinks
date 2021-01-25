@@ -2,7 +2,7 @@ input:
   _url: http://zalando.de
   URL: https://en.zalando.de/michael-kors-nick-trainers-natural-1mi12o00x-b11.html
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=7ad721c6-309c-4412-b1b2-e939c7ac07b4/task=4952f397-183e-4b63-b290-4e0bd1c2d94e/612af4c4-4d3e-414c-9d5f-529e00b194ea.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=88d493b8-3b7f-4522-8de7-55e4b4a859ff/task=803a6e92-0d78-4b91-b2dd-d65cba884dba/64d7bb85-195e-4d28-a8f4-0f0f853154de.html
     extractionConfigId: product/details/stores/z/zalando/DE/extract
     data:
       - group:
@@ -23,14 +23,12 @@ extractions:
               - text: https://en.zalando.de/michael-kors-nick-trainers-natural-1mi12o00x-b11.html
                 xpath: /html/body/div[14]
             image:
-              - text: https://img01.ztat.net/article/spp-media-p1/eb0ff51429fa3f72b2f6e890bcca8fb1/d6209cba543a46f2a9d4f8a380010d51.jpg?imwidth=762&filter=packshot
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/eb0ff51429fa3f72b2f6e890bcca8fb1/d6209cba543a46f2a9d4f8a380010d51.jpg
+                xpath: /html/body/ol[1]/li[1]
             imageAlt:
               - text: Michael Kors - NICK - Trainers - natural
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
-              - text: https://img01.ztat.net/article/spp-media-p1/eb0ff51429fa3f72b2f6e890bcca8fb1/d6209cba543a46f2a9d4f8a380010d51.jpg
-                xpath: /html/body/ol[1]/li[1]
               - text: https://img01.ztat.net/article/spp-media-p1/0abe988d8a0e398e94d23fde0c1cc94a/0d9789fade114d688ad8ed09845144d2.jpg
                 xpath: /html/body/ol[1]/li[2]
               - text: https://img01.ztat.net/article/spp-media-p1/3abd35137c5834139a565f5763ca4576/43e614e7eef3405b89479fb542aa83e7.jpg
@@ -42,14 +40,24 @@ extractions:
               - text: https://img01.ztat.net/article/spp-media-p1/302eafc1cbe434fa8398c2652818cde3/a503c809479343d88c1bbd4ba74ef6c6.jpg
                 xpath: /html/body/ol[1]/li[6]
             nameExtended:
-              - text: Michael Kors - NICK - Trainers
+              - text: Michael Kors - NICK - Trainers - natural
                 xpath: /html/body/div[7]/@name_extended
-            price:
+            listPrice:
               - text: 224,95 €
+                xpath: /html/body/div[7]/@list_price
+            price:
+              - text: 191,95 €
                 xpath: /html/body/div[7]/@price
             availabilityText:
-              - text: Out of stock
+              - text: Out Of Stock
                 xpath: /html/body/div[7]/@availability_text
+            description:
+              - text: Upper material: Leather and textile | Lining: Textile | Insole: Leather |
+                  Sole: Synthetics | Padding type: Cold padding | Care
+                  instructions: Treat with a suitable protector before wear |
+                  Shoe tip: Round | Fastening: Laces | Pattern: Animal print |
+                  Details: Cut-outs | Article number: 1MI12O00X-B11
+                xpath: /html/body/div[7]/@description
             brandText:
               - text: Michael Kors
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
@@ -81,7 +89,10 @@ extractions:
               - text: https://en.zalando.de/michaelkors/
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             secondaryImageTotal:
-              - text: "6"
+              - text: "5"
+            variantInformation:
+              - text: natural
+                xpath: /html/body/div[7]/@variant_information
             firstVariant:
               - text: 1MI12O00X-B110007000
                 xpath: /html/body/div[7]/@first_variant
@@ -113,14 +124,12 @@ extractions:
               - text: https://en.zalando.de/michael-kors-nick-trainers-natural-1mi12o00x-b11.html
                 xpath: /html/body/div[14]
             image:
-              - text: https://img01.ztat.net/article/spp-media-p1/eb0ff51429fa3f72b2f6e890bcca8fb1/d6209cba543a46f2a9d4f8a380010d51.jpg?imwidth=762&filter=packshot
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/eb0ff51429fa3f72b2f6e890bcca8fb1/d6209cba543a46f2a9d4f8a380010d51.jpg
+                xpath: /html/body/ol[1]/li[1]
             imageAlt:
               - text: Michael Kors - NICK - Trainers - natural
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
-              - text: https://img01.ztat.net/article/spp-media-p1/eb0ff51429fa3f72b2f6e890bcca8fb1/d6209cba543a46f2a9d4f8a380010d51.jpg
-                xpath: /html/body/ol[1]/li[1]
               - text: https://img01.ztat.net/article/spp-media-p1/0abe988d8a0e398e94d23fde0c1cc94a/0d9789fade114d688ad8ed09845144d2.jpg
                 xpath: /html/body/ol[1]/li[2]
               - text: https://img01.ztat.net/article/spp-media-p1/3abd35137c5834139a565f5763ca4576/43e614e7eef3405b89479fb542aa83e7.jpg
@@ -132,14 +141,24 @@ extractions:
               - text: https://img01.ztat.net/article/spp-media-p1/302eafc1cbe434fa8398c2652818cde3/a503c809479343d88c1bbd4ba74ef6c6.jpg
                 xpath: /html/body/ol[1]/li[6]
             nameExtended:
-              - text: Michael Kors - NICK - Trainers
+              - text: Michael Kors - NICK - Trainers - natural
                 xpath: /html/body/div[8]/@name_extended
-            price:
+            listPrice:
               - text: 224,95 €
+                xpath: /html/body/div[8]/@list_price
+            price:
+              - text: 191,95 €
                 xpath: /html/body/div[8]/@price
             availabilityText:
-              - text: Out of stock
+              - text: Out Of Stock
                 xpath: /html/body/div[8]/@availability_text
+            description:
+              - text: Upper material: Leather and textile | Lining: Textile | Insole: Leather |
+                  Sole: Synthetics | Padding type: Cold padding | Care
+                  instructions: Treat with a suitable protector before wear |
+                  Shoe tip: Round | Fastening: Laces | Pattern: Animal print |
+                  Details: Cut-outs | Article number: 1MI12O00X-B11
+                xpath: /html/body/div[8]/@description
             brandText:
               - text: Michael Kors
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
@@ -171,7 +190,10 @@ extractions:
               - text: https://en.zalando.de/michaelkors/
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             secondaryImageTotal:
-              - text: "6"
+              - text: "5"
+            variantInformation:
+              - text: natural
+                xpath: /html/body/div[8]/@variant_information
             firstVariant:
               - text: 1MI12O00X-B110007000
                 xpath: /html/body/div[8]/@first_variant
@@ -203,14 +225,12 @@ extractions:
               - text: https://en.zalando.de/michael-kors-nick-trainers-natural-1mi12o00x-b11.html
                 xpath: /html/body/div[14]
             image:
-              - text: https://img01.ztat.net/article/spp-media-p1/eb0ff51429fa3f72b2f6e890bcca8fb1/d6209cba543a46f2a9d4f8a380010d51.jpg?imwidth=762&filter=packshot
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/eb0ff51429fa3f72b2f6e890bcca8fb1/d6209cba543a46f2a9d4f8a380010d51.jpg
+                xpath: /html/body/ol[1]/li[1]
             imageAlt:
               - text: Michael Kors - NICK - Trainers - natural
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
-              - text: https://img01.ztat.net/article/spp-media-p1/eb0ff51429fa3f72b2f6e890bcca8fb1/d6209cba543a46f2a9d4f8a380010d51.jpg
-                xpath: /html/body/ol[1]/li[1]
               - text: https://img01.ztat.net/article/spp-media-p1/0abe988d8a0e398e94d23fde0c1cc94a/0d9789fade114d688ad8ed09845144d2.jpg
                 xpath: /html/body/ol[1]/li[2]
               - text: https://img01.ztat.net/article/spp-media-p1/3abd35137c5834139a565f5763ca4576/43e614e7eef3405b89479fb542aa83e7.jpg
@@ -222,14 +242,24 @@ extractions:
               - text: https://img01.ztat.net/article/spp-media-p1/302eafc1cbe434fa8398c2652818cde3/a503c809479343d88c1bbd4ba74ef6c6.jpg
                 xpath: /html/body/ol[1]/li[6]
             nameExtended:
-              - text: Michael Kors - NICK - Trainers
+              - text: Michael Kors - NICK - Trainers - natural
                 xpath: /html/body/div[9]/@name_extended
-            price:
+            listPrice:
               - text: 224,95 €
+                xpath: /html/body/div[9]/@list_price
+            price:
+              - text: 191,95 €
                 xpath: /html/body/div[9]/@price
             availabilityText:
-              - text: Out of stock
+              - text: Out Of Stock
                 xpath: /html/body/div[9]/@availability_text
+            description:
+              - text: Upper material: Leather and textile | Lining: Textile | Insole: Leather |
+                  Sole: Synthetics | Padding type: Cold padding | Care
+                  instructions: Treat with a suitable protector before wear |
+                  Shoe tip: Round | Fastening: Laces | Pattern: Animal print |
+                  Details: Cut-outs | Article number: 1MI12O00X-B11
+                xpath: /html/body/div[9]/@description
             brandText:
               - text: Michael Kors
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
@@ -261,7 +291,10 @@ extractions:
               - text: https://en.zalando.de/michaelkors/
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             secondaryImageTotal:
-              - text: "6"
+              - text: "5"
+            variantInformation:
+              - text: natural
+                xpath: /html/body/div[9]/@variant_information
             firstVariant:
               - text: 1MI12O00X-B110007000
                 xpath: /html/body/div[9]/@first_variant
@@ -293,14 +326,12 @@ extractions:
               - text: https://en.zalando.de/michael-kors-nick-trainers-natural-1mi12o00x-b11.html
                 xpath: /html/body/div[14]
             image:
-              - text: https://img01.ztat.net/article/spp-media-p1/eb0ff51429fa3f72b2f6e890bcca8fb1/d6209cba543a46f2a9d4f8a380010d51.jpg?imwidth=762&filter=packshot
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/eb0ff51429fa3f72b2f6e890bcca8fb1/d6209cba543a46f2a9d4f8a380010d51.jpg
+                xpath: /html/body/ol[1]/li[1]
             imageAlt:
               - text: Michael Kors - NICK - Trainers - natural
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
-              - text: https://img01.ztat.net/article/spp-media-p1/eb0ff51429fa3f72b2f6e890bcca8fb1/d6209cba543a46f2a9d4f8a380010d51.jpg
-                xpath: /html/body/ol[1]/li[1]
               - text: https://img01.ztat.net/article/spp-media-p1/0abe988d8a0e398e94d23fde0c1cc94a/0d9789fade114d688ad8ed09845144d2.jpg
                 xpath: /html/body/ol[1]/li[2]
               - text: https://img01.ztat.net/article/spp-media-p1/3abd35137c5834139a565f5763ca4576/43e614e7eef3405b89479fb542aa83e7.jpg
@@ -312,14 +343,24 @@ extractions:
               - text: https://img01.ztat.net/article/spp-media-p1/302eafc1cbe434fa8398c2652818cde3/a503c809479343d88c1bbd4ba74ef6c6.jpg
                 xpath: /html/body/ol[1]/li[6]
             nameExtended:
-              - text: Michael Kors - NICK - Trainers
+              - text: Michael Kors - NICK - Trainers - natural
                 xpath: /html/body/div[10]/@name_extended
-            price:
+            listPrice:
               - text: 224,95 €
+                xpath: /html/body/div[10]/@list_price
+            price:
+              - text: 191,95 €
                 xpath: /html/body/div[10]/@price
             availabilityText:
-              - text: Out of stock
+              - text: Out Of Stock
                 xpath: /html/body/div[10]/@availability_text
+            description:
+              - text: Upper material: Leather and textile | Lining: Textile | Insole: Leather |
+                  Sole: Synthetics | Padding type: Cold padding | Care
+                  instructions: Treat with a suitable protector before wear |
+                  Shoe tip: Round | Fastening: Laces | Pattern: Animal print |
+                  Details: Cut-outs | Article number: 1MI12O00X-B11
+                xpath: /html/body/div[10]/@description
             brandText:
               - text: Michael Kors
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
@@ -351,7 +392,10 @@ extractions:
               - text: https://en.zalando.de/michaelkors/
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             secondaryImageTotal:
-              - text: "6"
+              - text: "5"
+            variantInformation:
+              - text: natural
+                xpath: /html/body/div[10]/@variant_information
             firstVariant:
               - text: 1MI12O00X-B110007000
                 xpath: /html/body/div[10]/@first_variant
@@ -383,14 +427,12 @@ extractions:
               - text: https://en.zalando.de/michael-kors-nick-trainers-natural-1mi12o00x-b11.html
                 xpath: /html/body/div[14]
             image:
-              - text: https://img01.ztat.net/article/spp-media-p1/eb0ff51429fa3f72b2f6e890bcca8fb1/d6209cba543a46f2a9d4f8a380010d51.jpg?imwidth=762&filter=packshot
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/eb0ff51429fa3f72b2f6e890bcca8fb1/d6209cba543a46f2a9d4f8a380010d51.jpg
+                xpath: /html/body/ol[1]/li[1]
             imageAlt:
               - text: Michael Kors - NICK - Trainers - natural
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
-              - text: https://img01.ztat.net/article/spp-media-p1/eb0ff51429fa3f72b2f6e890bcca8fb1/d6209cba543a46f2a9d4f8a380010d51.jpg
-                xpath: /html/body/ol[1]/li[1]
               - text: https://img01.ztat.net/article/spp-media-p1/0abe988d8a0e398e94d23fde0c1cc94a/0d9789fade114d688ad8ed09845144d2.jpg
                 xpath: /html/body/ol[1]/li[2]
               - text: https://img01.ztat.net/article/spp-media-p1/3abd35137c5834139a565f5763ca4576/43e614e7eef3405b89479fb542aa83e7.jpg
@@ -402,14 +444,24 @@ extractions:
               - text: https://img01.ztat.net/article/spp-media-p1/302eafc1cbe434fa8398c2652818cde3/a503c809479343d88c1bbd4ba74ef6c6.jpg
                 xpath: /html/body/ol[1]/li[6]
             nameExtended:
-              - text: Michael Kors - NICK - Trainers
+              - text: Michael Kors - NICK - Trainers - natural
                 xpath: /html/body/div[11]/@name_extended
-            price:
+            listPrice:
               - text: 224,95 €
+                xpath: /html/body/div[11]/@list_price
+            price:
+              - text: 191,95 €
                 xpath: /html/body/div[11]/@price
             availabilityText:
-              - text: Out of stock
+              - text: Out Of Stock
                 xpath: /html/body/div[11]/@availability_text
+            description:
+              - text: Upper material: Leather and textile | Lining: Textile | Insole: Leather |
+                  Sole: Synthetics | Padding type: Cold padding | Care
+                  instructions: Treat with a suitable protector before wear |
+                  Shoe tip: Round | Fastening: Laces | Pattern: Animal print |
+                  Details: Cut-outs | Article number: 1MI12O00X-B11
+                xpath: /html/body/div[11]/@description
             brandText:
               - text: Michael Kors
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
@@ -441,7 +493,10 @@ extractions:
               - text: https://en.zalando.de/michaelkors/
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             secondaryImageTotal:
-              - text: "6"
+              - text: "5"
+            variantInformation:
+              - text: natural
+                xpath: /html/body/div[11]/@variant_information
             firstVariant:
               - text: 1MI12O00X-B110007000
                 xpath: /html/body/div[11]/@first_variant
@@ -473,14 +528,12 @@ extractions:
               - text: https://en.zalando.de/michael-kors-nick-trainers-natural-1mi12o00x-b11.html
                 xpath: /html/body/div[14]
             image:
-              - text: https://img01.ztat.net/article/spp-media-p1/eb0ff51429fa3f72b2f6e890bcca8fb1/d6209cba543a46f2a9d4f8a380010d51.jpg?imwidth=762&filter=packshot
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/eb0ff51429fa3f72b2f6e890bcca8fb1/d6209cba543a46f2a9d4f8a380010d51.jpg
+                xpath: /html/body/ol[1]/li[1]
             imageAlt:
               - text: Michael Kors - NICK - Trainers - natural
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
-              - text: https://img01.ztat.net/article/spp-media-p1/eb0ff51429fa3f72b2f6e890bcca8fb1/d6209cba543a46f2a9d4f8a380010d51.jpg
-                xpath: /html/body/ol[1]/li[1]
               - text: https://img01.ztat.net/article/spp-media-p1/0abe988d8a0e398e94d23fde0c1cc94a/0d9789fade114d688ad8ed09845144d2.jpg
                 xpath: /html/body/ol[1]/li[2]
               - text: https://img01.ztat.net/article/spp-media-p1/3abd35137c5834139a565f5763ca4576/43e614e7eef3405b89479fb542aa83e7.jpg
@@ -492,14 +545,24 @@ extractions:
               - text: https://img01.ztat.net/article/spp-media-p1/302eafc1cbe434fa8398c2652818cde3/a503c809479343d88c1bbd4ba74ef6c6.jpg
                 xpath: /html/body/ol[1]/li[6]
             nameExtended:
-              - text: Michael Kors - NICK - Trainers
+              - text: Michael Kors - NICK - Trainers - natural
                 xpath: /html/body/div[12]/@name_extended
-            price:
+            listPrice:
               - text: 224,95 €
+                xpath: /html/body/div[12]/@list_price
+            price:
+              - text: 191,95 €
                 xpath: /html/body/div[12]/@price
             availabilityText:
-              - text: Out of stock
+              - text: Out Of Stock
                 xpath: /html/body/div[12]/@availability_text
+            description:
+              - text: Upper material: Leather and textile | Lining: Textile | Insole: Leather |
+                  Sole: Synthetics | Padding type: Cold padding | Care
+                  instructions: Treat with a suitable protector before wear |
+                  Shoe tip: Round | Fastening: Laces | Pattern: Animal print |
+                  Details: Cut-outs | Article number: 1MI12O00X-B11
+                xpath: /html/body/div[12]/@description
             brandText:
               - text: Michael Kors
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
@@ -531,7 +594,10 @@ extractions:
               - text: https://en.zalando.de/michaelkors/
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             secondaryImageTotal:
-              - text: "6"
+              - text: "5"
+            variantInformation:
+              - text: natural
+                xpath: /html/body/div[12]/@variant_information
             firstVariant:
               - text: 1MI12O00X-B110007000
                 xpath: /html/body/div[12]/@first_variant
@@ -563,14 +629,12 @@ extractions:
               - text: https://en.zalando.de/michael-kors-nick-trainers-natural-1mi12o00x-b11.html
                 xpath: /html/body/div[14]
             image:
-              - text: https://img01.ztat.net/article/spp-media-p1/eb0ff51429fa3f72b2f6e890bcca8fb1/d6209cba543a46f2a9d4f8a380010d51.jpg?imwidth=762&filter=packshot
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/eb0ff51429fa3f72b2f6e890bcca8fb1/d6209cba543a46f2a9d4f8a380010d51.jpg
+                xpath: /html/body/ol[1]/li[1]
             imageAlt:
               - text: Michael Kors - NICK - Trainers - natural
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
-              - text: https://img01.ztat.net/article/spp-media-p1/eb0ff51429fa3f72b2f6e890bcca8fb1/d6209cba543a46f2a9d4f8a380010d51.jpg
-                xpath: /html/body/ol[1]/li[1]
               - text: https://img01.ztat.net/article/spp-media-p1/0abe988d8a0e398e94d23fde0c1cc94a/0d9789fade114d688ad8ed09845144d2.jpg
                 xpath: /html/body/ol[1]/li[2]
               - text: https://img01.ztat.net/article/spp-media-p1/3abd35137c5834139a565f5763ca4576/43e614e7eef3405b89479fb542aa83e7.jpg
@@ -582,14 +646,24 @@ extractions:
               - text: https://img01.ztat.net/article/spp-media-p1/302eafc1cbe434fa8398c2652818cde3/a503c809479343d88c1bbd4ba74ef6c6.jpg
                 xpath: /html/body/ol[1]/li[6]
             nameExtended:
-              - text: Michael Kors - NICK - Trainers
+              - text: Michael Kors - NICK - Trainers - natural
                 xpath: /html/body/div[13]/@name_extended
-            price:
+            listPrice:
               - text: 224,95 €
+                xpath: /html/body/div[13]/@list_price
+            price:
+              - text: 191,95 €
                 xpath: /html/body/div[13]/@price
             availabilityText:
-              - text: Out of stock
+              - text: Out Of Stock
                 xpath: /html/body/div[13]/@availability_text
+            description:
+              - text: Upper material: Leather and textile | Lining: Textile | Insole: Leather |
+                  Sole: Synthetics | Padding type: Cold padding | Care
+                  instructions: Treat with a suitable protector before wear |
+                  Shoe tip: Round | Fastening: Laces | Pattern: Animal print |
+                  Details: Cut-outs | Article number: 1MI12O00X-B11
+                xpath: /html/body/div[13]/@description
             brandText:
               - text: Michael Kors
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
@@ -621,7 +695,10 @@ extractions:
               - text: https://en.zalando.de/michaelkors/
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             secondaryImageTotal:
-              - text: "6"
+              - text: "5"
+            variantInformation:
+              - text: natural
+                xpath: /html/body/div[13]/@variant_information
             firstVariant:
               - text: 1MI12O00X-B110007000
                 xpath: /html/body/div[13]/@first_variant
@@ -637,4 +714,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1611228234920
+    timestamp: 1611566116509
