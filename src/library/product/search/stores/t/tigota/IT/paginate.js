@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div.products.wrapper.grid.products-grid',
+    loadedSelector: 'div.column.main',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'tigota.it',

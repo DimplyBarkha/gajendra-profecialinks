@@ -14,12 +14,12 @@ async function implementation (
   console.log('params', parameters);
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
   await dependencies.goto({ url, zipcode: inputs.zipcode });
-  await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 1000));
   for(let i=0;i<5;i++){
     try{
-      await context.waitForSelector('button.action.primary',{timeout:5000});
-      await new Promise((resolve, reject) => setTimeout(resolve, 10000));
-      await context.click('button.action.primary');
+      await context.waitForSelector('div#clerk-search-load-more-button>button',{timeout:500});
+      await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+      await context.click('div#clerk-search-load-more-button>button.action.primary');
       await new Promise((resolve, reject) => setTimeout(resolve, 8000));
     }catch(e){
   
@@ -52,7 +52,7 @@ async function implementation (
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
+    }, { timeout: 100000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
   console.log('Checking no results', parameters.noResultsXPath);
   await new Promise((resolve, reject) => setTimeout(resolve, 5000));
@@ -71,9 +71,10 @@ module.exports = {
     country: 'IT',
     store: 'tigota',
     domain: 'tigota.it',
-    url: 'https://www.tigota.it/it/catalogsearch/result/?q={searchTerms}',
-    loadedSelector: 'div.products.wrapper.grid.products-grid',
+    url: 'https://www.tigota.it/it/catalogsearch/result/?q="{searchTerms}"',
+    loadedSelector: 'div.column.main',
     noResultsXPath: null,
     zipcode: "''",
   },
+  implementation
 };
