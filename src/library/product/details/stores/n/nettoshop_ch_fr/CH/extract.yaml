@@ -13,7 +13,7 @@ fields:
     xpath: //div[@class="swiper-slide ember-view swiper-slide-active"]/div/div/picture/img/@alt
   - name: category
     singleValue: false
-    xpath: //ul[@class="c-breadcrumb__list"]/li/a[not(contains(text(),'Startseite'))]/text()
+    xpath: (//ul[@class="c-breadcrumb__list"]/li/a[not(contains(text(),'Startseite'))]/text())[position()>1]
   - name: nameExtended
     singleValue: false
     xpath: //h1[@class="c-product-detail__product-name"]
@@ -46,9 +46,9 @@ fields:
   - name: brandText
     singleValue: false
     xpath: //html//div[@id='brand']
-  - name: quantity
-    singleValue: false
-    xpath: //html//div[@id='quantity']
+  # - name: quantity
+  #   singleValue: false
+  #   xpath: //html//div[@id='quantity']
   - name: weightNet
     singleValue: false
     xpath: //html//div[@id='weight']
