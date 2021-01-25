@@ -11,13 +11,13 @@ fields:
     xpath: //li[@id="tns1-item0"]//img[contains(@class, "image__default")]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@id="product-image-carousel-120531113"]/div[@aria-label="Carousel Pagination"]//a[position() > 1]/figure/img/@src      
+    xpath: //div[@id="product-image-carousel-120531113"]/div[@aria-label="Carousel Pagination"]//a[position() > 1]/figure/img/@src
   - name: category
     singleValue: false
     xpath: //a[@class="breadcrumb__item"]
   - name: nameExtended
     singleValue: false
-    xpath: //h1[@id="product-title"]    
+    xpath: //h1[@id="product-title"]
   - name: price
     singleValue: false
     xpath: //div[@class="c-price"]//span[@class="price__item price__item--sales"]/span[@class="price__value"]/@content
@@ -25,8 +25,9 @@ fields:
     singleValue: false
     xpath: //div[@class="c-price"]//span[@class="price__item price__item--list price__item--strike-through"]//span[@class="price__value"]/@content
   - name: availabilityText
-    singleValue: false
-    defaultValue: In Stock  
+    singleValue: true
+    #defaultValue: In Stock
+    xpath: boolean(//button[contains(@class,'c-button--primary button--icon quantity-selector__add-to-cart-button')])
   - name: sku
     singleValue: false
     xpath: //button[contains(@class, "add-to-cart-button-pdp")]/@data-pid
@@ -41,10 +42,10 @@ fields:
     xpath: //div[@class="accordion__item-content s-rich-text"]/div[@class="s-rich-text"]/b[text()="Inhoud"]/parent::*/text()
   - name: legalDisclaimer
     singleValue: false
-    xpath: //div[@class="accordion__item-content s-rich-text"]/div[@class="s-rich-text"]/b[text()="Disclaimer"]/parent::*/text()  
+    xpath: //div[@class="accordion__item-content s-rich-text"]/div[@class="s-rich-text"]/b[text()="Disclaimer"]/parent::*/text()
   - name: name
     singleValue: false
-    xpath: //h1[@id="product-title"]  
+    xpath: //h1[@id="product-title"]
   - name: inStorePrice
     singleValue: false
     xpath: //div[@class="product-hero__price"]//span[contains(@class, "u-sr-only")]
