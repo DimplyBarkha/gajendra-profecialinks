@@ -6,8 +6,8 @@ fields:
   - name: id
     singleValue: false
     xpath: //div[contains(@class,"sc-pc-medium-desktop-card sc-plp-cards-card")]/a/@href
-    regExp: /((prod)?(\d+))
-    regExpReplace: $1
+    regExp: (.*)\/(.*?)\?(.*)
+    regExpReplace: $2
   - name: name
     singleValue: false
     xpath: //h3
@@ -32,5 +32,5 @@ fields:
   - name: price
     singleValue: false
     xpath: //span[contains(@class,"Price-group")]/@title
-    regExp: (\d+\.\d+)
-    regExpReplace: $1
+    regExp: (.*?):\s(.*)
+    regExpReplace: $2
