@@ -18,11 +18,11 @@ async function implementation (
     const elList = document.querySelectorAll("div.tm-marketplace-listing-body__item p");
     let inTheBox = null;
     elList.forEach(function(el) {
-      if (el.innerHTML.indexOf("in the box") !== -1) {
+      if (el.innerHTML.indexOf("in the box") !== -1 || el.innerHTML.indexOf("In the box") !== -1) {
         inTheBox = el;
       }
     });
-    const inTheBoxText = inTheBox ? inTheBox.nextElementSibling.textContent.replace(/\n/g, ' || ') : '';
+    const inTheBoxText = inTheBox && inTheBox.nextElementSibling ? inTheBox.nextElementSibling.textContent.replace(/\n/g, ' || ') : '';
     addHiddenDiv('ii_inTheBoxText', inTheBoxText);
   });
   return await context.extract(productDetails, { transform });
