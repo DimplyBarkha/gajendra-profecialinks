@@ -28,7 +28,7 @@ fields:
     xpath: //li[@class="last"]/span
   - name: listPrice
     singleValue: false
-    xpath: //div[@class="price-del"]/del/text()
+    xpath:  //div[@class="price-del"]/del//text() | //div[@class="price-del"]//del//text() | //del/text() | //del/text() | //del | (//div[@class="price-del"]/del//text())[1]
   - name: price
     singleValue: false
     xpath: //div[@class="price-per-item price"]/em/text()
@@ -397,7 +397,7 @@ fields:
     description: The unit of measurement used in price_per_unit
   - name: promotion
     singleValue: false
-    description: promotion text on product page
+    xpath: //div[@class="good-price"]
   - name: alcoholContent
     singleValue: false
     description: Alcohol content information

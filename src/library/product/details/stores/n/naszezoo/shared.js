@@ -52,6 +52,32 @@ const transform = (data) => {
           });
           row.directions = nDesc;
         }
+        if (row.alternateImages) {
+          const pdps = [];
+          row.alternateImages.forEach(item => {
+            console.log('item:: ', item.text);
+            if (pdps.indexOf(item.text) === -1) {
+              pdps.push(item.text);
+            }
+            // console.log("variantUrls:: ", pdps);
+            // if (urls && urls.length === 1) {
+            //   variantUrls.push(item);
+            // } else {
+            //   if (dupUrl !== item.text) {
+            //     dupUrl = item.text;
+            //     variantUrls.push(item);
+            //   }
+            // }
+          });
+          row.alternateImages = pdps.map((el) => {
+            return {
+              text: el,
+            };
+          });
+          row.secondaryImageTotal = [
+            {text: pdps.length}
+          ];
+        }
         if (row.variants) {
           const nDesc = [];
           let newDesc = '';
