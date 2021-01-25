@@ -36,8 +36,8 @@ const transform = (data, context) => {
         }));
 
         if (row.id) {
-            row.rankOrganic = [{'text':p_count}];
-            row.rank = [{'text':p_count}];
+            //row.rankOrganic = [{'text':p_count}];
+            //row.rank = [{'text':p_count}];
             p_count = p_count + 1;
         }
       }
