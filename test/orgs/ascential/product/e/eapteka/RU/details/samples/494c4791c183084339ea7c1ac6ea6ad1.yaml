@@ -2,7 +2,7 @@ input:
   _url: http://eapteka.ru
   URL: https://www.eapteka.ru/goods/id291213/
 extractions:
-  - html: https://workbench.import.io/html/run=09ca85a2-36f1-416d-b462-53969bd0c1ab/task=60fca5ab-c027-46d1-84f3-62255a9e2650/655ada98-64c7-41bf-b52a-92c190a835b6.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=ec567338-d469-4336-87bc-cb495fc8b079/task=d061c359-0f25-4a5d-be9f-ec91fa7d4402/bcac1ab0-3a90-460b-83e2-41fdaa4f95a7.html
     extractionConfigId: product/details/stores/e/eapteka/RU/extract
     data:
       - group:
@@ -10,7 +10,7 @@ extractions:
               - text: https://www.eapteka.ru/goods/id291213/
                 xpath: /html/head[1]/link[15]/@href
             image:
-              - text: https://cdn.eapteka.ru/upload/offer_photo/291/213/resized/450_450_1.jpeg?_cvc=1608019697
+              - text: https://cdn.eapteka.ru/upload/offer_photo/291/213/resized/450_450_1.jpeg?_cvc=1611219950
                 xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             imageAlt:
               - text: Bella Салфетки для интимной гигиены карманные, 10 шт.
@@ -48,8 +48,8 @@ extractions:
               - text: Bella Салфетки для интимной гигиены карманные, 10 шт.
                 xpath: /html/body/section[1]/div[2]/div[1]/div[1]/h1[1]
             availabilityText:
-              - text: Товара нет в наличии
-                xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/p[1]
+              - text: Out Of Stock
+                xpath: /html/body/div[9]/@availability_text
             description:
               - text: >-
                   Описание
@@ -73,6 +73,9 @@ extractions:
             sku:
               - text: "291213"
                 xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/small[1]/span[1]
+            variantId:
+              - text: "5900516420703"
+                xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]
             manufacturerDescription:
               - text: |-
                   Производитель
@@ -103,4 +106,4 @@ extractions:
             descriptionBullets:
               - text: "0"
         xpath: /
-    timestamp: 1608038348232
+    timestamp: 1611570846970

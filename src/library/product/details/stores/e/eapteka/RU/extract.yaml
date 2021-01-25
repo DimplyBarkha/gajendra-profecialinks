@@ -51,7 +51,7 @@ fields:
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
-  xpath: //p[contains(@class, "offer-tools__status")]
+  xpath: //div[@id="added_elem"]/@availability_text
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
@@ -93,6 +93,8 @@ fields:
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
+  xpath: //div[@class="offer-instruction__row"]/i[@class="icon-qr"]/parent::div
+  regExp: \d+$
 - name: mpc
   singleValue: tru
   description: The manufacturer model code (unique) of the product

@@ -2,7 +2,7 @@ input:
   _url: http://eapteka.ru
   URL: https://www.eapteka.ru/goods/id337571/
 extractions:
-  - html: https://workbench.import.io/html/run=09ca85a2-36f1-416d-b462-53969bd0c1ab/task=761ad2c3-c2c3-4ea5-9436-94877b4e7134/8e14daf6-344f-47bd-ad7c-23ba265e2c84.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=ec567338-d469-4336-87bc-cb495fc8b079/task=3aa2e4fc-a663-4b24-9df4-e63b3f28a37c/90e36d42-7f94-4fb6-b21a-6634062e12d6.html
     extractionConfigId: product/details/stores/e/eapteka/RU/extract
     data:
       - group:
@@ -10,7 +10,7 @@ extractions:
               - text: https://www.eapteka.ru/goods/id337571/
                 xpath: /html/head[1]/link[15]/@href
             image:
-              - text: https://cdn.eapteka.ru/upload/offer_photo/337/571/resized/450_450_1.jpeg?_cvc=1608019697
+              - text: https://cdn.eapteka.ru/upload/offer_photo/337/571/resized/450_450_1.jpeg?_cvc=1611219950
                 xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             imageAlt:
               - text: Kotex Прокладки Ultra Activ Super, 7 шт
@@ -45,11 +45,11 @@ extractions:
               - text: Kotex Прокладки Ultra Activ Super, 7 шт
                 xpath: /html/body/section[1]/div[2]/div[1]/div[1]/h1[1]
             price:
-              - text: "152"
+              - text: "145"
                 xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/span[1]/@data-price
             availabilityText:
-              - text: В наличии
-                xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/p[1]
+              - text: In Stock
+                xpath: /html/body/div[9]/@availability_text
             description:
               - text: >-
                   Описание
@@ -70,6 +70,9 @@ extractions:
             sku:
               - text: "337571"
                 xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/small[1]/span[1]
+            variantId:
+              - text: "5029054224434"
+                xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]
             manufacturerDescription:
               - text: |-
                   Производитель
@@ -97,4 +100,4 @@ extractions:
             descriptionBullets:
               - text: "0"
         xpath: /
-    timestamp: 1608038350877
+    timestamp: 1611570894266

@@ -44,6 +44,9 @@ module.exports = {
         }
       }
 
+      const availabilityElem = document.evaluate('//p[contains(@class, "offer-tools__status") and contains(@class, "good")]', document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
+      addedElem.setAttribute('availability_text', availabilityElem ? 'In Stock' : 'Out Of Stock');
+
       document.body.appendChild(manufacturerImagesList);
       document.body.appendChild(addedElem);
     });
