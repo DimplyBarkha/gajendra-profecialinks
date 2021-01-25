@@ -6,7 +6,7 @@ module.exports = {
     store: 'MedikamentePerKlick',
     domain: 'medikamenteperklick.de',
     url: 'https://www.medikamente-per-klick.de/keywordsearch/searchitem={searchTerms}',
-    loadedSelector: 'div.productsList',
+    loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',
   },
