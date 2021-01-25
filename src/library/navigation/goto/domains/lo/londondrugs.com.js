@@ -3,13 +3,13 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'londondrugs.com',
-    timeout: null,
+    timeout: 90000,
     country: 'CA',
     store: 'londondrugs',
     zipcode: '',
   },
   implementation: async (
-    { url },
+    { url, zipcode },
     parameters,
     context,
     dependencies,
@@ -22,7 +22,14 @@ module.exports = {
     await context.setJavaScriptEnabled(true);
     await context.setAntiFingerprint(false);
     await context.setUseRelayProxy(false);
+    await context.setCssEnabled(true);
 
+    const inputUrl = '${url}#[!opt!]{"discard_CSP_header":true, "block_ads": false}[/!opt!]';
+    await context.goto(inputUrl, { timeout: timeout, waitUntil: 'load', checkBlocked: false });
+    console.log(zipcode);
+    if (zipcode) {
+      await dependencies.setZipCode({ url: url, zipcode: zipcode });
+    }
     const responseStatus = await context.goto(url, {
       firstRequestTimeout: 60000,
       timeout: timeout,
