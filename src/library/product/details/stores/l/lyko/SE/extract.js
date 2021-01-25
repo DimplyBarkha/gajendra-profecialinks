@@ -30,10 +30,12 @@ module.exports = {
       const rawdata = document.querySelectorAll('script[type="application/ld+json"]')[0].innerText;
       const jsondata = JSON.parse(rawdata);
       const gtin = jsondata.gtin13;
-      const gtin1 = jsondata.gtin8; 
+      const gtin1 = jsondata.gtin8;
+      const price = jsondata.offers.price;
       // console.log(gtin,'gtin')
       // const aggregateRating = jsondata.aggregateRating.ratingValue;
       addElementToDocument('gtin', (gtin | gtin1));
+      addElementToDocument('price', price);
       // let singleRating;
       // var ratings = document.querySelectorAll("div[class='hide-when-purchase-disabled prices'] div[class='ratings']");
       // if (ratings.length > 0) {

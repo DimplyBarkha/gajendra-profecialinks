@@ -41,6 +41,7 @@ module.exports = {
       xyz.push(backgroundURL[i]);
       }
     }
+    // @ts-ignore
     xyz = xyz.join(" || ");
     addElementToDocument('xyz', xyz);
   });
