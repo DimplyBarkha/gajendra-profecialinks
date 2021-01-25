@@ -79,15 +79,15 @@ fields:
     singleValue: true
     xpath: //div[@id="upc_added"]
     description: GTIN code (includes UPC/EAN)
-  - name: sku
+  - name: variantId
     singleValue: true
     xpath: //meta[@property='og:url']/@content
     regExp: \/(\d+)
     regExpReplace: $1
     description: The store-specific product identifier
-  - name: variantId
+  - name: sku
     singleValue: true
-    xpath: //div[@id="retailer_product_code_added"]
+    xpath: //body/@import-gtin
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: true
@@ -134,6 +134,7 @@ fields:
     description: Shipping information for the product
   - name: shippingDimensions
     singleValue: true
+    xpath: //div[@id='desktopspecificationtabcontent']/div[@class='panel-body']/app-pdp-tab-specifications-molecule/div[@class='specs-table']/table[@class='table table-bordered']/tbody[@class='specs-table-body']/tr[@class='specs-table-row']/th[contains(text(), 'Dimensions')]/following-sibling::td
     description: Stated shipping dimensions
   - name: shippingWeight
     singleValue: true

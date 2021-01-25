@@ -1,4 +1,6 @@
-const { transform } = require('../../../../shared');
+const { transform } = require("../../../l/shared");
+
+//const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
@@ -89,12 +91,12 @@ module.exports = {
         addElementToDocument('quantity_added', quanityXpath2);
       }
 
-      const jsonstr = getXpath("//script[@_ngcontent-bjs-universal-app-c171='']/text()", 'nodeValue');
+      const jsonstr = getXpath("//*[@id='contentOverlay']/div/app-pdp-preprocessor/div/app-pdp-layout-template/script[2]/text()", 'nodeValue');
 
 
       if (jsonstr) {
         const jsonObj = JSON.parse(jsonstr);
-
+        console.log("sku::::", jsonObj.sku)
         addElementToDocument('retailer_product_code_added', jsonObj.sku);
       }
 
@@ -161,6 +163,7 @@ module.exports = {
       gtin = gtin ? gtin.split(':') : null;
       gtin = gtin ? gtin[gtin.length - 1].trim() : null;
       const rating = document.querySelector('.pr-snippet-stars-reco-inline .pr-snippet-rating-decimal') ? document.querySelector('.pr-snippet-stars-reco-inline .pr-snippet-rating-decimal').innerText : 0;
+      console.log("rating: ", rating);
       let reviews = document.querySelector('.desktopOnly .product-details .reviewnum') ? document.querySelector('.desktopOnly .product-details .reviewnum').innerText : '0';
       reviews = reviews.match(/\d+/g)[0];
       document.body.setAttribute('import-seller-name', `BJ's Wholesale Club`);
@@ -175,7 +178,7 @@ module.exports = {
 
       for (const video of videoItems) {
         video.click();
-        await new Promise(resolve => setTimeout(resolve, 10000));
+        await new Promise(resolve => setTimeout(resolve, 1000000));
         const videoEl = document.querySelector('video');
         if(videoEl) {
         videos.push(videoEl.src);
