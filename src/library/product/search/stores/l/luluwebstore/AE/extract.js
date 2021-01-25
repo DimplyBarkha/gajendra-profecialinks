@@ -20,9 +20,9 @@ dependencies,
 const { transform } = parameters;
 const { productDetails } = dependencies;
 const { waitForSelector } = context;
-await context.waitForSelector('button[class="js-cookie-notification-accept close"]');
-await context.click('button[class="js-cookie-notification-accept close"]');
-// await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+// await context.waitForSelector('button[class="js-cookie-notification-accept close"]');
+// await context.click('button[class="js-cookie-notification-accept close"]');
+await new Promise((resolve, reject) => setTimeout(resolve, 10000));
 await context.evaluate(async function () {
 //for rank
 function addHiddenDiv(id, content, index) {
