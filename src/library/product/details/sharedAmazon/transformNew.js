@@ -11,11 +11,11 @@ const transform = (data, context) => {
     .replace(/&amp;#160/g, ' ')
     .replace(/\u00A0/g, ' ')
     .replace(/\s{2,}/g, ' ')
-    // .replace(/"\s{1,}/g, '"')
-    // .replace(/\s{1,}"/g, '"')
+  // .replace(/"\s{1,}/g, '"')
+  // .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ')
-    // eslint-disable-next-line no-control-regex
+  // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .trim();
 
@@ -46,7 +46,8 @@ const transform = (data, context) => {
 
   const castToInt = (item, def = 0) => Number(item) || Number(item) === 0 ? parseInt(item) : def;
 
-  for (const { group } of data) {
+  for (const { group }
+    of data) {
     for (const row of group) {
       const hostName = row.productUrl && row.productUrl[0] ? row.productUrl[0].text.split('/')[2] : '';
       const websiteName = hostName.split('.').slice(1).join('.');
@@ -204,7 +205,9 @@ const transform = (data, context) => {
 
       if (row.variantInformation) {
         const json = JSON.parse(row.variantInformation[0].text.trim());
-        const text = Object.entries(json).map(prop => prop.map(elm => elm.replace('_name', '')).join(':')).join(' | ');
+        // const text = Object.entries(json).map(prop => prop.map(elm => elm.replace('_name', '')).join(':')).join(' | ');
+        // Update done based on callout on Amazon TR.
+        const text = Object.values(json).map(elm => elm.trim()).join(' | ');
         row.variantInformation = [{ text }];
         if (!row.color || row.color[0].text.length === 0) {
           if (json.color_name) {
@@ -283,6 +286,9 @@ const transform = (data, context) => {
           row.packSize = [{ text: packText[2] }];
         }
       }
+      if (row.videos) {
+        row.galleryVideos = row.videos;
+      }
       if (row.manufacturerVideos) {
         if (!row.videos || row.videos[0].text === '') {
           row.videos = row.manufacturerVideos;
@@ -312,7 +318,21 @@ const transform = (data, context) => {
         row.availabilityText = row.availabilityTextFreshUnavailable;
         delete row.availabilityTextFreshUnavailable;
       }
+      if (row.availabilityText) {
+        // Added the regex for different locale which say Usually ships in etc.
+        const usuallyShipsRegex = /(Usually|Genellikle)/gi;
+        const availabilityMap = {
+          usually: 'In Stock',
+          genellikle: 'Stokta var',
+        };
+        const match = row.availabilityText[0].text.match(usuallyShipsRegex);
+        if (match) {
+          row.availabilityText[0].text = availabilityMap[match[0].toLowerCase()];
+        }
+        row.availabilityText[0].text = row.availabilityText[0].text.trim().replace(/\.$/, '');
+      }
       if (row.gtin) {
+        // Getting only 10 UPCs.
         const text = row.gtin.slice(0, 10).map(elm => elm.text).join(' ');
         row.gtin = [{ text }];
       }
@@ -332,6 +352,33 @@ const transform = (data, context) => {
       if (row.salesRankCategory) {
         const rankCategory = row.salesRankCategory.map(elm => elm.text.trim());
         row.salesRankCategory = [...new Set(rankCategory)].map(elm => ({ text: elm }));
+      }
+      if (row.price) {
+        const price = row.price.find(elm => elm.text.match(/\d+/));
+        row.price = price ? [price] : row.price;
+      }
+      if (row.unInterruptedPDP) {
+        const getUnInterruptedPDP = row.unInterruptedPDP.map(elm => elm.text.trim());
+        row.unInterruptedPDP = [...new Set(getUnInterruptedPDP)].map(elm => ({ text: elm }));
+        const updp = [];
+        let text = '';
+        for (let i = 0; i < row.unInterruptedPDP.length; i++) {
+          if (row.unInterruptedPDP[i].text.includes('…')) {
+            continue;
+          }
+          updp[i] = row.unInterruptedPDP[i].text;
+        }
+        text = updp.join(' || ');
+        text = text.replace(/(\s?\|\|\s?){1,}/g, ' || ').replace(/^(\|\|)/g, '').replace(/(\|\|)$/g, '');
+        while (text.charAt(0) === '|' || text.charAt(0) === ' ') {
+          text = text.substring(1);
+        }
+        row.unInterruptedPDP = [{ text }];
+        const updpLength = text.split(' || ').length;
+        console.log(updpLength);
+      }
+      if (row.alternateImages) {
+        row.secondaryImageTotal = [{ text: row.alternateImages.length }];
       }
       Object.keys(row).forEach(header => {
         row[header].forEach(el => {
