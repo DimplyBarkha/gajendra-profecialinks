@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'AR',
     store: 'farmacity',
-    nextLinkSelector: 'div.pager.bottom ul.pages li.next:not(.pgEmpty)',
+    nextLinkSelector: 'div.bottom ul.pages li.next:not(.pgEmpty)',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div.prateleira ul li',
