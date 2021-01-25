@@ -4,9 +4,10 @@ module.exports = {
   parameterValues: {
     domain: 'globus.ch',
     prefix: null,
-    url: null,
+    url: 'https://www.globus.ch/suche?q={id}',
     country: 'CH',
     store: 'globus',
     zipcode: '',
   },
 };
+
