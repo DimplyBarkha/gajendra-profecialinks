@@ -2,45 +2,49 @@ input:
   Keywords: Recharge de savon pour les mains
   _url: http://vikingdirect.fr
 extractions:
-  - html: https://workbench.import.io/html/run=2e417f88-5794-4d4d-8920-7de7aa61e3bc/task=6491d58e-e902-49a9-94ff-134536fafbfb/a8f9cc8f-0d5a-425b-9f8f-c79e0c224675.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=6039cfe9-db34-47b6-b6d4-f21e695ccb3d/task=08f756ea-fad0-4b68-a2e7-0068d634570a/6e88a632-104b-4135-a3c3-6c74849ae52d.html
     extractionConfigId: product/search/stores/v/vikingdirect/FR/extract
     data:
       - group:
-          - productUrl:
+          - name:
+              - text: Recharge savon à mains PROP 389480 Bleu 6 Unités
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@title
+            productUrl:
               - text: https://www.vikingdirect.fr/a/pb/Recharge-savon-a-mains-PROP-389480-Bleu-6-Unites/id=8540848/?pr=Q41
                 xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
-            id:
-              - text: "8540848"
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[3]/@value
-            name:
-              - text: Recharge savon à mains PROP 389480 Bleu 6 Unités
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@title
-            gtin:
-              - text: "8540848"
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[3]/@value
             thumbnail:
               - text: https://odeu.scene7.com/is/image/odeu11/8540848?$md$
                 xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 28,00 €
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/div[1]/ul[1]/li[1]/form[1]/div[1]/div[2]/span[1]
-          - productUrl:
+              - text: 17,55 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/span[1]
+              - text: 17,55 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/span[1]
+            id:
+              - text: "8540848"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/@product_id_value
+            gtin:
+              - text: "8540848"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/@product_id_value
+          - name:
+              - text: Recharge de savon liquide S1 doux Tork Premium 1 L
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]/@title
+            productUrl:
               - text: https://www.vikingdirect.fr/a/pb/Recharge-de-savon-liquide-S1-doux-Tork-Premium-1-L/id=400501-50/?pr=Q41
                 xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/@href
-            id:
-              - text: "8540848"
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[3]/@value
-            name:
-              - text: Recharge savon à mains PROP 389480 Bleu 6 Unités
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@title
-            gtin:
-              - text: "8540848"
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[3]/@value
             thumbnail:
-              - text: https://odeu.scene7.com/is/image/odeu11/8540848?$md$
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://odeu.scene7.com/is/image/odeu11/400501-50?$md$
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 28,00 €
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/div[1]/ul[1]/li[1]/form[1]/div[1]/div[2]/span[1]
+              - text: 10,90 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]/span[1]
+              - text: 10,90 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/span[1]
+            id:
+              - text: 400501-50
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[2]/@product_id_value
+            gtin:
+              - text: 400501-50
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[2]/@product_id_value
         xpath: /html
-    timestamp: 1609763167290
+    timestamp: 1611578140668

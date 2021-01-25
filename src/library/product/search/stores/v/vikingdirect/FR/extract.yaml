@@ -1,27 +1,27 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: div.skuListSku, div.skuTopDetailsContainer
-recordXPath: null
+recordXPath: 
 fields:
   - name: id
-    singleValue: true
-    xpath: (//input[contains(@name, "sku_withoutEffortCode")]/@value|//input[@name="recordSpecValue"]/@value)[1]
+    singleValue: false
+    xpath: "@product_id_value"
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
-    xpath: (//div[@class="skuListSkuImg photo"]//img/@title|//h1[@class="sku_Title"])[1]
+    xpath: //div[@class="skuListSkuImg photo"]//img/@title|//h1[@class="sku_Title"]
   - name: productUrl
     singleValue: false
     xpath: //div[@class="skuListSkuImg photo"]//a/@href
     regExp: (.+)
     regExpReplace: https://www.vikingdirect.fr$1
   - name: gtin
-    singleValue: true
-    xpath: (//input[contains(@name, "sku_withoutEffortCode")]/@value|//input[@name="recordSpecValue"]/@value)[1]
+    singleValue: false
+    xpath: "@product_id_value"
   - name: thumbnail
     singleValue: false
-    xpath: (//div[@class="skuListSkuImg photo"]//img/@src|//div[@id="mixedmediaviewer_flyout"]/div/img[1]/@src)[1]
+    xpath: //div[@class="skuListSkuImg photo"]//img/@src|//div[@id="mixedmediaviewer_flyout"]/div/img[1]/@src
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -32,7 +32,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    xpath: (//div[@class="skuListPriceCol"]//div[@class="skuPricing"]/div[@class="skuNewPricing"]/span[@class="bigPrice"]|//div[@class="skuPricing"]//span[@class="bigPrice"])[1]
+    xpath: //div[@class="skuListPriceCol"]//div[@class="skuPricing"]/div[@class="skuNewPricing"]/span[@class="bigPrice"]|//div[@class="skuPricing"]//span[@class="bigPrice"]
   - name: manufacturer
     singleValue: true
   - name: soldBy

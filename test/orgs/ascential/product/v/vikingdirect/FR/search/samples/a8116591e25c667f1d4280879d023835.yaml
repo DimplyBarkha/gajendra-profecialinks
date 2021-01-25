@@ -2,25 +2,25 @@ input:
   Keywords: distributeur papier toilette jumbo
   _url: http://vikingdirect.fr
 extractions:
-  - html: https://workbench.import.io/html/run=2e417f88-5794-4d4d-8920-7de7aa61e3bc/task=01d56867-9ff4-4f55-a03d-9c1c480050db/a1a94ee2-fcf9-4a33-b55d-7bd8e1e58414.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=6039cfe9-db34-47b6-b6d4-f21e695ccb3d/task=2016e7d3-4edd-4718-84f6-2b66ca4a0487/c814d445-edbf-40b5-813c-39b61569e563.html
     extractionConfigId: product/search/stores/v/vikingdirect/FR/extract
     data:
       - group:
-          - id:
-              - text: "2882652"
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/form[1]/input[3]/@value
-            name:
+          - name:
               - text: Distributeur de papier toilette Tork Élévation Mini Jumbo 34,5 x 13,2 x
                   27,5 cm Blanc
                 xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[2]/form[1]/div[1]/div[2]/h1[1]
-            gtin:
-              - text: "2882652"
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/form[1]/input[3]/@value
             thumbnail:
               - text: https://odeu.scene7.com/is/image/odeu11/%212882652_alt?id=8mmd23&fmt=png&fit=constrain,1&wid=280&hei=228
                 xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[4]/div[1]/img[1]/@src
             price:
               - text: 48,50 €
                 xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/div[2]/span[1]
+            id:
+              - text: "2882652"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[2]/form[1]/div[1]/@product_id_value
+            gtin:
+              - text: "2882652"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[2]/form[1]/div[1]/@product_id_value
         xpath: /html
-    timestamp: 1609763171882
+    timestamp: 1611578146536

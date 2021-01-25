@@ -2,47 +2,50 @@ input:
   Keywords: Distributeur rouleau de papier de toilette
   _url: http://vikingdirect.fr
 extractions:
-  - html: https://workbench.import.io/html/run=2e417f88-5794-4d4d-8920-7de7aa61e3bc/task=ee94f1df-505a-4847-98ea-da15744be08d/7989a2d1-21d0-415c-a91e-8db796f3c381.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=6039cfe9-db34-47b6-b6d4-f21e695ccb3d/task=8673da6e-b5ae-4f73-95e1-9e2a641ed657/d3b4ca6f-d6cb-4ecc-b904-40d9fe4088c3.html
     extractionConfigId: product/search/stores/v/vikingdirect/FR/extract
     data:
       - group:
-          - productUrl:
+          - name:
+              - text: Distributeur à dévidage central Rouleau Tork Elevation 24 x 23 x 36 cm
+                  Blanc
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@title
+            productUrl:
               - text: https://www.vikingdirect.fr/a/pb/Distributeur-a-devidage-central-Rouleau-Tork-Elevation-24-x-23-x-36-cm-Blanc/id=2883692/?pr=Q41
                 xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
-            id:
-              - text: "2883692"
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[3]/@value
-            name:
-              - text: Distributeur à dévidage central Rouleau Tork Elevation 24 x 23 x 36 cm
-                  Blanc
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@title
-            gtin:
-              - text: "2883692"
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[3]/@value
             thumbnail:
               - text: https://odeu.scene7.com/is/image/odeu11/2883692?$md$
                 xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 5,10 €
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/div[1]/ul[1]/li[1]/form[1]/div[1]/div[2]/span[1]
-          - productUrl:
+              - text: 64,60 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/span[1]
+              - text: 64,60 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/span[1]
+            id:
+              - text: "2883692"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/@product_id_value
+            gtin:
+              - text: "2883692"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/@product_id_value
+          - name:
+              - text: Distributeur métal Rouleau Rossignol 13 x 14 x 31 cm Blanc
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]/@title
+            productUrl:
               - text: https://www.vikingdirect.fr/a/pb/Distributeur-metal-Rouleau-Rossignol-13-x-14-x-31-cm-Blanc/id=585860/?pr=Q41
                 xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/@href
-            id:
-              - text: "2883692"
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[3]/@value
-            name:
-              - text: Distributeur à dévidage central Rouleau Tork Elevation 24 x 23 x 36 cm
-                  Blanc
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@title
-            gtin:
-              - text: "2883692"
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[3]/@value
             thumbnail:
-              - text: https://odeu.scene7.com/is/image/odeu11/2883692?$md$
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://odeu.scene7.com/is/image/odeu11/585860?$md$
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 5,10 €
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/div[1]/ul[1]/li[1]/form[1]/div[1]/div[2]/span[1]
+              - text: 24,40 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]/span[1]
+              - text: 24,40 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/span[1]
+            id:
+              - text: "585860"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[2]/@product_id_value
+            gtin:
+              - text: "585860"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[2]/@product_id_value
         xpath: /html
-    timestamp: 1609763167983
+    timestamp: 1611578142851
