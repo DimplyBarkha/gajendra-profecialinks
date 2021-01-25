@@ -169,7 +169,11 @@ module.exports = {
         }
         var imageArr = [];
         var rightArrow = document.querySelector('div#mediaGalleryNext');
-        var flag = 1;
+        var flag = 0;
+        if(rightArrow) {
+          flag = 1;
+        }
+        console.log('entering the while loop!!');
         while (flag) {
           if (rightArrow) {
             rightArrow.click();
