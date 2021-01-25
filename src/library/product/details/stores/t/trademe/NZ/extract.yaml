@@ -68,5 +68,7 @@ fields:
   - name: inTheBoxText
     singleValue: false
     description: Must include text to show the accessories/tools which come with the product
-    xpath: //div[contains(@class,'tm-markdown')]//p[contains(.,'Package includes:')] | //p[contains(text(),'Packag includes:')]//following-sibling::ul/li
+    xpath: //div[contains(@class,'tm-markdown')]//p[contains(.,'Package includes:')] | //p[contains(text(),'Packag includes:')]//following-sibling::ul/li | //div[@id="ii_inTheBoxText"]
     #xpath: //div[contains(@class,'tm-markdown')]//p[contains(.,'Package includes:')] | //p[contains(text(),'Packag includes:')]//following-sibling::ul/li | //p[contains(text(),'What’s in the box')]//following-sibling::p | //p[contains(text(),'Package Contents:')]//following-sibling::p[1] | //p[contains(text(),'Package Included:')]//following-sibling::p
+  - name: hasComparisonTable
+    defaultValue: No
