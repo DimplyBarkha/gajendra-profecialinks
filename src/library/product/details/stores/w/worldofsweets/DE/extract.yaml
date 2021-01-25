@@ -15,7 +15,6 @@ fields:
     singleValue: false
     description: Other product images (not in manufacturer description)
     xpath: /div[contains(@class,'morepics-container js-morepics-container')]//ul//li//a/img/@src |  //div[contains(@class,'picture  has--morcepics')]//a//img/@src | //div[contains(@class,'picture')]//a/img/@src
-   # xpath: //div[contains(@class,'morepics-container js-morepics-container')]//ul//li//img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -43,9 +42,6 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     xpath: boolean(//div[contains(@class,'product-action-form')]//button)
-    #regExp: (.+)
-    #regExpReplace: In Stock
-    #defaultValue: Out Of Stock
   - name: nutritionInfo
     singleValue: true
     xpath: //div[contains(@class,'nutrition-table')]//div[contains(.,'Nährwerte pro 100g')]/following-sibling::div[1]/text() | //div[contains(@class,'nutrition-table')]//strong[contains(.,'Nährwert pro 100g:')]/../following-sibling::div/text()
@@ -74,14 +70,10 @@ fields:
     singleValue: true
     description: GTIN code (includes UPC/EAN)
     xpath: //div[contains(@class,'row details-add-info-container')]//div[@class='additional-info-item']//span[contains(.,'EAN:')]//following-sibling::span
-    # xpath: //div[contains(@class,'details-toggle-content')]//div//div[3]//span[2]
-   # xpath: //div[contains(@class,'row details-add-info-container')]//div[@class='additional-info-item']//span[contains(.,'EAN')]//following-sibling::span
   - name: sku
     singleValue: true
     description: The store-specific product identifier
     xpath: //div[contains(@class,'additional-info-item')]//span[contains(.,'Art.-Nr')]/following-sibling::span
-    # xpath: //div[contains(@class,'details-toggle-content')]//div//div[4]//span[2]
-   # xpath: //div[contains(@class,'row details-add-info-container')]//div[@class='additional-info-item']//span[contains(.,'Art.-Nr')]//following-sibling::span
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
@@ -112,7 +104,6 @@ fields:
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: false
-   # xpath: //span[contains(@class,'product-rating-stars')]/@class
     xpath: //div[@class='details-tobasket-container']//span/@custom_rating
   - name: shippingInfo
     singleValue: true
@@ -251,13 +242,11 @@ fields:
     singleValue: true
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
-    # xpath: //div[contains(@class,'nutrition-text col-xxs-12 col-sm-6')]/p[2]/font[1]
     xpath: //div[contains(@id,'nutrition')]//div[contains(@class,'row nutrition-info-container')]//div[contains(@class,'nutrition-text col')]/p[contains(.,'Zutaten')]//following-sibling::p  | (//div[contains(@class,'nutrition-table')]//div[contains(.,'Zutaten')])[2]//text()
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
     xpath: //div[contains(@class,'additional-info-item')]//span[contains(.,'Inhalt:')]//following-sibling::span
-    #xpath: //div[contains(@class,'details-toggle-content')]//div[1]//div[1]//span[2]//font/text()
   - name: servingSizeUom
     singleValue: true
     description: Unit of measure of serving
@@ -270,8 +259,8 @@ fields:
     description: Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
     xpath: //div[contains(@class,'nutrition-table')]//div[contains(.,'Energie:')]/following-sibling::div[1]/text()
-    #xpath: //div[contains(@class,'nutrition-table')]//strong[contains(.,'Nährwert pro 100g:')]/../following-sibling::div/text() |
-    #xpath: //div[contains(@class,'nutrition-table')]//div[contains(.,'Energie')]/following-sibling::div[1]/text() | //div[contains(@class,'nutrition-table')]//div[contains(.,'Nährwerte pro 100g')]/following-sibling::div[1]/text()
+  - name: caloriesPerServing1
+    xpath: //div[contains(@class,'nutrition-table')]//div[contains(.,'Nährwerte pro 100g')]/following-sibling::div[1]/text()
   - name: caloriesFromFatPerServing
     singleValue: true
     description: Nutritional Information for Calories From Fat content - Usually
@@ -421,7 +410,6 @@ fields:
     singleValue: true
     description: The country from which the product originates
     xpath: //div[contains(@class,'row details-add-info-container')]//div[@class='additional-info-item']//span[contains(.,'Herkunftsland')]//following-sibling::span
-   # xpath: //div[contains(@class,'details-toggle-content')]//div[2]//span[2]
   - name: allergyAdvice
     singleValue: true
     description: Allergy information associated with the product
@@ -528,7 +516,6 @@ fields:
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
     xpath: //div[contains(@class,'details-toggle-content is--open')]//p | //div[contains(@class,'details-toggle-content is--open')]//p | //div[contains(@class,'details-toggle-content is--open')]/text()[1] | //div[contains(@class,'details-toggle-content is--open')]//span[1]
-    #xpath: //div[@class="row"]//p[contains(@class,'MsoNormal')]
   - name: productUrl
     singleValue: false
     xpath: //link[@rel="canonical"]/@href

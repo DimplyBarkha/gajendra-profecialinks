@@ -25,64 +25,49 @@ const transform = (data) => {
   };
   for (const { group } of data) {
     for (const row of group) {
-
       if (row.ratingCount) {
         row.ratingCount.forEach(item => {
           item.text = item.text.replace('(', '').trim();
           item.text = item.text.replace(')', '').trim();
-          console.log('item.text',item.text);
         });
       }
-
       if (row.aggregateRating) {
         row.aggregateRating.forEach(item => {
           item.text = item.text.replace('product-rating-stars is--', '').trim();
-          console.log('item.text',item.text);
         });
       }
-
       if (row.productUrl) {
         row.productUrl.forEach(item => {
-          item.text = 'https://www.worldofsweets.de/' + item.text
-        })
-      }
-
-      if (row.ingredientsList) {
-        console.log("row.ingredientsList",row.ingredientsList);
-        row.ingredientsList.forEach(item => {
-          console.log(" item.text", item.text)
-          item.text = item.text.replace('Zutaten:', '').trim();
-          console.log(" item.text", item.text)
+          item.text = 'https://www.worldofsweets.de/' + item.text;
         });
       }
-
+      if (row.ingredientsList) {
+        row.ingredientsList.forEach(item => {
+          item.text = item.text.replace('Zutaten:', '').trim();
+        });
+      }
       if (row.availabilityText) {
         row.availabilityText.forEach(item => {
-          if (item.text == "true"){
-
-            item.text = "In Stock";
-
+          if (item.text === 'true') {
+            item.text = 'In Stock';
+          } else {
+            item.text = 'Out Of Stock';
           }
-          else{
-             item.text = "Out Of Stock";
-
-          }
-
-        })
-        if(row.caloriesPerServing){
-                      row.caloriesPerServing.forEach(item =>{
-                        //if(item.text.split("Brennwert:")){
-                         item.text = item.text.slice(0,72);
-                         item.text = item.text.replace(/Brennwert:/g, "").replace(/Kilokalorien/g, "").replace(/Kilojoule/g, "").replace(/Fe/g, "");
-                         console.log("here is formated", item.text);
-                       // }
-                 })
+        });
       }
+      if (row.caloriesPerServing1) {
+        row.caloriesPerServing1.forEach(item => {
+          let caloriesText = item.text.substr(0, item.text.indexOf('(kJ)'));
+          // item.text = caloriesText.replace(/Brennwert:/g, '').replace('Kilokalorien (kcal)','kcal').replace('Kilojoule (kJ)','kJ');
+          caloriesText = caloriesText.replace(/Brennwert:/g, '').split('(kcal)');
+          caloriesText = caloriesText[1] + '/' + caloriesText[0];
+          item.text = caloriesText.replace('Kilokalorien', 'kcal').replace('Kilojoule', 'kJ').split(' ').join('').trim();
+        });
+        row.caloriesPerServing = row.caloriesPerServing1;
+        delete row.caloriesPerServing1;
       }
     }
-
-}
+  }
   return cleanUp(data);
 };
-
 module.exports = { transform };
