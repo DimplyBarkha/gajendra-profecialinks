@@ -70,7 +70,7 @@ fields:
     xpath: "//td[contains(text(),'You Save: ')] | //td[contains(text(),'You Save: ')]/following-sibling::td"
   - name: gtin
     xpath: //h1/@gtin
-    regExp: :\s(.+)
+    regExp: Code:\s(\d+)
     regExpReplace: $1
   - name: firstVariant
     xpath: //h1/@first
