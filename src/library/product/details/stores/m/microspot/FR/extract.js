@@ -20,7 +20,7 @@ module.exports = {
       console.log('no more description');
     }
     try {
-      await context.click('._3BsNnh');
+      await context.click('#classifications ._3BsNnh');
     } catch (error) {
       console.log('no more specification');
     }
