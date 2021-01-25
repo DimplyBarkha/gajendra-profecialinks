@@ -18,144 +18,142 @@ async function implementation (
     // const src = iframe ? (iframe.src||iframe._src) : '';
     let src = '';
     if (iframe) {
-        if (iframe.hasAttribute('src')) {
-            src = iframe.getAttribute('src');
-        } else if (iframe.hasAttribute('_src')) {
-            src = iframe.getAttribute('_src');
-        } else {
-            console.log('we do not have any src in iframe');
-        }
+      if (iframe.hasAttribute('src')) {
+        src = iframe.getAttribute('src');
+      } else if (iframe.hasAttribute('_src')) {
+        src = iframe.getAttribute('_src');
+      } else {
+        console.log('we do not have any src in iframe');
+      }
     } else {
-        console.log('we do not have the iframe');
+      console.log('we do not have the iframe');
     }
     console.log('iframe src to go to - ' + src);
 
     return src;
-});
-//let content = null;
-let backGroundVideoUrls = [];
-    if (src) {
-        try {
-            await context.goto(src, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
+  });
+  // let content = null;
+  let backGroundVideoUrls = [];
+  if (src) {
+    try {
+      await context.goto(src, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
 
-            try {
-              await new Promise(resolve => setTimeout(resolve, 5000));
-              const applyScroll = async function (context) {
-                await context.evaluate(async function () {
-                  async function stall ( ms ) {
-                    return new Promise((resolve, reject) => {
-                      setTimeout(() => {
-                        console.log('waiting!!');
-                        resolve();
-                      }, ms);
-                    });
-                  }
-                  let scrollTop = 0;
-                  while (scrollTop !== 15000) {
-                    await stall(1000);
-                    scrollTop += 1000;
-                    window.scroll(0, scrollTop);
-                    console.log('scrolling now!!');
-                    if (scrollTop === 15000) {
-                      await stall(3000);
-                      break;
-                    }
-                  }
-                });
-              };
-              
-              await applyScroll(context);
-            } catch(err) {
-              console.log('some error occured while scrolling', err.message);
+      try {
+        await new Promise(resolve => setTimeout(resolve, 5000));
+        const applyScroll = async function (context) {
+          await context.evaluate(async function () {
+            async function stall (ms) {
+              return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                  console.log('waiting!!');
+                  resolve();
+                }, ms);
+              });
             }
-
-            console.log('done scrolling!!');
-
-            const witbData = await context.evaluate(async () => {
-                const getInTheBox = document.querySelector('div.eky-accesory-container img');
-                const getAccessories = document.querySelector('div.my-slider');
-                const inBoxUrls = [];
-                const inBoxurlsAccessories = [];
-                let inBoxText = [];
-                if(getAccessories){
-                  const getAllAccessories = document.querySelectorAll('div.my-slider>div.eky-relative-wrapper.tns-normal');
-                    for (let i = 0; i < getAllAccessories.length; i++) {
-                      inBoxUrls.push(getAllAccessories[i].querySelector('div.eky-header-video-container>video').getAttribute('src'));
-                        inBoxText.push(getAllAccessories[i].querySelector('div.eky-overlay>div.lax').innerText);
-                    }
-                }
-                if (getInTheBox) {
-                    const getAllProducts = document.querySelectorAll('div.eky-accesory-container > div.eky-accessory');
-                    for (let i = 0; i < getAllProducts.length; i++) {
-                        inBoxUrls.push(getAllProducts[i].querySelector('img').getAttribute('src'));
-                        inBoxText.push(getAllProducts[i].querySelector('div').innerText);
-                    }
-                }
-                return { inBoxText, inBoxUrls };
-            });
-
-            backGroundVideoUrls = await context.evaluate(async (src) => {
-              let allVideosSel = 'div.eky-header-video-container>video';
-              let allVideoElm = document.querySelectorAll(allVideosSel);
-              let allBackgrndVid = [];
-              if(!allVideoElm || (allVideoElm.length === 0)) {
-                return allBackgrndVid;
+            let scrollTop = 0;
+            while (scrollTop !== 15000) {
+              await stall(1000);
+              scrollTop += 1000;
+              window.scroll(0, scrollTop);
+              console.log('scrolling now!!');
+              if (scrollTop === 15000) {
+                await stall(3000);
+                break;
               }
-              let regex = /(.+)\/index.html(.+)/g;
-              let prefixUrl = src.replace(regex, "$1");
-              for(let i = 0; i < allVideoElm.length; i++) {
-                if(!allVideoElm[i].parentElement.parentElement.className.includes('tns-item')) {
-                  let thisUrl = prefixUrl + '/' +  allVideoElm[i].getAttribute('src')
-                  allBackgrndVid.push(thisUrl);
-                  console.log(thisUrl);
-                }
-              }
-              return allBackgrndVid;
-            },
-            src);
-
-            await context.goto(link, { timeout: 15000 });
-            await context.waitForSelector('#inpage_container', { timeout: 10000 });
-
-            await context.evaluate(async (witbData) => {
-              function addHiddenDiv (id, content) {
-                const newDiv = document.createElement('div');
-                newDiv.id = id;
-                newDiv.textContent = content;
-                newDiv.style.display = 'none';
-                document.body.appendChild(newDiv);
-              }
-
-              const {inBoxText=[],inBoxUrls=[]} = witbData;
-
-              for(let i=0;i<inBoxText.length;i++){
-                addHiddenDiv(`inTheBoxText-${i}`, inBoxText[i]);
-                if(inBoxUrls[i]){              
-                  addHiddenDiv(`inTheBoxUrl-${i}`, inBoxUrls[i]);
-                }
-              }
-            },witbData);
-            //await context.waitForSelector('div#main-section', { timeout: 45000 });
-
-
-        } catch (error) {
-            try {
-                await context.evaluate(async function (src) {
-                    window.location.assign(src);
-                }, src);
-                await context.waitForSelector('div.eky-container-full');
-                return await context.extract(productDetails, { type: 'MERGE_ROWS', transform });
-            } catch (err) {
-                console.log(err);
             }
+          });
+        };
+
+        await applyScroll(context);
+      } catch (err) {
+        console.log('some error occured while scrolling', err.message);
+      }
+
+      console.log('done scrolling!!');
+
+      const witbData = await context.evaluate(async () => {
+        const getInTheBox = document.querySelector('div.eky-accesory-container img');
+        const getAccessories = document.querySelector('div.my-slider');
+        const inBoxUrls = [];
+        const inBoxurlsAccessories = [];
+        const inBoxText = [];
+        if (getAccessories) {
+          const getAllAccessories = document.querySelectorAll('div.my-slider>div.eky-relative-wrapper.tns-normal');
+          for (let i = 0; i < getAllAccessories.length; i++) {
+            inBoxUrls.push(getAllAccessories[i].querySelector('div.eky-header-video-container>video').getAttribute('src'));
+            inBoxText.push(getAllAccessories[i].querySelector('div.eky-overlay>div.lax').innerText);
+          }
         }
-        // return await context.extract(productDetails, { transform });
-    } else {
-        console.log('we do not have the src for iframe');
+        if (getInTheBox) {
+          const getAllProducts = document.querySelectorAll('div.eky-accesory-container > div.eky-accessory');
+          for (let i = 0; i < getAllProducts.length; i++) {
+            inBoxUrls.push(getAllProducts[i].querySelector('img').getAttribute('src'));
+            inBoxText.push(getAllProducts[i].querySelector('div').innerText);
+          }
+        }
+        return { inBoxText, inBoxUrls };
+      });
+
+      backGroundVideoUrls = await context.evaluate(async (src) => {
+        const allVideosSel = 'div.eky-header-video-container>video';
+        const allVideoElm = document.querySelectorAll(allVideosSel);
+        const allBackgrndVid = [];
+        if (!allVideoElm || (allVideoElm.length === 0)) {
+          return allBackgrndVid;
+        }
+        const regex = /(.+)\/index.html(.+)/g;
+        const prefixUrl = src.replace(regex, '$1');
+        for (let i = 0; i < allVideoElm.length; i++) {
+          if (!allVideoElm[i].parentElement.parentElement.className.includes('tns-item')) {
+            const thisUrl = prefixUrl + '/' + allVideoElm[i].getAttribute('src');
+            allBackgrndVid.push(thisUrl);
+            console.log(thisUrl);
+          }
+        }
+        return allBackgrndVid;
+      },
+      src);
+
+      await context.goto(link, { timeout: 15000 });
+      await context.waitForSelector('#inpage_container', { timeout: 10000 });
+
+      await context.evaluate(async (witbData) => {
+        function addHiddenDiv (id, content) {
+          const newDiv = document.createElement('div');
+          newDiv.id = id;
+          newDiv.textContent = content;
+          newDiv.style.display = 'none';
+          document.body.appendChild(newDiv);
+        }
+
+        const { inBoxText = [], inBoxUrls = [] } = witbData;
+
+        for (let i = 0; i < inBoxText.length; i++) {
+          addHiddenDiv(`inTheBoxText-${i}`, inBoxText[i]);
+          if (inBoxUrls[i]) {
+            addHiddenDiv(`inTheBoxUrl-${i}`, inBoxUrls[i]);
+          }
+        }
+      }, witbData);
+      // await context.waitForSelector('div#main-section', { timeout: 45000 });
+    } catch (error) {
+      try {
+        await context.evaluate(async function (src) {
+          window.location.assign(src);
+        }, src);
+        await context.waitForSelector('div.eky-container-full');
+        return await context.extract(productDetails, { type: 'MERGE_ROWS', transform });
+      } catch (err) {
+        console.log(err);
+      }
     }
+    // return await context.extract(productDetails, { transform });
+  } else {
+    console.log('we do not have the src for iframe');
+  }
   async function preparePage () {
     document.querySelector("i[class*='popup']") && document.querySelector("i[class*='popup']").click();
-    
+
     // specifications
     var specsId = document.evaluate("//div[contains(@class,'tab-desc__labels__desc') and contains(.,'Specifiche tecniche')]", document, null, XPathResult.ANY_TYPE, null);
     var element = specsId.iterateNext();
@@ -204,9 +202,9 @@ let backGroundVideoUrls = [];
       const review = iframeDOM.querySelector("div[class*='number-of-reviews']");
       console.log('Review count', review.innerText);
       addHiddenDiv('ii_review', review.innerText);
-      const rating = iframeDOM.querySelector('reevoo-score').getAttribute('data-score');
-      console.log('Rating ', rating);
-      addHiddenDiv('ii_rating', rating);
+      const rating = parseFloat(iframeDOM.querySelector('reevoo-score').getAttribute('data-score'));
+      console.log('Rating ', rating / 2);
+      addHiddenDiv('ii_rating', rating / 2);
     }
     // descipiton
     const descBullets = (document.querySelector('div[class*="scheda-prodotto__info"] ul')) ? document.querySelector('div[class*="scheda-prodotto__info"] ul').innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/&nbsp;/gm, '').replace(/•/gm, ' ||').replace(/\s{2,}/gm, ' ').trim() : '';
@@ -261,7 +259,7 @@ let backGroundVideoUrls = [];
       }
       await infiniteScroll();
       console.log('done scrolling!! on prod page');
-    } catch(err) {
+    } catch (err) {
       console.log('error while scrolling');
     }
   });
@@ -269,13 +267,13 @@ let backGroundVideoUrls = [];
   try {
     context.waitForXPath("//div[contains(@class,'fullJwPlayerWarp')]//input");
     console.log('video input elm loaded');
-  } catch(err) {
+  } catch (err) {
     console.log('error while waiting for video input elm', err.message);
     console.log('waiting again');
     try {
       context.waitForXPath("//div[contains(@class,'fullJwPlayerWarp')]//input");
       console.log('video input elm loaded');
-    } catch(error) {
+    } catch (error) {
       console.log('error while waiting for video input elm -- again', error.message);
     }
   }
