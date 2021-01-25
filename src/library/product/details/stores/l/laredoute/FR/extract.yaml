@@ -158,3 +158,5 @@ fields:
     xpath: //div[contains(@class,"inpage_selector_InTheBox")]//div[@class="flix-std-container-fluid"]//div[@class="flix-std-table"]//div[contains(@class,"flix-box-modules")]//div[@class="flix-background-image"]//img/@data-flixsrcset|//div[contains(@class,"inpage_selector_InTheBox")]//div[@class="flix-std-container-fluid"]//div[@class="flix-std-table"]//div[contains(@class,"flix-box-image")]//div[@class="flix-background-image"]//img/@data-flixsrcset
     regExp: ^[^\s]+
     regExpReplace: https:$1
+  - name: secondaryImageTotal
+    xpath: count(//div[contains(@class,'thumbnails-content')]/img/@src)
