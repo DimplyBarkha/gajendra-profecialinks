@@ -3,17 +3,13 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'JDSports',
-    nextLinkSelector:'a[rel="next"]',
-    nextLinkXpath: null,
+    nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector:'body',
-    loadedXpath: null,
-    noResultsXPath: null,
-    stopConditionSelectorOrXpath:null,
-    resultsDivSelector: null,
-    openSearchDefinition: null,
+    loadedSelector: 'ul[id=productListMain]',
+    openSearchDefinition: {
+      template: 'https://www.jdsports.co.uk/search/{searchTerms}&page={page}',
+    },
     domain: 'jdsports.co.uk',
-    zipcode: '',
   },
 };
