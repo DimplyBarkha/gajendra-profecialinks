@@ -81,8 +81,6 @@ module.exports = {
     //   console.log('Loading ratings and reviews');
     // }
 
-
-
     // try {
     //   await context.waitForSelector('div[data-comp~="StyledComponent"] h2, div#tabpanel0', { timeout: 20000 });
     // } catch (error) {
@@ -90,7 +88,7 @@ module.exports = {
     // }
 
     await context.evaluate(async function () {
-      function addHiddenDiv(id, content) {
+      function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
@@ -109,11 +107,8 @@ module.exports = {
       }
     });
 
-
-
-
     await context.evaluate(function (parentInput) {
-      function addHiddenDiv(id, content) {
+      function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
@@ -166,7 +161,6 @@ module.exports = {
         }
         i++;
       }
-
 
       const sizeInfo = '//div[contains(@data-comp,"SizeAndItemNumber")]';
       var sInfo = document.evaluate(sizeInfo, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
@@ -234,40 +228,36 @@ module.exports = {
       if (heading) {
         heading.setAttribute('rating', rating);
       }
-      async function getReviewCount() {
+      async function getReviewCount () {
         var productId = Sephora.mboxAttrs.productId;
         const response = await fetch(`https://api.bazaarvoice.com/data/reviews.json?Filter=contentlocale%3Aen*&Filter=ProductId%3A${productId}&Sort=SubmissionTime%3Adesc&Limit=30&Offset=0&Include=Products%2CComments&Stats=Reviews&passkey=rwbw526r2e7spptqd2qzbkp7&apiversion=5.4&Locale=en_US`);
         return response.json();
-
       }
       var count = await getReviewCount();
-      var reviewCount = count.Includes.Products
+      var reviewCount = count.Includes.Products;
       var totalReviewCount = reviewCount[Object.keys(reviewCount)[0]].TotalReviewCount;
-      var description = reviewCount[Object.keys(reviewCount)[0]].Description.replace(/-\s/g,' || ');
+      var description = reviewCount[Object.keys(reviewCount)[0]].Description.replace(/-\s/g, ' || ');
       if (heading) {
         heading.setAttribute('review-count', totalReviewCount);
         heading.setAttribute('description', description);
       }
 
-
-
-
       const altImage = JSON.parse(document.querySelector('script#linkStore').textContent);
-      const arrImage = altImage["page"] && altImage["page"].product && altImage["page"].product.currentSku && altImage["page"].product.currentSku.alternateImages;
+      const arrImage = altImage.page && altImage.page.product && altImage.page.product.currentSku && altImage.page.product.currentSku.alternateImages;
       if (arrImage && arrImage.length) {
         arrImage.map(e => {
-          let newlink = document.createElement('a');
+          const newlink = document.createElement('a');
           newlink.setAttribute('class', 'append_image');
           newlink.setAttribute('href', e.imageUrl.replace(/(.+)/g, 'https://sephora.com$1'));
           document.body.appendChild(newlink);
         });
       }
-      async function getVideo() {
-        async function getObj() {
+      async function getVideo () {
+        async function getObj () {
           const response = await fetch(window.location.href);
           const html = await response.text();
           const doc = new DOMParser().parseFromString(html, 'text/html');
-          const json = JSON.parse(doc.querySelector("#linkJSON").innerText);
+          const json = JSON.parse(doc.querySelector('#linkJSON').innerText);
           return json;
         }
         const dataObj = await getObj();
@@ -276,14 +266,14 @@ module.exports = {
           const accountID = document.querySelector('[src^="//players.brightcove.net/"]') && document.querySelector('[src^="//players.brightcove.net/"]').src && document.querySelector('[src^="//players.brightcove.net/"]').src.match(/players.brightcove.net\/([^\/]+)/)[1];
           const apis = videoIds && videoIds.map(elm => `https://edge.api.brightcove.com/playback/v1/accounts/${accountID}/videos/${elm}`);
           const promises = apis && apis.map(elm => fetch(elm, {
-            "headers": {
-              "accept": "application/json;pk=BCpkADawqM2Q0u_EMhwh6sG-XavxnNSGgRmPVZqaQsilEjLYeUK24ofKhllzQeA8owqhzPCRuGbPh9FkCBxnD8mYW4RHulG2uVuwr363jOYU8lRht0dPdw7n31iz7t3LvGdQWkUrxdxrXrqk",
-            }
-          }))
+            headers: {
+              accept: 'application/json;pk=BCpkADawqM2Q0u_EMhwh6sG-XavxnNSGgRmPVZqaQsilEjLYeUK24ofKhllzQeA8owqhzPCRuGbPh9FkCBxnD8mYW4RHulG2uVuwr363jOYU8lRht0dPdw7n31iz7t3LvGdQWkUrxdxrXrqk',
+            },
+          }));
           if (promises) {
             const responses = await Promise.all(promises);
             const json = await Promise.all(responses.map(elm => elm.json()));
-            const videoUrls = json.map(elm => elm.sources.find(elm => elm.container === "MP4").src);
+            const videoUrls = json.map(elm => elm.sources.find(elm => elm.container === 'MP4').src);
             console.log(videoUrls);
             return videoUrls;
           }
@@ -292,16 +282,22 @@ module.exports = {
       var video = await getVideo();
       if (video && video.length) {
         video.map(e => {
-          let newlink = document.createElement('a');
+          const newlink = document.createElement('a');
           newlink.setAttribute('class', 'video');
           newlink.href = e;
           document.body.appendChild(newlink);
         });
       }
-    })
+    });
 
     await new Promise(resolve => setTimeout(resolve, 5000));
-   
+    try {
+      await context.evaluate(() => {
+        Array.from(document.querySelectorAll('[data-at="sku_item_brand"]')).forEach(elm => elm.innerText = elm.innerText + ' ');
+      });
+    } catch (err) {
+      console.log('Error adding UPDP spacing');
+    }
     return await context.extract(productDetails, { transform: transformParam });
   },
 };

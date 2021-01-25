@@ -26,7 +26,8 @@ const transform = (data, context) => {
     .replace(/&#(\d+);/g, function (match, dec) {
       return String.fromCharCode(dec);
     })
-    .replace(/\s{2,}/g, ' ');
+    .replace(/\s{2,}/g, ' ')
+    .trim();
 
   for (const { group } of data) {
     for (const row of group) {

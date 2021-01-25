@@ -23,7 +23,7 @@ module.exports = {
     prefix: null,
     country: 'US',
     store: 'sephora',
-    url: 'https://www.sephora.com/api/catalog/search?type=keyword&q={id}&content=true&includeRegionsMap=true&page=60&currentPage=1&constructorSessionID=1&constructorClientID=22caad64-c195-4213-bfc9-ed2fe1a59996&targetSearchEngine=nlp',
+    url: 'https://www.sephora.com/api/catalog/search?type=keyword&q={id}&content=true&includeRegionsMap=true&page=60&currentPage=1&constructorSessionID=1&constructorClientID=22caad64-c195-4213-bfc9-ed2fe1a59996&targetSearchEngine=nlp&country_switch=us',
   },
   dependencies: {
     goto: 'action:navigation/goto',
