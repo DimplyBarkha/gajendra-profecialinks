@@ -103,4 +103,4 @@ fields:
     regExpReplace: Yes
     defaultValue: No
   - name: unInterruptedPDP
-    xpath: //*[contains(text(),'Similar Products')]/parent::div/following-sibling::div//span[contains(@data-at,"product_name_label")] | //*[contains(text(),'Similar Products')]/parent::div/following-sibling::div//div[contains(@data-comp,"ProductDisplayName")]  | //*[contains(text(),'You May Also Like')]/parent::div/following-sibling::div//span[contains(@data-at,"product_name_label")] | //*[contains(text(),'You May Also Like')]/parent::div/following-sibling::div//div[contains(@data-comp,"ProductDisplayName")]
+    xpath: //*[contains(text(),'Similar Products')]/parent::div/following-sibling::div//span[contains(@data-at,"product_name_label")]/.. | //*[contains(text(),'Similar Products')]/parent::div/following-sibling::div//div[contains(@data-comp,"ProductDisplayName")]  | //*[contains(text(),'You May Also Like')]/parent::div/following-sibling::div//span[contains(@data-at,"product_name_label")] | //*[contains(text(),'You May Also Like')]/parent::div/following-sibling::div//div[contains(@data-comp,"ProductDisplayName")]

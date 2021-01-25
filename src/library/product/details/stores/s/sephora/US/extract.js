@@ -293,7 +293,7 @@ module.exports = {
     await new Promise(resolve => setTimeout(resolve, 5000));
     try {
       await context.evaluate(() => {
-        Array.from(document.querySelectorAll('[data-at="sku_item_brand"]')).forEach(elm => elm.innerText = elm.innerText + ' ');
+        Array.from(document.querySelectorAll('[data-at="sku_item_brand"],[data-at="product_brand_label"]')).forEach(elm => elm.innerText = elm.innerText + ' ');
       });
     } catch (err) {
       console.log('Error adding UPDP spacing');
