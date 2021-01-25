@@ -82,7 +82,7 @@ fields:
     xpath: //div[@id="productDescriptionContent"]//text()[not(contains(.,'{'))] | //div[@id="manufacturer_content"]
   - name: manufacturerImages
     description: Images within the third party description
-    xpath: //div[@id="productDescriptionContent"]//img//@src[contains(.,'jpg') or contains(.,'png') or contains(.,'')]
+    xpath: //div[@id="productDescriptionContent"]//img//@src[contains(.,'jpg') or contains(.,'png') or contains(.,'')] | //div[@id="manufacturer_image"]
   - name: videos
     description: URLs of videos on page
     xpath: //div[@class="desc-video"]//@data-video

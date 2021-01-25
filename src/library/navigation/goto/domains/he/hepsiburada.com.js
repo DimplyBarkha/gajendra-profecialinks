@@ -29,6 +29,19 @@ module.exports = {
       }
     }
 
+    async function getManufacturerImage (url) {
+      const data = document.querySelectorAll('div#flix-inpage img');
+      const arr = [];
+      data.forEach(item => {
+        const text = item.getAttribute('data-flixsrcset');
+        if (text !== null) {
+          arr.push(text.match(/^((\/\/)(.+)(.jpg))(.200w)/)[1]);
+        }
+      });
+      const dataArray = arr.join(' | ');
+      return dataArray;
+    }
+
     async function inBoxUrl (url) {
       // const inBoxImageSelector = 'div.inpage_selector_InTheBox div.flix-background-image img';
       const element = document.querySelectorAll('div.inpage_selector_InTheBox div.flix-background-image img');
@@ -78,10 +91,12 @@ module.exports = {
         const html = await context.evaluate(getHtml, enhancedContentLink);
         const inBoxManufactureUrl = await context.evaluate(inBoxUrl, enhancedContentLink);
         const manufacturerDescription = await context.evaluate(getManufacturerDescription, enhancedContentLink);
+        const manufacturerImage = await context.evaluate(getManufacturerImage, enhancedContentLink);
         await context.goto(url);
         await context.evaluate(addHtml, html, 'inboxtext');
         await context.evaluate(addHtml, inBoxManufactureUrl, 'inboxurl');
         await context.evaluate(addHtml, manufacturerDescription, 'manufacturer_content');
+        await context.evaluate(addHtml, manufacturerImage, 'manufacturer_image');
       }
     }
     await context.setBlockAds(false);
