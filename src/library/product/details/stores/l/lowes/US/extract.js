@@ -67,7 +67,7 @@ module.exports = {
     await scrollToRec('div.recommendation-wrapper');
     try {
       await context.waitForSelector('div.recommendation-wrapper div.product-card', { timeout: 35000 });
-    } catch(e) {
+    } catch (e) {
       console.log('Not loading recommended products');
     }
     await context.evaluate(async function () {
@@ -109,35 +109,6 @@ module.exports = {
         document.body.appendChild(secondaryImageCount);
       }
 
-      function addElementToDocument (key, value) {
-        const catElement = document.createElement('div');
-        catElement.id = key;
-        catElement.textContent = value;
-        catElement.style.display = 'none';
-        document.body.appendChild(catElement);
-      }
-      const enhancedContent = document.querySelector('div[class*="syndi_powerpage"]');
-      try {
-        if (enhancedContent) {
-          // @ts-ignore
-          const witbData = Array.from([...enhancedContent.shadowRoot.querySelectorAll('[class="syndigo-widget-section-header"]')].find(elm => elm.innerText.match(/in the box/i)).nextElementSibling.querySelectorAll('[class="syndigo-featureset-feature"]'));
-          witbData.forEach(element => {
-            element.querySelector('h3') && addElementToDocument('witbText', element.querySelector('h3').innerText);
-            element.querySelector('img') && addElementToDocument('witbImg', element.querySelector('img').src);
-          });
-        }
-        const comparisonTable = document.querySelector('div[class*="syndi_powerpage"]');
-        if (comparisonTable) {
-          // @ts-ignore
-          const witbData1 = [...comparisonTable.shadowRoot.querySelectorAll('div[class="syndi_powerpage"] div[class*="syndigo"]')];
-          witbData1.forEach(element => {
-            element.querySelector('h2[class="syndigo-widget-section-header"]') && addElementToDocument('witbTable', element.querySelector('h2[class="syndigo-widget-section-header"]'));
-          });
-        }
-      } catch (error) {
-        console.log(error);
-      }
-
       // const expandDataT = document.querySelector('div[class="prev-container"]>div[class="prev-body"] div[class="divTableRow"]:first-child div[class="optionCont"]');
       // if (expandDataT) {
       //   let witbData1 = expandDataT.querySelectorAll('a');
@@ -174,6 +145,52 @@ module.exports = {
     });
     const { transform } = parameters;
     const { productDetails } = dependencies;
+    async function addWitbandCRT () {
+      async function getWitbAndComparison () {
+        if (Array.from(document.querySelectorAll('div[class="modelNo"] > span')).length) {
+          const id = Array.from(document.querySelectorAll('div[class="modelNo"] > span')).map(elm => elm.innerText.trim().match(/[^#]+$/)[0]).join('-49350-');
+          const api = `https://content.syndigo.com/page/9827c4b9-a79e-4fa7-86f8-ac2e4d8a0d66/${id}.json`;
+          const response = await fetch(api);
+          const json = await response.json();
+          if (Object.keys(json).length) {
+            return json;
+          }
+        }
+        return false;
+      }
+      async function getCompareTable () {
+        if (Array.from(document.querySelectorAll('div[class="modelNo"] > span')).length) {
+          const id = Array.from(document.querySelectorAll('div[class="modelNo"] > span')).map(elm => elm.innerText.trim().match(/[^#]+$/)[0]).join('-49350-');
+          const api = `https://scontent.webcollage.net/lowes/power-page?ird=true&channel-product-id=${id}`;
+          const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(api)}`);
+          const text = (await response.json()).contents;
+          eval(text);
+          // add HTM Content
+          const div = document.createElement('div');
+          div.id = 'added-ec';
+          div.innerHTML = window._wccontent.aplus.html;
+          document.body.append(div);
+          return Boolean(window._wccontent.aplus.html.match(/wc-comparison-table/));
+        }
+      }
+      const json = await getWitbAndComparison();
+      console.log(json);
+      if (json) {
+        let witb = Object.values(Object.values(Object.values(json.experiences).find(elm => elm.hasOwnProperty('experiences')).experiences).find(elm => elm.hasOwnProperty('widgets')).widgets).filter(elm => elm.headerText.match(/in the box/i));
+        witb = (witb[0] && witb[0].items[0].features.map(elm => ({ text: elm.caption, img: elm.asset.url.replace('{0}', elm.asset.originalWidth) }))) || [];
+        const hasComparision = Object.values(Object.values(Object.values(json.experiences).find(elm => elm.hasOwnProperty('experiences')).experiences).find(elm => elm.hasOwnProperty('widgets')).widgets).filter(elm => elm.widgetType.match(/ComparisonTable/i));
+        document.body.setAttribute('has-comparison', Boolean(hasComparision && hasComparision.length));
+        document.body.setAttribute('witb-text', witb.map(elm => elm.text).join('|'));
+        document.body.setAttribute('witb-url', witb.map(elm => elm.img).join('|'));
+      } else {
+        document.body.setAttribute('has-comparison', await getCompareTable());
+      }
+    }
+    try {
+      await context.evaluate(addWitbandCRT);
+    } catch (error) {
+      console.log('error adding witb and ctr', error);
+    }
     return await context.extract(productDetails, { transform });
   },
 };

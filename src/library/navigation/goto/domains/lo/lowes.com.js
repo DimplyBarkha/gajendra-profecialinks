@@ -8,25 +8,31 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
-    const timeout = parameters.timeout ? parameters.timeout : 10000;
-    context.setBlockAds(false);
-    context.setLoadAllResources(true);
-    context.setAntiFingerprint(false);
-    url = `${url}#[!opt!]{"first_request_timeout":50000,"force200":true}[/!opt!]`;
-    await context.goto(url, {
-      firstRequestTimeout: 60000,
-      checkBlocked: true,
-      block_ads: false,
-      load_all_resources: true,
-      images_enabled: true,
-      load_timeout: 0,
-      timeout: timeout,
-      waitUntil: 'load',
-    });
+    await context.setBlockAds(false);
+    url = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
+    await context.goto(url);
+    async function autoScroll (page) {
+      await page.evaluate(async () => {
+        await new Promise((resolve, reject) => {
+          var totalHeight = 0;
+          var distance = 100;
+          var timer = setInterval(() => {
+            var scrollHeight = document.body.scrollHeight;
+            window.scrollBy(0, distance);
+            totalHeight += distance;
 
+            if (totalHeight >= scrollHeight) {
+              clearInterval(timer);
+              resolve();
+            }
+          }, 100);
+        });
+      });
+    }
     console.log(zipcode);
     if (zipcode) {
       await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
     }
+    await autoScroll(context);
   },
 };

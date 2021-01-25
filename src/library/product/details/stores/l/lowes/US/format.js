@@ -124,6 +124,14 @@ const transform = (data) => {
       //     },
       //   ];
       // }
+      if (row.inTheBoxText) {
+        const witb = Array.from(new Set(row.inTheBoxText.map(elm => elm.text.trim())));
+        row.inTheBoxText = witb.map(text => ({ text }));
+      }
+      if (row.inTheBoxUrl) {
+        const witb = Array.from(new Set(row.inTheBoxUrl.map(elm => elm.text.trim())));
+        row.inTheBoxUrl = witb.map(text => ({ text }));
+      }
     }
   }
   return data;
