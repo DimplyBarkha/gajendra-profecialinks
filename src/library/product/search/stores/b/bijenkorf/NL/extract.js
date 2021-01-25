@@ -7,27 +7,25 @@ async function implementation (
 ) {
   const { productDetails } = dependencies;
   const { transform } = parameters;
-  await context.evaluate(async function (context) {
-    document.body.setAttribute('search-url', window.location.href);
-    let scrollTop = 0;
-    while (scrollTop !== 50000) {
-      await stall(500);
-      scrollTop += 1000;
-      window.scroll(0, scrollTop);
-      if (scrollTop === 50000) {
-        await stall(2000);
-        break;
-      }
-    }
+  async function autoScroll (page) {
+    await page.evaluate(async () => {
+      await new Promise((resolve, reject) => {
+        var totalHeight = 0;
+        var distance = 100;
+        var timer = setInterval(() => {
+          var scrollHeight = document.body.scrollHeight;
+          window.scrollBy(0, distance);
+          totalHeight += distance;
 
-    function stall (ms) {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve();
-        }, ms);
+          if (totalHeight >= scrollHeight) {
+            clearInterval(timer);
+            resolve();
+          }
+        }, 50);
       });
-    }
-  });
+    });
+  }
+  await autoScroll(context);
   return await context.extract(productDetails, { transform });
 }
 
