@@ -70,6 +70,19 @@ const transform = (data) => {
           item.text = item.text.trim();
         });
       }
+
+      if (row.availabilityText) {
+        row.availabilityText.forEach(item => {
+          console.log("item.text",item.text);
+          if(item.text == 'true'){
+            item.text = 'In Stock';
+          }
+          else{
+            item.text = 'Out Of Stock';
+          }
+        });
+      }
+
       // if (row.variantCount) {
       //   row.variantCount = [{ text: row.variantCount.length }];
       // }
