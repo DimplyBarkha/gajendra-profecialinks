@@ -14,7 +14,7 @@ fields:
     xpath: //ul[contains(@class,'js-photosList')]/li//img/@src
   - name: availabilityText
     singleValue: false
-    xpath: //div[@class='order__wrapper']//div[@class='basket']// div[@class='basket__interaction']//a
+    xpath: //div[@class='order__wrapper']//a[contains(@class,'js-addToBasket') and text()='В корзину']
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out Of Stock
