@@ -25,33 +25,38 @@ const implementation = async (inputs, parameters, context, dependencies) => {
   const currentUrl = await context.evaluate(() => {
     return document.URL
   })
-  await context.waitForSelector('div#lett-econtent-placeholder > iframe');
-  const manufLink = await context.evaluate(async function () {
-    //@ts-ignore
-    return document.querySelector('div#lett-econtent-placeholder > iframe').src;
+  const iframe = await context.evaluate(async function () {
+    return document.querySelector('div#lett-econtent-placeholder > iframe')
   });
-  await context.goto(manufLink);
-  const manufText = await context.evaluate(async function () {
-    return document.querySelector('body').innerText;
-  });
-  await context.goto(currentUrl)
-  await context.evaluate(async function (manufText) {
-
-    function addHiddenDiv(id, content, parentDiv = null) {
-      const newDiv = document.createElement('div');
-      newDiv.id = id;
-      newDiv.textContent = content;
-      newDiv.style.display = 'none';
-      if (parentDiv) {
-        parentDiv.appendChild(newDiv);
-      } else {
-        document.body.appendChild(newDiv);
-      }
-      return newDiv
-    };
-
-    addHiddenDiv('manufDesc', manufText);
-  }, manufText);
+  if(iframe !== null){
+    const manufLink = await context.evaluate(async function () {
+      //@ts-ignore
+      return document.querySelector('div#lett-econtent-placeholder > iframe').src;
+    });
+    await context.goto(manufLink);
+    const manufText = await context.evaluate(async function () {
+      return document.querySelector('body').innerText;
+    });
+    await context.goto(currentUrl)
+    await context.evaluate(async function (manufText) {
+  
+      function addHiddenDiv(id, content, parentDiv = null) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        if (parentDiv) {
+          parentDiv.appendChild(newDiv);
+        } else {
+          document.body.appendChild(newDiv);
+        }
+        return newDiv
+      };
+  
+      addHiddenDiv('manufDesc', manufText);
+    }, manufText);
+  };
+  
   return await context.extract(productDetails, { cleanUp });
 
 };

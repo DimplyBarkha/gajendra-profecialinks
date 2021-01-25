@@ -1,0 +1,149 @@
+input:
+  RPC: 1000076
+  _url: http://paodeacucar.com
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=fc841a87-054c-4916-ade0-8a508398983f/task=200c96e7-5139-4531-84c1-6bf62cf30c30/80c560eb-dfd0-4c26-aa6b-e3a223e9e083.html
+    extractionConfigId: product/details/stores/p/paodeacucar/BR/extract
+    data:
+      - group:
+          - category:
+              - text: Home
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]/a[1]/text()[1]
+              - text: Alimentos
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/p[1]/a[1]/text()[1]
+              - text: Básico da despensa
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/div[1]/p[1]/a[1]/text()[1]
+              - text: Grãos e Cereais
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/div[1]/p[1]/a[1]/text()[1]
+              - text: Outros cereais
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/p[1]/a[1]/text()[1]
+            sku:
+              - text: "1000076"
+                xpath: /html/body/div[1]/div[4]/div[1]/div[1]/p[1]
+            nameExtended:
+              - text: Cereal em Barra Sabor Banana, Aveia e Mel Light TAEQ 66g com 3 Unidades
+                xpath: /html/body/div[1]/div[4]/div[1]/div[2]/p[1]/text()[1]
+            brandText:
+              - text: TAEQ
+                xpath: /html/body/div[1]/div[4]/div[1]/div[2]/p[1]/text()[1]
+            manufacturer:
+              - text: TAEQ
+                xpath: /html/body/div[1]/div[4]/div[1]/div[2]/p[1]/text()[1]
+            quantity:
+              - text: "3"
+                xpath: /html/body/div[1]/div[4]/div[1]/div[2]/p[1]/text()[1]
+            weightNet:
+              - text: 66g
+                xpath: /html/body/div[1]/div[4]/div[1]/div[2]/p[1]/text()[1]
+            name:
+              - text: Cereal em Barra Sabor Banana, Aveia e Mel Light TAEQ 66g com 3 Unidades
+                xpath: /html/body/div[1]/div[4]/div[1]/div[2]/p[1]/text()[1]
+            image:
+              - text: https://static.paodeacucar.com/img/uploads/1/268/615268.png
+                xpath: /html/body/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[1]/img[1]/@src
+            alternateImages:
+              - text: https://static.paodeacucar.com/img/uploads/1/268/615268x200x200.png
+                xpath: /html/body/div[1]/div[4]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: R$ 3,99
+                xpath: /html/body/div[1]/div[4]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]
+            description:
+              - text: >-
+                  Ingredientes:
+
+                  Aveia em flocos, banana (passa e polpa), flocos de arroz, xarope de glicose, flocos de cereais (trigo, arroz, milho e aveia), açúcar, gordura vegetal de palma, mel, extrato de malte, sal, canela em pó, cravo em pó, estabilizante maltitol, umectante glicerina, antioxidante lecitina de soja, aromatizantes, corantes naturais clorofila, carmim de cochonilha e urucum e acidulante acido citrico.
+
+                  CONTÉM GLÚTEN.
+
+                  Contém traços de leite porque é produzido em equipamentos onde se processam derivados de leite.
+
+                  Contém traços de castanha do Pará, castanha de caju e soja.
+                xpath: /html/body/div[1]/div[4]/div[1]/div[4]/div[1]
+            ingredientsList:
+              - text: Aveia em flocos, banana (passa e polpa), flocos de arroz, xarope de
+                  glicose, flocos de cereais (trigo, arroz, milho e aveia),
+                  açúcar, gordura vegetal de palma, mel, extrato de malte, sal,
+                  canela em pó, cravo em pó, estabilizante maltitol, umectante
+                  glicerina, antioxidante lecitina de soja, aromatizantes,
+                  corantes naturais clorofila, carmim de cochonilha e urucum e
+                  acidulante acido citrico
+                xpath: /html/body/div[1]/div[4]/div[1]/div[4]/div[1]
+            allergyAdvice:
+              - text: CONTÉM GLÚTEN
+                xpath: /html/body/div[1]/div[4]/div[1]/div[4]/div[1]/div[2]/p[1]
+            servingSize:
+              - text: 22g
+                xpath: /html/body/div[1]/div[4]/div[1]/div[7]/div[1]/div[2]/p[1]
+            caloriesPerServing:
+              - text: 71kcal
+                xpath: /html/body/div[1]/div[4]/div[1]/div[7]/div[1]/table[1]/tbody[1]
+            totalFatPerServing:
+              - text: 1,4
+                xpath: /html/body/div[1]/div[4]/div[1]/div[7]/div[1]/table[1]/tbody[1]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[4]/div[1]/div[7]/div[1]/table[1]/tbody[1]
+            saturatedFatPerServing:
+              - text: "0"
+                xpath: /html/body/div[1]/div[4]/div[1]/div[7]/div[1]/table[1]/tbody[1]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[4]/div[1]/div[7]/div[1]/table[1]/tbody[1]
+            transFatPerServing:
+              - text: "0"
+                xpath: /html/body/div[1]/div[4]/div[1]/div[7]/div[1]/table[1]/tbody[1]
+            transFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[4]/div[1]/div[7]/div[1]/table[1]/tbody[1]
+            cholesterolPerServing:
+              - text: "0"
+                xpath: /html/body/div[1]/div[4]/div[1]/div[7]/div[1]/table[1]/tbody[1]
+            cholesterolPerServingUom:
+              - text: mg
+                xpath: /html/body/div[1]/div[4]/div[1]/div[7]/div[1]/table[1]/tbody[1]
+            sodiumPerServing:
+              - text: "34"
+                xpath: /html/body/div[1]/div[4]/div[1]/div[7]/div[1]/table[1]/tbody[1]
+            sodiumPerServingUom:
+              - text: mg
+                xpath: /html/body/div[1]/div[4]/div[1]/div[7]/div[1]/table[1]/tbody[1]
+            totalCarbPerServing:
+              - text: "14"
+                xpath: /html/body/div[1]/div[4]/div[1]/div[7]/div[1]/table[1]/tbody[1]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[4]/div[1]/div[7]/div[1]/table[1]/tbody[1]
+            dietaryFibrePerServing:
+              - text: 1,1
+                xpath: /html/body/div[1]/div[4]/div[1]/div[7]/div[1]/table[1]/tbody[1]
+            dietaryFibrePerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[4]/div[1]/div[7]/div[1]/table[1]/tbody[1]
+            proteinPerServing:
+              - text: 1,2
+                xpath: /html/body/div[1]/div[4]/div[1]/div[7]/div[1]/table[1]/tbody[1]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[4]/div[1]/div[7]/div[1]/table[1]/tbody[1]
+            availabilityText:
+              - text: In stock
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: pt_BR
+                value: 0
+        xpath: /html
+    timestamp: 1611523257130

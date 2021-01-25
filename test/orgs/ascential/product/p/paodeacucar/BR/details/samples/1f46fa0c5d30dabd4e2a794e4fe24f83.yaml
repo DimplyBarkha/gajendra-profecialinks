@@ -1,0 +1,131 @@
+input:
+  RPC: 1015832
+  _url: http://paodeacucar.com
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=fc841a87-054c-4916-ade0-8a508398983f/task=3ac5cf24-90df-48d7-8909-c4ce308ca130/43c3f016-06a1-4fde-b4f9-e3299ddb3c24.html
+    extractionConfigId: product/details/stores/p/paodeacucar/BR/extract
+    data:
+      - group:
+          - category:
+              - text: Home
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]/a[1]/text()[1]
+              - text: Alimentos
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/p[1]/a[1]/text()[1]
+              - text: Doces e sobremesas
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/div[1]/p[1]/a[1]/text()[1]
+              - text: Bomboniere
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/div[1]/p[1]/a[1]/text()[1]
+              - text: Chocolate
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/p[1]/a[1]/text()[1]
+            sku:
+              - text: "1015832"
+                xpath: /html/body/div[1]/div[4]/div[1]/div[1]/p[1]
+            nameExtended:
+              - text: Chocolate Sortidos Assorted LINDT Caixa 350g
+                xpath: /html/body/div[1]/div[4]/div[1]/div[2]/p[1]/text()[1]
+            brandText:
+              - text: LINDT
+                xpath: /html/body/div[1]/div[4]/div[1]/div[2]/p[1]/text()[1]
+            manufacturer:
+              - text: LINDT
+                xpath: /html/body/div[1]/div[4]/div[1]/div[2]/p[1]/text()[1]
+            weightNet:
+              - text: 350g
+                xpath: /html/body/div[1]/div[4]/div[1]/div[2]/p[1]/text()[1]
+            name:
+              - text: Chocolate Sortidos Assorted LINDT Caixa 350g
+                xpath: /html/body/div[1]/div[4]/div[1]/div[2]/p[1]/text()[1]
+            image:
+              - text: https://static.paodeacucar.com/img/uploads/1/653/625653.png
+                xpath: /html/body/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[1]/img[1]/@src
+            alternateImages:
+              - text: https://static.paodeacucar.com/img/uploads/1/653/625653x200x200.png
+                xpath: /html/body/div[1]/div[4]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://static.paodeacucar.com/img/uploads/1/241/476241x200x200.jpg
+                xpath: /html/body/div[1]/div[4]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: R$ 165,99
+                xpath: /html/body/div[1]/div[4]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]
+            description:
+              - text: >-
+                  Ingredientes:
+
+                  Chocolate ao Leite Milch Extra ( Milk):
+
+                  Açúcar, manteiga de cacau, leite integral, massa de cacau, lactose leite desnatado, extrato de malte, emulsificante lecitina de soja, aromatizante.
+
+                  CONTÉM GLÚTEN.
+
+                  Ingredientes:
+
+                  Chocolate Amargo Berne (Surfin):
+
+                  Açúcar, massa de cacau, manteiga de cacau, emulsificante lecitina de soja, aromatizante.
+
+                  NÃO COTÉM GLÚTEN.
+
+                  Ingredientes:
+
+                  Chocolate ao Leite com Avelãs Lait noisettes (Milk Hazelnut):
+
+                  Açúcar, manteiga de cacau, Leite integral, avelãs, massa de cacau, lactose, leite desnatado, extrato de malte, amêndoas, emulsificante lecitina de soja, aromatizante.
+
+                  CONTÉM GLÚTEN.
+
+                  Ingredientes:
+
+                  Chocolate Branco Recheado com Amêndoas Cresta Blancor (Cresca White Chocolate):
+
+                  Açúcar, manteiga de cacau, leite integral, amêndoas, leite desnatado, xarope de glucose, emulsificante lecitina de soja, aromatizante.
+
+                  NÃO CONTÉM GLÚTEN.
+
+                  Ingredientes:
+
+                  Chocolate ao Leite Recheado com Avelãs e Amêndoas Cresta Classic (Cresta Milk):
+
+                  Açúcar, manteiga de cacau, leite integral, massa de cacau, avelãs, amêndoas, lactose, gorduras vegetais, xarope de glucose, leite desnatado, extrato de malte, emulsificante lecitina de soja, aromatizante.
+
+                  CONTÉM GLÚTEN.
+
+                  Ingredientes:
+
+                  Chocolate ao Leite com Recheio Cremoso Lindor (Lindor Milk):
+
+                  Açúcar, gorduras vegetais, manteiga de cacau, leite integral, massa de cacau, lactose, manteiga, leite desnatado, extrato de malte, emulsificante lecitina de soja, aromatizante.
+
+                  CONTÉM GLÚTEN.
+                xpath: /html/body/div[1]/div[4]/div[1]/div[4]/div[1]
+            allergyAdvice:
+              - text: CONTÉM GLÚTEN
+                xpath: /html/body/div[1]/div[4]/div[1]/div[4]/div[1]/div[2]/p[1]
+              - text: CONTÉM GLÚTEN
+                xpath: /html/body/div[1]/div[4]/div[1]/div[4]/div[1]/div[2]/p[1]
+              - text: CONTÉM GLÚTEN
+                xpath: /html/body/div[1]/div[4]/div[1]/div[4]/div[1]/div[2]/p[1]
+              - text: CONTÉM GLÚTEN
+                xpath: /html/body/div[1]/div[4]/div[1]/div[4]/div[1]/div[2]/p[1]
+              - text: CONTÉM GLÚTEN
+                xpath: /html/body/div[1]/div[4]/div[1]/div[4]/div[1]/div[2]/p[1]
+            availabilityText:
+              - text: In stock
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: pt_BR
+                value: 0
+        xpath: /html
+    timestamp: 1611523255047

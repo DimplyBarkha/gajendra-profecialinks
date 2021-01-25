@@ -1,0 +1,149 @@
+input:
+  RPC: 1000077
+  _url: http://paodeacucar.com
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=fc841a87-054c-4916-ade0-8a508398983f/task=19e09aca-812b-4b42-b3a9-c4b734b5d72e/fa975465-b8c4-43a6-abd6-d0c3cdb0e65c.html
+    extractionConfigId: product/details/stores/p/paodeacucar/BR/extract
+    data:
+      - group:
+          - category:
+              - text: Home
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]/a[1]/text()[1]
+              - text: Alimentos
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/p[1]/a[1]/text()[1]
+              - text: Básico da despensa
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/div[1]/p[1]/a[1]/text()[1]
+              - text: Grãos e Cereais
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/div[1]/p[1]/a[1]/text()[1]
+              - text: Outros cereais
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/p[1]/a[1]/text()[1]
+            sku:
+              - text: "1000077"
+                xpath: /html/body/div[1]/div[4]/div[1]/div[1]/p[1]
+            nameExtended:
+              - text: Cereal em Barra Sabor Castanha com Chocolate Light TAEQ 66g com 3 Unidades
+                xpath: /html/body/div[1]/div[4]/div[1]/div[2]/p[1]/text()[1]
+            brandText:
+              - text: TAEQ
+                xpath: /html/body/div[1]/div[4]/div[1]/div[2]/p[1]/text()[1]
+            manufacturer:
+              - text: TAEQ
+                xpath: /html/body/div[1]/div[4]/div[1]/div[2]/p[1]/text()[1]
+            quantity:
+              - text: "3"
+                xpath: /html/body/div[1]/div[4]/div[1]/div[2]/p[1]/text()[1]
+            weightNet:
+              - text: 66g
+                xpath: /html/body/div[1]/div[4]/div[1]/div[2]/p[1]/text()[1]
+            name:
+              - text: Cereal em Barra Sabor Castanha com Chocolate Light TAEQ 66g com 3 Unidades
+                xpath: /html/body/div[1]/div[4]/div[1]/div[2]/p[1]/text()[1]
+            image:
+              - text: https://static.paodeacucar.com/img/uploads/1/0/482000.jpg
+                xpath: /html/body/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[1]/img[1]/@src
+            alternateImages:
+              - text: https://static.paodeacucar.com/img/uploads/1/0/482000x200x200.jpg
+                xpath: /html/body/div[1]/div[4]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: R$ 3,99
+                xpath: /html/body/div[1]/div[4]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]
+            description:
+              - text: >-
+                  Ingredientes:
+
+                  Aveia em flocos, Gordura vegetal de palma, Mel, Sal, Estabilizante maltitol, Umectantes sorbitol e glicerina, Antioxidante lecitina de soja, Aromatizantes, Corantes naturais clorofila, Maltodextrina, Açúcar mascavo, Cobertura sabor chocolate, Flocos de cereais (trigo, Arroz, Milho e aveia), Flocos de arroz, Xarope de glicose, Castanhas (pará e caju), Açúcar, Carmim de cochonilha e urucum e acidulante ácido cítrico.
+
+                  Informações Adicionais:
+
+                  Contém traços de leite porque é produzido em equipamento onde se processam derivados de leite.
+
+                  CONTÉM GLÚTEN.
+                xpath: /html/body/div[1]/div[4]/div[1]/div[4]/div[1]
+            ingredientsList:
+              - text: Aveia em flocos, Gordura vegetal de palma, Mel, Sal, Estabilizante
+                  maltitol, Umectantes sorbitol e glicerina, Antioxidante
+                  lecitina de soja, Aromatizantes, Corantes naturais clorofila,
+                  Maltodextrina, Açúcar mascavo, Cobertura sabor chocolate,
+                  Flocos de cereais (trigo, Arroz, Milho e aveia), Flocos de
+                  arroz, Xarope de glicose, Castanhas (pará e caju), Açúcar,
+                  Carmim de cochonilha e urucum e acidulante ácido cítrico
+                xpath: /html/body/div[1]/div[4]/div[1]/div[4]/div[1]
+            allergyAdvice:
+              - text: CONTÉM GLÚTEN
+                xpath: /html/body/div[1]/div[4]/div[1]/div[4]/div[1]/div[2]/p[1]
+            servingSize:
+              - text: 22g
+                xpath: /html/body/div[1]/div[4]/div[1]/div[7]/div[1]/div[2]/p[1]
+            caloriesPerServing:
+              - text: 72kcal
+                xpath: /html/body/div[1]/div[4]/div[1]/div[7]/div[1]/table[1]/tbody[1]
+            totalFatPerServing:
+              - text: 1,9
+                xpath: /html/body/div[1]/div[4]/div[1]/div[7]/div[1]/table[1]/tbody[1]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[4]/div[1]/div[7]/div[1]/table[1]/tbody[1]
+            saturatedFatPerServing:
+              - text: "0"
+                xpath: /html/body/div[1]/div[4]/div[1]/div[7]/div[1]/table[1]/tbody[1]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[4]/div[1]/div[7]/div[1]/table[1]/tbody[1]
+            transFatPerServing:
+              - text: "0"
+                xpath: /html/body/div[1]/div[4]/div[1]/div[7]/div[1]/table[1]/tbody[1]
+            transFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[4]/div[1]/div[7]/div[1]/table[1]/tbody[1]
+            cholesterolPerServing:
+              - text: "0"
+                xpath: /html/body/div[1]/div[4]/div[1]/div[7]/div[1]/table[1]/tbody[1]
+            cholesterolPerServingUom:
+              - text: mg
+                xpath: /html/body/div[1]/div[4]/div[1]/div[7]/div[1]/table[1]/tbody[1]
+            sodiumPerServing:
+              - text: "33"
+                xpath: /html/body/div[1]/div[4]/div[1]/div[7]/div[1]/table[1]/tbody[1]
+            sodiumPerServingUom:
+              - text: mg
+                xpath: /html/body/div[1]/div[4]/div[1]/div[7]/div[1]/table[1]/tbody[1]
+            totalCarbPerServing:
+              - text: "15"
+                xpath: /html/body/div[1]/div[4]/div[1]/div[7]/div[1]/table[1]/tbody[1]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[4]/div[1]/div[7]/div[1]/table[1]/tbody[1]
+            dietaryFibrePerServing:
+              - text: 1,1
+                xpath: /html/body/div[1]/div[4]/div[1]/div[7]/div[1]/table[1]/tbody[1]
+            dietaryFibrePerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[4]/div[1]/div[7]/div[1]/table[1]/tbody[1]
+            proteinPerServing:
+              - text: 1,1
+                xpath: /html/body/div[1]/div[4]/div[1]/div[7]/div[1]/table[1]/tbody[1]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[4]/div[1]/div[7]/div[1]/table[1]/tbody[1]
+            availabilityText:
+              - text: In stock
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: pt_BR
+                value: 0
+        xpath: /html
+    timestamp: 1611523257503

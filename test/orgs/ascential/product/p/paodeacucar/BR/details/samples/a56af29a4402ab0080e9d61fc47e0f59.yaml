@@ -1,0 +1,82 @@
+input:
+  RPC: 1042385
+  _url: http://paodeacucar.com
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=fc841a87-054c-4916-ade0-8a508398983f/task=63c9069b-8c06-4022-a2bf-de97de7003e9/0bf19263-3771-4231-b1bd-cb82236bf9df.html
+    extractionConfigId: product/details/stores/p/paodeacucar/BR/extract
+    data:
+      - group:
+          - category:
+              - text: Home
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]/a[1]/text()[1]
+              - text: Alimentos
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/p[1]/a[1]/text()[1]
+              - text: Básico da despensa
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/div[1]/p[1]/a[1]/text()[1]
+              - text: Cafés, chás e achocolatados
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/div[1]/p[1]/a[1]/text()[1]
+              - text: Cafés
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/p[1]/a[1]/text()[1]
+            sku:
+              - text: "1042385"
+                xpath: /html/body/div[1]/div[4]/div[1]/div[1]/p[1]
+            nameExtended:
+              - text: Cápsulas de Café 3 CORAÇÕES Cappuccino Classic Contém 10 Unidades 11g
+                xpath: /html/body/div[1]/div[4]/div[1]/div[2]/p[1]/text()[1]
+            brandText:
+              - text: CORA
+                xpath: /html/body/div[1]/div[4]/div[1]/div[2]/p[1]/text()[1]
+            manufacturer:
+              - text: CORA
+                xpath: /html/body/div[1]/div[4]/div[1]/div[2]/p[1]/text()[1]
+            quantity:
+              - text: "10"
+                xpath: /html/body/div[1]/div[4]/div[1]/div[2]/p[1]/text()[1]
+            weightNet:
+              - text: 11g
+                xpath: /html/body/div[1]/div[4]/div[1]/div[2]/p[1]/text()[1]
+            name:
+              - text: Cápsulas de Café 3 CORAÇÕES Cappuccino Classic Contém 10 Unidades 11g
+                xpath: /html/body/div[1]/div[4]/div[1]/div[2]/p[1]/text()[1]
+            image:
+              - text: https://static.paodeacucar.com/img/uploads/1/376/11351376.png
+                xpath: /html/body/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[1]/img[1]/@src
+            alternateImages:
+              - text: https://static.paodeacucar.com/img/uploads/1/376/11351376x200x200.png
+                xpath: /html/body/div[1]/div[4]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://static.paodeacucar.com/img/uploads/1/402/11351402x200x200.png
+                xpath: /html/body/div[1]/div[4]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://static.paodeacucar.com/img/uploads/1/423/11351423x200x200.png
+                xpath: /html/body/div[1]/div[4]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://static.paodeacucar.com/img/uploads/1/445/11351445x200x200.png
+                xpath: /html/body/div[1]/div[4]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://static.paodeacucar.com/img/uploads/1/454/11351454x200x200.png
+                xpath: /html/body/div[1]/div[4]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: R$ 16,39
+                xpath: /html/body/div[1]/div[4]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]
+            description:
+              - text: CAPSULA 3C CAPPUCC CLASSIC C/10 11G
+                xpath: /html/body/div[1]/div[4]/div[1]/div[4]/div[1]
+            availabilityText:
+              - text: In stock
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: pt_BR
+                value: 0
+        xpath: /html
+    timestamp: 1611523262559

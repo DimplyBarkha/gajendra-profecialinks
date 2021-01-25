@@ -39,9 +39,10 @@ fields:
       clicks add to basket this is the price they would be charged
   - name: availabilityText
     singleValue: true
-    xpath: //div[contains(@class,"buy-box-contentstyles__WithoutStockContainer")]//text()
-    regExReplace: In stock
-    defaultValue: Out of stock
+    xpath: //div[contains(@class,"buy-box-contentstyles__WithoutStockContainer")][1]//text()
+    regExp: Ops :\( No momento não temos esse produto em estoque
+    regExpReplace: Out of stock
+    defaultValue: In stock
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"

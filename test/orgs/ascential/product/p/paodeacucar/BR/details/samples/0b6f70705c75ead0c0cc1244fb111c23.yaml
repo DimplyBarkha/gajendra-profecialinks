@@ -1,0 +1,73 @@
+input:
+  RPC: 1011980
+  _url: http://paodeacucar.com
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=fc841a87-054c-4916-ade0-8a508398983f/task=0ff90f83-39a3-4d90-920a-54d5341e05d6/3d3b566c-f36a-4694-9693-a299a7447a17.html
+    extractionConfigId: product/details/stores/p/paodeacucar/BR/extract
+    data:
+      - group:
+          - category:
+              - text: Home
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]/a[1]/text()[1]
+              - text: Alimentos
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/p[1]/a[1]/text()[1]
+              - text: Doces e sobremesas
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/div[1]/p[1]/a[1]/text()[1]
+              - text: Bomboniere
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/div[1]/p[1]/a[1]/text()[1]
+              - text: Outros
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/p[1]/a[1]/text()[1]
+            sku:
+              - text: "1011980"
+                xpath: /html/body/div[1]/div[4]/div[1]/div[1]/p[1]
+            nameExtended:
+              - text: Barra de Castanha com Damasco Zero Lactose biO2 7Nuts Pacote 25g
+                xpath: /html/body/div[1]/div[4]/div[1]/div[2]/p[1]/text()[1]
+            weightNet:
+              - text: 25g
+                xpath: /html/body/div[1]/div[4]/div[1]/div[2]/p[1]/text()[1]
+            name:
+              - text: Barra de Castanha com Damasco Zero Lactose biO2 7Nuts Pacote 25g
+                xpath: /html/body/div[1]/div[4]/div[1]/div[2]/p[1]/text()[1]
+            image:
+              - text: https://static.paodeacucar.com/img/uploads/1/661/9941661.jpeg
+                xpath: /html/body/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[1]/img[1]/@src
+            alternateImages:
+              - text: https://static.paodeacucar.com/img/uploads/1/661/9941661x200x200.jpeg
+                xpath: /html/body/div[1]/div[4]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://static.paodeacucar.com/img/uploads/1/708/9941708x200x200.jpeg
+                xpath: /html/body/div[1]/div[4]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://static.paodeacucar.com/img/uploads/1/759/9941759x200x200.jpeg
+                xpath: /html/body/div[1]/div[4]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://static.paodeacucar.com/img/uploads/1/798/9941798x200x200.jpeg
+                xpath: /html/body/div[1]/div[4]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://static.paodeacucar.com/img/uploads/1/848/9941848x200x200.jpeg
+                xpath: /html/body/div[1]/div[4]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: R$ 3,90
+                xpath: /html/body/div[1]/div[4]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]
+            description:
+              - text: ORG BARRA CAST/DAMASCO 7 NUTS 25G
+                xpath: /html/body/div[1]/div[4]/div[1]/div[4]/div[1]
+            availabilityText:
+              - text: In stock
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: pt_BR
+                value: 0
+        xpath: /html
+    timestamp: 1611523257090
