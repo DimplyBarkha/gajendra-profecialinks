@@ -29,6 +29,10 @@ const transform = (data) => {
       if (row.alternateImages) {
         row.secondaryImageTotal = [{ text: row.alternateImages.length }];
       }
+
+      if (row.variantCount) {
+        row.variantCount = [{ text: row.variantCount[0].text - 1 }];
+      }
     }
   }
 
