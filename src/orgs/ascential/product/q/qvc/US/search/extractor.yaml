@@ -1,3 +1,12 @@
+proxy:
+  zone: USA
+  type: RESIDENTIAL
+policy:
+  numberRetries: 5
+  priority: MEDIUM
+  retryDelay: 60
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 1
 robot: product/search
 parameters:
   country: US
