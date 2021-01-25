@@ -1,13 +1,13 @@
 
 module.exports = {
-  implements: 'product/search/paginate',
+  implements: 'navigation/paginate',
   parameterValues: {
     country: 'AE',
     store: 'carrefour',
     nextLinkSelector: null,
     mutationSelector: null,
-    spinnerSelector: null,
-    loadedSelector: 'ul[data-testid="scrollable-list-view"]',
+    spinnerSelector: 'div.loader-container div',
+    loadedSelector: 'ul[data-testid="scrollable-list-view"] div.ltr-jyyiad',
     noResultsXPath: '//h2[@data-testid="no-result-text"]',
     openSearchDefinition: null,
     domain: 'carrefouruae.com',
