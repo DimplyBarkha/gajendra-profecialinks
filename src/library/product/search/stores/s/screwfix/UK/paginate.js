@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'screwfix',
-    nextLinkSelector: null,
+    nextLinkSelector: 'null',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div#sticky-right-content',
