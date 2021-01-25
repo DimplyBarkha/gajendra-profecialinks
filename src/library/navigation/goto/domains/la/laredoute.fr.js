@@ -15,19 +15,20 @@ module.exports = {
     dependencies,
   ) => {
     const timeout = parameters.timeout ? parameters.timeout : 10000;
-
     await context.setBlockAds(false);
     await context.setLoadAllResources(true);
     await context.setLoadImages(true);
     await context.setJavaScriptEnabled(true);
     await context.setAntiFingerprint(false);
     await context.setUseRelayProxy(false);
-    const url = longUrl.split('.aspx#')[0];
+    let url = longUrl.split('.aspx#')[0];
 
+    url = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
     const gotoOptions = {
       firstRequestTimeout: 60000,
       timeout,
-      waitUntil: 'load',
+      waitUntil: 'networkidle0',
+      block_ads: false,
       checkBlocked: false,
       antiCaptchaOptions: {
         type: 'RECAPTCHA',
@@ -43,7 +44,7 @@ module.exports = {
 
     try {
       await context.waitForSelector(captchaFrame);
-    } catch(e) {
+    } catch (e) {
       console.log("Didn't find Captcha.");
     }
 
@@ -59,7 +60,7 @@ module.exports = {
     };
 
     let isCaptchaFramePresent = await checkExistance(captchaFrame);
-    console.log("isCaptcha:"+ isCaptchaFramePresent);
+    console.log('isCaptcha:' + isCaptchaFramePresent);
 
     while (isCaptchaFramePresent && numberOfCaptchas < maxRetries) {
       console.log('isCaptcha', true);
@@ -92,5 +93,24 @@ module.exports = {
     if (isCaptchaFramePresent) {
       throw new Error('Failed to solve captcha');
     }
+    async function autoScroll (page) {
+      await page.evaluate(async () => {
+        await new Promise((resolve, reject) => {
+          var totalHeight = 0;
+          var distance = 100;
+          var timer = setInterval(() => {
+            var scrollHeight = document.body.scrollHeight;
+            window.scrollBy(0, distance);
+            totalHeight += distance;
+
+            if (totalHeight >= scrollHeight) {
+              clearInterval(timer);
+              resolve();
+            }
+          }, 100);
+        });
+      });
+    }
+    await autoScroll(context);
   },
 };

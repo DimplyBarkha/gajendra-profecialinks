@@ -14,6 +14,7 @@ async function implementation (
   // pop up is not allowing us to scroll.
   await helper.ifThereClickOnIt('.popin-btn-close.close', 20000);
   await helper.ifThereClickOnIt('#btn-close', 35000);
+
   const applyScroll = async function (timeout) {
     let loopCounter = 0;
     let scrollTop = 0;
@@ -30,7 +31,6 @@ async function implementation (
     }
   };
   await applyScroll(10000);
-
 
   const variantArray = await context.evaluate(async function () {
     if (document.querySelector('#productList')) {
@@ -91,25 +91,6 @@ async function implementation (
       console.log('===== The enhanced content did not load or is not present.');
     });
   await helper.ifThereClickOnIt('div.flixmedia_expandBtn.flixmedia_expandBtn--more', 6000);
-
-  await context.evaluate(async function () {
-    function addHiddenDiv (id, content) {
-      const newDiv = document.createElement('div');
-      newDiv.id = id;
-      newDiv.textContent = content;
-      newDiv.style.display = 'none';
-      document.body.appendChild(newDiv);
-    }
-    const desc = document.querySelector('div#mainProductDescription');
-    if (desc) {
-      const specDesc = desc.innerText;
-      if (specDesc.includes('Dans la boîte')) {
-        let inTheBoxText = specDesc.match(/Dans la boîte\s:(.+)/gm) ? specDesc.match(/Dans la boîte\s:(.+)/gm)[0] : '';
-        inTheBoxText = inTheBoxText.replace(/Dans la boîte\s:/gm, '');
-        addHiddenDiv('ii_inTheBoxText', inTheBoxText);
-      }
-    }
-  });
   await applyScroll(5000);
   try {
     await context.waitForSelector('#inpage_container', { timeout: 30000 });

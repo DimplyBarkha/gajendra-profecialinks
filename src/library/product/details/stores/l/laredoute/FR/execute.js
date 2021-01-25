@@ -5,7 +5,7 @@ module.exports = {
     country: 'FR',
     store: 'laredoute',
     domain: 'laredoute.fr',
-    loadedSelector: "h2.pdp-title",
+    loadedSelector: 'h2.pdp-title',
     noResultsXPath: "//div[contains(@class, 'error_pages')] | //ul[@id='productList'] | //div[@id='ShowProductNotFound']",
     zipcode: '',
   },
