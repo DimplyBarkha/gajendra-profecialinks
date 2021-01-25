@@ -34,24 +34,25 @@ async function implementation (
     document.querySelector('.product-list').setAttribute('url', window.location.href);
     await timeout(5000);
 
-    let scrollTop = 0;
-    while (scrollTop !== 20000) {
-      await stall(500);
-      scrollTop += 1000;
-      window.scroll(0, scrollTop);
-      if (scrollTop === 20000) {
-        await stall(5000);
-        break;
-      }
-    }
+    async function autoScroll (page) {
+      await page.evaluate(async () => {
+        await new Promise((resolve, reject) => {
+          var totalHeight = 0;
+          var distance = 100;
+          var timer = setInterval(() => {
+            var scrollHeight = document.body.scrollHeight;
+            window.scrollBy(0, distance);
+            totalHeight += distance;
 
-    function stall (ms) {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve();
-        }, ms);
+            if (totalHeight >= scrollHeight) {
+              clearInterval(timer);
+              resolve();
+            }
+          }, 50);
+        });
       });
     }
+    await autoScroll(context);
   });
   return await context.extract(productDetails, { transform });
 }
