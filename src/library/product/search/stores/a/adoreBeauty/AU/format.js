@@ -45,6 +45,11 @@ const transform = (data, context) => {
           }
         });
       }
+      if (row.id) {
+        row.id.forEach(item => {
+          item.text = item.text.replace(/,.+/, '').trim();
+        });
+      }
       row.rank = row.rankOrganic = [{ text: rank }];
       rank++;
     }
