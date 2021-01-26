@@ -2,18 +2,18 @@ input:
   _url: http://zalando.de
   URL: https://en.zalando.de/rains-bum-bag-mini-bum-bag-ri054h00q-g11.html
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=88d493b8-3b7f-4522-8de7-55e4b4a859ff/task=969507d5-9f31-4936-acb4-9f09a7fde002/2943e5a6-2794-4ca2-95bb-79926accf898.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=0e064dd1-ecc4-4f62-b90e-9785cc75d919/task=31cd900a-63cd-4b64-a62b-05fd5339f85b/ec8ccea3-d737-43ff-82f3-e9959222e53f.html
     extractionConfigId: product/details/stores/z/zalando/DE/extract
     data:
       - group:
           - productUrl:
-              - text: https://en.zalando.de/rains-bum-bag-mini-bum-bag-ri054h00q-g11.html
+              - text: https://www.zalando.de/rains-bum-bag-mini-guerteltasche-ri054h00q-g11.html?_rfl=en
                 xpath: /html/body/div[8]
             image:
               - text: https://img01.ztat.net/article/spp-media-p1/75a6cb1763db30eda6f309ceaef4f032/c50c441f4fdb4e41b64f97e7f73bdc71.jpg
                 xpath: /html/body/ol[1]/li[1]
             imageAlt:
-              - text: Rains - Bum bag - coral
+              - text: Rains - Gürteltasche - coral
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
               - text: https://img01.ztat.net/article/spp-media-p1/f6b87ca9d5b13bfda29007641d55809d/c4f91d910af44aa681cb0179b3274752.jpg
@@ -27,16 +27,19 @@ extractions:
               - text: https://img01.ztat.net/article/spp-media-p1/17101858a3c23f5a889c84730bab2918/2341d1e4ae214690865e265092ef687d.jpg
                 xpath: /html/body/ol[1]/li[6]
             nameExtended:
-              - text: Rains - Bum bag - coral
+              - text: Rains - Gürteltasche - coral
                 xpath: /html/body/div[7]/@name_extended
             availabilityText:
-              - text: Out Of Stock
+              - text: In Stock
                 xpath: /html/body/div[7]/@availability_text
             description:
-              - text: Outer material: Polyurethane | Lining: Textile | Fabric: Faux leather |
-                  Weather: Rain | Fastening: Zip | Pattern: Plain | Article
-                  number: RI054H00Q-G11 | Height: 13 cm (Size One Size) |
-                  Length: 33 cm (Size One Size) | Width: 4 cm (Size One Size)
+              - text: Obermaterial: Polyurethan | Futter: Textil |
+                  Materialkonstruktion: Kunstleder | Längenverstellbarer
+                  Tragegurt mit Schnappverschluss, wasserabweisend |
+                  Wetter: Regen | Verschluss: Reißverschluss | Muster: Unifarben
+                  | Artikelnummer: RI054H00Q-G11 | Höhe: 13 cm bei Größe One
+                  Size | Länge: 33 cm bei Größe One Size | Weite: 4 cm bei Größe
+                  One Size
                 xpath: /html/body/div[7]/@description
             brandText:
               - text: Rains
@@ -44,9 +47,6 @@ extractions:
             manufacturer:
               - text: Rains
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
-            sku:
-              - text: RI054H00Q-G11
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/span[2]
             variantId:
               - text: RI054H00Q-G110ONE000
                 xpath: /html/body/div[7]/@variant_id
@@ -59,14 +59,11 @@ extractions:
             variantCount:
               - text: "1"
                 xpath: /html/body/div[9]
-            color:
-              - text: coral
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[5]/div[1]/span[2]
             name:
-              - text: Bum bag
+              - text: Gürteltasche
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/h1[1]
             brandLink:
-              - text: https://en.zalando.de/rains/
+              - text: https://www.zalando.de/rains/
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             secondaryImageTotal:
               - text: "5"
@@ -75,11 +72,11 @@ extractions:
                 xpath: /html/body/div[7]/@variant_information
             materials:
               - text: |-
-                  Outer material: Polyurethane
-                  Lining: Textile
-                  Fabric: Faux leather
+                  Obermaterial: Polyurethan
+                  Futter: Textil
+                  Materialkonstruktion: Kunstleder
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1611566103876
+    timestamp: 1611655937380

@@ -10,6 +10,33 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { transform }, context, { productDetails }) => {
+    // checking for selected language and changing to German if required
+    const englishSelected = await context.evaluate(async () => !!document.querySelector('a[title="Choose language"]'));
+    if (englishSelected) {
+      console.log('Changing language');
+      await context.click('a[title="Choose language"]');
+      await context.waitForSelector('div.z-navicat-header_modalContent', { timeout: 5000 });
+      const changingLanguage = await context.evaluate(async () => {
+        const deutschLabel = document.evaluate(
+          '//label[@class="z-navicat-header_radioItem"][contains(. , "Deutsch")]',
+          document,
+          null,
+          XPathResult.ANY_UNORDERED_NODE_TYPE,
+          null,
+        ).singleNodeValue;
+        if (deutschLabel) {
+          deutschLabel.click();
+          await new Promise((resolve) => setTimeout(resolve, 1000));
+          return !!document.querySelector('div.z-navicat-header_modalContent button[class*="Primary"]');
+        }
+      });
+      if (changingLanguage) {
+        await context.click('div.z-navicat-header_modalContent button[class*="Primary"]');
+        await context.waitForNavigation({ timeout: 10000, waitUntil: 'load' });
+      }
+      console.log('Finished changing language');
+    }
+
     const numOfThumbnails = await context.evaluate(async () => {
       const alternateImagesList = document.createElement('ol');
       alternateImagesList.id = 'added_alternate_images';
