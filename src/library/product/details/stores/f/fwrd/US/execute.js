@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'fwrd',
     domain: 'fwrd.com',
-    loadedSelector: 'main#main-content',
+    loadedSelector:'div.fwd_pdp',
     // loadedSelector: 'div.fwd_pdp div.pdp__col--fixed-width .price__retail',
     noResultsXPath: null,
     zipcode: '',
