@@ -1,4 +1,3 @@
-
 /**
  *
  * @param {ImportIO.Group[]} data
@@ -7,22 +6,50 @@
 const transform = (data) => {
   const onlyText = /[a-zA-Z]+/g;
   const whiteSpace = /\s+/g;
+
   function onlyNumbersAndDot (string) {
-    return string.replace(',', '.').replace(/[^\d\.]/g, '').replace(/\./, 'x').replace(/\./g, '').replace(/x/, ".");string = Math.round( parseFloat(string) * 100) / 100;
+    return string.replace(',', '.').replace(/[^\d\.]/g, '').replace(/\./, 'x').replace(/\./g, '').replace(/x/, '.');
+    string = Math.round(parseFloat(string) * 100) / 100;
   }
+
   function uom (text) {
-    return text.match(onlyText).join().replace('Per', '').replace(',', '');
+    if (text) {
+      return text.match(onlyText).join().replace('Per', '').replace(',', '');
+    } else {
+      return [];
+    }
   }
+
   function table (data, text, onlyNumb = false, onlySize = false) {
-    const a = data.find(e => e.text.includes(text));
-    if (!onlyNumb && !onlySize) return [{ text: a.text.replace(text, '').replace(whiteSpace, ' ').trim() }];
-    else if (onlyNumb) return [{ text: a.text.replace(text, '').replace(whiteSpace, ' ').replace(a.text.replace(text, '').replace(whiteSpace, ' ').match(onlyText).join(), '').trim() }];
-    else if (onlySize) return [{ text: a.text.replace(text, '').replace(whiteSpace, ' ').match(onlyText).join().trim() }];
+    let a;
+    let findText;
+    if (typeof text !== 'string') {
+      text.forEach(el => {
+        if (data.find(e => e.text.includes(el))) {
+          a = data.find(e => e.text.includes(el));
+          findText = el;
+        }
+      });
+    } else {
+      a = data.find(e => e.text.includes(text));
+      findText = text;
+    }
+    if (!onlyNumb && !onlySize) {
+      return [{ text: a.text.replace(findText, '').replace(whiteSpace, ' ').trim() }];
+    } else if (onlyNumb) {
+      return [{ text: a.text.replace(findText, '').replace(whiteSpace, ' ').replace(a.text.replace(findText, '').replace(whiteSpace, ' ').match(onlyText).join(), '').trim() }];
+    } else if (onlySize) return [{ text: a.text.replace(findText, '').replace(whiteSpace, ' ').match(onlyText).join().trim() }];
   }
+
   data.forEach(el => {
     el.group.forEach(gr => {
       try {
         gr['_url'] = gr.url;
+        if (gr.sizeText && gr.size) {
+          const end = gr.size[0].text.indexOf(gr.sizeText[0].text);
+          gr.size[0].text = gr.size[0].text.slice(0, end);
+        }
+        if (gr && gr.price && gr.price.length) gr.price[0].text = gr.price[0].text.replace('.', ',');
         if (gr && gr.category && gr.category.length) gr.category.shift();
         if (gr && gr.variantId && gr.variantId.length) {
           const mainData = JSON.parse(gr.variantId[0].text);
@@ -44,11 +71,7 @@ const transform = (data) => {
           const size = onlyNumbersAndDot(gr.servingSize[0].text);
           gr.servingSize[0].text = 'Per ' + size;
         }
-        try {
-          gr.servingSizeUom[0].text = uom(gr.servingSizeUom[0].text);
-        } catch (e) {
-          gr.servingSizeUom[0].text = [];
-        }
+        if (gr && gr.servingSizeUom) gr.servingSizeUom[0].text = uom(gr.servingSizeUom[0].text);
         try {
           gr.caloriesPerServing = table(gr.caloriesPerServing, 'Energie');
         } catch (e) {
@@ -62,8 +85,12 @@ const transform = (data) => {
           gr.totalFatPerServingUom = [];
         }
         try {
-          gr.saturatedFatPerServingUom = table(gr.saturatedFatPerServingUom, 'Waarvan verzadigd', false, true);
-          gr.saturatedFatPerServing = table(gr.saturatedFatPerServing, 'Waarvan verzadigd', true, false);
+          const text = [
+            'Waarvan verzadigd',
+            'waarvan verzadigd',
+          ];
+          gr.saturatedFatPerServingUom = table(gr.saturatedFatPerServingUom, text, false, true);
+          gr.saturatedFatPerServing = table(gr.saturatedFatPerServing, text, true, false);
         } catch (e) {
           gr.saturatedFatPerServing = [];
           gr.saturatedFatPerServingUom = [];
@@ -83,15 +110,30 @@ const transform = (data) => {
           gr.totalCarbPerServingUom = [];
         }
         try {
-          gr.dietaryFibrePerServing = table(gr.dietaryFibrePerServing, 'Waarvan suikers', true, false);
-          gr.dietaryFibrePerServingUom = table(gr.dietaryFibrePerServingUom, 'Waarvan suikers', false, true);
+          gr.proteinPerServing = table(gr.proteinPerServing, 'Zout', true, false);
+          gr.proteinPerServing = table(gr.proteinPerServing, 'Zout', false, true);
+        } catch (e) {
+          gr.proteinPerServing = [];
+          gr.proteinPerServing = [];
+        }
+        try {
+          const text = [
+            'Waarvan suikers',
+            'waarvan suikers',
+          ];
+          gr.dietaryFibrePerServing = table(gr.dietaryFibrePerServing, text, true, false);
+          gr.dietaryFibrePerServingUom = table(gr.dietaryFibrePerServingUom, text, false, true);
         } catch (e) {
           gr.dietaryFibrePerServing = [];
           gr.dietaryFibrePerServingUom = [];
         }
         try {
-          gr.totalSugarsPerServing = table(gr.totalSugarsPerServing, 'Waarvan suikers', true, false);
-          gr.totalSugarsPerServingUom = table(gr.totalSugarsPerServingUom, 'Waarvan suikers', false, true);
+          const text = [
+            'Waarvan suikers',
+            'waarvan suikers',
+          ];
+          gr.totalSugarsPerServing = table(gr.totalSugarsPerServing, text, true, false);
+          gr.totalSugarsPerServingUom = table(gr.totalSugarsPerServingUom, text, false, true);
         } catch (e) {
           gr.totalSugarsPerServing = [];
           gr.totalSugarsPerServingUom = [];

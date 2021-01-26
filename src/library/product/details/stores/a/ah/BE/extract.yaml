@@ -20,10 +20,10 @@ fields:
     xpath: //div[@class='product-card-hero_priceControls__2mRFt']/div/div
   - name: availabilityText
     singleValue: true
-    defaultValue: In Stock.
+    defaultValue: In stock
   - name: description
     singleValue: false
-    xpath: //div[@class='product-summary_root__J4kJt']/ul/li
+    xpath: //div[@class='product-summary_root__3_CJs']/ul/li | //div[@class='product-summary_root__3_CJs']/p
   - name: ingredientsList
     singleValue: true
     xpath: //div[@class='product-info-content-block product-info-ingredients']/p
@@ -41,49 +41,53 @@ fields:
     xpath: //div[@class='column xlarge-6 large-8 small-12 xlarge-offset-1']/div[@class='collapsible-block-element_root__2MU-5 product-info_collapsibleBlock__3_8KM']
   - name: servingSize
     singleValue: true
-    xpath: //table[@class='product-info-nutritions__table']/thead/tr/th[2]
+    xpath: //table[@class='product-info-nutrition_table__1PDio']/thead/tr/th[2]
   - name: servingSizeUom
     singleValue: true
-    xpath: //table[@class='product-info-nutritions__table']/thead/tr/th[2]
+    xpath: //table[@class='product-info-nutrition_table__1PDio']/thead/tr/th[2]
   - name: caloriesPerServing
     singleValue: false
-    xpath: //table[@class='product-info-nutritions__table']/tbody/tr
+    xpath: //table[@class='product-info-nutrition_table__1PDio']/tbody/tr
   - name: totalFatPerServing
     singleValue: false
-    xpath: //table[@class='product-info-nutritions__table']/tbody/tr
+    xpath: //table[@class='product-info-nutrition_table__1PDio']/tbody/tr
   - name: totalFatPerServingUom
     singleValue: false
-    xpath: //table[@class='product-info-nutritions__table']/tbody/tr
+    xpath: //table[@class='product-info-nutrition_table__1PDio']/tbody/tr
   - name: saturatedFatPerServing
     singleValue: false
-    xpath: //table[@class='product-info-nutritions__table']/tbody/tr
+    xpath: //table[@class='product-info-nutrition_table__1PDio']/tbody/tr
   - name: saturatedFatPerServingUom
     singleValue: false
-    xpath: //table[@class='product-info-nutritions__table']/tbody/tr
+    xpath: //table[@class='product-info-nutrition_table__1PDio']/tbody/tr
   - name: sodiumPerServing
     singleValue: false
-    xpath: //table[@class='product-info-nutritions__table']/tbody/tr
+    xpath: //table[@class='product-info-nutrition_table__1PDio']/tbody/tr
   - name: sodiumPerServingUom
     singleValue: false
-    xpath: //table[@class='product-info-nutritions__table']/tbody/tr
+    xpath: //table[@class='product-info-nutrition_table__1PDio']/tbody/tr
   - name: totalCarbPerServing
     singleValue: false
-    xpath: //table[@class='product-info-nutritions__table']/tbody/tr
+    xpath: //table[@class='product-info-nutrition_table__1PDio']/tbody/tr
   - name: totalCarbPerServingUom
     singleValue: false
-    xpath: //table[@class='product-info-nutritions__table']/tbody/tr
+    xpath: //table[@class='product-info-nutrition_table__1PDio']/tbody/tr
   - name: dietaryFibrePerServing
     singleValue: false
-    xpath: //table[@class='product-info-nutritions__table']/tbody/tr
+    xpath: //table[@class='product-info-nutrition_table__1PDio']/tbody/tr
   - name: dietaryFibrePerServingUom
     singleValue: false
-    xpath: //table[@class='product-info-nutritions__table']/tbody/tr
+    xpath: //table[@class='product-info-nutrition_table__1PDio']/tbody/tr
   - name: totalSugarsPerServing
     singleValue: false
-    xpath: //table[@class='product-info-nutritions__table']/tbody/tr
+    xpath: //table[@class='product-info-nutrition_table__1PDio']/tbody/tr
   - name: totalSugarsPerServingUom
     singleValue: false
-    xpath: //table[@class='product-info-nutritions__table']/tbody/tr
+    xpath: //table[@class='product-info-nutrition_table__1PDio']/tbody/tr
+  - name: proteinPerServing
+    singleValue: false
+    xpath: //table[@class='product-info-nutrition_table__1PDio']/tbody/tr
+
   - name: productOtherInformation
     singleValue: true
     xpath: //div[@class='product-info-content-block']/div[@class='product-info-description']/div[@class='product-summary_root__J4kJt']/p
@@ -96,7 +100,12 @@ fields:
   - name: listPrice
     singleValue: true
     xpath: //div[@class='product-card-hero-price_wasContainer__3N8Oa']
-
+  - name: size
+    singleValue: true
+    xpath: //div[@class='product-card-header_unitInfo__2ncbP']
+  - name: sizeText
+    singleValue: true
+    xpath: //span[@class='product-card-header_unitPriceWithPadding__MonzR']
 
 
 
