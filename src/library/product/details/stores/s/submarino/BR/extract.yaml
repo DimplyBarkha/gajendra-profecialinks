@@ -17,7 +17,7 @@ fields:
     description: URL of the main product image
     xpath: (//div[contains(@class, 'image-gallery-thumbnail-inner')]/img/@src)[1]
     regExp: (.*)P1(\..*)$
-    regExpReplace: $1_1SZ$2
+    regExpReplace: $1_1GG$2
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -27,7 +27,7 @@ fields:
     description: Other product images (not in manufacturer description)
     xpath: //div[contains(@class, 'image-gallery-thumbnail-inner')]/img/@src
     regExp: (.*_\d)[^\.]+(\..*)$
-    regExpReplace: $1SZ$2
+    regExpReplace: $1GG$2
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -54,12 +54,12 @@ fields:
     description: Availability as described on page for the selected variant. If there
       is no availability but the product can be added to cart, this field should be
       "In Stock"
-    xpath: //div[contains(@id, 'Stock')]
+    xpath: //div[@id='availability_info']
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[contains(@class, 'info-description')]/*
+    xpath: //div[@id='product_description']
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -90,7 +90,7 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //tr[contains(@id, 'código')][1]/td[2]/span
+    xpath: //div[@id='product_sku']
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same
@@ -99,7 +99,7 @@ fields:
   - name: mpc
     singleValue: tru
     description: The manufacturer model code (unique) of the product
-    xpath: //tr[contains(@id, 'modelo')][1]/td[2]/span
+    xpath: //tr[contains(@id, 'modelo')][1]/td[2]/span | //tr//span[contains(text(), 'Referência do modelo') and not(//tr[contains(@id, 'modelo')][1]/td[2]/span)]/../following-sibling::td/span
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on the
@@ -124,9 +124,7 @@ fields:
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //div[contains(@class, 'summary-rating')]//span[contains(@class, 'Average')]
-    regExp: (\d+)\.?(\d+)?
-    regExpReplace: $1,$2
+    xpath: //div[@id='product_rating']
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -150,10 +148,11 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
+    xpath: //body[@id='conteudo']//text()
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[contains(@id, 'info-section')]//img/@src
+    xpath: //div[contains(@id, 'info-section')]//img/@src | //div[@id='additional_image']
   - name: videos
     singleValue: false
     description: URLs of videos on page
@@ -431,6 +430,9 @@ fields:
   - name: promotion
     singleValue: true
     description: promotion text on product page
+    xpath: //div[contains(@class, 'price__BadgeUI')]/span
+    regExp: (\d+.*)
+    regExpReplace: $1 de desconto
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
