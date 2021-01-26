@@ -163,7 +163,7 @@ fields:
   - name: fastTrack
     description: null
   - name: ingredientsList
-    xpath: //div[contains(@class,"product-info-ingredients")]/p[1]
+    xpath: //div[contains(@class,"product-info-ingredients")]/p[1] | //div[contains(@class,'product-info-content-block')]//h2[contains(text(),'Ingrediënten')]/following-sibling::p
   - name: servingSize
     xpath: //table[@class="product-info-nutritions__table"]//tr/th[2]
     regExp: ((Per (\d+)) (\w+))
@@ -301,7 +301,7 @@ fields:
   - name: countryOfOrigin
     xpath: //div[@class="product-info-origin"]
   - name: allergyAdvice
-    xpath: //p[contains(@class,"product-info-ingredients__content")]
+    xpath: //p[contains(@class,"product-info-ingredients__content")] | //div[contains(@class,'product-info-content-block')]//dt[contains(text(),'Bevat')]/following-sibling::dd
   - name: recyclingInformation
     description: Recycling information associated with the product
   - name: productOtherInformation
