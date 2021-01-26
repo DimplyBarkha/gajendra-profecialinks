@@ -68,12 +68,11 @@ module.exports = {
       desc.push(specs);
       addElementToDocument('desc', desc.join(''));
       // rating
-      const ratingValue = document.querySelector('meta[itemprop="ratingValue"]');
-      if (ratingValue !== null && ratingValue.getAttribute('content').includes(',')) ratingValue.setAttribute('ratingvalue', ratingValue.replace('.', ','));
-      if (ratingValue !== null && ratingValue.getAttribute('content') !== '0' && (!ratingValue.getAttribute('content').includes(',') || !ratingValue.getAttribute('content').includes('.'))) {
-        ratingValue.setAttribute('ratingvalue', ratingValue.getAttribute('content').concat(',0'));
-      }
-      if (ratingValue !== null && ratingValue.getAttribute('content') === '0') ratingValue.setAttribute('ratingvalue', ratingValue.getAttribute('content'));
+      const ratingValue = document.querySelector('meta[itemprop="ratingValue"]')
+        ? document.querySelector('meta[itemprop="ratingValue"]').getAttribute('content') : null;
+      if (ratingValue !== null && ratingValue.includes('.')) addElementToDocument('ratingvalue', ratingValue.replace('.', ','));
+      if (ratingValue !== null && !ratingValue.includes('.')) addElementToDocument('ratingvalue', ratingValue);
+
       // video url
       const ytPrefix = 'https://www.youtube-nocookie.com/embed/';
       const keyword = document.querySelector('a[class*="thumb youtube"]')

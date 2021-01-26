@@ -114,8 +114,8 @@ fields:
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
+    xpath: //div[@id='ratingvalue'] 
     type: STRING
-    xpath: //meta[@itemprop='ratingValue']/@ratingvalue 
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
