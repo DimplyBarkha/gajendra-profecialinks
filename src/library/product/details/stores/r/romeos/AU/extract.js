@@ -54,6 +54,12 @@ module.exports = {
       const sku = url.match(/.+\/(.+)/) ? url.match(/.+\/(.+)/)[1] : '';
       addElementToDom(sku, 'sku');
       addElementToDom(url, 'product_url');
+
+      const productDescription = document.querySelector('div.MoreInfo__Details') ? document.querySelector('div.MoreInfo__Details').textContent.trim() : '';
+      const productDisclaimer = document.querySelector('div.MoreInfo__Disclaimer') ? document.querySelector('div.MoreInfo__Disclaimer').textContent.trim() : '';
+      const description = productDescription ? `${productDescription} | ${productDisclaimer}` : productDisclaimer;
+
+      addElementToDom(description, 'description');
     });
     await context.extract(productDetails, { transform });
   },

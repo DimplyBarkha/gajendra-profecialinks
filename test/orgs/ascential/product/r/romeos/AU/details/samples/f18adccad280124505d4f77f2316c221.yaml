@@ -2,31 +2,22 @@ input:
   _url: http://martinplace.romeosonline.com.au
   URL: https://martinplace.romeosonline.com.au/lines/barista-bros-milk-choc-500ml
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=8e43781d-5d57-4316-ba39-630a82c5aaf2/task=7905a9ee-7299-4534-ac95-1197389c2548/acd56cc8-dfd3-4bf2-828e-23ae9489921c.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=2af4686d-e702-45b3-857a-e1d730ca3b9e/task=811e4593-8920-492d-83e2-cac8d6e4b23c/a1f4770c-ac01-488a-b64f-e87c1b1be0f1.html
     extractionConfigId: product/details/stores/r/romeos/AU/extract
     data:
       - group:
-          - nameExtended:
-              - text: Barista Bros Flavoured Milk Chocolate 500ml
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]/h1[1]
-            price:
-              - text: $3.44
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[2]/strong[1]
-            name:
-              - text: Barista Bros Flavoured Milk Chocolate 500ml
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]/h1[1]
-            pricePerUnit:
-              - text: $6.88
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[2]/span[2]
-            pricePerUnitUom:
-              - text: litre
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[2]/span[2]
-            image:
+          - image:
               - text: https://dtgxwmigmg3gc.cloudfront.net/imagery/assets/derivations/icon/512/512/true/eyJpZCI6ImMwNDc4NGRjNTU4MTRiM2EyY2IzNTEzYjM5MjE2YWNkIiwic3RvcmFnZSI6InB1YmxpY19zdG9yZSJ9?signature=d5ef5afa72cce4576e18be73839fdab4008c73e6f3573d6c96cdb83e48ef8de3
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
             imageAlt:
               - text: Eyjpzci6immwndc4ngrjntu4mtrim2eyy2izntezyjm5mje2ywnkiiwic3rvcmfnzsi6inb1ymxpy19zdg9yzsj9?signature=d5ef5afa72cce4576e18be73839fdab4008c73e6f3573d6c96cdb83e48ef8de3
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            nameExtended:
+              - text: Barista Bros Flavoured Milk Chocolate 500ml
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]/h1[1]
+            price:
+              - text: $3.21
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[2]/strong[1]
             legalDisclaimer:
               - text: Romeo’s Martin Place aims to include in the product list up to date
                   pictures of the products and accurate ingredients, nutritional
@@ -36,16 +27,43 @@ extractions:
                   that you read the label on the products you purchase or
                   contact the manufacturer of the product.
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]
+            name:
+              - text: Barista Bros Flavoured Milk Chocolate 500ml
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]/h1[1]
+            coupon:
+              - text: Save 23c
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[3]
+            pricePerUnit:
+              - text: $6.42
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[2]/span[2]
+            pricePerUnitUom:
+              - text: litre
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[2]/span[2]
+            promotion:
+              - text: Save 23c
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[3]/span[1]/span[1]
+            listPrice:
+              - text: $3.44
+                xpath: /html/body/div[4]
             sku:
               - text: barista-bros-milk-choc-500ml
-                xpath: /html/body/div[3]
+                xpath: /html/body/div[5]
             variantId:
               - text: barista-bros-milk-choc-500ml
-                xpath: /html/body/div[3]
+                xpath: /html/body/div[5]
             productUrl:
               - text: https://martinplace.romeosonline.com.au/lines/barista-bros-milk-choc-500ml
-                xpath: /html/body/div[4]
+                xpath: /html/body/div[6]
+            description:
+              - text: Romeo’s Martin Place aims to include in the product list up to date
+                  pictures of the products and accurate ingredients, nutritional
+                  information and other information. However, product detail may
+                  change from time to time and there may be a delay in making
+                  updates. When precise information is important, we recommend
+                  that you read the label on the products you purchase or
+                  contact the manufacturer of the product.
+                xpath: /html/body/div[7]
             availabilityText:
               - text: In Stock
-        xpath: /html
-    timestamp: 1610972095891
+        xpath: /html/body
+    timestamp: 1611657447078

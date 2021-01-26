@@ -2,7 +2,7 @@ input:
   _url: http://martinplace.romeosonline.com.au
   URL: https://martinplace.romeosonline.com.au/lines/mother-energy-drink-sugar-free-4x500ml
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=8e43781d-5d57-4316-ba39-630a82c5aaf2/task=c535da1a-ad7c-4d4e-9d81-017806860d3f/d8708c34-ab3f-416d-ad5c-fc16bde0b4d6.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=2af4686d-e702-45b3-857a-e1d730ca3b9e/task=0e20a3b4-a2ac-4355-abc2-441e4e7d6a4a/97b4313b-b19e-4c47-88fe-607a458f07d5.html
     extractionConfigId: product/details/stores/r/romeos/AU/extract
     data:
       - group:
@@ -39,6 +39,9 @@ extractions:
             pricePerUnitUom:
               - text: litre
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[2]/span[2]
+            promotion:
+              - text: Save $3.55
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[3]/span[1]/span[1]
             listPrice:
               - text: $10.40
                 xpath: /html/body/div[4]
@@ -51,7 +54,16 @@ extractions:
             productUrl:
               - text: https://martinplace.romeosonline.com.au/lines/mother-energy-drink-sugar-free-4x500ml
                 xpath: /html/body/div[6]
+            description:
+              - text: Romeo’s Martin Place aims to include in the product list up to date
+                  pictures of the products and accurate ingredients, nutritional
+                  information and other information. However, product detail may
+                  change from time to time and there may be a delay in making
+                  updates. When precise information is important, we recommend
+                  that you read the label on the products you purchase or
+                  contact the manufacturer of the product.
+                xpath: /html/body/div[7]
             availabilityText:
               - text: In Stock
         xpath: /html/body
-    timestamp: 1610972095257
+    timestamp: 1611657446865
