@@ -9,7 +9,7 @@ module.exports = {
   },
   implementation,
 };
-async function implementation (
+async function implementation(
   // @ts-ignore
   // @ts-ignore
   // @ts-ignore
@@ -22,7 +22,19 @@ async function implementation (
   const { transform } = parameters;
   // @ts-ignore
   const { productDetails } = dependencies;
-  await context.evaluate(async (parentInput) => {
+
+  // Waits for enhancedContent to load
+  const enhancedContent = async () => {
+    const cssEnhancedContentDiv = '#product-content-block';
+    try {
+      await context.waitForSelector(cssEnhancedContentDiv, { timeout: 30000 });
+    } catch (error) {
+      console.log('Enhanced content not loaded. CSS: ', cssEnhancedContentDiv);
+    }
+  }
+  await enhancedContent();
+
+  await context.evaluate(async () => {
     const dataMore = document.querySelector('.instruction');
     if (dataMore) {
       const splits = dataMore.textContent.split('Mehr anzeigen');
@@ -33,7 +45,7 @@ async function implementation (
       document.body.setAttribute('desc', desc);
     }
 
-    function addElementToDocument (key, value) {
+    function addElementToDocument(key, value) {
       const catElement = document.createElement('div');
       catElement.id = key;
       catElement.textContent = value;
@@ -163,16 +175,16 @@ async function implementation (
   } catch (err) {
     console.log('Error adding recommended products');
   }
-    const cookiesPopupPresent = await context.evaluate(()=>{
-        return !!document.querySelector('button#uc-btn-accept-banner');
-    });
+  const cookiesPopupPresent = await context.evaluate(() => {
+    return !!document.querySelector('button#uc-btn-accept-banner');
+  });
 
-    if (cookiesPopupPresent){
-        await context.click('button#uc-btn-accept-banner',{ timeout:6000 });
-    }
+  if (cookiesPopupPresent) {
+    await context.click('button#uc-btn-accept-banner', { timeout: 6000 });
+  }
 
-    await context.waitForXPath('//div[contains(@class,"related-products")]/div[contains(@class,"tab-content")]//div[@role="option"]', { timeout:15000 })
-        .catch(() => console.log('No uninterruptedPDP for item'))
+  await context.waitForXPath('//div[contains(@class,"related-products")]/div[contains(@class,"tab-content")]//div[@role="option"]', { timeout: 15000 })
+    .catch(() => console.log('No uninterruptedPDP for item'))
 
   return await context.extract(productDetails, { transform });
 }
