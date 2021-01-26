@@ -27,23 +27,27 @@ module.exports = {
       const firstP = [...dirText]
         .filter(e => e.innerText.includes('Gebruik ') && !e.parentElement.innerText.includes('Gebruiksaanwijzing') && !e.previousElementSibling.innerText.includes('Resultaat') && !e.innerText.includes('Gebruik:'))
         .pop();
-      if (firstP !== undefined)directions.push('Gebruik'.concat(firstP.innerText.split('Gebruik').pop()));
+      if (firstP !== undefined && firstP.length !== 0) directions.push('Gebruik'.concat(firstP.innerText.split('Gebruik').pop()));
       // second paragraph contains directions
       const secondP = [...dirText].filter(e => e.innerText.includes('Gebruiksaanwijzing') && !e.innerText.includes('Gebruiksaanwijzing:'));
-      if (secondP.length !== 0) {
+      if (secondP !== undefined && secondP.length !== 0) {
         secondP.forEach(e => {
-          directions.push(e.innerText);
-          directions.push(e.nextElementSibling.innerText);
+          if (e.nextElementSibling !== null) {
+            directions.push(e.innerText);
+            directions.push(e.nextElementSibling.innerText);
+          } else {
+            directions.push('Gebruiksaanwijzing '.concat(e.innerText.split('Gebruiksaanwijzing').pop().trim()));
+          }
         });
       }
       // third paragraph contains directions
       const thirdP = [...dirText].filter(e => e.innerText.includes('Gebruik:')).pop();
-      if (thirdP !== undefined) {
+      if (thirdP !== undefined && thirdP.length !== 0) {
         directions.push(thirdP.innerText.split('Gebruik:').pop().trim());
       }
       // fourth paragraph contains directions
       const fourthP = [...dirText].filter(e => e.innerText.includes('Gebruiksaanwijzing:')).pop();
-      if (fourthP !== undefined) {
+      if (fourthP !== undefined && fourthP.length !== 0) {
         directions.push('Gebruiksaanwijzing: '.concat(fourthP.innerText.split('Gebruiksaanwijzing:').pop().trim()));
       }
       addElementToDocument('directions', directions.join(' '));
@@ -65,7 +69,11 @@ module.exports = {
       addElementToDocument('desc', desc.join(''));
       // rating
       const ratingValue = document.querySelector('meta[itemprop="ratingValue"]');
-      if (ratingValue !== null) ratingValue.setAttribute('ratingvalue', ratingValue.getAttribute('content').replace('.', ','));
+      if (ratingValue !== null && ratingValue.getAttribute('content').includes(',')) ratingValue.setAttribute('ratingvalue', ratingValue.replace('.', ','));
+      if (ratingValue !== null && ratingValue.getAttribute('content') !== '0' && (!ratingValue.getAttribute('content').includes(',') || !ratingValue.getAttribute('content').includes('.'))) {
+        ratingValue.setAttribute('ratingvalue', ratingValue.getAttribute('content').concat(',0'));
+      }
+      if (ratingValue !== null && ratingValue.getAttribute('content') === '0') ratingValue.setAttribute('ratingvalue', ratingValue.getAttribute('content'));
       // video url
       const ytPrefix = 'https://www.youtube-nocookie.com/embed/';
       const keyword = document.querySelector('a[class*="thumb youtube"]')
@@ -96,12 +104,6 @@ module.exports = {
     });
     var dataRef = await context.extract(productDetails, { transform });
     dataRef[0].group.forEach((row) => {
-      if (row.aggregateRating) {
-        row.aggregateRating.forEach(item => {
-          if (!item.text.includes('.') || !item.text.includes(',')) item.text = item.text.concat(',0');
-          if (item.text === '0,0') item.text = item.text.split(',').shift();
-        });
-      }
       if (row.variantInformation) {
         row.variantInformation.forEach(item => {
           item.text = item.text ? item.text.trim() : '';
