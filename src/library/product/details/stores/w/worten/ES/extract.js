@@ -239,6 +239,28 @@ module.exports = {
       await infiniteScroll();
     });
 
+    await context.waitForSelector('div[class="demoupUI-playimage"]').catch(() => { console.log('gallery video not present'); });
+    await context.evaluate(async () => {
+      const delay = t => new Promise(resolve => setTimeout(resolve, t));
+      const videoThumb = [...document.querySelectorAll('div[class="demoupUI-playimage"]')];
+      for (let i = 0; i < videoThumb.length; i++) {
+        videoThumb[i].click();
+        await delay(5000);
+      }
+      const videos = [...document.querySelectorAll('.demoupUI-videocontainer video>source[type="video/mp4"]')];
+      const urls = [];
+      for (let i = 0; i < videos.length; i++) {
+        if (videos[i].getAttribute('src').match('http')) {
+          urls.push(videos[i].getAttribute('src'));
+        } else {
+          urls.push('https:' + videos[i].getAttribute('src'));
+        }
+      }
+      const allUrls = urls.join(' | ');
+      document.querySelector('body').setAttribute('galleryVideo', allUrls);
+    });
+
+
     async function scrollToRec (node) {
       await context.evaluate(async (node) => {
         const element = document.querySelector(node) || null;
