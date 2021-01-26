@@ -17,6 +17,9 @@ fields:
   - name: nameExtended
     singleValue: false
     xpath: //h1[@class="c-product-detail__product-name"]
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
   - name: name
     singleValue: false
     xpath: //h1[@class="c-product-detail__product-name"]
@@ -94,7 +97,7 @@ fields:
     xpath: //html//div[@id='video']
   - name: variantInformation
     singleValue: false
-    xpath: //span[@class="c-product-detail__color-variants-label"]/text()
+    xpath: //html//div[@id='color']
     description: colour / scent / flavour / other
   - name: firstVariant
     singleValue: false
