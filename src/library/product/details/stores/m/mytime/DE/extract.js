@@ -30,7 +30,7 @@ module.exports = {
       };
       const isAvailable = document.querySelector('meta[property="product:availability"]');
       if (isAvailable !== null && isAvailable !== undefined) {
-        addElementToDocument('isAvailable', 'In Stock');
+        addElementToDocument('isAvailable', 'In stock');
       } else addElementToDocument('isAvailable', 'Out Of Stock');
 
       const allergyAdvice = document.querySelectorAll('li[id="tab-ingredientsAndAllergens"] ul > li');
