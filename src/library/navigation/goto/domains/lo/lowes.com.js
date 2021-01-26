@@ -9,11 +9,19 @@ module.exports = {
   },
   implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
     await context.setBlockAds(false);
-    url = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
-    await context.goto(url);
-    async function autoScroll (page) {
+    await context.setLoadAllResources(true);
+    await context.setLoadImages(true);
+    await context.setJavaScriptEnabled(true);
+    await context.goto(url, {
+      firstRequestTimeout: 60000,
+      timeout: 60000,
+      waitUntil: 'load',
+      checkBlocked: true,
+
+    });
+    async function autoScroll(page) {
       await page.evaluate(async () => {
-        await new Promise((resolve, reject) => {
+        await new Promise((resolve) => {
           var totalHeight = 0;
           var distance = 100;
           var timer = setInterval(() => {
