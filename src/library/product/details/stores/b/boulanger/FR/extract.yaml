@@ -166,11 +166,11 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[@itemprop='description']//video/@src | //div[@class='jp-type-single']//video/@src | //div[@class='video_grid_thumb_cell']/div/@data-video-asset-name | //video[@id='s7VideoElement']/source/@src
+    xpath: //div[@class='jp-type-single']//video/@src | //div[@class='video_grid_thumb_cell']/div/@data-video-asset-name | //video[@id='s7VideoElement']/source/@src
   - name: galleryVideos
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[@itemprop='description']//video/@src | //div[@class='jp-type-single']//video/@src | //div[@class='video_grid_thumb_cell']/div/@data-video-asset-name | //video[@id='s7VideoElement']/source/@src
+    xpath: //div[@class='jp-type-single']//video/@src | //div[@class='video_grid_thumb_cell']/div/@data-video-asset-name | //video[@id='s7VideoElement']/source/@src
   - name: name
     singleValue: true
     description: The product name
