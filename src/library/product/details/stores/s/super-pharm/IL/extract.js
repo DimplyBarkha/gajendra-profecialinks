@@ -22,7 +22,7 @@ async function implementation (
     //context.waitForNavigation();
     await context.click('div#results-boxes>a');
     let tmphref= await context.evaluate(function(){
-      return document.querySelector('div#results-boxes>a')?.href;
+      return document.querySelector('div#results-boxes>a').href;
     });
     //await context.goto(tmphref);
     await context.waitForNavigation();
