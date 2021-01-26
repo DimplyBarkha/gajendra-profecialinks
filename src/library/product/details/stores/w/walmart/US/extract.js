@@ -250,6 +250,8 @@ module.exports = {
       console.log(e.message);
     }
     if (!gotEnhancedContent) await getAplusContent('#added-marketing');
+    // remove script tag breaking the html extraction
+    await helper.removeScriptsWhichContains('seller_ny_js.bundle');
     await context.extract(dependencies.productDetails, { transform: transformParam, type: 'APPEND' });
   },
 };
