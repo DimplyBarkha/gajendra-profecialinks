@@ -1,9 +1,10 @@
-extends: ../shared 
+extends: ../shared
+singleRecord: null 
 fields:
   - name: image
-    singleValue: true
+    singleRecord: true
     description: URL of the main product image
-    xpath: //div[@class="hgroup__main-image"]/img/@src|//div[@class="image image--stretch"]/picture/img/@src
+    xpath: (//div[@class="hgroup__main-image"]/img/@src|//div[@class="image image--stretch"]/picture/img/@src)[1]
   - name: pageTimeStamp
     singleValue: true
     xpath: //div[@id="pageTimeStamp"]
@@ -27,11 +28,9 @@ fields:
   #  description: The categories (e.g. from breadcrumbs)
   #  xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' breadcrumb ')])[1]//li[position()>1]//a/span
   - name: nameExtended
-    singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    #xpath: //div[@class="hgroup__main-image"]/img/@alt|//h2[@class="hgroup__title "]
-    xpath: //div[@class="hgroup__main-image"]/img/@alt | //h2[contains(@class,"hgroup__title")] | //h1
+    xpath: (//div[@class="hgroup__main-image"]/img/@alt|//h2[contains(@class,"hgroup__title")]/text()|//h1)[1]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -44,7 +43,8 @@ fields:
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     #xpath: (//div[@class='product-hero__price-top']/div[@data-product-price])[1]
-    xpath: //span[@class='price']
+    # xpath: //span[@class='price']
+    xpath: (//span[@class='price'])[1]
   #- name: currencyOverride
   #  singleValue: true
   #  xpath: //div[@id='added_currency']
@@ -170,10 +170,8 @@ fields:
     description: URLs of videos on page
     xpath: //div[@id='videos']
   - name: name
-    singleValue: true
     description: The product name
-    #xpath: //div[@class="hgroup__main-image"]/img/@alt|//h2[@class="hgroup__title "]
-    xpath: //div[@class="hgroup__main-image"]/img/@alt | //h2[contains(@class,"hgroup__title")] | //h1
+    xpath: (//div[@class="hgroup__main-image"]/img/@alt|//h2[contains(@class,"hgroup__title")]/text()|//h1)[1]
   - name: inStorePrice #missing
     singleValue: true
     description: Price in the selected store

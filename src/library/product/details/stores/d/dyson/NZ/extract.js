@@ -1,5 +1,5 @@
 const { transform } = require('../transform');
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -8,7 +8,7 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  function stall (ms) {
+  function stall(ms) {
     return new Promise(resolve => {
       setTimeout(() => {
         resolve();
@@ -19,7 +19,7 @@ async function implementation (
   await stall(5000);
 
   await context.evaluate(async function () {
-    function stall (ms) {
+    function stall(ms) {
       return new Promise(resolve => {
         setTimeout(() => {
           resolve();
@@ -27,7 +27,7 @@ async function implementation (
       });
     }
 
-    function addHiddenDiv (id, content) {
+    function addHiddenDiv(id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
       newDiv.textContent = content;
@@ -51,7 +51,7 @@ async function implementation (
     if (!document.getElementById('sku')) {
       document.querySelectorAll('script').forEach(script => {
         //const matches = script.innerText.match(/productSKU: \"[0-9]+\-[0-9]+\"/);
-        const matches = script.innerText.match(/productSKU:\s?"(.+)",/);
+        const matches = script.innerText.match(/productSKU:\s?"(.+)"/);
         if (matches && matches.length) {
           addHiddenDiv('sku', matches[0].replace('productSKU: ', '').replace(/"/g, ''));
         }
@@ -90,7 +90,7 @@ async function implementation (
 
     let outOfStock = false;
     if (document.querySelector('.legacy__product__availability-messaging') &&
-    document.querySelector('.legacy__product__availability-messaging').innerText.includes('Unfortunately, this product is no longer available.')) {
+      document.querySelector('.legacy__product__availability-messaging').innerText.includes('Unfortunately, this product is no longer available.')) {
       outOfStock = true;
     }
 
@@ -104,9 +104,9 @@ async function implementation (
     let enhancedContent = '';
     document.querySelectorAll('.layout').forEach(el => {
       if (el.querySelector('h2') &&
-      (el.querySelector('h2').innerText.includes('In the box') ||
-      el.querySelector('h2').innerText.includes('Key features') ||
-      el.querySelector('h2').innerText.includes('All features'))) {
+        (el.querySelector('h2').innerText.includes('In the box') ||
+          el.querySelector('h2').innerText.includes('Key features') ||
+          el.querySelector('h2').innerText.includes('All features'))) {
         enhancedContent += el.innerText + ' ';
         el.querySelectorAll('img').forEach(img => {
           manufacturerImages.push(img.getAttribute('src'));
@@ -168,3 +168,4 @@ module.exports = {
   },
   implementation,
 };
+
