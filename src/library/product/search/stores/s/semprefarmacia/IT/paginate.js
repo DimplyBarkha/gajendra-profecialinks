@@ -5,7 +5,7 @@ module.exports = {
     country: 'IT',
     store: 'semprefarmacia',
     nextLinkSelector: null,
-    nextLinkXpath: '//div[@class="well clearfix"]//table//div[@class="pagination pagination-small"]//li[@class="active"]/following-sibling::li/a',
+    nextLinkXpath: '(//div[@class="pagination pagination-small"])[1]//li[contains(@class,"active") and not(contains(./a, ".."))]/following-sibling::li[1]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div.well.clearfix div.div_prod_griglia.ombra_div',
