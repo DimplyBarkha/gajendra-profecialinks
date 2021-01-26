@@ -2,12 +2,12 @@ input:
   _url: http://zalando.de
   URL: https://en.zalando.de/rains-bum-bag-mini-bum-bag-ri054h00q-g11.html
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=0e064dd1-ecc4-4f62-b90e-9785cc75d919/task=31cd900a-63cd-4b64-a62b-05fd5339f85b/ec8ccea3-d737-43ff-82f3-e9959222e53f.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=1283efc1-7be3-47d8-8b66-38e5f56442c1/task=d0545dc1-6c04-4481-aadb-5127e0f7be98/98ad94c1-d261-4048-b782-4e21e463e14c.html
     extractionConfigId: product/details/stores/z/zalando/DE/extract
     data:
       - group:
           - productUrl:
-              - text: https://www.zalando.de/rains-bum-bag-mini-guerteltasche-ri054h00q-g11.html?_rfl=en
+              - text: https://www.zalando.de/rains-bum-bag-mini-guerteltasche-ri054h00q-g11.html
                 xpath: /html/body/div[8]
             image:
               - text: https://img01.ztat.net/article/spp-media-p1/75a6cb1763db30eda6f309ceaef4f032/c50c441f4fdb4e41b64f97e7f73bdc71.jpg
@@ -30,7 +30,7 @@ extractions:
               - text: Rains - Gürteltasche - coral
                 xpath: /html/body/div[7]/@name_extended
             availabilityText:
-              - text: In Stock
+              - text: Out Of Stock
                 xpath: /html/body/div[7]/@availability_text
             description:
               - text: Obermaterial: Polyurethan | Futter: Textil |
@@ -50,6 +50,9 @@ extractions:
             variantId:
               - text: RI054H00Q-G110ONE000
                 xpath: /html/body/div[7]/@variant_id
+            mpc:
+              - text: RI054H00Q
+                xpath: /html/body/div[7]/@mpc
             ratingCount:
               - text: "16"
                 xpath: /html/body/div[7]/@rating_count
@@ -79,4 +82,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1611655937380
+    timestamp: 1611670542382

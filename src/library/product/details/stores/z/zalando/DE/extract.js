@@ -114,7 +114,7 @@ module.exports = {
           }
 
           const outOfStockText = document.evaluate(
-            '//x-wrapper-re-1-5//h2[text()="Out of stock"]',
+            '//x-wrapper-re-1-5//h2[text()="Ausverkauft"]',
             document,
             null,
             XPathResult.BOOLEAN_TYPE,
@@ -186,6 +186,12 @@ module.exports = {
             if (aggregateRating) aggregateRating = (Math.round(aggregateRating * 10) / 10).toString().replace('.', ',');
             addedVariant.setAttribute('rating_count', ratingCount);
             addedVariant.setAttribute('aggregate_rating', aggregateRating);
+
+            const mpc =
+              extraDataObj.model && extraDataObj.model.articleInfo && extraDataObj.model.articleInfo.modelId
+                ? extraDataObj.model.articleInfo.modelId
+                : '';
+            addedVariant.setAttribute('mpc', mpc);
           }
 
           addedVariant.setAttribute('variant_id', currentVariantId);
@@ -209,9 +215,27 @@ module.exports = {
           const descriptionArr = [];
           for (let j = 0; j < descriptionSnapthot.snapshotLength; j++) {
             const elem = descriptionSnapthot.snapshotItem(j);
-            descriptionArr.push(elem.textContent);
+            descriptionArr.push(elem.innerText);
           }
           addedVariant.setAttribute('description', descriptionArr.join(' | '));
+
+          const directions = document.evaluate(
+            '//div[@class="z-pdp__escape-grid"]//button//span[contains(text(), "Highlights")]/ancestor::h2/following-sibling::div//*[contains(. , "Empfohlene Anwendung")]/following-sibling::div[position() = 1]',
+            document,
+            null,
+            XPathResult.STRING_TYPE,
+            null,
+          ).stringValue;
+          document.body.setAttribute('directions', directions);
+
+          const ingredients = document.evaluate(
+            '//div[@class="z-pdp__escape-grid"]//button//span[contains(text(), "Inhaltsstoffe")]/ancestor::h2/following-sibling::div//span[contains(. , "Inhaltsstoffe")]/following-sibling::span[position() = 1]',
+            document,
+            null,
+            XPathResult.STRING_TYPE,
+            null,
+          ).stringValue;
+          document.body.setAttribute('ingredients', ingredients);
 
           document.body.appendChild(addedVariant);
         },
@@ -238,7 +262,10 @@ module.exports = {
           null,
         ).booleanValue;
 
-        addElementToDocument('product_url', window.location.href);
+        const productUrl = window.location.href.match(/(.+html)/)
+          ? window.location.href.match(/(.+html)/)[1]
+          : window.location.href;
+        addElementToDocument('product_url', productUrl);
         addElementToDocument('variant_count', iterations);
         addElementToDocument('image_zoom_feature_present', imageZoomFeaturePresent);
       },

@@ -92,6 +92,7 @@ fields:
 - name: mpc
   singleValue: tru
   description: The manufacturer model code (unique) of the product
+  xpath: '@mpc'
 - name: packSize
   singleValue: true
   description: The number of packs in the product offer (if stated separately on the
@@ -105,7 +106,7 @@ fields:
 - name: directions
   singleValue: true
   description: Content under "directions" header
-  xpath: html//div[@class="z-pdp__escape-grid"]//button//span[contains(text(), "care")]/ancestor::h2/following-sibling::div//span[contains(text(), "Care instructions")]/following-sibling::span
+  xpath: ancestor::html/body/@directions
 - name: warnings
   singleValue: true
   description: Content under "warnings" header
