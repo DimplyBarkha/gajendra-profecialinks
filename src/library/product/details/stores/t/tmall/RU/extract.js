@@ -1,4 +1,4 @@
-const {transform}=require('../RU/format')
+const {transform}=require('./format')
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
@@ -15,7 +15,7 @@ module.exports = {
         function timeout(ms) {
           return new Promise((resolve) => setTimeout(resolve, ms));
         }
-        
+
         if (document.querySelector('.bottom-recommendation')) {
           document.querySelector('.bottom-recommendation').scrollIntoView();
           console.log('Waiting for 3 seconds.');
@@ -26,7 +26,7 @@ module.exports = {
       console.log('Failed to scroll to bottom of page', er);
     }
 
-    await context.extract(productDetails, {
+    return await context.extract(productDetails, {
       transform
     });
   },

@@ -48,10 +48,10 @@ fields:
     defultValue: 1
   - name: availabilityText
     singleValue: false
-    xpath: //div[@class="next-message-content"]
-    regExp: (.+)
-    regExpReplace: 'Out of Stock'
-    defaultValue: 'In Stock'
+    xpath: boolean(//span[@class='addcart-wrap']//button[@class='next-btn next-large next-btn-primary addcart']//font//font[contains(.,'Add to Cart')])
+    # regExp: (.+)
+    # regExpReplace: 'Out of Stock'
+    # defaultValue: 'In Stock'
   - name: shippingInfo
     singleValue: false
     xpath: //ul[@class="sku-property-list"]/li[1]
