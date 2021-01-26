@@ -39,16 +39,9 @@ module.exports = {
         const price = toJSON.offers.price;
         addElementToDocument('price', '$'.concat(price));
       }
-
-      const description = document.querySelector('meta#meta-og-description')
+      const bullets = document.querySelector('meta#meta-og-description')
         ? document.querySelector('meta#meta-og-description').getAttribute('content') : null;
-      if (description !== null && document.querySelector('meta#meta-og-description') !== null) {
-        if (description.includes('Ingredients')) addElementToDocument('ingred', description.split('Ingredients:').pop().trim());
-        // @ts-ignore
-        if (description.includes('•')) document.querySelector('meta#meta-og-description').setAttribute('desc', description.match(/•/gm).length);
-        // @ts-ignore
-        if (description.includes('∙')) document.querySelector('meta#meta-og-description').setAttribute('desc', description.match(/∙/gm).length);
-      }
+      if (bullets !== null && bullets.includes('•')) addElementToDocument('bullets', bullets.match(/•/gm).length);
 
       const quantitySecond = document.evaluate('//span[contains(@class, "a8ac-less")]/following-sibling::text()[1]', document, null, XPathResult.STRING_TYPE).stringValue;
       const quantityFirst = document.evaluate('//span[contains(@class, "a8ac-less")]/preceding-sibling::text()[1]', document, null, XPathResult.STRING_TYPE).stringValue;
@@ -144,6 +137,7 @@ module.exports = {
           item.text = item.text ? item.text.replace(/•/g, '|').split('Ingredients').shift().trim() : '';
         });
       }
+
       if (row.ingredientsList) {
         row.ingredientsList.forEach(item => {
           item.text = item.text ? item.text.split('\n').join(' ') : '';
