@@ -107,17 +107,6 @@ module.exports = {
       console.log('we do not have the src for iframe');
     }
 
-    // const videoEle = await context.evaluate(async () => {
-    //   const videoEle = document.querySelector('.demoupUI-playimage');
-    //   if (videoEle) {
-    //     videoEle.click();
-    //     return videoEle;
-    //   }
-    // });
-    // if (videoEle) {
-    //   await context.waitForSelector('div.demoupUI-videocontainer video source');
-    // }
-
     const ImgaeEleNode = await context.evaluate(async () => {
       const ImgaeEle = document.querySelectorAll('div#inpage_container');
       if (ImgaeEle) {
@@ -127,40 +116,65 @@ module.exports = {
     if (ImgaeEleNode && Object.keys(ImgaeEleNode).length) {
       await context.waitForSelector('div#inpage_container img');
     }
+
+    const videos = async () => {
+      const cssVideos1 = 'source';
+      const cssVideos2 = 'input.flix-jw';
+      const cssVideosBtn = '.demoupUI-playimage';
+      try {
+        await context.waitForSelector(cssVideos1, { timeout: 10000 });
+      } catch (error) {
+        console.log(`cssVideos1: ${cssVideos1} not loaded`);
+      }
+
+      try {
+        await context.waitForSelector(cssVideos2, { timeout: 10000 });
+      } catch (error) {
+        console.log(`cssVideos2: ${cssVideos2} not loaded`);
+      }
+
+      try {
+        await context.waitForSelector(cssVideosBtn, { timeout: 10000 });
+        await context.click(cssVideosBtn);
+      } catch (error) {
+        console.log(`cssVideosBtn: ${cssVideosBtn}`);
+        console.log('cssVideosBtn');
+      }
+
+      await context.evaluate(async ({ cssVideos1, cssVideos2 }) => {
+        function addHiddenDiv(id, content) {
+          const newDiv = document.createElement('div');
+          newDiv.id = id;
+          newDiv.textContent = content;
+          newDiv.style.display = 'none';
+          document.body.appendChild(newDiv);
+        }
+
+        // sample url: https://www.bytecno.it/purificatore-ventilatore-dyson-pure-cool-bianco.html
+        // @ts-ignore
+        let allVideos = [...document.querySelectorAll(cssVideos2)].map(e => {
+          let rawData = e.value
+          let jsonData = JSON.parse(rawData);
+          let videos = jsonData.playlist && jsonData.playlist.map(video => {
+            let v = video.file;
+            return v.includes('http') ? v : `https:${v}`;
+          });
+          return videos
+        }).flat();
+
+        const videoUrlNodes = document.querySelectorAll(cssVideos1);
+        // @ts-ignore
+        const videos = [...videoUrlNodes].map(e => e.src)
+        allVideos = [...allVideos, ...videos];
+        allVideos.forEach(video => addHiddenDiv('video-url', video));
+      }, { cssVideos1, cssVideos2 });
+    }
+    await videos();
+
     await context.evaluate(async (context) => {
       // var src = '';
       const imageEle = document.querySelectorAll('div#inpage_container img');
       const imageMan = document.querySelectorAll('div.longdesc img');
-      const videoUrl = document.querySelectorAll('img.demoupUI-thumb');
-      // var ele = document.querySelectorAll('source');
-      // if (ele && ele.length) {
-      //   ele.forEach(e => {
-      //     if (e.src.includes('.mp4') || e.src.includes('.webm')) {
-      //       src = e.src;
-      //     }
-      //   });
-      // };
-      // if (src) {
-      //   addHiddenDiv('video-url', src);
-      // }
-
-      const videoId = document.evaluate("//div[contains(@class,'flix-videocontainer')]//input/@value", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-      const video = videoId && videoId.textContent.replace(/(.*){"file":"\\\/\\\/(.+)(.mp4)"(.*)/g, 'https://$2$3').replace(/\\\//g, '/').trim();
-      addHiddenDiv('added_video', video);
-
-      let videoUrls = '';
-      const videoEle = document.querySelector('.demoupUI-playimage');
-      if (videoEle) {
-        videoEle.click();
-
-        if (videoUrl) {
-
-          for (let i = 0; i < videoUrl.length; i++) videoUrls += videoUrl[i].src + ' | ';
-        }
-
-      }
-      addHiddenDiv('video-url', videoUrls);
-
       var urls = [];
       if (imageEle) {
         imageEle.forEach((ele) => {
