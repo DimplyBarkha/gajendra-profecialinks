@@ -41,17 +41,24 @@ const transform = (data) => {
         const alternateImagesArr = row.alternateImages.map((item) => {
           return item.text.replace('fm-thumbnail', 'fm-lg2');
         });
-        row.alternateImages = [{ text: alternateImagesArr.join(' || '), xpath: row.alternateImages[0].xpath }];
+        const uniqueAltImages = new Set(alternateImagesArr);
+        const altImagesArray = [];
+        uniqueAltImages.forEach((item) => {
+          altImagesArray.push(item);
+        });
+        row.alternateImages = [{ text: altImagesArray.join(' || '), xpath: row.alternateImages[0].xpath }];
       }
       if (row.description || row.descriptionBulletsPoints) {
         var text = '';
-
         if (row.description) {
-          row.description.map((item) => {
-            text += item.text + ' ';
+          const descriptionArr = row.description.map((item) => {
+            return item.text.replace('fm-thumbnail', 'fm-lg2');
+          });
+          const uniqueDescription = new Set(descriptionArr);
+          uniqueDescription.forEach((item) => {
+            text += item + ' ';
           });
         }
-
         if (row.descriptionBulletsPoints) {
           const descriptionBulletsPointsArr = row.descriptionBulletsPoints.map((item) => {
             return item.text;
@@ -67,7 +74,12 @@ const transform = (data) => {
         const specificationsArr = row.specifications.map((item) => {
           return item.text.replace(/\n+/, ' : ');
         });
-        row.specifications = [{ text: specificationsArr.join(' | '), xpath: row.specifications[0].xpath }];
+        const uniqueSpecifications = new Set(specificationsArr);
+        const specificationsArray = [];
+        uniqueSpecifications.forEach((item) => {
+          specificationsArray.push(item);
+        });
+        row.specifications = [{ text: specificationsArray.join(' | '), xpath: row.specifications[0].xpath }];
       }
       if (row.nameExtended) {
         var nameExtendedText = row.nameExtended[0].text.includes(row.brandText[0].text) ? row.nameExtended[0].text.replace(row.brandText[0].text, row.brandText[0].text + ' -') : row.brandText[0].text + ' - ' + row.nameExtended[0].text;
