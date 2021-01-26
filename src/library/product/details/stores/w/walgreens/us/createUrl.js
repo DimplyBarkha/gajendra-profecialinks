@@ -22,10 +22,10 @@ module.exports = {
       }
     });
     if (!path) {
-      context.extract('product/details/stores/w/walgreens/us/extract')
-        .then(() => {
-          throw new Error('404: Item not found');
-        });
+      // context.extract('product/details/stores/w/walgreens/us/extract')
+      //   .then(() => {
+      throw new Error('404: Item not found');
+      // });
     } else {
       console.log(`https://${domain}${path}`);
       return `https://${domain}${path}`;

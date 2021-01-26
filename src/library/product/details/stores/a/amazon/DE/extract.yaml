@@ -1,0 +1,174 @@
+extends: ../../../../sharedAmazon/shared
+fields:
+  - name: backupBrand
+    singleValue: false
+    xpath: //a[@id="bylineInfo"]/text() | //div[contains(@id,"bylineInfo") and not(//a[@id="bylineInfo"]/text())] | //a[@id="brandteaser"]/img/@alt
+    regExp: '(Marke:\s+(.+)$|Besuchen Sie den (.+)-Store|^(.+)$)'
+    regExpReplace: $2$3$4
+  - name: brandText
+    singleValue: false
+    xpath: //*[normalize-space(text())="Marke" or normalize-space(text())="Marke:"]/following-sibling::*[1]
+  - name: manufacturer
+    singleValue: false
+    xpath: //*[normalize-space(text())='Hersteller']/following-sibling::*[1]
+  - name: quantity
+    singleValue: false
+    xpath: //div[contains(@id, 'detail-bullets')]//text()[contains(., 'Größe')]/following-sibling::*[1] | //*[contains(text(),"Stückzahl")]/following-sibling::*[1] | //*[contains(text(),"Netto-Volumen")][not(ancestor::html//*[contains(text(),"Stückzahl")]/following-sibling::*[1])]/following-sibling::*[1]
+  - name: shippingWeight
+    singleValue: false
+    xpath: //*[normalize-space(text())="Verpackungsabmessungen"]/following-sibling::*[1][contains(.,';')]
+    regExp: '[^;]+$'
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //*[normalize-space(text())="Verpackungsabmessungen"]/following-sibling::*[1]
+    regExp: '^[^;]+'
+  - name: mpc
+    singleValue: false
+    xpath: //*[contains(text(),"Modellnummer")]/following-sibling::*[1]
+  - name: weightNet
+    singleValue: false
+    xpath: //*[contains(normalize-space(text()),"Produktabmessungen")]/following-sibling::*[1][contains(.,';')] | //*[contains(text(),"Netto-Gewicht")]/following-sibling::*[1]
+    regExp: '[^;]+$'
+  - name: countryOfOrigin
+    xpath: //*[normalize-space(text())="Ursprungsland"]/following-sibling::*[1]
+  - name: allergyAdvice
+    xpath: //*[normalize-space(text())="Allergie-Informationen"]/following-sibling::*[1]
+  - name: warnings
+    xpath: //p[preceding-sibling::h3[1][normalize-space(text())="Warnhinweise"]] | //p[starts-with(normalize-space(text()),"Zur Kontrolle")]
+  - name: shippingInfo
+    xpath: //a[@id="sellerProfileTriggerId"]/parent::* | //div[@id="merchant-info"]
+  - name: coupon
+    xpath: //div[@id="unclippedCouponSns"]//label
+  - name: ingredientsList
+    xpath: //p[preceding-sibling::*[not(name()=p)][1][contains(normalize-space(text()),"Inhaltsstoffe") or contains(normalize-space(text()),"Zutaten")]]
+  - name: ingredientsListFallback
+    xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Bestandteile')]/p
+  - name: storage
+    singleValue: false
+    xpath: //*[normalize-space(text())="Aufbewahrung"]/following-sibling::*[1]
+  - name: directions
+    singleValue: false
+    xpath: //p[preceding-sibling::h3[1][normalize-space(text())="Gebrauchsanweisung"]] | //div[@id='importantInformation_feature_div']//div[contains(.,'Gebrauchsanweisung')]/p[not(normalize-space(.)="")] | //div[@id='importantInformation_feature_div']//div[contains(.,'Gebrauchsanweisung')]/div[@class="TabPanel"]
+  - name: legalDisclaimer
+    singleValue: false
+    xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Haftungsausschluss')]/p
+
+  - name: servingSize
+    xpath: //*[contains(text(),"Portionsgröße")]/following-sibling::*[1]
+    regExp: '^[^\s]+'
+  - name: servingSizeUom
+    regExp: '[^\s]+$'
+    xpath: //*[contains(text(),"Portionsgröße")]/following-sibling::*[1]
+  - name: alcoholContent
+    xpath: //*[contains(text(),"Alkoholgehalt")]/following-sibling::*[1]
+    regExp: '^[^\s]+'
+  - name: caloriesPerServing
+    xpath: //*[contains(text(),"Nährwertangaben")]/following-sibling::div//*[contains(text(),"Energie (kcal)")]/following-sibling::*[1]
+    regExp: '^[^\s]+'
+  - name: totalFatPerServing
+    xpath: //*[contains(text(),"Nährwertangaben")]/following-sibling::div//*[contains(text(),"Fett")]/following-sibling::*[1]
+    regExp: '^[^\s]+'
+  - name: totalFatPerServingUom
+    xpath: //*[contains(text(),"Nährwertangaben")]/following-sibling::div//*[contains(text(),"Fett")]/following-sibling::*[1]
+    regExp: '[^\s]+$'
+  - name: saturatedFatPerServing
+    xpath: //*[contains(text(),"Nährwertangaben")]/following-sibling::div//*[contains(text(),"Gesättigte Fettsäuren")]/following-sibling::*[1]
+    regExp: '^[^\s]+'
+  - name: saturatedFatPerServingUom
+    xpath: //*[contains(text(),"Nährwertangaben")]/following-sibling::div//*[contains(text(),"Gesättigte Fettsäuren")]/following-sibling::*[1]
+    regExp: '[^\s]+$'
+  - name: sodiumPerServing
+    xpath: //*[contains(text(),"Nährwertangaben")]/following-sibling::div//*[contains(text(),"Natrium")]/following-sibling::*[1]
+    regExp: '^[^\s]+'
+  - name: sodiumPerServingUom
+    xpath: //*[contains(text(),"Nährwertangaben")]/following-sibling::div//*[contains(text(),"Natrium")]/following-sibling::*[1]
+    regExp: '[^\s]+$'
+  - name: totalCarbPerServing
+    xpath: //*[contains(text(),"Nährwertangaben")]/following-sibling::div//*[contains(text(),"Kohlenhydrate")]/following-sibling::*[1]
+    regExp: '^[^\s]+'
+  - name: totalCarbPerServingUom
+    xpath: //*[contains(text(),"Nährwertangaben")]/following-sibling::div//*[contains(text(),"Kohlenhydrate")]/following-sibling::*[1]
+    regExp: '[^\s]+$'
+  - name: totalSugarsPerServing
+    xpath: //*[contains(text(),"Nährwertangaben")]/following-sibling::div//*[contains(text(),"Zucker")]/following-sibling::*[1]
+    regExp: '^[^\s]+'
+  - name: totalSugarsPerServingUom
+    xpath: //*[contains(text(),"Nährwertangaben")]/following-sibling::div//*[contains(text(),"Zucker")]/following-sibling::*[1]
+    regExp: '[^\s]+$'
+  - name: proteinPerServing
+    xpath: //*[contains(text(),"Nährwertangaben")]/following-sibling::div//*[contains(text(),"Eiweiß")]/following-sibling::*[1]
+    regExp: '^[^\s]+'
+  - name: proteinPerServingUom
+    xpath: //*[contains(text(),"Nährwertangaben")]/following-sibling::div//*[contains(text(),"Eiweiß")]/following-sibling::*[1]
+    regExp: '[^\s]+$'
+  - name: dietaryFibrePerServing
+    xpath: //*[contains(text(),"Nährwertangaben")]/following-sibling::div//*[contains(text(),"Ballaststoffe")]/following-sibling::*[1]
+    regExp: '^[^\s]+'
+  - name: dietaryFibrePerServingUom
+    xpath: //*[contains(text(),"Nährwertangaben")]/following-sibling::div//*[contains(text(),"Ballaststoffe")]/following-sibling::*[1]
+    regExp: '[^\s]+$'
+  - name: calciumPerServing
+    xpath: //*[contains(text(),"Nährwertangaben")]/following-sibling::div//*[contains(text(),"Calcium")]/following-sibling::*[1]
+    regExp: '^[^\s]+'
+  - name: calciumPerServingUom
+    xpath: //*[contains(text(),"Nährwertangaben")]/following-sibling::div//*[contains(text(),"Calcium")]/following-sibling::*[1]
+    regExp: '[^\s]+$'
+  - name: vitaminAPerServing
+    xpath: //*[contains(text(),"Nährwertangaben")]/following-sibling::div//*[contains(text(),"Vitamin A")]/following-sibling::*[1]
+    regExp: '^[^\s]+'
+  - name: vitaminAPerServingUom
+    xpath: //*[contains(text(),"Nährwertangaben")]/following-sibling::div//*[contains(text(),"Vitamin A")]/following-sibling::*[1]
+    regExp: '[^\s]+$'
+  - name: vitaminCPerServing
+    xpath: //*[contains(text(),"Nährwertangaben")]/following-sibling::div//*[contains(text(),"Vitamin C")]/following-sibling::*[1]
+    regExp: '^[^\s]+'
+  - name: vitaminCPerServingUom
+    xpath: //*[contains(text(),"Nährwertangaben")]/following-sibling::div//*[contains(text(),"Vitamin C")]/following-sibling::*[1]
+    regExp: '[^\s]+$'
+  - name: saltPerServing
+    xpath: //*[contains(text(),"Nährwertangaben")]/following-sibling::div//*[contains(text(),"Salz")]/following-sibling::*[1]
+    regExp: '^[^\s]+'
+  - name: saltPerServingUom
+    xpath: //*[contains(text(),"Nährwertangaben")]/following-sibling::div//*[contains(text(),"Salz")]/following-sibling::*[1]
+    regExp: '[^\s]+$'
+  
+  - name: salesRankRaw
+    singleValue: false 
+    xpath: //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and contains(text(), "See")]/preceding-sibling::text()[1] | //div[contains(@id, "productDetails_feature_div")]//a[contains(@href, "bestseller")]/ancestor::span[1] | //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and not(contains(text(), "See"))]/ancestor::li[1]
+    regExp: Nr.\s*([0-9,]{1,})[ \t]*in[ \t]*([^\(]+)
+    regExpReplace: >-
+      #$1 in $2
+  - name: salesRank
+    singleValue: false
+    xpath: //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and contains(text(), "See")]/preceding-sibling::text()[1] | //div[contains(@id, "productDetails_feature_div")]//a[contains(@href, "bestseller")]/ancestor::span[1] | //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and not(contains(text(), "See"))]/ancestor::li[1]
+    regExp: Nr.\s*([0-9,]{1,})[ \t]*in[ \t]*([^\(]+)
+    regExpReplace: $1
+  - name: salesRankCategory
+    singleValue: false
+    xpath: //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and contains(text(), "See")]/preceding-sibling::text()[1] | //div[contains(@id, "productDetails_feature_div")]//a[contains(@href, "bestseller")]/ancestor::span[1] | //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and not(contains(text(), "See"))]/ancestor::li[1]
+    regExp: Nr.\s*([0-9,]{1,})[ \t]*in[ \t]*([^\(]+)
+    regExpReplace: $2
+  
+
+  - name: technicalInformationPdfPresent
+    xpath: //div[contains(., 'technische')]//span[contains(., 'pdf') or contains(., 'PDF')]
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: news
+    singleValue: false
+    xpath: //table[contains(@id,"productDetails_detailBullets")]//tr/th[contains(text(),"Amazon Bestseller-Rang")]/../td//span[contains(text(), "Nr. 1 ")]
+  
+  - name: energyEfficiency
+    xpath: //*[contains(text(),"Energieeffizienzklasse")]/following-sibling::*[1]
+
+  - name: imageZoomFeaturePresent
+    #singleValue: true
+    xpath: //span[@id="canvasCaption" and contains(text(),  "Maus über")] | //span[@id="canvasCaption" and contains(text(),  "Roll over")]
+  ## Did not find Examples.
+  # - name: lowestPriceIn30DaysBoolean
+  #   singleValue: true
+  #   xpath:
+  # - name: primeFlagBoolean
+  #   singleValue: true
+  #   xpath:
