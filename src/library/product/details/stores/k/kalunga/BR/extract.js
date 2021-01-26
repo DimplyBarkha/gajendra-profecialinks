@@ -26,13 +26,16 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       };
-      const script = JSON.parse(document.querySelectorAll('script[type="application/ld+json"]')[0].innerHTML);
-      if (script) {
-        if (script.brand) addElementToDocument('brandName', script.brand.name);
-        if (script.sku) addElementToDocument('sku_number', script.sku);
-        if (script.sku) addElementToDocument('sku_code', script.sku);
-        if (script.gtin) addElementToDocument('ean_gtin', script.gtin);
-      }
+      const aiviability = document.getElementById('imgProdutoIndisponivel');
+      if (aiviability) addElementToDocument('aiviability', 'Out Of Stock');
+      else addElementToDocument('aiviability', 'In Stock');
+      // const script = JSON.parse(document.querySelectorAll('script[type="application/ld+json"]')[0].innerHTML);
+      // if (script) {
+      //   if (script.brand) addElementToDocument('brandName', script.brand.name);
+      //   if (script.sku) addElementToDocument('sku_number', script.sku);
+      //   if (script.sku) addElementToDocument('sku_code', script.sku);
+      //   if (script.gtin) addElementToDocument('ean_gtin', script.gtin);
+      // }
     });
     return await context.extract(productDetails, { transform });
   }

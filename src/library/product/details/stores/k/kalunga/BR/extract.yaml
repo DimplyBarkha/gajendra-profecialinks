@@ -3,129 +3,39 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: name
-    singleValue: true
-    description: name of product
-    xpath: //div[@id='header-infos-produto']/h1
-  - name: metaKeywords
-    singleValue: true
-    xpath: //meta[@name='keywords']/@content
-  - name: url
-    singleValue: true
-    xpath: //link[@rel='canonical']/@href
-  - name: image
-    singleValue: false
-    description: images of product 
-    xpath: //div[@class='owl-stage']/div[@class='owl-item active']/div[@class='galeriaproduto__item item']/img/@src
-  - name: imageAlt
-    singleValue: false
-    description: images alt of product
-    xpath: //div[@class='owl-stage']/div[@class='owl-item active']/div[@class='galeriaproduto__item item']/img/@alt
-  - name: variantId
-    singleValue: true
-    description: unic code of product
-    xpath: //div[@id='header-infos-produto']//p[@id='codigo-produto']
-  - name: discount
-    singleValue: true
-    description: discount of product
-    xpath: //div[@id='desconto_content_info_produto']/span[@class='badge']
-  - name: price
-    singleValue: true
-    xpath: //div[@class='row produtoinfos border rounded px-4 py-4 m-0']/h3[@class='produtoinfos__price']/span
-    type: NUMBER
-  - name: currency
-    singleValue: true
-    description: currency of product
-    xpath: //div[@class='row produtoinfos border rounded px-4 py-4 m-0']/h3[@class='produtoinfos__price']/span
-  - name: listPrice
-    singleValue: true
-    xpath: //div[@id='desconto_content_info_produto']/p/del
-    type: NUMBER
-  - name: description
-    singleValue: false
-    description: description of product
-    xpath: //div[@id='descricaoProduto']
-  - name: comments
-    singleValue: false
-    description: comments for product
-    xpath: //div[@id='avaliacao_clientes_content']/div[@class='reviewsproduto__commentitem row avaliacao_box']/div[@class='col-12 col-md-8 reviews border-right']
-  - name: manufacturerImages
-    singleValue: false
-    description: additional images product
-    xpath: //picture/img/@src
-  - name: manufacturerDescription
-    singleValue: false
-    description: additional description product
-    xpath: //div[@id='dvEspecificacaoAdicionalTop']/div/div
-  - name: manufacturer
-    singleValue: true
-    xpath: //a[@class='marca-produto']
-  - name: availabilityText
-    xpath: //div[@id='availabilityText']
-  - name: category
-    singleValue: false
-    xpath: //div[@class='breadcrumbs']/a/@title
-  - name: brandText
-    singleValue: true
-    xpath: //div[@id='brandName']
-  - name: nameExtendet
-    singleValue: true
-    xpath: //div[@id='container_produto']/div[@id='header-infos-produto']/h1
-  - name: specifications
-    singleValue: false
-    xpath: //div[@id='descricaoPadrao']/li
-  - name: sku
-    singleValue: true
-    xpath: //div[@id='sku_number']
-  - name: retailer_product_code
-    singleValue: true
-    xpath: //div[@id='header-infos-produto']//p[@id='codigo-produto']
-  - name: product_image
-    singleValue: true
-    xpath: //div[@class='images-container']/div/figure[@itemprop='associatedMedia']/a/img/@src
-  - name: description
-    singleValue: false
-    xpath: //div[@id='descricaoPadrao']/li
-  - name: sku_code
-    singleValue: true
-    xpath: //div[@id='sku_code']
-  - name: aggregateRating
-    singleValue: true
-    xpath: //div[@id='reviews-produto']/div[@class='reviewsproduto__reviews col-12 col-xl-4']/h3
-    type: NUMBER
-  - name: warranty
-    singleValue: false
-    xpath: //div[@id='descricaoPadrao']/li
-  - name: eangtin
-    singleValue: true
-    xpath: //div[@id='ean_gtin']
-  - name: descriptionBullets
-    singleValue: false
-    xpath: //div[@id='descricaoPadrao']/li
-  - name: video
-    singleValue: true
-    xpath: //div[@class='embed-responsive embed-responsive-16by9']/iframe[@class='embed-responsive-item']/@src
-  - name: variantCount
-    singleValue: true
-    xpath: //input[@id='txtQuantidade']/@value
   - name: nameExtended
     singleValue: true
     xpath: //div[@id='header-infos-produto']/h1
-  - name: packaging
+  - name: _url
+    singleValue: true
+  - name: image
+    singleValue: true
+    xpath: //div[@class='owl-item active']/div[@class='item']/div[@class='images-container']/div[@class='main-image text-center']/figure/a/img[@class='img-fluid img-prod-lazy img-grande']/@src
+  - name: variantId
+    singleValue: true
+    xpath: //div[@id='header-infos-produto']//p[@id='codigo-produto']
+  - name: price
+    singleValue: true
+    xpath: //div[@class='row produtoinfos border rounded px-4 py-4 m-0']/h3[@class='produtoinfos__price']/span
+  - name: description
     singleValue: false
-    xpath: //div[@id='descricaoPadrao']/li
+    xpath: //div[@id='descricaoPadrao']/p | //div[@id='descricaoPadrao']/ul/li
+  - name: category
+    singleValue: false
+    xpath: //div[@class='breadcrumbs']/a/@title
+  - name: specificationsList
+    singleValue: false
+    xpath: //div[@id='descricaoPadrao']/p/strong
+  - name: specifications
+    singleValue: false
+    xpath: //div[@id='descricaoPadrao']/p
+  - name: descriptionBullets
+    singleValue: false
+    xpath: //div[@id='descricaoPadrao']/ul/li
   - name: availabilityText
-    singleValue: false
-    defaultValue: In Stock.
+    singleValue: true
+    xpath: //div[@id='aiviability']
+  - name: _input
+    singleValue: true
   - name: alternateImages
-    singleValue: false
     xpath: //div[@class='owl-stage']/div[@class='owl-item active']/div/img/@src
-  - name: secondaryImageTotal
-    singleValue: false
-    xpath: //div[@class='owl-stage']/div[@class='owl-item active']/div/img/@src
-  - name: manufacturerImages
-    singleValue: false
-    xpath: //a[@class='comprejuntoproduct__link']/picture[@class='comprejuntoproduct__image']/img/@src
-  - name: additionalDescBulletInfo
-    singleValue: false
-    xpath: //div[@id='descricaoPadrao']/li

@@ -73,7 +73,7 @@ module.exports = {
       }
       getData();
     });
-    await context.waitForSelector('#hrefs');
+    await context.waitForSelector('#hrefs', { timeout: 500000 });
     return await context.extract(productDetails, { transform });
   },
 };
