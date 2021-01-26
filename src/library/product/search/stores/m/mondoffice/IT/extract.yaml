@@ -1,37 +1,37 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //article[contains(@class, 'product-card')]
 fields:
   - name: productUrl
     singleValue: true
     description: url of product
-    xpath: //section[@class='page-category__products-cards']/article/a/@href
+    xpath: //a/@href
   - name: thumbnail
-    singleValue: true
+    # singleValue: true
     description: The URL for the product thumbnail image
-    xpath: //figure/img[@class='product-card__pic']/@src
+    xpath: //img[@class='product-card__pic']/@src
   - name: name
-    singleValue: true
+    # singleValue: true
     description: The product name
-    xpath: //section[@class='page-category__products-cards']/article/a/@title
+    xpath: //a//@title
   - name: sku
-    singleValue: true
+    # singleValue: true
     description: The model code of the product
-    xpath: //section[@class='page-category__products-cards']/article/@data-sku
+    xpath: //@data-sku
   - name: price
-    singleValue: true
+    # singleValue: true
     description: The offered price for the product
-    xpath: //section[@class='page-category__products-cards']/article/form/div/span/span/span[@class='product-card__price-value']/span[@class='price-value']
+    xpath: //form/div/span/span/span[@class='product-card__price-value']/span[@class='price-value']
     type: CURRENCY
   - name: _pageTimestamp
-    singleValue: true
-  - name: input
-    singleValue: true
-    xpath: //h1[@class='page-category__search-title mb-4 mt-1']
-  - name: url
-    singleValue: true
-    xpath: //div[@id='url']
+    # singleValue: true
+  - name: _input
+    # singleValue: true
+    # xpath: //h1[@class='page-category__search-title mb-4 mt-1']
+  - name: _url
+    # singleValue: true
+    # xpath: //div[@id='url']
   - name: id
-    singleValue: true
+    # singleValue: true
     xpath: //article/@data-sku

@@ -17,7 +17,24 @@ module.exports = {
   ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    await context.evaluate(() => {
+    await context.evaluate(async() => {
+      // let scrollTop = 0;
+      // while (scrollTop <= 20000) {
+      //   await stall(200);
+      //   scrollTop += 4000;
+      //   window.scroll(0, scrollTop);
+      //   if (scrollTop === 20000) {
+      //     await stall(1000);
+      //     break;
+      //   }
+      // }
+      // function stall(ms) {
+      //   return new Promise((resolve) => {
+      //     setTimeout(() => {
+      //       resolve();
+      //     }, ms);
+      //   });
+      // }
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
