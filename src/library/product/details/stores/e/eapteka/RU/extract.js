@@ -17,6 +17,10 @@ module.exports = {
       const productName = document.querySelector('div.new-offer-box h1')
         ? document.querySelector('div.new-offer-box h1').textContent
         : '';
+
+      const descriptionElem = document.querySelector('div#instruction_DESCRIPTION > div.offer-instruction__item-text');
+      if (descriptionElem) addedElem.setAttribute('description', descriptionElem.innerText);
+
       const quantity = productName.match(/(\d+) шт.*?$/) ? productName.match(/(\d+) шт.*?$/)[1] : '';
       const packSize = productName.match(/(\d+)х\d+ шт.*?$/) ? productName.match(/(\d+)х\d+ шт.*?$/)[1] : '';
 
@@ -42,7 +46,7 @@ module.exports = {
       addedElem.setAttribute('price', `${price} руб.`);
 
       const warningsElements = document.querySelectorAll(
-        'div#instruction_PREGNANCY_USE > div, div#instruction_CONTRAINDICATIONS > div, div#instruction_SIDE_EFFECTS > div, div#instruction_INTERACTION > div, div#instruction_OVERDOSE > div, div#instruction_SPECIAL_INSTRUCTIONS > div',
+        'div#instruction_PREGNANCY_USE > div, div#instruction_CONTRAINDICATIONS > div, div#instruction_SIDE_EFFECTS > div, div#instruction_OVERDOSE > div',
       );
       const warnings = Array.from(warningsElements)
         .map((elem) => elem.textContent)

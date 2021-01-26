@@ -2,7 +2,7 @@ input:
   _url: http://eapteka.ru
   URL: https://www.eapteka.ru/goods/id291213/
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=ac4aa45a-1407-4677-9e3c-ce2389ec1faf/task=2e813625-d6c5-46a7-8f33-bcc6d133f265/5f67cc2d-7da3-4de5-bc30-e60051e3b233.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=61bd9a90-af2b-43ee-8065-abd08d9eee71/task=e830ae5f-10e5-47c7-85aa-761fe6911820/8ee06bf5-0408-4084-847d-0bbc6a432a1f.html
     extractionConfigId: product/details/stores/e/eapteka/RU/extract
     data:
       - group:
@@ -58,12 +58,12 @@ extractions:
                   Салфетки для интимной гигиены превосходно освежают,
                   нейтрализируют интимный запах, а также увлажняют, не разрушая
                   при этом естественную бактериальную флору, поскольку обладают
-                  pH физиологически свойственным коже в интимных местах. 
-                   
-                   Не содержат спирта. 
-                   
-                   Благодаря упаковке флип-топ, салфетки очень удобны в использовании.
-                xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/div[1]
+                  pH физиологически свойственным коже в интимных местах.
+
+                  Не содержат спирта.
+
+                  Благодаря упаковке флип-топ, салфетки очень удобны в использовании.
+                xpath: /html/body/div[9]/@description
             brandText:
               - text: Белла
                 xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/p[2]/a[1]
@@ -111,4 +111,4 @@ extractions:
             secondaryImageTotal:
               - text: "0"
         xpath: /
-    timestamp: 1611661281619
+    timestamp: 1611672500711
