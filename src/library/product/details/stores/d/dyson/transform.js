@@ -84,7 +84,7 @@ const transform = (data) => {
     }
   }
 
-  const clean = text => text.toString()
+  const clean = text => text && text.toString()
     .replace(/\r\n|\r|\n/g, ' ')
     .replace(/&amp;nbsp;/g, ' ')
     .replace(/&amp;#160/g, ' ')
