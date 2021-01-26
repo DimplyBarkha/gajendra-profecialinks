@@ -38,6 +38,9 @@ async function implementation (
           mode: 'cors',
         },
       );
+      if (response.status !== 200 && page === 1){
+        throw new Error('No API calls were successful')
+      }
 
       if (response.status !== 200) {
         moreItems = false;
