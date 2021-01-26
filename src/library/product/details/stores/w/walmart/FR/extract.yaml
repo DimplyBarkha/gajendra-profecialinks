@@ -1,0 +1,173 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: image
+    singleValue: false
+    xpath: (//div[@role="presentation"]//img[@id="main-image"]/@src)[1]
+  - name: imageAlt
+    singleValue: false
+    xpath: (//div[@role="presentation"]//img[@id="main-image"]/@alt)[1]
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@data-automation="thumb-gallery-image"]//a[@data-automation-selected="false"]//div[@class='css-128ipej']/@style
+    # url("https://i5.walmartimages.ca/images/Large/682/697/6000196682697.jpg");
+    regExp: url\(\"(.+?)\"
+    regExpReplace: $1
+  - name: category
+    singleValue: false
+    xpath: //ol[@data-automation="desktop-breadcrumbs"]//li//a[not(text()='Walmart.ca') and not(text()='Home')]
+  - name: name
+    singleValue: false
+    xpath: //h1[@data-automation="product-title"]
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@data-automation="product-title"]
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[.//h1[@data-automation="product-title"]]//button[@data-automation="cta-button" and not(@disabled)]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: price
+    singleValue: false
+    xpath: //span[@data-automation="buybox-price"]
+  - name: listPrice
+    singleValue: false
+    xpath: //span[@data-automation="buybox-price-old"]
+  - name:  description
+    singleValue: false
+    xpath: //div[@data-automation="long-description" and not(text()='.')]  | //div[@data-automation="feature-specifications" and not(text()='• .') and not(text()='•')]
+  - name: brandText
+    singleValue: false
+    xpath: //span[@data-automation="brand"]
+  - name: brandLink
+    singleValue: false
+    xpath: //span[@data-automation="brand"]//a/@href
+  - name: mpc
+    singleValue: false
+    xpath: //div[contains(@class,'css-1dar8at')]//div[contains(@class,'css-w8lmum')]//div[contains(text(),'Model')]//following-sibling::div
+  - name: gtin
+    singleValue: false
+    xpath: //div[contains(@class,'css-1dar8at')]//div[contains(@class,'css-w8lmum')]//div[text()='UPC']//following-sibling::div
+  - name: sku
+    singleValue: false
+    xpath: //@sku
+  - name: variantId
+    singleValue: false
+    xpath: //@sku
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+    type: NUMBER    
+  - name: promotion
+    singleValue: false
+    xpath: //div[@data-automation="product-multisave-badge"]//span[contains(@class,'e1pkok6d10')]
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[normalize-space()='Nutritional information' and contains(@class,'css-1k2abhj')]//following-sibling::div
+  - name: specifications
+    singleValue: false
+    xpath: //section[@class='css-1avgzwm eqaamsw0']//div[@class='css-1dar8at e1cuz6d10']//div[@class='css-w8lmum e1cuz6d11']
+  - name: storage
+    singleValue: false
+    xpath: //div[contains(@class,'css-1dar8at')]//div[contains(@class,'css-w8lmum')]//div[contains(text(),'Storage')]//following-sibling::div    
+  - name: ratingCount
+    singleValue: false
+    xpath: //button[@data-automation="review-link"]
+    regExp: ([\d\.]+)
+    regExpReplace: $1    
+  - name: aggregateRating
+    singleValue: false
+    xpath: //script[@type="application/ld+json" and contains(.,"aggregateRating")]
+    regExp: ratingValue":([^,|^}]+)
+    regExpReplace: $1
+  - name: quantity
+    singleValue: false
+    xpath:    
+  - name: pricePerUnit
+    singleValue: false
+    xpath: //span[@data-automation="buybox-price-ppu"]
+    # $4.34/1kg
+    regExp: (.+?)\/
+    regExpReplace: $1    
+  - name: pricePerUnitUom
+    singleValue: false
+    # $4.34/1kg
+    xpath: //span[@data-automation="buybox-price-ppu"]
+    regExp: \/(.+)
+    regExpReplace: $1  
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    xpath: (//img[@alt="zoomed image"]/@src)[1]
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No    
+  - name: shippingInfo
+    singleValue: false
+    xpath: //div[@data-automation="sold-shipped"]  
+  - name: warranty
+    singleValue: false
+    xpath: //div[@data-automation="sold-shipped"]  
+  - name: termsAndConditions
+    singleValue: false
+    xpath: //a[text()='Terms of Use']
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No    
+  - name: privacyPolicy
+    singleValue: false
+    xpath: //a[text()='Privacy Policy']
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //@pdp | //p[@data-automation='product-title']
+    regExp: '[^|]+'
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //div[@data-section-tag="in-the-box"]//h3[preceding-sibling::div]|//div[@data-section-caption="In The Box"]//h3[preceding-sibling::div]|//@witbText
+    regExp: '[^|]+'
+  - name: inTheBoxUrl
+    singleValue: false
+    xpath: //div[@data-section-tag="in-the-box"]//img/@src|//div[@data-section-caption="In The Box"]//img/@src|//@witbUrl
+    regExp: '[^|]+'
+  # - name: backUpInTheBoxText
+  #   singleValue: false
+  #   xpath: //div[@class='css-1x8ztzr e1cuz6d12' and contains(text(),'Included Accessories')]/following-sibling::div|//div[@data-automation="feature-specifications" and contains(text(),'In the box')]//br[following-sibling::node()[self::*|self::text()[normalize-space()]][1][self::br]]/preceding-sibling::text()[contains(.,'•')]
+  # - name: inTheBoxUrl
+  #   singleValue: false
+  #   xpath: //div[@id="witb_url"]
+  #   regExp: '[^|]+'
+  - name: hasComparisonTable
+    xpath: boolean(//div[@data-section-template-code="product-comparison-table"] | //@ctr)
+    defaultValue: No
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@id="manu_desc"]
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id="manu_images"]
+  - name: color
+    singleValue: false
+    xpath: //script[@type="application/ld+json" and contains(.,"Color:")]
+    regExp: Color:\s*([^<]+)
+    regExpReplace: $1
+  - name: weightNet
+    singleValue: false
+    xpath: //script[@type="application/ld+json" and contains(.,"Item weight:")]
+    regExp: Item\s*weight:\s*([^<]+)
+    regExpReplace: $1
+  - name: weightGross
+    singleValue: false
+    xpath: //script[@type="application/ld+json" and contains(.,"Package weight:")]
+    regExp: Package\s*weight:\s*([^<]+)
+    regExpReplace: $1
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[@data-automation="thumb-gallery-image"]//a[@data-automation-selected="false"]//div[@class='css-128ipej']/@style)
