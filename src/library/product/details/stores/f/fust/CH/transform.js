@@ -26,7 +26,7 @@ const transform = (data) => {
 
           }
           else{
-             item.text = "Out Of Stock";
+             item.text = "Out of Stock";
 
           }
 
