@@ -23,7 +23,7 @@ async function implementation (
     const allProducts = document.querySelectorAll('ul[class*="products"] > li[class*="item"]');
     for (let i = 0; i < allProducts.length; i++) {
       const price = allProducts[i].querySelector('span.price > span.price')
-        ? allProducts[i].querySelector('span.price > span.price').textContent.replace(/\D/g, '').replace(/(\d{3})$/g, ',$1') : '';
+        ? allProducts[i].querySelector('span.price > span.price').textContent.replace(/\D/g, '') : '';
       const rawData = allProducts[i].querySelector('script[type="text/javascript"]').textContent.trim();
       const cutOnS = rawData.indexOf('{', (rawData.indexOf('{') + 1));
       const cutOnF = rawData.indexOf('}', (rawData.indexOf('}') + 1));
