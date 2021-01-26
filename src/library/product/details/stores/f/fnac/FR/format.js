@@ -107,14 +107,13 @@ const transform = (data) => {
           .replace(/(\n\s*){4,}/g, ' || ')
           .replace(/(\n\s*){2,}/g, ' : '));
       }
-      if(row.inTheBoxUrl){
-        row.inTheBoxUrl.forEach((element)=>{
-            let text= element.text.split(',')[0].match(/(.+)(jpg)/g)[0];
-            let finalText = `https:${text}`;
-            element.text = finalText;
-            
-        })
-    }
+      if (row.inTheBoxUrl) {
+        row.inTheBoxUrl.forEach((element) => {
+          const text = element.text.includes(',') ? ((element.text.split(',')[0].match(/(.+)(jpg)/g)) ? element.text.split(',')[0].match(/(.+)(jpg)/g)[0] : element.text) : element.text;
+          const finalText = `https:${text}`;
+          element.text = finalText;
+        });
+      }
     }
   }
   return data;
