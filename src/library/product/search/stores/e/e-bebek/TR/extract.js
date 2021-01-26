@@ -10,7 +10,7 @@ module.exports = {
     domain: 'e-bebek.com',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
+  implementation: async (inputs, parameters, context, dependencies) => {
     await new Promise((resolve, reject) => setTimeout(resolve, 4000));
 
     await context.evaluate(async () => {
@@ -30,7 +30,8 @@ module.exports = {
         if (!product.innerText.includes('Promosyonlu')) product.setAttribute('rankorganic', `${index + 1}`);
       });
     });
-
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
     return await context.extract(productDetails, { transform });
   },
 };
