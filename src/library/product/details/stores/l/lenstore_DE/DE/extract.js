@@ -35,49 +35,74 @@ module.exports = {
         else result = elem ? elem.singleNodeValue : '';
         return result && result.trim ? result.trim() : result;
       };
+      
+      // var dec = getXpath("//div[@id='productRight']/text()", 'nodeValue');
+      // var str = "";
+      // if (dec != null) {
+      //   if (dec.includes("begrenzter")) {
+      //     str = "Limited availability"
+      //   } else {
+      //     if (dec.includes("bis auf Weiteres eingestellt")) {
+      //       str = "Out of Stock"
+      //     } else {
+      //       str = "In Stock"
+      //     }
+      //      addElementToDocument('str', str);
+      //   }
+      // }
 
       //availability
       var script = getXpath('//form[@class="js-add-to-basket-form"]/following::script[2]/text()', 'nodeValue');
-      try{
+      try {
         if (script != null) {
           var data = JSON.parse(script);
-          
-          try{
+
+          try {
             var gtin = data.gtin13;
             if (gtin != null) {
               addElementToDocument('gtin', gtin);
             }
           }
-          catch{}
-          try{
+          catch (error) {
+
+          }
+          try {
             var sku = data.sku;
-          if (sku != null) {
-            addElementToDocument('sku', sku);
+            if (sku != null) {
+              addElementToDocument('sku', sku);
+            }
           }
+          catch (error) {
+
           }
-          catch{}
-          try{
+          try {
             var url = data.url;
-          if (url != null) {
-            addElementToDocument('url', url);
+            if (url != null) {
+              addElementToDocument('url', url);
+            }
           }
+          catch (error) {
+
           }
-          catch{}
-          try{
+          try {
             var productID = data.productID;
-          if (productID != null) {
-            addElementToDocument('id', productID);
+            if (productID != null) {
+              addElementToDocument('id', productID);
+            }
           }
+          catch (error) {
+
           }
-          catch{}
-          try{
+          try {
             var brand = data.brand;
-          if (brand != null) {
-            addElementToDocument('brand', brand);
+            if (brand != null) {
+              addElementToDocument('brand', brand);
+            }
           }
+          catch (error) {
+
           }
-          catch{}
-          try{
+          try {
             if (script != null) {
               var data1 = JSON.parse(script);
               var rpc = data.productID;
@@ -86,47 +111,15 @@ module.exports = {
               }
             }
           }
-          catch{}
+          catch (error) {
+
+          }
         }
       }
-      catch{}
-      // if(script != null){
-      //   var zz =  script.split('availability": "')[1];
-      //   zz = zz.split(",")[0];
-      //   var arr = zz.split("/");
-      //   zz = arr[arr.length-1];
-      //   if(zz.includes("In")){
-      //     zz = "In Stock"
-      //   }else{
-      //     zz = "Out of Stock"
-      //   }
-      //   if(zz != null){
-      //     addElementToDocument('zz', zz);
-      //   }
-      // }
+      catch (error) {
 
-      //gtin
-      // if(script != null){
-      //   var gt = script.split('gtin13": "')[1];
-      //   gt = gt.split(",")[0];
-      //   gt = gt.slice(0,-1);
-      //   if(gt != null){
-      //     addElementToDocument('gt', gt);
-      //   }
-      // }
+      }
 
-      // //rpc
-      // if(script != null){
-      //   var rpc = script.split('productID": "')[1];
-      //   rpc = rpc.split(",")[0];
-      //   rpc = rpc.slice(0,-1);
-      //   if(rpc != null){
-      //     addElementToDocument('rpc', rpc);
-      //   }
-      // }
-
-      //description
-      // var ab = document.querySelectorAll('#relatedShift');
     });
     await context.extract(productDetails);
   },

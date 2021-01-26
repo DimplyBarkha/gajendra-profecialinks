@@ -31,13 +31,16 @@ fields:
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
-      should be "In Stock"
-    regExp: (.+)
-    regExpReplace: In Stock
-    # defaultValue: Out of Stock
+      should be "In Stock"  
+    xpath: //p[@class='u-error']
+    regExp: (.*)
+    regExpReplace: Out of Stock
+    defaultValue: In Stock
   - name: description
     singleValue: true
     xpath: (//div[@class="clear"]/p/text())[1] | //div[@id="relatedShift"]
+    #regExp: (.*)Produkt Details|(.*)Produktinformation|(.*)Produktdetails
+    #regExpReplace: $1
   - name: descriptionBullets
     singleValue: true
   - name: brandText
