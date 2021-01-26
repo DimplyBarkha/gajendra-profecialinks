@@ -24,13 +24,13 @@ const transform = (data) => {
   };
   for (const { group } of data) {
     for (const row of group) {
-      if (row.image) {
-        row.image.forEach(item => {
-          item.text = 'https:' + item.text;
-          item.text = item.text.replace('150x150', '1000x1000');
-          item.text = item.text.replace('size=60', 'size=600');
-        });
-      }
+      // if (row.image) {
+      //   row.image.forEach(item => {
+      //     item.text = 'https:' + item.text;
+      //     item.text = item.text.replace('150x150', '1000x1000');
+      //     item.text = item.text.replace('size=60', 'size=600');
+      //   });
+      // }
       if (row.alternateImages) {
         row.alternateImages.forEach(item => {
           item.text = item.text.replace('150x150', '1000x1000');

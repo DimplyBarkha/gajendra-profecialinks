@@ -9,7 +9,7 @@ fields:
   - name: image
     singleValue: false
     # replace 150x150 -> 1000x1000 and size=60 to size=600 in JS file
-    xpath: //div[contains(@class,'sc-cSHVUG')]//a[contains(@class,'keIZvF')]//img/@src
+    xpath: //meta[@data-ref='meta-twitter:image']/@content
   - name: imageAlt
     singleValue: false
     xpath: //div[contains(@class,'sc-cSHVUG')]//a[contains(@class,'keIZvF')]//img/@alt
@@ -37,7 +37,7 @@ fields:
     xpath: //span[@data-ref='product-price-isNotRR']
   - name:  description
     singleValue: false
-    xpath: //div[contains(@class,'FeaturesTab__LogoDescriptionContainer')]
+    xpath: //div[contains(@class,'FeaturesTab__LogoDescriptionContainer')] |//ul[contains(@class,'FeaturesTab__FabPoints-sc-16uhzud-3 dTxOag')]|//ul[contains(@class,'SpecificationsTab__SpecsList-sc-1svg8jo-1 iMDWWS')]
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //ul[@data-ref='features-fabpoints']//li
