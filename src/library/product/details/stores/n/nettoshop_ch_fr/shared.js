@@ -76,6 +76,23 @@ const transform = (data) => {
         });
         row.alternateImages = variantIds;
       }
+      if (row.videos) {
+        const variantIds = [];
+        let dup = '';
+        let urls = [];
+        row.videos.forEach(item => {
+          urls = row.videos.filter(it => item.text === it.text);
+          if (urls && urls.length === 1) {
+            variantIds.push(item);
+          } else {
+            if (dup !== item.text) {
+              dup = item.text;
+              variantIds.push(item);
+            }
+          }
+        });
+        row.videos = variantIds;
+      }
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {

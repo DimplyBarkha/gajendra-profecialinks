@@ -60,12 +60,12 @@ module.exports = {
 
       }
       try {
-        const weight = getAllXpath("//tr[@class='c-product-specifications__tr']/th[contains(text(),'Gewicht (netto)')]/parent::tr/td/span/text()", 'nodeValue');
+        const weight = getAllXpath("//tr[@class='c-product-specifications__tr']/th[contains(text(),'Poids (net)')]/parent::tr/td/span/text()", 'nodeValue');
         spaceSeparatorSingle('weight', weight);
       } catch (error) {
       }
       try {
-        const color = getAllXpath("//tr[@class='c-product-specifications__tr']/th[contains(text(),'Farbe')]/parent::tr/td/span/text()", 'nodeValue');
+        const color = getAllXpath("//tr[@class='c-product-specifications__tr']/th[contains(text(),'Couleur')]/parent::tr/td/span/text()", 'nodeValue');
         spaceSeparatorSingle('color', color);
       } catch (error) {
       }

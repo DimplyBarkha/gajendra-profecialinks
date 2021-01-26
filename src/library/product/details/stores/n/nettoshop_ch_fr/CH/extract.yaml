@@ -39,7 +39,7 @@ fields:
     xpath: count(//div[@class="c-product-detail__gallery"]/div[@id="addAlternateImages"])
   - name: description
     singleValue: false
-    xpath: //div[@class="c-tabs__text"]//text()
+    xpath: //div[@class="c-tabs__text"][(following::div[@class="c-tabs__text"])]//text()
   - name: description1
     singleValue: false
     xpath: //html//div[@id='description'] 
