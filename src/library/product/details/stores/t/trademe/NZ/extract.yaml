@@ -61,7 +61,8 @@ fields:
     xpath: //tg-col[@id='tm-marketplace-listing-body-item-description']//li
   - name: nameExtended
     singleValue: false
-    xpath: //div//tg-row/tg-col//tm-buyer-options//h1
+    # xpath: //div//tg-row/tg-col//tm-buyer-options//h1
+    xpath: //h1[contains(@class,'__listing_title')]
   - name: unInterruptedPDP
     singleValue: false
     xpath: //div[contains(@class,'tm-marketplace-search-card__title')]
