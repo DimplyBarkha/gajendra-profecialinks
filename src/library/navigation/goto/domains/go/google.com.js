@@ -16,7 +16,6 @@ module.exports = {
       timeout: 15000,
       checkBlocked: false,
       js_enabled: true,
-      css_enabled: false,
       random_move_mouse: true,
       antiCaptchaOptions: {
         type: 'RECAPTCHA'
@@ -68,7 +67,7 @@ module.exports = {
           await context.evaluate(()=>{
             document.getElementById('captcha-form').submit();
           });
-          await new Promise((resolve,reject) => setTimeout(resolve, 7000));
+          await new Promise((resolve,reject) => setTimeout(resolve, 5000));
           let captchaGone = await context.evaluate(()=>{
             return !!document.querySelector('div#recaptcha');
           })
