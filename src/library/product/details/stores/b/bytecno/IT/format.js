@@ -34,24 +34,22 @@ const transform = (data) => {
         });
       }
       if (row.inTheBoxUrl) {
-        let manuImages = row.inTheBoxUrl;
+        const manuImages = row.inTheBoxUrl;
         row.inTheBoxUrl = [];
         manuImages.forEach(ele => {
-          let extractfirsturl = ele.text.split(',');
+          const extractfirsturl = ele.text.split(',');
           var obj = {};
-          let extracturlbeforeExtn = extractfirsturl[0].split(" ");          
-          obj.text = extracturlbeforeExtn[0];     
-          if(obj.text.startsWith("//media")){
+          const extracturlbeforeExtn = extractfirsturl[0].split(' ');
+          obj.text = extracturlbeforeExtn[0];
+          if (obj.text.startsWith('//media')) {
             row.inTheBoxUrl.push(obj);
-          }else{
-            obj.text = "//media.flixfacts.com/eyekandy/dyson/v11/it/" + extracturlbeforeExtn[0];
-            row.inTheBoxUrl.push(obj);           
+          } else {
+            obj.text = '//media.flixfacts.com/eyekandy/dyson/v11/it/' + extracturlbeforeExtn[0];
+            row.inTheBoxUrl.push(obj);
           }
-          
         });
-        
-        }
-      
+      }
+
       if (row.largeImageCount) {
         var count = (row.alternateImages && row.alternateImages.length) ? row.alternateImages.length : row.image.length;
         row.largeImageCount = [

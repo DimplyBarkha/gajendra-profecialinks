@@ -40,7 +40,7 @@ module.exports = {
 
       return src;
     });
-    //let content = null;
+    // let content = null;
     if (src) {
       try {
         await context.goto(src, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
@@ -49,8 +49,7 @@ module.exports = {
           const getInTheBox = document.querySelector('div.eky-accesory-container img');
           const getAccessories = document.querySelector('div.my-slider');
           const inBoxUrls = [];
-          const inBoxurlsAccessories = [];
-          let inBoxText = [];
+          const inBoxText = [];
           if (getAccessories) {
             const getAllAccessories = document.querySelectorAll('div.my-slider>div.eky-relative-wrapper.tns-normal>div.eky-overlay>div.lax');
             for (let i = 0; i < getAllAccessories.length; i++) {
@@ -71,7 +70,7 @@ module.exports = {
         await context.waitForSelector('#inpage_container', { timeout: 10000 });
 
         await context.evaluate(async (witbData) => {
-          function addHiddenDiv(id, content) {
+          function addHiddenDiv (id, content) {
             const newDiv = document.createElement('div');
             newDiv.id = id;
             newDiv.textContent = content;
@@ -88,9 +87,7 @@ module.exports = {
             }
           }
         }, witbData);
-        //await context.waitForSelector('div#main-section', { timeout: 45000 });
-
-
+        // await context.waitForSelector('div#main-section', { timeout: 45000 });
       } catch (error) {
         try {
           await context.evaluate(async function (src) {
@@ -142,7 +139,7 @@ module.exports = {
       }
 
       await context.evaluate(async ({ cssVideos1, cssVideos2 }) => {
-        function addHiddenDiv(id, content) {
+        function addHiddenDiv (id, content) {
           const newDiv = document.createElement('div');
           newDiv.id = id;
           newDiv.textContent = content;
@@ -153,22 +150,22 @@ module.exports = {
         // sample url: https://www.bytecno.it/purificatore-ventilatore-dyson-pure-cool-bianco.html
         // @ts-ignore
         let allVideos = [...document.querySelectorAll(cssVideos2)].map(e => {
-          let rawData = e.value
-          let jsonData = JSON.parse(rawData);
-          let videos = jsonData.playlist && jsonData.playlist.map(video => {
-            let v = video.file;
+          const rawData = e.value;
+          const jsonData = JSON.parse(rawData);
+          const videos = jsonData.playlist && jsonData.playlist.map(video => {
+            const v = video.file;
             return v.includes('http') ? v : `https:${v}`;
           });
-          return videos
+          return videos;
         }).flat();
 
         const videoUrlNodes = document.querySelectorAll(cssVideos1);
         // @ts-ignore
-        const videos = [...videoUrlNodes].map(e => e.src)
+        const videos = [...videoUrlNodes].map(e => e.src);
         allVideos = [...allVideos, ...videos];
         allVideos.forEach(video => addHiddenDiv('video-url', video));
       }, { cssVideos1, cssVideos2 });
-    }
+    };
     await videos();
 
     await context.evaluate(async (context) => {
@@ -225,7 +222,7 @@ module.exports = {
       if (spec) {
         addHiddenDiv('product-spec', (spec.slice(3)).trim());
       }
-      function addHiddenDiv(id, content) {
+      function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
@@ -233,7 +230,7 @@ module.exports = {
         document.body.appendChild(newDiv);
       }
     });
-    context.click('body')
+    context.click('body');
     return await context.extract(productDetails, { transform });
   },
 };
