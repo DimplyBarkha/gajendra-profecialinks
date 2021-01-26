@@ -431,7 +431,7 @@ fields:
     description: null
   - name: specifications
     singleValue: false
-    xpath: //th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr|//th[contains(text(),'Verpackungsbreite')]//ancestor::th//parent::tr|//th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr|//th[contains(text(),'Verpackungshöhe')]//ancestor::th//parent::tr|//th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr|//th[contains(text(),'Verpackungstiefe')]//ancestor::th//parent::tr|//th[contains(text(),'Abmessungen in cm H x B x T')]//ancestor::th//parent::tr
+    xpath: //th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr|//th[contains(text(),'Verpackungsbreite')]//ancestor::th//parent::tr|//th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr|//th[contains(text(),'Verpackungshöhe')]//ancestor::th//parent::tr|//th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr|//th[contains(text(),'Verpackungstiefe')]//ancestor::th//parent::tr|//th[contains(text(),'Abmessungen in cm H x B x T')]//ancestor::th//parent::tr|//tr[contains(@class, "widget-ArticleTechnicalData-table-row")]|//div[contains(@class,"widget-ArticleDescription-articleDescription")]//text()
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: true
