@@ -34,7 +34,8 @@ fields:
     xpath: //span[@class='product-sku__price-min']
   - name: availabilityText
     singleValue: true
-    defaultValue: In Stock.
+    defaultValue: Out of stock
+    xpath: //div[@id="mo-availability"]
   - name: description
     singleValue: false
     xpath: //div[@class='description-sku__figure-text']/ul/li
@@ -44,9 +45,9 @@ fields:
   - name: sku
     singleValue: true
     xpath: //div[@class='col product-sku__ref']
-  - name: specification
+  - name: specifications
     singleValue: false
-    xpath: //div[@class='description-sku__attribute attribute-col-3']/ul[@class='col wrap']/li
+    xpath: //div[contains(@class,'description-sku__attribute')]/ul[@class='col wrap']/li
 
 
 

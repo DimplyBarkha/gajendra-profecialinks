@@ -20,10 +20,7 @@ fields:
     description: The model code of the product
     xpath: //@data-sku
   - name: price
-    # singleValue: true
-    description: The offered price for the product
     xpath: //form/div/span/span/span[@class='product-card__price-value']/span[@class='price-value']
-    type: CURRENCY
   - name: _pageTimestamp
     # singleValue: true
   - name: _input

@@ -36,6 +36,16 @@ module.exports = {
         }
       }
       addElementToDocument('url', location.href);
+
+      const dataJsonNode = document.querySelectorAll('[type="application/ld+json"]');
+      let dataJsonText = '';
+      if(dataJsonNode){
+        dataJsonNode.forEach(dataNode => {
+          dataJsonText =  dataJsonText + dataNode.textContent;
+        })
+      }
+      dataJsonText.includes('InStock') ? addElementToDocument('mo-availability', 'In Stock') : addElementToDocument('mo-availability', 'Out of stock');
+
     });
     await context.waitForSelector('#breadCramb');
     return await context.extract(productDetails, {transform});
