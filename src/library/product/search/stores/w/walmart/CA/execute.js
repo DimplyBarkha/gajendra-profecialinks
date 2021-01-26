@@ -6,7 +6,7 @@ module.exports = {
     store: 'walmart',
     domain: 'walmart.ca',
     url: 'https://www.walmart.ca/search?q={searchTerms}',
-    loadedSelector: null,
+    loadedSelector: 'div#product-results div[data-automation="product"]',
     noResultsXPath: '//h1[@data-automation="null-results-message"]',
     zipcode: '',
   },
