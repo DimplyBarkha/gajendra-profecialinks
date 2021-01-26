@@ -17,7 +17,7 @@ async function implementation (
   const helper = new Helpers(context);
 
   const resultsCount = await context.evaluate((resultsCountSelector) => {
-    return document.querySelector(resultsCountSelector).textContent.replace(',', '');
+    return document.querySelector(resultsCountSelector).textContent.replace(',', '').replace('items', '');
   }, resultsCountSelector);
 
   const numberResultPerPage = await context.evaluate((numberResultPerPageXPath) => {
