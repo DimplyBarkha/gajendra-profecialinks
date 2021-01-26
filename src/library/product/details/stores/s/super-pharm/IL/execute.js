@@ -16,11 +16,12 @@ const implementation = async (inputs, { loadedSelector, noResultsXPath }, contex
     
     try{
       console.log('comming for xpath');
-      await context.waitForSelector('div#results-boxes>a',{timeout:500});
+      await context.waitForSelector('div#results-boxes>a');
       console.log('comming for click');
       //await context.click('div#results-boxes>a',{timeout:500});
       //context.waitForNavigation();
-      await context.clickAndWaitForNavigation('div#results-boxes>a');
+      await context.click('div#results-boxes>a');
+      await context.waitForNavigation();
     }catch(e){
 
     }
