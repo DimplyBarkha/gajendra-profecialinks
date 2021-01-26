@@ -14,13 +14,14 @@ module.exports = {
     dependencies,
   ) => {
     const timeout = parameters.timeout ? parameters.timeout : 60000;
-    url = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
+    //url = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
     await context.setJavaScriptEnabled(true);
     await context.setCssEnabled(true);
     await context.setLoadAllResources(true);
     await context.setLoadImages(true);
     await context.setBlockAds(false);
-    await context.setAntiFingerprint(false);
+    await context.setAntiFingerprint(false);   
+    await context.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36");
 
     const responseStatus = await context.goto(`${url}`, {
       antiCaptchaOptions: {
@@ -63,7 +64,7 @@ module.exports = {
       );
       await new Promise(resolve => setTimeout(resolve, 10000));
     } catch (error) {
-      console.log('error: NO CPATCHA ENCOUNTER', error);
+      console.log('error: NO CAPTCHA ENCOUNTER', error);
     }
     try {
       await context.waitForSelector('#produit > div.product_head');
