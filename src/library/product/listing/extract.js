@@ -17,7 +17,7 @@ async function implementation (
   const helper = new Helpers(context);
 
   const resultsCount = await context.evaluate((resultsCountSelector) => {
-    return document.querySelector(resultsCountSelector).textContent.replace(',', '');
+    return document.querySelector(resultsCountSelector).textContent.match(/\d+/g).join('');
   }, resultsCountSelector);
 
   const numberResultPerPage = await context.evaluate((numberResultPerPageXPath) => {
@@ -34,7 +34,7 @@ async function implementation (
 
   const urlArray = [];
 
-  for (let i = 1; i < (Number(maxPages) + 1 || totalPages); i++) {
+  for (let i = 1; i <= (Number(maxPages) + 1 || Math.ceil(totalPages)); i++) {
     urlArray.push(urlTemplate
       .replace('{id}', itemId)
       .replace('{page}', i));

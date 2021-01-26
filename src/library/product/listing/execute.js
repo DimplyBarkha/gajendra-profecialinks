@@ -14,7 +14,7 @@ async function implementation (
   const queryReplace = () => {
     if (!gotoUrlTemplate) throw new Error('No pattern provided to generate a valid URL');
     let tempUrl = gotoUrlTemplate;
-    if (query) tempUrl = tempUrl.replace(/{queryParams}/g, encodeURIComponent(query));
+    if (query) tempUrl = tempUrl.replace(/{queryParams}/g, query);
     return tempUrl;
   };
 
