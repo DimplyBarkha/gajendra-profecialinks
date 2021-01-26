@@ -5,6 +5,6 @@ module.exports = {
     country: 'US',
     store: 'finishline',
     domain: 'finishline.com',
-    zipcode: '',
+    zipcode: ''
   },
 };

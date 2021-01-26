@@ -24,14 +24,14 @@ fields:
  - name: aggregateRating
    singleValue: true
    description: Alt text of the main product image
+   xpath: //div[@class="pr-snippet-rating-decimal"]
+   regExp: (\d+\.\d{1})
  - name: reviewCount
    singleValue: false
    description: Other product images (not in manufacturer description)
- - name: ratingCount
-   singleValue: true
-   description: URL of the main product image
+   xpath: //div[@class="pr-category-snippet__total pr-category-snippet__item"]
+   regExp: (\d+)
  - name: price
    singleValue: true
    description: Alt text of the main product image
    xpath: //div[@class="product-price"]
-  

@@ -1,10 +1,11 @@
+// @ts-ignore
 const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'US',
     store: 'finishline',
-    transform: transform,
+    transform:transform ,
     domain: 'finishline.com',
     zipcode: '',
   },
@@ -61,6 +62,23 @@ module.exports = {
       if (additionalDescBulletInfo != null) {
         addElementToDocument('addEelementBullentCount', additionalDescBulletInfo.length);
       }
+
+      const jsonStr = getXpath('//script[@type="application/ld+json"][contains(text(),"availability")]', 'innerText');
+      let available;
+      if (jsonStr) {
+        const jsonObj = JSON.parse(jsonStr);
+        console.log('jsonObj' + jsonObj.offers[0].availability);
+        if (jsonObj.offers[0].availability.includes('InStock')) {
+          available = 'In Stock';
+        } else {
+          available = 'Out Of Stock';
+        }
+      }
+      console.log('available ' + available);
+      addElementToDocument('addedAvailibility', available);
+       console.log("Hi");
+      // const jsonObj = JSON.parse(jsonStr);
+      // console.log(jsonObj.offers[0].availability);
 
       const skuNumnber = getXpath("//meta[@name='Keywords']/@content", 'nodeValue');
       console.log('skuNumnber ==' + skuNumnber);

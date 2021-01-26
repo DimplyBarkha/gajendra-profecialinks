@@ -6,46 +6,46 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath:  //div[@class="slick-slide slick-current slick-active"]//img/@src
+    xpath: //div[@class="slick-slide slick-current slick-active"]//img/@src
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
-    xpath :  //div[@class="slick-slide slick-current slick-active"]//img/@alt
+    xpath: //div[@class="slick-slide slick-current slick-active"]//img/@alt
   - name: alternateImages
     singleValue: false
-    xpath : //div[@id="thumbSlides"]//div/@data-large
+    xpath: //div[@id="thumbSlides"]//div/@data-large
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
-    xpath : //meta[@name='Keywords']/@content
+    xpath: //meta[@name='Keywords']/@content
   - name: nameExtended
     singleValue: true
-    xpath : //div[@id="description"]
+    xpath: //div[@id="description"]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
-    xpath : //div[@class="productPrices"]//div[@class="productPrice"]//span[@class="fullPrice"]//text()
+    xpath: //div[@class="productPrices"]//div[@class="productPrice"]//span[@class="fullPrice"]//text()
   - name: availabilityText
     singleValue: true
-    xpath : //div[@id='addedAvailibility']
+    xpath: //div[@id='addedAvailibility']
   - name: description
     singleValue: false
-    xpath : //div[@id='prodDesc']
+    xpath: //div[@id='prodDesc']
   - name: descriptionBullets
     singleValue: true
-    xpath : count(//*[@id="productDescription"]//ul//li)
+    xpath: count(//*[@id="productDescription"]//ul//li)
     type: NUMBER
   - name: brandText
     singleValue: true
-    xpath : //div[@class = 'row column mt-1']/h1/@data-vendor
+    xpath: //div[@class = 'row column mt-1']/h1/@data-vendor
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
   - name: quantity
     singleValue: false
-    xpath : //*[@id="productSizes"]/div//button[0]/@aria-label
+    xpath: //*[@id="productSizes"]/div//button[0]/@aria-label
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -57,16 +57,17 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: true
-    xpath : //div[@id="sku"]
+    xpath: //div[@id="sku"]
   - name: variantId
     singleValue: true
-    xpath : //*[@id="productItemId"]/@value
+    xpath: //*[@id="productItemId"]/@value
+    regExp: (\d+)
   - name: name
     singleValue: true
-    xpath : //div[@class="row column mt-1"]/h1/text()
+    xpath: //div[@class="row column mt-1"]/h1/text()
   - name: ingredientsList
     singleValue: true
-  - name : secondaryImageTotal
+  - name: secondaryImageTotal
     singleValue: true
     xpath : count(//div[contains(@class ,'thumbSlide')]//div/@data-thumb)
   - name: category
@@ -83,3 +84,6 @@ fields:
   - name: aggregateRating
     singleValue: true
     xpath: //h1[@class="pr-review-snapshot-snippets-headline"]/text()
+  - name: description
+    singleValue: true
+    xpath: //div[@id='productDescription']
