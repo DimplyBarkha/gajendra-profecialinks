@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'worlddutyfree',
-    nextLinkSelector: "div[class='toolbar toolbar-products']:first-child div[class='pages'] ul[class='items pages-items'] li[class='item pages-item-next'] a",
+    nextLinkSelector: "div[class='toolbar toolbar-products']:nth-child(2) div[class='pages'] ul[class='items pages-items'] li[class='item pages-item-next'] a",
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'ol[class="products list items product-items"]',
