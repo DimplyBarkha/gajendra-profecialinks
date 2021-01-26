@@ -40,6 +40,11 @@ module.exports = {
           // @ts-ignore
           button.click();
         }
+        const cookies = document.querySelector('#onetrust-accept-btn-handler');
+        if (cookies) {
+          // @ts-ignore
+          cookies.click();
+        }
       });
     };
     const addUrl = async function (context) {
