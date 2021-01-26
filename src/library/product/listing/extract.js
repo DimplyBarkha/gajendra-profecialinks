@@ -34,7 +34,7 @@ async function implementation (
 
   const urlArray = [];
 
-  for (let i = 1; i < (Number(maxPages) + 1 || totalPages); i++) {
+  for (let i = 1; i <= (Number(maxPages) + 1 || Math.ceil(totalPages)); i++) {
     urlArray.push(urlTemplate
       .replace('{id}', itemId)
       .replace('{page}', i));
