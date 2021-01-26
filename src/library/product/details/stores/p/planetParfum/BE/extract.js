@@ -36,6 +36,10 @@ module.exports = {
           addedVariant.setAttribute('price', price);
           addedVariant.setAttribute('list_price', listPrice);
 
+          const promotion = getEleByXpath('//div[@class="pdp-flag-discount-rate"]');
+          const promotionText = promotion ? promotion.trim() : '';
+          addedVariant.setAttribute('promotion_text', promotionText);
+
           const description = document.querySelector('dl.accordion p.description.long');
           const descriptionBullets = description ? description.innerText.match(new RegExp(/\n•/, 'g')) : '';
           const descriptionBulletsCount = descriptionBullets ? descriptionBullets.length : '';
