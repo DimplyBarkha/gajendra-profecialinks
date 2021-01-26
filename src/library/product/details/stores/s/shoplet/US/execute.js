@@ -19,7 +19,7 @@ async function implementation (
     url = await dependencies.createUrl({ id });
   }
   //await dependencies.goto({ url, zipcode, storeId });
-  await dependencies.goto({ 
+  /*await dependencies.goto({ 
     url, zipcode: inputs.zipcode,
     firstRequestTimeout: 60000,
     timeout: 60000,
@@ -28,7 +28,8 @@ async function implementation (
     antiCaptchaOptions: {
       type: 'RECAPTCHA',
     },
-   });
+   });*/
+   //await context.goto(url, { timeout: 60000, waitUntil: 'load', checkBlocked: true,firstRequestTimeout:60000,antiCaptchaOptions:{type: 'RECAPTCHA'} });
   await new Promise((resolve, reject) => setTimeout(resolve, 10000));
 
   if (parameters.loadedSelector) {
@@ -50,5 +51,4 @@ module.exports = {
     noResultsXPath: null,
     zipcode: '',
   },
-  implementation,
 };
