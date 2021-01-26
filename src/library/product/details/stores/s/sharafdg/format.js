@@ -33,11 +33,12 @@ const transform = (data) => {
             text: text.trim(),
           },
         ];
-      }
+      }     
       if (row.alternateImages) {
         let text = '';
         row.alternateImages.forEach(item => {
           text += `${item.text} | `;
+          text = text.replace('width=600,height=600','width=300,height=300');
         });
         row.alternateImages = [
           {
