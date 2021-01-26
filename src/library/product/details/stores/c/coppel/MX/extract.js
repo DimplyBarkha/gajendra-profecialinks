@@ -133,7 +133,7 @@ module.exports = {
                 const imageStr = ImagesSetPath[0];
                 item = imageStr.substr(0, imageStr.lastIndexOf(' '));
               }
-              manufactureImages.push('http:' + item);
+              manufactureImages.push('https:'+item);
             });
             addElementToDocument('aplusImages_added', manufactureImages.join(' | '));
           }
@@ -144,7 +144,7 @@ module.exports = {
 
         const videoUrlPath = getAllXpath("//input[@class='flix-jw']/@value", 'nodeValue');
         if (videoUrlPath.length > 0) {
-          for (let i = 0; i < videoUrlPath.length; i++) {
+          for (let i = 0; i < 1; i++) {
             if (videoUrlPath[i] && typeof videoUrlPath[i] === 'string') {
               console.log(videoUrlPath[i]);
               try {
