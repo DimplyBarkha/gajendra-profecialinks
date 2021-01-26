@@ -13,7 +13,8 @@ fields:
     regExpReplace: https://www.trademe.co.nz$1
   - name: name
     singleValue: false
-    xpath: //div//tg-row/tg-col//tm-buyer-options//h1
+    # xpath: //div//tg-row/tg-col//tm-buyer-options//h1
+    xpath: //h1[contains(@class,'__listing_title')]
   - name: description
     singleValue: false
     xpath: //div[@class="tm-markdown"]
