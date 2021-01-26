@@ -7,7 +7,7 @@ module.exports = {
     domain: 'zooroyal.de',
     url: 'https://www.zooroyal.de/SwpFindologic/search?sSearch={searchTerms}',
     loadedSelector: 'div#article-list div.product--box',
-    noResultsXPath: '//div[@class="FindologicResultQuery row"]/div',
+    noResultsXPath: null,
     zipcode: '',
   },
 };
