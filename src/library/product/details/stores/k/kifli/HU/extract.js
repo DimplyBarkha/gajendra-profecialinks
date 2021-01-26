@@ -24,19 +24,7 @@ async function implementation(
     let jsonParsed = {};
     if (jsonString && jsonString.trim()) {
       jsonParsed = JSON.parse(jsonString);
-      let availabilityText;
       let productName;
-      let availabilityTextStr = jsonParsed.offers["availability"]
-      if (availabilityTextStr != null) {
-        if (availabilityTextStr.search("InStock")) {
-          console.log(" availabilityTextStr  ::" + availabilityTextStr);
-          availabilityText = "In Stock";
-        } else {
-          availabilityText = "Out Of Stock";
-        }
-        addHiddenDiv('availabilityText_id', availabilityText);
-      }
-
       let priceCurrency = jsonParsed.offers["priceCurrency"]
       if (priceCurrency != null) {
         addHiddenDiv('priceCurrency_id', priceCurrency);
@@ -63,12 +51,5 @@ module.exports = {
     transform: cleanUp,
     domain: 'kifli.hu',
   },
-  inputs: [
-  ],
-  dependencies: {
-    productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
-  },
-  path: './stores/${store[0:1]}/${store}/${country}/extract',
   implementation,
-
 };

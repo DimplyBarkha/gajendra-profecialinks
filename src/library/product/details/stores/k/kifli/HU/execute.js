@@ -5,7 +5,7 @@ module.exports = {
     country: 'HU',
     store: 'kifli',
     domain: 'kifli.hu',
-    loadedSelector: 'body',
+    loadedSelector: 'h2.sc-3gouww-5.bzsrUa',
     noResultsXPath: null,
     },
 };

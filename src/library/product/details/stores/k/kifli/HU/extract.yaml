@@ -9,7 +9,7 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //div[@class='ik84rk-1 bQirIb']/img/@src
-  - name: url
+  - name: productUrl
     singleValue: true
     xpath: //meta[@property="og:url"]/@content
   - name: category
@@ -29,53 +29,24 @@ fields:
     regExpReplace: In Stock
     defaultValue: Out Of Stock
     xpath: //button[@class="sc-1tiied5-2 bkyfBN"]
-  # - name: availabilityText
-  #   singleValue: true
-  #   xpath: //div[@id='availabilityText_id']
   - name: description
     singleValue: false
     xpath: //div[@class="ckContent"]/p[1]
   - name: brandText
     singleValue: true
     xpath: //div[@id='brandName_id']
-  - name: manufacturer
-    singleValue: true
   - name: quantity
     singleValue: true
     xpath: //span[@class="detailQuantity"]
-  - name: weightNet
-    singleValue: true
-  - name: weightGross
-    singleValue: true
-  - name: gtin
-    singleValue: true
-  # - name: sku
-  #   singleValue: true
-  #   xpath: //div[@class='sc-1tiied5-1 oXAzP AmountCounter']/button[@class="sc-1tiied5-2 lbHhAc"]/@data-product-id
   - name: variantId
     singleValue: true
-    xpath: //div[@class='sc-1tiied5-1 bJyhry AmountCounter']//@data-product-id
+    xpath: //meta[@property="og:url"]/@content
+    regExp: >-   
+      [0-9]+
+    # xpath: //div[@class='sc-1tiied5-1 bJyhry AmountCounter']//@data-product-id
   - name: directions
     singleValue: true
     xpath: //div[@class="ckContent"]/p[contains(.,"Használat")]/following-sibling::p[1]
-  - name: warnings
-    singleValue: true
-    description: Content under "warnings" header
-  - name: ratingCount
-    singleValue: true
-    description: The number of ratings
-    type: NUMBER
-  - name: aggregateRatingText
-    singleValue: true
-    description: The stated aggregate rating
-  - name: aggregateRating
-    singleValue: true
-    description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
-  - name: variantCount
-    singleValue: true
-    description: Number of variants listed
-    type: NUMBER
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[@class="ckContent"]/p[contains(.,"Forgalmazó")]/following-sibling::p[1]
@@ -85,25 +56,6 @@ fields:
   - name: inStorePrice
     singleValue: true
     xpath: //span[@class='currentPrice']
-  - name: asin
-    singleValue: true
-    description: null
-  - name: coupon
-    singleValue: true
-    description: Text of any coupon offer
-  - name: brandLink
-    singleValue: true
-    description: null
-  - name: pasin
-    singleValue: true
-    description: Parent asin
-  - name: largeImageCount
-    singleValue: true
-    description: null
-    type: NUMBER
-  - name: variantAsins
-    singleValue: true
-    description: null
   - name: secondaryImageTotal
     singleValue: true
     xpath: count(//div[@class='ik84rk-1 bQirIb']/img/@src)
@@ -119,9 +71,6 @@ fields:
   - name: productOtherInformation
     singleValue: false
     xpath: //div[@class="ckContent"]/p[contains(.,"Termékinformációk")]/following-sibling::p[1]
-  - name: variantInformation
-    singleValue: true
-    description: colour / scent / flavour / other
   - name: countryOfOrigin
     singleValue: true
     xpath: //span[@class="categoryName"]/text()
