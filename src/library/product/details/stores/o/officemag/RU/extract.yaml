@@ -86,5 +86,5 @@ fields:
     singleValue: false
     xpath: count((//ul[contains(@class,'js-photosList')]/li)[position()>1]//img/@src)
   - name: ratingCount
-    singleValue: false
-    xpath: //ul[@class='tabsList tabsList--elastic js-tabsList accent']//li[contains(@data-ga-id,'ClickToTab_Reviews')]//span
+    singleValue: true
+    xpath: //ul[@class='tabsList tabsList--elastic js-tabsList accent']//li[@id='reviews']//span |  //ul[@class='tabsList tabsList--elastic js-tabsList accent']//li[contains(@data-ga-id,"ClickToTab_Reviews")]/span
