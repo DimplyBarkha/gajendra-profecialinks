@@ -20,11 +20,12 @@ async function implementation (
     console.log('comming for click');
     //await context.click('div#results-boxes>a',{timeout:500});
     //context.waitForNavigation();
-    await context.click('div#results-boxes>a');
+    //await context.click('div#results-boxes>a');
     let tmphref= await context.evaluate(function(){
       return document.querySelector('div#results-boxes>a').href;
     });
-    //await context.goto(tmphref);
+    console.log('tmphref:',tmphref);
+    await context.goto(tmphref);
     await context.waitForNavigation();
   }catch(e){
     console.log('................................commint to error..................');
@@ -40,4 +41,5 @@ module.exports = {
     domain: 'super-pharm.co.il',
     zipcode: '',
   },
+  implementation
 };

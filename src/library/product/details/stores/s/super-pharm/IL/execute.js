@@ -14,7 +14,7 @@ const implementation = async (inputs, { loadedSelector, noResultsXPath }, contex
     await dependencies.goto({ ...inputs, url: builtUrl || url });
     await new Promise((resolve, reject) => setTimeout(resolve, 5000));
     
-    try{
+    /*try{
       console.log('comming for xpath');
       await context.waitForSelector('div#results-boxes>a');
       console.log('comming for click');
@@ -24,7 +24,7 @@ const implementation = async (inputs, { loadedSelector, noResultsXPath }, contex
       await context.waitForNavigation();
     }catch(e){
 
-    }
+    }*/
   }else{
     await dependencies.goto({ ...inputs, url: builtUrl || url });
   }
