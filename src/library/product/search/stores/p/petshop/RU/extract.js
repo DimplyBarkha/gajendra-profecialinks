@@ -23,12 +23,17 @@ module.exports = {
       }
       const searchUrl = window.location.href;
       addElementToDocument('searchUrl', searchUrl);
-      const allRatingElements = document.querySelectorAll('div[id*="j_rating"]');
-      allRatingElements.forEach(function (element) {
-        const formattedRating = element.getAttribute('data-rating').replace('.', ',');
-        element.setAttribute('rating-formatted', formattedRating);
+    });
+    const extractedData = await context.extract(productDetails, { transform });
+
+    extractedData.forEach(page => {
+      page.group.forEach(row => {
+        if (row.aggregateRating2 && row.aggregateRating2[0].text.includes('.')) {
+          row.aggregateRating2[0].text = row.aggregateRating2[0].text.replace('.', ',');
+        }
       });
     });
-    return await context.extract(productDetails, { transform });
+
+    return extractedData;
   },
 };
