@@ -4,8 +4,8 @@ module.exports = {
   parameterValues: {
     country: 'NL',
     store: 'wehkamp',
-    nextLinkSelector: '#app > div.blaze-row > section > nav > ul > li:nth-child(15) > a',
-    nextLinkXpath: null,
+    nextLinkSelector: null,
+    nextLinkXpath: "//nav[@data-qa-id='pagination']//ul//li/a[contains(text(),'volgende')]",
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: '#app > div.blaze-row > section',
