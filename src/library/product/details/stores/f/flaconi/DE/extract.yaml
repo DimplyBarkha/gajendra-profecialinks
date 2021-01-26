@@ -5,11 +5,9 @@ recordXPath: null
 fields:
   - name: availabilityText
     singleValue: false
-    # xpath: //div[contains(@class,'add-to-cart')][1]//div[@class='stock'] | //*/form/following-sibling::div[@class="stock-container"]//div[@class="stock"]
     xpath: //div[@id="fl_availabilityText"]
   - name: shippingInfo
     singleValue: false
-    # xpath: //div[@class='shipping-description'] | //div[@class='delivery-container']
     xpath: //div[@class="shipping-info clearfix"]/div[1]
   - name: price
     singleValue: false
@@ -34,7 +32,6 @@ fields:
     xpath: //div[@class="product-name"]/h1
   - name: listPrice
     singleValue: false
-    # xpath: //span[@class='old-price'] | (//div[@class='price-box']/meta[@itemprop='price']/@content)[1]
     xpath: //span[@class='old-price']
   - name: ingredientsList
     singleValue: false
@@ -42,7 +39,6 @@ fields:
   - name: directions
     singleValue: false
     xpath: //body/@desc
-    # xpath: //div[text()="Anwendung"]/following-sibling::div[@class="tab-content"]//div[@class="instruction-content"]
   - name: aggregateRating
     singleValue: false
     xpath: translate(//div[@class="average-rating"], '.', ',')
@@ -51,12 +47,9 @@ fields:
     xpath: translate(//meta[@itemprop="ratingCount"]/@content,',','.')
   - name: description
     singleValue: false
-    # xpath: //div[contains(text(),"Produktdetails")]/../div[contains(@class,"tab-content")]/text() | //div[contains(text(),"Produktdetails")]/../div[contains(@class,"tab-content")]//div[contains(@class,"description-content")] | //div[contains(text(),"Produktdetails")]/../div[contains(@class,"tab-content")]/ul
-    # xpath: //div[@id="bb_descriptionBullets"]
     xpath: //div[@id="additional-description"]
   - name: descriptionBullets
     singleValue: false
-    # xpath: //div[@id="bb_descriptionBulletsCount"]
     xpath: count(//div[contains(@class,"product-description")]//ul//li)
   - name: brandText
     singleValue: false
@@ -107,35 +100,21 @@ fields:
     xpath: //div[@id="product-content-block"]//img/@src
   - name: additionalDescBulletInfo
     singleValue: false
-    # xpath: //ul[@class="product-properties-list"]/li
-    # xpath: //div[contains(@class,"product-description")]//ul//li
     xpath: //div[@id="desc-bullets"]
   - name: name
     singleValue: false
     xpath: //div[@class="product-name"]/h1
-  # - name: url
-  #   singleValue: false
-  #   xpath: //meta[@property='og:url']/@content
-
   - name: gtin
     singleValue: false
-    # xpath: //ul[@class="product-list"]/li[@class="product-container variant visible"]/meta[@itemprop="gtin13"]/@content | //ul[@class="product-list multiple-variants"]/li[@class="product-container variant"]/meta[@itemprop="gtin13"]/@content
     xpath: //meta[@itemprop="sku"][@content=ancestor::html//div[@id="product-sku"]/text()]/following-sibling::meta[@itemprop="gtin13"]/@content
   - name: sku
     singleValue: false
-    # xpath: //ul[@class="product-list"]/li[@class="product-container variant visible"]/@data-sku | //ul[@class="product-list multiple-variants"]/li[@class="product-container variant"]/@data-sku
-    # xpath: //ul[@class="product-list"]/li[@class="product-container variant visible"]/@data-sku | //ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant selected")]/@data-sku | //ul[@class="product-list"]/li[@class="product-container variant active visible"]/@data-sku | //ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant selected")]/@data-sku | //ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant active selected")]/@data-sku | //ul[@class="product-list single-variant"]/li/meta[@itemprop="sku"]/@content
     xpath: //div[@id="product-sku"]
   - name: variantId
     singleValue: false
-    # xpath: //ul[@class="product-list"]/li[@class="product-container variant visible"]/@data-sku | //ul[@class="product-list multiple-variants"]/li[@class="product-container variant"]/@data-sku
-    # xpath: //ul[@class="product-list"]/li[@class="product-container variant visible"]/@data-sku | //ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant selected")]/@data-sku | //ul[@class="product-list"]/li[@class="product-container variant active visible"]/@data-sku | //ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant selected")]/@data-sku | //ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant active selected")]/@data-sku 
-    # xpath: //ul[@class="product-list"]/li[@class="product-container variant visible"]/@data-sku | //ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant selected")]/@data-sku | //ul[@class="product-list"]/li[@class="product-container variant active visible"]/@data-sku | //ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant selected")]/@data-sku | //ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant active selected")]/@data-sku | //ul[@class="product-list single-variant"]/li/meta[@itemprop="sku"]/@content|//ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant active selected") or contains(@class,"product-container variant active not-available selected")]/@data-sku | //ul[@id="makeup-product-list"]/li[contains(@class,"product-container variant active not-available") or contains(@class,"product-container variant not-available visible")]/@data-sku|//ul[@class= "product-list multiple-variants"]/li[@class="product-container variant not-available selected"]/@data-sku|//ul[@class="product-list"][not(@id)]/li[contains(@class,"product-container variant active")]//meta[@itemprop="sku"]/@content|//div[@id="purchasepanel"]//li[@class="product-container variant not-available visible"]/@data-sku
     xpath: //div[@id="product-sku"]
   - name: asin
     singleValue: false
-    # xpath: //ul[@class="product-list"]/li[@class="product-container variant visible"]/@data-sku | //ul[@class="product-list multiple-variants"]/li[@class="product-container variant"]/@data-sku
-    # xpath: //ul[@class="product-list"]/li[@class="product-container variant visible"]/@data-sku | //ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant selected")]/@data-sku | //ul[@class="product-list"]/li[@class="product-container variant active visible"]/@data-sku | //ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant selected")]/@data-sku | //ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant active selected")]/@data-sku | //ul[@class="product-list single-variant"]/li/meta[@itemprop="sku"]/@content|//ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant active selected") or contains(@class,"product-container variant active not-available selected")]/@data-sku | //ul[@id="makeup-product-list"]/li[contains(@class,"product-container variant active not-available") or contains(@class,"product-container variant not-available visible")]/@data-sku|//ul[@class= "product-list multiple-variants"]/li[@class="product-container variant not-available selected"]/@data-sku|//ul[@class="product-list"][not(@id)]/li[contains(@class,"product-container variant active")]//meta[@itemprop="sku"]/@content|//div[@id="purchasepanel"]//li[@class="product-container variant not-available visible"]/@data-sku
   - name: firstVariant
     singleValue: false
     xpath: //ul[@id="makeup-color-list"]/li[1]/a/@data-sku | //ul[@class="product-list multiple-variants"]/li[1]/@data-sku
@@ -151,7 +130,6 @@ fields:
     xpath: //ul[@id="makeup-color-list"]/li/a/@data-sku | //ul[@class="product-list multiple-variants"]/li/@data-sku
   - name: inTheBoxUrl
     singleValue: false
-    # xpath: //*[contains(text(), "in the box")]//ancestor::article[1]//img/@src
   - name: inTheBoxText
     singleValue: false
     xpath: //div[contains(.,'Set-Inhalt')]/following-sibling::div[contains(@class,'tab-content')]//div[@class='short-description']/text()[1]
@@ -167,6 +145,4 @@ fields:
   - name: unInterruptedPDP
     singleValue: false
     xpath: //div[contains(@class,"related-products")]/div[contains(@class,"tab-content")]//div[@role="option"]
-    # xpath: //div[@id="recommend-related"]//div[contains(@class,"item")]/@product-name 
-    # xpath: //body/@updp-name
     description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
