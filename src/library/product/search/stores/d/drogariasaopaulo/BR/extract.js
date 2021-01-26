@@ -2,7 +2,7 @@ const { transform } = require('../../../../shared');
 const implementation = async (inputs, parameters, context, dependencies) => {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-
+  console.log('teeest');
   await context.evaluate(async function () {
     let moreItems = document.querySelector('div[class*="text-center btn-load-more"] button[class*="btn btn-primary"]');
     if (moreItems) {
@@ -10,11 +10,12 @@ const implementation = async (inputs, parameters, context, dependencies) => {
       const resultsPerPage = 48;
       const maxResultsForExtractor = 150 - resultsPerPage;
       do {
-        if(Math.floor(maxResultsForExtractor / resultsPerPage) <= counter) {
+        if (Math.floor(maxResultsForExtractor / resultsPerPage) <= counter +1) {
           break;
         }
+        // @ts-ignore
         moreItems.click();
-        await stall(5000);
+        await stall(8000);
         moreItems = document.querySelector('div[class*="text-center btn-load-more"] button[class*="btn btn-primary"]');
         counter++;
       }
