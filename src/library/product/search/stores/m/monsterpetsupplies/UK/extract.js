@@ -12,16 +12,14 @@ module.exports = {
   implementation: async (inputs, parameters, context, dependencies) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    await context.evaluate(async function () {
-      function addElementToDocument (key, value) {
-        const catElement = document.createElement('div');
-        catElement.id = key;
-        catElement.textContent = value;
-        catElement.style.display = 'none';
-        document.body.appendChild(catElement);
-      };
-      const searchUrl = window.location.href;
-      addElementToDocument('searchUrl', searchUrl);
+    await context.evaluate(async () => {
+      const currentUrl = window.location.href;
+      const products = document.querySelectorAll('div.product-list-item');
+      if (products && products.length > 0) {
+        products.forEach(product => {
+          product.setAttribute('searchurl', currentUrl);
+        });
+      }
     });
     return await context.extract(productDetails, { transform });
   },
