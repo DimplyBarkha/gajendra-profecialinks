@@ -85,7 +85,7 @@ module.exports = {
           data[k].group[i].description[0].text = data[k].group[i].description[0].text.trim();
         }
         if ('promotion' in data[k].group[i]) {
-          data[k].group[i].promotion[0].text = data[k].group[i].promotion[0].text.replace(/\.$/, "");
+          data[k].group[i].promotion[0].text = data[k].group[i].promotion[0].text.replace(/\.$/, '');
         }
         if ('price' in data[k].group[i] && data[k].group[i].price[0].text.includes('p')) {
           data[k].group[i].price[0].text = (Number(data[k].group[i].price[0].text.replace(/p/g, '')) / 100).toFixed(2).toString();
