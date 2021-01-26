@@ -1,5 +1,5 @@
 //const { cleanUp } = require('../../../../shared');
-const {transform} =require('../format')
+const { transform } = require('../format')
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
@@ -12,7 +12,7 @@ module.exports = {
 
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     await context.evaluate(async function () {
-      function addElementToDocument (key, value) {
+      function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -20,7 +20,7 @@ module.exports = {
         document.body.appendChild(catElement);
       }
 
-      function stall (ms) {
+      function stall(ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
@@ -81,7 +81,7 @@ module.exports = {
         var finalWeight = retainAlphaNumbericString(weight);
         if (finalWeight.includes('.')) {
           if (finalWeight.includes('KG') || finalWeight.includes('kg')) {
-          // finalWeight = finalWeight;
+            // finalWeight = finalWeight;
           } else {
             finalWeight = finalWeight + 'KG';
           }
@@ -124,34 +124,37 @@ module.exports = {
         console.log('getSecondaryImagesLis :' + i + getSecondaryImagesList[i]);
       }
       getSecondaryImagesList.shift();
-      addElementToDocument('added_secondary_Image', getSecondaryImagesList);
+      addElementToDocument('added_secondary_Image', getSecondaryImagesList.join(' | '));
 
       const enhancedConetent = getAllXpath("//div[@id='divAdditionalDataTabHeader']//span[@id='ProductText']//div//img//..//following-sibling::div//strong/text() | //div[@id='divAdditionalDataTabHeader']//span[@id='ProductText']//div//img//..//following-sibling::div/text() | //div[@id='divAdditionalDataTabHeader']//span[@id='ProductText']//div//img//..//following-sibling::div//p/text() | //div[@id='divAdditionalDataTabHeader']//span[@id='ProductText']//div//img//..//following-sibling::div//ul//li//div//span//strong/text() | //div[@id='divAdditionalDataTabHeader']//span[@id='ProductText']//div//img//..//following-sibling::div//ul//li//div//span//em//span/text()", 'nodeValue');
       addElementToDocument('addedEnhancedContent', enhancedConetent);
 
       addElementToDocument('added_variantCount', 0);
 
-
-const getInTheBoxx = document.querySelector('#ProductText').children[1].childNodes;
-       let startFlag =false;
-       var setBoxHere = "" ;
-       console.log("here i am",getInTheBoxx);
-       for(let i =0; i< getInTheBoxx.length; i++)
-       {
-         if(getInTheBoxx[i].textContent.includes("מתאים לכל סוגי המשטחים - ניקוי מלא של רצפות, שטיחים ופרקטים ולבתים עם חיות מחמד")){
-           console.log("making condition false", getInTheBoxx[i]);
-          startFlag=false;
-         }
-        if(startFlag == true){
-          setBoxHere += getInTheBoxx[i].textContent;
-          console.log("line content.",getInTheBoxx[i].textContent);
+      try {
+        const getInTheBoxx = document.querySelector('#ProductText').children[1].childNodes;
+        let startFlag = false;
+        var setBoxHere = "";
+        console.log("here i am", getInTheBoxx);
+        for (let i = 0; i < getInTheBoxx.length; i++) {
+          if (getInTheBoxx[i].textContent.includes("מתאים לכל סוגי המשטחים - ניקוי מלא של רצפות, שטיחים ופרקטים ולבתים עם חיות מחמד")) {
+            console.log("making condition false", getInTheBoxx[i]);
+            startFlag = false;
+          }
+          if (startFlag == true) {
+            setBoxHere += getInTheBoxx[i].textContent;
+            console.log("line content.", getInTheBoxx[i].textContent);
+          }
+          if (getInTheBoxx[i].textContent == "אביזרים") {
+            startFlag = true;
+          }
         }
-        if(getInTheBoxx[i].textContent == "אביזרים"){
-          startFlag=true;
-         }
-       }
-      addElementToDocument(`inTheBoxText`,setBoxHere);
-      console.log("here is the text for in the boxx......", setBoxHere);
+        addElementToDocument(`inTheBoxText`, setBoxHere);
+        console.log("here is the text for in the boxx......", setBoxHere);
+      }
+      catch (e) {
+        console.log('InTheBoxText section is not present.');
+      }
 
       let scrollTop = 500;
       while (true) {
