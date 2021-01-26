@@ -56,10 +56,14 @@ fields:
     description: Gross weight as described on the page
   - name: gtin
     description: GTIN code (includes UPC/EAN)
+  - name: id
+    xpath: //meta[@property="og:url"]/@content|//link[contains(@href, "instacart.com/store/items/item_")]/@href
+    regExp: >-
+      ((?<=item_).*?(?=\?)|(?<=item_).*)
   - name: sku
     xpath: //meta[@property="og:url"]/@content|//link[contains(@href, "instacart.com/store/items/item_")]/@href
-    regExp: /(\d+)
-    regExpReplace: $1 
+    regExp: >-
+      ((?<=item_).*?(?=\?)|(?<=item_).*)
   - name: variantId
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
