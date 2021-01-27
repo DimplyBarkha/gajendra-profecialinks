@@ -1,10 +1,10 @@
-const { transform } = require('../shared');
+const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'US',
     store: 'nordstrom',
-    transform,
+    transform: cleanUp,
     domain: 'nordstrom.com',
     zipcode: '',
   },
@@ -15,101 +15,30 @@ module.exports = {
     dependencies,
   ) => {
     await context.evaluate(async function () {
-      var checkPriceRange = document.querySelector('span#current-price-string')?document.querySelector('span#current-price-string').textContent:'';
-      if (checkPriceRange && checkPriceRange.includes('–')) {
-        document.querySelector('ul#size-filter-product-page-option-list li') && document.querySelector('ul#size-filter-product-page-option-list li').click();
-        document.querySelector('ul#product-page-swatches li button') && document.querySelector('ul#product-page-swatches li button').click();
-        document.querySelector('div#size-filter-product-page-anchor') && document.querySelector('div#size-filter-product-page-anchor').click();
-      } else {
-        console.log('not clicked');
-      }
-      function timeout (ms) {
-        return new Promise((resolve) => setTimeout(resolve, ms));
-      }
-      const videoUrls = [];
-
-      const dataArr = window.__INITIAL_CONFIG__.viewData;
-      const videoID = dataArr.salesVideoShot ? dataArr.salesVideoShot.id : dataArr.vendorVideoShot ? dataArr.vendorVideoShot.id : '';
-      if (videoID) {
-        videoUrls.push(videoID);
-      }
-
-      if (videoUrls.length) {
-        videoUrls.map(ele => {
-          const videoUrl = 'https://fast.wistia.net/embed/iframe/' + ele;
-          const element = document.createElement('a');
-          element.setAttribute('class', 'appendedvideo');
-          element.href = videoUrl;
-          document.body.appendChild(element);
-        });
-      }
-
+ 
       try {
         const varinatInformation = [];
         const id = document.querySelector('meta[property="og:url"]').getAttribute('content');
         const pId = id.match(/\d+$/g) && id.match(/\d+$/g)[0];
         const styleDetails = window.__INITIAL_CONFIG__.sellingEssentials[`product-page-${pId}`];
-        const alternateStyleDetails = window.__INITIAL_CONFIG__.stylesById.data[pId];
-        let types = Object.keys(styleDetails.filterSelections).length ? Object.keys(styleDetails.filterSelections) : styleDetails.filterAvailabilityById;
-        if (types.length === 0) {
-          types = ['color'];
-        } // for steve madden extractor
-        else if (types.includes('size')) {
-          types = ['size'];
-        }
+        console.log('ewewewstyleDetails')
+        console.log(styleDetails)
+        let type = Object.keys(styleDetails.filterSelections).length && styleDetails.filterAvailabilityById['size'] ? 'size' : 'group';
         const filters = styleDetails.filterAvailabilityById;
-        const alternateFilters = alternateStyleDetails.filters;
-        for (const type of types) {
-          const ids = filters[type].allIds;
+        const ids = filters[type].allIds;
 
-          for (const varId of ids) {
-            const varinatInfo = {};
-            const variant = filters[type].byId[varId];
-            const priceSku = [];
-            priceSku.push(variant.relatedSkuIds[0]);
-            for (const val of priceSku) {
-              var data = alternateStyleDetails.price.bySkuId[val];
-            }
-            Object.assign(varinatInfo, {
-              media: [],
-              variantId: variant.id,
-              sku: variant.relatedSkuIds[0],
-              value: variant.value,
-              price: data ? data.priceString : '',
-              listPrice: data ? data.previousPriceString : '',
-              avail: variant.isAvailable,
-              inventory: variant.optionThirdTextArea,
-            });
-            const mediaIds = alternateFilters[type].byId[varId].styleMediaIds;
-            if (!mediaIds) {
-              if (alternateStyleDetails.filters.color.byId[varId]) {
-                const stMediaIds = alternateStyleDetails.filters.color.byId[varId].styleMediaIds;
-                if (stMediaIds) {
-                  for (var stMediaId of stMediaIds) {
-                    var media = alternateStyleDetails.styleMedia.byId[stMediaId];
-                    varinatInfo.media.push({
-                      mediaType: media.mediaType,
-                      imageMediaUri: media.imageMediaUri.maxLargeDesktop,
-                    });
-                  }
-                }
-              }
-              await timeout(5000);
-              varinatInformation.push(varinatInfo);
-              continue;
-            }
+        for (const varId of ids) {
+          const varinatInfo = {};
+          const variant = filters[type].byId[varId];
+          Object.assign(varinatInfo, {
+            variantId: variant.id,
+            avail: variant.isAvailable
+          });
 
-            for (const mediaId of mediaIds) {
-              const media = alternateStyleDetails.styleMedia.byId[mediaId];
-              varinatInfo.media.push({
-                mediaType: media.mediaType,
-                imageMediaUri: media.imageMediaUri.maxLargeDesktop,
-              });
-            }
-
-            varinatInformation.push(varinatInfo);
-          }
+          varinatInformation.push(varinatInfo);
         }
+        console.log('varinatInformfdfdation')
+        console.log(varinatInformation)
         const brand = document.querySelector('h2 span[itemprop="name"]');
         const name = document.querySelector('h1[itemprop="name"]');
 
@@ -122,61 +51,25 @@ module.exports = {
           table.appendChild(tBody);
 
           for (let index = 0; index < varinatInformation.length; index++) {
+            console.log(varinatInformation[index])
             const newlink = document.createElement('tr');
             newlink.setAttribute('class', 'append_variant');
-            newlink.setAttribute('variant_id', varinatInformation[index].variantId);
-            tBody.appendChild(newlink);
-
-            const sku = document.createElement('td');
-            sku.setAttribute('class', 'sku');
-            sku.setAttribute('sku', varinatInformation[index].sku);
-            newlink.appendChild(sku);
-
-            const price = document.createElement('td');
-            price.setAttribute('class', 'price');
-            price.setAttribute('price', varinatInformation[index].price);
-            newlink.appendChild(price);
-
-            const listPriceValue = document.querySelector('#original-price');
-            if (listPriceValue) {
-              const listPrice = document.createElement('td');
-              listPrice.setAttribute('class', 'listprice');
-              listPrice.setAttribute('listprice', varinatInformation[index].listPrice);
-              newlink.appendChild(listPrice);
-            }
 
             const variant = document.createElement('td');
             variant.setAttribute('class', 'variant');
-            variant.textContent = varinatInformation[index].value;
+            variant.textContent = varinatInformation[index].variantId;
             newlink.appendChild(variant);
 
             const nameExtended = document.createElement('td');
             nameExtended.setAttribute('class', 'nameextended');
-            nameExtended.textContent = `${totalname} ${varinatInformation[index].value}`;
+            nameExtended.textContent = `${totalname} ${varinatInformation[index].variantId}`;
             newlink.appendChild(nameExtended);
-
-            const image = document.createElement('td');
-            image.setAttribute('class', 'images');
-            newlink.appendChild(image);
 
             const avail = document.createElement('td');
             avail.setAttribute('class', 'avail');
             avail.textContent = varinatInformation[index].avail;
             newlink.appendChild(avail);
-
-            const inventory = document.createElement('td');
-            inventory.setAttribute('class', 'inventory');
-            inventory.textContent = varinatInformation[index].inventory;
-            newlink.appendChild(inventory);
-
-            if (varinatInformation[index].media) {
-              for (let j = 0; j < varinatInformation[index].media.length; j++) {
-                const img = document.createElement('img');
-                img.setAttribute('class', 'img');
-                img.setAttribute('src', varinatInformation[index].media[j].imageMediaUri);
-                image.appendChild(img);
-              }
-            }
+            tBody.appendChild(newlink);
           }
         } else {
           const table = document.createElement('table');
@@ -194,25 +87,7 @@ module.exports = {
       } catch (error) {
         console.log(error.message);
       }
-      // await context.evaluate(async function () {
-      let scrollTop = 0;
-      while (scrollTop <= 20000) {
-        await stall(500);
-        scrollTop += 1000;
-        window.scroll(0, scrollTop);
-        if (scrollTop === 20000) {
-          await stall(8000);
-          break;
-        }
-      }
-      function stall (ms) {
-        return new Promise(resolve => {
-          setTimeout(() => {
-            resolve();
-          }, ms);
-        });
-      }
-      // });
+
     });
     const { transform } = parameters;
     const { productDetails } = dependencies;

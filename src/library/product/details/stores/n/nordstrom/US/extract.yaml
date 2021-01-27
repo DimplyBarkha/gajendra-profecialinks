@@ -14,10 +14,9 @@ fields:
   - name: nameExtended
     xpath: //table/tbody/tr[@class="append_variant"]//td[@class="nameextended"]
   - name: listPrice
-    xpath: //table/tbody/tr[@class="append_variant"]//td[@class='listprice']/@listprice
+    xpath: ancestor::html//span[@id="original-price"]//span[2]
   - name: price
-    xpath: //table/tbody/tr[@class="append_variant"]//td[@class='price']/@price
-    regExp: ^[^–]+
+    xpath: ancestor::html//span[@itemprop="price"]/@content
   - name: availabilityText
     xpath: ancestor::html//span[contains(text(),'Add to Bag')]
     regExp: (.+)
@@ -43,11 +42,6 @@ fields:
   - name: filterType
     singleValue: true
     description: The filter used for the search listing
-  - name: inventoryText
-    xpath: //td[@class="inventory"]
-    description: The inventory status of the product, if available
-  - name: variantId
-    xpath: //table/tbody/tr[@class="append_variant"]//@variant_id
   - name: ratingCount
     xpath: ancestor::html//span[@itemprop="reviewCount"]/@content
     description: The number of ratings
@@ -58,8 +52,6 @@ fields:
     description: URLs of videos on page
   - name: name
     xpath: ancestor::html//h1[@itemprop="name"]
-  - name: sku
-    xpath: //table/tbody/tr[@class="append_variant"]//td[@class='sku']/@sku
   - name: numberHearts
     singleValue: true
     description: The number of likes for the product
@@ -70,8 +62,6 @@ fields:
   - name: viewing
     singleValue: false
     description: The number to identify the current views of the product, if available
-  - name: variants
-    xpath: ancestor::html//table/tbody/tr[@class="append_variant"]//td[@class='sku']/@sku
   - name: additionalDescBulletInfo
     xpath: ancestor::html//div[contains(text(),"Details & Care")]/following-sibling::ul/li
   - name: shippingDimensions
@@ -99,21 +89,5 @@ fields:
   - name: productDescriptionIm
   - name: imageAlt
     xpath: ancestor::html//section[contains(@id,"product-page-thumbnail-gallery")]//div//img//@alt
-  - name: firstVariant
-    xpath: ancestor::html//ul//li//span[@class="UI69S"] | ancestor::html//ul[@id="product-page-swatches"]/li/button/img/@alt
-    regExp: selected\s(.+)\scolor
-    regExpReplace: $1
-  - name: variantCount
-    xpath: count(//table/tbody/tr[@class="append_variant"]/@variant_id)
-  - name: quantity
-    xpath: //table/tbody/tr[@class="append_variant"]//td[@class="variant"]
   - name: color
     xpath: ancestor::html//ul[@id="product-page-swatches"]//li/button/img/@alt
-  - name: variantInformation
-    xpath: //table/tbody/tr[@class="append_variant"]//td[@class="variant"]
-  - name: inTheBoxUrl
-  - name: inTheBoxText
-  - name: hasComparisonTable
-    defaultValue: No
-  - name: unInterruptedPDP
-    xpath: ancestor::html//div[contains(@id,"product-recommendations")]//section//ul//li/div/a/div/div[1]/text()
