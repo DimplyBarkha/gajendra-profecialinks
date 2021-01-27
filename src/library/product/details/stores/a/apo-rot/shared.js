@@ -37,7 +37,7 @@ const transform = (data) => {
         let finalDesc = '';
         for (let i = 0; i < row.description.length; i++) {
           if (row.description[i].xpath.includes('li')) {
-            finalDesc = finalDesc + '||' + row.description[i].text;
+            finalDesc = finalDesc.trim() + ' ||' + row.description[i].text;
           } else {
             finalDesc = finalDesc + row.description[i].text + ' ';
           }
@@ -51,7 +51,46 @@ const transform = (data) => {
             text: finalDesc,
           },
         ];
+      }   
+
+      if (row.directions) {
+        let finalDirections = '';
+        for (let i = 0; i < row.directions.length; i++) {
+         finalDirections = finalDirections + row.directions[i].text;     
+        }
+        finalDirections = 'Anwendung:' + finalDirections;
+        row.directions = [
+          {
+            text: finalDirections,
+          },
+        ];
       }
+
+      if (row.ingredientsList && row.ingredientsList.length) {            
+        let ingredientsParent = row.ingredientsList[0].text;
+        let ingredients = '';
+        let finalIngredients = '';
+        let activeIngredients = '';
+        const containsIngredients = ingredientsParent.includes('Inhaltsstoffe'); 
+        const containsActiveIngredients = ingredientsParent.includes('Wirkstoffe');  
+        if (row.ingredientsList.length > 1) {
+          activeIngredients = row.ingredientsList[1].text;
+        }         
+                     
+        if (containsIngredients) {
+          ingredients = ingredientsParent.split('Inhaltsstoffe')[1];    
+          finalIngredients = 'Inhaltsstoffe' + ingredients  + ' ' + activeIngredients.substr(12, activeIngredients.length);        
+        } else {
+          finalIngredients = activeIngredients.substr(12, activeIngredients.length);
+        }
+
+        if (containsActiveIngredients)        {
+          const aIngredients = ingredientsParent.split('Wirkstoffe');          
+          finalIngredients = finalIngredients + 'Wirkstoffe' + aIngredients[aIngredients.length - 1];
+        }
+        row.ingredientsList = [{text: finalIngredients}];
+      }
+      
       if (row.variants) {
         var variantsLength = row.variants.length;
         if (variantsLength <= 1) {

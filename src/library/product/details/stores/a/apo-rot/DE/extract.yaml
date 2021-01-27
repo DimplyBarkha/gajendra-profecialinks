@@ -38,7 +38,7 @@ fields:
     xpath: //div[contains(@class, "stock-avail")]/../../div/@data-original-title
   - name: description
     singleValue: false
-    xpath: //div[contains(@class, "tab-content")]//div/text() | //div[contains(@class, "tab-content")]//div/p/text() | //div[contains(@class, "tab-content")]//div/p/b |   //div[contains(@class, "tab-content")]//strong | //div[contains(@class, "tab-content")]//h5 | //div[contains(@class, "tab-content")]//h2 | //div[contains(@class, "tab-content")]//li
+    xpath: //div[contains(@class, "tab-content")]//text()
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[contains(@class, "tab-content")]//li)
@@ -62,10 +62,10 @@ fields:
     xpath: normalize-space(//div[@class="margin-vert-normal"]//div[contains(text(), "PZN")]/../div[not(contains(text(), "PZN"))])
   - name: directions
     singleValue: false    
-    xpath: //*[@id="tabs-1"]//*[contains(text(), "Anwendung")]/../text()
+    xpath: //*[@id="tabs-1"]//*[contains(text(), "Anwendung")]/following-sibling::text() | //*[@id="tabs-1"]//*[contains(text(), "Anwendung")]/parent::p/following-sibling::*
   - name: ingredientsList
     singleValue: false
-    xpath: //*[@class="table_check margin-vert-smaller"]//*[contains(text(), "Wirkstoffe:")]/../text()
+    xpath: //*[@class="table_check margin-vert-smaller"]
   - name: numberOfServingsInPackage
     singlevalue: false,
     xpath: //div[contains(@class, "font-resp-normal")]//div[contains(text(), "Menge")]/../div[2]/text()
