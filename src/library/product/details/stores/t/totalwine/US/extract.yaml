@@ -4,7 +4,7 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: alsoViewedProducts
-    xpath: (//p[contains(text(),'Customers who viewed')])[1]/..//span[contains(@class,'largeProductName')]/.. 
+    xpath: (//p[contains(text(),'Customers who viewed')])[1]/..//span[contains(@class,'largeProductName')]/..
   - name: reviewCount
     xpath: normalize-space(//dd[@class="bv-rating-ratio-count"]//a)
     regExp: (.*?)\s(.*)
@@ -31,9 +31,11 @@ fields:
     description: The categories (e.g. from breadcrumbs)
     xpath: //nav[contains(@aria-label,'breadcrumb')]/span[position()>1]/a
   - name: nameExtended
-    description: The product name, prefixing "${brand} - " if not included in "name"
+    description:
+      The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: concat(//div[contains(@class,'productHeader')]/h1, ' ', //div[contains(@class,'productHeader')]/h2)
+    # xpath: concat(//div[contains(@class,'productHeader')]/h1, ' ', //div[contains(@class,'productHeader')]/h2)
+    xpath: //div[contains(@class,"productInfoContainer")]//div[contains(@class,'productHeader')]//h1[contains(@class,'productTitle')]
   - name: listPrice
     description: The stated undiscounted price for the product
   - name: price
@@ -49,7 +51,8 @@ fields:
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
-    description: Product description supplied by website - may be concatenanted from
+    description:
+      Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
     xpath: //meta[contains(@property,'og:description')]/@content
   - name: descriptionBullets
@@ -57,7 +60,8 @@ fields:
     type: NUMBER
     defaultValue: 0
   - name: brandText
-    description: Product brand shown - this may actually NOT be just a brand name,
+    description:
+      Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
     xpath: //div[contains(., 'BRAND')]/following-sibling::div[1]/span | //div[contains(., 'BRAND')]/following-sibling::div/a
   - name: manufacturer
@@ -65,6 +69,7 @@ fields:
   - name: quantity
     description: Quantity as described on the page
     xpath: (//div[contains(@class,'productHeader')]/h2)[1]
+    defaultValue: " "
   - name: weightNet
     description: Net weight as described on the page
   - name: weightGross
@@ -86,7 +91,8 @@ fields:
   - name: mpc
     description: The manufacturer model code (unique) of the product
   - name: packSize
-    description: The number of packs in the product offer (if stated separately on
+    description:
+      The number of packs in the product offer (if stated separately on
       the site to quantity)
     xpath: (//div[contains(@class,'productHeader')]/h2)[1]
   - name: legalDisclaimer
@@ -148,7 +154,7 @@ fields:
     xpath: //div[contains(@class,'productHeader')]//h1[contains(@class,'productTitle')]
   - name: name
     description: The product name
-    xpath: //div[contains(@class,'productHeader')]//h1[contains(@class,'productTitle')]
+    xpath: //div[contains(@class,"productInfoContainer")]//div[contains(@class,'productHeader')]//h1[contains(@class,'productTitle')]
   - name: inStorePrice
     description: Price in the selected store
     xpath: //div[contains(@id, 'edlpPrice')]
@@ -169,11 +175,13 @@ fields:
     description: Text next to bullet point
   - name: salesRank
     singleValue: false
-    description: Amazon best selling rank from product details (linked back) - needs
+    description:
+      Amazon best selling rank from product details (linked back) - needs
       to be collapsed
   - name: salesRankCategory
     singleValue: false
-    description: Amazon best selling rank from product details (linked back) - needs
+    description:
+      Amazon best selling rank from product details (linked back) - needs
       to be collapsed
   - name: subscriptionPrice
     description: Subscribe and save price
@@ -243,80 +251,93 @@ fields:
     description: Suggested number of servings of the product.
     type: NUMBER
   - name: caloriesPerServing
-    description: Nutritional Information for Calories Per Serving content - Usually
+    description:
+      Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
   - name: caloriesFromFatPerServing
     description: Nutritional Information for Calories From Fat content - Usually
       based on per 100g serving
     type: NUMBER
   - name: totalFatPerServing
-    description: Nutritional Information for Total Fat content - Usually based on
+    description:
+      Nutritional Information for Total Fat content - Usually based on
       per 100g serving
     type: NUMBER
   - name: totalFatPerServingUom
     description: Unit of Measure Data for Total Fat content
   - name: saturatedFatPerServing
-    description: Nutritional Information for Saturated Fat content - Usually based
+    description:
+      Nutritional Information for Saturated Fat content - Usually based
       on per 100g serving
     type: NUMBER
   - name: saturatedFatPerServingUom
     description: Unit of Measure Data for Saturated Fat content
   - name: transFatPerServing
-    description: Nutritional Information for Trans Fat content - Usually based on
+    description:
+      Nutritional Information for Trans Fat content - Usually based on
       per 100g serving
     type: NUMBER
   - name: transFatPerServingUom
     description: Unit of Measure Data for Trans Fat content
   - name: cholesterolPerServing
-    description: Nutritional Information for Cholesterol content - Usually based on
+    description:
+      Nutritional Information for Cholesterol content - Usually based on
       per 100g serving
     type: NUMBER
   - name: cholesterolPerServingUom
     description: Unit of Measure Data for Cholesterol content
   - name: sodiumPerServing
-    description: Nutritional Information for Sodium content - Usually based on per
+    description:
+      Nutritional Information for Sodium content - Usually based on per
       100g serving
     type: NUMBER
   - name: sodiumPerServingUom
     description: Unit of Measure Data for Sodium content
   - name: totalCarbPerServing
-    description: Nutritional Information for Total Carbohydrate content - Usually
+    description:
+      Nutritional Information for Total Carbohydrate content - Usually
       based on per 100g serving
     type: NUMBER
   - name: totalCarbPerServingUom
     description: Unit of Measure Data for Total Carbohydrate content
   - name: dietaryFibrePerServing
-    description: Nutritional Information for Dietary Fibre content - Usually based
+    description:
+      Nutritional Information for Dietary Fibre content - Usually based
       on per 100g serving
     type: NUMBER
   - name: dietaryFibrePerServingUom
     description: Unit of Measure Data for Dietary Fibre content
   - name: totalSugarsPerServing
-    description: Nutritional Information for Total Sugar content - Usually based on
+    description:
+      Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
     type: NUMBER
   - name: totalSugarsPerServingUom
     description: Unit of Measure Data for Total Sugar content
   - name: proteinPerServing
-    description: Nutritional Information for Protein content - Usually based on per
+    description:
+      Nutritional Information for Protein content - Usually based on per
       100g serving
     type: NUMBER
   - name: proteinPerServingUom
     description: Unit of Measure Data for Protein
   - name: vitaminAPerServing
-    description: Nutritional Information for Vitamin A content - Usually based on
+    description:
+      Nutritional Information for Vitamin A content - Usually based on
       per 100g serving
     type: NUMBER
   - name: vitaminAPerServingUom
     description: Unit of Measure Data for Vitamin A
   - name: vitaminCPerServing
-    description: Nutritional Information for Vitamin C content - Usually based on
+    description:
+      Nutritional Information for Vitamin C content - Usually based on
       per 100g serving
     type: NUMBER
   - name: vitaminCPerServingUom
     description: Unit of Measure Data for Vitamin C
   - name: calciumPerServing
-    description: Nutritional Information for Calcium content - Usually based on per
+    description:
+      Nutritional Information for Calcium content - Usually based on per
       100g serving
     type: NUMBER
   - name: calciumPerServingUom
@@ -330,7 +351,8 @@ fields:
   - name: dietarySymbols
     description: Information related to the dietary symbols of a specific product
   - name: magnesiumPerServing
-    description: Nutritional Information for Magnesium content - Usually based on
+    description:
+      Nutritional Information for Magnesium content - Usually based on
       per 100g serving
     type: NUMBER
   - name: magnesiumPerServingUom
@@ -376,10 +398,12 @@ fields:
     description: In product page, information about a new version of the product
       (https://www.amazon.es/DODOT-Sensitive-Pa%C3%B1ales-Talla-240/dp/B01ELA8U0Q/ref=sr_1_4?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=dodot%2B-%2Bpa%C3%B1ales%2Bpara%2Bni&qid=1589984387&sr=8-4&th=1)
   - name: newAsin
-    description: In product page, information about a new version of the product -
+    description:
+      In product page, information about a new version of the product -
       new asin info
   - name: newDescription
-    description: In product page, information about a new version of the product -
+    description:
+      In product page, information about a new version of the product -
       new desription info
   - name: variantInformation
     description: colour / scent / flavour / other
@@ -440,7 +464,7 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
-#salsify
+  #salsify
   - name: priceCurrency
     xpath: //meta[@itemprop="priceCurrency"]/@content
   - name: highQualityImages
@@ -453,10 +477,10 @@ fields:
 
   - name: variantsInfo
     xpath: /html/body/@variations
-    regExp: '[^|]+'
+    regExp: "[^|]+"
   - name: attributes
     xpath: //div[contains(@class,"detailsTableRow")]
-#geo
+  #geo
   - name: online_store
     xpath: //p[contains(@id, 'globalStoreName')]
   - name: retailer_id

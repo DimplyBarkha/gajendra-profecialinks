@@ -76,9 +76,8 @@ const transform = (data) => {
       if (row.quantity) {
         row.quantity[0].text = row.quantity[0].text.trim()
       }
-      if (row.quantity && row.nameExtended) {
-        let text = `${row.nameExtended[0].text} ${row.quantity[0].text}`
-        row.nameExtended = [{ text: text.trim().toLowerCase() }]
+      if (row.nameExtended) {
+        row.nameExtended[0].text = row.nameExtended[0].text.toUpperCase();
       }
     }
   }

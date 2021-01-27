@@ -28,10 +28,10 @@ const implementation = async function (
     }
     throw err;
   }
-
   if (zipcode) {
     await dependencies.setZipCode({ url, zipcode });
   }
+
 
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {

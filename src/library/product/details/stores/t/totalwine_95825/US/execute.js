@@ -10,5 +10,9 @@ module.exports = {
     noResultsXPath: '//input[contains(@value,"Not Found")] | //p[contains(.,"doesn’t exist")]',
     zipcode: '95825',
   },
+  dependencies: {
+    setZipCode: 'action:navigation/goto/setZipCode',
+    createUrl: 'action:product/details/createUrl',
+  },
   implementation,
 };
