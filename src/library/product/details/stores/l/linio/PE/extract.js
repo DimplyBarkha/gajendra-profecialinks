@@ -8,15 +8,28 @@ module.exports = {
     domain: 'linio.com',
     zipcode: '',
   },
-  // implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
-  //   await context.evaluate(async function () {
-  //   function addElementToDocument(key, value) {
-  //   const catElement = document.createElement('div');
-  //   catElement.id = key;
-  //   catElement.textContent = value;
-  //   catElement.style.display = 'none';
-  //   document.body.appendChild(catElement);
-  //   }
+  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+    await context.evaluate(async function () {
+
+      
+    function addElementToDocument(key, value) {
+    const catElement = document.createElement('div');
+    catElement.id = key;
+    catElement.textContent = value;
+    catElement.style.display = 'none';
+    document.body.appendChild(catElement);
+    }
+     // @ts-ignore
+     const rawdata = document.querySelectorAll('script[type="text/javascript"]')[30].innerText;
+     console.log(rawdata,'=====================')
+     // @ts-ignore
+    //  var z/ =rawdata.toString()
+     var a=(rawdata).split('product_id":"');
+     console.log(a,'=====================')
+
+    //  var z=a.split('","')[0];
+    //  addElementToDocument('product_id', z);
+
   //   // Method to Retrieve Xpath content of a Multiple Nodes
   //   const getAllXpath = (xpath, prop) => {
   //   const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
@@ -49,8 +62,8 @@ module.exports = {
   //   console.log(nameExptend,'----------------nameextend')
   //   addElementToDocument('nameExptend', nameExptend);
    
-  // });
-  // await context.extract(productDetails);
-  // },
+  });
+  await context.extract(productDetails);
+  },
   };
 
