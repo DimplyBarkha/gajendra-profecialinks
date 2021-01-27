@@ -10,7 +10,7 @@ fields:
     description: The URL for the product details page
   - name: thumbnail
     description: The URL for the product thumbnail image 
-    xpath: //picture/img[@class="ab-lazy loaded"]/@data-src
+    xpath: //div[@class="asidediv col-12 col-sm-12 col-md-12 col-lg-9 col-xl-9"]//picture/img/@data-src
     regExp: (.+)
     regExpReplace: https:$1
   - name: name
