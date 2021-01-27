@@ -16,7 +16,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@id='pdpViewCarousel']//div[@class='carousel-inner']//div[contains(@class,'item')]//img[@class='lazyOwl']/@src
+    xpath: //ul[@class="hide-bullets"]/li[position()>1]/span/img/@src
     regExp: (.+)
     regExpReplace: https://www.luluhypermarket.com$1
   - name: metaKeywords
