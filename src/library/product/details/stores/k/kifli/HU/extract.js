@@ -25,17 +25,31 @@ async function implementation(
     if (jsonString && jsonString.trim()) {
       jsonParsed = JSON.parse(jsonString);
       let productName;
-      let priceCurrency = jsonParsed.offers["priceCurrency"]
+      let productUrl;
+      let desc1;
+      let desc2;
+      let priceCurrency = jsonParsed.offers["priceCurrency"];
       if (priceCurrency != null) {
         addHiddenDiv('priceCurrency_id', priceCurrency);
       }
-      //  let price = jsonParsed.offers["price"]
+      productName = jsonParsed.name;
       if (productName != null) {
-        //alert(jsonParsed.name)
-        productName = jsonParsed.name;
         var brandName = productName.replace(/ .*/, '');
-        addHiddenDiv('brandName_id', brandName)
+        console.log(" brandName  " + brandName);
+        addHiddenDiv('brandName_id', brandName);
       }
+      let url = jsonParsed.offers["url"];
+      if (productUrl != null) {
+        addHiddenDiv('url_id', productUrl);
+      }
+    }
+     // @ts-ignore
+     let description = (document.querySelector("div.kContent"));
+     if (description != null) {
+      var desc1 = document.evaluate("//div[@class='ckContent']/p[1]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      var desc2 = document.evaluate("//div[@class='ckContent']/p[6]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      var desc = desc1.textContent +" | "+ desc2.textContent;
+      addHiddenDiv('desc_i', desc);
     }
   });
 

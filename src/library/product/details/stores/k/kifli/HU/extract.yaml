@@ -5,19 +5,19 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //meta[@property="og:image"]/@content
+    xpath: (//div[@class="vb3k6y-0 eqyvpX"]//img/@src)[1]
   - name: alternateImages
     singleValue: false
     xpath: //div[@class='ik84rk-1 bQirIb']/img/@src
-  - name: productUrl
+  - name: _url
     singleValue: true
-    xpath: //meta[@property="og:url"]/@content
+    xpath: //div[@id='url_id']
   - name: category
     singleValue: false
     xpath: //ul[@data-test="pnlBreadcrumbs"]/li
   - name: nameExtended
     singleValue: true
-    xpath: //h2[@class='sc-3gouww-5 kvLTYm']/a/text() 
+    xpath: //h2[@class='sc-3gouww-5 bzsrUa']/a/text() 
   - name: listPrice
     singleValue: true
     xpath: //span[@class='unitPrice priceOffer']/following::del/text()
@@ -31,7 +31,7 @@ fields:
     xpath: //button[@class="sc-1tiied5-2 bkyfBN"]
   - name: description
     singleValue: false
-    xpath: //div[@class="ckContent"]/p[1]
+    xpath: //div[@class='ckContent']/p[1] | //div[@class='ckContent']/p[6]
   - name: brandText
     singleValue: true
     xpath: //div[@id='brandName_id']
@@ -53,12 +53,9 @@ fields:
   - name: name
     singleValue: true
     xpath: //a[@class="redirect_link disabled"]/text()
-  - name: inStorePrice
-    singleValue: true
-    xpath: //span[@class='currentPrice']
   - name: secondaryImageTotal
     singleValue: true
-    xpath: count(//div[@class='ik84rk-1 bQirIb']/img/@src)
+    xpath: count((//div[@class="vb3k6y-0 eqyvpX"]//img/@src)[2])
   - name: ingredientsList
     singleValue: true
     xpath: //div[@class="textualIngredients"]/h3/following::p[1]
@@ -74,6 +71,4 @@ fields:
   - name: countryOfOrigin
     singleValue: true
     xpath: //span[@class="categoryName"]/text()
-  - name: onlinepricecurrency
-    singleValue: true
-    xpath: //div[@id='priceCurrency_id']
+  
