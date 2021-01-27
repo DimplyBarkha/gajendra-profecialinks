@@ -14,7 +14,7 @@ fields:
   - name: category
     xpath: ancestor::html//ul[@itemprop="breadcrumb"]//li[position()>1]//a//span[@itemprop="name"]
   - name: nameExtended
-    xpath: concat(//h1[@itemprop="name"],' - ',//table[@class="product-detail-table"]//td[contains(.,"Packungsgröße:")]/following-sibling::td[1])
+    xpath: //div[@class="product-description"]/h1[@itemprop="name"]
   - name: listPrice
     xpath: (//div[@class="content"]//table[@class="price-box"]//del[@class="uvp"])[1]
   - name: price
@@ -51,8 +51,8 @@ fields:
     xpath: //div[@class="product-description"]//div[@class="rating__wrap"]//span[@class="rating__totalCount"]
   - name: reviewCount
     xpath: //div[@class="product-description"]//div[@class="rating__wrap"]//span[@class="rating__totalCount"]
-  - name: aggregateRatingText
-    xpath: //div[@class="product-description"]//div[@class="rating__wrap"]//span[contains(@class,"rating__averageRating")]
+  # - name: aggregateRatingText
+  #   xpath: //div[@class="product-description"]//div[@class="rating__wrap"]//span[contains(@class,"rating__averageRating")]
   - name: aggregateRating
     xpath: //div[@class="product-description"]//div[@class="rating__wrap"]//span[contains(@class,"rating__averageRating")]
   - name: shippingInfo
