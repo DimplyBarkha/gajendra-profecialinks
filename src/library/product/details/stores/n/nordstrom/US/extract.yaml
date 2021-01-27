@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //table/tbody/tr[@class="append_variant"]
+recordXPath: //table/tbody/tr[@class="append_variant"]|//div[@id="selling-essentials"]//h3[contains(text(), "SOLD OUT")]
 fields:
   - name: image
     xpath: ancestor::html//img[contains(@name,"gallery-image")]/@src
