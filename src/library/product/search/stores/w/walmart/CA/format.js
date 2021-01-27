@@ -31,6 +31,11 @@ const transform = (data, context) => {
           item.text = 'https://www.walmart.ca/' + item.text;
         });
       }
+      if (row.id) {
+        row.id.forEach(item => {
+          item.text = item.replace('PRD', '');
+        });
+      }
       if (row.thumbnail) {
         row.thumbnail.forEach(item => {
           item.text = item.text.replace('odnHeight=180&odnWidth=180', 'odnHeight=600&odnWidth=600');
