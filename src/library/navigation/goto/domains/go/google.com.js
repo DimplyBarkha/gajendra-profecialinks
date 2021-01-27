@@ -44,7 +44,7 @@ module.exports = {
       console.log('Hit recaptcha, attempting to solve..');
       console.log(`iframe present: ${iframeFound}`)
       
-      const maxAttempts = 5;
+      const maxAttempts = 3;
       let solved = false;
       let currentAttempts = 1;
       
@@ -89,7 +89,7 @@ module.exports = {
 
       await context.checkBlocked()
         .catch((err) => {
-          throw new Error(`Error:${err.message}, failed after ${currentAttempts} attempts`);
+          throw new Error(`Error:${err.message}, failed after ${currentAttempts - 1} attempts`);
         });
       console.log('Solved!');
     }
