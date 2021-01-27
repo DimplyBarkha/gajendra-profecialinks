@@ -147,7 +147,7 @@ fields:
 - name: manufacturerDescription 
   singleValue: false
   description: The extended description of the product supplied by the lister
-  xpath: (//div[contains(@class, 'vc_row wpb_row vc_row-fluid')])[position()>1]//div[@class='wpb_wrapper']/p|strong/text()
+  xpath: normalize-space(concat(normalize-space((//div[contains(@class, 'vc_row wpb_row vc_row-fluid  opinion')])[position()>1]//div[@class='wpb_wrapper']/div[position()=1]/div/p/strong),normalize-space((//div[contains(@class, 'vc_row wpb_row vc_row-fluid  opinion')])[position()>1]//div[@class='wpb_wrapper']/div[position()=1]/div/p/text()),normalize-space((//div[contains(@class, 'vc_row wpb_row vc_row-fluid  opinion')])[position()>1]//div[@class='wpb_wrapper']/div[position()>1]/div/p)))
 - name: manufacturerImages 
   singleValue: false
   description: Images within the third party description
