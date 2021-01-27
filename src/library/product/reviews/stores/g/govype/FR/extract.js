@@ -24,23 +24,23 @@ async function implementation (
         element.dispatchEvent(evt);
     }
 
-    let reviewsPresent = !!document.querySelector('#netreviews_button_more_reviews:not([style^="display: none;"])');
-    let i = 0
+    // let reviewsPresent = !!document.querySelector('#netreviews_button_more_reviews:not([style^="display: none;"])');
+    // let i = 0
 
-    while (reviewsPresent){
-      document.querySelector('#netreviews_button_more_reviews:not([style^="display: none;"])').scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
-      console.log('Scrolling into view..')
-      await new Promise(res=>setTimeout(res,3500));
+    // while (reviewsPresent){
+    //   document.querySelector('#netreviews_button_more_reviews:not([style^="display: none;"])').scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
+    //   console.log('Scrolling into view..')
+    //   await new Promise(res=>setTimeout(res,3500));
 
-      await clickElement('#netreviews_button_more_reviews:not([style^="display: none;"])','hover');
-      await clickElement('#netreviews_button_more_reviews:not([style^="display: none;"])','click');
+    //   await clickElement('#netreviews_button_more_reviews:not([style^="display: none;"])','hover');
+    //   await clickElement('#netreviews_button_more_reviews:not([style^="display: none;"])','click');
       // document.querySelector('#netreviews_button_more_reviews:not([style^="display: none;"])').click();
-      console.log(`Clicked, getting more reviews! ${i}th iteration!`);
-      console.log(`reviews on page: ${document.querySelectorAll('div.netreviews_review_part').length}`)
-      i++;
-      await new Promise(res=>setTimeout(res,3500));
-      reviewsPresent = !!document.querySelector('#netreviews_button_more_reviews:not([style^="display: none;"])');
-    }
+    //   console.log(`Clicked, getting more reviews! ${i}th iteration!`);
+    //   console.log(`reviews on page: ${document.querySelectorAll('div.netreviews_review_part').length}`)
+    //   i++;
+    //   await new Promise(res=>setTimeout(res,3500));
+    //   reviewsPresent = !!document.querySelector('#netreviews_button_more_reviews:not([style^="display: none;"])');
+    // }
   // end click logic
 
 
