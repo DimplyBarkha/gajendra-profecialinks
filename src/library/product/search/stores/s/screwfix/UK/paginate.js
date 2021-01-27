@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'screwfix',
-    nextLinkXpath: '//div[contains(@class,"row hide-sm")]//div[@class="pagi"]//span[@class="pagi__page-total"]//a[@id="next_page_link"]/@href',
+    nextLinkSelector: 'a#next_page_link.btn.pagi__link',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div#sticky-right-content',

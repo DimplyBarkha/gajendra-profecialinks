@@ -1,16 +1,16 @@
-
 /**
  *
  * @param {{
- *  nextLinkXpath: string,
- *  mutationSelector: string,
- *  loadedSelector: string,
- *  spinnerSelector: string,
- * }} inputs
- * @param { Record<string, any> } parameters
- * @param { ImportIO.IContext } context
- * @param { Record<string, any> } dependencies
- */
+  *  nextLinkSelector: string,
+  *  mutationSelector: string,
+  *  loadedSelector: string,
+  *  loadedXpath: string,
+  *  spinnerSelector: string,
+  * }} inputs
+  * @param { Record<string, any> } parameters
+  * @param { ImportIO.IContext } context
+  * @param { Record<string, any> } dependencies
+  */
 async function implementation (
   inputs,
   parameters,
@@ -18,19 +18,20 @@ async function implementation (
   dependencies,
 ) {
   const {
-    nextLinkXpath,
+    nextLinkSelector,
     mutationSelector,
     loadedSelector,
+    loadedXpath,
     spinnerSelector,
   } = inputs;
 
   if (spinnerSelector) {
     // this may replace the section with a loader
-    await context.click(nextLinkXpath);
+    await context.click(nextLinkSelector);
     await context.waitForFunction((selector) => {
       console.log(selector, document.querySelector(selector));
       return !document.querySelector(selector);
-    }, { timeout: 200000 }, spinnerSelector);
+    }, { timeout: 20000 }, spinnerSelector);
     console.log('Spinner went away', spinnerSelector);
     return true;
   }
@@ -38,18 +39,21 @@ async function implementation (
   if (mutationSelector) {
     // this may replace the section with a loader
     await Promise.all([
-      context.click(nextLinkXpath),
+      context.click(nextLinkSelector),
       // possible race condition if the data returned too fast, but unlikely
       context.waitForMutuation(mutationSelector, { timeout: 20000 }),
     ]);
     return true;
   }
 
-  if (nextLinkXpath) {
-    console.log('Clicking', nextLinkXpath);
-    await context.clickAndWaitForNavigation(nextLinkXpath, {}, { timeout: 200000 });
+  if (nextLinkSelector) {
+    console.log('Clicking', nextLinkSelector);
+    await context.clickAndWaitForNavigation(nextLinkSelector, {}, { timeout: 20000 });
     if (loadedSelector) {
-      await context.waitForSelector(loadedSelector, { timeout: 200000 });
+      await context.waitForSelector(loadedSelector, { timeout: 20000 });
+    }
+    if (loadedXpath) {
+      await context.waitForXPath(loadedXpath, { timeout: 20000 });
     }
     return true;
   }
