@@ -6,7 +6,7 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'ul[id=productListMain]',
+    loadedSelector: null,
     openSearchDefinition: {
       template: 'https://www.jdsports.co.uk/search/{searchTerms}&page={page}',
     },
