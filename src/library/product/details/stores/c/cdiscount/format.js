@@ -152,6 +152,11 @@ const transform = (data) => {
         });
       }
 
+      if (row.inTheBoxUrl1) {
+        row.inTheBoxUrl = row.inTheBoxUrl1;
+        delete row.inTheBoxUrl1
+      }
+
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {

@@ -161,9 +161,11 @@ fields:
     xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset
     regExp: (.+800w,\s)(.+(.png|.jpg))(.+)
     regExpReplace: https:$2
+  - name: inTheBoxUrl1
+    xpath: //div[@id="inpageurls"]
   - name: inTheBoxText
     singleValue: false
-    xpath: //div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")]
+    xpath: //div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")] | //div[@id="inpagetext"]
   - name: unInterruptedPDP
     singleValue: false
     xpath: //div[contains(@class,"carouAnimcoContainer")]//ul//li[contains(@class,'cPdtItem jsPdtItem')]/a/img/@title
