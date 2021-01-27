@@ -35,10 +35,18 @@ module.exports = {
     console.log('Status :', responseStatus.status);
     console.log('URL :', responseStatus.url);
 
+    const captchaButton = 'div.captcha-button button';
+
+    try {
+      await context.waitForSelector(captchaButton);
+    } catch (e) {
+      console.log("Didn't find captcha button.");
+    }
+
     await context.evaluate(async function () {
       const captchaButton = document.querySelector('div.captcha-button button.emg-button.emg-btn-large.emg-btn-full');
       if (captchaButton) {
-        console.log('Found button to captcha');
+        console.log('Found button to captcha which i will try to .click() here it is ->', captchaButton);
         captchaButton.click();
       }
     });
