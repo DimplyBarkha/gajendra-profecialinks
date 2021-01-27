@@ -20,7 +20,7 @@ fields:
     xpath: //*/@sk_alternateimages
   - name: secondaryImageTotal
     singleValue: false
-    xpath: count(ancestor::html //section[@class='UI KIT-bop__gallery']//ul/li[position()>1]/img/@src)
+    xpath: //*/@sk_alternateimagescount
     type: NUMBER
   - name: metaKeywords
     singleValue: true   
@@ -75,7 +75,7 @@ fields:
     xpath: ancestor::html //iframe[contains(@src,"youtube")]/@src  
   - name: productUrl
     singleValue: true   
-    xpath: ancestor::html //meta[@property="og:url"]/@content
+    xpath: //*/@sk_producturl
   - name: ingredientsList
     singleValue: true    
     xpath: //*/@sk_ingredients  
@@ -100,6 +100,9 @@ fields:
   - name: variants
     singleValue: false
     xpath: //*/@sk_variantdetails  
+  - name: weightNet
+    singleValue: false
+    xpath: //*/@sk_net_weight 
   - name: imageZoomFeaturePresent
     singleValue: true
     defaultValue: Yes

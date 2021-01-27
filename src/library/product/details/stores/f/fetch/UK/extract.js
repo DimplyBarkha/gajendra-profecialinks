@@ -26,13 +26,13 @@ module.exports = {
       };
       var added_ratingCount = '';
       var added_aggregateRating = '';
-      const ratingCount = getXpath("//dl[@class='bv-stars-container']//div[@class='bv-histogram-target']//span", 'innerText');
-      if (ratingCount !== null) {
-        added_ratingCount = ratingCount;
-      }
-      const aggregateRating = getXpath("//dl[@class='bv-stars-container']//span[@class='bv-rating-ratio-count']//span[@itemprop='reviewCount']", 'innerText');
+      const aggregateRating = getXpath("//dl[@class='bv-stars-container']//div[@class='bv-histogram-target']//span", 'innerText');
       if (aggregateRating !== null) {
         added_aggregateRating = aggregateRating;
+      }
+      var ratingCount = getXpath("//dl[@class='bv-stars-container']//span[@class='bv-rating-ratio-count']//span[@itemprop='reviewCount']", 'innerText');
+      if (ratingCount !== null) {
+        added_ratingCount = ratingCount;
       }
       console.log(ratingCount + '.......' + aggregateRating);
       //= =======Append a UL and LI tag append the variant info in the DOM | Start============
@@ -68,9 +68,12 @@ module.exports = {
       }
 
       function stripHtml (html) {
-        const tmp = document.createElement('DIV');
-        tmp.innerHTML = html;
-        return tmp.textContent || tmp.innerText || '';
+        if (html) {
+          html = html.replace('<br>', ' ');
+          const tmp = document.createElement('DIV');
+          tmp.innerHTML = html;
+          return tmp.textContent || tmp.innerText || '';
+        }
       }
 
       function getStock (variants) {
@@ -80,6 +83,8 @@ module.exports = {
           } else if (variants.availability.availabilityType.toLocaleLowerCase() === 'available') {
             return 'In Stock';
           } else if (variants.availability.availabilityType.toLocaleLowerCase() === 'mixed') {
+            return 'In Stock';
+          } else if (variants.availability.availabilityType.toLocaleLowerCase() === 'future') {
             return 'In Stock';
           } else {
             return 'Out Of Stock';
@@ -108,6 +113,35 @@ module.exports = {
                 htmlview = stripHtml(description[i].title) + ' ' + stripHtml(description[i].content);
               }
             }
+          }
+        }
+        return htmlview;
+      }
+
+      function getAdditionalDescription (variants) {
+        var htmlDescription = '';
+        var htmlKeyBenefits = '';
+        var htmlProductInformation = '';
+        var htmlRecommendedFor = '';
+        var htmlview = '';
+        if (variants) {
+          const description = variants.content;
+          if (description.length) {
+            for (let i = 0; i < description.length; i++) {
+              if (description[i].title.toLocaleLowerCase() === 'description' && description[i].title !== undefined) {
+                htmlDescription = stripHtml(description[i].content);
+              }
+              if (description[i].title.toLocaleLowerCase() === 'key benefits' && description[i].title !== undefined) {
+                htmlKeyBenefits = stripHtml(description[i].title) + ' ' + stripHtml(description[i].content);
+              }
+              if (description[i].title.toLocaleLowerCase() === 'product information' && description[i].title !== undefined) {
+                htmlProductInformation = stripHtml(description[i].content);
+              }
+              if (description[i].title.toLocaleLowerCase() === 'recommended for' && description[i].title !== undefined) {
+                htmlRecommendedFor = stripHtml(description[i].title) + ' ' + stripHtml(description[i].content);
+              }
+            }
+            htmlview = htmlDescription + ' ' + htmlKeyBenefits + ' ' + htmlProductInformation + ' ' + htmlRecommendedFor;
           }
         }
         return htmlview;
@@ -144,14 +178,18 @@ module.exports = {
         return savingText;
       }
 
-      function alternateImages (images) {
+      function alternateImages (images, types) {
         if (images !== '' && images !== undefined) {
           var imgArray = [];
           if (images.length > 1) {
             for (let i = 1; i < images.length; i++) {
-              imgArray.push('https:' + images[i].url);
+              imgArray.push('https:' + images[i].thumbnailUrl);
             }
-            return imgArray.join('|');
+            if (types === 1) {
+              return (images.length - 1);
+            } else {
+              return imgArray.join('|');
+            }
           }
         }
       }
@@ -175,6 +213,11 @@ module.exports = {
       function variantinformation (size, totalcount) {
         var sizeValue = '';
         if (totalcount > 1) {
+          if (size.dimensions !== undefined && size.dimensions[0].attribute !== undefined && size.dimensions[0].attribute.value !== undefined) {
+            sizeValue = size.dimensions[0].attribute.value;
+          }
+
+          /*
           if (size !== '' && size !== undefined) {
             var sizeArray = size.split(' ');
             if (sizeArray[sizeArray.length - 1] === 'pack') {
@@ -183,7 +226,9 @@ module.exports = {
               sizeValue = sizeArray[sizeArray.length - 1];
             }
           }
+          */
         }
+        console.log(sizeValue);
         return sizeValue;
       }
 
@@ -229,10 +274,20 @@ module.exports = {
         return unitprice;
       }
 
+      function getWeightNet (variants) {
+        var WeightNet = '';
+        if (variants) {
+          if (variants.dimensions !== undefined && variants.dimensions[0] !== undefined && variants.dimensions[0].attribute.value !== undefined) {
+            WeightNet = variants.dimensions[0].attribute.value;
+          }
+        }
+        return WeightNet;
+      }
+
       const jsonData = getXpath("//script[@id='__NEXT_DATA__']", 'innerText');
       var jsonParse = JSON.parse(jsonData);
       console.log(jsonParse);
-      // console.log(jsonParse.props.pageProps.productGroup.children);
+      console.log(jsonParse.props.pageProps.productGroup.children);
       const variants = jsonParse.props.pageProps.productGroup.children;
       const targetElement = document.querySelector('body');
       const newUl = document.createElement('ul');
@@ -247,11 +302,12 @@ module.exports = {
 
             setAttributes(listItem, {
 
-              sk_sku: jsonParse.query.sku ? jsonParse.query.sku : '',
+              // sk_sku: jsonParse.query.sku ? jsonParse.query.sku : '',
+              sk_sku: variants[i].sku ? variants[i].sku : '',
               sk_nameextended: variants[i].name ? variants[i].name : '',
-              sk_productUrl: variants[i].url ? 'https://fetch.co.uk' + variants[i].url : '',
+              sk_producturl: variants[i].url ? 'https://fetch.co.uk' + variants[i].url : '',
               sk_availabilityText: getStock(variants[i]),
-              sk_description: getDescription(variants[i], 'description'),
+              sk_description: getAdditionalDescription(variants[i]),
               sk_ingredients: getDescription(variants[i], 'ingredients'),
               sk_benefits: getDescription(variants[i], 'benefits'),
               sk_recommended: getDescription(variants[i], 'recommended'),
@@ -265,16 +321,18 @@ module.exports = {
               sk_image: variants[i].images ? 'https:' + variants[i].images[0].url : '',
               sk_image_alt: variants[i].images[0].altText,
               sk_variantdetails: variantDetails(variants),
-              sk_alternateimages: alternateImages(variants[i].images),
+              sk_alternateimages: alternateImages(variants[i].images, 0),
+              sk_alternateimagescount: alternateImages(variants[i].images, 1),
               sk_size: variants[i].name ? getSize(variants[i].name) : '',
               sk_pack_size: variants[i].name ? getSizePack(variants[i].name) : '',
-              sk_variantinformation: variants[i].name ? variantinformation(variants[i].name, variants.length) : '',
+              sk_variantinformation: variants[i].name ? variantinformation(variants[i], variants.length) : '',
               sk_variantcount: variantcount(variants.length),
               sk_firstvariant: firstvariant(variants.length, jsonParse.query.sku),
               sk_instructions: getDescription(variants[i], 'instructions'),
               sk_aggregaterating: added_aggregateRating,
               sk_ratingcount: added_ratingCount,
               sk_variantid: variantId(variants[i].sku, variants.length),
+              sk_net_weight: getWeightNet(variants[i]),
             });
             ul.appendChild(listItem);
           }
