@@ -470,7 +470,8 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
-    xpath: //span[@class="product-options-identifier"]
+    # xpath: //span[@class="product-options-identifier"]
+    xpath: (//div[@class="sub-products h-push-v"]/div/input/@value)[1]
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
@@ -482,9 +483,12 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
+    xpath: (//div[@class="sub-products h-push-v"]/div/input/@value)[1]
   - name: variants
     singleValue: false
     description: null
+    # xpath: //div[@class="sub-products h-push-v"]/div/input/@value
+    xpath: //div[@class="sub-products h-push-v"]/div[position()>=2]/input/@value
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
