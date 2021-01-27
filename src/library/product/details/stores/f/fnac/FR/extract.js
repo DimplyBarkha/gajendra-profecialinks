@@ -39,6 +39,24 @@ module.exports = {
     catch(e){
       console.log("Couldn't find selector");
     }
+    /**
+     * Note: Comment API as it is getting blocked and might effect block rate.
+    async function getUPDP() {
+      const strateType = ['CustomersAlsoBought', 'ComplementaryProducts', 'DoNotMiss', 'InkCartridge', 'NavigationHistory'];
+      const productId = document.querySelector('.f-productPage').getAttribute('data-prid');
+      const API = strateType.map(type => `https://www.fnac.com/Nav/API/Article/GetStrate?prid=${productId}&catalogRef=1&strateType=${type}`);
+      const promises = API.map(api => fetch(api));
+      const responses = await Promise.all(promises);
+      const validResponse = responses.filter(response => response.headers.get('content-length') > 0);
+      const data = await Promise.all(validResponse.map(r => r.json()));
+      const UPDP = data.map(elm => elm.ArticleThumbnailList).flat().map(elm => elm.Title.TitleFull);
+      document.body.setAttribute('updp', UPDP.join('|'));
+    }
+    try {
+      await context.evaluate(getUPDP);
+    } catch (error) {
+      console.log('Error getting UPDP. Error: ', error);
+    }*/
     return await context.extract(productDetails, { transform });
   },
 };

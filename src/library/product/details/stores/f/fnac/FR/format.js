@@ -114,6 +114,10 @@ const transform = (data) => {
           element.text = finalText;
         });
       }
+      if (row.unInterruptedPDP) {
+        const pdp = Array.from(new Set(row.unInterruptedPDP.map(elm => elm.text.trim())));
+        row.unInterruptedPDP = pdp.map(text => ({ text }));
+      }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {

@@ -128,7 +128,8 @@ fields:
     singleValue: false  
     xpath: //div[contains(@class, "summaryStrate__raw")] | //div[contains(@class, "characteristicsStrate__item") and contains(@class, "item--long")]
   - name: unInterruptedPDP
-    xpath: //div[contains(@class,"miniFA__top")]//img/@alt
+    xpath: //div[contains(@class,"miniFA__top")]//img/@alt | //@updp
+    regExp: '[^|]+'
   - name: hasComparisonTable
     defaultValue: No
     xpath: //div[@class="flix-comp-container"]
