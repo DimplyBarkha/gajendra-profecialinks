@@ -6,6 +6,9 @@ fields:
   - name: image
     singleValue: true
     xpath: //a[@class="productImagePrimaryLink"]//img/@data-zoom-image
+  - name: productUrl
+    singleValue: true
+    xpath: /html/head/meta[@property="og:url"]/@content
   - name: imageAlt
     singleValue: true
     xpath: //a[@id="imageLink"]/div/img/@alt
@@ -20,15 +23,13 @@ fields:
     xpath: //div[@class="b-breadcrumbs"]//li[position()>2 and position()<last()]
   - name: nameExtended
     singleValue: true
-    xpath: concat(//span[contains(text(),'Торговая марка')]/following-sibling::span//span/a/text(),"-",//h1[@class="b-productName"]/text())
+    xpath: //h1[@class="b-productName"]/text()
   - name: listPrice
     singleValue: true
-    type: CURRENCY
     xpath: //div[@class='i-pl20 i-pr20']/span[@class='i-td-thr i-fs22 i-fwb']
   - name: price
     singleValue: true
-    type: CURRENCY
-    xpath: //div[@class='i-mt15 b-colored--red']/span[@class='i-fs30 i-fwb']
+    xpath: //div[@class='i-mt15 b-colored--red']
   - name: availabilityText
     singleValue: true
     xpath: //input[@value="В корзину"]/parent::*//div//span/text()
