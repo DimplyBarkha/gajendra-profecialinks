@@ -1,4 +1,4 @@
-const { cleanUp } = require('../../../../shared');
+const { cleanUp } = require('../shared');
 
 module.exports = {
   implements: 'product/details/extract',
@@ -46,11 +46,11 @@ module.exports = {
       addedElem.setAttribute('price', `${price} руб.`);
 
       const warningsElements = document.querySelectorAll(
-        'div#instruction_PREGNANCY_USE > div, div#instruction_CONTRAINDICATIONS > div, div#instruction_SIDE_EFFECTS > div, div#instruction_OVERDOSE > div',
+        'div#instruction_SPECIAL_INSTRUCTIONS > div, div#instruction_PREGNANCY_USE > div, div#instruction_CONTRAINDICATIONS > div, div#instruction_SIDE_EFFECTS > div, div#instruction_OVERDOSE > div',
       );
       const warnings = Array.from(warningsElements)
         .map((elem) => elem.textContent)
-        .join(' | ');
+        .join(' ');
 
       addedElem.setAttribute('warnings', warnings);
 

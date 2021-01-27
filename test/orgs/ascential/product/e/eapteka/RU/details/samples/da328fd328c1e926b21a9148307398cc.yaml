@@ -2,7 +2,7 @@ input:
   _url: http://eapteka.ru
   URL: https://www.eapteka.ru/goods/id337571/
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=ac4aa45a-1407-4677-9e3c-ce2389ec1faf/task=88624de9-2223-4d45-836a-077f710f5528/2b109d6b-245e-4b6b-99b0-ce2a3b7ec55a.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=bd5a54a0-79ae-4052-9082-2d89d1ea0de4/task=25292f6d-9b5c-4edc-9441-5c489a5b2d76/48bfef7c-0965-4322-b290-fc24f0c81c45.html
     extractionConfigId: product/details/stores/e/eapteka/RU/extract
     data:
       - group:
@@ -45,7 +45,7 @@ extractions:
               - text: Kotex Прокладки Ultra Activ Super, 7 шт
                 xpath: /html/body/section[1]/div[2]/div[1]/div[1]/h1[1]
             price:
-              - text: 145 руб.
+              - text: 146 руб.
                 xpath: /html/body/div[9]/@price
             availabilityText:
               - text: In Stock
@@ -56,9 +56,11 @@ extractions:
                   специально для активных девушек. Благодаря технологии FlexFit
                   они повторяют движения тела, а дышащая поверхность
                   обеспечивает коже комфорт и уверенность в движении.
-                   Благодаря уникальной технологии FlexFit прокладка гибкая, поэтому может повторять движения тела даже во время активных занятий.
-                   Дышащие задняя и передняя поверхности: более 100 000 дышащих микропор созданы, чтобы обеспечить комфорт коже.
-                xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/div[1]
+
+                  Благодаря уникальной технологии FlexFit прокладка гибкая, поэтому может повторять движения тела даже во время активных занятий.
+
+                  Дышащие задняя и передняя поверхности: более 100 000 дышащих микропор созданы, чтобы обеспечить комфорт коже.
+                xpath: /html/body/div[9]/@description
             brandText:
               - text: Котекс
                 xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/p[2]/a[1]
@@ -103,4 +105,4 @@ extractions:
             secondaryImageTotal:
               - text: "0"
         xpath: /
-    timestamp: 1611661280879
+    timestamp: 1611736846027

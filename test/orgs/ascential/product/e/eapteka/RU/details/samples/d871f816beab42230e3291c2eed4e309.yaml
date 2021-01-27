@@ -2,7 +2,7 @@ input:
   _url: http://eapteka.ru
   URL: https://www.eapteka.ru/goods/id227720/
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=61bd9a90-af2b-43ee-8065-abd08d9eee71/task=e59681c2-206d-4b18-b4e6-233765bb7021/f5aa84ed-24ce-4f89-9254-6be0a8eee747.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=bd5a54a0-79ae-4052-9082-2d89d1ea0de4/task=1c579d37-8cbd-47a6-91d1-571d7f6272c7/0aabbe53-803c-450f-b084-6fe181df5445.html
     extractionConfigId: product/details/stores/e/eapteka/RU/extract
     data:
       - group:
@@ -45,7 +45,7 @@ extractions:
               - text: Фурасол, пакетики 100 мг/1 г, 15 шт.
                 xpath: /html/body/section[1]/div[2]/div[1]/div[1]/h1[1]
             price:
-              - text: 570 руб.
+              - text: 572 руб.
                 xpath: /html/body/div[9]/@price
             availabilityText:
               - text: In Stock
@@ -77,15 +77,19 @@ extractions:
                   	беременность;
                   	период лактации;
                   	возраст до 4 лет.
-                   | 
+                   
                    
                   	 В отдельных случаях возможно развитие аллергических реакций. 
                   	В этом случае применение препарата прекращают. 
                   	Назначают симптоматическую терапию.
-                   | 
+                   
                    
                   	 Препарат малотоксичен.
                   	 Случаи передозировки не описаны.
+                   
+                   
+                  	 Раствор готовят непосредственно перед применением.
+                  	 Приготовленный раствор не хранить.
                 xpath: /html/body/div[9]/@warnings
             ratingCount:
               - text: "5"
@@ -283,4 +287,4 @@ extractions:
             secondaryImageTotal:
               - text: "0"
         xpath: /
-    timestamp: 1611672499061
+    timestamp: 1611736890955
