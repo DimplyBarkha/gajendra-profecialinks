@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -128,15 +128,13 @@ fields:
     regExpReplace: Yes
     defaultValue: No
   - name: technicalInformationPdfPresent
-    singleValue: true
     xpath: //div[@class="guides"]
     regExp: (.+)
-    regExpReplace: 'Yes'
-    defaultValue: 'No'
+    regExpReplace: "Yes"
+    defaultValue: "No"
   - name: imageZoomFeaturePresent
     defaultValue: Yes
   - name: materials
-    singleValue: true
     xpath: //div[contains(translate(string(), 'Material', 'Material'), 'Material')]/div[@class="value"]
   - name: firstVariant
     singleValue: false
@@ -144,12 +142,20 @@ fields:
     regExp: (\Item.*#)(.*)
     regExpReplace: $2
   - name: quantity
-    singleValue: true
     xpath: //div[contains(translate(string(), 'Width Range', 'Width Range'), 'Width Range')]/div[@class="value"]
   - name: warnings
-    singleValue: true
     xpath: //div[@class="props65"]//span[@class="title"]
   - name: variants
     xpath: //div[contains(@class,"swatchWrapper")]//button/@data-url
     regExp: \/(\d+)
     regExpReplace: $1
+  - name: unInterruptedPDP
+    xpath: //div[@id="item-index-1-wrapper"]//h6//span[@class="product-desc"]|//div[contains(@class,"recommendation")]//div[contains(@class,"product-card-wrapper")]//div[contains(@class,"card-description-container")]/h6/a
+  - name: inTheBoxUrl
+    xpath: //@witb-url|//div[@data-section-tag="in-the-box"]//div[@class="wc-aplus-body"]//li//img/@src
+    regExp: "[^|]+"
+  - name: inTheBoxText
+    xpath: //@witb-text|//div[@data-section-tag="in-the-box"]//div[@class="wc-aplus-body"]//li//h3
+    regExp: "[^|]+"
+  - name: hasComparisonTable
+    xpath: //@has-comparison
