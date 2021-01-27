@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'SE',
     store: 'tingstad',
-    nextLinkSelector: null,
+    nextLinkSelector: 'label.pagination__item',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div.pl__wrap',

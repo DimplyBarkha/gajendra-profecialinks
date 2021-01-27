@@ -60,7 +60,7 @@ module.exports = {
     country: 'SE',
     store: 'tingstad',
     domain: 'tingstad.se',
-    url: 'https://www.tingstad.com/se-sv/sokresultat?q={searchTerms}',
+    url: 'https://www.tingstad.com/se-sv/sokresultat?q="{searchTerms}"',
     loadedSelector: 'div.pl__wrap',
     noResultsXPath: null,
     zipcode: "''",
