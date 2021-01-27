@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: 'a[class="c-pagination__next font-icon icon-up "]',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'body',
+    loadedSelector: 'div[class*="product-tile"]',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'mvideo.ru',
