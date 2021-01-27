@@ -3,13 +3,14 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-- name: url
+- name: _url
   description: URL of the main product page
   xpath: //link[@rel="canonical"]/@href
 - name: image
   singleValue: true
   description: URL of the main product image
-  xpath: //meta[@property="og:image"]/@content
+  # xpath: //meta[@property="og:image"]/@content
+  xpath: //img[@name="mainImage"]/@src
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
@@ -32,14 +33,14 @@ fields:
   description: The categories (e.g. from breadcrumbs)
   xpath: //div[@itemprop="breadcrumb"]//a[not(contains(@class,'main'))]//span//text()
 - name: listPrice
-  type: CURRENCY
   description: The stated undiscounted price for the product
-  xpath: //div[@class="wide-6 productInformations offerDetails"]//dd[@class="listPrice"]//text()
+  # xpath: //div[@class="wide-6 productInformations offerDetails"]//dd[@class="listPrice"]//text()
+  xpath: //div[@id="ii_listPrice"]
 - name: price
-  type: CURRENCY
   description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-  xpath: //dl[@class="productPrice"]//dd[@class="yourPrice price" or @class="yourPrice"]//text()
+  # xpath: //dl[@class="productPrice"]//dd[@class="yourPrice price" or @class="yourPrice"]//text()
+  xpath: //div[@id='ii_price']
 - name: availabilityText
   singleValue: true
   xpath: //div[@class='wide-6 productInformations offerDetails']//dl[@class="productAvailability"]//span[@class="value-title"]/@title
@@ -48,10 +49,10 @@ fields:
   regExpReplace: In Stock
 - name: description
   singleValue: false
-  type: TEXT[]
   description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-  xpath: //dd[@class="productLongDescription"]//text()
+  # xpath: //dd[@class="productLongDescription"]//text()
+  xpath: //div[@id="ii_desc"]
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -101,6 +102,7 @@ fields:
 - name: legalDisclaimer
   singleValue: true
   description: Content under "legal disclaimer" header
+  xpath: //div[@class='lmivDisclaimer']
 - name: directions
   type: TEXT[]
   description: Content under "directions" header
@@ -118,7 +120,7 @@ fields:
   xpath: //div[@id="productReview"]//span[@itemprop="reviewCount"]//text()
 - name: manufacturerImages
   singleValue: false
-  xpath: //dd[@class="productLongDescription"]//img/@src
+  xpath: //div[@id="ii_manufacturerImages"]
 - name: manufacturerDescription
   singleValue: false
   type: TEXT[]
@@ -155,8 +157,8 @@ fields:
 - name: nameExtended
   type: TEXT
   description: The product name
-  # xpath: //h1[@class="name fn"]//text()
-  xpath:  normalize-space(concat(//h1[@class="name fn"]//text(),(//dd[@class="packageSize"]//text())[1],(//dd[@class="packageSize"]//text())[2]))
+  xpath: //div[@id="ii_description"]
+  # xpath:  normalize-space(concat(//h1[@class="name fn"]//text(),(//dd[@class="packageSize"]//text())[1],(//dd[@class="packageSize"]//text())[2]))
 - name: name
   singleValue: true
   type: TEXT
