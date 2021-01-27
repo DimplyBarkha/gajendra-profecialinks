@@ -44,8 +44,9 @@ const transform = (data) => {
             }
             if (row.aggregateRating) {
                 row.aggregateRating.forEach(item => {
-                    item.text = item.text.match(/\d+\.+\d/);
-                    item.text = String(item.text).replace(/\,/g, '');
+                    // item.text = item.text.match(/\d+\.+\d/);
+                    // item.text = String(item.text).replace(/\,/g, '');
+                    item.text = item.text.replace('.', ',');
                 });
             }
             if (row.variantCount) {
@@ -117,7 +118,7 @@ const transform = (data) => {
                     info.push(item.text);
                 });
                 row.description = [{ 'text': info.join(' || '), 'xpath': row.description[0].xpath }];
-                row.description[0].text = ' || ' + row.description[0].text;
+                // row.description[0].text = ' || ' + row.description[0].text;
             }
             if (row.specifications) {
                 let info = [];
@@ -127,21 +128,21 @@ const transform = (data) => {
                 row.specifications = [{ 'text': info.join(' || '), 'xpath': row.specifications[0].xpath }];
                 row.specifications[0].text = ' || ' + row.specifications[0].text;
             }
-            if (row.technicalInformationPdfPresent) {
-                row.technicalInformationPdfPresent.forEach(item => {
-                    item.text = 'https://www.canadiantire.ca' + item.text
-                });
-            }
-            if (row.videos) {
-                let indx1;
-                let indx2;
-                row.videos.forEach(item => {
-                    indx1 = item.text.indexOf('http');
-                    indx2 = item.text.indexOf('Flv');
-                    item.text = item.text.substring(indx1, indx2).replace('thumbnails', 'videos');
-                    item.text = item.text + 'liveclicker.mp4';
-                });
-            }
+            // if (row.technicalInformationPdfPresent) {
+            //     row.technicalInformationPdfPresent.forEach(item => {
+            //         item.text = 'https://www.canadiantire.ca' + item.text
+            //     });
+            // }
+            // if (row.videos) {
+            //     let indx1;
+            //     let indx2;
+            //     row.videos.forEach(item => {
+            //         indx1 = item.text.indexOf('http');
+            //         indx2 = item.text.indexOf('Flv');
+            //         item.text = item.text.substring(indx1, indx2).replace('thumbnails', 'videos');
+            //         item.text = item.text + 'liveclicker.mp4';
+            //     });
+            // }
             if (row.alternateImages) {
                     let info=[];
                     row.alternateImages.forEach(item => {
@@ -222,6 +223,11 @@ const transform = (data) => {
             if (row.sku) {
                 row.sku.forEach(item => {
                     item.text = item.text.substring(0, item.text.length-1);
+                });
+            }
+            if (row.price) {
+                row.price.forEach(item => {
+                    item.text = `$ ${item.text.split(' ')[0]}`;
                 });
             }
         }
