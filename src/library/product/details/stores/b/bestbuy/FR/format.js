@@ -88,15 +88,9 @@ const transform = (data) => {
         });
       }
 
-      if (row.aggregateRating) {
-        row.aggregateRating.forEach(item => {
-          item.text = item.text.replace('.', ',');
-        });
-      }
-
-      if (row.price) {
-        row.price.forEach(item => {
-          item.text = item.text.replace('.', ',');
+      if (row.weightNet) {
+        row.weightNet.forEach(item => {
+          item.text = item.text.replace(',', '.');
         });
       }
 
@@ -129,7 +123,7 @@ const transform = (data) => {
       if (row.specifications) {
         let text = '';
         for (let i = 0; i < row.specifications.length; i++) {
-          text += `${row.specificationsLabel[i].text} : ${row.specifications[i].text} || `;
+          text += `${row.specificationsLabel[i].text} : ${row.specifications[i].text.replace(',', '.')} || `;
         }
         row.specifications = [
           {
