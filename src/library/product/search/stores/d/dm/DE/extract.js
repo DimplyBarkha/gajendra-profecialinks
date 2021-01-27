@@ -27,7 +27,7 @@ module.exports = {
     // to load all images
     await context.waitForXPath('//div[@data-dmid="product-image-container"]//img/@src');
     await context.evaluate(async function () {
-      function stall (ms) {
+      function stall(ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
@@ -42,7 +42,7 @@ module.exports = {
     });
 
     await context.evaluate(async () => {
-      function stall (ms) {
+      function stall(ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
@@ -51,7 +51,8 @@ module.exports = {
       }
 
       if (document.querySelector('[data-dmid=load-more-products-button]') != null) {
-        while (document.querySelector('[data-dmid=load-more-products-button]').textContent === 'Mehr laden') {
+        const xpath = '//div[@data-dmid="product-grid-container"]//..//div[@data-dmid="product-tiles"]//div[@data-dmid="product-tile-container"]'
+        while (document.querySelector('[data-dmid=load-more-products-button]').textContent === 'Mehr laden' && document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null).snapshotLength <= 150) {
           await new Promise((resolve, reject) => setTimeout(resolve, 12000));
           document.querySelector('[data-dmid=load-more-products-button]').click();
           await new Promise((resolve, reject) => setTimeout(resolve, 12000));
@@ -79,7 +80,7 @@ module.exports = {
                 break;
               }
             }
-            function stall (ms) {
+            function stall(ms) {
               return new Promise((resolve, reject) => {
                 setTimeout(() => {
                   resolve();
