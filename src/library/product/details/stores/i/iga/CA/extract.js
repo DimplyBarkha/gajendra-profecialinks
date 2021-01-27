@@ -69,15 +69,7 @@ module.exports = {
         newDiv.id = id;
         newDiv.textContent = content;
         newDiv.style.display = "none";
-        const originalDiv = document.querySelectorAll('#body_0_main_1_ListOfPrices > div > div:nth-child(1) > span > span')[index];
-        originalDiv.parentNode.insertBefore(newDiv, originalDiv);
-      }
-      function addHiddenDiv1(id, content, index) {
-        const newDiv = document.createElement("div");
-        newDiv.id = id;
-        newDiv.textContent = content;
-        newDiv.style.display = "none";
-        const originalDiv = document.querySelectorAll('#body_0_main_1_ListOfPrices > div > div:nth-child(1) > del > span')[index];
+        const originalDiv = document.querySelectorAll('h1[class="h3-like product-detail__name js-product-detail__name"]')[index];
         originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
       function addElementToDocument(key, value) {
@@ -88,38 +80,49 @@ module.exports = {
         document.body.appendChild(catElement);
       }
       var getXpath = (xpath, prop) => {
-                var elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
-                let result;
-                if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
-                else result = elem ? elem.singleNodeValue : '';
-                return result && result.trim ? result.trim() : result;
-                };
+        var elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+        let result;
+        if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+        else result = elem ? elem.singleNodeValue : '';
+        return result && result.trim ? result.trim() : result;
+      };
       var txt = getXpath('//div[@class="relative js-data-procuct"]/@data-product', 'nodeValue');
-      if( txt != null){
+      if (txt != null) {
         var rpc = txt.split("'ProductId':'")[1];
-        if( rpc != undefined ){
-        rpc = rpc.split("',")[0];
-        addElementToDocument('rpc', rpc);  }
-        }
-        var listprice = getAllXpath('//del[@class="item-product__price push-half--left"]/span/text()',"nodeValue");
-      if (listprice != null) {
-        for (var i = 0; i < listprice.length; i++) {
-          var price2 = listprice[i].replace(".", ",");
-          addHiddenDiv1("listprice", price2, i);
+        if (rpc != undefined) {
+          rpc = rpc.split("',")[0];
+          addElementToDocument('rpc', rpc);
         }
       }
-      var price = getAllXpath('//span[@class="product-detail__price--sale js-product-detail__price--sale"]/span/text() | //div[@class="item-product__price js-item-product__price"]/span/text()',"nodeValue");
-      if (price != null) {
-        for (var i = 0; i < price.length; i++) {
-          var price1 = price[i].replace(".", ",");
-          addHiddenDiv1("price", price1, i);
-        }
-      }
-      const URL = window.location.href;
       try {
-        document.getElementById("pd_url").remove();
-      } catch (error) { }
-      addElementToDocument("pd_url", URL);
+        var listprice = getAllXpath('//del[@class="item-product__price push-half--left"]/span/text()', 'nodeValue');
+        if (listprice != null) {
+          for (var i = 0; i < listprice.length; i++) {
+            var price2 = listprice[i].replace(",", ".");
+            addHiddenDiv1("listprice", price2, i);
+          }
+        }
+      }
+      catch (error) {
+      }
+      try {
+        var price = getAllXpath('//span[@class="product-detail__price--sale js-product-detail__price--sale"]/span/text() | //div[@class="item-product__price js-item-product__price"]/span/text()', 'nodeValue');
+        if (price != null) {
+          for (var i = 0; i < price.length; i++) {
+            var price1 = price[i].replace(",", ".");
+            addHiddenDiv1("price", price1, i);
+          }
+        }
+        const URL = window.location.href;
+        try {
+          document.getElementById("pd_url").remove();
+        } catch (error) { }
+        addElementToDocument("pd_url", URL);
+      }
+      // @ts-ignore
+      // @ts-ignore
+      catch (error) {
+      }
     });
     return await context.extract(productDetails, { transform });
   },
