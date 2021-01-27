@@ -1,14 +1,14 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //section[@class="search-list"]//article
 fields:
   - name: id
     xpath: //div[@class="tools"]//@data-id
     # regExp: (\d+$)
     # regExpReplace: $1
-  - name: price   
-    xpath: (//span[@id='price']/span[@class='value-promotion-price'] | //div[@class='prices']/span[@id='price'])
+  - name: price       
+    xpath: //article[@class="product-card box-white"]/@data-price
   - name: productUrl
     xpath: //div[@class="col-6 col-sm-12 column-text"]/div/a/@href
   - name: thumbnail

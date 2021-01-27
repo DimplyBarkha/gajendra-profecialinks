@@ -8,13 +8,8 @@ module.exports = {
     store: 'promofarma',
     zipcode: '',
   },
-  implementation: async (
-    { url },
-    parameters,
-    context,
-    dependencies,
-  ) => {
-    const timeout = parameters.timeout ? parameters.timeout : 10000;
+  implementation: async (inputs, parameters, context, dependencies) => {
+    const { timeout = 10000 } = parameters;
 
     await context.setBlockAds(false);
     await context.setLoadAllResources(true);
@@ -22,16 +17,13 @@ module.exports = {
     await context.setJavaScriptEnabled(true);
     await context.setAntiFingerprint(false);
     await context.setUseRelayProxy(false);
-    const responseStatus = await context.goto(url, {
-      firstRequestTimeout: 10000,
-      timeout: timeout,
-      waitUntil: 'load',
-      checkBlocked: false,
-      antiCaptchaOptions: {
-        type: 'RECAPTCHA',
-      },
-    });
-    console.log('Status :', responseStatus.status);
-    console.log('URL :', responseStatus.url);    
-  }
+
+
+    const { url, zipcode, storeId } = inputs;
+    await context.goto(url, { timeout, waitUntil: 'load', checkBlocked: true, captureRequests: true });
+    // patch for synchronicity issue between json decoring and goto result    
+    await new Promise((resolve) => setTimeout(resolve, 5000));
+    
+  },
+
 };
