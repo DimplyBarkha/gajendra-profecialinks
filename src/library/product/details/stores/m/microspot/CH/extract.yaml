@@ -59,7 +59,7 @@ fields:
   - name: mpc
     singleValue: false
     xpath: (//span[contains(text(),"Hersteller-Nr.")])[1]
-    regExp: Hersteller-Nr.\s*(\d+-?\d+)
+    regExp: Hersteller-Nr.\s(.+)
     regExpReplace: $1
   - name: ratingCount
     singleValue: false
