@@ -262,7 +262,7 @@ module.exports = {
         }
         const dataObj = await getObj();
         if (dataObj) {
-          const videoIds = dataObj.page && dataObj.page.product && dataObj.page.product.productVideos.map(e=>e.videoUrl);
+          const videoIds = dataObj.page && dataObj.page.product && dataObj.page.product.productVideos && dataObj.page.product.productVideos.map(e=>e.videoUrl);
           const accountID = document.querySelector('[src^="//players.brightcove.net/"]') && document.querySelector('[src^="//players.brightcove.net/"]').src && document.querySelector('[src^="//players.brightcove.net/"]').src.match(/players.brightcove.net\/([^\/]+)/)[1];
           const apis = videoIds && videoIds.map(elm => `https://edge.api.brightcove.com/playback/v1/accounts/${accountID}/videos/${elm}`);
           const promises = apis && apis.map(elm => fetch(elm, {
