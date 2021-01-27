@@ -13,7 +13,7 @@ module.exports = {
     parameters,
     context,
     dependencies,
-    ) {
+  ) {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(async function () {
@@ -40,6 +40,12 @@ module.exports = {
         let str = aggr[i];
         var a = str.replace('.', ',')
         addHiddenDiv('aggr', a, i)
+      }
+      var price = getAllXpath('//div[@class="col-lg-9 result-list-container px-2 pl-sm-0 pr-md-3"]/div/div/@data-gtm-price', 'nodeValue');
+      for (let i = 0; i < price.length; i++) {
+        price[i] = price[i].slice(0, -1);
+        price[i] = price[i].replace('.', ',');
+        addHiddenDiv("price", price[i], i);
       }
       //const aggr = getAllXpath('//div[@class="product-info border-bottom py-3 col-xxl-3 col-md-4 col-6 border-right"]/@data-gtm-rating', 'nodeValue');
       //try {
