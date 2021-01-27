@@ -35,9 +35,9 @@ const transform = (data) => {
         let text = '';
         row.availabilityText.forEach(item => {
           if (item.text.includes('Öka antal')) {
-            text = 'In Stock';
+            text = 'In stock';
           } else {
-            text = 'Out of Stock';
+            text = 'Out of stock';
           }
         });
         row.availabilityText = [
@@ -58,6 +58,9 @@ const transform = (data) => {
         }
         if (scriptJSON.ean) {
           row.gtin = [{ text: scriptJSON.ean }];
+          if (!row.sku) {
+            row.sku = row.gtin;
+          }
         }
         if (scriptJSON.manufacturer) {
           row.brandText = [{ text: scriptJSON.manufacturer }];
