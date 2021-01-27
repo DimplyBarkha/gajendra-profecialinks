@@ -30,10 +30,10 @@ const transform = (data, context) => {
         row.dietarySymbols = [{ text }];
         row.dietaryInformation = [{ text }];
       }
-      if (row.ingredientsList) {
-        const text = row.ingredientsList.map(elm => elm.text.replace('Allergie-informatie','').trim()).join(' ');
-        row.ingredientsList = [{ text }];
-      }
+      // if (row.ingredientsList) {
+      //   const text = row.ingredientsList.map(elm => elm.text.replace('Allergie-informatie', '').trim()).join(' ');
+      //   row.ingredientsList = [{ text }];
+      // }
       if (row.pricePerUnit) {
         const values = row.pricePerUnit.map(elm => elm.text).filter(elm => elm.trim());
         if (values.length > 1) {
@@ -58,6 +58,16 @@ const transform = (data, context) => {
       } else {
         row.availabilityText = [{ text: 'Out of Stock' }];
       }
+      if (row.additionalDescBulletInfo) {
+        let text = row.additionalDescBulletInfo.map(element => element.text.trim()).join(' || ');
+        let finalBulletText = `|| ${text}`;
+        row.additionalDescBulletInfo = [{ text: finalBulletText.trim() }]
+      }
+      if (row.description && row.additionalDescBulletInfo) {
+        let text = `${row.description[0].text} ${row.additionalDescBulletInfo[0].text}`
+        row.description = [{ text }]
+      }
+
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));

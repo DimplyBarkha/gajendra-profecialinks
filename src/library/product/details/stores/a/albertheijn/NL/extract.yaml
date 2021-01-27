@@ -21,7 +21,8 @@ fields:
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     xpath: concat(//div[starts-with(@class,"product-card-header")]/h1/span,' ', //div[starts-with(@class,"product-card-header_unitInfo")]/text())
-    description: The product name, prefixing "${brand} - " if not included in "name"
+    description:
+      The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
     xpath: translate(//div[starts-with(@class,"product-card-hero-price_wasContainer")]//div[@data-testhook="price-amount"], '.,', ',')
@@ -36,19 +37,22 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
   - name: description
-    xpath: //body/@description
-    singleValue: false
-    description: Product description supplied by website - may be concatenanted from
+    # xpath: //body/@description
+    description:
+      Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
+    xpath: //div[contains(@class,"product-card-hero_contentSection")]/div[contains(@class,"product-summary_root")]/p
   - name: descriptionBullets
-    xpath: count((//div[@class="product-info-description"]/ul | //div[@class="product-info-description"]/div[@class="product-summary"] | //div[starts-with(@class,"product-card-hero_contentSection")]/div[@class="product-summary"])//li | //div[contains(@class,'product-summary_root')]//ul/li)
+    # xpath: count((//div[@class="product-info-description"]/ul | //div[@class="product-info-description"]/div[@class="product-summary"] | //div[starts-with(@class,"product-card-hero_contentSection")]/div[@class="product-summary"])//li | //div[contains(@class,'product-summary_root')]//ul/li)
     description: Number of ul > li tags in the description
+    xpath: count(//div[contains(@class,"product-card-hero_contentSection")]/div[contains(@class,"product-summary_root")]/ul/li)
     type: NUMBER
   - name: brandText
     xpath: //a[contains(@class,"brand-button")]/text()
     regExp: Alles van\s*(.+)
     regExpReplace: $1
-    description: Product brand shown - this may actually NOT be just a brand name,
+    description:
+      Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: manufacturer
     xpath: //body/@manufacturer
@@ -78,7 +82,8 @@ fields:
     xpath: //div[starts-with(@class,"product-card-header_unitInfo")]/text()
     regExp: ^(.+)\s*stuks
     regExpReplace: $1
-    description: The number of packs in the product offer (if stated separately on
+    description:
+      The number of packs in the product offer (if stated separately on
       the site to quantity)
   - name: legalDisclaimer
     description: Content under "legal disclaimer" header
@@ -134,17 +139,19 @@ fields:
   - name: brandLink
     xpath: //a[contains(@class,"brand-button")]/@href
     regExp: (.+)
-    regExpReplace: https://www.ah.nl$1  
+    regExpReplace: https://www.ah.nl$1
     description: null
   - name: internationalShipping
     description: Text next to bullet point
   - name: salesRank
     singleValue: false
-    description: Amazon best selling rank from product details (linked back) - needs
+    description:
+      Amazon best selling rank from product details (linked back) - needs
       to be collapsed
   - name: salesRankCategory
     singleValue: false
-    description: Amazon best selling rank from product details (linked back) - needs
+    description:
+      Amazon best selling rank from product details (linked back) - needs
       to be collapsed
   - name: subscriptionPrice
     description: Subscribe and save price
@@ -201,9 +208,10 @@ fields:
   - name: fastTrack
     description: null
   - name: ingredientsList
-    xpath: //div[@class="product-info-content-block product-info-ingredients"]/h2[contains(.,"Ingrediënten")]/following-sibling::*[1] |//div[@class="product-info-content-block product-info-ingredients"]/h2[contains(.,"Ingrediënten")]/following-sibling::*[2]
+    # xpath: //div[@class="product-info-content-block product-info-ingredients"]/h2[contains(.,"Ingrediënten")]/following-sibling::*[1] |//div[@class="product-info-content-block product-info-ingredients"]/h2[contains(.,"Ingrediënten")]/following-sibling::*[2]
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
+    xpath: //h2[contains(text(),"Ingrediënten")]/following-sibling::p
   - name: servingSize
     xpath: //th[contains(.,"Soort")]/following-sibling::*[1]
     regExp: '(.+)\s[^\s]+[.]*$'
@@ -219,7 +227,8 @@ fields:
     description: Suggested number of servings of the product.
   - name: caloriesPerServing
     xpath: //td[contains(.,"Energie")]/following-sibling::*[1]
-    description: Nutritional Information for Calories Per Serving content - Usually
+    description:
+      Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
   - name: caloriesFromFatPerServing
     description: Nutritional Information for Calories From Fat content - Usually
@@ -228,29 +237,35 @@ fields:
     xpath: //td[contains(.,"Vet")]/following-sibling::*[1]
     regExp: (.+)\s+[^\s]+$
     regExpReplace: $1
-    description: Nutritional Information for Total Fat content - Usually based on
+    description:
+      Nutritional Information for Total Fat content - Usually based on
       per 100g serving
   - name: totalFatPerServingUom
     xpath: //td[contains(.,"Vet")]/following-sibling::*[1]
     regExp: '[^\s]+$'
     description: Unit of Measure Data for Total Fat content
   - name: saturatedFatPerServing
-    xpath: //td[contains(.,"Waarvan verzadigd")]/following-sibling::*[1]
+    # xpath: //td[contains(.,"Waarvan verzadigd")]/following-sibling::*[1]
+    xpath: //td[contains(text(),"waarvan verzadigd")]/following-sibling::td
     regExp: (.+)\s+[^\s]+$
     regExpReplace: $1
-    description: Nutritional Information for Saturated Fat content - Usually based
+    description:
+      Nutritional Information for Saturated Fat content - Usually based
       on per 100g serving
   - name: saturatedFatPerServingUom
-    xpath: //td[contains(.,"Waarvan verzadigd")]/following-sibling::*[1]
+    # xpath: //td[contains(.,"Waarvan verzadigd")]/following-sibling::*[1]
+    xpath: //td[contains(text(),"waarvan verzadigd")]/following-sibling::td
     regExp: '[^\s]+$'
     description: Unit of Measure Data for Saturated Fat content
   - name: transFatPerServing
-    description: Nutritional Information for Trans Fat content - Usually based on
+    description:
+      Nutritional Information for Trans Fat content - Usually based on
       per 100g serving
   - name: transFatPerServingUom
     description: Unit of Measure Data for Trans Fat content
   - name: cholesterolPerServing
-    description: Nutritional Information for Cholesterol content - Usually based on
+    description:
+      Nutritional Information for Cholesterol content - Usually based on
       per 100g serving
   - name: cholesterolPerServingUom
     description: Unit of Measure Data for Cholesterol content
@@ -258,7 +273,8 @@ fields:
     xpath: //td[contains(.,"Natrium")]/following-sibling::*[1]
     regExp: (.+)\s+[^\s]+$
     regExpReplace: $1
-    description: Nutritional Information for Sodium content - Usually based on per
+    description:
+      Nutritional Information for Sodium content - Usually based on per
       100g serving
   - name: sodiumPerServingUom
     xpath: //td[contains(.,"Natrium")]/following-sibling::*[1]
@@ -268,7 +284,8 @@ fields:
     xpath: //td[contains(.,"Koolhydraten")]/following-sibling::*[1]
     regExp: (.+)\s+[^\s]+$
     regExpReplace: $1
-    description: Nutritional Information for Total Carbohydrate content - Usually
+    description:
+      Nutritional Information for Total Carbohydrate content - Usually
       based on per 100g serving
   - name: totalCarbPerServingUom
     xpath: //td[contains(.,"Koolhydraten")]/following-sibling::*[1]
@@ -278,27 +295,32 @@ fields:
     xpath: //td[contains(.,"Voedingsvezel")]/following-sibling::*[1]
     regExp: (.+)\s+[^\s]+$
     regExpReplace: $1
-    description: Nutritional Information for Dietary Fibre content - Usually based
+    description:
+      Nutritional Information for Dietary Fibre content - Usually based
       on per 100g serving
   - name: dietaryFibrePerServingUom
     xpath: //td[contains(.,"Voedingsvezel")]/following-sibling::*[1]
     regExp: '[^\s]+$'
     description: Unit of Measure Data for Dietary Fibre content
   - name: totalSugarsPerServing
-    xpath: //td[contains(.,"Waarvan suikers")]/following-sibling::*[1]
+    # xpath: //td[contains(.,"Waarvan suikers")]/following-sibling::*[1]
+    xpath: //td[contains(text(),"waarvan suikers")]/following-sibling::td
     regExp: (.+)\s+[^\s]+$
     regExpReplace: $1
-    description: Nutritional Information for Total Sugar content - Usually based on
+    description:
+      Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
   - name: totalSugarsPerServingUom
-    xpath: //td[contains(.,"Waarvan suikers")]/following-sibling::*[1]
+    # xpath: //td[contains(.,"Waarvan suikers")]/following-sibling::*[1]
+    xpath: //td[contains(text(),"waarvan suikers")]/following-sibling::td
     regExp: '[^\s]+$'
     description: Unit of Measure Data for Total Sugar content
   - name: proteinPerServing
     regExp: (.+)\s+[^\s]+$
     regExpReplace: $1
     xpath: //td[contains(.,"Eiwitten")]/following-sibling::*[1]
-    description: Nutritional Information for Protein content - Usually based on per
+    description:
+      Nutritional Information for Protein content - Usually based on per
       100g serving
   - name: proteinPerServingUom
     xpath: //td[contains(.,"Eiwitten")]/following-sibling::*[1]
@@ -308,7 +330,8 @@ fields:
     regExp: (.+)\s+[^\s]+$
     regExpReplace: $1
     xpath: //td[contains(.,"Vitamine A")]/following-sibling::*[1]
-    description: Nutritional Information for Vitamin A content - Usually based on
+    description:
+      Nutritional Information for Vitamin A content - Usually based on
       per 100g serving
   - name: vitaminAPerServingUom
     xpath: //td[contains(.,"Vitamine A")]/following-sibling::*[1]
@@ -318,7 +341,8 @@ fields:
     regExp: (.+)\s+[^\s]+$
     regExpReplace: $1
     xpath: //td[contains(.,"Vitamine C")]/following-sibling::*[1]
-    description: Nutritional Information for Vitamin C content - Usually based on
+    description:
+      Nutritional Information for Vitamin C content - Usually based on
       per 100g serving
   - name: vitaminCPerServingUom
     xpath: //td[contains(.,"Vitamine C")]/following-sibling::*[1]
@@ -328,7 +352,8 @@ fields:
     regExp: (.+)\s+[^\s]+$
     regExpReplace: $1
     xpath: //td[contains(.,"Calcium")]/following-sibling::*[1]
-    description: Nutritional Information for Calcium content - Usually based on per
+    description:
+      Nutritional Information for Calcium content - Usually based on per
       100g serving
   - name: calciumPerServingUom
     xpath: //td[contains(.,"Calcium")]/following-sibling::*[1]
@@ -351,7 +376,8 @@ fields:
     regExp: (.+)\s+[^\s]+$
     regExpReplace: $1
     xpath: //td[contains(.,"Magnesium")]/following-sibling::*[1]
-    description: Nutritional Information for Magnesium content - Usually based on
+    description:
+      Nutritional Information for Magnesium content - Usually based on
       per 100g serving
   - name: magnesiumPerServingUom
     xpath: //td[contains(.,"Magnesium")]/following-sibling::*[1]
@@ -407,10 +433,12 @@ fields:
     description: In product page, information about a new version of the product
       (https://www.amazon.es/DODOT-Sensitive-Pa%C3%B1ales-Talla-240/dp/B01ELA8U0Q/ref=sr_1_4?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=dodot%2B-%2Bpa%C3%B1ales%2Bpara%2Bni&qid=1589984387&sr=8-4&th=1)
   - name: newAsin
-    description: In product page, information about a new version of the product -
+    description:
+      In product page, information about a new version of the product -
       new asin info
   - name: newDescription
-    description: In product page, information about a new version of the product -
+    description:
+      In product page, information about a new version of the product -
       new desription info
   - name: variantInformation
     description: colour / scent / flavour / other
@@ -428,9 +456,10 @@ fields:
     singleValue: false
     description: null
   - name: additionalDescBulletInfo
-    xpath: (//div[@class="product-info-description"]/ul | //div[@class="product-info-description"]/div[@class="product-summary"] | //div[starts-with(@class,"product-card-hero_contentSection")]/div[@class="product-summary"])//li
-    singleValue: false
+    # xpath: (//div[@class="product-info-description"]/ul | //div[@class="product-info-description"]/div[@class="product-summary"] | //div[starts-with(@class,"product-card-hero_contentSection")]/div[@class="product-summary"])//li
     description: null
+    xpath: //div[contains(@class,"product-card-hero_contentSection")]/div[contains(@class,"product-summary_root")]/ul/li
+    defaultValue: " "
   - name: prop65Warning
     description: null
   - name: ageSuitability
