@@ -1,9 +1,11 @@
+/* eslint-disable no-unused-vars */
 /**
  *
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
+  // @ts-ignore
   const clean = text => text.toString()
     .replace(/\r\n|\r|\n/g, ' ')
     .replace(/&amp;nbsp;/g, ' ')
@@ -19,7 +21,6 @@ const transform = (data) => {
 
   for (const { group } of data) {
     for (const row of group) {
-
       // if (row.description) {
       //   row.description.forEach(item => {
       //     const locText = item.text;
@@ -59,6 +60,98 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.dietaryFibrePerServingUom) {
+        let text = '';
+        row.dietaryFibrePerServingUom.forEach(item => {
+          text = `${item.text.split(',')[1]}`;
+        });
+        row.dietaryFibrePerServingUom = [
+          {
+            text: text.replace(' ', ''),
+          },
+        ];
+      }
+      if (row.totalFatPerServingUom) {
+        let text = '';
+        row.totalFatPerServingUom.forEach(item => {
+          text = `${item.text.split(',')[1]}`;
+        });
+        row.totalFatPerServingUom = [
+          {
+            text: text.replace(' ', ''),
+          },
+        ];
+      }
+      if (row.totalCarbPerServingUom) {
+        let text = '';
+        row.totalCarbPerServingUom.forEach(item => {
+          text = `${item.text.split(',')[1]}`;
+        });
+        row.totalCarbPerServingUom = [
+          {
+            text: text.replace(' ', ''),
+          },
+        ];
+      }
+      if (row.totalCarbPerServing) {
+        let text = '';
+        row.totalCarbPerServing.forEach(item => {
+          if (item.text.includes(',')) {
+            text = `${item.text.replace(',', '.')}`;
+          } else {
+            text = item.text;
+          }
+        });
+        row.totalCarbPerServing = [
+          {
+            text: text,
+          },
+        ];
+      }
+      if (row.totalSugarsPerServingUom) {
+        let text = '';
+        row.totalSugarsPerServingUom.forEach(item => {
+          text = `${item.text.split(',')[1]}`;
+        });
+        row.totalSugarsPerServingUom = [
+          {
+            text: text.replace(' ', ''),
+          },
+        ];
+      }
+      if (row.saltPerServingUom) {
+        let text = '';
+        row.saltPerServingUom.forEach(item => {
+          text = `${item.text.split(',')[1]}`;
+        });
+        row.saltPerServingUom = [
+          {
+            text: text.replace(' ', ''),
+          },
+        ];
+      }
+      if (row.saturatedFatPerServingUom) {
+        let text = '';
+        row.saturatedFatPerServingUom.forEach(item => {
+          text = `${item.text.split(',')[1]}`;
+        });
+        row.saturatedFatPerServingUom = [
+          {
+            text: text.replace(' ', ''),
+          },
+        ];
+      }
+      if (row.proteinPerServingUom) {
+        let text = '';
+        row.proteinPerServingUom.forEach(item => {
+          text = `${item.text.split(',')[1]}`;
+        });
+        row.proteinPerServingUom = [
+          {
+            text: text.replace(' ', ''),
+          },
+        ];
+      }
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {
@@ -67,23 +160,22 @@ const transform = (data) => {
         row.manufacturerDescription = [{ text }];
       }
       if (row.manufacturerDescription) {
-        
         const variantUrls = [];
-        let dupUrl = "";
+        let dupUrl = '';
         let urls = [];
         row.manufacturerDescription.forEach(item => {
           console.log('item:: ', item.text);
-         urls =  row.manufacturerDescription.filter(it => item.text === it.text);
-        if(urls && urls.length === 1 ){
-          variantUrls.push(item);
-        }else{
-          if(dupUrl !== item.text){
-            dupUrl =  item.text;
+          urls = row.manufacturerDescription.filter(it => item.text === it.text);
+          if (urls && urls.length === 1) {
             variantUrls.push(item);
+          } else {
+            if (dupUrl !== item.text) {
+              dupUrl = item.text;
+              variantUrls.push(item);
+            }
           }
-        }
         });
-        row.manufacturerDescription = variantUrls;  
+        row.manufacturerDescription = variantUrls;
       }
       if (row.specifications) {
         const nDesc = [];
@@ -101,7 +193,7 @@ const transform = (data) => {
           item.text = newDesc;
         });
         row.specifications = nDesc;
-      }      
+      }
     }
   }
   return data;

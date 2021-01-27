@@ -28,6 +28,51 @@ fields:
     singleValue: false
     xpath: //div[@class="product-detail-price"]//span[@class="current-price"]/text()
     regExp: (.+)
+  - name: caloriesPerServing
+    singleValue: false
+    xpath: //td[contains(text(), 'Enerji (kcal)')]/following-sibling::td | //td[contains(text(), 'Enerji, kJ/kcal')]/following-sibling::td[2]
+  - name: proteinPerServing
+    singleValue: false
+    xpath: //table[@class="nescafe-gold-table"]//td[contains(text(), 'Protein')]/following-sibling::td | //td[contains(text(), 'Protein, g')]/following-sibling::td[2]
+  - name: proteinPerServingUom
+    singleValue: false
+    xpath: //td[contains(text(), 'Protein, g')]/text()[1]
+  - name: totalFatPerServing
+    singleValue: false
+    xpath: //td[contains(text(), 'Yağ, g')]/following-sibling::td[2]/text()
+  - name: totalFatPerServingUom
+    singleValue: false
+    xpath: //td[contains(text(), 'Yağ, g')]/text()[1]
+  - name: totalCarbPerServing
+    singleValue: false
+    xpath: //table[@class="nescafe-gold-table"]//td[contains(text(), 'Karbonhidrat')]/following-sibling::td | //td[contains(text(), 'Karbonhidrat, g')]/following-sibling::td[2]/text()
+  - name: totalCarbPerServingUom
+    singleValue: false
+    xpath: //td[contains(text(), 'Karbonhidrat, g')]/text()[1]
+  - name: totalSugarsPerServing
+    singleValue: false
+    xpath: (//td/br/following-sibling::text())[6]
+  - name: totalSugarsPerServingUom
+    singleValue: false
+    xpath: //td[contains(text(), 'Karbonhidrat, g')]/text()[2]
+  - name: saturatedFatPerServing
+    singleValue: false
+    xpath: (//td/br/following-sibling::text())[3]
+  - name: saltPerServing
+    singleValue: false
+    xpath: //td[contains(text(), 'Tuz, g')]/following-sibling::td[2]/text()
+  - name: saltPerServingUom
+    singleValue: false
+    xpath: //td[contains(text(), 'Tuz, g')]/text()[1]
+  - name: saturatedFatPerServingUom
+    singleValue: false
+    xpath: //td[contains(text(), 'Yağ, g')]/text()[2]
+  - name: dietaryFibrePerServing
+    singleValue: false
+    xpath: //td[contains(text(), 'Lif, g')]/following-sibling::td[2]
+  - name: dietaryFibrePerServingUom
+    singleValue: false
+    xpath: //td[contains(text(), 'Lif, g')]
   - name: availabilityText
     singleValue: false
     xpath: //div[@class="notifications product-finish"]/text()
@@ -83,6 +128,7 @@ fields:
     description: Content under "legal disclaimer" header
   - name: directions
     singleValue: false
+    xpath: //b[contains(text() ,'Hazırlanışı :')]/following-sibling::text()
     description: Content under "directions" header
   - name: warnings
     singleValue: false
@@ -122,7 +168,8 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@class="mini-hero-v2"]//p/text() | //div[@class="mini-hero-v2"]//span/text() | //div[@class="mini-hero-v2"]//div//text() | //div[@id="p10-lp-main"]//text()
+    xpath: //div[@class="mini-hero-v2"]//p/text() | //div[@class="mini-hero-v2"]//span/text() | //div[@class="mini-hero-v2"]//div/div[@id="p3-lp-main"]//text() | //div[@class="mini-hero-v2"]//div[@id="p8-lp-main"]//text() | //div[@id="p10-lp-main"]//text()
+    # //div[@class="mini-hero-v2"]//p/text() | //div[@class="mini-hero-v2"]//span/text() | //div[@class="mini-hero-v2"]//div//text() | //div[@id="p10-lp-main"]//text()
     # xpath: //div[@class="mini-hero-v2"]//div//text() | //div[@id="p10-lp-main"]//text()
     # xpath: //div[@itemprop="description"]//td/text() | //span[@class="p1-lp-pro-title"]//text() | //span[@class="p1-lp-pro-title"]//..//text() | //div[@itemprop="description"]//div//text()
   - name: manufacturerImages
@@ -134,8 +181,9 @@ fields:
   - name: name
     singleValue: false
     xpath: //h1[@id="productName"]
-  - name: inStorePrice
+  - name: storage
     singleValue: false
+    xpath: //table[@class="nescafe-gold-table"]//td[contains(text(), 'Saklama koşulları')]/following-sibling::td
     description: Price in the selected store
   - name: asin
     singleValue: false

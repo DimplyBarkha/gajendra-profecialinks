@@ -1,5 +1,5 @@
 const { transform } = require('../shared');
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -7,9 +7,9 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  console.log("inputs:: ", inputs);
-  const { url, id } = inputs;
-  console.log("parameters:: ", parameters);
+  console.log('inputs:: ', inputs);
+  const { id } = inputs;
+  console.log('parameters:: ', parameters);
   if (id) {
     await new Promise((resolve, reject) => setTimeout(resolve, 10000));
     await context.waitForXPath('//div[@data-impressions="search-results-grid"]//div[@class="product-picture"]/a/@href');
@@ -20,7 +20,6 @@ async function implementation(
       if (firstItem) {
         firstItem.click();
       }
-
     });
   }
 
