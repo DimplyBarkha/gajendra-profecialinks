@@ -2,19 +2,19 @@ input:
   _url: http://blush.no
   URL: https://www.blush.no/product/1118658
 extractions:
-  - html: https://workbench.import.io/html/run=0d85a269-245d-4362-9b25-d689c5916ab5/task=6f26d56c-c2ca-4488-819f-fd9bd7dfe2c8/7bee8bb3-8f74-46de-a28c-e354a5e8603a.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=187164df-9306-4cd4-a6ce-9e274d52fe60/task=d890524a-c1a0-4e3c-a5e3-53dbf116171d/680aa469-ad26-4ce3-a063-2edf0a322358.html
     extractionConfigId: product/details/stores/b/blush/NO/extract
     data:
       - group:
           - image:
               - text: https://www.blush.no/img/p/800/1118658.jpg
-                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/button[2]/img[1]/@src
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/button[2]/img[1]/@src
             imageAlt:
               - text: Maybelline Fit Me Luminous + Smooth Foundation Base
-                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/button[2]/img[1]/@alt
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/button[2]/img[1]/@alt
             alternateImages:
               - text: https://www.blush.no/img/p/800/1118658_1.jpg
-                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/button[3]/img[1]/@src
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/button[3]/img[1]/@src
             category:
               - text: Sminke
                 xpath: /html/body/div[2]/main[1]/div[1]/div[1]/nav[1]/div[1]/div[2]/a[1]
@@ -23,11 +23,8 @@ extractions:
             nameExtended:
               - text: Maybelline Fit Me Luminous + Smooth Foundation 120 Classic Ivory
                 xpath: /html/body/div[5]
-            listPrice:
-              - text: 159, NOK
-                xpath: /html/body/div[7]
             price:
-              - text: 111,- NOK
+              - text: 159,- NOK
                 xpath: /html/body/div[6]
             availabilityText:
               - text: In Stock
@@ -39,7 +36,7 @@ extractions:
                   til tørr hud. Få en naturlig look med Fit Me Foundation
                   akkurat som det skal være: perfekt matchet med hudtonen. 100 %
                   deg."
-                xpath: /html/body/div[10]
+                xpath: /html/body/div[9]
             brandText:
               - text: Maybelline
                 xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[3]/div[1]/div[2]/a[2]/span[1]
@@ -48,7 +45,7 @@ extractions:
                 xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[1]/div[2]/span[4]/span[1]
             sku:
               - text: "1118658"
-                xpath: /html/body/div[11]
+                xpath: /html/body/div[10]
             variantId:
               - text: B1877504
                 xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[1]/div[2]/span[3]/span[2]
@@ -56,22 +53,19 @@ extractions:
               - text: B1877504
                 xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[1]/div[2]/span[3]/span[2]
             directions:
-              - text: Påføres jevnt i hele ansiktet med fingertuppene.Prøv også Fit Me concealer
-                  og påfør Fit Me-pudder som siste finish til din naturlige
-                  look.
-                xpath: /html/body/div[13]
+              - text: "Påføres jevnt i hele ansiktet med fingertuppene.Prøv også Fit Me
+                  concealer og påfør Fit Me-pudder som siste finish til din
+                  naturlige look. Farge: 120 Classic Ivory"
+                xpath: /html/body/div[12]
             color:
-              - text: " 120 Classic Ivory"
-                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[4]/text()[1]
+              - text: 120 Classic Ivory
+                xpath: /html/body/div[13]
             videos:
               - text: https://www.youtube-nocookie.com/embed/pvw3yTYxa1o?rel=0&showinfo=0
-                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/button[4]/div[1]/div[1]/div[1]/link[1]/@href
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/button[4]/div[1]/div[1]/div[1]/link[1]/@href
             name:
               - text: Maybelline Fit Me Luminous + Smooth Foundation
                 xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[1]/h1[1]/span[1]
-            promotion:
-              - text: -30%
-                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[2]/div[1]/div[2]/div[1]/div[1]/span[1]
             variantInformation:
               - text: 120 Classic Ivory
                 xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]
@@ -125,4 +119,4 @@ extractions:
                 locale: nb_NO
                 value: 1
         xpath: /
-    timestamp: 1610464407257
+    timestamp: 1611760524405

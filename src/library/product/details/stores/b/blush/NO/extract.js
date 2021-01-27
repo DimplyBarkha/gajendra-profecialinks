@@ -63,13 +63,13 @@ module.exports = {
       const aggRating = document.querySelector('div.product-main-info__body span.rating-stars') ? document.querySelector('div.product-main-info__body span.rating-stars').getAttribute('title').replace(/(\d+)\.?,?(\d+)?.+/g, '$1,$2') : '';
       addElementToDocument('aggRating', aggRating);
 
-      const descriptionElement = document.querySelector('div.product-section-content div.product-responsive-info div.col-xs-12');
+      const descriptionElement = document.querySelector('div.product-section-content div.product-responsive-info *.col-xs-12');
       const useTextArray = ['Anbefalt bruk:', 'Bruk', 'Anbefalt bruk', 'Bruk:'];
 
       if (descriptionElement) addFollowingParagraphs('descriptionid', descriptionElement, null, useTextArray);
 
       const description = document.querySelector('div#descriptionid') ? document.querySelector('div#descriptionid').textContent.replace(/\s{2,}|\n{2,}|\t/g, ' ') : '';
-      addElementToDocument('descId', description.trim());
+      addElementToDocument('descId', description);
 
       const sku = document.querySelector('meta[property="og:url"]') ? document.querySelector('meta[property="og:url"]').getAttribute('content') : '';
       addElementToDocument('sku', sku.replace(/.*product\/([^/]+).*/g, '$1'));
@@ -87,11 +87,21 @@ module.exports = {
       const care = clarinsXpath && stepsPionts ? clarinsXpath.textContent : '';
       const tipsXpath = document.evaluate('//div[@class="product-section-content"]//*[contains(text(),"Dette bør du gjøre")]/../following-sibling::ul', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       const tips = tipsXpath ? tipsXpath.textContent : '';
+      const usageXpath = '//div[contains(@class,"product-responsive-info")]//*[contains(text(),"ruk")]/../following-sibling::*';
+      const usageNodes = document.evaluate(usageXpath, document, null, XPathResult.ANY_TYPE, null);
+      let usageNode = null;
+      const usageArr = [];
+      // eslint-disable-next-line no-cond-assign
+      while (usageNode = usageNodes.iterateNext()) {
+        usageArr.push(usageNode.textContent);
+      }
+      const usage = usageArr.join(' ');
       const directions = `${stepstext} ${tips} ${care}`;
-      addElementToDocument('directions', directions.trim());
+      if (usage) addElementToDocument('directions', usage);
+      else addElementToDocument('directions', directions);
       const color = document.evaluate('//div[contains(@class,"product-responsive-info")]//p[strong[contains(.,"Farge")]]/text()|//div[@class="product-variants__selected" and not(//div[contains(@class,"product-responsive-info")]//p[strong[contains(.,"Farge")]]/text())]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       const colorText = color && color.textContent.match(/[^:]+/) ? color.textContent.match(/[^:]+/)[0] : '';
-      addElementToDocument('colorid', colorText.trim());
+      addElementToDocument('colorid', colorText);
     });
     await context.extract(productDetails, { transform });
   },

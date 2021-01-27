@@ -2,7 +2,7 @@ input:
   _url: http://blush.no
   URL: https://www.blush.no/product/1133289
 extractions:
-  - html: https://workbench.import.io/html/run=0d85a269-245d-4362-9b25-d689c5916ab5/task=14afdb96-bfa0-4ab4-b7e1-3faf70e31f0f/89080ccb-1e91-4625-b20a-d99aec93081e.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=187164df-9306-4cd4-a6ce-9e274d52fe60/task=f5bce8ca-e6d8-48a7-9486-d9894072789b/8b547f42-4ac3-4e06-ab3e-33cda8046247.html
     extractionConfigId: product/details/stores/b/blush/NO/extract
     data:
       - group:
@@ -38,11 +38,12 @@ extractions:
               - text: K3562300
                 xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[1]/div[2]/span[3]/span[2]
             directions:
-              - text: Påfør fargene hver for seg eller bruk shimmer over matt eller satinnyanser
+              - text: "Påfør fargene hver for seg eller bruk shimmer over matt eller
+                  satinnyanser Farge: Midnight Orchid"
                 xpath: /html/body/div[12]
             color:
-              - text:  Midnight Orchid
-                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[5]/text()[1]
+              - text: Midnight Orchid
+                xpath: /html/body/div[13]
             name:
               - text: NYX Professional Makeup Mystic Petals
                 xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[1]/h1[1]/span[1]
@@ -82,4 +83,4 @@ extractions:
                 locale: nb_NO
                 value: 2
         xpath: /
-    timestamp: 1610464404120
+    timestamp: 1611760524419
