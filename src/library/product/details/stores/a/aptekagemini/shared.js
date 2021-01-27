@@ -35,6 +35,11 @@ const cleanUp = (data, context) => {
       if (row.description) {
         row.description[0].text = row.description[0].text.trim();
       }
+      if (row.warnings) {
+        let text = row.warnings.map(element=>element.text.trim()).join(' ')
+        row.warnings = [{text:text.trim()}]
+        
+      }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {

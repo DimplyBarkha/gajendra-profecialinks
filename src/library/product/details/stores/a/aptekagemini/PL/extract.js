@@ -6,7 +6,12 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+
   await context.evaluate(() => {
+    const searchPageSelector = document.querySelector('div[class*="product-list"]');
+    if (searchPageSelector) {
+      throw new Error('Not a product page');
+    }
     //written implementation for getting the brand
     const script = document.querySelectorAll('script[type="application/ld+json"]');
     const ourScript = [...script].find((element) => element.innerText.includes('brand'));

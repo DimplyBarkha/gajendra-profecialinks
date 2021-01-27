@@ -88,7 +88,7 @@ fields:
     xpath: //h2[contains(text(),"Sposób użycia")]/../div
   - name: warnings
     description: Content under "warnings" header
-    xpath: //h2[contains(text(),"Ważne wskazówki")]/../div
+    xpath: //h2[contains(text(),"Ważne wskazówki")]/../div | //h2[contains(text(),"Przeciwwskazania")]/../div | //h2[contains(text(),"Ostrzeżenia")]/../div
   - name: ratingCount
     singleValue: true
     description: The number of ratings
