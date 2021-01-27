@@ -2,12 +2,12 @@ input:
   _url: http://zalando.de
   URL: https://en.zalando.de/carhartt-wip-philis-backpack-rucksack-black-c1454o003-q11.html
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=0e064dd1-ecc4-4f62-b90e-9785cc75d919/task=060e07cd-5950-4c32-b7ca-5c02cd71b893/2d36f563-aff5-46d9-bdaa-8c6efd9952d0.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=20cf7198-9e14-4941-a957-0e4177af940f/task=0d333d54-5358-4c84-9539-d29913576bbd/43c83066-6859-46e1-b91d-4a5d95c2fcac.html
     extractionConfigId: product/details/stores/z/zalando/DE/extract
     data:
       - group:
           - productUrl:
-              - text: https://www.zalando.de/carhartt-wip-philis-backpack-tagesrucksack-black-c1454o003-q11.html?_rfl=en
+              - text: https://www.zalando.de/carhartt-wip-philis-backpack-tagesrucksack-black-c1454o003-q11.html
                 xpath: /html/body/div[9]
             image:
               - text: https://img01.ztat.net/article/spp-media-p1/a90572096be93fb49acd017086f53a8e/7811fb4386ec4b6f8d241cd9fae0beb2.jpg
@@ -33,7 +33,7 @@ extractions:
               - text: https://img01.ztat.net/article/spp-media-p1/a81f1911fa31303589fd0950368eaab3/0f75caf9eef942969f7aa475e584dd7e.jpg
                 xpath: /html/body/ol[1]/li[9]
             nameExtended:
-              - text: Carhartt WIP - PHILIS BACKPACK - Tagesrucksack - black
+              - text: Carhartt WIP PHILIS BACKPACK - Tagesrucksack black
                 xpath: /html/body/div[8]/@name_extended
             availabilityText:
               - text: In Stock
@@ -45,10 +45,7 @@ extractions:
                   Mesh-Steckfach, Schnallen zur Weitenregulierung, aufgesetzte
                   Tasche mit Reißverschlussfach vorne |
                   Verschluss: Schnappverschluss | Fächer: Laptopfach 15 Zoll |
-                  Muster: Unifarben | Artikelnummer: C1454O003-Q11 | Höhe: 51 cm
-                  bei Größe One Size | Länge: 34 cm bei Größe One Size |
-                  Weite: 16 cm bei Größe One Size | Tragehenkel: 9 cm bei Größe
-                  One Size
+                  Muster: Unifarben | Artikelnummer: C1454O003-Q11
                 xpath: /html/body/div[8]/@description
             brandText:
               - text: Carhartt WIP
@@ -59,6 +56,9 @@ extractions:
             variantId:
               - text: C1454O003-Q110ONE000
                 xpath: /html/body/div[8]/@variant_id
+            mpc:
+              - text: C1454O003
+                xpath: /html/body/div[8]/@mpc
             ratingCount:
               - text: "424"
                 xpath: /html/body/div[8]/@rating_count
@@ -75,7 +75,8 @@ extractions:
               - text: https://www.zalando.de/carhartt/
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             secondaryImageTotal:
-              - text: "5"
+              - text: "8"
+                xpath: /html/body/ol[1]/@secondary_image_total
             variantInformation:
               - text: black
                 xpath: /html/body/div[8]/@variant_information
@@ -87,4 +88,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1611655937719
+    timestamp: 1611733918367

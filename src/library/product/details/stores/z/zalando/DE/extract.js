@@ -42,7 +42,9 @@ module.exports = {
       alternateImagesList.id = 'added_alternate_images';
       alternateImagesList.style.display = 'none';
       document.body.appendChild(alternateImagesList);
-      return document.querySelectorAll('div[class*="sticky-gallery"] ul button').length;
+      const totalThumbnails = document.querySelectorAll('div[class*="sticky-gallery"] ul button').length;
+      alternateImagesList.setAttribute('secondary_image_total', (totalThumbnails - 1).toString());
+      return totalThumbnails;
     });
     for (let i = 1; i <= numOfThumbnails; i++) {
       await context.click(`div[class*="sticky-gallery"] ul > li:nth-of-type(${i}) button`);
@@ -73,7 +75,7 @@ module.exports = {
           'div[role="modal"][style="z-index: 100005;"] button svg > title[id^="cross"]',
         );
         const inStock = !document.evaluate(
-          '//div[@role="modal" and @style="z-index: 100005;"]//h2[text() = "Out of stock"]',
+          '//div[@role="modal" and @style="z-index: 100005;"]//h2[text() = "Ausverkauft"]',
           document,
           null,
           XPathResult.BOOLEAN_TYPE,
@@ -101,9 +103,15 @@ module.exports = {
           const productName = document.querySelector('x-wrapper-re-1-3 > h1')
             ? document.querySelector('x-wrapper-re-1-3 > h1').textContent.trim()
             : '';
+
           const nameExtended = productName.toLowerCase().includes(brand.toLowerCase())
             ? [productName]
             : [brand, productName];
+
+          const size = variantElement && variantElement.querySelector('label > span span')
+            ? variantElement.querySelector('label > span span').textContent.trim()
+            : '';
+          if (size) nameExtended.push(size);
 
           const colorName = document.querySelector('x-wrapper-re-1-3 > div:last-child span:last-child')
             ? document.querySelector('x-wrapper-re-1-3 > div:last-child span:last-child').textContent
@@ -166,7 +174,7 @@ module.exports = {
           }
 
           addedVariant.setAttribute('availability_text', availabilityText);
-          addedVariant.setAttribute('name_extended', nameExtended.join(' - '));
+          addedVariant.setAttribute('name_extended', nameExtended.join(' '));
 
           const extraDataScript = document.querySelector('x-wrapper-pdp > div > script[id="z-vegas-pdp-props"]')
             ? document.querySelector('x-wrapper-pdp > div > script[id="z-vegas-pdp-props"]').textContent
@@ -206,7 +214,7 @@ module.exports = {
           addedVariant.setAttribute('promotion', promotion);
 
           const descriptionSnapthot = document.evaluate(
-            '//div[@class="z-pdp__escape-grid"]//div[h2]/div[contains(@style, "max-height")]/div/div[not(button)]',
+            '//div[@class="z-pdp__escape-grid"]//div[h2[not(contains(. , "Passform"))]]/div[contains(@style, "max-height")]/div/div[not(button)]',
             document,
             null,
             XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,

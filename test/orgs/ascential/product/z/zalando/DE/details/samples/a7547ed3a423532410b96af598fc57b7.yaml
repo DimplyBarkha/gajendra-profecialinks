@@ -2,7 +2,7 @@ input:
   _url: http://zalando.de
   URL: https://en.zalando.de/rains-bum-bag-mini-bum-bag-ri054h00q-g11.html
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=1283efc1-7be3-47d8-8b66-38e5f56442c1/task=d0545dc1-6c04-4481-aadb-5127e0f7be98/98ad94c1-d261-4048-b782-4e21e463e14c.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=20cf7198-9e14-4941-a957-0e4177af940f/task=25506f17-7ac5-41dc-a0bb-afa108102101/a3ab94e9-eb88-4b43-9725-fa63572a33ef.html
     extractionConfigId: product/details/stores/z/zalando/DE/extract
     data:
       - group:
@@ -27,7 +27,7 @@ extractions:
               - text: https://img01.ztat.net/article/spp-media-p1/17101858a3c23f5a889c84730bab2918/2341d1e4ae214690865e265092ef687d.jpg
                 xpath: /html/body/ol[1]/li[6]
             nameExtended:
-              - text: Rains - Gürteltasche - coral
+              - text: Rains Gürteltasche coral
                 xpath: /html/body/div[7]/@name_extended
             availabilityText:
               - text: Out Of Stock
@@ -37,9 +37,7 @@ extractions:
                   Materialkonstruktion: Kunstleder | Längenverstellbarer
                   Tragegurt mit Schnappverschluss, wasserabweisend |
                   Wetter: Regen | Verschluss: Reißverschluss | Muster: Unifarben
-                  | Artikelnummer: RI054H00Q-G11 | Höhe: 13 cm bei Größe One
-                  Size | Länge: 33 cm bei Größe One Size | Weite: 4 cm bei Größe
-                  One Size
+                  | Artikelnummer: RI054H00Q-G11
                 xpath: /html/body/div[7]/@description
             brandText:
               - text: Rains
@@ -70,6 +68,7 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             secondaryImageTotal:
               - text: "5"
+                xpath: /html/body/ol[1]/@secondary_image_total
             variantInformation:
               - text: coral
                 xpath: /html/body/div[7]/@variant_information
@@ -82,4 +81,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1611670542382
+    timestamp: 1611733914950
