@@ -224,7 +224,7 @@ module.exports = {
     }, parentInput);
     await context.evaluate(async function () {
       var heading = document.querySelector('h1');
-      const rating = Sephora.mboxAttrs.productRating.toFixed(1);
+      const rating = Sephora && Sephora.mboxAttrs && Sephora.mboxAttrs.productRating && Sephora.mboxAttrs.productRating.toFixed(1);
       if (heading) {
         heading.setAttribute('rating', rating);
       }
@@ -257,12 +257,12 @@ module.exports = {
           const response = await fetch(window.location.href);
           const html = await response.text();
           const doc = new DOMParser().parseFromString(html, 'text/html');
-          const json = JSON.parse(doc.querySelector('#linkJSON').innerText);
+          const json = JSON.parse(doc.querySelector("#linkStore").innerText);
           return json;
         }
         const dataObj = await getObj();
         if (dataObj) {
-          const videoIds = dataObj.find(elm => elm.props.product) && dataObj.find(elm => elm.props.product).props.product.product.productVideos && dataObj.find(elm => elm.props.product) && dataObj.find(elm => elm.props.product).props.product.product.productVideos.map(elm => elm.videoUrl);
+          const videoIds = dataObj.page && dataObj.page.product && dataObj.page.product.productVideos.map(e=>e.videoUrl);
           const accountID = document.querySelector('[src^="//players.brightcove.net/"]') && document.querySelector('[src^="//players.brightcove.net/"]').src && document.querySelector('[src^="//players.brightcove.net/"]').src.match(/players.brightcove.net\/([^\/]+)/)[1];
           const apis = videoIds && videoIds.map(elm => `https://edge.api.brightcove.com/playback/v1/accounts/${accountID}/videos/${elm}`);
           const promises = apis && apis.map(elm => fetch(elm, {
