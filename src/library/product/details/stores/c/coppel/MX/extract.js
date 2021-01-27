@@ -10,12 +10,7 @@ module.exports = {
   },
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
 
-    try {
-      await context.waitForSelector('div[class="flix-tech-spacs-contents"]', {}, { timeout: 300000 });
-     } catch(error){console.log(error)}
-    try {
-     await context.waitForSelector('div[class="flix-carousel flix-carousel-stage"]', {}, { timeout: 300000 });
-     } catch(error){console.log(error)}
+  
 
      try {
       await new Promise(resolve => setTimeout(resolve, 5000));
@@ -177,9 +172,11 @@ module.exports = {
           addElementToDocument('added_manufacture', manufactureXpath.join('|').replace(paginationPath, ' '));
         }
 
-        const allSpecs = getAllXpath("//div[contains(@class,'flix-tech-spacs-contents')]/ul/li/div/div[2]/font/font/text()",'nodeValue').join('|');
-        console.log("Specifications:", allSpecs);
-        addElementToDocument('specs_added',allSpecs);
+        const allSpecs = getAllXpath("//table[@class='table table-bordered']/tbody/tr/td",'innerText');
+        if(allSpecs.length > 0) {
+          console.log("Specifications:", allSpecs);
+          addElementToDocument('specs_added',allSpecs.join(' '));
+        }
 
         if(altImgXpath.length > 0) {
           console.log("secondaryImg total:", altImgXpath.length);
