@@ -39,7 +39,10 @@ fields:
     xpath: //html//div[@id="price"]
   - name: availabilityText
     singleValue: true
-    xpath:  //div[@id="stock"]
+    xpath:  //div[@class="stock stock--available"]//text()
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out Of Stock
   - name: description
     singleValue: true
     xpath:  //div[@class="content content--productDescription"]
