@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'insight',
-    nextLinkSelector: 'li#nav-page__next-page nav-page__desktop',
+    nextLinkXpath: '//div[contains(@class,"stickyPagination show-for-medium-up")]/a',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div#js-search-product-items',

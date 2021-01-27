@@ -18,3 +18,6 @@ fields:
 - name: price
   SingleValue: false
   xpath: //p[@class='prod-price']
+- name: manufacturer
+  SingleValue: false
+  xpath: //div[@class="prod-section-container"]//a[@class="select-prod"]/@href
