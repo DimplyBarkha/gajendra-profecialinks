@@ -14,7 +14,10 @@ fields:
   singleValue: false
 - name: image
   description: URL of the main product image
-  xpath: ancestor::html//div[contains(@class, "sticky-gallery")]//div[contains(@class, "z-pdp__escape-grid")]//ul/li[1]//img/@src
+  xpath: ancestor::html//ol[@id="added_alternate_images"]/li[1]
+  # xpath: ancestor::html//div[contains(@class, "sticky-gallery")]//div[contains(@class, "z-pdp__escape-grid")]//ul/li[1]//img/@src
+  # regExp: (.+?)\?
+  # regExpReplace: $1
 - name: imageAlt
   description: Alt text of the main product image
   xpath: ancestor::html//div[contains(@class, "sticky-gallery")]//div[contains(@class, "z-pdp__escape-grid")]//ul/li[1]//img/@alt
@@ -22,7 +25,7 @@ fields:
   singleValue: false
   description: Other product images (not in manufacturer description)
   # xpath: ancestor::html//div[contains(@class, "sticky-gallery")]//div[contains(@class, "z-pdp__escape-grid")]//ul/li[position() > 1]//img/@src
-  xpath: ancestor::html//ol[@id="added_alternate_images"]/li
+  xpath: ancestor::html//ol[@id="added_alternate_images"]/li[position() > 1]
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
@@ -53,6 +56,7 @@ fields:
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
+  xpath: '@description'
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -79,7 +83,7 @@ fields:
   description: GTIN code (includes UPC/EAN)
 - name: sku
   description: The store-specific product identifier
-  xpath: ancestor::html//div[@class="z-pdp__escape-grid"]//button//span[text()="Details" or text()="Highlights"]/ancestor::h2/following-sibling::div//span[text()="Article number"]/following-sibling::span
+  xpath: ancestor::html//div[@class="z-pdp__escape-grid"]//div[h2]/div[contains(@style, "max-height")]/div/div/span[text()="Artikelnummer"]/following-sibling::span
 - name: variantId
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
@@ -88,6 +92,7 @@ fields:
 - name: mpc
   singleValue: tru
   description: The manufacturer model code (unique) of the product
+  xpath: '@mpc'
 - name: packSize
   singleValue: true
   description: The number of packs in the product offer (if stated separately on the
@@ -101,7 +106,7 @@ fields:
 - name: directions
   singleValue: true
   description: Content under "directions" header
-  xpath: html//div[@class="z-pdp__escape-grid"]//button//span[contains(text(), "care")]/ancestor::h2/following-sibling::div//span[contains(text(), "Care instructions")]/following-sibling::span
+  xpath: ancestor::html/body/@directions
 - name: warnings
   singleValue: true
   description: Content under "warnings" header
@@ -239,7 +244,7 @@ fields:
 - name: secondaryImageTotal
   singleValue: true
   description: 
-  xpath: count((ancestor::html//x-wrapper-re-1-2//ul)[last()]/li//img)
+  xpath: ancestor::html//ol[@id="added_alternate_images"]/@secondary_image_total
 - name: news
   singleValue: true
   description: 
@@ -252,7 +257,7 @@ fields:
 - name: ingredientsList
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
-  xpath: ancestor::html//div[@class="z-pdp__escape-grid"]//button//span[text()="Ingredients"]/ancestor::h2/following-sibling::div//span[text()="Ingredients"]/following-sibling::span
+  xpath: ancestor::html/body/@ingredients
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.
@@ -417,7 +422,7 @@ fields:
 - name: promotion
   singleValue: true
   description: promotion text on product page
-  xpath: ancestor::html//x-wrapper-re-1-3/h1/following-sibling::div/div/preceding-sibling::span
+  xpath: '@promotion'
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information
