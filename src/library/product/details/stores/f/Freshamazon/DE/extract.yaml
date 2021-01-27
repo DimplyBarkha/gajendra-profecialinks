@@ -34,7 +34,8 @@ fields:
   - name: allergyAdvice
     xpath: //*[normalize-space(text())="Allergie-Informationen"]/following-sibling::*[1]
   - name: warnings
-    xpath: //p[preceding-sibling::h3[1][normalize-space(text())="Warnhinweise"]] | //p[starts-with(normalize-space(text()),"Zur Kontrolle")]
+    singleValue: false
+    xpath: (//*[contains(@class, 'a-alert-heading') and contains(text(), 'WARNING')]/following-sibling::div[contains(@class, 'a-alert-content')] | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Safety Information')]/../p[text()]/text() | //div[contains(@id, "important-information")]/div[contains(@class, "a-section content") and contains(., "Warning")])[1] | (//div[@id='importantInformation_feature_div']//div[contains(.,'Safety Information')]/p) | //p[preceding-sibling::h3[1][normalize-space(text())="Warnhinweise"]] | //p[starts-with(normalize-space(text()),"Zur Kontrolle")]
   - name: shippingInfo
     xpath: //a[@id="sellerProfileTriggerId"]/parent::* | //div[@id="merchant-info"]
   - name: coupon
@@ -48,7 +49,7 @@ fields:
     xpath: //*[normalize-space(text())="Aufbewahrung"]/following-sibling::*[1]
   - name: directions
     singleValue: false
-    xpath: //p[preceding-sibling::h3[1][normalize-space(text())="Gebrauchsanweisung"]] | //div[@id='importantInformation_feature_div']//div[contains(.,'Gebrauchsanweisung')]/p[not(normalize-space(.)="")] | //div[@id='importantInformation_feature_div']//div[contains(.,'Gebrauchsanweisung')]/div[@class="TabPanel"]
+    xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Gebrauchsanweisung')]/p[not(normalize-space(.)="")] | //div[@id='importantInformation_feature_div']//div[contains(.,'Gebrauchsanweisung')]/div[@class="TabPanel"]
   - name: legalDisclaimer
     singleValue: false
     xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Haftungsausschluss')]/p
@@ -158,3 +159,6 @@ fields:
     xpath: //*[contains(text(),"Energieeffizienzklasse")]/following-sibling::*[1]
   - name: imageZoomFeaturePresent
     xpath: //span[@id="canvasCaption" and contains(text(),  "Maus über")] | //span[@id="canvasCaption" and contains(text(),  "Roll over")]
+  - name: promotion
+    singleValue: false
+    xpath: //tr[@id="almDetailPagePrice_savings_price" or @id="primeNowDetailPagePrice_savings_price"] | //*[@id="regularprice_savings"] | //*[@id="dealprice_savings"] | //*[@id="priceblock-bundle-savings-row"]//td[not(@class="aok-hidden")]
