@@ -25,15 +25,39 @@ async function implementation (
     while (!document.querySelector('button[class*="loadMore"]') && !document.querySelector('div[class*="endOfList"]')) {
       await new Promise((resolve) => setTimeout(resolve, 1000));
     }
-    while (true) {
+
+    let index = 0;
+    let i = 0;
+    let scrollTop = 0;
+    while (index < 6) {
+      i = index + 1;
       await new Promise((resolve) => setTimeout(resolve, 2000));
       if (document.querySelector('div[class*="endOfList"]')) {
+        while (scrollTop !== 5000 * i) {
+          await new Promise((resolve) => setTimeout(resolve, 1000));
+          scrollTop += 250;
+          window.scroll(0, scrollTop);
+          if (scrollTop === 5000 * i) {
+            await new Promise((resolve) => setTimeout(resolve, 1000));
+            break;
+          }
+        }
         break;
       }
       // @ts-ignore
       document.querySelector('button[class*="loadMore"]').click();
+      await new Promise((resolve) => setTimeout(resolve, 5000));
+      while (scrollTop !== 5000 * i) {
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        scrollTop += 250;
+        window.scroll(0, scrollTop);
+        if (scrollTop === 5000 * i) {
+          await new Promise((resolve) => setTimeout(resolve, 1000));
+          break;
+        }
+      }
+      index++;
     }
-    window.scrollTo(0, document.querySelector('div[class*="endOfList"]').offsetTop);
   });
   return await context.extract(productDetails, { transform });
 }
