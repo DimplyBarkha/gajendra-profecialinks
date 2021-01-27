@@ -5,15 +5,15 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //div[contains(@class,"product-image")]/@style
-    regExp: url\('(.+)800x(.+)'\)
-    regExpReplace: $11200x$2
+    xpath: //div[contains(@class,"product-image")]/img/@src
+    # regExp: url\('(.+)800x(.+)'\)
+    # regExpReplace: $11200x$2
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class,"product-image-thumbnails")]/button[position( ) > 1]/span[contains(@class,"product-image-thumbnail")]/@style
+    xpath: //ul[contains(@class,"product-image-thumbnails")]/li[position()>1]//span/@style
     regExp: url\('(.+)'\)
     regExpReplace: $1
   - name: metaKeywords
