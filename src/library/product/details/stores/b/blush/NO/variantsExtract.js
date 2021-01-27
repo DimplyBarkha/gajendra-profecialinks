@@ -15,7 +15,7 @@ async function implementation (
       return newDiv;
     }
     const url = window.location.href;
-    const variants = document.querySelectorAll('div.product-variants__body div[class*="product-variant"] a');
+    const variants = document.querySelectorAll('div.product-variants__body div[class*="product-variant"] a, div.product-variants__body a[class*="product-variant"]');
     if (variants.length) {
       for (let i = 0; i < variants.length; i++) {
         const variantUrl = variants[i] ? `https://www.blush.no${variants[i].getAttribute('href')}` : '';
