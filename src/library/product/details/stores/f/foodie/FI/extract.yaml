@@ -24,7 +24,7 @@ fields:
     xpath: //h1[@id='product-name']
   - name: availabilityText
     singleValue: false
-    xpath: //div[contains(@class,'amount-selector')]//span[contains(@class,'amount-empty-label') and text()='Lisää']
+    xpath: //div[@id="js-pricebox"]/span
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
