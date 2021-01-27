@@ -144,7 +144,7 @@ module.exports = {
             if (inStock) {
               const priceRow = document.querySelector('x-wrapper-re-1-3 > div > div');
               const priceElements = document.evaluate(
-                './/span[text() and not(contains(text(), "VAT"))]',
+                './/span[text() and not(contains(text(), "inkl"))]',
                 priceRow,
                 null,
                 XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
@@ -214,7 +214,7 @@ module.exports = {
           addedVariant.setAttribute('promotion', promotion);
 
           const descriptionSnapthot = document.evaluate(
-            '//div[@class="z-pdp__escape-grid"]//div[h2[not(contains(. , "Passform"))]]/div[contains(@style, "max-height")]/div/div[not(button)]',
+            '//div[@class="z-pdp__escape-grid"]//div[h2[not(contains(. , "Passform") or contains(. , "Nachhaltigkeit"))]]/div[contains(@style, "max-height")]/div/div[not(button)]',
             document,
             null,
             XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
@@ -223,7 +223,7 @@ module.exports = {
           const descriptionArr = [];
           for (let j = 0; j < descriptionSnapthot.snapshotLength; j++) {
             const elem = descriptionSnapthot.snapshotItem(j);
-            descriptionArr.push(elem.innerText);
+            descriptionArr.push(elem.textContent);
           }
           addedVariant.setAttribute('description', descriptionArr.join(' | '));
 
