@@ -8,13 +8,9 @@ module.exports = {
     store: 'flaschenpost',
     zipcode: '28203',
   },
-  implementation: async (
-    { url },
-    parameters,
-    context,
-    dependencies,
-  ) => {
-    const timeout = parameters.timeout ? parameters.timeout : 10000;
+  implementation: async (inputs, parameters, context, dependencies) => {
+    const { timeout = 10000 } = parameters;
+const { url, zipcode, storeId } = inputs;
 
     await context.setBlockAds(false);
     await context.setLoadAllResources(true);
@@ -22,7 +18,7 @@ module.exports = {
     await context.setJavaScriptEnabled(true);
     await context.setAntiFingerprint(false);
     await context.setUseRelayProxy(false);
-    const responseStatus = await context.goto(url, {
+    const responseStatus = await context.goto(url, {      
       firstRequestTimeout: 10000,
       timeout: timeout,
       waitUntil: 'load',
@@ -31,6 +27,7 @@ module.exports = {
         type: 'RECAPTCHA',
       },
     });
+    await new Promise((resolve) => setTimeout(resolve, 5000));
     console.log('Status :', responseStatus.status);
     console.log('URL :', responseStatus.url);   
   }
