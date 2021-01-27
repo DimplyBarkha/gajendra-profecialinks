@@ -8,7 +8,7 @@ fields:
     xpath: //@data-productid
   - name: searchUrl
     singleValue: false
-    xpath: //meta[@property='og:url']/@content
+    xpath: ancestor::html//div[@id='added-search-url']
   - name: name
     singleValue: false
     xpath: //a[contains(@class, "details__title")] 

@@ -25,6 +25,14 @@ async function implementation (inputs, parameters, context, dependencies) {
   await checkPopups();
 
   await context.evaluate(async () => {
+    const addElementToDocument = (key, value) => {
+      const catElement = document.createElement('div');
+      catElement.id = key;
+      catElement.textContent = value;
+      catElement.style.display = 'none';
+      document.body.appendChild(catElement);
+    };
+    addElementToDocument('added-search-url', window.location.href);
     const allProducts = document.querySelectorAll('div.product.js-product-row');
     allProducts.forEach((product, index) => {
       try {
