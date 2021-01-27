@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'komus.ru',
     prefix: null,
-    url: null,
+    url: 'https://www.komus.ru/search?text={id}',
     country: 'RU',
     store: 'komus',
     zipcode: '',

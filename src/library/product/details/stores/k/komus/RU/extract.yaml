@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //a[@id="imageLink"]/div/img/@src
+    xpath: //a[@class="productImagePrimaryLink"]//img/@data-zoom-image
   - name: imageAlt
     singleValue: true
     xpath: //a[@id="imageLink"]/div/img/@alt
@@ -38,6 +38,10 @@ fields:
   - name: description
     singleValue: false
     xpath: (//div[contains(@class,"productDescriptionText")])[1]
+  - name: promotion
+    xpath: concat(//span[@class="b-colored--red"],//div[@class="i-mt5"]//span[@class="i-fwb"])
+  # - name: descriptionBullets
+  #   xpath: concat(//span[@class="b-colored--red"],//div[@class="i-mt5"]//span[@class="i-fwb"])
   - name: brandText
     singleValue: true
     xpath: //div[@class='altImage1']

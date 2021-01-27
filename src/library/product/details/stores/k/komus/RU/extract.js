@@ -1,10 +1,10 @@
-const { transform } = require('../../../../shared');
+const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'RU',
     store: 'komus',
-    transform: transform,
+    transform: cleanUp,
     domain: 'komus.ru',
     zipcode: '',
   }, implementation: async (inputs,
@@ -61,6 +61,7 @@ module.exports = {
       sliceURL1(backgroundURL1);
       const aggregateRating = document.querySelectorAll('div[class="b-rating__full"]')
       for (let k = 0; k < aggregateRating.length; k++) {
+        // @ts-ignore
         let singleRating = aggregateRating[k].style.width;
         singleRating = singleRating.slice(0, singleRating.length - 1)
         singleRating = (5 * singleRating) / 100;
