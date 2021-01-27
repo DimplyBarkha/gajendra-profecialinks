@@ -21,16 +21,16 @@ fields:
     xpath: //img[@class='productCard__image  j-comparisonImg']/@src
   - name: aggregateRating
     singleValue: false
-    xpath: //div[@class='bv_averageRating_component_container']/div[@class='bv_text']
+    xpath: translate((//div[@class='bv_averageRating_component_container']/div[@class='bv_text'])[1],".",",")
   - name: reviewCount
     singleValue: false
     xpath: //div[@class='bv_numReviews_component_container']/div[@class='bv_text']
-    regExp: ([0-9])
+    regExp: ([0-9]+)
     regExpReplace: $1
   - name: ratingCount
     singleValue: false
     xpath: //div[@class='bv_numReviews_component_container']/div[@class='bv_text']
-    regExp: ([0-9])
+    regExp: ([0-9]+)
     regExpReplace: $1
   - name: price
     singleValue: false
