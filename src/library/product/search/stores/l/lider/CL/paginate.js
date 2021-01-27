@@ -4,13 +4,14 @@ module.exports = {
   parameterValues: {
     country: 'CL',
     store: 'lider',
-    nextLinkSelector: '#paginationBox > nav > ul.pagination.pull-right > li:last-child:not(.disabled) > a',
+    nextLinkSelector: null,
+    // '#paginationBox > nav > ul.pagination.pull-right > li:last-child:not(.disabled) > a',
     // 'ul[class="pagination pull-right"]>li:nth-child(4)>a',
     // 'ul[class="pagination pull-right"]>li>a'
     // nextLinkXPath: "(//ul[@class='pagination pull-right']/li/a/@href)[3]"
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'body',
+    loadedSelector: null,
     noResultsXPath: null,
     resultsDivSelector: null,
     openSearchDefinition: null,
