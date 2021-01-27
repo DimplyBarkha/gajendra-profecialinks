@@ -35,20 +35,26 @@ async function implementation (
         headers: {
           authority: 'www.7now.com',
           accept: 'application/json, text/plain, */*',
-          authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lcl9pZCI6ImQ1NGVkZGZiLWUyMjctNGRkNi04YzNiLTdiYjNhMGMzOGUzZSIsInNjb3BlIjpbImd1ZXN0Il0sImlhdCI6MTYwNjQ2OTk2MCwiZXhwIjoxNjA2NTU0NTYwfQ.Ocjiwvkp4DSZ0jB249i64FK2JceeLkFTfAD3TU8VELo',
-          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36 OPR/72.0.3815.321',
-          'x-api-key': 'dYjBHrEIC542NCkFeMHWf80Cw1qMhRPs24PzAIDq',
+          authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lcl9pZCI6ImMwM2M5Njc4LTY4MzItNDlkZi1hY2VhLTFkZmJlN2NhMjg1NCIsInNjb3BlIjpbImd1ZXN0Il0sImlhdCI6MTYxMTc3MTkyMywiZXhwIjoxNjExODU4MzIzfQ.3uWurcHcC43n9sJVt869AanIbMr_325R3lAnKZMw1rU',
           'content-type': 'application/json',
+          'content-length': '34',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.104 Safari/537.36',
+          'x-api-key': 'dYjBHrEIC542NCkFeMHWf80Cw1qMhRPs24PzAIDq',
+          // 'sec-fetch-mode': 'cors',
+          // 'sec-ch-ua': '"Chromium";v="88", "Google Chrome";v="88", ";Not A Brand";v="99"',
+          // 'content-type': 'application/json',
+          'Remote Address': '157.230.83.251:443',
           origin: 'https://www.7now.com',
           referer: 'https://www.7now.com/search-results',
-          cookie: 'ga=GA1.2.892522357.1605871078; _gcl_au=1.1.1607120452.1605871087; _fbp=fb.1.1605871091850.859718474; _gid=GA1.2.1680358325.1606469958; mp_9a92fde9c1e57929204c3058109a9375_mixpanel=%7B%22distinct_id%22%3A%20%22175e55fe0fb131-06f052b2e3b7e8-4f524656-21320e-175e55fe0fc54f%22%2C%22%24device_id%22%3A%20%22175e55fe0fb131-06f052b2e3b7e8-4f524656-21320e-175e55fe0fc54f%22%2C%22%24search_engine%22%3A%20%22google%22%2C%22%24initial_referrer%22%3A%20%22https%3A%2F%2Fwww.google.com%2F%22%2C%22%24initial_referring_domain%22%3A%20%22www.google.com%22%7D; __stripe_mid=1c99e21e-f430-402f-a905-3b733024b7c574181d; __stripe_sid=5ed98605-ba64-4827-b5a3-d8fcb19d86cd15c572',
+          cookie: '_ga=GA1.2.1299514167.1611771920; _gid=GA1.2.506073184.1611771920; _gcl_au=1.1.2101909062.1611771940; _fbp=fb.1.1611772047791.1707602959; __stripe_mid=d8cfda3f-7aa8-4cb5-a472-357ebc94d8b228aeba; __stripe_sid=91514019-2bdf-4330-8dc0-26edf4aa42a1e4395c; mp_d105ce5cd51de6bfd5902f950038a82c_mixpanel=%7B%22distinct_id%22%3A%20%221774517ba7958-0dd19bd6466f0f-13e3563-1fa400-1774517ba7a382%22%2C%22%24device_id%22%3A%20%221774517ba7958-0dd19bd6466f0f-13e3563-1fa400-1774517ba7a382%22%2C%22%24initial_referrer%22%3A%20%22%24direct%22%2C%22%24initial_referring_domain%22%3A%20%22%24direct%22%7D; mp_9a92fde9c1e57929204c3058109a9375_mixpanel=%7B%22distinct_id%22%3A%20%221774517ba622de-0752e05effce21-13e3563-1fa400-1774517ba632f6%22%2C%22%24device_id%22%3A%20%221774517ba622de-0752e05effce21-13e3563-1fa400-1774517ba632f6%22%2C%22%24initial_referrer%22%3A%20%22%24direct%22%2C%22%24initial_referring_domain%22%3A%20%22%24direct%22%7D',
         },
         body: JSON.stringify(data),
       });
       return response.json();
     };
 
-    const productDetails = await postData('https://www.7now.com/api/inventory/digital/v3/store/26872/products/search', { query: tmpUrl, suggest: false });
+    const productDetails = await postData('https://www.7now.com/api/catalog/search/products', { query: tmpUrl, suggest: false });
+    console.log('productDetails::', productDetails);
 
     productDetails.Items.forEach((item, index) => {
       const allData = document.createElement('div');
@@ -125,5 +131,5 @@ module.exports = {
     noResultsXPath: null,
     zipcode: '',
   },
-  implementation,
+  // implementation,
 };

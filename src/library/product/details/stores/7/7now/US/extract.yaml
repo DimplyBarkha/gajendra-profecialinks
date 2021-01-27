@@ -1,29 +1,29 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //div[@class="product_img"]
+    xpath: //img[@class="productImages"]/@src
   - name: imageAlt
     singleValue: false
     defaultValue: product
   - name: category
     singleValue: false
-    xpath: //div[@class="product_cat"]/li
+    xpath: //ol[@class="MuiBreadcrumbs-ol"]//li[position()>4]/p
   - name: nameExtended
     singleValue: false
-    xpath: //div[@class="product_name"]
+    xpath: //h1[@class="productPage-main-productDetail-title"]
   - name: name
     singleValue: false
-    xpath: //div[@class="product_name"]
+    xpath: //h1[@class="productPage-main-productDetail-title"]
   - name: price
     singleValue: false
-    xpath: //div[@class="product_price"]
+    xpath: //span[@class="productPage-main-productDetail-purchase-price"]//text()[2]
   - name: description
     singleValue: false
-    xpath: //div[@class="product_desc"]
+    xpath: //div[@class="productPage-main-productDetail-description"]
   - name: quantity
     singleValue: false
     xpath: //div[@class="product_size"]
@@ -38,10 +38,10 @@ fields:
     xpath: ///div[@class="upc"]
   - name: availability
     singleValue: false
-    xpath: //div[@class="product_availability"]
-    regExp: Available
+    xpath: //button[contains(.,"check availability")]/text()
+    regExp: (.+))
     regExpReplace: In Stock
-    defaultValue: Out of Stock     
+    # defaultValue: Out of Stock     
   - name: variantId
     singleValue: false
     xpath: //div[@class="product_id"]
@@ -57,3 +57,8 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: true
     defaultValue: No
+  - name: caloriesPerServing
+    singleValue: true
+    xpath: //p[contains(.,"Cals")]/text()
+    regExp: (.+)
+    # regExpReplace
