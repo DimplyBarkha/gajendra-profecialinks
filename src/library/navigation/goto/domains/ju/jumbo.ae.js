@@ -28,8 +28,11 @@ module.exports = {
     });
     try {
       await new Promise((resolve) => setTimeout(resolve, 8000));
-      await context.waitForSelector('div[class*="own-product custom-layout"]');
+      console.log('Finished waiting');
+      await context.waitForSelector('div.own-product.custom-layout, div#search-results');
     } catch (e) {
+      console.log(e);
+      console.log(response.status);
       if (response.status !== 404) {
         await context.reportBlocked(response.status);
         throw new Error(`Got blocked with status: ${response.status}`);
