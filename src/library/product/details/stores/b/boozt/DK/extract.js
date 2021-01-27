@@ -13,7 +13,7 @@ module.exports = {
     await context.evaluate(async () => {
       // await new Promise((resolve, reject) => setTimeout(resolve, 3000));
 
-      function addElementToDocument(id, value, key) {
+      function addElementToDocument (id, value, key) {
         const catElement = document.createElement('div');
         catElement.id = id;
         catElement.innerText = value;
@@ -27,29 +27,27 @@ module.exports = {
       // getting nameExtended
       const brand = document.querySelector('a[data-track-id=pdp_brandname]') ? document.querySelector('a[data-track-id=pdp_brandname]').innerText : null;
       const name = document.querySelector('h1.pp-info__name') ? document.querySelector('h1.pp-info__name').innerText : null;
-      const script = document.querySelector('script[data-js-react-on-rails-store="store"]') ? document.querySelector('script[data-js-react-on-rails-store="store"]').innerText : null;
-      const scriptToString = JSON.parse(script);
-      const size = scriptToString.product.current.size_detail;
-      const color = scriptToString.product.current.colourDetail;
+      // const script = document.querySelector('script[data-js-react-on-rails-store="store"]') ? document.querySelector('script[data-js-react-on-rails-store="store"]').innerText : null;
+      // const scriptToString = JSON.parse(script);
+      // const size = scriptToString.product.current.size_detail;
+      // const color = scriptToString.product.current.colourDetail;
 
-      //getting firstVariant
-      const variantSize = document.querySelector('div.pp-size-selector__label') ? document.querySelector('div.pp-size-selector__label') : null;
-      const variantColor = document.querySelector('p.pp-colour-selector__label') ? document.querySelector('p.pp-colour-selector__label span').innerText : null;
-      if (variantSize !== null) {
-        addElementToDocument('variant-information', 'Size');
-        addElementToDocument('first-var', size);
-      } else if (variantColor !== null) {
+      // setting nameExtended & firstVariant
+      const colorSelector = document.querySelector('div.pp-product__sidebar div.pp-colour-selector') ? document.querySelector('div.pp-product__sidebar div.pp-colour-selector') : null;
+      const sizeSelector = document.querySelector('div.pp-product__sidebar div.pp-size-selector') ? document.querySelector('div.pp-product__sidebar div.pp-size-selector') : null;
+      if (colorSelector !== null && sizeSelector !== null) {
+        addElementToDocument('name-ext', brand + ' ' + name + ' ' + colorSelector.innerText + ' ' + sizeSelector.querySelector('button').innerText);
+        addElementToDocument('first-var', colorSelector.innerText + ' ' + sizeSelector.querySelector('button').innerText);
+      } else if (colorSelector !== null) {
+        addElementToDocument('name-ext', brand + ' ' + name + ' ' + colorSelector.innerText);
         addElementToDocument('variant-information', 'Color');
-        addElementToDocument('first-var', color);
-      }
-
-      //setting nameExtended
-      if (variantColor && !variantSize) {
-        addElementToDocument('nameext', brand + ' ' + name + ' ' + variantColor)
-      } else if (variantSize && !variantColor) {
-        addElementToDocument('nameext', brand + ' ' + name + ' ' + size)
-      } else if (!variantColor && !variantSize) {
-        addElementToDocument('nameext', brand + ' ' + name + ' ' + color)
+        addElementToDocument('first-var', colorSelector.innerText);
+      } else if (sizeSelector !== null) {
+        addElementToDocument('name-ext', brand + ' ' + name + ' ' + sizeSelector.querySelector('button').innerText);
+        addElementToDocument('variant-information', 'Size');
+        addElementToDocument('first-var', sizeSelector.querySelector('button').innerText);
+      } else {
+        addElementToDocument('name-ext', brand + ' ' + name);
       }
     });
     await context.extract(productDetails);
@@ -84,6 +82,19 @@ module.exports = {
     });
 
     var dataRef = await context.data();
+
+    if (dataRef[0].data[0].group[0].nameExtended[0].text.includes('Farve')) {
+      dataRef[0].data[0].group[0].nameExtended[0].text = dataRef[0].data[0].group[0].nameExtended[0].text.replace('Farve:\n', '').trim();
+    }
+
+    if (dataRef[0].data[0].group[0].price[0]) {
+      dataRef[0].data[0].group[0].price[0].text = dataRef[0].data[0].group[0].price[0].text.replace('kr', '').trim();
+    }
+    if (dataRef[0].data[0].group[0].listPrice === undefined) {
+      delete dataRef[0].data[0].group[0].listPrice;
+    } else if (dataRef[0].data[0].group[0].listPrice[0]) {
+      dataRef[0].data[0].group[0].listPrice[0].text = dataRef[0].data[0].group[0].listPrice[0].text.replace('kr', '').trim();
+    }
 
     if (!('productOtherInformation' in dataRef[0].data[0].group[0])) {
       dataRef[0].data[0].group[0].productOtherInformation = [{ text: allInfo.careTips }];

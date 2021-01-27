@@ -33,7 +33,7 @@ fields:
   description: The categories (e.g. from breadcrumbs)
 - name: nameExtended
   # xpath: normalize-space(concat(//a[@data-track-id="pdp_brandname"], //h1[@class="pp-info__name"], //div[@class="pp-size-selector"]/button|//div[@class="pp-colour-selector"]//span))
-  xpath: //div[@id="nameext"]
+  xpath: //div[@id="name-ext"]
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
