@@ -42,11 +42,15 @@ async function implementation (inputs, parameters, context, dependencies) {
     if (url.includes('/p4')) sessionStorage.setItem('item4', last);
     if (sessionStorage.getItem('item4') === null && sessionStorage.getItem('item3') !== null) {
       const trim = 150 - (parseInt(sessionStorage.getItem('item1')) + parseInt(sessionStorage.getItem('item2')));
-      allProducts.forEach((e, i) => i > trim ? e.setAttribute('trim', '') : '');
+      allProducts.forEach((e, i) => {
+        if (i >= trim) e.setAttribute('trim', '');
+      });
     }
     if (sessionStorage.getItem('item4') !== null) {
       const trim = 150 - (parseInt(sessionStorage.getItem('item1')) + parseInt(sessionStorage.getItem('item2')) + parseInt(sessionStorage.getItem('item3')));
-      allProducts.forEach((e, i) => i > trim ? e.setAttribute('trim', '') : '');
+      allProducts.forEach((e, i) => {
+        if (i >= trim) e.setAttribute('trim', '');
+      });
     }
   });
 
