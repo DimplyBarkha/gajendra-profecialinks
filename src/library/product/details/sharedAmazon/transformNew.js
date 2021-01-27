@@ -319,10 +319,12 @@ const transform = (data, context) => {
       }
       if (row.availabilityText) {
         // Added the regex for different locale which say Usually ships in etc.
-        const usuallyShipsRegex = /(Usually|Genellikle)/gi;
+        const usuallyShipsRegex = /(Usually|Genellikle|Generalmente|Habituellement)/gi;
         const availabilityMap = {
           usually: 'In Stock',
           genellikle: 'Stokta var',
+          generalmente: 'En Stock',
+          habituellement: 'En Stock',
         };
         const match = row.availabilityText[0].text.match(usuallyShipsRegex);
         if (match) {
