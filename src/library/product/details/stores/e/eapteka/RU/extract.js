@@ -18,8 +18,14 @@ module.exports = {
         ? document.querySelector('div.new-offer-box h1').textContent
         : '';
 
-      const descriptionElem = document.querySelector('div#instruction_DESCRIPTION > div.offer-instruction__item-text');
-      if (descriptionElem) addedElem.setAttribute('description', descriptionElem.innerText);
+      const descriptionElements = document.querySelectorAll(
+        'div#instruction_DESCRIPTION > div, div#instruction_CHARACTERISTIC > div, div#instruction_PHARM_EFFECT > div, div#instruction_DIRECTIONS > div',
+      );
+      const description = Array.from(descriptionElements)
+        .map((elem) => elem.textContent)
+        .join(' ');
+
+      addedElem.setAttribute('description', description);
 
       const quantity = productName.match(/(\d+) шт.*?$/) ? productName.match(/(\d+) шт.*?$/)[1] : '';
       const packSize = productName.match(/(\d+)х\d+ шт.*?$/) ? productName.match(/(\d+)х\d+ шт.*?$/)[1] : '';

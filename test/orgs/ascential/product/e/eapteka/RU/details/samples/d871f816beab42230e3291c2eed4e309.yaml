@@ -2,7 +2,7 @@ input:
   _url: http://eapteka.ru
   URL: https://www.eapteka.ru/goods/id227720/
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=bd5a54a0-79ae-4052-9082-2d89d1ea0de4/task=1c579d37-8cbd-47a6-91d1-571d7f6272c7/0aabbe53-803c-450f-b084-6fe181df5445.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=69ded667-6d52-48a7-85f0-c925c6aeb109/task=b07a447d-4751-4227-ba3f-51e7d3a7eb1f/42253bc5-c859-48d4-8b3b-af5ca18e484d.html
     extractionConfigId: product/details/stores/e/eapteka/RU/extract
     data:
       - group:
@@ -50,6 +50,21 @@ extractions:
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[9]/@availability_text
+            description:
+              - text: >-
+                  Фурасол - противомикробное средство, производное нитрофурана.
+                  Эффективен в отношении грамположительных кокков
+                  (Staphylococcus spp., Streptococcus spp.), грамотрицательных
+                  палочек (Е. coli, Salmonella spp., Shigella spp., Klebsiella
+                  spp.). Устойчивы: Acinetobacter spp., большинство штаммов
+                  Proteus spp., Serratia spp.
+                  	 Механизм действия связан с ингибированием синтеза нуклеиновых кислот. В зависимости от концентрации, оказывает бактерицидное или бактериостатическое действие. 
+                  	Против большей части бактерий бактериостатическая концентрация составляет 10–20 мкг/мл. Бактерицидная концентрация примерно в 2 раза выше. 
+                  	Под влиянием нитрофуранов в микроорганизмах происходит подавление активности дыхательной цепи и цикла трикарбоновых кислот (цикл Кребса), а также угнетение других биохимических процессов, что приводит к разрушению их оболочки или цитоплазматической мембраны. Нитрофураны повышают титр комплемента и способность лейкоцитов фагоцитировать микроорганизмы.
+                   
+                   
+                  	 В качестве местного средства при комплексном лечении следующих состояний и заболеваний: инфекционно-воспалительные заболевания полости рта, ротоглотки; инфицированные раны.
+                xpath: /html/body/div[9]/@description
             manufacturer:
               - text: Олайнфарм, Латвия
                 xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/p[1]/a[1]
@@ -287,4 +302,4 @@ extractions:
             secondaryImageTotal:
               - text: "0"
         xpath: /
-    timestamp: 1611736890955
+    timestamp: 1611752660627

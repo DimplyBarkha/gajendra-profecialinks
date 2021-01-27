@@ -2,7 +2,7 @@ input:
   _url: http://eapteka.ru
   URL: https://www.eapteka.ru/goods/id287424/
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=bd5a54a0-79ae-4052-9082-2d89d1ea0de4/task=1027ed43-d934-4e42-b0bf-3c9a162f5193/a3eb7fb3-86cc-4332-922d-7cf1953f71a2.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=69ded667-6d52-48a7-85f0-c925c6aeb109/task=82b26aea-3f8a-4a69-a5eb-78df037862e4/8d450e5a-3f05-48c6-b7aa-61be3945a14c.html
     extractionConfigId: product/details/stores/e/eapteka/RU/extract
     data:
       - group:
@@ -73,10 +73,10 @@ extractions:
                 xpath: /html/body/section[1]/div[2]/div[1]/div[1]/h1[1]
             price:
               - text: 1203 руб.
-                xpath: /html/body/div[7]/@price
+                xpath: /html/body/div[9]/@price
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[7]/@availability_text
+                xpath: /html/body/div[9]/@availability_text
             description:
               - text: Корректирующий SOS-стик для маскировки темных кругов под глазами,
                   несовершенств, гиперпигментации, шрамов с высокой покрывающей
@@ -86,7 +86,7 @@ extractions:
                   гиперпигментацию, шрамы на весь день. Без парабенов.
                   Гипоалергенно, некомедогенно, подходит для чувствительной
                   кожи.
-                xpath: /html/body/div[7]/@description
+                xpath: /html/body/div[9]/@description
             brandText:
               - text: Виши
                 xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/p[2]/a[1]
@@ -164,4 +164,4 @@ extractions:
             secondaryImageTotal:
               - text: "2"
         xpath: /
-    timestamp: 1611736970747
+    timestamp: 1611752760147
