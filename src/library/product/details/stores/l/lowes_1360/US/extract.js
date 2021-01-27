@@ -1,4 +1,5 @@
-const { transform } = require('../format.js');
+const { transform } = require('./format.js');
+
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
@@ -68,29 +69,29 @@ module.exports = {
     //   }
     //   await infiniteScroll();
     // });
-    async function scrollToRec(node, time) {
-      await context.evaluate(async (node, time) => {
-        const element = document.querySelector(node) || null;
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
-          await new Promise((resolve) => {
-            setTimeout(resolve, time);
-          });
-        }
-      }, node, time);
-    }
-    await scrollToRec('div#footerApp', 8000);
-    await scrollToRec('header', 2000);
-    await scrollToRec('div.recommendation-wrapper', 5000);
-    try {
-      await context.waitForSelector('div.recommendation-wrapper div.product-card', { timeout: 25000 });
-    } catch (e) {
-      await scrollToRec('header', 10000);
-      await scrollToRec('div#footerApp', 10000);
-      await scrollToRec('div.eppSection', 5000);
-      await scrollToRec('div.recommendation-wrapper', 5000);
-      console.log('Not loading recommended products');
-    }
+    // async function scrollToRec (node, time) {
+    //   await context.evaluate(async (node, time) => {
+    //     const element = document.querySelector(node) || null;
+    //     if (element) {
+    //       element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+    //       await new Promise((resolve) => {
+    //         setTimeout(resolve, time);
+    //       });
+    //     }
+    //   }, node, time);
+    // }
+    // await scrollToRec('div#footerApp', 8000);
+    // await scrollToRec('header', 2000);
+    // await scrollToRec('div.recommendation-wrapper', 5000);
+    // try {
+    //   await context.waitForSelector('div.recommendation-wrapper div.product-card', { timeout: 25000 });
+    // } catch (e) {
+    //   await scrollToRec('header', 10000);
+    //   await scrollToRec('div#footerApp', 10000);
+    //   await scrollToRec('div.eppSection', 5000);
+    //   await scrollToRec('div.recommendation-wrapper', 5000);
+    //   console.log('Not loading recommended products');
+    // }
     await context.evaluate(async function () {
       // let scrollSelector = document.querySelector('div#footerApp');
       // // @ts-ignore
@@ -215,4 +216,3 @@ module.exports = {
     return await context.extract(productDetails, { transform });
   },
 };
-
