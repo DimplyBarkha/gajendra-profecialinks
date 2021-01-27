@@ -13,6 +13,17 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     // Extractor fails to correctly extract data using pagination so we get data by api call
+    try {
+      await context.waitForSelector('[data-testid="cookie-popup-accept"]',{timeout:20000});
+      await context.click('[data-testid="cookie-popup-accept"]');
+    } catch(er) {
+      console.log(er.message);
+    }
+    try {
+      await context.waitForSelector('ul.search-results-container', {timeout: 10000});
+    } catch(er) {
+      console.log(er.message);
+    }
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
