@@ -5,17 +5,17 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: (//img[@class="primary_image product_image pdp__primary-image  b-product_img"])[2]/@src
-    regExp: (\/on.+)
-    regExpReplace: https://www.lancome.com.au$1
+    xpath: (//img[@class="primary_image product_image pdp__primary-image  b-product_img"])[2]/@srcset
+    regExp: ^(.+?)1x
+    regExpReplace: $1
   - name: imageAlt
     singleValue: true
     xpath: (//img[@class="primary_image product_image pdp__primary-image  b-product_img"])[2]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: (//img[@class="product-thumbnails__image productthumbnail lazyloaded"])[position() > 1]/@src
-    regExp: (\/on.+)
-    regExpReplace: https://www.lancome.com.au$1
+    xpath: (//img[@class="product-thumbnails__image productthumbnail lazyloaded"])[position() > 1]/@srcset
+    regExp: ^(.+?)1x
+    regExpReplace: $1
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content

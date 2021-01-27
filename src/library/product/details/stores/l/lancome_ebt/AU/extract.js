@@ -141,7 +141,9 @@ module.exports = {
       var directions = getAllXpath('(//div[@id="tab_productvideo"]//p)/text()', 'nodeValue');
       var dir = directions.toString().replace('\n', ' || ');
       addElementToDocument('dir', dir);
-
+      
+      //Product url
+      
 
 
       var aval = getXpath('(//p[contains(@class,"availability_value")])//text()', 'nodeValue');
