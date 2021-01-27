@@ -5,7 +5,7 @@ recordXPath: //div[@class="card-item js-product-data"][not(@trim)]
 fields:
   - name: id
     singleValue: false
-    xpath: //button[contains(@class, 'card-toolbox-btn card-compare-btn hidden-xs gtm_kz1kte2')]/@data-id
+    xpath: //@product-sku
   - name: searchUrl
     singleValue: true
   - name: name
@@ -13,7 +13,7 @@ fields:
     xpath: //div[@class="card-item js-product-data"]/@data-name
   - name: productUrl
     singleValue: false
-    xpath: //div[@class="card-item js-product-data"]//div[@class="card-heading"]/a/@href
+    xpath: //div[@class='card-heading']/a/@href | //div[@class='c']/a/@href 
   - name: gtin
     singleValue: false
   - name: thumbnail
