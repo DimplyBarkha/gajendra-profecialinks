@@ -15,7 +15,7 @@ fields:
     regExpReplace: Out of Stock
     defaultValue: In Stock
   - name: shippingInfo
-    xpath: //div[contains(@class,"soldByBestBuy")]
+    xpath: //div[contains(@class,"soldByBestBuy")] | //div[contains(@class,"soldBy")]
   - name: weightNet
     xpath: //div[contains(.,"Weight without Stand") or contains(.,"Weight")]/following-sibling::div[@class="itemValue_XPfaq"]
   - name: weightGross
@@ -36,14 +36,16 @@ fields:
   - name: descriptionBullets
     xpath: count(//div[@id="moreInfo"]//ul//li)
   - name: alternateImages
-    xpath: //div[@class="x-product-detail-page"]//div[@class="row_1Rbqw"]//div[@data-automation="media-gallery-product-image-slider"]//div[@class="slideShowContainer_2jQI5"]//div[@class="slick-track"]/div[not(contains(@class,"slick-cloned"))][position() > 1]//img[@class="productImage_AMBPT"]/@src
+    xpath: //div[contains(@class,"x-product-detail-page")]//div[contains(@class,"row_1Rbqw")]//div[contains(@data-automation,"media-gallery-product-image-slider")]//div[contains(@class,"slideShowContainer")]//div[contains(@class,"slick-slider")]//div[contains(@class,"slick-track")]/div[not(contains(@class,"slick-cloned"))][position() > 1]//img[contains(@class,"productImage")]/@src
+    #xpath: //div[@class="x-product-detail-page"]//div[@class="row_1Rbqw"]//div[@data-automation="media-gallery-product-image-slider"]//div[@class="slideShowContainer_2jQI5"]//div[@class="slick-track"]/div[not(contains(@class,"slick-cloned"))][position() > 1]//img[@class="productImage_AMBPT"]/@src
   - name: secondaryImageTotal
-    xpath: count(//div[@class="x-product-detail-page"]//div[@class="row_1Rbqw"]//div[@data-automation="media-gallery-product-image-slider"]//div[@class="slideShowContainer_2jQI5"]//div[@class="slick-track"]/div[not(contains(@class,"slick-cloned"))][position() > 1]//img[@class="productImage_AMBPT"]/@src)
+    xpath: count(//div[contains(@class,"x-product-detail-page")]//div[contains(@class,"row_1Rbqw")]//div[contains(@data-automation,"media-gallery-product-image-slider")]//div[contains(@class,"slideShowContainer")]//div[contains(@class,"slick-slider")]//div[contains(@class,"slick-track")]/div[not(contains(@class,"slick-cloned"))][position() > 1]//img[contains(@class,"productImage")]/@src)
+    #xpath: count(//div[@class="x-product-detail-page"]//div[@class="row_1Rbqw"]//div[@data-automation="media-gallery-product-image-slider"]//div[@class="slideShowContainer_2jQI5"]//div[@class="slick-track"]/div[not(contains(@class,"slick-cloned"))][position() > 1]//img[@class="productImage_AMBPT"]/@src)
   - name: promotion
     xpath: //div[@class="productPricingContainer_3gTS3"]/span[@class="productSaving_3YmNX top_3XDS1"]
   - name: sku
     # manualSelector: span[itemprop="sku"]
-    xpath: //div[contains(@class,"modelInformation")]/strong[contains(text(),'Web Code:')]/following-sibling::span
+    xpath: //div[contains(@class,"modelInformation")]/strong[contains(text(),'Web Code:')]/following-sibling::span | //div[contains(@class,"modelInformation")]/strong[contains(text(),'Code Web :')]/following-sibling::span
   - name: specificationsLabel
     manualSelector: div#detailsAndSpecs div[class*="itemName"]
   - name: specifications
@@ -52,12 +54,12 @@ fields:
   #   xpath: //div[@id="detailsAndSpecs"]/div/div
   - name: variantId
     # manualSelector: span[itemprop="sku"]
-    xpath: //div[contains(@class,"modelInformation")]/strong[contains(text(),'Web Code:')]/following-sibling::span
+    xpath: //div[contains(@class,"modelInformation")]/strong[contains(text(),'Web Code:')]/following-sibling::span | //div[contains(@class,"modelInformation")]/strong[contains(text(),'Code Web :')]/following-sibling::span
   - name: mpc
     # manualSelector: span[itemprop="model"]
     xpath: //div[contains(@class,"modelInformation")]/strong[contains(text(),'Model Number:')]/following-sibling::span
   - name: category
-    xpath: //ol[@class="breadcrumbList_16xQ3 x-breadcrumbs"]/li[position()>1][position()<last()]
+    xpath: //ol[@class="breadcrumbList_16xQ3 x-breadcrumbs"]/li[position()>1][position()<last()] | //ol[contains(@class,"BreadcrumbList")]/li[position()>1]/a/span
   - name: nameExtended
     xpath: //h1[contains(@class,"productName")]
   - name: listPrice
