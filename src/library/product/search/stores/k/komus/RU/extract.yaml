@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //ul[contains(@class,"product-list")]/li[contains(@class,"productList")]
 fields:
   - name: price
     singleValue: false
@@ -30,5 +30,5 @@ fields:
     xpath: //a[@class='b-productList__item__descr--title']
   - name: id
     singleValue: false
-    xpath: //div/ul/li/@data-id
+    xpath: //ul[contains(@class,"product-list")]/li[contains(@class,"productList")]/@data-id
   
