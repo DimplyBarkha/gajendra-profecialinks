@@ -17,7 +17,7 @@ module.exports = {
   ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 1000));
 
     try {
       await context.setInputValue('input[name="postalCode"]', '46008');
@@ -62,38 +62,13 @@ module.exports = {
         return 'null';
       }
 
-      // function getPackSize () {
-      //   const pack = headLinesOfProduct[headLinesOfProduct.length - 2]
-      //     .textContent
-      //     .match(/\d{0,} ud./);
-      //
-      //   const packSelector = document.querySelector('p.product-price__extra-price.title1-r').textContent;
-      //   if (packSelector.includes('/pack')) {
-      //     return parseInt(headLinesOfProduct[0].textContent);
-      //   };
-      //   if (pack) {
-      //     return pack[0].replace(/[^0-9]/g, '');
-      //   };
-      //
-      //   return 'null';
-      // }
-      // const packSize = headLinesOfProduct[headLinesOfProduct.length - 2]
-      //   .textContent
-      //   .match(/\d{0,} ud./);
-
       if (currentProduct) {
-        // if (packSize) {
-        //   const size = packSize[0].replace(/[^0-9]/g, '');
-        //   addHiddenDiv('helper-pack-size', size, currentProduct);
-        // } else {
-        //   addHiddenDiv('helper-pack-size', 'null', currentProduct);
-        // }
         const size = getPackSize();
         // const mainUrl = 'https://tienda.mercadona.es/product/';
         addHiddenDiv('helper-pack-size', size, currentProduct);
         // addHiddenDiv('helper-product-url', mainUrl + skuNumber, currentProduct);
         // addHiddenDiv('price-per-unit', pricePerUnit.textContent, currentProduct);
-        addHiddenDiv('helper-sku', skuNumber, currentProduct);
+        addHiddenDiv('helper-sku', response.id, currentProduct);
         addHiddenDiv('helper-price', `€${price_instructions.unit_price}`, currentProduct);
         addHiddenDiv('helper-reference_price', `${price_instructions.reference_price}`, currentProduct);
         addHiddenDiv('helper-reference_format', `${price_instructions.reference_format}`, currentProduct);
