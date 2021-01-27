@@ -26,8 +26,10 @@ module.exports = {
         };
       });
       const productId = window.dataLayer.find(dl => dl.event === "detail").ecommerce.detail.products[0].productid;
+      const brand = window.dataLayer.find(dl => dl.event === "detail").ecommerce.detail.products[0].brand;
       addHiddenDiv('import_product_specs', productSpecs);
       addHiddenDiv('import_product_id', productId);
+      addHiddenDiv('import_product_brand', brand);
     });
     return await context.extract(data, { transform });
   },
