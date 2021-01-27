@@ -5,16 +5,16 @@ recordXPath: //li[contains(@class,'layout__item')][not(@trim)]
 fields:
   - name: id
     singleValue: false
-    xpath: //form[contains(@action, 'bookmarks')]/@productid
+    xpath: //@productid
   - name: searchUrl
     singleValue: false
-    xpath: ancestor::html//div[@id="searchUrl"][last()]
+    xpath: ancestor::html//div[@id="searchUrl"][last()] 
   - name: name
     singleValue: false
     xpath: //h2[contains(@class, 'title')]
   - name: productUrl
     singleValue: false
-    xpath: //form[contains(@action, 'bookmarks')]/@producturl
+    xpath: //@producturl
   - name: gtin
     singleValue: false
   - name: thumbnail

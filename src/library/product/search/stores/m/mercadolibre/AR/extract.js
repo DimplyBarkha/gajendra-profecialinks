@@ -16,11 +16,17 @@ async function implementation (inputs, parameters, context, dependencies) {
     // set id
     const idPrefix = 'MLA';
     const prefixUrl = 'https://articulo.mercadolibre.com.ar/';
-    const ids = document.querySelectorAll('form[action*="bookmarks"]');
+    const ids = document.querySelectorAll('form[action*="bookmarks"],div[class*="ui-search-result__content-columns"] a[class="ui-search-link"]');
     if (ids !== null) {
       ids.forEach(e => {
-        e.setAttribute('productid', idPrefix.concat(e.getAttribute('action').split('MLA').pop()));
-        e.setAttribute('producturl', prefixUrl.concat(idPrefix.concat(e.getAttribute('action').split('MLA').pop())));
+        if (e.getAttribute('action') !== null) {
+          e.setAttribute('productid', idPrefix.concat(e.getAttribute('action').split('MLA').pop()));
+          e.setAttribute('producturl', prefixUrl.concat(idPrefix.concat(e.getAttribute('action').split('MLA').pop())));
+        }
+        if (e.getAttribute('href') !== null) {
+          e.setAttribute('productid', e.getAttribute('href').match(/MLA\d+/gm).pop());
+          e.setAttribute('producturl', prefixUrl.concat(e.getAttribute('href').split('com.ar/').pop()));
+        }
       });
     };
 
