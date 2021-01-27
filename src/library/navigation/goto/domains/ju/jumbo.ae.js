@@ -27,7 +27,7 @@ module.exports = {
       first_redirect_timeout: timeout,
     });
     try {
-      await new Promise((resolve) => setTimeout(resolve, 5000));
+      await new Promise((resolve) => setTimeout(resolve, 8000));
       await context.waitForSelector('div[class*="own-product custom-layout"]');
     } catch (e) {
       if (response.status !== 404) {
