@@ -102,8 +102,11 @@ module.exports = {
           try {
             var rate2 = data.aggregateRating.ratingValue;
             if (rate2 != null) {
+              //var ratenew=rate2.toString
+              //var rate3= rate2.replaceAll(".",",")
               addElementToDocument('rate2', rate2);
             }
+
           }
           catch (error) {
 

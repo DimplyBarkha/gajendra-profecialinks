@@ -96,9 +96,11 @@ fields:
     #xpath: //p[@class="product-reviews__aggregate__count"]/text()
     #regExp: (\d+)
     #regExpReplace: $1
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: true
     xpath: //html//div[@id='rate2']
+    #regExp: (\d)\.?(\d+)?
+    #regExpReplace: $1,$2
     #type: NUMBER
   - name: shippingInfo
     singleValue: true
