@@ -10,12 +10,41 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { transform }, context, { productDetails }) => {
+    // checking for selected language and changing to German if required
+    const englishSelected = await context.evaluate(async () => !!document.querySelector('a[title="Choose language"]'));
+    if (englishSelected) {
+      console.log('Changing language');
+      await context.click('a[title="Choose language"]');
+      await context.waitForSelector('div.z-navicat-header_modalContent', { timeout: 5000 });
+      const changingLanguage = await context.evaluate(async () => {
+        const deutschLabel = document.evaluate(
+          '//label[@class="z-navicat-header_radioItem"][contains(. , "Deutsch")]',
+          document,
+          null,
+          XPathResult.ANY_UNORDERED_NODE_TYPE,
+          null,
+        ).singleNodeValue;
+        if (deutschLabel) {
+          deutschLabel.click();
+          await new Promise((resolve) => setTimeout(resolve, 1000));
+          return !!document.querySelector('div.z-navicat-header_modalContent button[class*="Primary"]');
+        }
+      });
+      if (changingLanguage) {
+        await context.click('div.z-navicat-header_modalContent button[class*="Primary"]');
+        await context.waitForNavigation({ timeout: 10000, waitUntil: 'load' });
+      }
+      console.log('Finished changing language');
+    }
+
     const numOfThumbnails = await context.evaluate(async () => {
       const alternateImagesList = document.createElement('ol');
       alternateImagesList.id = 'added_alternate_images';
       alternateImagesList.style.display = 'none';
       document.body.appendChild(alternateImagesList);
-      return document.querySelectorAll('div[class*="sticky-gallery"] ul button').length;
+      const totalThumbnails = document.querySelectorAll('div[class*="sticky-gallery"] ul button').length;
+      alternateImagesList.setAttribute('secondary_image_total', (totalThumbnails - 1).toString());
+      return totalThumbnails;
     });
     for (let i = 1; i <= numOfThumbnails; i++) {
       await context.click(`div[class*="sticky-gallery"] ul > li:nth-of-type(${i}) button`);
@@ -46,7 +75,7 @@ module.exports = {
           'div[role="modal"][style="z-index: 100005;"] button svg > title[id^="cross"]',
         );
         const inStock = !document.evaluate(
-          '//div[@role="modal" and @style="z-index: 100005;"]//h2[text() = "Out of stock"]',
+          '//div[@role="modal" and @style="z-index: 100005;"]//h2[text() = "Ausverkauft"]',
           document,
           null,
           XPathResult.BOOLEAN_TYPE,
@@ -74,51 +103,48 @@ module.exports = {
           const productName = document.querySelector('x-wrapper-re-1-3 > h1')
             ? document.querySelector('x-wrapper-re-1-3 > h1').textContent.trim()
             : '';
-          const nameExtended = [brand, productName];
-          // const colorName = document.querySelector('x-wrapper-re-1-3 > div:last-child span:last-child')
-          //   ? document.querySelector('x-wrapper-re-1-3 > div:last-child span:last-child').textContent
-          //   : '';
-          // if (colorName) {
-          //   addedVariant.setAttribute('variant_information', colorName);
-          //   nameExtended.push(colorName);
-          // }
+
+          const nameExtended = productName.toLowerCase().includes(brand.toLowerCase())
+            ? [productName]
+            : [brand, productName];
+
+          const size = variantElement && variantElement.querySelector('label > span span')
+            ? variantElement.querySelector('label > span span').textContent.trim()
+            : '';
+          if (size) nameExtended.push(size);
+
+          const colorName = document.querySelector('x-wrapper-re-1-3 > div:last-child span:last-child')
+            ? document.querySelector('x-wrapper-re-1-3 > div:last-child span:last-child').textContent
+            : '';
+          if (colorName) {
+            addedVariant.setAttribute('variant_information', colorName);
+            nameExtended.push(colorName);
+          }
 
           const outOfStockText = document.evaluate(
-            '//x-wrapper-re-1-5//h2[text()="Out of stock"]',
+            '//x-wrapper-re-1-5//h2[text()="Ausverkauft"]',
             document,
             null,
             XPathResult.BOOLEAN_TYPE,
             null,
           ).booleanValue;
-          let availabilityText = inStock && !outOfStockText ? 'In stock' : 'Out of stock';
+          const availabilityText = inStock && !outOfStockText ? 'In Stock' : 'Out Of Stock';
+          let currentVariantId;
 
           if (variantElement) {
-            const sku = document.evaluate(
-              '//div[@class="z-pdp__escape-grid"]//button//span[text()="Details" or text()="Highlights"]/ancestor::h2/following-sibling::div//span[text()="Article number"]/following-sibling::span',
-              document,
-              null,
-              XPathResult.STRING_TYPE,
-              null,
-            ).stringValue;
             const productCode = variantElement.querySelector('input').value;
-            const currentVariantId = productCode.replace(sku, '');
-            addedVariant.setAttribute('variant_id', currentVariantId);
+            currentVariantId = productCode;
 
             const firstVariantElem = document.querySelector(
               'form[name="size-picker-form"] div[role="presentation"]:nth-of-type(1) > input',
             );
             const firstVariantValue = firstVariantElem.getAttribute('value');
-            if (firstVariantValue) addedVariant.setAttribute('first_variant', firstVariantValue.replace(sku, ''));
-
-            // const variantName = variantElement.querySelector('span > div > span:nth-of-type(1)')
-            //   ? variantElement.querySelector('span > div > span:nth-of-type(1)').textContent
-            //   : '';
-            // if (variantName) nameExtended.push(variantName);
+            if (firstVariantValue) addedVariant.setAttribute('first_variant', firstVariantValue);
 
             if (inStock) {
               const priceRow = document.querySelector('x-wrapper-re-1-3 > div > div');
               const priceElements = document.evaluate(
-                './/span[text() and not(contains(text(), "VAT"))]',
+                './/span[text() and not(contains(text(), "inkl"))]',
                 priceRow,
                 null,
                 XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
@@ -130,16 +156,13 @@ module.exports = {
               addedVariant.setAttribute('price', price);
               addedVariant.setAttribute('list_price', listPrice);
 
-              const availabilityElem = variantElement.querySelector('label > div');
-              if (availabilityElem && availabilityElem.textContent) availabilityText = availabilityElem.textContent;
-
               const variantsList = document.createElement('ol');
               variantsList.id = 'variants';
               const totalVariants = document.querySelectorAll(
                 'form[name="size-picker-form"] div[role="presentation"] > input',
               );
               for (let j = 0; j < totalVariants.length; j++) {
-                const variantId = totalVariants[j].getAttribute('value').replace(sku, '');
+                const variantId = totalVariants[j].getAttribute('value');
                 if (variantId !== currentVariantId) {
                   const listItem = document.createElement('li');
                   listItem.textContent = variantId;
@@ -151,7 +174,7 @@ module.exports = {
           }
 
           addedVariant.setAttribute('availability_text', availabilityText);
-          addedVariant.setAttribute('name_extended', nameExtended.join(' - '));
+          addedVariant.setAttribute('name_extended', nameExtended.join(' '));
 
           const extraDataScript = document.querySelector('x-wrapper-pdp > div > script[id="z-vegas-pdp-props"]')
             ? document.querySelector('x-wrapper-pdp > div > script[id="z-vegas-pdp-props"]').textContent
@@ -159,12 +182,68 @@ module.exports = {
           const extraDataObj = JSON.parse(extraDataScript.substr(9, extraDataScript.length - 12));
 
           if (extraDataScript && extraDataObj) {
+            if (!currentVariantId) {
+              currentVariantId =
+                extraDataObj.model && extraDataObj.model.articleInfo && extraDataObj.model.articleInfo.units[0]
+                  ? extraDataObj.model.articleInfo.units[0].id
+                  : '';
+              // currentVariantId = extraDataObj.model?.articleInfo?.units[0]?.id;
+            }
             const ratingCount = extraDataObj.model.articleInfo.reviewsCount;
             let aggregateRating = extraDataObj.model.articleInfo.averageStarRating;
             if (aggregateRating) aggregateRating = (Math.round(aggregateRating * 10) / 10).toString().replace('.', ',');
             addedVariant.setAttribute('rating_count', ratingCount);
             addedVariant.setAttribute('aggregate_rating', aggregateRating);
+
+            const mpc =
+              extraDataObj.model && extraDataObj.model.articleInfo && extraDataObj.model.articleInfo.modelId
+                ? extraDataObj.model.articleInfo.modelId
+                : '';
+            addedVariant.setAttribute('mpc', mpc);
           }
+
+          addedVariant.setAttribute('variant_id', currentVariantId);
+
+          const promotion = document.evaluate(
+            '//x-wrapper-re-1-3/h1/following-sibling::div/div/preceding-sibling::span',
+            document,
+            null,
+            XPathResult.STRING_TYPE,
+            null,
+          ).stringValue;
+          addedVariant.setAttribute('promotion', promotion);
+
+          const descriptionSnapthot = document.evaluate(
+            '//div[@class="z-pdp__escape-grid"]//div[h2[not(contains(. , "Passform") or contains(. , "Nachhaltigkeit"))]]/div[contains(@style, "max-height")]/div/div[not(button)]',
+            document,
+            null,
+            XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
+            null,
+          );
+          const descriptionArr = [];
+          for (let j = 0; j < descriptionSnapthot.snapshotLength; j++) {
+            const elem = descriptionSnapthot.snapshotItem(j);
+            descriptionArr.push(elem.textContent);
+          }
+          addedVariant.setAttribute('description', descriptionArr.join(' | '));
+
+          const directions = document.evaluate(
+            '//div[@class="z-pdp__escape-grid"]//button//span[contains(text(), "Highlights")]/ancestor::h2/following-sibling::div//*[contains(. , "Empfohlene Anwendung")]/following-sibling::div[position() = 1]',
+            document,
+            null,
+            XPathResult.STRING_TYPE,
+            null,
+          ).stringValue;
+          document.body.setAttribute('directions', directions);
+
+          const ingredients = document.evaluate(
+            '//div[@class="z-pdp__escape-grid"]//button//span[contains(text(), "Inhaltsstoffe")]/ancestor::h2/following-sibling::div//span[contains(. , "Inhaltsstoffe")]/following-sibling::span[position() = 1]',
+            document,
+            null,
+            XPathResult.STRING_TYPE,
+            null,
+          ).stringValue;
+          document.body.setAttribute('ingredients', ingredients);
 
           document.body.appendChild(addedVariant);
         },
@@ -191,7 +270,10 @@ module.exports = {
           null,
         ).booleanValue;
 
-        addElementToDocument('product_url', window.location.href);
+        const productUrl = window.location.href.match(/(.+html)/)
+          ? window.location.href.match(/(.+html)/)[1]
+          : window.location.href;
+        addElementToDocument('product_url', productUrl);
         addElementToDocument('variant_count', iterations);
         addElementToDocument('image_zoom_feature_present', imageZoomFeaturePresent);
       },

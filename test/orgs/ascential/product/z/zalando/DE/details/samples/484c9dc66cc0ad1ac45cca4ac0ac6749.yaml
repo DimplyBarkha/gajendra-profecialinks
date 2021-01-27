@@ -2,32 +2,48 @@ input:
   _url: http://zalando.de
   URL: https://en.zalando.de/pai-skincare-rosehip-bioregenerate-face-oil-pah34g00i-s11.html
 extractions:
-  - html: https://workbench.import.io/html/run=2eddb56a-1d7f-485f-a103-13c846c538d6/task=fa2c3c11-1d08-4805-af45-bc061a6022b9/1771cdee-014f-4345-9dc2-bc95fd8a4b7c.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=f05bbcbd-f617-4774-bbfd-2645527fa9fc/task=8de29d16-188c-4ca7-8247-e2056dd53329/14e8f42f-7bc2-4f08-b3dd-00c929816626.html
     extractionConfigId: product/details/stores/z/zalando/DE/extract
     data:
       - group:
           - productUrl:
-              - text: https://en.zalando.de/pai-skincare-rosehip-bioregenerate-face-oil-pah34g00i-s11.html
+              - text: https://www.zalando.de/pai-skincare-rosehip-bioregenerate-gesichtsoel-pah34g00i-s11.html
                 xpath: /html/body/div[8]
             image:
-              - text: https://img01.ztat.net/article/spp-media-p1/c3a3726355f3363fa2b6ae731b27ce60/ee9e6bd8922c4dc0af1240b5d63b996c.jpg?imwidth=762&filter=packshot
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@src
-            imageAlt:
-              - text: Pai skincare - ROSEHIP BIOREGENERATE - Face oil - -
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
-            alternateImages:
               - text: https://img01.ztat.net/article/spp-media-p1/c3a3726355f3363fa2b6ae731b27ce60/ee9e6bd8922c4dc0af1240b5d63b996c.jpg
                 xpath: /html/body/ol[1]/li[1]
+            imageAlt:
+              - text: Pai skincare - ROSEHIP BIOREGENERATE - Gesichtsöl - -
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            alternateImages:
               - text: https://img01.ztat.net/article/spp-media-p1/4a547a1c44e83201a4b662dce5ec77c4/33d0e6ce0e89443bae93391e1eec779e.jpg
                 xpath: /html/body/ol[1]/li[2]
               - text: https://img01.ztat.net/article/spp-media-p1/a72f28cf65653d9985afd74552c92dc2/b026f356b7c447b2aa2ac983174d6fd6.jpg
                 xpath: /html/body/ol[1]/li[3]
             nameExtended:
-              - text: Pai skincare - ROSEHIP BIOREGENERATE - Face oil
+              - text: Pai skincare ROSEHIP BIOREGENERATE - Gesichtsöl
                 xpath: /html/body/div[7]/@name_extended
             availabilityText:
-              - text: In stock
+              - text: In Stock
                 xpath: /html/body/div[7]/@availability_text
+            description:
+              - text: Über das Produkt | moisturizingFeuchtigkeitsspendend | Die Superpower
+                  dieses Öls Rosehip Bioregenerate beruht auf der
+                  CO2-Extraktion, einem Verfahren, bei dem sämtliche
+                  hautfreundliche Elixiere aus Hagebuttensamen und -früchten
+                  gewonnen werden. Es sollte in keinem Badezimmerschrank fehlen.
+                  | Empfohlene Anwendung | Nach der Reinigung 2 bis 3 Tropfen
+                  auf die feuchte Haut auftragen. | Geeignet für |
+                  Pflegebedürfnis: Anti-Aging, Trockenheit | Hauttyp: Alle
+                  Hauttypen | Mehr zu diesem Produkt | Bitte beachten: Bei
+                  Auftreten von Hautreizungen die Anwendung absetzen. |
+                  Konsistenz: Öl | Volumen: 30 ml | Artikelnummer: PAH34G00I-S11
+                  | Wirkstoffe | Hagebuttenöl | Alle Inhaltsstoffe |
+                  Inhaltsstoffe: ROSA CANINA SEED EXTRACT* (rosehip seed oil
+                  CO2), ROSA CANINA FRUIT EXTRACT* (rosehip fruit extract CO2),
+                  TOCOPHEROL (vitamin e), ROSMARINUS OFFICINALIS LEAF EXTRACT*
+                  (rosemary extract), SQUALENE, BETA-SITOSTEROL
+                xpath: /html/body/div[7]/@description
             brandText:
               - text: Pai skincare
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
@@ -36,9 +52,18 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
             sku:
               - text: PAH34G00I-S11
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[9]/span[2]
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[13]/span[2]
+            variantId:
+              - text: PAH34G00I-S110ONE000
+                xpath: /html/body/div[7]/@variant_id
+            mpc:
+              - text: PAH34G00I
+                xpath: /html/body/div[7]/@mpc
+            directions:
+              - text: Nach der Reinigung 2 bis 3 Tropfen auf die feuchte Haut auftragen.
+                xpath: /html/body/@directions
             ratingCount:
-              - text: "21"
+              - text: "32"
                 xpath: /html/body/div[7]/@rating_count
             aggregateRating:
               - text: 4,4
@@ -47,20 +72,21 @@ extractions:
               - text: "1"
                 xpath: /html/body/div[9]
             name:
-              - text: ROSEHIP BIOREGENERATE - Face oil
+              - text: ROSEHIP BIOREGENERATE - Gesichtsöl
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/h1[1]
             brandLink:
-              - text: https://en.zalando.de/pai-skincare/
+              - text: https://www.zalando.de/pai-skincare/
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             secondaryImageTotal:
-              - text: "3"
+              - text: "2"
+                xpath: /html/body/ol[1]/@secondary_image_total
             ingredientsList:
               - text: ROSA CANINA SEED EXTRACT* (rosehip seed oil CO2), ROSA CANINA FRUIT
                   EXTRACT* (rosehip fruit extract CO2), TOCOPHEROL (vitamin e),
                   ROSMARINUS OFFICINALIS LEAF EXTRACT* (rosemary extract),
                   SQUALENE, BETA-SITOSTEROL
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/span[2]
+                xpath: /html/body/@ingredients
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1608118808055
+    timestamp: 1611741917468
