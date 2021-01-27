@@ -58,6 +58,6 @@ module.exports = {
 
       }
     });
-    return await context.extract(productDetails, { cleanUp });
+    await context.extract(productDetails);
   },
 };
