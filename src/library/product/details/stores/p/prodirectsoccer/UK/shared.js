@@ -17,7 +17,7 @@ const transform = (data) => {
         descText = descText.replace(/•/g, '||');
         row.description = [{ text: descText }];
         const bulletsInDesc = descText.split('||');
-        if (bulletsInDesc.length) {
+        if (bulletsInDesc.length && row.descriptionBullets[0].text == 0) {
           row.descriptionBullets = [{ text: bulletsInDesc.length - 1 }];
         }
       }

@@ -101,3 +101,6 @@ fields:
     regExpReplace: Out of stock
   - name: singleProdSize
     xpath: ancestor::html//div[contains(@class, 'js-size-chart-dropdown')]//button[@aria-label="Size"]/span
+  - name: descriptionBullets
+    xpath: count(ancestor::html//div[contains(@class, 'product-details__description')]//ul/li)
+    defaultValue: 0
