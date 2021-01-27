@@ -94,6 +94,7 @@ module.exports = {
       await context.waitForSelector('.product__price', { timeout: 20000 }); // wait till the page loads
       await ignoreSurveyPopups();
       await closeModals();
+      if(!id) id=""; // to handle when input is url not id
       await context.evaluate(async ([{ id: _input }, _url, variantXpath]) => {
         const getXpath = (selector) => {
           return document.evaluate(selector, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE).singleNodeValue;
