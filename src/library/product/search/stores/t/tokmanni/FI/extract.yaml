@@ -25,10 +25,10 @@ fields:
     xpath: //div[@class="klevuImgWrap"]/a/@href
     regExp: .*-(\d+)
     regExpReplace: $1
-  - name: gtin
-    regExp: https://img.tesco.com/Groceries/pi/[^\/]+/([^\/]+)
-    regExpReplace: $1
-    description: GTIN code (includes UPC/EAN)
+  # - name: gtin
+  #   regExp: https://img.tesco.com/Groceries/pi/[^\/]+/([^\/]+)
+  #   regExpReplace: $1
+  #   description: GTIN code (includes UPC/EAN)
   - name: price
     singleValue: true
     description: The offered price for the product
