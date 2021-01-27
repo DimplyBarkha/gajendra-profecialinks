@@ -23,18 +23,17 @@ fields:
     xpath:  //meta[@property="og:title"]/@content | //span[@itemprop="name"]/text()
   - name: listPrice
     singleValue: false
-    description: The stated undiscounted price for the product
+    # manualSelector: span.product-price.txt-md 
+    # xpath: //span[contains(@class,"product-price old-price")]/text() | //span[@class="product-price txt-md"]/text()
   - name: price
     singleValue: false
-    xpath: //span[contains(@class,"product-price")]/text()
+    xpath: //span[contains(@class,"product-price txt-md")]/text() | //span[@class="product-price old-price"]/text() | //meta[@itemprop="price"]/@content
   - name: availabilityText
     singleValue: false
-    description: Availability as described on page for the selected variant. If
-      there is no availability but the product can be added to cart, this field
-      should be "In Stock"
+    xpath: //a//span[.="Add to Cart"]/text()
     regExp: (.+)
     regExpReplace: In Stock
-    defaultValue: Out of Stock
+    # defaultValue: Out of Stock
   - name: description
     singleValue: false
     xpath: //h1[@_ngcontent-naivas-app-c9]//text() | //p[@_ngcontent-naivas-app-c9]//text()
