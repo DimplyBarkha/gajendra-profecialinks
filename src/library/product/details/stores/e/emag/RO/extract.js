@@ -63,7 +63,9 @@ module.exports = {
     });
     const dataRef = await context.extract(productDetails, { transform });
 
-    dataRef[0].group[0].description = dataRef[0].group[0].description.filter((v, i, a) => a.findIndex(t => (t.text === v.text)) === i);
+    if (dataRef[0].group[0].description) {
+      dataRef[0].group[0].description = dataRef[0].group[0].description.filter((v, i, a) => a.findIndex(t => (t.text === v.text)) === i);
+    }
     reduceInfoToOneField(dataRef[0].group[0].description);
     const directions = dataRef[0].group[0].directions;
     reduceInfoToOneField(directions);
