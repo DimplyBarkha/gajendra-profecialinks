@@ -23,7 +23,9 @@ fields:
     regExp: cart(\w+)_.*
     regExpReplace: $1
   - name: price
-    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//dd[@class="yourPrice" or @class="yourPrice price"]//text()
+    singleValue: false
+    # xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//dd[@class="yourPrice" or @class="yourPrice price"]//text()
+    xpath: //div[starts-with(@id,'ii_price')]
   - name: aggregateRating2
     xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//span[@itemprop='ratingValue']
   - name: reviewCount
@@ -37,3 +39,9 @@ fields:
   - name: manufacturer
     type: TEXT
     xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//dd[@itemprop="brand"]//text()
+  - name: rank
+    singleValue: false
+    xpath: //div[starts-with(@id,'ii_rank')]
+  - name: rankOrganic
+    singleValue: false
+    xpath: //div[starts-with(@id,'ii_rank')]
