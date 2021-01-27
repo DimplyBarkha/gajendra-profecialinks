@@ -27,22 +27,29 @@ const transform = (data) => {
         if (row.description) {
             let description_ar = [];
             row.description.forEach(item => {
-              description_ar.push(item.text);
+              // description_ar.push(item.text);
+              item.text = item.text.replace(/\n \n/g, '|');
             });
-            if (description_ar.length) {
-              row.description = [{ "text": description_ar.join(" || "), 'xpath': row.description[0].xpath }];
-            }
+            // if (description_ar.length) {
+            //   row.description = [{ "text": description_ar.join(" || "), 'xpath': row.description[0].xpath }];
+            // }
         }
         
-        if (row.aggregateRating2) {
-          row.aggregateRating2.forEach(item => {
+        if (row.aggregateRating) {
+          row.aggregateRating.forEach(item => {
             item.text = Number(item.text);
             // console.log("row.halfStarCount: ", row.halfStarCount)
             if(row.halfStarCount){
+              // console.log("aggregateRating item.text: ",  item.text);
               item.text = Number(item.text) + Number(row.halfStarCount[0].text/2);
+              item.text = item.text.toString().replace(".", ",");
+              // console.log("aggregateRating item.text: ",  item.text);
             }
            
           });
+          row.aggregateRatingText = [{
+            text: row.aggregateRating[0].text
+          }]
         }
         if (row.category) {
           let info = [];

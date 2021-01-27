@@ -4,8 +4,8 @@ module.exports = {
   parameterValues: {
     country: 'NL',
     store: 'drogistplein',
-    nextLinkSelector: null,
-    // nextLinkXpath: '//ul[@class="pagination"]/li[last() -1]/a',
+    // nextLinkSelector: 'ul.pagination li:nth-last-child(2)',
+    // nextLinkXpath: '//ul[@class="pagination"]/li[last() -1]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[class*="product-view-container"]',
