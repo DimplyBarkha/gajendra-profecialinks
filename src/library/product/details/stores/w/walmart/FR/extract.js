@@ -8,6 +8,21 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  await context.evaluate(async () => {
+    async function infiniteScroll () {
+      let prevScroll = document.documentElement.scrollTop;
+      while (true) {
+        window.scrollBy(0, document.documentElement.clientHeight);
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        const currentScroll = document.documentElement.scrollTop;
+        if (currentScroll === prevScroll) {
+          break;
+        }
+        prevScroll = currentScroll;
+      }
+    }
+    await infiniteScroll();
+  });
   async function getPDP () {
     function getAPIBody () {
       const json = JSON.parse(document.querySelector('#tb-djs-wml-data').innerText);

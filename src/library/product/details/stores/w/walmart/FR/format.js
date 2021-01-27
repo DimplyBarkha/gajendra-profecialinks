@@ -76,6 +76,17 @@ const transform = (data) => {
         });
         row.manufacturerDescription = [{ text }];
       }
+      if (row.variantInformation) {
+        let text = '';
+        row.variantInformation.forEach(item => {
+          text += ` ${item.text.trim()}`;
+        });
+        row.variantInformation = [
+          {
+            text: text.trim(),
+          },
+        ];
+      }
     }
   }
   return data;
