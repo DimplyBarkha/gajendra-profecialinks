@@ -51,7 +51,11 @@ module.exports = {
       });
 
       const url = window.location.href;
-      const sku = url.match(/.+\/(.+)/) ? url.match(/.+\/(.+)/)[1] : '';
+      let sku = url.match(/.+\/(.+)/) ? url.match(/.+\/(.+)/)[1] : '';
+      if (sku.length > 60) {
+        const skuArr = sku.split('-');
+        sku = skuArr.map(item => item.substr(0, 1).toUpperCase()).join('');
+      }
       addElementToDom(sku, 'sku');
       addElementToDom(url, 'product_url');
 
