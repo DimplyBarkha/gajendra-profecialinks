@@ -16,9 +16,31 @@ async function implementation (inputs, parameters, context, dependencies) {
     for (let i = 0; i < await context.evaluate(() => {
       return document.querySelectorAll('.multiSkuDimensionValues>div').length;
     }); i++) {
+      await context.evaluate(() => {
+        const descriptionSelector = document.querySelector('.skuFullDescContent');
+        let description = '';
+
+        descriptionSelector.querySelectorAll('p').forEach(p => {
+          description += p.textContent + ' |';
+        });
+
+        document.querySelector('div[id="skuFullDesc"]').setAttribute('description', description);
+      });
+
       if (await context.evaluate(() => {
         return document.querySelectorAll('.multiSkuDimensionValues>div')[i + 1];
       }) === undefined) {
+        await context.evaluate(() => {
+          const descriptionSelector = document.querySelector('.skuFullDescContent');
+          let description = '';
+
+          descriptionSelector.querySelectorAll('p').forEach(p => {
+            description += p.textContent + ' |';
+          });
+
+          document.querySelector('div[id="skuFullDesc"]').setAttribute('description', description);
+        });
+
         return await context.extract(productDetails, { transform }, 'MERGE_ROWS');
       }
       await context.evaluate(() => {
@@ -33,6 +55,15 @@ async function implementation (inputs, parameters, context, dependencies) {
     }
   } else {
     await context.evaluate(() => {
+      const descriptionSelector = document.querySelector('.skuFullDescContent');
+      let description = '';
+
+      descriptionSelector.querySelectorAll('p').forEach(p => {
+        description += p.textContent + ' |';
+      });
+
+      document.querySelector('div[id="skuFullDesc"]').setAttribute('description', description);
+
       const videoSelector = document.querySelectorAll('div[type="video"]');
 
       if (videoSelector) {
