@@ -115,6 +115,11 @@ module.exports = {
         var contentValue = enhancedContent.join('');
         addElementToDocument('enhancedContent', contentValue);
       }
+      const galleryVideoNode = getXpath("//*[contains(@class,'fullJwPlayerWarp')]//input/@value", 'nodeValue');
+      if (galleryVideoNode != null) {
+        const galleryVideo = JSON.parse(galleryVideoNode);
+        addElementToDocument('addedGalleryVideo', galleryVideo.playlist[0].file);
+      }
 
       const videoLinkNodesOne = getAllXpath("//*[contains(@class,'fullJwPlayerWarp')]//input/@value", 'nodeValue');
       var videoOneObjects = [];
