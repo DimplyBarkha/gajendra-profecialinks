@@ -35,8 +35,8 @@ fields:
     xpath: //div[@class="product-details product-details-hidden"]//ul//li
   - name: descriptionBullets
     singleValue: false
-    # xpath: //div[@class="product-details product-details-hidden"]//ul//li
-    xpath: count(//div[not (@class)]/ul[not (@class)]/li)
+    xpath: count(//div[not (@class)]//ul//li)
+    # xpath: count(//div[not (@class)]/ul[not (@class)]/li)
   - name: sku
     singleValue: false
     # xpath: //div[contains(@class,'row hidden-md-down')]//form[@id="frmWithQuantity"]//input[@name='product_id']/@value 
