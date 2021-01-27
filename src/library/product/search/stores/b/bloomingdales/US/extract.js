@@ -44,9 +44,9 @@ module.exports = {
       let scrollTop = 500;
       while (true) {
         window.scroll(0, scrollTop);
-        await stall(1000);
+        await stall(2000);
         scrollTop += 500;
-        if (scrollTop === 15000) {
+        if (scrollTop === 10000) {
           break;
         }
       }
