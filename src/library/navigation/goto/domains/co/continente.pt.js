@@ -7,5 +7,6 @@ module.exports = {
     country: 'PT',
     store: 'continente',
     zipcode: '',
+    removeCookies: []
   },
 };
