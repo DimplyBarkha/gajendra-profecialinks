@@ -8,12 +8,12 @@ policy:
   backoffPolicy: EXPONENTIAL
   retryWithResidentialProxyAfter: 99
 honorRobots: false
-schema: product/details
+schema: product/listing
 parameters:
-  - domain
-  - country
   - store
+  - country
+  - domain
   - zipcode
-entryPoint: product/details
-pathTemplate: product/${store[0:1]}/${store}/${country}/details
+entryPoint: product/listing
+pathTemplate: product/${store[0:1]}/${store}/${country}/listing
 authentication: navigation/auth/action
