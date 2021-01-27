@@ -34,6 +34,7 @@ module.exports = {
       console.log('Enhanced content did not load');
     }
     await context.evaluate(async function () {
+      try{
       const categoryArr = dataLayer[3].ecommerce.detail.products[0].category.split('/');
       categoryArr.map(ele => {
         const newlink = document.createElement('a');
@@ -41,7 +42,7 @@ module.exports = {
         newlink.setAttribute('href', ele);
         document.body.appendChild(newlink);
       });
-
+    }catch(e){ console.log('details not found error evaded')}
       fetch('https://api.reviews.co.uk/merchant/latest?store=donaghy-bros&branch=').then(res => {
         return res.json();
       })
