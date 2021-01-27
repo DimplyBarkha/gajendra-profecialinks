@@ -39,10 +39,10 @@ const transform = (data) => {
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
-          text += row.description.map(elm => elm.text);
+          text = row.description.map(elm => elm.text);
         });
 
-        row.description = [{ text: text.replace(/- /g, '|| ') }];
+        row.description = [{ text: text.toString().replace(/- /g, '|| ') }];
       }
 
       // if(row.nameExtended){

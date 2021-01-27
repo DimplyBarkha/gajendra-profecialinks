@@ -73,10 +73,10 @@ fields:
     regExpReplace: $1
   - name: directions
     description: Content under "directions" header
-    xpath: //h6[contains(.,'Preparation and Usage')]/following-sibling::div |  //h6[contains(.,'Serving Suggestions')]/following-sibling::div/text() | //h6[contains(.,'Recipes')]/following-sibling::div
+    xpath: //h6[contains(.,'Preparation and Usage')]/following-sibling::div |  //h6[contains(.,'Serving Suggestions')]/following-sibling::div/text() | //h6[contains(.,'Recipes')]/following-sibling::div | //h6[contains(.,'Serving Suggestions')]/following-sibling::div//p
   - name: warnings
     description: Content under "warnings" header
-    xpath: //div[contains(text(),'Safety Warning:')] | //b[contains(.,'Warning')]/following-sibling::text()[not(contains(.,'Hungary'))] |//b[contains(.,'Warning')]/following-sibling::* | //p[contains(.,'Warning')] | //br/following-sibling::text()[contains(.,'Warning')]/following-sibling::text()
+    xpath: //div[contains(text(),'Safety Warning:')] | //b[contains(.,'Warning')]/following-sibling::text()[not(contains(.,'Hungary'))] |//b[contains(.,'Warning')]/following-sibling::* | //p[contains(.,'Warning')] | //br/following-sibling::text()[contains(.,'Warning')]/following-sibling::text() | //h6[contains(text(),'Instructions')]/following-sibling::div[1]/text()[contains(.,'Warning')] | //p[contains(.,'healthy lifestyle')] | //h6[contains(text(),'Preparation and Usage')]/following-sibling::div[1]/text()[contains(.,'CAUTION')] | //h6[contains(text(),'Instructions')]/following-sibling::div[1]/text()[contains(.,'CAUTION')] 
   # - name: instruction
   #   description: Content under "warnings" header
   #   xpath: //h6[contains(.,'Instructions')]/following-sibling::div
@@ -144,10 +144,10 @@ fields:
   - name: totalSugarsPerServing
     description: Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
-    xpath: (//td[contains(.,'Sugars') or contains(.,'sugars')]/following-sibling::td[1])[1]
+    xpath: (//td[contains(.,'Sugars') or contains(.,'sugars')]/following-sibling::td[1])[1] | (//td[contains(.,'Sugar') or contains(.,'sugar')]/following-sibling::td[1])[1]
   - name: totalSugarsPerServingUom
     description: Unit of Measure Data for Total Sugar content
-    xpath: (//td[contains(.,'Sugars') or contains(.,'sugars')]/following-sibling::td[1])[1]
+    xpath: (//td[contains(.,'Sugars') or contains(.,'sugars')]/following-sibling::td[1])[1] | (//td[contains(.,'Sugar') or contains(.,'sugar')]/following-sibling::td[1])[1]
   - name: proteinPerServing
     description: Nutritional Information for Protein content - Usually based on per
       100g serving
