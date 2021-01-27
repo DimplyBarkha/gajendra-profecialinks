@@ -64,10 +64,10 @@ fields:
     xpath: ancestor::html//div[@class="row"]//span[contains(@class, "prod-price")]//span[contains(@class, "sales")]
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-  - name: sku
-    singleValue: false
-    description: The store-specific product identifier
-    xpath: ancestor::html//div[contains(@class, "tt-top-comment")]/@data-ttsku
+  # - name: sku
+  #   singleValue: false
+  #   description: The store-specific product identifier
+  #   xpath: ancestor::html//div[contains(@class, "tt-top-comment")]/@data-ttsku
   - name: variantSize
     singleValue: false
     description: colour / scent / flavour / other
