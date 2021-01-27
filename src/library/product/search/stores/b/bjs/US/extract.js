@@ -83,8 +83,10 @@ async function implementation (
       const imagePath = str.concat(idObj);
       addElementToDocumentOld('image_added', (imagePath.replace('"','')).replace('"',''));
 
-      const path1 = (idXpathValue[i].split('-'))[1];
-      addElementToDocumentOld('id_added', path1);
+      //console.log("idObj::", (idObj.split('/')[6].split('?'))[0]);
+
+      //const path1 = (idXpathValue[i].split('-'))[1];
+      addElementToDocumentOld('id_added', (idObj.split('/')[6].split('?'))[0]);
 
       const urlObj = JSON.stringify(urlValue[i]);
       var str = "https://www.bjs.com";
