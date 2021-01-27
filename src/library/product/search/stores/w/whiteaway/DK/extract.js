@@ -18,8 +18,19 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  const applyScroll = async function (context) {
   await context.evaluate(async function () {
+    try{
+      document.querySelector('#coiPage-1 > div.coi-banner__page-footer > div.coi-button-group > button.coi-banner__accept').click()
+      await new Promise(r => setTimeout(r, 6000));
+      // }
+      }
+      catch(error)
+      {
+
+      }
     let scrollTop = 0;
+<<<<<<< HEAD
     while (scrollTop !== 1000) {
       await stall(500);
       scrollTop += 500;
@@ -28,6 +39,12 @@ async function implementation(
         await stall(500);
         break;
       }
+=======
+    while (scrollTop !== 10000) {
+      scrollTop += 1000;
+      window.scroll(0, scrollTop);
+      await stall(1000);
+>>>>>>> 0ba69795b4cc91141a171db6938fc43354ec4933
     }
     function stall(ms) {
       return new Promise((resolve, reject) => {
@@ -36,7 +53,11 @@ async function implementation(
         }, ms);
       });
     }
+  })
+}
+  await applyScroll(context);
   
+  await context.evaluate(async function () {
   function addHiddenDiv(id, content, index) {
     const newDiv = document.createElement('div');
     newDiv.id = id;
