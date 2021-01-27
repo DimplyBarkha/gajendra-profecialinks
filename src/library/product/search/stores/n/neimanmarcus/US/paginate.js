@@ -15,7 +15,7 @@ module.exports = {
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
     openSearchDefinition: null,
-      // template: 'https://www.neimanmarcus.com/{queryParams}?page={page}',
+    // template: 'https://www.neimanmarcus.com/{queryParams}?page={page}',
     zipcode: '',
     domain: 'neimanmarcus.com',
   },

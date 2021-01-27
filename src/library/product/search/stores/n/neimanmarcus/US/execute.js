@@ -6,7 +6,7 @@ module.exports = {
     store: 'neimanmarcus',
     domain: 'neimanmarcus.com',
     url: 'https://www.neimanmarcus.com/{queryParams}',
-    loadedSelector: 'div[class*="product-thumbnail grid"]',
+    loadedSelector: '[class*="product-thumbnail"]',
     noResultsXPath: null,
     zipcode: '',
   },

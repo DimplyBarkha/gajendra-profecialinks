@@ -45,8 +45,7 @@ module.exports = {
     country: 'US',
     store: 'neimanmarcus',
     urlTemplate: '{id}?page={page}',
-    resultsCountSelector: 'div.product-list__header__items',
-    // numberResultPerPageXPath: 'count(//div[contains(@class,"product-thumbnail grid")])',
+    resultsCountSelector: 'div.product-list__header__items,span#numItems',
     /* eslint-disable */
     regExpForIdFromUrl: '(?<=com\/).*$',
     /* eslint-enable */
