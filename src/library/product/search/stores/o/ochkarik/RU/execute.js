@@ -5,9 +5,9 @@ module.exports = {
     country: 'RU',
     store: 'ochkarik',
     domain: 'ochkarik.ru',
-    url: 'https://ochkarik.ru/search/?mode={searchterm}',
+    url: 'https://ochkarik.ru/search/?substring={searchTerms}',
     loadedSelector: 'div[class="productsContainer search-container"] div[class="product-grid__wrap "]',
-    noResultsXPath: null,
+    noResultsXPath: '//h2[@class="items-list-title"]',
     zipcode: '',
   },
 };
