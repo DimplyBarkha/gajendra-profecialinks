@@ -1,28 +1,13 @@
-// this is a module containing some ready made functions
-// to use it do the following in extract.js
-/*
-//at the bottom of the file, add the following in the module.exports object:
-dependencies: {
-    productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
-    helperModule: 'module:helpers/helpers',
-  },
-
-// within the code of your implementation add the following
-const { Helpers } = require('../../../../../../helpers/helpers') // make sure this is the correct path
-
-//inside the implementation function
-  const { helperModule: { Helpers } } = dependencies;
-  const helper = new Helpers(context);
-
-  // you can now use any of the function like that
-  helper.function()
-
-*/
 
 module.exports.Helpers = class {
   constructor (context) {
     this.context = context;
   }
+
+  // this file is invoked by writting the following:
+  // const { Helpers } = require('../../../../../../helpers/helpers');
+  // const helper = new Helpers(context)
+  // helper.function()
 
   // Function which adds an element to the document
   async addItemToDocument (key, value, { parentID = '', type = 'div', clss = '' } = {}) {
@@ -103,8 +88,8 @@ module.exports.Helpers = class {
   // Function which checks a selecor
   async checkSelector (selector, type) {
     let elemIsThere;
-    if (type === 'xpath') elemIsThere = await this.checkXpathSelector(selector);
-    else if (type === 'css') elemIsThere = await this.checkCSSSelector(selector);
+    if (type.toLowerCase() === 'xpath') elemIsThere = await this.checkXpathSelector(selector);
+    else if (type.toLowerCase() === 'css') elemIsThere = await this.checkCSSSelector(selector);
     else return false;
     return elemIsThere;
   }
@@ -114,8 +99,8 @@ module.exports.Helpers = class {
     if (!this.checkSelector(selector, type)) return;
     return await this.context.evaluate(({ selector, property, type }) => {
       let elem;
-      if (type === 'xpath') elem = document.evaluate(selector, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
-      else if (type === 'css') elem = document.querySelector(selector);
+      if (type.toLowerCase() === 'xpath') elem = document.evaluate(selector, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
+      else if (type.toLowerCase() === 'css') elem = document.querySelector(selector);
       return elem[property];
     }, { selector, property, type });
   }
@@ -207,8 +192,8 @@ module.exports.Helpers = class {
   async removeScriptsWhichContains (text) {
     return this.context.evaluate((text) => {
       [...document.querySelectorAll('script')]
-        .map(node => ({ node, text: node.textContent, src: node.src }))
-        .filter(({ text, src }) => text.includes(text) || src.includes(text))
+        .map(node => ({ node, textContent: node.textContent, src: node.src }))
+        .filter(({ textContent, src }) => textContent.includes(text) || src.includes(text))
         .forEach(({ node }) => node.remove());
     }, text);
   }

@@ -1,0 +1,474 @@
+input:
+  RPC: B07L91TFV5
+  _url: https://amazon.fr
+extractions:
+  - html: https://workbench.import.io/html/run=bc302458-ce21-4ff2-8bfa-109be246d8ae/task=5aaa5a6b-f843-436e-8625-4ec42026bc70/943a381e-5b02-49c2-ac09-5a61af238799.html
+    extractionConfigId: product/details/stores/a/amazonMweb/FR/extract
+    data:
+      - group:
+          - image:
+              - text: https://images-na.ssl-images-amazon.com/images/I/81QRErNF0ML._AC_SX569_.jpg
+                xpath: /html/body/div[2]/div[2]/div[6]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/span[1]/span[1]/div[1]/img[1]/@src
+            metaKeywords:
+              - text: Polident Total Action Crème Fixative Pour Prothèses Dentaires Partielles
+                  ou Complètes - 4 x 40g,Polident,60000000102912
+                xpath: /html/head[1]/meta[6]/@content
+            pageTimestamp:
+              - text: 2020-06-27 11:48:15.809
+                xpath: /html/body/div[4]
+            searchUrl:
+              - text: https://www.amazon.fr/Polident-Fixatif-Total-Action-Lot/dp/B07L91TFV5
+                xpath: /html/head[1]/link[6]/@href
+            category:
+              - text: Hygiène et Santé
+                xpath: /html/body/div[2]/div[2]/div[5]/div[1]/div[1]/ul[1]/li[1]
+            subCategory:
+              - text: Hygiène dentaire
+                xpath: /html/body/div[2]/div[2]/div[5]/div[1]/div[1]/ul[1]/li[3]
+              - text: ›
+                xpath: /html/body/div[2]/div[2]/div[5]/div[1]/div[1]/ul[1]/li[4]
+              - text: Produits pour prothèses dentaires
+                xpath: /html/body/div[2]/div[2]/div[5]/div[1]/div[1]/ul[1]/li[5]
+              - text: ›
+                xpath: /html/body/div[2]/div[2]/div[5]/div[1]/div[1]/ul[1]/li[6]
+              - text: Crèmes fixatives
+                xpath: /html/body/div[2]/div[2]/div[5]/div[1]/div[1]/ul[1]/li[7]
+            nameExtended:
+              - text: Polident Total Action Crème Fixative Pour Prothèses Dentaires Partielles
+                  ou Complètes - 4 x 40g
+                xpath: /html/body/div[2]/div[2]/div[6]/div[5]/div[4]/div[1]/div[1]/h1[1]/span[1]
+            availabilityText:
+              - text: >-
+                  Actuellement indisponible. 
+
+                  Nous ne savons pas quand cet article sera de nouveau approvisionné ni s'il le sera.
+                xpath: /html/body/div[2]/div[2]/div[6]/div[5]/div[4]/div[17]/div[1]
+            description:
+              - text: "Une journée en toute confiance : crème fixative pour prothèses dentaires
+                  partielles ou complètes, Meilleure force masticatoire vs sans
+                  fixatif, Fixation extra forte et sûre jusqu’à 12H"
+                xpath: /html/body/div[2]/div[2]/div[6]/div[5]/div[4]/div[29]/div[1]/ul[1]/li[1]
+              - text: "Anti-particules et protection des gencives : prévention contre
+                  l’infiltration des particules alimentaires sous l’appareil et
+                  l’irritation des gencives"
+                xpath: /html/body/div[2]/div[2]/div[6]/div[5]/div[4]/div[29]/div[1]/ul[1]/li[2]
+              - text: Appliquer 1x/jour en bandes courtes sur un appareil propre et sec, rincer
+                  la bouche et mordre l’appareil pour une bonne fixation,
+                  Retrait facile avec rinçage à l’eau tiède, Nettoyage possible
+                  de la prothèse avec les comprimés nettoyants Polident
+                xpath: /html/body/div[2]/div[2]/div[6]/div[5]/div[4]/div[29]/div[1]/ul[1]/li[3]
+              - text: "Contenu : 4x Tube de crème fixative pour prothèses dentaires Polident
+                  Total Action, 40 g"
+                xpath: /html/body/div[2]/div[2]/div[6]/div[5]/div[4]/div[29]/div[1]/ul[1]/li[4]
+              - text: Goût Neutre
+                xpath: /html/body/div[2]/div[2]/div[6]/div[5]/div[4]/div[29]/div[1]/ul[1]/li[5]
+              - text: >-
+                  Description du produit
+                   
+                  "Une journée en toute confiance : crème fixative pour prothèses dentaires partielles ou complètes, Meilleure force masticatoire vs sans fixatif, Fixation extra forte et sûre jusqu’à 12H - Anti-particules et protection des gencives : prévention contre l’infiltration des particules alimentaires sous l’appareil et l’irritation des gencives - Appliquer 1x/jour en bandes courtes sur un appareil propre et sec, rincer la bouche et mordre l’appareil pour une bonne fixation, Retrait facile avec rinçage à l’eau tiède, Nettoyage possible de la prothèse avec les comprimés nettoyants Polident - Goût neutre, Sans zinc ni arôme artificiel - Contenu : 4x Tube de crème fixative pour prothèses dentaires Polident Total Action, 40 g CHFR/CHPOLD/0001/19" 
+                   
+                  Ingrédients
+                   
+                  calcium/sodium PVM/MA copolymer, petrolatum, cellulose gum, paraffinum liquidum, Aroma, CI73360, CI15850 : 1
+                xpath: /html/body/div[2]/div[2]/div[6]/div[21]/div[1]/hza:getweblabtreatment[1]/div[1]/div[2]
+            brandText:
+              - text: Polident
+                xpath: /html/body/div[2]/div[2]/div[6]/div[5]/div[4]/div[3]/div[1]/a[1]
+            sku:
+              - text: B07L91TFV5
+                xpath: /html/body/div[2]/div[2]/div[6]/div[3]/div[1]/@data-asin
+            ratingCount:
+              - text: "29"
+                xpath: /html/body/div[2]/div[2]/div[6]/div[5]/div[4]/div[5]/div[1]/span[3]/a[1]/span[1]/text()[1]
+            aggregateRating2:
+              - text: 4,1
+                xpath: /html/body/div[2]/div[2]/div[6]/div[5]/div[4]/div[5]/div[1]/span[1]/span[1]/@title
+            manufacturerImages:
+              - text: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+                xpath: /html/body/div[2]/div[2]/div[6]/div[22]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+                xpath: /html/body/div[2]/div[2]/div[6]/div[22]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+                xpath: /html/body/div[2]/div[2]/div[6]/div[22]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/142f9f15-a78e-4ad2-9d36-19e60dcb515a.__CR0,0,300,300_PT0_SX300_V1___.jpg
+                xpath: /html/body/div[2]/div[2]/div[6]/div[22]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/b1b0e692-1ff8-4550-b3da-a2811139c9d4.__CR0,0,300,300_PT0_SX300_V1___.jpg
+                xpath: /html/body/div[2]/div[2]/div[6]/div[22]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/d17f79db-de01-468e-aa0a-0c56a4743e5a.__CR0,0,300,300_PT0_SX300_V1___.jpg
+                xpath: /html/body/div[2]/div[2]/div[6]/div[22]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+                xpath: /html/body/div[2]/div[2]/div[6]/div[22]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+                xpath: /html/body/div[2]/div[2]/div[6]/div[22]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+                xpath: /html/body/div[2]/div[2]/div[6]/div[22]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+                xpath: /html/body/div[2]/div[2]/div[6]/div[22]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/5dbfde22-47e6-4b32-82b4-30fa6e4068ee.__CR0,0,150,300_PT0_SX150_V1___.jpg
+                xpath: /html/body/div[2]/div[2]/div[6]/div[22]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[2]/a[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/13943472-5bca-4d41-bc3d-d037374465f0.__CR0,0,150,300_PT0_SX150_V1___.jpg
+                xpath: /html/body/div[2]/div[2]/div[6]/div[22]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/43068fda-079d-4f63-b5fa-59b8c9da3236.__CR0,0,150,300_PT0_SX150_V1___.jpg
+                xpath: /html/body/div[2]/div[2]/div[6]/div[22]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[4]/a[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/22e8f2b6-b0a3-436f-a2dd-0123abea8e72.__CR0,0,150,300_PT0_SX150_V1___.jpg
+                xpath: /html/body/div[2]/div[2]/div[6]/div[22]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[5]/a[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/69b19c49-1f3e-450b-b05e-0b0159282fee.__CR0,0,150,300_PT0_SX150_V1___.jpg
+                xpath: /html/body/div[2]/div[2]/div[6]/div[22]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[6]/a[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/79206bef-1aab-48e4-8a65-80bd587965c9.__CR0,0,150,300_PT0_SX150_V1___.jpg
+                xpath: /html/body/div[2]/div[2]/div[6]/div[22]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[7]/a[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/58f36812-d008-4320-a11b-9d493aa74f86.__CR0,0,150,300_PT0_SX150_V1___.jpg
+                xpath: /html/body/div[2]/div[2]/div[6]/div[22]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[2]/a[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/114d3cd7-8b90-4e50-898c-fc9492499684.__CR0,0,150,300_PT0_SX150_V1___.jpg
+                xpath: /html/body/div[2]/div[2]/div[6]/div[22]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/img[1]/@src
+            manufacturerDescription:
+              - text: >-
+                  Description du fabricant
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  <img alt="" src="https://m.media-amazon.com/images/S/aplus-media/vc/fd74baa9-3539-4c9a-afb7-65fe65aeda98.__CR0,0,970,300_PT0_SX970_V1___.jpg">
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  En lire plus
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  <img alt="" src="https://m.media-amazon.com/images/S/aplus-media/vc/2ea6feec-7a48-4f76-90af-b2550945aebf.__CR0,0,300,300_PT0_SX300_V1___.jpg">
+                   
+                   
+                   
+                   Les fixatifs Polident pour prothèse dentaire 
+                   
+                   Croquez la vie à pleines dents, nous nous occupons du reste ! 
+                   
+                   L’utilisation d’une crème fixative, telle que celles proposées par la gamme Polident, pourra vous aider à vous habituer plus rapidement à porter une prothèse dentaire. Les fixatifs vous permettent d’avoir davantage confiance en vous lorsque vous mangez, parlez et souriez, et aident à éviter l’infiltration de particules alimentaires en formant une barrière protectrice entre la prothèse et la gencive. Vous pourrez ainsi continuer à manger tout ce que vous voulez. 
+                   
+                   Issues de longues années de recherches, nos crèmes fixatives maintiennent fermement votre prothèse dentaire en place pour bloquer les particules alimentaires et vous permettre ainsi de goûter davantage aux petits plaisirs de la vie. 
+                   
+                   Les fixatifs peuvent être proposés sous la forme de crème ou de poudre, et assurent une meilleure adhésion de la prothèse sur vos gencives. Les crèmes fixatives, comme celles proposées par la gamme Polident, peuvent en particulier s’avérer utiles pour manger, parler et s’adapter à votre nouvelle prothèse. 
+                   
+                   
+                   
+                   
+                   
+                   Caractéristiques principales : 
+                   
+                   
+                   
+                   Crème fixative pour appareils dentaires Polident Total Action 
+                   
+                   Fixation forte et sûre jusqu’à 12h 
+                   
+                   Meilleure force masticatoire vs sans fixatif 
+                   
+                   Soin et protection des gencives 
+                   
+                   Anti-particules 
+                   
+                   Goût neutre 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  En lire plus
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  <img alt="" src="https://m.media-amazon.com/images/S/aplus-media/vc/da49f606-e34e-4809-911b-a6a27332ded7.__CR0,0,300,300_PT0_SX300_V1___.jpg">
+                   
+                   
+                   
+                   Conseils pour la première utilisation 
+                   
+                   Lors de la 1ère utilisation, utilisez une petite quantité de crème. Une quantité excessive peut provoquer un débordement. Trouver la bonne quantité peut nécessiter quelques essais. Appliquez 1 fois par jour pour une bonne fixation. Si vous avez besoin d’appliquer plus d’une fois par jour, demandez conseil à votre dentiste. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  <img alt="" src="https://m.media-amazon.com/images/S/aplus-media/vc/142f9f15-a78e-4ad2-9d36-19e60dcb515a.__CR0,0,300,300_PT0_SX300_V1___.jpg">
+                   
+                   
+                   
+                   Application de la crème fixative 
+                   
+                   Appliquez 1 fois par jour sur un appareil propre et sec, en bandes courtes. Rincez-vous la bouche, remettez votre appareil en le maintenant fermement, puis mordez pour une bonne fixation. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  <img alt="" src="https://m.media-amazon.com/images/S/aplus-media/vc/b1b0e692-1ff8-4550-b3da-a2811139c9d4.__CR0,0,300,300_PT0_SX300_V1___.jpg">
+                   
+                   
+                   
+                   Retrait de la crème fixative 
+                   
+                   Rincez-vous la bouche à l’eau tiède, puis retirez doucement l’appareil.Enlevez les résidus de crème de votre appareil et de votre bouche avec de l’eau tiède et une brosse souple.Nettoyez soigneusement l’appareil avec les comprimés nettoyants Polident tous les jours et rincez-le à l’eau.Rincez-vous la bouche à l’eau tiède, puis retirez doucement l’appareil.Enlevez les résidus de crème de votre appareil et de votre bouche avec de l’eau tiède et une brosse souple.Nettoyez soigneusement l’appareil avec les comprimés nettoyants Polident tous les jours et rincez-le à l’eau. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  <img alt="" src="https://m.media-amazon.com/images/S/aplus-media/vc/d17f79db-de01-468e-aa0a-0c56a4743e5a.__CR0,0,300,300_PT0_SX300_V1___.jpg">
+                   
+                   
+                   
+                   Entretien de votre prothèse 
+                   
+                   Pour maintenir votre prothèse dentaire en parfait état et la nettoyer en profondeur, nous vous conseillons de régulièrement la retirer et de la faire tremper dans de l’eau chaude à laquelle vous ajouterez un comprimé nettoyant Polident, en suivant bien les instructions indiquées sur l’emballage. Pour une plus grande sensation de fraîcheur et un sourire éclatant, vous devriez également brosser votre prothèse à l’aide d’une brosse à dents à poils souples afin d’éliminer les résidus de nourriture, puis la rincer à l’eau courante. 
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  <img alt="" src="https://m.media-amazon.com/images/S/aplus-media/vc/da49f606-e34e-4809-911b-a6a27332ded7.__CR0,0,300,300_PT0_SX300_V1___.jpg">
+                   
+                   
+                   Première utilisation 
+
+                   
+
+                   
+
+                   
+
+                   
+                  <img alt="" src="https://m.media-amazon.com/images/S/aplus-media/vc/142f9f15-a78e-4ad2-9d36-19e60dcb515a.__CR0,0,300,300_PT0_SX300_V1___.jpg">
+                   
+                   
+                   Application 
+
+                   
+
+                   
+
+                   
+
+                   
+                  <img alt="" src="https://m.media-amazon.com/images/S/aplus-media/vc/b1b0e692-1ff8-4550-b3da-a2811139c9d4.__CR0,0,300,300_PT0_SX300_V1___.jpg">
+                   
+                   
+                   Retrait 
+
+                   
+
+                   
+
+                   
+
+                   
+                  <img alt="" src="https://m.media-amazon.com/images/S/aplus-media/vc/d17f79db-de01-468e-aa0a-0c56a4743e5a.__CR0,0,300,300_PT0_SX300_V1___.jpg">
+                   
+                   
+                   Entretien de votre prothèse 
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   Crème fixative pour prothèses dentaires (40g) 
+                   
+                   Crème fixative pour prothèses dentaires (70g) 
+                   
+                   Crème fixative pour prothèses dentaires (40g) 
+                   
+                   Lingettes propreté et fraîcheur (x 20) 
+                   
+                   Nettoyant anti-bactérien (x 96) 
+                   
+                   Nettoyant Total Action (x 66) 
+                   
+                   
+                   
+                   Description 
+                   
+                   Fixation forte, Pour une meilleure force masticatoire, le soin des gencives et la protection contre les particules 
+                   
+                   Embout précision pour une meilleure répartition de la crème fixative, barrière contre les particules alimentaires et couverture maximale de la prothèse 
+                   
+                   Spécialement conçue pour réduire l’irritation des gencives et améliorer votre confort en empêchant l’infiltration des particules alimentaires 
+                   
+                   Lingettes nettoyantes pour le nettoyage facile et sans eau de votre appareil dentaire en déplacement 
+                   
+                   Comprimés quotidiens pour nettoyer les prothèses dentaires partielles ou complètes et éliminer les bactéries responsables de la mauvaise haleine 
+                   
+                   Comprimés quotidiens pour nettoyer les prothèses dentaires partielles ou complètes, les désinfecter et éliminer la plaque et les taches 
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   Lait hydratant corporel (200 ml) 
+                   
+                   Shampoing antipelliculaire (100 ml) 
+                   
+                   
+                   
+                   Marque 
+                   
+                   Physiogel 
+                   
+                   Stiprox 
+                   
+                   
+                   
+                   Description 
+                   
+                   Lait corporel quotidien à texture légère pour peaux sèches et sensibles 
+                   
+                   Shampoing antipelliculaire à usage régulier contre les démangeaisons du cuir chevelu
+                xpath: /html/body/div[2]/div[2]/div[6]/div[22]/div[1]
+            scrapeCode:
+              - text: B07L91TFV5
+                xpath: /html/body/div[2]/div[2]/div[6]/div[3]/div[1]/@data-asin
+            imageAlt:
+              - text: Polident Total Action Cr&egrave;me Fixative Pour Proth&egrave;ses
+                  Dentaires Partielles ou Compl&egrave;tes - 4 x 40g
+                xpath: /html/body/div[2]/div[2]/div[6]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/span[1]/span[1]/div[1]/img[1]/@alt
+            onlinePriceCurrency:
+              - text: €
+            productsPerPage:
+              - text: "1"
+            descriptionBullets:
+              - text: "5"
+        xpath: /
+    timestamp: 1593258499583

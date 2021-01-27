@@ -3,9 +3,15 @@ parameters:
   country: US
   domain: amazon.com
   store: amazonApparel
-  zipcode: ""
+  # zipcode: ""
 meta:
   branches:
     amazon_us-product_search:
       extractor: 6775562b-41bc-4f8c-9015-a3218109bbac
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
+    staging:
+      extractor: 52e01afd-fd0e-4fa4-ae57-e3dc2ce0a43e
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    development:
+      extractor: efdb0029-5cb4-4570-9810-a6f9d7e77129
       legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
