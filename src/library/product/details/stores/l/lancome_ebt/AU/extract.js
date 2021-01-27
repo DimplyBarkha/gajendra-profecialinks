@@ -48,7 +48,7 @@ module.exports = {
 
       //Name extended
       var selectedBySize = getXpath('//div[contains(@class,"product-variation-size__item")]//div[contains(@class,"selected")]/text()', 'nodeValue');
-      var selectedByColor = getXpath('//div[@class="selected  product-variation-shade__item"]//span/text()', 'nodeValue');
+      var selectedByColor = getXpath('//div[contains(@class,"selected")]//span[contains(@class,"swatch_text_color product-variation-shade__textcolor hidden")]/text()', 'nodeValue');
       var qty = getAllXpath('(//span[@id="quantitySelectBoxItText"]/text())[2]', 'nodeValue');
       var ab;
       // First Variant  color,ml
@@ -62,11 +62,13 @@ module.exports = {
         ab = pn + ' | ' + selectedBySize;
         addElementToDocument('ab', ab);
         addElementToDocument('fvar', firstVar);
+        addElementToDocument('varInfo', selectedBySize);
       } else if (fVarByColor.length > 0) {
         firstVar = fVarByColor;
         ab = pn + ' | ' + selectedByColor;
         addElementToDocument('ab', ab);
         addElementToDocument('fvar', firstVar);
+        addElementToDocument('varInfo', selectedByColor);
       } else {
         ab = pn + ' | ' + qty;
         addElementToDocument('ab', ab);
