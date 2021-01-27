@@ -139,6 +139,9 @@ module.exports = {
           aval = "Out Of Stock"
         }
         addElementToDocument('aval', aval);
+      }else{
+        aval = "Out Of Stock";
+        addElementToDocument('aval', aval);
       }
 
       // alternate image

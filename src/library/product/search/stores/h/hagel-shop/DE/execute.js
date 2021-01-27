@@ -6,8 +6,8 @@ module.exports = {
     store: 'hagel-shop',
     domain: 'hagel-shop.de',
     url: 'https://www.hagel-shop.de/catalogsearch/result?q={searchTerms}',
-    loadedSelector: 'body',
-    noResultsXPath: null,
+    loadedSelector: 'div.category-products>div.row>ul.products-grid.thumbnails>li div.visible',
+    noResultsXPath: '//p[@class="note-msg"]',
     zipcode: '',
   },
 };

@@ -2,6 +2,8 @@ singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: null
+  # //div[@class="category-products"]/div[@class="row"]/ul/li/div[@class="thumbnail"]
+  # //div[@class="category-products"]/div[@class="row"]/ul/li
 fields:
   - name: price
     singleValue: false
@@ -20,7 +22,7 @@ fields:
     xpath: //html//div[@id="abc"]
   - name: id
     singleValue: false
-    xpath: //html//div[@id="id"] 
+    xpath: //html//div[@id="id"]
       # //div[@class="price-box"]/span[@class="regular-price"]/@id | //div[@class="price-box"]/p[@class="special-price"]/span[@class="price"]/@id
     regExp: \d+
   - name: reviewCount

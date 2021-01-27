@@ -46,9 +46,11 @@ async function implementation(
     var agg = getAllXpath('//div[@class="rating-box"]/div/@style', 'nodeValue');
     if (agg != null) {
       for (var i = 0; i < agg.length; i++) {
-        var abc = agg[i].split(":")[1].slice(0, -1)
-        abc = (abc * 5) / 100;
-        addHiddenDiv('abc', abc, i);
+        if (agg[i].includes(":")) {
+          var abc = agg[i].split(":")[1].slice(0, -1)
+          abc = (abc * 5) / 100;
+          addHiddenDiv('abc', abc, i);
+        }
       }
     }
 
@@ -56,9 +58,13 @@ async function implementation(
     var rating = getAllXpath('//span[@class="rating-links"]/text()', 'nodeValue');
     if (rating != null) {
       for (var i = 0; i < rating.length; i++) {
-        var rat = rating[i].split(" (")[1]
-        var zz = rat.split(")")[0]
-        addHiddenDiv('zz', zz, i);
+        if (rating[i].includes(" (")) {
+          var rat = rating[i].split(" (")[1];
+          if (rat.includes(")")) {
+            var zz = rat.split(")")[0];
+            addHiddenDiv('zz', zz, i);
+          }
+        }
       }
     }
 
@@ -66,19 +72,19 @@ async function implementation(
     var price = getAllXpath('//div[@class="price-box"]/p[@class="special-price"]/span[@class="price"]/text()  |  //div[@class="price-box"]/span[@class="regular-price"]/span/span/text() | //div[@class="price-box"]/span[@class="regular-price"]/span[@class="price"]/text()', 'nodeValue');
     if (price != null) {
       for (var i = 0; i < price.length; i++) {
-        price[i] = price[i].replace(",",".")
+        price[i] = price[i].replace(",", ".")
         addHiddenDiv('price', price[i], i);
       }
     }
 
     var id = getAllXpath('//ul[@class="products-grid thumbnails"]/li//div[@class="visible"]/a/img/@src', 'nodeValue');
-    if( id != null){
+    if (id.length >= 1) {
       for (var i = 0; i < id.length; i++) {
-        if(id[i].includes("/")){
+        if (id[i].includes("/")) {
           var data = id[i].split("/");
           var sup = data[data.length - 1];
-          if(sup.includes(".")){
-            sup = sup.split(".")[0]
+          if (sup.includes(".")) {
+            sup = sup.split(".")[0];
             addHiddenDiv('id', sup, i);
           }
         }
