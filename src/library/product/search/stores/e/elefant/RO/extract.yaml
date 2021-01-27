@@ -17,7 +17,7 @@ fields:
     xpath: //a[@class='product-title']//h2
   - name: price
     SingleValue: false
-    xpath: //div[contains(@class,'current-price  sale-price')]
+    xpath: //div[contains(@class,'current-price') or contains(@class,'sale-price')]
   - name: listprice
     SingleValue: false
     xpath: //div[contains(@class,'was-price')]
