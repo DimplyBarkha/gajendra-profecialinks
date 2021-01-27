@@ -100,7 +100,8 @@ fields:
     singleValue: false
   - name: videos
     singleValue: false  
-    xpath: //div[contains(@class, "f-productVisuals-main")]//div[contains(@class, "VideoPlayer")]//video[contains(@id, "video")]/@src
+    # xpath: //div[contains(@class, "f-productVisuals-main")]//div[contains(@class, "VideoPlayer")]//video[contains(@id, "video")]/@src
+    xpath: //div[@id='videos']
   - name: variantId
     singleValue: false  
     xpath: //div[contains(@class, "f-productPage")]/@data-prid
