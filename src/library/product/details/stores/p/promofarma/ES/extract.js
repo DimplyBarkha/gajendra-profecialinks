@@ -4,11 +4,12 @@ module.exports = {
   parameterValues: {
     country: 'ES',
     store: 'promofarma',
-    transform: null,
+    transform: cleanUp,
     domain: 'promofarma.com',
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+    await new Promise((resolve, reject) => setTimeout(resolve, 7000));
     await context.evaluate(async function () {
       try {
         // @ts-ignore

@@ -5,7 +5,7 @@ module.exports = {
     country: 'ES',
     store: 'promofarma',
     domain: 'promofarma.com',
-    loadedSelector: 'body',
+    loadedSelector: 'section[id="product-section"]',
     noResultsXPath: '//div[@class="box-white not-found-box my-2 text-center"]/h3/text()',
     zipcode: '',
   },
