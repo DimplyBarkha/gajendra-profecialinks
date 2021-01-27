@@ -5,8 +5,8 @@ module.exports = {
     country: 'DE',
     store: 'fressnapf',
     domain: 'fressnapf.de',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div[class="product-detail"]',
+    noResultsXPath: 'div[class="error-panel"]',
     zipcode: '',
   },
 };

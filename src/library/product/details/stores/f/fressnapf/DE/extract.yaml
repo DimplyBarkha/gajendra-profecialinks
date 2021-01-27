@@ -30,8 +30,10 @@ fields:
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
-    singleValue: true
-    xpath: 
+    # singleValue: true
+    xpath: (//button[@data-id="addToCart"]/@class)[2]
+    regExp: button button--disabled button--icon
+    regExpReplace: Out of Stock
     defaultValue: In Stock
   - name: description
     # singleValue: false

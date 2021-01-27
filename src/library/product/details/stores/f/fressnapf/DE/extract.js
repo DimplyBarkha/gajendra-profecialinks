@@ -1,14 +1,15 @@
-
+const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'DE',
     store: 'fressnapf',
-    transform: null,
+    transform: cleanUp,
     domain: 'fressnapf.de',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain }, context, parameters, { productDetails }) => {
+    const { transform } = parameters;
     await context.evaluate(async function () {
       function addHiddenDiv (id, content, index) {
         const newDiv = document.createElement('div');
@@ -58,6 +59,6 @@ module.exports = {
 
       }
     });
-    await context.extract(productDetails);
+    return await context.extract(productDetails, { transform });
   },
 };
