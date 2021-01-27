@@ -65,6 +65,11 @@ module.exports = {
       } catch (error) {
       }
       try {
+        const metaKeywords = getAllXpath("//meta[@name='keywords']/@content", 'nodeValue');
+        spaceSeparatorSingle('metaKeywords', metaKeywords);
+      } catch (error) {
+      }
+      try {
         const color = getAllXpath("//tr[@class='c-product-specifications__tr']/th[contains(text(),'Couleur')]/parent::tr/td/span/text()", 'nodeValue');
         spaceSeparatorSingle('color', color);
       } catch (error) {

@@ -19,7 +19,7 @@ fields:
     xpath: //h1[@class="c-product-detail__product-name"]
   - name: metaKeywords
     singleValue: false
-    xpath: //meta[@name="keywords"]/@content
+    xpath: //html//div[@id='metaKeywords'] 
   - name: name
     singleValue: false
     xpath: //h1[@class="c-product-detail__product-name"]
