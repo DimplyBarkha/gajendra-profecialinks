@@ -8,15 +8,23 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //a/@availability
-    defaultValue: 'false'
+    xpath: //ancestor::li[@class="unselectable"]/@class
+    # defaultValue: 'false'
+    # xpath: //input[@name="size-options"]/@data-oos
+    regExp: "unselectable"
+    regExpReplace: "FALSE"
+    defaultValue: "TRUE"
   - name: availability
     singleValue: false
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //a/@availability
-    defaultValue: 'false'
+    xpath: //ancestor::li[@class="unselectable"]/@class
+    # defaultValue: 'false'
+    # xpath: //input[@name="size-options"]/@data-oos
+    regExp: "unselectable"
+    regExpReplace: "FALSE"
+    defaultValue: "TRUE"
   - name: brandText
     singleValue: false
     xpath: (ancestor::html//a[contains(@class, "product-brand")])[1]
