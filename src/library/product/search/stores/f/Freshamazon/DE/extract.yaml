@@ -3,3 +3,15 @@ extends: ../../../a/amazon/shared
 fields:
 - name: domain
   defaultValue: 'amazon.de'
+- name: aggregateRating
+  singleValue: false
+  regExp: ^([^\s]*)
+  xpath: //span[@class="a-declarative"]/a/i/span
+- name: reviewCount
+  singleValue: false
+  regExp: ([.])
+  regExpReplace: ,$2
+  xpath: //div[@class="a-row a-size-small"]/span/a/span
+- name: soldBy
+  singleValue: false
+  xpath: //div[@class="a-row a-size-base a-color-secondary"]
