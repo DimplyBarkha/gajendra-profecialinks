@@ -141,10 +141,20 @@ module.exports = {
       var directions = getAllXpath('(//div[@id="tab_productvideo"]//p)/text()', 'nodeValue');
       var dir = directions.toString().replace('\n', ' || ');
       addElementToDocument('dir', dir);
-      
-      //Product url
-      
 
+      // Product url
+      var url = "";
+      var urlBySize = getXpath('//div[contains(@class,"selected")]/parent::div[contains(@class,"product-variation-size__item")]/@value', 'nodeValue');
+      var sizeVal = getXpath('//input[@id="product_selectedsize"]/@value', 'nodeValue');
+      var urlByColor = getXpath('(//div[contains(@class,"selected")]//span[contains(@class,"swatch_text_color product-variation-shade__textcolor hidden")])/parent::a/@href', 'nodeValue');
+      var colorVal = getXpath('(//div[contains(@class,"selected")]//span[contains(@class,"swatch_text_color product-variation-shade__textcolor hidden")])/parent::a/@data-id', 'nodeValue');
+      if (urlBySize != null) {
+        url = urlBySize + sizeVal;
+        addElementToDocument('url', url);
+      } else if (urlByColor != null) {
+        url = urlByColor + colorVal;
+        addElementToDocument('url', url);
+      }
 
       var aval = getXpath('(//p[contains(@class,"availability_value")])//text()', 'nodeValue');
       if (aval != null) {

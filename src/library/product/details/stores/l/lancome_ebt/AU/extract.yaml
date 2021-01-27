@@ -152,7 +152,7 @@ fields:
     description: The product name
   - name: url
     singleValue: true
-    xpath: //link[@rel='canonical']/@href
+    xpath: //html//div[@id='url']
     description: product page url
   - name: inStorePrice
     singleValue: true
