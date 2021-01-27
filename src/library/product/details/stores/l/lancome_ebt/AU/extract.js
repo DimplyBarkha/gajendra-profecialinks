@@ -26,18 +26,29 @@ module.exports = {
         return result;
       };
 
+      // Method to Retrieve Xpath content of a Multiple Nodes
+
+      var getXpath = (xpath, prop) => {
+        var elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+        let result;
+        if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+        else result = elem ? elem.singleNodeValue : '';
+        return result && result.trim ? result.trim() : result;
+      };
+
 
       // Product Name 
       var pname = getAllXpath('(//div[@class="product_detail pdp__detail small-12 medium-6 large-5 columns"]//span[@class="product_name"])/text()', 'nodeValue');
       var pn = [];
       for (var i = 0; i < pname.length; i++) {
         pn += pname[i];
-      }  
+      }
       var pq = getAllXpath('((//div[contains(@class,"product_detail pdp__detail")][2])/div[1]/*[(self::h2)])/text()', 'nodeValue');
-      addElementToDocument('name',pn+'|'+pq);
-      //Name extended
-       
+      addElementToDocument('name', pn + '|' + pq);
 
+      //Name extended
+      var selectedBySize = getXpath('//div[contains(@class,"product-variation-size__item")]//div[contains(@class,"selected")]/text()', 'nodeValue');
+      var selectedByColor = getXpath('//div[@class="selected  product-variation-shade__item"]//span/text()', 'nodeValue');
       var qty = getAllXpath('(//span[@id="quantitySelectBoxItText"]/text())[2]', 'nodeValue');
       var ab;
       // First Variant  color,ml
@@ -48,12 +59,12 @@ module.exports = {
       if (fVarBySize.length > 0) {
         // fVarBySize = fVarBySize[0].trim();
         firstVar = fVarBySize;
-        ab = pn + ' | ' + firstVar;
+        ab = pn + ' | ' + selectedBySize;
         addElementToDocument('ab', ab);
         addElementToDocument('fvar', firstVar);
       } else if (fVarByColor.length > 0) {
         firstVar = fVarByColor;
-        ab = pn + ' | ' + firstVar;
+        ab = pn + ' | ' + selectedByColor;
         addElementToDocument('ab', ab);
         addElementToDocument('fvar', firstVar);
       } else {
@@ -129,15 +140,7 @@ module.exports = {
       var dir = directions.toString().replace('\n', ' || ');
       addElementToDocument('dir', dir);
 
-      // Method to Retrieve Xpath content of a Multiple Nodes
 
-      var getXpath = (xpath, prop) => {
-        var elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
-        let result;
-        if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
-        else result = elem ? elem.singleNodeValue : '';
-        return result && result.trim ? result.trim() : result;
-      };
 
       var aval = getXpath('(//p[contains(@class,"availability_value")])//text()', 'nodeValue');
       if (aval != null) {
