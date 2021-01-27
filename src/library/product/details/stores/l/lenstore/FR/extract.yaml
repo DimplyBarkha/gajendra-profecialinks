@@ -83,11 +83,15 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //div[@id="productLeft"]/h1
+    # xpath: //div[@id="productLeft"]/h1
+    xpath: //picture[@class="c-product__figure"]/img/@src
+    regExp: lsprod\d+
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //div[@id="productLeft"]/h1
+    # xpath: //div[@id="productLeft"]/h1
+    xpath: //picture[@class="c-product__figure"]/img/@src
+    regExp: lsprod\d+
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
