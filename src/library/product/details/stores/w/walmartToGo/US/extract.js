@@ -78,9 +78,9 @@ module.exports = {
         addElementToDocument('iio_variants', varianceList.join(' | '));
         const available = (data.store && data.store.isInStock) ? data.store.isInStock : availableSelector();
         if (data.nutritionFacts !== undefined && data.nutritionFacts.key_nutrients !== undefined) {
-          const istfat = (data.nutritionFacts.key_nutrients.children[0].nutrient_amount.displayValue);
-          const tfat = (istfat) ? (data.nutritionFacts.key_nutrients.children[0].nutrient_amount.displayValue) : '';
-          addElementToDocument('iio_nutrient_totalFat', tfat);
+          // const istfat = (data.nutritionFacts.key_nutrients.children[0].nutrient_amount.displayValue);
+          // const tfat = (istfat) ? (data.nutritionFacts.key_nutrients.children[0].nutrient_amount.displayValue) : '';
+          // addElementToDocument('iio_nutrient_totalFat', tfat);
           // console.log('edddtttttttttt');
           try {
             var optData = data.nutritionFacts.key_nutrients.children[0].children[0];
@@ -88,24 +88,28 @@ module.exports = {
             optData = undefined;
           }
           if (optData !== undefined) {
-            // console.log('eddd');
-            const tfatPer = (data.nutritionFacts.key_nutrients.children[0].children[0].nutrient_amount.displayValue);
-            addElementToDocument('iio_nutrient_saturatedFat', tfatPer);
+            console.log('eddd');
+            // const tfatPer = (data.nutritionFacts.key_nutrients.children[0].children[0].nutrient_amount.displayValue);
+            // addElementToDocument('iio_nutrient_saturatedFat', tfatPer);
             const issodium = (data.nutritionFacts.key_nutrients.children[2].nutrient_amount.displayValue);
             const sodium = (issodium) ? (data.nutritionFacts.key_nutrients.children[2].nutrient_amount.displayValue) : '';
             addElementToDocument('iio_nutrient_sodium', sodium);
-            const istransFat = (data.nutritionFacts.key_nutrients.children[0].children[1].nutrient_amount.displayValue);
-            const transFat = (istransFat) ? (data.nutritionFacts.key_nutrients.children[0].children[1].nutrient_amount.displayValue) : '';
-            addElementToDocument('iio_nutrient_transFat', transFat);
-            const iscolst = (data.nutritionFacts.key_nutrients.children[1].nutrient_amount.displayValue);
-            const colst = (iscolst) ? (data.nutritionFacts.key_nutrients.children[1].nutrient_amount.displayValue) : '';
-            addElementToDocument('iio_nutrient_cholesterol', colst);
+            // const istransFat = (data.nutritionFacts.key_nutrients.children[0].children[1].nutrient_amount.displayValue);
+            // const transFat = (istransFat) ? (data.nutritionFacts.key_nutrients.children[0].children[1].nutrient_amount.displayValue) : '';
+            // console.log('eddd--------' + transFat);
+            // addElementToDocument('iio_nutrient_transFat', transFat);
+            // const iscolst = (data.nutritionFacts.key_nutrients.children[1].nutrient_amount.displayValue);
+            // const colst = (iscolst) ? (data.nutritionFacts.key_nutrients.children[1].nutrient_amount.displayValue) : '';
+            // addElementToDocument('iio_nutrient_cholesterol', colst);
             const istcarb = (data.nutritionFacts.key_nutrients.children[3].nutrient_amount.displayValue);
             const tcarb = (istcarb) ? (data.nutritionFacts.key_nutrients.children[3].nutrient_amount.displayValue) : '';
             addElementToDocument('iio_nutrient_totalCarbs', tcarb);
-            const isnfiber = (data.nutritionFacts.key_nutrients.children[3].children[0].nutrient_amount.displayValue);
-            const nfiber = (isnfiber) ? (data.nutritionFacts.key_nutrients.children[3].children[0].nutrient_amount.displayValue) : '';
-            addElementToDocument('iio_nutrient_fiber', nfiber);
+            // const isnfiber = (data.nutritionFacts.key_nutrients.children[3].children[0].nutrient_amount.displayValue);
+            // if (isnfiber !== undefined) {
+            //   const nfiber = (isnfiber) ? (data.nutritionFacts.key_nutrients.children[3].children[0].nutrient_amount.displayValue) : '';
+            //   console.log('eddd--------' + nfiber);
+            //   addElementToDocument('iio_nutrient_fiber', nfiber);
+            // }
             const isscounter = (data.nutritionFacts.serving_information.children[0].servings_per_container.displayValue);
             const scounter = (isscounter) ? (data.nutritionFacts.serving_information.children[0].servings_per_container.displayValue) : '';
             addElementToDocument('iio_nutrient_servingsPerContainer', scounter);
@@ -115,7 +119,7 @@ module.exports = {
           // const qunt = (data.store.price.salesQuantity) ? data.store.price.salesQuantity : '';
           const qunt = data.store.price.salesQuantity;
           console.log('---------------' + qunt);
-          addElementToDocument('iio_quantity', (qunt ? (data.store.price.salesQuantity) : ''));
+          addElementToDocument('iio_quantity', qunt);
         }
         addElementToDocument('iio_available', (available ? 'In Stock' : 'Out of Stock'));
         addElementToDocument('iio_product_url', `https://grocery.walmart.com/product/${pid}`);
