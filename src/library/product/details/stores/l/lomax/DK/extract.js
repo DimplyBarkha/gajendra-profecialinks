@@ -34,6 +34,10 @@ module.exports = {
     }
     catch (error) {
     }
+    const price = getXpath('//meta[@property="product:pretax_price:amount"]/@content', 'nodeValue');
+    // @ts-ignore
+    var onlinePrice = price.concat(" kr.")
+    addElementToDocument('price', onlinePrice)
     });
     await context.extract(productDetails, { transform: transformParam });
     },
