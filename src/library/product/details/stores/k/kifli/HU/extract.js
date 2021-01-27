@@ -34,7 +34,7 @@ async function implementation(
         //alert(jsonParsed.name)
         productName = jsonParsed.name;
         var brandName = productName.replace(/ .*/, '');
-        addHiddenDiv('brandName_id', brandName);
+        addHiddenDiv('brandName_id', brandName)
       }
     }
   });
