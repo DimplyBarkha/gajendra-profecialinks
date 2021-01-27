@@ -29,24 +29,20 @@ fields:
     xpath: //div[@class='product-detail']/div[2]/div/div/div[2]/div/div[2]/div[2]/div[2]/div[2]/div/div/div[@class='p-price'] | (//div[@class='section-content']/div[@class='product-overview']/div/div/div/div/div/div/div/label[@class='radio-button radio-button--checked']/span/div/div/div/div/div[@class='p-price'])
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-  # - name: availabilityText
-    # singleValue: true
-  #   description: Availability as described on page for the selected variant. If
-  #     there is no availability but the product can be added to cart, this field
-  #     should be "In Stock"
-  #   regExp: (.+)
-  #   regExpReplace: In Stock
-  #   defaultValue: Out of Stock
+  - name: availabilityText
+    singleValue: true
+    xpath: 
+    defaultValue: In Stock
   - name: description
     # singleValue: false
-    xpath: (//div[@class='accordion-item-content'])[1]
+    xpath: concat(//div[@class='pos-selling-points'],' ',(//div[@class='accordion-item'])[1])
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-  # - name: descriptionBullets
-    singleValue: true
-  #   xpath: count(//div[@class='accordion-item-content'])
-  #   description: Number of ul > li tags in the description
-  #   type: NUMBER
+  - name: descriptionBullets
+    # singleValue: true
+    xpath: count(//div[@class='pos-selling-points']/ul/li | (//div[@class='accordion-item'])[1]/div/div/ul/li)
+    description: Number of ul > li tags in the description
+    type: NUMBER
   - name: brandText
     # singleValue: true
     xpath: (//a[@class='link link--secondary']/span/text())[1]
@@ -73,6 +69,8 @@ fields:
   - name: aggregateRating
     # singleValue: true
     xpath: (//div[@class='bv_avgRating_component_container notranslate'])[2]
+    regExp: (\d)\.(\d)
+    regExpReplace: $1,$2
     description: The stated aggregate rating normalized to be out of 5
     # type: NUMBER
   - name: shippingInfo
@@ -95,6 +93,7 @@ fields:
     type: NUMBER
   - name: ingredientsList
     # singleValue: true
+    xpath: concat(//h2//span[contains(text(),"Inhaltsstoffe")]/text(),' ',//h2//span[contains(text(),"Inhaltsstoffe")]/parent::h2/following::div[@class="accordion-item-content"][1])
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
   - name: promotion
@@ -105,6 +104,10 @@ fields:
     xpath: //div[@class='section-content']/div[@class='product-overview']/div/div/div/div/div/div/div/label/span/div/div[1]
     description: colour / scent / flavour / other
   - name: variants
-    singleValue: false
+    # singleValue: false
     xpath: //html//div[@id='variant']
+    description: null
+  - name: directions
+    # singleValue: false
+    xpath: concat(//h2//span[contains(text(),"Fütterungsempfehlung")]/text(),' ',//h2//span[contains(text(),"Fütterungsempfehlung")]/parent::h2/following::div[@class="accordion-item-content"][1])
     description: null
