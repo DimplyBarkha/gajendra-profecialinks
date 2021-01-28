@@ -14,7 +14,7 @@ fields:
     xpath: //h1[@class="b-product-info--title"]
   - name: price
     singleValue: false
-    xpath: //span[@class="b-product-price-current-number"]
+    xpath: //div[@class="b-products-allow-desktop-view b-products-allow-mobile-view"]//span[@class="b-product-price-current-number"]
   - name: availabilityText
     singleValue: false
     defaultValue: "Out of stock"   
@@ -26,13 +26,13 @@ fields:
     xpath: //dl[@class="b-dl-align-left b-product-info--info1"]//dd[3]
   - name: sku
     singleValue: false
-    xpath: //div[@class="b-product-info b-product--js-hook"]//@data-b-item-id
+    xpath: //div[@class="b-product-info b-product--js-hook"]/@data-b-item-id
   - name: variantId
     singleValue: false
-    xpath: //div[@class="b-product-info b-product--js-hook"]//@data-b-item-id
+    xpath: //div[@class="b-product-info b-product--js-hook"]/@data-b-item-id
   - name: listPrice
     singleValue: false
-    xpath: //span[@class="b-product-price-current-number"]
+    xpath: //div[@class="b-products-allow-desktop-view b-products-allow-mobile-view"]//span[@class="b-product-price-current-number"]
   - name: termsAndConditions
     singleValue: false
     defaultValue: "Yes"
