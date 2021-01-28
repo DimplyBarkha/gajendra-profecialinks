@@ -23,6 +23,14 @@ async function implementation(
       var elems = document.querySelectorAll(xpathforpagination);
       elems[0].classList.add('pagination');
     }
+    function addHiddenDiv(id, content, index) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      const originalDiv = document.querySelectorAll('span[class="visually-hidden productBlock_rating_hiddenLabel"]')[index];
+      originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+      }
     function addElementToDocument(key, value) {
       const catElement = document.createElement('div');
       catElement.id = key;
@@ -38,6 +46,13 @@ async function implementation(
       else result = elem ? elem.singleNodeValue : '';
       return result && result.trim ? result.trim() : result;
     };
+    //code for rating
+    var rating=document.querySelectorAll('span[class="visually-hidden productBlock_rating_hiddenLabel"]')
+    for (let i=0;i<rating.length;i++)
+    {
+        var rating1=rating[i].innerText.split(" ");
+        addHiddenDiv('rating', rating1[0], i);
+    }
     const URL = window.location.href;
     try {
       document.getElementById('pd_url').remove();

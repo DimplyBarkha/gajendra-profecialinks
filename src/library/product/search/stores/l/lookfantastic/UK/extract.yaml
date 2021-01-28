@@ -22,9 +22,9 @@ fields:
   # - name: aggregateRating
   #   singleValue: false
   #   xpath: //span[@class="productBlock_rating"]//span[@class="productBlock_ratingValue"]/text()
-  - name: aggregateRating2
+  - name: aggregateRating
     singleValue: false
-    xpath: //span[@class="productBlock_rating"]//span[@class="productBlock_ratingValue"]/text()
+    xpath: //div[@id="rating"]
   - name: reviewCount
     singleValue: false
     xpath: //span[contains(@class,'productBlock_reviewCount')]
