@@ -6,7 +6,8 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //div[@class='pane stitchedView']/img[1]/@src
+    xpath: //meta[@property="og:image"]/@content
+    # //div[@class='pane stitchedView']/img[1]/@src
     # xpath: //html//div[@id="zz"]
     # selector: img#uic_9[src]
     # //div[@class='pane stitchedView']//img[@class="image stitchedView"]/@src
