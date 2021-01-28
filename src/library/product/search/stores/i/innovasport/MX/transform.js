@@ -17,14 +17,18 @@ const transform = (data, context) => {
         // eslint-disable-next-line no-control-regex
         .replace(/[\x00-\x1F]/g, '')
         .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
-    for (const { group }
-        of data) {
-        for (const row of group) {
-            if (row.price) {
-                row.price[0].text = row.price[0].text.replace(/\,/g, '').replace(/\s/, "").replace(/\./, ",");
-            }
-        }
-    }
+    // for (const { group }
+    //     of data) {
+    //     for (const row of group) {
+    //         if (row.price) {
+    //               row.price.forEach(item => {
+    //                   item.text = item.text.replace('.',',');
+    //               })
+    // //             row.price[0].text = row.price[0].text.replace(/\,/g, '').replace(/\s/, "").replace(/\./, ",");
+    //               row.price[0].text = row.price[0].text.replace(/\./, ",");
+            // }
+        // }
+    // }
     const state = context.getState();
     let orgRankCounter = state.orgRankCounter || 0;
     let rankCounter = state.rankCounter || 0;

@@ -2,7 +2,7 @@ Search:
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class='is-pw__product']
+recordXPath: //div[@class="is-pw__products-list"]/div[@class="is-pw__product"][not(@style)] | //div[@class="is-pw__products-list"]/div[@class="is-pw__product"][contains(@style,"block")]
 fields: 
 - name: id
   xpath: //a[@class="js-gtm-product-click"]/@data-productcode

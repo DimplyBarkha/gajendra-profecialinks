@@ -25,7 +25,12 @@ module.exports = {
                     element.setAttribute('searchurl', searchUrl);
                 })
             }
+            const nextLinkElement = document.querySelector('head link[rel="next"]');
+            if (nextLinkElement) {
+            nextLinkElement.remove();
+            }
         });
+
         return await context.extract(productDetails, { transform });
     }
 };
