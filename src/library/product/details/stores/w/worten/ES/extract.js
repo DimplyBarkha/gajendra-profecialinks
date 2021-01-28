@@ -306,6 +306,11 @@ module.exports = {
       }
 
       addHiddenDiv('ii_CTR', !!document.querySelector('div#flix-comp'));
+
+      const videoId = document.evaluate("//div[contains(@class,'flix-videocontainer')]//input/@value", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      let video = videoId && videoId.textContent.replace(/(.*){"file":"\\\/\\\/(.+)(.mp4)"(.*)/g, 'https://$2$3').replace(/\\\//g,'\/');;
+      addHiddenDiv('added_video', video);
+    
     });
     
     await context.evaluate(async (ECText, ECImagesArrText, ECVideosArrText) => {
