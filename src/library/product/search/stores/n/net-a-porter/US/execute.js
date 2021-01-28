@@ -24,8 +24,7 @@ async function implementation (
 
     while (moreItems) {
       const apiUrl = `https://www.net-a-porter.com/legacy-api/polyjuice/search/resources/store/nap_us/productview/byCategory?attrs=true&category=%2F${query.replace('?', '&')}&locale=en_US&pageNumber=${page}&pageSize=600`;
-      page++;
-
+      
       const response = await fetch(apiUrl
         , {
           headers: {
@@ -37,10 +36,12 @@ async function implementation (
           method: 'GET',
           mode: 'cors',
         },
-      );
-      if (response.status !== 200 && page === 1){
-        throw new Error('No API calls were successful')
-      }
+        );
+        if (response.status !== 200 && page === 1){
+          throw new Error('No API calls were successful');
+        }
+
+      page++;
 
       if (response.status !== 200) {
         moreItems = false;
