@@ -41,7 +41,7 @@ async function implementation (
     const priceText = getAllXpath("//table[@class='table']//tbody//tr[@class='product-container']//span[@class='priceDisplay']/text()", 'nodeValue').join('|');
     var priceTextValue = priceText.split('|');
 
-    const manufacturerText = getAllXpath("//table[@class='table']/tbody/tr[@class='product-container'][1]/td[@class='list-info']/div[2]", 'nodeValue').join('|');
+    const manufacturerText = getAllXpath("//table[@class='table']/tbody/tr[@class='product-container'][1]/td[@class='list-info']/div[2]/text()", 'nodeValue').join('|');
     var manufacturerTextValue = manufacturerText.split('|');
 
     const nameText = getAllXpath("//div[@class='product-name-list']/a/@title", 'nodeValue').join('|');
