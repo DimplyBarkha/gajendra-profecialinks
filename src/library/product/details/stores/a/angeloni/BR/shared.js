@@ -15,6 +15,9 @@ const transform = (data) => {
       });
       return result;
     }
+    // function cleanText (str) {
+    //   return str.replace(/(\r\n|\n|\r)/gm, '').replace(/\s+/g, ' ').trim();
+    // }
   
     data.forEach((dataObj) => {
       dataObj.group.forEach((fieldName, index) => {
@@ -28,7 +31,23 @@ const transform = (data) => {
           });
         }
   
-        // _url
+        // variantId
+        if(fieldName.variantId){
+          const skuNumber = fieldName.variantId[0].text.replace(/\D/gm, '');
+          fieldName.variantId[0].text = skuNumber;
+          fieldName.sku[0].text = skuNumber;
+          fieldName.input[0].text = skuNumber;
+        }
+
+        let altImagesCount;
+        if(fieldName.alternateImages){
+          fieldName.alternateImages.shift();
+          altImagesCount = fieldName.alternateImages.length;
+          if(altImagesCount > 0) {
+            fieldName.secondaryImageTotal = [{text: `${altImagesCount}`}];
+          }
+        }
+        
       });
     });
     return data;
