@@ -13,7 +13,7 @@ fields:
     xpath: //article[contains(@class, 'product-item--container')]/@data-code
     description: product code
   - name: productUrl
-    xpath: //article[contains(@class, 'product-item--container')]//a/@href
+    xpath: //article[contains(@class, 'product-item--container')]//div//a/@href
     regExp: >-
       (.+)
     regExpReplace: auchan.fr$1

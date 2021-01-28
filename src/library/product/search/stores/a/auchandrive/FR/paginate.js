@@ -5,6 +5,6 @@ module.exports = {
     country: 'FR',
     store: 'auchandrive',
     domain: 'auchandrive.fr',
-    nextLinkSelector: 'a.ui-pagination--next',
+    // nextLinkSelector: 'a.ui-pagination--next',
   },
 };
