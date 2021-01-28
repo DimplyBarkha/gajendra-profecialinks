@@ -2,12 +2,15 @@ input:
   _url: http://nykaa.com
   URL: https://www.nykaa.com/maybelline-new-york-line-tattoo-crayon-eyeliner-black/p/435130
 extractions:
-  - html: https://workbench.import.io/html/run=38b17bd7-dfa7-438d-8993-678eec114b1f/task=7da82b87-31fd-4e39-950d-fad6186e43fc/a0e9f374-f736-40ca-96ca-e7bed353278f.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=8ca1a9eb-421b-4140-b1dc-5ab688fab86e/task=eb29fba4-b496-4768-90b6-928f41aaaca3/b26661c2-d295-4a9b-9751-5848b242128a.html
     extractionConfigId: product/details/stores/n/nykaa_mweb/IN/variantsExtract
     data:
       - group:
           - variantUrl:
               - text: https://www.nykaa.com/maybelline-new-york-line-tattoo-crayon-eyeliner-black/p/435130
-                xpath: /html/head[1]/link[3]/@href
-        xpath: /html/head[1]
-    timestamp: 1607326832781
+                xpath: /html/body/div[6]
+            variantId:
+              - text: "435130"
+                xpath: /html/body/div[6]
+        xpath: /html/body
+    timestamp: 1611819374142

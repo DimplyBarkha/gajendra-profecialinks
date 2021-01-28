@@ -17,6 +17,24 @@ module.exports = {
   ) {
     const { variants } = dependencies;
     const { transform } = parameters;
+
+    const areVariants = await context.evaluate(() => {
+      const sizeVariants = document.querySelectorAll('div[class*="sizes"]>ul>li>label>span');
+      const variants = document.querySelectorAll('ul[class*="options-colors"]>li>label>span');
+      return !!(sizeVariants.length || variants.length);
+    });
+
+    const slug = await context.evaluate(() => {
+      const preloadedState = document.evaluate('//script[contains(text(), "window.__PRELOADED_STATE__")]', document, null, XPathResult.STRING_TYPE, null).stringValue;
+      if (preloadedState) return preloadedState.match(/"slug":"(.*?)"/) ? preloadedState.match(/"slug":"(.*?)"/)[1] : '';
+      return '';
+    });
+
+    if (slug && !areVariants) {
+      await context.goto(`https://www.nykaa.com/${slug}`);
+      await context.waitForSelector('div[class*=product-description] div.pd-main-image');
+    }
+
     await context.evaluate(() => {
       const variants = document.querySelectorAll('ul[class*="options-colors"]>li>label>span');
       const variantColorArr = [];
@@ -49,6 +67,7 @@ module.exports = {
       for (let i = 0; i < wholeVariants.length; i++) {
         addElementToDocument('product_variant_url', wholeVariants[i]);
       }
+      if (!wholeVariants.length) addElementToDocument('product_variant_url', window.location.href);
     });
     return await context.extract(variants, { transform });
   },

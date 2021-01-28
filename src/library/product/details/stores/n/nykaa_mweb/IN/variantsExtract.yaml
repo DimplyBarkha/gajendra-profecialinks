@@ -6,4 +6,10 @@ fields:
   - name: variantUrl
     singleValue: false
     description: variant Url
-    xpath: //*[@id='product_variant_url'] | //link[@rel="canonical"]/@href
+    xpath: //*[@id='product_variant_url']
+  - name: variantId
+    singleValue: false
+    description: variant id
+    xpath: //*[@id='product_variant_url']
+    regExp: (\d+)$
+    regExpReplace: $1
