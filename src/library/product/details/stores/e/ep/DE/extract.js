@@ -114,7 +114,7 @@ async function implementation (
 
     hasComparisionTable = await context.evaluate(async () => {
       console.log(document.URL + ' here we check the comparison table');
-      if (document.querySelector('.compare-headline')) {
+      if (document.querySelector('h1[class="next-chapter compare-headline"]')) {
         return true;
       } else {
         return false;
@@ -201,8 +201,10 @@ async function implementation (
     // addHiddenDiv('ii_inBoxText', inBoxText);
     // addHiddenDiv('ii_comparisionText', hasComparisionTable ? 'Yes' : 'No');
     console.log(hasComparisionTable + ' comp table');
-    if (hasComparisionTable === true) addHiddenDiv('ii_comparisionText', hasComparisionTable);
-
+    if (hasComparisionTable === true) {
+      hasComparisionTable = hasComparisionTable.replace(/(.+)/g,'Yes')
+      addHiddenDiv('ii_comparisionText',hasComparisionTable );
+    }
     let inStore = false;
     let delivery = false;
     if (document.querySelector('.product-cart-add-to-cart-button')) {
