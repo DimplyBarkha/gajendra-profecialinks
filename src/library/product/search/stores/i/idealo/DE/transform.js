@@ -36,6 +36,13 @@ const transform = (data, context) => {
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
+
+      if(row.id1 && !row.id) {
+        row.id = row.id1;
+      }
+      if(row.id1) {
+        delete row.id1;
+      }
     }
   }
   context.setState({ rankCounter });

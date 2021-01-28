@@ -5,7 +5,9 @@ recordXPath: //div[contains(@class,"offerList--tileview")]/*[not(.//div[contains
 fields:
   - name: productUrl
     singleValue: false
-    xpath: //div[@id="pd_url"]
+    xpath: //a//@href
+    regExp: (.+)
+    regExpReplace: https://www.idealo.de$1
   - name: thumbnail
     singleValue: false
     xpath: //div[@id="pd_id"]
@@ -33,7 +35,13 @@ fields:
     type: NUMBER
   - name: id
     singleValue: false
-    xpath: //div[@id="pd_id"]
+    xpath: //@data-rt-click
+    regExp: (.+)(itemId\=)(\d+)(.+)
+    regExpReplace: $3
+  - name: id1
+    xpath: //@data-gtm-payload
+    regExp: (.+)(\"productId\"\:\")(\d+)(\")(.+) 
+    regExpReplace: $3
   - name: nameExtended
     singleValue: false
     xpath: //div[contains(@id,"result-title")]
