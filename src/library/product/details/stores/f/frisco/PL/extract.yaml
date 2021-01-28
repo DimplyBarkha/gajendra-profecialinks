@@ -14,13 +14,11 @@ fields:
   - name: category
     singleValue: false
     xpath: //div[@class="breadcrumbs"]/div[position()>1 and position()<last()]/a/text()
-    # xpath: //div[@id="cat"]/text()
   - name: nameExtended
     singleValue: true
     xpath: //div[@class="product-page_name-box"]/h1/text()
   - name: listPrice
     singleValue: true
-    description: The stated undiscounted price for the product
     xpath: //span[@class="cart-box_old-price"]
   - name: price
     singleValue: true
@@ -51,9 +49,6 @@ fields:
   - name: sku
     singleValue: true
     xpath: //div[@id="id1"]/text()
-  # - name: variantId
-  #   singleValue: true
-  #   xpath: //div[@id="id1"]/text()
   - name: warnings
     singleValue: true
     xpath: //div[@id="wid"]/text()
@@ -95,11 +90,6 @@ fields:
   - name: allergyAdvice
     singleValue: true
     xpath: //div[@id="aid"]
-  # - name: brand_url
-  #   singleValue: true
-  #   xpath: //span[@class='value']/a/@href
-  #   regExp: (.+)
-  #   regExpReplace: https://frisco.pl$1
   - name: ingredientsList
     singleValue: true
     xpath: //div[@id="componentid"]
@@ -108,10 +98,7 @@ fields:
   - name: pricePerUnitUom
     singleValue: true
     xpath: //div[@class='product-page_labels-single green']
-  # - name: onlinepricecurrency
-  #   singleValue: true
-  #   xpath: //meta[@itemprop="currency"]/@content
-  - name: url
+  - name: _url
     singleValue: true
     xpath: //link[@rel="canonical"]/@href
 

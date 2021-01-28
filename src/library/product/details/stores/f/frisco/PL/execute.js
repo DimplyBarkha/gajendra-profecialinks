@@ -5,7 +5,7 @@ module.exports = {
     country: 'PL',
     store: 'frisco',
     domain: 'frisco.pl',
-    loadedSelector: 'body',
+    loadedSelector: 'div.product-page',
     noResultsXPath: null,
     zipcode: '',
   },
