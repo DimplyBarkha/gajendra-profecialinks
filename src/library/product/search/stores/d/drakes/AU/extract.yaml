@@ -5,11 +5,10 @@ recordXPath: //div[@class="TalkerGrid__Item"]
 fields:
   - name: id
     singleValue: false
-    xpath: //div[@class="TalkerGrid__Item"]//div[contains(@class, "talker talker--row")]/@id
-    regExp: line_(.+)
-    regExpReplace: $1
+    xpath: '@added_id'
   - name: searchUrl
     singleValue: true
+    xpath: ancestor::html/body/@search_url
   - name: name
     singleValue: false
     xpath: //div[@class="talker__name talker__section"]/span
