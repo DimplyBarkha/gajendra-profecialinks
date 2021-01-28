@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: false
     description: URL of the main product image
-    xpath: ancestor::html//div[@class="main-media__container"]//div[@data-index="0"]/div/img/@src
+    xpath: ancestor::html//div[@class="main-media__container"]//img/@src
     regExp: >-
       (.+)
     regExpReplace: https:$1
