@@ -6,7 +6,7 @@ module.exports = {
   nextLinkSelector: null,
   mutationSelector: null,
   spinnerSelector: null,
-  loadedSelector: 'body',
+  loadedSelector: 'div[class="asidediv col-12 col-sm-12 col-md-12 col-lg-9 col-xl-9"]',
   noResultsXPath: null,
   openSearchDefinition: null,
   domain: 'vons.com',
