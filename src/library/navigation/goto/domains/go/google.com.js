@@ -11,6 +11,7 @@ module.exports = {
   implementation: async ({ url, zipcode }, parameters, context, dependencies) => {
     await context.setAntiFingerprint(false);
     await context.setUseRelayProxy(false);
+    await context.setJavaScriptEnabled(true);
 
     await context.goto(url, {
       timeout: 15000,
@@ -40,6 +41,12 @@ module.exports = {
       });
     }
 
+    const captchaSolved = async () =>{
+      return await context.evaluate(() => {
+        return !!document.querySelector('div[captchastatus=ok]');
+      })
+    }
+
     if (recaptchaPresent) {
       console.log('Hit recaptcha, attempting to solve..');
       console.log(`iframe present: ${iframeFound}`)
@@ -61,9 +68,7 @@ module.exports = {
         } else {
           await captchaSolver()
         }
-        if (await context.evaluate(() => {
-          return !!document.querySelector('div[captchastatus=ok]');
-        })){
+        if (await captchaSolved()){
           console.log('Captcha solved! Submitting form..')
           await context.evaluate(()=>{
             document.getElementById('captcha-form').submit();
