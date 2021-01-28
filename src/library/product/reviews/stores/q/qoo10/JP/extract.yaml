@@ -1,69 +1,69 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class="review_summary"]//ul[@id='reviews_wrapper']/li
 fields:
-  - name: helpfulCount
-    singleValue: true
+  - name: brand
+    singleValue: false
+    description: Product brand shown - this may actually NOT be just a brand name e.g. "Visit the Gillette Store"
+    xpath: ancestor::html//h2[@id="goods_name"]//a[@id='btn_brand']/@title
+  - name: colour
+    singleValue: false
+    xpath: ancestor::html//ul[@class='select_chip big']//li//span/@title
+  - name: flavour
+    singleValue: false
+  - name: reviewText
+    singleValue: false
+    description: The text of the review
+    xpath: //p[@class='review_txt']
+  - name: reviewTitle
+    singleValue: false
+    description: The title of the review
+    xpath: //div[@class='review_user_info']//span[3]
+  - name: mediaURL
+    description: product media url
+    xpath: ancestor::html//div[@class="slide"]//ul[@id='ulIndicate']//li//img/@src
+  - name: location
+    description:: reviewer location
+    defaultValue: Jp
+  - name: helpful
     type: NUMBER
     description: Number of people who said the review was helpful
-  - name: commentCount
-    singleValue: true
-    type: NUMBER
-    description: Number of comments on the review
-  - name: brandText
-    singleValue: true
-    description: Product brand shown - this may actually NOT be just a brand name,
-      e.g. "Visit the Gillette Store"
-  - name: name
-    singleValue: true
-    description: The product name
-  - name: sku
-    singleValue: true
-    description: The store-specific product identifier
-  - name: reviewDate
-    singleValue: true
-    type: DATETIME
-    description: Date the review was made
-  - name: reviewRating
-    type: NUMBER
-    singleValue: true
-    description: Rating normalized to be out of 5
-  - name: reviewText
-    singleValue: true
-    description: The text of the review
-  - name: reviewTitle
-    singleValue: true
-    description: The title of the review
-  - name: reviewerTags
-    singleValue: false
-    description: The tags a reviewer has
-  - name: gtin
-    singleValue: true
-    description: GTIN code (includes UPC/EAN)
-  - name: productUrl
-    singleValue: true
-    description: The url of the product details page
+    xpath: //div[@class='review_button ']//span[@class='count']
   - name: verifiedPurchase
-    singleValue: true
-    type: BOOLEAN
     description: Whether this of an item the reviewer purchased. "Yes" if true else ""
-  - name: manufacturerResponse
-    singleValue: true
-    description: The response of the manufacturer (if any)
-  - name: syndicatedFrom
-    singleValue: true
-    description: Stated place the review was syndicated from
-  - name: reviewUrl
-    singleValue: true
-    description: A direct link to the review
-  - name: reviewedSku
-    singleValue: true
-    description: The SKU of the item that was reviewed (may be different from the
-      sku the review was shown on). 1 if sku == reviewedSku else 0. Get sku
-      value, transform will handle the value.
-  - name: user
-    description: The user name of the reviewer
-    type: TEXT
   - name: aggregateRating
     description: The product rating
+    xpath: ancestor::html//div[@class='review_star_area review_flex']//span[@class='review_total_score']
+  - name: pageTitle
+    description: The url of the page title
+    xpath: ancestor::html//head[@id='ctl00_ctl00_Head2']/title
+  - name: sourceUrl
+    description: The url of the product url
+    xpath: ancestor::html//meta[@property='og:url']/@content
+  - name: productRange
+    singleValue: false
+    description: Product range 
+    xpath: ancestor::html//div[@class='goods_navi ']//ul[@class='category_depth_list']//li[@class='on'] 
+  - name: productFamily
+    singleValue: false
+    xpath: ancestor::html//div[@class='goods_navi ']//ul[@class='category_depth_list']
+  - name: name
+    description: The product name
+    xpath: ancestor::html//h2[@id="goods_name"]/font//font
+  - name: sku
+    singleValue: false
+    description: The store-specific product identifier
+  - name: commentCount
+    type: NUMBER
+    description: Number of comments on the review
+  - name: reviewDate
+    type: DATETIME
+    description: Date the review was made
+    xpath: //div[@class='review_user_info']//span[2]
+  - name: rating
+    description: The product rating
+    xpath: //div[@class='review_score']//span[@class='score']
+  - name: user
+    description: The user name of the reviewer
+    xpath: //div[@class='review_user_info']//span[1]
