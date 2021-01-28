@@ -6,6 +6,8 @@ fields:
   - name: id
     SingleValue: false
     xpath: //div[@class="aa_st_buycredit jq_aa_st_buycredit iprel"]/@jq_id
+    regExp: \d+
+    regExpReplace:
   - name: productUrl
     SingleValue: false
     # xpath: //a[@class="ifont14 j_product_link"]/@href
@@ -18,8 +20,8 @@ fields:
     SingleValue: false
     # xpath: //div[@class="hoverCard-child bg-white"]/a[@class="aa_st_imglink j_product_link"]/@style
     xpath: //div[@class="hoverCard-child bg-white"]//a//div[@class="q-img__image absolute-full"]/@style
-    # regExp: background-image:\s*url\(\'(.+?)\'\)
-    # regExpReplace: $1
+    regExp: url\W+([^"]+)
+    regExpReplace: $1
   - name: name
     SingleValue: false
     # xpath: //a[@class="ifont14 j_product_link"]
