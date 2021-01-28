@@ -28,7 +28,10 @@ async function implementation (inputs, parameters, context, dependencies) {
     productUrl.forEach(e => e.setAttribute('producturl', prefix.concat(e.getAttribute('href'))));
 
     const imageUrl = document.querySelectorAll('div.image img');
-    imageUrl.forEach(e => e.setAttribute('image', prefix.concat(e.getAttribute('src'))));
+    imageUrl.forEach(e => {
+      if (e.getAttribute('src').includes('/thumb/')) e.setAttribute('image', prefix.concat(e.getAttribute('src').replace('thumb', 'large')));
+      else e.setAttribute('image', prefix.concat(e.getAttribute('src')));
+    });
 
     function addProp (selector, iterator, propName, value) {
       document.querySelectorAll(selector)[iterator].setAttribute(propName, value);
