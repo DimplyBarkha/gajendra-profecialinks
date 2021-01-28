@@ -18,26 +18,6 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  // await context.evaluate(async function () {
-  //   let scrollTop = 0;
-  //   while (scrollTop <= 20000) {
-  //       await stall(500);
-  //       scrollTop += 500;
-  //       window.scroll(0, scrollTop);
-  //       if (scrollTop === 20000) {
-  //           await stall(8000);
-  //           break;
-  //       }
-  //   }
-  //   function stall(ms) {
-  //       return new Promise(resolve => {
-  //           setTimeout(() => {
-  //               resolve();
-  //           }, ms);
-  //       });
-  //   }
-  // })
-  await new Promise((resolve, reject) => setTimeout(resolve,10000));
   await context.evaluate(async function () {
     function addclass(xpathforpagination) {
       var elems = document.querySelectorAll(xpathforpagination);
