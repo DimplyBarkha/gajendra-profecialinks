@@ -66,9 +66,9 @@ fields:
 - name: additionalDescBulletInfo
   singleValue: false 
   xpath: //div[@id="content-description"]//ul/li
-- name: aggregateRating2
+- name: aggregateRating
   singleValue: true 
-  xpath: //div[@class="mt-4 rating-box"]//div/meta[@itemprop="ratingValue"]/@content div 2
+  xpath: //html//div[@id='aggregateRating']
 # - name: productOtherInformation
 #   singleValue: true 
 #   xpath: //section[@id="productSheetCont"]/meta[@itemprop="description"]/@content

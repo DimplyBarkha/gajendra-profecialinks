@@ -66,7 +66,7 @@ module.exports = {
         // @ts-ignore
         var man1 = document.querySelector('p[data-qa-ta="couponInfo"]').innerText
         // @ts-ignore
-        var man2 = document.querySelector('div[id="content-description"]').innerText        
+        var man2 = document.querySelector('div[id="content-description"]').innerText
         var man = man1 + ' || ' + man2
 
         addElementToDocument('manu', man);
@@ -81,8 +81,23 @@ module.exports = {
         var video = video.slice(0, -1)
         addElementToDocument('video', video);
       } catch (error) {
-        
+
       }
+      try {
+        var agg = getXpath('//div[@class="rating-stars-container"]//div/@style', 'nodeValue');
+        if (agg != null) {
+          var aggregate = agg.split(":")[1].slice(0, -1);
+          aggregate = (aggregate * 5) / 100;
+          aggregate = aggregate.toFixed(1);
+          // var str = aggregate.toString();
+          var final = aggregate.replace(".", ",");
+          addElementToDocument('aggregateRating', final);
+        }
+
+      } catch (error) {
+
+      }
+
       var URL2 = getXpath("//div[@class='box-white']//h3[contains(text(),'Modo de empleo')]//following-sibling::p//text()", 'nodeValue');
       var URL3 = getAllXpath("//div[@class='box-white']//h3[contains(text(),'Modo de empleo')]//following-sibling::ul//text()", 'nodeValue');
       var URL4 = getAllXpath("//div[@class='box-white']//h4[contains(text(),'Consejo Farmacéutico')]//following-sibling::div/div[1]//text()", 'nodeValue');
@@ -90,48 +105,48 @@ module.exports = {
       var URL7 = []
       var URL6 = ""
       var URL8 = ""
-      if(URL4.length>=1){    
-      for (var i = 0 ; i<URL4.length; i++){
-        URL4[i]=URL4[i].trim();
-        if(URL4[i].length >=1){
-          URL5.push(URL4[i]);          
+      if (URL4.length >= 1) {
+        for (var i = 0; i < URL4.length; i++) {
+          URL4[i] = URL4[i].trim();
+          if (URL4[i].length >= 1) {
+            URL5.push(URL4[i]);
           }
-        }  
-          URL6 = "||"+ URL5.join(","); 
-          if (URL6.includes(":,")){
-            // @ts-ignore
-            URL6 = URL6.replaceAll(":,",":");
         }
-        if (URL6.includes(".,")){
+        URL6 = "||" + URL5.join(",");
+        if (URL6.includes(":,")) {
           // @ts-ignore
-          URL6 = URL6.replaceAll(".,",".");
+          URL6 = URL6.replaceAll(":,", ":");
+        }
+        if (URL6.includes(".,")) {
+          // @ts-ignore
+          URL6 = URL6.replaceAll(".,", ".");
+        }
       }
-    }
-    if(URL3.length>=1){    
-      for (var i = 0 ; i<URL3.length; i++){
-        URL3[i]=URL3[i].trim();
-        if(URL3[i].length >=1){
-          URL7.push(URL3[i]);          
+      if (URL3.length >= 1) {
+        for (var i = 0; i < URL3.length; i++) {
+          URL3[i] = URL3[i].trim();
+          if (URL3[i].length >= 1) {
+            URL7.push(URL3[i]);
           }
-        } 
-        URL8 = URL7.join(",");   
-        if (URL8.includes(":,")){
+        }
+        URL8 = URL7.join(",");
+        if (URL8.includes(":,")) {
           // @ts-ignore
-          URL8 = URL8.replaceAll(":,",":");
+          URL8 = URL8.replaceAll(":,", ":");
+        }
+        if (URL8.includes(".,")) {
+          // @ts-ignore
+          URL8 = URL8.replaceAll(".,", ".");
+        }
       }
-      if (URL8.includes(".,")){
-        // @ts-ignore
-        URL8 = URL8.replaceAll(".,",".");
-    }      
-    }
-          var old = ""
-        if (URL2 != null) old = old + URL2.trim();
-        if (URL8 != null) old = old + URL8;
-        if (URL6 != null) old = old + URL6;
-        addElementToDocument('direction', old);
-                 
-    
-    
+      var old = ""
+      if (URL2 != null) old = old + URL2.trim();
+      if (URL8 != null) old = old + URL8;
+      if (URL6 != null) old = old + URL6;
+      addElementToDocument('direction', old);
+
+
+
     });
     await context.extract(productDetails);
   },
