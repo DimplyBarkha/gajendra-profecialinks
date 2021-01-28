@@ -7,7 +7,7 @@ module.exports = {
     domain: 'dm.de',
     url: 'https://www.dm.de/search?query={searchTerms}',
     loadedSelector: 'div[data-dmid=product-grid-container]',
-    noResultsXPath: '//h1[contains(text(),"ergab leider keine Treffer")]',
+    noResultsXPath: '//h1[contains(text(),"ergab leider keine Treffer")] | //button[@aria-controls="panel-product" and @aria-disabled="true"]',
     zipcode: '',
   },
 };
