@@ -2,7 +2,7 @@ input:
   _url: http://spar.no
   URL: https://spar.no/nettbutikk/varer/hygiene-og-helse/hudpleie/handkrem/klar-handkrem-7046110032329
 extractions:
-  - html: https://workbench.import.io/html/run=428726eb-652e-460d-a92f-51e486bb2dfd/task=fdcfd725-02f5-496e-b3d8-68b073688429/47160559-83e6-452f-8934-9f46cdee0736.html
+  - html: https://workbench.import.io/html/run=16820cae-4428-4e92-be2d-17b73ca2fcca/task=5c93b56e-b791-4312-a302-857333bf08b2/86447171-b1ab-449d-bf52-7c7c7e15e0b3.html
     extractionConfigId: product/details/stores/s/spar/NO/extract
     data:
       - group:
@@ -17,12 +17,18 @@ extractions:
                 xpath: /html/body/main[1]/div[1]/ol[1]/li[2]/a[1]/span[1]
               - text: produktdetaljer
                 xpath: /html/body/main[1]/div[1]/ol[1]/li[3]/a[1]/span[1]
+            nameExtended:
+              - text: Klar Håndkrem
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/h1[1]
             brandText:
               - text: Klar
                 xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/ul[1]/li[2]
             manufacturer:
               - text: Lilleborg as dagl
                 xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/ul[1]/li[1]/strong[1]
+            quantity:
+              - text: 75ml
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/p[1]
             gtin:
               - text: "7046110032329"
                 xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/ul[1]/li[4]
@@ -40,31 +46,27 @@ extractions:
                   sorbate, sodium benzoate, sodium gluconate, tocopherol,
                   parfum.
                 xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/p[1]
+            countryOfOrigin:
+              - text: Norge
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/ul[1]/li[3]
             pricePerUnit:
               - text: kr 638,67
                 xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[5]/p[1]
             pricePerUnitUom:
               - text: l
                 xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[5]/p[1]
-            nameExtended:
-              - text: Klar Håndkrem
-                xpath: /html/body/div[4]
-            quantity:
-              - text: 75ml
-                xpath: /html/body/div[5]
-            packSize:
-              - text: 75ml
-                xpath: /html/body/div[5]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[6]
+                xpath: /html/body/div[4]
             description:
               - text: "75ml || Lilleborg as dagl || Merke: Klar || Opprinnelsesland: Norge ||
                   EAN: 7046110032329"
-                xpath: /html/body/div[7]
+                xpath: /html/body/div[5]
             price:
               - text: kr 47,90
+            descriptionBullets:
+              - text: "4"
             inStorePrice:
               - text: kr 47,90
         xpath: /html/body
-    timestamp: 1605098364735
+    timestamp: 1608285383863
