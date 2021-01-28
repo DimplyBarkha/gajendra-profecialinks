@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'auchan.ro',
     prefix: null,
-    url: null,
+    url: 'https://www.auchan.ro/store/search/?text={id}',
     country: 'RO',
     store: 'auchan',
     zipcode: '',
