@@ -29,6 +29,9 @@ fields:
     xpath: //div[@class='product-detail']/div[2]/div/div/div[2]/div/div[2]/div[2]/div[2]/div[2]/div/div/div[@class='p-price'] | (//div[@class='section-content']/div[@class='product-overview']/div/div/div/div/div/div/div/label[@class='radio-button radio-button--checked']/span/div/div/div/div/div[@class='p-price'])
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
+  - name: listPrice
+    # singleValue: true
+    xpath: //div[@class='section-content']/div[@class='product-overview']/div/div/div/div/div/div/div/label[@class='radio-button radio-button--checked']/span/div/div/div/div[@class='p-former-box']/div[@class='p-former']/s
   - name: availabilityText
     # singleValue: true
     xpath: (//button[@data-id="addToCart"]/@class)[2]
@@ -95,11 +98,15 @@ fields:
     type: NUMBER
   - name: ingredientsList
     # singleValue: true
-    xpath: concat(//h2//span[contains(text(),"Inhaltsstoffe")]/text(),' ',//h2//span[contains(text(),"Inhaltsstoffe")]/parent::h2/following::div[@class="accordion-item-content"][1])
+    # xpath: concat(//h2//span[contains(text(),'Inhaltsstoffe')]/text(),' ',//h2//span[contains(text(),'Inhaltsstoffe')]/parent::h2/following::div[@class='accordion-item-content'][1])
+    xpath: //html//div[@id='ingredientsList']
+    # regExp: \n$
+    # regExpReplace: $1
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
   - name: promotion
     # singleValue: true
+    xpath: //div[@class='pos-badges']/ul/li/span[@class='tag tag--alert-detail']
     description: promotion text on product page
   - name: variantInformation
     # singleValue: false
