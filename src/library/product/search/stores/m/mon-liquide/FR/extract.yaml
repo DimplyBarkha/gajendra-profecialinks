@@ -1,0 +1,8 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id='center_column']//ul[contains(@class,'product_list')]//li[contains(@class, 'ajax_block_product')]
+fields:
+  - name: productUrl
+    description: The title of the review
+    xpath: //a[@class='product-name']/@href
