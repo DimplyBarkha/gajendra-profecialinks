@@ -68,6 +68,9 @@ module.exports = {
     const inputKeywords = Keywords || keywords || Brands;
 
     // TODO: consider moving this to a reusable function
+
+    results = (results) || defaultResults;
+    console.log('No of results were returned' + results);
     const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
     const resultsReturned = await execute({

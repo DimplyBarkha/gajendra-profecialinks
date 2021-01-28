@@ -1,9 +1,10 @@
 
 module.exports = {
+  implements: 'navigation/goto/setZipCode',
   parameterValues: {
     country: 'US',
-    store: 'cvs',
     domain: 'cvs.com',
-    // defaultResults: 720
+    store: 'cvs',
+    zipcode: '',
   },
 };
