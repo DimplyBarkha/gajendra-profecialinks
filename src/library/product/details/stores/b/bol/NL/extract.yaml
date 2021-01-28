@@ -10,8 +10,8 @@ fields:
 - name: _pageTimeStamp
 - name: image
   description: URL of the main product image
-  xpath: //img[@class="js_product_img"]/@src
-  # xpath: //ol[@id="alternate_images_list"]/li[position() = 1]/@src
+  # xpath: //img[@class="js_product_img"]/@src
+  xpath: //ol[@id="alternate_images_list"]/li[position() = 1]/@src
 - name: imageAlt
   description: Alt text of the main product image
   xpath: //img[@class="js_product_img"]/@alt
@@ -19,8 +19,8 @@ fields:
 - name: alternateImages
   description: Other product images (not in manufacturer description)
   # xpath: (//div[contains(@class, "js_show-more-gallery")]//img)[position() > 1]/@src
-  # xpath: //ol[@id="alternate_images_list"]/li[position() > 1]/@src
-  xpath: //div[contains(@class, "thumb-list")]//ul/li[position()>1]//img/@src
+  xpath: //ol[@id="alternate_images_list"]/li[position() > 1]/@src
+  # xpath: //div[contains(@class, "thumb-list")]//ul/li[position()>1]//img/@src
 - name: metaKeywords
   description: The <meta> keywords content
   xpath: //ancestor::html//meta[@name="keywords"]/@content

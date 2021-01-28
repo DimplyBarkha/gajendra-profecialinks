@@ -2,19 +2,19 @@ input:
   _url: http://bol.com
   URL: https://www.bol.com/nl/p/my-size-condooms-maat-47-3-stuks/9200000009405505/
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=4e5ae3f2-a9d6-4087-88c1-9f96b3ab5aa5/task=8603dc44-97eb-4bab-9677-54061c01c202/08f5bbf0-7260-4610-8057-99e43f3b4015.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=b9fcf570-a40e-457a-bc05-11b42a485c38/task=d803478d-a680-4c3e-9ffb-93d147b8882d/26acd7a1-5492-4b24-a08c-c797a7b0aa54.html
     extractionConfigId: product/details/stores/b/bol/NL/extract
     data:
       - group:
           - productUrl:
               - text: https://www.bol.com/nl/p/my-size-condooms-maat-47-3-stuks/9200000009405505/
-                xpath: /html/head[1]/link[7]/@href
+                xpath: /html/body/div[14]
             image:
               - text: https://media.s-bol.com/Bx02D2p9Bjx/550x632.jpg
                 xpath: /html/body/ol[1]/li[1]/@src
             imageAlt:
               - text: My.Size Condooms maat 47 - 3 stuks
-                xpath: /html/body/ol[1]/li[1]/@alt
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@alt
             alternateImages:
               - text: https://media.s-bol.com/qxKD236jGlgk/550x580.jpg
                 xpath: /html/body/ol[1]/li[2]/@src
@@ -31,9 +31,9 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/ul[1]/li[3]/span[1]/a[1]/span[1]
             nameExtended:
               - text: My.Size Condooms maat 47 - 3 stuks
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[1]/h1[1]/span[1]
+                xpath: /html/body/div[14]/@product-name
             price:
-              - text: € 5,39
+              - text: € 4,95
                 xpath: /html/body/div[4]
             availabilityText:
               - text: In Stock
@@ -57,9 +57,6 @@ extractions:
             weightNet:
               - text: 0 kg
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/dl[1]/dd[2]
-            sku:
-              - text: "9200000009405505"
-                xpath: /html/body/ol[2]/@selected_variant_id
             variantId:
               - text: "9200000009405505"
                 xpath: /html/body/ol[2]/@selected_variant_id
@@ -69,24 +66,27 @@ extractions:
             color:
               - text: Transparant
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[2]
+              - text: Nee
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[3]
+              - text: Zonder smaak
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[4]
+              - text: Nee
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[5]
             manufacturerDescription:
               - text: Voor mannen || Zonder smaak || 3 stuk(s) ||
                 xpath: /html/body/div[12]
-            manufacturerImages:
-              - text: https://s.s-bol.com/imgbase0/imagebase3/regular/FC/0/2/2/1/7901220.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             name:
               - text: My.Size Condooms maat 47 - 3 stuks
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[1]/h1[1]/span[1]
+                xpath: /html/body/div[14]/@product-name
             inStorePrice:
-              - text: € 5,39
+              - text: € 4,95
                 xpath: /html/body/div[4]
             specifications:
               - text: "Verpakking breedte: 73 mm | Verpakking hoogte: 22 mm | Verpakking lengte:
                   81 mm"
                 xpath: /html/body/div[9]
             pricePerUnit:
-              - text: 1,80
+              - text: 1,65
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/wsp-visibility-switch[1]/section[1]/div[1]/span[1]/span[1]
             pricePerUnitUom:
               - text: stuk
@@ -111,42 +111,51 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[3]/ul[1]/li[2]/div[1]/div[2]/a[1]
               - text: My.Size Condooms maat 49 -10 stuks
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[3]/ul[1]/li[3]/div[1]/div[2]/a[1]
-              - text: Line One Labs Beflapjes met smaakjes - 5 stuks
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[3]/ul[1]/li[4]/div[1]/div[2]/a[1]
               - text: My.Size Condooms maat 53 - 3 stuks
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[3]/ul[1]/li[5]/div[1]/div[2]/a[1]
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[3]/ul[1]/li[4]/div[1]/div[2]/a[1]
               - text: Durex Condooms Classic Natural 20 stuks
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[3]/ul[1]/li[6]/div[1]/div[2]/a[1]
-              - text: Durex Condooms Orgasm Intense 10 stuks
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[3]/ul[1]/li[7]/div[1]/div[2]/a[1]
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[3]/ul[1]/li[5]/div[1]/div[2]/a[1]
               - text: My.Size Condooms maat 64 - 10 stuks
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[3]/ul[1]/li[8]/div[1]/div[2]/a[1]
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[3]/ul[1]/li[6]/div[1]/div[2]/a[1]
               - text: EasyGlide glijmiddel op waterbasis - 150 ml
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[3]/ul[1]/li[7]/div[1]/div[2]/a[1]
+              - text: Durex Condooms Orgasm Intense 10 stuks
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[3]/ul[1]/li[8]/div[1]/div[2]/a[1]
+              - text: My.Size Condooms maat 60 - 10 stuks
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[3]/ul[1]/li[9]/div[1]/div[2]/a[1]
               - text: Durex Condooms Orgasm Intense 10 stuks
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[1]/div[2]/a[1]
-              - text: Etos Classic Condooms - 60 stuks (5 x 12 stuks)
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[2]/div[2]/a[1]
-              - text: Durex Condooms Classic Natural 20 stuks
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[3]/div[2]/a[1]
               - text: Durex Condooms Real Feel 20 stuks
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[4]/div[2]/a[1]
-              - text: Durex Condooms Thin Feel Extra Lube 10 stuks
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[5]/div[2]/a[1]
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[2]/div[2]/a[1]
               - text: Durex Condooms Thin Feel 20 stuks
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[6]/div[2]/a[1]
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[3]/div[2]/a[1]
+              - text: Durex Condooms Extra Safe 20 stuks
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[4]/div[2]/a[1]
+              - text: Durex Condooms Classic Natural 20 stuks
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[5]/div[2]/a[1]
               - text: My.Size Condooms maat 49 - 3 stuks
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[7]/ul[1]/li[1]/div[1]/div[2]/a[1]
-              - text: EasyGlide glijmiddel op waterbasis - 150 ml
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[7]/ul[1]/li[2]/div[1]/div[2]/a[1]
-              - text: My.Size Condooms maat 49 -10 stuks
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[7]/ul[1]/li[3]/div[1]/div[2]/a[1]
               - text: My.Size Condooms maat 53 - 3 stuks
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[7]/ul[1]/li[2]/div[1]/div[2]/a[1]
+              - text: EasyGlide glijmiddel op waterbasis - 150 ml
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[7]/ul[1]/li[3]/div[1]/div[2]/a[1]
+              - text: My.Size Condooms maat 49 -10 stuks
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[7]/ul[1]/li[4]/div[1]/div[2]/a[1]
               - text: FPPR. Vagina Masturbator - Beige
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[7]/ul[1]/li[5]/div[1]/div[2]/a[1]
               - text: Durex Pleasure Ring Cockring - Transparant
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[7]/ul[1]/li[6]/div[1]/div[2]/a[1]
+            gtin:
+              - text: "4025838820114"
+            sku:
+              - text: "9200000009405505"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/a[1]/@data-product-id
+            shippingInfo:
+              - text: ""
+            variantCount:
+              - text: "3"
+            secondaryImageTotal:
+              - text: "4"
             termsAndConditions:
               - text: Yes
             privacyPolicy:
@@ -157,13 +166,5 @@ extractions:
               - text: Yes
             hasComparisonTable:
               - text: No
-            gtin:
-              - text: "4025838820114"
-            shippingInfo:
-              - text: Topdrogist 8.6
-            variantCount:
-              - text: "3"
-            secondaryImageTotal:
-              - text: "4"
-        xpath: /
-    timestamp: 1611042337239
+        xpath: /html
+    timestamp: 1611820246229

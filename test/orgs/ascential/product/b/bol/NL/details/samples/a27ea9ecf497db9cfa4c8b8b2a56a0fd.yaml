@@ -2,19 +2,19 @@ input:
   _url: http://bol.com
   URL: https://www.bol.com/nl/p/dove-nourishing-oil-care-conditioner-6-x-200ml-voordeelverpakking/9200000055835720/
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=4e5ae3f2-a9d6-4087-88c1-9f96b3ab5aa5/task=5f441bad-9907-4b8b-8391-4c03b4fec065/a6a7e9d2-409c-477a-a15c-dff6c00629fa.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=b9fcf570-a40e-457a-bc05-11b42a485c38/task=b9989a75-3317-4177-89c0-361e9276d1f2/1c80cf30-e8e5-41a5-a001-e2acd8a89dd3.html
     extractionConfigId: product/details/stores/b/bol/NL/extract
     data:
       - group:
           - productUrl:
               - text: https://www.bol.com/nl/p/dove-nourishing-oil-care-conditioner-6-x-200ml-voordeelverpakking/9200000055835720/
-                xpath: /html/head[1]/link[7]/@href
+                xpath: /html/body/div[15]
             image:
               - text: https://media.s-bol.com/qZjYrMg251Rp/550x577.jpg
                 xpath: /html/body/ol[1]/li[1]/@src
             imageAlt:
               - text: Dove Nourishing Oil & Care Conditioner - 6 x 200ml - Voordeelverpakking
-                xpath: /html/body/ol[1]/li[1]/@alt
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@alt
             alternateImages:
               - text: https://media.s-bol.com/JQZq2749y6Bg/550x401.jpg
                 xpath: /html/body/ol[1]/li[2]/@src
@@ -39,7 +39,7 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/ul[1]/li[5]/span[1]/a[1]/span[1]
             nameExtended:
               - text: Dove Nourishing Oil & Care Conditioner - 6 x 200ml - Voordeelverpakking
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[1]/h1[1]/span[1]
+                xpath: /html/body/div[15]/@product-name
             listPrice:
               - text: € 23,34
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/wsp-visibility-switch[1]/section[1]/div[1]/del[1]
@@ -114,9 +114,6 @@ extractions:
             weightNet:
               - text: 1,4 kg
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/dl[1]/dd[1]
-            sku:
-              - text: "9200000055835720"
-                xpath: /html/body/ol[2]/@selected_variant_id
             variantId:
               - text: "9200000055835720"
                 xpath: /html/body/ol[2]/@selected_variant_id
@@ -137,12 +134,9 @@ extractions:
                   het meest geschikt voor lang, dun of krullend haar. Tooltip ||
                   1200 ml ||
                 xpath: /html/body/div[13]
-            manufacturerImages:
-              - text: https://media.s-bol.com/NOExv2Xn5XW8/130x79.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             name:
               - text: Dove Nourishing Oil & Care Conditioner - 6 x 200ml - Voordeelverpakking
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[1]/h1[1]/span[1]
+                xpath: /html/body/div[15]/@product-name
             inStorePrice:
               - text: € 14
                 xpath: /html/body/div[4]
@@ -166,39 +160,38 @@ extractions:
                   || Voor erg droog of pluizend haar"
                 xpath: /html/body/div[9]
             unInterruptedPDP:
-              - text: Dove Nourishing Oil & Care Shampoo - 6 x 250ml - Voordeelverpakking
+              - text: Dove Nutritive Solutions Intensive Repair Conditioner - 6 x 200 ml -
+                  Voordeelverpakking
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[1]/div[1]/div[2]/a[1]
               - text: Dove Nourishing Secrets Strengthening Shampoo - 6 x 250 ml -
                   Voordeelverpakking
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[2]/div[1]/div[2]/a[1]
-              - text: Dove Nutritive Solutions Intensive Repair Conditioner - 6 x 200 ml -
-                  Voordeelverpakking
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[3]/div[1]/div[2]/a[1]
               - text: Dove Intense Repair - 6 x 250 ml - Shampoo
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[3]/div[1]/div[2]/a[1]
+              - text: Dove Hair Therapy Color Care Conditioner - 6 x 200 ml - Voordeelverpakking
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[4]/div[1]/div[2]/a[1]
               - text: Dove Nourishing Oil & Care Douchegel - 6 x 250ml - Voordeelverpakking
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[5]/div[1]/div[2]/a[1]
               - text: 6x Dove Conditioner - Zijdezacht & Glad 6x200ml -Voordeelverpakking
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[6]/div[1]/div[2]/a[1]
-              - text: Dove Nutritive Solutions Nourishing Oil Care- 6 x 250 ml - Shampoo -
-                  Voordeelverpakking
+              - text: Dove Silk Glow Douchecrème - 6 x 250 ml - Voordeelverpakking
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[7]/div[1]/div[2]/a[1]
-              - text: Dove Hair Therapy Color Care Conditioner - 6 x 200 ml - Voordeelverpakking
+              - text: Dove Hair Therapy Color Care Shampoo - 6 x 250ml - Voordeelverpakking
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[8]/div[1]/div[2]/a[1]
-              - text: Andrélon Special Care & Repair Conditioner - 6 x 300 ml -
-                  Voordeelverpakking
+              - text: Garnier Loving Blends Conditioner - Honing Goud - Beschadigd of Breekbaar
+                  Haar - 6 x 250 ml - Voordeelverpakking
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[9]/div[1]/div[2]/a[1]
-              - text: Dove Hair Therapy Color Care Conditioner - 6 x 200 ml - Voordeelverpakking
+              - text: Tabitha James Kraan 4-in-1 Conditioner - Golden Citrus 500ml
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[1]/div[2]/a[1]
-              - text: Tabitha James Kraan 4-in-1 Conditioner - Amber Rose 500ml
+              - text: Andrélon Special Zilver Care Conditioner - 6 x 300ml - Voordeelverpakking
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[2]/div[2]/a[1]
-              - text: John Masters Organics Leave-in Conditioning Mist Green Tea & Calendula
+              - text: Ray Conditioner - Natuurlijk - Alle Haartypes - 500ml
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[3]/div[2]/a[1]
               - text: O´Right Caffeine Conditioner, 1000ml
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[4]/div[2]/a[1]
-              - text: L'Oréal Professionnel Serie Expert inforcer conditioner - 200 ml
+              - text: Ellips Milkshake Hair Repair Leave-in Conditioner - 110 ml
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[5]/div[2]/a[1]
-              - text: O Boticário NativaSPA Haar Conditioner Caviar 300ml Crèmespoeling
+              - text: Naïf Natuurlijke herstellende haar conditioner - 200ml
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[6]/div[2]/a[1]
               - text: Dove Nourishing Oil & Care Shampoo - 6 x 250ml - Voordeelverpakking
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[7]/ul[1]/li[1]/div[1]/div[2]/a[1]
@@ -207,13 +200,24 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[7]/ul[1]/li[2]/div[1]/div[2]/a[1]
               - text: Dove Nourishing Oil & Care Douchegel - 6 x 250ml - Voordeelverpakking
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[7]/ul[1]/li[3]/div[1]/div[2]/a[1]
-              - text: Dove Cream Wash Zeep Pomp - 6 x 250 ml - Voordeelverpakking
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[7]/ul[1]/li[4]/div[1]/div[2]/a[1]
-              - text: Dove Men Clean Comfort Douchegel - 6 x 250 ml - Voordeelverpakking
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[7]/ul[1]/li[5]/div[1]/div[2]/a[1]
-              - text: Dove Sheabutter & Vanille Purely Pampering Douchecrème - 6 x 250 ml -
+              - text: Dove Nutritive Solutions Intensive Repair Conditioner - 6 x 200 ml -
                   Voordeelverpakking
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[7]/ul[1]/li[4]/div[1]/div[2]/a[1]
+              - text: Dove Hair Therapy Color Care Shampoo - 6 x 250ml - Voordeelverpakking
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[7]/ul[1]/li[5]/div[1]/div[2]/a[1]
+              - text: Dove Cream Wash Zeep Pomp - 6 x 250 ml - Voordeelverpakking
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[7]/ul[1]/li[6]/div[1]/div[2]/a[1]
+            gtin:
+              - text: "8712561968126"
+            sku:
+              - text: "9200000055835720"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/a[1]/@data-product-id
+            shippingInfo:
+              - text: ""
+            variantCount:
+              - text: "0"
+            secondaryImageTotal:
+              - text: "6"
             termsAndConditions:
               - text: Yes
             privacyPolicy:
@@ -224,13 +228,5 @@ extractions:
               - text: Yes
             hasComparisonTable:
               - text: No
-            gtin:
-              - text: "8712561968126"
-            shippingInfo:
-              - text: ""
-            variantCount:
-              - text: "0"
-            secondaryImageTotal:
-              - text: "6"
-        xpath: /
-    timestamp: 1611042339147
+        xpath: /html
+    timestamp: 1611820251568

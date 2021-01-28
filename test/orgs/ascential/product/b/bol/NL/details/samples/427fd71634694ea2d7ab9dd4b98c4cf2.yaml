@@ -2,13 +2,17 @@ input:
   _url: http://bol.com
   URL: https://www.bol.com/nl/p/andrelon-oil-care-3-x-180-ml-1-minuut-haarmasker-voordeelverpakking/9200000077019379/
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=4e5ae3f2-a9d6-4087-88c1-9f96b3ab5aa5/task=749cb999-a68a-4fcc-b0bb-54d04f141a82/e2ef5498-7dbf-49f0-813d-66959ea8d48f.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=b9fcf570-a40e-457a-bc05-11b42a485c38/task=389c013e-4da4-42fb-b87f-ceb910f31e7f/c55f3dc6-f603-4046-8c1d-eecb11dfe22a.html
     extractionConfigId: product/details/stores/b/bol/NL/extract
     data:
       - group:
           - productUrl:
               - text: https://www.bol.com/nl/p/andrelon-oil-care-3-x-180-ml-1-minuut-haarmasker-voordeelverpakking/9200000077019379/
-                xpath: /html/head[1]/link[7]/@href
+                xpath: /html/body/div[13]
+            imageAlt:
+              - text: Andrélon Oil & Care - 3 x 180 ml - 1-Minuut Haarmasker -
+                  Voordeelverpakking
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
             category:
               - text: Persoonlijke verzorging
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/ul[1]/li[2]/span[1]/a[1]/span[1]
@@ -21,7 +25,7 @@ extractions:
             nameExtended:
               - text: Andrélon Oil & Care - 3 x 180 ml - 1-Minuut Haarmasker -
                   Voordeelverpakking
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[1]/h1[1]/span[1]
+                xpath: /html/body/div[13]/@product-name
             description:
               - text: "Andrélon 1-Minuut Haarmasker Oil & Care Dit masker geeft droog haar een
                   volledig verzorgende behandeling in slechts 1 minuut. ||
@@ -80,9 +84,6 @@ extractions:
             weightNet:
               - text: 0,6 kg
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/dl[1]/dd[1]
-            sku:
-              - text: "9200000077019379"
-                xpath: /html/body/ol[2]/@selected_variant_id
             variantId:
               - text: "9200000077019379"
                 xpath: /html/body/ol[2]/@selected_variant_id
@@ -103,13 +104,10 @@ extractions:
                   product het meest geschikt is. Bijvoorbeeld; het meest
                   geschikt voor lang, dun of krullend haar. Tooltip || 540 ml ||
                 xpath: /html/body/div[11]
-            manufacturerImages:
-              - text: https://media.s-bol.com/Y7Q6KRJB6EN2/130x82.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             name:
               - text: Andrélon Oil & Care - 3 x 180 ml - 1-Minuut Haarmasker -
                   Voordeelverpakking
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[1]/h1[1]/span[1]
+                xpath: /html/body/div[13]/@product-name
             specifications:
               - text: "Verpakking breedte: 107 mm | Verpakking hoogte: 71 mm | Verpakking
                   lengte: 192 mm"
@@ -128,35 +126,47 @@ extractions:
             unInterruptedPDP:
               - text: Andrélon Oil & Care - 6 x 300 ml - Conditioner - Voordeelverpakking
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[1]/div[1]/div[2]/a[1]
-              - text: Andrélon Oil & Care Conditioner - 3 x 300 ml - Voordeelverpakking
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[2]/div[1]/div[2]/a[1]
               - text: Andrélon Oil & Care - 3 x 300 ml - Shampoo - Voordeelverpakking
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[3]/div[1]/div[2]/a[1]
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[2]/div[1]/div[2]/a[1]
               - text: Andrélon Special Oil & Care Shampoo - 6 x 300 ml - Voordeelverpakking
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[3]/div[1]/div[2]/a[1]
+              - text: Andrélon Deluxe Repair & Shine Intensief Haarsmasker - 200 ml
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[4]/div[1]/div[2]/a[1]
               - text: Andrélon Classic Perfecte Krul Shampoo 6 x 300 ml - Voordeelverpakking
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[5]/div[1]/div[2]/a[1]
-              - text: Andrélon Deluxe Repair & Shine Intensief Haarsmasker - 200 ml
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[6]/div[1]/div[2]/a[1]
               - text: Organix Moroccan Argan Olie Haarserum - 100 ml
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[6]/div[1]/div[2]/a[1]
+              - text: Andrélon Perfecte Krul - 180 ml - 1-Minuut Haarmasker - 6 stuks -
+                  Voordeelverpakking
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[7]/div[1]/div[2]/a[1]
               - text: Andrélon Conditioner Keratine Repair - 6 x 300 ml - Voordeelverpakking
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[8]/div[1]/div[2]/a[1]
-              - text: Andrélon Perfecte Krul - 180 ml - 1-Minuut Haarmasker - 6 stuks -
+              - text: Andrélon Intense Care & Repair 1-Minuut Haarmasker - 6 x 180 ml -
                   Voordeelverpakking
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[9]/div[1]/div[2]/a[1]
-              - text: Andrélon Oil & Care Conditioner - 3 x 300 ml - Voordeelverpakking
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[6]/ul[1]/li[1]/div[1]/div[2]/a[1]
               - text: Andrélon Oil & Care - 6 x 300 ml - Conditioner - Voordeelverpakking
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[6]/ul[1]/li[2]/div[1]/div[2]/a[1]
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[6]/ul[1]/li[1]/div[1]/div[2]/a[1]
               - text: Andrélon Oil & Care - 3 x 300 ml - Shampoo - Voordeelverpakking
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[6]/ul[1]/li[3]/div[1]/div[2]/a[1]
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[6]/ul[1]/li[2]/div[1]/div[2]/a[1]
               - text: Andrélon Special Oil & Care Shampoo - 6 x 300 ml - Voordeelverpakking
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[6]/ul[1]/li[3]/div[1]/div[2]/a[1]
+              - text: Andrélon Classic Perfecte Krul Shampoo 6 x 300 ml - Voordeelverpakking
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[6]/ul[1]/li[4]/div[1]/div[2]/a[1]
               - text: NIVEA Zuiverende Clear-Up Strips - 6 stuks
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[6]/ul[1]/li[5]/div[1]/div[2]/a[1]
-              - text: Andrélon Classic Perfecte Krul Shampoo 6 x 300 ml - Voordeelverpakking
+              - text: Oral-B Pro-Expert Professionele Bescherming - 4x75 ml - Tandpasta
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[6]/ul[1]/li[6]/div[1]/div[2]/a[1]
+            gtin:
+              - text: "8710447182215"
+            sku:
+              - text: "9200000077019379"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/@data-global-id
+            shippingInfo:
+              - text: ""
+            variantCount:
+              - text: "2"
+            secondaryImageTotal:
+              - text: "0"
             availabilityText:
               - text: Out Of Stock
             termsAndConditions:
@@ -169,13 +179,5 @@ extractions:
               - text: Yes
             hasComparisonTable:
               - text: No
-            gtin:
-              - text: "8710447182215"
-            shippingInfo:
-              - text: ""
-            variantCount:
-              - text: "2"
-            secondaryImageTotal:
-              - text: "0"
-        xpath: /
-    timestamp: 1611042333070
+        xpath: /html
+    timestamp: 1611820245674
