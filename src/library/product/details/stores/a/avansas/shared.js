@@ -156,6 +156,7 @@ const transform = (data) => {
         let text = '';
         row.manufacturerDescription.forEach(item => {
           text = text + (text ? ' ' : '') + item.text;
+          text = text.replace(/\n/g, ' ').replace(/\s{2,}/g, ' ').trim();
         });
         row.manufacturerDescription = [{ text }];
       }

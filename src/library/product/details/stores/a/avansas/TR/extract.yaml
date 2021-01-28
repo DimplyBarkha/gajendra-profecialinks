@@ -45,7 +45,7 @@ fields:
     xpath: //td[contains(text(), 'Yağ, g')]/text()[1]
   - name: totalCarbPerServing
     singleValue: false
-    xpath: //table[@class="nescafe-gold-table"]//td[contains(text(), 'Karbonhidrat')]/following-sibling::td | //td[contains(text(), 'Karbonhidrat, g')]/following-sibling::td[2]/text()
+    xpath: //table[@class="nescafe-gold-table"]//td[contains(text(), 'Karbonhidrat')]/following-sibling::td | (//td[contains(text(), 'Karbonhidrat, g')]/following-sibling::td[2]/text())[1]
   - name: totalCarbPerServingUom
     singleValue: false
     xpath: //td[contains(text(), 'Karbonhidrat, g')]/text()[1]
@@ -168,7 +168,7 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@class="mini-hero-v2"]//p/text() | //div[@class="mini-hero-v2"]//span/text() | //div[@class="mini-hero-v2"]//div/div[@id="p3-lp-main"]//text() | //div[@class="mini-hero-v2"]//div[@id="p8-lp-main"]//text() | //div[@id="p10-lp-main"]//text()
+    xpath: //div[@class="mini-hero-v2"]//p/text() | //div[@class="mini-hero-v2"]//span/text() | //div[@class="mini-hero-v2"]//div/div[@id="p3-lp-main"]//text() | //div[@class="mini-hero-v2"]//div[@id="p8-lp-main"]//text() | //div[@id="p10-lp-main"]//text() | //div[@class="nescafe-content"]
     # //div[@class="mini-hero-v2"]//p/text() | //div[@class="mini-hero-v2"]//span/text() | //div[@class="mini-hero-v2"]//div//text() | //div[@id="p10-lp-main"]//text()
     # xpath: //div[@class="mini-hero-v2"]//div//text() | //div[@id="p10-lp-main"]//text()
     # xpath: //div[@itemprop="description"]//td/text() | //span[@class="p1-lp-pro-title"]//text() | //span[@class="p1-lp-pro-title"]//..//text() | //div[@itemprop="description"]//div//text()
