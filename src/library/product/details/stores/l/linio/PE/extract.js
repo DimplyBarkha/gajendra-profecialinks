@@ -48,14 +48,17 @@ module.exports = {
     else result = elem ? elem.singleNodeValue : '';
     return result && result.trim ? result.trim() : result;
     };
-    var backgroundURL = getXpath('//iframe/@src', 'nodeValue');
-    if (backgroundURL.length > 0)
+    var backgroundURL = getXpath("(//script[contains(@src,'https://googleads.g.doubleclick.net/pagead/viewthroughconversion')]/@src)[1]", 'nodeValue');
+    console.log(backgroundURL,'--------------------backgrpound')
+    if (backgroundURL != null)
   { 
-  var a=(backgroundURL).split('offer_')[1];
+  var a=(backgroundURL).split('prodid%3D')[1];
   }
   else{
     a= ''
   }
+  console.log(a,'-----aaa---------------backgrpound')
+
   addElementToDocument('product_id', a);
   //   var brand = getAllXpath('//a[@itemprop="brand"]//text()', 'nodeValue');
   //   // var brand1= brand.ignoreCase;
