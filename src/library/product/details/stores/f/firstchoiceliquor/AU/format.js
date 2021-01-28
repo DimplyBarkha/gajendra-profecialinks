@@ -27,6 +27,8 @@ const transform = (data) => {
         if (row.aggregateRating) {
           row.aggregateRating.forEach(item => {
             item.text = item.text.replace(/\s*/g, '');
+            item.text = 's'+item.text;
+            item.text = item.text.slice(1,-1);
             item.text = Number(item.text);
           });
         }
@@ -38,13 +40,16 @@ const transform = (data) => {
           });
         }
         if (row.description) {
-            let description_ar = [];
-            row.description.forEach(item => {
-              description_ar.push(item.text);
-            });
-            if (description_ar.length) {
-              row.description = [{ "text": description_ar.join().replace("* Wine vintages can vary when delivered or collected from your chosen Click & Collect store.",'').replace(/BrandS.*/g,''), 'xpath': row.description[0].xpath }];
-            }
+          let description_ar = [];
+          row.description.forEach(item => {
+            item.text = item.text.replace("* Wine vintages can vary when delivered or collected from your chosen Click & Collect store.",'');
+            item.text = item.text.replace(/Brand.*/g,'');
+            item.text = 's'+item.text;
+            description_ar.push(item.text);
+          });
+          if (description_ar.length) {
+            row.description = [{ "text": description_ar.join().slice(1,-2), 'xpath': row.description[0].xpath }];
+          }
         }
         if (row.quantity) {
           row.quantity.forEach(item => {

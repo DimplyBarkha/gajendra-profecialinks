@@ -25,10 +25,10 @@ fields:
     xpath: //meta[@property="og:image"]/@content
   - name: alternateImages
     singleValue: false 
-    xpath: //div[(contains(@class,'sku-thumbnail-row'))]//a[not(contains(position(),1))]//img/@src
+    xpath: //div[(contains(@class,'sku-thumbnail-row'))]//a[contains(@data-slide-id,"image") and not(contains(position(),1))]//img/@src
   - name: secondaryImageTotal
     singleValue: false 
-    xpath: count(//div[(contains(@class,'sku-thumbnail-row'))]//a[not(contains(position(),1))]//img)
+    xpath: count(//div[(contains(@class,'sku-thumbnail-row'))]//a[contains(@data-slide-id,"image") and not(contains(position(),1))]//img/@src)
   - name: listPrice
     singleValue: false
     xpath: //div[(contains(@class,'product-meta-container grid-x'))]//span[(contains(@class,'secondary'))]//div[@class="FormattedAmount"]
@@ -80,7 +80,9 @@ fields:
     defaultValue: 'In Stock'
   - name: aggregateRating
     singleValue: false
-    xpath: //div[(contains(@class,'product-meta-container grid-x'))]//div[@data-bv-show="rating_summary"]//div[(contains(@class,'bv_avgRating_component_container notranslate'))]
+    xpath: //script[contains(text(), "ratingValue") and not(contains(@id,"bv-jsonld-reviews-data"))]/text()
+    regExp: ratingValue":([^,]+)
+    regExpReplace: $1
   - name: ratingCount
     singleValue: false
     xpath: //div[(contains(@class,'product-meta-container grid-x'))]//div[@data-bv-show="rating_summary"]//div[@class="bv_numReviews_text"]
