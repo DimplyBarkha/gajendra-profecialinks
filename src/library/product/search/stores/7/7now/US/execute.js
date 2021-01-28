@@ -34,7 +34,8 @@ async function implementation (
       return response.json();
     };
 
-    const productDetails = await postData('https://www.7now.com/api/inventory/digital/v3/store/26872/products/search', { query: inputs.keywords, suggest: false });
+    // const productDetails = await postData('https://www.7now.com/api/inventory/digital/v3/store/26872/products/search', { query: inputs.keywords, suggest: false });
+    const productDetails = await postData('https://www.7now.com/api/catalog/search/products', { query: inputs.keywords, suggest: false });
 
     productDetails.Items.forEach((item, index) => {
       const allData = document.createElement('div');
@@ -57,7 +58,7 @@ async function implementation (
       allData.appendChild(thumbnail);
       const price = document.createElement('div');
       price.setAttribute('class', 'product_price');
-      price.innerText = '$' + item.price/100;
+      price.innerText = '$' + item.price_cap/100;
       allData.appendChild(price);
       document.body.appendChild(allData);
     });
