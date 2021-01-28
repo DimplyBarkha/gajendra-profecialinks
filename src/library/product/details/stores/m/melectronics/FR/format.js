@@ -81,7 +81,7 @@ const transform = (data) => {
         });
         row.specifications = [{ text: specificationsArray.join(' | '), xpath: row.specifications[0].xpath }];
       }
-      if (row.nameExtended) {
+      if (row.nameExtended && row.brandText) {
         var nameExtendedText = row.nameExtended[0].text.includes(row.brandText[0].text) ? row.nameExtended[0].text.replace(row.brandText[0].text, row.brandText[0].text + ' -') : row.brandText[0].text + ' - ' + row.nameExtended[0].text;
         row.nameExtended = [{ text: nameExtendedText, xpath: row.nameExtended[0].xpath }];
       }
@@ -92,13 +92,12 @@ const transform = (data) => {
       }
       if (row.category) {
         const categoryList = [];
-        const categoryArray = row.category.map((item) => item.text)
+        const categoryArray = row.category.map((item) => item.text);
         const uniqueCategoryList = new Set(categoryArray);
-        uniqueCategoryList.forEach((item) => { categoryList.push({ text: item }) });
+        uniqueCategoryList.forEach((item) => { categoryList.push({ text: item }); });
         console.log('listItems =>', categoryList);
         row.category = categoryList;
       }
-
 
       // if (row.price) {
       //   row.price.forEach(item => {
