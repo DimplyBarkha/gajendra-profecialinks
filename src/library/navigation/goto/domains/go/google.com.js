@@ -50,9 +50,10 @@ module.exports = {
       
       while (!solved && (currentAttempts < maxAttempts)) {
         console.log(`on attempt: ${currentAttempts}`);
-        await context.click('div.captcha-handler',{ timeout: 4000 })
-        .then(async()=>await new Promise(res=>setTimeout(res,2000)))
-        .catch(()=>console.log('No click required'));
+        // Removed click, resolve captcha w/ solveCaptcha instead
+        // await context.click('div.captcha-handler',{ timeout: 4000 })
+        // .then(async()=>await new Promise(res=>setTimeout(res,2000)))
+        // .catch(()=>console.log('No click required'));
         
         if (iframeFound){
           // @ts-ignore      // eslint-disable-next-line no-undef  
@@ -82,7 +83,7 @@ module.exports = {
 
         // await context.waitForNavigation({ timeout: 10000, waitUntil: 'load' });
         console.log(await currentUrl())
-        await new Promise((resolve,reject) => setTimeout(resolve, 3000));
+        await new Promise((resolve,reject) => setTimeout(resolve, 6000));
     
         currentAttempts++;
       }
