@@ -1,0 +1,91 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+- name: nameExtended
+  singleValue: true
+  xpath: //*[@data-automation-id="productPage"]//h1[@data-automation-id="name"]
+- name: productUrl
+  singleValue: false
+  xpath: //*[@id="iio_product_url"]
+- name: image
+  singleValue: false
+  xpath: (//div[contains(@class,'productImageCarouselContainer')]//img[@data-tl-id="ProductPage-primary-image"]/@src|//*[@id="iio_image"])
+- name: imageAlt
+  singleValue: false
+  xpath: //div[contains(@class, 'prod-HeroImage')]//img/@alt
+- name: alternateImages
+  singleValue: false
+  xpath: (//div[contains(@class, 'productImageCarouselContainer')]//li[@class='slider-slide']//img/@src)[position()>1]
+  regExp: ^(.+?\.(png|jpe?g)).*$
+  regExpReplace: $1
+- name: secondaryImageTotal
+  singleValue: false
+  description: 
+  type: NUMBER
+  xpath: count((//div[contains(@class, 'productImageCarouselContainer')]//li[@class='slider-slide']//img/@src)[position()>1])
+- name: ingredientsList
+  singleValue: false
+  xpath: //div[@data-automation-id="details"]//div[contains(@class,'ProductAttribute')]
+- name: description
+  singleValue: false
+  xpath: //*[@id="added_description"]
+- name: brandText
+  singleValue: true
+  xpath: //*[@id="iio_brandText"]
+- name: listPrice
+  singleValue: true
+  xpath: (//div[@id="iio_listPrice"]|(//*[not(//div[@id="iio_listPrice"])]//section[contains(@data-automation-id, "productPage")]//div[contains(@class, "ProductPage__priceContainer")]//*[contains(@data-automation-id,"old-price")]))[1]
+- name: pricePerUnit
+  singleValue: true
+  xpath: //*[@id="iio_pricePerUnit"]
+- name: pricePerUnitUom
+  singleValue: true
+  xpath: //*[@id="iio_pricePerUnitUOM"]
+- name: descriptionBullets
+  singleValue: true
+  xpath: count(//div[@data-automation-id="details"]//div[@data-automation-id="productAttributeValue"]//li)
+- name: imageZoomFeaturePresent
+  singleValue: false
+  xpath: (//div[@data-automation-id="productPageTile"]//img[contains(@class,'Zoom')]/@src)[1]
+  regExp: (.+)
+  regExpReplace: Yes
+  defaultValue: No
+- name: additionalDescBulletInfo
+  singleValue: false
+  xpath: //div[@data-automation-id="details"]//div[@data-automation-id="productAttributeValue"]//li
+- name: price
+  singleValue: false
+  xpath: //div[contains(@class,'ProductPage__title')]//span[@data-automation-id="salePrice"]
+- name: availabilityText
+  singleValue: false
+  xpath: //*[@id="iio_available"]
+  # xpath: //div[@data-automation-id="productPageTile"]//div[@data-automation-id="add-to-cart"]
+  # regExp: (.+)
+  # regExpReplace: In Stock
+  # defaultValue: Out Of Stock
+- name: servingSize
+  singleValue: false
+  xpath: //*[contains(text(),'Serving')]/following-sibling::*[1]
+  description: The size of serving Nutritional information is based on.
+- name: variantCount
+  singleValue: false
+  xpath: count(//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li)
+- name: variantId
+  singleValue: true
+  xpath: //*[@id="iio_variantId"]
+- name: variants
+  xpath: //*[@id="iio_variants"]
+  singleValue: false
+- name: sku
+  singleValue: true
+  xpath: //*[@id="iio_sku"]
+- name: gtin
+  singleValue: true
+  xpath: //*[@id="iio_upc"]
+- name: servingSizeUom
+  singleValue: true
+  xpath: (//section[@data-automation-id="nutritionFacts"]//div//h3[contains(text(),"Serving size") or contains(text(),"serving size")]/following-sibling::h3|//*[@id="iio_nutrient_servingSize"])[1]
+  regExp: ([a-zA-Z\s]+)
+#extends: ../../walmartOG/US/extract
