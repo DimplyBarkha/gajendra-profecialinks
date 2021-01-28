@@ -1,20 +1,23 @@
 
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
   { goto },
 ) {
   const { id } = inputs;
-  async function getProductUrl () {
-    return document.body.innerText.match(/targetValue":"([^"]+)/);
+  async function getProductUrl() {
+    return document.body.innerText.match(/(targetValue|targetUrl)":"([^"]+)/);
   }
+
   if (parameters.url) {
     const url = parameters.url.replace('{id}', encodeURIComponent(id));
     await goto({ url });
-    const productUrl = await context.evaluate(getProductUrl);
-    return productUrl ? ('https://www.sephora.com/' + productUrl[1]) : `https://www.sephora.com/search?keyword=${id}`;
+    let productUrl = await context.evaluate(getProductUrl);
+    productUrl = productUrl ? ('https://www.sephora.com/' + productUrl[2]) : `https://www.sephora.com/search?keyword=${id}`;
+    return productUrl.replace('https://www.sephora.com/https://www.sephora.com/', 'https://www.sephora.com/');
   }
+
 }
 module.exports = {
   implements: 'product/details/createUrl',

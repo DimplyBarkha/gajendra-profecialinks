@@ -229,17 +229,29 @@ module.exports = {
         heading.setAttribute('rating', rating);
       }
       async function getReviewCount () {
-        var productId = Sephora.mboxAttrs.productId;
+        let productId = Sephora && Sephora.mboxAttrs && Sephora.mboxAttrs.productId;
+        if(!productId) {
+          productId =   document.evaluate('//a[contains(@data-comp,"ProductItem")]', document, null, XPathResult.ANY_TYPE, null) && document.evaluate('//a[contains(@data-comp,"ProductItem")]', document, null, XPathResult.ANY_TYPE, null).iterateNext()  && document.evaluate('//a[contains(@data-comp,"ProductItem")]', document, null, XPathResult.ANY_TYPE, null).iterateNext().getAttribute('data-uid') && document.evaluate('//a[contains(@data-comp,"ProductItem")]', document, null, XPathResult.ANY_TYPE, null).iterateNext().getAttribute('data-uid').split(' ') && document.evaluate('//a[contains(@data-comp,"ProductItem")]', document, null, XPathResult.ANY_TYPE, null).iterateNext().getAttribute('data-uid').split(' ')[0];
+        }
         const response = await fetch(`https://api.bazaarvoice.com/data/reviews.json?Filter=contentlocale%3Aen*&Filter=ProductId%3A${productId}&Sort=SubmissionTime%3Adesc&Limit=30&Offset=0&Include=Products%2CComments&Stats=Reviews&passkey=rwbw526r2e7spptqd2qzbkp7&apiversion=5.4&Locale=en_US`);
         return response.json();
       }
       var count = await getReviewCount();
-      var reviewCount = count.Includes.Products;
-      var totalReviewCount = reviewCount[Object.keys(reviewCount)[0]].TotalReviewCount;
-      var description = reviewCount[Object.keys(reviewCount)[0]].Description.replace(/-\s/g, ' || ');
-      if (heading) {
-        heading.setAttribute('review-count', totalReviewCount);
-        heading.setAttribute('description', description);
+      var reviewCount = count && count.Includes && count.Includes.Products;
+      if(reviewCount) {
+        const totalReviewCount = reviewCount[Object.keys(reviewCount)[0]].TotalReviewCount;
+        const description = reviewCount[Object.keys(reviewCount)[0]] && reviewCount[Object.keys(reviewCount)[0]].Description && reviewCount[Object.keys(reviewCount)[0]].Description.replace(/-\s/g, ' || ');
+        if (heading) {
+          heading.setAttribute('review-count', totalReviewCount);
+          heading.setAttribute('description', description);
+        }
+      }else{
+        const desc = document.evaluate("//script[contains(.,'longDescription')]", document, null, XPathResult.ANY_TYPE, null) && document.evaluate("//script[contains(.,'longDescription')]", document, null, XPathResult.ANY_TYPE, null).iterateNext() && document.evaluate("//script[contains(.,'longDescription')]", document, null, XPathResult.ANY_TYPE, null).iterateNext().textContent;
+        const parseDesc = JSON.parse(desc);
+        const fDesc = parseDesc && parseDesc.page && parseDesc.page.product && parseDesc.page.product.productDetails && parseDesc.page.product.productDetails.longDescription && parseDesc.page.product.productDetails.longDescription && parseDesc.page.product.productDetails.longDescription.replace(/<[^>]*>?/gm, '');;
+        var review = document.querySelector('span[data-at="number_of_reviews"]') && document.querySelector('span[data-at="number_of_reviews"]').textContent;
+        heading && heading.setAttribute('review-count', review);
+        heading && heading.setAttribute('description', fDesc);
       }
 
       const altImage = JSON.parse(document.querySelector('script#linkStore').textContent);
