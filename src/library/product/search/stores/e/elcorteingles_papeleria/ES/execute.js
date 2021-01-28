@@ -6,7 +6,7 @@ module.exports = {
     domain: 'elcorteingles.es',
     url: 'https://www.elcorteingles.es/papeleria/search/?s={searchTerms}',
     loadedSelector: 'li.products_list-item',
-    noResultsXPath: '//div[@class="products_list-container _no_products vp"] | //a[@class="product_detail-brand"]',
+    noResultsXPath: '//div[@class="products_list-container _no_products vp"] | //div[contains(.,"No se han")]',
     zipcode: '',
   },
 };

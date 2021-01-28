@@ -49,7 +49,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: '.products_list-item:nth-last-child(1)',
-    noResultsXPath: '//div[@class="products_list-container _no_products vp"] | //a[@class="product_detail-brand"]',
+    noResultsXPath: '//div[@class="products_list-container _no_products vp"] | //div[contains(.,"No se han")]',
     openSearchDefinition: null,
     domain: 'elcorteingles.es',
     zipcode: '',
