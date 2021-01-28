@@ -166,24 +166,29 @@ module.exports = {
         await context.goto(src, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
         await context.waitForSelector('div#ds_div');
         const inTheBoxUrl = await context.evaluate(async function () {
-          const imgArray = document.querySelectorAll('div.lieferleft img');
+          // const imgArray = document.querySelectorAll('div.lieferleft img');
+          const imgArray = document.querySelectorAll('div.inthebox span img');
           const inTheBoxUrlArray = [];
-          let i = 0;
-          for (i = 0; i < imgArray.length; i++) {
-            inTheBoxUrlArray.push(imgArray[i].src);
-          }
-          const textArray = document.querySelectorAll('div.lieferleft p');
+          imgArray.forEach(img => {
+            if (img.src.length > 0) {
+              inTheBoxUrlArray.push(img.src);
+            }
+          })
+          //const textArray = document.querySelectorAll('div.lieferleft p');
+          const textArray = document.querySelectorAll('div.inthebox span.title');
           const inTheBoxText = [];
-          for (i = 0; i < textArray.length; i++) {
-            inTheBoxText.push(textArray[i].innerText);
-          }
+          textArray.forEach(txt => {
+            if (txt.innerText.length > 0) {
+              inTheBoxText.push(txt.innerText);
+            }
+          });
           console.log('inTheBox code execution complete');
 
           return { inTheBoxUrlArray, inTheBoxText };
         });
         if (inTheBoxUrl !== null) {
           await context.evaluate(async function (inTheBoxUrl) {
-            function addHiddenDiv (id, content) {
+            function addHiddenDiv(id, content) {
               const newDiv = document.createElement('div');
               newDiv.id = id;
               newDiv.textContent = content;
@@ -191,7 +196,7 @@ module.exports = {
               document.body.appendChild(newDiv);
             }
 
-            function getNodesFromxpath (STR_XPATH, context) {
+            function getNodesFromxpath(STR_XPATH, context) {
               var xresult = document.evaluate(
                 STR_XPATH,
                 context,
@@ -206,7 +211,8 @@ module.exports = {
               }
               return xnodes;
             }
-            const compareTableXpath = '//p[contains(.,"Vergleich")]';
+            // const compareTableXpath = '//p[contains(.,"Vergleich")]';
+            const compareTableXpath = '//h1[contains(.,"Vergleich")]';
             if (getNodesFromxpath(compareTableXpath, document)) {
               addHiddenDiv('hasComparisionTable', 'Yes');
             }

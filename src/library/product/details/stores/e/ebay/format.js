@@ -95,6 +95,21 @@ const transform = (data) => {
         // if (row.shippingInfo[0].text.includes('outlet')) row.shippingInfo.splice(0);
       }
       // row.hasComparisonTable = row.hasComparisonTable ? [{ text: 'Yes' }] : [{ text: 'No' }]
+      if (row.inTheBoxText) {
+        let text = '';
+        row.inTheBoxText.forEach(item => {
+          text += `${item.text} || `
+        });
+        row.inTheBoxText = [{ text }];
+      }
+
+      if (row.inTheBoxUrl) {
+        let text = '';
+        row.inTheBoxUrl.forEach(item => {
+          text += `${item.text} || `
+        });
+        row.inTheBoxUrl = [{ text }];
+      }
     }
   }
   const clean = text => text.toString()
