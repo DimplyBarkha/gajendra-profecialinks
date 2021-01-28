@@ -22,9 +22,9 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: translate((//div[@class='bv_averageRating_component_container']/div[@class='bv_text'])[1],".",",")
-  - name: aggregateRating2
-    singleValue: false
-    xpath: //div[@class='bv_averageRating_component_container']/div[@class='bv_text'])[1]
+#  - name: aggregateRating2
+#    singleValue: false
+#    xpath: //div[@class='bv_averageRating_component_container']/div[@class='bv_text'][1]
   - name: reviewCount
     singleValue: false
     xpath: //div[@class='bv_numReviews_component_container']/div[@class='bv_text']
@@ -37,7 +37,7 @@ fields:
     regExpReplace: $1
   - name: price
     singleValue: false
-    xpath: //div[contains(@class, 'productCard__price')]
+    xpath: //span[contains(@class, 'productCard__price')]
   - name: manufacturer
     singleValue: false
     xpath: //span[@class='productCard__brand']
