@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -39,6 +39,7 @@ fields:
   - name: availabilityText
     singleValue: false
     xpath: //div[@class="product-detail_btn-group"]//div[contains(@class,'full-width text-center ng-scope')]//span[@class="text_lable"]//span[@class="sr-only"]
+    defaultValue: 'In Stock'
   - name: sku
     singleValue: false
     xpath: //div[contains(@class,"col-md-12 text-left")]//li//strong[text()="Product Number"]/parent::*/span
