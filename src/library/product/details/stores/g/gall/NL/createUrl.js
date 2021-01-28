@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'gall.nl',
     prefix: null,
-    url: null,
+    url: 'https://www.gall.nl/zoeken/?q={id}',
     country: 'NL',
     store: 'gall',
     zipcode: "''",
