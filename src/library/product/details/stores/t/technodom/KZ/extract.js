@@ -38,4 +38,5 @@ module.exports = {
     domain: 'technodom.kz',
     zipcode: '',
   },
+  implementation
 };
