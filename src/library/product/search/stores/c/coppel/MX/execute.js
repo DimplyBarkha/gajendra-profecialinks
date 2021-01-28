@@ -25,7 +25,7 @@ module.exports = {
     country: 'MX',
     store: 'coppel',
     domain: 'coppel.com',
-    url: 'https://www.coppel.com/SearchDisplay?categoryId=&storeId=12761&catalogId=10001&langId=-5&sType=SimpleSearch&resultCatEntryType=2&showResultsPage=true&searchSource=Q&pageView=&searchTerm={searchTerms}',
+    url: 'https://www.coppel.com/SearchDisplay?categoryId=&storeId=12761&catalogId=10001&langId=-5&searchTerm={searchTerms}',
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
