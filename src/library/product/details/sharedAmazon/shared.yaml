@@ -57,6 +57,7 @@ fields:
   - name: availabilityText
     singleValue: false
     xpath: (//*[normalize-space(@id)='availability']/span[not(span)] | //*[normalize-space(@id)='availability']/span/span[last()] | //*[normalize-space(@id)='availability-string']/span[not(span)])[1]
+    regExp: .+[^.]
     defaultValue: 'Out of Stock'
   # - name: unavailableMsg
   #   singleValue: false
@@ -730,3 +731,7 @@ fields:
     # xpath: //*[contains(@class,"priceBlockSavingsString")]
     # regExp: '\(([\d,.%\s]+)\)'
     # regExpReplace: $1
+  - name: shortDescription
+    singleValue: false
+    html: true
+    xpath: //div[@id="productDescription"]/*[not(@class="disclaim")]
