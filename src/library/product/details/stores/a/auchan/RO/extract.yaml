@@ -31,9 +31,7 @@ fields:
     regExpReplace: $1Lei
   - name: availabilityText
     singleValue: false
-    description: Availability as described on page for the selected variant. If
-      there is no availability but the product can be added to cart, this field
-      should be "In Stock"
+    xpath: //span[.="In stoc"]//text()
     regExp: (.+)
     regExpReplace: In Stock
     # defaultValue: Out of Stock
