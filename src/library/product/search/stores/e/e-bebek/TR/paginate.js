@@ -5,7 +5,7 @@ module.exports = {
     template: null,
     country: 'TR',
     store: 'e-bebek',
-    nextLinkSelector: 'a[rel="next"]',
+    nextLinkSelector: 'a.page-link[rel="next"]',
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,

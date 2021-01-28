@@ -11,7 +11,7 @@ module.exports = {
     zipcode: '',
   },
   implementation: async (inputs, parameters, context, dependencies) => {
-    await new Promise((resolve, reject) => setTimeout(resolve, 4000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
 
     await context.evaluate(async () => {
       const searchUrl = window.location.href;
@@ -24,8 +24,10 @@ module.exports = {
         const prefix = 'https://www.e-bebek.com';
         const productUrl = product.querySelector('a.product-btn');
         if (productUrl !== null && productUrl !== undefined) product.setAttribute('producturl', prefix.concat(productUrl.getAttribute('href')));
-        const id = product.querySelector('form[action*="wishlist"] > input');
-        if (id !== null && id !== undefined) product.setAttribute('sku', id.getAttribute('value').toLowerCase());
+        // const id = product.querySelector('form[action*="wishlist"] > input');
+        const id = product.querySelector('a')
+          ? product.querySelector('a').getAttribute('href') : null;
+        if (id !== null && id !== undefined) product.setAttribute('sku', id.split('-p-').pop().replace('/', ''));
         if (product.innerText.includes('Promosyonlu')) product.setAttribute('sponsored', 'true');
         if (!product.innerText.includes('Promosyonlu')) product.setAttribute('rankorganic', `${index + 1}`);
       });
