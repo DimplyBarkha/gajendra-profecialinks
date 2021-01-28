@@ -5,12 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //a[@class="productImagePrimaryLink"]//img/@data-zoom-image
-  - name: productUrl
-    singleValue: true
-    xpath: /html/head/meta[@property="og:url"]/@content
-    regExp: (.+)(.katalog)(.+)
-    regExpReplace: $1katalog$3
+    xpath: //div[@class="b-content b-content--main"]//a[@class="productImagePrimaryLink"]//img/@data-zoom-image  
   - name: imageAlt
     singleValue: true
     xpath: //a[@id="imageLink"]/div/img/@alt
@@ -34,17 +29,20 @@ fields:
     xpath: //div[@class='i-mt15 b-colored--red']
   - name: availabilityText
     singleValue: true
-    xpath: //input[@value="В корзину"]/parent::*//div//span/text()
+    xpath: //input[@class="button button--red js-product-add js-gtm--addtocart"]/@value
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
+  - name: productUrl
+    singleValue: true
+    xpath: /html/head/meta[@property="og:url"]/@content
+    regExp: (.+)(.katalog)(.+)
+    regExpReplace: $1katalog$3
   - name: description
     singleValue: false
     xpath: (//div[contains(@class,"productDescriptionText")])[1]
   - name: promotion
-    xpath: concat(//span[@class="b-colored--red"],//div[@class="i-mt5"]//span[@class="i-fwb"])
-  # - name: descriptionBullets
-  #   xpath: concat(//span[@class="b-colored--red"],//div[@class="i-mt5"]//span[@class="i-fwb"])
+    xpath: concat(//span[@class="b-colored--red"],//div[@class="i-mt5"]//span[@class="i-fwb"])  
   - name: brandText
     singleValue: true
     xpath: //div[@class='altImage1']
@@ -83,6 +81,11 @@ fields:
   - name: color
     singleValue: true
     xpath: (//span[contains(text(),'Цвет')]/following::span[2]/text())[1]
+  - name: productUrl
+    singleValue: true
+    xpath: /html/head/meta[@property="og:url"]/@content
+    regExp: (.+)(.katalog)(.+)
+    regExpReplace: $1katalog$3
   - name: name
     singleValue: true
     xpath: //div[@class='clearfix']/h1[@class='b-productName'] 
@@ -90,45 +93,12 @@ fields:
     singleValue: true
     description: null
     type: NUMBER
-    xpath: count((//img[@itemprop="image"]/@src)[position()>=2])  
-  - name: ingredientsList
-    singleValue: true
-    xpath: (//div[contains(@class,'productDescription')]//p[starts-with(text(),'Состав')])[1]
-    regExp: (?<=Состав:).*  
+    xpath: count((//img[@itemprop="image"]/@src)[position()>=2])   
   - name: countryOfOrigin
     singleValue: true
     xpath: ((//tbody//span[contains(text(),'Страна')])/following::td/text())[1]
   - name: video
     singleValue: true
     xpath: //div[@id="productVideoPrimary"]//video//@src
-  - name: technicalInformationPdfPresent
-    singleValue: true
-    description: If there is for example a manual in pdf format on the website. ['Yes','No']
-    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-    defaultValue: No
-  - name: termsAndConditions
-    singleValue: true
-    description: Terms and conditions information text ['Yes','No']
-    defaultValue: No
-  - name: privacyPolicy
-    singleValue: true
-    description: Privacy Policy information text ['Yes','No']
-    defaultValue: No
-  - name: customerServiceAvailability
-    singleValue: true
-    description: Information related to customer service availability (text), ['Yes','No']
-    defaultValue: No
-  - name: materials
-    singleValue: true
-    xpath: (//tbody//span[contains(text(),'Материал')]/parent::*/following-sibling::td)[1]
-  - name: Image360Present
-    singleValue: true
-    description: If 360 image is present in the carousel ['Yes','No']
-    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
-    defaultValue: No
-  - name: imageZoomFeaturePresent
-    singleValue: true
-    description: If Zoom feature is available for Main image or images in the
-      carousel,['Yes','No']
-    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: Yes
+  
+  

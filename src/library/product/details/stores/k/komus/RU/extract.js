@@ -13,9 +13,8 @@ module.exports = {
     dependencies,
   ) => {
     const { transform } = parameters;
-    const { productDetails } = dependencies;
-    await context.evaluate(async () => {
-
+    const { productDetails } = dependencies;    
+    await context.evaluate(async () => {      
       var getXpath = (xpath, prop) => {
         var elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
         let result;
@@ -23,6 +22,7 @@ module.exports = {
         else result = elem ? elem.singleNodeValue : '';
         return result && result.trim ? result.trim() : result;
       };
+      
       var name = getXpath('(//div[@data-videoid="productVideoPrimary"])[2]/@data-videoid', 'nodeValue');
       if (name != null) {
         // @ts-ignore
