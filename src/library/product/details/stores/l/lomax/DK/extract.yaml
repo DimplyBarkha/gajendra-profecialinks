@@ -11,7 +11,7 @@ fields:
     xpath: //div[@class="owl-item active center"]/div/img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class="owl-thumb-item"]/img/@src
+    xpath: //div[@class="product-carousel owl-carousel owl-theme mb-5 owl-loaded owl-drag"]//div[position()>1]//div/img/@src
   - name: metaKeywords
     singleValue: true
   - name: url
@@ -57,9 +57,9 @@ fields:
   - name: gtin
     singleValue: true
     xpath: //table[@class="table mb-0"]//tbody//tr//th[contains(text(),'EAN nummer')]/following-sibling::td
-  - name: sku
-    singleValue: true
-    xpath: //div[@class="container productcard"]/@data-rr-product-id
+  # - name: sku
+  #   singleValue: true
+  #   xpath: //div[@class="container productcard"]/@data-rr-product-id
   - name: variantId
     singleValue: true
     xpath: //div[@class="container productcard"]/@data-rr-product-id
