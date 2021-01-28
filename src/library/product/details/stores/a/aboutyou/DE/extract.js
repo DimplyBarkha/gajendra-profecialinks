@@ -12,11 +12,13 @@ async function implementation (
   await context.evaluate(async function () {
     const productAvailable = document.querySelector('div[data-test-id="SoldOutContainer"]');
     if (productAvailable) {
-      throw Error('Invalid page, Product sold out');
+      // throw Error('Invalid page, Product sold out');
+      return false;
     }
     const isHomePage = document.querySelector('div[data-test-id="StoryTitle"]');
     if (isHomePage) {
-      throw Error('Product is redirecting to home page');
+      // throw Error('Product is redirecting to home page');
+      return false;
     }
 
     const optionalWait = async (sel) => {
