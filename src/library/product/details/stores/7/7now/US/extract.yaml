@@ -11,16 +11,17 @@ fields:
     defaultValue: product
   - name: category
     singleValue: false
-    xpath: //ol[@class="MuiBreadcrumbs-ol"]//li[position()>4]/p
+    # xpath: //ol[@class="MuiBreadcrumbs-ol"]//li[position()>4]/p
+    xpath: ///div[@class="product_category"]
   - name: nameExtended
     singleValue: false
     xpath: //h1[@class="productPage-main-productDetail-title"]
   - name: name
     singleValue: false
     xpath: //h1[@class="productPage-main-productDetail-title"]
-  - name: price
-    singleValue: false
-    xpath: //span[@class="productPage-main-productDetail-purchase-price"]//text()[2]
+  # - name: price
+  #   singleValue: false
+  #   xpath: //span[@class="productPage-main-productDetail-purchase-price"]//text()[2]
   - name: description
     singleValue: false
     xpath: //div[@class="productPage-main-productDetail-description"]
@@ -33,13 +34,13 @@ fields:
   - name: brandText
     singleValue: false
     xpath: ///div[@class="product_brand"]
-  - name: gtin
-    singleValue: false
-    xpath: ///div[@class="upc"]
+  # - name: gtin
+  #   singleValue: false
+  #   xpath: ///div[@class="upc"]
   - name: availability
     singleValue: false
     xpath: //button[contains(.,"check availability")]/text()
-    regExp: (.+))
+    regExp: (.+)
     regExpReplace: In Stock
     # defaultValue: Out of Stock     
   - name: variantId
@@ -62,3 +63,12 @@ fields:
     xpath: //p[contains(.,"Cals")]/text()
     regExp: (.+)
     # regExpReplace
+  - name: longDesc
+    singleValue: false
+    xpath: //div[@class="product_longDesc"]    
+  - name: gtin
+    singleValue: false
+    xpath: //div[@class="product_upc"]    
+  - name: price
+    singleValue: false
+    xpath: //div[@class="product_price"] 
