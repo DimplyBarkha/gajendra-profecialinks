@@ -2,13 +2,13 @@ input:
   _url: http://bol.com
   URL: https://www.bol.com/nl/p/essie-fishnet-stockings-56-rood-nagellak/9200000007087738/
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=f9090385-ca01-42a3-b895-f65da6f148c1/task=e2feb9f4-94b5-4187-9220-0c8110d0c4d5/d4e16b90-b23e-4078-aa09-71c2285b1e7e.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=6a3469b6-96cc-4234-9735-10ed9c1ef1c2/task=1e2bd763-6272-4d15-8022-370572aebee7/b09926aa-81cd-4e7c-bbd0-ebe5da48d9dd.html
     extractionConfigId: product/details/stores/b/bol/NL/extract
     data:
       - group:
           - productUrl:
               - text: https://www.bol.com/nl/p/essie-fishnet-stockings-56-rood-nagellak/9200000007087738/
-                xpath: /html/body/div[17]
+                xpath: /html/body/div[18]
             image:
               - text: https://media.s-bol.com/37vBMmln9l4/348x840.jpg
                 xpath: /html/body/ol[1]/li[1]/@src
@@ -49,7 +49,7 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/ul[1]/li[5]/span[1]/a[1]/span[1]
             nameExtended:
               - text: essie fishnet stockings 56 - rood - nagellak
-                xpath: /html/body/div[17]/@product-name
+                xpath: /html/body/div[18]/@product-name
             listPrice:
               - text: € 9,99
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/wsp-visibility-switch[1]/section[1]/div[1]/del[1]
@@ -133,8 +133,8 @@ extractions:
               - text: 13.5 ml
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[5]/dl[1]/dd[2]
             weightNet:
-              - text: 0,1 kg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/dl[1]/dd[1]
+              - text: 0.1 kg
+                xpath: /html/body/div[15]
             variantId:
               - text: "9200000007087738"
                 xpath: /html/body/ol[3]/@selected_variant_id
@@ -149,7 +149,7 @@ extractions:
                 xpath: /html/body/div[14]
             shippingInfo:
               - text: bol.com
-                xpath: /html/body/div[15]
+                xpath: /html/body/div[16]
             color:
               - text: Rood | 56 Fishnet Stockings
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[2]
@@ -176,7 +176,7 @@ extractions:
                 xpath: /html/body/ol[2]/li[1]/@src
             name:
               - text: essie fishnet stockings 56 - rood - nagellak
-                xpath: /html/body/div[17]/@product-name
+                xpath: /html/body/div[18]/@product-name
             inStorePrice:
               - text: € 8,08
                 xpath: /html/body/div[4]
@@ -529,30 +529,29 @@ extractions:
               - text: Essie fall 2016 classic - 427 maki me happy - rood - glanzende nagellak -
                   13,5 ml
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[4]/div[1]/div[2]/a[1]
-              - text: essie gel couture nagellak - 345 bubbles only - rood - 13,5 ml
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[5]/div[1]/div[2]/a[1]
               - text: Essie Top Coat gel setter - topcoat - nagelverzorging
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[5]/div[1]/div[2]/a[1]
+              - text: essie gel couture nagellak - 345 bubbles only - rood - 13,5 ml
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[6]/div[1]/div[2]/a[1]
-              - text: Essie Speed Setter Top Coat - Nagellak
+              - text: essie Winter 2015 - 391 Shall We Chalet? - Nagellak
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[7]/div[1]/div[2]/a[1]
+              - text: Essie Speed Setter Top Coat - Nagellak
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[8]/div[1]/div[2]/a[1]
               - text: Essie gel couture - 270 rock the runway - rood - glanzende nagellak met
                   gel effect - 13,5 ml
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[8]/div[1]/div[2]/a[1]
-              - text: essie Winter 2015 - 391 Shall We Chalet? - Nagellak
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[9]/div[1]/div[2]/a[1]
               - text: Cosmetics Zone Classic Nail Polish 7ml. - Realy Lily C330
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[1]/div[2]/a[1]
-              - text: Sally Hansen Good.Kind.Pure Vegan Nagellak 150 Mother Earth
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[2]/div[2]/a[1]
-              - text: Cless Gellak set – 3-delig - 15ML - Vegan - Primer - Base Coat - Top Coat
-                  - Gellak set UV & LED – Startersset – Gelpolish - Nail art -
-                  French Manicure
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[3]/div[2]/a[1]
               - text: Cosmetics Zone Classic Nail Polish 7ml. - Tropical Green C331
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[4]/div[2]/a[1]
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[2]/div[2]/a[1]
               - text: Claresa UV/LED Hybrid Gel Jelly Magenta 5ml.
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[5]/div[2]/a[1]
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[3]/div[2]/a[1]
               - text: "Claresa UV/LED Blooming Paint Gel #5 LIME 5ml."
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[4]/div[2]/a[1]
+              - text: Cosmetics Zone Glam & Glow Hybride Topcoat No Wipe Glitter Multicolor
+                  15ml.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[5]/div[2]/a[1]
+              - text: Claresa UV/LED Hybrid Gel Jelly Inky 5ml.
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[6]/div[2]/a[1]
               - text: Essie Strong Start Base Coat - Nagellak
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[7]/ul[1]/li[1]/div[1]/div[2]/a[1]
@@ -562,9 +561,9 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[7]/ul[1]/li[3]/div[1]/div[2]/a[1]
               - text: essie thigh high 52 - bordeaux - nagellak
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[7]/ul[1]/li[4]/div[1]/div[2]/a[1]
-              - text: Essie Clothing Optional Nagellak - Taupe - Glanzend
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[7]/ul[1]/li[5]/div[1]/div[2]/a[1]
               - text: essie licorice 88 - zwart - nagellak
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[7]/ul[1]/li[5]/div[1]/div[2]/a[1]
+              - text: Essie Clothing Optional Nagellak - Taupe - Glanzend
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[7]/ul[1]/li[6]/div[1]/div[2]/a[1]
             gtin:
               - text: "0000030095588"
@@ -586,4 +585,4 @@ extractions:
             hasComparisonTable:
               - text: No
         xpath: /html
-    timestamp: 1611833194735
+    timestamp: 1611838571686

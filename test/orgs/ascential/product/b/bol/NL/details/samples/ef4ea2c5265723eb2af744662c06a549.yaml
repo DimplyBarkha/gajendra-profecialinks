@@ -2,13 +2,13 @@ input:
   _url: http://bol.com
   URL: https://www.bol.com/nl/p/my-size-condooms-maat-47-3-stuks/9200000009405505/
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=f9090385-ca01-42a3-b895-f65da6f148c1/task=677828b9-5d66-4f85-8664-8d8fb271c12d/8cc1b22c-e07d-4ceb-bfb8-53adb16157f3.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=6a3469b6-96cc-4234-9735-10ed9c1ef1c2/task=fae1c51f-af22-4e2d-bd24-f380dda3edde/0b9dbebd-8fce-4efb-b609-7b285addddab.html
     extractionConfigId: product/details/stores/b/bol/NL/extract
     data:
       - group:
           - productUrl:
               - text: https://www.bol.com/nl/p/my-size-condooms-maat-47-3-stuks/9200000009405505/
-                xpath: /html/body/div[15]
+                xpath: /html/body/div[16]
             image:
               - text: https://media.s-bol.com/Bx02D2p9Bjx/550x632.jpg
                 xpath: /html/body/ol[1]/li[1]/@src
@@ -31,7 +31,7 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/ul[1]/li[3]/span[1]/a[1]/span[1]
             nameExtended:
               - text: My.Size Condooms maat 47 - 3 stuks
-                xpath: /html/body/div[15]/@product-name
+                xpath: /html/body/div[16]/@product-name
             price:
               - text: € 4,95
                 xpath: /html/body/div[4]
@@ -56,7 +56,7 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]
             weightNet:
               - text: 0 kg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/dl[1]/dd[2]
+                xpath: /html/body/div[14]
             variantId:
               - text: "9200000009405505"
                 xpath: /html/body/ol[3]/@selected_variant_id
@@ -65,7 +65,7 @@ extractions:
                 xpath: /html/body/div[11]
             shippingInfo:
               - text: bol.com
-                xpath: /html/body/div[14]
+                xpath: /html/body/div[15]
             color:
               - text: Transparant
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[2]
@@ -83,7 +83,7 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             name:
               - text: My.Size Condooms maat 47 - 3 stuks
-                xpath: /html/body/div[15]/@product-name
+                xpath: /html/body/div[16]/@product-name
             inStorePrice:
               - text: € 4,95
                 xpath: /html/body/div[4]
@@ -125,15 +125,15 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[3]/ul[1]/li[6]/div[1]/div[2]/a[1]
               - text: My.Size Condooms maat 64 - 10 stuks
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[3]/ul[1]/li[7]/div[1]/div[2]/a[1]
-              - text: Durex Condooms Orgasm Intense 10 stuks
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[3]/ul[1]/li[8]/div[1]/div[2]/a[1]
               - text: EasyGlide glijmiddel op waterbasis - 150 ml
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[3]/ul[1]/li[9]/div[1]/div[2]/a[1]
-              - text: Durex Condooms Perfect Gliss Anaal - 10 stuks
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[1]/div[2]/a[1]
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[3]/ul[1]/li[8]/div[1]/div[2]/a[1]
               - text: Durex Condooms Orgasm Intense 10 stuks
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[2]/div[2]/a[1]
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[3]/ul[1]/li[9]/div[1]/div[2]/a[1]
+              - text: Durex Condooms Orgasm Intense 10 stuks
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[1]/div[2]/a[1]
               - text: Durex Condooms Real Feel 20 stuks
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[2]/div[2]/a[1]
+              - text: Durex Condooms Perfect Gliss Anaal - 10 stuks
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[3]/div[2]/a[1]
               - text: Durex Condooms Classic Natural 20 stuks
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[4]/div[2]/a[1]
@@ -171,4 +171,4 @@ extractions:
             hasComparisonTable:
               - text: No
         xpath: /html
-    timestamp: 1611833182832
+    timestamp: 1611838560529

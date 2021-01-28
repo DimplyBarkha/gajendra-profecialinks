@@ -172,6 +172,7 @@ const implementation = async (inputs, { transform }, context, { productDetails }
       let fiber;
       let sugars;
       let protein;
+      let fat;
 
       const nutrientsText = nutrientsElem.textContent.trim();
       let nutrientsList = nutrientsText.split('|');
@@ -214,10 +215,14 @@ const implementation = async (inputs, { transform }, context, { productDetails }
           ? nutrientsText.match(/Eiwitten\s([\d.,]+\s?\w?g)/i)[1]
           : '';
       }
+      if (!fat) {
+        fat = nutrientsText.match(/vetten? ([\d,.]+ \w?g)/i) ? nutrientsText.match(/vetten? ([\d,.]+ \w?g)/i)[1] : '';
+      }
       addElementToDom(energy, 'energy');
       addElementToDom(fiber, 'fiber');
       addElementToDom(sugars, 'sugars');
       addElementToDom(protein, 'protein');
+      addElementToDom(fat, 'fat');
     }
 
     // descrption modification and bullets
@@ -332,8 +337,18 @@ const implementation = async (inputs, { transform }, context, { productDetails }
     addElementToDom(manufacturerDescArr.join(' '), 'manufacturer_description');
 
     const ratingElem = document.querySelector('div.rating-horizontal__average-score');
-    const ratingText = ratingElem ? ratingElem.textContent.replace('.', ',') : '';
+    let ratingText = ratingElem ? ratingElem.textContent.replace('.', ',') : '';
+    if (ratingText.length === 1) ratingText = `${ratingText},0`;
     addElementToDom(ratingText, 'aggregate_rating');
+
+    const weightNet = document.evaluate(
+      '//dt[normalize-space(text())="Gewicht"]/following-sibling::dd[1]',
+      document,
+      null,
+      XPathResult.STRING_TYPE,
+      null,
+    ).stringValue.replace(',', '.');
+    addElementToDom(weightNet, 'weight_net');
 
     const shippingInfoElem = document.querySelector('div.buy-block div.product-seller');
     const shippingInfo = shippingInfoElem ? shippingInfoElem.textContent.replace('Verkoop door', '').trim() : '';

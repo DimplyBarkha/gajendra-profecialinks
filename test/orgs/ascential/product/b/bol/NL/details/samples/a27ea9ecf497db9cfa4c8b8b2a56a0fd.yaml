@@ -2,13 +2,13 @@ input:
   _url: http://bol.com
   URL: https://www.bol.com/nl/p/dove-nourishing-oil-care-conditioner-6-x-200ml-voordeelverpakking/9200000055835720/
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=f9090385-ca01-42a3-b895-f65da6f148c1/task=0144726f-3f38-404c-8770-c5137f4f8329/b8b1bc78-0da2-41a5-9cdd-7816e91f586f.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=6a3469b6-96cc-4234-9735-10ed9c1ef1c2/task=11a94e60-cf08-41e8-b8f8-0ec04089441f/fc15e257-281b-478d-ad9f-fa1b9a594333.html
     extractionConfigId: product/details/stores/b/bol/NL/extract
     data:
       - group:
           - productUrl:
               - text: https://www.bol.com/nl/p/dove-nourishing-oil-care-conditioner-6-x-200ml-voordeelverpakking/9200000055835720/
-                xpath: /html/body/div[16]
+                xpath: /html/body/div[17]
             image:
               - text: https://media.s-bol.com/qZjYrMg251Rp/550x577.jpg
                 xpath: /html/body/ol[1]/li[1]/@src
@@ -39,7 +39,7 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/ul[1]/li[5]/span[1]/a[1]/span[1]
             nameExtended:
               - text: Dove Nourishing Oil & Care Conditioner - 6 x 200ml - Voordeelverpakking
-                xpath: /html/body/div[16]/@product-name
+                xpath: /html/body/div[17]/@product-name
             listPrice:
               - text: € 23,34
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/wsp-visibility-switch[1]/section[1]/div[1]/del[1]
@@ -112,8 +112,8 @@ extractions:
               - text: 1200 ml
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[5]/dl[1]/dd[4]
             weightNet:
-              - text: 1,4 kg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/dl[1]/dd[1]
+              - text: 1.4 kg
+                xpath: /html/body/div[15]
             variantId:
               - text: "9200000055835720"
                 xpath: /html/body/ol[3]/@selected_variant_id
@@ -130,16 +130,19 @@ extractions:
                 xpath: /html/body/div[14]
             shippingInfo:
               - text: bol.com
-                xpath: /html/body/div[15]
+                xpath: /html/body/div[16]
             manufacturerDescription:
               - text: Voor droog & beschadigd haar Voor droog & beschadigd haar Geeft aan voor
                   welk haartype dit product het meest geschikt is. Bijvoorbeeld;
                   het meest geschikt voor lang, dun of krullend haar. Tooltip ||
                   1200 ml ||
                 xpath: /html/body/div[13]
+            manufacturerImages:
+              - text: https://media.s-bol.com/NOExv2Xn5XW8/130x79.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             name:
               - text: Dove Nourishing Oil & Care Conditioner - 6 x 200ml - Voordeelverpakking
-                xpath: /html/body/div[16]/@product-name
+                xpath: /html/body/div[17]/@product-name
             inStorePrice:
               - text: € 14
                 xpath: /html/body/div[4]
@@ -175,27 +178,29 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[4]/div[1]/div[2]/a[1]
               - text: Dove Nourishing Oil & Care Douchegel - 6 x 250ml - Voordeelverpakking
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[5]/div[1]/div[2]/a[1]
-              - text: Dove Hair Therapy Color Care Conditioner - 6 x 200 ml - Voordeelverpakking
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[6]/div[1]/div[2]/a[1]
-              - text: Dove Sheabutter & Vanille Purely Pampering Douchecrème - 6 x 250 ml -
-                  Voordeelverpakking
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[7]/div[1]/div[2]/a[1]
               - text: Dove Kokosmelk & Jasmijnblaadjes Relaxing Douchegel - Voordeelverpakking -
                   6 x 250 ml
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[6]/div[1]/div[2]/a[1]
+              - text: Dove Hair Therapy Color Care Conditioner - 6 x 200 ml - Voordeelverpakking
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[7]/div[1]/div[2]/a[1]
+              - text: Dove Sheabutter & Vanille Purely Pampering Douchecrème - 6 x 250 ml -
+                  Voordeelverpakking
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[8]/div[1]/div[2]/a[1]
               - text: 6x Dove Conditioner - Zijdezacht & Glad 6x200ml -Voordeelverpakking
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li[9]/div[1]/div[2]/a[1]
-              - text: Andrélon Conditoner Steilvol - 6 x 300 ml - Voordeelverpakking
+              - text: Naïf Natuurlijke herstellende haar conditioner - 200ml
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[1]/div[2]/a[1]
-              - text: Tabitha James Kraan 4-in-1 Conditioner - Golden Citrus 500ml
+              - text: Andrélon Special Levendige Kleur Sulfaat Vrij Conditioner 6 x 300 ml -
+                  Voordeelverpakking
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[2]/div[2]/a[1]
-              - text: Redken Color Extend Graydiant Silver Conditioner 1000ml
+              - text: MÁDARA Cosmetics 676048 haarconditioner Vrouwen 175 ml Niet-professionele
+                  haarconditioner
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[3]/div[2]/a[1]
-              - text: Ray Conditioner - Natuurlijk - Alle Haartypes - 500ml
+              - text: Andrélon Aloë Vera Repair Conditioner - 6 x 300ml - Voordeelverpakking
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[4]/div[2]/a[1]
-              - text: O´Right Caffeine Conditioner, 1000ml
+              - text: Andrelon Special Conditioner Oil & Shine - 6x 300 ML - Voordeelverpakking
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[5]/div[2]/a[1]
-              - text: Ellips Milkshake Hair Repair Leave-in Conditioner - 110 ml
+              - text: Ray Conditioner - Natuurlijk - Alle Haartypes - 500ml
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[6]/div[2]/a[1]
               - text: Dove Nourishing Oil & Care Shampoo - 6 x 250ml - Voordeelverpakking
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[7]/ul[1]/li[1]/div[1]/div[2]/a[1]
@@ -231,4 +236,4 @@ extractions:
             hasComparisonTable:
               - text: No
         xpath: /html
-    timestamp: 1611833189024
+    timestamp: 1611838566250

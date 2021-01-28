@@ -66,7 +66,7 @@ fields:
   xpath: //dt[normalize-space(text())='Inhoud']/following-sibling::dd[1]
 - name: weightNet
   description: Net weight as described on the page
-  xpath: //dt[normalize-space(text())='Gewicht']/following-sibling::dd[1]
+  xpath: //div[@id='weight_net']
 - name: weightGross
   description: Gross weight as described on the page
   xpath: //dt[normalize-space(text())='Verpakkingsgewicht']/following-sibling::dd[1]
@@ -221,8 +221,12 @@ fields:
 - name: totalFatPerServing
   description: Nutritional Information for Total Fat content - Usually based on per
     100g serving
+  xpath: //div[@id="fat"]
+  regExp: '[\d,.]+'
 - name: totalFatPerServingUom
   description: Unit of Measure Data for Total Fat content
+  xpath: //div[@id="fat"]
+  regExp: '[^\d,.\s]+'
 - name: saturatedFatPerServing
   description: Nutritional Information for Saturated Fat content - Usually based on
     per 100g serving
@@ -252,20 +256,29 @@ fields:
   description: Nutritional Information for Dietary Fibre content - Usually based on
     per 100g serving
   xpath: //div[@id="fiber"]
+  regExp: '[\d,.]+'
 - name: dietaryFibrePerServingUom
   description: Unit of Measure Data for Dietary Fibre content
+  xpath: //div[@id="fiber"]
+  regExp: '[^\d,.\s]+'
 - name: totalSugarsPerServing
   description: Nutritional Information for Total Sugar content - Usually based on
     per 100g serving
   xpath: //div[@id="sugars"]
+  regExp: '[\d,.]+'
 - name: totalSugarsPerServingUom
   description: Unit of Measure Data for Total Sugar content
+  xpath: //div[@id="sugars"]
+  regExp: '[^\d,.\s]+'
 - name: proteinPerServing
   description: Nutritional Information for Protein content - Usually based on per
     100g serving
   xpath: //div[@id="protein"]
+  regExp: '[\d,.]+'
 - name: proteinPerServingUom
   description: Unit of Measure Data for Protein
+  xpath: //div[@id="protein"]
+  regExp: '[^\d,.\s]+'
 - name: vitaminAPerServing
   description: Nutritional Information for Vitamin A content - Usually based on per
     100g serving
