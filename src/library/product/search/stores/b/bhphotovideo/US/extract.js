@@ -54,6 +54,7 @@ async function implementation (
       element.id = obj.sku;
       element.image = obj.image;
       element.url = obj.url;
+      element.rating = obj.aggregateRating ? obj.aggregateRating.ratingValue : '';
       info.push(element);
     };
     return info;
@@ -84,6 +85,9 @@ async function implementation (
     }
     if ('productUrl' in data[0].group[i]) {
       data[0].group[i].productUrl[0].text = information[i].url;
+    }
+    if ('aggregateRating2' in data[0].group[i]) {
+      data[0].group[i].aggregateRating2[0].text = information[i].rating;
     }
     if ('thumbnail' in data[0].group[i]) {
       data[0].group[i].thumbnail[0].text = information[i].image;
