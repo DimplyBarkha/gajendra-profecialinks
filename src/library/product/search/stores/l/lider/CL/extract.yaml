@@ -5,10 +5,10 @@ recordXPath: null
 fields: 
   - name: id
     singleValue: false
-    xpath: //div[@class="grid-of-five clearfix box-products-list"]/div/@prod-number
-    # //span[@class='reference-code']
+    xpath: //span[@class='reference-code']
+    regExp: (\d+)
+    # //div[@class="grid-of-five clearfix box-products-list"]/div/@prod-number
     # //div[@id='content-prod-boxes']/div/@prod-number
-    # regExp: (\d+)
   - name: rankOrganic
     singleValue: false
   - name: name

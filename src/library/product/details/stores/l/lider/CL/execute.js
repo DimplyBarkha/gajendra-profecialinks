@@ -6,7 +6,7 @@ module.exports = {
     store: 'lider',
     domain: 'lider.cl',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="no-search-results"]/div[1]',
     zipcode: '',
   },
 };
