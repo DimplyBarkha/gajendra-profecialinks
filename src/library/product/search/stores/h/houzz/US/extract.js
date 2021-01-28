@@ -67,12 +67,12 @@ module.exports = {
       }
 
       try{
-        let jsonString =  getElementByXpath('//div[@data-vm-context="bpr_qv"]/div/no-script/text()');
+        let jsonString =  getElementByXpath('//div[@data-vm-context="bpr_qv"]/div/no-script');
         var jsonParsed = JSON.parse(jsonString);
         try{
           var json_list = jsonParsed.itemListElement;
         }catch(e){
-          let jsonString =  getElementByXpath('//div[@data-vm-context="bpr_qv"]/div/script/text()');
+          let jsonString =  getElementByXpath('//div[@data-vm-context="bpr_qv"]/div/script');
           var jsonParsed = JSON.parse(jsonString); 
           var json_list = jsonParsed.itemListElement;       
         }
