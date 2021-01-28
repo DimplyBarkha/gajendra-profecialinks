@@ -189,6 +189,8 @@ fields:
     xpath: //h3[contains(text(),'Ingredients')]/following-sibling::div
   - name: servingSize
     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//div[contains(text(), 'Serving Size')]
+    regExp: >-   
+      [0-9,<,.]+
     # type: NUMBER
   - name: servingSizeUom
     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//div[contains(text(), 'Serving Size')]
@@ -202,6 +204,8 @@ fields:
 #     type: NUMBER
   - name: caloriesPerServing
     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Calories')]/ancestor::li
+    regExp: >-   
+      [0-9,<,.]+
 #     type: NUMBER
   - name: caloriesFromFatPerServing
     description: Nutritional Information for Calories From Fat content - Usually
@@ -209,6 +213,8 @@ fields:
 #     type: NUMBER
   - name: totalFatPerServing
     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Total Fat')]/ancestor::li/text()
+    regExp: >-   
+      [0-9,<,.]+
 #     type: NUMBER    
     # xpath: //main[@id="main-content"]/div[contains(@class, 'rmq')]//li/strong[contains(text(), 'Total Fat')]/following-sibling::text()[2]
     # regExp: ((\d+).?(\d+))?(\w)
@@ -245,6 +251,8 @@ fields:
     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Cholesterol')]/ancestor::li/text()[not(.=" ")]
     description: Nutritional Information for Cholesterol content - Usually based on
       per 100g serving
+    regExp: >-   
+      [0-9,<,.]+
     # type: NUMBER
   - name: cholesterolPerServingUom
     description: Unit of Measure Data for Cholesterol content
@@ -253,25 +261,31 @@ fields:
     regExpReplace: $2    
   - name: sodiumPerServing
     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Sodium')]/ancestor::li/text()
-    regExp: ((\d+).?(\d+))?(\w)
-    regExpReplace: $1
+    # regExp: ((\d+).?(\d+))?(\w)
+    # regExpReplace: $1
+    regExp: >-   
+      [0-9,<,.]+
   - name: sodiumPerServingUom
     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Sodium')]/ancestor::li/text()
-    regExp: ((\d+).?(\d+))?(\w+)
-    regExpReplace: $4
+    # regExp: ((\d+).?(\d+))?(\w+)
+    # regExpReplace: $4
+    regExp: ([g|mg|mcg|IU]+$)
   - name: totalCarbPerServing
     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Total Carbohydrate')]/ancestor::li/text()
-    regExp: ((\d+).?(\d+))?(\w)
-    regExpReplace: $1
+    regExp: >-   
+      [0-9,<,.]+
   - name: totalCarbPerServingUom
     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Total Carbohydrate')]/ancestor::li/text()
-    regExp: ((\d+).?(\d+))?(\w)
-    regExpReplace: $4
+    # regExp: ((\d+).?(\d+))?(\w)
+    # regExpReplace: $4
+    regExp: ([g|mg|mcg|IU]+$)
   - name: dietaryFibrePerServing
     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//li[contains(text(), 'Dietary Fiber')]/text()[not(.="Dietary Fiber")]
     # type: NUMBER
     # regExp: ((\d+).?(\d+))?(\w)
     # regExpReplace: $1
+    regExp: >-   
+      [0-9,<,.]+
   - name: dietaryFibrePerServingUom
     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//li[contains(text(), 'Dietary Fiber')]/text()[not(.="Dietary Fiber")]
     regExp: ([g|mg|mcg|IU]+$)
@@ -282,6 +296,8 @@ fields:
     # type: NUMBER
     # regExp: ((\d+).?(\d+))?(\w)
     # regExpReplace: $1
+    regExp: >-   
+      [0-9,<,.]+
   - name: totalSugarsPerServingUom
     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//li[contains(text(), 'Sugars')]/text()[not(.="Sugars")]
     regExp: ([g|mg|mcg|IU]+$)
@@ -291,6 +307,8 @@ fields:
     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Protein')]/ancestor::li/text()
     description: Nutritional Information for Protein content - Usually based on per
       100g serving
+    regExp: >-   
+      [0-9,<,.]+
     # type: NUMBER
   - name: proteinPerServingUom
     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Protein')]/ancestor::li/text()
