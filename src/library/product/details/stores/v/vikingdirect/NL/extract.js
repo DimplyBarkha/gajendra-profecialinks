@@ -43,6 +43,8 @@ async function implementation (inputs, parameters, context, dependencies) {
     const availabilityText = document.querySelector('span[class="product-stock-message__title"]') ? document.querySelector('span[class="product-stock-message__title"]').innerText : null;
     if (availabilityText === null && document.querySelector('div[role="alertdialog"]').innerText === 'Helaas is dit product niet langer beschikbaar') {
       addElementToDocument('availabilityText', 'Out Of Stock');
+    } else if (availabilityText === 'Tijdelijk uitverkocht') {
+      addElementToDocument('availabilityText', 'Out Of Stock');
     } else if (availabilityText) {
       addElementToDocument('availabilityText', 'In Stock');
     }
