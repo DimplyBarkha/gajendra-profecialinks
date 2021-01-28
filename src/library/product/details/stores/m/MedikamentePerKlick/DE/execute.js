@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'MedikamentePerKlick',
-    domain: 'medikamenteperklick.de',
+    domain: 'medikamente-per-klick.de',
     loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',

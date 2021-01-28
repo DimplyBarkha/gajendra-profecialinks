@@ -2,7 +2,7 @@ module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'DE',
-    store: 'medikamente-per-klick',
+    store: 'MedikamentePerKlick',
     transform: null,
     domain: 'medikamente-per-klick.de',
   },

@@ -48,7 +48,7 @@ fields:
   regExp: in_stock
   regExpReplace: In Stock
 - name: description
-  singleValue: false
+  singleValue: true
   description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   # xpath: //dd[@class="productLongDescription"]//text()
@@ -80,7 +80,8 @@ fields:
 - name: gtin
   singleValue: true
   description: GTIN code (includes UPC/EAN)
-  xpath: //div[@class="nano"]//input[@name="productId"]/@value
+  # xpath: //div[@class="nano"]//input[@name="productId"]/@value
+  xpath: //div[@class="addToCartForm"]//input[@name="product_id"]/@value | //div[@id="ii_gtin"]
 - name: sku
   singleValue: true
   description: The store-specific product identifier
