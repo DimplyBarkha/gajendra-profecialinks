@@ -9,6 +9,8 @@ fields:
   - name: productUrl
     singleValue: true
     xpath: /html/head/meta[@property="og:url"]/@content
+    regExp: (.+)(.katalog)(.+)
+    regExpReplace: $1katalog$3
   - name: imageAlt
     singleValue: true
     xpath: //a[@id="imageLink"]/div/img/@alt
@@ -20,7 +22,7 @@ fields:
     xpath: //meta[@name="keywords"]/@content
   - name: category
     singleValue: false
-    xpath: //div[@class="b-breadcrumbs"]//li[position()>2 and position()<last()]
+    xpath: //div[@class="b-breadcrumbs"]//li[position()>1 and position()<last()]
   - name: nameExtended
     singleValue: true
     xpath: //h1[@class="b-productName"]/text()
