@@ -575,3 +575,6 @@ fields:
     xpath: //div[@class="slick-list"]//div[contains(@class, "slick-slide") and not(contains(@class, "cloned"))]//img/@src | //body//@shownimage
     regExp: (.+)(\?)(.+)
     regExpReplace: $1
+  - name: shortDescription
+    singleValue: false
+    xpath: //body/@productDescription
