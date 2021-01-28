@@ -1,5 +1,6 @@
 const { transform } = require('../../../../shared');
 
+// @ts-ignore
 async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
@@ -13,6 +14,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   });
   while (isButtonPresent && productsAmount < 150) {
     await context.click('button.pagine__more');
+    // @ts-ignore
     await new Promise((resolve, reject) => setTimeout(resolve, 1500));
     isButtonPresent = await context.evaluate(async () => {
       return document.querySelector('button.pagine__more');
@@ -26,6 +28,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   await context.evaluate(async () => {
     // scroll
     function stall (ms) {
+      // @ts-ignore
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve();
@@ -53,7 +56,20 @@ async function implementation (inputs, parameters, context, dependencies) {
     productUrl.forEach((element) => {
       element.setAttribute('href', prefix.concat(element.getAttribute('href')));
     });
-
+    // name
+    var names = document.querySelectorAll('.product-item__infos-inner');
+    names.forEach(e => {
+      const name = [];
+      const main = e.querySelector('.product-item__name')
+        // @ts-ignore
+        ? e.querySelector('.product-item__name').innerText : null;
+      const subName = e.querySelector('.product-item__subname')
+        // @ts-ignore
+        ? e.querySelector('.product-item__subname').innerText : null;
+      if (main !== null) name.push(main);
+      if (subName !== null) name.push(subName);
+      e.setAttribute('fullname', name.join(' '));
+    });
     // convert percentage rating to number and then to string
     var rating = document.querySelectorAll('div.icons-stars-full');
     const regex = /\d+\.?\d+/gm;

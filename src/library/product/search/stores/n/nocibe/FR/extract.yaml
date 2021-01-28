@@ -10,7 +10,7 @@ fields:
       singleValue: true
     - name: name
       singleValue: false
-      xpath: //div[@class="product-item__infos-inner"]
+      xpath: //@fullname
     - name: productUrl
       singleValue: false
       xpath: //a[contains(@class, 'gtmEventClick product-item')]/@href
