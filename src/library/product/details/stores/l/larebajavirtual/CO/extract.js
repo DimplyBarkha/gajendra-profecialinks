@@ -33,18 +33,18 @@ module.exports = {
         else result = elem ? elem.singleNodeValue : '';
         return result && result.trim ? result.trim() : result;
       };
-      // // price
-      // var price = getXpath("(//span[@class='ahora'])[1]/text() | //section[@class='product_detail']/div[@class='container']//div[@class='descripciones']/div[2]/div/div[@class='subtotal']/span/span/text()", 'nodeValue');
-      // if (price != null) {
-      //   price = price.replace('.', ',');
-      //   addElementToDocument('price', price);
-      // }
-      // // listPrice
-      // var listprice = getXpath("//span[@class='strike2']/text()", 'nodeValue');
-      // if (listprice != null) {
-      //   listprice = listprice.replace('.', ',');
-      //   addElementToDocument('listprice', listprice);
-      // }
+      // price
+      var price = getXpath("(//span[@class='ahora'])[1]/text() | //section[@class='product_detail']/div[@class='container']//div[@class='descripciones']/div[2]/div/div[@class='subtotal']/span/span/text()", 'nodeValue');
+      if (price != null) {
+        price = price.replace('.', ',');
+        addElementToDocument('price', price);
+      }
+      // listPrice
+      var listprice = getXpath("//span[@class='strike2']/text()", 'nodeValue');
+      if (listprice != null) {
+        listprice = listprice.replace('.', ',');
+        addElementToDocument('listprice', listprice);
+      }
       var variant = getAllXpath("//div[@class='sep-dashed']/label/text()", 'nodeValue');
       if (variant != null) {
         var ab = variant.join(' | ');
