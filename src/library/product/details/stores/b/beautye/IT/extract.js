@@ -36,8 +36,10 @@ async function implementation(
   var variantLength = await context.evaluate(async () => {
     return (document.querySelectorAll('div.swatch-attribute-options div.swatch-option')) ? document.querySelectorAll('div.swatch-attribute-options div.swatch-option').length : 0;
   });
-  console.log('variantLength:: ', variantLength);
-  if (variantLength > 1) {
+   
+   
+console.log('variantLength:: ', variantLength);
+  if (variantLength >= 1) {
     for (var j = 0; j < variantLength; j++) {
       try {
         try {
@@ -62,14 +64,17 @@ async function implementation(
               newDiv.style.display = 'none';
               document.body.appendChild(newDiv);
             }
-            var optionId=document.querySelectorAll('div.swatch-attribute-options div.swatch-option')[j].getAttribute('option-id');
+            var optionId=document.querySelectorAll('div.swatch-attribute-options div.swatch-option')[j].getAttribute('option-id')?document.querySelectorAll('div.swatch-attribute-options div.swatch-option')[j].getAttribute('option-id'):0;
             var checkVariantType = document.querySelectorAll('div.swatch-attribute-options div.swatch-option div.custom-option-label')[j]?true:false;
+            let notAvailableNode=document.querySelectorAll('div.swatch-option div.custom-option-not-available')[j]?document.querySelectorAll('div.swatch-option div.custom-option-not-available')[j]:false;
             if (checkVariantType) 
             {
               const variantDoc = document.querySelectorAll('div.swatch-attribute-options div.swatch-option')[j];
             
             // @ts-ignore
-            variantDoc && variantDoc.click();
+      
+             // @ts-ignore
+             variantDoc&&variantDoc.click();
             //await new Promise((resolve, reject) => setTimeout(resolve, 1000));
         
               // @ts-ignore
@@ -100,26 +105,59 @@ async function implementation(
             }
             else {
               const variantDoc = document.querySelectorAll('div.swatch-attribute-options div.swatch-option')[j];
+              // @ts-ignore
+              variantDoc&&variantDoc.click();
+              // @ts-ignore
+              var checkTitle=document.querySelector('h1.page-title').innerText;
+              var objKeysForIf = Object.keys(obj)[j];
+              var objName=obj[objKeysForIf].name;
+              var checkIndex=objName.indexOf(checkTitle);
             // @ts-ignore
-            variantDoc && variantDoc.click();
+            
+              // @ts-ignore
+              
             for (let i = 0; i < objForDescription[0].options.length; i++) {
               let valueIndex=objForDescription[0].options[i].value_index;
               if(optionId==valueIndex){
-                console.log("value of I is ",i);
+                var labelToMatch=objForDescription[0].options[i].label;
                 let shadeDescription=(objForDescription[0].options[i].label)+' '+(objForDescription[0].label);
                 var removeDescriptionId = document.getElementById('pd_description_add');
                 removeDescriptionId && removeDescriptionId.remove();
                 addHiddenDiv('pd_description_add', shadeDescription);
                 
               }}
-            
-              var objKeys = Object.keys(obj)[j];
-              var variantID = obj[objKeys].id;
-              //console.log("variantIDInElse", variantID);
-              var removeId = document.getElementById('pd_vairiant_id');
-            removeId && removeId.remove();
-              addHiddenDiv('pd_vairiant_id', variantID);
+              var count=0;
+              for (let n = 0; n < Object.keys(obj).length; n++) {
+                           var objKeysForCount = Object.keys(obj)[n];
+                          var nameToCount=obj[objKeysForCount].name;
+                  if(checkTitle==nameToCount){
+                  count++;
+                  }}
+
+              if((checkTitle==objName)||(checkIndex>0)||(checkIndex<0)||(count>0)){
+                var objKeys = Object.keys(obj)[j];
+                var variantID = obj[objKeys].id;
+                //console.log("variantIDInElse", variantID);
+                var removeId = document.getElementById('pd_vairiant_id');
+              removeId && removeId.remove();
+                addHiddenDiv('pd_vairiant_id', variantID);
+              }
+              else {
+              for (let i = 0; i < Object.keys(obj).length; i++) {
+                var objKeysForName = Object.keys(obj)[i];
+                var nameToCompare=obj[objKeysForName].name;
+                if(nameToCompare.includes(labelToMatch))
+                {
+                var variantID = obj[objKeysForName].id;
+                console.log("variantIdInIF", variantID);
+                                 var removeId = document.getElementById('pd_vairiant_id');
+                                 removeId && removeId.remove();
+                                 addHiddenDiv('pd_vairiant_id', variantID);}
+                                
+                                }}
+          
             }
+            
             
             
             //var removeId = document.getElementById('pd_vairiant_id');

@@ -94,8 +94,9 @@ const transform = (data) => {
         row.nameExtended.forEach(item => {
           text += item.text+' '; 
         });   
-        let finalName=(row.brandText[0].text)?(row.brandText[0].text+' '+text):text;
-        row.nameExtended = [{text: finalName.trim()} ];
+        if (row.brandText && row.brandText.length){
+        let finalName=(row.brandText[0])?(row.brandText[0].text+' '+text):text;
+        row.nameExtended = [{text: finalName.trim()}];}
       }
 
       if (row.variants) {
