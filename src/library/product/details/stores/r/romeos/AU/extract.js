@@ -51,12 +51,14 @@ module.exports = {
       });
 
       const url = window.location.href;
-      let sku = url.match(/.+\/(.+)/) ? url.match(/.+\/(.+)/)[1] : '';
+      const sku = url.match(/.+\/(.+)/) ? url.match(/.+\/(.+)/)[1] : '';
+      let variantId = sku;
       if (sku.length > 60) {
-        const skuArr = sku.split('-');
-        sku = skuArr.map(item => item.substr(0, 1).toUpperCase()).join('');
+        const variantIdArr = sku.split('-');
+        variantId = variantIdArr.map(item => item.substr(0, 1).toUpperCase()).join('');
       }
       addElementToDom(sku, 'sku');
+      addElementToDom(variantId, 'variant_id');
       addElementToDom(url, 'product_url');
 
       const productDescription = document.querySelector('div.MoreInfo__Details') ? document.querySelector('div.MoreInfo__Details').textContent.trim() : '';
