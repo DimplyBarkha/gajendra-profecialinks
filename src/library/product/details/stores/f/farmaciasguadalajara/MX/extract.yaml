@@ -1,0 +1,45 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image 
+    singleValue: false
+    xpath: //img[contains(@id,"productMainImage")]/@src
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@id="pd_url"]
+  - name: nameExtended 
+    singleValue: false
+    xpath: //h1[contains(@id,"fgProductName")]
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,"price-listing-pdp pricelst")]/span[contains(@itemprop,"price")]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[contains(@class,"price-listing-pdp pricelst")]/span[contains(@class,"old_price")]
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@id,"collapse1")]
+  - name: variantId
+    singleValue: false
+    xpath: //input[contains(@id,"partnumerSelectedId")]/@value
+  - name: alternateImages
+    singleValue: false
+    xpath: (//ul[contains(@id,"ProductAngleProdImagesAreaProdList")]/li/a/img/@src)[position()>1]
+    regExp: (.*)\/products\/(.*)_168_(.*).jpg
+    regExpReplace: $1/products/$2_1280_$3.jpg
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[contains(@class,"container-add-cart-wishlist-btn")]/a[contains(@id,"add2CartBtn")]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock  
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count((//ul[contains(@id,"ProductAngleProdImagesAreaProdList")]/li/a/img/@src)[position()>1])  
+
+
+  
+                        
+  
