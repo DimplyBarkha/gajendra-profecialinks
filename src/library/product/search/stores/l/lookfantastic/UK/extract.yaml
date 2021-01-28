@@ -19,10 +19,12 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //div[@class="productBlock_imageContainer"]//img/@src
-  - name: aggregateRating
+  # - name: aggregateRating
+  #   singleValue: false
+  #   xpath: //span[@class="productBlock_rating"]//span[@class="productBlock_ratingValue"]/text()
+  - name: aggregateRating2
     singleValue: false
     xpath: //span[@class="productBlock_rating"]//span[@class="productBlock_ratingValue"]/text()
-    type: NUMBER
   - name: reviewCount
     singleValue: false
     xpath: //span[contains(@class,'productBlock_reviewCount')]
