@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@id='ii_product']
+recordXPath: //div[@id='ii_product'][1]
 fields:
   # - name: ageSuitability
   #   xpath: //div[@class='css-1dbjc4n r-13qz1uu']//div[contains(., 'Warnings')]//div[contains(., 'Age')]
@@ -360,7 +360,5 @@ fields:
     xpath: //div[@id='ii_price']
   - name: shortDescription
     xpath: //div[@id='ii_shortdescription']
-    regExp: <p>(.+)<\/p>
-    regExpReplace: $1
   - name: featureBullets
     xpath: //div[@id='ii_additionalDescBulletInfo']

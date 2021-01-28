@@ -249,7 +249,7 @@ module.exports = {
                   let deets = variant.p_Product_Details;
                   const regex = /<li>(.*?)<\/li>/g;
                   const regexp = /<p>(.*?)<\/p>/g;
-                  let shortDescription = deets.match(regexp);
+                  const shortDescription = deets.replace(/<[^>]*>/g, ' ');
                   let bullets = deets.match(regex);
                   if (!bullets && deets.match(/<li>/g)) {
                     if (deets.match(/<li>(.*?)<\/ul>/g)) {

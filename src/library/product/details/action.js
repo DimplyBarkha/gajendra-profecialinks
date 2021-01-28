@@ -14,13 +14,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   const storeId = inputs.storeId || storeID || parameters.storeId;
 
   const newInput = { ...inputs, storeId, zipcode, url, id };
-
-  const resultsReturned = await execute(newInput);
-  if (!resultsReturned) {
-    console.log('No results were returned');
-    return;
-  }
-
+  await execute(newInput);
   await extract(newInput);
 }
 
