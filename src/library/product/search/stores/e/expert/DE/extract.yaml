@@ -1,7 +1,8 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class, "widget-Hyperlink")]
+# recordXPath: //div[contains(@class, "widget-Hyperlink")]
+recordXPath: //div[contains(@class, "list grid")]
 fields:
   - name: paid
     singleValue: true
@@ -34,7 +35,8 @@ fields:
     xpath:  //div[contains(@class, "widget-Grid-content")]//div[contains(@class, "widget-Column-content")]//div[contains(@class, "widget-ArticleImage")]//div[contains(@class, "widget-ArticleImage-articleImageContainer")]//div[contains(@class, "widget-ArticleImage-imageContainer")]//img/@data-src|//div[contains(@class,'widget-ArticleImage')]/img/@src
   - name: name
     singleValue: false
-    xpath: //div[contains(@class, "widget-Grid-content")]//div[contains(@class, "widget-Column-content")]//div[contains(@class, "widget-ArticleName")]//div[contains(@class, "content font-brand")]/text()| //div[contains(@class,'grid-row')]//div[contains(@class,'content font-brand')]
+    # xpath: //div[contains(@class, "widget-Grid-content")]//div[contains(@class, "widget-Column-content")]//div[contains(@class, "widget-ArticleName")]//div[contains(@class, "content font-brand")]/text()| //div[contains(@class,'grid-row')]//div[contains(@class,'content font-brand')]
+    xpath:  //div[contains(@class, "widget-Grid-content")]//div[contains(@class, "widget-Column-content")]//div[contains(@class, "widget-ArticleName")]//div[contains(@class, "content font-brand")]/text()| //div[contains(@class,'grid-row')]//div[contains(@class,'content font-brand')]|//div[contains(@class,'list grid')]//div[contains(@class,'widget-Container')]//div[contains(@class,'widget-ArticleName')]
     description: The product name
   - name: sku
     singleValue: false
