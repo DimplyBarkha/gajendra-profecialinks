@@ -24,8 +24,6 @@ module.exports = {
     let inBoxUrls = null;
     let comparisionText = null;
 
-
-
     const link = await context.evaluate(function () {
       return window.location.href;
     });
@@ -44,9 +42,9 @@ module.exports = {
       inBoxUrls = obj.inBoxUrls;
       comparisionText = obj.comparisionText;
 
-      console.log('obj')
+      console.log('obj');
 
-      console.log(obj)
+      console.log(obj);
 
       console.log('inBoxUrls');
       console.log(inBoxUrls);
@@ -75,11 +73,10 @@ module.exports = {
       return Boolean(document.querySelector(sel));
     }, { timeout: 35000 }, 'body');
 
-
     await context.evaluate(async () => {
       await new Promise((resolve) => setTimeout(resolve, 5000));
 
-      async function infiniteScroll() {
+      async function infiniteScroll () {
         let prevScroll = document.documentElement.scrollTop;
         while (true) {
           window.scrollBy(0, document.documentElement.clientHeight);
@@ -94,18 +91,16 @@ module.exports = {
       await infiniteScroll();
       await new Promise((resolve) => setTimeout(resolve, 8000));
 
-
       try {
-        const xpath = `//script[contains(@type,'text/javascript')][contains(text(),'window.emos3.send')]`;
+        const xpath = '//script[contains(@type,\'text/javascript\')][contains(text(),\'window.emos3.send\')] | //div[@class=\'widget-CaseWidget-FALSE\']//div[@class=\'widget-ArticlePrice-price\']';
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         const scriptContent = element.textContent;
         const jsonStr = scriptContent.trim();
-        const price = jsonStr.replace(/(.*)price':((\d+)(.)?(\d+)?),(.*)/g, '$2')
+        const price = jsonStr.replace(/(.*)price':((\d+)(.)?(\d+)?),(.*)/g, '$2');
         document.body.setAttribute('ii_price', price);
       } catch (err) {
         console.log(err);
       }
-
     });
 
     return await context.extract(productDetails, { transform: transformParam });
