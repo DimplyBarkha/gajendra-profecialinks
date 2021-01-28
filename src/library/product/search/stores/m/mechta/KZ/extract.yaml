@@ -1,25 +1,29 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: div.catalog_items_list div.aa_sectiontov
-recordXPath: null
+recordSelector: div.hoverCard-child.bg-white
+# recordXPath: //div[@class="hoverCard-child bg-white"]
 fields:
   - name: id
     SingleValue: false
     xpath: //div[@class="aa_st_buycredit jq_aa_st_buycredit iprel"]/@jq_id
   - name: productUrl
     SingleValue: false
-    xpath: //a[@class="ifont14 j_product_link"]/@href
+    # xpath: //a[@class="ifont14 j_product_link"]/@href
+    xpath: //div[@class="q-card"]/a[@class="text-subtitle2 absolute-top"]/@href
   - name: price
     SingleValue: false
-    xpath: //span[@class="aa_std_bigprice icblack"]
+    # xpath: //span[@class="aa_std_bigprice icblack"]
+    xpath: //div[@class="hoverCard-child bg-white"]/a/div[@class="row items-center q-px-md"]
   - name: thumbnail
     SingleValue: false
-    xpath: //a[@class="aa_st_imglink j_product_link"]/@style
-    regExp: background-image:\s*url\(\'(.+?)\'\)
-    regExpReplace: $1
+    # xpath: //div[@class="hoverCard-child bg-white"]/a[@class="aa_st_imglink j_product_link"]/@style
+    xpath: //div[@class="hoverCard-child bg-white"]//a//div[@class="q-img__image absolute-full"]/@style
+    # regExp: background-image:\s*url\(\'(.+?)\'\)
+    # regExpReplace: $1
   - name: name
     SingleValue: false
-    xpath: //a[@class="ifont14 j_product_link"]
+    # xpath: //a[@class="ifont14 j_product_link"]
+    xpath: //div[@class="hoverCard-child bg-white"]/a/div[@class="q-pt-md q-mt-xs q-px-md text-ts3 text-color2 ellipsis"]
   - name: rankOrganic
     SingleValue: true
   - name: rank

@@ -3,7 +3,7 @@
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
  */
-const transform = (data) => {
+const transform = (data, context) => {
   const cleanUp = (data, context) => {
     const clean = text => text.toString()
       .replace(/\r\n|\r|\n/g, ' ')
@@ -22,23 +22,33 @@ const transform = (data) => {
     }))));
     return data;
   };
+  const state = context.getState();
+  let orgRankCounter = state.orgRankCounter || 0;
+  let rankCounter = state.rankCounter || 0;
   for (const { group } of data) {
-    let rank = 1;
     for (const row of group) {
-      if (row.productUrl) {
-        row.productUrl.forEach(item => {
-          item.text = 'https://www.mechta.kz' + item.text;
-        });
+      rankCounter += 1;
+      row.rank = [{ text: rankCounter }];
+      if (!row.sponsored) {
+        orgRankCounter += 1;
+        row.rankOrganic = [{ text: orgRankCounter }];
       }
-      if (row.thumbnail) {
-        row.thumbnail.forEach(item => {
-          item.text = 'https://www.mechta.kz' + item.text;
-        });
-      }
-      row.rank = row.rankOrganic = [{ text: rank }];
-      rank++;
+      // if (row.productUrl) {
+      //   row.productUrl.forEach(item => {
+      //     item.text = 'https://www.mechta.kz' + item.text;
+      //   });
+      // }
+      // if (row.thumbnail) {
+      //   row.thumbnail.forEach(item => {
+      //     item.text = 'https://www.mechta.kz' + item.text;
+      //   });
+      // }
+      // row.rank = row.rankOrganic = [{ text: rank }];
+      // rank++;
     }
   }
+  context.setState({ rankCounter });
+  context.setState({ orgRankCounter });
   return cleanUp(data);
 };
 
