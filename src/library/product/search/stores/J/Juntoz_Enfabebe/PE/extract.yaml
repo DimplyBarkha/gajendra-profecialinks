@@ -6,9 +6,6 @@ fields:
   - name: name
     singleValue: false
     xpath: //h2[@class="catalog-products-body__product-name"]/a[2]//text()
-  - name: searchUrl
-    singleValue: false
-    xpath: //meta[@property="og:url"]/@content
   - name: price
     singleValue: false
     description: The offered price for the product
@@ -30,11 +27,7 @@ fields:
   - name: brand
     singleValue: false
     description: The brand name
-    xpath: //span[@class="catalog-products-body__product-brand ng-binding"]
-  - name: store
-    singleValue: false
-    description: The store name
-    xpath: //meta[@name="organization"]/@content   
+    xpath: //span[@class="catalog-products-body__product-brand ng-binding"] 
   - name: rank
     singleValue: false
     type: number
