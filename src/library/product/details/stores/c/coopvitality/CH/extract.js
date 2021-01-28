@@ -9,145 +9,150 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputstring }, { country, domain }, context, { productDetails }) => {
-    await context.waitForSelector('div[class="product photo product-item-photo"] a', 3000);
-    await context.click('div[class="product photo product-item-photo"] a');
-
-
-
-    // delay
-    await context.waitForSelector('div[class="fotorama__stage__frame fotorama__active fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img"] img', 5000)
-    await context.evaluate(() => {
-      function addElementToDocument(key, value) {
-        const catElement = document.createElement('div');
-        catElement.id = key;
-        catElement.textContent = value;
-        catElement.style.display = 'none';
-        document.body.appendChild(catElement);
-      }
-
+    
+      await context.waitForSelector('div[class="product photo product-item-photo"] a', 3000);
+      await context.click('div[class="product photo product-item-photo"] a');
       
-     
 
-      // @ts-ignore
-      const brand = window.dlObjects[0].ecommerce.detail.products[0].brand;
-      addElementToDocument('brand', brand);
 
-      // @ts-ignore
-      const category = window.dlObjects[0].ecommerce.detail.products[0].category;
-      var z = category.split("/");
-      var len = z.length;
-      for (let i=0 ; i<len; i++){
-        addElementToDocument('category', z[i]);
-      }
-     
-      const getAllXpath = (xpath, prop) => {
-        const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        const result = [];
-        for (let index = 0; index < nodeSet.snapshotLength; index++) {
-          const element = nodeSet.snapshotItem(index);
-          if (element) result.push(prop ? element[prop] : element.nodeValue);
+
+
+      // delay
+      await context.waitForSelector('div[class="fotorama__stage__frame fotorama__active fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img"] img', 5000)
+      await context.evaluate(() => {
+        function addElementToDocument(key, value) {
+          const catElement = document.createElement('div');
+          catElement.id = key;
+          catElement.textContent = value;
+          catElement.style.display = 'none';
+          document.body.appendChild(catElement);
         }
-        return result;
-      };
-
-      var getXpath = (xpath, prop) => {
-        var elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
-        let result;
-        if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
-        else result = elem ? elem.singleNodeValue : '';
-        return result && result.trim ? result.trim() : result;
-      };
-
-      var name = getXpath('//span[@data-ui-id="page-title-wrapper"]/text()', 'nodeValue');
-      if (name != null){
-        var abc = name.split(" ");
-        var zz = abc.slice(Math.max(abc.length - 2, 1))
-        zz = zz.join(" ")
-        addElementToDocument('zz', zz);
-      }
 
 
-// description
-      var dec = getAllXpath('//div[@class="product attribute description"]/div/div/text()', 'nodeValue');
-      var res = "";
-      if ( dec != null){
-         res = dec.join(" ");
-         addElementToDocument('res', res);
-      }
 
-      var dec1 = getAllXpath('//div[@class="prescriptionProductInfo"]/p/text()', 'nodeValue');
-      if( dec1 != null){
-        res = dec1.join(" ");
-        addElementToDocument('res', res);
-      }
 
-      var dec2 = getXpath('//p[@class="MsoNormal"]/span/text()', 'nodeValue');
-      if( dec2 != null){
-        res = dec2;
-        addElementToDocument('res', res);
-      }
+        // @ts-ignore
+        const brand = window.dlObjects[0].ecommerce.detail.products[0].brand;
+        addElementToDocument('brand', brand);
 
-      var dec3 = getXpath('//p[@class="MsoNormal"]/text()', 'nodeValue');
-      if ( dec3 != null){
-        res = dec3;
-        addElementToDocument('res', res);
-      }
-      
-      var rat = getXpath('//div[@class="redirect-to-review-details rating-summary reviews-actions"]/a/div/@title', 'nodeValue');
-      var rating = 1;
-      if(rat != null){
-        if( rat.includes("%") ){
-          rating = rat.slice(0,-1);
-          rating = (rating*5)/100;
-          addElementToDocument('rating', rating);
+        // @ts-ignore
+        const category = window.dlObjects[0].ecommerce.detail.products[0].category;
+        var z = category.split("/");
+        var len = z.length;
+        for (let i = 0; i < len; i++) {
+          addElementToDocument('category', z[i]);
         }
-      }
 
-      var ppu = 0;
-      addElementToDocument('ppu', ppu);
+        const getAllXpath = (xpath, prop) => {
+          const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+          const result = [];
+          for (let index = 0; index < nodeSet.snapshotLength; index++) {
+            const element = nodeSet.snapshotItem(index);
+            if (element) result.push(prop ? element[prop] : element.nodeValue);
+          }
+          return result;
+        };
+
+        var getXpath = (xpath, prop) => {
+          var elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+          let result;
+          if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+          else result = elem ? elem.singleNodeValue : '';
+          return result && result.trim ? result.trim() : result;
+        };
+
+        var name = getXpath('//span[@data-ui-id="page-title-wrapper"]/text()', 'nodeValue');
+        if (name != null) {
+          var abc = name.split(" ");
+          var zz = abc.slice(Math.max(abc.length - 2, 1))
+          zz = zz.join(" ")
+          addElementToDocument('zz', zz);
+        }
 
 
-      var sec = getAllXpath('//div[@class="fotorama__nav__frame fotorama__nav__frame--thumb"]/div/img/@src', 'nodeValue');
-      if( sec.length >= 1){
-        for(var i=0; i<sec.length; i++){
-          if(sec[i].includes("2c8e4a927e83d05ef971eebbe46f67ee")){
-            sec[i] = sec[i].replace("2c8e4a927e83d05ef971eebbe46f67ee","74c1057f7991b4edb2bc7bdaa94de933");
+        // description
+        var dec = getAllXpath('//div[@class="product attribute description"]/div/div/text()', 'nodeValue');
+        var res = "";
+        if (dec != null) {
+          res = dec.join(" ");
+          addElementToDocument('res', res);
+        }
+
+        var dec1 = getAllXpath('//div[@class="prescriptionProductInfo"]/p/text()', 'nodeValue');
+        if (dec1 != null) {
+          res = dec1.join(" ");
+          addElementToDocument('res', res);
+        }
+
+        var dec2 = getXpath('//p[@class="MsoNormal"]/span/text()', 'nodeValue');
+        if (dec2 != null) {
+          res = dec2;
+          addElementToDocument('res', res);
+        }
+
+        var dec3 = getXpath('//p[@class="MsoNormal"]/text()', 'nodeValue');
+        if (dec3 != null) {
+          res = dec3;
+          addElementToDocument('res', res);
+        }
+
+        var rat = getXpath('//div[@class="redirect-to-review-details rating-summary reviews-actions"]/a/div/@title', 'nodeValue');
+        var rating = 1;
+        if (rat != null) {
+          if (rat.includes("%")) {
+            rating = rat.slice(0, -1);
+            rating = (rating * 5) / 100;
+            addElementToDocument('rating', rating);
           }
         }
-        var sec_img = sec.join(" | ");
-        addElementToDocument('sec', sec_img);
-      }
+
+        var ppu = 0;
+        addElementToDocument('ppu', ppu);
 
 
-      // availability
-      var aval = getXpath('//script[@type="application/ld+json"]/text()', 'nodeValue');
-      if(aval != null){
-        var data = JSON.parse(aval);
-        var availability = data.offers.availability;
-        if(availability != null){
-          availability = availability.split("org/")[1];
-          if(availability.includes("InStock")){
-            availability = "In Stock";
-          }else{
-            availability = "Out of Stock"
+        var sec = getAllXpath('//div[@class="fotorama__nav__frame fotorama__nav__frame--thumb"]/div/img/@src', 'nodeValue');
+        if (sec.length >= 1) {
+          for (var i = 0; i < sec.length; i++) {
+            if (sec[i].includes("2c8e4a927e83d05ef971eebbe46f67ee")) {
+              sec[i] = sec[i].replace("2c8e4a927e83d05ef971eebbe46f67ee", "74c1057f7991b4edb2bc7bdaa94de933");
+            }
           }
-        addElementToDocument('availability', availability);
+          var sec_img = sec.join(" | ");
+          addElementToDocument('sec', sec_img);
         }
-      }
 
 
-      //image
-      var image = getXpath('(//div[@data-gallery-role="stage-shaft"]//div//img/@src)[1]', 'nodeValue');
-      if(image != null){
-        if( image.includes("9d08971813a040f8f96067a40f75c615")){
-          image = image.replace("9d08971813a040f8f96067a40f75c615","030716fc62035027b622eeef186d3d67");
+        // availability
+        var aval = getXpath('//script[@type="application/ld+json"]/text()', 'nodeValue');
+        if (aval != null) {
+          var data = JSON.parse(aval);
+          var availability = data.offers.availability;
+          if (availability != null) {
+            availability = availability.split("org/")[1];
+            if (availability.includes("InStock")) {
+              availability = "In Stock";
+            } else {
+              availability = "Out of Stock"
+            }
+            addElementToDocument('availability', availability);
+          }
         }
-        addElementToDocument('image', image);
-      }
 
-      
 
-    });
+        //image
+        var image = getXpath('(//div[@data-gallery-role="stage-shaft"]//div//img/@src)[1]', 'nodeValue');
+        if (image != null) {
+          if (image.includes("9d08971813a040f8f96067a40f75c615")) {
+            image = image.replace("9d08971813a040f8f96067a40f75c615", "030716fc62035027b622eeef186d3d67");
+          }
+          addElementToDocument('image', image);
+        }
+
+
+
+      });
+    
+
     await context.extract(productDetails);
   },
 };
