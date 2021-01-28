@@ -5,7 +5,7 @@ module.exports = {
     domain: 'drogariasaopaulo.com.br',
     prefix: '',
     postfix: '',
-    url: 'https://www.drogariasaopaulo.com.br/{id}/p',
+    url: 'https://www.drogariasaopaulo.com.br/{id}',
     country: 'BR',
     store: 'drogariasaopaulo',
     zipcode: '',

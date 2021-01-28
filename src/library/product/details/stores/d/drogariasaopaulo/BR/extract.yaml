@@ -7,6 +7,9 @@ fields:
     singleValue: true
     xpath: //div/img[contains(@id,'image-main')]/@src
     description: URL of the main product image
+  - name: imageAlt
+    singleValue: true
+    xpath: //a[contains(@id,'botaoZoom')]/img/@alt
   - name: alternateImages
     singleValue: false
     xpath: //ul[contains(@class,'thumbs')]/li/a/@rel
@@ -41,9 +44,19 @@ fields:
       should be "In Stock"
   - name: description
     singleValue: false
-    xpath: //div[contains(@class,'productDescription')]
+    xpath: //div/h1/div[contains(@class,'productName')]
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
+  - name: additionalDescription
+    singleValue: true
+    xpath: //div[contains(@class,'productDescription')]
+  - name: priceCurrency
+    singleValue: true
+    xpath: //div[contains(@class,'rnk-container-product-select-especification')]//div[contains(@class,'productPrice')]//strong[contains(@class,'skuBestPrice')]
+    regExp: ^[\s\S]{0,2}
+  - name: enhancedContent
+    singleValue: true
+    xpath: //meta[@name="description"]/@content
   # - name: descriptionBullets
   #   singleValue: true
   #   description: Number of ul > li tags in the description

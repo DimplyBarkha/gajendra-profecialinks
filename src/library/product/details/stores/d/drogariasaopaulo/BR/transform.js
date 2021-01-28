@@ -8,23 +8,26 @@ const transform = (data, context) => {
   const clean = (text) =>
     text
       .toString()
-      .replace(/\r\n|\r|\n/g, ' ')
-      .replace(/&amp;nbsp;/g, ' ')
-      .replace(/&amp;#160/g, ' ')
-      .replace(/\u00A0/g, ' ')
-      .replace(/\s{2,}/g, ' ')
+      .replace(/\r\n|\r|\n/g, " ")
+      .replace(/&amp;nbsp;/g, " ")
+      .replace(/&amp;#160/g, " ")
+      .replace(/\u00A0/g, " ")
+      .replace(/\s{2,}/g, " ")
       .replace(/"\s{1,}/g, '"')
       .replace(/\s{1,}"/g, '"')
-      .replace(/^ +| +$|( )+/g, ' ')
+      .replace(/^ +| +$|( )+/g, " ")
       // eslint-disable-next-line no-control-regex
-      .replace(/[\x00-\x1F]/g, '')
-      .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+      .replace(/[\x00-\x1F]/g, "")
+      .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, " ");
   data.forEach((obj) =>
     obj.group.forEach((row) =>
       Object.keys(row).forEach((header) =>
         row[header].forEach((el) => {
           el.text = clean(el.text);
-        }))));
+        })
+      )
+    )
+  );
 
   for (const { group } of data) {
     for (const row of group) {
@@ -39,13 +42,15 @@ const transform = (data, context) => {
           regexMatch = regEx.exec(product);
 
           productDetails = JSON.parse(regexMatch[1]);
-          if (productDetails.productName.includes(productDetails.productBrandName)) {
-            row.nameExtended = [
-              { text: productDetails.productName },
-            ];
+          if (
+            productDetails.productName.includes(productDetails.productBrandName)
+          ) {
+            row.nameExtended = [{ text: productDetails.productName }];
           } else {
             row.nameExtended = [
-              { text: `${productDetails.productBrandName} ${productDetails.productName}` },
+              {
+                text: `${productDetails.productBrandName} ${productDetails.productName}`,
+              },
             ];
           }
         }
@@ -55,9 +60,23 @@ const transform = (data, context) => {
           regexMatch = regEx.exec(product);
 
           productDetails = JSON.parse(regexMatch[1]);
-          row.brandText = [
-            { text: productDetails.productBrandName },
-          ];
+          row.brandText = [{ text: productDetails.productBrandName }];
+        }
+        if (row.price) {
+          let price = row.price[0].text;
+ 
+          var fprice = price.slice(3);
+          console.log(fprice);
+          
+          row.price = [{ text: fprice }];
+        }
+        if (row.listPrice) {
+          let listPrice = row.listPrice[0].text;
+ 
+          var flistPrice = listPrice.slice(3);
+          console.log(flistPrice);
+          
+          row.price = [{ text: flistPrice }];
         }
         // if (row.gtin) {
         //   product = row.gtin[0].text;
@@ -81,11 +100,16 @@ const transform = (data, context) => {
         // }
         if (row.availabilityText) {
           row.availabilityText = [
-            { text: row.availabilityText[0].text === 'true' ? 'In Stock' : 'Out of Stock' },
+            {
+              text:
+                row.availabilityText[0].text === "true"
+                  ? "In Stock"
+                  : "Out Of Stock",
+            },
           ];
         }
       } catch (exception) {
-        console.log('Error in transform', exception);
+        console.log("Error in transform", exception);
       }
     }
   }

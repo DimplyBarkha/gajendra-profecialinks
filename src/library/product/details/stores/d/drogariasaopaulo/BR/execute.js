@@ -5,9 +5,9 @@ module.exports = {
     country: 'BR',
     store: 'drogariasaopaulo',
     domain: 'drogariasaopaulo.com.br',
-    url: 'https://www.drogariasaopaulo.com.br/{id}/p',
-    loadedSelector: 'main#inicio-conteudo',
+    loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',
   },
+  
 };
