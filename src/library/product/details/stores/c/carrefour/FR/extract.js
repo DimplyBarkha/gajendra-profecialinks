@@ -39,6 +39,13 @@ module.exports = {
           document.body.appendChild(imgEl);
         }
       }
+
+      let ingredients = document.evaluate(`//h3[contains(., 'Ingrédients')]/../div/p`, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      if(ingredients) {
+        let ingredientsList = ingredients.textContent.replace('Ingrédients: Ingrédients : ','').replace('Ingrédients: ','').replace('Ingrédients : ','').replace('INGREDIENTS : ','');
+        document.body.setAttribute('ingredients', ingredientsList);
+      }
+
     });
     const { transform } = parameters;
     const { productDetails } = dependencies;
