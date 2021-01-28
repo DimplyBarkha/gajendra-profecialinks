@@ -105,6 +105,7 @@ const transform = (data) => {
             item.text = item.text.replace('_small', '');
           }
         });
+        row.secondaryImageTotal = [{text: row.alternateImages.length }];
       }
       if (row.description) {
         var arrDesc = [];

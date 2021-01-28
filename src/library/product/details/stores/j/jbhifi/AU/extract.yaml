@@ -9,14 +9,16 @@ fields:
   - name: image
     singleValue: false
     xpath: //div[@data-ident='pdpImage' and contains(@class,'')]//figure[not(contains(@class,'slick-cloned')) and contains(@class,'slick-active')]//img/@src    
-    regExp: (.+?)_large(.+)
-    regExpReplace: $1$2
+    # regExp: (.+?)_large(.+)
+    # regExpReplace: $1$2
   - name: imageAlt
     singleValue: false
     xpath: //div[@data-ident='pdpImage' and contains(@class,'')]//figure[not(contains(@class,'slick-cloned')) and contains(@class,'slick-active')]//img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@data-ident='pdpImage' and contains(@class,'')]//figure[not(contains(@class,'slick-cloned')) and not(contains(@class,'slick-active'))]//img/@src    
+    xpath: //div[@data-ident='pdpImage' and contains(@class,'')]//figure[not(contains(@class,'slick-cloned')) and not(contains(@class,'slick-active'))]//img/@src
+  - name: secondaryImageTotal
+    singleValue: false   
   - name: category
     singleValue: false    
     xpath: //div[@id='PageContainer']//ol//li
