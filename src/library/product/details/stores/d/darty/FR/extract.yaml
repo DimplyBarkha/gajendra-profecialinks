@@ -135,12 +135,13 @@ fields:
     xpath: //span[contains(@class,"product-offer-ripost-text-marketing")] 
   - name: unInterruptedPDP
     xpath: //div[@class="updpinformation"] | //*[@id="main"]//div[@class="content"]//h3
+    # Removing WITB and CTR as they are behind button.
   - name: inTheBoxUrl
-    xpath: //div[contains(@class,"inpage_selector_InTheBox")]//img/@data-flixsrcset
-    regExp: ^([^\s]+)
-    regExpReplace: https:$1
+    # xpath: //div[contains(@class,"inpage_selector_InTheBox")]//img/@data-flixsrcset
+    # regExp: ^([^\s]+)
+    # regExpReplace: https:$1
   - name: inTheBoxText
-    xpath: //div[@class="flix-std-content"]//div[contains(@class,"flix-std-desc")]//span
+    # xpath: //div[@class="flix-std-content"]//div[contains(@class,"flix-std-desc")]//span
     # xpath: //div[contains(@class,"inpage_selector_InTheBox")]//div[contains(@class,"flix-std-table")]
   - name: hasComparisonTable
-    xpath: boolean(//div[@class="inpage_selector_comparison"])
+    # xpath: boolean(//div[@class="inpage_selector_comparison"])
