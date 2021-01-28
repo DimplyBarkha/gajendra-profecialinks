@@ -12,10 +12,15 @@ module.exports = {
     parameters, context, dependencies,
   ) => {
     const timeout = parameters.timeout ? parameters.timeout : 70000;
-    await context.setBlockAds(false);
-    await context.setLoadImages(true);
-    await context.setLoadAllResources(true);
-    await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
+    url = `${url}#[!opt!]{"first_request_timeout":50000, "force200": true}[/!opt!]`;
+    await context.goto(url, {
+      block_ads: false,
+      load_all_resources: true,
+      images_enabled: true,
+      timeout,
+      waitUntil: 'load',
+    });
+    await context.waitForNavigation();
     if (zipcode) {
       await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
     }

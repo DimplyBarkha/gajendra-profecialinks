@@ -18,7 +18,7 @@ fields:
     regExp: (\d+)(,)(\d+)
   - name: id
     xpath: //a[contains(@class,"Link")]/@href
-    regExp: (\d+)/p
-    regExpReplace: $1
+    regExp: (mp(\d+))\/p|-(\d+)\/p
+    regExpReplace: $1$3
   - name: searchUrl
     xpath: //div[contains(@class,"galleryItem")]/@searchurl
