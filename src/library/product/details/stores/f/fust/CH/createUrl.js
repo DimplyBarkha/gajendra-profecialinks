@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'fust.ch',
     prefix: null,
-    url: 'https://www.fust.ch/de/p/o-{id}.html',
+    url: 'https://www.fust.ch/de/search.html?searchtext={id}',
     country: 'CH',
     store: 'fust',
     zipcode: '',
