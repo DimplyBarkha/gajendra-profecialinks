@@ -1,51 +1,22 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="search__result__product__list"]/div[contains(@class, "search__result__product__grid")]/div[contains(@class, "search__result__product--featured search__result__product")] | //div[@class="search__result__product__list"]/div[contains(@class, "search__result__product__grid")]/div[@class="search__result__product"]
-# recordXPath: //div[@class="search__result__product__list"]//div[contains(@class, "row")]//div[contains(@class, "col-xs-4 search__result__product")]
-# recordXPath: //div[@class="search__result__product__list"]//div[contains(@class, "search__result__product")]
+recordXPath: //div[@class="search__result__product__grid"]/div[contains(@class, "search__result__product")] | //div[@class="category-product-grid"]/a[contains(@class, "category-product")]
 fields:
-  - name: paid
-    singleValue: false
-    description: Whether this is a sponsored/paid result
-    type: BOOLEAN
-  - name: brand
-    singleValue: false
-    description: The brand name
-    example: Panasonic
-  - name: category
-    singleValue: false
-    description: The categories (e.g. from breadcrumbs)
-    example:
-      - Dental Care
-      - Toothbrushes & Accessories
-      - Electric Toothbrushes & Accessories
-      - Electric Toothbrushes
-      - Rotating
+  - name: _input
+    singleValue: true 
   - name: productUrl
     singleValue: false
     description: The URL for the product details page
-    xpath: //div[@class="search__result__product__name"]/a/@href
+    xpath: //div[@class="search__result__product__name"]/a/@href | //div[@class="category-product-grid"]/a/@href
   - name: thumbnail
     singleValue: false
     description: The URL for the product thumbnail image
-    xpath: //img[contains(@class, "search__result__product__image")]/@src
+    xpath: //img[contains(@class, "search__result__product__image")]/@src | //div[@class="category-product-grid"]/a[@class="category-product"]//div[@class="product__image"]/img[position() = 1]/@src
   - name: name
     singleValue: false
     description: The product name
-    xpath: //div[@class="search__result__product__name"]
-  - name: sku
-    singleValue: false
-    description: The store-specific product identifier
-  - name: mpc
-    singleValue: false
-    description: The model code of the product
-  - name: gtin
-    singleValue: false
-    description: GTIN code (includes UPC/EAN)
-  - name: aggregateRatingText
-    singleValue: false
-    description: The stated aggregate rating
+    xpath: //div[@class="search__result__product__name"]/a/text() | //div[@class="product__title"]/text()
   - name: ratingCount
     singleValue: false
     description: The number of ratings
@@ -55,22 +26,14 @@ fields:
   - name: price
     singleValue: false
     description: The offered price for the product
-    xpath: //div[contains(@class,"search__result__product__price")]/text()
+    xpath: //div[contains(@class,"search__result__product__price")]/text() | //div[@class="product__price"]/span[contains(@class,"product__price-current")]/text()
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
+    xpath: //*[@class="search__result__product__price"]/em/text() | //div[@class="product__price"]/em[contains(@class,"product__price-discount")]/text()
   - name: manufacturer
     singleValue: false
     description: Product manufacturer
-  - name: soldBy
-    singleValue: false
-    description: The name of the seller of the item (if available)
-  - name: endorsementText
-    singleValue: false
-    description: The text that signifies that a product is endorsed
-  - name: shippingInfo
-    singleValue: false
-    description: Shipping information for the product
   - name: rank
     singleValue: false
     description: search/listing rank
@@ -83,21 +46,19 @@ fields:
     singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
-    xpath: //div[contains(@class, "search__result__product--featured ")]
+    #xpath: //div[@class="search__result__product__list"]//div[contains(@class, "search__result__product--featured ")] | //div[@class="search__result__product__list"]//div[contains(@class, "search__result__product--ultra-beauty")]
+    xpath: //div[@class="search__result__product__list"]//div[contains(@class, "search__result__product--featured ")] | //div[contains(@class, "product--featured product")]
   - name: id
     singleValue: false
     description: Unique id (within this extractor)
-    xpath: //div[@class="search__result__product__name"]/a/@href 
-    regExp: \.com\.au\/buy\/(.*)\/
+    xpath: //div[@class="search__result__product__name"]/a/@href | //div[@class="category-product-grid"]/a/@href
+    regExp: \.com\.au\/(?:ultra-beauty\/buy|buy)\/(.*)\/
     regExpReplace: $1
-  - name: nameExtended
+  - name: variantId
     singleValue: false
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per extractor)
-  - name: aggregateRating
-    singleValue: false
-    description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
-  - name: searchUrl
+    xpath: //div[@class="search__result__product__name"]/a/@href | //div[@class="category-product-grid"]/a/@href
+    regExp: \.com\.au\/(?:ultra-beauty\/buy|buy)\/(.*)\/
+    regExpReplace: $1
+  - name: _url
     singleValue: false
     xpath: ancestor::html//div[@id='ii_searchUrl'][last()] 

@@ -31,8 +31,6 @@ async function implementation(
       var mainElem = document.getElementById('Left-Content');
       let url = window.location.pathname;
       
-      
-
       function isHidden(el) {
         if(el){
           return (el.offsetParent === null)

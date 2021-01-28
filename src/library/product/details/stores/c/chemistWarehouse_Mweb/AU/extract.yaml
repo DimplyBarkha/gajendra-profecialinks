@@ -16,7 +16,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@class="slides_container"]//div[@class="pi_slide"][position() > 1]/a/@href
+    xpath: //*[@id="product_images"]/div[contains(@class, "sub_images")]/div[position()>1]/img/@src
     # xpath: //div[@class="pi_slide"][position() > 1]/a[@class="image_enlarger"]/img[contains(@class, "hero_image") and @itemprop="image"]
   - name: metaKeywords
     singleValue: false
@@ -43,10 +43,11 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //div[@class="button_div"]//img[@id="AddToCartButton"]/@alt
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    xpath: //div[@id="availabilityText"]/text()
+    # xpath: //div[@class="button_div"]//img[@id="AddToCartButton"]/@alt
+    # regExp: (.+)
+    # regExpReplace: In Stock
+    # defaultValue: Out of Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -54,6 +55,7 @@ fields:
     xpath: //div[@class="product-info-container"]//section[@class="product-info-section general-info"]//h2[contains(text(), "General Information")]/following-sibling::div[contains(@class, "details")] | //div[@class="product-info-container"]//section[@class="product-info-section general-info "]//h2[contains(text(), "General Information")]/following-sibling::div[contains(@class, "details")]
   - name: descriptionBullets
     singleValue: false
+    xpath: //div[@id="pipeCount"]/text()
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
