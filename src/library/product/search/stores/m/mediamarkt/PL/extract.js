@@ -22,9 +22,9 @@ module.exports = {
             await page.evaluate(async() => {
                 await new Promise((resolve, reject) => {
                     var totalHeight = 0;
-                    var distance = 500;
+                    var distance = 1000;
                     var timer = setInterval(() => {
-                        var scrollHeight = document.body.scrollHeight;
+                        var scrollHeight = document.body.scrollHeight - 2000;
                         window.scrollBy(0, distance);
                         totalHeight += distance;
 
@@ -32,7 +32,7 @@ module.exports = {
                             clearInterval(timer);
                             resolve();
                         }
-                    }, 200);
+                    }, 100);
                 });
             });
         }
