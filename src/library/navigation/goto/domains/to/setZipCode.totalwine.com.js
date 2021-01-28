@@ -1,9 +1,13 @@
 
-async function implementation (
+async function implementation(
   inputs, parameters, context, dependencies,
 ) {
   let url = inputs.url;
   const { zipcode } = inputs;
+  // await context.evaluate((zipcode) => {
+  //   const appendElement = document.querySelector('div[class*="productDetailContainer"] div[class*="productHeader"] h1[class*="productTitle"]');
+  //   appendElement.setAttribute('zipcodeinformation', zipcode);
+  // }, zipcode)
 
   const getCurrentZip = async () => {
     await context.evaluate(async function () {
@@ -29,37 +33,40 @@ async function implementation (
       const mystore = document.querySelector('button.setMyStoreBtn__1HCHxCQ8');
       if (mystore) {
         mystore.click();
-      } 
+      }
     });
   };
 
   async function setURlandNavigate() {
-    await context.evaluate(function (url) {
+    await context.evaluate(async function ({ url, zipcode }) {
       try {
         let storeInfo = document.querySelector('a[href*="store-info"]');
         if (!storeInfo) {
           throw new Error('STORE NOT FOUND');
-        } 
+        }
         console.log(`Store info - ${storeInfo}`);
         let storeId = storeInfo ? storeInfo.getAttribute('href').split('/').pop() : null;
         console.log(`Store ID ${storeId}`)
         if (storeId) {
-          // modifying input URL to redirect to the selected store.
           url = url.replace(/(.*?)s=(.*?)&(.*)/g, `$1s=${storeId}&$3`);
           console.log('Modified URL' + url);
           window.location.href = url;
+          // await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+          // const appendElement = document.querySelector('div[class*="productDetailContainer"] div[class*="productHeader"] h1[class*="productTitle"]');
+          // appendElement.setAttribute('zipcodeinformation', zipcode);
+          // appendElement.setAttribute('storeidinformation', storeId);
         }
       } catch (error) {
         console.log('store not found for the current zipcode extracting the data from given URL' + error);
         window.location.href = url;
       }
-    }, url);
+    }, { url, zipcode });
   };
 
   const changeZip = async (wantedZip) => {
     // await context.click('button.CurrentModality-button');
     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
-    await context.goto(`https://www.totalwine.com/store-finder/search?q=${wantedZip}&radius=20`, { timeout: 60000, waitUntil: 'networkidle0', checkBlocked: true});
+    await context.goto(`https://www.totalwine.com/store-finder/search?q=${wantedZip}&radius=20`, { timeout: 60000, waitUntil: 'networkidle0', checkBlocked: true });
     // await context.waitForSelector('div[class^="FieldContainer"] input[aria-labelledby^="TextInput"]', { timeout: 65000 });
     // await context.setInputValue('div[class^="FieldContainer"] input[aria-labelledby^="TextInput"]', wantedZip);
     // await context.click('div[class^="FieldContainer"] button[data-at="at_submitSearch"]');

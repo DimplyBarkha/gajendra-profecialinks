@@ -2,16 +2,22 @@ const implementation = async function (
   inputs,
   parameters,
   context,
-  dependencies,
+  dependencies
 ) {
   let { url, id } = inputs;
-  const zipcode = inputs.zipcode || parameters.zipcode;
+  let zipcode = inputs.zipcode || inputs.Postcode;
+  const storeId = inputs.StoreId;
+  // const Postcode = inputs.Postcode;
+  const { loadedSelector, noResultsXPath } = parameters;
   if (!url) {
     if (!id) {
       throw new Error('no id provided');
     }
     url = await dependencies.createUrl({ id });
   }
+  // console.log('this is the value of storeid' + storeId);
+  // console.log('this is the vlaue of postcode' + Postcode);
+  // console.log('this is the value of zipcode' + zipcode)
 
   try {
     const response = await context.goto(url, { timeout: 60000, waitUntil: 'networkidle0', checkBlocked: false });
@@ -28,16 +34,38 @@ const implementation = async function (
     }
     throw err;
   }
+  // if (zipcode == undefined) {
+  //   zipcode = Postcode;
+  //   console.log('postcode value' + zipcode)
+  // }
   if (zipcode) {
     await dependencies.setZipCode({ url, zipcode });
   }
-
-
-  if (parameters.loadedSelector) {
-    await context.waitForFunction(function (sel, xp) {
-      return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 20000 }, parameters.loadedSelector, parameters.noResultsXPath);
+  try {
+    await context.waitForSelector('div[class*="productDetailContainer"] div[class*="productHeader"] h1[class*="productTitle"]', { timeout: 10000 })
+    console.log('Header loaded successfully')
+  } catch (error) {
+    console.log('selector did not loaded' + error);
   }
+  // const appendData = async () => {
+  await context.evaluate((zipcode) => {
+    console.log('zipcode value' + zipcode);
+    const url = window.location.href;
+    const storeId = url.replace(/(.+)(s=)(\d+)(&)(.+)/g, '$3');
+    console.log('storeid value' + storeId);
+    const appendElement = document.querySelector('div[class*="productDetailContainer"] div[class*="productHeader"] h1[class*="productTitle"]');
+    appendElement.setAttribute('zipcodeinformation', zipcode);
+    appendElement.setAttribute('storeidinformation', storeId);
+  }, zipcode)
+  // }
+
+  // appendData();
+
+  // if (parameters.loadedSelector) {
+  //   await context.waitForFunction(function (sel, xp) {
+  //     return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
+  //   }, { timeout: 20000 }, parameters.loadedSelector, parameters.noResultsXPath);
+  // }
 
   async function getData(variantUrl) {
     console.log('URL passed - ' + variantUrl);
@@ -117,6 +145,17 @@ const implementation = async function (
   } catch (err) {
     console.log('cannot hover on rating');
   }
+  if (loadedSelector) {
+    await context.waitForFunction(
+      (selector, xpath) => {
+        return !!(document.querySelector(selector) || document.evaluate(xpath, document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue);
+      },
+      { timeout: 10000 },
+      loadedSelector,
+      noResultsXPath,
+    );
+  }
+  return await context.evaluate((xpath) => !document.evaluate(xpath, document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue, noResultsXPath);
 };
 
 module.exports = { implementation };
