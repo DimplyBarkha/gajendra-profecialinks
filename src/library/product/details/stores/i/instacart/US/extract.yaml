@@ -16,10 +16,10 @@ fields:
   - name: metaKeywords
     description: The <meta> keywords content
   - name: category
-    xpath: //div[contains(@aria-label, "breadcrumbs")][@class=""]//a
+    xpath: (//div[contains(@class, "item-detail-module")]//div[contains(@aria-label, "breadcrumbs")])[1]//a
     # xpath: //div[@aria-label="breadcrumbs"]/div[position()>1]/a|//div[@aria-label="breadcrumbs"]/div[last()]
   - name: nameExtended
-    xpath: concat(//div[contains(@class, "itemModalHeader")]//h2[contains(@class, "item-title")], " - ", //ul[contains(@aria-labelledby, "variant-selections")]//li//button[contains(@aria-label, "select")])
+    xpath: concat(//div[contains(@class, "itemModalHeader")]//h2[contains(@class, "item-title")], " ", //ul[contains(@aria-labelledby, "Flavor-variant-selections")]//li//button[contains(@aria-label, "select")], " ", //ul[contains(@aria-labelledby, "Size-variant-selections")]//li//button[contains(@aria-label, "select")])
     # xpath: //main[@id="main-content"]/div[4]/div/div[2]/h3
   - name: listPrice
     xpath: //div[contains(@class, "itemModalHeader")]//span[contains(text(), "Original Price:")]/following-sibling::span[contains(@class, "item-full-price")]
@@ -41,9 +41,9 @@ fields:
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
-    xpath: //div[contains(@class, "itemModalHeader")]//h2[contains(@class, "item-title")]
-    regExp: (^\w+)
-    regExpReplace: $1 
+    # xpath: //div[contains(@class, "itemModalHeader")]//h2[contains(@class, "item-title")]
+    # regExp: (^\w+)
+    # regExpReplace: $1 
   - name: manufacturer
     description: Product manufacturer
   - name: quantity

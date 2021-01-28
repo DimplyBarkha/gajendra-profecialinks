@@ -16,9 +16,10 @@ fields:
     xpath: //a//div[contains(@class, "item-price")]//span[not(@class="muted")]//span|//a//span[contains(@class, "css-coq")]
   - name: productUrl
     singleValue: false
-    xpath: //a/@href
-    regExp: (.+)
-    regExpReplace: https://www.instacart.com$1
+    xpath: //a/@href[1]
+    regExp: store(.*)
+    # regExp: (.*)
+    regExpReplace: https://www.instacart.com/store$1
     description: The URL for the product details page
   - name: thumbnail
     singleValue: false
