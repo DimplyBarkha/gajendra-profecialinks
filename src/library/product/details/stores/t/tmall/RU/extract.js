@@ -1,4 +1,4 @@
-const {transform}=require('./format')
+const { transform } = require('./format')
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
@@ -10,7 +10,7 @@ module.exports = {
   },
   implementation: async (inputs, { country, domain, transform }, context, { productDetails }) => {
     try {
-      await context.evaluate(async() => {
+      await context.evaluate(async () => {
         console.log('Scroll to recommendatrions section');
         function timeout(ms) {
           return new Promise((resolve) => setTimeout(resolve, ms));
@@ -25,9 +25,6 @@ module.exports = {
     } catch (er) {
       console.log('Failed to scroll to bottom of page', er);
     }
-
-    return await context.extract(productDetails, {
-      transform
-    });
+    return await context.extract(productDetails, { transform });
   },
 };
