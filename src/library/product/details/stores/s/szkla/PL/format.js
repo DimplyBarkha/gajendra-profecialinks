@@ -37,7 +37,29 @@ const transform = (data) => {
               tmp_array.push(item.text);
             });
             row.specifications = [{"text":tmp_array.join(' || ')}];
-        }        
+        }
+        if(row.promotion){
+          let tmp_array = []; 
+          row.promotion.forEach(item=>{
+            tmp_array.push(item.text);
+          })
+          row.promotion = [{"text":tmp_array.join(' ')}];
+        }
+        if(row.price){
+          row.price.forEach(item=>{
+            item.text=item.text.replace('.',',');
+          })
+        }     
+        if(row.listPrice){
+          row.listPrice.forEach(item=>{
+            item.text=item.text.replace('.',',');
+          })
+        }
+        if(row.aggregateRating){
+          row.aggregateRating.forEach(item=>{
+            item.text=item.text.replace('.',',');
+          })
+        }
       }
     }
     return cleanUp(data);
