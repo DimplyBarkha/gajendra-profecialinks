@@ -1,10 +1,11 @@
+const { cleanUp } = require('../../../../shared');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'TR',
     store: 'e-bebek',
-    transform: null,
+    transform: cleanUp,
     domain: 'e-bebek.com',
     zipcode: '',
   },
