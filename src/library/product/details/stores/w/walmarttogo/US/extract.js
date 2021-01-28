@@ -91,25 +91,41 @@ async function implementation (
     document.body.append(container);
   }
   async function getData() {
+    async function getBasicData(api) {
+      const response = await fetch(api);
+      const json = await response.json();
+      return json.basic;
+    }
     const dataSelected = JSON.parse(document.body.innerText);
     const data = [dataSelected];
     const selectedId = dataSelected.USItemId;
+    const basicApi = window.location.href.replace(/storeId=\d+/,'storeId=5334');
+    if(!dataSelected.basic.image) {
+      dataSelected.basic = await getBasicData(basicApi);
+    }
     if(dataSelected.variantProducts) {
       const ids = Object.values(dataSelected.variantProducts).map(elm => elm.usItemId).filter(elm => elm !== selectedId);
       for(const id of ids) {
         const response = await fetch(window.location.href.replace(/products\/[^\?]+/, `products/${id}`));
         const json = await response.json();
+        if(!json.basic.image) {
+          json.basic = await getBasicData(basicApi.replace(/storeId=\d+/,'storeId=5334'));
+        }
         data.push(json);
       }
     }
     return data;
   }
   async function getStoreDetails() {
-    const zipcode = window.location.href.match(/zipcode=(\d+)/) && window.location.href.match(/zipcode=(\d+)/)[1] || '';
-    const storeId = window.location.href.match(/storeId=(\d+)/) && window.location.href.match(/storeId=(\d+)/)[1] || '';
+    console.log('LOCATION:', window.location.href);
+    let zipcode = window.location.href.match(/zipcode=(\d+)/) && window.location.href.match(/zipcode=(\d+)/)[1];
+    const storeId = window.location.href.match(/storeId=(\d+)/) && window.location.href.match(/storeId=(\d+)/)[1] || '5334';
     const response = await fetch(`https://www.walmart.com/grocery/v3/api/store/${storeId}`);
     const json = await response.json();
     const storeName = json.accessPointList.find(elm => elm.fulfillmentType === 'INSTORE_PICKUP').name.match(/^[^#]+/)[0].trim();
+    if(!zipcode) {
+      zipcode = json.address.postalCode.slice(0,5);
+    }
     document.body.setAttribute('storeName', storeName);
     document.body.setAttribute('zipcode', zipcode);
     document.body.setAttribute('storeId', storeId);

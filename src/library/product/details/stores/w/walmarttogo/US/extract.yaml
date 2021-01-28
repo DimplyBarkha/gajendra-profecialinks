@@ -209,6 +209,7 @@ fields:
   - name: servingSizeUom
     xpath: //td[@class="displayName"][text()="Serving size"]/following-sibling::td[@class="displayValue"]
     regExp: '[^\s]+$'
+    regExpReplace: g
     description: Unit of measure of serving
   - name: numberOfServingsInPackage
     xpath: //td[@class="displayName"][text()="servings per container"]/following-sibling::td[@class="displayValue"]
@@ -232,7 +233,7 @@ fields:
     description: Unit of Measure Data for Total Fat content
   - name: saturatedFatPerServing
     xpath: //td[@class="displayName"][text()="Saturated Fat"]/../td[@class="nutrient_amount"]//td[@class="displayValue"][not(text()="SaturatedFat")]
-    regExp: '[^\d]+$'
+    regExp: ^[^a-zA-Z]+
     description: Nutritional Information for Saturated Fat content - Usually based
       on per 100g serving
   - name: saturatedFatPerServingUom
@@ -241,7 +242,7 @@ fields:
     description: Unit of Measure Data for Saturated Fat content
   - name: transFatPerServing
     xpath: //td[@class="displayName"][text()="Trans Fat"]/../td[@class="nutrient_amount"]//td[@class="displayValue"][not(text()="TransFat")]
-    regExp: '[^\d]+$'
+    regExp: ^[^a-zA-Z]+
     description: Nutritional Information for Trans Fat content - Usually based on
       per 100g serving
   - name: transFatPerServingUom
@@ -250,7 +251,7 @@ fields:
     description: Unit of Measure Data for Trans Fat content
   - name: cholesterolPerServing
     xpath: //td[@class="displayName"][text()="Cholesterol"]/../td[@class="nutrient_amount"]//td[@class="displayValue"][not(text()="Cholesterol")]
-    regExp: '[^\d]+$'
+    regExp: ^[^a-zA-Z]+
     description: Nutritional Information for Cholesterol content - Usually based on
       per 100g serving
   - name: cholesterolPerServingUom
@@ -259,7 +260,7 @@ fields:
     description: Unit of Measure Data for Cholesterol content
   - name: sodiumPerServing
     xpath: //td[@class="displayName"][text()="Sodium"]/../td[@class="nutrient_amount"]//td[@class="displayValue"][not(text()="Sodium")]
-    regExp: '[^\d]+$'
+    regExp: ^[^a-zA-Z]+
     description: Nutritional Information for Sodium content - Usually based on per
       100g serving
   - name: sodiumPerServingUom
@@ -268,7 +269,7 @@ fields:
     description: Unit of Measure Data for Sodium content
   - name: totalCarbPerServing
     xpath: //td[@class="displayName"][text()="Total Carbohydrate"]/../td[@class="nutrient_amount"]//td[@class="displayValue"][not(text()="TotalCarbohydrate")]
-    regExp: '[^\d]+$'
+    regExp: ^[^a-zA-Z]+
     description: Nutritional Information for Total Carbohydrate content - Usually
       based on per 100g serving
   - name: totalCarbPerServingUom
@@ -277,7 +278,7 @@ fields:
     description: Unit of Measure Data for Total Carbohydrate content
   - name: dietaryFibrePerServing
     xpath: //td[@class="displayName"][text()="Dietary Fiber"]/../td[@class="nutrient_amount"]//td[@class="displayValue"][not(text()="DietaryFiber")]
-    regExp: '[^\d]+$'
+    regExp: ^[^a-zA-Z]+
     description: Nutritional Information for Dietary Fibre content - Usually based
       on per 100g serving
   - name: dietaryFibrePerServingUom
@@ -458,9 +459,9 @@ fields:
     example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
     defaultValue: No
   - name: imageZoomFeaturePresent
-    xpath: //td[@class="images"]//td[@class="type"]/following-sibling::td[@class="zoom"])
+    xpath: //td[@class="images"]//td[@class="type"]/following-sibling::td[@class="zoom"]
     regExp: (.+)
-    regExpReplace: Yes
+    regExpReplace: 'Yes'
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html

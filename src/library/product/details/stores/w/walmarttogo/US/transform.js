@@ -23,6 +23,9 @@ const cleanUp = (data, context) => {
         if (row.ingredientsList) {
           row.ingredientsList[0].text = row.ingredientsList[0].text.replace(/^INGREDIENTS:/i, '');
         }
+        if (row.packSize) {
+          row.packSize[0].text = row.packSize[0].text.replace(/Each/, 'Count');
+        }
       }
     }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
