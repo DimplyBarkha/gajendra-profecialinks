@@ -19,7 +19,7 @@ const implementation = async (inputs, { loadedSelector, noResultsXPath }, contex
       (selector, xpath) => {
         return !!(document.querySelector(selector) || document.evaluate(xpath, document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue);
       },
-      { timeout: 10000 },
+      { timeout: 1000000 },
       loadedSelector,
       noResultsXPath,
     );
@@ -73,6 +73,12 @@ module.exports = {
     {
       name: 'storeId',
       description: 'storeId for product',
+      type: 'string',
+      optional: true,
+    },
+    {
+      name: 'zipcode',
+      description: 'zipcode to set  location',
       type: 'string',
       optional: true,
     },

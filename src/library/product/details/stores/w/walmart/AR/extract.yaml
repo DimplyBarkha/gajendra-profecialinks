@@ -4,33 +4,33 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: true
+    singleValue: false
     xpath: //img[@id="image-main"]/@src
   - name: imageAlt
-    singleValue: true
-    xpath: //img[@id="image-main"]/@alt
+    singleValue: false
+    xpath: //ul[@class='thumbs']//li[1]//a//img/@alt
   - name: alternateImages
     singleValue: false
     xpath: //ul[@class='thumbs']//li//a//img/@src
   - name: metaKeywords
-    singleValue: true
-    xpath: //meta[@name="keywords"]
+    singleValue: false
   - name: category
     singleValue: false
     xpath: //div[@class='bread-crumb']//ul//li[position()>1]//a
   - name: nameExtended
-    singleValue: true
+    singleValue: false
+    xpath: (//div[contains(@class,"productName")])[1]
+  - name: name
+    singleValue: false
     xpath: (//div[contains(@class,"productName")])[1]
   - name: listPrice
-    singleValue: true
-    defaultValue: 0
-    xpath: //strong[@class,"skuListPrice"]
+    singleValue: false
+    xpath: //strong[@class="skuListPrice"]
   - name: price
-    singleValue: true
-    defaultValue: 0
-    xpath: //strong[@class="skuPrice"]
+    singleValue: false
+    xpath: //strong[@class="skuBestPrice"]
   - name: availabilityText
-    singleValue: true
+    singleValue: false
     defaultValue: Out of Stock
     regExp: display:none
     regExpReplace: In stock
@@ -39,18 +39,29 @@ fields:
     singleValue: false
     xpath: //div[@class='productDescription']
   - name: brandText
-    singleValue: true
+    singleValue: false
     xpath: //div[@class='brand']
   - name: quantity
-    singleValue: true
+    singleValue: false
     xpath: //input[@class='qty-control__field']/@value
   - name: sku 
-    singleValue: true
+    singleValue: false
+    xpath: //span[@class='hidden-sku-default']
+  - name: variantId
+    singleValue: false
     xpath: //span[@class='hidden-sku-default']
   - name: mpc
-    singleValue: true
+    singleValue: false
+    xpath: //div[@class='skuReference']
+  - name: gtin
+    singleValue: false
     xpath: //div[@class='skuReference']
   - name: aggregateRating
-    singleValue: true
+    singleValue: false
     defaultValue: 0
     xpath: (//span[@id='spnRatingProdutoTop'])[1]
+  - name: hasComparisonTable
+    defaultValue: No
+  - name: variantCount
+    singleValue: false
+    defaultValue: 0

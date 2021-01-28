@@ -56,7 +56,7 @@ fields:
   # xpath: //div[@id="my-desc"]
 - name: descriptionBullets
   singleValue: true
-  xpath: count((//div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div)//li)
+  xpath: count(((//div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')])//li) | ((//div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')])/div/div/text()))
 - name: ingredientsList
   singleValue: true
   manualSelector: p.Ingredients
@@ -339,7 +339,21 @@ fields:
 
 - name: productUrl
   singleValue: true
-- name: unInterruptedPDP
-  xpath: //div[@class="persistent-controls"]//ul//li
 - name: hasComparisonTable
-  defaultValue: No
+  xpath: //span[contains(.,'Comparison Chart')]
+  regExp: (.*)
+  regExpReplace: Yes
+  defaultValue: No 
+- name: unInterruptedPDP
+  xpath: //div[contains(@class,"persistent-controls")]//ul[@class="slider-list"]//li//div[@class="tile-title"]
+- name: inTheBoxUrl
+  singleValue: false
+  xpath: //div[@id="witb_url"]
+  regExp: '[^|]+'
+  description: Must include image url to show the accessories/tools which come with the product
+- name: inTheBoxText
+  singleValue: false
+  xpath: //div[@id="witb_text"]
+  regExp: '[^|]+'
+
+

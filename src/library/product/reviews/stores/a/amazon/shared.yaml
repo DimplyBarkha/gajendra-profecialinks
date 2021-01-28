@@ -1,0 +1,90 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //*[@data-hook="review"]
+fields:
+  - name: helpfulCount
+    type: NUMBER
+    description: Number of people who said the review was helpful
+  - name: commentCount
+    xpath: .//span[contains(@class, "review-comment-total")]
+    regExp: ([0-9]{1,})
+    defaultValue: 0
+    type: NUMBER
+    description: Number of comments on the review
+  - name: brandText
+    xpath: ancestor::html//*[@data-hook="cr-product-byline"]//a
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+  - name: name
+    xpath: ancestor::html//a[@data-hook="product-link"]
+    description: The product name
+  - name: sku
+    xpath: ancestor::html//a[@data-hook="product-link"]/@href
+    regExp: dp\/([^\/]+)
+    regExpReplace: $1
+    description: The store-specific product identifier
+  - name: reviewDate
+    xpath: .//*[contains(@data-hook,"review-date")]
+    type: DATETIME
+    description: Date the review was made
+  - name: reviewRating
+    xpath: .//*[contains(@data-hook,"review-star-rating")]
+    regExp: '^[^\s]+'
+    type: NUMBER
+    description: Rating normalized to be out of 5
+  - name: reviewText
+    xpath: .//*[@data-hook="review-body"]
+    type: TEXT
+    description: The text of the review
+  - name: reviewTitle
+    type: TEXT
+    xpath: .//*[@data-hook="review-title"]
+    description: The title of the review
+  - name: reviewerTags
+    xpath: //div[@class="badges-genome-widget"]//span[contains(@class,"badge-text")] | //span[@class="a-profile-descriptor"]
+    singleValue: false
+    description: The tags a reviewer has
+  - name: gtin
+    description: GTIN code (includes UPC/EAN)
+  - name: productUrl
+    xpath: ancestor::html//a[@data-hook="product-link"]
+    regExp: ^https://www.amazon.[^/]+/[^/]+/dp/[^\/]+
+    type: LINK
+    description: The url of the product details page
+  - name: verifiedPurchase
+    xpath: .//span[@data-hook="avp-badge"]
+    regExp: (.+)
+    regExpReplace: 'Yes'
+    description: Whether this of an item the reviewer purchased. "Yes" if true else ""
+  - name: manufacturerResponse
+    xpath: //div[contains(@class,"official-comment-container")]//span[@class="review-comment-text"]
+    description: The response of the manufacturer (if any)
+  - name: syndicatedFrom
+    xpath: .//*[contains(@data-hook,"review-date")]
+    # Add more countries
+    regExp: (United States|Deutschland|France|España|Canada|United Kingdom|Italia)
+    description: Stated place the review was syndicated from
+  - name: reviewUrl
+    xpath: .//a[@data-hook="review-title"]
+    regExp: ^https://www.amazon.[^/]+/gp/customer-reviews/[^\/]+
+    type: LINK
+    description: A direct link to the review
+  - name: reviewedSku
+    xpath: .//a[@data-hook="format-strip"]
+    regExp: dp\/([^\/]+)
+    regExpReplace: $1
+    description: The SKU of the item that was reviewed (may be different from the
+      sku the review was shown on). 1 if sku == reviewedSku else 0. Get sku value, transform will handle the value.
+  - name: reviewPage
+    xpath: ancestor::html//div[@id="currentPageUrl"]
+  - name: user
+    description: The user name of the reviewer
+    type: TEXT
+    xpath: .//span[contains(@class, "a-profile-name")]
+  - name: reviewCount
+    xpath: ancestor::html//*[@data-hook="total-review-count"]
+    regExp: ^([\d,.\s]+)
+  - name: aggregateRating
+    xpath: ancestor::html//*[@data-hook="rating-out-of-text"]
+    regExp: ^([^\s]+)

@@ -8,6 +8,20 @@
  */
 async function implementation (
   inputs,
+<<<<<<< HEAD
+  parameters,
+  context,
+  dependencies,
+) {
+  let { URL, RPC, SKU, date = null, days = 30, results = Infinity } = inputs;
+  const { execute, extract, paginate } = dependencies;
+  const { mergeType, zipcode } = parameters;
+  const url = URL;
+  const id = (RPC) || ((SKU) || inputs.id);
+  const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
+
+  const resultsReturned = await execute({ url, id, zipcode, date, days, context });
+=======
   { mergeType, zipcode },
   context,
   { execute, extract, paginate },
@@ -21,10 +35,36 @@ async function implementation (
 
   const resultsReturned = await execute({ url, id, zipcode, date, days });
 
+>>>>>>> ba1530b472d6acd392c50f4a7fc78f140e0bac06
   if (!resultsReturned) {
     console.log('No results were returned');
     return;
   }
+<<<<<<< HEAD
+  if (!date && days) {
+    date = new Date().setDate(new Date().getDate() - days);
+  }
+  date = new Date(date);
+  console.log('Date Limit: ', date);
+  const pageOne = await extract({ date, results });
+  let collected = length(pageOne.data);
+
+  console.log('Got initial number of results', collected);
+
+  // check we have some data
+  if (collected === 0 || pageOne.stop) {
+    return;
+  }
+
+  let page = 2;
+  while (results > collected && await paginate({ id, page, offset: collected, date })) {
+    const { data, stop } = await extract({ date, results });
+    const count = length(data);
+    if (count === 0 || stop) {
+      // no results
+      break;
+    }
+=======
 
   const pageOne = await extract({});
   let collected = length(pageOne);
@@ -39,6 +79,7 @@ async function implementation (
     const data = await extract({});
     const count = length(data);
     if (count === 0) break; // no results
+>>>>>>> ba1530b472d6acd392c50f4a7fc78f140e0bac06
     collected = (mergeType && (mergeType === 'MERGE_ROWS') && count) || (collected + count);
     console.log('Got more results', collected);
     page++;
@@ -110,7 +151,11 @@ module.exports = {
   dependencies: {
     execute: 'action:product/reviews/execute',
     extract: 'action:product/reviews/extract',
+<<<<<<< HEAD
+    paginate: 'action:product/reviews/paginate',
+=======
     paginate: 'action:navigation/paginate',
+>>>>>>> ba1530b472d6acd392c50f4a7fc78f140e0bac06
   },
   path: './reviews/stores/${store[0:1]}/${store}/${country}/reviews',
   implementation,

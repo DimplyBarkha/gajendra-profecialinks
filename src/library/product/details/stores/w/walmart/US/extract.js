@@ -19,8 +19,12 @@ module.exports = {
     goto: 'action:navigation/goto',
     createUrl: 'action:product/details/createUrl',
     productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
+    helperModule: 'module:helpers/helpers',
   },
+  // @ts-ignore
   implementation: async ({ parentInput }, { country, domain, transform: transformParam }, context, dependencies) => {
+    const { helperModule: { Helpers } } = dependencies;
+    const helper = new Helpers(context);
     await context.addToDom('added-parentInput', parentInput);
 
     await context.click('//span[@class="button-wrapper" and contains(text(),"Show delivery")]')
@@ -83,22 +87,9 @@ module.exports = {
           if (marketingIframe) marketingIframe.scrollIntoView();
         }, aplusSelector);
         // wait for iframe to load
-        const limit = 60;
-        console.log('..waitForLoader..:', aplusSelector);
-        await context.evaluate(async ([selector, limit]) => {
-          const marketingIframe = document.querySelector(selector);
-          console.log(marketingIframe);
-          if (marketingIframe) {
-            const doc = marketingIframe.contentDocument || marketingIframe;
-            console.log(doc.querySelector('body > div'));
-            let timer = 0;
-            while (timer < limit && !doc.querySelector('body > div')) {
-              console.log('waiting !!!! ');
-              timer++;
-              await new Promise(resolve => setTimeout(resolve, 500));
-            }
-          }
-        }, [aplusSelector, limit]);
+        await helper.waitForInDifferentContext('body > div', aplusSelector, 30000);
+        await helper.waitForFrameToLoad(aplusSelector, 10000);
+        await new Promise(resolve => setTimeout(resolve, 3000));
       })
       .then(async () => context.evaluate(async (selector) => {
         function addHiddenDiv (id, content) {
@@ -141,6 +132,12 @@ module.exports = {
           }
 
           addHiddenDiv('my_enh_content', setText.join(' '));
+          // @ts-ignore
+          const witb = Array.from(document.querySelectorAll('[data-section-caption="In the box"] .wc-aplus-body ul > li img[title]')).map(img => ({ img: img.src, title: img.title }));
+          const witbText = witb.map(elm => elm.title).join('|');
+          const witbUrl = witb.map(elm => elm.img).join('|');
+          witbText.length && addHiddenDiv('witb_text', witbText);
+          witbUrl.length && addHiddenDiv('witb_url', witbUrl);
           return true;
         }
 
@@ -182,6 +179,12 @@ module.exports = {
           if (content.idmlSections && content.idmlSections.marketingContent) {
             const marketingDiv = addHiddenDiv('added-marketing', '');
             marketingDiv.innerHTML = unescape(jsonObj.item.product.buyBox.products[0].idmlSections.marketingContent);
+            // @ts-ignore
+            const witb = Array.from(marketingDiv.querySelectorAll('[data-section-caption="In the box"] .wc-aplus-body ul > li img[title], [data-section-caption="In The Box"] .wc-aplus-body ul > li img[title], [data-section-caption="In the Box"] .wc-aplus-body ul > li img[title]')).map(img => ({ img: img.src, title: img.title }));
+            const witbText = witb.map(elm => elm.title).join('|');
+            const witbUrl = witb.map(elm => elm.img).join('|');
+            witbText.length && addHiddenDiv('witb_text', witbText);
+            witbUrl.length && addHiddenDiv('witb_url', witbUrl);
           }
           if (content.shippingOptions && content.shippingOptions[0] && content.shippingOptions[0].fulfillmentPrice) {
             let price = '0';
@@ -202,7 +205,53 @@ module.exports = {
       // @ts-ignore
       sellerDiv.innerHTML = result;
     });
+
+    // For WITB inside the shadowRoot which is inside an iframe
+    try {
+      await context.evaluate(() => {
+        const iframePresent = document.querySelector('iframe[id*="AboutThisItem"]');
+        if (iframePresent) {
+          // @ts-ignore
+          const shadowDoc = iframePresent.contentDocument.querySelector('.syndigo-shadowed-powerpage').shadowRoot;
+          const syndigoDiv = shadowDoc.querySelector('.syndi_powerpage');
+          const witb = document.evaluate(
+            './/h2[contains(.,"In the Box") or contains(.,"In The Box") or contains(.,"in the box") or contains(.,"In the box")]/following-sibling::div//div[@class="syndigo-featureset-feature"]',
+            syndigoDiv,
+            null,
+            XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
+            null,
+          );
+          for (let i = 0; i < witb.snapshotLength; i++) {
+            const item = witb.snapshotItem(i);
+            // @ts-ignore
+            let url = item.querySelector('img').getAttribute('srcset');
+            if (!url) {
+              // @ts-ignore
+              url = item.querySelector('img').getAttribute('src');
+            }
+            const splitUrls = url.split(',');
+            const witbUrl = splitUrls[splitUrls.length - 1].split(' ')[0];
+            // @ts-ignore
+            const witbText = item.querySelector('img ~ div').innerText;
+
+            const divUrl = document.createElement('div');
+            divUrl.id = 'witb_url';
+            divUrl.innerText = witbUrl;
+            document.body.appendChild(divUrl);
+
+            const divText = document.createElement('div');
+            divText.id = 'witb_text';
+            divText.innerText = witbText;
+            document.body.appendChild(divText);
+          }
+        }
+      });
+    } catch (e) {
+      console.log(e.message);
+    }
     if (!gotEnhancedContent) await getAplusContent('#added-marketing');
+    // remove script tag breaking the html extraction
+    await helper.removeScriptsWhichContains('seller_ny_js.bundle');
     await context.extract(dependencies.productDetails, { transform: transformParam, type: 'APPEND' });
   },
 };

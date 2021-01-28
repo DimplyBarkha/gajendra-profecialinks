@@ -4,14 +4,25 @@ recordSelector: null
 recordXPath: //li//div[contains(@class,'prateleira__item')]
 fields:
   - name: id
+    singleValue: false
     xpath: //input[@name='productId']/@value | //div[contains(@class,'prateleira__item')]/@data-product-id
   - name: name
+    singleValue: false
+    xpath: //a[@class='prateleira__name']
+  - name: nameExtended
+    singleValue: false
     xpath: //a[@class='prateleira__name']
   - name: price
+    singleValue: false
     xpath: //span[contains(@class,'prateleira__best-price')]
+  - name: listPrice
+    singleValue: false
+    xpath: //span[contains(@class,'prateleira__list-price--val')]
   - name: productUrl
+    singleValue: false
     xpath: //a[@class='prateleira__image-link']/@href
     regExp: (.+)
     regExpReplace: https://www.walmart.com.ar/$1
   - name: thumbnail
+    singleValue: false
     xpath: //div[@class='prateleira__image']//img/@src
