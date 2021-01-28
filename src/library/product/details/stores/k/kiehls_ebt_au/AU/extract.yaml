@@ -12,7 +12,7 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: (//div/ul[@class="carousel_navigation_items"]/li/span/img/@src)[1]
+    xpath: (//div/img[contains(@class,"primary_image product_image")]/@src)[1]
   - name: imageAlt
     singleValue: true 
     description: Alt text of the main product image
