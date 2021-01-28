@@ -183,7 +183,7 @@ fields:
     xpath: //div[@data-automation="variant"]//button[1]/@aria-label
   - name: variants
     singleValue: false
-    xpath: //script[contains(text(),"skus")] |  //no-script[contains(text(),"skus")]
-    regExp: skus":\["(([^\]]+)","([^\]]+))"
-    regExpReplace: $2 | $3
-    
+    xpath: //div[@id="pd_variants"]
+  - name: videos
+    singleValue: false
+    xpath: //div[@id="pd_videos"]
