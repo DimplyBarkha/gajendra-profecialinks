@@ -119,22 +119,24 @@ module.exports = {
         }
         if (alternateImages) addHiddenDiv('ii_alternateImages', alternateImages.join('|'));
       }
-      // @ts-ignore
-      let directions = (document.querySelector("div[data-information-component*='directions']")) ? document.querySelector("div[data-information-component*='directions']").innerText : '';
-      if (!directions) {
-        directions = document.evaluate("(//div[contains(@class,'productDescription_synopsisContent')]/p[contains(text(),'Direction')]/following-sibling::ul)[1]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-        if (directions) directions = directions.textContent;
-      }
-      if (directions) addHiddenDiv('ii_directions', directions);
-      try {
-        const obj = JSON.parse(jsonString)
-        var val = obj.description;
-        var response = val.substring(val.indexOf("Directions of use:"));
-        var direction1 = response.replace("Directions of use:", "")
-        addElementToDocument("directions1", direction1)
-      } catch (error) {
+      //var directions=getXpath('((//div[ @data-information-component="directions"]//div)[1]//text())[]', 'nodeValue');
 
-      }
+      // // @ts-ignore
+      // let directions = (document.querySelector("div[data-information-component*='directions']")) ? document.querySelector("div[data-information-component*='directions']").innerText : '';
+      // if (!directions) {
+      //   directions = document.evaluate("(//div[contains(@class,'productDescription_synopsisContent')]/p[contains(text(),'Direction')]/following-sibling::ul)[1]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      //   if (directions) directions = directions.textContent;
+      // }
+      // if (directions) addHiddenDiv('ii_directions', directions);
+      // try {
+      //   const obj = JSON.parse(jsonString)
+      //   var val = obj.description;
+      //   var response = val.substring(val.indexOf("Directions of use:"));
+      //   var direction1 = response.replace("Directions of use:", "")
+      //   addElementToDocument("directions1", direction1)
+      // } catch (error) {
+
+      // }
     });
 
     await context.extract(productDetails, { transform: transformParam });

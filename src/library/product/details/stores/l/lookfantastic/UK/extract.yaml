@@ -44,8 +44,9 @@ fields:
     singleValue: true
     xpath: (//div[contains(@data-information-component,'volume')])[1]
   - name: directions
-    singleValue: true
-    xpath: (//div[@class="productDescription_synopsisContent"]//p)[2]//strong//following::text()[1] | //div[@class="productDescription_synopsisContent"]//ul | //html//div[@id="directions1"] | //div[@id="directions"]
+    singleValue: false
+    xpath: (//div[ @data-information-component="directions"]//div)[1]//text()
+    # (//div[@class="productDescription_synopsisContent"]//p)[2]//strong//following::text()[1] | //div[@class="productDescription_synopsisContent"]//ul | //html//div[@id="directions1"] | //div[@id="directions"]
   - name: warnings
     singleValue: true
     xpath: //div[@id='ii_warnings']
