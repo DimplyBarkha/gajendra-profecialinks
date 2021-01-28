@@ -5,7 +5,7 @@ module.exports = {
     template: null,
     country: 'BR',
     store: 'drogariasaopaulo',
-    nextLinkSelector: 'div[class*="text-center btn-load-more"] button[class*="btn btn-primary"]',
+    nextLinkSelector: null,
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,
