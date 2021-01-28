@@ -6,7 +6,7 @@ module.exports = {
     nextLinkSelector: '.hz-pagination-next-page',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: "[type='application/ld+json']",
+    loadedSelector: "body",
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: "houzz.com",
