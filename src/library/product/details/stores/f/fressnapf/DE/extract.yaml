@@ -98,8 +98,8 @@ fields:
     type: NUMBER
   - name: ingredientsList
     # singleValue: true
-    # xpath: concat(//h2//span[contains(text(),'Inhaltsstoffe')]/text(),' ',//h2//span[contains(text(),'Inhaltsstoffe')]/parent::h2/following::div[@class='accordion-item-content'][1])
-    xpath: //html//div[@id='ingredientsList']
+    xpath: concat(//h2//span[contains(text(),'Inhaltsstoffe')]/text(),' ',//h2//span[contains(text(),'Inhaltsstoffe')]/parent::h2/following::div[@class='accordion-item-content'][1])
+    # xpath: //html//div[@id='ingredientsList']
     # regExp: \n$
     # regExpReplace: $1
     description: List of Ingredients from site - can be string of data if no
