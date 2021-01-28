@@ -13,10 +13,16 @@ async function implementation (inputs, parameters, context, dependencies) {
     if (listOfProducts) {
       listOfProducts.forEach((element, index) => {
         const productUrl = element.querySelector('div.product_info div.product_name a').getAttribute('href');
+        const productId = element.querySelector('div.image').getAttribute('dataci_product');
         addAttribute('div.product_listing_container ul li .product', index, 'data-product-url', productUrl);
         const regex = /\d*$/g;
+<<<<<<< HEAD
         const result = productUrl.match(regex);
         const price = element.querySelector('.product_price > span.price') ? element.querySelector('.product_price > span.price').innerText : '';
+=======
+        const result = productId.match(regex);
+        const price = element.querySelector('.product_price > span.price') ? element.querySelector('.product_price > span.price').innerText.replace('.', ',') : '';
+>>>>>>> 614d4538c7e44677f5e64403e44e66509cbf70f2
         addAttribute('div.product_listing_container ul li .product', index, 'data-product-id', result[0]);
         addAttribute('div.product_listing_container ul li .product', index, 'data-product-rank', index + 1);
         addAttribute('div.product_listing_container ul li .product', index, 'data-product-price', price);
