@@ -26,15 +26,22 @@ module.exports = {
       if (othersellerName) {
         document.body.setAttribute('othersellername', othersellerName.textContent.replace('Shop similar items at ', ''));
       }
-      //  const variantFlavor = document.querySelector('ul[aria-labelledby*="variant-selections"] li button[aria-label*="select"]');
-      //  const nameExtendedWithVariant = document.evaluate(`concat(//div[contains(@class, "itemModalHeader")]//h2[contains(@class, "item-title")], " - ", //ul[contains(@aria-labelledby, "variant-selections")]//li//button[contains(@aria-label, "select")])`, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
-      //  const name = document.evaluate(`//div[contains(@class, "itemModalHeader")]//h2[contains(@class, "item-title")]`, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
+      const variantFlavor = document.querySelector('ul[aria-labelledby*="Flavor-variant-selections"] li button[aria-label*="select"]');
+      const variantSize = document.querySelector('ul[aria-labelledby*="Size-variant-selections"] li button[aria-label*="select"]');
 
-    //  if(nameExtendedWithVariant) {
-    //   addHiddenDiv('ii_nameExtended', nameExtendedWithVariant);
-    //  } else if (name) {
-    //    addHiddenDiv('ii_nameExtended', name);
-    //  }
+      // const nameExtendedWithVariant = document.evaluate('concat(//div[contains(@class, "itemModalHeader")]//h2[contains(@class, "item-title")], " - ", //ul[contains(@aria-labelledby, "Flavor-variant-selections")]//li//button[contains(@aria-label, "select")], " - ", //ul[contains(@aria-labelledby, "Size-variant-selections")]//li//button[contains(@aria-label, "select")])', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
+      const name = document.evaluate('//div[contains(@class, "itemModalHeader")]//h2[contains(@class, "item-title")]', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
+
+      if (variantFlavor && variantSize && name) {
+        addHiddenDiv('ii_nameExtended', name.textContent + ' - ' + variantFlavor.textContent + ' - ' + variantSize.textContent);
+      }
+      else if (variantFlavor && name) {
+        addHiddenDiv('ii_nameExtended', name.textContent + ' - ' + variantFlavor.textContent);
+      } else if (variantSize && name) {
+        addHiddenDiv('ii_nameExtended', name.textContent + ' - ' + variantSize.textContent);
+      } else if (name) {
+        addHiddenDiv('ii_nameExtended', name.textContent);
+      }
     });
     const { transform } = parameters;
     const { productDetails } = dependencies;

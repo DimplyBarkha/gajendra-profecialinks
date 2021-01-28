@@ -14,7 +14,7 @@ module.exports = {
     // await context.goto(mainUrl, { timeout: 35000, waitUntil: 'load', checkBlocked: false });
 
     const inputUrl = zipcode ? `https://www.instacart.com/store/${storeId}/storefront?guest=true&current_zip_code=${zipcode}` : `https://www.instacart.com/store/${storeId}/storefront?guest=true`;
-    await context.goto(inputUrl, { timeout: 35000, waitUntil: 'load', checkBlocked: false });
+    await context.goto(inputUrl, { timeout: 55000, waitUntil: 'load', checkBlocked: false });
 
     const onMainPage = await context.evaluate(async function () {
       return !!document.querySelector('div[aria-owns="location-chooser-listbox"]');

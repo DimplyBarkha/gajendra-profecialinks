@@ -19,7 +19,8 @@ fields:
     xpath: (//div[contains(@class, "item-detail-module")]//div[contains(@aria-label, "breadcrumbs")])[1]//a
     # xpath: //div[@aria-label="breadcrumbs"]/div[position()>1]/a|//div[@aria-label="breadcrumbs"]/div[last()]
   - name: nameExtended
-    xpath: concat(//div[contains(@class, "itemModalHeader")]//h2[contains(@class, "item-title")], " ", //ul[contains(@aria-labelledby, "Flavor-variant-selections")]//li//button[contains(@aria-label, "select")], " ", //ul[contains(@aria-labelledby, "Size-variant-selections")]//li//button[contains(@aria-label, "select")])
+    xpath: //div[@id="ii_nameExtended"]
+    # xpath: concat(//div[contains(@class, "itemModalHeader")]//h2[contains(@class, "item-title")], " ", //ul[contains(@aria-labelledby, "Flavor-variant-selections")]//li//button[contains(@aria-label, "select")], " ", //ul[contains(@aria-labelledby, "Size-variant-selections")]//li//button[contains(@aria-label, "select")])
     # xpath: //main[@id="main-content"]/div[4]/div/div[2]/h3
   - name: listPrice
     xpath: //div[contains(@class, "itemModalHeader")]//span[contains(text(), "Original Price:")]/following-sibling::span[contains(@class, "item-full-price")]
