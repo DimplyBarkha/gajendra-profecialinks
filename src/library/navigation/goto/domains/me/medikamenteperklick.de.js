@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
-    domain: 'medikamenteperklick.de',
+    domain: 'medikamente-per-klick.de',
     timeout: 400000,
     country: 'DE',
     store: 'MedikamentePerKlick',
