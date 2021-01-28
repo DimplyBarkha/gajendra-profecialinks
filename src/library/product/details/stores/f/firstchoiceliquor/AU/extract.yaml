@@ -66,7 +66,7 @@ fields:
     defaultValue: 'Yes'
   - name: description
     singleValue: false
-    xpath: //div[@class="product-description"]
+    xpath: //div[(contains(@class,'product-description-container')) and not(contains(@class,'product-properties-disclaimer'))]
   - name: packSize
     singleValue: false
     xpath: //div[(contains(@class,'product-meta-container grid-x'))]//span[@class="unitOfMeasure"]

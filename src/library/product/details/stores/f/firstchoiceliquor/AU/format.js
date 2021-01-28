@@ -43,7 +43,7 @@ const transform = (data) => {
               description_ar.push(item.text);
             });
             if (description_ar.length) {
-              row.description = [{ "text": description_ar.join(" || "), 'xpath': row.description[0].xpath }];
+              row.description = [{ "text": description_ar.join().replace("* Wine vintages can vary when delivered or collected from your chosen Click & Collect store.",'').replace(/BrandS.*/g,''), 'xpath': row.description[0].xpath }];
             }
         }
         if (row.quantity) {
