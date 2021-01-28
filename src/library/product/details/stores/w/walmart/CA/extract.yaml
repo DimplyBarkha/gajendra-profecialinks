@@ -56,10 +56,10 @@ fields:
     xpath: //div[contains(@class,'css-1dar8at')]//div[contains(@class,'css-w8lmum')]//div[text()='UPC']//following-sibling::div
   - name: sku
     singleValue: false
-    xpath: //div[contains(@class,'css-1dar8at')]//div[contains(@class,'css-w8lmum')]//div[text()='SKU']//following-sibling::div
+    xpath: //@sku
   - name: variantId
     singleValue: false
-    xpath: //div[contains(@class,'css-1dar8at')]//div[contains(@class,'css-w8lmum')]//div[text()='SKU']//following-sibling::div
+    xpath: //@sku
   - name: variantCount
     singleValue: false
     defaultValue: '0'
@@ -119,10 +119,24 @@ fields:
     defaultValue: No
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //p[@data-automation='product-title']
+    xpath: //@pdp | //p[@data-automation='product-title']
+    regExp: '[^|]+'
   - name: inTheBoxText
     singleValue: false
-    xpath: //div[@class='css-1x8ztzr e1cuz6d12' and contains(text(),'Included Accessories')]/following-sibling::div
+    xpath: //div[@data-section-tag="in-the-box"]//h3[preceding-sibling::div]|//div[@data-section-caption="In The Box"]//h3[preceding-sibling::div]|//@witbText
+    regExp: '[^|]+'
+  - name: inTheBoxUrl
+    singleValue: false
+    xpath: //div[@data-section-tag="in-the-box"]//img/@src|//div[@data-section-caption="In The Box"]//img/@src|//@witbUrl
+    regExp: '[^|]+'
+  # - name: backUpInTheBoxText
+  #   singleValue: false
+  #   xpath: //div[@class='css-1x8ztzr e1cuz6d12' and contains(text(),'Included Accessories')]/following-sibling::div|//div[@data-automation="feature-specifications" and contains(text(),'In the box')]//br[following-sibling::node()[self::*|self::text()[normalize-space()]][1][self::br]]/preceding-sibling::text()[contains(.,'•')]
+  # - name: inTheBoxUrl
+  #   singleValue: false
+  #   xpath: //div[@id="witb_url"]
+  #   regExp: '[^|]+'
   - name: hasComparisonTable
+    xpath: boolean(//div[@data-section-template-code="product-comparison-table"] | //@ctr)
     defaultValue: No
 
