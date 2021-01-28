@@ -481,11 +481,11 @@ fields:
   - name: attributes
     xpath: //div[contains(@class,"detailsTableRow")]
   #geo
-  - name: online_store
+  - name: onlineStore
     xpath: //p[contains(@id, 'globalStoreName')]
-  - name: retailer_id
+  - name: retailerId
     xpath: //div[contains(@class,"productDetailContainer")]//div[contains(@class,"productHeader")]//h1[contains(@class,"productTitle")]/@storeidinformation
   - name: drive
     xpath: //div[contains(@class,"productDetailContainer")]//div[contains(@class,"productHeader")]//h1[contains(@class,"productTitle")]/@zipcodeinformation
-  # - name: store
-  #   xpath: //div[contains(@class,"productDetailContainer")]//div[contains(@class,"productHeader")]//h1[contains(@class,"productTitle")]/@storeidinformation
+  - name: driveId
+    xpath: //div[contains(@class,"productDetailContainer")]//div[contains(@class,"productHeader")]//h1[contains(@class,"productTitle")]/@zipcodeinformation
