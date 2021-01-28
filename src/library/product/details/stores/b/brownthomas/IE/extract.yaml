@@ -111,6 +111,9 @@ fields:
   - name: inTheBoxText
     xpath: //div[contains(@class,'InTheBox')]//span | //p[contains(.,'In the Box')]/following-sibling::ul[1]//li | //body/@boxtexts | //div[@itemprop="description"]//li[contains(.,"in the box?")]
   - name: hasComparisonTable
+    xpath: //div[contains(@class,"flix-compare")]//div[contains(@class,"flix-comp-mainTitle")]//div
+    regExp: (.+)
+    regExpReplace: Yes
     defaultValue: No 
   - name: unInterruptedPDP
     xpath: //*[@id="recommendations"]//li[contains(@class,"carousel-item")]//div/@data-gtm
