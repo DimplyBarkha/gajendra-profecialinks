@@ -332,8 +332,8 @@ fields:
   - name: highQualityImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[contains(@class,'bop-gallery__miniatures')]/img/@src
-    regExp: (.+)_75x75.jpg
+    xpath: //div[contains(@class,'bop-gallery__item')]/img/@src
+    regExp: (.+)(\_\d+x\d+).jpg
     regExpReplace: http://www.ocado.com$1_1280x1280.jpg
     #xpath: //div[contains(@class,'bop-gallery__miniatures')]/img/@src
     #xpath: //div[contains(@class,'bop-gallery__item  bop-gallery__itemImage')]/img/@src
