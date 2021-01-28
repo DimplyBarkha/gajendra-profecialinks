@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'cobasi.com',
     prefix: null,
-    url: 'https://www.cobasi.com.br/{id}',
+    url: 'https://www.cobasi.com.br/{id}/p',
     country: 'BR',
     store: 'cobasi',
     zipcode: '',
