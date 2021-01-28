@@ -28,6 +28,16 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       };
+
+      const kcal = document.querySelectorAll('tr > td')
+        // @ts-ignore
+        ? [...document.querySelectorAll('tr > td')].filter(e => e.innerText.includes('Brennwert in kcal')) : [];
+      if (kcal.length !== 0) addElementToDocument('calories', kcal[0].nextElementSibling.innerText);
+      const kJ = document.querySelectorAll('tr > td')
+      // @ts-ignore
+        ? [...document.querySelectorAll('tr > td')].filter(e => e.innerText.includes('Brennwert in kJ')) : [];
+      if (kJ.length !== 0 && kcal.length === 0) addElementToDocument('calories', kJ[0].nextElementSibling.innerText);
+
       const isAvailable = document.querySelector('meta[property="product:availability"]');
       if (isAvailable !== null && isAvailable !== undefined) {
         addElementToDocument('isAvailable', 'In stock');

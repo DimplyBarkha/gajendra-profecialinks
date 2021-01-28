@@ -274,7 +274,7 @@ fields:
   singleValue: true
   description: Nutritional Information for Calories Per Serving content - Usually
     based on per 100g serving
-  xpath: //tr[td[contains(text(), 'Brennwert in kcal')]]/td[last()]
+  xpath: //div[@id='calories']
 - name: caloriesFromFatPerServing
   singleValue: true
   description: Nutritional Information for Calories From Fat content - Usually based
