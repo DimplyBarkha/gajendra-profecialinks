@@ -109,7 +109,8 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     description: The extended description of the product supplied by the lister
-    xpath: '@enhanced-content | //div[@class="esm-content"]//div[contains(@class,"esm-row")] | //div[@itemprop="description"]//*[(contains(@class,"es") and not(contains(@class,"desc"))) or (contains(@class,"enfamil-section"))]'
+    # xpath: '@enhanced-content | //div[@class="esm-content"]//div[contains(@class,"esm-row")] | //div[@itemprop="description"]//*[(contains(@class,"es") and not(contains(@class,"desc"))) or (contains(@class,"enfamil-section"))]'
+    xpath: //div[@itemprop="description"]
   - name: manufacturerImages
     description: Images within the third party description
     xpath: '@aplus-images | //div[@itemprop="description"]//img/@src'

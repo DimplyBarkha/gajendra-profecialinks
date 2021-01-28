@@ -1,20 +1,588 @@
-exampleInput1: 
-  URL: https://www.apteka-melissa.pl/produkt/nutridrink-o-smaku-owocow-lesnych-4-x-125-ml,10230.html
-exampleInput2: 
-  URL: https://www.apteka-melissa.pl/produkt/resource-20-smak-morelowy-24x200-ml,26395.html
-exampleInput3: 
-  URL: https://www.apteka-melissa.pl/produkt/prezerwdurex-invisible-dwiekblis-3,13073.html
-exampleInput4: 
-  URL: https://www.apteka-melissa.pl/produkt/durex-play-nawilzajacy-zel-intymny-50-ml,11892.html
-exampleInput5: 
-  URL: https://www.apteka-melissa.pl/produkt/strepsils-immuno-na-gardlo-z-witamina-c-36-past,11037.html
-# exampleInput6: 
-#   URL: https://www.apteka-melissa.pl/produkt/nurofen-forte-dla-dzieci-pomaranczowy-40-mgml-100-ml,11047.html
-# exampleInput7: 
-#   URL: https://www.apteka-melissa.pl/produkt/bebilon-alerlac-bezglutenowy-produkt-zbozowy-4m-400-g,11066.html
-# exampleInput8: 
-#   URL: https://www.apteka-melissa.pl/produkt/strepsils-intensive-direct-aerozol-do-stosowania-w-jamie-ustnej-15-ml,11174.html
-# exampleInput9: 
-#   URL: https://www.apteka-melissa.pl/produkt/durex-play-real-feel-zel-intymny-50-ml,11203.html
-# exampleInput10: 
-#   URL: https://www.apteka-melissa.pl/produkt/scholl-velvet-smooth-elektroniczny-system-do-paznokci-1-szt,11228.html
+# exampleInput1: 
+#   URL: https://www.apteka-melissa.pl/produkt/nutridrink-o-smaku-owocow-lesnych-4-x-125-ml,10230.html
+# exampleInput2: 
+#   URL: https://www.apteka-melissa.pl/produkt/resource-20-smak-morelowy-24x200-ml,26395.html
+# exampleInput3: 
+#   URL: https://www.apteka-melissa.pl/produkt/prezerwdurex-invisible-dwiekblis-3,13073.html
+# exampleInput4: 
+#   URL: https://www.apteka-melissa.pl/produkt/durex-play-nawilzajacy-zel-intymny-50-ml,11892.html
+# exampleInput5: 
+#   URL: https://www.apteka-melissa.pl/produkt/strepsils-immuno-na-gardlo-z-witamina-c-36-past,11037.html
+# # exampleInput6: 
+# #   URL: https://www.apteka-melissa.pl/produkt/nurofen-forte-dla-dzieci-pomaranczowy-40-mgml-100-ml,11047.html
+# # exampleInput7: 
+# #   URL: https://www.apteka-melissa.pl/produkt/bebilon-alerlac-bezglutenowy-produkt-zbozowy-4m-400-g,11066.html
+# # exampleInput8: 
+# #   URL: https://www.apteka-melissa.pl/produkt/strepsils-intensive-direct-aerozol-do-stosowania-w-jamie-ustnej-15-ml,11174.html
+# # exampleInput9: 
+# #   URL: https://www.apteka-melissa.pl/produkt/durex-play-real-feel-zel-intymny-50-ml,11203.html
+# # exampleInput10: 
+# #   URL: https://www.apteka-melissa.pl/produkt/scholl-velvet-smooth-elektroniczny-system-do-paznokci-1-szt,11228.html
+ExampleInput0:
+  URL: https://www.apteka-melissa.pl/produkt/bobo-frut-sok-winogrona-pomidor-dynia-i-marchewka-po-6-m-cu-300-ml,20232.html
+ExampleInput1:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-junior-makaron-z-tunczykiem-i-warzywami-250-g,20312.html
+ExampleInput2:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-junior-kaszka-mleczno-ryzowa-kakaowa-po-12-miesiacu-230-g,21243.html
+ExampleInput3:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-junior-risotto-z-indykiem-1-3-lata-250-g,21246.html
+ExampleInput4:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-jablka-i-winogrona-z-kaszka-manna-po-6-miesiacu-190-g,21248.html
+ExampleInput5:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-junior-potrawka-z-kurczakiem-i-szpinakiem-1-3-lata-250-g,21249.html
+ExampleInput6:
+  URL: https://www.apteka-melissa.pl/produkt/gerber-tubka-gruszkasuszona-sliwka-90-g,21600.html
+ExampleInput7:
+  URL: https://www.apteka-melissa.pl/produkt/nestle-nan-optipro-5-junior-mleko-modyfikowane-w-proszku-dla-dzieci-po-25-roku-zycia-800-g,21753.html
+ExampleInput8:
+  URL: https://www.apteka-melissa.pl/produkt/humana-1-mleko-poczatkowe-800-g,22075.html
+ExampleInput9:
+  URL: https://www.apteka-melissa.pl/produkt/nurofen-dla-dzieci-forte-zawiesina-doustna-o-smaku-pomaranczowym-150-ml,22134.html
+ExampleInput10:
+  URL: https://www.apteka-melissa.pl/produkt/nurofen-dla-dzieci-forte-zawiesina-doustna-o-smaku-truskawkowym-40-mgml-150-ml,22148.html
+ExampleInput11:
+  URL: https://www.apteka-melissa.pl/produkt/scholl-gelactiv-wkladki-do-codziennego-obuwia-na-obcasie-2-szt,22152.html
+ExampleInput12:
+  URL: https://www.apteka-melissa.pl/produkt/scholl-gelactiv-wkladki-do-obuwia-na-wysokim-obcasie-2-szt,22153.html
+ExampleInput13:
+  URL: https://www.apteka-melissa.pl/produkt/scholl-gelactiv-wkladki-do-otwartego-obuwia-2-szt,22154.html
+ExampleInput14:
+  URL: https://www.apteka-melissa.pl/produkt/scholl-gelactiv-wkladki-do-plaskiego-obuwia-2-szt,22155.html
+ExampleInput15:
+  URL: https://www.apteka-melissa.pl/produkt/durex-natural-zel-dla-intymnej-przyjemnosci-100-skladnikow-pochodzenia-naturalnego-100-ml,22493.html
+ExampleInput16:
+  URL: https://www.apteka-melissa.pl/produkt/nutrison-multi-fibre-10-kcalml-500-ml,22596.html
+ExampleInput17:
+  URL: https://www.apteka-melissa.pl/produkt/hipp-bio-przysmak-na-dobranoc-kaszka-manna-z-mlekiem-i-bananami-po-4-m-cu-190-g,22836.html
+ExampleInput18:
+  URL: https://www.apteka-melissa.pl/produkt/gerber-deserek-gruszka-banan-malina-z-musli-po-6-m-cu-90-g,23010.html
+ExampleInput19:
+  URL: https://www.apteka-melissa.pl/produkt/bebilon-1-pronutra-advance-mleko-modyfikowane-poczatkowe-800-g,2330.html
+ExampleInput20:
+  URL: https://www.apteka-melissa.pl/produkt/bebilon-2-pronutra-advance-mleko-modyfikowane-w-proszku-800g,2331.html
+ExampleInput21:
+  URL: https://www.apteka-melissa.pl/produkt/enfamil-comfort-800-g,23312.html
+ExampleInput22:
+  URL: https://www.apteka-melissa.pl/produkt/bebilon-1-comfort-z-pronutra-mleko-modyfikowane-w-proszku-400-g,2333.html
+ExampleInput23:
+  URL: https://www.apteka-melissa.pl/produkt/bebilon-2-comfort-proexpert-w-proszku-400-g,2334.html
+ExampleInput24:
+  URL: https://www.apteka-melissa.pl/produkt/bebilon-3-junior-z-pronutra-mleko-modyfikowane-w-proszku-800-g,2337.html
+ExampleInput25:
+  URL: https://www.apteka-melissa.pl/produkt/bebilon-4-junior-mleko-modyfikowane-w-proszku-800-g,2338.html
+ExampleInput26:
+  URL: https://www.apteka-melissa.pl/produkt/bebilon-nutriton-preparat-zageszczajacy-135-g,2339.html
+ExampleInput27:
+  URL: https://www.apteka-melissa.pl/produkt/bebiko-1-mleko-modyfikowane-poczatkowe-dla-niemowlat-350-g,2340.html
+ExampleInput28:
+  URL: https://www.apteka-melissa.pl/produkt/bebiko-2-mleko-modyfikowane-nastepne-dla-niemowlat-350-g,2341.html
+ExampleInput29:
+  URL: https://www.apteka-melissa.pl/produkt/bebiko-ha-2-dobry-apetyt-350-g,2342.html
+ExampleInput30:
+  URL: https://www.apteka-melissa.pl/produkt/bebiko-ha-1-dobry-apetyt-mleko-modyfikowane-poczatkowe-dla-niemowlat-350-g,2343.html
+ExampleInput31:
+  URL: https://www.apteka-melissa.pl/produkt/bebilon-nenatal-premium-mleko-modyfikowane-w-proszku-400-g,2344.html
+ExampleInput32:
+  URL: https://www.apteka-melissa.pl/produkt/nurofen-miesnie-i-stawy-forte-400mg-12-tabl,23696.html
+ExampleInput33:
+  URL: https://www.apteka-melissa.pl/produkt/nurofen-miesnie-i-stawy-forte-400mg-24-tabl,23697.html
+ExampleInput34:
+  URL: https://www.apteka-melissa.pl/produkt/bebilon-hmf-dodatek-do-mleka-kobiecego-dla-niemowlat-z-mala-i-bardzo-mala-urodzeniowa-masa-ciala-5,2381.html
+ExampleInput35:
+  URL: https://www.apteka-melissa.pl/produkt/bebiko-comfort-1-mleko-modyfikowane-poczatkowe-dla-niemowlat-na-kolki-i-zaparcia-350-g,2382.html
+ExampleInput36:
+  URL: https://www.apteka-melissa.pl/produkt/nurofen-junior-kapsulki-do-zucia-100-mg-12-kaps,24086.html
+ExampleInput37:
+  URL: https://www.apteka-melissa.pl/produkt/nurofen-miesnie-i-stawy-zel-100-g,24087.html
+ExampleInput38:
+  URL: https://www.apteka-melissa.pl/produkt/nestle-kaszka-mleczno-ryzowa-wanilia-po-4-miesiacu-230-g,24167.html
+ExampleInput39:
+  URL: https://www.apteka-melissa.pl/produkt/durex-intense-zel-stymulujacy-10-ml,24303.html
+ExampleInput40:
+  URL: https://www.apteka-melissa.pl/produkt/resource-instant-protein-skoncentrowane-bialko-w-proszku-o-neutralnym-smaku-400-g,24583.html
+ExampleInput41:
+  URL: https://www.apteka-melissa.pl/produkt/nurofen-forte-48-tabl,2486.html
+ExampleInput42:
+  URL: https://www.apteka-melissa.pl/produkt/hipp-hippis-mus-jablka-banany-maliny-ze-zbozami-100-g,24889.html
+ExampleInput43:
+  URL: https://www.apteka-melissa.pl/produkt/hipp-hippis-mus-jablka-truskawki-banany-100-g,24890.html
+ExampleInput44:
+  URL: https://www.apteka-melissa.pl/produkt/hipp-herbatka-z-kopru-wloskiego-bio-bez-cukru-15-x-036-g,24891.html
+ExampleInput45:
+  URL: https://www.apteka-melissa.pl/produkt/gerber-organic-tubka-mango-90-g,25424.html
+ExampleInput46:
+  URL: https://www.apteka-melissa.pl/produkt/gerber-organic-tubka-gruszka-90-g,25425.html
+ExampleInput47:
+  URL: https://www.apteka-melissa.pl/produkt/gerber-organic-tubka-jablko-90-g,25426.html
+ExampleInput48:
+  URL: https://www.apteka-melissa.pl/produkt/durex-intense-delight-bullet-minimasazer-1-szt,26139.html
+ExampleInput49:
+  URL: https://www.apteka-melissa.pl/produkt/durex-intense-little-devil-nakladka-wibrujaca-1-szt,26140.html
+ExampleInput50:
+  URL: https://www.apteka-melissa.pl/produkt/bebiko-2-mleko-modyfikowane-nastepne-dla-niemowlat-2x800-g,26398.html
+ExampleInput51:
+  URL: https://www.apteka-melissa.pl/produkt/bebiko-2r-mleko-nastepne-dla-niemowlat-2x800-g,26404.html
+ExampleInput52:
+  URL: https://www.apteka-melissa.pl/produkt/bebiko-3-junior-mleko-modyfikowane-nastepne-dla-niemowlat-2x800-g,26405.html
+ExampleInput53:
+  URL: https://www.apteka-melissa.pl/produkt/bebiko-3r-junior-mleko-modyfikowane-nastepne-dla-niemowlat-2x800-g,26432.html
+ExampleInput54:
+  URL: https://www.apteka-melissa.pl/produkt/bebilon-1-comfort-proexpert-mleko-modyfikowane-w-proszku-12x400-g,26436.html
+ExampleInput55:
+  URL: https://www.apteka-melissa.pl/produkt/bebilon-1-comfort-proexpert-mleko-modyfikowane-w-proszku-4x400-g,26440.html
+ExampleInput56:
+  URL: https://www.apteka-melissa.pl/produkt/bebilon-1-profutura-mleko-modyfikowane-w-proszku-2x800-g,26444.html
+ExampleInput57:
+  URL: https://www.apteka-melissa.pl/produkt/bebilon-2-comfort-proexpert-mleko-modyfikowane-w-proszku-12x400-g,26459.html
+ExampleInput58:
+  URL: https://www.apteka-melissa.pl/produkt/bebilon-2-comfort-proexpert-mleko-modyfikowane-w-proszku-2x400-g,26471.html
+ExampleInput59:
+  URL: https://www.apteka-melissa.pl/produkt/bebilon-2-comfort-z-proexpert-mleko-modyfikowane-w-proszku-4x400-g,26472.html
+ExampleInput60:
+  URL: https://www.apteka-melissa.pl/produkt/bebilon-2-profutura-mleko-modyfikowane-w-proszku-2x800g,26476.html
+ExampleInput61:
+  URL: https://www.apteka-melissa.pl/produkt/bebilon-2-pronutra-advance-mleko-modyfikowane-w-proszku-2x800g,26479.html
+ExampleInput62:
+  URL: https://www.apteka-melissa.pl/produkt/bebilon-3-junior-z-pronutra-mleko-modyfikowane-w-proszku-2x800-g,26483.html
+ExampleInput63:
+  URL: https://www.apteka-melissa.pl/produkt/bebilon-3-profutura-mleko-modyfikowane-w-proszku-2x800-g,26487.html
+ExampleInput64:
+  URL: https://www.apteka-melissa.pl/produkt/bebilon-4-junior-z-pronutra-mleko-modyfikowane-w-proszku-2x800-g,26489.html
+ExampleInput65:
+  URL: https://www.apteka-melissa.pl/produkt/bebilon-ar-proexpert-mleko-modyfikowane-poczatkowe-przeciw-ulewaniom-12x400-g,26495.html
+ExampleInput66:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-kaszka-zbozowa-jablko-sliwka-po-8-m-cu-180-g,26510.html
+ExampleInput67:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-zielone-warzywa-z-indykiem-po-5-m-cu-125-g,26517.html
+ExampleInput68:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-ziemniaczki-z-wolowina-i-szpinakiem-po-8-m-cu-190-g,26521.html
+ExampleInput69:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-makaron-z-pomidorami-szynka-i-serem-po-8-m-cu-190-g,26522.html
+ExampleInput70:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-jarzynki-z-soczystym-indykiem-po-8-m-cu-190-g,26523.html
+ExampleInput71:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-indyk-w-ziolach-z-warzywami-po-9-m-cu-190-g,26524.html
+ExampleInput72:
+  URL: https://www.apteka-melissa.pl/produkt/bobocita-risotta-z-warz-i-ryba,26525.html
+ExampleInput73:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-soczysta-wieprzowina-z-warzywami-po-10-m-cu-190-g,26526.html
+ExampleInput74:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-warzywne-puree-z-ryba-po-6-m-cu-190-g,26527.html
+ExampleInput75:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-warzywna-potrawka-z-wolowina-1-3-lata-250-g,26528.html
+ExampleInput76:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-mus-jagody-i-jablka-z-bananem-po-6-m-cu-80-g,26543.html
+ExampleInput77:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-gruszka-z-brzoskwiniami-nektar-po-4-m-cu-300-ml,26556.html
+ExampleInput78:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-kaszka-mleczno-ryzowa-o-smaku-bananowym-po-4-m-cu-2-x-230-g,26563.html
+ExampleInput79:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-kaszka-mleczna-manna-po-4-m-cu-2-x-230-g,26564.html
+ExampleInput80:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-kaszka-mleczno-ryzowa-o-smaku-waniliowym-po-4-m-cu-2-x-230-g,26565.html
+ExampleInput81:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-marchewkowa-z-ryzem-po-4-m-cu-2-x-125-g,26566.html
+ExampleInput82:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-warzywa-w-potrawce-z-krolikiem-po-5-m-cu-2-x-125-g,26567.html
+ExampleInput83:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-jarzynowa-po-4-m-cu-2-x-125-g,26568.html
+ExampleInput84:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-jarzynowa-z-kurczakiem-po-5-m-cu-2-x-125-g,26569.html
+ExampleInput85:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-warzywa-z-indykiem-po-5-m-cu-2-x-125-g,26570.html
+ExampleInput86:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-warzywa-z-delikatna-ryba-po-8-m-cu-2-x-190-g,26571.html
+ExampleInput87:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-rosolek-z-kurczaka-z-ryzem-po-6-m-cu-2-x-190-g,26573.html
+ExampleInput88:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-krupniczek-z-cielecina-po-8-m-cu-2-x-190-g,26574.html
+ExampleInput89:
+  URL: https://www.apteka-melissa.pl/produkt/bv-bukiet-warzyw-190x2,26575.html
+ExampleInput90:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-junior-warzywa-w-potrawce-z-cielecinka-1-3-lata-2-x-250-g,26576.html
+ExampleInput91:
+  URL: https://www.apteka-melissa.pl/produkt/bv-klus-z-warzyw-i-ind-250x2,26577.html
+ExampleInput92:
+  URL: https://www.apteka-melissa.pl/produkt/bv-spaghetti-po-bolon-250-x-2,26578.html
+ExampleInput93:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-junior-potrawka-z-kurczakiem-i-szpinakiem-1-3-lata-2-x-250-g,26579.html
+ExampleInput94:
+  URL: https://www.apteka-melissa.pl/produkt/enfamil-1-premium-lipil-0-6-mcy-mleko-modyfikowane-4x1200-g,26597.html
+ExampleInput95:
+  URL: https://www.apteka-melissa.pl/produkt/enfamil-2-premium-lipil-6-12-mcy-mleko-modyfikowane-2x1200-g,26598.html
+ExampleInput96:
+  URL: https://www.apteka-melissa.pl/produkt/enfamil-2-premium-lipil-6-12-mcy-mleko-modyfikowane-4x1200-g,26599.html
+ExampleInput97:
+  URL: https://www.apteka-melissa.pl/produkt/enfamil-2-premium-lipil-6-12-mcy-mleko-modyfikowane-4x800-g,26600.html
+ExampleInput98:
+  URL: https://www.apteka-melissa.pl/produkt/enfamil-3-premium-powyzej-1-roku-mleko-modyfikowane-2x1200g,26601.html
+ExampleInput99:
+  URL: https://www.apteka-melissa.pl/produkt/enfamil-3-premium-powyzej-1-roku-mleko-modyfikowane-4x1200-g,26602.html
+ExampleInput100:
+  URL: https://www.apteka-melissa.pl/produkt/enfamil-4-premium-powyzej-2-roku-mleko-modyfikowane-4x1200-g,26603.html
+ExampleInput101:
+  URL: https://www.apteka-melissa.pl/produkt/nutridrink-o-smaku-neutralnym-24x125-ml,26672.html
+ExampleInput102:
+  URL: https://www.apteka-melissa.pl/produkt/nutridrink-o-smaku-czekoladowym-24x125-ml,26673.html
+ExampleInput103:
+  URL: https://www.apteka-melissa.pl/produkt/nutridrink-o-smaku-owocow-lesnych-24x125-ml,26674.html
+ExampleInput104:
+  URL: https://www.apteka-melissa.pl/produkt/nutridrink-o-smaku-truskawkowym-24x125-ml,26675.html
+ExampleInput105:
+  URL: https://www.apteka-melissa.pl/produkt/nutridrink-o-smaku-waniliowym-24x125-ml,26676.html
+ExampleInput106:
+  URL: https://www.apteka-melissa.pl/produkt/nutridrink-protein-o-smaku-brzoskwiniowym-mango-24x125-ml,26677.html
+ExampleInput107:
+  URL: https://www.apteka-melissa.pl/produkt/nutridrink-protein-o-smaku-mokka-24x125-ml,26678.html
+ExampleInput108:
+  URL: https://www.apteka-melissa.pl/produkt/nutridrink-protein-o-smaku-owocow-lesnych-24x125-ml,26679.html
+ExampleInput109:
+  URL: https://www.apteka-melissa.pl/produkt/nutridrink-protein-o-smaku-truskawkowym-24x125-ml,26680.html
+ExampleInput110:
+  URL: https://www.apteka-melissa.pl/produkt/nutridrink-protein-o-smaku-waniliowym-24x125-ml,26681.html
+ExampleInput111:
+  URL: https://www.apteka-melissa.pl/produkt/enfamil-1-premium-lipil-0-6-mcy-mleko-modyfikowane-2x1200-g,27443.html
+ExampleInput112:
+  URL: https://www.apteka-melissa.pl/produkt/enfamil-4-premium-powyzej-2-roku-mleko-modyfikowane-2x1200-g,27444.html
+ExampleInput113:
+  URL: https://www.apteka-melissa.pl/produkt/nestle-nan-optipro-2-mleko-modyfikowane-w-proszku-po-6-miesiacu-2-x-800-g,27640.html
+ExampleInput114:
+  URL: https://www.apteka-melissa.pl/produkt/hipp-hippis-mus-gruszki-banany-kiwi-100-g,28584.html
+ExampleInput115:
+  URL: https://www.apteka-melissa.pl/produkt/hipp-hippis-mus-jablka-brzoskwinie-owoce-lesne-100-g,28585.html
+ExampleInput116:
+  URL: https://www.apteka-melissa.pl/produkt/veet-sensitive-precision-trymer-do-ciala-i-twarzy-1-szt,28870.html
+ExampleInput117:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-jarzynki-z-cielecina-i-kluseczkami-po-8-m-cu-190-g,28895.html
+ExampleInput118:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-jarzynki-z-lososiem-w-pomidorach-po-6-m-cu-190-g,28896.html
+ExampleInput119:
+  URL: https://www.apteka-melissa.pl/produkt/bebiko-ar-mleko-modyfikowane-przeciw-ulewaniom-dla-niemowlat-350-g,2903.html
+ExampleInput120:
+  URL: https://www.apteka-melissa.pl/produkt/durex-intense-pure-fantasy-stymulujacy-wibrator-1-szt,29247.html
+ExampleInput121:
+  URL: https://www.apteka-melissa.pl/produkt/scholl-velvet-smooth-elektroniczny-pilnik-do-stop-z-glowica-gruboziarnista-i-szczoteczka-zluszczajaca-niebieski-1-szt,29248.html
+ExampleInput122:
+  URL: https://www.apteka-melissa.pl/produkt/scholl-velvet-smooth-elektroniczny-pilnik-do-stop-z-glowica-gruboziarnista-i-szczoteczka-zluszczajaca-rozowy-1-szt,29249.html
+ExampleInput123:
+  URL: https://www.apteka-melissa.pl/produkt/scholl-velvet-smooth-szczoteczki-zluszczajace-do-suchej-skory-stop-i-nog-2-szt,29250.html
+ExampleInput124:
+  URL: https://www.apteka-melissa.pl/produkt/fresubin-energy-drink-o-smaku-truskawkowym-4-x-200-ml,29294.html
+ExampleInput125:
+  URL: https://www.apteka-melissa.pl/produkt/fresubin-protein-energy-drink-o-smaku-czekoladowym-4-x-200-ml,29295.html
+ExampleInput126:
+  URL: https://www.apteka-melissa.pl/produkt/frebini-energy-fibre-drink-o-smaku-czekoladowym-4-x-200-ml,29296.html
+ExampleInput127:
+  URL: https://www.apteka-melissa.pl/produkt/fresubin-protein-energy-drink-o-smaku-poziomkowym-4-x-200-ml,29298.html
+ExampleInput128:
+  URL: https://www.apteka-melissa.pl/produkt/frebini-energy-drink-o-smaku-bananowym-4-x-200-ml,29299.html
+ExampleInput129:
+  URL: https://www.apteka-melissa.pl/produkt/frebini-energy-drink-o-smaku-truskawkowym-4-x-200-ml,29300.html
+ExampleInput130:
+  URL: https://www.apteka-melissa.pl/produkt/nutricomp-drink-plus-o-smaku-bananowym-4-x-200-ml,29401.html
+ExampleInput131:
+  URL: https://www.apteka-melissa.pl/produkt/nutricomp-drink-plus-o-smaku-czekoladowym-4-x-200-ml,29404.html
+ExampleInput132:
+  URL: https://www.apteka-melissa.pl/produkt/nutricomp-drink-plus-o-smaku-truskawkowym-4-x-200-ml,29405.html
+ExampleInput133:
+  URL: https://www.apteka-melissa.pl/produkt/nutricomp-drink-plus-o-smaku-waniliowym-4-x-200ml,29406.html
+ExampleInput134:
+  URL: https://www.apteka-melissa.pl/produkt/diben-drink-o-smaku-owocow-lesnych-4-x-200-ml,29472.html
+ExampleInput135:
+  URL: https://www.apteka-melissa.pl/produkt/supportan-drink-o-smaku-cappuccino-4-x-200-ml,29474.html
+ExampleInput136:
+  URL: https://www.apteka-melissa.pl/produkt/diben-drink-o-smaku-nugatowym-4-x-200-ml,29476.html
+ExampleInput137:
+  URL: https://www.apteka-melissa.pl/produkt/supportan-drink-o-smaku-owocow-tropikalnych-4-x-200-ml,29479.html
+ExampleInput138:
+  URL: https://www.apteka-melissa.pl/produkt/bebiko-2-mleko-modyfikowane-nastepne-dla-niemowlat-4x800-g,29524.html
+ExampleInput139:
+  URL: https://www.apteka-melissa.pl/produkt/fresubin-jucy-drink-o-smaku-wisniowym-4-x-200-ml,29539.html
+ExampleInput140:
+  URL: https://www.apteka-melissa.pl/produkt/durex-strawberry-prezerwatywy-12-szt,29574.html
+ExampleInput141:
+  URL: https://www.apteka-melissa.pl/produkt/durex-play-2w1-zel-do-masazu-i-nawilzajacy-zel-intymny-z-kojacym-aloesem-200-ml,2967.html
+ExampleInput142:
+  URL: https://www.apteka-melissa.pl/produkt/durex-play-perfect-glide-zel-intymny-50-ml,2975.html
+ExampleInput143:
+  URL: https://www.apteka-melissa.pl/produkt/durex-performax-intense-3-szt,2976.html
+ExampleInput144:
+  URL: https://www.apteka-melissa.pl/produkt/durex-performax-intense-10-szt,2977.html
+ExampleInput145:
+  URL: https://www.apteka-melissa.pl/produkt/nestle-nan-optipro-2-mleko-modyfikowane-w-proszku-po-6-miesiacu-4-x-800-g,30102.html
+ExampleInput146:
+  URL: https://www.apteka-melissa.pl/produkt/nestle-nan-optipro-2-mleko-modyfikowane-w-proszku-po-6-miesiacu-6-x-800-g,30112.html
+ExampleInput147:
+  URL: https://www.apteka-melissa.pl/produkt/nestle-nan-optipro-3-mleko-modyfikowane-w-proszku-po-1-roku-4-x-800-g,30113.html
+ExampleInput148:
+  URL: https://www.apteka-melissa.pl/produkt/nestle-nan-optipro-3-mleko-modyfikowane-w-proszku-po-1-roku-6-x-800-g,30114.html
+ExampleInput149:
+  URL: https://www.apteka-melissa.pl/produkt/nestle-nan-optipro-4-mleko-modyfikowane-w-proszku-po-2-roku-4-x-800-g,30115.html
+ExampleInput150:
+  URL: https://www.apteka-melissa.pl/produkt/nestle-nan-optipro-4-mleko-modyfikowane-w-proszku-po-2-roku-6-x-800-g,30116.html
+ExampleInput151:
+  URL: https://www.apteka-melissa.pl/produkt/nestle-nan-optipro-5-junior-mleko-modyfikowane-w-proszku-dla-dzieci-po-25-roku-zycia-4-x-800-g,30118.html
+ExampleInput152:
+  URL: https://www.apteka-melissa.pl/produkt/nestle-nan-optipro-5-junior-mleko-modyfikowane-w-proszku-dla-dzieci-po-25-roku-zycia-6-x-800-g,30119.html
+ExampleInput153:
+  URL: https://www.apteka-melissa.pl/produkt/nestle-nan-optipro-plus-2-mleko-modyfikowane-w-proszku-po-6-miesiacu-4-x-800-g-puszka,30120.html
+ExampleInput154:
+  URL: https://www.apteka-melissa.pl/produkt/nestle-nan-optipro-plus-2-mleko-modyfikowane-w-proszku-po-6-miesiacu-6-x-800-g-puszka,30121.html
+ExampleInput155:
+  URL: https://www.apteka-melissa.pl/produkt/nestle-nan-optipro-plus-3-mleko-modyfikowane-w-proszku-po-1-roku-4-x-800-g-puszka,30122.html
+ExampleInput156:
+  URL: https://www.apteka-melissa.pl/produkt/nestle-nan-optipro-plus-3-mleko-modyfikowane-w-proszku-po-1-roku-6-x-800-g-puszka,30123.html
+ExampleInput157:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-junior-kaszka-mleczno-ryzowa-kakaowa-po-12-miesiacu-3-x-230-g,30223.html
+ExampleInput158:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-kaszka-ryzowa-o-smaku-bananowym-3-x-180-g,30224.html
+ExampleInput159:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-kaszka-ryzowa-o-smaku-brzoskwiniowym-3-x-180-g,30225.html
+ExampleInput160:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-kaszka-ryzowa-o-smaku-malinowym-3-x-180-g,30258.html
+ExampleInput161:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-kaszka-zbozowa-jablko-sliwka-po-8-m-cu-3-x-180-g,30259.html
+ExampleInput162:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-mus-jablka-i-banany-po-4-m-cu-3-x-80-g,30337.html
+ExampleInput163:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-mus-jablka-i-truskawki-z-bananem-po-6-m-cu-3-x-80-g,30339.html
+ExampleInput164:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-mus-jagody-i-jablka-z-bananem-po-6-m-cu-3-x-80-g,30344.html
+ExampleInput165:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-mus-morele-z-jablkiem-i-gruszka-po-6-m-cu-3-x-80-g,30345.html
+ExampleInput166:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-kaszka-manna-o-smaku-owocowym-po-6-m-cu-3-x-180-g,30354.html
+ExampleInput167:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-kaszka-mleczno-pszenna-o-smaku-owocowym-po-9-m-cu-3-x-230-g,30358.html
+ExampleInput168:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-kaszka-mleczno-ryzowa-o-smaku-bananowym-po-4-m-cu-3-x-230-g,30359.html
+ExampleInput169:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-kaszka-mleczno-ryzowa-o-smaku-malinowym-po-4-m-cu-3-x-230-g,30360.html
+ExampleInput170:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-kaszka-mleczno-ryzowa-o-smaku-morelowym-po-4-m-cu-3-x-230-g,30361.html
+ExampleInput171:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-kaszka-mleczno-ryzowa-o-smaku-owocow-lesnych-po-6-m-cu-3-x-230-g,30362.html
+ExampleInput172:
+  URL: https://www.apteka-melissa.pl/produkt/nutridrink-protein-o-smaku-neutralnym-4-x-125-ml,30363.html
+ExampleInput173:
+  URL: https://www.apteka-melissa.pl/produkt/nutridrink-protein-rozgrzewajacy-smak-owocow-tropikalnych-4-x-125-ml,30364.html
+ExampleInput174:
+  URL: https://www.apteka-melissa.pl/produkt/nutridrink-protein-rzeski-smak-czerwonych-owocow-4-x-125-ml,30365.html
+ExampleInput175:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-kaszka-mleczno-ryzowa-o-smaku-owocowym-po-9-m-cu-3-x-230-g,30383.html
+ExampleInput176:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-kaszka-mleczno-ryzowa-z-sokiem-malinowym-po-4-m-cu-3-x-230-g,30384.html
+ExampleInput177:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-kaszka-mleczno-ryzowa-o-smaku-truskawkowym-po-6-m-cu-3-x-230-g,30385.html
+ExampleInput178:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-kaszka-mleczno-ryzowa-o-smaku-waniliowym-po-4-m-cu-3-x-230-g,30386.html
+ExampleInput179:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-kaszka-mleczno-wielozbozowa-wieloowocowa-smaczna-kolacja-3-x-230-g,30387.html
+ExampleInput180:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-kaszka-mleczno-wielozbozowa-owsiane-sniadanko-po-6-m-cu-3-x-230-g,30398.html
+ExampleInput181:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-mleczna-kaszka-manna-tradycyjny-posilek-po-6-m-cu-3-x-230-g,30399.html
+ExampleInput182:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-kaszka-manna-tradycyjny-posilek-bez-dodatku-cukru-po-6-m-cu-3-x-230-g,30400.html
+ExampleInput183:
+  URL: https://www.apteka-melissa.pl/produkt/hipp-ors-200-kleik-marchwiowo-ryzowy-p-4-mies-200-ml,30615.html
+ExampleInput184:
+  URL: https://www.apteka-melissa.pl/produkt/durex-classic-prezerwatywy-12-szt-durex-play-nawilzajacy-zel-intymny-50-ml,31155.html
+ExampleInput185:
+  URL: https://www.apteka-melissa.pl/produkt/durex-classic-prezerwatywy-2-x-12-szt,31157.html
+ExampleInput186:
+  URL: https://www.apteka-melissa.pl/produkt/fresubin-energy-drink-o-smaku-truskawkowym-24-x-200-ml,31165.html
+ExampleInput187:
+  URL: https://www.apteka-melissa.pl/produkt/fresubin-protein-energy-drink-o-smaku-poziomkowym-24-x-200-ml,31171.html
+ExampleInput188:
+  URL: https://www.apteka-melissa.pl/produkt/fresubin-jucy-drink-o-smaku-wisniowym-24-x-200-ml,31175.html
+ExampleInput189:
+  URL: https://www.apteka-melissa.pl/produkt/fresubin-protein-energy-drink-o-smaku-orzechowym-24-x-200-ml,31176.html
+ExampleInput190:
+  URL: https://www.apteka-melissa.pl/produkt/hipp-bio-moje-sniadanko-musli-owocowe-z-jogurtem-po-9-m-cu-160-g,31304.html
+ExampleInput191:
+  URL: https://www.apteka-melissa.pl/produkt/hipp-mama-herbatka-dla-kobiet-karmiacych-200-g,31306.html
+ExampleInput192:
+  URL: https://www.apteka-melissa.pl/produkt/gerber-deserek-gruszka-banan-malina-z-musli-po-6-miesiacu-4-x-90-g,31499.html
+ExampleInput193:
+  URL: https://www.apteka-melissa.pl/produkt/nutridrink-protein-o-smaku-mokka-4-x-125-ml,3153.html
+ExampleInput194:
+  URL: https://www.apteka-melissa.pl/produkt/nutridrink-protein-o-smaku-truskawkowym-4-x-125-ml,3154.html
+ExampleInput195:
+  URL: https://www.apteka-melissa.pl/produkt/nutridrink-protein-o-smaku-waniliowym-4-x-125-ml,3155.html
+ExampleInput196:
+  URL: https://www.apteka-melissa.pl/produkt/olimp-nutramil-complex-arginilan-o-smaku-cytrynowym-14-sasz,31797.html
+ExampleInput197:
+  URL: https://www.apteka-melissa.pl/produkt/nestle-kaszka-mleczno-ryzowa-wanilia-po-4-miesiacu-2-x-230-g,31917.html
+ExampleInput198:
+  URL: https://www.apteka-melissa.pl/produkt/gerber-organic-deserek-mleczno-owocowy-gruszka-banan-po-6-miesiacu-4-x-90-g,31980.html
+ExampleInput199:
+  URL: https://www.apteka-melissa.pl/produkt/gerber-organic-deserek-mleczny-o-smaku-naturalnym-po-6-miesiacu-4-x-90-g,31981.html
+ExampleInput200:
+  URL: https://www.apteka-melissa.pl/produkt/bobo-frut-nektar-jablko-i-gruszka-po-4-m-cu-5-x-300-ml,32142.html
+ExampleInput201:
+  URL: https://www.apteka-melissa.pl/produkt/bobo-frut-nektar-jablko-truskawka-i-aronia-po-6-m-cu-5-x-300-ml,32148.html
+ExampleInput202:
+  URL: https://www.apteka-melissa.pl/produkt/gerber-organic-kaszka-pszenno-owsiana-z-waniliowa-nutka-po-6-miesiacu-2-x-240-g,32159.html
+ExampleInput203:
+  URL: https://www.apteka-melissa.pl/produkt/gerber-organic-tubka-mango-6-x-90-g,32165.html
+ExampleInput204:
+  URL: https://www.apteka-melissa.pl/produkt/gerber-organic-tubka-gruszka-6-x-90-g,32166.html
+ExampleInput205:
+  URL: https://www.apteka-melissa.pl/produkt/gerber-organic-tubka-jablko-6-x-90-g,32167.html
+ExampleInput206:
+  URL: https://www.apteka-melissa.pl/produkt/nurofen-dla-dzieci-forte-zawiesina-200-mg5-ml-o-smaku-truskawkowym-2-x-150-ml,32348.html
+ExampleInput207:
+  URL: https://www.apteka-melissa.pl/produkt/zestaw-rodzinny-nurofen-dla-dzieci-forte-150-ml-nurofen-express-forte-x-20-szt,32349.html
+ExampleInput208:
+  URL: https://www.apteka-melissa.pl/produkt/nurofen-forte-tabletki-powlekane-400-mg-x-72tbl,32350.html
+ExampleInput209:
+  URL: https://www.apteka-melissa.pl/produkt/nurofen-express-forte-400-mg-x-40-kapsmiekkich,32351.html
+ExampleInput210:
+  URL: https://www.apteka-melissa.pl/produkt/strepsils-intensive-x-48tbl,32352.html
+ExampleInput211:
+  URL: https://www.apteka-melissa.pl/produkt/strepsils-z-miodem-i-cytryna-x-48tbl,32353.html
+ExampleInput212:
+  URL: https://www.apteka-melissa.pl/produkt/zestaw-rodzinny-strepsils-intensive-x-48tbl-strepsils-junior-x48tbl,32354.html
+ExampleInput213:
+  URL: https://www.apteka-melissa.pl/produkt/bebilon-2-profutura-mleko-modyfikowane-w-proszku-4x800-g,32407.html
+ExampleInput214:
+  URL: https://www.apteka-melissa.pl/produkt/bebilon-3-profutura-mleko-modyfikowane-w-proszku-4x800-g,32410.html
+ExampleInput215:
+  URL: https://www.apteka-melissa.pl/produkt/bebiko-2r-mleko-nastepne-dla-niemowlat-4x800-g,32414.html
+ExampleInput216:
+  URL: https://www.apteka-melissa.pl/produkt/bebiko-3-junior-mleko-modyfikowane-nastepne-dla-niemowlat-4x800-g,32415.html
+ExampleInput217:
+  URL: https://www.apteka-melissa.pl/produkt/humana-2-mleko-modyfikowane-w-proszku-nastepne-dla-niemowlat-6x800-g,32421.html
+ExampleInput218:
+  URL: https://www.apteka-melissa.pl/produkt/humana-3-mleko-modyfikowane-w-proszku-6x800-g,32422.html
+ExampleInput219:
+  URL: https://www.apteka-melissa.pl/produkt/gerber-organic-deserek-mleczno-owocowy-gruszka-banan-po-6-miesiacu-8-x-90-g,32463.html
+ExampleInput220:
+  URL: https://www.apteka-melissa.pl/produkt/gerber-organic-deserek-mleczny-o-smaku-naturalnym-po-6-miesiacu-8-x-90-g,32464.html
+ExampleInput221:
+  URL: https://www.apteka-melissa.pl/produkt/fresubin-protein-powder-smak-neutralny-300-g,32582.html
+ExampleInput222:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-smaczna-kolacja-kaszka-mleczna-wieloowocowa-7-zboz-po-8-miesiacu-230-g,32789.html
+ExampleInput223:
+  URL: https://www.apteka-melissa.pl/produkt/scholl-krem-regenerujacy-na-popekane-piety-60-ml,33.html
+ExampleInput224:
+  URL: https://www.apteka-melissa.pl/produkt/nestle-nan-optipro-plus-4-mleko-modyfikowane-w-proszku-po-2-roku-800-g-puszka,33054.html
+ExampleInput225:
+  URL: https://www.apteka-melissa.pl/produkt/nurofen-dla-dzieci-125-mg-10-czop,3310.html
+ExampleInput226:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-kaszka-ryzowa-o-smaku-owocow-lesnych-po-6-m-cu-3-x-180-g,33108.html
+ExampleInput227:
+  URL: https://www.apteka-melissa.pl/produkt/nurofen-forte-12-tabl,3311.html
+ExampleInput228:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-mleczna-kaszka-manna-o-smaku-owocowym-pyszne-sniadanko-3-x-230-g,33110.html
+ExampleInput229:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-kaszka-mleczno-ryzowa-o-smaku-owocym-po-9-m-cu-3-x-230-g,33114.html
+ExampleInput230:
+  URL: https://www.apteka-melissa.pl/produkt/bobovita-smaczna-kolacja-kaszka-mleczna-wieloowocowa-7-zboz-po-8-miesiacu-3-x-230-g,33115.html
+ExampleInput231:
+  URL: https://www.apteka-melissa.pl/produkt/nurofen-dla-dzieci-60-mg-10-czop,3312.html
+ExampleInput232:
+  URL: https://www.apteka-melissa.pl/produkt/humana-1-mleko-poczatkowe-24-x-90-ml,33126.html
+ExampleInput233:
+  URL: https://www.apteka-melissa.pl/produkt/nurofen-junior-zawiesina-doustna-smak-pomaranczowy-100-ml,3314.html
+ExampleInput234:
+  URL: https://www.apteka-melissa.pl/produkt/nurofen-junior-zawiesina-doustna-smak-truskawkowy-100-ml,3315.html
+ExampleInput235:
+  URL: https://www.apteka-melissa.pl/produkt/nurofen-ultima-12-tabl,3316.html
+ExampleInput236:
+  URL: https://www.apteka-melissa.pl/produkt/nurofen-express-forte-20-kaps,3317.html
+ExampleInput237:
+  URL: https://www.apteka-melissa.pl/produkt/nurofen-zatoki-24-tabl,3318.html
+ExampleInput238:
+  URL: https://www.apteka-melissa.pl/produkt/enfamil-3-premium-powyzej-1-roku-mleko-modyfikowane-2-x-800-g,33186.html
+ExampleInput239:
+  URL: https://www.apteka-melissa.pl/produkt/enfamil-2-premium-lipil-6-12-mcy-mleko-modyfikowane-2-x-800-g,33190.html
+ExampleInput240:
+  URL: https://www.apteka-melissa.pl/produkt/durex-intense-prezerwatywy-2-x-10-szt,33447.html
+ExampleInput241:
+  URL: https://www.apteka-melissa.pl/produkt/durex-performa-prezerwatywy-z-substancja-przedluzajaca-stosunek-2-x-12-szt,33448.html
+ExampleInput242:
+  URL: https://www.apteka-melissa.pl/produkt/durex-extra-safe-prezerwatywy-grubsze-z-dodatkowa-iloscia-srodka-nawilzajacego-2-x-12-szt,33449.html
+ExampleInput243:
+  URL: https://www.apteka-melissa.pl/produkt/durex-play-nawilzajacy-zel-intymny-2-x-50-ml,33450.html
+ExampleInput244:
+  URL: https://www.apteka-melissa.pl/produkt/durex-intense-prezerwatywy-10-sztdurex-intense-zel-stymulujacy-10-ml-durex-intense-little-devil-nakladka-wibrujaca-1-szt,33451.html
+ExampleInput245:
+  URL: https://www.apteka-melissa.pl/produkt/durex-play-massage-2w1-zel-intymny-do-masazu-z-guarana-200-ml-durex-play-potegujacy-doznania-zel-intymny-przyjemnie-rozgrzewajacy-50-ml-durex-intense-zel-stymulujacy-10-ml,33452.html
+ExampleInput246:
+  URL: https://www.apteka-melissa.pl/produkt/durex-arouser-prezerwatywy-nawilzane-i-prazkowane-2-x-12-szt,33453.html
+ExampleInput247:
+  URL: https://www.apteka-melissa.pl/produkt/nestle-nan-optipro-plus-4-mleko-modyfikowane-w-proszku-po-2-roku-4-x-800-g,33493.html
+ExampleInput248:
+  URL: https://www.apteka-melissa.pl/produkt/nestle-nan-optipro-plus-4-mleko-modyfikowane-w-proszku-po-2-roku-6-x-800-g,33494.html
+ExampleInput249:
+  URL: https://www.apteka-melissa.pl/produkt/bebilon-1-ha-prosyneo-mleko-modyfikowane-w-proszku-400-g,33499.html
+ExampleInput250:
+  URL: https://www.apteka-melissa.pl/produkt/bebilon-2-ha-prosyneo-mleko-modyfikowane-w-proszku-400-g,33500.html
+ExampleInput251:
+  URL: https://www.apteka-melissa.pl/produkt/scholl-velvet-smooth-elektroniczny-pilnik-do-stop-z-mineralami-morskimi-1-szt,33850.html
+ExampleInput252:
+  URL: https://www.apteka-melissa.pl/produkt/olimp-nutramil-complex-720g-neutralny-pr,33990.html
+ExampleInput253:
+  URL: https://www.apteka-melissa.pl/produkt/olimp-nutramil-complex-protein-o-smaku-neutralnym-700-g,33991.html
+ExampleInput254:
+  URL: https://www.apteka-melissa.pl/produkt/hipp-61a-jablka-z-morelami-125,34134.html
+ExampleInput255:
+  URL: https://www.apteka-melissa.pl/produkt/nestle-nan-optipro-plus-2-hm-o-mleko-modyfikowane-w-proszku-po-6-miesiacu-2-x-800-g-puszka,34277.html
+ExampleInput256:
+  URL: https://www.apteka-melissa.pl/produkt/nestle-nan-optipro-plus-3-mleko-modyfikowane-w-proszku-po-1-roku-2x800-g-puszka,34278.html
+ExampleInput257:
+  URL: https://www.apteka-melissa.pl/produkt/nestle-nan-optipro-plus-4-mleko-modyfikowane-w-proszku-po-2-roku-2-x-800-g-puszka,34279.html
+ExampleInput258:
+  URL: https://www.apteka-melissa.pl/produkt/nestle-nan-optipro-3-mleko-modyfikowane-w-proszku-po-1-roku-2-x-800-g,34335.html
+ExampleInput259:
+  URL: https://www.apteka-melissa.pl/produkt/nestle-nan-optipro-4-mleko-modyfikowane-w-proszku-po-2-roku-2-x-800-g,34336.html
+ExampleInput260:
+  URL: https://www.apteka-melissa.pl/produkt/nestle-nan-optipro-5-junior-mleko-modyfikowane-w-proszku-dla-dzieci-po-25-roku-zycia-2-x-800-g,34337.html
+ExampleInput261:
+  URL: https://www.apteka-melissa.pl/produkt/gaviscon-16-tabl-do-rozgryzania-i-zucia,3441.html
+ExampleInput262:
+  URL: https://www.apteka-melissa.pl/produkt/durex-arouser-prezerwatywy-nawilzane-i-prazkowane-18-szt,34488.html
+ExampleInput263:
+  URL: https://www.apteka-melissa.pl/produkt/durex-extra-safe-prezerwatywy-grubsze-z-dodatkowa-iloscia-srodka-nawilzajacego-18-szt,34489.html
+ExampleInput264:
+  URL: https://www.apteka-melissa.pl/produkt/durex-fetherlite-elite-prezerwatywy-supercienkie-18-szt,34490.html
+ExampleInput265:
+  URL: https://www.apteka-melissa.pl/produkt/durex-intense-prezerwatywy-16-szt,34491.html
+ExampleInput266:
+  URL: https://www.apteka-melissa.pl/produkt/durex-performax-intense-16-szt,34492.html
+ExampleInput267:
+  URL: https://www.apteka-melissa.pl/produkt/gaviscon-zawiesina-doustna-150-ml,3457.html
+ExampleInput268:
+  URL: https://www.apteka-melissa.pl/produkt/durex-fun-explosion-zestaw-prezerwatyw-40-szt,34688.html
+ExampleInput269:
+  URL: https://www.apteka-melissa.pl/produkt/durex-fetherlite-ultra-thin-prezerwatywy-ultracienkie-40-szt,34689.html
+ExampleInput270:
+  URL: https://www.apteka-melissa.pl/produkt/bebilon-4-profutura-mleko-modyfikowane-w-proszku-800-g,34882.html
+ExampleInput271:
+  URL: https://www.apteka-melissa.pl/produkt/nestle-nan-optipro-plus-1-hm-o-mleko-poczatkowe-dla-niemowlat-70-ml,34895.html
+ExampleInput272:
+  URL: https://www.apteka-melissa.pl/produkt/durex-classic-prezerwatywy-18-szt,34898.html
+ExampleInput273:
+  URL: https://www.apteka-melissa.pl/produkt/scholl-obcinacz-do-paznokci-1-szt,35.html
+ExampleInput274:
+  URL: https://www.apteka-melissa.pl/produkt/bebilon-4-profutura-mleko-modyfikowane-w-proszku-2-x-800-g,35093.html
+ExampleInput275:
+  URL: https://www.apteka-melissa.pl/produkt/bebilon-4-profutura-mleko-modyfikowane-w-proszku-4-x-800-g,35094.html
+ExampleInput276:
+  URL: https://www.apteka-melissa.pl/produkt/bebilon-4-profutura-mleko-modyfikowane-w-proszku-6-x-800-g,35095.html
+ExampleInput277:
+  URL: https://www.apteka-melissa.pl/produkt/diben-1000-ml,35210.html
+ExampleInput278:
+  URL: https://www.apteka-melissa.pl/produkt/fresubin-1200-complete-1000-ml,35211.html
+ExampleInput279:
+  URL: https://www.apteka-melissa.pl/produkt/fresubin-original-fibre-1000-ml,35214.html
+ExampleInput280:
+  URL: https://www.apteka-melissa.pl/produkt/supportan-500-ml,35216.html
+ExampleInput281:
+  URL: https://www.apteka-melissa.pl/produkt/bebilon-nenatal-home-z-pronutra-mleko-modyfikowane-w-proszku-400-g,3522.html
+ExampleInput282:
+  URL: https://www.apteka-melissa.pl/produkt/fresubin-original-1000-ml,35221.html
+ExampleInput283:
+  URL: https://www.apteka-melissa.pl/produkt/strepsils-z-mentolem-i-eukaliptusem-24-past,355.html
