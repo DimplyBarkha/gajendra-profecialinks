@@ -72,7 +72,7 @@ fields:
   xpath: //dt[normalize-space(text())='Verpakkingsgewicht']/following-sibling::dd[1]
 - name: gtin
   description: GTIN code (includes UPC/EAN)
-  xpath: normalize-space(//dt[normalize-space(text())='EAN']/following-sibling::dd[1])
+  xpath: normalize-space(//dt[contains(text(), 'EAN')]/following-sibling::dd[1])
 - name: sku
   description: The store-specific product identifier
   xpath: (//div[@data-global-id]/@data-global-id | //a[@data-product-id]/@data-product-id)[1]
@@ -104,7 +104,8 @@ fields:
   xpath: //div[@id="aggregate_rating"]
 - name: shippingInfo
   description: Shipping information for the product
-  xpath: normalize-space(//div[@class="buy-block"]//div[contains(@class,"product-seller")]//a)
+  # xpath: normalize-space(//div[@class="buy-block"]//div[contains(@class,"product-seller")]//a)
+  xpath: //div[@id="shipping_info"]
 - name: shippingDimensions
   description: Stated shipping dimensions
 - name: shippingWeight
@@ -125,7 +126,7 @@ fields:
   xpath: //div[@data-test="main-specs"]//img/@src
 - name: videos
   description: URLs of videos on page
-  xpath: //video//source/@src
+  xpath: //ol[@id="videos_list"]/li/@src
 - name: name
   description: The product name
   xpath: //div[@id="productUrl"]/@product-name

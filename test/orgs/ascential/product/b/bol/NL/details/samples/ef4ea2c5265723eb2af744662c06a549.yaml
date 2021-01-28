@@ -2,13 +2,13 @@ input:
   _url: http://bol.com
   URL: https://www.bol.com/nl/p/my-size-condooms-maat-47-3-stuks/9200000009405505/
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=b9fcf570-a40e-457a-bc05-11b42a485c38/task=d803478d-a680-4c3e-9ffb-93d147b8882d/26acd7a1-5492-4b24-a08c-c797a7b0aa54.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=f9090385-ca01-42a3-b895-f65da6f148c1/task=677828b9-5d66-4f85-8664-8d8fb271c12d/8cc1b22c-e07d-4ceb-bfb8-53adb16157f3.html
     extractionConfigId: product/details/stores/b/bol/NL/extract
     data:
       - group:
           - productUrl:
               - text: https://www.bol.com/nl/p/my-size-condooms-maat-47-3-stuks/9200000009405505/
-                xpath: /html/body/div[14]
+                xpath: /html/body/div[15]
             image:
               - text: https://media.s-bol.com/Bx02D2p9Bjx/550x632.jpg
                 xpath: /html/body/ol[1]/li[1]/@src
@@ -31,7 +31,7 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/ul[1]/li[3]/span[1]/a[1]/span[1]
             nameExtended:
               - text: My.Size Condooms maat 47 - 3 stuks
-                xpath: /html/body/div[14]/@product-name
+                xpath: /html/body/div[15]/@product-name
             price:
               - text: € 4,95
                 xpath: /html/body/div[4]
@@ -59,10 +59,13 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/dl[1]/dd[2]
             variantId:
               - text: "9200000009405505"
-                xpath: /html/body/ol[2]/@selected_variant_id
+                xpath: /html/body/ol[3]/@selected_variant_id
             directions:
               - text: Geslacht Voor mannen
                 xpath: /html/body/div[11]
+            shippingInfo:
+              - text: bol.com
+                xpath: /html/body/div[14]
             color:
               - text: Transparant
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[2]
@@ -75,9 +78,12 @@ extractions:
             manufacturerDescription:
               - text: Voor mannen || Zonder smaak || 3 stuk(s) ||
                 xpath: /html/body/div[12]
+            manufacturerImages:
+              - text: https://s.s-bol.com/imgbase0/imagebase3/regular/FC/0/2/2/1/7901220.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             name:
               - text: My.Size Condooms maat 47 - 3 stuks
-                xpath: /html/body/div[14]/@product-name
+                xpath: /html/body/div[15]/@product-name
             inStorePrice:
               - text: € 4,95
                 xpath: /html/body/div[4]
@@ -93,17 +99,17 @@ extractions:
                 xpath: /html/body/div[6]
             variantInformation:
               - text: "3"
-                xpath: /html/body/ol[2]/@selected_variant_name
+                xpath: /html/body/ol[3]/@selected_variant_name
             firstVariant:
               - text: "9200000009405505"
-                xpath: /html/body/ol[2]/li[1]/@variant_id
+                xpath: /html/body/ol[3]/li[1]/@variant_id
             variants:
               - text: "9200000009405505"
-                xpath: /html/body/ol[2]/li[1]/@variant_id
+                xpath: /html/body/ol[3]/li[1]/@variant_id
               - text: "9200000009405499"
-                xpath: /html/body/ol[2]/li[2]/@variant_id
+                xpath: /html/body/ol[3]/li[2]/@variant_id
               - text: "9200000009405445"
-                xpath: /html/body/ol[2]/li[3]/@variant_id
+                xpath: /html/body/ol[3]/li[3]/@variant_id
             unInterruptedPDP:
               - text: My.Size Condooms maat 49 - 3 stuks
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[3]/ul[1]/li[1]/div[1]/div[2]/a[1]
@@ -111,27 +117,27 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[3]/ul[1]/li[2]/div[1]/div[2]/a[1]
               - text: My.Size Condooms maat 49 -10 stuks
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[3]/ul[1]/li[3]/div[1]/div[2]/a[1]
-              - text: My.Size Condooms maat 53 - 3 stuks
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[3]/ul[1]/li[4]/div[1]/div[2]/a[1]
               - text: Durex Condooms Classic Natural 20 stuks
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[3]/ul[1]/li[4]/div[1]/div[2]/a[1]
+              - text: My.Size Condooms maat 53 - 3 stuks
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[3]/ul[1]/li[5]/div[1]/div[2]/a[1]
-              - text: My.Size Condooms maat 64 - 10 stuks
+              - text: My.Size Condooms maat 69 - 10 stuks
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[3]/ul[1]/li[6]/div[1]/div[2]/a[1]
-              - text: EasyGlide glijmiddel op waterbasis - 150 ml
+              - text: My.Size Condooms maat 64 - 10 stuks
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[3]/ul[1]/li[7]/div[1]/div[2]/a[1]
               - text: Durex Condooms Orgasm Intense 10 stuks
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[3]/ul[1]/li[8]/div[1]/div[2]/a[1]
-              - text: My.Size Condooms maat 60 - 10 stuks
+              - text: EasyGlide glijmiddel op waterbasis - 150 ml
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[3]/ul[1]/li[9]/div[1]/div[2]/a[1]
-              - text: Durex Condooms Orgasm Intense 10 stuks
+              - text: Durex Condooms Perfect Gliss Anaal - 10 stuks
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[1]/div[2]/a[1]
-              - text: Durex Condooms Real Feel 20 stuks
+              - text: Durex Condooms Orgasm Intense 10 stuks
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[2]/div[2]/a[1]
-              - text: Durex Condooms Thin Feel 20 stuks
+              - text: Durex Condooms Real Feel 20 stuks
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[3]/div[2]/a[1]
-              - text: Durex Condooms Extra Safe 20 stuks
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[4]/div[2]/a[1]
               - text: Durex Condooms Classic Natural 20 stuks
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[4]/div[2]/a[1]
+              - text: Durex Condooms Thin Feel 20 stuks
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[5]/div[2]/a[1]
               - text: My.Size Condooms maat 49 - 3 stuks
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[7]/ul[1]/li[1]/div[1]/div[2]/a[1]
@@ -139,9 +145,9 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[7]/ul[1]/li[2]/div[1]/div[2]/a[1]
               - text: EasyGlide glijmiddel op waterbasis - 150 ml
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[7]/ul[1]/li[3]/div[1]/div[2]/a[1]
-              - text: My.Size Condooms maat 49 -10 stuks
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[7]/ul[1]/li[4]/div[1]/div[2]/a[1]
               - text: FPPR. Vagina Masturbator - Beige
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[7]/ul[1]/li[4]/div[1]/div[2]/a[1]
+              - text: My.Size Condooms maat 49 -10 stuks
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[7]/ul[1]/li[5]/div[1]/div[2]/a[1]
               - text: Durex Pleasure Ring Cockring - Transparant
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[7]/ul[1]/li[6]/div[1]/div[2]/a[1]
@@ -150,8 +156,6 @@ extractions:
             sku:
               - text: "9200000009405505"
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/a[1]/@data-product-id
-            shippingInfo:
-              - text: ""
             variantCount:
               - text: "3"
             secondaryImageTotal:
@@ -167,4 +171,4 @@ extractions:
             hasComparisonTable:
               - text: No
         xpath: /html
-    timestamp: 1611820246229
+    timestamp: 1611833182832

@@ -229,13 +229,16 @@ const implementation = async (inputs, { transform }, context, { productDetails }
     }
     let descriptionText = descriptionElement ? descriptionElement.innerText : '';
     const descriptionLiTexts = [];
-    descriptionLiElements.forEach((li) => {
-      descriptionLiTexts.push(li.textContent ? li.textContent : '');
+    descriptionLiElements.forEach((elem) => {
+      descriptionLiTexts.push(elem.innerText ? elem.innerText : '');
     });
     const descriptionBulletsText = descriptionLiTexts.length ? ' || ' + descriptionLiTexts.join(' || ') : '';
     descriptionText += descriptionBulletsText;
 
-    const count = (descriptionText.match(/•/g) || []).length + (descriptionText.match(/^-\s/gm) || []).length + descriptionLiElements.length;
+    const count =
+      (descriptionText.match(/•/g) || []).length +
+      (descriptionText.match(/^-\s/gm) || []).length +
+      descriptionLiElements.length;
     const modifiedDesc = descriptionText.replace(/•/gi, ' || ').replace(/\n+/g, ' ');
     if (count) addElementToDom(count, 'bulletsCount');
     addElementToDom(modifiedDesc, 'description');
@@ -331,20 +334,50 @@ const implementation = async (inputs, { transform }, context, { productDetails }
     const ratingElem = document.querySelector('div.rating-horizontal__average-score');
     const ratingText = ratingElem ? ratingElem.textContent.replace('.', ',') : '';
     addElementToDom(ratingText, 'aggregate_rating');
+
+    const shippingInfoElem = document.querySelector('div.buy-block div.product-seller');
+    const shippingInfo = shippingInfoElem ? shippingInfoElem.textContent.replace('Verkoop door', '').trim() : '';
+    addElementToDom(shippingInfo, 'shipping_info');
   });
 
   await context.evaluate(async function () {
-    // video
-    if (document.querySelector('a[data-test="product-video"]')) {
-      const videoButton = document.querySelector('a[data-test="product-video"]');
-      // @ts-ignore
-      videoButton.click();
+    const videosList = document.createElement('ol');
+    videosList.id = 'videos_list';
+    videosList.style.display = 'none';
+    document.body.appendChild(videosList);
 
-      await new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve();
-        }, 2000);
-      });
+    // // video
+    // const videoButton =
+    //   document.querySelector('a[data-test="product-video"]') ||
+    //   document.querySelector('img[data-test="product-video-still"] + button');
+    // if (videoButton) {
+    //   // @ts-ignore
+    //   videoButton.click();
+    //   await new Promise((resolve) => setTimeout(resolve, 2000));
+    // }
+
+    const allThumbnails = document.querySelectorAll('div[data-test="product-images"] ul > li');
+    for (let i = 0; i < allThumbnails.length; i++) {
+      const elem = allThumbnails[i];
+      elem.click();
+      await new Promise((resolve) => setTimeout(resolve, 500));
+
+      const videoButton = document.querySelector('img[data-test="product-video-still"] + button');
+      if (videoButton) {
+        videoButton.click();
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+        const videoElem = document.querySelector('div[data-test="wsp-video-element"] > video > source');
+        if (videoElem && videoElem.src) {
+          const listItem = document.createElement('li');
+          listItem.setAttribute('src', videoElem.src);
+          videosList.appendChild(listItem);
+        }
+        const closeButton = document.querySelector('div.modal__window--close');
+        if (closeButton) {
+          closeButton.click();
+          await new Promise((resolve) => setTimeout(resolve, 500));
+        }
+      }
     }
   });
 
