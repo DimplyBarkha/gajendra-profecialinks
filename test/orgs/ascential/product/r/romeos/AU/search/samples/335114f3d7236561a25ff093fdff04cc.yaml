@@ -1,0 +1,82 @@
+input:
+  keywords: grapefruit
+  _url: http://martinplace.romeosonline.com.au
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=53366971-9b79-42fd-a043-cd1f37379250/task=f2bcd7ea-1fd7-486f-b811-c70b866bf36e/a681d7a0-2aef-4b65-a5f3-ff59b0b5dc86.html
+    extractionConfigId: product/search/stores/r/romeos/AU/extract
+    data:
+      - group:
+          - name:
+              - text: Grapefruit (​Yellow)
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
+            productUrl:
+              - text: https://martinplace.romeosonline.com.au/lines/grapefruit
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://dtgxwmigmg3gc.cloudfront.net/imagery/assets/derivations/icon/256/256/true/eyJpZCI6Ijk5OWFhZDhhMDE2NWE1OGE3M2I3OWMwNDNiOWRmZWNkIiwic3RvcmFnZSI6InB1YmxpY19zdG9yZSJ9?signature=305633cb7dae6346e5b3870b8de8ba26fd54bea2e0240cccfd83a4f22750342f
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/figure[1]/img[1]/@src
+            price:
+              - text: $5.99
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/span[1]/strong[1]
+            id:
+              - text: grapefruit
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/@added_id
+            searchUrl:
+              - text: https://martinplace.romeosonline.com.au/search?utf8=%E2%9C%93&q=grapefruit
+                xpath: /html/body/@search_url
+          - name:
+              - text: Bickford's Cordial Pink Grapefruit 750ml
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/span[1]
+            productUrl:
+              - text: https://martinplace.romeosonline.com.au/lines/bickfords-cordial-pink-grapefruit-750ml
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://dtgxwmigmg3gc.cloudfront.net/imagery/assets/derivations/icon/256/256/true/eyJpZCI6IjM5Yzk5OTIyNmFlYWU0YzRiODA1MDI1ZTQzYjU2NGYzIiwic3RvcmFnZSI6InB1YmxpY19zdG9yZSJ9?signature=c5c5239487bbc031db8927a293d7e0727c7e0c4b637f959db555307dbc971cd5
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/figure[1]/img[1]/@src
+            price:
+              - text: $3.60
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[2]/strong[1]
+            id:
+              - text: bickfords-cordial-pink-grapefruit-750ml
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]/@added_id
+            searchUrl:
+              - text: https://martinplace.romeosonline.com.au/search?utf8=%E2%9C%93&q=grapefruit
+                xpath: /html/body/@search_url
+          - name:
+              - text: Grove Ruby Red Grapefruit Juice 1lt
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/span[1]
+            productUrl:
+              - text: https://martinplace.romeosonline.com.au/lines/grove-jce-ruby-red-grapefrt-1l
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://dtgxwmigmg3gc.cloudfront.net/imagery/assets/derivations/icon/256/256/true/eyJpZCI6IjM3MjdmOGMzNDM1MjgyMmMyNTJkOGU0MTI4Njc0ZjdhIiwic3RvcmFnZSI6InB1YmxpY19zdG9yZSJ9?signature=decade1ad7231c53759c85c017a7c56801ad70732dbf95404fb05ef399e73427
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/figure[1]/img[1]/@src
+            price:
+              - text: $5.43
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/span[1]/strong[1]
+            id:
+              - text: grove-jce-ruby-red-grapefrt-1l
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/@added_id
+            searchUrl:
+              - text: https://martinplace.romeosonline.com.au/search?utf8=%E2%9C%93&q=grapefruit
+                xpath: /html/body/@search_url
+          - name:
+              - text: Lindt Fruit Sensation Orange And Pink Grapefruit 150g
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/span[1]
+            productUrl:
+              - text: https://martinplace.romeosonline.com.au/lines/lindt-fruit-sensation-orange-and-pink-grapefruit-150gm
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://dtgxwmigmg3gc.cloudfront.net/imagery/assets/derivations/icon/256/256/true/eyJpZCI6IjUxYzg1OTJlOGQ2Mjc3ODJiOWQwODQzNDYyMTc4MGI0Iiwic3RvcmFnZSI6InB1YmxpY19zdG9yZSJ9?signature=a4b10622f35345233c0186e897b96a6db2231560006954dad19564bb63e19432
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/a[1]/figure[1]/img[1]/@src
+            price:
+              - text: $6.34
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[4]/div[1]/div[2]/div[2]/div[1]/span[1]/strong[1]
+            id:
+              - text: lindt-fruit-sensation-orange-and-pink-grapefruit-150gm
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[4]/@added_id
+            searchUrl:
+              - text: https://martinplace.romeosonline.com.au/search?utf8=%E2%9C%93&q=grapefruit
+                xpath: /html/body/@search_url
+        xpath: /html
+    timestamp: 1611824385271
