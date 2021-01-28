@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@id="searchResultContainer"]
+recordXPath: null
 fields:
 - name: id
   singleValue: true
@@ -11,9 +11,7 @@ fields:
   xpath: //div[@class="product-name-list"]/a/@title
 - name: productUrl
   singleValue: true
-  xpath: //table[@class="table"]/tbody/tr[@class="product-container"]/td/div[@class="product-name-list"]/a/@href
-  regExp: ^(.*)
-  regExpReplace: 'https://www.connection.com$1'
+  xpath: //div[@class="added_producturl"]
 - name: thumbnail
   singleValue: true
   xpath: //table[@class="table"]//tbody//tr[@class="product-container"]//td[@class="list-image"]/div/a/div/img/@src
