@@ -58,16 +58,25 @@ module.exports = {
         }
       }
 
-      var jsonString = document.querySelectorAll(
-        "[type='application/ld+json']"
-      );
-      if(jsonString.length === 1){
-        var newjsonString = jsonString[0]
-      }else{
-        var newjsonString = jsonString[1]
+      function getElementByXpath (xpath)  {
+          const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+          console.log('Element' + element);
+          const text = element ? element.textContent : null;
+          return text;
+      
       }
-      var jsonParsed = JSON.parse(newjsonString.innerText);
-      var json_list = jsonParsed.itemListElement;
+
+
+      let jsonString =  getElementByXpath('//div[@data-vm-context="bpr_qv"]/div/no-script/text()');
+      var jsonParsed = JSON.parse(jsonString);
+      try{
+        var json_list = jsonParsed.itemListElement;
+      }catch(e){
+        let jsonString =  getElementByXpath('//div[@data-vm-context="bpr_qv"]/div/script/text()');
+        var jsonParsed = JSON.parse(jsonString); 
+        var json_list = jsonParsed.itemListElement;       
+      }
+
 
 
 
