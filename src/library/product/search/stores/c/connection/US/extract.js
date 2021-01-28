@@ -65,9 +65,13 @@ async function implementation (
         addElementToDocumentOld('price', priceTextValue[i]);
         addElementToDocumentOld('name', nameTextValue[i]);
         addElementToDocumentOld('manufacturer', manufacturerTextValue[i]);
-        addElementToDocumentOld('productUrl', productURLTextValue[i]);
+        addElementToDocumentOld('productUrl', 'https://www.connection.com'+productURLTextValue[i]);
         addElementToDocumentOld('thumbnail', thumbNailTextValue[i]);
-        addElementToDocumentOld('availability', availabilityTextValue[i]);
+        if(availabilityTextValue[i] == 'In Stock'  || availabilityTextValue[i] == 'Pre-Order' || availabilityTextValue[i] == 'Limited Quantity Available' || availabilityTextValue[i] == 'Temporarily Out-of-Stock'){
+          addElementToDocumentOld('availability', 'In Stock');
+        } else {
+          addElementToDocumentOld('availability', 'Out of Stock');
+        }
         addElementToDocumentOld('added-searchurl', url);
       } catch (err) {
         console.log('Error =>', err);

@@ -3,10 +3,13 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-- name: id
+  - name: id
     singleValue: true
     description: URL of the main product image
-    xpath: //div[@id='id']  
+    xpath: //div[@id='id']
+  - name: searchUrl
+    singleValue: false
+    xpath: //div[@id='added-searchurl']    
   - name: productUrl
     singleValue: false
     description: Other product images (not in manufacturer description)
