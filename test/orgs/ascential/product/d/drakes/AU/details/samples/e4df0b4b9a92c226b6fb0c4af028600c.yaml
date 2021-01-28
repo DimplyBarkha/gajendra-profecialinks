@@ -2,7 +2,7 @@ input:
   _url: http://drakes.com.au
   URL: https://074.drakes.com.au/lines/my-muscle-chef-crumbed-chicken-with-roast-veg-300g
 extractions:
-  - html: https://workbench.import.io/html/run=bfc5e9a4-b78b-42c7-9c87-6d8ad34e2e7c/task=d52e27a1-eb6a-4452-b74e-85bea969f3f3/6541b0fe-c20d-41eb-9581-38a75822d4c5.html
+  - html: https://workbench.import.io/html/run=1ad1026c-2f49-43df-963f-9ee74dff029a/task=1bac7ff9-0673-49d1-b7b0-eafe62ea43dc/606ff0d4-295c-4a53-b42a-da5a0c9d18eb.html
     extractionConfigId: product/details/stores/d/drakes/AU/extract
     data:
       - group:
@@ -28,36 +28,43 @@ extractions:
               - text: My Muscle Chef Crumbed Chicken With Roast Veg 300g
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]
             coupon:
-              - text: Save $1.55
+              - text: Save $1.50
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[3]/span[1]/span[1]
-            price:
-              - text: $8.90
+            sku:
+              - text: my-muscle-chef-crumbed-chicken-with-roast-veg-300g
                 xpath: /html/body/div[3]
+            variantId:
+              - text: my-muscle-chef-crumbed-chicken-with-roast-veg-300g
+                xpath: /html/body/div[3]
+            price:
+              - text: $8.95
+                xpath: /html/body/div[4]
+            listPrice:
+              - text: $10.45
+                xpath: /html/body/div[6]
             description:
               - text: Golden, Delicious Chicken Breast, Coasted In A Breadcrumb Mixture, Served
                   With Roasted Potatoes. Ingredients chicken
-                xpath: /html/body/div[4]
-            availabilityText:
-              - text: In Stock
-          - servingSizeUom:
+                xpath: /html/body/div[7]
+            servingSizeUom:
               - text: g
-                xpath: /html/body/div[6]
+                xpath: /html/body/div[8]
             servingSize:
               - text: per 300g
-                xpath: /html/body/div[7]
+                xpath: /html/body/div[9]
             weightNet:
               - text: 300g
-                xpath: /html/body/div[8]
+                xpath: /html/body/div[10]
             ingredientsList:
               - text: chicken
-                xpath: /html/body/div[9]
+                xpath: /html/body/div[11]
             pricePerUnit:
-              - text: $2.58 per 100g
-                xpath: /html/body/div[10]
+              - text: $2.60 per 100g
+                xpath: /html/body/div[12]
             pricePerUnitUom:
               - text: g
-                xpath: /html/body/div[11]
+                xpath: /html/body/div[13]
             availabilityText:
               - text: In Stock
         xpath: /html/body
-    timestamp: 1605274751859
+    timestamp: 1606129367693

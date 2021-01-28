@@ -1,4 +1,3 @@
-
 module.exports = {
   implements: 'product/details/execute',
   parameterValues: {
@@ -6,7 +5,7 @@ module.exports = {
     store: 'drakes',
     domain: 'drakes.com.au',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="MoreInfo"]/header[@class="MoreInfo__Header"]//div[@class="MoreInfo__Banner__Name"]/strong',
     zipcode: '',
   },
 };

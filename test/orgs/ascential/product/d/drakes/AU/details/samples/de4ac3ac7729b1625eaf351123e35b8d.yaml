@@ -2,7 +2,7 @@ input:
   _url: http://drakes.com.au
   URL: https://074.drakes.com.au/lines/bakers-collection-fruit-cake-dark-700g
 extractions:
-  - html: https://workbench.import.io/html/run=bfc5e9a4-b78b-42c7-9c87-6d8ad34e2e7c/task=af75819e-29df-456b-a419-69ee21db8e97/1a294c25-2306-4312-a712-b01339a94170.html
+  - html: https://workbench.import.io/html/run=1ad1026c-2f49-43df-963f-9ee74dff029a/task=38c48ebe-c762-4913-a0b3-bc42e3cfc183/ab3b87f8-8d5d-41d4-8ee1-91d335a759b4.html
     extractionConfigId: product/details/stores/d/drakes/AU/extract
     data:
       - group:
@@ -27,16 +27,16 @@ extractions:
                   that you read the label on the products you purchase or
                   contact the manufacturer of the product.
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]
-            availabilityText:
-              - text: In Stock
-        xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]
-      - group:
-          - price:
-              - text: $6.00
+            sku:
+              - text: bakers-collection-fruit-cake-dark-700g
                 xpath: /html/body/div[3]
-            availabilityText:
-              - text: In Stock
-          - servingSizeUom:
+            variantId:
+              - text: bakers-collection-fruit-cake-dark-700g
+                xpath: /html/body/div[3]
+            price:
+              - text: $6.00
+                xpath: /html/body/div[4]
+            servingSizeUom:
               - text: g
                 xpath: /html/body/div[6]
             servingSize:
@@ -53,6 +53,5 @@ extractions:
                 xpath: /html/body/div[10]
             availabilityText:
               - text: In Stock
-        xpath: /html/body
-        htmlExtraction: https://crawl-assets.import.io/html/run=bfc5e9a4-b78b-42c7-9c87-6d8ad34e2e7c/task=af75819e-29df-456b-a419-69ee21db8e97/1a294c25-2306-4312-a712-b01339a94170.html
-    timestamp: 1605274749965
+        xpath: /html
+    timestamp: 1606129364853

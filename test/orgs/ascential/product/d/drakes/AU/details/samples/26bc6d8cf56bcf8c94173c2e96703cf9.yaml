@@ -2,7 +2,7 @@ input:
   _url: http://drakes.com.au
   URL: https://074.drakes.com.au/lines/beef-mince-extra-lean-approx-weight-500g-1
 extractions:
-  - html: https://workbench.import.io/html/run=bfc5e9a4-b78b-42c7-9c87-6d8ad34e2e7c/task=bee77bcc-8a22-407e-8373-62009ebe1f06/cdfce572-2afa-4495-92e0-9139dc470f58.html
+  - html: https://workbench.import.io/html/run=1ad1026c-2f49-43df-963f-9ee74dff029a/task=2ad3a103-8edc-4a7c-85c0-1dffeac3b309/ea022b37-bc0b-4947-a59d-3caf37bbef27.html
     extractionConfigId: product/details/stores/d/drakes/AU/extract
     data:
       - group:
@@ -10,9 +10,6 @@ extractions:
               - text: Approximate price per 500g is based on typical size (0.5 kg). Actual size
                   may vary.
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]
-            availabilityText:
-              - text: In Stock
-          - legalDisclaimer:
               - text: Drakes Online Castle Plaza aims to include in the product list up to date
                   pictures of the products and accurate ingredients, nutritional
                   information and other information. However, product detail may
@@ -21,11 +18,7 @@ extractions:
                   that you read the label on the products you purchase or
                   contact the manufacturer of the product.
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]
-            availabilityText:
-              - text: In Stock
-        xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
-      - group:
-          - image:
+            image:
               - text: https://dtgxwmigmg3gc.cloudfront.net/imagery/assets/derivations/icon/512/512/true/eyJpZCI6ImE3MzllNzYwZjg3M2VjYWQ1MDM3YmRmZGYzNjY0YTUwLmpwZyIsInN0b3JhZ2UiOiJwdWJsaWNfc3RvcmUifQ?signature=c399a20ec69d77384076472d7754e16cd463a1bf5a9a203859a2170af7a63804
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
             imageAlt:
@@ -40,17 +33,18 @@ extractions:
             countryOfOrigin:
               - text: Australian Grown
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]
+            sku:
+              - text: beef-mince-extra-lean-approx-weight-500g-1
+                xpath: /html/body/div[3]
+            variantId:
+              - text: beef-mince-extra-lean-approx-weight-500g-1
+                xpath: /html/body/div[3]
             price:
               - text: Approximately $8.75
-                xpath: /html/body/div[3]
+                xpath: /html/body/div[4]
             description:
               - text: Price shown is based on approx. weight. Weight may vary between 400g and
-                  600g.
-                xpath: /html/body/div[4]
-            availabilityText:
-              - text: In Stock
-          - description:
-              - text: Australian Grown
+                  600g. Australian Grown
                 xpath: /html/body/div[5]
             servingSize:
               - text: per 500g
@@ -69,6 +63,5 @@ extractions:
                 xpath: /html/body/div[10]
             availabilityText:
               - text: In Stock
-        xpath: /html/body
-        htmlExtraction: https://crawl-assets.import.io/html/run=bfc5e9a4-b78b-42c7-9c87-6d8ad34e2e7c/task=bee77bcc-8a22-407e-8373-62009ebe1f06/cdfce572-2afa-4495-92e0-9139dc470f58.html
-    timestamp: 1605274749390
+        xpath: /html
+    timestamp: 1606129367647
