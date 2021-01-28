@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: true
     xpath: (//img[@class="primary_image product_image pdp__primary-image  b-product_img"])[2]/@srcset
-    regExp: ^(.+?)1x
+    regExp: ^(.+?)\s1x
     regExpReplace: $1
   - name: imageAlt
     singleValue: true
@@ -14,7 +14,7 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: (//img[@class="product-thumbnails__image productthumbnail lazyloaded"])[position() > 1]/@srcset
-    regExp: ^(.+?)1x
+    regExp: ^(.+?)\s1x
     regExpReplace: $1
   - name: metaKeywords
     singleValue: true

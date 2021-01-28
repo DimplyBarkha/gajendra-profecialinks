@@ -44,7 +44,7 @@ module.exports = {
         pn += pname[i];
       }
       var pq = getAllXpath('((//div[contains(@class,"product_detail pdp__detail")][2])/div[1]/*[(self::h2)])/text()', 'nodeValue');
-      addElementToDocument('name', pn + '|' + pq);
+      addElementToDocument('name', pn + ' | ' + pq);
 
       //Name extended
       var selectedBySize = getXpath('//div[contains(@class,"product-variation-size__item")]//div[contains(@class,"selected")]/text()', 'nodeValue');
@@ -70,7 +70,7 @@ module.exports = {
         addElementToDocument('fvar', firstVar);
         addElementToDocument('varInfo', selectedByColor);
       } else {
-        ab = pn + ' | ' + qty;
+        ab = pn;
         addElementToDocument('ab', ab);
       }
 
