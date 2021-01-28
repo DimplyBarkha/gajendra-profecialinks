@@ -41,7 +41,7 @@ fields:
     xpath: //div[@id="conversion-zone"]//p[not(contains(@class,"financing-text"))]
   - name: availabilityText
     singleValue: false
-    xpath: //ul[@class="sizes__list"]//li[@aria-selected="true"]//span[@class="sizes__stock"]
+    xpath: //div[@class="stock-infos"]//i
   - name: sku
     singleValue: false
     xpath: //div[@class="product-refs"]//small[@class="product-data-model-id"]
@@ -67,7 +67,7 @@ fields:
     regExpReplace: $1
   - name: url
     singleValue: false
-    xpath: //meta[@property="og:url"]/@content
+    xpath: //link[@rel="canonical"]/@href
   - name: promotion
     singleValue: false
     xpath: (//span[@class="dkt-price__info-addon"]//span[@class="dkt-price__reduction"])[1]
