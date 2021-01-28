@@ -88,7 +88,7 @@ module.exports = {
         if (agg != null) {
           var aggregate = agg.split(":")[1].slice(0, -1);
           aggregate = (aggregate * 5) / 100;
-          aggregate = aggregate.toFixed(1);
+          aggregate = aggregate.toFixed(2);
           // var str = aggregate.toString();
           var final = aggregate.replace(".", ",");
           addElementToDocument('aggregateRating', final);
