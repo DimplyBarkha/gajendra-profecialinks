@@ -115,7 +115,19 @@ module.exports = {
           element.innerText = fixedText;
         });
       }
-
+      // Create availability
+      const availabilitySelector = document.querySelector('link[itemprop="availability"]');
+      if (availabilitySelector) {
+        const instockReg = /instock/i;
+        const outofstockReg = /outofstock/i;
+        const availabilityUrl = availabilitySelector.href;
+        if (availabilityUrl.match(outofstockReg)) {
+          document.body.setAttribute('availability', 'Out of Stock');
+        }
+        if (availabilityUrl.match(instockReg)) {
+          document.body.setAttribute('availability', 'In Stock');
+        }
+      }
       function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
       }
