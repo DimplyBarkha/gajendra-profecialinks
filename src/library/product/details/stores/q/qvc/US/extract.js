@@ -102,7 +102,7 @@ module.exports = {
       return data;
     };
 
-    const variants = await context.evaluate(() => { return document.querySelectorAll('ul[role="radiogroup"] li').length; });
+    const colorVariants = await context.evaluate(() => { return document.querySelectorAll('ul[aria-label="Color"] li').length; });
     const variantAvailability = await context.evaluate(() => {
       const variantAvailability = [];
       for (let i = 0; i < document.querySelectorAll('ul[role="radiogroup"] li').length; i++) {
@@ -117,19 +117,19 @@ module.exports = {
       }
       return variantInfo;
     });
-    if (variants !== 0) {
-      for (let i = 0; i < variants; i++) {
+    if (colorVariants !== 0) {
+      for (let i = 0; i < colorVariants; i++) {
         await context.evaluate((i) => {
           document.querySelectorAll('ul[role="radiogroup"] li')[i].click();
         }, i);
         // wait for extraction
         if (variantAvailability[i] !== 'N') {
-          await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+          await new Promise((resolve, reject) => setTimeout(resolve, 1000));
           dataConversion(await context.extract(productDetails, { transform }), info.offers[i].sku, info.offers[i].availability, variantInfo[i], info.offers[i].price);
         }
       };
     }
-    if (variants === 0) {
+    if (colorVariants === 0) {
       dataConversion(await context.extract(productDetails, { transform }), null, null, null, info.offers[0].price);
     }
   },

@@ -30,7 +30,7 @@ module.exports = {
     country: 'US',
     store: 'qvc',
     domain: 'qvc.com',
-    loadedSelector: 'div[class="container"]',
+    loadedSelector: 'div[class*="container"], div[id="pageContent"]',
     noResultsXPath: '//div[@class="col-tn-12"]/ul/li | //li[@class="active"]/h1[contains(text(), "Sold Out")]',
     zipcode: '',
   },
