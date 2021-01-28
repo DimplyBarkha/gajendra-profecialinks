@@ -4,29 +4,35 @@ recordSelector: null
 recordXPath: null
 fields:
 - name: id
-  singleValue: true
-  xpath: //table[@class="table"]//tbody//tr[@class="product-container"]/@data-id
-- name: name
-  singleValue: true
-  xpath: //div[@class="product-name-list"]/a/@title
-- name: productUrl
-  singleValue: true
-  xpath: //div[@class="added_producturl"]
-- name: thumbnail
-  singleValue: true
-  xpath: //table[@class="table"]//tbody//tr[@class="product-container"]//td[@class="list-image"]/div/a/div/img/@src
-- name: price
-  singleValue: true
-  xpath: //table[@class="table"]//tbody//tr[@class="product-container"]//span[@class="priceDisplay"]/text()
-- name: manufacturer
-  singleValue: true
-  xpath: //table[@class='table']/tbody/tr[@class='product-container'][1]/td[@class='list-info']/div[2]
-- name: availabilityText
-  singleValue: true
-  xpath: //table[@class="table"]//tbody//tr[@class="product-container"]//td[@class="list-availability"]/div/span/text()
-- name: rank
-  description: search/listing rank
-  type: NUMBER
-- name: rankOrganic
-  description: The position (rank) within the list excluding sponsored/paid results
-  type: NUMBER
+    singleValue: true
+    description: URL of the main product image
+    xpath: //div[@id='id']  
+  - name: productUrl
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath: //div[@id='productUrl']
+  - name: name
+    singleValue: true
+    description: Alt text of the main product image
+    xpath: //div[@id='name']
+  - name: price
+    singleValue: true
+    description: offered price for the selected product
+    xpath: //div[@id='price']
+  - name: manufacturer
+    singleValue: true
+    description: product Manufacturer
+    xpath: //div[@id='manufacturer']
+  - name: thumbnail
+    singleValue: true
+    description: URL of the main product image
+    xpath: //div[@id="thumbnail"]
+  - name: availabilityText
+    singleValue: true
+    xpath: //div[@id="availability"]
+  - name: rank
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
