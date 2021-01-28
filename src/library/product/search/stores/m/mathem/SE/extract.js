@@ -7,10 +7,10 @@ const implementation = async function (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  const { waitForSelector } = context;
-  // await context.waitForSelector('div[class="two-col"] div button[class="btn full-width"]');
-  // await context.click('div[class="two-col"] div button[class="btn full-width"]');
-  // await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+  // const { waitForSelector } = context;
+  await context.waitForSelector('div[class="two-col"] div button[class="btn full-width"]');
+  await context.click('div[class="two-col"] div button[class="btn full-width"]');
+  await new Promise((resolve, reject) => setTimeout(resolve, 10000));
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
       let scrollTop = 0;
