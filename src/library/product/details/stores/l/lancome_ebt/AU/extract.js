@@ -142,7 +142,7 @@ module.exports = {
       var dir = directions.toString().replace('\n', ' || ');
       addElementToDocument('dir', dir);
 
-      // Product url
+      // Product url generater
       var url = "";
       var urlBySize = getXpath('//div[contains(@class,"selected")]/parent::div[contains(@class,"product-variation-size__item")]/@value', 'nodeValue');
       var sizeVal = getXpath('//input[@id="product_selectedsize"]/@value', 'nodeValue');
