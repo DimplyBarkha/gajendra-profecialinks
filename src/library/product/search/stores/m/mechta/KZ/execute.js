@@ -8,7 +8,7 @@ module.exports = {
     // url: 'https://www.mechta.kz/search/index.php?q={searchTerms}',
     url: 'https://www.mechta.kz/search/{searchTerms}/',
     loadedSelector: 'div.hoverCard-child.bg-white',
-    noResultsXPath: '//div[@class="j_detectum_search" and contains(text(),"По текущему запросу нет товаров")]',
+    noResultsXPath: '//div[@class="bg-color10 q-mt-xl q-pt-sm"]/div[contains(., "ничего не найдено")]',
     zipcode: "''",
   },
 };
