@@ -95,11 +95,11 @@ fields:
   - name: allergyAdvice
     singleValue: true
     xpath: //div[@id="aid"]
-  - name: brand_url
-    singleValue: true
-    xpath: //span[@class='value']/a/@href
-    regExp: (.+)
-    regExpReplace: https://frisco.pl$1
+  # - name: brand_url
+  #   singleValue: true
+  #   xpath: //span[@class='value']/a/@href
+  #   regExp: (.+)
+  #   regExpReplace: https://frisco.pl$1
   - name: ingredientsList
     singleValue: true
     xpath: //div[@id="componentid"]
