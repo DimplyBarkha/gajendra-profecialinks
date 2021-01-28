@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'skin.pt',
     prefix: null,
-    url: 'https://skin.pt/catalogsearch/result/?q={id}',
+    url: null,
     country: 'PT',
     store: 'skin',
     zipcode: '',

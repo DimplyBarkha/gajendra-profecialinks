@@ -20,19 +20,23 @@ fields:
   - name: productUrl
     singleValue: true
     description: The URL for the product details page
-    xpath: //*[@id="maincontent"]/div[2]/div[1]/div[6]/div[2]/ol/li/div/div[3]/strong/a/@href | //*[@id="maincontent"]/div[3]/div[1]/div[8]/ol/li/div/div[3]/strong/a/@href
+    # xpath: //*[@id="maincontent"]/div[2]/div[1]/div[6]/div[2]/ol/li/div/div[3]/strong/a/@href | //*[@id="maincontent"]/div[3]/div[1]/div[8]/ol/li/div/div[3]/strong/a/@href
+    xpath: //a[@class="product-item-link"]/@href
   - name: thumbnail
     singleValue: true
     description: The URL for the product thumbnail image
-    xpath: //*[@id="maincontent"]/div[2]/div[1]/div[6]/div[2]/ol/li/div/a/span/span/img/@src | //*[@id="maincontent"]/div[3]/div[1]/div[8]/ol/li/div/a/span/span/img/@src
+    # xpath: //*[@id="maincontent"]/div[2]/div[1]/div[6]/div[2]/ol/li/div/a/span/span/img/@src | //*[@id="maincontent"]/div[3]/div[1]/div[8]/ol/li/div/a/span/span/img/@src | //img[@class="product-image-photo"]
+    xpath: //img[@class="product-image-photo"]/@src
   - name: name
     singleValue: true
     description: The product name
-    xpath: //*[@id="maincontent"]/div[2]/div[1]/div[6]/div[2]/ol/li/div/div[3]/strong/a | //*[@id="maincontent"]/div[3]/div[1]/div[8]/ol/li/div/div[3]/strong/a
+    # xpath: //*[@id="maincontent"]/div[2]/div[1]/div[6]/div[2]/ol/li/div/div[3]/strong/a | //*[@id="maincontent"]/div[3]/div[1]/div[8]/ol/li/div/div[3]/strong/a  | //a[@class="product-item-link"]
+    xpath: //a[@class="product-item-link"]
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //div[@class="products wrapper grid products-grid"]/ol/li/div/div/div/meta[5]/@content
+    # xpath: //div[@class="products wrapper grid products-grid"]/ol/li/div/div/div/meta[5]/@content
+    xpath: //meta[@itemprop="sku"]/@content
   - name: mpc
     singleValue: true
     description: The model code of the product
@@ -77,25 +81,29 @@ fields:
     singleValue: true
     description: search/listing rank
     type: NUMBER
-    xpath: //div[@class="rank"]
+    # xpath: //div[@class="rank"]
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
-    xpath: //div[@class="rank"]
+    # xpath: //div[@class="rank"]
   - name: sponsored
     singleValue: true
     description: Is sponsored/paid
-    type: BOOLEAN
+  - name: searchUrl
+    singleValue: true
+    xpath: //div[@id='url']
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+
 
 #  Should these be source specific formulas or in the extractor? 
   - name: id
     singleValue: true
     description: Unique id (within this extractor)
-    xpath: //*[@id="maincontent"]/div[2]/div[1]/div[6]/div[2]/ol/li/div/div[1]/div/meta[5]/@content
+    # xpath: //*[@id="maincontent"]/div[2]/div[1]/div[6]/div[2]/ol/li/div/div[1]/div/meta[5]/@content
+    xpath: //meta[@itemprop="sku"]/@content
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per extractor)

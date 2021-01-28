@@ -4,20 +4,27 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: true
+    singleValue: false
     description: URL of the main product image
-    xpath: //div[@class="gallery-placeholder"]/div[2]/div/div/div[3]/div[1]/img[1]/@src | //*[@id="maincontent"]/div[2]/div[1]/div[4]/div[2]/div[2]/div[2]/div[1]/div[3]/div/img/@src
+    xpath: (//div[contains(@class, "fotorama__stage__frame")]/img/@src)[1]
+    # xpath: //div[@class="gallery-placeholder"]/div[2]/div/div/div[3]/div[1]/img[1]/@src | //*[@id="maincontent"]/div[2]/div[1]/div[4]/div[2]/div[2]/div[2]/div[1]/div[3]/div/img/@src
+    # xpath: //div[@class="fotorama__stage__frame fotorama__active fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img"]/@href
+    # xpath: //html/body/div[2]/main[1]/div[2]/div[1]/div[4]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]/img[1]/@src
   - name: imageAlt
-    singleValue: true
+    singleValue: false
     description: Alt text of the main product image
-    xpath: //div[@class="gallery-placeholder"]/div[2]/div/div/div[3]/div[1]/img[1]/@alt
+    # xpath: //div[@class="gallery-placeholder"]/div[2]/div/div/div[3]/div[1]/img[1]/@alt
+    xpath: (//div[contains(@class, "fotorama__stage__frame")]/img/@alt)[1]
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
+    # xpath: //div[contains(@class,"fotorama__loaded--img")][position()>1]/img/@src
+    # xpath: //div[contains(@class, "fotorama__nav__frame fotorama__nav__frame--thumb")][position()>1]/div/img/@src
+    xpath: //div[@class="fotorama__nav__frame fotorama__nav__frame--thumb"]//img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
-    xpath: //*[@id="description2"]/div/div
+    xpath: //meta[@name="keywords"]/@content
   - name: productUrl
     singleValue: true
     xpath: //html/head/link[17]/@href
@@ -28,7 +35,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //*[@id="maincontent"]/div[2]/div[1]/div[3]/div[1]/h1
+    xpath: //*[@id="maincontent"]//div[@class="page-title-wrapper product"]/h1
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -50,13 +57,10 @@ fields:
     defaultValue: Out of Stock
     xpath: //*[@id="product-addtocart-button"]/span
   - name: description
-    singleValue: false
+    singleValue: true
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    # regExp: (\\n)(\w.+)
-    # regExpReplace: $2|
-    # xpath: //*[@id="maincontent"]/div[2]/div[1]/div[3]/div[6]/div
-    xpath: //div[@class="description"]
+    xpath: normalize-space(concat(//div[@class="product-info-main"]//div[@class="product attribute description"], //*[@id="howitworks-content"], //*[@id="description2"]/div/div))
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -72,11 +76,6 @@ fields:
   - name: quantity
     singleValue: false
     description: Quantity as described on the page
-    # regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    # regExpReplace: $1$2$3$4
-    # regExp: (\s\w.)(\d.+)(\w*)$
-    # regExp: (\d.+)(\w*)$
-    #regExpReplace: $1$2
     regExp: \b(\w+)\W*$ | (\d.+)
     xpath: //*[@id="maincontent"]/div[2]/div[1]/div[3]/div[1]/h1
   - name: weightNet
@@ -88,7 +87,6 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: //*[@id="maincontent"]/div[2]/div[1]/div[2]/div/meta[5]/@content
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -96,7 +94,7 @@ fields:
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //*[@id="maincontent"]/div[2]/div[1]/div[3]/div[3]/div[2]/@data-product-id
+    xpath: //div[@class="columns"]//@data-product-id
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -110,7 +108,7 @@ fields:
   - name: directions
     singleValue: true
     description: Content under "directions" header
-    xpath: //*[@id="directionsforuse-content"]/p | //*[@id="directionsforuse-content"]/p[2]
+    xpath: //*[@id="directionsforuse-content"]
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
@@ -128,7 +126,6 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
-#    xpath: //*[@id="maincontent"]/div[2]/div[2]/div/div[1]/div[2]/span[1]
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
@@ -139,6 +136,7 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
+    defaultValue: '0'
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -154,10 +152,12 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
+    # xpath: //*[@id="directionsforuse-content"]/p[3]/iframe/@src
+    xpath: //div[@class="item-wrapper"]//iframe/@src | //div[@class="product attribute description"]//iframe/@src
   - name: name
     singleValue: true
     description: The product name
-    xpath: //*[@id="maincontent"]/div[2]/div[1]/div[3]/div[1]/h1
+    xpath: //*[@id="maincontent"]//div[@class="page-title-wrapper product"]/h1
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -167,7 +167,6 @@ fields:
   - name: coupon
     singleValue: true
     description: Text of any coupon offer
-    xpath: //*[@id="maincontent"]/div[2]/div[1]/div[4]/div[4]/div/span
   - name: amazonChoice
     singleValue: true
     description: YES or Blank
@@ -251,6 +250,8 @@ fields:
     singleValue: true
     description: null
     type: NUMBER
+    # xpath: count(//div[contains(@class,"fotorama__loaded--img")][position()>1]/img/@src)
+    xpath: count(//div[@class="fotorama__nav__frame fotorama__nav__frame--thumb"]//img/@src)
   - name: news
     singleValue: true
     description: null
@@ -264,7 +265,8 @@ fields:
     singleValue: true
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
-    xpath: //*[@id="howitworks-content"]/p[2] | //*[@id="howitworks-content"]/p
+    # xpath: //*[@id="howitworks-content"]/p[2] | //*[@id="howitworks-content"]/p
+    xpath: //*[@id="howitworks-content"]
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
@@ -444,8 +446,9 @@ fields:
     singleValue: true
     description: The unit of measurement used in price_per_unit
   - name: promotion
-    singleValue: true
+    singleValue: false
     description: promotion text on product page
+    xpath: //div[@class="columns"]//div[@class="product-tag-wrapper"]/span
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
@@ -527,6 +530,3 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
-#    xpath: /html/body/div[7]/div[2]/div[1]/div[6]/@class
-      
-#zoom//*[@id="maincontent"]/div[2]/div[1]/div[4]/div[2]/div[2]/div[2]/div[1]/div[6]/@role

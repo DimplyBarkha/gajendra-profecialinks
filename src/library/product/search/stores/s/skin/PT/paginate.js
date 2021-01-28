@@ -1,14 +1,13 @@
-
 module.exports = {
-  implements: 'product/search/paginate',
+  implements: 'navigation/paginate',
   parameterValues: {
     country: 'PT',
     store: 'skin',
-    nextLinkSelector: null,
+    // nextLinkSelector: '#maincontent > div.columns > div.column.main > div:nth-child(8) > div.pages > ul > li > a.action.next',
+    // nextLinkSelector: '[class="action  next"]',
     mutationSelector: null,
-    spinnerSelector: null,
-    loadedSelector: '#maincontent > div.columns > div.column.main > div.search.results',
-    noResultsXPath: null,
+    // loadedSelector: 'ol.products.list.items.product-items',
+    // loadedSelector: '#maincontent > div.columns > div.column.main > div.search.results  ol > li > div',
     openSearchDefinition: null,
     domain: 'skin.pt',
     zipcode: '',
