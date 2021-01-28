@@ -5,12 +5,12 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //*[@id="root-app"]/div/div/div/div[1]/div[1]/div/div/div/div[2]/span/figure/img/@src
+    xpath: //*[@id="root-app"]/div/div/div/div[1]/div[1]/div/div/div/div[2]/span/figure/img/@src | //*[@id="gallery_dflt"]/div/figure[1]/a/img/@src
   - name: imageAlt
     xpath: //span[@class='ui-pdp-gallery__wrapper'][1]/label/div/div/img[@class='ui-pdp-image']/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //*[@id="root-app"]/div/div/div/div[1]/div[1]/div/div/div/div[2]/span/figure/img/@data-zoom
+    xpath: //*[@id="root-app"]/div/div/div/div[1]/div[1]/div/div/div/div[2]/span/figure/img/@data-zoom | //*[@id="gallery_dflt"]/div/figure/a/img/@src
   - name: _pageTimestamp
   - name: url
     xpath: //div[@id='url']
@@ -21,15 +21,17 @@ fields:
     singleValue: false
     xpath: //ul[@class='andes-breadcrumb']/li[@class='andes-breadcrumb__item']/a[@class='andes-breadcrumb__link']
   - name: nameExtended
-    xpath: //div[@class='ui-pdp-header']/h1[@class='ui-pdp-title']
+    xpath: //div[@class='ui-pdp-header']/h1[@class='ui-pdp-title'] | //h1[@class='item-title__primary']
+  - name: name
+    xpath: //div[@class='ui-pdp-header']/h1[@class='ui-pdp-title'] | //h1[@class='item-title__primary']
   - name: listPrice
     xpath: //del[@class='price-tag ui-pdp-price__part ui-pdp-price__original-value price-tag__disabled']
   - name: price
-    xpath: //div[@class='ui-pdp-price__second-line']/span[@class='price-tag ui-pdp-price__part']
+    xpath: //div[@class='ui-pdp-price__second-line']/span[@class='price-tag ui-pdp-price__part'] | //*[@id="productInfo"]/fieldset/span
   - name: availabilityText
     xpath: //div[@id='isStock']
   - name: description
-    xpath: //div[@class='ui-pdp-container__row ui-pdp-container__row--description']
+    xpath: //div[@class='ui-pdp-container__row ui-pdp-container__row--description'] | //*[@id="root-app"]/div[1]/div[1]/div[1]/section[2]
   - name: brandText
     xpath: //script[@type='application/ld+json']
   - name: quantity

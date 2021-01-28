@@ -11,6 +11,9 @@ const transform = (data) => {
         // if (gr.image) {
         //   gr.image[0].text = gr.image[0].text.replace(/ 2x/g, '');
         // }
+        if (gr.price) {
+          gr.price[0].text = gr.price[0].text.replace(' ', '');
+        }
         if (gr && gr.description) {
           gr.description[0].text = gr.description[0].text.replace(/(\n \n \n \n|\n \n \n|\n \n|\r\n|\n|\r)/gm, ' ');
         }
