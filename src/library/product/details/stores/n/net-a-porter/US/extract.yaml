@@ -35,12 +35,13 @@ fields:
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
-    xpath: ancestor::html//s[contains(@class,"wasPrice")]
+    xpath: ancestor::html//div[contains(@class,"ProductDetails")]/div/div/s[contains(@class,"wasPrice")]
   - name: price
     singleValue: false
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //meta[@itemprop="price"]/@content
+    xpath: (ancestor::html//span[@itemprop="price"])[position()=1]
+    # xpath: (ancestor::html//meta[@itemprop="price"]/@content)[position()=1]
   - name: availability
     singleValue: false
     xpath: //link[@itemprop="availability"]/@href

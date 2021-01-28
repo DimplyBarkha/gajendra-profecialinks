@@ -18,6 +18,11 @@ const transform = (data, context) => {
         const availBool = row.availability[0].text.includes('InStock');
         row.availability = [{ text: availBool }];
       }
+
+      if (row.price && !row.listPrice){
+        row.listPrice = [{ text: row.price[0].text }];
+      }
+
     }
   }
 
