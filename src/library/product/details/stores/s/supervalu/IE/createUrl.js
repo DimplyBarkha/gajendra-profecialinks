@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'supervalu.ie',
     prefix: null,
-    url: 'https://shop.supervalu.ie/shopping/product/{id}',
+    url: 'https://shop.supervalu.ie/shopping/{category}/{id}',
     country: 'IE',
     store: 'supervalu',
     zipcode: '',
