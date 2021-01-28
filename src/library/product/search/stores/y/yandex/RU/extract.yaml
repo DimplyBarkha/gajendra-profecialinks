@@ -1,0 +1,10 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //article[contains(@class,"_1_IxNTwqll")]
+fields:
+  - name: productUrl
+    xpath: //h3[@data-zone-name="title"]/a/@href
+    regExp: (.+)
+    regExpReplace: https://market.yandex.ru/$1
+    description: The URL for the product details page
