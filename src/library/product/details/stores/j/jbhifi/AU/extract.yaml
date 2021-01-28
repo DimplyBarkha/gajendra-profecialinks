@@ -104,7 +104,7 @@ fields:
     xpath: //div[@id='tab-details']//table//tr//th[contains(text(),"Manufacturer's warranty")]//following-sibling::td
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id='tab-descriptions']//div[contains(@class,'description')]/div[@data-flix-embed-meta]//img/@src
+    xpath: //div[@id='tab-descriptions']//div[contains(@class,'description')]/div[@data-flix-embed-meta='images' or @data-flix-embed-meta='features']//img/@src
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[@id='tab-descriptions']//div[contains(@class,'description')]/div[@data-flix-embed-meta]
