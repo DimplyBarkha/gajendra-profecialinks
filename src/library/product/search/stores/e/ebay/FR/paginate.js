@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'FR',
     store: 'ebay',
-    nextLinkSelector: null,
+    nextLinkSelector: 'a.pagination__next',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,

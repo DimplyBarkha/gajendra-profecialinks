@@ -1,23 +1,26 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: div.p-box
-recordXPath: //div[contains(@class,"p-box")]
+recordSelector: null
+recordXPath: //ul[contains(@class,"srp-results srp-list clearfix")]/li
 fields:
   - name: name
     singleValue: false
-    manualSelector: span.p-title
+    # manualSelector: span.p-title
+    xpath: //h3[contains(@class,"s-item__title")]
   - name: productUrl
     singleValue: false
-    xpath: //a/@href
+    # xpath: //a/@href
+    xpath: //h3[contains(@class,"s-item__title")]/ancestor::a/@href
   - name: thumbnail
     singleValue: false
-    xpath: //img/@src
+    xpath: //div[contains(@id,'srp-river-results')]//img/@src
   - name: price
     singleValue: false
-    manualSelector: span.p-price
+    # manualSelector: span.p-price
+    xpath: //span[contains(@class,"s-item__price")]
   - name: searchUrl
     singleValue: false
-    xpath: ancestor::html//div[@id='search-url']
+    xpath: ancestor::html//link[@rel = 'canonical']/@href
   - name: decimalSeperator
     singleValue: false
     defaultValue: EU

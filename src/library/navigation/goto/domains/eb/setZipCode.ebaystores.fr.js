@@ -2,7 +2,7 @@ module.exports = {
   implements: 'navigation/goto/setZipCode',
   parameterValues: {
     country: 'FR',
-    domain: 'ebay.fr',
+    domain: 'ebaystores.fr',
     store: 'ebay',
     zipcode: '',
   },
