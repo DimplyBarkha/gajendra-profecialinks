@@ -131,7 +131,7 @@ fields:
   - name: colorCode
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
-    xpath: //div[@id="enhanced-content"]//div[@class="wrapper preview"]
+    # xpath: //div[@id="enhanced-content"]//div[@class="wrapper preview"]
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     xpath: //div[@id="enhanced-content"]//div[@class="wrapper preview"]//img/@data-src | //div[@id="enhanced-content"]//div[@class="wrapper preview"]//img[not(@data-src)]/@src
