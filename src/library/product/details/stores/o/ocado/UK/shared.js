@@ -104,9 +104,9 @@ const transform = (data) => {
         else if (text.includes('Additional Information:')) {
           fWarning = text.split('Additional Information:')[0].trim();
         } else {
-          if(!text.includes('Origin:')) {
-            fWarning = text2;
-          }   
+          // if(!text.includes('Origin:')) {
+          //   fWarning = text2;
+          // }   
         }
         row.warnings = [{ text: fWarning.replace(/Additional Information: Caplets| Additional Information: Capsules/gm, '').trim() }];
       }

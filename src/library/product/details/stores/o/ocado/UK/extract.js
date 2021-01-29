@@ -16,9 +16,9 @@ module.exports = {
     dependencies,
   ) => {
     await context.evaluate(() => {
-      if (document.querySelector('div.nf-resourceNotFound')) {
-        throw new Error('Not a product Page');
-      }
+      // if (document.querySelector('div.nf-resourceNotFound')) {
+      //   throw new Error('Not a product Page');
+      // }
 
 
       const checkHeader = document.querySelector('div.bop-nutritionData__origin  table thead tr th');
