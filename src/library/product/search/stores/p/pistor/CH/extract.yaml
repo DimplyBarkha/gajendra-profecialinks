@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //tr[@id]
+recordXPath: //tr[starts-with(@id, "lineid")]
 fields:
   - name: id
     singleValue: false
