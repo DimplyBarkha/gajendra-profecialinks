@@ -7,42 +7,58 @@ module.exports = {
     domain: "intermarche.com",
     zipcode: "",
   },
-  implementation,
-};
+  implementation: async (inputs, parameters, context, dependencies) => {
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
 
-async function implementation (
-  inputs,
-  parameters,
-  context,
-  dependencies,
-) {
-  const { transform } = parameters;
-  const { productDetails } = dependencies;
-  const applyScroll = async function (context) {
     await context.evaluate(async function () {
-      const popup = document.querySelector('a.didomi-popup-close.didomi-no-link-style');
-    if(popup) {
-      popup.click();
-    }
       let scrollTop = 0;
-      while (scrollTop !== 20000) {
+      while (scrollTop !== 40000) {
         await stall(500);
         scrollTop += 1000;
         window.scroll(0, scrollTop);
-        if (scrollTop === 20000) {
-          await stall(5000);
+        if (scrollTop === 40000) {
+          await stall(2000);
           break;
         }
       }
-      function stall (ms) {
+      function stall(ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
           }, ms);
         });
       }
+      function addHiddenDiv(id, content, index) {
+        const newDiv = document.createElement("div");
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = "none";
+        const originalDiv = document.querySelectorAll(
+          ".productTileV2Styled__TileWrapper-sc-19ad4vz-0"
+        )[index];
+        originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+      }
+      const product = document.getElementsByClassName(
+        "productTileV2Styled__TileWrapper-sc-19ad4vz-0"
+      );
+
+      async function sample() {
+        console.log("a");
+        console.log("waiting...");
+        let delayres = await delay(6000);
+        console.log("b");
+      }
+      sample();
+      for (let i = 0; i < product.length; i++) {
+        const url =
+          product[i].parentNode.baseURI +
+          "/product/" +
+          product[i].parentNode.dataset.id;
+        addHiddenDiv("ii_produrl", url, i);
+        addHiddenDiv("ii_rankOrganic", i + 1, i);
+      }
     });
-  };
-  await applyScroll(context);
-  return await context.extract(productDetails, { transform });
-}
+    return await context.extract(productDetails, { transform });
+  },
+};

@@ -1,11 +1,13 @@
 module.exports = {
   implements: "product/search/execute",
   parameterValues: {
-    country: 'FR',
-    store: 'intermarche',
-    domain: 'intermarche.fr',
-    url: 'https://www.intermarche.com/rechercheproduits/02111/recherche/{cookies}/filtres/[]',
-    loadedSelector: 'div.styled__ProductGridWrapper-sc-15s6tne-0.bLxuUB',
-    noResultsXPath: '//div[contains(@class,"NoResultText")]',
+    country: "FR",
+    store: "intermarche",
+    domain: "intermarche.com",
+    url:
+      "https://www.intermarche.com/rechercheproduits/11770/recherche/{searchTerms}",
+    loadedSelector: null,
+    noResultsXPath: null,
+    zipcode: "",
   },
 };
