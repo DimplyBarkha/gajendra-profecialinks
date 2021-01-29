@@ -225,8 +225,7 @@ fields:
     type: NUMBER
   - name: caloriesPerServing
     singleValue: true
-    description: Nutritional Information for Calories Per Serving content - Usually
-      based on per 100g serving
+    xpath: //html//div[@id="calory"]
   - name: caloriesFromFatPerServing
     singleValue: true
     description: Nutritional Information for Calories From Fat content - Usually
@@ -234,17 +233,13 @@ fields:
     type: NUMBER
   - name: totalFatPerServing
     singleValue: true
-    description: Nutritional Information for Total Fat content - Usually based on
-      per 100g serving
-    type: NUMBER
+    xpath: //html//div[@id="fat"]
   - name: totalFatPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Fat content
   - name: saturatedFatPerServing
     singleValue: true
-    description: Nutritional Information for Saturated Fat content - Usually based
-      on per 100g serving
-    type: NUMBER
+    xpath: //html//div[@id="saturated"]
   - name: saturatedFatPerServingUom
     singleValue: true
     description: Unit of Measure Data for Saturated Fat content
@@ -274,9 +269,7 @@ fields:
     description: Unit of Measure Data for Sodium content
   - name: totalCarbPerServing
     singleValue: true
-    description: Nutritional Information for Total Carbohydrate content - Usually
-      based on per 100g serving
-    type: NUMBER
+    xpath: //html//div[@id="carb"]
   - name: totalCarbPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Carbohydrate content
@@ -290,17 +283,14 @@ fields:
     description: Unit of Measure Data for Dietary Fibre content
   - name: totalSugarsPerServing
     singleValue: true
-    description: Nutritional Information for Total Sugar content - Usually based on
-      per 100g serving
-    type: NUMBER
+    xpath: //html//div[@id="sugar"]
   - name: totalSugarsPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Sugar content
   - name: proteinPerServing
     singleValue: true
-    description: Nutritional Information for Protein content - Usually based on per
-      100g serving
-    type: NUMBER
+    xpath: //html//div[@id="protin"]
+    # type: NUMBER
   - name: proteinPerServingUom
     singleValue: true
     description: Unit of Measure Data for Protein

@@ -1,10 +1,11 @@
+const { transform } = require("../../../a/amazon/shared");
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'SE',
     store: 'mat',
-    transform: null,
+    transform: transform,
     domain: 'mat.se',
     zipcode: '',
   },
@@ -25,55 +26,120 @@ module.exports = {
         return result && result.trim ? result.trim() : result;
       };
       //promotion//
-      const promo1 = getXpath("//div[@class='circle red-bg size-100']/div[@class='text_small']/text()",'nodeValue');
-      const promo2 = getXpath("//div[@class='circle red-bg size-100']/div[@class='text_big  text_subline']/text()[1]",'nodeValue');
-      const promo3 = getXpath("//div[@class='circle red-bg size-100']/div[@class='text_big  text_subline']/span/text()",'nodeValue');
+      const promo1 = getXpath("//div[@class='circle red-bg size-100']/div[@class='text_small']/text()", 'nodeValue');
+      const promo2 = getXpath("//div[@class='circle red-bg size-100']/div[@class='text_big  text_subline']/text()[1]", 'nodeValue');
+      const promo3 = getXpath("//div[@class='circle red-bg size-100']/div[@class='text_big  text_subline']/span/text()", 'nodeValue');
       var promotion = ""
-      if (promo1 != null){
+      if (promo1 != null) {
         promotion = promotion + promo1
       }
-      if (promo2 != null){
+      if (promo2 != null) {
         promotion = promotion + ' ' + promo2
       }
-      if (promo2 != null){
+      if (promo2 != null) {
         promotion = promotion + ' ' + promo3
       }
-      if (promotion.length >= 1){
+      if (promotion.length >= 1) {
         addElementToDocument('promotion', promotion);
+      }
+      //calories//
+      const abc2 = getXpath("//div[@class='box clearfix mobileNone']/div/p/strong[contains(text(),'Näringsvärde:')]/parent::p/text()", 'nodeValue');
+      if (abc2.includes('Kilokalori')) {
+        var ll = abc2.split('Kilokalori')[0];
+        var tt = ll.split(' ');
+        var nn = tt[tt.length - 2];
+        addElementToDocument('calory', nn);
+      }
+      else if (abc2.includes('kilojoule/kilokalori')) {
+        var pp = abc2.split('kilojoule/kilokalori')[0];
+        var aa = pp.split(' ');
+        var nn = aa[aa.length - 2];
+        addElementToDocument('calory', nn);
+      }
+
+      //protin//
+      const abc3 = getXpath("//div[@class='box clearfix mobileNone']/div/p/strong[contains(text(),'Näringsvärde:')]/parent::p/text()", 'nodeValue');
+      if (abc3.includes('protein ')) {
+        var ll = abc3.split('protein ')[1];
+        var tt = ll.split(' ');
+        var nn = tt[0];
+        addElementToDocument('protin', nn);
+      }
+
+      //fat//
+      const abc4 = getXpath("//div[@class='box clearfix mobileNone']/div/p/strong[contains(text(),'Näringsvärde:')]/parent::p/text()", 'nodeValue');
+      if (abc4.includes('fett ')) {
+        var ll = abc3.split('fett ')[1];
+        var tt = ll.split(' ');
+        var nn = tt[0];
+        addElementToDocument('fat', nn);
+      }
+
+      //saturated//
+      const abc7 = getXpath("//div[@class='box clearfix mobileNone']/div/p/strong[contains(text(),'Näringsvärde:')]/parent::p/text()", 'nodeValue');
+      if (abc7.includes('mättat fett ')) {
+        var ll = abc3.split('mättat fett ')[1];
+        var tt = ll.split(' ');
+        var nn = tt[0];
+        addElementToDocument('saturated', nn);
+      }
+
+      //sugar//
+      const abc6 = getXpath("//div[@class='box clearfix mobileNone']/div/p/strong[contains(text(),'Näringsvärde:')]/parent::p/text()", 'nodeValue');
+      if (abc6.includes('sockerarter ')) {
+        var ll = abc3.split('sockerarter ')[1];
+        var tt = ll.split(' ');
+        var nn = tt[0];
+        addElementToDocument('sugar', nn);
+      }
+
+      //carbs//
+      const abc5 = getXpath("//div[@class='box clearfix mobileNone']/div/p/strong[contains(text(),'Näringsvärde:')]/parent::p/text()", 'nodeValue');
+      if (abc5.includes('kolhydrat ')) {
+        var ll = abc5.split('kolhydrat ')[1];
+        var tt = ll.split(' ');
+        var nn = tt[0];
+        addElementToDocument('carb', nn);
+      }
+      else if (abc5.includes('Kolhydrat ')) {
+        var ll = abc5.split('Kolhydrat ')[1];
+        var tt = ll.split(' ');
+        var nn = tt[0];
+        addElementToDocument('carb', nn);
       }
 
       // @ts-ignore
-      const rawdata = getXpath("//script[@type='application/ld+json']/text()",'nodeValue');
+      const rawdata = getXpath("//script[@type='application/ld+json']/text()", 'nodeValue');
       const jsondata = JSON.parse(rawdata);
       var currency = jsondata.offers.priceCurrency;
       var price = jsondata.offers.price;
-      if (price != null){
+      if (price != null) {
         var num = Number(price)
         price = num + " " + currency
         addElementToDocument('price', price);
       }
-      
+
       var gtin = jsondata.gtin13;
-      if (gtin != null){
-      addElementToDocument('gtin', gtin);
+      if (gtin != null) {
+        addElementToDocument('gtin', gtin);
       }
 
       var stock = jsondata.offers.availability;
-      if (stock != null){
+      if (stock != null) {
         stock = stock.split("org/")[1]
-        if (stock.includes("In")){
+        if (stock.includes("In")) {
           stock = "In Stock"
-        }else{
+        } else {
           stock = "Out of Stock"
         }
-      addElementToDocument('stock', stock);
+        addElementToDocument('stock', stock);
       }
 
       // @ts-ignore
       var productID = window.product.id;
-      if (productID != null){
-      addElementToDocument('id', productID);
-       }
+      if (productID != null) {
+        addElementToDocument('id', productID);
+      }
 
       // const brand = jsondata.brand;
       // if (brand != null){
