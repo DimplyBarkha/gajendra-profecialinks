@@ -18,7 +18,7 @@ module.exports = {
         newDiv.style.display = 'none';
         container.appendChild(newDiv);
       };
-      const products = document.querySelectorAll('.catalog-grid_item');
+      const products = document.querySelectorAll('.catalog-grid__item');
       const ratings = document.querySelectorAll('.ui-rating');
       const productRatings = [];
       for (let i = 0; i < ratings.length; i++) {
@@ -31,7 +31,7 @@ module.exports = {
         }
         productRatings.push(rating);
       }
-      for (let i = 0; i < productRatings.length; i++) {
+      for (let i = 0; i < products.length; i++) {
         addHiddenDiv('import-product-rating', productRatings[i], products[i]);
         addHiddenDiv('import-search-url', location.href, products[i]);
       }
