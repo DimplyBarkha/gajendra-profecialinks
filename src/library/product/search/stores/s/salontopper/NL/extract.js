@@ -4,22 +4,6 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  // load images
-  await context.evaluate(async () => {
-    // @ts-ignore
-    if (window !== undefined) {
-      return window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-    }
-  });
-  await new Promise((resolve, reject) => setTimeout(resolve, 4000));
-  await context.evaluate(async () => {
-    // @ts-ignore
-    if (window !== undefined) {
-      return window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  });
-  await new Promise((resolve, reject) => setTimeout(resolve, 4000));
-
   await context.evaluate(() => {
     function addElementToDocument (id, value) {
       const catElement = document.createElement('div');
@@ -35,10 +19,11 @@ async function implementation (inputs, parameters, context, dependencies) {
     const productUrl = document.querySelectorAll('div[class*="product-gallery"] a[href*="/product"]');
     productUrl.forEach(e => e.setAttribute('producturl', prefix.concat(e.getAttribute('href'))));
 
+    const imgPrefix = 'https://www.salontopper.nl';
     const imageUrl = document.querySelectorAll('div.image img');
     imageUrl.forEach(e => {
-      if (e.getAttribute('src').includes('/thumb/')) e.setAttribute('image', prefix.concat(e.getAttribute('src').replace('thumb', 'large')));
-      else e.setAttribute('image', prefix.concat(e.getAttribute('src')));
+      if (e.getAttribute('data-src') !== null) e.setAttribute('image', imgPrefix.concat(e.getAttribute('data-src').replace('thumb', 'large')));
+      else return e.setAttribute('image', imgPrefix.concat(e.getAttribute('src').replace('thumb', 'large')));
     });
 
     function addProp (selector, iterator, propName, value) {
@@ -60,12 +45,6 @@ async function implementation (inputs, parameters, context, dependencies) {
       // @ts-ignore
       [...allProducts].filter(e => e.getAttribute('rankorganic') > rest)
         .forEach(e => e.setAttribute('trim', ''));
-    }
-  });
-  await context.evaluate(async function () {
-    const nextPageElement = document.querySelectorAll('a[class*="ty-pagination__next"]');
-    if (nextPageElement) {
-      nextPageElement.forEach(e => e.parentNode.removeChild(e));
     }
   });
 

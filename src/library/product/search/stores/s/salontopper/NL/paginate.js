@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[class*="product-gallery"]',
-    noResultsXPath: '//p[contains(text(), "zijn er geen")] | //div[@itemscope][contains(@itemtype, "Product")]',
+    noResultsXPath: '//div[contains(@class, "bnr-text")] | //p[contains(text(), "zijn er geen")] | //div[@itemscope][contains(@itemtype, "Product")]',
     resultsDivSelector: null,
     openSearchDefinition: null,
     domain: 'salontopper.nl',
