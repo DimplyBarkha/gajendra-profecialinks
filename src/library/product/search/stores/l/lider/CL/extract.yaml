@@ -1,11 +1,12 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class="grid-of-five clearfix box-products-list"]/div
 fields: 
   - name: id
     singleValue: false
-    xpath: //span[@class='reference-code']
+    xpath: //span[@class='reference-code'][not(@style)] | //span[@class='reference-code'][@style]/ancestor::div/@prod-number
+    # //span[@class='reference-code'] | //div[@class="grid-of-five clearfix box-products-list"]/div/@prod-number
     regExp: (\d+)
     # //div[@class="grid-of-five clearfix box-products-list"]/div/@prod-number
     # //div[@id='content-prod-boxes']/div/@prod-number
