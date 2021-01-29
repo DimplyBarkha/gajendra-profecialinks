@@ -6,7 +6,7 @@ fields:
   - name: id
     singleValue: true
     xpath: //div[@id="pdpMain"]/meta[2]/@content
-  - name: productUrl
+  - name: url
     singleValue: false
     xpath: //div[@id="pdpMain"]/meta[1]/@content
   - name: image
@@ -114,7 +114,10 @@ fields:
     singleValue: true
     description: Quantity as described on the page
     xpath: //div[@class="product-variations"]/ul[@class="b-product_variation-size"]//div//li[contains(@class,"selected")]/a/span
-
+  - name: videos
+    singleValue: false
+    description: URL's of videos on page 
+    xpath: //a[@class="js-video_player"]/@href
 
 
 
