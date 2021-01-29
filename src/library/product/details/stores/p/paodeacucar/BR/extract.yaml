@@ -105,7 +105,7 @@ fields:
     singleValue: true
     description: Content under "legal disclaimer" header
   - name: directions
-    xpath: concat(//*[contains(text(), "Modo de Preparo:")],' ', //*[contains(text(), "Modo de Preparo:")]/following-sibling::text()) | concat(//*[contains(text(), "Instruções de Uso")],' ', //*[contains(text(), "Instruções de Uso")]/following-sibling::text())
+    xpath: //*[contains(text(), "Modo de Preparo:")]/following-sibling::text() | //*[contains(text(), "Instruções de Uso")]/following-sibling::text()
     singleValue: true
     description: Content under "directions" header
   - name: warnings
@@ -369,13 +369,13 @@ fields:
   - name: totalSugarsPerServing
     singleValue: true
     xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
-    regExp: (?<=Açúcares)\d+,?\d*\s*(?=[K,k,m]?g)
+    regExp: (?<=Açúcares\s*)\d+,?\d*\s*(?=[K,k,m]?g)
     description: Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
   - name: totalSugarsPerServingUom
     singleValue: true
     xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
-    regExp: (?<=Açúcar\s*\d+,?\d*\s*)[K,k,m]?g
+    regExp: (?<=Açúcares\s*\d+,?\d*\s*)[K,k,m]?g
     description: Unit of Measure Data for Total Sugar content
   - name: proteinPerServing
     singleValue: true
