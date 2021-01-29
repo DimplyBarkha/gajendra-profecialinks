@@ -179,7 +179,7 @@ async function implementation (
         if (img.getAttribute('data-asset-type') !== 'video') {
           manufacturerImgs.push(img.getAttribute('src'));
         } else {
-          videos.push(img.getAttribute('data-asset-url'));
+          videos.push(img.getAttribute('wcobj'));
         }
       });
     }
