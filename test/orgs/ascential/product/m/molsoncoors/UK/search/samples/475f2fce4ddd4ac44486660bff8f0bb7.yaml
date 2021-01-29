@@ -1,0 +1,25 @@
+input:
+  keywords: Appletiser
+  _url: http://mymolsoncoors.com
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=c0d58a52-40f2-4c70-b25f-78470c6d5913/task=2433c819-fc53-47af-aa80-060976bc70ad/f799831c-71f9-4451-a0a2-7ed1da55de6d.html
+    extractionConfigId: product/search/stores/m/molsoncoors/UK/extract
+    data:
+      - group:
+          - id:
+              - text: "2000822"
+                xpath: /html/body/span[3]/div[1]/div[2]/span[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/span[1]/div[1]/div[1]/div[1]/input[1]/@data-id
+            name:
+              - text: Appletiser 24 X 275ml Bottle
+                xpath: /html/body/span[3]/div[1]/div[2]/span[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/span[1]/div[1]/div[1]/div[2]/h5[1]/a[1]
+            productUrl:
+              - text: https://www.mymolsoncoors.com/ccrz__ProductDetails?sku=2000822&cartId=f449cc4b-4c35-4d90-9d7d-affdbeef09d5&store=UKStore&effectiveAccount=0014100001gqgh6AAA&cclcl=en_GB
+                xpath: /html/body/span[3]/div[1]/div[2]/span[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/span[1]/div[1]/@product-url
+            thumbnail:
+              - text: https://www.mymolsoncoors.com/servlet/servlet.FileDownload?file=00P4M00000tIsg2UAC
+                xpath: /html/body/span[3]/div[1]/div[2]/span[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/span[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            searchUrl:
+              - text: https://www.mymolsoncoors.com/ccrz__ProductList?operation=quickSearch&searchText=Appletiser&store=UKStore
+                xpath: /html/body/div[1]
+        xpath: /html
+    timestamp: 1611903263730

@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/auth/gotoLogin',
   parameterValues: {
     domain: 'mymolsoncoors.com',
-    loginPage: null,
+    loginPage: 'https://www.mymolsoncoors.com/',
     country: 'UK',
     store: 'molsoncoors',
     zipcode: "''",

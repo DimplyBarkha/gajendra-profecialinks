@@ -5,9 +5,9 @@ module.exports = {
     country: 'UK',
     store: 'molsoncoors',
     domain: 'mymolsoncoors.com',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.mymolsoncoors.com/ccrz__ProductList?&operation=quickSearch&searchText={searchTerms}',
+    loadedSelector: 'span.cc_product_container',
+    noResultsXPath: '//*[contains(text(), "No Results Found")]',
     zipcode: "''",
   },
 };
