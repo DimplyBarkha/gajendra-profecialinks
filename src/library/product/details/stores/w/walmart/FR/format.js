@@ -30,12 +30,16 @@ const transform = (data) => {
         });
       }
       if (row.description) {
-        var text = [];
+        let text = '';
         row.description.forEach(item => {
-          text += item.text.replace(/•/g, '||').replace(/❋/g, '||').replace(/\|\|\s*\|\|/g, '||');
+          if (item.xpath.includes('/li')) {
+            text += ` || ${item.text}`;
+          } else {
+            text += item.text.replace(/•/g, '||').replace(/❋/g, '||').replace(/\|\|\s*\|\|/g, '||');
+          }
         });
-        row.description = [{ text }];
-        const bulletCount = text.match(/\|\|/g);
+        row.description = [{ text: text.replace(/\|\|\s*\|\|/g, '||') }];
+        const bulletCount = text.replace(/\|\|\s*\|\|/g, '||').match(/\|\|/g);
         if (bulletCount) {
           row.descriptionBullets = [{ text: bulletCount.length }];
         }

@@ -8,6 +8,16 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  try {
+    await context.waitForXPath('//div[.//h1[@data-automation="product-title"]]//button[@data-automation="cta-button"]');
+  } catch (error) {
+    console.log('Wait for page load');
+  }
+  try {
+    await context.waitForXPath('//span[@data-automation="buybox-price"]');
+  } catch (error) {
+    console.log('Wait for page load');
+  }
   await context.evaluate(async () => {
     async function infiniteScroll () {
       let prevScroll = document.documentElement.scrollTop;
@@ -206,9 +216,12 @@ async function implementation (
     const dataObj = window.__PRELOADED_STATE__;
     if (dataObj) {
       if (dataObj.product) {
-        dataObj.product.item.skus && dataObj.product.item.skus && dataObj.product.item.skus.forEach(element => {
-          element && addHiddenDiv('pd_variants', element);
-        });
+        if (dataObj.product.item.skus && dataObj.product.item.skus) {
+          dataObj.product.item.skus.forEach(element => {
+            element && addHiddenDiv('pd_variants', element);
+          });
+          dataObj.product.item.skus && addHiddenDiv('pd_variants_count', dataObj.product.item.skus.length - 1);
+        }
       }
     }
   }
