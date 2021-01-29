@@ -15,7 +15,7 @@ module.exports = {
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
     openSearchDefinition: null,
-    domain: 'medikamenteperklick.de',
+    domain: 'medikamente-per-klick.de',
     zipcode: '',
   },
 };
