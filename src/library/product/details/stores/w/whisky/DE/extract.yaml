@@ -5,7 +5,8 @@ recordXPath: null
 fields:
 - name: url
   description: URL of the main product page
-  xpath: //link[@hreflang='de-DE']/@href
+  # xpath: //link[@hreflang='de-DE']/@href
+  xpath: //div[@class="article-title"]/a[@id="searchList_1"]/@href
 - name: image
   singleValue: true
   description: URL of the main product image
