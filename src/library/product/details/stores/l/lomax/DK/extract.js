@@ -24,6 +24,29 @@ module.exports = {
         else result = elem ? elem.singleNodeValue : '';
         return result && result.trim ? result.trim() : result;
       };
+      const getAllXpath = (xpath, prop) => {
+        const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        const result = [];
+        for (let index = 0; index < nodeSet.snapshotLength; index++) {
+          const element = nodeSet.snapshotItem(index);
+          if (element) result.push(prop ? element[prop] : element.nodeValue);
+        }
+        return result;
+      };
+      var variant = getAllXpath('//div[@class="productdesc-content"]//text()', 'nodeValue');
+      var final = "";
+      if (variant.length >= 1) {
+        for (var i = 0; i < variant.length; i++) {
+          final = final + variant[i];
+        }
+      }
+      var promotion = getXpath('//h2[@class="lead-small"]/text()', 'nodeValue');
+      if(promotion != null){
+        final = promotion + final;
+        }
+        if( final.length >= 1){
+          addElementToDocument('final', final)
+          }
       const aggr = getXpath("//div[@class='container productcard']/@data-gtm-rating", 'nodeValue');
       try {
         if (aggr != null) {
@@ -40,8 +63,9 @@ module.exports = {
         if (price != null) {
           let str = price
           var b = str.replace('.', ',')
-          var c = price.concat(" kr,")
-          b = c;
+          b = b + " kr."
+          // var c = price.concat(" kr.")
+          // b = c;
           // @ts-ignore
           addElementToDocument('price', b)
           // let onlinePrice = price.concat(" kr,")

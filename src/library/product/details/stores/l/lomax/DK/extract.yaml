@@ -37,7 +37,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[@class="productdesc-content"]//text() 
+    xpath: //html//div[@id="final"] 
   - name: descriptionBullets
     singleValue: true
     xpath: count(//div[@class="col-lg-7 my-3 productdesc order-3"]/div/ul/li)
