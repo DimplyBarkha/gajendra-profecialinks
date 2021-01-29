@@ -29,7 +29,8 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: concat("YankeeCandle ", //h1[@itemprop="name"])
+    # xpath: concat("YankeeCandle ", //h1[@itemprop="name"])
+    xpath: (//ul[@class="pdp breadcrumb"]/li[last()])
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -448,6 +449,7 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
+    xpath: //ul[@class="customImgListPdp collapsed"]/li[@class="styleImg active"]
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
@@ -515,3 +517,5 @@ fields:
     singleValue: true
     description: The URL of the product
     xpath: //meta[@name="og:url"]/@content
+    regExp: https://www.yankeecandle.com(.+)
+    regExpReplace: https://woodwick.yankeecandle.com$1
