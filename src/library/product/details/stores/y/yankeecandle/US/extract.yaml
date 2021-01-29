@@ -8,7 +8,7 @@ fields:
     description: URL of the main product image
     xpath: //ul[@class="slider animated"]/li/div/img/@src
     regExp: (.+)
-    regExpReplace: https://www.yankeecandle.com$1
+    regExpReplace: https://woodwick.yankeecandle.com$1
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -29,7 +29,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: concat("YankeeCandle ", //ul[@class="pdp breadcrumb"]/li[position()>last()-1]/div)
+    xpath: concat("YankeeCandle ", //h1[@itemprop="name"])
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -49,7 +49,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: concat(//div[@class="descriptionContainer"],//div[@class="fragContent row"])
+    xpath: (//div[@id="description"])
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description

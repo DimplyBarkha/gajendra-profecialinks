@@ -42,22 +42,31 @@ async function implementation(
       else{
         a= ''
       }
-      if (availability.length > 0)
+      // console.log('description1----------------',b)
+
+      if (availability != "SOLD OUT")
       { 
       var b="In stock"
       }
       else{
         b= 'Out of stock'
       }
+      var description =''
+      var description1=''
+      var description2 = ''
+      description1 = getXpath('//div[@class="descriptionContainer"]//text()', 'nodeValue');
+      description2 = getElementByXpath('//div[@class="fragContent row"]').innerText;
+      function getElementByXpath(path) {
+        return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      }
+      if (description2 != null){
+        description2 = (description2.replace(/\s/g, ' ')).replace('/^\s+|\s+$/gm','')
+      }
+      description= description1+' '+ description2
       addElementToDocument('product_id', a);
       addElementToDocument('availabilty', b);
-      console.log('product_id----------------',a)
-      // const wyz = document.querySelectorAll('script')[53].outerHTML;
-      // console.log(wyz,'---------------------wyz')
-      // if (wyz.length > 0){
-      //   var product_id = wyz.split('ct_id":["')[1].split('"],')[0];
-      //   console.log(product_id,'---------------productid')
-      // }
+      addElementToDocument('description', description);
+      
   });
   return await context.extract(productDetails, { transform });
   // return await context.extract(productDetails, { transform, type: 'MERGE_ROWS' });
