@@ -8,41 +8,31 @@ module.exports = {
     domain: 'parfumdreams.de',
     zipcode: '',
   },
-  implementation,
-};
-async function implementation(
-  inputs,
-  parameters,
-  context,
-  dependencies,
-) {
-  const { transform } = parameters;
-  const { productDetails } = dependencies;
-  await context.evaluate(async function () {
-    function addclass(xpathforpagination) {
-      var elems = document.querySelectorAll(xpathforpagination);
-      elems[0].classList.add('pagination');
-    }
-    function addHiddenDiv(id, content, index) {
-      const newDiv = document.createElement('div');
-      newDiv.id = id;
-      newDiv.textContent = content;
-      newDiv.style.display = 'none';
-      const originalDiv = document.querySelectorAll('div[class*="product-image"]')[index];
-      originalDiv.parentNode.insertBefore(newDiv, originalDiv);
-    }
-    //const ean = getXpath('//*[@id="content-wrapper"]/div[1]/div[2]/script[2]/text()', 'nodeValue');
-    const ean = document.querySelectorAll("div.main-content > script:nth-child(6)")
-    let testArray = ean[0].childNodes[0].data.split(',')
-    for (var i = 0; i < testArray.length; i++) {
-      if (testArray[i].includes("ean")) {
-        let eanValue = testArray[i].split(':');
-        eanValue = eanValue[1];
-        //console.log(i + eanValue)
-        addHiddenDiv('ean', eanValue, i)
+  implementation: async (inputs, parameters, context, dependencies) => {
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
+    await context.evaluate(() => {
+
+      function addHiddenDiv(id, content, index) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        const originalDiv = document.querySelectorAll('div[class*="product-image"]')[index];
+        originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
-    }
-    // price 
-  });
-  return await context.extract(productDetails, { transform });
+      //const ean = getXpath('//*[@id="content-wrapper"]/div[1]/div[2]/script[2]/text()', 'nodeValue');
+      const ean = document.querySelectorAll("div.main-content > script:nth-child(6)");
+      // @ts-ignore
+      let jsonData=ean[0].innerText;
+      let splitJsonData=jsonData.split('"impressions":')[1];
+      let splitJsonData2=splitJsonData.split('"position":30')[0];
+      splitJsonData2=splitJsonData2+'"position":30}]';
+      splitJsonData2=JSON.parse(splitJsonData2);
+      for (var i = 0; i < splitJsonData2.length; i++) {
+          addHiddenDiv('ean', splitJsonData2[i].ean, i);
+      }
+    });
+    return await context.extract(productDetails, { transform });
+  },
 };
