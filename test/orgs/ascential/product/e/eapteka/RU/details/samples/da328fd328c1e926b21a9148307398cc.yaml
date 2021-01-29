@@ -2,7 +2,7 @@ input:
   _url: http://eapteka.ru
   URL: https://www.eapteka.ru/goods/id337571/
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=69ded667-6d52-48a7-85f0-c925c6aeb109/task=477674fd-7b1f-4976-ba62-995b1b7d6071/4b8c3d96-75b0-4f57-bb4a-5d2c60417f69.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5308bd01-1bb4-4837-90db-52a552372efd/task=f0f1469e-bf0b-4c81-8a43-080b739c94c0/56fc05f5-259d-4899-b307-ae846c5150bd.html
     extractionConfigId: product/details/stores/e/eapteka/RU/extract
     data:
       - group:
@@ -11,10 +11,10 @@ extractions:
                 xpath: /html/head[1]/link[15]/@href
             image:
               - text: https://cdn.eapteka.ru/upload/offer_photo/337/571/resized/450_450_1.jpeg?_cvc=1611579880
-                xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             imageAlt:
               - text: Kotex Прокладки Ultra Activ Super, 7 шт
-                xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
+                xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
             metaKeywords:
               - text: Kotex Прокладки Ultra Activ Super 7 шт инструкция, Kotex Прокладки Ultra
                   Activ Super 7 шт инструкция по применению, Kotex Прокладки
@@ -46,10 +46,10 @@ extractions:
                 xpath: /html/body/section[1]/div[2]/div[1]/div[1]/h1[1]
             price:
               - text: 146 руб.
-                xpath: /html/body/div[9]/@price
+                xpath: /html/body/div[8]/@price
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[9]/@availability_text
+                xpath: /html/body/div[8]/@availability_text
             description:
               - text: >-
                   Новые ультратонкие прокладки Kotex Active Super, созданы
@@ -58,7 +58,7 @@ extractions:
                   обеспечивает коже комфорт и уверенность в движении.
                    Благодаря уникальной технологии FlexFit прокладка гибкая, поэтому может повторять движения тела даже во время активных занятий.
                   Дышащие задняя и передняя поверхности: более 100 000 дышащих микропор созданы, чтобы обеспечить комфорт коже.
-                xpath: /html/body/div[9]/@description
+                xpath: /html/body/div[8]/@description
             brandText:
               - text: Котекс
                 xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/p[2]/a[1]
@@ -103,4 +103,4 @@ extractions:
             secondaryImageTotal:
               - text: "0"
         xpath: /
-    timestamp: 1611752662662
+    timestamp: 1611929032575

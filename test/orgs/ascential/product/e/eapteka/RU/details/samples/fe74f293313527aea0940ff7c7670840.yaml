@@ -2,7 +2,7 @@ input:
   _url: http://eapteka.ru
   URL: https://www.eapteka.ru/goods/id234047/
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=69ded667-6d52-48a7-85f0-c925c6aeb109/task=037fafe7-a359-44ad-8446-c3d1b4c02baa/d80e447c-7127-455f-b32f-c2040d41e50c.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5308bd01-1bb4-4837-90db-52a552372efd/task=7ec7faac-c72a-4d0e-898b-72c81c564ccd/9e570d94-96aa-4038-9542-7cae5d2c05d0.html
     extractionConfigId: product/details/stores/e/eapteka/RU/extract
     data:
       - group:
@@ -60,11 +60,11 @@ extractions:
               - text: Презервативы Контекс Long Love, упаковка, 3 шт.
                 xpath: /html/body/section[1]/div[2]/div[1]/div[1]/h1[1]
             price:
-              - text: 210 руб.
-                xpath: /html/body/div[9]/@price
+              - text: 211 руб.
+                xpath: /html/body/div[10]/@price
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[9]/@availability_text
+                xpath: /html/body/div[10]/@availability_text
             description:
               - text: >-
                   Форма стандартная, текстура гладкая, цвет стандартный, без
@@ -75,7 +75,7 @@ extractions:
                   	 Презервативы Contex Long Love изготовлены из натурального высококачественного латекса. Качество презервативов Contex Long Loveгарантированно использованием современного высокотехнологичного оборудования и многократным, тщательным контролем на всех этапах производства. 
                   	Качество презервативов Contex Long Love проверено электроникой. Презервативы предназначены только для одноразового применения. Презервативы Contex Long Love при правильном использовании являются надёжным средством предотвращения нежелательной беременности и передачи заболеваний, передающихся половым путём (ЗППП), в т.ч. ВИЧ-инфекции. 
                   	Никакое из средств контрацепции не гарантирует 100% защиты от нежелательной беременности или ЗППП.
-                xpath: /html/body/div[9]/@description
+                xpath: /html/body/div[10]/@description
             brandText:
               - text: КОНТЕКС
                 xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/p[2]/a[1]
@@ -184,4 +184,4 @@ extractions:
             secondaryImageTotal:
               - text: "5"
         xpath: /
-    timestamp: 1611752716311
+    timestamp: 1611928930245

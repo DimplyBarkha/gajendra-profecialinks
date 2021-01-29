@@ -2,7 +2,7 @@ input:
   _url: http://eapteka.ru
   URL: https://www.eapteka.ru/goods/id227720/
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=69ded667-6d52-48a7-85f0-c925c6aeb109/task=b07a447d-4751-4227-ba3f-51e7d3a7eb1f/42253bc5-c859-48d4-8b3b-af5ca18e484d.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5308bd01-1bb4-4837-90db-52a552372efd/task=dd85e21a-8444-45c3-bb96-bc9fd6ae6c6f/895368a3-00ff-47d4-92c1-86d598832b02.html
     extractionConfigId: product/details/stores/e/eapteka/RU/extract
     data:
       - group:
@@ -46,10 +46,10 @@ extractions:
                 xpath: /html/body/section[1]/div[2]/div[1]/div[1]/h1[1]
             price:
               - text: 572 руб.
-                xpath: /html/body/div[9]/@price
+                xpath: /html/body/div[7]/@price
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[9]/@availability_text
+                xpath: /html/body/div[7]/@availability_text
             description:
               - text: >-
                   Фурасол - противомикробное средство, производное нитрофурана.
@@ -64,7 +64,7 @@ extractions:
                    
                    
                   	 В качестве местного средства при комплексном лечении следующих состояний и заболеваний: инфекционно-воспалительные заболевания полости рта, ротоглотки; инфицированные раны.
-                xpath: /html/body/div[9]/@description
+                xpath: /html/body/div[7]/@description
             manufacturer:
               - text: Олайнфарм, Латвия
                 xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/p[1]/a[1]
@@ -105,16 +105,16 @@ extractions:
                    
                   	 Раствор готовят непосредственно перед применением.
                   	 Приготовленный раствор не хранить.
-                xpath: /html/body/div[9]/@warnings
+                xpath: /html/body/div[7]/@warnings
             ratingCount:
               - text: "5"
                 xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]
             aggregateRatingText:
               - text: "5"
-                xpath: /html/body/div[9]/@aggregate_rating
+                xpath: /html/body/div[7]/@aggregate_rating
             aggregateRating:
               - text: "5"
-                xpath: /html/body/div[9]/@aggregate_rating
+                xpath: /html/body/div[7]/@aggregate_rating
                 type: NUMBER
                 raw: "5"
                 locale: ru
@@ -302,4 +302,4 @@ extractions:
             secondaryImageTotal:
               - text: "0"
         xpath: /
-    timestamp: 1611752660627
+    timestamp: 1611928927180
