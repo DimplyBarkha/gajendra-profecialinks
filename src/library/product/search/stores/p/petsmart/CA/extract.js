@@ -25,12 +25,9 @@ module.exports = {
 
     await context.evaluate(async () => {
       const currentUrl = window.location.href;
-      document.querySelector('body').setAttribute('searchurl', currentUrl);
-
-      // rank
-      const products = document.querySelectorAll('ul#search-result-items li');
+      const products = document.querySelectorAll('ul#search-result-items > li');
       products.forEach((product, index) => {
-        product.setAttribute('rankorganic', `${index + 1}`);
+        product.setAttribute('searchurl', currentUrl);
 
         // rating
         let ratingValue = 0;
@@ -51,6 +48,19 @@ module.exports = {
       });
     });
 
-    return await context.extract(productDetails, { transform });
+    var dataRef = await context.extract(productDetails, { transform });
+
+    dataRef.forEach(page => {
+      page.group.forEach(row => {
+        if (row.thumbnail) {
+          row.thumbnail[0].text = row.thumbnail[0].text.replace('small$', 'large$');
+        }
+        if (row.searchUrl && row.searchUrl[0].text.includes('[!opt!]')) {
+          row.searchUrl[0].text = row.searchUrl[0].text.split('#[!opt')[0];
+        }
+      });
+    });
+
+    return dataRef;
   },
 };

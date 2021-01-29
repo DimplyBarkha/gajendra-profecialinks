@@ -10,7 +10,7 @@ fields:
     regExpReplace: $1
   - name: searchUrl
     singleValue: true
-    xpath: //ancestor::body/@searchurl
+    xpath: //@searchurl
   - name: name
     singleValue: false
     xpath: //div[@class="product-name"]/h3
@@ -48,12 +48,12 @@ fields:
     singleValue: false
     description: search/listing rank
     type: NUMBER
-    xpath: //@rankorganic
+    # xpath: //@rankorganic
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
-    xpath: //@rankorganic
+    # xpath: //@rankorganic
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
