@@ -36,7 +36,6 @@ fields:
     and appending " - ${variantType}" if necessary (fixed per feed)
 - name: listPrice
   singleValue: true
-  xpath: //span[@class="order total"]//span[@class="line_total "] | //span[@class="order total"]//span[@class="line_total"]
   description: The stated undiscounted price for the product
 - name: price
   singleValue: true
@@ -51,9 +50,9 @@ fields:
     "In Stock"
 - name: description
   singleValue: false
-  description: Product description supplied by website - may be concatenanted from
-  xpath: //h3[@id="detail_title"]
+  description: Product description supplied by website - may be concatenanted from 
     multiple places; specifically not the manufacturer description
+  xpath: //p[@class="detailtext"]
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -404,9 +403,11 @@ fields:
 - name: pricePerUnit
   singleValue: true
   description: Price of the product split into certain units
+  xpath: //div[@id="unitPirceValue"]
 - name: pricePerUnitUom
   singleValue: true
   description: The unit of measurement used in price_per_unit
+  xpath: //div[@id="unitValue"]
 - name: promotion
   singleValue: true
   xpath: //div[@class="hurdle"]

@@ -14,18 +14,6 @@ module.exports = {
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     await new Promise((resolve) => setTimeout(resolve, 3000));
 
-    const productLink = await context.evaluate(async function () {
-      const productDetails = document.querySelector('a[rel="details"]');
-      const productDetailsUrl = productDetails ? 'https://www.pistorone.ch' + productDetails.getAttribute('href') : null;
-      return productDetailsUrl;
-    });
-    if (productLink) {
-      await context.goto(productLink, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
-    };
-
-    await context.waitForSelector('div#prod_detail');
-    await new Promise((resolve) => setTimeout(resolve, 3000));
-
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -38,8 +26,15 @@ module.exports = {
       const productUrl = productLink || '';
       if (productUrl) addElementToDocument('productUrl', productUrl);
 
+      const pricePerUnit = document.evaluate('//th[contains(text(), "Preis")]//following-sibling::td/span', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const pricePerUnitText = pricePerUnit ? pricePerUnit.textContent.trim() : null;
+      const unitPrice = pricePerUnitText && pricePerUnitText.match(/[\d.,]+/) ? pricePerUnitText.match(/[\d.,]+/)[0] : '';
+      const unit = pricePerUnitText ? pricePerUnitText.replace(/[\d.,]+\//, '') : '';
+      if (unitPrice) addElementToDocument('unitPirceValue', unitPrice);
+      if (unit) addElementToDocument('unitValue', unit);
+
       const availabilityElem = document.querySelector('button.add_to_basket');
-      const availabilityText = availabilityElem ? 'In stock' : 'Out of Stock';
+      const availabilityText = availabilityElem ? 'In Stock' : 'Out of Stock';
       addElementToDocument('availabilityText', availabilityText);
     });
     return await context.extract(productDetails, { transform });
