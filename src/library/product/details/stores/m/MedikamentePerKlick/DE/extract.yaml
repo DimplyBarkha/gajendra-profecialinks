@@ -3,7 +3,7 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-- name: _url
+- name: url
   description: URL of the main product page
   xpath: //link[@rel="canonical"]/@href
 - name: image
@@ -33,11 +33,11 @@ fields:
   xpath: //div[@itemprop="breadcrumb"]//a[not(contains(@class,'main'))]//span//text()
 - name: listPrice
   description: The stated undiscounted price for the product
-  xpath: //div[@class="wide-6 productInformations offerDetails"]//dd[@class="listPrice"]//text()
+  xpath: //div[@class="wide-6 productInformations offerDetails"]//dd[@class="listPrice"]
 - name: price
   description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-  xpath: //dl[@class="productPrice"]//dd[@class="yourPrice price" or @class="yourPrice"]//text()
+  xpath: //dl[@class="productPrice"]//dd[@class="yourPrice price" or @class="yourPrice"]
 - name: availabilityText
   singleValue: true
   xpath: //div[@class='wide-6 productInformations offerDetails']//dl[@class="productAvailability"]//span[@class="value-title"]/@title
@@ -101,7 +101,6 @@ fields:
   xpath: //div[@class='lmivDisclaimer']
 - name: directions
   singleValue: false
-  type: TEXT[]
   description: Content under "directions" header
   xpath: //dd[@class="productContraindication" or @class="productDosage"]//text()
 - name: warnings
@@ -120,7 +119,6 @@ fields:
   xpath: //div[@id="ii_manufacturerImages"]
 - name: manufacturerDescription
   singleValue: false
-  type: TEXT
   xpath: //dd[@class="productLongDescription"]//text()
 - name: shippingInfo
   singleValue: true
