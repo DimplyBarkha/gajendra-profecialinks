@@ -15,8 +15,6 @@ fields:
 - name: image
   singleValue: true
   xpath: //div[@class="imageList"]/a[contains(@class, "defaultThumb")]/@href
-  regExp: (.+)	
-  regExpReplace: https:$1
   description: URL of the main product image
 - name: imageAlt
   singleValue: true
@@ -24,9 +22,7 @@ fields:
   description: Alt text of the main product image
 - name: alternateImages
   singleValue: false
-  xpath: //div[@class="imageList"]//img/ancestor::a[not(contains(@class, "defaultThumb"))]/@href
-  regExp: (.+)	
-  regExpReplace: https:$1
+  xpath: //div[@class="imageList"]//img/ancestor::a[not(contains(@class, "defaultThumb")) and not(contains(@class, "skuThumb"))]/@href
   description: Other product images (not in manufacturer description)
 - name: metaKeywords
   singleValue: true

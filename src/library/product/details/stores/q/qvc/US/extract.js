@@ -64,6 +64,14 @@ module.exports = {
     const dataConversion = (data, sku = null, availability = null, variantInfo = null, price = null) => {
       for (let k = 0; k < data.length; k++) {
         for (let i = 0; i < data[k].group.length; i++) {
+          if ('image' in data[k].group[i]) {
+            data[k].group[i].image[0].text = 'https:' + data[k].group[i].image[0].text;
+          }
+          if ('alternateImages' in data[k].group[i]) {
+            for (let j = 0; j < data[k].group[i].alternateImages.length; j++) {
+              data[k].group[i].alternateImages[j].text = 'https:' + data[k].group[i].alternateImages[j].text;
+            }
+          }
           if ('ingredientsList' in data[k].group[i]) {
             for (let j = 1; j < data[k].group[i].ingredientsList.length; j++) {
               data[k].group[i].ingredientsList[0].text += ' ' + data[k].group[i].ingredientsList[j].text;
@@ -103,27 +111,28 @@ module.exports = {
     };
 
     const colorVariants = await context.evaluate(() => { return document.querySelectorAll('ul[aria-label="Color"] li').length; });
-    const variantAvailability = await context.evaluate(() => {
-      const variantAvailability = [];
-      for (let i = 0; i < document.querySelectorAll('ul[role="radiogroup"] li').length; i++) {
-        variantAvailability.push(document.querySelectorAll('ul[role="radiogroup"] li')[i].getAttribute('ats'));
-      }
-      return variantAvailability;
-    });
-    const variantInfo = await context.evaluate(() => {
-      const variantInfo = [];
-      for (let i = 0; i < document.querySelectorAll('ul[role="radiogroup"] li').length; i++) {
-        variantInfo.push(document.querySelectorAll('ul[role="radiogroup"] li')[i].dataset.originalTitle);
-      }
-      return variantInfo;
-    });
-    if (colorVariants !== 0) {
+    const sizeVariants = await context.evaluate(() => { return document.querySelectorAll('ul[aria-label="Size"] li').length; });
+    if (colorVariants !== 0 && sizeVariants === 0) {
+      const colorVariantAvailability = await context.evaluate(() => {
+        const colorVariantAvailability = [];
+        for (let i = 0; i < document.querySelectorAll('ul[aria-label="Color"] li').length; i++) {
+          colorVariantAvailability.push(document.querySelectorAll('ul[aria-label="Color"] li')[i].getAttribute('ats'));
+        }
+        return colorVariantAvailability;
+      });
+      const variantInfo = await context.evaluate(() => {
+        const variantInfo = [];
+        for (let i = 0; i < document.querySelectorAll('ul[aria-label="Color"] li').length; i++) {
+          variantInfo.push(document.querySelectorAll('ul[aria-label="Color"] li')[i].dataset.originalTitle);
+        }
+        return variantInfo;
+      });
       for (let i = 0; i < colorVariants; i++) {
         await context.evaluate((i) => {
-          document.querySelectorAll('ul[role="radiogroup"] li')[i].click();
+          document.querySelectorAll('ul[aria-label="Color"] li')[i].click();
         }, i);
         // wait for extraction
-        if (variantAvailability[i] !== 'N') {
+        if (colorVariantAvailability[i] !== 'N') {
           await new Promise((resolve, reject) => setTimeout(resolve, 1000));
           dataConversion(await context.extract(productDetails, { transform }), info.offers[i].sku, info.offers[i].availability, variantInfo[i], info.offers[i].price);
         }
