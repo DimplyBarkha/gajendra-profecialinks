@@ -22,8 +22,14 @@ module.exports = {
         return newDiv;
       }
 
+      function changebulletPointsToDoublePipes (selector) {
+        const descriptionTextNodes = document.evaluate(selector, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        for (let i = 0; i < descriptionTextNodes.snapshotLength; i++) {
+          descriptionTextNodes.snapshotItem(i).textContent = descriptionTextNodes.snapshotItem(i).textContent.replace(/^(•|-|\*|\d\.|✓)/, ' || ');
+        }
+      }
       function extractNutritionInfo () {
-        // column position in table data where nutrition data per 100 g/ml is stored
+        // column position in table data where nutrition data per 100 g/ml is stored. This way we prioritize the column which contains most valuable / valid nutrition data, as we need to scrape each nutrition value from whichin targeted serving size.
         let columnPosition = document.evaluate('count((//thead)[1]/tr//th[contains(.,"100")][not(contains(.,"*"))][1]/preceding-sibling::th)', document, null, XPathResult.STRING_TYPE, null).stringValue;
         if (columnPosition === '0') {
           columnPosition = document.evaluate('count((//thead)[1]/tr//th[contains(.,"100")][1]/preceding-sibling::th)', document, null, XPathResult.STRING_TYPE, null).stringValue;
@@ -68,6 +74,8 @@ module.exports = {
         addHiddenDiv('saltPerServing', saltPerServing);
       }
       extractNutritionInfo();
+      changebulletPointsToDoublePipes('//div[@class="jum-summary-description"]/p/text()');
+
       const categories = document.evaluate('//a[contains(@href,"categorieen")]/@href', document, null, XPathResult.STRING_TYPE, null).stringValue;
       if (categories) {
         const categoriesArray = categories.match(/categorieen\/(.+)/)[1].split('/');
@@ -76,24 +84,6 @@ module.exports = {
             addHiddenDiv('category', category);
           });
         }
-      }
-
-      const liTextElements = document.querySelectorAll('section.jum-additional-info.row li');
-      liTextElements.forEach(el => {
-        el.setAttribute('bullet', `|| ${el.textContent}`);
-      });
-
-      const notLiBulletElements = document.querySelectorAll('div.jum-summary-description p');
-      notLiBulletElements.forEach(el => {
-        el.textContent = el.textContent.replace(/(•)/g, ' || $1');
-      });
-
-      const firstPartDesc = document.evaluate('//div[@class="jum-summary-description"]/p', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-      const secondPartDesc = document.evaluate('//div[contains(@class, "jum-nutritional-info")]/h3[.="Productomschrijving"]/following-sibling::text()', document, null, XPathResult.STRING_TYPE, null).stringValue;
-      if (firstPartDesc && secondPartDesc) {
-        firstPartDesc.textContent.includes('||') ? firstPartDesc.textContent = firstPartDesc.textContent.replace(/( )(\|\|)/, ` ${secondPartDesc} $2`) : firstPartDesc.textContent += ` ${secondPartDesc}`;
-      } else if (secondPartDesc) {
-        addHiddenDiv('secondDesc', secondPartDesc);
       }
 
       const brandNode = document.evaluate('//section[@class="jum-additional-info row"]//div[@data-jum-product-details]/@data-jum-product-details | (//div[@class="jum-column-main "]//*[@data-jum-brand]/@data-jum-brand)[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -146,13 +136,9 @@ module.exports = {
     }
     const ingredientsList = dataRef[0].group[0].ingredientsList;
     const description = dataRef[0].group[0].description;
-    // making sure that description is before bullet points
-    if (description && !description[description.length - 1].text.includes('||')) {
-      description.unshift(description.pop());
-    }
     const allergyAdvice = dataRef[0].group[0].allergyAdvice;
     const manufacturer = dataRef[0].group[0].manufacturer;
-    reduceInfoToOneField(description);
+    reduceInfoToOneField(description, ' | ');
     reduceInfoToOneField(allergyAdvice);
     reduceInfoToOneField(ingredientsList);
     reduceInfoToOneField(manufacturer);
@@ -165,13 +151,27 @@ module.exports = {
       }];
     }
     if (dataRef[0].group[0].description && dataRef[0].group[0].description[0].text.includes('||')) {
+      const bulletInfoArray = dataRef[0].group[0].description[0].text.match(/( \|\|.+)/g);
+      let bulletInfoString = '';
+      bulletInfoArray.forEach(bullet => {
+        console.log(bullet);
+        bulletInfoString += bullet;
+      });
       dataRef[0].group[0].additionalDescBulletInfo = [{
-        text: dataRef[0].group[0].description[0].text.match(/(\|\|.+)/)[0],
+        text: bulletInfoString.replace(/\s\|\s.+/, ''),
+      }];
+      dataRef[0].group[0].descriptionBullets = [{
+        text: bulletInfoArray.length,
       }];
     }
     if (dataRef[0].group[0].category) {
       dataRef[0].group[0].category[0].text = dataRef[0].group[0].category[0].text.replace(/(-)/g, '');
     }
+
+    dataRef[0].group[0].variantCount = [{
+      text: '0',
+    }];
+
     return dataRef;
   },
 };

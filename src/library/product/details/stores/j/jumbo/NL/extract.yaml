@@ -59,11 +59,10 @@ fields:
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: //div[@class='jum-summary-description']/p|//div[@id='secondDesc']|//section[@class='jum-additional-info row']//li/@bullet
+  xpath: //div[@class='jum-summary-description']/p | //div[contains(@class, "jum-nutritional-info")]/h3[.="Productomschrijving"]/following-sibling::text()
 - name: descriptionBullets
   singleValue: false
   description: Number of ul > li tags in the description
-  xpath: count(//section[@class="jum-additional-info row"]//li)
 - name: brandText
   singleValue: false
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
@@ -134,7 +133,6 @@ fields:
 - name: variantCount
   singleValue: false
   description: Number of variants listed
-  defaultValue: '0'
 - name: color
   singleValue: false
   description: A textual description of the colour
@@ -144,7 +142,6 @@ fields:
 - name: manufacturerDescription
   singleValue: false
   description: The extended description of the product supplied by the lister
-  xpath: //div[contains(@class, 'jum-product-brand-info jum-product-info-item')][1]/h3/following-sibling::p[not(descendant::a)]
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
@@ -263,13 +260,11 @@ fields:
   singleValue: false
   description: The size of serving Nutritional information is based on.
   xpath: //div[@id="servingSize"]/text()
-  defaultValue: '100'
 - name: servingSizeUom
   singleValue: false
   description: Unit of measure of serving
   xpath: //div[@id="servingSize"]/text()
   regExp: (ml|g)
-  defaultValue: 'g'
 - name: numberOfServingsInPackage
   singleValue: false
   description: Suggested number of servings of the product.
@@ -467,7 +462,6 @@ fields:
 - name: productOtherInformation
   singleValue: false
   description: Any other product information
-  xpath: //div[@class='jum-product-info-item col-12']/p
 - name: packaging
   singleValue: false
   description: Packaging information
@@ -542,6 +536,9 @@ fields:
 - name: termsAndConditions
   singleValue: false
   description: Terms and conditions information text ['Yes','No']
+  xpath: //span[contains(.,"Algemene voorwaarden")]
+  regExp: (.+)
+  regExpReplace: Yes
   defaultValue: No
 - name: privacyPolicy
   singleValue: false
@@ -550,6 +547,9 @@ fields:
 - name: customerServiceAvailability
   singleValue: false
   description: Information related to customer service availability (text), ['Yes','No']
+  xpath: //*[@analytics-tag="customer service"]
+  regExp: (.+)
+  regExpReplace: Yes
   defaultValue: No
 - name: materials
   singleValue: false
