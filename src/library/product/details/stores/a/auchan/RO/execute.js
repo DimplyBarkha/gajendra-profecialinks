@@ -5,8 +5,8 @@ module.exports = {
     country: 'RO',
     store: 'auchan',
     domain: 'auchan.ro',
-    loadedSelector: null,
-    noResultsXPath: null,
+    // loadedSelector: 'div.productDetailsPanel',
+    noResultsXPath: '//b[contains(.,"Niciun produs nu corespunde cautarii tale.")]',
     zipcode: '',
   },
 };

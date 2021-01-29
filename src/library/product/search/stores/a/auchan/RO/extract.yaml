@@ -6,8 +6,8 @@ fields:
     singleValue: false
     description:
     xpath: //div[@class="product-title"]/a/@href
-    regExp: \/pr-(\d*)
-    regExpReplace: $1
+    regExp: \d{4,}
+    # regExpReplace: $1
   - name: thumbnail
     singleValue: false
     description:
