@@ -1,45 +1,46 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: /html/body
 fields:
   - name: image
     singleValue: false
-    xpath: //div[@class="css-1axb2kt"]/div/div[@class="css-1juuxmf"]//div[@id="tabItem_p18_1_0"]//img/@src
+    xpath: //ul[@class="css-1kxqg20 eanm77i0"]/li[1]//img/@src
   - name: imageAlt
     singleValue: false
-    xpath: //div[@class="css-1axb2kt"]/div/div[@class="css-1juuxmf"]//div[@id="tabItem_p18_1_0"]//img/@alt
+    xpath: //ul[@class="css-1kxqg20 eanm77i0"]/li[1]//img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class="css-1axb2kt"]/div/div[@class="css-1juuxmf"]//div[contains(@id,"tabItem_p18_1") and position()>1]//img/@src
+    xpath: //ul[@class="css-1kxqg20 eanm77i0"]/li[position()>1]/child::*/child::*/child::*/img[not(contains(@alt,"video"))]/@src
   - name: category
     singleValue: false
     xpath: //nav[@aria-label="Breadcrumbs"]/ol/li/a
   - name: nameExtended
     singleValue: false
-    xpath: //h1[@class="css-1wd4e6l e65zztl0"]/span
+    xpath: //h1[contains(@class,"e65zztl0")]
   - name: listPrice
     singleValue: false
-    xpath: //span[@data-at="price" and @class="css-12wmvlf"]
+    xpath: //h1/parent::*/p[contains(@data-comp,"Price")]//span/b[2]
   - name: price
     singleValue: false
-    xpath: //span[@data-at="price" and not(contains(@class,"css-12wmvlf"))] | //span[@data-at="sale_price" and @class="css-5fq4jh"]
+    xpath: //h1/parent::*/p[contains(@data-comp,"Price")]//span/b[1]
   - name: availabilityText
+    singleValue: false
     defaultValue: In Stock
   - name: description
     singleValue: false
-    xpath: //div[@data-at="product_tabs_section"]/div[@role="tabpanel" and @id="tabpanel0"]/div
+    xpath: //h2[@data-at="about_the_product_title"]/following::*/div[2]/button[text()="Show more"]/preceding-sibling::*/child::*
   - name: descriptionBullets
-    singleValue: true
+    singleValue: false
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
-    xpath: //h1[@class="css-1wd4e6l e65zztl0"]/a/span
+    xpath: //h1/a
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
   - name: quantity
-    xpath: //div[@data-at="sku_size"]/text()[1]
+    xpath: //span[@data-at="sku_size_label"]/text()[last()]
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -50,9 +51,11 @@ fields:
     singleValue: true
     description: GTIN code (includes UPC/EAN)
   - name: sku
+    singleValue: false
     xpath: //script[contains(text(),"defaultSkuId:")]/text()
   - name: variantId
-    xpath: //div[@data-at="sku_size"]/text()
+    singleValue: false
+    xpath: //p[@data-at="item_sku"]/text()[last()]
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -64,12 +67,14 @@ fields:
     singleValue: true
     description: Content under "legal disclaimer" header
   - name: directions
-    xpath: //div[@data-at="product_tabs_section"]/div[@id="tabpanel1"]/div
+    singleValue: false
+    xpath: //div[@data-at="how_to_use_section"]
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
   - name: ratingCount
-    xpath: //div[contains(@data-comp,"ReviewsStats")]/div/span
+    singleValue: false
+    xpath: //h3[text()="Summary"]/following-sibling::*/div[last()]/span
     regExp: ([^,]+) reviews
     regExpReplace: $1
     type: NUMBER
@@ -77,9 +82,9 @@ fields:
     singleValue: true
     description: The stated aggregate rating
   - name: aggregateRating
-    singleValue: true
+    singleValue: false
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    xpath: //h3[text()="Summary"]/following-sibling::*/div[last()]/div/span
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -90,8 +95,8 @@ fields:
     singleValue: true
     description: Stated shipping weight
   - name: variantCount
-    singleValue: true
-    description: Number of variants listed
+    singleValue: false
+    xpath: count(//div[contains(@data-comp,"SwatchGroup")]/div/button/img/@src)
     type: NUMBER
   - name: color
     singleValue: true
@@ -107,10 +112,10 @@ fields:
     description: Images within the third party description
   - name: videos
     singleValue: false
-    description: URLs of videos on page
+    xpath: //div[@id="ii_video"]
   - name: name
-    singleValue: true
-    description: The product name
+    singleValue: false
+    xpath: //h1[contains(@class,"e65zztl0")]/span
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -212,9 +217,8 @@ fields:
     singleValue: true
     description: null
   - name: ingredientsList
-    singleValue: true
-    description: List of Ingredients from site - can be string of data if no
-      discernible start/end point
+    singleValue: false
+    xpath: //div[@id="ingredients"]/div/div
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
@@ -412,8 +416,8 @@ fields:
     description: In product page, information about a new version of the product -
       new desription info
   - name: variantInformation
-    singleValue: true
-    description: colour / scent / flavour / other
+    singleValue: false
+    xpath: //div[contains(@data-comp,"SwatchGroup")]/div/button[@aria-selected="true"]/@aria-label
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
@@ -425,9 +429,11 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
+    xpath: //p[@data-at="item_sku"]/text()[last()]
   - name: variants
     singleValue: false
     description: null
+    xpath: //div[contains(@data-comp,"SwatchGroup")]/div/button/img/@src
   - name: additionalDescBulletInfo
     singleValue: false
     description: null

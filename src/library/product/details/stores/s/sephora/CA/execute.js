@@ -14,7 +14,7 @@ const implementation = async (inputs, { loadedSelector, noResultsXPath }, contex
   }
   await dependencies.goto({ ...inputs, url: builtUrl || url });
 
-  await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 7000));
 
   const videoSources = await context.evaluate(async function (selectorClick) {
     const videoSrcArr = [];
@@ -72,7 +72,7 @@ const implementation = async (inputs, { loadedSelector, noResultsXPath }, contex
         // addHiddenDiv('ii_video', src);
       });
     }
-  });
+  });  
 
   if (loadedSelector) {
     await context.waitForFunction(
@@ -84,25 +84,7 @@ const implementation = async (inputs, { loadedSelector, noResultsXPath }, contex
       noResultsXPath,
     );
   }
-  await context.evaluate(async function () {
-    let scrollTop = 0;
-    while (scrollTop <= 20000) {
-      await stall(500);
-      scrollTop += 1000;
-      window.scroll(0, scrollTop);
-      if (scrollTop === 20000) {
-        await stall(8000);
-        break;
-      }
-    }
-    function stall (ms) {
-      return new Promise(resolve => {
-        setTimeout(() => {
-          resolve();
-        }, ms);
-      });
-    }
-  });
+  
   return await context.evaluate((xpath) => !document.evaluate(xpath, document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue, noResultsXPath);
 };
 /// /div[@data-comp="HeroMediaList "]/div[1]//div[@data-hammer-carousel-inner="true"]//button
@@ -113,7 +95,7 @@ module.exports = {
     store: 'sephora',
     domain: 'sephora.com',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//h1[contains(text(),"Sorry, we couldn’t find a match for")]',
     zipcode: '',
   },
   implementation,
