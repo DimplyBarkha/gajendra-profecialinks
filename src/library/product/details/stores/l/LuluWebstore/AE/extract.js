@@ -129,7 +129,22 @@ module.exports = {
         });
       }
       addElementToDocument('addedVideos', videoOneContent.join(' || '));
-    });
+      var head = getXpath("//div[contains(@class,'pd-features-section')]//div[@class='features-ul']//p/text()[contains(.,'Ingredients')]//..//following-sibling::p/text()[normalize-space(.) and normalize-space(translate(/,'&#10;', '')) and normalize-space(translate(/,'&#09;', ''))]/text()", 'nodeValue');
+      // console.log(head.length)
+      // addElementToDocument('Ingredientlist',head);
+      var head1 = getXpath("//div[@class='tab-details']//p/text()[contains(.,'Ingredients')]//following-sibling::br[1]/following::text()[1]", 'nodeValue');
+      var head2 = getXpath("//div[@class='tab-details']//p/text()[contains(.,'Ingredients')]//following-sibling::br[1]/following::text()[2]", 'nodeValue');
+      if(head != null){
+        addElementToDocument('Ingredientlist', head);
+      }else if(head1 !=null ){
+        if(head1.length>50){
+          addElementToDocument('Ingredientlist',head1);
+        }
+        
+      }else{
+        addElementToDocument('Ingredientlist',head2);
+      }
+      });
     await context.extract(productDetails, { transform: transformParam });
   },
 };
