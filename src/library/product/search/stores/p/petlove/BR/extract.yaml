@@ -1,6 +1,6 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
+recordSelector: div.catalog-list-item
 recordXPath: //div[@class='catalog-list-item']
 fields:
   - name: id
@@ -16,7 +16,7 @@ fields:
     xpath: //h3[@itemprop="name"] | //h2[@itemprop="name"]
   - name: productUrl
     singleValue: false
-    xpath: //div[@class='catalog-list-item']/a[@itemprop='url']/@href
+    xpath: //div[@class='catalog-list-item']/a/@href
     regExp: (.+)
     regExpReplace: https://www.petlove.com.br$1
   - name: gtin
