@@ -22,7 +22,7 @@ async function implementation (
       if (document.querySelectorAll('div[class="yuRUbf"] a') !== null) {
         console.log(productCode);
         for (let i = 0; i < document.querySelectorAll('div[class="yuRUbf"] a').length; i++) {
-          if (document.querySelectorAll('div[class="yuRUbf"] a')[i].getAttribute('href').includes(`/${productCode}`)) {
+          if (document.querySelectorAll('div[class="yuRUbf"] a')[i].getAttribute('href').includes(`/${productCode}-`)) {
             return document.querySelectorAll('div[class="yuRUbf"] a')[i].getAttribute('href');
           }
         }
