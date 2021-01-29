@@ -1,0 +1,52 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,'fotorama__active')]//div[contains(@class,'fotorama__loaded--img')]//img//@src
+  - name: sku
+    singleValue: false
+    xpath: //table[@id='product-attribute-specs-table']//td[@data-th='SKU']
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class='product-info-price']//div[@class='price-box price-final_price']//@data-product-id
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
+  - name: category
+    singleValue: false
+    xpath: //div[@class='breadcrumbs']//ul[@class='items']//li[position() > 1]//a
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class='breadcrumbs']//ul[@class='items']//li//strong
+  - name: name
+    singleValue: false
+    xpath: //h1[@class='page-title']//span[@class='base']
+  - name: price
+    singleValue: false
+    xpath: //div[@class='price-box price-final_price']//span[@data-price-type='finalPrice']//span[@class='price']
+  - name: listprice
+    singleValue: false
+    xpath: //div[@class='price-box price-final_price']//span[@data-price-type='oldPrice']//span[@class='price']  
+  - name: availabilityText
+    singleValue: false
+    xpath: //button[@id='product-addtocart-button']
+    defaultValue: "In Stock"
+  - name: quantity
+    singleValue: false
+    defaultValue: 1 
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class,'product attribute description')] 
+  - name: brandText
+    singleValue: false
+    xpath: //table[@id='product-attribute-specs-table']//td[@data-th='Merk']  
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,'fotorama__active')]//div[contains(@class,'fotorama__loaded--img')]//img//@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class='fotorama__nav__frame fotorama__nav__frame--thumb']//div[contains(@class,'fotorama__loaded--img')]//img//@src 
+ 
