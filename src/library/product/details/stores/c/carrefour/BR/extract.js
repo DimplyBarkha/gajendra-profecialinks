@@ -48,6 +48,11 @@ module.exports = {
       }
     }
   });
+  try {
+    await context.waitForSelector('span[class*="BrandName"]', { timeout: 30000 });
+    } catch (error) {
+      console.log('error: ', error);
+    }
     const { transform } = parameters;
     const { productDetails } = dependencies;
     return await context.extract(productDetails, { transform });
