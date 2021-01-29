@@ -52,6 +52,12 @@ module.exports = {
         let sku = productUrl.href.match(/(.+)(ID=)(.+)/)[3]
         document.body.setAttribute('sku', sku );
       }
+
+      const rating = document.evaluate(`/html/head/script[@type="text/javascript"][contains(text(),'product_rating')] | /html/body/script[@type="text/javascript"][contains(text(),'product_rating')]`, document.body, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
+      if(rating) {
+        let productRating = rating.textContent.match(/(product_rating\\":\[\\")(\d\.\d)/)[2];
+        document.body.setAttribute('productrating', productRating);
+      }
     });
 
     await context.evaluate(async function () {

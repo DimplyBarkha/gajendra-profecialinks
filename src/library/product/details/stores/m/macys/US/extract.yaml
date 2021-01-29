@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: ratingCount
     singleValue: true
-    xpath: /html/head/script[@type="text/javascript"][contains(text(),'product_rating')]
+    xpath: /html/head/script[@type="text/javascript"][contains(text(),'product_reviews')] | /html/body/script[@type="text/javascript"][contains(text(),'product_reviews')]
     regExp: (product_reviews\\":\[\\")(\d+)
     regExpReplace: $2
   - name: productUrl
@@ -57,7 +57,7 @@ fields:
     xpath: //body//@sku
   - name: upc
     singleValue: true
-    xpath: /html/head/script[@type="text/javascript"][contains(text(),'product_rating')]
+    xpath: /html/head/script[@type="text/javascript"][contains(text(),'product_upc')] | /html/body/script[@type="text/javascript"][contains(text(),'product_upc')]
     regExp: (product_upc\\":\[\\")(\d+)
     regExpReplace: $2
   - name: questionsCount
@@ -65,9 +65,10 @@ fields:
     xpath: (//div[@class="BVQAQuestionAndAnswerCount"]//span[@class="BVQANumber"])[1]
   - name: aggregateRating
     singleValue: true
-    xpath: /html/head/script[@type="text/javascript"][contains(text(),'product_rating')]
-    regExp: (product_rating\\":\[\\")(\d\.\d)
-    regExpReplace: $2
+    xpath: //body//@productrating
+    # xpath:  /html/head/script[@type="text/javascript"][contains(text(),'product_rating')] | /html/body/script[@type="text/javascript"][contains(text(),'product_rating')]
+    # regExp: (product_rating\\":\[\\")(\d\.\d)
+    # regExpReplace: $2
   - name: manufacturerImages
     singleValue: true
     xpath: //body//@enhancedcontent | //div[@id="mfgCont"]//h1
@@ -80,4 +81,7 @@ fields:
     singleValue: true
     xpath: //div[contains(@class,"color-header")]
     regExp: (Color:)(.+)
+  - name: shortDescription
+    singleValue: true
+    xpath: //div[contains(@data-el,product-details)]/p[@itemprop="description"]
     
