@@ -7,12 +7,15 @@ parameters:
 proxy:
   zone: ZUS
   type: DATA_CENTER
+extractionGlobals:
+  screenCapture: false
+  screenCaptureType: 'png'
 policy:
-  numberRetries: 3
+  numberRetries: 5
   priority: MEDIUM
-  retryDelay: 60
+  retryDelay: 10 
   backoffPolicy: LINEAR
-  retryWithResidentialProxyAfter: 99
+  retryWithResidentialProxyAfter: 4
 meta:
   branches:
     dev:
