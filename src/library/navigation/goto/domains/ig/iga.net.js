@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'iga.net',
-    timeout: 100000,
+    timeout: 80000,
     country: 'CA',
     store: 'iga',
     zipcode: '',

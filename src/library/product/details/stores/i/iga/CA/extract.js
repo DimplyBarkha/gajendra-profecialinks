@@ -94,6 +94,14 @@ module.exports = {
           addElementToDocument('rpc', rpc);
         }
       }
+      var avl = getXpath('//div[@class="grid__item portable-up--one-half"]/div[@class="add-to-cart js-add-to-cart js-using-cart js-tutorial-addtocart"]/div/span/button/text()', 'nodeValue');
+      if (avl != null) {
+        avl = "In Stock"
+        addElementToDocument('avl', avl);
+      } else {
+        avl = "Out Of Stock"
+        addElementToDocument('avl', avl);
+      }
       try {
         var listprice = getAllXpath('//del[@class="item-product__price push-half--left"]/span/text()', 'nodeValue');
         if (listprice != null) {

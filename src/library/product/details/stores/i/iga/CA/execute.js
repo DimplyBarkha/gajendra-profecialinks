@@ -5,7 +5,7 @@ module.exports = {
     country: 'CA',
     store: 'iga',
     domain: 'iga.net',
-    loadedSelector: null,
+    loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',
   },
