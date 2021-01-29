@@ -17,6 +17,15 @@ async function implementation (inputs, parameters, context, dependencies) {
       element.setAttribute('price', price);
     });
 
+    // id
+    const ids = document.querySelectorAll('div[class="card-item js-product-data"] div[class="card-toolbox"] > button[data-productid]');
+    ids.forEach(e => {
+      if (e.getAttribute('data-product') !== null) {
+        const id = JSON.parse(e.getAttribute('data-product')).pnk;
+        e.setAttribute('product-sku', id);
+      }
+    });
+
     // replace . with , in rating
     var rating = document.querySelectorAll('div.card-item.js-product-data div.star-rating.star-rating-read');
     const regex = /\d\.?(\d+)?/gm;
