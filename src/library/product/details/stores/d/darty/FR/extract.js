@@ -9,21 +9,21 @@ async function implementation(
   const { transform } = parameters;
   const { productDetails } = dependencies;
   try {
-    await context.waitForSelector('div[class*="inpage_selector_InTheBox"] img', { timeout: 30000 });
+    await context.waitForSelector('div[class*="inpage_selector_InTheBox"] img', { timeout: 10000 });
     await new Promise((resolve, reject) => setTimeout(resolve, 90000));
     console.log('selector of inTheBox exist');
   } catch (e) {
     console.log("selector of inTheBox doesn't exist");
   }
   try {
-    await context.waitForSelector('div[class="content"]>h3', { timeout: 30000 });
+    await context.waitForSelector('div[class="content"]>h3', { timeout: 10000 });
     await new Promise((resolve, reject) => setTimeout(resolve, 90000));
     console.log('selector of updp exist');
   } catch (e) {
     console.log("selector of updp doesn't exist");
   }
   try {
-    await context.waitForSelector('button[class="btn-expand btn-reset"]', { timeout: 30000 });
+    await context.waitForSelector('button[class="btn-expand btn-reset"]', { timeout: 10000 });
     await new Promise((resolve, reject) => setTimeout(resolve, 90000));
     console.log('selector of enhancedContent button exist');
   } catch (e) {
