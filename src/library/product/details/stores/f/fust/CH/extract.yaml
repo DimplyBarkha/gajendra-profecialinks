@@ -41,7 +41,7 @@ fields:
     xpath: //div[contains(@class,'productDetailImgContainer')]//div[@class='awardbox-under-image']//div//div
   - name: description
     singleValue: false
-    xpath: //div[@itemprop='description']
+    xpath: //div[@itemprop='description']/parent::div
   - name: brandText
     singleValue: false
     xpath: //div[contains(@class,'productDetail')]/meta[@itemprop="brand"]/@content
@@ -78,10 +78,10 @@ fields:
     xpath: //table[contains(@class,'specification')]//tr//td[text()='Material Behälter']//following-sibling::td
   - name: manufacturerImages
     singleValue: false
-    xpath: //*[@id='flix-inpage' or @id='loadbee-template']//img[not(@title='Powered by Flixmedia')]
+    xpath: //*[@id='flix-inpage' or @id='flix-std-inpage' or @id='loadbee-template']//img[not(@title='Powered by Flixmedia')]/@src
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id='flix-inpage']
+    xpath: //*[@id='flix-inpage' or @id='flix-std-inpage' or @id='loadbee-template']
   - name: ratingCount
     singleValue: false
     xpath: //div[contains(@class,'productDetailTxtContainer')]//meta[@itemprop='reviewCount']/@content

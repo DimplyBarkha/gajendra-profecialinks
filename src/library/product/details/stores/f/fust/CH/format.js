@@ -60,6 +60,22 @@ const transform = (data) => {
         row.alternateImages.forEach(item => {
           item.text = 'https://www.fust.ch' + item.text;
         });
+        if (row.alternateImages.length) {
+          row.secondaryImageTotal = [{ text: row.alternateImages.length }];
+        }
+      }
+      if (row.description) {
+        row.description.forEach(item => {
+          var match = item.text.match(/\n\s*-/g);
+          if (match) {
+            row.descriptionBullets = [{ text: match.length }];
+          }
+        });
+      }
+      if (row.manufacturerImages) {
+        row.manufacturerImages.forEach(item => {
+          item.text = 'https:' + item.text;
+        });
       }
       // if (row.variants) {
       //   let variations = [];

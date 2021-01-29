@@ -13,12 +13,12 @@ const implementation = async (inputs, { loadedSelector, noResultsXPath }, contex
     else builtUrl = await dependencies.createUrl(inputs);
   }
   await dependencies.goto({ ...inputs, url: builtUrl || url });
-  try {
-    // await context.waitForSelector('input[name="SearchTerm"]');
-    // await context.setInputValue('input[name="SearchTerm"]', inputs.keywords);
-    await context.clickAndWaitForNavigation('div[class="product"] a[class="js-tealium-event-product-click"]');
-  } catch (e) {
-    console.log(e);
+  if (!url) {
+    try {
+      await context.clickAndWaitForNavigation('div[class="product"] a[class="js-tealium-event-product-click"]');
+    } catch (e) {
+      console.log(e);
+    }
   }
   if (loadedSelector) {
     await context.waitForFunction(
