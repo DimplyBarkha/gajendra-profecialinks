@@ -30,11 +30,11 @@ fields:
   - name: description
     xpath: //div[@class="sc-pc-why-we-love-it"]|//div[@class="sc-pc-about-this-item"]//div[1]/text()|//div[@class="sc-pc-about-this-item"]//li|//div[@class="sc-full-description-long"]
   - name: descriptionBullets
-    xpath: count(//div[@class="sc-pc-about-this-item"]//li | //div[@id="full-description"]//li)
+    xpath: count(//div[@class="sc-manufacturing-element-content"]//li | //div[@class="sc-pc-about-this-item"]//li )
   - name: brandText
     xpath: //div[@class="main-wrapper"]//div[@class="sc-pc-large-desktop-layout"]/meta[@itemprop="brand"]/@content | //meta[@itemprop="brand"]/@content
   - name: sku
-    xpath: substring-after(//span[contains(@class, 'item-number')][last()],'# ')
+    xpath: substring-after(//span[contains(@class, 'item-number')][last()],'# ') | //meta[@itemprop="mpn"]/@content
   - name: variantId
     xpath: //div[@class="sc-product-header"]//div[@class="sc-product-header-item-number"]
     regExp: (\d+)
