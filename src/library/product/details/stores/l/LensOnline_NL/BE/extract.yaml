@@ -107,3 +107,6 @@ fields:
   - name: numberOfServingsInPackage
     singleValue: true
     xpath: //html//div[@id='servingPackage']
+  - name: packSize
+    singleValue: false
+    xpath: //td[contains(text(),'Verpakkingshoeveelheid')]/following-sibling::td
