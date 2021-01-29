@@ -5,16 +5,20 @@ recordXPath: //section[@class='product-list']//div[contains(@class, 'product gtm
 fields:
   - name: id
     singleValue: false
-    xpath: //@sku
+    xpath: //section[@class='product-list']//div[contains(@class, 'product gtmProductClick w-100')]/a/@href
+    regExp: -p-(.+)\/
+    regExpReplace: $1
   - name: searchUrl
-    singleValue: false
-    xpath: //@searchurl
+    singleValue: true
+    xpath: ancestor::html//div[@id="searchurl"][last()]
   - name: name
     singleValue: false
     xpath: //div[@class='product-title']
   - name: productUrl
     singleValue: false
-    xpath: //@producturl
+    xpath: //section[@class='product-list']//div[contains(@class, 'product gtmProductClick w-100')]/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.e-bebek.com$1
   - name: gtin
     singleValue: false
   - name: thumbnail
@@ -48,17 +52,17 @@ fields:
     singleValue: false
     description: search/listing rank
     type: NUMBER
-    xpath: //@rank
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
-    xpath: //@rankorganic
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
-    xpath: //@sponsored
+    xpath: //div[@class='badge-right'][contains(text(), 'Promosyonlu') or contains(text(), 'Kampanyalı')]
+    regExp: .+
+    regExpReplace: Yes
   # - name: totalRecordCount
   #   singleValue: true 
   #   type: NUMBER
