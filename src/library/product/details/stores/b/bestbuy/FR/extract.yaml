@@ -12,7 +12,7 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //div[contains(@class,"gallerySlider")]//div[contains(@class,"slick-slide") and not(contains(@class, "slick-cloned")) and not(contains(@class,"slick-current"))]//img[contains(@class, "productImage")]/@src
-  - name: secondary_image_total
+  - name: secondaryImageTotal
     singleValue: false
     xpath: count(//div[contains(@class,"gallerySlider")]//div[contains(@class,"slick-slide") and not(contains(@class, "slick-cloned")) and not(contains(@class,"slick-current"))]//img[contains(@class, "productImage")]/@src)
   - name: category
