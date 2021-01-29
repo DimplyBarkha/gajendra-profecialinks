@@ -126,6 +126,8 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
       }
       const response = await fetch('/gp/delivery/ajax/address-change.html', {
         headers: {
+          "accept": "*/*",
+          "accept-language": "en-US,en;q=0.9",
           'anti-csrftoken-a2z': csrf,
           'content-type': 'application/x-www-form-urlencoded',
           contenttype: 'application/x-www-form-urlencoded;charset=utf-8',
