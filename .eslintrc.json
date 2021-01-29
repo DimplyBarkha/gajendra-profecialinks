@@ -18,6 +18,8 @@
   "rules": {
       "no-template-curly-in-string": "off",
       "semi": ["error", "always"],
-      "comma-dangle": ["error", "always-multiline"]
+      "comma-dangle": ["error", "always-multiline"],
+      "no-shadow": ["warn", { "builtinGlobals": false, "hoist": "functions", "allow": [] }],
+      "no-undef": ["error", { "typeof": false }]
   }
 }
