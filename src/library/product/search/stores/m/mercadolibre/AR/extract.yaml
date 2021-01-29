@@ -14,7 +14,7 @@ fields:
     xpath: //h2[contains(@class, 'title')]
   - name: productUrl
     singleValue: false
-    xpath: //@producturl
+    xpath: //div[contains(@class, 'ui-search-result')]//a[contains(@class, 'ui-search-result') or contains(@class, 'ui-search-item') and not(contains(@class, 'ad'))]/@href   
   - name: gtin
     singleValue: false
   - name: thumbnail
