@@ -116,7 +116,6 @@ fields:
   xpath: //div[@id="productReview"]//span[@itemprop="reviewCount"]//text()
 - name: manufacturerImages
   singleValue: false
-  xpath: //div[@id="ii_manufacturerImages"]
 - name: manufacturerDescription
   singleValue: false
   xpath: //dd[@class="productLongDescription"]//text()
@@ -441,6 +440,9 @@ fields:
 - name: pricePerUnit
   singleValue: true
   description: Price of the product split into certain units
+  xpath: //dl[@class="productPrice"]//dd[@class="groundPrice"]
+  regExp: '(\d+,\d+)'
+  regExpReplace: $1
 - name: pricePerUnitUom
   singleValue: true
   description: The unit of measurement used in price_per_unit
