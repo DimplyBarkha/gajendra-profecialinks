@@ -201,16 +201,12 @@ module.exports = {
         });
       }
 
-      if (row.sku) {
-        row.sku.forEach(item => {
-          item.text = item.text ? item.text.replace(/^0+/, '') : '';
-        });
-      }
-      if (row.variantId) {
-        row.variantId.forEach(item => {
-          item.text = item.text ? item.text.replace(/^0+/, '') : '';
-        });
-      }
+      // if (row.sku) {
+      //   row.sku.forEach(item => {
+      //     item.text = item.text ? item.text.replace(/^0+/, '') : '';
+      //   });
+      // }
+
       if (row.variantCount) {
         row.variantCount.forEach(item => {
           item.text = item.text === '1' ? '0' : item.text;
