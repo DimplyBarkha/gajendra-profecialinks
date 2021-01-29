@@ -6,7 +6,7 @@ module.exports = {
     store: 'amicafarmacia',
     domain: 'amicafarmacia.com',
     loadedSelector: '#maincontent',
-    noResultsXPath: '//*[@id="maincontent"]/div[1]/h1/span/font/font',
+    noResultsXPath: '//*[@id="maincontent"]/div[1]/h1/span/font/font | //*[@id="maincontent"]/div[1]/h1/span',
     zipcode: "''",
   },
 };

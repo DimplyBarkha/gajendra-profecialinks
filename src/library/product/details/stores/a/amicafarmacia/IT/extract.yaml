@@ -29,10 +29,12 @@ fields:
     xpath: (//script[contains(text(),'gtin13')])
   - name: sku
     singleValue: false
-    xpath: //div[@itemprop='sku']
+    # xpath: //div[@itemprop='sku']
+    xpath: (//script[contains(text(),'gtin13')])
   - name: variantId
     singleValue: false
-    xpath: (//script[contains(text(),'productId')])[1]
+    # xpath: (//script[contains(text(),'productId')])[1]
+    xpath: //div[@itemprop='sku']
   - name: listPrice
     singleValue: false
     xpath: //div[@class='product-info-price']//span[@data-price-type='oldPrice']/span[contains(@class,'price')]
@@ -44,16 +46,49 @@ fields:
     xpath: //*[@id="product-page-shipping-tab"]
   - name: aggregateRating
     singleValue: false
-    xpath: (//*[@class="feedaty_microdata"]/script)[1]
+    # xpath: (//*[@class="feedaty_microdata"]/script)[1]
+    xpath: //div[contains(@id, 'product-rate-value')]/@data-rate-value
+  - name: ratingCount
+    singleValue: true
+    description: The number of ratings
+    xpath: count(//div[contains(@class, 'review-content-wrapper')]//dl//div[@class='review-ratings'])
   - name: image
     singleValue: false
-    xpath: (//div[contains(@class,'fotorama__stage__shaft')]//img/@src)[1]
+    # xpath: (//div[contains(@class,'fotorama__stage__shaft')]//img/@src)[1]
+    xpath: (//meta[@property='og:image']/@content)[1]
   - name: imageAlt
     singleValue: false
     xpath: (//div[contains(@class,'fotorama__stage__shaft')]//img/@alt)[1]
   - name: alternateImages
     singleValue: false
-    xpath: (//div[contains(@class,'fotorama__stage__shaft')]//img/@src)[position()>1]
+    # xpath: (//div[contains(@class,'fotorama__stage__shaft')]//img/@src)[position()>1]
+    xpath: (//div[contains(@class,'fotorama__nav__shaft')]//img/@src)[position()>1]
   - name: secondaryImageTotal
     singleValue: false
     xpath: count((//div[contains(@class,'fotorama__stage__shaft')]//img/@src)[position()>1])
+  - name: descriptionBullets
+    singleValue: true
+    description: Number of ul > li tags in the description
+    xpath: count(//div[contains(@class, 'product attribute description')]//*[starts-with(text(), "-")])
+  - name: directions
+    singleValue: false
+    description: Content under "directions" header
+    xpath: //div[contains(@class, 'product attribute description')]//*[contains(text(), "MODALITA' DI UTILIZZO")]//following-sibling::text() | //div[contains(@class, 'product attribute description')]//*[contains(text(), "Modalità d'uso")]//following-sibling::text() | //div[contains(@class, 'product attribute description')]//*[contains(text(), "Modo d’uso")]//following-sibling::text() | //div[contains(@class, 'product attribute description')]//*[contains(text(), "MODALITA' D'USO")]//following-sibling::text()
+  - name: ingredientsList
+    singleValue: false
+    description: List of Ingredients from site - can be string of data if no discernible start/end point
+    xpath: //div[contains(@class, 'product attribute description')]//*[contains(text(), "Ingredienti")]//following-sibling::text() | //div[contains(@class, 'product attribute description')]//*[contains(text(), "INGREDIENTI")]//following-sibling::text()
+  - name: warnings
+    singleValue: false
+    description: Content under "warnings" header
+    xpath: //div[contains(@class, 'product attribute description')]//*[contains(text(), "Avvertenze")]//following-sibling::text()
+  - name: metaKeywords
+    singleValue: false
+    description: The <meta> keywords content
+    xpath: //meta[contains(@name, "keywords")]/@content
+  # - name: quantity
+  #   singleValue: false
+  #   description: Quantity as described on the page
+  #   xpath: 
+  #   regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+  #   regExpReplace: $1$2$3$4
