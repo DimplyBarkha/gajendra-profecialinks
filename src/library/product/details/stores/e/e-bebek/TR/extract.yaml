@@ -34,7 +34,7 @@ fields:
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
-  xpath: //h1[@class="product-title"]
+  xpath: //h1[@class="product-title"]/text()
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
@@ -156,7 +156,7 @@ fields:
 - name: name
   singleValue: true
   description: The product name
-  xpath: //h1[@class="product-title"]
+  xpath: //h1[@class="product-title"]/text()
 - name: inStorePrice
   singleValue: true
   description: Price in the selected store

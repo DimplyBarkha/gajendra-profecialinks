@@ -2,7 +2,7 @@ input:
   id: cbe-1959
   _url: http://e-bebek.com
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=bf460b78-0180-49c0-9682-232293bf926f/task=1eb22469-a5fe-4dea-88fb-3beae0621235/499d9d4c-461a-4052-ad65-855cccea5d9d.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=2a9412df-9e4e-4afb-8e7c-d0dd056db3f9/task=9ef7cdc0-11d7-4791-a982-ecbce4097936/e1b7372e-8bf2-4abe-9b77-3caf740c4db5.html
     extractionConfigId: product/details/stores/e/e-bebek/TR/extract
     data:
       - group:
@@ -25,11 +25,11 @@ extractions:
               - text: Bebek Bezi
                 xpath: /html/body/div[2]/main[1]/div[2]/div[2]/ul[1]/li[4]/a[1]
             nameExtended:
-              - text: Canbebe Ultra Avantaj Paketi 5 Numara Junior 110 Adet
-                xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]
+              - text: Ultra Avantaj Paketi 5 Numara Junior 110 Adet
+                xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/h1[1]/text()[2]
             price:
               - text: 114,90 TL
-                xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/text()[1]
+                xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/text()[1]
             description:
               - text: "Ürün Özellikleri img.kWidgetCentered { position: relative !important;
                   height: 100% !important; width: 100% !important; max-width:
@@ -38,10 +38,10 @@ extractions:
                 xpath: /html/body/div[12]
             brandText:
               - text: Canbebe
-                xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[1]
+                xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/h1[1]/span[1]/span[1]
             manufacturer:
               - text: Canbebe
-                xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[1]
+                xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/h1[1]/span[1]/span[1]
             quantity:
               - text: "110"
                 xpath: /html/body/div[8]
@@ -74,11 +74,11 @@ extractions:
               - text: https://asset.ebebek.com/y.ebebek/i/st/p_content/ultra_canbebe.jpg
                 xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/p[1]/img[1]/@src
             name:
-              - text: Canbebe Ultra Avantaj Paketi 5 Numara Junior 110 Adet
-                xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]
+              - text: Ultra Avantaj Paketi 5 Numara Junior 110 Adet
+                xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/h1[1]/text()[2]
             brandLink:
               - text: https://www.e-bebek.com/canbebe-b513/
-                xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[1]/a[1]/@href
+                xpath: /html/body/div[2]/main[1]/div[2]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/h1[1]/span[1]/span[1]/a[1]/@href
             warranty:
               - text: "Hızlı iade sistem ile 5 adımda ürün iadesi yapabilirsiniz. Üstelik kargo
                   firmasını aramanıza gerek kalmadan iade paketiniz adresinizden
@@ -165,4 +165,4 @@ extractions:
                 locale: tr_TR
                 value: 1
         xpath: /
-    timestamp: 1610701925091
+    timestamp: 1611829001353
