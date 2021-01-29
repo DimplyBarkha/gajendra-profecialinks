@@ -58,17 +58,17 @@ module.exports = {
       sliceURL(backgroundURL);
       const sliceURL1 = (data) => {
         for (let index = 0; index < data.length; index++) {
-          if (data[index].includes(":")) {
+          if (data[index].includes(":-")) {
+            var temp = data[index].replace(":-", "");
+          } else if (data[index].includes(":")){
             var temp = data[index].replace(":", ",");
-          } else if (data[index].includes(",")){
-            var temp = data[index].replace(",", ",");
           } else {
-            temp = data[index].replace(":-", ",");
+            temp = data[index].replace(".", ",");
           }
           addElementToDocument('altImage2', temp);
         }
       };
-      var backgroundURL1 = getAllXpath("//div[@class='ah-pdp-product-price pt-- mb--']/div[@class='ah-product-price nobreak-ellipsis']/div[1]/span[@class='ah-offer ah-offer--old-price']/text()", 'nodeValue');
+      var backgroundURL1 = getAllXpath("(((//div[@class='ah-layout__item u-1/2']//span[not(contains(text(),'Rea'))and not(contains(text(),'Medlemspris'))]/following-sibling::b)[1])/text()|(//div[@class='ah-pdp-product-price pt-- mb--']/div[@class='ah-product-price nobreak-ellipsis']/div[1]/span[@class='ah-offer ah-offer--old-price']/text()))", 'nodeValue');
       sliceURL1(backgroundURL1);      
     });
     await context.extract(productDetails, { transform: transformParam });

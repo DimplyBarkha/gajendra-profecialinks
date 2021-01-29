@@ -16,7 +16,7 @@ fields:
   - name: nameExtended
     xpath: concat(//div[@ng-if="product.brand && !product.attributes.new"]/a/text()," ", //div[@class="ah-pdp-info"]//h1/text())       
   - name: price
-    xpath: //div[@class='altImage1'] 
+    xpath: //div[@class='altImage2'] 
   - name: availabilityText
     xpath: //div[@class="ah-pdp-cta"]//span[contains(text(),'Lägg i varukorg')]
     regExp: (.+)
