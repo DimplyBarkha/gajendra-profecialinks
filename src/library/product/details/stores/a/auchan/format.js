@@ -33,6 +33,9 @@ const transform = (data) => {
         }
         row.specifications = [{ text: specs, xpath: xpath }];
       }
+      if (row.listPrice && row.listPrice[0]) {
+        row.listPrice[0].text = row.listPrice[0].text.replace(',', '.');
+      }
       if (row.availabilityText) {
         let stockPos = row.availabilityText[0].text;
         if (stockPos == 'inStock') { stockPos = 'In Stock'; } else if (stockPos == 'outOfStock') { stockPos = 'Out Of Stock'; }
@@ -58,26 +61,26 @@ const transform = (data) => {
         }
         row.manufacturerImages = mI;
       }
-      if (row.image) {
-        var pI = [];
-        for (var item of row.image) {
-          pI.push({
-            text: item.text.indexOf('https:') === -1 ? ('https:' + item.text) : item.text,
-            xpath: item.xpath,
-          });
-        }
-        row.image = pI;
-      }
-      if (row.alternateImages) {
-        var aI = [];
-        for (var item of row.alternateImages) {
-          aI.push({
-            text: item.text.indexOf('https:') === -1 ? ('https:' + item.text) : item.text,
-            xpath: item.xpath,
-          });
-        }
-        row.alternateImages = aI;
-      }
+      // if (row.image) {
+      //   var pI = [];
+      //   for (var item of row.image) {
+      //     pI.push({
+      //       text: item.text.indexOf('https:') === -1 ? ('https:' + item.text) : item.text,
+      //       xpath: item.xpath,
+      //     });
+      //   }
+      //   row.image = pI;
+      // }
+      // if (row.alternateImages) {
+      //   var aI = [];
+      //   for (var item of row.alternateImages) {
+      //     aI.push({
+      //       text: item.text.indexOf('https:') === -1 ? ('https:' + item.text) : item.text,
+      //       xpath: item.xpath,
+      //     });
+      //   }
+      //   row.alternateImages = aI;
+      // }
       if (row.technicalInformationPdfPresent) {
         if (row.technicalInformationPdfPresent.length) {
           row.technicalInformationPdfPresent[0].text = 'Yes';

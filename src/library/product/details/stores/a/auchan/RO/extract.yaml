@@ -5,13 +5,17 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath:  //img[@class="imageLink"]/@src
+    xpath:  //img[@class="imageLink"]/@src 
+    regExp: (.+)
+    regExpReplace: https://www.auchan.ro$1
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
     xpath: (//img[@class="imageLink"]/@src)[position()>1]
+    regExp: (.+)
+    regExpReplace: https://www.auchan.ro$1
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
