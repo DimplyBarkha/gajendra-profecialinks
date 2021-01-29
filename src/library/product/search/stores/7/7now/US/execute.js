@@ -4,7 +4,8 @@ async function implementation (
   context,
   dependencies,
 ) {
-  console.log('params', parameters);
+  console.log('params:: ', parameters);
+  console.log('inputs:: ', inputs);
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
   await dependencies.goto({ url, zipcode: inputs.zipcode });
   if (parameters.loadedSelector) {
@@ -35,9 +36,11 @@ async function implementation (
     };
 
     // const productDetails = await postData('https://www.7now.com/api/inventory/digital/v3/store/26872/products/search', { query: inputs.keywords, suggest: false });
-    const productDetails = await postData('https://www.7now.com/api/catalog/search/products', { query: inputs.keywords, suggest: false });
-
+    // console.log("input::: ", inputs[0].keywords);
+    const productDetails = await postData('https://www.7now.com/api/catalog/search/products', { query: inputs[0].keywords, suggest: false });
+    
     productDetails.Items.forEach((item, index) => {
+      // console.log("productDetails.Items:: ", item, index);
       const allData = document.createElement('div');
       allData.setAttribute('class', 'json_items');
       const productId = document.createElement('div');
