@@ -25,7 +25,7 @@ module.exports = {
 
     await context.waitForSelector(cssProduct, { timeout: 10000 });
     const productAvailable = await helper.checkSelector(cssProduct, 'CSS');
-
+    console.log(`product available: ${productAvailable}`);
     if (productAvailable) {
       console.log('clicking product link');
       await helper.ifThereClickOnIt(cssProduct);
@@ -36,7 +36,6 @@ module.exports = {
       if (!productDetailsAvailable) {
         throw new Error('ERROR: Failed to load product details page');
       }
-      console.log('navigation complete!!');
     }
 
     const jsonFromCatalogue = await context.evaluate(async function (inputs) {
