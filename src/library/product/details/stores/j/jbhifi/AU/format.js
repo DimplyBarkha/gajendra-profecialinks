@@ -113,6 +113,10 @@ const transform = (data) => {
           arrDesc.push(item.text);
         });
         row.description = [{ text: arrDesc.join(' ') }];
+        if (row.description2) {
+          row.description = [{ text: row.description[0].text + ' | ' + row.description2[0].textb }];
+          delete row.description2;
+        }
       }
       if (row.manufacturerDescription) {
         var arrMfr = [];

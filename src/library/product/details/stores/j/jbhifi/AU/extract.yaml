@@ -55,7 +55,10 @@ fields:
     xpath: //div[@class='product-cta']//div[@class="savings"]//span[text()='Ticket']//following-sibling::s
   - name:  description
     singleValue: false
-    xpath: //div[@id='tab-descriptions']//div[contains(@class,'description')]/p
+    xpath: //div[@class='product-keyfeatures']
+  - name:  description2
+    singleValue: false
+    xpath: //div[@class='details']
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //div[@class='product-keyfeatures']//ul//li    
@@ -104,10 +107,10 @@ fields:
     xpath: //div[@id='tab-details']//table//tr//th[contains(text(),"Manufacturer's warranty")]//following-sibling::td
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id='tab-descriptions']//div[contains(@class,'description')]/div[@data-flix-embed-meta='images' or @data-flix-embed-meta='features']//img/@src
+    xpath: //div[@data-flix-embed-meta='images' or @data-flix-embed-meta='features']//div[@id='inpage_cycle-1' or @class='embed_features']//img/@src
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id='tab-descriptions']//div[contains(@class,'description')]/div[@data-flix-embed-meta]
+    xpath: //div[@class='descriptions']
   - name: ratingCount
     singleValue: false
     xpath: //div[@class='product-overview__highlights']//div[contains(@class,'star-review')]//span[@class='review-count']
