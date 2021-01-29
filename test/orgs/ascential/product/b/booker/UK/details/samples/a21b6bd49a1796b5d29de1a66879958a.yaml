@@ -2,7 +2,7 @@ input:
   id: "257876"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=e2cc6440-91cc-43a9-bd80-4869ba44b026/task=e9b3961b-0098-400d-8c52-6ab6ee95db54/f779dcce-a72d-42d1-b8b5-8b2d25778409.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=2a206261-497f-470d-9998-c41168d42409/task=4da6f6d0-85e3-4bb2-9f09-c2c3ca6ef96f/9f1717ef-5e99-4d0d-a075-0d981a8c9a24.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
@@ -18,14 +18,20 @@ extractions:
               - text: >-
                   Ideal served hot or cold 
                    Pre-sliced 
-                   Three layers of moist, rich, dark chocolate cake between lashings of dark chocolate fudge 
                    Suitable for vegetarians 
+                   Three layers of moist, rich, dark chocolate cake between lashings of dark chocolate fudge 
                    Microwave from Frozen 
                    No Artificial Colours or Preservatives 
                    Defrost & Serve Hot or Cold
                 xpath: /html/body/main[1]/div[2]/div[2]/div[4]/p[2]
               - text: Suitable for Vegetarians
                 xpath: /html/body/main[1]/div[2]/div[2]/div[4]/ul[1]
+              - text: © Booker 000520
+                xpath: /html/body/main[1]/div[2]/div[2]/div[4]/p[3]
+              - text: "Number of uses/Servings: 14"
+                xpath: /html/body/main[1]/div[2]/div[2]/div[4]/p[4]
+              - text: Contains 14 slices
+                xpath: /html/body/main[1]/div[2]/div[2]/div[4]/p[5]
             manufacturer:
               - text: "Produced for: Chef's Larder"
                 xpath: /html/body/main[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/p[2]
@@ -83,7 +89,7 @@ extractions:
               - text: booker wholesale,wholesale uk,wholesaler,foodservice,food wholesaler
                 xpath: /html/body/div[4]
             availabilityText:
-              - text: In Stock
+              - text: Out of Stock
                 xpath: /html/body/div[5]
             termsAndConditions:
               - text: Yes
@@ -144,4 +150,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: Yes
         xpath: /html/body
-    timestamp: 1611587858939
+    timestamp: 1611936456391

@@ -2,7 +2,7 @@ input:
   id: "256795"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=e2cc6440-91cc-43a9-bd80-4869ba44b026/task=cc5a0ee0-1191-4114-9432-b37062110aea/a15a6b88-0fbe-47b4-8e97-7f3cf807da76.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=2a206261-497f-470d-9998-c41168d42409/task=35d917bc-e686-4083-bb42-b885f8a44345/5c0ce902-a0e5-46bb-9e01-bb71bf4361a0.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
@@ -28,6 +28,12 @@ extractions:
               - text: DH 2017 Compliant* *Based on Government salt target 2017 (per 100ml as per
                   make up instructions)
                 xpath: /html/body/main[1]/div[2]/div[2]/div[5]/p[3]
+              - text: Crossed Grain Symbol - CUK-M-270 Green Dot Widely Recycled Bisto trade
+                  marks, designs and logos appearing on this pack are owned by
+                  the Premier Foods Group.
+                xpath: /html/body/main[1]/div[2]/div[2]/div[5]/p[4]
+              - text: This pack makes approximately 27 litres
+                xpath: /html/body/main[1]/div[2]/div[2]/div[5]/p[5]
             brandText:
               - text: Bisto
                 xpath: /html/body/main[1]/div[2]/div[1]/div[3]/p[3]/a[1]
@@ -88,7 +94,7 @@ extractions:
               - text: booker wholesale,wholesale uk,wholesaler,foodservice,food wholesaler
                 xpath: /html/body/div[4]
             availabilityText:
-              - text: In Stock
+              - text: Out of Stock
                 xpath: /html/body/div[5]
             termsAndConditions:
               - text: Yes
@@ -143,4 +149,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: Yes
         xpath: /html/body
-    timestamp: 1611587863104
+    timestamp: 1611936459712

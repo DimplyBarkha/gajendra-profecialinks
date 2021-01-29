@@ -35,8 +35,7 @@ module.exports = {
       addElementToDocument('metaKeyword', metaKeyword);
 
       // Get availability text
-      const availabilityNode = document.evaluate('//div[@class="product-price"]//span[contains(text(),"Add to List")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
-      const availability = availabilityNode && availabilityNode.singleNodeValue ? 'In Stock' : 'Out of Stock';
+      const availability = document.querySelector('div.filaDesktop div.quantity-container') ? 'In Stock' : 'Out of Stock';
       addElementToDocument('availability', availability);
 
       // Get terms and conditions

@@ -44,8 +44,7 @@ fields:
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
-  xpath: //span[contains(@class,'price-marked')]
-  regExp: £?\d+\.?\,?(\d+)?
+  xpath: //div[contains(@class,'filaDesktop')]//p[contains(@class,'price')][1]
 - name: availabilityText
   singleValue: true
   description: Availability as described on page for the selected variant. If there
@@ -56,7 +55,7 @@ fields:
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: //div[@id="product-details-show-more"]//comment()[contains(.,'Product Description') or contains(.,'Regulated Product Name')]//following-sibling::*[following-sibling::comment()[contains(.,'Other Information')]]
+  xpath: //div[@id="product-details-show-more"]/*[not(contains(@id,'show-less'))]
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -263,11 +262,11 @@ fields:
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.
-  xpath: //div[@class="desplegabledesktop"]//div[@data-parent="#nutrition"]//tr[1]/th[contains(.,'Per 100') or contains(.,'per 100')]
+  xpath: //div[@class="desplegabledesktop"]//div[@data-parent="#nutrition"]//tr[1]/th[contains(.,'100')]
   regExp: \d+\s?\w+
 - name: servingSizeUom
   singleValue: true
-  xpath: //div[@class="desplegabledesktop"]//div[@data-parent="#nutrition"]//tr[1]/th[contains(.,'Per 100') or contains(.,'per 100')]
+  xpath: //div[@class="desplegabledesktop"]//div[@data-parent="#nutrition"]//tr[1]/th[contains(.,'100')]
   regExp: ml|mL|g|kg|mg|dg|l
   description: Unit of measure of serving
 - name: numberOfServingsInPackage
@@ -277,7 +276,7 @@ fields:
   singleValue: true
   description: Nutritional Information for Calories Per Serving content - Usually
     based on per 100g serving
-  xpath: //div[@id='caloriesPerServing']
+  xpath: //div[@id='caloriesPerServing'][1]
 - name: caloriesFromFatPerServing
   singleValue: true
   description: Nutritional Information for Calories From Fat content - Usually based
@@ -286,19 +285,19 @@ fields:
   singleValue: true
   description: Nutritional Information for Total Fat content - Usually based on per
     100g serving
-  xpath:  //div[@id='totalFatPerServing']
+  xpath:  //div[@id='totalFatPerServing'][1]
   regExp: ^<?>?\s?\d+(\,?\.?\d+)?%?%?
 - name: totalFatPerServingUom
   singleValue: true
-  xpath:  //div[@id='totalFatPerServing']
+  xpath:  //div[@id='totalFatPerServing'][1]
   regExp: ([^\d\.\,\(\)\*\s<>\%]+)
   description: Unit of Measure Data for Total Fat content
 - name: saturatedFatPerServing
-  xpath: //div[@id='saturatedFatPerServing']
+  xpath: //div[@id='saturatedFatPerServing'][1]
   regExp: ^<?>?\s?\d+(\,?\.?\d+)?%?
   singleValue: true
 - name: saturatedFatPerServingUom
-  xpath: //div[@id='saturatedFatPerServing']
+  xpath: //div[@id='saturatedFatPerServing'][1]
   regExp: ([^\d\.\,\(\)\*\s<>\%]+)
   singleValue: false
 - name: transFatPerServing
@@ -319,55 +318,55 @@ fields:
   singleValue: true
   description: Nutritional Information for Sodium content - Usually based on per 100g
     serving
-  xpath: //div[@id='sodiumPerServing']
+  xpath: //div[@id='sodiumPerServing'][1]
   regExp: ^<?>?\s?\d+(\,?\.?\d+)?%?
 - name: sodiumPerServingUom
   singleValue: true
   description: Unit of Measure Data for Sodium content
-  xpath: //div[@id='sodiumPerServing']
+  xpath: //div[@id='sodiumPerServing'][1]
   regExp: ([^\d\.\,\(\)\*\s<>\%]+)
 - name: totalCarbPerServing
   singleValue: true
-  xpath: //div[@id='carbPerServing']
+  xpath: //div[@id='carbPerServing'][1]
   regExp: ^<?>?\s?\d+(\,?\.?\d+)?%?
   description: Nutritional Information for Total Carbohydrate content - Usually based
     on per 100g serving
 - name: totalCarbPerServingUom
   singleValue: true
-  xpath: //div[@id='carbPerServing']
+  xpath: //div[@id='carbPerServing'][1]
   regExp: ([^\d\.\,\(\)\*\s<>\%]+)
   description: Unit of Measure Data for Total Carbohydrate content
 - name: dietaryFibrePerServing
   singleValue: true
-  xpath: //div[@id='fibrePerServing']
+  xpath: //div[@id='fibrePerServing'][1]
   regExp: ^<?>?\s?\d+(\,?\.?\d+)?%?
   description: Nutritional Information for Dietary Fibre content - Usually based on
     per 100g serving
 - name: dietaryFibrePerServingUom
   singleValue: true
-  xpath: //div[@id='fibrePerServing']
+  xpath: //div[@id='fibrePerServing'][1]
   regExp: ([^\d\.\,\(\)\*\s<>\%]+)
   description: Unit of Measure Data for Dietary Fibre content
 - name: totalSugarsPerServing
   singleValue: true
-  xpath: //div[@id='sugarPerServing']
+  xpath: //div[@id='sugarPerServing'][1]
   regExp: ^<?>?\s?\d+(\,?\.?\d+)?%?
   description: Nutritional Information for Total Sugar content - Usually based on
     per 100g serving
 - name: totalSugarsPerServingUom
   singleValue: true
-  xpath: //div[@id='sugarPerServing']
+  xpath: //div[@id='sugarPerServing'][1]
   regExp: ([^\d\.\,\(\)\*\s<>\%]+)
   description: Unit of Measure Data for Total Sugar content
 - name: proteinPerServing
   singleValue: true
-  xpath: //div[@id='proteinPerServing']
+  xpath: //div[@id='proteinPerServing'][1]
   regExp: ^<?>?\s?\d+(\,?\.?\d+)?%?
   description: Nutritional Information for Protein content - Usually based on per
     100g serving
 - name: proteinPerServingUom
   singleValue: true
-  xpath: //div[@id='proteinPerServing']
+  xpath: //div[@id='proteinPerServing'][1]
   regExp: ([^\d\.\,\(\)\*\s<>\%]+)
   description: Unit of Measure Data for Protein
 - name: vitaminAPerServing
@@ -388,11 +387,11 @@ fields:
   singleValue: true
   description: Nutritional Information for Calcium content - Usually based on per
     100g serving
-  xpath: //div[@id='calciumPerServing']
+  xpath: //div[@id='calciumPerServing'][1]
   regExp: ^<?>?\s?\d+(\,?\.?\d+)?%?
 - name: calciumPerServingUom
   singleValue: true
-  xpath: //div[@id='calciumPerServing']
+  xpath: //div[@id='calciumPerServing'][1]
   regExp: ([^\d\.\,\(\)\*\s<>\%]+)
   description: Unit of Measure Data for Calcium
 - name: ironPerServing
@@ -409,22 +408,22 @@ fields:
   singleValue: true
   description: Nutritional Information for Magnesium content - Usually based on per
     100g serving
-  xpath: //div[@id='magnesiumPerServing']
+  xpath: //div[@id='magnesiumPerServing'][1]
   regExp: ^<?>?\s?\d+(\,?\.?\d+)?%?
 - name: magnesiumPerServingUom
   singleValue: true
-  xpath: //div[@id='magnesiumPerServing']
+  xpath: //div[@id='magnesiumPerServing'][1]
   regExp: ([^\d\.\,\(\)\*\s<>\%]+)
   description: Unit of Measure Data for Magnesium
 - name: saltPerServing
   singleValue: true
   description: Nutritional Information for Salt content - Usually based on per 100g
     serving
-  xpath: //div[@id='saltPerServing']
+  xpath: //div[@id='saltPerServing'][1]
   regExp: ^<?>?\s?\d+(\,?\.?\d+)?%?
 - name: saltPerServingUom
   singleValue: true
-  xpath: //div[@id='saltPerServing']
+  xpath: //div[@id='saltPerServing'][1]
   regExp: ([^\d\.\,\(\)\*\s<>\%]+)
   description: Unit of Measure Data for Salt
 - name: dietaryInformation

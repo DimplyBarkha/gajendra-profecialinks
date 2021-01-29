@@ -2,7 +2,7 @@ input:
   id: "237197"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=e2cc6440-91cc-43a9-bd80-4869ba44b026/task=79d3a6b1-9978-4114-86f4-b914fd4df92f/e70ed96a-d789-43ef-a83a-b46646e7a95b.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=2a206261-497f-470d-9998-c41168d42409/task=43b200c4-fa15-413b-b04e-2c626a399de9/10279007-9745-4c33-abef-1fb5f0ed242b.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
@@ -37,6 +37,13 @@ extractions:
                   of Galactoand Fructo- oligosaccharides. 3'-Galactosyllactose
                   produced by our unique process.
                 xpath: /html/body/main[1]/div[2]/div[2]/div[5]/p[3]
+              - text: Packaged in a protective atmosphere. Contents may settle in transit.
+                  Nutricia, Aptamil® and Pronutra™ are registered trademarks.
+                xpath: /html/body/main[1]/div[2]/div[2]/div[5]/p[4]
+              - text: "Advisory/Months: 6"
+                xpath: /html/body/main[1]/div[2]/div[2]/div[5]/p[5]
+              - text: "Advisory/Months: 12"
+                xpath: /html/body/main[1]/div[2]/div[2]/div[5]/p[6]
             brandText:
               - text: Aptamil
                 xpath: /html/body/main[1]/div[2]/div[1]/div[3]/p[6]/a[1]
@@ -129,7 +136,7 @@ extractions:
               - text: booker wholesale,wholesale uk,wholesaler,foodservice,food wholesaler
                 xpath: /html/body/div[4]
             availabilityText:
-              - text: In Stock
+              - text: Out of Stock
                 xpath: /html/body/div[5]
             termsAndConditions:
               - text: Yes
@@ -199,4 +206,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: Yes
         xpath: /html/body
-    timestamp: 1611587858298
+    timestamp: 1611936457134

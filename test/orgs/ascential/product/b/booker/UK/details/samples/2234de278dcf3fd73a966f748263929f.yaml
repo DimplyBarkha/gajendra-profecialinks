@@ -2,7 +2,7 @@ input:
   id: 123$32&
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=e2cc6440-91cc-43a9-bd80-4869ba44b026/task=9fc1c605-5e52-44d1-9591-0e3d1331b309/34b1db8f-e8a9-412a-a268-9d6faeabd91f.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=2a206261-497f-470d-9998-c41168d42409/task=d4d7e966-d564-4cf1-936d-b42dd306373c/a4f80fa8-b898-40e6-913e-e35dbbb276c1.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
@@ -12,9 +12,6 @@ extractions:
             nameExtended:
               - text: Oral-B 123 Fresh Mint Toothpaste 75ml
                 xpath: /html/body/main[1]/div[2]/div[2]/h4[1]
-            price:
-              - text: £1.00
-                xpath: /html/body/main[1]/div[2]/div[2]/span[1]
             description:
               - text: >-
                   Anti-cavity toothpaste with active fluoride that helps prevent
@@ -76,7 +73,7 @@ extractions:
               - text: booker wholesale,wholesale uk,wholesaler,foodservice,food wholesaler
                 xpath: /html/body/div[4]
             availabilityText:
-              - text: In Stock
+              - text: Out of Stock
                 xpath: /html/body/div[5]
             termsAndConditions:
               - text: Yes
@@ -92,4 +89,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: Yes
         xpath: /html/body
-    timestamp: 1611587863618
+    timestamp: 1611936460230
