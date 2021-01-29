@@ -30,7 +30,7 @@ fields:
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
-  xpath: ancestor::html//ul[@class="breadcrumbs"]/li[position()>1 and not(@class="devider")]
+  xpath: ancestor::html//ul[@class="breadcrumbs"]/li[position()>1 and not(@class="devider")]/a
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
@@ -83,6 +83,7 @@ fields:
 - name: sku
   singleValue: true
   description: The store-specific product identifier
+  xpath: //@added_sku
 - name: variantId
   singleValue: true
   description: Identifier for a variant from a store where variants share the same

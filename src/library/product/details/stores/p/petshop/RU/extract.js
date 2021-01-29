@@ -176,6 +176,10 @@ module.exports = {
             productScript && productScript.match(productObjRegexp) ? productScript.match(productObjRegexp)[1] : '{}';
           const productObj = JSON.parse(productObjString).product;
 
+          const skuScript = document.evaluate('//section[contains(@class, "style_product_head")]/script', document, null, XPathResult.STRING_TYPE, null).stringValue;
+          const sku = skuScript.match(/"sku":"(.+?)"/) ? skuScript.match(/"sku":"(.+?)"/)[1] : '';
+          listElem.setAttribute('added_sku', sku);
+
           const imagesList = document.createElement('ol');
           imagesList.id = 'images';
           const allImages =
