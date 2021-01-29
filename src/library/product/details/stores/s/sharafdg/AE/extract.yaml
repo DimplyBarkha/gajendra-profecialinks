@@ -39,7 +39,7 @@ fields:
   - name: promotion
     xpath: //div[contains(@class,'quick-right')]//div[contains(@class,'discount-holder')]//div[contains(@class,'product-disc')]
   - name:  description
-    xpath: //div[@id="prodcut-tab1"]
+    xpath: //div[@class='detailspecbox']//table//tr
   - name: specificationsLabel
     xpath: //table[@class="product-spec"]//tbody//td[@class="specs-heading"]
   - name: specifications
@@ -57,7 +57,7 @@ fields:
   - name: sku
     xpath: //div[@class='sku-wrap']//strong[contains(text(),'SKU:')]//following-sibling::span
   - name: variantId
-    xpath: //link[@rel="shortlink"]/@href
+    xpath: //div[@class='sku-wrap']//p[@class='reset-margin']/strong[contains(text(),'SKU')]/following-sibling::span
   - name: shippingDimensions
     xpath: //td[contains(text(),' Dimensions ')]//following-sibling::td
   - name: countryOfOrigin

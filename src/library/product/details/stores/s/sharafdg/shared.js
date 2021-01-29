@@ -42,7 +42,13 @@ const transform = (data) => {
           item.text = item.text.replace('180x180', '600x600');
         });
       }
-
+      if (row.description) {
+        var tempDesc = [];
+        row.description.forEach(item => {
+          tempDesc.push(item.text);
+        });
+        row.description = [{ text: tempDesc.join(' | ') }];
+      }
       if (row.videos) {
         const video = [];
         let dupUrl = '';
@@ -107,17 +113,17 @@ const transform = (data) => {
         delete row.specificationsLabel;
       }
 
-      if (row.variantId) {
-        row.variantId.forEach(item => {
-          var myRegexp = /\?p=(.+)/g;
-          var match = myRegexp.exec(item.text);
-          if (match) {
-            if (match.length) {
-              item.text = match[1].trim();
-            }
-          }
-        });
-      }
+      // if (row.variantId) {
+      //   row.variantId.forEach(item => {
+      //     var myRegexp = /\?p=(.+)/g;
+      //     var match = myRegexp.exec(item.text);
+      //     if (match) {
+      //       if (match.length) {
+      //         item.text = match[1].trim();
+      //       }
+      //     }
+      //   });
+      // }
     }
   }
   return cleanUp(data);
