@@ -6,7 +6,7 @@ module.exports = {
     store: 'mathem',
     domain: 'mathem.se',
     url: 'https://www.mathem.se/sok?q={searchTerms}&page=1&pageSize=25&type=p',
-    // loadedSelector: 'section[data-cy="product-list"]',
+    loadedSelector: 'section[data-cy="product-list"]',
     noResultsXPath: null,
     zipcode: '',
   },
