@@ -47,7 +47,7 @@ module.exports = {
         // @ts-ignore
         closePopupButton.click();
       }
-      await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+      await new Promise((resolve, reject) => setTimeout(resolve, 2000));
       var enhancedContent = document.querySelector('div.syndi_powerpage');
       await new Promise((resolve, reject) => setTimeout(resolve, 1000));
       if (enhancedContent) {

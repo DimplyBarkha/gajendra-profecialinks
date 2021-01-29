@@ -52,7 +52,7 @@ fields:
   - name: manufacturerImages
     xpath: //div[contains(@class,"aplus-body")]//img/@src | //div[@class="enhancedContent"]//img/@src | //div[contains(@class, 'inpage_selector')]//img/@srcset
     regExp: (.*?)//(.*)
-    regExpReplace: http://$2
+    regExpReplace: https://$2
   # - name: videos
   #   xpath: 
   - name: name
