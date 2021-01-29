@@ -39,16 +39,16 @@ const transform = (data) => {
           item.text = 'https://www.melectronics.ch'.concat(item.text);
         });
       }
-      if (row.aggregateRating2) {
-        row.aggregateRating2.forEach(item => {
-          var myRegexp = /[Bewertung|Évaluation]:\s*([\d\.]+)/ig;
-          item.text = item.text.replace('.', ',').trim();
-          var match = myRegexp.exec(item.text);
-          if (match) {
-            row.aggregateRating2 = [{ text: match[1] }];
-          }
-        });
-      }
+      // if (row.aggregateRating2) {
+      //   row.aggregateRating2.forEach(item => {
+      //     var myRegexp = /[Bewertung|Évaluation]:\s*([\d\.]+)/ig;
+      //     item.text = item.text.replace('.', ',').trim();
+      //     var match = myRegexp.exec(item.text);
+      //     if (match) {
+      //       row.aggregateRating2 = [{ text: match[1] }];
+      //     }
+      //   });
+      // }
       if (row.name && row.brandText) {
         row.name.forEach(item => {
           item.text = row.brandText[0].text.concat(' ', item.text);
