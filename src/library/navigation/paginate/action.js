@@ -83,7 +83,7 @@ async function implementation (
 
   let url = openSearchDefinition ? false : await context.evaluate(function () {
     /** @type { HTMLLinkElement } */
-    const next = document.querySelector('head link[rel="next"]');
+    const next = document.querySelector('a[class="action  next"]');
     if (!next) {
       return false;
     }

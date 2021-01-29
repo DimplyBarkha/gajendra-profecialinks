@@ -10,24 +10,74 @@ const implementation = async function (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  const applyScroll = async function (context) {
-    await context.evaluate(async function () {
-      let scrollTop = 0;
-      while (scrollTop !== 20000) {
-        scrollTop += 1000;
-        window.scroll(0, scrollTop);
-        await stall(3000);
-      }
-      function stall (ms) {
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            resolve();
-          }, ms);
-        });
-      }
-    });
-  };
-  await applyScroll(context);
+  // working code for brands search terms
+  // const applyScroll = async function (context) {
+  //   await context.evaluate(async function () {
+  //     let scrollTop = 0;
+  //     while (scrollTop !== 20000) {
+  //       scrollTop += 1000;
+  //       window.scroll(0, scrollTop);
+  //       await stall(3000);
+  //     }
+  //     var clicking = document.querySelector('div.ias-trigger.ias-trigger-next > a')
+  //     if(clicking!=null){
+  //       clicking.click();
+  //     }
+  //     // while(!!document.querySelector('div.ias-trigger.ias-trigger-next > a')){
+  //     //   document.querySelector('div.ias-trigger.ias-trigger-next > a').click()
+  //     //   await new Promise(r => setTimeout(r, 5000));
+  //     // }
+  //     function stall (ms) {
+  //       return new Promise((resolve, reject) => {
+  //         setTimeout(() => {
+  //           resolve();
+  //         }, ms);
+  //       });
+  //     }
+  //   });
+  // };
+  // await applyScroll(context);
+
+  // working only for simple search terms
+
+  // const applyScroll = async function (context) {
+  //   await context.evaluate(async () => {
+  //     await new Promise((resolve, reject) => {
+  //       var totalHeight = 0;
+  //       var distance = 100;
+  //       var timer = setInterval(() => {
+  //         var scrollHeight = document.body.scrollHeight;
+  //         window.scrollBy(0, distance);
+  //         totalHeight += distance;
+
+  //         if(totalHeight >= scrollHeight){
+  //           clearInterval(timer);
+  //           resolve();
+  //         }
+  //       }, 100);
+  //     });
+  //   })
+  // }
+  // await applyScroll(context);
+
+  // const applyScroll = async function (context) {
+  //   await context.evaluate(async function () {
+  //     let scrollTop = 0;
+  //     while (scrollTop !== 20000) {
+  //       scrollTop += 1000;
+  //       window.scroll(0, scrollTop);
+  //       await stall(3000);
+  //     }
+  //     function stall (ms) {
+  //       return new Promise((resolve, reject) => {
+  //         setTimeout(() => {
+  //           resolve();
+  //         }, ms);
+  //       });
+  //     }
+  //   });
+  // };
+  // await applyScroll(context);
 
   // var close = document.querySelector('aside.modal-popup.popupseteskin.modal-slide._show > div.modal-inner-wrap > header > button')
   // if(close!=null){
