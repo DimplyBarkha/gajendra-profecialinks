@@ -92,6 +92,32 @@ module.exports = {
         }
         return value;
       });
+
+      const inTheboxText = await context.evaluate(() => {
+        let src = document.querySelectorAll('div.eky-accessory>div,div.tns-inner h1.eky-smaller');
+        const value = [];
+        retrieve(src);
+        function retrieve (src) {
+          for (let i = 0; i < src.length; i++) {
+            value.push(src[i].innerText);
+          }
+        }
+        return value;
+      });
+
+      const inTheboxUrls = await context.evaluate(() => {
+        let urls = document.querySelectorAll('div.eky-accessory>img,div.tns-inner video');
+        const value = [];
+        retrieve(urls);
+        function retrieve (urls) {
+          for (let i = 0; i < urls.length; i++) {
+            value.push(urls[i].getAttribute('src'));
+          }
+        }
+        return value;
+      });
+
+
       await context.goto(currentUrl, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
       await context.evaluate((video) => {
         video = video.join(' | ');
@@ -116,9 +142,19 @@ module.exports = {
         specificationText = specificationText.join('||')
         document.querySelector('body').setAttribute('added_specifications', specificationText);
       }, specificationText);
+
+      await context.evaluate((inTheboxText) => {
+        inTheboxText = inTheboxText.join('||')
+        document.querySelector('body').setAttribute('added_inTheboxText', inTheboxText);
+      }, inTheboxText);
+
+      await context.evaluate((inTheboxUrls) => {
+        inTheboxUrls = inTheboxUrls.join('||')
+        document.querySelector('body').setAttribute('added_inTheboxUrls', inTheboxUrls);
+      }, inTheboxUrls);
     }
 
-    await context.evaluate(async function () {
+    await context.evaluate(async function (inTheboxUrl) {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
@@ -220,6 +256,8 @@ module.exports = {
         const manufacturerImages = getAllXpath("//div[@class='flix-background-image inpage_wowimg']/img/@srcset", 'nodeValue');
         addElementToDocument('added_manufacturerImage', manufacturerImages);
       }, 10000);
+
+      
     });
     await context.extract(productDetails, { transform: transformParam });
   },
