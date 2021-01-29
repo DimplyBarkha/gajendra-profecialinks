@@ -172,7 +172,7 @@ module.exports = {
     store: '7now',
     domain: '7now.com',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//h2[@class="search__noResults-content-title"]/text()',
     zipcode: '',
   },
   implementation,
