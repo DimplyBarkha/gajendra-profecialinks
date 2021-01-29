@@ -4,6 +4,15 @@ parameters:
   domain: saksfifthavenue.com
   store: saksfifthavenue
   zipcode: ""
+extractionGlobals:
+  screenCapture: false
+  screenCaptureType: 'png'
+policy:
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 10 
+  backoffPolicy: LINEAR
+  retryWithResidentialProxyAfter: 2
 meta:
   branches:
     staging:
