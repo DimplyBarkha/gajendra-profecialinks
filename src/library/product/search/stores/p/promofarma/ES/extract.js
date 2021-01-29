@@ -50,8 +50,10 @@ module.exports = {
         let singleRating = aggregateRating[k].style.width;
         singleRating = singleRating.slice(0, singleRating.length - 1)
         singleRating = (5 * singleRating) / 100;
+        var review = String(singleRating)
+        singleRating = review.replace(".",",");
         // singleRating = singleRating.toFixed(2);
-        addHiddenDiv('aggregateRating', singleRating, k);
+        addHiddenDiv('aggregateRating', singleRating , k);
 
       }
       const url = window.location.href;
