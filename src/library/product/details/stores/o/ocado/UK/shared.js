@@ -104,7 +104,9 @@ const transform = (data) => {
         else if (text.includes('Additional Information:')) {
           fWarning = text.split('Additional Information:')[0].trim();
         } else {
-          fWarning = text2;
+          if(!text.includes('Origin:')) {
+            fWarning = text2;
+          }   
         }
         row.warnings = [{ text: fWarning.replace(/Additional Information: Caplets| Additional Information: Capsules/gm, '').trim() }];
       }
@@ -256,7 +258,9 @@ const transform = (data) => {
           } else if (row[nutritionalProp][0].text.match(/trace?|nil?/i)) {
             row[`${nutritionalProp}Uom`] = [{ text: '' }];
           } else {
-            row[`${nutritionalProp}Uom`] = [{ text: row.servingSizeUom[0].text }];
+            if(row.servingSizeUom) {
+              row[`${nutritionalProp}Uom`] = [{ text: row.servingSizeUom[0].text }];
+            }
           }
         }
       }
