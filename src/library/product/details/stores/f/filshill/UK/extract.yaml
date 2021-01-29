@@ -45,7 +45,7 @@ fields:
     singleValue: true
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
-    xpath: //table[@class='detailsTable']/tbody/tr[contains(.,'Ingredients')]/following-sibling::tr
+    xpath: /html/body/table/tbody/tr/td[2]/div/table[4]/tbody/tr[2]/td
   - name: numberOfServingsInPackage
     singleValue: true
     description: Suggested number of servings of the product.
@@ -121,3 +121,7 @@ fields:
     singleValue: true
     description: List of additives in the product
     xpath: //table[@class='detailsTable']/tbody/tr[contains(.,'Additives')]/following-sibling::tr
+  - name: url
+    singleValue: true
+    description: URL of the main product image
+    xpath: //div[@id="product_url"]  

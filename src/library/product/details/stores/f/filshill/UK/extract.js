@@ -1,10 +1,10 @@
-const { transform } = require('../../../../shared');
+const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'UK',
     store: 'filshill',
-    transform: null,
+    transform: cleanUp,
     domain: 'filshill.co.uk',
     zipcode: '',
   },
@@ -43,6 +43,8 @@ module.exports = {
         }
         return result;
       };
+
+      addElementToDocument('product_url',window.location.href);
 
       const saturatedUOM = getXpath("//table[@class='detailsTable']/tbody/tr/td/table/tbody/tr/td[contains(.,'saturates')]/following-sibling::td[1]",'innerText');
       console.log("saturatedfatuom: ", saturatedUOM);
@@ -100,7 +102,7 @@ module.exports = {
             console.log(tsaltuom[1]);
             }
             
-            const priceXpath = getXpath("//table[@class='detailsTable']/tbody/tr/td[contains(.,'Price')]/following-sibling::td[1]",'innerText');
+            const priceXpath = getXpath("/html/body/table/tbody/tr/td[1]/table[1]/tbody/tr[2]/td[2]",'innerText');
             console.log("priceXpath: ", priceXpath);
             if(priceXpath != null  ){
               const priceValue = priceXpath ? priceXpath.split('(') : [];
