@@ -109,10 +109,48 @@ module.exports = {
       const compareTableXpath = '//h1[contains(.,"Vergleich")]';
       const comparisionTable = getNodesFromxpath(compareTableXpath, document);
 
-      return { inTheBoxUrlArray, inTheBoxText, comparisionTable };
+      let aplusImages = document.querySelectorAll('div.gallery_d img, label img, div.feature span img, div.inthebox span img, div.brand img');
+      let aplusImage = [];
+      aplusImages.forEach(img => {
+        if (img.getAttribute('src')) {
+          aplusImage.push(img.getAttribute('src'));
+        }
+      })
+      const manufacturercDescr = document.querySelector('div#ds_div .container.threes');
+      const manufacturercDesc = manufacturercDescr && manufacturercDescr.innerText.trim();
+
+
+      let specsText = '';
+      if (document.querySelectorAll('div[class*="p-wrapper"] div[class*="p-spec"]').length !== 0) {
+        const specDivs = document.querySelectorAll('div[class*="p-wrapper"] div[class*="p-spec"]');
+        for (let i = 0; i < specDivs.length; i++) {
+          if (specDivs[i].querySelector('span[class*="p-val"]') && specDivs[i].querySelector('span[class*="p-val"]').innerText !== '') { specsText += specDivs[i].querySelector('span[class*="p-title"]').innerText + ' || ' + specDivs[i].querySelector('span[class*="p-text"]').innerText + ' || '; }
+          if (specDivs[i].querySelector('b') && specDivs[i].querySelector('b').innerText !== '') { specsText += specDivs[i].querySelector('p').innerText + ' || '; }
+        }
+      } else if (document.querySelectorAll('table td div[id*="ds_div"] p')) {
+        const specsParas = document.querySelectorAll('table td div[id*="ds_div"] p');
+        for (let i = 0; i < specsParas.length; i++) {
+          if (!specsParas[i].innerText.includes('Specifications')) { specsText += specsParas[i].innerText + ' || '; }
+        }
+      }
+      if (document.querySelectorAll('div[class*="container"] div[class="spec"]').length !== 0) {
+        const specDivs = document.querySelectorAll('div[class*="container"] div[class="spec"]');
+        for (let i = 0; i < specDivs.length; i++) {
+          if (specDivs[i].querySelector('span[class*="val"]') && specDivs[i].querySelector('span[class*="val"]').innerText !== '') { specsText += specDivs[i].querySelector('span[class*="title"]').innerText + ' || ' + specDivs[i].querySelector('span[class*="val"]').innerText + ' || '; }
+          if (specDivs[i].querySelector('b') && specDivs[i].querySelector('b').innerText !== '') { specsText += specDivs[i].querySelector('p').innerText + ' || '; }
+        }
+      }
+
+      return { inTheBoxUrlArray, inTheBoxText, comparisionTable, aplusImage, specsText, manufacturercDesc };
     });
 
     await context.goto(currentUrl, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
+
+    try {
+      await context.waitForSelector('iframe#desc_ifr');
+    } catch (err) {
+      console.log(err);
+    }
 
     await context.evaluate(async function (inTheBoxUrl) {
       function addHiddenDiv(id, content) {
@@ -128,14 +166,22 @@ module.exports = {
         addHiddenDiv('hasComparisionTable', 'Yes');
       }
 
-      const inTheboxText = inTheBoxUrl.inTheBoxUrlArray.join(' || ')
+      const inTheboxText = inTheBoxUrl.inTheBoxText.join(' || ')
       addHiddenDiv('inTheBoxText', inTheboxText);
 
-      const inTheboxUrls = inTheBoxUrl.inTheBoxText.join(' || ')
+      const inTheboxUrls = inTheBoxUrl.inTheBoxUrlArray.join(' || ')
       addHiddenDiv('inTheBoxUrl', inTheboxUrls);
 
+      console.log('inTheBox code execution completed');
+
+      const aplusImages = inTheBoxUrl.aplusImage.join(' || ')
+      addHiddenDiv('manufacturerImages', aplusImages);
+
+      addHiddenDiv('manufacturercDesc', inTheBoxUrl.manufacturercDesc);
+
+
+      addHiddenDiv('specsDiv', inTheBoxUrl.specsText);
     }, inTheBoxUrl);
-    console.log('inTheBox code execution completed');
     return await await context.extract(productDetails, { transform });
 
   },
