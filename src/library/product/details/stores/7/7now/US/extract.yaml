@@ -12,16 +12,16 @@ fields:
   - name: category
     singleValue: false
     # xpath: //ol[@class="MuiBreadcrumbs-ol"]//li[position()>4]/p
-    xpath: ///div[@class="product_category"]
+    xpath: //div[@class="product_category"]
   - name: nameExtended
     singleValue: false
     xpath: //h1[@class="productPage-main-productDetail-title"]
   - name: name
     singleValue: false
     xpath: //h1[@class="productPage-main-productDetail-title"]
-  # - name: price
+  # - name: alternateImages
   #   singleValue: false
-  #   xpath: //span[@class="productPage-main-productDetail-purchase-price"]//text()[2]
+  #   xpath: (//img[@class="productImages"]/@src)[position()>1]
   - name: description
     singleValue: false
     xpath: //div[@class="productPage-main-productDetail-description"]
@@ -30,10 +30,10 @@ fields:
     xpath: //div[@class="product_size"]
   - name: caloriesPerServing
     singleValue: false
-    xpath: ///div[@class="product_calories"]
+    xpath: //div[@class="product_calories"]
   - name: brandText
     singleValue: false
-    xpath: ///div[@class="product_brand"]
+    xpath: //div[@class="product_brand"]
   # - name: gtin
   #   singleValue: false
   #   xpath: ///div[@class="upc"]

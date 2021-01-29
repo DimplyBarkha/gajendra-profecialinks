@@ -27,7 +27,7 @@ async function implementation (
   }
 
   let tmpUrl = url.replace('https://www.7now.com/search-results/', '').replace(/-/g, ' ');
-  const othUrl = 'https://delivery.7-eleven.com/product-details/'
+  const othUrl = 'https://delivery.7-eleven.com/product-details/';
   if (url.includes(othUrl)) {
     tmpUrl = url.replace(othUrl, '').replace(/-/g, ' ');
   }
@@ -45,7 +45,7 @@ async function implementation (
           'content-type': 'application/json',
           origin: 'https://www.7now.com',
           referer: 'https://www.7now.com/search-results',
-          cookie: '_ga=GA1.2.1299514167.1611771920; _gid=GA1.2.506073184.1611771920; _gcl_au=1.1.2101909062.1611771940; _fbp=fb.1.1611772047791.1707602959; __stripe_mid=d8cfda3f-7aa8-4cb5-a472-357ebc94d8b228aeba; __stripe_sid=91514019-2bdf-4330-8dc0-26edf4aa42a1e4395c; mp_d105ce5cd51de6bfd5902f950038a82c_mixpanel=%7B%22distinct_id%22%3A%20%221774517ba7958-0dd19bd6466f0f-13e3563-1fa400-1774517ba7a382%22%2C%22%24device_id%22%3A%20%221774517ba7958-0dd19bd6466f0f-13e3563-1fa400-1774517ba7a382%22%2C%22%24initial_referrer%22%3A%20%22%24direct%22%2C%22%24initial_referring_domain%22%3A%20%22%24direct%22%7D; mp_9a92fde9c1e57929204c3058109a9375_mixpanel=%7B%22distinct_id%22%3A%20%221774517ba622de-0752e05effce21-13e3563-1fa400-1774517ba632f6%22%2C%22%24device_id%22%3A%20%221774517ba622de-0752e05effce21-13e3563-1fa400-1774517ba632f6%22%2C%22%24initial_referrer%22%3A%20%22%24direct%22%2C%22%24initial_referring_domain%22%3A%20%22%24direct%22%7D',
+          // cookie: '_ga=GA1.2.1299514167.1611771920; _gid=GA1.2.506073184.1611771920; _gcl_au=1.1.2101909062.1611771940; _fbp=fb.1.1611772047791.1707602959; __stripe_mid=d8cfda3f-7aa8-4cb5-a472-357ebc94d8b228aeba; __stripe_sid=d549429e-fcd4-4817-ad68-3ec44c1c46c9a99581; mp_9a92fde9c1e57929204c3058109a9375_mixpanel=%7B%22distinct_id%22%3A%20%221774517ba622de-0752e05effce21-13e3563-1fa400-1774517ba632f6%22%2C%22%24device_id%22%3A%20%221774517ba622de-0752e05effce21-13e3563-1fa400-1774517ba632f6%22%2C%22%24initial_referrer%22%3A%20%22%24direct%22%2C%22%24initial_referring_domain%22%3A%20%22%24direct%22%7D; mp_d105ce5cd51de6bfd5902f950038a82c_mixpanel=%7B%22distinct_id%22%3A%20%221774517ba7958-0dd19bd6466f0f-13e3563-1fa400-1774517ba7a382%22%2C%22%24device_id%22%3A%20%221774517ba7958-0dd19bd6466f0f-13e3563-1fa400-1774517ba7a382%22%2C%22%24initial_referrer%22%3A%20%22%24direct%22%2C%22%24initial_referring_domain%22%3A%20%22%24direct%22%2C%22%24search_engine%22%3A%20%22google%22%7D; _gat_UA-176265559-1=1',
         },
         body: JSON.stringify(data),
       });
