@@ -24,13 +24,32 @@ module.exports = {
         else result = elem ? elem.singleNodeValue : '';
         return result && result.trim ? result.trim() : result;
       };
+      //promotion//
+      const promo1 = getXpath("//div[@class='circle red-bg size-100']/div[@class='text_small']/text()",'nodeValue');
+      const promo2 = getXpath("//div[@class='circle red-bg size-100']/div[@class='text_big  text_subline']/text()[1]",'nodeValue');
+      const promo3 = getXpath("//div[@class='circle red-bg size-100']/div[@class='text_big  text_subline']/span/text()",'nodeValue');
+      var promotion = ""
+      if (promo1 != null){
+        promotion = promotion + promo1
+      }
+      if (promo2 != null){
+        promotion = promotion + ' ' + promo2
+      }
+      if (promo2 != null){
+        promotion = promotion + ' ' + promo3
+      }
+      if (promotion.length >= 1){
+        addElementToDocument('promotion', promotion);
+      }
+
       // @ts-ignore
       const rawdata = getXpath("//script[@type='application/ld+json']/text()",'nodeValue');
       const jsondata = JSON.parse(rawdata);
       var currency = jsondata.offers.priceCurrency;
       var price = jsondata.offers.price;
       if (price != null){
-        price = price + " " + currency
+        var num = Number(price)
+        price = num + " " + currency
         addElementToDocument('price', price);
       }
       

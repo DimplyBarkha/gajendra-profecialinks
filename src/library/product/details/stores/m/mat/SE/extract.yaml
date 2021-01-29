@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //meta[@property="og:image"]/@content
+    xpath: //div[@class="prodcutpic"]/img/@src
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -20,7 +20,7 @@ fields:
     xpath: //div[@class='list']/a/text()
   - name: nameExtended
     singleValue: true
-    xpath: concat(//div[@class="heading"]/span/text(),'-',//meta[@property="og:title"]/@content)
+    xpath: //div[@class="heading"]/h1/text()
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -393,7 +393,7 @@ fields:
     description: The unit of measurement used in price_per_unit
   - name: promotion
     singleValue: true
-    description: promotion text on product page
+    xpath: //html//div[@id="promotion"]
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
