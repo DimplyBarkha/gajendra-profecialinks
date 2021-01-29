@@ -323,8 +323,8 @@ const transform = (data, context) => {
         const availabilityMap = {
           usually: 'In Stock',
           genellikle: 'Stokta var',
-          generalmente: 'En Stock',
-          habituellement: 'En Stock',
+          generalmente: 'Disponibile',
+          habituellement: 'En stock',
         };
         const match = row.availabilityText[0].text.match(usuallyShipsRegex);
         if (match) {
