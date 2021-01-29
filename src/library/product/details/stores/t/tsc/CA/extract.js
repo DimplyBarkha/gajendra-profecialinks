@@ -118,8 +118,8 @@ async function implementation (
       thisImage = secImage.iterateNext();
     }
     //@ts-ignore.
-    const imageArray = [...new Set(allImages)].filter(u => u !== mainImage);
-    document.querySelector('body').setAttribute('sec-images', imageArray.join(' | '));
+    // const imageArray = [...new Set(allImages)].filter(u => u !== mainImage);
+    document.querySelector('body').setAttribute('sec-images', allImages.join(' | '));
   });
 
   await new Promise(resolve => setTimeout(resolve, 20000));
