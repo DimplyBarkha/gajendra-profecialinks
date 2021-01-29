@@ -5,8 +5,7 @@ recordXPath: null
 fields:
 - name: url
   description: URL of the main product page
-  # xpath: //link[@hreflang='de-DE']/@href
-  xpath: //div[@class="article-title"]/a[@id="searchList_1"]/@href
+  xpath: //link[@hreflang='de-DE']/@href
 - name: image
   singleValue: true
   description: URL of the main product image
@@ -45,8 +44,8 @@ fields:
   type: CURRENCY
   description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-  # xpath: (//span[@class='article-price-default article-club-hidden'])[1]
-  xpath: //meta[@itemprop="price"]/@content
+  xpath: //div[@class="col-sm-fixed-310-offset"]//span[@class='article-price-default article-club-hidden']
+  # xpath: //meta[@itemprop="price"]/@content
 - name: availabilityText
   singleValue: true
   xpath: //meta[@itemprop="availability"]/@content
@@ -69,8 +68,7 @@ fields:
   description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   type: TEXT
-  xpath: (//div[@class='modal-title h4'])[1]//text()
-  regExp: '([\w]+\s+){2}'
+  xpath: //meta[@itemprop="name"]/@content
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
