@@ -17,7 +17,7 @@ module.exports = {
   ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    await context.waitForSelector('.ui-search-results', { timeout: 30000 });
+    await context.waitForSelector('.ui-search-results', { timeout: 18000 });
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
         let scrollTop = 0;
@@ -26,7 +26,7 @@ module.exports = {
           scrollTop += 1000;
           window.scroll(0, scrollTop);
           if (scrollTop >= 20000) {
-            await stall(5000);
+            await stall(2000);
             break;
           }
         }

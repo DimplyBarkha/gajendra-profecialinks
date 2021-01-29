@@ -5,12 +5,12 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //*[@id="root-app"]/div/div/div/div[1]/div[1]/div/div/div/div[2]/span/figure/img/@src | //*[@id="gallery_dflt"]/div/figure[1]/a/img/@src
+    xpath: //*[@id="root-app"]/div/div/div/div[1]/div[1]/div/div/div/div[2]/span/figure/img/@src | //*[@id="gallery_dflt"]/div/figure[1]/a/img/@src | //*[@id="root-app"]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div/div[2]/span[1]/figure/img/@src | //div/div[2]/span[1]/figure/img/@src
   - name: imageAlt
     xpath: //span[@class='ui-pdp-gallery__wrapper'][1]/label/div/div/img[@class='ui-pdp-image']/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //*[@id="root-app"]/div/div/div/div[1]/div[1]/div/div/div/div[2]/span/figure/img/@data-zoom | //*[@id="gallery_dflt"]/div/figure/a/img/@src
+    xpath: //*[@id="root-app"]/div/div/div/div[1]/div[1]/div/div/div/div[2]/span/figure/img/@data-zoom | //*[@id="gallery_dflt"]/div/figure/a/img/@src | //div/div[2]/span/figure/img/@src
   - name: _pageTimestamp
   - name: url
     xpath: //div[@id='url']
@@ -21,8 +21,10 @@ fields:
     singleValue: false
     xpath: //ul[@class='andes-breadcrumb']/li[@class='andes-breadcrumb__item']/a[@class='andes-breadcrumb__link']
   - name: nameExtended
+#    singleValue: true
     xpath: //div[@class='ui-pdp-header']/h1[@class='ui-pdp-title'] | //h1[@class='item-title__primary']
   - name: name
+#    singleValue: true
     xpath: //div[@class='ui-pdp-header']/h1[@class='ui-pdp-title'] | //h1[@class='item-title__primary']
   - name: listPrice
     xpath: //del[@class='price-tag ui-pdp-price__part ui-pdp-price__original-value price-tag__disabled']
@@ -39,9 +41,9 @@ fields:
   - name: weightNet
     xpath: //script[@type='application/ld+json']
   - name: sku
-    xpath: //script[@type='application/ld+json']
+    xpath: //section/div/form/input[1]/@value
   - name: variantId
-    xpath: //script[@type='application/ld+json']
+    xpath: //section/div/form/input[1]/@value
   - name: packSize
     xpath: //span[@class='ui-pdp-buybox__quantity__selected']
   - name: gtin

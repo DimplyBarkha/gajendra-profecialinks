@@ -29,8 +29,10 @@ const transform = (data) => {
         if (gr && gr.brandText) {
           const mainInfo = JSON.parse(gr.brandText[0].text);
           gr.brandText = [{ text: mainInfo.brand ? mainInfo.brand.replace("'", ' ') : '' }];
-          gr.sku = [{ text: mainInfo.sku }];
-          gr.variantId = [{ text: mainInfo.productID }];
+          if (!gr.sku) {
+            gr.sku = [{ text: mainInfo.sku }];
+            gr.variantId = [{ text: mainInfo.productID }];
+          }
           gr.weightNet = [{ text: mainInfo.weight ? mainInfo.weight : '' }];
           try {
             gr.ratingCount = [{ text: mainInfo.aggregateRating.reviewCount }];
@@ -46,7 +48,18 @@ const transform = (data) => {
 
         if (gr.gtin) {
           try {
-            gr.gtin[0].text = gr.gtin[0].text.match(/SKU .*|SKU: .*/)[0].replace(/SKU |SKU: /, '').trim();
+            const start = gr.gtin[0].text.indexOf('SKU');
+            if (start > -1) {
+              const t = gr.gtin[0].text.slice(start + 4, gr.gtin[0].text.length)
+                .replace(':', '')
+                .replace(/(\n \n \n \n|\n \n \n|\n \n|\r\n|\n|\r)/gm, ' ')
+                .trim();
+              const end = t.indexOf(' ');
+              gr.gtin[0].text = t.slice(0, end).trim();
+            } else {
+              gr.gtin[0].text = '';
+            }
+            // gr.gtin[0].text = gr.gtin[0].text.match(/SKU .*|SKU: .*/)[0].replace(/SKU |SKU: /, '').trim();
           } catch (e) {
             gr.gtin[0].text = '';
           }
