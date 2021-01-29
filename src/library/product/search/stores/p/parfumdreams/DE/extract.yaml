@@ -26,6 +26,9 @@ fields:
     xpath: //div[@class='product-image c d-12']/a/@onclick
     regExp: simpleId\":\"(.*)\",\"price\"
     regExpReplace: $1
+  - name: gtin
+    singleValue: false
+    xpath: //html//div[@id='ean']
   - name: rankOrganic
     singleValue: false
     #xpath: //div[@class='product-image c d-12']/a/@onclick

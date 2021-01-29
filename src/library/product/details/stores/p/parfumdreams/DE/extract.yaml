@@ -8,6 +8,9 @@ fields:
     xpath: /html/head/title
     regExp: (.*) \|
     regExpReplace: $1
+  - name: id
+    singleValue: true
+    xpath: (//meta[@itemprop='sku']/@content)[1]
   - name: productUrl
     singleValue: true
     xpath: //link[@rel="canonical"]/@href
@@ -36,7 +39,9 @@ fields:
     xpath: //h1[@class='hide-text']
   - name: sku
     singleValue: true
-    xpath: //*[@id="right-column"]/div/meta/@content
+    xpath: //div[@id='articlenumberDiv']
+    regExp: (\d*)
+    regExpReplace: $1
   - name: mpc
     singleValue: true
     #xpath: //*[@id="right-column"]/div/meta/@content   
