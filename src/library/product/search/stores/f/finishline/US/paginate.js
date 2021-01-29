@@ -9,7 +9,10 @@ module.exports = {
     spinnerSelector: null,
     loadedSelector: null,
     noResultsXPath: null,
-    openSearchDefinition: null,
+    openSearchDefinition: {
+      template: 'https://www.finishline.com/store/_/N-/Ntt-{searchTerms}?isrfk=true#?No={page}',
+    },
+    // openSearchDefinition: ,
     domain: 'finishline.com',
     zipcode: '',
   },

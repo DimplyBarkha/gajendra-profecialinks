@@ -4,23 +4,24 @@ recordSelector: null
 recordXPath: null
 fields: 
  - name: id
-   singleValue: true
-   description: URL of the main product image
-   xpath: //div[@id="reflektionList"]//div/@data-sku
+  #  xpath: //div[@id="reflektionList"]/div/@data-prodid
+  #  xpath: //div[@id="reflektionList"]/div/@id
+   xpath: //div[@id="reflektionList"]/div/@data-sku
  - name: name
    singleValue: true
    description: Alt text of the main product image
    xpath: //div[@class="product-card__details"]//h2//text()
  - name: productUrl
-   singleValue: false
+   singleValue: true
    description: Other product images (not in manufacturer description)
    xpath: //div[@class="product-card__details"]/a/@href
    regExp: [^(.*)$] 
    regExpReplace: 'https://www.finishline.com/$1'
  - name: thumbnail
-   singleValue: true
+  #  singleValue: true
    description: URL of the main product image
-   xpath: //img[@class="productImage b-lazy b-loaded"]/@src
+   xpath: //div[@class="row product-grid"]/div/a/div/div[1]/picture/img/@src
+  #  xpath: //img[@class="productImage b-lazy b-loaded"]/@src
  - name: aggregateRating
    singleValue: true
    description: Alt text of the main product image

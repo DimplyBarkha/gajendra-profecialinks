@@ -45,7 +45,8 @@ fields:
     description: Product manufacturer
   - name: quantity
     singleValue: false
-    xpath: //*[@id="productSizes"]/div//button[0]/@aria-label
+    xpath: //div[@class="block-grid--sizes small-up-5 large-up-8 no-bullet mb-0 productSizeOptions"]
+    # xpath: //*[@id="productSizes"]/div//button[0]/@aria-label
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -57,7 +58,7 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: true
-    xpath: //div[@id="sku"]
+    xpath: //div[@id="styleColors"]/span[@class="styleColorIds"]
   - name: variantId
     singleValue: true
     xpath: //*[@id="productItemId"]/@value
