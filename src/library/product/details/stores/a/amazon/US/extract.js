@@ -109,6 +109,15 @@ async function implementation(
         document.body.setAttribute('seller-prime', sellerPrime);
         document.body.setAttribute('seller-id', sellerId);
         console.log(data);
+        let product_purchasable = 'In stock';
+        let availability = document.querySelector('#availability > span') ? document.querySelector('#availability > span').innerText.replace(/\n/g, "") : null;
+        // Check for the selector
+        if (availability) {
+            if (availability.toLowerCase().includes("unavailable") || availability.toLowerCase().includes("out of stock")) {
+                product_purchasable = 'Out of stock';
+            }
+        }
+        document.body.setAttribute('availability', product_purchasable);
         return data;
     }
     await helpers.addURLtoDocument('added-url');
