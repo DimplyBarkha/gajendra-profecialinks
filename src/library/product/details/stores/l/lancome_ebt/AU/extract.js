@@ -74,10 +74,10 @@ module.exports = {
         addElementToDocument('ab', ab);
       }
 
-      // Code for variant piping {ml , gm , color}
+      // Code for variants
       var varBy;
-      var variantBySize = getAllXpath('(//div[contains(@class,"product-variation-size__inner product-variation-size--change")]/text())', 'nodeValue');
-      var variantByColor = getAllXpath('(//div[contains(@class,"product-variation-shade__item")]/a/@title)', 'nodeValue');
+      var variantBySize = getAllXpath('(//div[contains(@class,"product-variation-size__inner product-variation-size--change")]/parent::div/@data-productid)', 'nodeValue');
+      var variantByColor = getAllXpath('(//div[contains(@class,"product-variation-shade__item")]/a/@data-pid)', 'nodeValue');
       if (variantBySize.length > 0) {
         varBy = variantBySize.join(' | ');
         addElementToDocument('varBy', varBy);
