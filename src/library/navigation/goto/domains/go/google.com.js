@@ -12,6 +12,7 @@ module.exports = {
     await context.setAntiFingerprint(false);
     await context.setUseRelayProxy(false);
     await context.setJavaScriptEnabled(true);
+    await context.setUserAgent('Mozilla/5.0 (Macintosh; Intel Mac OS X 10.16; rv:85.0) Gecko/20100101 Firefox/85.0');
 
     await context.goto(url, {
       timeout: 15000,
