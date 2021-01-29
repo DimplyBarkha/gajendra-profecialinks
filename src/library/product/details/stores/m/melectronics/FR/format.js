@@ -76,17 +76,17 @@ const transform = (data) => {
         });
         const uniqueSpecifications = new Set(specificationsArr);
         const specificationsArray = [];
-        uniqueSpecifications.forEach((item) => {
-          item.split(':').forEach((element, index) => {
-            if (index % 2 === 0) {
-              specificationsArray.push(item + '|');
-            } else {
-              specificationsArray.push(item + ':');
-            }
-          });
+        const lengthOfSpecification = uniqueSpecifications.values().next().value.split(':').length;
+        uniqueSpecifications.values().next().value.split(':').forEach((element, index) => {
+          if (index % 2 === 0) {
+            specificationsArray.push(element + ':');
+          } else if (index < lengthOfSpecification - 1) {
+            specificationsArray.push(element + '|');
+          } else {
+            specificationsArray.push(element);
+          }
         });
-        console.log('specificationsArray ==> ' + specificationsArray);
-        row.specifications = [{ text: specificationsArray.join(' | '), xpath: row.specifications[0].xpath }];
+        row.specifications = [{ text: specificationsArray.join(''), xpath: row.specifications[0].xpath }];
       }
       if (row.nameExtended && row.brandText) {
         var nameExtendedText = row.nameExtended[0].text.includes(row.brandText[0].text) ? row.nameExtended[0].text.replace(row.brandText[0].text, row.brandText[0].text + ' -') : row.brandText[0].text + ' - ' + row.nameExtended[0].text;
@@ -102,7 +102,6 @@ const transform = (data) => {
         const categoryArray = row.category.map((item) => item.text);
         const uniqueCategoryList = new Set(categoryArray);
         uniqueCategoryList.forEach((item) => { categoryList.push({ text: item }); });
-        console.log('listItems =>', categoryList);
         row.category = categoryList;
       }
 
