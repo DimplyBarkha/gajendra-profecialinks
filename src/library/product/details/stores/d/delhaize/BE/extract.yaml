@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: //main
@@ -73,14 +73,14 @@ fields:
     xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "verpakking")]/following::p[1]
   - name: servingSize
     singleValue: false
-    xpath: //h3[contains(text(), "Voeding")]/following::div//table//thead//th[not(contains(text(), "Per")) and not (contains(text(),"Portie")) ]
+    xpath: (//h3[contains(text(), "Voeding")]/following::div//table//thead//th[not(contains(text(), "Per")) and not (contains(text(),"Portie")) ])[1]
     regExp: (\d+)
     regExpReplace: $1
   - name: servingSizeUom
     singleValue: false
-    xpath: //h3[contains(text(), "Voeding")]/following::div//table//thead//th[not(contains(text(), "Per")) and not (contains(text(),"Portie")) ]
-    regExp: (\d+)([a-zA-Z].*)
-    regExpReplace: $2
+    xpath: (//h3[contains(text(), "Voeding")]/following::div//table//thead//th[not(contains(text(), "Per")) and not (contains(text(),"Portie")) ])[1]
+    regExp: ([a-zA-Z]+)
+    regExpReplace: $1
   - name: caloriesPerServing
     singleValue: false
     xpath: //td[contains(text(), "Energie")]/following::td[1]
