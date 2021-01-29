@@ -32,7 +32,7 @@ async function implementation (
     await context.waitForFunction((selector) => {
       console.log(selector, document.querySelector(selector));
       return !document.querySelector(selector);
-    }, { timeout: 20000 }, spinnerSelector);
+    }, { timeout: 30000 }, spinnerSelector);
     console.log('Spinner went away', spinnerSelector);
     return true;
   }
@@ -49,12 +49,20 @@ async function implementation (
 
   if (nextLinkSelector) {
     console.log('Clicking', nextLinkSelector);
-    await context.clickAndWaitForNavigation(nextLinkSelector, {}, { timeout: 20000 });
+    await context.clickAndWaitForNavigation(nextLinkSelector, {}, { timeout: 30000 });
     if (loadedSelector) {
-      await context.waitForSelector(loadedSelector, { timeout: 20000 });
+      try {
+        await context.waitForSelector(loadedSelector, { timeout: 30000 });
+      } catch(err) {
+        console.log('we got some error while waiting for', loadedSelector, err.message);
+      }
     }
     if (loadedXpath) {
-      await context.waitForXPath(loadedXpath, { timeout: 20000 });
+      try {
+        await context.waitForXPath(loadedXpath, { timeout: 30000 });
+      } catch(err) {
+        console.log('we got some error while waiting for', loadedXpath, err.message);
+      }
     }
     return true;
   }
