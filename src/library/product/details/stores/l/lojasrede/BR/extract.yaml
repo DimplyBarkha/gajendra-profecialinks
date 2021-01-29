@@ -78,16 +78,17 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //div[@id="brand"]//a/@href
-    regExp: \w+-?\w+
+    # xpath: //div[@id="brand"]//a/@href
+    xpath: //div[@itemprop="brand"]/meta/@content
+    # regExp: \w+-?\w+
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    xpath: //a[@class="itemShare fb"]/@href
-    regExp: (\d+g)|(\d+ml)
+    xpath: //div[@class="product-name"]//div
+    regExp: (\d+.?g)|(\d+.?ml)
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -97,7 +98,7 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: //meta[@itemprop="gtin13"]/@content
+    xpath: //meta[contains(@itemprop,"gtin")]/@content
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -113,8 +114,8 @@ fields:
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
-    xpath: //a[@class="itemShare fb"]/@href
-    regExp: \d+-?unidades
+    xpath: //div[@class="product-name"]//div
+    regExp: \d+.?unidades|\d+.?Unidades
     # regExp: (.+)(\d+)(-?unidades)(.+)
     # regExpReplace: $2
   - name: legalDisclaimer
