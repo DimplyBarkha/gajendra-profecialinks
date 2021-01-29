@@ -1,0 +1,73 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: name
+    singleValue: true
+    xpath: //span[contains(@property, "name")]
+  - name: nameExtended
+    singleValue: true
+    xpath: //span[contains(@property, "name")]
+  - name: description
+    singleValue: true
+    xpath: //div[contains(@class,"product-description")]
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,"product-image-gallery")]//img/@src
+  - name: imageAlt
+    singleValue: true
+    xpath: //div[contains(@class,"product-image-gallery")]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: (//div[contains(@class,"product-image-gallery")]//img/@src)[position()>1]
+  - name: brandText
+    singleValue: true
+    xpath: //li[contains(@class,'marca hide-hover')]
+  - name: quantity
+    singleValue: true
+    xpath: //li[contains(@class,'quantidade hide-hover')]
+  - name: sku
+    singleValue: true
+    xpath: //*[contains(@class,"first odd")]//td
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[contains(@name, "keywords")]/@content
+  - name: price
+    singleValue: false
+    xpath: //p[@class="special-price"]//span[@class="price"]//span[2] | //span[@class="regular-price"]//span[2]
+  - name: ratingCount
+    singleValue: true
+    xpath: //span[contains(@class, 'ts-shelf-right ts-shelf-rate-count')]/span
+  - name: url
+    singleValue: true
+    xpath: //meta[@property='og:url']/@content
+  - name: manufacturer
+    singleValue: true
+    xpath: //table[@id='product-attribute-specs-table']
+  - name: featureBullets
+    singleValue: true
+    xpath: //table[@id='product-attribute-specs-table']
+  - name: availabilityText
+    singleValue: true
+    xpath: //script[@type="application/ld+json"]
+  - name: aggregateRating
+    singleValue: true
+    xpath: //a[@class='trustvox-fluid-jump trustvox-widget-rating']/div[@class='trustvox-shelf-container']/div/div/span[@class='ts-shelf-left ts-shelf-rate-value ts-shelf-rate-count ts-shelf-rate-enabled']/span[1]
+  - name: promotion
+    singleValue: true
+    xpath: //div[contains(@class,"raia-arrasa")]
+  - name: listPrice
+    singleValue: true
+    xpath: //p[@class="old-price"]/span[@class="price"]
+    regExp: (?<=^..)(.*)
+    regExpReplace: $1
+  - name: weightNet
+    singleValue: true
+    xpath: //div[@class='page']/div[@class='main-container col1-layout']/div[@class='main']/div[@class='col-main']/div[@class='rd-main']/div[@class='product-view']/div[@class='product-essential']/form[@id='product_addtocart_form']/div[@id='details']/div[@id='myTabContent']/div[@id='caract']/div/table[@id='product-attribute-specs-table']/tbody/tr[@class='odd'][1]/td[@class='data last']
+  - name: gtin
+    singleValue: true
+    xpath: //div[@class='page']/div[@class='main-container col1-layout']/div[@class='main']/div[@class='col-main']/div[@class='rd-main']/div[@class='product-view']/div[@class='product-essential']/form[@id='product_addtocart_form']/div[@id='details']/div[@id='myTabContent']/div[@id='caract']/div/table[@id='product-attribute-specs-table']/tbody/tr[@class='even'][1]/td[@class='data last']
+  - name: eangtin
+    singleValue: true
+    xpath: //div[@class='page']/div[@class='main-container col1-layout']/div[@class='main']/div[@class='col-main']/div[@class='rd-main']/div[@class='product-view']/div[@class='product-essential']/form[@id='product_addtocart_form']/div[@id='details']/div[@id='myTabContent']/div[@id='caract']/div/table[@id='product-attribute-specs-table']/tbody/tr[@class='even'][1]/td[@class='data last']

@@ -18,6 +18,7 @@ async function implementation(inputs, parameters, context, dependencies) {
 }
 
 module.exports = {
+  implements: 'navigation/paginate',
   parameterValues: {
     country: "BR",
     store: "drogaraia",
