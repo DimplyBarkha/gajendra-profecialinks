@@ -33,8 +33,8 @@ const transform = (data) => {
         }
         row.specifications = [{ text: specs, xpath: xpath }];
       }
-      if (row.listPrice && row.listPrice[0]) {
-        row.listPrice[0].text = row.listPrice[0].text.replace(',', '.');
+      if (row.price && row.price[0]) {
+        row.price[0].text = row.price[0].text.replace('.', ',');
       }
       if (row.availabilityText) {
         let stockPos = row.availabilityText[0].text;
