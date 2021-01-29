@@ -46,14 +46,17 @@ const transform = (data) => {
       // Price
       if (row.price && row.price[0]) {
         row.price[0].text = row.price[0].text.replace(/\./g, ',');
+        row.price[0].raw = row.price[0].text;
       }
       // List Price
       if (row.listPrice && row.listPrice[0]) {
         row.listPrice[0].text = row.listPrice[0].text.replace(/\./g, ',');
+        row.listPrice[0].raw = row.listPrice[0].text;
       }
       // Aggregate Rating
       if (row.aggregateRating && row.aggregateRating[0]) {
         row.aggregateRating[0].text = row.aggregateRating[0].text.replace(/\./g, ',');
+        row.aggregateRating[0].raw = row.aggregateRating[0].text;
       }
       // Category
       if (row.category) {
