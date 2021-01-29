@@ -3,13 +3,21 @@ const { transform } = require('../../../../shared');
 async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+
+  // load images
   await context.evaluate(async () => {
     // @ts-ignore
     if (window !== undefined) {
       return window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
     }
   });
-
+  await new Promise((resolve, reject) => setTimeout(resolve, 4000));
+  await context.evaluate(async () => {
+    // @ts-ignore
+    if (window !== undefined) {
+      return window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  });
   await new Promise((resolve, reject) => setTimeout(resolve, 4000));
 
   await context.evaluate(() => {
