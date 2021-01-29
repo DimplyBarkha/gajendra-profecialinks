@@ -8,10 +8,10 @@ fields:
     xpath: //span[@itemprop = "aggregateRating"]//meta[@itemprop = "ratingValue"]//@content
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class, "image-slider--thumbnails-slide")]//a[position()>1]/@href
+    xpath: //div[contains(@class, "slick-list")]//div[contains(@class, "bzfy-o-image-container")]//img/@src
   - name: secondaryImageTotal
     singleValue: false
-    xpath: count(//div[contains(@class, "image-slider--thumbnails-slide")]//a[position()>1]/@href)
+    xpath: count(//div[contains(@class, "slick-list")]//div[contains(@class, "bzfy-o-image-container")]//img/@src)
   - name: availabilityText
     singleValue: false
     xpath: //link[@itemprop = "availability"]//@href
@@ -29,7 +29,7 @@ fields:
     xpath: //td[contains(@class, "product--properties-label")]//h4[contains(text(), "colour:")]//parent::td//following-sibling::td
   - name: description
     singleValue: false
-    xpath: concat(//div[@class='content--description']//div[@class='content--title']//h3,' ',//div[contains(@class, "product--description")]//p[1])
+    xpath: //div[contains(@class, "product--description")]//p[1]
   - name: gtin
     singleValue: false
     xpath: //div[@id="import_product_ean"]
@@ -48,6 +48,9 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[contains(@class, "product-slider--container")]//div[contains(@class, "blog--box-description-short")]
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@class="emotion--banner"]//img/@src
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name = "keywords"]/@content
@@ -56,7 +59,7 @@ fields:
     xpath: //h1[@itemprop = "name"]/text()
   - name: nameExtended
     singleValue: false
-    xpath: //h1[@itemprop = "name"]/text()
+    xpath: //meta[@property="product:brand"]/@content | //h1[@itemprop = "name"]/text() | //div[@class='product--configurator']//div[@class='variant--option is--button is--active']/label[@class='option--label']
   - name: price
     singleValue: false
     xpath: //span[contains(@class, "price--content")]/.
@@ -67,7 +70,7 @@ fields:
     singleValue: false
     xpath: //span[@class = "rating--count"]
   - name: sku
-    singleValue: false
+    singleValue: true
     xpath: //span[@itemprop = "sku"] | //div[@data-main-ordernumber]/@data-main-ordernumber | //div[@id='ii_product_sku']
   - name: specifications
     singleValue: false
@@ -94,9 +97,7 @@ fields:
     xpath: count(//div[@class="color-card-variants"]//a)
   - name: variantInformation
     singleValue: false
-    xpath: //div[@class="color-card-variants"]//a//div[@class='color-image']/@style
-    regExp: background-color:\s*(.*)
-    regExpReplace: $1
+    xpath: //div[@class='product--configurator']//div[@class='variant--option is--button is--active']/label[@class='option--label']
   - name: firstVariant
     singleValue: false
     xpath: //meta[@itemprop = "productID"]/@content
@@ -105,7 +106,7 @@ fields:
     defaultValue: Yes
   - name: directions
     singleValue: false
-    # xpath: //div[contains(@class, "product--description")]//p//strong[contains(text(),'Directions of use')]/parent::p/following-sibling::p[1]
+    xpath: //div[contains(@class, "product--description")]//p//strong[contains(text(),'Anwendung')]/parent::p/following-sibling::p[1]
     manualSelector: div#ii_dirToUseText
   - name: imageZoomFeaturePresent
     singleValue: false

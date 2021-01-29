@@ -72,7 +72,15 @@ const transform = (data) => {
               promotion.text = promotion.text.replace(/\(|\)/g,'')
             });
           }
-        
+  
+        if (row.nameExtended) {
+            let info = [];          
+            row.nameExtended.forEach(item => {
+              item.text = item.text;
+                info.push(item.text);            
+            });
+            row.nameExtended = [{'text':info.join(' '),'xpath':row.nameExtended[0].xpath}];          
+        }
         if (row.manufacturerDescription) {
             let info = [];          
             row.manufacturerDescription.forEach(item => {
@@ -87,13 +95,6 @@ const transform = (data) => {
             });
             row.description = [{'text':info.join(' | '),'xpath':row.description[0].xpath}];          
         }
-        if (row.variantInformation) {
-          let info = [];          
-          row.variantInformation.forEach(item => {
-              info.push(item.text.trim());            
-          });
-          row.variantInformation = [{'text':info.join(' | '),'xpath':row.variantInformation[0].xpath}];          
-        }
         if (row.gtin && row.gtin.length>0) {          
           let item = row.gtin[0];
           var matches = /dataLayer\.push\((.*?)\)\;/isg.exec(item.text);
@@ -102,7 +103,7 @@ const transform = (data) => {
             try {
               let json_data = JSON.parse(matches[1]);
               if (json_data['productEAN']){
-                row.gtin = [{'text':json_data['productEAN'],'xpath':row.gtin[0].xpath}];                  
+                row.gtin = [{'text':json_data['productEAN'].replace("0",""),'xpath':row.gtin[0].xpath}];                   
               }
             } catch (error) {
               delete row.gtin;                
