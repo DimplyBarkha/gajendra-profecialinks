@@ -170,15 +170,15 @@ module.exports = {
           const imgArray = document.querySelectorAll('div.inthebox span img');
           const inTheBoxUrlArray = [];
           imgArray.forEach(img => {
-            if (img.src.length > 0) {
-              inTheBoxUrlArray.push(img.src);
+            if (img.getAttribute('src')) {
+              inTheBoxUrlArray.push(img.getAttribute('src'));
             }
           })
           //const textArray = document.querySelectorAll('div.lieferleft p');
           const textArray = document.querySelectorAll('div.inthebox span.title');
           const inTheBoxText = [];
           textArray.forEach(txt => {
-            if (txt.innerText.length > 0) {
+            if (txt.innerText) {
               inTheBoxText.push(txt.innerText);
             }
           });
