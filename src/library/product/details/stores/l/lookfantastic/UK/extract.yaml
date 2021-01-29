@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //div[@id='ii_image']
+    xpath: (//img[@class="productImageCarousel_thumbnail"]/@src)[1]
   - name: metaKeywords
     singleValue: true
     xpath: //meta[contains(@name,"Keyword")]/@content
@@ -108,7 +108,7 @@ fields:
     xpath: //div[@id='ii_description']
   - name: variantId
     singleValue: true
-    xpath: //div[@id="productReviewsComponent"]/@data-product-id
+    xpath: //div[@class="productPrice"]/@data-product-id
   - name: descriptionBullets
     singleValue: true
     xpath: //div[@id='ii_descriptionBullets']
