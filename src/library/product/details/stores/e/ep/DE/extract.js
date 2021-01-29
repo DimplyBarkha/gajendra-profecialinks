@@ -116,6 +116,8 @@ async function implementation (
       console.log(document.URL + ' here we check the comparison table');
       if (document.querySelector('.compare-headline')) {
         return true;
+      } else if(document.querySelector('h2.productcompare-component-title')) {
+        return true;
       } else {
         return false;
       }
@@ -199,9 +201,9 @@ async function implementation (
       // });
     }
     // addHiddenDiv('ii_inBoxText', inBoxText);
-    // addHiddenDiv('ii_comparisionText', hasComparisionTable ? 'Yes' : 'No');
+    addHiddenDiv('ii_comparisionText', hasComparisionTable ? 'Yes' : 'No');
     console.log(hasComparisionTable + ' comp table');
-    if (hasComparisionTable === true) addHiddenDiv('ii_comparisionText', hasComparisionTable);
+    // if (hasComparisionTable === true) addHiddenDiv('ii_comparisionText', hasComparisionTable ? 'Yes' : 'No');
 
     let inStore = false;
     let delivery = false;
