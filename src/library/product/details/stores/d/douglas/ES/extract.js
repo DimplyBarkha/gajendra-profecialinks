@@ -1,3 +1,4 @@
+/* eslint-disable no-inner-declarations */
 const { transform } = require('../shared');
 // async function implementation (
 //   inputs,
@@ -79,12 +80,16 @@ async function implementation (
         // const nameExt = getSingleText(nameExtXpath, document, index - 1);
         // addHiddenDiv('my-nameExt', nameExt);
 
-        const variantIdXpath = '//div[@data-vendor]/@data-product-id |//h2[contains(@class,"rd__headline--80")]/@title';
+        const variantIdXpath = '//div[@data-vendor]/@data-product-id | //h2[contains(@class,"rd__headline--80")]/@title | //div[contains(@class,"rd__headline--80")]/@title';
         const variantId = getSingleText(variantIdXpath, document, index - 1);
         addHiddenDiv('my-variantId', variantId);
         let variantInf = '';
         if (variantLength > 2) {
-          const variantInfXpath = '//h2[contains(@class,"rd__headline--80")]';
+          const variantInfXpath = '//h2[contains(@class,"rd__headline--80") and @title] | //div[contains(@class,"rd__headline--80") and @title]';
+          variantInf = getSingleText(variantInfXpath, document, index - 1);
+          addHiddenDiv('my-variantInf', variantInf);
+        } else {
+          const variantInfXpath = '//h2[contains(@class,"rd__headline--80") and @title] | //div[contains(@class,"rd__headline--80") and @title]';
           variantInf = getSingleText(variantInfXpath, document, index - 1);
           addHiddenDiv('my-variantInf', variantInf);
         }
@@ -134,8 +139,14 @@ async function implementation (
     }
     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
   } else {
+    // var variantLength1 = await context.evaluate(async () => {
+    //   return (document.querySelectorAll('div.rd__blob img.rd__img')) ? document.querySelectorAll('div.rd__blob img.rd__img').length : 0;
+    // });
     var variantLength1 = await context.evaluate(async () => {
-      return (document.querySelectorAll('div.rd__blob img.rd__img')) ? document.querySelectorAll('div.rd__blob img.rd__img').length : 0;
+      return (document.querySelectorAll('div[class*="rd__headline--80"][title]')) ? document.querySelectorAll('div[class*="rd__headline--80"][title]').length : 0;
+    });
+    var variantLength2 = await context.evaluate(async () => {
+      return (document.querySelectorAll('h2[class*="rd__headline--80"][title]')) ? document.querySelectorAll('h2[class*="rd__headline--80"][title]').length : 0;
     });
     console.log('Variant Length1', variantLength1);
     if (variantLength1 > 1) {
@@ -143,6 +154,12 @@ async function implementation (
         await preparePage1(j, variantLength1);
         console.log('Inside variants1', j);
         if (j !== variantLength1 - 1) { await context.extract(productDetails, { transform }); }
+      }
+    } else if (variantLength2 > 1) {
+      for (let j = 0; j < variantLength2; j++) {
+        await preparePage1(j, variantLength2);
+        console.log('Inside variants1', j);
+        if (j !== variantLength2 - 1) { await context.extract(productDetails, { transform }); }
       }
     }
     async function preparePage1 (index, variantLength1) {
@@ -169,12 +186,17 @@ async function implementation (
         const quantity = getSingleText(qtyXpath, document, index);
         addHiddenDiv1('my-qty', quantity);
 
-        const check = document.querySelectorAll('div[class="rd__blob"] img[src]') ? document.querySelectorAll('div[class="rd__blob"] img[src]') : '';
-        const checkVariant = check[0].src.match(/\d{5,}-0-/);
-        console.log('Valid src---------------------->', checkVariant);
+        const check1 = document.querySelectorAll('div[class*="rd__headline--80"][title]') ? document.querySelectorAll('div[class*="rd__headline--80"][title]').length : 0;
+        const check2 = document.querySelectorAll('h2[class*="rd__headline--80"][title]') ? document.querySelectorAll('h2[class*="rd__headline--80"][title]').length : 0;
+        // const checkVariant = check[0].src.match(/\d{5,}-0-/);
+        // console.log('Valid src---------------------->', checkVariant);
         let variantId = '';
-        if (checkVariant && checkVariant.length) {
-          const variantIdXpath = '//div[@class="rd__blob"]/img/@src';
+        if (check1 !== 0) {
+          const variantIdXpath = '//div[contains(@class,"rd__headline--80")]/@title';
+          variantId = getSingleText(variantIdXpath, document, index);
+          addHiddenDiv1('my-variantId', variantId);
+        } else if (check2 !== 0) {
+          const variantIdXpath = '//h2[contains(@class,"rd__headline--80")]/@title';
           variantId = getSingleText(variantIdXpath, document, index);
           addHiddenDiv1('my-variantId', variantId);
         } else {
@@ -188,8 +210,8 @@ async function implementation (
         addHiddenDiv1('my-price', price);
         let variantInf = '';
         if (variantLength1 > 2) {
-          const variantInfXpath = '//h2[contains(@class,"rd__headline--80")]';
-          variantInf = getSingleText(variantInfXpath, document, index - 1);
+          const variantInfXpath = '//h2[contains(@class,"rd__headline--80") and @title] | //div[contains(@class,"rd__headline--80") and @title]';
+          variantInf = getSingleText(variantInfXpath, document, index);
           addHiddenDiv1('my-variantInf', variantInf);
         }
 

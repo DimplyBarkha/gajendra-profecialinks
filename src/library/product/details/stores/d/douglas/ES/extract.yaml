@@ -27,6 +27,9 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[@id="my-price"][last()]
+  - name: price1
+    singleValue: false
+    xpath: //span[contains(@class,"rd__headline--130")]/text() | //div[contains(@class,"rd__order-detail__header rd__list-services__headline")]//span[contains(@class,"rd__headline--130")]/text()
   - name: listPrice
     singleValue: false
     xpath: //div[@id="my-listPrice"][last()] 
