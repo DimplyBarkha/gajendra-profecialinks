@@ -195,6 +195,7 @@ const transform = (data, context) => {
           if (row.price[0].text == 0) {
             row.price[0].text = row.price[0].text.replace('0', '');
           }
+          row.price[0].text = row.price[0].text.replace('.', ',');
         }
 
         if (row.termsAndConditions && row.termsAndConditions[0]) {
