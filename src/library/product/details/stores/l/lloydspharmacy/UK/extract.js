@@ -72,6 +72,9 @@ module.exports = {
       }
 
       //bullet count
+      //div[@class="product-description__key-features-container"]/ul/li/text()
+      //h3[contains(text(),"Features of")]/following::ul[1]/li/text()
+      // count(//div[@class="product-description__key-features-container"]/ul/li | //h3[contains(text(),"Features of")]/following::ul[1]/li)
       var bullet1 = [];
       if(ul.length >= 1){
         for(var i=0; i<ul.length; i++){
@@ -154,14 +157,22 @@ module.exports = {
 
 
       // direction
+      var direction = "";
+      var title = getXpath('//h4[contains(text(),"How to use")]/following::div[1]/div/p/b/text()', 'nodeValue');
+      if(title != null){
+        direction = direction + title;
+      }
       var dir = getAllXpath('//h4[contains(text(),"How to use")]/following::div/div/ol/li/text()', 'nodeValue');
       if(dir.length >= 1){
-        var direction = "";
         for(var i=0; i<dir.length; i++){
           direction = direction+" "+dir[i];
         }
+        // addElementToDocument('direction', direction);
+      }
+      if(direction.length >= 1){
         addElementToDocument('direction', direction);
       }
+      
 
       //availability
       var aval = getXpath('//div[@class="product__stock-status product__svg-container"]/text()', 'nodeValue');
@@ -177,7 +188,13 @@ module.exports = {
       //price 
       var pr = getAllXpath('//div[@class="product__price"]/span/text()', 'nodeValue');
       if(pr.length >= 1){
-        var price = pr[0] + " "+pr[1];
+        var price = "";
+        if(pr[1] != undefined){
+          price = pr[0] + " "+pr[1];  
+        }else{
+          price = pr[0]; 
+        }
+        // var price = pr[0] + " "+pr[1];
         addElementToDocument('price', price);
       }
 

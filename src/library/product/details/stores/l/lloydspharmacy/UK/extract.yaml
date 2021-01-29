@@ -6,9 +6,10 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: (//div[@class="slideInner___2mfX9 carousel__inner-slide"]/div/img)[1]/@src
-    regExp: (//cdn.shopify.com/.*)
-    regExpReplace: https:$1
+    xpath: //meta[@property="og:image"]/@content
+    # xpath: (//div[@class="slideInner___2mfX9 carousel__inner-slide"]/div/img)[1]/@src
+    # regExp: (//cdn.shopify.com/.*)
+    # regExpReplace: https:$1
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -52,7 +53,7 @@ fields:
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
-    xpath: //html//div[@id="count"]
+    xpath: count(//div[@class="product-description__key-features-container"]/ul/li | //h3[contains(text(),"Features of")]/following::ul[1]/li)
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -95,11 +96,12 @@ fields:
   - name: directions
     singleValue: true
     description: Content under "directions" header
-    xpath: //html//div[@id="direction"] | //h4[contains(text(),"How to use")]/following::div[1]/div/p
+    xpath: //html//div[@id="direction"]
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
-    xpath: //html//div[@id="warning"]
+    xpath: //h4[contains(text(),"Warnings and cautions")]/following::div[1]
+    # //html//div[@id="warning"]
   - name: ratingCount
     singleValue: true
     description: The number of ratings
