@@ -138,6 +138,50 @@ module.exports = {
         }
       };
     }
+    if (colorVariants !== 0 && sizeVariants !== 0) {
+      let dataId = 0;
+      const colorVariantAvailability = await context.evaluate(() => {
+        const colorVariantAvailability = [];
+        for (let i = 0; i < document.querySelectorAll('ul[aria-label="Color"] li').length; i++) {
+          colorVariantAvailability.push(document.querySelectorAll('ul[aria-label="Color"] li')[i].getAttribute('ats'));
+        }
+        return colorVariantAvailability;
+      });
+      const variantInfo = await context.evaluate(() => {
+        const variantInfo = [];
+        for (let i = 0; i < document.querySelectorAll('ul[aria-label="Color"] li').length; i++) {
+          const color = document.querySelectorAll('ul[aria-label="Color"] li')[i].dataset.originalTitle;
+          for (let j = 0; j < document.querySelectorAll('ul[aria-label="Size"] li').length; j++) {
+            const size = document.querySelectorAll('ul[aria-label="Size"] li')[j].dataset.originalTitle;
+            variantInfo.push(color + ' ' + size);
+          }
+        }
+        return variantInfo;
+      });
+      for (let i = 0; i < colorVariants; i++) {
+        await context.evaluate((i) => {
+          document.querySelectorAll('ul[aria-label="Color"] li')[i].click();
+        }, i);
+        // wait for extraction
+        const sizeVariantAvailability = await context.evaluate(() => {
+          const sizeVariantAvailability = [];
+          for (let k = 0; k < document.querySelectorAll('ul[aria-label="Size"] li').length; k++) {
+            sizeVariantAvailability.push(document.querySelectorAll('ul[aria-label="Size"] li')[k].getAttribute('ats'));
+          }
+          return sizeVariantAvailability;
+        });
+        for (let j = 0; j < sizeVariants; j++) {
+          if (colorVariantAvailability[i] !== 'N' && sizeVariantAvailability[j] !== 'N') {
+            await context.evaluate((j) => {
+              document.querySelectorAll('ul[aria-label="Size"] li')[j].click();
+            }, j);
+            await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+            dataConversion(await context.extract(productDetails, { transform }), info.offers[dataId].sku, info.offers[dataId].availability, variantInfo[dataId], info.offers[dataId].price);
+          }
+          dataId++;
+        }
+      };
+    }
     if (colorVariants === 0) {
       dataConversion(await context.extract(productDetails, { transform }), null, null, null, info.offers[0].price);
     }

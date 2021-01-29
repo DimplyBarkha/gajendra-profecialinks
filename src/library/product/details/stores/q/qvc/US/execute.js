@@ -31,7 +31,7 @@ module.exports = {
     store: 'qvc',
     domain: 'qvc.com',
     loadedSelector: 'div[class*="container"], div[id="pageContent"], div[class="pdShortDesc"] h1',
-    noResultsXPath: '//div[@class="searchResults"]/em[contains(text(), "0 results for")] | //li[@class="active"]/h1[contains(text(), "Sold Out")]',
+    noResultsXPath: '//div[@class="searchResults"]/em[contains(text(), "0 results for")] | //li[@class="active"]/h1[contains(text(), "Sold Out")] | //div[@id="eSpotpagenotfound-1"] | //div[@class="panelNumbrs"]',
     zipcode: '',
   },
   implementation,

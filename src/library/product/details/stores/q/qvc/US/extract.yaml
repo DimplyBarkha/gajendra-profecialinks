@@ -442,7 +442,7 @@ fields:
     desription info
 - name: variantInformation
   singleValue: false
-  xpath: //span[@class="selectedColor"]
+  xpath: //ul[@aria-label="Color"]/li[1]/@data-original-title
   description: colour / scent / flavour / other
 - name: firstVariant
   singleValue: true
