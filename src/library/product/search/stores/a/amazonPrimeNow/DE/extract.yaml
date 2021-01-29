@@ -22,8 +22,8 @@ fields:
     xpath: //div[contains(@class,"asin_card__thumb")]/img[contains(@class,"image__root")]/@alt
   - name: price
     description: The offered price for the product
-    #xpath: //div[contains(@class,"asin_price__root")]/div[last()-1]
-    xpath: //div[@class="product_grid__gridContainer__2m4SA"]/ul/li/div/div/div/a/div[2]/div/div[1]
+    xpath: //div[contains(@class,"asin_price__root")]/div[last()-1]
+    # xpath: //div[@class="product_grid__gridContainer__2m4SA"]/ul/li/div/div/div/a/div[2]/div/div[1]
   - name: id
     xpath: //a[contains(@class,"asin_card__productLink")]/@href
     regExp: (.+\/)(\w+)(.+)
