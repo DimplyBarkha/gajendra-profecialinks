@@ -50,7 +50,7 @@ fields:
     xpath: //div[contains(@class,"jsx-2170457292")]//ol/li[contains(@class, "price-0")]//span
   - name: quantity
     singleValue: false
-    defaultValue: 1
+    xpath: //table[contains(@class,"specification-table")]/tbody/tr/td[contains(text(),"Tamaño de la pantalla")]/following-sibling::td
   - name: availabilityText
     singleValue: false
     xpath: concat(substring('Out Of Stock', 1 div boolean(//div[contains(@class,'outofstock-container')])),substring('In Stock', 1 div not(//div[contains(@class,'outofstock-container')])))
