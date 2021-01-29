@@ -196,6 +196,7 @@ const transform = (data, context) => {
             row.price[0].text = row.price[0].text.replace('0', '');
           }
           row.price[0].text = row.price[0].text.replace('.', ',');
+          row.price[0].raw = row.price[0].text;
         }
 
         if (row.termsAndConditions && row.termsAndConditions[0]) {
@@ -206,10 +207,12 @@ const transform = (data, context) => {
 
         if (row.aggregateRating && row.aggregateRating[0]) {
           row.aggregateRating[0].text = row.aggregateRating[0].text.replace('.', ',');
+          row.aggregateRating[0].raw = row.aggregateRating[0].text;
         }
 
         if (row.aggregateRatingText && row.aggregateRatingText[0]) {
           row.aggregateRatingText[0].text = row.aggregateRatingText[0].text.replace('.', ',');
+          row.aggregateRatingText[0].raw = row.aggregateRatingText[0].text;
         }
 
         if (row.availabilityText && row.availabilityText[0]) {
