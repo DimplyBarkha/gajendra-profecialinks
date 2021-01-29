@@ -1,13 +1,14 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class='bd_lst_item']//tbody[@id='search_result_item_list']//tr
 fields:
-  - name: paginationUrl
-    singleValue: false
-    description: desired url to pass in chain
-    xpath: //text()
-  - name: resultsCount
-    singleValue: false
-    description: total number of results
-    xpath: ancestor::html//div[@id="my-results-count"]
+  - name: brand
+    description: The brand of product
+    xpath: //td[@class='td_item']//div[@class='sbj']//a[1]/@title
+  - name: name
+    description: The title of the product
+    xpath: //td[@class='td_item']//div[@class='sbj']//a[2]/@title
+  - name: productUrl
+    description: The url of the product
+    xpath: //td[@class='td_thmb']//div[@class='inner']//a//img/ancestor::a/@href
