@@ -31,8 +31,8 @@ async function implementation (
     }
     function findXpath (xpath) {
       const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-      const productDetails = element && element.textContent ? element.textContent : '';
-      return productDetails;
+      const productDetail = element && element.textContent ? element.textContent : '';
+      return productDetail;
     }
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');

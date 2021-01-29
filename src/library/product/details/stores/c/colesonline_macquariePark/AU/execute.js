@@ -31,7 +31,7 @@ async function implementation (
   await context.setLoadImages(true);
   await context.setJavaScriptEnabled(true);
   await context.setAntiFingerprint(false);
-  await context.goto('https://shop.coles.com.au/#[!opt!]{"block_ads":false,"anti_fingerprint":false,"load_all_resources":true}[/!opt!]', {
+  await context.goto('https://shop.coles.com.au/#[!opt!]{"block_ads":true,"anti_fingerprint":false,"load_all_resources":true}[/!opt!]', {
     firstRequestTimeout: 60000,
     timeout: timeout,
     waitUntil: 'load',
@@ -54,12 +54,12 @@ async function implementation (
     await new Promise((resolve) => setTimeout(resolve, 2000));
   }
   // ------------- GoTo requried URL --------------
-  await context.setBlockAds(false);
+  await context.setBlockAds(true);
   await context.setLoadAllResources(true);
   await context.setLoadImages(true);
   await context.setJavaScriptEnabled(true);
   await context.setAntiFingerprint(false);
-  url = `${url}#[!opt!]{"block_ads":false,"anti_fingerprint":false,"load_all_resources":true}[/!opt!]`;
+  url = `${url}#[!opt!]{"block_ads":true,"anti_fingerprint":false,"load_all_resources":true}[/!opt!]`;
   await context.goto(url, {
     firstRequestTimeout: 60000,
     timeout: timeout,
@@ -80,6 +80,7 @@ async function implementation (
       checkBlocked: false,
     });
   }
+  await new Promise((resolve) => setTimeout(resolve, 2000));
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
