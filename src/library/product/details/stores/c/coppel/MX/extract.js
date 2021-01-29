@@ -78,7 +78,7 @@ module.exports = {
         addElementToDocument('gtin_added',gtinupc);
         }
 
-        const size = getXpath("//div[@class='flix-tech-spacs-contents']/ul/li/div[contains(.,'Tamaño de la pantalla')]/div[@class='flix-dd']|//table[@class='table table-bordered']/tbody/tr/td[contains(.,'Pulgadas:')]/following-sibling::td",'innerText');
+        const size = getXpath("//div[@class='flix-tech-spacs-contents']/ul/li/div[contains(.,'Tamaño de la pantalla')]/div[@class='flix-dd']|//table[@class='table table-bordered']/tbody/tr/td[contains(.,'Pulgadas:')]/following-sibling::td|//table[@class='table table-bordered']/tbody/tr/td[contains(.,'Tamaño de pantalla:')]/following-sibling::td",'innerText');
         if(size != null){
         console.log("size: ", size);
         addElementToDocument('size_added',size);

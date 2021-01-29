@@ -59,7 +59,7 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //table[@class='table table-bordered']/tbody/tr/td[contains(.,'Marca:')]/following-sibling::td
+    xpath: //table[@class='table table-bordered']/tbody/tr/td[contains(.,'Marca:')]/following-sibling::td | //table[@class='table table-bordered']/tbody/tr/td[contains(.,'Vendedor:')]/following-sibling::td
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
