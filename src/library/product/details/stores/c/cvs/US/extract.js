@@ -9,14 +9,21 @@ module.exports = {
     domain: 'cvs.com',
   },
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
-    await context.waitForSelector('pre', { timeout: 20000 });
+    await context.waitForSelector('pre', { timeout: 20000 })
+      .catch(() => console.log('No code in the returned HTML'));
 
     // Initially starts on API JSON page
     // Grabs JSON object from the DOM
     var jsonText = await context.evaluate(function () {
       return document.body.innerText;
     });
-    const json = JSON.parse(jsonText);
+    let json;
+    try {
+      json = JSON.parse(jsonText);
+    } catch (error) {
+      console.log('cannot convert body text to json obj.');
+      return context.extract(productDetails);
+    }
 
     // Checks to see if required information is present before continuing
     if (json && json.records && json.totalRecordCount > 0) {
@@ -530,7 +537,7 @@ module.exports = {
       }, json.records, json.totalRecordCount, htmlList, stockArr, variantOptions);
     } else {
       console.log('cannot convert body text to json obj.');
-      throw new Error('notFound');
+      return context.extract(productDetails);
     }
 
     return await context.extract(productDetails, { transform: transformParam });
