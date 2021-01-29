@@ -32,7 +32,7 @@ module.exports = {
           break;
         }
       }
-      function stall (ms) {
+      function stall(ms) {
         return new Promise(resolve => {
           setTimeout(() => {
             resolve();
@@ -41,7 +41,7 @@ module.exports = {
       }
     });
     await context.evaluate(() => {
-      function addEleToDoc (key, value, tag) {
+      function addEleToDoc(key, value, tag) {
         const prodEle = document.createElement('div');
         prodEle.id = key;
         prodEle.textContent = value;
@@ -78,6 +78,65 @@ module.exports = {
     } catch (error) {
       console.log('specifications not loaded.');
     }
+    // For the Additional Fields
+    await context.evaluate(async function () {
+      const syndiPowerpage = document.querySelector('.syndi_powerpage');
+      let inTheBoxText = '';
+      let inTheBoxUrl = '';
+      let hasComparisonTable = 'No';
+      if (syndiPowerpage) {
+        const headings = Array.from(syndiPowerpage.shadowRoot.querySelectorAll('h2'));
+        headings.forEach(h2 => {
+          if (h2.innerText.includes('In the box') || h2.innerText.includes('In The Box') || h2.innerText.includes('in the box') || h2.innerText.includes("What's Included")) {
+            const parent = h2.parentElement;
+            const inTheBoxEls = parent.querySelectorAll('.syndigo-featureset-feature');
+            inTheBoxEls.forEach(el => {
+              const imgs = el.querySelector('img').getAttribute('srcset').split(',');
+              let images = '';
+              if (imgs.length === 1) {
+                images = imgs[0];
+              } else {
+                images = imgs[imgs.length - 1];
+              }
+              images = images.replace(/(.+)(\s.+)/, '$1');
+              inTheBoxUrl = inTheBoxUrl + (inTheBoxUrl ? ' || ' : '') + images;
+              // @ts-ignore
+              inTheBoxText = inTheBoxText + (inTheBoxText ? ' || ' : '') + el.innerText;
+            });
+          }
+        });
+        const table = syndiPowerpage.shadowRoot.querySelector('div[class*="comparison-table"] table');
+        if (table) {
+          hasComparisonTable = 'Yes';
+        }
+      } else {
+        const table = document.querySelector('div[class*="comparison-table"] table');
+        if (table) {
+          hasComparisonTable = 'Yes';
+        }
+
+        const inTheBoxEls1 = Array.from(document.querySelectorAll('[data-section-tag*="in-the-box"] > div> div> ul >li,[data-section-caption*="In the box"] > div> div> ul >li , [data-section-caption*="In The Box"] > div> div> ul >li'));
+
+        const inTheBoxEls2 = Array.from(document.querySelectorAll('div[data-section-caption="In the box"] ul>li , div[data-section-caption="In The Box"] ul>li'));
+
+        let inTheBoxEls = [];
+        if (inTheBoxEls1) {
+          inTheBoxEls = inTheBoxEls1;
+        } else {
+          inTheBoxEls = inTheBoxEls2;
+        }
+        inTheBoxEls.forEach(el => {
+          const image = el.querySelector('img').getAttribute('src');
+          // @ts-ignore
+          const text = el.innerText;
+          inTheBoxUrl = inTheBoxUrl + (inTheBoxUrl ? ' || ' : '') + image;
+          inTheBoxText = inTheBoxText + (inTheBoxText ? ' || ' : '') + text;
+        });
+      }
+      document.body.setAttribute('has-comparison-table', hasComparisonTable);
+      document.body.setAttribute('in-the-box-text', inTheBoxText);
+      document.body.setAttribute('in-the-box-url', inTheBoxUrl);
+    });
     return await context.extract(productDetails, { transform });
   },
 };
