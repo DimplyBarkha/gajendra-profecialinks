@@ -59,7 +59,8 @@ fields:
     xpath: //div[contains(@class,'productDetail')]/meta[@itemprop="sku"]/@content
   - name: variantId
     singleValue: false
-    xpath: //div[contains(@class,'js-storefinderproductdetail')]//input[@name='storeProductId']/@value
+    xpath: //div[contains(@class,'productDetail')]/meta[@itemprop="sku"]/@content
+    # //div[contains(@class,'js-storefinderproductdetail')]//input[@name='storeProductId']/@value
   - name: variantCount
     singleValue: false
     defaultValue: "0"
