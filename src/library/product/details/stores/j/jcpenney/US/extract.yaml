@@ -55,7 +55,9 @@ fields:
   - name: gtin
     xpath: //div[@id="wc-power-page"]//div[contains(@class,"wc-fragment")][1]/@data-gtin
   - name: mpc
-    xpath: //div[@data-automation-id="product-title"]//span[@class='_3_di8']
+    xpath: //div[@data-automation-id="product-title"]//span[@class='_3_di8'] | //div[@data-automation-id="productModelNumber"]
+    regExp: (#(.+))
+    regExpReplace: $2
   - name: packSize
   - name: legalDisclaimer
   - name: directions

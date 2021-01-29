@@ -204,9 +204,9 @@ async function implementation(
         e.setAttribute('secondaryImages', [...document.querySelectorAll('#contentContainer > section > section:nth-child(3) > div.sm12.md6.lg6.xl7._3AtEJ > div > div.carousel-wrapper > div > div._3h_IA.lg2.xl2.md2.sm2._1sbcC.noPad > div > div.slick-list a:not(._2JSHu)')].map(e => { return `https:${e.querySelector('img').getAttribute('src').replace(/(.+)(\?.+)/g, '$1')}`; }));
       });
 
-      [...document.querySelectorAll('#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li')].map((e) => {
-        e.setAttribute('mpc', `${document.querySelector('div[data-automation-id="product-title"] span._3_di8').textContent}`);
-      });
+      // [...document.querySelectorAll('#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li')].map((e) => {
+      //   e.setAttribute('mpc', `${document.querySelector('div[data-automation-id="product-title"] span._3_di8').textContent}`);
+      // });
 
       finalImages.push([...document.querySelectorAll('#contentContainer > section > section:nth-child(3) > div.sm12.md6.lg6.xl7._3AtEJ > div > div.carousel-wrapper > div > div._3h_IA.lg2.xl2.md2.sm2._1sbcC.noPad > div > div.slick-list a')].map(e => { return e.querySelector('img').getAttribute('src'); }));
 
@@ -228,16 +228,19 @@ async function implementation(
       document.body.setAttribute('price', price);
       document.body.setAttribute('listprice', listPrice);
       
-    appendImages(variants, finalImages);
+    //appendImages(variants, finalImages);
     const brand = document.evaluate('//script[@type="application/ld+json"][contains(.,"brand")]', document).iterateNext().textContent.split('"brand":{"@type":"Thing","name":"')[1].split('"},')[0];
     document.querySelector('h1[data-automation-id="product-title"]').setAttribute('brand', brand);
     const prop = document.evaluate('//h3[@data-automation-id="general-info-title"][contains(.,"Proposition 65 WARNING")]', document).iterateNext();
 
     if (prop) {
-      document.querySelector('p._1d56W button').click();
-      const prop65Info = document.querySelector('[data-automation-id="modal-content"] div div p:nth-last-child(1)').textContent.replace(/www/g, 'https://www');
+      let propButton = document.querySelector('p._1d56W button');
+      if(propButton) {
+        propButton.click();
+      }
+      const prop65Info = document.querySelector('[data-automation-id="modal-content"] div div p:nth-last-child(1)') ? document.querySelector('[data-automation-id="modal-content"] div div p:nth-last-child(1)').textContent.replace(/www/g, 'https://www') : "";
       document.querySelector('h1[data-automation-id="product-title"]').setAttribute('prop65', prop65Info);
-      document.querySelector('[data-automation-id="modal-content"] button[data-automation-id="at-button-default-id"]').click();
+      document.querySelector('[data-automation-id="modal-content"] button[data-automation-id="at-button-default-id"]') ? document.querySelector('[data-automation-id="modal-content"] button[data-automation-id="at-button-default-id"]').click() : "";
     }
 
     let scrollTop = 500;
