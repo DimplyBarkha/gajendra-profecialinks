@@ -84,7 +84,7 @@ fields:
     xpath: //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]//div[@class="detail-desc-decorate-richtext"] | //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]/div/div[@class="detailmodule_text"] | //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]/div[@class="origin-part box-sizing"]
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]//div[@class="detail-desc-decorate-richtext"]/p | //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]/div/div[@class="detailmodule_text"]/p
+    xpath: //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]//div[@class="detail-desc-decorate-richtext"]/p | //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]/div/div[@class="detailmodule_text"]/p | //div[@id="product-description"]/div[@class="origin-part box-sizing"]/p[position()>2]
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]//div[@class="detailmodule_dynamic"]//p/img/@src | //div[@id="product-detail"]//div[@class="product-overview"]/div[@id="product-description"]//table//td//img/@src
