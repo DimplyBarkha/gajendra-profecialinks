@@ -74,8 +74,9 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
     if (Object.entries(page).filter(item => item[0] != 'windowLocation').filter(item => item[1] === true).length === 0) {
       context.counter.set('dropped_data', 1);
       await context.reload();
-      await new Promise(r => setTimeout(r, 5000));
       console.log('Waiting for page to reload');
+      await new Promise(r => setTimeout(r, 5000));
+      console.log('Waited 5 seconds for page to reload');
       await context.waitForNavigation({ timeout: 30 });
       return await solveCaptchaIfNecessary(await pageContext());
     }
@@ -113,100 +114,96 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
     return false;
   }
 
-  const setZip = async (zip) => {
-    if (zip) {
-      const csrf = await context.evaluate(getCSRFToken);
-      const apiZipChange = await context.evaluate(async (zipcode, csrf) => {
-        const body = `locationType=LOCATION_INPUT&zipCode=${zipcode}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`;
-        const response = await fetch('/gp/delivery/ajax/address-change.html', {
-          headers: {
-            'anti-csrftoken-a2z': csrf,
-            'content-type': 'application/x-www-form-urlencoded',
-            contenttype: 'application/x-www-form-urlencoded;charset=utf-8',
-            'x-requested-with': 'XMLHttpRequest',
-          },
-          body,
-          method: 'POST',
-          mode: 'cors',
-          credentials: 'include',
-        });
-        return response.status === 200;
-      }, zipcode, csrf);
-
+  const setZip = async (zipcode) => {
+    const csrf = await context.evaluate(getCSRFToken);
+    const apiZipChange = await context.evaluate(async (zipcode, csrf) => {
+      const country = document.querySelector('[lang]').lang.match(/[^-]+$/)[0].toUpperCase();
+      let body;
+      if(zipcode) {
+        body = `locationType=LOCATION_INPUT&zipCode=${zipcode}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`;
+      } else {
+        body = `locationType=COUNTRY&countryCode=${country}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`;
+      }
+      const response = await fetch('/gp/delivery/ajax/address-change.html', {
+        headers: {
+          "accept": "*/*",
+          "accept-language": "en-US,en;q=0.9",
+          'anti-csrftoken-a2z': csrf,
+          'content-type': 'application/x-www-form-urlencoded',
+          contenttype: 'application/x-www-form-urlencoded;charset=utf-8',
+          'x-requested-with': 'XMLHttpRequest',
+        },
+        body,
+        method: 'POST',
+        mode: 'cors',
+        credentials: 'include',
+      });
+      return response.status === 200;
+    }, zipcode, csrf);
+    if(zipcode) {
       const onCorrectZip = await context.evaluate((zipcode) => {
         const zipText = document.querySelector('div#glow-ingress-block');
         return zipText ? zipText.textContent.includes(zipcode) : false;
       }, zipcode);
-
       if (!apiZipChange) {
         console.log('API zip change failed');
         // throw new Error('API zip change failed');
       } else if (!onCorrectZip) {
         console.log('not on correct zipcode, reload');
         await context.reload();
-        await new Promise(r => setTimeout(r, 5000));
         console.log('Waiting for page to reload');
+        await new Promise(r => setTimeout(r, 5000));
+        console.log('Waited 5 seconds for page to reload');
         await context.waitForNavigation({ timeout: 30 });
         page = await pageContextCheck(await pageContext());
         await handlePage(page, null);
       }
+    } else {
+      console.log('No zipcode. Reloading to change country');
+      await context.reload();
+      console.log('Waiting for page to reload');
+      await new Promise(r => setTimeout(r, 5000));
+      console.log('Waited 5 seconds for page to reload');
+      await context.waitForNavigation({ timeout: 30 });
+      page = await pageContextCheck(await pageContext());
+      await handlePage(page, null);
     }
   };
 
   // calls refresh API and appends data to the page that doesnt already exist
   const appendData = async (page) => {
-    return await context.evaluate(async (page) => {
-      const getParams = async () => {
-        const paramLocators = [
-          'pgid',
-          'sid',
-          'rid',
-          'ptd',
-          'storeID',
-          'parent_asin',
-        ];
-        const params = {};
-        const raw = document.evaluate("//script[contains(@language,'JavaScript') and contains(text(), 'pgid')  and  contains(text(), 'current_asin')]", document.body, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
-        if (raw) {
-          paramLocators.forEach(param => {
-            if (raw.innerText.includes(param)) {
-              const regex = new RegExp(`${param}":"([^"]+)`, 's');
-              const paramMatch = raw.innerText.match(regex);
-              const paramClean = paramMatch && paramMatch.length > 1 ? paramMatch[1] : false;
-              if (paramClean) {
-                params[`${param}`] = paramClean;
-              }
-            }
-          });
-        }
-        params.current_asin = document.evaluate('//*[contains(@id, "imageBlock_feature_div")]//script[contains(text(), "winningAsin")]', document.body, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext().innerText.match(/winningAsin': '([^']+)/s)[1] ? document.evaluate('//*[contains(@id, "imageBlock_feature_div")]//script[contains(text(), "winningAsin")]', document.body, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext().innerText.match(/winningAsin': '([^']+)/s)[1] : (document.querySelector('#all-offers-display-params') ? document.querySelector('#all-offers-display-params').getAttribute('data-asin') : '');
-        console.log('params', params);
-        return params;
-      };
-      const params = await getParams();
-      try {
-        if (Object.entries(params).filter(item => item[1] != undefined).length === 7) {
-          let url;
-          if (page.windowLocation.hostname.includes('com')) {
-            url = `https://${page.windowLocation.hostname}/gp/page/refresh?acAsin=${params.current_asin}&asinList=${params.current_asin}&auiAjax=1&dpEnvironment=softlines&dpxAjaxFlag=1&ee=2&enPre=1&id=${params.current_asin}&isFlushing=2&isP=1&isUDPFlag=1&json=1&mType=full&parentAsin=${params.parent_asin ? params.parent_asin : params.current_asin}&pgid=${params.pgid}&psc=1&ptd=${params.ptd}&rid=${params.rid}=1&sCac=1&sid=${params.sid}&storeID=${params.storeID}&triggerEvent=Twister&twisterView=glance`;
-          } else {
-            url = `https://${page.windowLocation.hostname}/gp/twister/ajaxv2?acAsin=${params.current_asin}&sid=${params.sid}&ptd=${params.ptd}&sCac=1&twisterView=glance&pgid=${params.pgid}&rid=${params.rid}&dStr=size_name&auiAjax=1&json=1&dpxAjaxFlag=1&isUDPFlag=1&ee=2&parentAsin=${params.parent_asin ? params.parent_asin : params.current_asin}&enPre=1&dcm=1&udpWeblabState=T1&storeID=${params.storeID}&ppw=&ppl=&isFlushing=2&dpEnvironment=hardlines&asinList=${params.current_asin}&id=${params.current_asin}&mType=full&psc=1`;
+    return await context.evaluate(async () => {
+        try {
+          const asin = document.evaluate('//*[contains(@id, "imageBlock_feature_div")]//script[contains(text(), "winningAsin")]', document.body, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext().innerText.match(/winningAsin': '([^']+)/s)[1] ? document.evaluate('//*[contains(@id, "imageBlock_feature_div")]//script[contains(text(), "winningAsin")]', document.body, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext().innerText.match(/winningAsin': '([^']+)/s)[1] : (document.querySelector('#all-offers-display-params') ? document.querySelector('#all-offers-display-params').getAttribute('data-asin') : '');
+          const pgid = document.querySelector('html').innerHTML.match(/productGroupID=([\w]+)|productGroupID":"([^"]+)/)[1] || document.querySelector('html').innerHTML.match(/productGroupID=([\w]+)|productGroupID":"([^"]+)/)[2] || ''
+          const params = {
+            asinList: asin,
+            id: asin,
+            parentAsin: window.isTwisterPage ? window.twisterController.twisterJSInitData.parent_asin : asin,
+            pgid,
+            psc: 1,
+            triggerEvent: 'twister',
+            isUDPFlag: 1,
+            json: 1,
+            ptd:document.querySelector('html').innerHTML.match(/productTypeName=([\w]+)|productTypeName":"([^"]+)/) && (document.querySelector('html').innerHTML.match(/productTypeName=([\w]+)|productTypeName":"([^"]+)/)[1] || document.querySelector('html').innerHTML.match(/productTypeName=([\w]+)|productTypeName":"([^"]+)/)[2]) || pgid.match(/^[^_]+/)[1],
+            dpEnvironment: 'hardlines'
           }
-
+          const query = Object.entries(params).map(elm => `${elm[0]}=${elm[1]}`)
+    
           const parseResponse = (blob) => {
-            const dataBlobs = blob.split('&&&').map(part => part.trim()).filter(part => part.length > 0).map(part => JSON.parse(part));
+            const dataBlobs = blob.split('&&&').map(part => part.replace(/\n/g, '').trim()).filter(part => part.length > 0).map(part => JSON.parse(part));
             return dataBlobs;
           };
-
-          const dataRaw = await fetch(url)
+          const api = `/gp/page/refresh?sCac=1&twisterView=glance&auiAjax=1&json=1&dpxAjaxFlag=1&ee=2&enPre=1&dcm=1&ppw=&ppl=&isFlushing=2&dpEnvironment=hardlines&mType=full&psc=1&` + query.join('&');
+          const dataRaw = await fetch(api)
             .then(response => response.text())
             .then(blob => parseResponse(blob));
-
+    
           console.log('# elements attempting to append: ', dataRaw.length);
-
+          let appendedCount = 0;
           dataRaw.forEach(part => {
             const element = document.getElementById(Object.keys(part.Value.content)[0]);
-            if (element) {
+            if (element || Object.keys(part.Value.content)[0].match(/^dpx-.+_feature_div$/)) {
               // element.innerHTML = Object.values(part.Value.content)[0];
             } else {
               const div = document.createElement('div');
@@ -215,19 +212,20 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
               const appendAtBottom = document.getElementById('a-page');
               if (appendAtBottom) {
                 appendAtBottom.insertBefore(div, document.getElementById('navFooter'));
-              } else { console.log('couldnt find a good place to append data'); }
+                appendedCount++;
+              } else {
+                console.log('couldnt find a good place to append data');
+              }
             }
           });
+          
+        console.log('Total divs appended: ', appendedCount);
           return true;
-        } else {
-          console.log('could not collect all params for appendLogic');
+        } catch (err) {
+          console.log('append data try  catch fail', err);
           return false;
         }
-      } catch (err) {
-        console.log('append data try  catch fail', err);
-        return false;
-      }
-    }, page);
+      });
   };
 
   // checks internal expected API
@@ -265,8 +263,9 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
     await context.waitForNavigation(30);
     if (await context.evaluate(() => !document.querySelector('#a-popover-root'))) {
       await context.reload();
-      await new Promise(r => setTimeout(r, 5000));
       console.log('Waiting for page to reload');
+      await new Promise(r => setTimeout(r, 5000));
+      console.log('Waited 5 seconds for page to reload');
       await context.waitForNavigation({ timeout: 30 });
     }
     console.log('Captcha vanished');
@@ -488,6 +487,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
       return;
     }
 
+    await setZip(zipcode);
     const retry = await retryContext();
     console.log('retryContextAPI: ', retry);
     const shouldRetry = (!retry.isLastRetry && await getHourlyRetryCount() < HOURLY_RETRY_LIMIT);
@@ -513,9 +513,10 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
         console.log('reload ------>', 'Missing prodDetails when API history says it is expected, and variants exist.');
         inSessionRetries += 1;
         context.counter.set('refresh', 1);
-        await context.reload();
-        await new Promise(r => setTimeout(r, 5000));
+        await context.reload({ waitUntil: ["networkidle0", "domcontentloaded"] });
         console.log('Waiting for page to reload');
+        await new Promise(r => setTimeout(r, 5000));
+        console.log('Waited 5 seconds for page to reload');
         await context.waitForNavigation({ timeout: 30 });
         console.log('Page reloaded');
         page = await handlePage(await pageContext(), lastResponseData);
@@ -524,9 +525,10 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
       if (!page.hasVariants && fillRateStrategies.nonVariantReload) {
         console.log('reload ------>', 'Missing prodDetails when API history says it is expected, and variants  do not exist.');
         context.counter.set('refresh', 1);
-        await context.reload();
-        await new Promise(r => setTimeout(r, 5000));
+        await context.reload({ waitUntil: ["networkidle0", "domcontentloaded"] });
         console.log('Waiting for page to reload');
+        await new Promise(r => setTimeout(r, 5000));
+        console.log('Waited 5 seconds for page to reload');
         await context.waitForNavigation({ timeout: 30 });
         console.log('Page reloaded');
         page = await handlePage(await pageContext(), lastResponseData);
@@ -3668,7 +3670,6 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
     await context.setLoadAllResources(true);
     await context.setJavaScriptEnabled(true);
     await run(userAgentString);
-    await setZip(zipcode);
   } catch (err) {
     console.error(err);
     const message = err.message ? err.message.includes('MISSING_DATA') : false;
@@ -3689,7 +3690,6 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
       await context.goto('about:blank');
       console.log('starting in session retry');
       await run(userAgentString);
-      await setZip(zipcode);
     } else {
       await hourlyRetryIncrement();
       throw err;
