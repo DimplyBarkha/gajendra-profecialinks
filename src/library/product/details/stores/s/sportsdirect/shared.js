@@ -38,6 +38,13 @@ const cleanUp = (data, context) => {
         });
         row.additionalDescBulletInfo = [{ text: text.trim() }];
       }
+      if (row.description) {
+        let text = '';
+        row.description.forEach(item => {
+          text = item.text.replace(/(>)/g, '||');
+        });
+        row.description = [{ text }];
+      }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {

@@ -33,7 +33,7 @@ fields:
   - name: description
     xpath: ancestor::html//span[@itemprop="description"]//b|ancestor::html//span[@itemprop="description"]//h2|ancestor::html//span[@itemprop="description"]/text()[2]|ancestor::html//span[@itemprop="description"]//ul/li|ancestor::html//span[@itemprop="description"]/text()[position()>2]|ancestor::html//span[@itemprop="description"]//p
   - name: descriptionBullets
-    xpath: count(//span[@itemprop='description']//ul/li)
+    xpath: count(//span[@itemprop='description']//ul/li | //span[@itemprop='description']/text()[contains(.,">")])
   - name: brandText
     xpath: ancestor::html//span[@class="brandTitle"]//span[@id='lblProductBrand']
   - name: quantity
