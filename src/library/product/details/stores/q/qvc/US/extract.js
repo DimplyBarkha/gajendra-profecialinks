@@ -115,16 +115,16 @@ module.exports = {
     if (colorVariants !== 0 && sizeVariants === 0) {
       const colorVariantAvailability = await context.evaluate(() => {
         const colorVariantAvailability = [];
-        for (let i = 0; i < document.querySelectorAll('ul[aria-label="Color"] li').length; i++) {
-          colorVariantAvailability.push(document.querySelectorAll('ul[aria-label="Color"] li')[i].getAttribute('ats'));
-        }
+        document.querySelectorAll('ul[aria-label="Color"] li').forEach((element) => {
+          colorVariantAvailability.push(element.getAttribute('ats'));
+        });
         return colorVariantAvailability;
       });
       const variantInfo = await context.evaluate(() => {
         const variantInfo = [];
-        for (let i = 0; i < document.querySelectorAll('ul[aria-label="Color"] li').length; i++) {
-          variantInfo.push(document.querySelectorAll('ul[aria-label="Color"] li')[i].dataset.originalTitle);
-        }
+        document.querySelectorAll('ul[aria-label="Color"] li').forEach((element) => {
+          variantInfo.push(element.dataset.originalTitle);
+        });
         return variantInfo;
       });
       for (let i = 0; i < colorVariants; i++) {
@@ -133,7 +133,7 @@ module.exports = {
         }, i);
         // wait for extraction
         if (colorVariantAvailability[i] !== 'N') {
-          await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+          await new Promise((resolve, reject) => setTimeout(resolve, 500));
           dataConversion(await context.extract(productDetails, { transform }), info.offers[i].sku, info.offers[i].availability, variantInfo[i], info.offers[i].price);
         }
       };
@@ -142,9 +142,9 @@ module.exports = {
       let dataId = 0;
       const colorVariantAvailability = await context.evaluate(() => {
         const colorVariantAvailability = [];
-        for (let i = 0; i < document.querySelectorAll('ul[aria-label="Color"] li').length; i++) {
-          colorVariantAvailability.push(document.querySelectorAll('ul[aria-label="Color"] li')[i].getAttribute('ats'));
-        }
+        document.querySelectorAll('ul[aria-label="Color"] li').forEach((element) => {
+          colorVariantAvailability.push(element.getAttribute('ats'));
+        });
         return colorVariantAvailability;
       });
       const variantInfo = await context.evaluate(() => {
@@ -165,9 +165,9 @@ module.exports = {
         // wait for extraction
         const sizeVariantAvailability = await context.evaluate(() => {
           const sizeVariantAvailability = [];
-          for (let k = 0; k < document.querySelectorAll('ul[aria-label="Size"] li').length; k++) {
-            sizeVariantAvailability.push(document.querySelectorAll('ul[aria-label="Size"] li')[k].getAttribute('ats'));
-          }
+          document.querySelectorAll('ul[aria-label="Size"] li').forEach((element) => {
+            sizeVariantAvailability.push(element.getAttribute('ats'));
+          });
           return sizeVariantAvailability;
         });
         for (let j = 0; j < sizeVariants; j++) {
