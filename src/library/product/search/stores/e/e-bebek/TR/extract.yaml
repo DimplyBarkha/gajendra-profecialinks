@@ -60,7 +60,7 @@ fields:
     singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
-    xpath: //div[@class='badge-right'][contains(text(), 'Promosyonlu') or contains(text(), 'Kampanyalı')]
+    xpath: //div[@class='badge-right'][contains(text(), 'Promosyonlu')]
     regExp: .+
     regExpReplace: Yes
   # - name: totalRecordCount
