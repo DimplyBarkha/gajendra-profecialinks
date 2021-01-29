@@ -86,6 +86,13 @@ async function implementation (
     _x(specificationsXpath, document).forEach(q => { specificationsText.push(q.textContent); });
     document.body.insertAdjacentHTML('afterbegin', `<div id="specifications" style="display : none">${specificationsText.join(' ')}</div>`);
   });
+
+  // sometimes enhanced content does not load, and sometimes it loads but is hidden
+  await context.waitForSelector('#pdpFlixmediaZone', {timeout: 10000}).catch(error => console.log('Enhanced content not loaded : #pdpFlixmediaZone'))
+  await context.evaluate(async () => {
+    document.getElementById('pdpFlixmediaZone') && document.getElementById('pdpFlixmediaZone').removeAttribute('style');
+  });
+
   await context.waitForXPath('//div[@id="pdpFlixmediaZone" and not(contains(@style,"none"))]', { timeout: 30000 })
     .catch(() => {
       console.log('===== The enhanced content did not load or is not present.');
