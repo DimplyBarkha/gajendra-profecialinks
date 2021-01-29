@@ -63,10 +63,10 @@ fields:
     xpath: //head[not(descendant::*[contains(@href,'v8091454859325189306/general/favicon.ico')])]//following-sibling::body
   - name: ratingCount
     singleValue: false
-    xpath: //span[@itemprop='ratingCount']
+    xpath: //div[@itemprop='aggregateRating']//span[@itemprop="reviewCount"]
   - name: aggregateRating
     singleValue: false
-    xpath: //span[contains(@class,'ts-shelf-rate-count')]//span[@itemprop='ratingValue']
+    xpath: //div[@itemprop='aggregateRating']//span[@itemprop="ratingValue"]
   - name: videos
     singleValue: false
     xpath: //iframe[contains(@src,'youtube') or contains(@data-src,'youtube')]/@*[name()='src' or name()='data-src']
