@@ -72,13 +72,20 @@ const transform = (data) => {
       }
       if (row.specifications) {
         const specificationsArr = row.specifications.map((item) => {
-          return item.text.replace(/\n+/, ' : ');
+          return item.text.replace(/\n+/g, ' : ');
         });
         const uniqueSpecifications = new Set(specificationsArr);
         const specificationsArray = [];
         uniqueSpecifications.forEach((item) => {
-          specificationsArray.push(item);
+          item.split(':').forEach((element, index) => {
+            if (index % 2 === 0) {
+              specificationsArray.push(item + '|');
+            } else {
+              specificationsArray.push(item + ':');
+            }
+          });
         });
+        console.log('specificationsArray ==> ' + specificationsArray);
         row.specifications = [{ text: specificationsArray.join(' | '), xpath: row.specifications[0].xpath }];
       }
       if (row.nameExtended && row.brandText) {
