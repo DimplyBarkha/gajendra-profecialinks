@@ -7,7 +7,7 @@ module.exports = {
     domain: 'menards.com',
     url: 'https://www.menards.com/main/search.html?ipp=36&search={searchTerms}',
     loadedSelector: 'div[class="container"]>section',
-    noResultsXPath: null,
+    noResultsXPath: '//div[@id="noSearchResults"]',
     zipcode: '',
   },
 };
