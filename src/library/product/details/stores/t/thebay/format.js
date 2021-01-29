@@ -75,12 +75,12 @@ const transform = (data) => {
             if (row.nameExtended) {
                 let info = [];
                 row.nameExtended.forEach(item => {
-                  info.push(item.text.replace(/(\s*\n\s*)+/g, ' - ').trim());
+                  info.push(item.text.replace(/(\s*\n\s*)+/g, ' ').trim());
                 });
                 if(tmp_desc != ''){
                 info.push(tmp_desc);
                 }
-                row.nameExtended = [{'text':info.join(' - '),'xpath':row.nameExtended[0].xpath}];
+                row.nameExtended = [{'text':info.join(' '),'xpath':row.nameExtended[0].xpath}];
             }
             if (row.variantInformation) {
                 let info = [];
