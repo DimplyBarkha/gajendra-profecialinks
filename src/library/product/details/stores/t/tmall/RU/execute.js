@@ -19,16 +19,16 @@ async function implementation (
     url = await dependencies.createUrl({ id });
   }
   await dependencies.goto({ url, zipcode, storeId });
-  await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 8000));
   
 
   try {
-    await context.waitForSelector('div#product-detail li[ae_button_type="tab_specs"]', { timeout: 1500 });
+    await context.waitForSelector('div#product-detail li[ae_button_type="tab_specs"]');
     //await context.click('div#product-detail li[ae_button_type="tab_specs"]',{timeout:1000});
     await context.evaluate(function(){
       document.querySelector('div#product-detail li[ae_button_type="tab_specs"]').click();
     })
-    await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 1000));
   }catch (e) {
     console.log(e);
   }
