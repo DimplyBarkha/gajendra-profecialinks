@@ -19,13 +19,8 @@ async function implementation(
     url = await dependencies.createUrl({ id });
   }
   await dependencies.goto({ url, zipcode, storeId });
-<<<<<<< HEAD
   await new Promise((resolve, reject) => setTimeout(resolve, 8000));
   
-=======
-  await new Promise((resolve, reject) => setTimeout(resolve, 10000));
-
->>>>>>> eddac141d99df19d31f64d42dab9522990b75a42
 
   try {
     await context.waitForSelector('div#product-detail li[ae_button_type="tab_specs"]');
@@ -33,13 +28,8 @@ async function implementation(
     await context.evaluate(function () {
       document.querySelector('div#product-detail li[ae_button_type="tab_specs"]').click();
     })
-<<<<<<< HEAD
     await new Promise((resolve, reject) => setTimeout(resolve, 1000));
   }catch (e) {
-=======
-    await new Promise((resolve, reject) => setTimeout(resolve, 2000));
-  } catch (e) {
->>>>>>> eddac141d99df19d31f64d42dab9522990b75a42
     console.log(e);
   }
   try {
