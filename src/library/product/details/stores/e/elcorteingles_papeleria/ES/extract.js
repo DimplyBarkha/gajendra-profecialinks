@@ -19,6 +19,7 @@ module.exports = {
 
       // function to append the elements to DOM
       function addElementToDocument (key, value) {
+        console.log(`Adding to DOM => ID: ${key}, value: ${value}`);
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
