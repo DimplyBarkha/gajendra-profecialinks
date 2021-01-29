@@ -8,6 +8,10 @@ module.exports = {
     zipcode: "",
   },
   implementation: async ({ url }, parameters, context, dependencies) => {
+    await context.setLoadAllResources(true);
+    await context.setLoadImages(true);
+    await context.setJavaScriptEnabled(true);
+    await context.setAntiFingerprint(false);
     await context.goto(url, {
       block_ads: false,
       load_all_resources: true,

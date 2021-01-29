@@ -13,6 +13,12 @@ module.exports = {
     context,
     dependencies
   ) => {
+    try {
+      await context.waitForSelector('img[class*=StyledProductImage]', {timeout: 40000});
+    } catch(er) {
+      console.log("timedOut waiting" + er.message);
+      throw new Error("The product content didn't load");
+    }
     await context.evaluate(() => {
       if (document.querySelector("#didomi-notice-agree-button") != null) {
         async () => {
