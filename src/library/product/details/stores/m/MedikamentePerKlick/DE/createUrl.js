@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'product/details/createUrl',
   parameterValues: {
-    domain: 'medikamenteperklick.de',
+    domain: 'medikamente-per-klick.de',
     prefix: null,
     url: null,
     country: 'DE',

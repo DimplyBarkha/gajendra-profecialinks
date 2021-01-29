@@ -9,8 +9,7 @@ fields:
 - name: image
   singleValue: true
   description: URL of the main product image
-  # xpath: //meta[@property="og:image"]/@content
-  xpath: //img[@name="mainImage"]/@src
+  xpath: //meta[@property="og:image"]/@content
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
@@ -19,7 +18,7 @@ fields:
   type: FILE[]
   singleValue: false
   description: Other product images (not in manufacturer description)
-  xpath: //div[@class="photo with-multiple-photo"]//div[@class="slick-track"]//div[not(contains(@class,"fl slick-slide slick-current slick-active"))]/img/@src
+  xpath: (//div[@class="photo with-multiple-photo" or @class="photo sparset with-multiple-photo"]//div[@class="slick-track"]//img/@src)[position()>1]
   regExp: (.+)
   regExpReplace: https://www.medikamente-per-klick.de$1
 - name: metaKeywords
@@ -34,13 +33,11 @@ fields:
   xpath: //div[@itemprop="breadcrumb"]//a[not(contains(@class,'main'))]//span//text()
 - name: listPrice
   description: The stated undiscounted price for the product
-  # xpath: //div[@class="wide-6 productInformations offerDetails"]//dd[@class="listPrice"]//text()
-  xpath: //div[@id="ii_listPrice"]
+  xpath: //div[@class="wide-6 productInformations offerDetails"]//dd[@class="listPrice"]//text()
 - name: price
   description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-  # xpath: //dl[@class="productPrice"]//dd[@class="yourPrice price" or @class="yourPrice"]//text()
-  xpath: //div[@id='ii_price']
+  xpath: //dl[@class="productPrice"]//dd[@class="yourPrice price" or @class="yourPrice"]//text()
 - name: availabilityText
   singleValue: true
   xpath: //div[@class='wide-6 productInformations offerDetails']//dl[@class="productAvailability"]//span[@class="value-title"]/@title
@@ -48,11 +45,10 @@ fields:
   regExp: in_stock
   regExpReplace: In Stock
 - name: description
-  singleValue: true
+  singleValue: false 
   description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-  # xpath: //dd[@class="productLongDescription"]//text()
-  xpath: //div[@id="ii_desc"]
+  xpath: //dd[@class="productLongDescription"]//text()
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -80,8 +76,7 @@ fields:
 - name: gtin
   singleValue: true
   description: GTIN code (includes UPC/EAN)
-  # xpath: //div[@class="nano"]//input[@name="productId"]/@value
-  xpath: //div[@class="addToCartForm"]//input[@name="product_id"]/@value | //div[@id="ii_gtin"]
+  xpath: //div[@class="nano"]//input[@name="productId"]/@value
 - name: sku
   singleValue: true
   description: The store-specific product identifier
@@ -105,6 +100,7 @@ fields:
   description: Content under "legal disclaimer" header
   xpath: //div[@class='lmivDisclaimer']
 - name: directions
+  singleValue: false
   type: TEXT[]
   description: Content under "directions" header
   xpath: //dd[@class="productContraindication" or @class="productDosage"]//text()
@@ -124,7 +120,7 @@ fields:
   xpath: //div[@id="ii_manufacturerImages"]
 - name: manufacturerDescription
   singleValue: false
-  type: TEXT[]
+  type: TEXT
   xpath: //dd[@class="productLongDescription"]//text()
 - name: shippingInfo
   singleValue: true
@@ -158,8 +154,7 @@ fields:
 - name: nameExtended
   type: TEXT
   description: The product name
-  xpath: //div[@id="ii_description"]
-  # xpath:  normalize-space(concat(//h1[@class="name fn"]//text(),(//dd[@class="packageSize"]//text())[1],(//dd[@class="packageSize"]//text())[2]))
+  xpath:  normalize-space(concat(//h1[@class="name fn"]//text(),(//dd[@class="packageSize"]//text())[1],(//dd[@class="packageSize"]//text())[2]))
 - name: name
   singleValue: true
   type: TEXT
@@ -256,7 +251,7 @@ fields:
   singleValue: true
   description: null
   type: NUMBER
-  xpath: count(//div[@class="photo with-multiple-photo"]//div[@class="slick-track"]//div[not(contains(@class,"fl slick-slide slick-current slick-active"))]/img/@src)
+  xpath: count((//div[@class="photo with-multiple-photo" or @class="photo sparset with-multiple-photo"]//div[@class="slick-track"]//img/@src)[position()>1])
 - name: news
   singleValue: true
   description: null
@@ -267,7 +262,7 @@ fields:
   singleValue: true
   description: null
 - name: ingredientsList
-  type: TEXT[]
+  type: TEXT
   description: List of Ingredients from site - can be string of data if no
       discernible start/end point
   xpath: //dd[@class="productActiveSubstance"]//text()
