@@ -26,7 +26,7 @@ module.exports = {
         for (let i = 0; i < array.length; i++) {
           array[i].setAttribute('sku', obj.SizeVariants[i].SizeVarId);
           array[i].setAttribute('firstvariant', obj.SizeVariants[0].SizeVarId);
-          array[i].setAttribute('nameextended', `${document.querySelector('div.logontitle h1').textContent} ${document.querySelector('span#colourName').textContent} ${obj.SizeVariants[i].SizeName}`);
+          array[i].setAttribute('nameextended', `${document.querySelector('div.logontitle h1').textContent} ${obj.SizeVariants[i].SizeName} ${document.querySelector('span#colourName').textContent}`);
         }
       }
     });
