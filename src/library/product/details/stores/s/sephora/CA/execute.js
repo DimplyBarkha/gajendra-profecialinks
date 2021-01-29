@@ -93,7 +93,7 @@ module.exports = {
   parameterValues: {
     country: 'CA',
     store: 'sephora',
-    domain: 'sephora.com',
+    domain: 'sephora.ca',
     loadedSelector: null,
     noResultsXPath: '//h1[contains(text(),"Sorry, we couldn’t find a match for")]',
     zipcode: '',
