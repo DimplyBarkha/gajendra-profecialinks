@@ -126,8 +126,9 @@ module.exports = {
             ? document.querySelector('div.product-resume').innerText.split('\n')
             : [];
           descriptionArr = descriptionArr.filter((item) => !!item);
+          const bulletsCount = descriptionArr.filter(item => item.trim().startsWith('-')).length;
           descriptionArr = descriptionArr.map((item) => item.replace(/^\s*-\s*/, ' || ').replace(/\n+/g, ' '));
-          variantElem.setAttribute('description_bullets', descriptionArr.length);
+          variantElem.setAttribute('description_bullets', bulletsCount);
           variantElem.setAttribute('description', descriptionArr.join(' ').trim());
 
           const unavailableLabel = document.querySelector('div.label-stock.unavailable');
@@ -185,6 +186,9 @@ module.exports = {
           variantElem.setAttribute('price', `${currency}${variantObj.price}`.replace('.', ','));
           variantElem.setAttribute('coupon_text', couponText);
           variantElem.setAttribute('ingredients', ingredientsText);
+
+          const zoomAvailable = document.evaluate('//div[contains(@class, "product-gallery text-center")]//i[@id="product-zoom"]', document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue;
+          variantElem.setAttribute('zoom_available', zoomAvailable ? 'Yes' : 'No');
         },
         { i, variantsTotal },
       );

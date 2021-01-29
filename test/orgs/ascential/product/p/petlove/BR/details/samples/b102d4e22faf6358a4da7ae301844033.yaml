@@ -2,7 +2,7 @@ input:
   id: 3105657-2
   _url: http://petlove.com.br
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=2ea671d5-24a9-4c0b-a09a-d51919d3071f/task=3bf05df9-3894-4072-813b-19494a58b942/512607e8-b98b-489a-a41b-9065a0233e55.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=fed74af4-c1bc-4a2a-97aa-fb1dc1ce96c1/task=c4f9bb08-f4f2-40e7-8316-892472fc42a2/626bf56f-11d9-4068-816e-c1ecfb732fc4.html
     extractionConfigId: product/details/stores/p/petlove/BR/extract
     data:
       - group:
@@ -51,7 +51,7 @@ extractions:
                   monitorada."
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/@description
             descriptionBullets:
-              - text: "6"
+              - text: "5"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/@description_bullets
             brandText:
               - text: KONG
@@ -121,6 +121,9 @@ extractions:
             variants:
               - text: 3105657-2
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/input[1]/@id
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/@zoom_available
             category:
               - text: Cachorro
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/span[1]
@@ -130,10 +133,10 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
             ratingCount:
               - text: "1"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
             aggregateRating:
               - text: 4,0
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
             brandLink:
               - text: https://www.petlove.com.br/kong
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@href
@@ -144,10 +147,12 @@ extractions:
               - text: "true"
             ageSuitability:
               - text: Filhotes
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
-            imageZoomFeaturePresent:
-              - text: "true"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
             availabilityText:
               - text: In stock
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
         xpath: /html
-    timestamp: 1611228004655
+    timestamp: 1611924519095

@@ -2,7 +2,7 @@ input:
   id: 3102928
   _url: http://petlove.com.br
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=2ea671d5-24a9-4c0b-a09a-d51919d3071f/task=972ff9fe-9750-42aa-9862-0235bda1f5f2/23a35307-d949-49d0-95ff-892f4b6aa6f4.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=fed74af4-c1bc-4a2a-97aa-fb1dc1ce96c1/task=54e451f3-d7c6-45bd-8e72-235a6c603f09/bdd87464-3538-4081-87fa-1b8b5179b8b0.html
     extractionConfigId: product/details/stores/p/petlove/BR/extract
     data:
       - group:
@@ -31,6 +31,9 @@ extractions:
             price:
               - text: R$11,29
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@price
+            availabilityText:
+              - text: Out Of Stock
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@availability_text
             description:
               - text: "|| Oxigenação perfeita; || Purificação da água; || Remove partículas bem
                   pequenas."
@@ -60,15 +63,15 @@ extractions:
             name:
               - text: Refil para Filtro Maxxi
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@product_name
-            coupon:
-              - text: 10% OFF
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@coupon_text
             secondaryImageTotal:
               - text: "3"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@secondary_image_total
             variants:
               - text: "3102932"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/input[1]/@id
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@zoom_available
             category:
               - text: Peixes
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/span[1]
@@ -78,10 +81,10 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
             ratingCount:
               - text: "1"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
             aggregateRating:
               - text: 4,0
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
             brandLink:
               - text: https://www.petlove.com.br/maxxi
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@href
@@ -92,11 +95,11 @@ extractions:
               - text: "true"
             ageSuitability:
               - text: Adultos, Filhotes, Idosos
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
-            imageZoomFeaturePresent:
-              - text: "true"
-            availabilityText:
-              - text: In stock
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
           - productUrl:
               - text: https://www.petlove.com.br/refil-para-filtro-maxxi/p
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@product_url
@@ -153,6 +156,9 @@ extractions:
             variants:
               - text: "3102928"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/input[1]/@id
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@zoom_available
             category:
               - text: Peixes
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/span[1]
@@ -162,10 +168,10 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
             ratingCount:
               - text: "1"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
             aggregateRating:
               - text: 4,0
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
             brandLink:
               - text: https://www.petlove.com.br/maxxi
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@href
@@ -176,11 +182,13 @@ extractions:
               - text: "true"
             ageSuitability:
               - text: Adultos, Filhotes, Idosos
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
-            imageZoomFeaturePresent:
-              - text: "true"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
             availabilityText:
               - text: In stock
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
           - productUrl:
               - text: https://www.petlove.com.br/refil-para-filtro-maxxi/p
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/@product_url
@@ -237,6 +245,9 @@ extractions:
             variants:
               - text: "3102930"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/input[1]/@id
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/@zoom_available
             category:
               - text: Peixes
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/span[1]
@@ -246,10 +257,10 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
             ratingCount:
               - text: "1"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
             aggregateRating:
               - text: 4,0
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
             brandLink:
               - text: https://www.petlove.com.br/maxxi
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@href
@@ -260,10 +271,12 @@ extractions:
               - text: "true"
             ageSuitability:
               - text: Adultos, Filhotes, Idosos
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
-            imageZoomFeaturePresent:
-              - text: "true"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
             availabilityText:
               - text: In stock
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
         xpath: /html
-    timestamp: 1611228007070
+    timestamp: 1611924519975

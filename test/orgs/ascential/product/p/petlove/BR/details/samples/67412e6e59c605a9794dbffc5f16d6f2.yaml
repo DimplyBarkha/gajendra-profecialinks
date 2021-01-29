@@ -2,7 +2,7 @@ input:
   id: 2154518
   _url: http://petlove.com.br
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5313f9b7-5a29-49c5-915e-5f23366e1df5/task=b6014f53-a29c-4ed8-b871-2b4d77a5742b/3246573f-e88f-472f-a101-5161b87856f7.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=fed74af4-c1bc-4a2a-97aa-fb1dc1ce96c1/task=72cad39a-a480-4abc-aa91-5bce0c882daf/7826b490-eaba-4128-b1ab-e47ba6b380d1.html
     extractionConfigId: product/details/stores/p/petlove/BR/extract
     data:
       - group:
@@ -22,7 +22,7 @@ extractions:
               - text: R$18,0
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@list_price
             price:
-              - text: R$17,46
+              - text: R$18,0
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@price
             description:
               - text: "|| Com vitaminas e minerais; || Alfafa, fontes de fibras essenciais; ||
@@ -56,7 +56,7 @@ extractions:
               - text: Ração Supra Funny Bunny Chinchila
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@product_name
             coupon:
-              - text: 13% OFF
+              - text: 10% OFF
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@coupon_text
             secondaryImageTotal:
               - text: "0"
@@ -91,6 +91,9 @@ extractions:
             variants:
               - text: "2154515"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/input[1]/@id
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@zoom_available
             category:
               - text: Roedores
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/span[1]
@@ -100,46 +103,51 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
             ratingCount:
               - text: "5"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
             aggregateRating:
               - text: 5,0
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
             brandLink:
               - text: https://www.petlove.com.br/supra
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@href
+            subscriptionPrice:
+              - text: R$47,25
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]
             subscribeAndSave:
-              - text: "false"
+              - text: "true"
             proteinPerServing:
               - text: "210"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[2]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[2]
             proteinPerServingUom:
-              - text: g
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[2]
+              - text: g/kg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[2]
             vitaminAPerServing:
               - text: "13000"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[1]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[1]
             vitaminAPerServingUom:
-              - text: UI
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[1]
+              - text: UI/kg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[1]
             vitaminCPerServing:
               - text: "100"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[2]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[2]
             vitaminCPerServingUom:
-              - text: mg
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[2]
+              - text: mg/kg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[2]
             ironPerServing:
               - text: "60"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[16]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[16]
             ironPerServingUom:
-              - text: mg
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[16]
+              - text: mg/kg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[16]
             ageSuitability:
               - text: Adultos, Filhotes, Idosos
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
-            imageZoomFeaturePresent:
-              - text: "true"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
             availabilityText:
               - text: In stock
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
           - productUrl:
               - text: https://www.petlove.com.br/racao-supra-funny-bunny-chinchila/p
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@product_url
@@ -156,11 +164,8 @@ extractions:
               - text: R$52,5
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@list_price
             price:
-              - text: R$50,92
+              - text: R$52,5
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@price
-            availabilityText:
-              - text: Out Of Stock
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@availability_text
             description:
               - text: "|| Com vitaminas e minerais; || Alfafa, fontes de fibras essenciais; ||
                   Alimento extrusado; || Fecho Zip: abre para servir e fecha
@@ -192,6 +197,9 @@ extractions:
             name:
               - text: Ração Supra Funny Bunny Chinchila
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@product_name
+            coupon:
+              - text: 10% OFF
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@coupon_text
             secondaryImageTotal:
               - text: "0"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@secondary_image_total
@@ -225,6 +233,9 @@ extractions:
             variants:
               - text: "2154518"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/input[1]/@id
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@zoom_available
             category:
               - text: Roedores
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/span[1]
@@ -234,43 +245,50 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
             ratingCount:
               - text: "5"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
             aggregateRating:
               - text: 5,0
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
             brandLink:
               - text: https://www.petlove.com.br/supra
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@href
+            subscriptionPrice:
+              - text: R$47,25
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]
             subscribeAndSave:
-              - text: "false"
+              - text: "true"
             proteinPerServing:
               - text: "210"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[2]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[2]
             proteinPerServingUom:
-              - text: g
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[2]
+              - text: g/kg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[2]
             vitaminAPerServing:
               - text: "13000"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[1]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[1]
             vitaminAPerServingUom:
-              - text: UI
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[1]
+              - text: UI/kg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[1]
             vitaminCPerServing:
               - text: "100"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[2]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[2]
             vitaminCPerServingUom:
-              - text: mg
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[2]
+              - text: mg/kg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[2]
             ironPerServing:
               - text: "60"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[16]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[16]
             ironPerServingUom:
-              - text: mg
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[16]
+              - text: mg/kg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[16]
             ageSuitability:
               - text: Adultos, Filhotes, Idosos
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
-            imageZoomFeaturePresent:
-              - text: "true"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
+            availabilityText:
+              - text: In stock
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
         xpath: /html
-    timestamp: 1611135339441
+    timestamp: 1611924516089

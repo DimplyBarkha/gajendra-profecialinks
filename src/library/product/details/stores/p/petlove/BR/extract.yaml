@@ -97,6 +97,7 @@ fields:
 - name: mpc
   singleValue: tru
   description: The manufacturer model code (unique) of the product
+  xpath: //div/@added_mpc
 - name: packSize
   singleValue: true
   description: The number of packs in the product offer (if stated separately on the
@@ -529,7 +530,7 @@ fields:
 - name: customerServiceAvailability
   singleValue: true
   description: Information related to customer service availability (text), ['Yes','No']
-  defaultValue: false
+  defaultValue: 'No'
 - name: materials
   singleValue: true
   description: Materials used to make the product
@@ -539,9 +540,8 @@ fields:
   singleValue: true
   description: If 360 image is present in the carousel ['Yes','No']
   example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
-  defaultValue: false
+  defaultValue: 'No'
 - name: imageZoomFeaturePresent
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  defaultValue: false
-  xpath: boolean(ancestor::html//div[contains(@class, "product-gallery text-center")]//i[@id="product-zoom"])
+  xpath: //div/@zoom_available

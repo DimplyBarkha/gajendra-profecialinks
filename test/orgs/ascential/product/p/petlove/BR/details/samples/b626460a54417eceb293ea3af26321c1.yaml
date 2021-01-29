@@ -2,7 +2,7 @@ input:
   id: 3100940
   _url: http://petlove.com.br
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=2ea671d5-24a9-4c0b-a09a-d51919d3071f/task=248e4c12-14da-4460-9539-c05fa7dcb5c3/ca5d92e8-d978-4f75-8675-0b9d30c0a33f.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=fed74af4-c1bc-4a2a-97aa-fb1dc1ce96c1/task=23e0d607-7f42-431a-bc65-9042d4fb8d1c/ea29fe69-372f-4a80-a84c-749e7ca37b91.html
     extractionConfigId: product/details/stores/p/petlove/BR/extract
     data:
       - group:
@@ -97,6 +97,9 @@ extractions:
             variants:
               - text: "3100940"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/input[1]/@id
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@zoom_available
             category:
               - text: Gatos
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/span[1]
@@ -105,11 +108,11 @@ extractions:
               - text: Biscoitos
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
             ratingCount:
-              - text: "141"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
+              - text: "142"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
             aggregateRating:
               - text: 4,8
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
             brandLink:
               - text: https://www.petlove.com.br/dreamies
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@href
@@ -120,28 +123,30 @@ extractions:
               - text: "true"
             sodiumPerServing:
               - text: "4800"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[7]/td[1]/table[1]/tbody[1]/tr[9]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[7]/td[1]/table[1]/tbody[1]/tr[9]
             sodiumPerServingUom:
               - text: mg/kg
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[7]/td[1]/table[1]/tbody[1]/tr[9]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[7]/td[1]/table[1]/tbody[1]/tr[9]
             proteinPerServing:
               - text: "280"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[7]/td[1]/table[1]/tbody[1]/tr[2]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[7]/td[1]/table[1]/tbody[1]/tr[2]
             proteinPerServingUom:
               - text: g/kg
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[7]/td[1]/table[1]/tbody[1]/tr[2]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[7]/td[1]/table[1]/tbody[1]/tr[2]
             vitaminAPerServing:
               - text: "4.100"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[8]/td[1]/table[1]/tbody[1]/tr[1]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[8]/td[1]/table[1]/tbody[1]/tr[1]
             vitaminAPerServingUom:
               - text: UI
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[8]/td[1]/table[1]/tbody[1]/tr[1]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[8]/td[1]/table[1]/tbody[1]/tr[1]
             ageSuitability:
               - text: Adultos, Idosos
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
-            imageZoomFeaturePresent:
-              - text: "true"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
             availabilityText:
               - text: In stock
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
         xpath: /html
-    timestamp: 1611228000749
+    timestamp: 1611924515913
