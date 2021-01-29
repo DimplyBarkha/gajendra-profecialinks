@@ -200,7 +200,7 @@ module.exports = {
         const index = fullDescription.lastIndexOf('©');
         const manufacturerName = (fullDescription && index !== -1) ? fullDescription.substring(index + 1).trim() : '';
         const images = infos.filmStripUrl.reduce((acc, obj) => {
-          const filtered = Object.entries(obj).filter(([key]) => key.includes('largeImageUrl'));
+          const filtered = Object.entries(obj).filter(([key]) => key.includes('zoomImageUrl'));
           const array = filtered && filtered.length === 0 ? ['https:' + Object.entries(obj)[0]] : filtered.map(([key, link]) => 'https:' + link);
           return [...acc, ...array];
         }, []);
@@ -450,6 +450,7 @@ module.exports = {
 
         console.log(jsonObj.inventory);
         console.log(jsonObj.inventory.shipAvailableMessage);
+        console.log('Infos=>', infos);
         const obj = {
           _input,
           image: infos.productImageUrl,
@@ -470,7 +471,7 @@ module.exports = {
           weightNet: '',
           weightGross: shipping ? shipping.shippingWeight : '',
           gtin: (jsonObj && jsonObj.inventory && jsonObj.inventory.upc) ? jsonObj.inventory.upc : '', // one digit shortening to match old output
-          sku: infos.skuId.split('sku')[infos.skuId.split('sku').length - 1],
+          sku: infos.productId.split('prod')[infos.productId.split('prod').length - 1],
           variantId: jsonObj.inventory.wicId,
           mpc: '',
           legalDisclaimer: '',

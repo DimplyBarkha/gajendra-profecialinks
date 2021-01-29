@@ -43,7 +43,7 @@ fields:
   description: The categories (e.g. from breadcrumbs)
 - name: nameExtended
   singleValue: true
-  xpath: "//*[@id='added_nameExtended']//text()"
+  xpath: "//*[@id='added_name']//text()"
   # xpath: concat(//a[contains(@class,'brand-title')],' ', //*[@id='added_name']//text()'])
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
@@ -125,7 +125,7 @@ fields:
     site to quantity)
 - name: legalDisclaimer
   singleValue: true
-  xpath: "//*[@id='added_legalDisclaimer']//text()"
+  xpath: "//*[@id='added_warnings']//text()"
   description: Content under "legal disclaimer" header
 - name: directions
   singleValue: true
