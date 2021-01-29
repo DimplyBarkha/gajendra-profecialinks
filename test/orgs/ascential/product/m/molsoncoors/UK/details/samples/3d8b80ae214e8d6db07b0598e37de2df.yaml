@@ -1,0 +1,58 @@
+input:
+  id: 2005222
+  _url: http://mymolsoncoors.com
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=1cd63c76-54e9-4c9f-93a7-57403061b7ab/task=3761e3c1-25d8-4db8-af51-8043f0a5e281/9a6687b6-6d7c-4a03-95fe-1845ea3a75ba.html
+    extractionConfigId: product/details/stores/m/molsoncoors/UK/extract
+    data:
+      - group:
+          - image:
+              - text: https://www.mymolsoncoors.com/servlet/servlet.FileDownload?file=00P4M00000tGzQMUA0
+                xpath: /html/body/span[3]/div[1]/div[2]/span[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
+            alternateImages:
+              - text: https://www.mymolsoncoors.com/servlet/servlet.FileDownload?file=00P4M00000tGzQNUA0
+                xpath: /html/body/span[3]/div[1]/div[2]/span[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[2]/img[1]/@src
+            nameExtended:
+              - text: Red Bull Tropical Energy Drink 12 X 250ml Can
+                xpath: /html/body/span[3]/div[1]/div[2]/span[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/h4[1]
+            name:
+              - text: Red Bull Tropical Energy Drink 12 X 250ml Can
+                xpath: /html/body/span[3]/div[1]/div[2]/span[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/h4[1]
+            sku:
+              - text: "2005222"
+                xpath: /html/body/span[3]/div[1]/div[2]/span[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/span[2]
+            quantity:
+              - text: 250ml
+                xpath: /html/body/span[3]/div[1]/div[2]/span[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/span[1]
+            alcoholContent:
+              - text: 0.00%
+                xpath: /html/body/span[3]/div[1]/div[2]/span[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]
+            countryOfOrigin:
+              - text: Great Britain
+                xpath: /html/body/span[3]/div[1]/div[2]/span[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/span[1]
+            dietaryInformation:
+              - text: Vegan and Vegetarian Friendly
+                xpath: /html/body/span[3]/div[1]/div[2]/span[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/span[1]
+            description:
+              - text: The Flavour Of Tropical Fruits. The Wings Of Red Bull.
+                xpath: /html/body/span[3]/div[1]/div[2]/span[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[3]/div[1]
+            termsAndConditions:
+              - text: https://www.molsoncoors.com/-/media/molson-coors-corporate/privacy-and-terms/terms-and-conditions-en.ashx
+                xpath: /html/body/span[3]/div[1]/div[3]/footer[1]/div[1]/span[1]/div[1]/div[2]/div[1]/a[1]/@href
+            privacyPolicy:
+              - text: http://www.molsoncoors.com/-/media/molson-coors-corporate/privacy-and-terms/privacy-policy-en-20200101.ashx
+                xpath: /html/body/span[3]/div[1]/div[3]/footer[1]/div[1]/span[1]/div[1]/div[3]/div[1]/a[1]/@href
+            productUrl:
+              - text: https://www.mymolsoncoors.com/ccrz__ProductDetails?sku=2005222&store=UKStore
+                xpath: /html/body/div[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[2]
+            customerServiceAvailability:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            secondaryImageTotal:
+              - text: "1"
+        xpath: /html
+    timestamp: 1611908263981

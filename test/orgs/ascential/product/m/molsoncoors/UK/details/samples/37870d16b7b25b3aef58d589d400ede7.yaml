@@ -1,0 +1,59 @@
+input:
+  id: 2000459
+  _url: http://mymolsoncoors.com
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=1cd63c76-54e9-4c9f-93a7-57403061b7ab/task=c095a523-d448-4f22-bab2-891c5845c5d6/e546d3a2-f7e3-4bd1-aea7-de6d5b20bb43.html
+    extractionConfigId: product/details/stores/m/molsoncoors/UK/extract
+    data:
+      - group:
+          - image:
+              - text: https://www.mymolsoncoors.com/servlet/servlet.FileDownload?file=00P4M00000tIrjLUAS
+                xpath: /html/body/span[3]/div[1]/div[2]/span[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
+            nameExtended:
+              - text: Schweppes Orange Cordial 12 X 1L Plastic Bottle
+                xpath: /html/body/span[3]/div[1]/div[2]/span[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/h4[1]
+            name:
+              - text: Schweppes Orange Cordial 12 X 1L Plastic Bottle
+                xpath: /html/body/span[3]/div[1]/div[2]/span[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/h4[1]
+            sku:
+              - text: "2000459"
+                xpath: /html/body/span[3]/div[1]/div[2]/span[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/span[2]
+            quantity:
+              - text: 1L
+                xpath: /html/body/span[3]/div[1]/div[2]/span[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/span[1]
+            alcoholContent:
+              - text: 0.00%
+                xpath: /html/body/span[3]/div[1]/div[2]/span[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]
+            countryOfOrigin:
+              - text: Great Britain
+                xpath: /html/body/span[3]/div[1]/div[2]/span[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/span[1]
+            dietaryInformation:
+              - text: Vegan and Vegetarian Friendly
+                xpath: /html/body/span[3]/div[1]/div[2]/span[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/span[1]
+            description:
+              - text: The Schweppes Range Of Cordials Come In A Variety Of Fruit Flavours.
+                  Dilute With Water To Serve.
+                xpath: /html/body/span[3]/div[1]/div[2]/span[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[3]/div[1]
+            directions:
+              - text: Dilute With Water To Serve.
+                xpath: /html/body/span[3]/div[1]/div[2]/span[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[3]/div[1]
+            termsAndConditions:
+              - text: https://www.molsoncoors.com/-/media/molson-coors-corporate/privacy-and-terms/terms-and-conditions-en.ashx
+                xpath: /html/body/span[3]/div[1]/div[3]/footer[1]/div[1]/span[1]/div[1]/div[2]/div[1]/a[1]/@href
+            privacyPolicy:
+              - text: http://www.molsoncoors.com/-/media/molson-coors-corporate/privacy-and-terms/privacy-policy-en-20200101.ashx
+                xpath: /html/body/span[3]/div[1]/div[3]/footer[1]/div[1]/span[1]/div[1]/div[3]/div[1]/a[1]/@href
+            productUrl:
+              - text: https://www.mymolsoncoors.com/ccrz__ProductDetails?sku=2000459&store=UKStore
+                xpath: /html/body/div[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[2]
+            customerServiceAvailability:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            secondaryImageTotal:
+              - text: "0"
+        xpath: /html
+    timestamp: 1611908278435
