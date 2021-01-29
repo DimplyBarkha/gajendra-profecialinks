@@ -1,4 +1,12 @@
-
+async function implementation (
+  inputs,
+  parameters,
+  context,
+  dependencies,
+) {
+  // Hack: Getting rid of default pagination
+  return false;
+}
 module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
@@ -7,10 +15,14 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
+    // loadedSelector: null,
+    loadedXpath: '//div[@class="NNXRtF"]//div/picture/img/@src',
     noResultsXPath: null,
-    openSearchDefinition: null,
+    // openSearchDefinition: {
+    //   template: 'https://lyko.com/sv/sok?q={searchTerms}&sortBy=popularity&count={page}',
+    // },
     domain: 'lyko.com',
     zipcode: '',
   },
+  implementation,
 };
