@@ -38,8 +38,8 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //div[@class="_multi-card-creative-desktop_ImageContainer_container__3o-Yn"]/img/@src | //img[@class="s-image"]/@src
-    regExp: (.+)\.[^\.]*(\.[^\.]+$)
-    regExpReplace: $1$2
+    #regExp: (.+)\.[^\.]*(\.[^\.]+$)
+    #regExpReplace: $1$2
   - name: sponsAgRating
     singleValue: false
     xpath: //div[@cel_widget_id="MultiCardCreativeDesktop"]/div/div/div//@data-rating | //div[@cel_widget_id="TetrisCreativeDesktop"]/div/div//@data-rating
