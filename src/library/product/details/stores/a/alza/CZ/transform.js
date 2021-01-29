@@ -22,6 +22,18 @@ const transform = (data) => {
         });
         row.description = [{ text }];
       }
+
+      if (row.aggregateRating) {
+        let text = '';
+        row.aggregateRating.forEach(item => {
+          text += item.text.replace(/(,)/g, '.');
+        });
+        row.aggregateRating = [
+          {
+            text: text,
+          },
+        ];
+      }
     }
   }
 

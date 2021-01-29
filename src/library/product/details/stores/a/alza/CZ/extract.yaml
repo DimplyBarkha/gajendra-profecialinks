@@ -25,7 +25,7 @@ fields:
   - name: nameExtended
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //div[@id="h1c"]
+    xpath: //div[@id="h1c"]//h1
   - name: listPrice
     description: The stated undiscounted price for the product
     xpath: //span[contains(@class,"price_compare")] | //tr[@class="priceCompare"]/td[@class="c2"]
@@ -72,10 +72,8 @@ fields:
     regExpReplace: $2
   - name: sku
     description: The store-specific product identifier
-    xpath: //meta[@id="deepLinkUrl"]/@content
-    regExp: \d+
+    xpath: //span[@class="moreInfo"]//span[contains(.,"Prod. číslo:")]/following-sibling::*
   - name: variantId
-    description: Identifier for a variant from a store where variants share the same sku
     xpath: //span[@class="moreInfo"]//span[contains(.,"Kód:")]/following-sibling::*
   - name: mpc
     description: The manufacturer model code (unique) of the product
@@ -116,16 +114,13 @@ fields:
     example: A+, A+++, B
     xpath: //div[@class="left-cnt"]//div[contains(@class,"energy-class")]//span[@class="icon-text"]
   - name: ingredientsList
-    description: List of Ingredients from site - can be string of data if no discernible start/end point
     xpath: //div[@id="celek"]//strong[contains(.,"Složení:")]/following-sibling::text() | //div[@class="pp-structure"]//p[@class="lp-par"]
   - name: featureBullets
     xpath: count(//div[contains(@class,"blok_pp")]//ul//li)
   - name: name
     description: The product name
-    xpath: //div[@id="h1c"]
+    xpath: //div[@id="h1c"]//h1
   - name: technicalInformationPdfPresent
-    description: If there is for example a manual in pdf format on the website. ['Yes','No']
-    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
     defaultValue: No
     xpath: //div[@class="blockMoreInfoG"]//span[not(contains(@id,"rowWarranty"))][last()]/a/@href
     regExp: .+
