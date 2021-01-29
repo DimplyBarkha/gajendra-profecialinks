@@ -42,11 +42,21 @@ fields:
       Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
     xpath: //div[contains(@class,"product-card-hero_contentSection")]/div[contains(@class,"product-summary_root")]/p
+    defaultValue: " "
+  - name: extraInformation
+    xpath: //h4[contains(text(),"Extra informatie")]/following-sibling::div[1]
+    defaultValue: " "
+  - name: secondDescription
+    xpath: //h2[contains(text(),"Omschrijving")]/following-sibling::div[1]/ul/li
+    defaultValue: " "
   - name: descriptionBullets
     # xpath: count((//div[@class="product-info-description"]/ul | //div[@class="product-info-description"]/div[@class="product-summary"] | //div[starts-with(@class,"product-card-hero_contentSection")]/div[@class="product-summary"])//li | //div[contains(@class,'product-summary_root')]//ul/li)
     description: Number of ul > li tags in the description
     xpath: count(//div[contains(@class,"product-card-hero_contentSection")]/div[contains(@class,"product-summary_root")]/ul/li)
     type: NUMBER
+  - name: totalSecondaryBullets
+    xpath: count(//h2[contains(text(),"Omschrijving")]/following-sibling::div[1]/ul/li)
+    defaultValue: 0
   - name: brandText
     xpath: //a[contains(@class,"brand-button")]/text()
     regExp: Alles van\s*(.+)

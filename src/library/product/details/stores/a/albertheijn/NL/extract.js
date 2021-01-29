@@ -9,6 +9,12 @@ async function implementation(
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
+  try {
+    await context.waitForSelector('div[class*="product-card-hero_imageSection"] img', { timeout: 40000 });
+    console.log('Image loaded successfully')
+  } catch (e) {
+    console.log('Image not loaded at all')
+  }
   function addManufacturer() {
     try {
       const manufacturer = window.__INITIAL_STATE__.product.card.meta.owner.contacts.pop().name;

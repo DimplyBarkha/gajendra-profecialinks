@@ -58,14 +58,27 @@ const transform = (data, context) => {
       } else {
         row.availabilityText = [{ text: 'Out of Stock' }];
       }
-      if (row.additionalDescBulletInfo) {
+      if (row.secondDescription) {
+        let text = row.secondDescription.map(element => element.text.trim()).join(' || ');
+        let finalBulletText = `|| ${text}`;
+        row.secondDescription = [{ text: finalBulletText.trim() }]
+      }
+      if (row.extraInformation) {
+        row.extraInformation[0].text = row.extraInformation[0].text.trim();
+      }
+      if (row.additionalDescBulletInfo && row.secondDescription) {
         let text = row.additionalDescBulletInfo.map(element => element.text.trim()).join(' || ');
         let finalBulletText = `|| ${text}`;
-        row.additionalDescBulletInfo = [{ text: finalBulletText.trim() }]
+        let finalText = `${finalBulletText} ${row.secondDescription[0].text}`
+        row.additionalDescBulletInfo = [{ text: finalText }]
       }
-      if (row.description && row.additionalDescBulletInfo) {
-        let text = `${row.description[0].text} ${row.additionalDescBulletInfo[0].text}`
+      if (row.description && row.additionalDescBulletInfo && row.extraInformation) {
+        let text = `${row.description[0].text} ${row.additionalDescBulletInfo[0].text} ${row.extraInformation[0].text}`
         row.description = [{ text }]
+      }
+      if (row.descriptionBullets && row.totalSecondaryBullets) {
+        let text = Number(row.descriptionBullets[0].text) + Number(row.totalSecondaryBullets[0].text);
+        row.descriptionBullets = [{ text }]
       }
 
       Object.keys(row).forEach(header => row[header].forEach(el => {
