@@ -17,9 +17,9 @@ fields:
   - name: productUrl
     singleValue: false
     xpath: //a/@href[1]
-    regExp: store(.*)
+    regExp: items(.*)
     # regExp: (.*)
-    regExpReplace: https://www.instacart.com/store$1
+    regExpReplace: https://www.instacart.com/store/items$1
     description: The URL for the product details page
   - name: thumbnail
     singleValue: false
