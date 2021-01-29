@@ -53,7 +53,8 @@ fields:
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
-    xpath: count(//div[@class="product-description__key-features-container"]/ul/li | //h3[contains(text(),"Features of")]/following::ul[1]/li)
+    xpath: //html//div[@id="count"]
+      # count(//div[@class="product-description__key-features-container"]/ul/li | //h3[contains(text(),"Features of")]/following::ul[1]/li)
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
