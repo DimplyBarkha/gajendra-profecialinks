@@ -108,7 +108,7 @@ module.exports = {
           addElementToDocument('mpc', JSON.parse(apiDataResponse)._product_model);
           addElementToDocument('sku', JSON.parse(apiDataResponse)._reference);
           addElementToDocument('gtin', JSON.parse(apiDataResponse)._gtin);
-          addElementToDocument('retailer_product_code', JSON.parse(apiDataResponse)._reference);
+          addElementToDocument('retailer_product_code', JSON.parse(apiDataResponse).id);
           addElementToDocument('variantInformation', JSON.parse(apiDataResponse)._delivery_options[0].skus[0].variant ? JSON.parse(apiDataResponse)._delivery_options[0].skus[0].variant[0].value : '');
           if (JSON.parse(apiDataResponse).video && JSON.parse(apiDataResponse).video.length > 0) {
             console.log('we have the video array in the api response');
