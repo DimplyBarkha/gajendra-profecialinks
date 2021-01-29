@@ -42,7 +42,7 @@ const transform = (data) => {
             else {
               str = str.join(",");
             }
-            item.text = str;
+            item.text = str+"0";
           })
         }
         if(row.listPrice) {
@@ -58,7 +58,7 @@ const transform = (data) => {
             else {
               str = str.join(",");
             }
-            item.text = str;
+            item.text = str+"0";
           })
         }
         if(row.aggregateRating) {

@@ -38,7 +38,7 @@ module.exports = {
     store: 'falabella',
     domain: 'falabella.com',
     url: 'https://www.falabella.com/falabella-cl/search?Ntt={searchTerms}',
-    loadedSelector: 'div.jsx-1987097504,main',
+    loadedSelector: 'div.main',
     noResultsXPath: '//div[contains(@class,"no-result")]//h3',
     zipcode: '',
   },implementation,
