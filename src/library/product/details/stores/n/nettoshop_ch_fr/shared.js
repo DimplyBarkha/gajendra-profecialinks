@@ -111,7 +111,7 @@ const transform = (data) => {
         });
         row.specifications = [
           {
-            text: text.slice(0, -3),
+            text: text.slice(0, -2),
           },
         ];
       }
@@ -126,31 +126,31 @@ const transform = (data) => {
           },
         ];
       }
-      if (row.unInterruptedPDP) {
-        const pdps = [];
+      // if (row.unInterruptedPDP) {
+      //   const pdps = [];
 
-        row.unInterruptedPDP.forEach(item => {
-          console.log('item:: ', item.text);
+      //   row.unInterruptedPDP.forEach(item => {
+      //     console.log('item:: ', item.text);
 
-          if (pdps.indexOf(item.text) === -1) {
-            pdps.push(item.text);
-          }
-          // console.log("variantUrls:: ", pdps);
-          // if (urls && urls.length === 1) {
-          //   variantUrls.push(item);
-          // } else {
-          //   if (dupUrl !== item.text) {
-          //     dupUrl = item.text;
-          //     variantUrls.push(item);
-          //   }
-          // }
-        });
-        row.unInterruptedPDP = pdps.map((el) => {
-          return {
-            text: el,
-          };
-        });
-      }
+      //     if (pdps.indexOf(item.text) === -1) {
+      //       pdps.push(item.text);
+      //     }
+      //     // console.log("variantUrls:: ", pdps);
+      //     // if (urls && urls.length === 1) {
+      //     //   variantUrls.push(item);
+      //     // } else {
+      //     //   if (dupUrl !== item.text) {
+      //     //     dupUrl = item.text;
+      //     //     variantUrls.push(item);
+      //     //   }
+      //     // }
+      //   });
+      //   row.unInterruptedPDP = pdps.map((el) => {
+      //     return {
+      //       text: el,
+      //     };
+      //   });
+      // }
       if (row.variantInformation) {
         let text = '';
         row.variantInformation.forEach(item => {

@@ -17,6 +17,9 @@ fields:
   - name: nameExtended
     singleValue: false
     xpath: //h1[@class="c-product-detail__product-name"]
+  - name: energyEfficiency
+    singleValue: false
+    xpath: //html//div[@id='energyEfficiency']
   - name: metaKeywords
     singleValue: false
     xpath: //html//div[@id='metaKeywords'] 
@@ -26,6 +29,9 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[@class="c-product-detail-infos__price-total"]
+  - name: listPrice
+    singleValue: false
+    xpath: //span[@class="c-product-detail-infos__price-discount-price"]
   - name: availabilityText
     singleValue: false
     xpath: //span[@class="c-add-to-cart__button-text"]
@@ -61,9 +67,9 @@ fields:
   - name: variantId
     singleValue: false
     xpath: //html//div[@id='SKU']
-  # - name: manufacturerImages
-  #   singleValue: false
-  #   xpath: //html//div[@id='manufcaturer_Images']
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //html//div[@id='manufcaturer_Images']
   - name: sku
     singleValue: false
     xpath: //html//div[@id='SKU']
@@ -72,7 +78,9 @@ fields:
     xpath: //html//div[@id='mpc']
   - name: ratingCount
     singleValue: false
-    xpath: //html//div[@id='ratingCount']
+    xpath: //span[@class="c-rating__number-of-reviews"]
+    regExp: \d+
+    # xpath: //html//div[@id='ratingCount']
     type: NUMBER
   - name: aggregateRating
     singleValue: false
@@ -108,17 +116,19 @@ fields:
     singleValue: false
     xpath: //ul[@class="c-product-detail__color-variants-list"]/li/a/@href
     regExp: \b(\w+)\W*$ 
-  # - name: variantId
+  # - name: unInterruptedPDP
   #   singleValue: false
-  #   description:
+    # xpath: //html//div[@id='unInterruptedPDP']
+    # xpath: //h3[contains(.,"Ces articles pourraient également vous plaire")]/following::div[1]
   - name: warranty
     singleValue: false
     xpath: //html//div[@id='guarantee']
   - name: technicalInformationPdfPresent
     singleValue: false
-    description: If there is for example a manual in pdf format on the website. ['Yes','No']
-    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-    defaultValue: No
+    xpath: //ul[@class='jcarousel-list jcarousel-list-horizontal']//a/@href
+    regExp: (.+)
+    regExpReplace: https:$1
+    # defaultValue: No
   - name: termsAndConditions
     singleValue: false
     description: Terms and conditions information text ['Yes','No']
@@ -130,7 +140,7 @@ fields:
   - name: customerServiceAvailability
     singleValue: false
     description: Information related to customer service availability (text), ['Yes','No']
-    defaultValue: No
+    defaultValue: Yes
   - name: Image360Present
     singleValue: false
     description: If 360 image is present in the carousel ['Yes','No']

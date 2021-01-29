@@ -65,6 +65,16 @@ module.exports = {
       } catch (error) {
       }
       try {
+        const energyEfficiency = getAllXpath("//tr[@class='c-product-specifications__tr']/th[contains(text(),'Efficacité énergétique')]/parent::tr/td/span/text()", 'nodeValue');
+        spaceSeparatorSingle('energyEfficiency', energyEfficiency);
+      } catch (error) {
+      }
+      try {
+        const technicalInformationPdfPresent = getAllXpath("//ul[@class='jcarousel-list jcarousel-list-horizontal']//a/@href", 'nodeValue');
+        spaceSeparatorSingle('technicalInformationPdfPresent', technicalInformationPdfPresent);
+      } catch (error) {
+      }
+      try {
         const metaKeywords = getAllXpath("//meta[@name='keywords']/@content", 'nodeValue');
         spaceSeparatorSingle('metaKeywords', metaKeywords);
       } catch (error) {
