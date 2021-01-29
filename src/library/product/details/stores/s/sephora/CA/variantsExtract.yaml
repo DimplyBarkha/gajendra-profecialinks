@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: /html/body
+recordXPath: //div[contains(@data-comp,"Swatches")]//div[contains(@data-comp,"SwatchGroup")]/div/button
 fields:
   - name: image
     singleValue: false
@@ -55,7 +55,7 @@ fields:
     xpath: //script[contains(text(),"defaultSkuId:")]/text()
   - name: variantId
     singleValue: false
-    xpath: //p[@data-at="item_sku"]/text()[last()]
+    xpath: //button/img/@src
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
