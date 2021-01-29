@@ -42,13 +42,10 @@ const transform = (data) => {
         if (row.description) {
           let description_ar = [];
           row.description.forEach(item => {
-            item.text = item.text.replace("* Wine vintages can vary when delivered or collected from your chosen Click & Collect store.",'');
-            item.text = item.text.replace(/Brand.*/g,'');
-            item.text = 's'+item.text;
             description_ar.push(item.text);
           });
           if (description_ar.length) {
-            row.description = [{ "text": description_ar.join().slice(1,-2), 'xpath': row.description[0].xpath }];
+            row.description = [{ "text": description_ar.join(" ").replace("*",""), 'xpath': row.description[0].xpath }];
           }
         }
         if (row.quantity) {
