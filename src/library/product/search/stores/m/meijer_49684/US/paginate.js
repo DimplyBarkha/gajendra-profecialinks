@@ -11,7 +11,7 @@ module.exports = {
     spinnerSelector: null,
     loadedSelector: null,
     loadedXpath: null,
-    noResultsXPath: "//div[@class='search-empty row ']",
+    noResultsXPath: null,//"//div[@class='search-empty row ']",
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
     openSearchDefinition: {
