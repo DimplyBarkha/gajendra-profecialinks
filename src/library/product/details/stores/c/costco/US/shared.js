@@ -148,6 +148,13 @@ const transform = (data) => {
           }
         });
       }
+      if (row.videos && row.videos.length > 0) {
+        row.videos.forEach(item => {
+          if (item.text.includes('player.liveclicker.com')) {
+            item.text = 'https:' + item.text;
+          }
+        });
+      }
       if (row.ratingCount) {
         row.ratingCount.forEach(item => {
           item.text = item.text.replace(/s/, '').trim();
