@@ -7,6 +7,15 @@ parameters:
 proxy:
   zone: ZUK
   type: DATA_CENTER
+extractionGlobals:
+  screenCapture: false
+  screenCaptureType: 'png'
+policy:
+  numberRetries: 5
+  priority: MEDIUM
+  retryDelay: 10 
+  backoffPolicy: LINEAR
+  retryWithResidentialProxyAfter: 4
 meta:
   branches:
     staging:
