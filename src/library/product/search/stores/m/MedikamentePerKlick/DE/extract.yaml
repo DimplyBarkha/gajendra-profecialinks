@@ -10,7 +10,7 @@ fields:
     # xpath: //div[starts-with(@id,'ii_rank')]
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath:  //div[@class="productsList"]//img[@class="photo"]/@src
+    xpath:  //div[@class="productsList"]//img[@itemprop="image" and @class="lazy photo"]/@data-original|//div[@class="productsList"]//img[@itemprop="image" and @class="photo"]/@src
     # xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//img[@class="photo"]/@src
     regExp: (.+)
     regExpReplace: https://www.medikamente-per-klick.de$1
@@ -26,7 +26,8 @@ fields:
     regExp: cart(\w+)_.*
     regExpReplace: $1
   - name: price
-    xpath:  //div[@class="productsList"]//dd[@class="yourPrice" or @class="yourPrice price"]//text()
+    type: CURRENCY
+    xpath:  //div[@class="productsList"]//dd[@class="yourPrice" or @class="yourPrice price"]
     singleValue: false
     # xpath: //div[starts-with(@id,'ii_price')]
   - name: aggregateRating
