@@ -132,12 +132,13 @@ module.exports = {
     }
 
     dataRef.forEach(row => {
-      const alternateImages = row.group[0].alternateImages;
-      if (alternateImages) {
-        alternateImages.forEach(image => {
-          image.text = 'https:' + image.text;
-        });
-      }
+      // const alternateImages = row.group[0].alternateImages;
+      // if (alternateImages) {
+      //   alternateImages.forEach(image => {
+      //     image.text = 'https:' + image.text;
+      //     image.text = image.text.replace('xs3', 'xxl');
+      //   });
+      // }
 
       const availability = row.group[0].availabilityText;
       if (availability) {
