@@ -7,8 +7,8 @@ module.exports = {
     // nextLinkSelector: 'a[class="btn btn-circle"] i',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'body',
-    noResultsXPath: null,
+    loadedSelector: 'div[class="container"]>section',
+    noResultsXPath: '//div[@id="noSearchResults"]',
     openSearchDefinition: {
       // pageStartNb: 2,
       template: 'https://www.menards.com/main/search.html?ipp=36&search={searchTerms}&page={page}',
