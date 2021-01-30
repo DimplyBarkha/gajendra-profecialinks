@@ -31,6 +31,11 @@ const transform = (data) => {
               })
             row.nameExtended=[{"text":inf[1]+" - "+inf[0]}];
           }
+          if(row.alternateImages){
+            row.alternateImages.forEach(item=>{
+              item.text=item.text.replace('-292-292/','-1000-1000/');
+            })
+          }
       }
     }
     return cleanUp(data);

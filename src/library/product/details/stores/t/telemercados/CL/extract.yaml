@@ -6,6 +6,9 @@ fields:
   - name: image
     singleValue: false
     xpath: //div[contains(@class,"product-image")]//div[@id="image"]/a/@href
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class="apresentacao"]/div[@id="show"]/ul[@class="thumbs"]/li[position()>1]/a/@rel
   - name: category
     singleValue: false
     xpath: //div[@class="bread-crumb"]//li[position()>1]/a/span
@@ -14,6 +17,9 @@ fields:
     xpath: //div[contains(@class,"productPrice")]//em[contains(@class,"price-best-price")]/strong
   - name: availabilityText
     singleValue: false
+    xpath: //div[contains(@class,"product-info")]//div[@class="product-item__low_stock low-stock stock-0"]/@data-sku
+    regExp: (.+)
+    regExpReplace: Out Of Stock
     defaultValue: In Stock
   - name: description
     singleValue: false
@@ -39,3 +45,6 @@ fields:
   - name: nameExtended
     singleValue: false
     xpath: //div[contains(@class,"product-name")]/h1/div[contains(@class,"productName")] | //div[contains(@class,"product-info")]//div[contains(@class,"brandName")]/a
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[@class="apresentacao"]/div[@id="show"]/ul[@class="thumbs"]/li[position()>1]/a/@rel)
