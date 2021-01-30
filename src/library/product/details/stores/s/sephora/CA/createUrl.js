@@ -13,7 +13,7 @@ async function implementation (
     const url = parameters.url.replace('{id}', encodeURIComponent(id));
     await goto({ url });
     const productUrl = await context.evaluate(getProductUrl);
-    return productUrl ? ('https://www.sephora.ca/' + productUrl[1]) : `https://www.sephora.ca/search?keyword=${id}`;
+    return productUrl ? ('https://www.sephora.ca' + productUrl[1]) : `https://www.sephora.ca/search?keyword=${id}`;
   }
 }
 module.exports = {

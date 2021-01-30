@@ -1,10 +1,10 @@
-const { transform } = require('../CA/format');
+const { transform } = require('../CA/variantFormat');
 module.exports = {
   implements: 'product/details/variants/variantsExtract',
   parameterValues: {
     country: 'CA',
     store: 'sephora',
-    transform: null,
+    transform,
     domain: 'sephora.ca',
     zipcode: '',
   },
