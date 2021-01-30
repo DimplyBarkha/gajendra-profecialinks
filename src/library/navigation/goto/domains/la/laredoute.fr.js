@@ -21,8 +21,8 @@ module.exports = {
     await context.setJavaScriptEnabled(true);
     await context.setAntiFingerprint(false);
     await context.setUseRelayProxy(false);
+    await context.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36');
     let url = longUrl.split('.aspx#')[0];
-
     url = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
     const gotoOptions = {
       firstRequestTimeout: 60000,
