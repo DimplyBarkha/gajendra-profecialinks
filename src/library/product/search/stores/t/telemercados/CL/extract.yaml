@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@id,"ResultItems_")]/div[contains(@class,"prateleira") and contains(@class,"n4colunas")]/ul/li[not(contains(@class,"helperComplement")) and contains(@class,"get_preco_ppum-ready")]
+recordXPath: //div[contains(@id,"ResultItems_")]/div[contains(@class,"prateleira") and (contains(@class,"n4colunas") or contains(@class,"n2colunas"))]/ul/li[not(contains(@class,"helperComplement")) and contains(@class,"get_preco_ppum-ready")]
 fields:
   - name: name
     singlevalue: false
