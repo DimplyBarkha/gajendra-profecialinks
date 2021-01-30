@@ -54,6 +54,17 @@ module.exports = {
         return result;
       };
 
+      const btext = getXpath("//script[@type='application/ld+json'][2]/text()",'nodeValue');
+     //nst btext = getXpath("//html/body/app-root/div/div[2]/div/app-pdp-preprocessor/div/app-pdp-layout-template/script[2]/text()",'nodeValue');
+      console.log("btext::::", btext);
+      if (btext) {
+        const jsonObj = JSON.parse(btext);
+        //const jsonObjParse = JSON.parse(jsonObj);
+        //console.log("sku::::", jsonObj.sku);
+        console.log("brand::::", jsonObj.brand);
+        //addElementToDocument('retailer_product_code_added', jsonObj.sku);
+      }
+
       const mpcXpath = getXpath("//div[@class='prod-item-model-number']/span[2]/text()", 'nodeValue');
       console.log("mpc: ", mpcXpath);
       if (mpcXpath != null) {
@@ -91,18 +102,18 @@ module.exports = {
         addElementToDocument('quantity_added', quanityXpath2);
       }
 
+      
+
       const jsonstr = getXpath("//*[@id='contentOverlay']/div/app-pdp-preprocessor/div/app-pdp-layout-template/script[2]/text()", 'nodeValue');
-
-
+      console.log("jsonstr:::", jsonstr);
       if (jsonstr) {
         const jsonObj = JSON.parse(jsonstr);
-        console.log("sku::::", jsonObj.sku)
+        console.log("sku::::", jsonObj.sku);
+        console.log("brand::::", jsonObj.brand);
         addElementToDocument('retailer_product_code_added', jsonObj.sku);
       }
 
       const availabilitystr = getXpath("//div[@class='sticky-content']/button/text()", 'nodeValue');
-
-
       if (availabilitystr != null) {
 
         if (availabilitystr == "SOLD OUT") {
@@ -178,7 +189,7 @@ module.exports = {
 
       for (const video of videoItems) {
         video.click();
-        await new Promise(resolve => setTimeout(resolve, 1000000));
+        await new Promise(resolve => setTimeout(resolve, 100000000));
         const videoEl = document.querySelector('video');
         if(videoEl) {
         videos.push(videoEl.src);
