@@ -61,12 +61,15 @@ fields:
     xpath: //meta[@property="og:url"]/@content|//link[contains(@href, "instacart.com/store/items/item_")]/@href
     regExp: >-
       ((?<=item_).*?(?=\?)|(?<=item_).*)
-  - name: sku
+  # - name: sku
+  #   xpath: //meta[@property="og:url"]/@content|//link[contains(@href, "instacart.com/store/items/item_")]/@href
+  #   regExp: >-
+  #     ((?<=item_).*?(?=\?)|(?<=item_).*)
+  - name: variantId
+    description: Identifier for a variant from a store where variants share the same sku
     xpath: //meta[@property="og:url"]/@content|//link[contains(@href, "instacart.com/store/items/item_")]/@href
     regExp: >-
       ((?<=item_).*?(?=\?)|(?<=item_).*)
-  - name: variantId
-    description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     description: The manufacturer model code (unique) of the product
   - name: packSize
