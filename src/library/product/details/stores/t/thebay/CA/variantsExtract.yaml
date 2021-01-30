@@ -1,10 +1,13 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //html//ul[contains(@class,"radio-group")]//li
+recordXPath: null
 fields:
   - name: variantId
     singleValue: false
-    xpath: //ul[contains(@class,"radio-group")]//li//button/@data-adobelaunchcolorproductid
+    description: variant id, to uniquely identify variant
+    xpath: //ul[@class='color-wrapper radio-group-list']//button/@data-adobelaunchcolorproductid | //div[@class='container product-detail product-wrapper']/@data-masterid
   - name: variantUrl
     singleValue: false
+    description: variant Url
+    xpath: //ul[@class='color-wrapper radio-group-list']//button/@data-url | //meta[@property='og:url']/@content
