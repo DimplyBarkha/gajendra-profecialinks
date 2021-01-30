@@ -8,15 +8,13 @@ fields:
     xpath: //span[@itemprop = "aggregateRating"]//meta[@itemprop = "ratingValue"]//@content
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class, "slick-list")]//div[contains(@class, "bzfy-o-image-container")]//img/@src
+    xpath: //div[contains(@class, "slick-list")]//div[contains(@class, "bzfy-o-image-container")]//img/@src | //div[contains(@class, "image--thumbnails image-slider--thumbnails")]//div[contains(@class, "image-slider--thumbnails-slide")]//a[position()>1]/@href 
   - name: secondaryImageTotal
     singleValue: false
-    xpath: count(//div[contains(@class, "slick-list")]//div[contains(@class, "bzfy-o-image-container")]//img/@src)
+    xpath: count(//div[contains(@class, "slick-list")]//div[contains(@class, "bzfy-o-image-container")]//img/@src | //div[contains(@class, "image--thumbnails image-slider--thumbnails")]//div[contains(@class, "image-slider--thumbnails-slide")]//a[position()>1]/@href)
   - name: availabilityText
     singleValue: false
-    xpath: //link[@itemprop = "availability"]//@href
-    regExp: http:\/\/schema\.org\/(.*)
-    regExpReplace: In Stock
+    xpath: //button[contains(@class, "buybox--button block btn is--primary is--icon-right is--center is--large")]
     defaultValue: Out Of Stock
   - name: brandText
     singleValue: false
@@ -29,7 +27,7 @@ fields:
     xpath: //td[contains(@class, "product--properties-label")]//h4[contains(text(), "colour:")]//parent::td//following-sibling::td
   - name: description
     singleValue: false
-    xpath: //div[contains(@class, "product--description")]//p[1]
+    xpath: //div[contains(@class, "product--description")]//p[1] | //div[contains(@class, "product--description")]//p//strong[contains(text(),'Ergebnis')]/parent::p/following-sibling::p[1]
   - name: gtin
     singleValue: false
     xpath: //div[@id="import_product_ean"]

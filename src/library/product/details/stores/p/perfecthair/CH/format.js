@@ -35,7 +35,15 @@ const transform = (data) => {
             item.text = item.text.trim()/2;
           });
         }
-
+        if(row.availabilityText){
+          row.availabilityText.forEach(item => {
+            if (item.text == 'In den Warenkorb'){
+              row.availabilityText = [{"text": 'In Stock', "xpath": row.availabilityText[0].xpath}]
+            }else{
+              row.availabilityText = [{"text": 'Out of Stock', "xpath": row.availabilityText[0].xpath}]
+            }
+          })
+        }
         if (row.listPrice) {
           row.listPrice.forEach(item => {
             //item.text = item.text.replace(/(\s*\.\s*)+/g, ',').trim();
@@ -79,8 +87,13 @@ const transform = (data) => {
               item.text = item.text;
                 info.push(item.text);            
             });
-            row.nameExtended = [{'text':info.join(' '),'xpath':row.nameExtended[0].xpath}];          
+            row.nameExtended = [{'text':info.join(' ')+' ','xpath':row.nameExtended[0].xpath}];          
         }
+        if (row.metaKeywords) {    
+          row.metaKeywords.forEach(item => {
+            item.text = item.text.replace(/\s*/g, '');           
+          });      
+      }
         if (row.manufacturerDescription) {
             let info = [];          
             row.manufacturerDescription.forEach(item => {
@@ -93,7 +106,7 @@ const transform = (data) => {
             row.description.forEach(item => {
                 info.push(item.text.replace(/(\s*\n\s*)+/g, ' ').trim());            
             });
-            row.description = [{'text':info.join(' | '),'xpath':row.description[0].xpath}];          
+            row.description = [{'text':info.join(' '),'xpath':row.description[0].xpath}];          
         }
         if (row.gtin && row.gtin.length>0) {          
           let item = row.gtin[0];
@@ -103,7 +116,7 @@ const transform = (data) => {
             try {
               let json_data = JSON.parse(matches[1]);
               if (json_data['productEAN']){
-                row.gtin = [{'text':json_data['productEAN'].replace("0",""),'xpath':row.gtin[0].xpath}];                   
+                row.gtin = [{'text':json_data['productEAN'],'xpath':row.gtin[0].xpath}];                   
               }
             } catch (error) {
               delete row.gtin;                
