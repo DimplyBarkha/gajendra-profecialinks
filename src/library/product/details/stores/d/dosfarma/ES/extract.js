@@ -47,7 +47,7 @@ module.exports = {
       const price = getXpath("//p[@class='product-price']//span/text()", 'nodeValue');
 
       if (price != null) {
-        addElementToDocument('price', '€' + price.slice(0, -1));
+        addElementToDocument('price', '€ ' + price.slice(0, -1));
       }
 
       const availability = getXpath("(//div[@class='disponibilidad__mobile']//span[@class='no_disponible']//text())[1]", 'nodeValue');
@@ -89,7 +89,7 @@ module.exports = {
       const descrption1 = getAllXpath("//div[contains(@class, 'product__shortdesc')]", 'innerText').join('');
       const descrption2 = getAllXpath("//div[contains(@id, 'descripcion')]//div[contains(@class, 'description')]//h2", 'innerText').join('');
       const descrption3 = getAllXpath("//div[contains(@id, 'descripcion')]//div[contains(@class, 'description')]//span[@style='font-size: 12pt;']", 'innerText').join('');
-      const descrption4 = getAllXpath(" //div[contains(@id, 'descripcion')]//div[contains(@class, 'description')]//ancestor::h2/following-sibling::p[position()<3]", 'innerText').join('');
+      const descrption4 = getAllXpath("//div[contains(@id, 'descripcion')]//div[contains(@class, 'description')]//ancestor::h2/following-sibling::p[position()<2]", 'innerText').join('');
       var res = descrption1.concat(descrption2, descrption3, descrption4);
       console.log('i am in my res ', res);
       if (directions) {

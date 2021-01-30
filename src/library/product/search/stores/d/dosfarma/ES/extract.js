@@ -11,10 +11,16 @@ async function implementation (
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
       let scrollTop = 0;
+      // console.log('productsCount', productsCount.snapshotLength);
       while (scrollTop !== 20000) {
         await stall(5000);
         scrollTop += 1000;
         document.querySelector('section .ebx-scroll').scroll(0, scrollTop);
+        const productsCount = document.evaluate('//section[@class="ebx-result-figure ebx-result__figure"]', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        console.log('productsCount', productsCount.snapshotLength);
+        if (productsCount.snapshotLength > 150) {
+          break;
+        }
         if (scrollTop === 20000) {
           await stall(50000);
           break;
