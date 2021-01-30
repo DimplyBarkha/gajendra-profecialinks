@@ -107,10 +107,10 @@ fields:
     xpath: //div[@id='tab-details']//table//tr//th[contains(text(),"Manufacturer's warranty")]//following-sibling::td
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@data-flix-embed-meta='images' or @data-flix-embed-meta='features']//div[@id='inpage_cycle-1' or @class='embed_features']//img/@src
+    xpath: //div[@data-flix-embed-meta='images']//div[@id='inpage_cycle-1']//img/@src
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@class='descriptions']
+    xpath: //div[@class='descriptions']/p
   - name: ratingCount
     singleValue: false
     xpath: //div[@class='product-overview__highlights']//div[contains(@class,'star-review')]//span[@class='review-count']

@@ -114,7 +114,7 @@ const transform = (data) => {
         });
         row.description = [{ text: arrDesc.join(' ') }];
         if (row.description2) {
-          row.description = [{ text: row.description[0].text + ' | ' + row.description2[0].textb }];
+          row.description = [{ text: row.description[0].text + ' | ' + row.description2[0].text }];
           delete row.description2;
         }
       }
@@ -127,6 +127,7 @@ const transform = (data) => {
       }
       if (row.manufacturerImages) {
         var arrMfrImg = [];
+        row.manufacturerImages.splice(0, 1);
         row.manufacturerImages.forEach(item => {
           if (item.text.indexOf('http') < 0) {
             item.text = 'https:' + item.text;
