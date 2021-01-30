@@ -29,7 +29,7 @@ fields:
     xpath: //div[contains(@class,"pdp-details-features")]//li
   - name: ratingCount
     singleValue: false
-    xpath: //div[@class="pdp-header__reviews "]//div[contains(@class,"bv_text")]
+    xpath: //div[@class="pdp-header__reviews "]//div[contains(@class,"bv_text")] | //div[contains(@itemprop, 'aggregateRating')]/div[contains(@class, 'bv_numReviews_component_container')]
   - name: aggregateRating
     singleValue: false
     xpath: //div[contains(@class,"bv-off-screen")]
@@ -97,6 +97,7 @@ fields:
   - name: variantCount
     singleValue: false
     xpath: //div[contains(@class,"sku-selectors__select")]//select/option[position()>1]/@value
+    # xpath: //div[contains(@class,"sku-selectors__select")]//select/option[position()>1 and not(contains(@value, ':0'))]/@value
     defaultValue: '0'
   - name: shippingWeight
     singleValue: false
@@ -106,7 +107,7 @@ fields:
     xpath: //div[@class="pdp-details-features__items"]//ul//li[contains(.,'Matériau de la rallonge:')] | //section[@class="pdp-details-specifications "]//ul//li/b[contains(.,'Matériau de la rallonge:')]/following-sibling::div[2]
   - name: mpc
     singleValue: false
-    xpath: //div[@class="pdp-details-features__items"]//ul//li[contains(.,'modèle')] | //section[@class="pdp-details-specifications "]//ul//li[contains(.,'modèle')]
+    xpath: //div[@class="pdp-details-features__items"]//ul//li[contains(.,'modèle de l’article')] | //section[@class="pdp-details-specifications "]//ul//li[contains(.,'modèle de l’article')]
   - name: weightNet
     singleValue: false
     xpath: //div[@class="pdp-details-features__items"]//ul//li[contains(.,'Poids net')] | //section[@class="pdp-details-specifications "]//ul//li/b[contains(.,'Poids net')]/following-sibling::div[2]
@@ -115,10 +116,10 @@ fields:
     xpath: //div[@class="pdp-details-features__items"]//ul//li[contains(.,'Poids du paquet')] | //section[@class="pdp-details-specifications "]//ul//li/b[contains(.,'Poids du paquet')]/following-sibling::div[2]
   - name: quantity
     singleValue: false
-    xpath: //div[@class="pdp-details-features__items"]//ul//li[contains(.,'Taille:')] | //section[@class="pdp-details-specifications "]//ul//li[contains(.,'Taille')]
+    # xpath: //div[@class="pdp-details-features__items"]//ul//li[contains(.,'Taille:')] | //section[@class="pdp-details-specifications "]//ul//li[contains(.,'Taille')]
   - name: packSize
     singleValue: false
-    xpath: //div[@class="pdp-details-features__items"]//ul//li[contains(.,'Taille:')] | //section[@class="pdp-details-specifications "]//ul//li[contains(.,'Taille')]
+    # xpath: //div[@class="pdp-details-features__items"]//ul//li[contains(.,'Taille:')] | //section[@class="pdp-details-specifications "]//ul//li[contains(.,'Taille')]
   - name: ingredientsList
     singleValue: false
     xpath: //div[@class="pdp-details-features__items"]//ul//li[contains(.,'Ingrédients:')] | //section[@class="pdp-details-specifications "]//ul//li[contains(.,'Ingrédients:')]
@@ -128,3 +129,10 @@ fields:
   - name: shippingInfo
     singleValue: false
     xpath: //section[@class="delivery-option__item"]/p
+  - name: customerServiceAvailability
+    singleValue: false
+    description: Information related to customer service availability (text), ['Yes','No']
+    xpath: //a[contains(@aria-label, 'Service à la clientèle')] | //a[contains(@aria-label, 'Customer Service')]
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No

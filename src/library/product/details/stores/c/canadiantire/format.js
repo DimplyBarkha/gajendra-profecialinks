@@ -36,12 +36,12 @@ const transform = (data) => {
                     });
                 }
             }
-            if (row.ratingCount) {
-                row.ratingCount.forEach(item => {
-                    item.text = item.text.match(/\d/g);
-                    item.text = String(item.text).replace(/\,/g, '');
-                });
-            }
+            // if (row.ratingCount) {
+            //     row.ratingCount.forEach(item => {
+            //         item.text = item.text.match(/\d/g);
+            //         item.text = String(item.text).replace(/\,/g, '');
+            //     });
+            // }
             if (row.aggregateRating) {
                 row.aggregateRating.forEach(item => {
                     // item.text = item.text.match(/\d+\.+\d/);
@@ -166,13 +166,13 @@ const transform = (data) => {
                 });
                 row.weightNet = [{ 'text': info.join(' | ') }];
             }
-            if (row.weightGross) {
-                let info=[];
-                row.weightGross.forEach(item => {
-                    info.push(item.text);
-                });
-                row.weightGross = [{ 'text': info.join(' | ') }];
-            }
+            // if (row.weightGross) {
+            //     let info=[];
+            //     row.weightGross.forEach(item => {
+            //         info.push(item.text);
+            //     });
+            //     row.weightGross = [{ 'text': info.join(' | ') }];
+            // }
             if (row.imageAlt) {
                 let indx1;
                 let indx2;
@@ -186,7 +186,7 @@ const transform = (data) => {
                 let indx1;
                 row.mpc.forEach(item => {
                     indx1 = item.text.indexOf(':');
-                    item.text = item.text.substring(indx1+1).replace(' ','')
+                    item.text = item.text.substring(indx1+1).replace(' ','').trim();
                 });
             }
             if (row.quantity) {
