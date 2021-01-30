@@ -28,9 +28,9 @@ const transform = (data) => {
           item.text = cleanUp(item.text);
         });
       }
-      if (row.name && row.brandText) {
-        row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.name[0].text }];
-      }
+      // if (row.name && row.brandText) {
+      //   row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.name[0].text }];
+      // }
       if (row.listPrice) {
         row.listPrice.forEach(item => {
           // item.text = item.text.replace(/^(\d+)(.*?)(\d+)/, '$2$1,$3');
@@ -77,6 +77,12 @@ const transform = (data) => {
           arrTemp.push(item.text);
         });
         row.manufacturerDescription = [{ text: arrTemp.join(' ') }];
+      }
+      if (row.description2) {
+        if (row.description) {
+          row.description = [{ text: row.description[0].text + ' || ' + row.description2[0].text }];
+        }
+        delete row.description2;
       }
       if (row.productOtherInformation) {
         var arrInfo = [];

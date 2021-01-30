@@ -10,7 +10,10 @@ fields:
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
-    xpath: //div[@class="slick-track"]//div[contains(@class, "productVisuals") and contains(@class, "slick-current")]//img/@alt
+    xpath: //div[@class="slick-track"]//div[contains(@class, "productVisuals") and not(contains(@class, "slick-current"))]//img/@alt
+  - name: secondaryImageTotal
+    singleValue: false    
+    xpath: len(//div[@class="slick-track"]//div[contains(@class, "productVisuals") and not(contains(@class, "slick-current"))]//img/@alt)
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
@@ -25,8 +28,9 @@ fields:
     xpath: //ul[@class="f-breadcrumb"]/li[position() > 1]
   - name: nameExtended
     singleValue: false
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //h1[@class="f-productHeader-Title"]
+    # description: The product name, prefixing "${brand} - " if not included in "name"
+    #   and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
@@ -105,7 +109,7 @@ fields:
     xpath: //div[@class='f-productOffer-commercialOperation']
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@class='inpage_selector_info flix-temp-abcd']//div[@class='flix-std-info']
+    xpath: //div[@id='flix-std-inpage']
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@id='flix-std-inpage']//img/@srcset
@@ -117,16 +121,19 @@ fields:
     xpath: //div[@class='characteristicsStrate__lists']//dl[@class='characteristicsStrate__item']
   - name: videos
     singleValue: false  
-    xpath: //div[contains(@class, "f-productVisuals-main")]//div[contains(@class, "VideoPlayer")]//video[contains(@id, "video")]/@src
+    xpath: //div[contains(@class, "f-productVisuals-main")]//div[contains(@class, "VideoPlayer")]//video[contains(@id, "video")]//source/@src
   - name: galleryVideos
     singleValue: false  
-    xpath: //div[contains(@class, "f-productVisuals-main")]//div[contains(@class, "VideoPlayer")]//video[contains(@id, "video")]/@src
-  - name: variantId
+    xpath: //div[contains(@class, "f-productVisuals-main")]//div[contains(@class, "VideoPlayer")]//video[contains(@id, "video")]//source/@src  
+    - name: variantId
     singleValue: false  
     xpath: //div[contains(@class, "f-productPage")]/@data-prid
   - name: description
     singleValue: false  
     xpath: //div[contains(@class, "summaryStrate__raw")] | //div[contains(@class, "characteristicsStrate__item") and contains(@class, "item--long")]
+  - name: description2
+    singleValue: false  
+    xpath: //div[@class='characteristicsStrate__lists']  
   - name: unInterruptedPDP
     xpath: //div[contains(@class,"miniFA__top")]//img/@alt | //@updp
     regExp: '[^|]+'
