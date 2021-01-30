@@ -45,6 +45,12 @@ const transform = (data) => {
                   row.description = [{ "text": description_ar.join(), 'xpath': row.description[0].xpath }];
                 }
               } 
+            if (row.variantId) {
+                row.variantId.forEach(item => {
+                  item.text = item.text.replace(/(\s*)+/g, '').trim();
+                  item.text = item.text.replace('StyleCode:', '').trim();
+                });
+              }
               if (row.image) {
                 row.image.forEach(item => {
                   item.text = item.text.replace(/op_usm=0.9.*/g, '').trim();
