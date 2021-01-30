@@ -6,7 +6,7 @@ module.exports = {
     store: 'naszezoo',
     domain: 'naszezoo.pl',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//p[.="Nie znaleziono produktów spełniających podane kryteria."]',
     zipcode: '',
   },
 };
