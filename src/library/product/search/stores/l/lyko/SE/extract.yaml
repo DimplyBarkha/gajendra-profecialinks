@@ -1,13 +1,11 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class="gXdoAx"]
 fields:
   - name: productUrl
     description: The URL for the product details page
-    # regExpReplace: https://lyko.com$1
     xpath: //div[@class="NNXRtF"]/div[@data-buyable-variant-code]/div/div[1]/a[@data-scope-link]/@href
-    # xpath: //div[@id="product_url"]
   - name: thumbnail
     description: The URL for the product thumbnail image
     xpath: //div[@class="NNXRtF"]//div/picture/img/@src

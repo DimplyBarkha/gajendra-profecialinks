@@ -15,11 +15,10 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    // loadedSelector: null,
-    loadedXpath: '//div[@class="NNXRtF"]//div/picture/img/@src',
+    loadedSelector: 'div.gXdoAx',
     noResultsXPath: null,
     // openSearchDefinition: {
-    //   template: 'https://lyko.com/sv/sok?q={searchTerms}&sortBy=popularity&count={page}',
+    //   template: 'https://lyko.com/sv/sok?q={searchTerms}&sortBy=popularity&count=150',
     // },
     domain: 'lyko.com',
     zipcode: '',

@@ -1,12 +1,12 @@
 
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('../../../../../search/shared');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'SE',
     store: 'lyko',
-    transform: null,
+    transform: transform,
     domain: 'lyko.com',
     zipcode: '',
   },
