@@ -20,6 +20,16 @@ const transform = (data) => {
   for (const { group } of data) {
     let brandTextStr = '';
     for (const row of group) {
+      if(row.image){
+        row.image.forEach(item => {
+          //console.log('item.text:',item.text);
+          let tmp=item.text.replace('_.webp','');
+          //console.log('tmp:',tmp);
+          let tmp1=tmp.split('_');
+          //console.log('tmp1:',tmp1);
+          item.text=tmp1[0];
+        });
+      }
       if (row.brandText) {
         row.brandText.forEach(item => {
           brandTextStr = item.text;
@@ -32,6 +42,11 @@ const transform = (data) => {
           } else if (item.text.search('_50x50.jpeg') > -1) {
             item.text = item.text.replace("_50x50.jpeg", "");
           }
+          let tmp=item.text.replace('_.webp','');
+          //console.log('tmp:',tmp);
+          let tmp1=tmp.split('_');
+          //console.log('tmp1:',tmp1);
+          item.text=tmp1[0];
         });
       }
       if (row.availabilityText) {
