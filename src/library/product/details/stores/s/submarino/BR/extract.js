@@ -45,8 +45,8 @@ module.exports = {
         await new Promise(resolve => setTimeout(resolve, 1500));
       }
 
-      const additionalDescription = document.evaluate('//div[contains(@class, \'GridUI\')]/div[contains(@class, \'TitleWrapper\')]/h2[contains(text(), \'Informações do produto\')]', document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue ?
-        document.evaluate('//div[contains(@class, \'GridUI\')]/div[contains(@class, \'TitleWrapper\')]/h2[contains(text(), \'Informações do produto\')]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue : '';
+      const additionalDescription = document.evaluate('//div[contains(@class, \'GridUI\')]/div[contains(@class, \'TitleWrapper\')]/h2[contains(text(), \'Informações do produto\')]', document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue
+        ? document.evaluate('//div[contains(@class, \'GridUI\')]/div[contains(@class, \'TitleWrapper\')]/h2[contains(text(), \'Informações do produto\')]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue : '';
       if (additionalDescription) {
         additionalDescription.scrollIntoView();
         await new Promise(resolve => setTimeout(resolve, 3000));
