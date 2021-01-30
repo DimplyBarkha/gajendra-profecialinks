@@ -8,6 +8,7 @@ module.exports = {
     domain: 'frisco.pl',
   },
   implementation: async function implementation(
+    // @ts-ignore
     inputs,
     parameters,
     context,
@@ -17,6 +18,7 @@ module.exports = {
     const { productDetails } = dependencies;
 
 
+    // @ts-ignore
     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
 
     await context.evaluate(async function () {
@@ -28,22 +30,40 @@ module.exports = {
         document.body.appendChild(newDiv);
       }
 
+      // @ts-ignore
       await new Promise((resolve, reject) => setTimeout(resolve, 8000));
       const warningButton = document.getElementsByClassName('ui-tabs_tab  button')[5];
 
       if (warningButton && warningButton.textContent === 'Ostrzeżenia i pozostałe informacje') {
+        // @ts-ignore
         warningButton.click();
         try {
-          let tabContent = document.evaluate("//h3[contains(text(),'Ostrzeżenie dotyczące bezpieczeństwa')]/following::p[1]/text()", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+          let tabContent = document.evaluate("//h3[contains(text(),'Pozostałe informacje')]/following::p[1]/text()", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
           let fourthContent = tabContent.textContent;
-          addHiddenDiv('wid', fourthContent);
+          let content = "Pozostałe informacje " + fourthContent;
+          addHiddenDiv('wid', content);
         } catch (error) {
         }
       }
-
+      const warningButton1 = document.getElementsByClassName('ui-tabs_tab  button')[5];
+      if (warningButton1 && warningButton1.textContent === 'Opakowanie') {
+        // @ts-ignore
+        warningButton1.click();
+        try {
+          let tabContent = document.evaluate("//h3[contains(text(),'Wymiar liczbowy')]/following::p[1]/text()", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+          let fourthContent = tabContent.textContent;
+          let tabContent1 = document.evaluate("//div[@class='ui-tabs_tab-content']/div/p", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+          let content = "Wymiar liczbowy " + fourthContent;
+          let c=tabContent1.textContent;
+          let addDesc= c + content;
+          addHiddenDiv('addDescid', addDesc);
+        } catch (error) {
+        }
+      }
       const manufacturerButton = document.getElementsByClassName('ui-tabs_tab  button')[5];
 
       if (manufacturerButton && manufacturerButton.textContent === 'Informacje producenta') {
+        // @ts-ignore
         manufacturerButton.click();
         try {
           let tabContent = document.evaluate("//h3[contains(text(),'Opis produktu')]/following::p[1]/text()", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -57,6 +77,7 @@ module.exports = {
       const preparationButton = document.getElementsByClassName('ui-tabs_tab  button')[3];
 
       if (preparationButton && preparationButton.textContent === 'Przygotowywanie i przechowywanie') {
+        // @ts-ignore
         preparationButton.click();
         try {
           let tabContent = document.evaluate("//h3[contains(text(),'Przygotowanie i stosowanie')]/following::p[1]/text()", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -69,6 +90,7 @@ module.exports = {
       const nutritionButton = document.getElementsByClassName('ui-tabs_tab  button')[2];
 
       if (nutritionButton && nutritionButton.textContent === 'Wartości odżywcze') {
+        // @ts-ignore
         nutritionButton.click();
         try {
           let tabContent = document.evaluate("//h3[contains(text(),'Obliczona wartość odżywcza')]//following::td[contains(text(),'Wartość energetyczna (kJ)')]/following::td[1]/text()", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -80,6 +102,7 @@ module.exports = {
           let caloriesPerServing = tabContent.textContent;
           let caloriesFromFatPerServing = tabContent1.textContent;
           let totalFatPerServing = tabContent2.textContent;
+          // @ts-ignore
           let totalFatPerServingUom = tabContent3.textContent;
           let tatalSugarPerServing = tabContent4.textContent;
           addHiddenDiv('cid', caloriesPerServing);
@@ -96,6 +119,7 @@ module.exports = {
       const componentsButton = document.getElementsByClassName('ui-tabs_tab  button')[1];
 
       if (componentsButton && componentsButton.textContent === 'Składniki') {
+        // @ts-ignore
         componentsButton.click();
         try {
           let tabContent = document.evaluate("//div[@class='ui-tabs_tab-content']/div/p", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -116,14 +140,23 @@ module.exports = {
           let skuArr = strArray[1].split(","); //Take the second part.
           let sku = skuArr[1];
           addHiddenDiv('id1', sku);
-          //var variantId = sku.substring(0, 3);
-          // addHiddenDiv('vid', variantId);
+        } catch (error) {
+        }
+      }      //To get availability details
+      let availabilityText;
+      let availability = document.evaluate("//div[@itemprop='availability']/@content", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      if (availability) {
+        try {
+          if (availability.textContent.includes('InStock')) {
+            availabilityText = "IN Stock";
+          } if (availability.textContent.includes('OutOfStock')) {
+            availabilityText = "Out Of Stock";
+          }
+          addHiddenDiv('avaid', availabilityText);
         } catch (error) {
         }
       }
     });
     return await context.extract(productDetails, { transform });
   }
-
-
 };

@@ -25,10 +25,10 @@ fields:
     xpath: //span[@class="main-price"]
   - name: availabilityText
     singleValue: true
-    xpath: //div[@itemprop="availability"]/@content
+    xpath: //div[@id="avaid"]/text()
   - name: description
     singleValue: false
-    xpath: //h1[@itemprop='name'] | //div[@class="ui-tabs_tab-content"]//h2[contains(text(),"L\'OR Kawa Crema ziarna")]//following::p[1]
+    xpath: //h1[@itemprop='name'] | //div[@id="addDescid"]/text()
   - name: brandText
     singleValue: true
     xpath: //meta[@itemprop="brand"]/@content
