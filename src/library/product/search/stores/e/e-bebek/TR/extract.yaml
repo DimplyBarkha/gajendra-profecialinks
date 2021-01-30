@@ -5,9 +5,7 @@ recordXPath: //section[@class='product-list']//div[contains(@class, 'product gtm
 fields:
   - name: id
     singleValue: false
-    xpath: //section[@class='product-list']//div[contains(@class, 'product gtmProductClick w-100')]/a/@href
-    regExp: -p-(.+)\/
-    regExpReplace: $1
+    xpath: //form[@action='/wishlist/add']/input/@value
   - name: searchUrl
     singleValue: true
     xpath: ancestor::html//div[@id="searchurl"][last()]

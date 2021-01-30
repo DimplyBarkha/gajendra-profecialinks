@@ -28,6 +28,14 @@ module.exports = {
       addElementToDocument('searchurl', searchUrl);
     });
 
-    return await context.extract(productDetails, { transform });
+    const dataRef = await context.extract(productDetails, { transform });
+    for (const { group } of dataRef) {
+      for (const row of group) {
+        if (row.id) {
+          row.id[0].text = row.id[0].text.toLowerCase();
+        }
+      }
+    }
+    return dataRef;
   },
 };
