@@ -18,8 +18,3 @@ fields:
   - name: price
     singleValue: false
     xpath: //ul[@id="search-result-items"]/li//div[contains(@class,"product-info")]//span[@class="product-min-price"]
-  - name: aggregateRating
-    singleValue: false
-    xpath: //ul[@id="search-result-items"]/li//div[contains(@class,"product-info")]//*[name()='svg' and @class="product-rating-icon"]/@width | //ul[@id="search-result-items"]/li//div[contains(@class,"product-info")]//img[@class="product-rating-icon"]/@src
-  - name: sponsored
-    singleValue: false
