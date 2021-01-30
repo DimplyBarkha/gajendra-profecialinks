@@ -1,10 +1,991 @@
-exampleInput:
-  URL: https://www.mambo.com.br/s/p/187895
-exampleInput1:
-  URL1: https://www.mambo.com.br/queijo-mussarela-fatiada-monte-castelo/p/186303
-exampleInput2:
-  URL2: https://www.mambo.com.br/queijo-parmesao-ralado-vigor-pacote-50g/p/172822
-exampleInput3:
-  URL3: https://www.mambo.com.br/suco-de-laranja-natural-xand%C3%B4-garrafa-900ml/p/258141
-exampleInput4:
-  URL4: https://www.mambo.com.br/refrigerante-cocacola-pet-600ml/p/135250
+# Auto generated YAML
+exampleInput1: 
+  URL: https://www.mambo.com.br/tempero-grill-maggi-120g/p/140003
+exampleInput2: 
+  URL: https://www.mambo.com.br/cereal-matinal-crunch-nestle-330g/p/139645
+exampleInput3: 
+  URL: https://www.mambo.com.br/sopao-de-galinha-maggi-200g/p/139999
+exampleInput4: 
+  URL: https://www.mambo.com.br/cafe-soluvel-matinal-nescafe-sache-50g/p/139714
+exampleInput5: 
+  URL: https://www.mambo.com.br/cerv-esp-e-galicia-zero-ln-250ml/p/188736
+exampleInput6: 
+  URL: https://www.mambo.com.br/cerveja-nacional-coruja-otus-600ml/p/179485
+exampleInput7: 
+  URL: https://www.mambo.com.br/cerveja-nacional-pilsen-eisenbahn-long-neck-355ml/p/154647
+exampleInput8: 
+  URL: https://www.mambo.com.br/leite-longa-vida-molico-zero-lactose-1l/p/194834
+exampleInput9: 
+  URL: https://www.mambo.com.br/cerveja-skol-puro-malte-long-neck-275ml/p/256659
+exampleInput10: 
+  URL: https://www.mambo.com.br/tempero-maggi-ideias-para-25g-galinha-caipira/p
+exampleInput11: 
+  URL: https://www.mambo.com.br/alimento-infantil-banana-aveia-nestle-pote-115-120g/p/155297
+exampleInput12: 
+  URL: https://www.mambo.com.br/chocolate-meio-amargo-talento-garoto-90g/p/220864
+exampleInput13: 
+  URL: https://www.mambo.com.br/agua-mineral-pureza-vital-sem-gas-pet-510ml/p
+exampleInput14: 
+  URL: https://www.mambo.com.br/cerveja-nacional-bohemia-lata-350ml/p/135241
+exampleInput15: 
+  URL: https://www.mambo.com.br/cerveja-stella-artois-long-neck-275ml/p/151292
+exampleInput16: 
+  URL: https://www.mambo.com.br/cerveja-lagunitas-ipa-355ml/p/257592
+exampleInput17: 
+  URL: https://www.mambo.com.br/cafe-espresso-dolce-gusto-nescafe-96g/p/164868
+exampleInput18: 
+  URL: https://www.mambo.com.br/biscoito-com-cobertura-de-chocolate-passatempo-pacote-120g/p
+exampleInput19: 
+  URL: https://www.mambo.com.br/cookie-negresco-60g/p
+exampleInput20: 
+  URL: https://www.mambo.com.br/biscoito-integral-nesfit-170g/p/160482
+exampleInput21: 
+  URL: https://www.mambo.com.br/leite-desnatado-molico-1-litro/p/162964
+exampleInput22: 
+  URL: https://www.mambo.com.br/granola-frutas-e-mel-mae-terra-800g/p/173069
+exampleInput23: 
+  URL: https://www.mambo.com.br/cereal-matinal-mel-e-amendoas-nesfit-nestle-300g/p/211924
+exampleInput24: 
+  URL: https://www.mambo.com.br/bebida-lactea-alpino-fast-pet-280ml/p
+exampleInput25: 
+  URL: https://www.mambo.com.br/cerveja-nacional-pilsen-eisenbahn-600ml/p/207741
+exampleInput26: 
+  URL: https://www.mambo.com.br/complemento-alimentar-nutricao-reforcada-ninho-350g/p
+exampleInput27: 
+  URL: https://www.mambo.com.br/iogurte-de-polpa-ninho-600g/p
+exampleInput28: 
+  URL: https://www.mambo.com.br/cerveja-budweiser-long-neck-330ml/p/244341
+exampleInput29: 
+  URL: https://www.mambo.com.br/cerveja-argentina-amber-lager-patagonia-long-neck-355ml/p/243780
+exampleInput30: 
+  URL: https://www.mambo.com.br/leite-em-po-ninho-fases-1--nestle-400g/p/139830
+exampleInput31: 
+  URL: https://www.mambo.com.br/chocolate-talento-de-cookies-garoto-90g/p/232698
+exampleInput32: 
+  URL: https://www.mambo.com.br/caldo-de-carne-maggi-57g/p/235599
+exampleInput33: 
+  URL: https://www.mambo.com.br/cafe-soluvel-original-nescafe-refil-50g/p/139717
+exampleInput34: 
+  URL: https://www.mambo.com.br/macarrao-instantaneo-sabor-galinha-caipira-maggi-85g/p/155229
+exampleInput35: 
+  URL: https://www.mambo.com.br/racao-de-frango-e-figado-ao-molho-friskies-85g/p/245607
+exampleInput36: 
+  URL: https://www.mambo.com.br/chocolate-ao-leite-amendoas-e-passas-talento-garoto-90g/p
+exampleInput37: 
+  URL: https://www.mambo.com.br/cerveja-nacional-colorado-demoiselle-garrafa-600ml/p/161777
+exampleInput38: 
+  URL: https://www.mambo.com.br/chocolate-ao-leite-tablete-baton-76g/p
+exampleInput39: 
+  URL: https://www.mambo.com.br/chocolate-em-po-nestle-200g/p/139795
+exampleInput40: 
+  URL: https://www.mambo.com.br/cafe-soluvel-tradicao-nescafe-refil-50g/p
+exampleInput41: 
+  URL: https://www.mambo.com.br/cerveja-artesanal-martina-session-ipa-blondine-lata-350ml/p/259507
+exampleInput42: 
+  URL: https://www.mambo.com.br/sopa-de-creme-de-cebola-maggi-68g/p
+exampleInput43: 
+  URL: https://www.mambo.com.br/racao-de-frango-ao-molho-filhote-dog-chow-sache-100g/p/233857
+exampleInput44: 
+  URL: https://www.mambo.com.br/creme-de-leite-nestle-200g/p/139587
+exampleInput45: 
+  URL: https://www.mambo.com.br/cerveja-lata-skol-lata-269ml/p/162520
+exampleInput46: 
+  URL: https://www.mambo.com.br/barra-de-cereais-7-nuts-castanha-e-maca-bio2-75g/p/215241
+exampleInput47: 
+  URL: https://www.mambo.com.br/cafe-origens-serras-do-alto-paranaiba-nescafe-250g/p/251357
+exampleInput48: 
+  URL: https://www.mambo.com.br/salgadinho-organico-integral-zooreta-sabor-milho-mae-terra-45g/p/214759
+exampleInput49: 
+  URL: https://www.mambo.com.br/alimento-infantil-carne-legumes-mandioquinha-nestle-pote-115-120g/p
+exampleInput50: 
+  URL: https://www.mambo.com.br/cafe-dolce-gusto-lungo-nescafe-112g/p/164867
+exampleInput51: 
+  URL: https://www.mambo.com.br/alimento-infantil-carne-legumes-mandioquinha-nestle-pote-115-120g/p/155284
+exampleInput52: 
+  URL: https://www.mambo.com.br/biscoito-organico-sabor-pizza-zooreta-mae-terra-20g/p/237708
+exampleInput53: 
+  URL: https://www.mambo.com.br/tempero-ideias-para-frango-com-tomate-azeite-e-alecrim-maggi-25g/p
+exampleInput54: 
+  URL: https://www.mambo.com.br/cookie-negresco-60g/p/229576
+exampleInput55: 
+  URL: https://www.mambo.com.br/formula-infantil-1-comfor-nan-lata-800g/p/187730
+exampleInput56: 
+  URL: https://www.mambo.com.br/cerveja-wals-bohemian-pilsner-one-way-600ml/p/243785
+exampleInput57: 
+  URL: https://www.mambo.com.br/petiscos-sabor-frango-figado-e-peru-friskies-40g/p/245405
+exampleInput58: 
+  URL: https://www.mambo.com.br/bebida-lactea-vitamina-neston-900g/p
+exampleInput59: 
+  URL: https://www.mambo.com.br/tempero-fondor-maggi-120g/p
+exampleInput60: 
+  URL: https://www.mambo.com.br/bebida-de-arroz-sem-gluten-sabor-amendoa-isolabio-1-litro/p/214062
+exampleInput61: 
+  URL: https://www.mambo.com.br/chocolate-kit-kat-nestle-415g/p/229262
+exampleInput62: 
+  URL: https://www.mambo.com.br/alimento-infantil-maca-e-banana-nestle-pote-115-120g/p
+exampleInput63: 
+  URL: https://www.mambo.com.br/cafe-latte-macchiato-starbucks-by-nescafe-com-12-capsulas/p/251380
+exampleInput64: 
+  URL: https://www.mambo.com.br/chocolate-kit-kat-pop-140g/p
+exampleInput65: 
+  URL: https://www.mambo.com.br/formula-infantil-2-nestogeno-lata-800g/p/176261
+exampleInput66: 
+  URL: https://www.mambo.com.br/bebida-lactea-fast-nescafe-270ml/p
+exampleInput67: 
+  URL: https://www.mambo.com.br/cerveja-alema-dunkel-erdinger-garrafa-500ml/p/135577
+exampleInput68: 
+  URL: https://www.mambo.com.br/bifinho-doguitos-rodizio-carne-65g/p/153908
+exampleInput69: 
+  URL: https://www.mambo.com.br/quinoa-tricolor-bio2-andes-250g/p/239929
+exampleInput70: 
+  URL: https://www.mambo.com.br/chocolate-ao-leite-amendoas-e-passas-talento-garoto-90g/p/220861
+exampleInput71: 
+  URL: https://www.mambo.com.br/beijinho-moca-fiesta-365g/p
+exampleInput72: 
+  URL: https://www.mambo.com.br/biscoito-organico-de-granola-e-mel-tribos-mae-terra-130g-/p/227668
+exampleInput73: 
+  URL: https://www.mambo.com.br/cerveja-espanhola-reserva-especial-estrella-galicia-garrafa-500ml/p/232694
+exampleInput74: 
+  URL: https://www.mambo.com.br/biscoito-com-gergelim-nesfit-126g/p/191739
+exampleInput75: 
+  URL: https://www.mambo.com.br/barra-de-cereais-7-nuts-castanha-e-coco-bio2-75g/p/215238
+exampleInput76: 
+  URL: https://www.mambo.com.br/tempero-de-carne-maggi-sabores-50g/p/155269
+exampleInput77: 
+  URL: https://www.mambo.com.br/cereal-organico-cacau-zooreta-250g/p/214761
+exampleInput78: 
+  URL: https://www.mambo.com.br/brigadeiro-moca-fiesta-385g/p
+exampleInput79: 
+  URL: https://www.mambo.com.br/alimento-infantil-figado-legumes-macarrao-nestle-pote-115-120g/p/155289
+exampleInput80: 
+  URL: https://www.mambo.com.br/cafe-blonde-espresso-roast-starbucks-by-nescafe-com-12-capsulas/p/251296
+exampleInput81: 
+  URL: https://www.mambo.com.br/cerveja-nacional-skol-lata-350ml/p/135297
+exampleInput82: 
+  URL: https://www.mambo.com.br/cafe-soluvel-origens-serras-do-alto-paranaiba-nescafe-100g/p/251360
+exampleInput83: 
+  URL: https://www.mambo.com.br/granola-frutas-e-mel-mae-terra-250g/p/173073
+exampleInput84: 
+  URL: https://www.mambo.com.br/leite-longa-vida-semidesnatado-ninho-levinho-1-litro/p/173573
+exampleInput85: 
+  URL: https://www.mambo.com.br/alimento-infantil-banana-aveia-nestle-pote-115-120g/p
+exampleInput86: 
+  URL: https://www.mambo.com.br/leite-longa-vida-lactosinho-ninho-1-litro/p/173873
+exampleInput87: 
+  URL: https://www.mambo.com.br/cafe-espresso-onyx-l-or-52g-com-10-capsulas/p/228195
+exampleInput88: 
+  URL: https://www.mambo.com.br/cerveja-budweiser-lata-269ml/p/202116
+exampleInput89: 
+  URL: https://www.mambo.com.br/cerveja-belga-red-chimay-long-neck-330ml/p/170236
+exampleInput90: 
+  URL: https://www.mambo.com.br/alimento-infantil-frango-com-legumes-nestle-170g/p
+exampleInput91: 
+  URL: https://www.mambo.com.br/cerveja-golden-baden-baden-600ml/p/204726
+exampleInput92: 
+  URL: https://www.mambo.com.br/achocolatado-actigen-nescau-30-lata-380g/p
+exampleInput93: 
+  URL: https://www.mambo.com.br/cerveja-americana-goose-island-midway-long-neck-355ml/p/250594
+exampleInput94: 
+  URL: https://www.mambo.com.br/chocolate-kit-kat-branco-nestle-415g/p
+exampleInput95: 
+  URL: https://www.mambo.com.br/remix-acai-mae-terra-25g/p/236265
+exampleInput96: 
+  URL: https://www.mambo.com.br/farinha-lactea-nestle-400g/p
+exampleInput97: 
+  URL: https://www.mambo.com.br/cerveja-espanhola-estrella-galicia-269ml/p/199936
+exampleInput98: 
+  URL: https://www.mambo.com.br/cafe-soluvel-original-nescafe-refil-50g/p
+exampleInput99: 
+  URL: https://www.mambo.com.br/barra-de-cereais-7-nuts-cacau-bio2-25g/p/239894
+exampleInput100: 
+  URL: https://www.mambo.com.br/formula-infantil-3-comfor-nan-800g/p/186270
+exampleInput101: 
+  URL: https://www.mambo.com.br/cerveja-nacional-coruja-alba-weizen-600ml/p/179483
+exampleInput102: 
+  URL: https://www.mambo.com.br/cereal-de-aveia-e-arroz-mucilon-nestle-sache-230g/p/175359
+exampleInput103: 
+  URL: https://www.mambo.com.br/cerveja-stella-artois-long-neck-lager-330ml/p/256658
+exampleInput104: 
+  URL: https://www.mambo.com.br/chocolate-baton-garoto-branco-64g/p/200031
+exampleInput105: 
+  URL: https://www.mambo.com.br/tempero-meu-segredo-maggi-49g/p
+exampleInput106: 
+  URL: https://www.mambo.com.br/beb-lactea-nescau-protein-270ml/p
+exampleInput107: 
+  URL: https://www.mambo.com.br/biscoito-organico-sabor-cacau-tribos-mae-terra-130g/p/227666
+exampleInput108: 
+  URL: https://www.mambo.com.br/cafe-dolce-gusto-late-macchiato-nescafe-194g/p
+exampleInput109: 
+  URL: https://www.mambo.com.br/leite-longa-vida-integral-ninho-1-litro/p/162965
+exampleInput110: 
+  URL: https://www.mambo.com.br/racao-sabor-carne-cat-chow-adultos-1kg/p/160756
+exampleInput111: 
+  URL: https://www.mambo.com.br/agua-mineral-com-gas-perrier-330ml/p
+exampleInput112: 
+  URL: https://www.mambo.com.br/sopa-maggi-canja-galinha-200g/p/139888
+exampleInput113: 
+  URL: https://www.mambo.com.br/achocolatado-actigen-nescau-2-0-lata-400g/p/157742
+exampleInput114: 
+  URL: https://www.mambo.com.br/amaranto-em-flocos-bio2-andes-250g/p/239919
+exampleInput115: 
+  URL: https://www.mambo.com.br/cafe-blonde-espresso-roast-starbucks-by-nescafe-com-10-capsulas/p/251372
+exampleInput116: 
+  URL: https://www.mambo.com.br/farinha-lactea-de-aveia-nestle-210g/p/186676
+exampleInput117: 
+  URL: https://www.mambo.com.br/cerveja-witbier-baden-baden-600ml/p/204730
+exampleInput118: 
+  URL: https://www.mambo.com.br/formula-infantil-3-comfor-nan-800g/p
+exampleInput119: 
+  URL: https://www.mambo.com.br/biscoito-organico-sabor-morango-zooreta-mae-terra-20g/p/237712
+exampleInput120: 
+  URL: https://www.mambo.com.br/chocolate-suflair-50g-com-1/p/167238
+exampleInput121: 
+  URL: https://www.mambo.com.br/granola-banana-e-cacau-mae-terra-pacote-1kg/p/173071
+exampleInput122: 
+  URL: https://www.mambo.com.br/leite-longa-vida-integral-ninho-1-litro/p
+exampleInput123: 
+  URL: https://www.mambo.com.br/choc-kit-kat-celebreak-150g/p
+exampleInput124: 
+  URL: https://www.mambo.com.br/macarrao-instantaneo-sabor-carne-maggi-85g/p/155230
+exampleInput125: 
+  URL: https://www.mambo.com.br/cafe-soluvel-tradicao-nescafe-100g/p
+exampleInput126: 
+  URL: https://www.mambo.com.br/beb-lactea-nescau-protein-270ml/p/232536
+exampleInput127: 
+  URL: https://www.mambo.com.br/biscoito-ao-leite-passatempo-130g/p
+exampleInput128: 
+  URL: https://www.mambo.com.br/amaciante-carne-maggi-120g/p
+exampleInput129: 
+  URL: https://www.mambo.com.br/chocolate-baton-garoto-ao-leite-64g/p
+exampleInput130: 
+  URL: https://www.mambo.com.br/amaciante-carne-maggi-120g/p/139677
+exampleInput131: 
+  URL: https://www.mambo.com.br/biscoito-organico-de-tomate-e-manjericao-tribos-mae-terra-50g/p/207485
+exampleInput132: 
+  URL: https://www.mambo.com.br/farinha-de-trigo-organica-mae-terra-500g/p/193734
+exampleInput133: 
+  URL: https://www.mambo.com.br/cerveja-dinamarquesa-faxe-premium-lager-1-litro/p/179329
+exampleInput134: 
+  URL: https://www.mambo.com.br/cerveja-argentina-patagonia-pilsener-garrafa-740ml/p/205936
+exampleInput135: 
+  URL: https://www.mambo.com.br/biscoito-mini-waffer-chocolate-passatempo-20g-/p
+exampleInput136: 
+  URL: https://www.mambo.com.br/racao-para-racas-medias-e-grandes-dog-chow-1kg/p/143786
+exampleInput137: 
+  URL: https://www.mambo.com.br/tempero-ervas-finas-maggi-ideias-25g/p
+exampleInput138: 
+  URL: https://www.mambo.com.br/cerveja-budweiser-lata-350ml/p/174805
+exampleInput139: 
+  URL: https://www.mambo.com.br/cafe-espresso-barista-nescafe-dolce-gusto-120g/p/199203
+exampleInput140: 
+  URL: https://www.mambo.com.br/barra-de-cereais-7-nuts-castanha-e-damasco-bio2-75g/p/215240
+exampleInput141: 
+  URL: https://www.mambo.com.br/leite-condensado-moca-nestle-395g/p/139805
+exampleInput142: 
+  URL: https://www.mambo.com.br/cafe-espresso-forza-l-or-52-com-10-capsulas/p/228191
+exampleInput143: 
+  URL: https://www.mambo.com.br/cafe-espresso-roast-starbucks-by-nescafe-com-12-capsulas/p/251297
+exampleInput144: 
+  URL: https://www.mambo.com.br/cerveja-dinamarquesa-faxe-ipa-lata-500ml/p/254814
+exampleInput145: 
+  URL: https://www.mambo.com.br/ritto-7-cereais-integrais-mae-terra-500g/p/165232
+exampleInput146: 
+  URL: https://www.mambo.com.br/leite-condensado-moca-nestle-caixa-395g/p
+exampleInput147: 
+  URL: https://www.mambo.com.br/bebida-lactea-alpino-fast-pet-280ml/p/170383
+exampleInput148: 
+  URL: https://www.mambo.com.br/cereal-mucilon-de-arroz-com-aveia-lata-400g/p
+exampleInput149: 
+  URL: https://www.mambo.com.br/cafe-espresso-dolce-gusto-nescafe-96g/p
+exampleInput150: 
+  URL: https://www.mambo.com.br/biscoito-mini-waffer-chocolate-passatempo-20g-/p/175990
+exampleInput151: 
+  URL: https://www.mambo.com.br/leite-em-po-integral-ninho-800g/p/145425
+exampleInput152: 
+  URL: https://www.mambo.com.br/cerveja-hefeweissbier-naturtrub-paulaner-garrafa-500ml/p/156582
+exampleInput153: 
+  URL: https://www.mambo.com.br/biscoito-recheado-negresco-60g/p
+exampleInput154: 
+  URL: https://www.mambo.com.br/leite-longa-vida-semidesnatado-ninho-levinho-1-litro/p
+exampleInput155: 
+  URL: https://www.mambo.com.br/cerveja-alema-franziskaner-weissbier-dunkel-one-way-garrafa-500ml/p/205957
+exampleInput156: 
+  URL: https://www.mambo.com.br/cerveja-nacional-colorado-indica-garrafa-600ml/p/160790
+exampleInput157: 
+  URL: https://www.mambo.com.br/cafe-caramel-macchiato-starbucks-by-nescafe-com-12-capsulas/p/251391
+exampleInput158: 
+  URL: https://www.mambo.com.br/mix-de-frutas-e-castanhas-bio2-muesli-250g/p/239945
+exampleInput159: 
+  URL: https://www.mambo.com.br/cereal-matinal-mel-e-amendoas-nesfit-nestle-300g/p
+exampleInput160: 
+  URL: https://www.mambo.com.br/bebida-lactea-nescau-pet-270ml/p
+exampleInput161: 
+  URL: https://www.mambo.com.br/cerveja-nacional-brahma-lata-350ml/p/135506
+exampleInput162: 
+  URL: https://www.mambo.com.br/aveia-em-flocos-nestle-170g/p
+exampleInput163: 
+  URL: https://www.mambo.com.br/alimento-infantil-carne-arroz-e-feijao-nestle-pote-170g/p
+exampleInput164: 
+  URL: https://www.mambo.com.br/cafe-gold-intenso-nescafe-250g/p/251385
+exampleInput165: 
+  URL: https://www.mambo.com.br/chocolate-ao-leite-e-avela-talento-garoto-90g/p/220862
+exampleInput166: 
+  URL: https://www.mambo.com.br/bebida-vegetal-de-arroz-e-coco-nesfit-1-litro/p/252429
+exampleInput167: 
+  URL: https://www.mambo.com.br/mix-de-cereais-e-castanhas-bio2-muesli-250g/p/239949
+exampleInput168: 
+  URL: https://www.mambo.com.br/biscoito-recheado-sabor-leite-passatempo-130g/p/220709
+exampleInput169: 
+  URL: https://www.mambo.com.br/cafe-origens-chapada-diamantina-nescafe-250g/p/251358
+exampleInput170: 
+  URL: https://www.mambo.com.br/cerveja-colorado-ribeirao-lager-garrafa-600ml/p/252666
+exampleInput171: 
+  URL: https://www.mambo.com.br/macarrao-instantaneo-sabor-carne-maggi-85g/p
+exampleInput172: 
+  URL: https://www.mambo.com.br/cerveja-nacional-colorado-cauim-garrafa-600ml/p/160791
+exampleInput173: 
+  URL: https://www.mambo.com.br/racao-mix-de-carne-friskies-3kg/p/245385
+exampleInput174: 
+  URL: https://www.mambo.com.br/tempero-grill-maggi-120g/p
+exampleInput175: 
+  URL: https://www.mambo.com.br/cafe-cappuccino-starbucks-by-nescafe-com-12-capsulas/p/251373
+exampleInput176: 
+  URL: https://www.mambo.com.br/tempero-com-alho-e-cebola-natusabor-maggi-40g/p
+exampleInput177: 
+  URL: https://www.mambo.com.br/creme-de-leite-nestle-lata-300g/p/139799
+exampleInput178: 
+  URL: https://www.mambo.com.br/cerveja-lager-coruja-355ml/p/257343
+exampleInput179: 
+  URL: https://www.mambo.com.br/cookie-passatempo-tradicional-60g/p
+exampleInput180: 
+  URL: https://www.mambo.com.br/tempero-com-alho-e-cebola-natusabor-maggi-40g/p/226527
+exampleInput181: 
+  URL: https://www.mambo.com.br/agua-mineral-sem-gas-pureza-vital-15-litros/p
+exampleInput182: 
+  URL: https://www.mambo.com.br/cafe-expresso-intenso-dolce-gusto-nescafe/p/164869
+exampleInput183: 
+  URL: https://www.mambo.com.br/cerveja-nacional-brahma-malzbier-long-neck-355ml/p/135509
+exampleInput184: 
+  URL: https://www.mambo.com.br/cerveja-colorado-appia-lata-410ml/p/246216
+exampleInput185: 
+  URL: https://www.mambo.com.br/biscoito-organico-sabor-cacau-zooreta-mae-terra-110g/p/237707
+exampleInput186: 
+  URL: https://www.mambo.com.br/cafe-colombia-starbucks-by-nescafe-com-10-capsulas/p/251355
+exampleInput187: 
+  URL: https://www.mambo.com.br/chocolate-ao-leite-e-castanha-do-para-talento-garoto-90g/p/220863
+exampleInput188: 
+  URL: https://www.mambo.com.br/biscoito-com-gergelim-nesfit-126g/p
+exampleInput189: 
+  URL: https://www.mambo.com.br/leite-em-po-integral-ninho-400g/p
+exampleInput190: 
+  URL: https://www.mambo.com.br/biscoito-de-leite-passatempo-150g/p/139705
+exampleInput191: 
+  URL: https://www.mambo.com.br/cerveja-nacional-weizenbock-eisenbahn-long-neck-355ml/p/156839
+exampleInput192: 
+  URL: https://www.mambo.com.br/farinha-lactea-nestle-400g/p/139803
+exampleInput193: 
+  URL: https://www.mambo.com.br/cereal-matinal-moca-flakes-nestle-330g/p
+exampleInput194: 
+  URL: https://www.mambo.com.br/bebida-lactea-pronta-nescau-1-litro/p
+exampleInput195: 
+  URL: https://www.mambo.com.br/bebida-lactea-light-nescau-200ml/p
+exampleInput196: 
+  URL: https://www.mambo.com.br/bebida-lactea-fast-nescafe-270ml/p/211917
+exampleInput197: 
+  URL: https://www.mambo.com.br/cerveja-holandesa-heineken-lata-350ml/p/135223
+exampleInput198: 
+  URL: https://www.mambo.com.br/cereal-de-arroz-mucilon-400g/p
+exampleInput199: 
+  URL: https://www.mambo.com.br/biscoito-negresco-wafer-110g/p/151002
+exampleInput200: 
+  URL: https://www.mambo.com.br/formula-nan-supreme-1-nestle-800g/p
+exampleInput201: 
+  URL: https://www.mambo.com.br/biscoito-integral-nesfit-170g/p
+exampleInput202: 
+  URL: https://www.mambo.com.br/chocolate-em-po-soluvel-50--cacau-garoto-200g/p/140826
+exampleInput203: 
+  URL: https://www.mambo.com.br/bebida-de-arroz-sem-gluten-sabor-baunilha-isolabio-1-litro/p/214052
+exampleInput204: 
+  URL: https://www.mambo.com.br/racao-megamix-friskies-1kg/p/245384
+exampleInput205: 
+  URL: https://www.mambo.com.br/formula-infantil-1-comfor-nan-lata-800g/p
+exampleInput206: 
+  URL: https://www.mambo.com.br/formula-infantil-1-sem-lactose-nestogeno-400g/p
+exampleInput207: 
+  URL: https://www.mambo.com.br/aveia-em-flocos-nestle-170g/p/191738
+exampleInput208: 
+  URL: https://www.mambo.com.br/leite-neslac-comfor-800g/p/194572
+exampleInput209: 
+  URL: https://www.mambo.com.br/tempero-fondor-maggi-120g/p/140002
+exampleInput210: 
+  URL: https://www.mambo.com.br/chocolate-morango-talento-garoto-90g/p/232699
+exampleInput211: 
+  URL: https://www.mambo.com.br/formula-infantil-1-nestogeno-lata-800g/p
+exampleInput212: 
+  URL: https://www.mambo.com.br/racao-para-racas-pequenas-dog-chow-1kg/p
+exampleInput213: 
+  URL: https://www.mambo.com.br/cookies-organico-banana-mae-terra-120g/p/171433
+exampleInput214: 
+  URL: https://www.mambo.com.br/achocolatado-actigen-nescau-30-lata-380g/p/220925
+exampleInput215: 
+  URL: https://www.mambo.com.br/tempero-meu-segredo-maggi-49g/p/148936
+exampleInput216: 
+  URL: https://www.mambo.com.br/cafe-espresso-ristretto-l-or-52g-com-10-capsulas/p/228192
+exampleInput217: 
+  URL: https://www.mambo.com.br/biscoito-recheado-sabor-leite-passatempo-130g/p
+exampleInput218: 
+  URL: https://www.mambo.com.br/bebida-de-arroz-sem-gluten-sabor-aveia-isolabio-1-litro/p/214054
+exampleInput219: 
+  URL: https://www.mambo.com.br/formula-infantil-2-comfor-nan-lata-800g/p/187732
+exampleInput220: 
+  URL: https://www.mambo.com.br/cerveja-amstel-lata-269ml/p/220086
+exampleInput221: 
+  URL: https://www.mambo.com.br/biscoito-organico-sabor-coco-tribos-mae-terra-130g/p/227667
+exampleInput222: 
+  URL: https://www.mambo.com.br/bebida-de-arroz-sem-gluten-isolabio-1-litro/p/214053
+exampleInput223: 
+  URL: https://www.mambo.com.br/cerveja-stella-artois-269ml/p/162638
+exampleInput224: 
+  URL: https://www.mambo.com.br/nescafe-dolce-gusto-nescau-272g-com-16-capsulas-/p/226528
+exampleInput225: 
+  URL: https://www.mambo.com.br/cerveja-argentina-bohemiam-pilsener-patagonia-long-neck-355ml/p/243782
+exampleInput226: 
+  URL: https://www.mambo.com.br/mistura-de-pao-mandioquinha-organico-bela-gil-300g/p/214748
+exampleInput227: 
+  URL: https://www.mambo.com.br/cookie-passatempo-tradicional-60g/p/202150
+exampleInput228: 
+  URL: https://www.mambo.com.br/sopao-de-galinha-maggi-200g/p
+exampleInput229: 
+  URL: https://www.mambo.com.br/alimento-infantil-pera-nestle-pote-115-120g/p
+exampleInput230: 
+  URL: https://www.mambo.com.br/biscoito-recheado-chocomix-de-chocolate-passatempo-130g/p/247064
+exampleInput231: 
+  URL: https://www.mambo.com.br/cerveja-belga-hoegaarden-wit-long-neck-330ml/p/183795
+exampleInput232: 
+  URL: https://www.mambo.com.br/tempero-maggi-sabores-50g-legumes/p
+exampleInput233: 
+  URL: https://www.mambo.com.br/cafe-verona-starbucks-by-nescafe-250g/p/251345
+exampleInput234: 
+  URL: https://www.mambo.com.br/formula-infantil-1-nestogeno-lata-800g/p/176262
+exampleInput235: 
+  URL: https://www.mambo.com.br/tempero-com-salsinha-oregano-e-cebola-natusabor-maggi-40g/p
+exampleInput236: 
+  URL: https://www.mambo.com.br/cereal-de-aveia-e-arroz-mucilon-nestle-sache-230g/p
+exampleInput237: 
+  URL: https://www.mambo.com.br/cerveja-stella-artois-550ml/p/248348
+exampleInput238: 
+  URL: https://www.mambo.com.br/cafe-au-lait-dolce-gusto-nescafe-160g/p
+exampleInput239: 
+  URL: https://www.mambo.com.br/bebida-de-arroz-sem-gluten-sabor-coco-isolabio-1-litro/p/214060
+exampleInput240: 
+  URL: https://www.mambo.com.br/agua-mineral-com-gas-san-pellegrino-250ml/p
+exampleInput241: 
+  URL: https://www.mambo.com.br/cereal-nescau-duo-nestle-210g/p/252164
+exampleInput242: 
+  URL: https://www.mambo.com.br/cafe-extra-fort-l-or-250g/p/228207
+exampleInput243: 
+  URL: https://www.mambo.com.br/cafe-espresso-lungo-estremo-l-or-52g-com-10-capsulas/p/228193
+exampleInput244: 
+  URL: https://www.mambo.com.br/biscoito-organico-sabor-gergelim-tribos-mae-terra-50g/p/226589
+exampleInput245: 
+  URL: https://www.mambo.com.br/racao-de-carne-ao-molho-racas-pequenas-adulto-dog-chow-sache-100g/p/233856
+exampleInput246: 
+  URL: https://www.mambo.com.br/biscoito-com-cobertura-de-chocolate-passatempo-pacote-120g/p/148946
+exampleInput247: 
+  URL: https://www.mambo.com.br/cerveja-pale-ale-eisenbahn-lata-350ml/p/253772
+exampleInput248: 
+  URL: https://www.mambo.com.br/cerveja-argentina-quilmes-garrafa-970ml/p/183796
+exampleInput249: 
+  URL: https://www.mambo.com.br/trato-fit-chia-linhaca-e-aveia-mae-terra-200g/p/193712
+exampleInput250: 
+  URL: https://www.mambo.com.br/formula-infantil-2-comfor-nan-lata-800g/p
+exampleInput251: 
+  URL: https://www.mambo.com.br/cafe-soluvel-origens-sao-sebastiao-do-paraiso-nescafe-100g/p/251362
+exampleInput252: 
+  URL: https://www.mambo.com.br/biscoito-mini-integral-nesfit-pacote-126g/p
+exampleInput253: 
+  URL: https://www.mambo.com.br/cerveja-argentina-weisse-patagonia-long-neck-355ml/p/243781
+exampleInput254: 
+  URL: https://www.mambo.com.br/leite-em-po-integral-ninho-800g/p
+exampleInput255: 
+  URL: https://www.mambo.com.br/granola-maca-e-canela-mae-terra-pacote-1kg/p/173072
+exampleInput256: 
+  URL: https://www.mambo.com.br/cafe-soluvel-matinal-nescafe-sache-50g/p
+exampleInput257: 
+  URL: https://www.mambo.com.br/alimento-infantil-de-frutas-sortidas-nestle-pote-115-120g/p
+exampleInput258: 
+  URL: https://www.mambo.com.br/nescafe-dolce-gusto-ristreto-104g/p/226908
+exampleInput259: 
+  URL: https://www.mambo.com.br/leite-longa-vida-lactosinho-ninho-1-litro/p
+exampleInput260: 
+  URL: https://www.mambo.com.br/cobertura-de-chocolate-meio-amargo-garoto-500g/p/151801
+exampleInput261: 
+  URL: https://www.mambo.com.br/tempero-para-aves-maggi-sabores/p/155270
+exampleInput262: 
+  URL: https://www.mambo.com.br/cerveja-vixnu-colorado-600ml/p/199951
+exampleInput263: 
+  URL: https://www.mambo.com.br/sopao-de-carne-com-legumes-maggi-200g/p
+exampleInput264: 
+  URL: https://www.mambo.com.br/cerveja-espanhola-estrella-galicia-500ml/p/232546
+exampleInput265: 
+  URL: https://www.mambo.com.br/cereal-matinal-frutas-nesfit-nestle-300g/p
+exampleInput266: 
+  URL: https://www.mambo.com.br/cerveja-alema-salvator-paulaner-330ml/p/156586
+exampleInput267: 
+  URL: https://www.mambo.com.br/quinua-em-graos-mae-terra-250g/p/193710
+exampleInput268: 
+  URL: https://www.mambo.com.br/cerveja-stella-artois-lata-sleek-lager-350ml/p/256664
+exampleInput269: 
+  URL: https://www.mambo.com.br/biscoito-recheado-de-doce-de-leite-bono-140g/p
+exampleInput270: 
+  URL: https://www.mambo.com.br/cerveja-alema-oettinger-extra-strong-lata-500ml/p/255087
+exampleInput271: 
+  URL: https://www.mambo.com.br/racao-selecao-saborosa-friskies-1kg/p/155363
+exampleInput272: 
+  URL: https://www.mambo.com.br/cereal-matinal-moca-flakes-nestle-330g/p/139648
+exampleInput273: 
+  URL: https://www.mambo.com.br/cafe-dolce-gusto-lungo-nescafe-112g/p
+exampleInput274: 
+  URL: https://www.mambo.com.br/creme-de-leite-nestle-200g/p
+exampleInput275: 
+  URL: https://www.mambo.com.br/cerveja-nacional-export-cerpa-350ml/p/203455
+exampleInput276: 
+  URL: https://www.mambo.com.br/macarrao-instantaneo-sabor-galinha-caipira-maggi-85g/p
+exampleInput277: 
+  URL: https://www.mambo.com.br/barra-de-cereais-7-nuts-castanha-e-cranberry-bio2-75g/p/215239
+exampleInput278: 
+  URL: https://www.mambo.com.br/goma-de-mandioca-organica-para-tapioca-mae-terra-400g/p/220828
+exampleInput279: 
+  URL: https://www.mambo.com.br/formula-infantil-2-nestogeno-lata-800g/p
+exampleInput280: 
+  URL: https://www.mambo.com.br/cafe-gold-equilibrado-nescafe-250g/p/251384
+exampleInput281: 
+  URL: https://www.mambo.com.br/bisc-rech-bono-pct-140g-morango/p/154433
+exampleInput282: 
+  URL: https://www.mambo.com.br/barra-de-proteina-acai-e-banana-bio2-40g-/p/239960
+exampleInput283: 
+  URL: https://www.mambo.com.br/suco-de-tangerina-juice-kids-bio2-200ml/p/220180
+exampleInput284: 
+  URL: https://www.mambo.com.br/cafe-soluvel-origens-chapada-diamantina-nescafe-100g/p/251361
+exampleInput285: 
+  URL: https://www.mambo.com.br/agua-mineral-com-gas-sao-lourenco-510ml/p
+exampleInput286: 
+  URL: https://www.mambo.com.br/cerveja-stella-artois-310ml/p/222860
+exampleInput287: 
+  URL: https://www.mambo.com.br/trato-trio-mae-terra-200g/p/173067
+exampleInput288: 
+  URL: https://www.mambo.com.br/cobertura-de-chocolate-branco-garoto-500g/p/151800
+exampleInput289: 
+  URL: https://www.mambo.com.br/biscoito-banana-com-aveia-e-canela-nesfit-88g/p/226938
+exampleInput290: 
+  URL: https://www.mambo.com.br/biscoito-recheado-moca-140g/p
+exampleInput291: 
+  URL: https://www.mambo.com.br/alimento-infantil-figado-legumes-macarrao-nestle-pote-115-120g/p
+exampleInput292: 
+  URL: https://www.mambo.com.br/cafe-soluvel-gold-espresso-nescafe-100g/p/251388
+exampleInput293: 
+  URL: https://www.mambo.com.br/cerveja-heineken-long-neck-330ml/p/216374
+exampleInput294: 
+  URL: https://www.mambo.com.br/leite-condensado-moca-nestle-395g/p
+exampleInput295: 
+  URL: https://www.mambo.com.br/sopa-de-creme-de-cebola-maggi-68g/p/139895
+exampleInput296: 
+  URL: https://www.mambo.com.br/agua-mineral-sem-gas-acqua-panna-garrafa-505-ml/p
+exampleInput297: 
+  URL: https://www.mambo.com.br/formula-infantil-nestle-nestogeno-2-lata-800g/p
+exampleInput298: 
+  URL: https://www.mambo.com.br/cereal-matinal-corn-flakes-240g/p/192464
+exampleInput299: 
+  URL: https://www.mambo.com.br/multi-cereais-mucilon-nestle-sache-230g/p
+exampleInput300: 
+  URL: https://www.mambo.com.br/chia-em-graos-mae-terra-100g/p/193697
+exampleInput301: 
+  URL: https://www.mambo.com.br/biscoito-recheado-moca-140g/p/224961
+exampleInput302: 
+  URL: https://www.mambo.com.br/cereal-matinal-frutas-nesfit-nestle-300g/p/175989
+exampleInput303: 
+  URL: https://www.mambo.com.br/cacau-em-po-garoto-200g/p/140810
+exampleInput304: 
+  URL: https://www.mambo.com.br/cafe-soluvel-tradicao-nescafe-refil-50g/p/152646
+exampleInput305: 
+  URL: https://www.mambo.com.br/bebida-lactea-nescau-pet-270ml/p/192073
+exampleInput306: 
+  URL: https://www.mambo.com.br/racao-para-racas-pequenas-dog-chow-3kg/p/245092
+exampleInput307: 
+  URL: https://www.mambo.com.br/chocolate-cremoso-moca-nestle-380g/p
+exampleInput308: 
+  URL: https://www.mambo.com.br/leite-em-po-ninho-fases-3--nestle-400g/p
+exampleInput309: 
+  URL: https://www.mambo.com.br/cobertura-de-chocolate-meio-amargo-garoto-500g/p
+exampleInput310: 
+  URL: https://www.mambo.com.br/chocolate-ao-leite-e-avela-talento-garoto-90g/p
+exampleInput311: 
+  URL: https://www.mambo.com.br/cerveja-argentina-amber-lager-patagonia-garrafa-740ml/p/205977
+exampleInput312: 
+  URL: https://www.mambo.com.br/caldo-de-galinha-maggi-57g/p/235597
+exampleInput313: 
+  URL: https://www.mambo.com.br/cerveja-amstel-600ml/p/202495
+exampleInput314: 
+  URL: https://www.mambo.com.br/cerveja-heineken-barril-5-litros/p/135838
+exampleInput315: 
+  URL: https://www.mambo.com.br/cerveja-nacional-eisenbahn-pilsen-lata-350ml/p/233800
+exampleInput316: 
+  URL: https://www.mambo.com.br/creme-de-leite-nestle-lata-300g/p
+exampleInput317: 
+  URL: https://www.mambo.com.br/sopa-fideline-de-galinha-maggi-60g/p
+exampleInput318: 
+  URL: https://www.mambo.com.br/biscoito-ao-leite-passatempo-130g/p/220710
+exampleInput319: 
+  URL: https://www.mambo.com.br/cerveja-nacional-brahma-sem-alcool-lata-350ml/p/184517
+exampleInput320: 
+  URL: https://www.mambo.com.br/alimento-infantil-frango-com-legumes-nestle-170g/p/139638
+exampleInput321: 
+  URL: https://www.mambo.com.br/bebida-lactea-pronta-nescau-1-litro/p/139616
+exampleInput322: 
+  URL: https://www.mambo.com.br/tempero-tomates-suculentos-com-ervas-natusabor-maggi-40g/p
+exampleInput323: 
+  URL: https://www.mambo.com.br/bebida-lactea-neston-fast-pet-280ml/p/170385
+exampleInput324: 
+  URL: https://www.mambo.com.br/biscoito-organico-integral-original-cracker-tribos-mae-terra-130g/p/237737
+exampleInput325: 
+  URL: https://www.mambo.com.br/barra-de-cereais-organica-quinoa-bio2-75g/p/215237
+exampleInput326: 
+  URL: https://www.mambo.com.br/chocolate-suflair-duo-nestle-110g/p
+exampleInput327: 
+  URL: https://www.mambo.com.br/farinha-lactea-multi-gros-nestle-380g/p
+exampleInput328: 
+  URL: https://www.mambo.com.br/suco-de-tangerina-juice-bio2-330ml/p/220178
+exampleInput329: 
+  URL: https://www.mambo.com.br/racao-de-frango-ao-molho-friskies-1kg/p/188407
+exampleInput330: 
+  URL: https://www.mambo.com.br/cafe-espresso-roast-starbucks-by-nescafe-com-10-capsulas/p/251356
+exampleInput331: 
+  URL: https://www.mambo.com.br/bebida-lactea-light-nescau-200ml/p/153010
+exampleInput332: 
+  URL: https://www.mambo.com.br/chocolate-baton-garoto-branco-64g/p
+exampleInput333: 
+  URL: https://www.mambo.com.br/quinua-em-flocos-mae-terra-150g/p/193711
+exampleInput334: 
+  URL: https://www.mambo.com.br/agua-mineral-sem-gas-sao-lourenco-300ml/p
+exampleInput335: 
+  URL: https://www.mambo.com.br/cerveja-alema-franziskaner-hell-hefe-weissbier-one-way-garrafa-500ml/p/205958
+exampleInput336: 
+  URL: https://www.mambo.com.br/leite-em-po-com-calcio-molico-280g/p/189352
+exampleInput337: 
+  URL: https://www.mambo.com.br/biscoito-de-leite-passatempo-150g/p
+exampleInput338: 
+  URL: https://www.mambo.com.br/cerveja-alema-sem-alcool-paulaner-hefe-weibbier-garrafa-500ml/p/200474
+exampleInput339: 
+  URL: https://www.mambo.com.br/cafe-house-blend-americano-starbucks-by-nescafe-com-12-capsulas/p/251295
+exampleInput340: 
+  URL: https://www.mambo.com.br/cafe-origens-sao-sebastiao-do-paraiso-nescafe-250g/p/251359
+exampleInput341: 
+  URL: https://www.mambo.com.br/cerveja-espanhola-zero-estrella-galicia-lata-330ml/p/232545
+exampleInput342: 
+  URL: https://www.mambo.com.br/racao-ambientes-internos-cat-chow-1kg/p/160753
+exampleInput343: 
+  URL: https://www.mambo.com.br/sopa-fideline-de-galinha-maggi-60g/p/139907
+exampleInput344: 
+  URL: https://www.mambo.com.br/cerveja-colorado-cauim-one-way-300ml/p/243778
+exampleInput345: 
+  URL: https://www.mambo.com.br/achocolatado-actigen-nescau-2-0-lata-400g/p
+exampleInput346: 
+  URL: https://www.mambo.com.br/cafe-chococino-dolce-gusto-nescafe/p
+exampleInput347: 
+  URL: https://www.mambo.com.br/biscoito-mini-integral-nesfit-pacote-126g/p/164862
+exampleInput348: 
+  URL: https://www.mambo.com.br/alimento-infantil-maca-e-banana-nestle-pote-115-120g/p/155300
+exampleInput349: 
+  URL: https://www.mambo.com.br/cafe-soluvel-gold-equilibrado-nescafe-100g/p/251386
+exampleInput350: 
+  URL: https://www.mambo.com.br/leite-em-po-zero-lactose-ninho-380g/p/203469
+exampleInput351: 
+  URL: https://www.mambo.com.br/cerveja-heineken-lata-250ml/p/218956
+exampleInput352: 
+  URL: https://www.mambo.com.br/petiscos-sabor-camarao-salmao-e-atum-friskies-40g/p/245404
+exampleInput353: 
+  URL: https://www.mambo.com.br/leite-neslac-comfor-800g/p
+exampleInput354: 
+  URL: https://www.mambo.com.br/cobertura-de-chocolate-branco-garoto-500g/p
+exampleInput355: 
+  URL: https://www.mambo.com.br/formula-nan-supreme-2-nestle-800g/p/201682
+exampleInput356: 
+  URL: https://www.mambo.com.br/bebida-lactea-nescau-200ml/p/139615
+exampleInput357: 
+  URL: https://www.mambo.com.br/achocolatado-light-nescau-lata-400g/p/139622
+exampleInput358: 
+  URL: https://www.mambo.com.br/cerveja-nacional-pale-ale-eisenbahn-long-neck-355ml/p/154648
+exampleInput359: 
+  URL: https://www.mambo.com.br/chocolate-baton-garoto-ao-leite-64g/p/200035
+exampleInput360: 
+  URL: https://www.mambo.com.br/racao-dog-chow-filhotes-1kg/p/143789
+exampleInput361: 
+  URL: https://www.mambo.com.br/cerveja-skol-puro-malte-lata-269ml/p/247494
+exampleInput362: 
+  URL: https://www.mambo.com.br/farinha-lactea-multi-gros-nestle-380g/p/203556
+exampleInput363: 
+  URL: https://www.mambo.com.br/cerveja-belga-duvel-300ml/p/170233
+exampleInput364: 
+  URL: https://www.mambo.com.br/biscoito-recheado-chocomix-de-morango-passatempo-130g/p/247063
+exampleInput365: 
+  URL: https://www.mambo.com.br/biscoito-organico-sabor-cacau-zooreta-mae-terra-20g/p/237734
+exampleInput366: 
+  URL: https://www.mambo.com.br/multi-cereais-mucilon-nestle-sache-230g/p/175358
+exampleInput367: 
+  URL: https://www.mambo.com.br/cerveja-colorado-ribeirao-lager-lata-410ml/p/252667
+exampleInput368: 
+  URL: https://www.mambo.com.br/sopa-de-cebola-maggi-68g/p/139893
+exampleInput369: 
+  URL: https://www.mambo.com.br/cerveja-corona-extra-long-neck-330ml/p/257313
+exampleInput370: 
+  URL: https://www.mambo.com.br/cafe-house-blend-starbucks-by-nescafe-250g/p/251347
+exampleInput371: 
+  URL: https://www.mambo.com.br/cerveja-colorado-appia-one-way-300ml/p/243779
+exampleInput372: 
+  URL: https://www.mambo.com.br/cafe-pike-place-roast-starbucks-by-nescafe-com-10-capsulas/p/251367
+exampleInput373: 
+  URL: https://www.mambo.com.br/sopa-maggi-canja-galinha-200g/p
+exampleInput374: 
+  URL: https://www.mambo.com.br/cereal-matinal-crunch-nestle-330g/p
+exampleInput375: 
+  URL: https://www.mambo.com.br/chocolate-maracuja-talento-garoto-90g-/p/232697
+exampleInput376: 
+  URL: https://www.mambo.com.br/salgadinho-organico-integral-assado-de-pizza-mae-terra-45g/p/214758
+exampleInput377: 
+  URL: https://www.mambo.com.br/cereal-mucilon-de-arroz-com-aveia-lata-400g/p/168189
+exampleInput378: 
+  URL: https://www.mambo.com.br/cerveja-hefeweissbier-dunkel-paulaner-garrafa-500ml/p/156583
+exampleInput379: 
+  URL: https://www.mambo.com.br/cerveja-nacional-colorado-appia-garrafa-600ml/p/160792
+exampleInput380: 
+  URL: https://www.mambo.com.br/racao-para-racas-medias-e-grandes-dog-chow-1kg/p
+exampleInput381: 
+  URL: https://www.mambo.com.br/cereal-de-multi-cereais-mucilon-lata-400g/p
+exampleInput382: 
+  URL: https://www.mambo.com.br/leite-em-po-zero-lactose-ninho-380g/p
+exampleInput383: 
+  URL: https://www.mambo.com.br/arroz-integral-longo-mae-terra-500g/p/193729
+exampleInput384: 
+  URL: https://www.mambo.com.br/cafe-espresso-sontuoso-l-or-52g-com-10-capsulas--/p/228190
+exampleInput385: 
+  URL: https://www.mambo.com.br/leite-em-po-ninho-fases-1--nestle-400g/p
+exampleInput386: 
+  URL: https://www.mambo.com.br/racao-de-atum-ao-molho-friskies-1kg/p/188406
+exampleInput387: 
+  URL: https://www.mambo.com.br/leite-condensado-moca-nestle-caixa-395g/p/173894
+exampleInput388: 
+  URL: https://www.mambo.com.br/cafe-verona-starbucks-by-nescafe-com-10-capsulas/p/251369
+exampleInput389: 
+  URL: https://www.mambo.com.br/agua-mineral-com-gas-sao-lourenco-300ml/p
+exampleInput390: 
+  URL: https://www.mambo.com.br/leite-em-po-desnatado-total-calcio-actifibras-molico-280g/p
+exampleInput391: 
+  URL: https://www.mambo.com.br/cafe-soluvel-original-nescafe-100g/p/139715
+exampleInput392: 
+  URL: https://www.mambo.com.br/cerveja-heineken-garrafa-600ml/p/158780
+exampleInput393: 
+  URL: https://www.mambo.com.br/cafe-espresso-barista-nescafe-dolce-gusto-120g/p
+exampleInput394: 
+  URL: https://www.mambo.com.br/cacau-em-po-sem-acucar-mae-terra-100g/p/214751
+exampleInput395: 
+  URL: https://www.mambo.com.br/chocolate-ao-leite-e-castanha-do-para-talento-garoto-90g/p
+exampleInput396: 
+  URL: https://www.mambo.com.br/bebida-de-arroz-sem-gluten-sabor-chocotella-isolabio-250ml/p/214064
+exampleInput397: 
+  URL: https://www.mambo.com.br/cafe-lor-espresso-caps-c-10-52g-ristreto-desca/p/253525
+exampleInput398: 
+  URL: https://www.mambo.com.br/bebida-lactea-nescau-200ml/p
+exampleInput399: 
+  URL: https://www.mambo.com.br/biscoito-mini-multcereais-nesfit-pacote-126g/p/164861
+exampleInput400: 
+  URL: https://www.mambo.com.br/cerveja-pilsen-eisenbahn-american-lata-350ml/p/253768
+exampleInput401: 
+  URL: https://www.mambo.com.br/chocolate-em-po-nestle-200g/p
+exampleInput402: 
+  URL: https://www.mambo.com.br/alimento-infantil-pera-nestle-pote-115-120g/p/155301
+exampleInput403: 
+  URL: https://www.mambo.com.br/leite-longa-vida-molico-zero-lactose-1l/p
+exampleInput404: 
+  URL: https://www.mambo.com.br/cerveja-alema-tradicional-erdinger-garrafa-500ml/p/135579
+exampleInput405: 
+  URL: https://www.mambo.com.br/leite-em-po-ninho-fases-3--nestle-400g/p/147463
+exampleInput406: 
+  URL: https://www.mambo.com.br/chocolate-branco-tablete-baton-76g/p
+exampleInput407: 
+  URL: https://www.mambo.com.br/sopao-de-galinha-caipira-e-legumes-maggi-200g/p
+exampleInput408: 
+  URL: https://www.mambo.com.br/cerveja-nacional-coruja-strix-extra-600ml/p/179481
+exampleInput409: 
+  URL: https://www.mambo.com.br/biscoito-organico-sabor-cebola-tribos-mae-terra-50g/p/226588
+exampleInput410: 
+  URL: https://www.mambo.com.br/alimento-infantil-carne-legumes-nestle-pote-115-120g/p
+exampleInput411: 
+  URL: https://www.mambo.com.br/cerveja-extra-lager-brahma-lata-350ml/p/246748
+exampleInput412: 
+  URL: https://www.mambo.com.br/cerveja-nacional-baden-baden-garrafa-600ml/p/148787
+exampleInput413: 
+  URL: https://www.mambo.com.br/cafe-house-blend-starbucks-by-nescafe-com-10-capsulas/p/251366
+exampleInput414: 
+  URL: https://www.mambo.com.br/biscoito-recheado-passatempo-pacote-60g/p
+exampleInput415: 
+  URL: https://www.mambo.com.br/cerveja-belga-blonde-leffe-long-neck-330ml/p/160869
+exampleInput416: 
+  URL: https://www.mambo.com.br/cerveja-dinamarquesa-faxe-witbier-lata-1-litro/p/254813
+exampleInput417: 
+  URL: https://www.mambo.com.br/chocolate-kit-kat-nestle-415g/p
+exampleInput418: 
+  URL: https://www.mambo.com.br/formula-nan-supreme-2-nestle-800g/p
+exampleInput419: 
+  URL: https://www.mambo.com.br/leite-em-po-ninho-instantaneo-800g/p/145426
+exampleInput420: 
+  URL: https://www.mambo.com.br/cerveja-mexicana-coronita-long-neck-210ml/p/205975
+exampleInput421: 
+  URL: https://www.mambo.com.br/cafe-au-lait-dolce-gusto-nescafe-160g/p/187720
+exampleInput422: 
+  URL: https://www.mambo.com.br/racao-de-peru-ao-molho-friskies/p/188408
+exampleInput423: 
+  URL: https://www.mambo.com.br/leite-em-po-ninho-instantaneo-800g/p
+exampleInput424: 
+  URL: https://www.mambo.com.br/biscoito-recheado-tradicional-negresco-140g/p/154437
+exampleInput425: 
+  URL: https://www.mambo.com.br/cacau-em-po-garoto-200g/p
+exampleInput426: 
+  URL: https://www.mambo.com.br/cerveja-original-munchner-hell-paulaner-garrafa-500ml/p/156584
+exampleInput427: 
+  URL: https://www.mambo.com.br/leite-em-po-integral-ninho-400g/p/139842
+exampleInput428: 
+  URL: https://www.mambo.com.br/bisc-rech-bono-pct-140g-morango/p
+exampleInput429: 
+  URL: https://www.mambo.com.br/alimento-infantil-de-frutas-sortidas-nestle-pote-115-120g/p/155298
+exampleInput430: 
+  URL: https://www.mambo.com.br/cafe-chococino-dolce-gusto-nescafe/p/164866
+exampleInput431: 
+  URL: https://www.mambo.com.br/linhaca-dourada-em-graos-mae-terra-200g/p/193692
+exampleInput432: 
+  URL: https://www.mambo.com.br/chocolate-suflair-nestle-110g/p
+exampleInput433: 
+  URL: https://www.mambo.com.br/tempero-para-aves-maggi-sabores/p
+exampleInput434: 
+  URL: https://www.mambo.com.br/253523_cafe-lor-espresso-caps-c-10-52g-colombia/p/253523
+exampleInput435: 
+  URL: https://www.mambo.com.br/achocolatado-light-nescau-lata-400g/p
+exampleInput436: 
+  URL: https://www.mambo.com.br/cereal-matinal-corn-flakes-240g/p
+exampleInput437: 
+  URL: https://www.mambo.com.br/barra-de-proteina-alfarroba-e-pasta-de-amendoim-bio2-80g/p/215248
+exampleInput438: 
+  URL: https://www.mambo.com.br/chocolate-kit-kat-pacote-45g/p
+exampleInput439: 
+  URL: https://www.mambo.com.br/cerveja-skol-beats-senses-lata-269ml/p/196424
+exampleInput440: 
+  URL: https://www.mambo.com.br/biscoito-organico-de-azeite-e-ervas-tribos-mae-terra-50g/p/207484
+exampleInput441: 
+  URL: https://www.mambo.com.br/cerveja-belga-chimay-blue-330ml/p/170235
+exampleInput442: 
+  URL: https://www.mambo.com.br/racao-megamix-friskies-3kg/p/245386
+exampleInput443: 
+  URL: https://www.mambo.com.br/bebida-farinha-lactea-nestle-200ml/p/246390
+exampleInput444: 
+  URL: https://www.mambo.com.br/alimento-infantil-ameixa-nestle-120g/p/155292
+exampleInput445: 
+  URL: https://www.mambo.com.br/cereal-de-arroz-mucilon-400g/p/139866
+exampleInput446: 
+  URL: https://www.mambo.com.br/biscoito-recheado-tradicional-negresco-140g/p
+exampleInput447: 
+  URL: https://www.mambo.com.br/cerveja-alema-tradicional-lata-erdinger-500ml/p/217509
+exampleInput448: 
+  URL: https://www.mambo.com.br/bebida-vegetal-de-arroz-e-cacau-nesfit-1-litro/p/252430
+exampleInput449: 
+  URL: https://www.mambo.com.br/leite-desnatado-molico-1-litro/p
+exampleInput450: 
+  URL: https://www.mambo.com.br/aveia-flocos-finos-nestle-170g/p/191736
+exampleInput451: 
+  URL: https://www.mambo.com.br/farinha-lactea-de-aveia-nestle-210g/p
+exampleInput452: 
+  URL: https://www.mambo.com.br/cobertura-de-chocolate-ao-leite-garoto-500g/p/140813
+exampleInput453: 
+  URL: https://www.mambo.com.br/tempero-tomates-suculentos-com-ervas-natusabor-maggi-40g/p/226526
+exampleInput454: 
+  URL: https://www.mambo.com.br/cerveja-nacional-malzibier-brahma-lata-350ml/p/155439
+exampleInput455: 
+  URL: https://www.mambo.com.br/barra-de-proteina-baunilha-e-pasta-de-amendoim-bio2-80g/p/215249
+exampleInput456: 
+  URL: https://www.mambo.com.br/cerveja-eisenbahn-american-long-neck-355ml/p/244148
+exampleInput457: 
+  URL: https://www.mambo.com.br/farinha-de-linhaca-marrom-mae-terra-150g/p/193696
+exampleInput458: 
+  URL: https://www.mambo.com.br/biscoito-recheado-de-doce-de-leite-bono-140g/p/154434
+exampleInput459: 
+  URL: https://www.mambo.com.br/cafe-pike-place-roast-starbucks-by-nescafe-250g/p/251350
+exampleInput460: 
+  URL: https://www.mambo.com.br/cafe-dolce-gusto-late-macchiato-nescafe-194g/p/164865
+exampleInput461: 
+  URL: https://www.mambo.com.br/cerveja-coruja-ipa-long-neck-355mnl/p/257366
+exampleInput462: 
+  URL: https://www.mambo.com.br/racao-de-carne-ao-molho-adulto-dog-chow-sache-100g/p/233833
+exampleInput463: 
+  URL: https://www.mambo.com.br/cerveja-nacional-wals-session-one-way-600ml/p/218057
+exampleInput464: 
+  URL: https://www.mambo.com.br/bifinho-doguitos-rodizio-frango-65g/p/146527
+exampleInput465: 
+  URL: https://www.mambo.com.br/cerveja-ipa-baden-baden-600ml/p/204727
+exampleInput466: 
+  URL: https://www.mambo.com.br/granola-tradicional-mae-terra-30g/p/193703
+exampleInput467: 
+  URL: https://www.mambo.com.br/formula-nan-supreme-1-nestle-800g/p/201524
+exampleInput468: 
+  URL: https://www.mambo.com.br/leite-fermentado-sabor-vitamina-de-frutas-molico-170g/p
+exampleInput469: 
+  URL: https://www.mambo.com.br/sopao-de-carne-maggi-200g/p/139997
+exampleInput470: 
+  URL: https://www.mambo.com.br/alimento-infantil-ameixa-nestle-120g/p
+exampleInput471: 
+  URL: https://www.mambo.com.br/tempero-de-carne-maggi-sabores-50g/p
+exampleInput472: 
+  URL: https://www.mambo.com.br/cafe-gold-suave-nescafe-250g/p/251383
+exampleInput473: 
+  URL: https://www.mambo.com.br/cobertura-de-chocolate-ao-leite-garoto-500g/p
+exampleInput474: 
+  URL: https://www.mambo.com.br/aveia-flocos-finos-nestle-170g/p
+exampleInput475: 
+  URL: https://www.mambo.com.br/racao-friskies-sch-85g-carne-ao-molho/p/222835
+exampleInput476: 
+  URL: https://www.mambo.com.br/alimento-infantil-carne-arroz-e-feijao-nestle-pote-170g/p/155302
+exampleInput477: 
+  URL: https://www.mambo.com.br/sorvete-kit-kat-nestle-140ml/p
+exampleInput478: 
+  URL: https://www.mambo.com.br/cafe-espresso-papua-l-or-52g-com-10-capsulas-de-aluminio/p/253524
+exampleInput479: 
+  URL: https://www.mambo.com.br/cerveja-duplo-malte-brahma-350ml/p/259277
+exampleInput480: 
+  URL: https://www.mambo.com.br/cerveja-argentina-patagonia-weiss-garrafa-740ml/p/205937
+exampleInput481: 
+  URL: https://www.mambo.com.br/cafe-soluvel-tradicao-nescafe-100g/p/152645
+exampleInput482: 
+  URL: https://www.mambo.com.br/cerveja-budweiser-garrafa-550ml/p/244342
+exampleInput483: 
+  URL: https://www.mambo.com.br/biscoito-organico-chilli-tribos-mae-terra-50g/p/207486
+exampleInput484: 
+  URL: https://www.mambo.com.br/caldo-de-costela-maggi-57g/p/235598
+exampleInput485: 
+  URL: https://www.mambo.com.br/granola-caseira-mae-terra-250g/p/171434
+exampleInput486: 
+  URL: https://www.mambo.com.br/cafe-soluvel-original-nescafe-100g/p
+exampleInput487: 
+  URL: https://www.mambo.com.br/chocolate-meio-amargo-talento-garoto-90g/p
+exampleInput488: 
+  URL: https://www.mambo.com.br/cookies-organico-cacau-mae-terra-120g/p/171430
+exampleInput489: 
+  URL: https://www.mambo.com.br/agua-mineral-sem-gas-acqua-panna-lata-250ml/p
+exampleInput490: 
+  URL: https://www.mambo.com.br/linhaca-marrom-mae-terra-graos-200g/p/193691
+exampleInput491: 
+  URL: https://www.mambo.com.br/cerveja-amstel-lata-350ml/p/202489
+exampleInput492: 
+  URL: https://www.mambo.com.br/achocolatado-activ-go-3-0-nescau-760g-/p/232454
+exampleInput493: 
+  URL: https://www.mambo.com.br/cookie-organico-de-castanhas-mae-terra-120g/p/220829
+exampleInput494: 
+  URL: https://www.mambo.com.br/tempero-com-salsinha-oregano-e-cebola-natusabor-maggi-40g/p/226525
+exampleInput495: 
+  URL: https://www.mambo.com.br/sopa-de-cebola-maggi-68g/p

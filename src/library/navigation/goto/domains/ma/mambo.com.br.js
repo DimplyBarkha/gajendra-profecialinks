@@ -26,8 +26,13 @@ async function implementation ({ url, zipcode, storeId }, parameters, context, d
       document.querySelector('body').appendChild(div);
     }
     const text = document.querySelector('body').innerText;
-    const jsonText = JSON.parse(text);
-    if (jsonText.code === 3001 || !jsonText.products) {
+    let jsonText = '';
+    try {
+      jsonText = JSON.parse(text);
+    } catch(err) {
+      console.log('we got some error which parsing body text to json', err.message);
+    }
+    if (jsonText && (jsonText.code === 3001 || !jsonText.products)) {
       addEmptyDiv();
     }
   });
