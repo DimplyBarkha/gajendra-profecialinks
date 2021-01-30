@@ -96,6 +96,22 @@ const transform = (data) => {
       if (row.imageAlt && row.secondaryImageTotal) {
         row.secondaryImageTotal = [{ text: row.imageAlt.length }];
       }
+      if (row.videos) {
+        var arrVideo = [];
+        row.videos.forEach(item => {
+          arrVideo.push(item.text);
+        });
+        row.videos = [{ text: arrVideo.join(' | ') }];
+      }
+      if (row.videos2) {
+        var arrV2 = [];
+        row.videos2.forEach(item => {
+          arrV2.push(item.text);
+        });
+        row.videos2 = [{ text: arrV2.join(' | ') }];
+        row.videos = [{ text: row.videos[0].text + ' | ' + row.videos2[0].text }];
+        delete row.videos2;
+      }
       if (row.manufacturerImages) {
         var arrImg = [];
         row.manufacturerImages.forEach(item => {

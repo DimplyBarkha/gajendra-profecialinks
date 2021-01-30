@@ -120,6 +120,9 @@ fields:
   - name: videos
     singleValue: false  
     xpath: //div[contains(@class, "f-productVisuals-main")]//div[contains(@class, "VideoPlayer")]//video[contains(@id, "video")]/source/@src
+  - name: videos2
+    singleValue: false  
+    xpath: //div[@id='fullPlaylist']//div[contains(@class,'fullJwPlayerWarp')]//iframe/@src    
   - name: galleryVideos
     singleValue: false  
     xpath: //div[contains(@class, "f-productVisuals-main")]//div[contains(@class, "VideoPlayer")]//video[contains(@id, "video")]/source/@src
