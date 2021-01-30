@@ -43,6 +43,7 @@ const implementation = async function (
     if (doesLoadMoreExists) {
       await context.evaluate(async function () {
         console.log('Clicking on load more button');
+        // @ts-ignore
         document.querySelector('button.rLOaI2._2D7XJe._3eyBX7.RdIlV6').click();
         await new Promise((resolve, reject) => setTimeout(resolve, 10000));
       });

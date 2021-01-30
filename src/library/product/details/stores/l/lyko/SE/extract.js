@@ -1,12 +1,12 @@
 
-const { transform } = require('../../../../../search/shared');
+const { cleanUp } = require('../../../../shared');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'SE',
     store: 'lyko',
-    transform: transform,
+    transform: null,
     domain: 'lyko.com',
     zipcode: '',
   },
@@ -31,10 +31,17 @@ module.exports = {
       const jsondata = JSON.parse(rawdata);
       const gtin = jsondata.gtin13;
       const gtin1 = jsondata.gtin8;
+      var gtina=''
+      if (gtin != null){
+        gtina=gtin
+      }
+      else{
+        gtina=gtin1
+      }
       const price = jsondata.offers.price;
       // console.log(gtin,'gtin')
       // const aggregateRating = jsondata.aggregateRating.ratingValue;
-      addElementToDocument('gtin', (gtin | gtin1));
+      addElementToDocument('gtin', (gtina));
       addElementToDocument('price', price);
       // let singleRating;
       // var ratings = document.querySelectorAll("div[class='hide-when-purchase-disabled prices'] div[class='ratings']");
