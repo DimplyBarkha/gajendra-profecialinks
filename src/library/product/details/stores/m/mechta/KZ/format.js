@@ -111,10 +111,15 @@ const transform = (data) => {
       //     item.text = item.text.trim();
       //   });
       // }
-      if ((!row.brand || !row.brand.length) && row.brand1) {
-        console.log('brand1',row.brand1);
-        row.brand = row.brand1;
-        console.log("brand", row.brand);
+      if ((!row.brandText || !row.brandText.length) && row.brandText1) {
+        console.log('brandText1',row.brandText1);
+        row.brandText = row.brandText1;
+        console.log("brandText", row.brandText);
+      }
+      if ((!row.availabilityText || !row.availabilityText.length) && row.availabilityText1) {
+        console.log('availabilityText1', row.availabilityText1);
+        row.availabilityText = row.availabilityText1;
+        console.log("availabilityText", row.availabilityText);
       }
       if (row.videos) {
         const unInterruptedPDPs = [];
