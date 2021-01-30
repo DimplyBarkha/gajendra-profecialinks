@@ -93,6 +93,9 @@ const transform = (data) => {
         });
         row.productOtherInformation = [{ text: arrInfo.join(' | ') }];
       }
+      if (row.imageAlt && row.secondaryImageTotal) {
+        row.secondaryImageTotal = [{ text: row.imageAlt.length }];
+      }
       if (row.manufacturerImages) {
         var arrImg = [];
         row.manufacturerImages.forEach(item => {
