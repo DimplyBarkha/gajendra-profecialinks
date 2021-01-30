@@ -5,9 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //div[@class="productPics"]/a/@href
-    regExp: ^(.+)$
-    regExpReplace: https:$1
+    xpath: //li[contains(@class,'active')]/a/img/@src
   - name: imageAlt
     singleValue: true
     xpath: //div[@class="productPics"]/a/img/@alt
