@@ -30,9 +30,14 @@ fields:
     xpath: //div[@class="text-ts5"]/text() | //title
   - name: availabilityText
     singleValue: false
-    xpath: //div[contains(@class,'text-center text-ts1 text-white')]/text()
+    xpath: //div[contains(text(),"Купить в кредит")]/text()
     regExp: (.+)
     regExpReplace: In Stock
+  - name: availabilityText1
+    singleValue: false
+    xpath: //div[contains(text(),"Нет в наличии")]/text()
+    regExp: (.+)
+    regExpReplace: Out Of Stock
     # defaultValue: Out of Stock
   - name: price
     singleValue: false
@@ -42,7 +47,7 @@ fields:
     xpath: //div[contains(@class,'text-color4 text-strike line-height1 text-ts3 q-pb-sm')]//text()
   - name:  description
     singleValue: false
-    xpath: //div[contains(@class,'aa_detailtov_opis')]/text()
+    xpath: //meta[@name="og:description"]/@content
   - name: quantity
     singleValue: false
     xpath: //div[contains(@class,'aa_dt_p')]//span[normalize-space()='Диагональ, дюйм:']//parent::div//following-sibling::div
@@ -59,10 +64,12 @@ fields:
     xpath: //h1[@class='iwr']//span[contains(@class,'element-article')]
   - name: gtin
     singleValue: false
-    xpath: //span[contains(@class,'text-ts1 text-color3')]/text()    
+    xpath: //span[contains(@class,'text-ts1 text-color3')]/text() 
+    regExp: \d+ 
   - name: variantId
     singleValue: false    
     xpath: //span[contains(@class,'text-ts1 text-color3')]/text()
+    regExp: \d+
   - name: ratingCount
     singleValue: false
     xpath: //div[contains(.,'Отзывы')]/span
@@ -70,9 +77,9 @@ fields:
   - name: promotion
     singleValue: false
     xpath: //div[contains(@class,'text-ts1 text-bold text-primary q-pl-sm bg-white')]
-  - name: description
-    singleValue: false
-    xpath: //div[@class="aa_markfull_text"]
+  - name: secondaryImageTotal
+    singleValue: true
+    xpath: count((//div[contains(@class,"row no-wrap items-start q-gutter-x-sm")]//div[@class="q-img__image absolute-full"])[position()>1]/@style)
   # - name: specificationsValue
   #   singleValue: false
   #   # specification = specification1 : specification 2 |
@@ -88,7 +95,8 @@ fields:
     xpath: //div[contains(@class,"q-pt-md text-color15 text-ts7")]//div[@class="aa_marketing full_width"]//img/@src
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[contains(@class,"q-pt-md text-color15 text-ts7")]//div[@class="aa_marketing full_width"]/div//text()
+    # xpath: //div[contains(@class,"q-pt-md text-color15 text-ts7")]//div[@class="aa_marketing full_width"]/div//text()
+    xpath: //div[contains(@class,"q-pt-md text-color15 text-ts7")]//text()
   - name: countryOfOrigin
     singleValue: false
     xpath: //div[contains(@class,'aa_dt_p')]//span[normalize-space()='Страна производитель:']//parent::div//following-sibling::div
@@ -100,6 +108,7 @@ fields:
     xpath: //div[contains(@class,'aa_dt_p')]//span[normalize-space()='Вес без упаковки (нетто), кг:']//parent::div//following-sibling::div
   - name: videos
     singleValue: false
+    # xpath: //div[@class="ytp-title-text"]/a/@href
     # Youtube videos
     xpath: //div[@class="q-video"]//iframe[contains(@src,'youtube')]/@src
   - name: shippingDimensions
