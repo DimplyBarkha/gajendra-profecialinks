@@ -1,10 +1,10 @@
-const { transform } = require('../../../../shared');
+const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'BR',
     store: 'dafiti',
-    transform: transform,
+    transform: cleanUp,
     domain: 'dafiti.com.br',
     zipcode: '',
   },
@@ -54,8 +54,9 @@ module.exports = {
         }
       }
 
-      const availabilityText = getXpath("//div//button[contains(text(),'Comprar')]/text()", 'nodeValue');
-      if (availabilityText.includes('Comprar')) {
+      const availabilityText = getXpath('//meta[@itemprop="availability"]/@content', 'nodeValue');
+      console.log('availabilityText--->' + availabilityText);
+      if (availabilityText.includes('InStock')) {
         addElementToDocument('added_availabilityText', 'In Stock');
       } else {
         addElementToDocument('added_availabilityText', 'Out of Stock');
@@ -67,7 +68,7 @@ module.exports = {
       let rating = getXpath("//span[@class='rating-value i-new-stars-on']/@style", 'nodeValue');
       console.log('rating fetched ' + rating);
 
-      if (rating !== null && rating.includes('width')) {
+      if (rating != null && rating.includes('width')) {
         rating = rating.split(':');
         rating = rating[1];
         rating = rating.trim();
@@ -81,18 +82,18 @@ module.exports = {
           addElementToDocument('added_rating', rating);
         }
       }
-      let listPrice = getXpath("//span[@data-field='specialPrice']/text()", 'nodeValue');
-      console.log('listPrice fetched ** ' + rating);
-      if (listPrice.includes(',')) {
-        listPrice = listPrice.replace(',', '.');
-      }
+      const listPrice = getXpath("//span[@data-field='specialPrice']/text()", 'nodeValue');
+      console.log('listPrice fetched ** ' + listPrice);
+      // if (listPrice != null && listPrice.includes(',')) {
+      //   listPrice = listPrice.replace(',', '.');
+      // }
       addElementToDocument('added_listPrice', listPrice);
 
-      let price = getXpath("//div[@class='catalog-detail-price-line']/span[@data-field='finalPrice']/text()", 'nodeValue');
-      console.log('price fetched ** ' + rating);
-      if (price.includes(',')) {
-        price = price.replace(',', '.');
-      }
+      const price = getXpath("//div[@class='catalog-detail-price-line']/span[@data-field='finalPrice']/text()", 'nodeValue');
+      console.log('price fetched ** ' + price);
+      // if (price.includes(',')) {
+      //   price = price.replace(',', '.');
+      // }
       addElementToDocument('added_price', price);
 
       const shippingInfo = getXpath("//p[@class='product-seller-name']", 'innerText');
