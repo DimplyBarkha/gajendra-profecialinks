@@ -63,7 +63,7 @@ fields:
     regExpReplace: $1
   - name: ratingCount
     singleValue: false
-    xpath: //span[contains(@class,"_2THh0N")]
+    xpath: ((//div[@id="TOP_RATING_FORM"]//h2)[1] | //span[contains(@class,"_2THh0N")])[1]
     regExp: (\d+)
     regExpReplace: $1
   - name: aggregateRating
@@ -73,10 +73,10 @@ fields:
     regExpReplace: $1
   - name: specifications
     singleValue: false
-    xpath: //div[@data-test-1="true"]//div[@class="_1k-W7f"]//th
+    xpath: //div[@class="_1k-W7f"]//table//tbody//th
   - name: spec1
     singleValue: false
-    xpath: //div[@data-test-1="true"]//div[@class="_1k-W7f"]//td
+    xpath: //div[@class="_1k-W7f"]//td
   - name: warranty
     singleValue: false
     xpath: //div[contains(@class,"_33RH9s")]/div//p[.//strong[contains(text(),"Garantie")]] | (//div[contains(@class,"_3jMYnB")])[1]/ul/li[contains(text(),"Garantie")]
@@ -154,3 +154,6 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: true
     defaultValue: "Yes"
+  - name: customerServiceAvailability
+    singleValue: true
+    defaultValue: 
