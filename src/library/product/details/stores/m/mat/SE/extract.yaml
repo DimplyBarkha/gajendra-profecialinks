@@ -20,7 +20,7 @@ fields:
     xpath: //div[@class='list']/a/text()
   - name: nameExtended
     singleValue: true
-    xpath: //div[@class="heading"]/h1/text()
+    xpath: concat(//div[@class="heading"]/span/text(),' ',//div[@class="heading"]/h1/text(),' ',//div[@class="brand clearfix"]/strong[1]/text(),' ',//div[@class="brand clearfix"]/span[2]/text(),//div[@class="brand clearfix"]/strong[2]/text())
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -261,9 +261,7 @@ fields:
     description: Unit of Measure Data for Cholesterol content
   - name: sodiumPerServing
     singleValue: true
-    description: Nutritional Information for Sodium content - Usually based on per
-      100g serving
-    type: NUMBER
+    xpath: //html//div[@id="sodium"]
   - name: sodiumPerServingUom
     singleValue: true
     description: Unit of Measure Data for Sodium content
@@ -275,9 +273,7 @@ fields:
     description: Unit of Measure Data for Total Carbohydrate content
   - name: dietaryFibrePerServing
     singleValue: true
-    description: Nutritional Information for Dietary Fibre content - Usually based
-      on per 100g serving
-    type: NUMBER
+    xpath: //html//div[@id="fiber"]
   - name: dietaryFibrePerServingUom
     singleValue: true
     description: Unit of Measure Data for Dietary Fibre content

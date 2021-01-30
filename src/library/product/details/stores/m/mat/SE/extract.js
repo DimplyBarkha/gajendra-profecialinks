@@ -65,6 +65,12 @@ module.exports = {
         var nn = tt[0];
         addElementToDocument('protin', nn);
       }
+      else if (abc3.includes('Protein ')) {
+        var ll = abc3.split('Protein ')[1];
+        var tt = ll.split(' ');
+        var nn = tt[0];
+        addElementToDocument('protin', nn);
+      }
 
       //fat//
       const abc4 = getXpath("//div[@class='box clearfix mobileNone']/div/p/strong[contains(text(),'Näringsvärde:')]/parent::p/text()", 'nodeValue');
@@ -73,6 +79,24 @@ module.exports = {
         var tt = ll.split(' ');
         var nn = tt[0];
         addElementToDocument('fat', nn);
+      }
+
+      //sodium//
+      const abc11 = getXpath("//div[@class='box clearfix mobileNone']/div/p/strong[contains(text(),'Näringsvärde:')]/parent::p/text()", 'nodeValue');
+      if (abc11.includes('Natrium ')) {
+        var ll = abc11.split('Natrium ')[1];
+        var tt = ll.split(' ');
+        var nn = tt[0];
+        addElementToDocument('sodium', nn);
+      }
+
+      //fiber//
+      const abc9 = getXpath("//div[@class='box clearfix mobileNone']/div/p/strong[contains(text(),'Näringsvärde:')]/parent::p/text()", 'nodeValue');
+      if (abc9.includes('fiber ')) {
+        var ll = abc9.split('fiber ')[1];
+        var tt = ll.split(' ');
+        var nn = tt[0];
+        addElementToDocument('fiber', nn);
       }
 
       //saturated//
