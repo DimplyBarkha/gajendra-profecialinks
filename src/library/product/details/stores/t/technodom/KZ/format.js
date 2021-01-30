@@ -39,7 +39,8 @@ const transform = (data) => {
                 temp_arr.push(item.text);
               });
               if (temp_arr.length > 1) {
-                row.specifications= [{ "text": temp_arr.join(" || "), "xpath": row.specifications[0]["xpath"] }]
+                row.specifications= [{ "text": temp_arr.join(" || "), "xpath": row.specifications[0]["xpath"] }];
+                row.description= [{ "text": temp_arr.join(" | "), "xpath": row.specifications[0]["xpath"] }];
               } else {
                 delete row.specifications;
               }
