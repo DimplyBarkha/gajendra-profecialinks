@@ -23,7 +23,7 @@ fields:
     xpath: //h1[@itemprop='name']  
   - name: price
     singleValue: false
-    xpath: //meta[@itemprop="price"]/@content
+    xpath: //meta[@itemprop="price"]/preceding-sibling::ins/data
   - name: aggregateRating
     singleValue: false
     xpath: //meta[@itemprop='ratingValue']/@content
