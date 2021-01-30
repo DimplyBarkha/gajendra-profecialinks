@@ -27,17 +27,6 @@ const transform = (data) => {
 
     for (const { group } of data) {
         for (let row of group) {          
-            if (row.description) {
-                let info = [];
-                row.description.forEach(item => {
-                  info.push(item.text.replace(/(\s*\n\s*)+/g, ' | ').trim());
-                });
-                if(tmp_desc != ''){
-                info.push(tmp_desc);
-                }
-                row.description = [{'text':info.join(' | '),'xpath':row.description[0].xpath}];
-            } 
-
             if (row.ratingCount) {
                 let rating_count = [];
                 row.ratingCount.forEach(item => {
@@ -46,7 +35,16 @@ const transform = (data) => {
 
                 row.ratingCount = [{'text':rating_count[0],'xpath':row.ratingCount[0].xpath}];
             }
-            
+            if (row.description) {
+                let description_ar = [];
+                row.description.forEach(item => {
+                 item.text = item.text.replace(/Style Code.*/g, '').trim();
+                  description_ar.push(item.text);
+                });
+                if (description_ar.length) {
+                  row.description = [{ "text": description_ar.join(), 'xpath': row.description[0].xpath }];
+                }
+              } 
             if (row.variantId) {
                 row.variantId.forEach(item => {
                   item.text = item.text.replace(/(\s*)+/g, '').trim();
@@ -75,12 +73,12 @@ const transform = (data) => {
             if (row.nameExtended) {
                 let info = [];
                 row.nameExtended.forEach(item => {
-                  info.push(item.text.replace(/(\s*\n\s*)+/g, ' ').trim());
+                  info.push(item.text.replace(/(\s*\n\s*)+/g, ' - ').trim());
                 });
                 if(tmp_desc != ''){
                 info.push(tmp_desc);
                 }
-                row.nameExtended = [{'text':info.join(' '),'xpath':row.nameExtended[0].xpath}];
+                row.nameExtended = [{'text':info.join(' - '),'xpath':row.nameExtended[0].xpath}];
             }
             if (row.variantInformation) {
                 let info = [];
