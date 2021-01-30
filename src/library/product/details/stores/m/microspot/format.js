@@ -89,6 +89,9 @@ const transform = (data) => {
       if (row.variantCount && row.variantCount[0].text !== '0' && row.variantInformation) {
         row.variantInformation = [{ text: row.variantInformation[0].text }];
       }
+      if (row.availabilityText) {
+        row.availabilityText[0].text = row.availabilityText[0].text.toLocaleLowerCase() === "ajouter au panier" ? "In Stock" : "Out Of Stock";
+      }
     }
   }
 

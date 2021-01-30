@@ -31,12 +31,16 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[@id="pd_price"]
+  # - name: availabilityText
+  #   singleValue: false
+  #   xpath: (//div[contains(@id,"TOP_CONTENT_ANCHOR")]//script[@type="application/ld+json"])[2]
+  #   regExp: InStock
+  #   regExpReplace: In Stock
+  #   defaultValue: Out of Stock
   - name: availabilityText
     singleValue: false
-    xpath: (//div[contains(@id,"TOP_CONTENT_ANCHOR")]//script[@type="application/ld+json"])[2]
-    regExp: InStock
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    xpath: //div[@class="_9vhzsH"]//button//span
+    defaultValue: Out Of Stock
   - name: descriptionOne
     xpath: //ul[contains(@class,"_1Auvoh")]//li/span
   - name: description
