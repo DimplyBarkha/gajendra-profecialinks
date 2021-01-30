@@ -65,7 +65,7 @@ fields:
     xpath: //h4/b[text()="Promocja"]/parent::*/parent::*/p | //h4/b[text()="Promocja"]/parent::*/parent::*/h6
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//div[contains(@class,"tab-content")]/div[@id="tab_opis"]/ul/li)
+    xpath: count(//div[contains(@class,"tab-content")]/div[@id="tab_opis"]//ul/li)
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@class="media"]/div[@class="media-left"]//img/@src
