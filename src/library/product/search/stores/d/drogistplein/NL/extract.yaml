@@ -9,6 +9,11 @@ fields:
   - name: id
     SingleValue: false
     xpath: //a[contains(@class,'btn btn-addcart')]/@data-modal-js-addtocart
+  - name: id1
+    SingleValue: false
+    xpath: //div[contains(@class,'clear product-grid-view')]//div[contains(@class,'col-md-12 product-view-img')]//img/@src
+    regExp: \d{4,}
+    regExpReplace:
   - name: name
     SingleValue: false
     # xpath: //div[contains(@class,'clear product-grid-view')]/div[@class='col-md-12 col-sm-7 col-xs-6 product-view-info']
