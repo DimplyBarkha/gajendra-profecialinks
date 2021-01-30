@@ -25,10 +25,6 @@ module.exports = {
         document.body.appendChild(catElement);
       }
 
-      function roundToTwo (num) {
-        return +(Math.round(num + 'e+2') + 'e-2');
-      }
-
       const variantTypes = document.querySelectorAll('div[type] > div[type]');
 
       const variantsObj = {};
@@ -46,7 +42,14 @@ module.exports = {
       const hiddenVideoInImg = document.evaluate('//img[contains(@alt, \'Vídeo\')]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       if (hiddenVideoInImg) {
         hiddenVideoInImg.click();
-        await new Promise(resolve => setTimeout(resolve, 500));
+        await new Promise(resolve => setTimeout(resolve, 1500));
+      }
+
+      const additionalDescription = document.evaluate('//div[contains(@class, \'GridUI\')]/div[contains(@class, \'TitleWrapper\')]/h2[contains(text(), \'Informações do produto\')]', document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue ?
+        document.evaluate('//div[contains(@class, \'GridUI\')]/div[contains(@class, \'TitleWrapper\')]/h2[contains(text(), \'Informações do produto\')]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue : '';
+      if (additionalDescription) {
+        additionalDescription.scrollIntoView();
+        await new Promise(resolve => setTimeout(resolve, 3000));
       }
 
       const outOfStockInfo = document.querySelector('a[value="Comprar"]');
@@ -64,15 +67,17 @@ module.exports = {
           addElementToDocument('additional_image', additionalImages[i].src);
         }
       }
+
+      const rating = document.querySelector('div[class*=\'summary-rating\'] span[class*=\'Average\']')
+        ? document.querySelector('div[class*=\'summary-rating\'] span[class*=\'Average\']').innerText.replace('.', ',') : '';
+      if (rating) {
+        addElementToDocument('aggregate_rating', rating);
+      }
+
       try {
         const productObject = window.__PRELOADED_STATE__;
         addElementToDocument('product_sku', productObject.product.skus[0]);
-        addElementToDocument('product_description', productObject.description.content);
-        let productRating = productObject.rating.average;
-        if (productRating) {
-          productRating = roundToTwo(productRating);
-          addElementToDocument('product_rating', productRating.toString());
-        }
+        addElementToDocument('product_description', productObject.description.content.trim().replace(/&lt;|\/?br?&gt;/g, ''));
       } catch (e) {
         console.log('error: ', e);
       }
