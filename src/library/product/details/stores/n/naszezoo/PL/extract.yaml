@@ -414,7 +414,7 @@ fields:
     xpath: m[@class="color"] | (//td[@class="basket"]//label[@class="label"])[1]/text()
   - name: firstVariant
     singleValue: false
-    xpath: (td select option[value])[1]
+    xpath: td select option[value]
   - name: variants
     singleValue: false
     xpath: //td[@class="select option_select option_truestock option_required"]//option[@value]/text()

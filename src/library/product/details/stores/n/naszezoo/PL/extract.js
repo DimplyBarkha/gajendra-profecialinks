@@ -35,5 +35,5 @@ module.exports = {
     domain: 'naszezoo.pl',
     zipcode: '',
   },
-  implementation,
+  // implementation,
 };

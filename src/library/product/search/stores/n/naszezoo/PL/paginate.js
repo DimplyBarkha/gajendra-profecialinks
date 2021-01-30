@@ -8,7 +8,7 @@ module.exports = {
     // nextLinkXpath: null,
     // mutationSelector: null,
     // spinnerSelector: null,
-    loadedSelector: 'div.innerbox.cf> div',
+    loadedSelector: 'div.innerbox.cf>div',
     // loadedXpath: '//div[@class="innerbox.cf"]/div',
     noResultsXPath: '//div[@class="container"]/p[contains(text(),"Nie")]',
     // stopConditionSelectorOrXpath: null,

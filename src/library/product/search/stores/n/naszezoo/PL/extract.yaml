@@ -6,11 +6,11 @@ fields:
   - name: productUrl
     xpath: //a[@class="prod-name"]/@href
     regExp: ^(.+)$
-    regExpReplace: https://www.naszezoo.pl/$1
+    regExpReplace: https://www.naszezoo.pl$1
   - name: thumbnail
     xpath: //div[@class="product-box-img"]/img/@src
     regExp: ^(.+)$
-    regExpReplace: https://www.naszezoo.pl/$1   
+    regExpReplace: https://www.naszezoo.pl$1   
   - name: name
     xpath: //a[@class="prod-name"]/@title
   - name: price
