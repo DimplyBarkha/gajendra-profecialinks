@@ -148,7 +148,7 @@ module.exports = {
       if (availability) {
         try {
           if (availability.textContent.includes('InStock')) {
-            availabilityText = "IN Stock";
+            availabilityText = "In Stock";
           } if (availability.textContent.includes('OutOfStock')) {
             availabilityText = "Out Of Stock";
           }
