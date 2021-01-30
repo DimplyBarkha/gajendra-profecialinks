@@ -45,10 +45,10 @@ const transform = (data) => {
                   row.description = [{ "text": description_ar.join(), 'xpath': row.description[0].xpath }];
                 }
               } 
-            if (row.variantId) {
-                row.variantId.forEach(item => {
-                  item.text = item.text.replace(/(\s*)+/g, '').trim();
-                  item.text = item.text.replace('StyleCode:', '').trim();
+              if (row.image) {
+                row.image.forEach(item => {
+                  item.text = item.text.replace(/op_usm=0.9.*/g, '').trim();
+                  item.text = item.text+'op_usm=0.9'
                 });
               }
 
@@ -71,14 +71,12 @@ const transform = (data) => {
                 row.aggregateRating = [{'text': counter.toFixed(1),'xpath': row.aggregateRating[0].xpath}]        
             }
             if (row.nameExtended) {
-                let info = [];
+                let info = [];          
                 row.nameExtended.forEach(item => {
-                  info.push(item.text.replace(/(\s*\n\s*)+/g, ' - ').trim());
+                  item.text = item.text;
+                    info.push(item.text);            
                 });
-                if(tmp_desc != ''){
-                info.push(tmp_desc);
-                }
-                row.nameExtended = [{'text':info.join(' - '),'xpath':row.nameExtended[0].xpath}];
+                row.nameExtended = [{'text':info.join(' '),'xpath':row.nameExtended[0].xpath}];          
             }
             if (row.variantInformation) {
                 let info = [];
