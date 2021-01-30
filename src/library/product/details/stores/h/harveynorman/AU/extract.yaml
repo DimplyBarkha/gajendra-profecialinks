@@ -33,8 +33,9 @@ fields:
     xpath: 
   - name: availabilityText
     singleValue: false
-    xpath: //div[@class='primary-ctas']//button//span
-    defaultValue: "In Stock"
+    xpath: //script[contains(.,'availability')]//text()
+    # xpath: //div[@class='primary-ctas']//button//span
+    # defaultValue: "In Stock"
   - name: description
     singleValue: false
     xpath: //div[@id='productDescription']//div[contains(@class,'short-description') or contains(@class,'long-description')]/*[self::p or self::ul]
@@ -60,9 +61,9 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: (//div[@class='product-carousel-wrapper']//div[contains(@class,'item')]//img)[position()>1]//@data-image-src
-  - name: videos
+  - name: galleryVideos
     singleValue: false
-    xpath: //div[@class='product-carousel-wrapper']//div[contains(@class,'item')]//iframe//@src
+    xpath: //div[@class='product-carousel-wrapper']//iframe//@src
   - name: gtin
     singleValue: false
     xpath: (//script[@type='text/javascript'][contains(.,'HN_PAGE_INFO')])[1]//text()
@@ -109,6 +110,9 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[contains(@class,'product-long-description')] | //div[contains(@id,'flix-inpage')]//div[@id='inpage_container']//div[@class='inpage_selector_feature']
+  - name: videos
+    singleValue: false
+    xpath: //div[contains(@class,'fullJwPlayerWarp fullPlaylist-')]//input//@value
 
 # Custom Fields 
   - name: inTheBoxUrl

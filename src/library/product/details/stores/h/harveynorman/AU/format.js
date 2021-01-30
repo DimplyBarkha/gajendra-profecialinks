@@ -89,6 +89,21 @@ const transform = (data) => {
           }
         });
       }
+      if (row.videos) {
+        row.videos.forEach(item => {
+          const data = JSON.parse(item.text);
+          if (data.playlist) {
+            if (data.playlist[0]) {
+              item.text = data.playlist[0].file;
+              item.text = 'https:' + item.text;
+            }else{
+              item.text = '';
+            }
+          } else {
+            item.text = '';
+          }
+        });
+      }
       if (row.description) {
         const info = [];
         row.description.forEach(item => {
@@ -118,10 +133,14 @@ const transform = (data) => {
       }
       if (row.availabilityText) {
         row.availabilityText.forEach(item => {
-          if (item.text.trim().includes('Add To Cart')) {
-            item.text = 'In Stock';
-          } else {
-            item.text = 'Out of Stock';
+          const data = JSON.parse(item.text);
+          if (data.offers[0]) {
+            item.text = data.offers[0].availability;
+            if (item.text.trim().includes('InStock')) {
+              item.text = 'In Stock';
+            } else {
+              item.text = 'Out of Stock';
+            }
           }
         });
       }
