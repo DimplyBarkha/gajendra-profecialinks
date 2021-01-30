@@ -3,7 +3,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'samsclub',
-    nextLinkSelector: 'li.sc-pagination-next button',
+    nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div.sc-plp-layout',

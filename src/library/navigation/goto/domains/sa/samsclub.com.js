@@ -1,10 +1,10 @@
-
 module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'samsclub.com',
-    timeout: 50000,
+    timeout: 100000,
     country: 'US',
     store: 'samsclub',
+    zipcode: '',
   },
 };
