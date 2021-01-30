@@ -70,6 +70,7 @@ const transform = (data) => {
           if (match) {
             row.descriptionBullets = [{ text: match.length }];
           }
+          item.text = item.text.replace(/\n\s*-/g, '-');
         });
       }
       if (row.manufacturerImages) {

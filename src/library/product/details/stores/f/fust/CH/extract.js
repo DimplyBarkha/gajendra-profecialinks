@@ -29,6 +29,20 @@ module.exports = {
             }, ms);
           });
         }
+        function addHiddenDiv (id, content) {
+          const newDiv = document.createElement('div');
+          newDiv.id = id;
+          newDiv.textContent = content;
+          newDiv.style.display = 'none';
+          document.body.appendChild(newDiv);
+        }
+        try {
+          // @ts-ignore
+          const videos = DemoUpVars[0].movies.map(m => `http:${m.videos.find(v => v.quality === 'HD').videoFiles[0].fileURI}`).join('|');
+          addHiddenDiv('ii_videos', videos);
+        } catch (error) {
+          console.log('no demo videos');
+        }
       });
     };
     await applyScroll(context);

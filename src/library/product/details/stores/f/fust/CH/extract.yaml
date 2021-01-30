@@ -78,10 +78,10 @@ fields:
     xpath: //table[contains(@class,'specification')]//tr//td[text()='Material Behälter']//following-sibling::td
   - name: manufacturerImages
     singleValue: false
-    xpath: //*[@id='flix-inpage' or @id='flix-std-inpage' or @id='loadbee-template']//img[not(@title='Powered by Flixmedia')]/@src
+    xpath: //*[@id='flix-inpage' or @id='flix-std-inpage' or @id='loadbee-template']//img[not(@title='Powered by Flixmedia')]/@srcset
   - name: manufacturerDescription
     singleValue: false
-    xpath: //*[@id='flix-inpage' or @id='flix-std-inpage' or @id='loadbee-template']
+    xpath: //*[@id='inpage_container' or @id='flix-std-inpage' or @id='loadbee-template']
   - name: ratingCount
     singleValue: false
     xpath: //div[contains(@class,'productDetailTxtContainer')]//meta[@itemprop='reviewCount']/@content
@@ -93,7 +93,7 @@ fields:
     xpath: //table[contains(@class,'specification')]//tr//td[text()='Gewicht']//following-sibling::td
   - name: videos
     singleValue: false
-    xpath: //div[contains(@class,'productDetailyoutube')]//a[@class='youtube']/@href
+    xpath: //div[contains(@class,'productDetailyoutube')]//a[@class='youtube']/@href | //div[@id='ii_videos']
   - name: shippingDimensions
     singleValue: false
     xpath: //table[contains(@class,'specification')]//tr//td[text()='Dimensionen B x H x T']//following-sibling::td
