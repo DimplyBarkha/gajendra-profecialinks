@@ -88,10 +88,12 @@ async function implementation (
   });
 
   // sometimes enhanced content does not load, and sometimes it loads but is hidden
-  await context.waitForSelector('#pdpFlixmediaZone', {timeout: 10000}).catch(error => console.log('Enhanced content not loaded : #pdpFlixmediaZone'))
-  await context.evaluate(async () => {
-    document.getElementById('pdpFlixmediaZone') && document.getElementById('pdpFlixmediaZone').removeAttribute('style');
-  });
+  const cssEnhancedContentContainer = '#pdpFlixmediaZone'
+  await context.waitForSelector(cssEnhancedContentContainer, {timeout: 10000}).catch(error => console.log('Enhanced content not loaded : #pdpFlixmediaZone'));
+  await context.evaluate(async (css) => {
+    const node = document.querySelector(css);
+    node ? node.removeAttribute('style') : console.log('Selector not found: CSS => ', css);
+  }, cssEnhancedContentContainer);
 
   await context.waitForXPath('//div[@id="pdpFlixmediaZone" and not(contains(@style,"none"))]', { timeout: 30000 })
     .catch(() => {
