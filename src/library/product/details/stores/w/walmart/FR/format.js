@@ -24,6 +24,7 @@ const transform = (data) => {
 
   for (const { group } of data) {
     for (const row of group) {
+      let variantInformation = '';
       if (row.brandLink) {
         row.brandLink.forEach(item => {
           item.text = 'https://www.walmart.ca' + item.text;
@@ -81,13 +82,24 @@ const transform = (data) => {
         row.manufacturerDescription = [{ text }];
       }
       if (row.variantInformation) {
-        let text = '';
+        variantInformation = '';
         row.variantInformation.forEach(item => {
-          text += ` ${item.text.trim()}`;
+          variantInformation += ` ${item.text.trim().replace('; non disponible', '')}`;
         });
         row.variantInformation = [
           {
-            text: text.trim(),
+            text: variantInformation.trim(),
+          },
+        ];
+      }
+      if (row.nameExtended) {
+        let nameExtended = '';
+        row.nameExtended.forEach(item => {
+          nameExtended += ` ${item.text.trim()}`;
+        });
+        row.nameExtended = [
+          {
+            text: variantInformation ? `${nameExtended.trim()} - ${variantInformation.trim()}` : nameExtended.trim(),
           },
         ];
       }
