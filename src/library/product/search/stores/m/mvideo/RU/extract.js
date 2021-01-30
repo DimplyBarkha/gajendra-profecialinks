@@ -52,6 +52,7 @@ module.exports = {
           console.log('got the id');
           allProdHaveId = await context.evaluate(async (idXpath) => {
             let allIdElms = document.evaluate(idXpath, document, null, 7, null);
+            let allProdHaveId = false;
             if(allIdElms.snapshotLength === 12) {
               allProdHaveId = true;
             }
@@ -69,6 +70,59 @@ module.exports = {
     }
 
     console.log('allProdHaveId', allProdHaveId);
+
+    let thumbnailImgsXpath = '//div[contains(@class,"product-tile")]//div[@class="lazy-load-image-holder lazy-loaded"]//img//@src';
+    try {
+      await context.waitForXPath(thumbnailImgsXpath);
+      console.log('got some images');
+    } catch(err) {
+      console.log('got some error while waiting for images', err.message);
+    }
+    
+    let imagesCount = await context.evaluate(async (thumbnailImgsXpath) => {
+      let imagesElm = document.evaluate(thumbnailImgsXpath, document, null, 7, null);
+      if(imagesElm) {
+        return imagesElm.snapshotLength;
+      }
+      return 0;
+    }, thumbnailImgsXpath);
+
+    console.log('imagesCount', imagesCount);
+    //await applyScroll(context);
+    let xpath = '(//div[contains(@class,"product-tile")][@data-productid])[last()]';
+    async function scrollToRec (xpath) {
+      await context.evaluate(async (xpath) => {
+        const element = document.evaluate(xpath, document, null, 7, null) || null;
+        if (element && element.snapshotItem(0)) {
+          element.snapshotItem(0).scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+          await new Promise((resolve) => {
+            setTimeout(resolve, 5000);
+          });
+        }
+      }, xpath);
+    }
+    await scrollToRec(xpath);
+    let thisTime = 0;
+    while(imagesCount < 12 && thisTime < 70000) {
+      try {
+        await context.waitForXPath(thumbnailImgsXpath);
+        console.log('got some more images');
+      } catch(err) {
+        console.log('got some error while waiting for images', err.message);
+      }
+      await new Promise(resolve => setTimeout(resolve, 10000));
+      thisTime += 10000;
+      imagesCount = await context.evaluate(async (thumbnailImgsXpath) => {
+        let imagesElm = document.evaluate(thumbnailImgsXpath, document, null, 7, null);
+        if(imagesElm) {
+          return imagesElm.snapshotLength;
+        }
+        return 0;
+      }, thumbnailImgsXpath);
+    }
+    console.log('waited for - thisTime', thisTime);
+
+    console.log('imagesCount - finally', imagesCount);
     
     
     return await context.extract(productDetails, { transform });

@@ -22,7 +22,7 @@ fields:
     xpath: //div[@id="rankOrganic"]/text()
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class="lazy-load-image-holder lazy-loaded"]//img//@src
+    xpath: //div[contains(@class,"product-tile")]//div[@class="lazy-load-image-holder lazy-loaded"]//img//@src
     regExp: (.+)
     regExpReplace: https:$1
   - name: aggregateRating2
