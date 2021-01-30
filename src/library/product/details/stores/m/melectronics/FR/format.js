@@ -22,19 +22,60 @@ const transform = (data) => {
         const imageArr = row.image.map((item) => {
           return item.text.replace('fm-sm', 'fm-lg2').replace('fm-md', 'fm-lg2').replace(/\/fm-lg\//g, 'fm-lg2').replace('fm-xl', 'fm-lg2');
         });
-        row.image = [{ text: imageArr.join(''), xpath: row.image[0].xpath }];
+        const uniqueImage = new Set(imageArr);
+        const imagesArray = [];
+        uniqueImage.forEach((item) => {
+          imagesArray.push(item);
+        });
+        row.image = [{ text: imagesArray.join(''), xpath: row.image[0].xpath }];
+      }
+      if (row.imageAlt) {
+        const imageAltArr = row.imageAlt.map((item) => {
+          return item.text;
+        });
+        const uniqueImageAlt = new Set(imageAltArr);
+        const imageAltArray = [];
+        uniqueImageAlt.forEach((item) => {
+          imageAltArray.push(item);
+        });
+        row.imageAlt = [{ text: imageAltArray.join(''), xpath: row.imageAlt[0].xpath }];
+      }
+      if (row.name) {
+        const nameArr = row.name.map((item) => {
+          return item.text;
+        });
+        const uniqueName = new Set(nameArr);
+        const nameArray = [];
+        uniqueName.forEach((item) => {
+          nameArray.push(item);
+        });
+        row.name = [{ text: nameArray.join(''), xpath: row.name[0].xpath }];
+      }
+
+      if (row.nameExtended) {
+        const nameExtendedArr = row.nameExtended.map((item) => {
+          return item.text;
+        });
+        const uniqueNameExtended = new Set(nameExtendedArr);
+        const nameExtendedArray = [];
+        uniqueNameExtended.forEach((item) => {
+          nameExtendedArray.push(item);
+        });
+        row.nameExtended = [{ text: nameExtendedArray.join(''), xpath: row.nameExtended[0].xpath }];
       }
       if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0] && row.additionalDescBulletInfo[0].text.length > 1) {
-        // row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
         const additionalDescBulletInfoArr = row.additionalDescBulletInfo.map((item) => {
-          return item.text;
+          return item.text.replace(/•/g, '||');
         });
         const uniqueDesc = new Set(additionalDescBulletInfoArr);
         const descBulletsArray = [];
         uniqueDesc.forEach((item) => {
           descBulletsArray.push(item);
         });
-        row.additionalDescBulletInfo = [{ text: '|| ' + descBulletsArray.join(' || '), xpath: row.additionalDescBulletInfo[0].xpath }];
+        if (descBulletsArray.length > 1) {
+          descBulletsArray[0] = ' || ' + descBulletsArray[0];
+        }
+        row.additionalDescBulletInfo = [{ text: descBulletsArray.join(' || '), xpath: row.additionalDescBulletInfo[0].xpath }];
         row.descriptionBullets = [{ text: descBulletsArray.length, xpath: row.additionalDescBulletInfo[0].xpath }];
       }
       if (row.alternateImages) {
@@ -105,16 +146,19 @@ const transform = (data) => {
         row.category = categoryList;
       }
 
-      // if (row.price) {
-      //   row.price.forEach(item => {
-      //     item.text = item.text.replace(',', '');
-      //   });
-      // }
-      // if (row.listPrice) {
-      //   row.listPrice.forEach(item => {
-      //     item.text = item.text.replace(',', '');
-      //   });
-      // }
+      if (row.price) {
+        row.price.forEach(item => {
+          item.text = item.text.replace('’', ',');
+        });
+      }
+      if (row.listPrice) {
+        row.listPrice.forEach(item => {
+          item.text = item.text.replace('’', ',');
+        });
+      }
+      if (row.availabilityText) {
+        row.availabilityText[0].text = row.availabilityText[0].text.toLocaleLowerCase() === 'disponible en stock' ? 'In Stock' : 'Out Of Stock';
+      }
       // if (row.variantCount) {
       //   row.variantCount = [{ text: row.variantCount.length }];
       // }
