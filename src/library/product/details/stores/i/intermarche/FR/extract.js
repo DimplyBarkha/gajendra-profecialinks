@@ -25,37 +25,9 @@ module.exports = {
       await context.waitForSelector('div[class*="ProductGeneralInfoContainer"]', { timeout: 80000 });
     } catch (error) {
       console.log('Page not loaded', error.message);
-      await context.evaluate(async () => {
-        const maxTime = 120000;
-        let currTime = 0;
-        const waitForSel = 'div[class*="ProductGeneralInfoContainer"]';
-        let loaderElm = document.querySelectorAll(waitForSel);
-        async function stallOut (ms) {
-          return new Promise((resolve, reject) => {
-            setTimeout(() => {
-              console.log('waiting!! for ' + ms + ' millisecs');
-              resolve();
-            }, ms);
-          });
-        }
-        while (loaderElm.length === 0) {
-          console.log('we do not have the prod div still');
-          await stallOut(3000);
-          currTime = currTime + 3000;
-          loaderElm = document.querySelectorAll(waitForSel);
-          if (currTime > maxTime) {
-            console.log('already waited for ' + currTime + ' ms - still the prod is not loaded');
-            break;
-          }
-        }
-        loaderElm = document.querySelectorAll(waitForSel);
-        if (loaderElm.length === 0) {
-          console.log('still prod is not there');
-        } else {
-          console.log('prod is there');
-        }
-      });
+      throw new Error('Product page not loaded');
     }
+    
     await context.evaluate(function (parentInput) {
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
