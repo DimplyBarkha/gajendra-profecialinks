@@ -6,5 +6,8 @@ fields:
   - name: productUrl
     xpath: //h3[@data-zone-name="title"]/a/@href
     regExp: (.+)
-    regExpReplace: https://market.yandex.ru/$1
+    regExpReplace: https://market.yandex.ru$1
     description: The URL for the product details page
+  - name: name
+    xpath: //h3[@data-zone-name="title"]/a
+  - name: brand

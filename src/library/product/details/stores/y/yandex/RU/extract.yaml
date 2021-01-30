@@ -1,0 +1,38 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: brand
+    singleValue: false
+    xpath: //meta[@itemprop="brand"]
+  - name: colour
+    singleValue: false
+    xpath: //div[contains(@class,"_3anUILongY")]/@data-color
+  - name: flavour
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+  - name: imageUrl
+    singleValue: false
+    xpath: //div[@data-zone-name="image"]//img/@src
+  - name: pageTitle
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //title
+  - name: productFamily
+    singleValue: false
+    description: Categories as listed in the breadcrumbs . if n/a extract the substring of the productUrl, if applicable
+    xpath: //ul/li//div[@data-zone-name="breadcrumb"]
+  - name: productRange
+    singleValue: false
+    description:  Extract sub-category from breadcrumbs. if n/a extract the substring from the productUrl
+  - name: reviewsCount
+    singleValue: false
+    xpath: //a/span[contains(text(),'Отзывы')]/following::span[1]
+  - name: reviewsPageOffset
+    singleValue: true
+    defaultValue: 10
+  - name: sku
+    singleValue: false
+    xpath: //meta[@property="og:url"]
+    
