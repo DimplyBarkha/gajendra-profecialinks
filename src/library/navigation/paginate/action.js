@@ -35,19 +35,38 @@ async function implementation (
   let nextLink;
 
   if (stopConditionSelectorOrXpath) {
-    const conditionIsTrue = await context.waitForFunction((sel) => {
+    const conditionIsTrue = await context.evaluate(async function (stopConditionSelectorOrXpath) {
+      try {
+        const nextLink = document.querySelector(stopConditionSelectorOrXpath);
+        if (nextLink) {
+          return false;
+        }
+        return true;
+      } catch (error) {
+        console.log('could not find next link');
+        return true;
+      }
+    }, stopConditionSelectorOrXpath);
+
+    /* const conditionIsTrue = await context.waitForFunction((sel) => {
       try {
         const isThere = document.querySelector(sel);
         return !!isThere;
       } catch (error) {
         try {
           const isThere = document.evaluate(sel, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
-          return !!isThere;
+          if (isThere) {
+            return true;
+          } else {
+            return false;
+          }
         } catch (error) {
           return false;
         }
       }
     }, { timeout: 10000 }, stopConditionSelectorOrXpath);
+    console.log('true condition value');
+    console.log(conditionIsTrue); */
     // @ts-ignore
     if (conditionIsTrue) return false;
   }
