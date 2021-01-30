@@ -18,6 +18,17 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.productFamily) {
+        let text = '';
+        row.productFamily.forEach(item => {
+          text += `${item.text.replace(/\n \n/g, ':').trim()} | `;
+        });
+        row.productFamily = [
+          {
+            text: text.slice(0, -4),
+          },
+        ];
+      }
     }
   }
   return data;
