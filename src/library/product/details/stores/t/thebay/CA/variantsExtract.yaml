@@ -1,6 +1,10 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //html//ul[contains(@class,"radio-group")]//li
 fields:
-  
+  - name: variantId
+    singleValue: false
+    xpath: //ul[contains(@class,"radio-group")]//li//button/@data-adobelaunchcolorproductid
+  - name: variantUrl
+    singleValue: false
