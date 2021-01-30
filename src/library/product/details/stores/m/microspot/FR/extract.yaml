@@ -8,9 +8,7 @@ fields:
     xpath: //div[@id="TOP_CONTENT_ANCHOR"]//h1
   - name: brandText
     singleValue: false
-    xpath: //a[contains(@href,"?brand")]/@href
-    regExp: brand=(.+)
-    regExpReplace: $1
+    xpath: (//div[@class="_2HT5j6"]//a)[1]
   - name: image
     singleValue: false
     xpath: //div[@id="pd_image"]
@@ -33,12 +31,16 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[@id="pd_price"]
+  # - name: availabilityText
+  #   singleValue: false
+  #   xpath: (//div[contains(@id,"TOP_CONTENT_ANCHOR")]//script[@type="application/ld+json"])[2]
+  #   regExp: InStock
+  #   regExpReplace: In Stock
+  #   defaultValue: Out of Stock
   - name: availabilityText
     singleValue: false
-    xpath: (//div[contains(@id,"TOP_CONTENT_ANCHOR")]//script[@type="application/ld+json"])[2]
-    regExp: InStock
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    xpath: //div[@class="_9vhzsH"]//button//span
+    defaultValue: Out Of Stock
   - name: descriptionOne
     xpath: //ul[contains(@class,"_1Auvoh")]//li/span
   - name: description
@@ -154,6 +156,12 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: true
     defaultValue: "Yes"
+<<<<<<< HEAD
   - name: customerServiceAvailability
     singleValue: true
     defaultValue: 
+=======
+  - name: quantity
+    singleValue: false
+    xpath: (//table[@class="dJHzOF"]//th[contains(text(),'Contenu')]/following-sibling::td[1])[1]
+>>>>>>> 5e9ce1b4d35c49b98dd93c58de12e8868652593d
