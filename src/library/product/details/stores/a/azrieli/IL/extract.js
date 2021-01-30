@@ -63,7 +63,8 @@ module.exports = {
       const priceValue = price.split('')[1] + price.split('')[0];
       addElementToDocument('added_price', priceValue);
 
-      const specifications = getAllXpath("//div[@class='finePrint']/descendant::strong[text()='מפרט טכני']/following::div/ul//li//text() | //div[@class='finePrint']/descendant::strong[text()='מפרט טכני']/following::ul[1]//li//text() | //div[@class='finePrint']/descendant::strong[text()='מפרט טכני:']/following::text()[position()<9] | //div[@class='finePrint']/descendant::strong[text()='מפרט טכני:']/following::div[position()<9]", 'nodeValue').join('|');
+      const specifications = getAllXpath("//div[@class='finePrint']/descendant::strong[text()='מפרט טכני']/following::div/ul//li//text() | //div[@class='finePrint']/descendant::strong[text()='מפרט טכני']/following::ul[1]//li//text() | //div[@class='finePrint']/descendant::strong[text()='מפרט טכני:']/following::text()[position()<9] | //div[@class='finePrint']/descendant::strong[text()='מפרט טכני:']/following::div[position()<9] |//div[@class='finePrint']//p//span[contains(@style,'text-decoration')]/descendant::strong[text()='מפרט המכשיר:']/following::p[position()<8]/text()", 'nodeValue').join('|');
+      console.log("specifications===", specifications);
       addElementToDocument('added_specifications', specifications);
 
        const getInTheBoxx = document.querySelector('.finePrint').children;
