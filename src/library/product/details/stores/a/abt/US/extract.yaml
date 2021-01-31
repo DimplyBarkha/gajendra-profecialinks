@@ -250,7 +250,7 @@ fields:
     xpath: //div[@id='image360Exists']
     defaultValue: "No"
   - name: unInterruptedPDP
-    xpath: //div[@class="backordered-alternative-products-container"]//div[@class="backordered-alternative-product"] | //ul[@id="recently_viewed_details"]//li | //li[@class="recommended_item"]
+    xpath: //div[@class="backordered-alternative-products-container"]//div[@class="backordered-alternative-product"]//a[contains(text(), 'Dyson')] | //ul[@id="recently_viewed_details"]//li | //li[contains(@class,"recommended_item")]//div[contains(@class,"recommended_item_description")]/text()
   - name: hasComparisonTable
     xpath: //div[@id="also_compared_items_container"]
     regExp: (.*)
