@@ -6,6 +6,7 @@ fields:
   - name: id
     SingleValue: false
     xpath: //div[@class="product_id"]
+    regExp: \d{3,}
   - name: productUrl
     SingleValue: false
     xpath: //div[@class="product_url"]

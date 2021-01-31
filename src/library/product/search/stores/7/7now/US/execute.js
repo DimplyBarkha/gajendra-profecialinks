@@ -82,7 +82,7 @@ module.exports = {
     country: 'US',
     store: '7now',
     domain: '7now.com',
-    url: 'https://www.7now.com/search-results',
+    url: 'https://www.7now.com/search-results/{searchTerms}',
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: "''",
