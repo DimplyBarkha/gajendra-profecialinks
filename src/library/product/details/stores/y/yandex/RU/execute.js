@@ -5,7 +5,7 @@ module.exports = {
     country: 'RU',
     store: 'yandex',
     domain: 'yandex.ru',
-    loadedSelector: 'div[data-zone-name="product-page"]',
+    loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
   },

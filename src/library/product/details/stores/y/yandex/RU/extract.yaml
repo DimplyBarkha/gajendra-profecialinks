@@ -1,6 +1,6 @@
 singleRecord: true
 regionsSelector: null
-recordSelector: div[data-zone-name="product-page"]
+recordSelector: null
 recordXPath: null
 fields:
   - name: brand
@@ -33,5 +33,5 @@ fields:
     defaultValue: 10
   - name: sku
     singleValue: false
-    xpath: //meta[@property="og:url"]/@content
+    xpath: //div[@class="custon_sku"]
     
