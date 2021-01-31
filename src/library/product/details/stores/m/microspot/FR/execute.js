@@ -5,8 +5,8 @@ module.exports = {
     country: 'FR',
     store: 'microspot',
     domain: 'microspot.ch/fr',
-    loadedSelector: 'div#TOP_CONTENT_ANCHOR',
-    noResultsXPath: '//*[contains(text(),"Votre recherche de Machine")]',
+    loadedSelector: 'div[class="_1Wdhtw"] or div[class="rzgLFq"]',
+    noResultsXPath: '//*[contains(text(),"Votre recherche de Machine")] | //h2[contains(text(),"malheureusement plus disponible.")]',
     zipcode: '',
   },
 };

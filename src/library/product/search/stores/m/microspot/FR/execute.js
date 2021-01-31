@@ -7,7 +7,7 @@ module.exports = {
     domain: 'microspot.ch/fr',
     url: 'https://www.microspot.ch/fr/search?search={searchTerms}',
     loadedSelector: 'div#container-productlist div img',
-    noResultsXPath: '//*[contains(text(),"Votre recherche de Machine")]',
+    noResultsXPath: '//*[contains(text(),"Votre recherche de Machine")] | //h2[contains(text(),"Ce produit n’est malheureusement plus disponible.")]',
     zipcode: '',
   },
 };
