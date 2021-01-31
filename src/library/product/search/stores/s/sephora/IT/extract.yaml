@@ -17,4 +17,4 @@ fields:
     xpath: //ul[@id="search-result-items"]/li//div[@class="product-image"]//a[@class="product-tile-link"]/@href
   - name: price
     singleValue: false
-    xpath: //ul[@id="search-result-items"]/li//div[contains(@class,"product-info")]//span[@class="product-min-price"]
+    xpath: //ul[@id="search-result-items"]/li//div[contains(@class,"product-info")]//div[@class='product-pricing']//span[not(contains(@class,'product-sales-price'))]
