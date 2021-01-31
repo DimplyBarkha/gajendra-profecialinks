@@ -36,7 +36,20 @@ module.exports = {
       });
     };
     
-    await applyScroll(context);
+    // await applyScroll(context);
+    let xpath = '(//div[contains(@class,"product-tile")][@data-productid])[last()]';
+    async function scrollToRec (xpath) {
+      await context.evaluate(async (xpath) => {
+        const element = document.evaluate(xpath, document, null, 7, null) || null;
+        if (element && element.snapshotItem(0)) {
+          element.snapshotItem(0).scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+          await new Promise((resolve) => {
+            setTimeout(resolve, 5000);
+          });
+        }
+      }, xpath);
+    }
+    await scrollToRec(xpath);
 
     console.log('waiting for some time');
     await new Promise(resolve => setTimeout(resolve, 3000));
@@ -89,21 +102,9 @@ module.exports = {
 
     console.log('imagesCount', imagesCount);
     //await applyScroll(context);
-    let xpath = '(//div[contains(@class,"product-tile")][@data-productid])[last()]';
-    async function scrollToRec (xpath) {
-      await context.evaluate(async (xpath) => {
-        const element = document.evaluate(xpath, document, null, 7, null) || null;
-        if (element && element.snapshotItem(0)) {
-          element.snapshotItem(0).scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
-          await new Promise((resolve) => {
-            setTimeout(resolve, 5000);
-          });
-        }
-      }, xpath);
-    }
-    await scrollToRec(xpath);
+    
     let thisTime = 0;
-    while(imagesCount < 12 && thisTime < 70000) {
+    while(imagesCount < 12 && thisTime < 60000) {
       try {
         await context.waitForXPath(thumbnailImgsXpath);
         console.log('got some more images');
