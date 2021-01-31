@@ -39,24 +39,39 @@ module.exports = {
         warningButton.click();
         try {
           let tabContent = document.evaluate("//h3[contains(text(),'Pozostałe informacje')]/following::p[1]/text()", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+          let tabContent1 = document.evaluate("//div[@class='ui-tabs_tab-content']/div/h3/text()", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
           let fourthContent = tabContent.textContent;
-          let content = "Pozostałe informacje " + fourthContent;
+          let heading = tabContent1.textContent;
+          let content = heading+" "+ fourthContent;
           addHiddenDiv('wid', content);
         } catch (error) {
         }
       }
-      const warningButton1 = document.getElementsByClassName('ui-tabs_tab  button')[5];
+      const warningButton2 = document.getElementsByClassName('ui-tabs_tab  button')[4];
+
+      if (warningButton2 && warningButton2.textContent === 'Ostrzeżenia i pozostałe informacje') {
+        // @ts-ignore
+        warningButton2.click();
+        try {
+          let tabContent = document.evaluate("//h3[contains(text(),'Przepisy')]/following::p[1]/text()", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+          let tabContent1 = document.evaluate("//div[@class='ui-tabs_tab-content']/div/h3/text()", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+          let fourthContent = tabContent.textContent;
+          let heading = tabContent1.textContent;
+          let content = heading +" "+ fourthContent;
+          addHiddenDiv('wid', content);
+        } catch (error) {
+        }
+      }
+      const warningButton1 = document.getElementsByClassName('ui-tabs_tab  button')[4];
+      //const warningButton0 = document.getElementsByClassName('ui-tabs_tab  button')[0];
       if (warningButton1 && warningButton1.textContent === 'Opakowanie') {
         // @ts-ignore
         warningButton1.click();
         try {
-          let tabContent = document.evaluate("//h3[contains(text(),'Wymiar liczbowy')]/following::p[1]/text()", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+          let tabContent = document.evaluate("//div[@class='ui-tabs_tab-content']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
           let fourthContent = tabContent.textContent;
-          let tabContent1 = document.evaluate("//div[@class='ui-tabs_tab-content']/div/p", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-          let content = "Wymiar liczbowy " + fourthContent;
-          let c=tabContent1.textContent;
-          let addDesc= c + content;
-          addHiddenDiv('addDescid', addDesc);
+          console.log("addDesc :::"+fourthContent);
+          addHiddenDiv('addDescid', fourthContent);
         } catch (error) {
         }
       }
@@ -148,7 +163,7 @@ module.exports = {
       if (availability) {
         try {
           if (availability.textContent.includes('InStock')) {
-            availabilityText = "In Stock";
+            availabilityText = "IN Stock";
           } if (availability.textContent.includes('OutOfStock')) {
             availabilityText = "Out Of Stock";
           }

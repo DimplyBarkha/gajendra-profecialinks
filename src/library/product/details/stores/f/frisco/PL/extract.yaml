@@ -28,7 +28,7 @@ fields:
     xpath: //div[@id="avaid"]/text()
   - name: description
     singleValue: false
-    xpath: //h1[@itemprop='name'] | //div[@id="addDescid"]/text()
+    xpath: concat(//div[@class="ui-tabs_tab-content"]/div/p, " " ,//div[@id="addDescid"]/text())
   - name: brandText
     singleValue: true
     xpath: //meta[@itemprop="brand"]/@content
