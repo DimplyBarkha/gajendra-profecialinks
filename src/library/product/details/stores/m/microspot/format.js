@@ -63,18 +63,18 @@ const transform = (data) => {
         }
 
         if (row.inTheBoxText) {
-          let text, arrInTheBox = [];
+          let text; const arrInTheBox = [];
           row.inTheBoxText.forEach(item => {
             arrInTheBox.push(item.text);
           });
-          let arrUniqueText = [...new Set(arrInTheBox)];
+          const arrUniqueText = [...new Set(arrInTheBox)];
           row.inTheBoxText = [
-            { text: arrUniqueText.toString().replace(/,/g, '||').replace(/und\b/g, '||') }
-          ]
+            { text: arrUniqueText.toString().replace(/,/g, '||').replace(/und\b/g, '||') },
+          ];
         }
 
         if (row.brandText) {
-          row.brandText = [{ text: row.brandText[0].text.replace("%20", " ") }]
+          row.brandText = [{ text: clean(row.brandText[0].text.replace('%20', ' ')) }];
         }
 
         if (descriptionOne) {
@@ -90,7 +90,7 @@ const transform = (data) => {
         row.variantInformation = [{ text: row.variantInformation[0].text }];
       }
       if (row.availabilityText) {
-        row.availabilityText[0].text = row.availabilityText[0].text.toLocaleLowerCase() === "ajouter au panier" ? "In Stock" : "Out Of Stock";
+        row.availabilityText[0].text = row.availabilityText[0].text.toLocaleLowerCase() === 'ajouter au panier' ? 'In Stock' : 'Out Of Stock';
       }
     }
   }
