@@ -11,8 +11,8 @@ const transform = (data) => {
       .replace(/&amp;#160/g, ' ')
       .replace(/\u00A0/g, ' ')
       .replace(/\s{2,}/g, ' ')
-      .replace(/"\s{1,}/g, '"')
-      .replace(/\s{1,}"/g, '"')
+      .replace(/"\s{1,}/g, '" ')
+      .replace(/\s{1,}"/g, ' "')
       .replace(/^ +| +$|( )+/g, ' ')
       // eslint-disable-next-line no-control-regex
       .replace(/[\x00-\x1F]/g, '')
@@ -32,14 +32,20 @@ const transform = (data) => {
         row.additionalDescBulletInfo = [{ text: arrBullets.join(' || ') }];
         row.descriptionBullets = [{ text: arrBullets.length }];
       }
-      if (row.description) {
-        let text = '';
-        row.description.forEach(item => {
-          text += item.text.replace(/-\s/g, ' || ').trim();
+      if (row.alternateImages) {
+        row.alternateImages.forEach(item => {
+          item.text = '| '+item.text;
         });
-
-        row.description = [{ text }];
       }
+
+      // if (row.description) {
+      //   let text = '';
+      //   row.description.forEach(item => {
+      //     text += item.text.replace(/-\s/g, ' || ').trim();
+      //   });
+
+      //   row.description = [{ text }];
+      // }
 
       if (row.nameExtended && row.variantName) {
         row.nameExtended.forEach(item => {
@@ -48,10 +54,11 @@ const transform = (data) => {
       }
 
       if (row.videos) {
-        var arrVideos = [];
+        var arrVideos = '';
         var arrJsonVideo = JSON.parse(row.videos[0].text);
         arrJsonVideo.forEach(vdoUrl => {
-          arrVideos.push(vdoUrl);
+          // arrVideos.push(vdoUrl);
+          arrVideos+='|'+vdoUrl;
         });
         row.videos = [{ text: arrVideos }];
       }
