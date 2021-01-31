@@ -66,6 +66,10 @@ async function implementation (
     const nameXpath = getAllXpath("//div[@_ngcontent-bjs-universal-app-c92='']/a//h2[@class='product-title no-select d-none d-sm-block']/text()",'nodeValue').join('|');
     var nameValue = nameXpath.split('|');
 
+    const namePath = getAllXpath("//div[@_ngcontent-bjs-universal-app-c92='']/a//h2[@class='product-title no-select d-none']/text()",'nodeValue').join('|');
+    //console.log("namePath::::", namePath.split('|') );
+    var namePValue = namePath.split('|');
+
     const priceXpath = getAllXpath("//span[@class='price']/text()",'nodeValue').join('|');
     var priceValue = priceXpath.split('|');
 
@@ -94,8 +98,18 @@ async function implementation (
       const aPath = (urlPath.replace('"','')).replace('"','');
       addElementToDocumentOld('url_added', aPath);
 
-      const nameObj = JSON.stringify(nameValue[i]);
-      addElementToDocumentOld('name_added', (nameObj.replace('"','')).replace('"',''));
+      const nameObj1 = JSON.stringify(namePValue[i]);
+     // console.log("nameObj1:::", nameObj1);
+
+      const nameObj2 = JSON.stringify(nameValue[i]);
+      //console.log("nameObj2:::", nameObj2);
+
+      if(nameObj1 != null){
+        addElementToDocumentOld('name_added', (nameObj1.replace('"','')).replace('"',''));
+      }else{
+        addElementToDocumentOld('name_added', (nameObj2.replace('"','')).replace('"',''));
+      }
+      //addElementToDocumentOld('name_added', (nameObj.replace('"','')).replace('"',''));
 
       const priceObj = JSON.stringify(priceValue[i]);
       addElementToDocumentOld('price_added', priceObj);
@@ -104,6 +118,7 @@ async function implementation (
       addElementToDocumentOld('review_added', reviewObj);
 
       const aggrigateObj = JSON.stringify(aggValue[i]);
+      //addElementToDocumentOld('agg_rating_added', ((aggrigateObj.replace('"','')).replace('"','').replace('.',',')));
       addElementToDocumentOld('agg_rating_added', (aggrigateObj.replace('"','')).replace('"',''));
     }
   });
