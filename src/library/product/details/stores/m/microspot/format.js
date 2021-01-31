@@ -17,9 +17,6 @@ const transform = (data) => {
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
-  data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
-    el.text = clean(el.text);
-  }))));
 
   for (const { group } of data) {
     for (const row of group) {
@@ -74,7 +71,7 @@ const transform = (data) => {
         }
 
         if (row.brandText) {
-          row.brandText = [{ text: clean(row.brandText[0].text.replace('%20', ' ')) }];
+          row.brandText = [{ text: clean(row.brandText[0].text.trim().replace('%20', ' ').replace('‰', '')) }];
         }
 
         if (descriptionOne) {
@@ -89,12 +86,11 @@ const transform = (data) => {
       if (row.variantCount && row.variantCount[0].text !== '0' && row.variantInformation) {
         row.variantInformation = [{ text: row.variantInformation[0].text }];
       }
-      if (row.availabilityText) {
-        row.availabilityText[0].text = row.availabilityText[0].text.toLocaleLowerCase() === 'ajouter au panier' ? 'In Stock' : 'Out Of Stock';
-      }
     }
   }
-
+  data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+    el.text = clean(el.text);
+  }))));
   return data;
 };
 
