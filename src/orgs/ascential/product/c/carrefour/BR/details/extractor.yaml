@@ -1,7 +1,13 @@
 robot: product/details
 proxy:
-  zone: ZUS
-  type: RESIDENTIAL 
+  zone: BRA
+  type: DATA_CENTER
+policy:
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 60
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 1
 parameters:
   country: BR
   domain: carrefour.com.br
