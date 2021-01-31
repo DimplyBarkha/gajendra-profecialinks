@@ -23,10 +23,12 @@ const transform = (data) => {
     return data;
   };
   for (const { group } of data) {
-    let fvariantId='';
+    let fvariantId='';let tmpVarintId='';
     for (let row of group) {
       if(row.image){
         row.image.forEach(item=>{
+          let tmp=item.text.split('/products/').pop().split('-');
+          tmpVarintId=tmp[0];
           item.text="https:"+item.text;
         })
       }
@@ -83,6 +85,9 @@ const transform = (data) => {
           inf.push(item.text);
         })
         row.description=[{"text":inf.join(' ')}];
+      }
+      if(tmpVarintId!=''){
+        row.variantId=[{"text":tmpVarintId}];
       }
     }
   }
