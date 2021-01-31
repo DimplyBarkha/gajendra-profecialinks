@@ -8,7 +8,7 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
   var variantLength = await context.evaluate(async () => {
-    return (document.querySelectorAll('ul.topic li input')) ? document.querySelectorAll('ul.topic li input').length : 0;
+    return (document.querySelectorAll('ul.topic li input')) ? document.querySelectorAll('ul.topic li input').length : 1;
   });
   if (variantLength > 1) {
     await context.evaluate(async () => {
