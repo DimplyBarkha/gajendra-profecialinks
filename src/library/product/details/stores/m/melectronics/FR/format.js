@@ -165,7 +165,19 @@ const transform = (data) => {
         });
       }
       if (row.availabilityText) {
-        row.availabilityText[0].text = row.availabilityText[0].text.toLocaleLowerCase() === 'disponible en stock' ? 'In Stock' : 'Out Of Stock';
+        row.availabilityText[0].text = (row.availabilityText[0].text.toLocaleLowerCase() === 'disponible en stock' || row.availabilityText[0].text.toLocaleLowerCase() === 'an lager') ? 'In Stock' : 'Out Of Stock';
+      }
+
+      if (row.customerServiceAvailability) {
+        const customerServiceAvailabilityArr = row.customerServiceAvailability.map((item) => {
+          return item.text;
+        });
+        const uniqueCustomerServiceAvailability = new Set(customerServiceAvailabilityArr);
+        const customerServiceAvailabilityArray = [];
+        uniqueCustomerServiceAvailability.forEach((item) => {
+          customerServiceAvailabilityArray.push(item);
+        });
+        row.customerServiceAvailability = [{ text: customerServiceAvailabilityArray.join(''), xpath: row.customerServiceAvailability[0].xpath }];
       }
       // if (row.variantCount) {
       //   row.variantCount = [{ text: row.variantCount.length }];
