@@ -75,7 +75,7 @@ const transform = (data) => {
       }
       if (row.manufacturerImages) {
         row.manufacturerImages.forEach(item => {
-          item.text = 'https:' + item.text;
+          item.text = 'http:' + item.text;
         });
       }
       // if (row.variants) {
