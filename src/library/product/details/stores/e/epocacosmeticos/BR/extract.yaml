@@ -33,7 +33,9 @@ fields:
   - name: availabilityText
     singleValue: false
     #xpath: (//div[@itemprop="offers"]//link[@itemprop="availability"]/@href)[1]
-    xpath: //div[@id='availabilityText']/@data-availability
+    #xpath: //div[@id='availabilityText']/@data-availability
+    xpath: //div[@class="product__floating-info--buy-button"]//a
+    defaultValue: Out Of Stock
   - name: price
     singleValue: false
     xpath: //strong[@class="skuBestPrice"]

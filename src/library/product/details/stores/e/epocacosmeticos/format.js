@@ -28,10 +28,11 @@ const transform = (data, context) => {
         row.variants = [{ text: variantArray.join('|'), xpath: row.variants[0].xpath }];
       }
       if (row.availabilityText) {
-        const availabilityTextArr = row.availabilityText.map((item) => {
-          return (typeof (item.text) === 'string') && (item.text.includes('InStock')) ? 'In Stock' : 'Out of Stock';
-        });
-        row.availabilityText = [{ text: availabilityTextArr.join(), xpath: row.availabilityText[0].xpath }];
+        // const availabilityTextArr = row.availabilityText.map((item) => {
+        //   return (typeof (item.text) === 'string') && (item.text.includes('Comprar')) ? 'In Stock' : 'Out of Stock';
+        // });
+        // row.availabilityText = [{ text: availabilityTextArr.join(), xpath: row.availabilityText[0].xpath }];
+        row.availabilityText[0].text = row.availabilityText[0].text.toLocaleLowerCase() === 'comprar' ? 'In Stock' : 'Out Of Stock';
       }
       if (row.alternateImages) {
         row.alternateImages.shift();
