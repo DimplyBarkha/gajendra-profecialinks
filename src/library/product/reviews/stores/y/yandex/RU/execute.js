@@ -5,7 +5,7 @@ module.exports = {
     country: 'RU',
     store: 'yandex',
     domain: 'yandex.ru',
-    loadedSelector: null,
+    loadedSelector: 'div#scroll-to-reviews-list',
     noResultsXPath: null,
     reviewUrl: null,
     sortButtonSelectors: null,
