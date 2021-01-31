@@ -33,6 +33,14 @@ module.exports = {
         else result = elem ? elem.singleNodeValue : '';
         return result && result.trim ? result.trim() : result;
       };
+      var avl = getXpath('//button[@class="button details-delivery-add-to-cart"]/text()', 'nodeValue');
+      if (avl != null) {
+        avl = "In Stock"
+        addElementToDocument('avl', avl);
+      } else {
+        avl = "Out Of Stock"
+        addElementToDocument('avl', avl);
+      }
       var abc = getAllXpath('//div[@class="product-header d-none d-md-block clearfix"]//div[@class="pdp-review-summary"]//div[@class="rating"]/div/child::*/@class', 'nodeValue');
       if (abc != null) {
         abc.pop();

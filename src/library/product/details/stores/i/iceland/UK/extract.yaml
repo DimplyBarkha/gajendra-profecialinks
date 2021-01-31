@@ -19,6 +19,9 @@ fields:
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
     xpath: //ol[@class="breadcrumb bc-inline"]/li/a
+  - name: manufacturer
+    singleValue: false
+    xpath: //*[@id="reviews-tab-content"]/div[2]/div/div[1]/p[4]/text()
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -43,6 +46,12 @@ fields:
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
     xpath: (//p[@class="mt-4 mb-3"]/text())[1]
+  - name: availabilityText
+    singleValue: true
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    xpath: //html//div[@id="avl"]
   - name: sku
     singleValue: true
     description: The store-specific product identifier
