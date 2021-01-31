@@ -16,7 +16,7 @@ async function implementation (
   const { productDetails } = dependencies;
   try{
     console.log('comming for xpath');
-    await context.waitForSelector('a.ProductCard-Content');
+    await context.waitForSelector('a.ProductCard-Content',{setTimeout:2000});
     console.log('comming for click');
     let tmphref= await context.evaluate(function(){
       return document.querySelector('a.ProductCard-Content').href;
@@ -24,7 +24,7 @@ async function implementation (
     console.log('tmphref:',tmphref);
     await context.goto(tmphref);
     await context.waitForNavigation();
-        
+    await new Promise((resolve, reject) => setTimeout(resolve, 8000));
   }catch(e){
     console.log('................................commint to error..................');
   }
@@ -52,7 +52,7 @@ async function implementation (
   }catch(e){
     console.log('................................commint to error iframe data.........................');
   }
-  await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
   return await context.extract(productDetails, { transform });
 }
 module.exports = {

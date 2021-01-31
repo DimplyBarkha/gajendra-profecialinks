@@ -25,22 +25,15 @@ const transform = (data) => {
     for (const { group } of data) {      
       var variantCount = 0;
       for (let row of group) { 
-                
-            if (row.description) {
-              let inf =  [];
-              row.description.forEach(item => {
-                inf.push(item.text);                
-              });
-              row.description= [{ "text": inf.join(" || "), "xpath": row.description[0]["xpath"] }]
-            }            
             if (row.specifications) {
-              var temp_arr = [];
+              var temp_arr = [];var temp_arr1 = [];
               row.specifications.forEach(item => {
                 temp_arr.push(item.text);
+                temp_arr1.push(item.text.replace('?',''));
               });
               if (temp_arr.length > 1) {
                 row.specifications= [{ "text": temp_arr.join(" || "), "xpath": row.specifications[0]["xpath"] }];
-                row.description= [{ "text": temp_arr.join(" | "), "xpath": row.specifications[0]["xpath"] }];
+                row.description= [{ "text": temp_arr1.join(" | "), "xpath": row.specifications[0]["xpath"] }];
               } else {
                 delete row.specifications;
               }
