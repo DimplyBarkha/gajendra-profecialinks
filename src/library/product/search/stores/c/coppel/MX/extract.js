@@ -8,6 +8,13 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
   const { keywords } = inputs;
+  try {
+    await new Promise(resolve => setTimeout(resolve, 5000));
+    await context.waitForXPath("//*[@id='dijit__WidgetBase_1]", {}, { timeout: 100000 });
+    await context.waitForSelector('#dijit__WidgetBase_1', {}, { timeout: 200000 });
+  } catch (error) {
+    console.log(error);
+  }
   await context.evaluate(async function () {
 
     const url = window.location.href;
