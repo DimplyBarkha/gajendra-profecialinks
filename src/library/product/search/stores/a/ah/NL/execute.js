@@ -7,7 +7,7 @@ module.exports = {
     domain: 'ah.nl',
     url: 'https://www.ah.nl/zoeken?query={searchTerms}&page=4',
     loadedSelector: 'article[data-testhook="product-card"] img',
-    noResultsXPath: '//div[@data-testhook="search-no-results"]',
+    noResultsXPath: '//*[contains(@data-testhook,"search-error")][contains(.,"oeps, er ging iets mis")]',
     zipcode: '',
   },
 //   implementation: async function implementation (
