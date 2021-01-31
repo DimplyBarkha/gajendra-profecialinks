@@ -124,10 +124,11 @@ fields:
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@class="description-table"]//img/@src
+    xpath: //div[contains(@class,"description-table")]//img/@src | //div[@class="description-table"]//img/@data-flixsrcset
     description: Images within the third party description
   - name: videos
     singleValue: false
+    xpath: //div[@id="videos"]
     description: URLs of videos on page
   - name: variantCount
     singleValue: false
