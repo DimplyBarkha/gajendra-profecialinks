@@ -7,7 +7,7 @@ module.exports = {
     store: 'yandex',
     nextLinkSelector: null,
     nextLinkXpath: '//a[contains(@class, "_3OFYTyXi90")]',
-    mutationSelector: 'div[data-zone-name="product-review"]',
+    mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
     loadedXpath: null,
