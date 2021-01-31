@@ -58,7 +58,7 @@ const transform = (data, context) => {
       }
       if(row.aggregateRating) {
         row.aggregateRating.forEach(item=>{
-          item.text = item.text.replace(".",",");
+          item.text = parseFloat(item.text).toFixed(1).toString().replace('.',',');
         })
       }
     }
