@@ -1,7 +1,7 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@id="root"]
+recordXPath: null
 fields:  
   - name: image
     singleValue: false
@@ -65,3 +65,11 @@ fields:
   - name: variantCount
     singleValue: false
     defaultValue: 0
+  - name: manufacturerDescription
+    singleValue: false
+    manualSelector: section.main
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id="customIframeData"]/section[@class="main"]//img/@src
+    regExp: (.+)
+    regExpReplace: https://www.technodom.kz$1

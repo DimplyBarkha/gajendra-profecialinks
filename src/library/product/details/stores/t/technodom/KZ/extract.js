@@ -24,9 +24,35 @@ async function implementation (
     console.log('tmphref:',tmphref);
     await context.goto(tmphref);
     await context.waitForNavigation();
+        
   }catch(e){
     console.log('................................commint to error..................');
   }
+
+  function addHiddenDiv (id, content) {
+    const newDiv = document.createElement('div');
+    newDiv.id = id;
+    newDiv.textContent = content;
+    newDiv.style.display = 'none';
+    document.body.appendChild(newDiv);
+  }
+
+  try{
+    await context.evaluate(function() {
+      let iframeData=document.querySelector('iframe[title="Product showcase"][loading="eager"]');
+      if(iframeData){
+        let contentdoc=iframeData.getAttribute('srcdoc');
+        const newDiv = document.createElement('div');
+        newDiv.id = 'customIframeData';
+        newDiv.innerHTML = contentdoc
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+    })
+  }catch(e){
+    console.log('................................commint to error iframe data.........................');
+  }
+  await new Promise((resolve, reject) => setTimeout(resolve, 5000));
   return await context.extract(productDetails, { transform });
 }
 module.exports = {
