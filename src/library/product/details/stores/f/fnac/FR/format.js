@@ -93,8 +93,17 @@ const transform = (data) => {
         });
         row.productOtherInformation = [{ text: arrInfo.join(' | ') }];
       }
-      if (row.imageAlt && row.secondaryImageTotal) {
-        row.secondaryImageTotal = [{ text: row.imageAlt.length }];
+      if (row.imageAlt) {
+        var arrImgs = [];
+        row.imageAlt.forEach(item => {
+          if (arrImgs.includes(item.text)) {
+            arrImgs.push(item.text);
+          }
+        });
+        if (arrImgs.length) {
+          row.imageAlt = [{ text: arrImgs.join(' | ') }];
+          row.secondaryImageTotal = [{ text: arrImgs.length }];
+        }
       }
       if (row.videos) {
         var arrVideo = [];
