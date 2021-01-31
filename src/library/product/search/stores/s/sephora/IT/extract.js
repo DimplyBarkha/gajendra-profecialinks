@@ -23,7 +23,7 @@ async function implementation(
     let scrollElement = document.querySelector('div.infinite-scroll-placeholder');
     while (scrollElement && count <= 150) {
       scrollElement.scrollIntoView({ behavior: 'smooth', block: 'end' })
-      await new Promise(resolve => setTimeout(resolve, 5000));
+      await new Promise(resolve => setTimeout(resolve, 5500));
       let newCount = document.querySelectorAll(`ul#search-result-items > li`).length;
       if (newCount === count) {
         break;
