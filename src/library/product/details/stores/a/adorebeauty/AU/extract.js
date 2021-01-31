@@ -7,26 +7,31 @@ module.exports = {
     transform,
     domain: 'adorebeauty.com.au',
     zipcode: '',
-  }, implementation: async (
+  },
+  implementation: async (
     inputs,
     parameters,
     context,
     dependencies,
   ) => {
-    await context.evaluate(async function () {
-      const getBulletsPoint = document.querySelectorAll('div[itemprop="description"] ul li');
-      // if (getBulletsPoint.length) {
-      //   getBulletsPoint.forEach((ele) => ele.textContent = `|| ${ele.textContent}`);
-      // }
-      // const availabilityStatus = document.evaluate('//strong[@class="stock-message__info"]', document, null, XPathResult.ANY_TYPE, null).iterateNext().textContent;
-      // if (availabilityStatus.includes('Out')) {
-      //   document.querySelector('h1.product-name').setAttribute('availability', 'Out of Stock');
-      // } else {
-      //   document.querySelector('h1.product-name').setAttribute('availability', 'In Stock');
-      // }
+    const variantCount = await context.evaluate(async function () {
+      return document.querySelectorAll('ul.product-palette > li.product-palette__item > button').length;
     });
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    return await context.extract(productDetails, { transform });
+    await context.extract(productDetails, { transform });
+    for (let index = 2; index <= variantCount; index++) {
+      try {
+        await context.click(`ul.product-palette > li.product-palette__item:nth-child(${index}) > button`);
+        await new Promise(resolve => setTimeout(resolve, 500));
+        if (variantCount !== index) {
+          await context.extract(productDetails, { type: 'APPEND', transform });
+        } else {
+          return await context.extract(productDetails, { type: 'APPEND', transform });
+        }
+      } catch (error) {
+        console.log('Error While itrerating over the variants');
+      }
+    }
   },
 };

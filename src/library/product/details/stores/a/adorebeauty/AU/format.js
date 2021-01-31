@@ -41,7 +41,12 @@ const transform = (data) => {
         row.description = [{ text }];
       }
 
- 
+      if (row.nameExtended && row.variantName) {
+        row.nameExtended.forEach(item => {
+          item.text = `${item.text} ${row.variantName[0].text}`;
+        });
+      }
+
       if (row.videos) {
         var arrVideos = [];
         var arrJsonVideo = JSON.parse(row.videos[0].text);

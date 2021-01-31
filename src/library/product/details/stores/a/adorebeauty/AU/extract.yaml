@@ -22,7 +22,7 @@ fields:
   - name: variantId
     xpath: //meta[contains(@itemprop,'sku')]/@content
   - name: variantCount
-    defaultValue: '0'
+    defaultValue: "0"
   - name: brandText
     xpath: (//ol[@class='vue-breadcrumb']//span[not(text()='Home') and not(text()='Brand')])[1]
   - name: brandLink
@@ -45,7 +45,7 @@ fields:
   - name: availabilityText
     xpath: //div[@class='product-add-to-cart']//button[@class='product-add-to-cart__add']/@class
     regExp: (.+)
-    regExpReplace: In Stock
+    regExpReplace: In stock
     defaultValue: Out of Stock
   - name: description
     xpath: //div[@itemprop='description']
@@ -71,3 +71,5 @@ fields:
     singleValue: true
     defaultValue: No
     description: Compare the range table or matrix must be present for all vacuum cleaners & air treatment. This is not required for personal care or lighting. As a minimum the comparison table will compare against 1 additional Dyson product.
+  - name: variantName
+    manualSelector: section.product-configurator__dropdown p.product-dropdown-select__name
