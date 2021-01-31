@@ -1,11 +1,11 @@
 singleRecord: true
 regionsSelector: null
-recordSelector: null
+recordSelector: div[data-zone-name="product-page"]
 recordXPath: null
 fields:
   - name: brand
     singleValue: false
-    xpath: //meta[@itemprop="brand"]
+    xpath: //meta[@itemprop="brand"]/@content
   - name: colour
     singleValue: false
     xpath: //div[contains(@class,"_3anUILongY")]/@data-color
@@ -17,7 +17,6 @@ fields:
     xpath: //div[@data-zone-name="image"]//img/@src
   - name: pageTitle
     singleValue: false
-    description: The categories (e.g. from breadcrumbs)
     xpath: //title
   - name: productFamily
     singleValue: false
@@ -30,9 +29,9 @@ fields:
     singleValue: false
     xpath: //a/span[contains(text(),'Отзывы')]/following::span[1]
   - name: reviewsPageOffset
-    singleValue: true
+    singleValue: false
     defaultValue: 10
   - name: sku
     singleValue: false
-    xpath: //meta[@property="og:url"]
+    xpath: //meta[@property="og:url"]/@content
     
