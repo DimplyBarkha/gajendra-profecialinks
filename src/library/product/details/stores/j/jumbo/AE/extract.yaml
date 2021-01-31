@@ -31,7 +31,7 @@ fields:
     singleValue: false
     # xpath: //div[@id="description-text"]//img/@src
     # xpath: //div[contains(@id,"description")]//img/@src
-    xpath: //div[@id="flix-inpage"]//img/@srcset
+    xpath: //div[@id="flix-inpage"]//img/@srcset | //div[contains(@id,'description-text')]/p/img/@src
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[@id="econtent"]
