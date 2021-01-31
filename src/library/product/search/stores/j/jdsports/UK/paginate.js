@@ -3,7 +3,7 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'JDSports',
-    nextLinkSelector:'a[rel=next]',
+    nextLinkSelector:null,
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,
