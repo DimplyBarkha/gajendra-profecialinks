@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -36,7 +36,7 @@ fields:
     xpath: (//div[@class='detail-options--price']//span[@class='_3Zi7dtkU2jBQ9sI3wlbCp0']/span)[1]
   - name: description
     singleValue: false
-    xpath: //div[contains(@class,'detail-navigation-section--description')]//p
+    xpath: //div[contains(@class,'detail-navigation-section--description')]//p | //div[contains(@class,'detail-navigation-section--description')]//span[not(descendant::div)]
   - name: descriptionBulletsPoints
     singleValue: false
     xpath: //div[@name="description"]//ul//li[not(descendant::span)]
@@ -119,3 +119,8 @@ fields:
   - name: privacyPolicy
     singleValue: false
     defaultValue: No
+  - name: customerServiceAvailability
+    xpath: //div[@class="footer--content"]//div[@class="service-nav service-nav__footer"]
+    regExp: (.+)
+    regExpReplace: 'Yes'
+  - name: secondaryImageTotal

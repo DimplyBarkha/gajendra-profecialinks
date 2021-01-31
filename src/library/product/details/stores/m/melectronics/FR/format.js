@@ -64,7 +64,11 @@ const transform = (data) => {
         row.nameExtended = [{ text: nameExtendedArray.join(''), xpath: row.nameExtended[0].xpath }];
       }
       if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0] && row.additionalDescBulletInfo[0].text.length > 1) {
+        let count = 0;
         const additionalDescBulletInfoArr = row.additionalDescBulletInfo.map((item) => {
+          if (((item.text || '').match(/•/g) || []).length > 0) {
+            count = ((item.text || '').match(/•/g) || []).length;
+          }
           return item.text.replace(/•/g, '||');
         });
         const uniqueDesc = new Set(additionalDescBulletInfoArr);
@@ -75,8 +79,11 @@ const transform = (data) => {
         if (descBulletsArray.length > 1) {
           descBulletsArray[0] = ' || ' + descBulletsArray[0];
         }
-        row.additionalDescBulletInfo = [{ text: descBulletsArray.join(' || '), xpath: row.additionalDescBulletInfo[0].xpath }];
-        row.descriptionBullets = [{ text: descBulletsArray.length, xpath: row.additionalDescBulletInfo[0].xpath }];
+        if (count > 0) {
+          count = count - 1;
+        }
+        row.additionalDescBulletInfo = [{ text: descBulletsArray.join(' || ').replace(/\|\|\s\|\|/g, '||'), xpath: row.additionalDescBulletInfo[0].xpath }];
+        row.descriptionBullets = [{ text: descBulletsArray.length + count, xpath: row.additionalDescBulletInfo[0].xpath }];
       }
       if (row.alternateImages) {
         const alternateImagesArr = row.alternateImages.map((item) => {
@@ -87,13 +94,14 @@ const transform = (data) => {
         uniqueAltImages.forEach((item) => {
           altImagesArray.push(item);
         });
-        row.alternateImages = [{ text: altImagesArray.join(' || '), xpath: row.alternateImages[0].xpath }];
+        row.alternateImages = [{ text: altImagesArray.join(' | '), xpath: row.alternateImages[0].xpath }];
+        row.secondaryImageTotal = [{ text: altImagesArray.length, xpath: row.alternateImages[0].xpath }];
       }
       if (row.description || row.descriptionBulletsPoints) {
         var text = '';
         if (row.description) {
           const descriptionArr = row.description.map((item) => {
-            return item.text.replace('fm-thumbnail', 'fm-lg2');
+            return item.text.replace('fm-thumbnail', 'fm-lg2').replace(/•/g, '||');
           });
           const uniqueDescription = new Set(descriptionArr);
           uniqueDescription.forEach((item) => {
@@ -102,7 +110,7 @@ const transform = (data) => {
         }
         if (row.descriptionBulletsPoints) {
           const descriptionBulletsPointsArr = row.descriptionBulletsPoints.map((item) => {
-            return item.text;
+            return item.text.replace(/•/g, '||');
           });
           const uniqueDesc = new Set(descriptionBulletsPointsArr);
           uniqueDesc.forEach((item) => {
