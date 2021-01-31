@@ -1,13 +1,18 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[contains(@class, 'search-content')]//ul[@id='productList']//li[@class='search-product ']
 fields:
-  - name: paginationUrl
+  - name: brand
+    singleValue: false
+    description: Product brand shown - this may actually NOT be just a brand name e.g. "Visit the Gillette Store"
+  - name: name
+    description: The product name
+    xpath: //a[@class='search-product-link']//div[@class='name']
+  - name: productUrl
     singleValue: false
     description: desired url to pass in chain
-    xpath: //text()
-  - name: resultsCount
-    singleValue: false
-    description: total number of results
-    xpath: ancestor::html//div[@id="my-results-count"]
+    xpath: //a[@class='search-product-link']/@href
+    regExp: >-
+      (.+)
+    regExpReplace: https://www.coupang.com$1

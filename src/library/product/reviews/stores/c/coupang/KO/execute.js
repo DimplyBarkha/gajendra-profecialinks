@@ -12,3 +12,4 @@ module.exports = {
     zipcode: '',
   },
 };
+////div[contains(@class, "sdp-review__article__no-review")]
