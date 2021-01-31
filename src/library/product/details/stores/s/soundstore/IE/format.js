@@ -80,6 +80,12 @@ const transform = (data) => {
         }
         delete row.inTheBoxUrl2;
       }
+      if (row.inTheBoxUrl3) {
+        if (!row.inTheBoxUrl) {
+          row.inTheBoxUrl = row.inTheBoxUrl3;
+        }
+        delete row.inTheBoxUrl3;
+      }
       // if (row.alternateImages) {
       //   row.alternateImages.splice(0, 1);
       //   if (row.alternateImages.length === 0) {

@@ -111,7 +111,7 @@ module.exports = {
         retrieve(urls);
         function retrieve (urls) {
           for (let i = 0; i < urls.length; i++) {
-            value.push(urls[i].getAttribute('src'));
+            value.push(urls[i].src);
           }
         }
         return value;
@@ -144,13 +144,13 @@ module.exports = {
       }, specificationText);
 
       await context.evaluate((inTheboxText) => {
-        inTheboxText = inTheboxText.join('||')
+        inTheboxText = inTheboxText.join(' || ')
         document.querySelector('body').setAttribute('added_inTheboxText', inTheboxText);
       }, inTheboxText);
 
       await context.evaluate((inTheboxUrls) => {
-        inTheboxUrls = inTheboxUrls.join('||')
-        document.querySelector('body').setAttribute('added_inTheboxUrls', inTheboxUrls);
+        inTheboxUrls = inTheboxUrls.join(' || ')
+        document.querySelector('body').setAttribute('added_inTheboxUrl', inTheboxUrls);
       }, inTheboxUrls);
     }
 
