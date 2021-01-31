@@ -64,7 +64,7 @@ fields:
     xpath: //div[@class="container"]//div[@class="film-button-container"]//@data-ean 
   - name: brandText
     singleValue: false
-    xpath: //div[@class="product-details product-details-hidden"]//span//a
+    xpath: //div[@class="product-details product-details-hidden"]//span//a | //span[contains(.,"Merk:")]/following::span[1]/a/text()
   - name: aggregateRating
     singleValue: false
     xpath: count(//div[@class="row"]/div[@class="col-xs-12 col-lg-6"]/div[@class="hidden-md-down"]/a[position() =1]/span/i[@class="fas fa-star"])
