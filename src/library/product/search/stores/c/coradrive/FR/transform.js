@@ -36,6 +36,13 @@ const transform = (data, context) => {
           item.text = item.text.replace('.', ',');
         });
       }
+      if (row.productUrl) {
+        row.productUrl.forEach((item) => {
+          if (!item.text.includes('http')) {
+            item.text = `https://www.coradrive.fr${item.text}`;
+          }
+        });
+      }
     }
   }
   context.setState({ rankCounter });

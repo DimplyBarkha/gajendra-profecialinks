@@ -22,7 +22,7 @@ fields:
       - Rotating
   - name: productUrl
     singleValue: false
-    xpath: //a[contains(@class,"picture") and @title]/@href
+    xpath: //a[contains(@class,"c-product-list-item--grid__title")]/@href
   - name: thumbnail
     singleValue: false
     xpath: //picture[contains(@class,"c-product-image__fixed-image")]/img/@src

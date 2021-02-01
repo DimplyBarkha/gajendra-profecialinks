@@ -23,7 +23,7 @@ module.exports = {
     await context.setBlockAds(false);
 
     const responseStatus = await context.goto(url, {
-      firstRequestTimeout: 60000,
+      firstRequestTimeout: 90000,
       timeout: timeout,
       waitUntil: 'load',
       checkBlocked: false,
@@ -31,20 +31,20 @@ module.exports = {
         type: 'RECAPTCHA',
       },
     });
-    try {
-      await context.waitForSelector('div[class*="popin_text_container"] a[class*="popin_link"]');
-      await context.click('div[class*="popin_text_container"] a[class*="popin_link"]');
-    } catch (error) {
-      console.log('Close pop up button not present!!');
-    }
+    // try {
+    //   await context.waitForSelector('div[class*="popin_text_container"] a[class*="popin_link"]');
+    //   await context.click('div[class*="popin_text_container"] a[class*="popin_link"]');
+    // } catch (error) {
+    //   console.log('Close pop up button not present!!');
+    // }
     console.log('Status :', responseStatus.status);
     console.log('URL :', responseStatus.url);
     const captchaFrame = 'iframe[_src*="captcha"]:not([title]), iframe[src*="captcha"]:not([title]), div.g-recaptcha';
-    try {
-      await context.waitForSelector(captchaFrame);
-    } catch (error) {
-      console.log('error: without undescore ', error);
-    }
+    // try {
+    //   await context.waitForSelector(captchaFrame);
+    // } catch (error) {
+    //   console.log('error: without undescore ', error);
+    // }
 
     console.log('captchaFrame', captchaFrame);
     const checkExistance = async (selector) => {
@@ -67,14 +67,14 @@ module.exports = {
       console.log('captcha code failed');
     }
 
-    try {
-      await context.waitForXPath('//div[@id="slides"] | //div[contains(@class,"grille")]//div[contains(@class,"col1")] ', { timeout });
-    } catch (error) {
-      console.log('error: ', error);
-    }
+    // try {
+    //   await context.waitForXPath('//div[@id="slides"] | //div[contains(@class,"grille")]//div[contains(@class,"col1")] ', { timeout });
+    // } catch (error) {
+    //   console.log('error: ', error);
+    // }
 
     try {
-      await context.waitForSelector('div[class*="popin_text_container"] a[class*="popin_link"]');
+    //   await context.waitForSelector('div[class*="popin_text_container"] a[class*="popin_link"]');
       await context.click('div[class*="popin_text_container"] a[class*="popin_link"]');
     } catch (error) {
       console.log('Close pop up button not present!!');
