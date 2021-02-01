@@ -8,21 +8,27 @@ module.exports = {
     domain: 'meijer.com',
     zipcode: '',
   },
-  implementation,
-};
-async function implementation(
-  inputs,
-  parameters,
-  context,
-  dependencies,
-) {
-  const { transform } = parameters;
-  const { productDetails } = dependencies;
-  await context.evaluate(async function () {
-    function addclass(xpathforpagination) {
-      var elems = document.querySelectorAll(xpathforpagination);
-      elems[0].classList.add('pagination');
-    }
+  implementation: async (inputs, parameters, context, dependencies) => {
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
+    await context.evaluate(async () => {
+      let scrollTop = 0;
+      while (scrollTop !== 50000) {
+        await stall(1000);
+        scrollTop += 2000;
+        window.scroll(0, scrollTop);
+        if (scrollTop === 50000) {
+          await stall(1000);
+          break;
+        }
+      }
+      function stall(ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
     function addElementToDocument(key, value) {
       const catElement = document.createElement('div');
       catElement.id = key;
@@ -46,4 +52,4 @@ async function implementation(
     addElementToDocument('pd_url', URL);
   });
   return await context.extract(productDetails, { transform });
-}
+}}

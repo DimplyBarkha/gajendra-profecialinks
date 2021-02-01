@@ -24,8 +24,8 @@ fields:
   - name: availabilityText
     singleValue: true
     xpath: //h2[@itemprop='availability']
-    regExp: (Not)
-    regExpReplace: Out of Stock
+    regExp: (In Stock)
+    regExpReplace: In Stock
     defaultValue: In Stock
   - name: description
     singleValue: false
