@@ -65,6 +65,29 @@ fields:
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//ul[contains(@class,'thumbnails')]//li[position()>1]//a//img//@src)
+  - name: caloriesPerServing
+    singleValue: false
+    xpath: //wow-product-details-nutrition-table//ul//li[contains(.,'Energy')]//following-sibling::li[2]
+  - name: totalFatPerServing
+    singleValue: false
+    xpath: //wow-product-details-nutrition-table//ul//li[contains(.,'Fat')]//following-sibling::li[2]
+  - name: saturatedfatperserving
+    singleValue: false
+    xpath: //wow-product-details-nutrition-table//ul//li[contains(.,'saturated')]//following-sibling::li[1]
+  - name: sodiumPerServing
+    singleValue: false
+    xpath: //wow-product-details-nutrition-table//ul//li[contains(.,'Sodium')]//following-sibling::li[1]
+  - name: totalCarbPerServing
+    singleValue: false
+    xpath: //wow-product-details-nutrition-table//ul//li[contains(.,'Carbohydrate')]//following-sibling::li[1]
+  - name: totalSugarsPerServing
+    singleValue: false
+    xpath: //wow-product-details-nutrition-table//ul//li[contains(.,'– sugars')]//following-sibling::li[2]
+  - name: proteinPerServing
+    singleValue: false
+    xpath: //wow-product-details-nutrition-table//ul//li[contains(.,'Protein')]//following-sibling::li[1]
+
+
 
 
 
