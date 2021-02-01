@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details',
   parameterValues: {
-    domain: 'bestwaywholesale.co.uk',
-    timeout: 50000,
     country: 'UK',
     store: 'bestwaywholesale',
+    domain: 'bestwaywholesale.co.uk',
     zipcode: '',
   },
 };

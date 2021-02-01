@@ -5,5 +5,6 @@ module.exports = {
     country: 'UK',
     store: 'bestwaywholesale',
     domain: 'bestwaywholesale.co.uk',
+    zipcode: '',
   },
 };

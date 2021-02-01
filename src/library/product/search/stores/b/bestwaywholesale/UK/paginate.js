@@ -7,7 +7,10 @@ module.exports = {
     nextLinkSelector: 'ul > li.next',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'ul#shop-products > li',
+    loadedSelector: 'ul#shop-products > li > div > p.prodprice',
+    noResultsXPath: '//div[contains(@class,"no-search-results")]',
+    openSearchDefinition: null,
     domain: 'bestwaywholesale.co.uk',
+    zipcode: '',
   },
 };
