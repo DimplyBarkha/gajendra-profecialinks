@@ -12,7 +12,7 @@ fields:
   - name: imageAlt
     xpath: //div[@id="carousel"]/div[1]/img/@alt
   - name: category
-    xpath: //div[@class="_3moNK"]//a[contains(@class,'rippleEffect')][position()>1]/text() |//div[@class="_3moNK"]//span[contains(@class,'rippleEffect')] | //div[@class="_28KVX"]//a[contains(@class,'rippleEffect')][position()>1]/text()
+    xpath: //div[@class="_3moNK"]//a[contains(@class,'rippleEffect')][position()>1 and position()<=last()]/text() |//div[@class="_28KVX"]//a[contains(@class,'rippleEffect')][position()>1 and position()<=last()]/text()
   - name: name
     xpath: //h1
   - name: nameExtended
@@ -37,7 +37,7 @@ fields:
     regExp: :\s(.+)
     regExpReplace: $1
   - name: description
-    xpath: //span[contains(text(),"About")]/parent::div/following-sibling::div[1] | //span[contains(text(),"Features")]/parent::div/following-sibling::div[1]//ul/li | //span[contains(text(),"FEATURES")]/parent::div/following-sibling::div[1] | //span[contains(text(),"Features")]/parent::div/following-sibling::div[1]//p | //span[contains(text(),"How to Use")]/parent::div/following-sibling::div[1]
+    xpath: //span[contains(text(),"About")]/parent::div/following-sibling::div[1] | //span[contains(text(),"Features")]/parent::div/following-sibling::div[1]//ul/li | //span[contains(text(),"FEATURES")]/parent::div/following-sibling::div[1] | //span[contains(text(),"Features")]/parent::div/following-sibling::div[1]//p
   - name: variantId
     xpath: //link[@rel="canonical"]/@href
     regExp: (\/)([0-9-\d?]+)
@@ -49,7 +49,7 @@ fields:
   - name: variantInformation
     xpath: //h1/@size
   - name: variantCount
-    xpath: count(//div[@class="_1LiCn"]/div[position()>1])
+    xpath: count(//div[@class="_1LiCn"]/div)
   - name: variants
     xpath: //h1/@variants
   - name: secondaryImageTotal
@@ -96,8 +96,14 @@ fields:
   - name: technicalInformationPdfPresent
     defaultValue: No
   - name: termsAndConditions
+    xpath: //div[@class="zc0T4"]//ul/li/a[contains(text(),"Terms")]
+    regExp: (.+)
+    regExpReplace: Yes
     defaultValue: No
   - name: privacyPolicy
+    xpath: //div[@class="zc0T4"]//ul/li/a[contains(text(),"Privacy Policy")]
+    regExp: (.+)
+    regExpReplace: Yes
     defaultValue: No
   - name: customerServiceAvailability
     defaultValue: No
