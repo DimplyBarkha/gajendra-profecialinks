@@ -5,7 +5,7 @@ module.exports = {
         store: 'plus',
         domain: 'plus.nl',
         loadedSelector: '.ish-productList-item img',
-        noResultsXPath: '//*[@class="ish-search-noResults-title"]',
+        noResultsXPath: '//*[@class="ish-search-noResults-block"]',
         zipcode: '',
     },
 };
