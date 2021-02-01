@@ -4,7 +4,8 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'walmartToGo',
-    domain: 'grocery.walmart.com',
+    // domain: 'grocery.walmart.com',
+    domain: 'walmarttogo.api',
     zipcode: '',
   },
 };
