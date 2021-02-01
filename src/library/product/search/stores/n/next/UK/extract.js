@@ -20,18 +20,24 @@ async function implementation (
       document.querySelector('div[class="CookieConsentCross"]').click();
     }
   });
-
   await context.evaluate(async function () {
-    const productsAmount = parseInt(document.querySelector('input[id="hiddenVerticalFilterResultCount"]').value);
+    // const productsAmount = parseInt(document.querySelector('input[id="hiddenVerticalFilterResultCount"]').value);
     // scroll the page
-    for (let i = 0; i <= 7; i++) {
-      window.scrollTo({ top: (document.body.scrollHeight) - 1500, behavior: 'smooth' });
-      await new Promise((resolve, reject) => setTimeout(resolve, 2000));
-      const elements = document.querySelectorAll('article[class="Item Fashion  "]').length;
+    for (let i = 0; i <= 6; i++) {
+      const elements = document.querySelectorAll('article[class="Item Fashion  "]');
+      const id = document.querySelectorAll('article[class="Item Fashion  "]').length - 1;
+      elements[id].scrollIntoView();
+      console.log(id);
+      console.log('scrolled', document.body.scrollHeight);
+      // console.log(document.querySelectorAll('article[class="Item Fashion  "]').length);
+      await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+      // window.scrollBy(0, 5000);
+      // window.scrollTo({ top: (document.body.scrollHeight) - 1500, behavior: 'smooth' });
+      // const elements = document.querySelectorAll('article[class="Item Fashion  "]').length;
       // const productsAmount = parseInt(document.querySelector('div[id="total-results-count"]').innerText.replace(' Products', ''));
-      if (elements >= 150 || elements === productsAmount) {
-        break;
-      }
+      // if (elements >= 150 || elements === productsAmount) {
+      //   break;
+      // }
     }
   });
   var data = await context.extract(productDetails, { transform });
