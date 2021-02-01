@@ -32,7 +32,7 @@ const transform = (data, context) => {
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
-      if(row.thumbnail){
+      /*if(row.thumbnail){
         row.thumbnail.forEach(item=>{
             item.text="https://www.sephora.com"+item.text;
         })
@@ -74,6 +74,22 @@ const transform = (data, context) => {
           row.aggregateRating.forEach(item=>{
               item.text=item.text.replace(' stars','');
           })
+      }*/
+      let tmpObj;
+      if(row.thumbnail){
+        let tmpObj;
+        row.thumbnail.forEach(item=>{
+          tmpObj=JSON.parse(item.text);
+          //console.log('tmpObj :',tmpObj);
+          item.text="https://www.sephora.com"+tmpObj.image250;
+        })
+        row.productUrl=[{"text":"https://www.sephora.com"+tmpObj.targetUrl}];
+        row.id=[{"text":tmpObj.skuId}];
+        row.price=[{"text":tmpObj.listPrice}];
+        row.name=[{"text":tmpObj.productName}];
+        row.aggregateRating=[{"text":parseFloat(tmpObj.rating).toFixed(1).toString()}];
+        row.reviewCount=[{"text":tmpObj.reviews}];
+        row.ratingCount=[{"text":tmpObj.reviews}];
       }
     }
   }
