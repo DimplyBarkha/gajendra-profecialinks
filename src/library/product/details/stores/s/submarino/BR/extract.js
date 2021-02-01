@@ -77,7 +77,7 @@ module.exports = {
       try {
         const productObject = window.__PRELOADED_STATE__;
         addElementToDocument('product_sku', productObject.product.skus[0]);
-        addElementToDocument('product_description', productObject.description.content.trim().replace(/&lt;|\/?(br.?.?)?(p)?&gt;?/g, ''));
+        addElementToDocument('product_description', productObject.description.content.trim().replace(/&lt;|\/?(br.?.?)?p?b?&gt;?/g, ''));
       } catch (e) {
         console.log('error: ', e);
       }
