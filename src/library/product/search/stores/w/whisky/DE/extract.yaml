@@ -8,7 +8,7 @@ fields:
     xpath: //div[@class="article-left article-thumbnail"]/a/@href
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //div[@class="article-left article-thumbnail"]/a/img/@src
+    xpath: //div[@class="article-left article-thumbnail"]/a/img/@data-src
   - name: name
     type: TEXT
     xpath: //div[@class="article-left article-thumbnail"]/a/img/@alt
@@ -25,4 +25,4 @@ fields:
   - name: price
     type: CURRENCY
     description: The offered price for the product
-    xpath: //span[@class="article-price-default article-club-hidden"]
+    xpath: //span[@class="article-price-default article-club-hidden"]//text()
