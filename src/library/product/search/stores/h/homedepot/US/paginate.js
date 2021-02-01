@@ -9,10 +9,10 @@ module.exports = {
     //nextPageUrlSelector: 'a[aria-label="Next"]',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'img[class="stretchy"]',
+    loadedSelector: 'img[class="stretchy"],div[class="product-details"]>div>span[class="product-title"] > h1',
     //loadedSelector: 'div.results-wrapped',
-    stopConditionSelectorOrXpath: null,
-    //stopConditionSelectorOrXpath: '//div[@class="product-details"]/div/span[@class="product-title"]/h1',
+    // stopConditionSelectorOrXpath: null,
+    stopConditionSelectorOrXpath: '//div[@class="product-details"]/div/span[@class="product-title"]/h1',
     noResultsXPath: null,
     //openSearchDefinition: null,
     openSearchDefinition: {
