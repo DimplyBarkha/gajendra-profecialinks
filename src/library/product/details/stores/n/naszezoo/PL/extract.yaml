@@ -5,16 +5,17 @@ recordXPath: null
 fields:
   - name: image      
     singleValue: false
-    xpath:  //li[@class="productdetailsminigalleryimgsize"][position()=1]/a/@href | //div[@class="mainimg"]/a/@href
-    regExp: (.+)
-    regExpReplace: https://www.naszezoo.pl$1
+    xpath: //meta[@name="og:image"]/@content
+    # xpath:  //li[@class="productdetailsminigalleryimgsize"][position()=1]/a/@href | //div[@class="mainimg"]/a/@href
+    # regExp: (.+)
+    # regExpReplace: https://www.naszezoo.pl$1
   - name: imageAlt
     singleValue: false
     xpath: //li[@class="productdetailsminigalleryimgsize"]/a/@title
   - name: alternateImages
     singleValue: false
     # xpath: //a[@class="gallery current"]/@href
-    xpath:  //li[@class="productdetailsminigalleryimgsize"][position()>1]/a/@href
+    xpath:  //div[@class="innersmallgallery"]/ul/li[position()>1]/a/img/@src
     regExp: (.+)
     regExpReplace: https://www.naszezoo.pl$1
   - name: metaKeywords

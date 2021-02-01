@@ -11,7 +11,7 @@ async function implementation (
   var variantLength = await context.evaluate(async () => {
     return (document.querySelectorAll('td.select.option_select.option_truestock.option_required select option[value]')) ? document.querySelectorAll('td.select.option_select.option_truestock.option_required select option[value]').length : 0;
   });
-  console.log("variantLength:: ", variantLength);
+  console.log('variantLength:: ', variantLength);
   if (variantLength > 1) {
     for (let j = 0; j < variantLength; j++) {
       await context.evaluate(async (j) => {
@@ -22,6 +22,13 @@ async function implementation (
       // await preparePage(j, variantLength);
       if (j !== variantLength - 1) { await context.extract(productDetails, { transform }, { type: 'APPEND' }); }
     }
+  }
+  try {
+    await context.waitForSelector('div.price-del del');
+    // await context.click('div.modal-footer>a.btn-success')
+    // await context.click('div.modal-footer > button')
+  } catch (error) {
+    console.log('listprice up not loded', error);
   }
   return await context.extract(productDetails, { transform });
 }
@@ -35,5 +42,5 @@ module.exports = {
     domain: 'naszezoo.pl',
     zipcode: '',
   },
-  // implementation,
+  implementation,
 };
