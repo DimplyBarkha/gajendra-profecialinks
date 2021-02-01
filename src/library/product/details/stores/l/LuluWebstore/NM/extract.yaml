@@ -273,7 +273,7 @@ fields:
     singleValue: true
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
-    xpath: //div[contains(@class,'pd-features-section')]//div[@class='features-ul']//p/text()[contains(.,'Ingredients')]//..//following-sibling::p/text()[normalize-space(.) and normalize-space(translate(/,'&#10;', '')) and normalize-space(translate(/,'&#09;', ''))]
+    xpath: //html//div[@id='Ingredientlist']
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
