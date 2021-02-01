@@ -8,7 +8,54 @@ module.exports = {
     domain: "lider.cl",
     zipcode: "",
   },
-  // implementation: async (
+  implementation: async (inputs, parameters, context, dependencies) => {
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
+    await context.evaluate(() => {
+      const getAllXpath = (xpath, prop) => {
+        const nodeSet = document.evaluate(
+          xpath,
+          document,
+          null,
+          XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
+          null
+        );
+        const result = [];
+        for (let index = 0; index < nodeSet.snapshotLength; index++) {
+          const element = nodeSet.snapshotItem(index);
+          if (element) result.push(prop ? element[prop] : element.nodeValue);
+        }
+        return result;
+      };
+      function addHiddenDiv1(id, content, index) {
+        const newDiv = document.createElement("div");
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = "none";
+        const originalDiv = document.querySelectorAll('div[id="productPrice"]')[index];
+        originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+      }
+      var price = getAllXpath("//p[@class='price']/text()","nodeValue");
+      if (price != null) {
+        for (var i = 0; i < price.length; i++) {
+          var price1 = price[i].replace("." , ",");
+          addHiddenDiv1("price", price1, i);
+        }
+      }
+      var hprice = getAllXpath("//p[@itemprop='highPrice']/text()","nodeValue");
+      if (hprice != null) {
+        for (var i = 0; i < hprice.length; i++) {
+          var price2 = hprice[i].replace("." , ",");
+          price2=price2.replace("Normal:", "")
+          addHiddenDiv1("hprice", price2, i);
+        }
+      }
+    });
+    return await context.extract(productDetails, { transform });
+  },
+};
+
+// implementation: async (
   //   { inputstring },
   //   { country, domain },
   //   context,
@@ -58,4 +105,3 @@ module.exports = {
   //   });
   //   await context.extract(productDetails);
   // },
-};
