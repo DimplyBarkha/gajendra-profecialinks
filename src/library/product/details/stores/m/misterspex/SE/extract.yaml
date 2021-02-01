@@ -23,10 +23,11 @@ fields:
     xpath: //div[contains(@class,'grid breadcrumb noFloat')]//ol//li[not(contains(@class,'home')) and not(contains(position(),last()))]//a
   - name: sku
     singleValue: false
-    xpath: //div[@class="spex-card__content"]//input[@name="LenseConfiguration_MasterSKU"]/@value
-  - name: variantId
-    singleValue: false
-    xpath: //div[@class="spex-card__content"]//input[@name="LenseConfiguration_MasterSKU"]/@value
+#     xpath: //div[@class="spex-card__content"]//input[@name="LenseConfiguration_MasterSKU"]/@value
+    xpath: //input[@name='LenseConfiguration_SKU']/@value
+#   - name: variantId
+#     singleValue: false
+#     xpath: //div[@class="spex-card__content"]//input[@name="LenseConfiguration_MasterSKU"]/@value
   - name: price
     singleValue: false
     xpath: //span[@class="spex-selectionInput__priceArea"]//span[@class="spex-selectionInput__price"]
