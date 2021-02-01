@@ -32,9 +32,11 @@ fields:
   description: The categories (e.g. from breadcrumbs)
   xpath: //div[@itemprop="breadcrumb"]//a[not(contains(@class,'main'))]//span//text()
 - name: listPrice
+  type: CURRENCY
   description: The stated undiscounted price for the product
   xpath: //div[@class="wide-6 productInformations offerDetails"]//dd[@class="listPrice"]
 - name: price
+  type: CURRENCY
   description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   xpath: //dl[@class="productPrice"]//dd[@class="yourPrice price" or @class="yourPrice"]
@@ -45,15 +47,16 @@ fields:
   regExp: in_stock
   regExpReplace: In Stock
 - name: description
+  type: TEXT[]
   singleValue: false 
   description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-  xpath: //dd[@class="productLongDescription"]//text()
+  xpath: //div[@class="nano-content"]//div[@itemprop="description"]//dd
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
   type: NUMBER
-  xpath: count(//dd[@class="productLongDescription"]//ul//li)
+  xpath: count(//div[@itemprop="description"]//ul//li)
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name,
@@ -101,8 +104,9 @@ fields:
   xpath: //div[@class='lmivDisclaimer']
 - name: directions
   singleValue: false
+  type: TEXT
   description: Content under "directions" header
-  xpath: //dd[@class="productContraindication" or @class="productDosage"]//text()
+  xpath: //dd[@class="productContraindication" or @class="productDosage"]
 - name: warnings
   singleValue: true
   description: Content under "warnings" header
@@ -118,7 +122,9 @@ fields:
   singleValue: false
 - name: manufacturerDescription
   singleValue: false
-  xpath: //dd[@class="productLongDescription"]//text()
+  type: TEXT
+  # xpath: //dd[@class="productLongDescription"]
+  xpath: //dd[@class="productLongDescription"]//following-sibling::dt//following-sibling::dd
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
@@ -486,7 +492,7 @@ fields:
   singleValue: false
   description: null
   type: TEXT[]
-  xpath: //dd[@class="productLongDescription"]//ul//li//text()
+  xpath: //div[@itemprop="description"]//ul//li
 - name: prop65Warning
   singleValue: true
   description: null
