@@ -9,7 +9,7 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
-    const timeout = parameters.timeout ? parameters.timeout : 1000000;
+    const timeout = parameters.timeout ? parameters.timeout : 100000;
     await context.setAntiFingerprint(false);
     await context.setLoadAllResources(true);
     await context.setBlockAds(false);

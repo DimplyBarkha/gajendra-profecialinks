@@ -10,8 +10,8 @@ async function implementation (
   const { keywords } = inputs;
   try {
     await new Promise(resolve => setTimeout(resolve, 5000));
-    await context.waitForXPath("//*[@id='dijit__WidgetBase_1]", {}, { timeout: 100000 });
-    await context.waitForSelector('#dijit__WidgetBase_1', {}, { timeout: 200000 });
+  //  await context.waitForXPath("//*[@id='dijit__WidgetBase_1]", {}, { timeout: 100000 });
+    await context.waitForSelector('#dijit__WidgetBase_1', {}, { timeout: 10000 });
   } catch (error) {
     console.log(error);
   }
