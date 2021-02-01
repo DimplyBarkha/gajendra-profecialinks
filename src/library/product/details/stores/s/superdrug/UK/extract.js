@@ -107,8 +107,8 @@ async function implementation(inputs, parameters, context, dependencies) {
     if (pricePerUnit && pricePerUnit.match(/per\s?(.+)/)) addElementToDocument('added-price-uom', pricePerUnit.match(/per\s?(.+)/)[1]);
     const availability = document.querySelector('span[itemprop=availability]') ? document.querySelector('span[itemprop=availability]').textContent : '';
     if (availability === 'outOfStock') {
-      addElementToDocument('added-availability', 'Out of Stock')
-    } else if (availability !== 'outOfStock') {
+      addElementToDocument('added-availability', 'Out Of Stock')
+    } else if (availability === 'inStock' || availability === 'lowStock') {
       addElementToDocument('added-availability', 'In Stock')
     }
 
