@@ -23,14 +23,12 @@ fields:
     xpath: //wow-product-details-panel//shared-price//div[contains(@class,'price price--large')]//text()
   - name: availabilityText
     singleValue: false
-    xpath: //wow-product-details-panel//div[contains(@class,'cartControls')]//button[contains(@class,'cartControls-addButton')]
-    defaultValue: "In Stock"
+    xpath: boolean(//div[contains(@class,'cartControls')]//button[contains(@class,'cartControls-addButton')])
   - name: description
     singleValue: false
     xpath: //h2[text()='Product Details']/following-sibling::wow-view-more//div[contains(@class,'viewMore-')]//div//text()
   - name: variantCount
     singleValue: false
-    defaultValue: 0    
   - name: ratingCount
     sinngleValue: false
     xpath: //div[@class='ng-star-inserted']//script[@type='application/ld+json']
@@ -64,3 +62,10 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: false
     defaultValue: "Yes"
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//ul[contains(@class,'thumbnails')]//li[position()>1]//a//img//@src)
+
+
+
+

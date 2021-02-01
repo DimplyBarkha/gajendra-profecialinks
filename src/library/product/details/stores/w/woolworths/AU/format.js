@@ -21,10 +21,11 @@ const transform = (data) => {
             el.text = clean(el.text);
         }))));
         return data;
-    };    
+    };
 
     for (const { group } of data) {
-        for (let row of group) { 
+      console.log("hi format")
+        for (let row of group) {
 
             if (row.sku) {
                 row.sku.forEach(item => {
@@ -35,17 +36,17 @@ const transform = (data) => {
                     }
                   }else{
                     item.text = "";
-                  }           
+                  }
                 });
-            } 
+            }
 
             if (row.variantId) {
                 let variId = [];
                 row.variantId.forEach(item => {
                     variId =  /[^/]*$/.exec(item.text)[0].split(".");
-                    item.text = "" + variId[0];          
+                    item.text = "" + variId[0];
                 });
-            }  
+            }
 
             if (row.description) {
               let info = [];
@@ -86,7 +87,7 @@ const transform = (data) => {
                     item.text = "";
                   }
                 });
-            } 
+            }
 
             if (row.ratingCount) {
                 row.ratingCount.forEach(item => {
@@ -97,9 +98,9 @@ const transform = (data) => {
                     }
                   }else{
                     item.text = "";
-                  }          
+                  }
                 });
-            }  
+            }
             if (row.gtin) {
                 row.gtin.forEach(item => {
                   let data = JSON.parse(item.text);
@@ -109,7 +110,7 @@ const transform = (data) => {
                     }
                   }else{
                     item.text = "";
-                  }       
+                  }
                 });
             }
             if (row.brandText) {
@@ -121,7 +122,7 @@ const transform = (data) => {
                     }
                   }else{
                     item.text = "";
-                  }       
+                  }
                 });
             }
             if (row.price) {
@@ -130,19 +131,20 @@ const transform = (data) => {
                 info.push(item.text);
               });
               row.price = [{'text':info.join(''),'xpath':row.price[0].xpath}];
-            } 
-            if (row.availabilityText) {          
+            }
+            if (row.availabilityText) {
               row.availabilityText.forEach(item => {
-                 if(item.text.trim().includes("Add to cart")){
+                console.log("check",item.text);
+                 if(item.text == 'true'){
                     item.text = "In Stock";
-                 }else if(item.text.trim().includes("Unavailable")){
+                 }else {
                     item.text = "Out of Stock";
                  }
-              });      
+              });
             }
         }
     }
     return cleanUp(data);
   };
-  
+
   module.exports = { transform };
