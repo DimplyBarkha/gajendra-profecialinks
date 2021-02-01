@@ -115,7 +115,7 @@ async function implementation(
     //nameExtended ( product description )
     var first = getXpath('//span[@class="brand-name"]/a/text()', 'nodeValue');
     var second = getXpath('//span[@class="product-name product-name-bold"]/text()', 'nodeValue');
-    
+    var third = getXpath('//span[@class="product-name"]/text()', 'nodeValue');
     // var third = getXpath('//div[@class="description-container"]/span[@class="more-ellipses"]/text()', 'nodeValue');
     // var fourth = getXpath('//div[@class="description-container"]/a/text()', 'nodeValue');
     // var final = first+"\n"+second+" "+third+"\n"+fourth;
@@ -123,6 +123,9 @@ async function implementation(
     {
       if(second != null){
         var final = first+" "+second;
+        if(third != null){
+          final = final + " - "+ third;
+        }
         addElementToDocument('nameExt', final);
       }
     }
@@ -130,7 +133,7 @@ async function implementation(
     //price
     var price = getXpath('(//div[@class="product-price  st-price "]/span/span)[1]/text() | (//span[@class="price-sales "]/span/text())[1]', 'nodeValue');
     if ( price != null){
-      price = price.replace(",",".");
+      // price = price.replace(",",".");
       addElementToDocument('price', price);
     }
 
@@ -145,6 +148,17 @@ async function implementation(
         manu = manu + manu_des[i];
       }
       addElementToDocument('manu', manu);
+    }
+
+    //availabilityText
+    var aval = getXpath("//span[contains(@class,'availability-status')]", 'nodeValue');
+    if(aval != null){
+      if(aval.includes("Verfügbar")){
+        aval = "In Stockk";
+      }else{
+        aval = "Out Of Stock"
+      }
+      addElementToDocument('aval', aval);
     }
 
   });

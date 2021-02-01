@@ -67,8 +67,8 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //span[contains(@class,'availability-status')]
-    defaultValue: Out of Stock
+    xpath: //html//div[@id="aval"]
+    defaultValue: Out Of Stock
   - name: coupon
     singleValue: true
     xpath: //html//div[@id='altImages']
@@ -115,7 +115,8 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //span[@id="masterid"]/@data-masterid
+    xpath: //div[@data-bv-show="rating_summary"]/@data-bv-productid
+      # //span[@id="masterid"]/@data-masterid
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
@@ -263,6 +264,7 @@ fields:
     singleValue: true
     description: null
     type: NUMBER
+    xpath: count(//div[@class="product-top-content"]//div[@id="thumbnails"]//div[@class="owl-stage-outer"]/div/div[position()>1]/li[@class="thumb"])
   - name: news
     singleValue: true
     description: null
