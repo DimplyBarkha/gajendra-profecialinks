@@ -11,7 +11,7 @@ module.exports = {
     spinnerSelector: null,
     loadedSelector: null,
     loadedXpath: null,
-    noResultsXPath: '//h2[contains(text(),"Nous n’avons malheureusement pas trouvé de résultat pour votre recherche. Peut-être pouvez-vous essayer ainsi:")]',
+    noResultsXPath: '//div[@class="cms-no-result-label"]',
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
     openSearchDefinition: null,
