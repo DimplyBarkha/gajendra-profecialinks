@@ -2,9 +2,9 @@
 module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
-    domain: 'fnac.es',
+    domain: 'fnac.com',
     timeout: 60000,
-    country: 'ES',
+    country: 'FR',
     store: 'fnac',
     zipcode: '',
   },
@@ -108,6 +108,14 @@ module.exports = {
       }
     };
 
+    const checkPageLoaded = async () => {
+      try {
+        await context.waitForSelector('div[class~="f-productVisuals-mainIcon"] img', { timeout: 60000 });
+      } catch (e) {
+        console.log('No details page');
+      }
+    };
+
     const isHardBlocked = async (hardBlockedParam) => {
       return await context.evaluateInFrame('iframe', (hardBlockedParam) => {
         const { txtBlocked, cssBlockedTxtContainer } = hardBlockedParam;
@@ -139,7 +147,7 @@ module.exports = {
           return context.reportBlocked(statusCode, 'Hard Blocked');
           // throw new Error('Hard blocked')
         };
-
+        
         await solveCaptchIfNecessary(cssCaptcha); // if not hard blocked
 
         try {
@@ -148,6 +156,7 @@ module.exports = {
           console.log(error);
         }
       }
+      await checkPageLoaded();
     };
 
     await run();

@@ -1,8 +1,8 @@
 /**
-*
-* @param {ImportIO.Group[]} data
-* @returns {ImportIO.Group[]}
-*/
+ *
+ * @param {ImportIO.Group[]} data
+ * @returns {ImportIO.Group[]}
+ */
 const transform = (data) => {
   const cleanUp = text => text.toString()
     .replace(/\r\n|\r|\n/g, ' ')
@@ -10,76 +10,67 @@ const transform = (data) => {
     .replace(/&amp;#160/g, ' ')
     .replace(/\u00A0/g, ' ')
     .replace(/\s{2,}/g, ' ')
-    .replace(/'\s{1,}/g, '"')
-    .replace(/\s{1,}'/g, '"')
+    .replace(/"\s{1,}/g, '"')
+    .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
-    // eslint-disable-next-line no-control-regex
+  // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
-  for (const { group } of data) {
+
+  for (const { group }
+    of data) {
     for (const row of group) {
-      if (row.aggregateRating) {
-        row.aggregateRating.forEach(aggregateRatingItem => {
-          aggregateRatingItem.text = aggregateRatingItem.text.replace('/', '.');
-        });
-      }
       if (row.description) {
-        row.description.forEach(item => {
-          item.text = cleanUp(item.text);
-        });
+        console.log('#########Checking transform#########');
+        row.description[0].text = cleanUp(row.description[0].text);
       }
-      if (row.name && row.brandText) {
-        row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.name[0].text }];
-      }
-      if (row.listPrice) {
-        row.listPrice.forEach(item => {
-          // item.text = item.text.replace(/^(\d+)(.*?)(\d+)/, '$2$1,$3');
-          item.text = item.text.replace('€', ',');
-        });
-      }
-      if (row.price) {
-        row.price.forEach(item => {
-          // item.text = item.text.replace(/^(\d+)(.*?)(\d+)/, '$2$1,$3');
-          item.text = item.text.replace('€', ',');
-        });
-      }
-      if (row.description) {
-        row.description.forEach(descriptionItem => {
-          descriptionItem.text = cleanUp(descriptionItem.text);
-        });
-      }
-      if (row.additionalDescBulletInfo) {
-        row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.replace(/(\n\s*){1,}/g, ' || ');
-        row.additionalDescBulletInfo[0].text = cleanUp(row.additionalDescBulletInfo[0].text);
-      }
-      if (row.availabilityText) {
-        row.availabilityText.forEach(availabilityTextItem => {
-          if (availabilityTextItem.text.toLowerCase().includes('en stock')) {
-            availabilityTextItem.text = 'In Stock';
-          } else {
-            availabilityTextItem.text = 'Out Of Stock';
-          }
-        });
-      }
-      if (row.descriptionBullets) {
-        row.descriptionBullets.forEach((descriptionBulletsItem) => {
-          if (
-            descriptionBulletsItem.text === 0 ||
-            descriptionBulletsItem.text === '0'
-          ) {
-            descriptionBulletsItem.text = '';
-          }
-        });
-      }
-      if (row.warranty) {
-        row.warranty.forEach(warrantyItem => {
-          warrantyItem.text = warrantyItem.text.replace('Garantie', '').trim();
-        });
-      }
+
       if (row.specifications) {
-        row.specifications[0].text = cleanUp(row.specifications[0].text
-          .replace(/(\n\s*){4,}/g, ' || ')
-          .replace(/(\n\s*){2,}/g, ' : '));
+        row.specifications = row.specifications.map((specification) => {
+          return { text: specification.text.replace(/(\n\s*){5,}/g, ' || ').replace(/(\n\s*){4,}/g, ' || ').replace(/(\n\s*){3,}/g, ' : ').replace(/(\n\s*){1,}/g, ' : ') };
+        });
+      }
+
+      if (row.imageZoomFeaturePresent) {
+        row.imageZoomFeaturePresent[0].text = 'Yes';
+      } else {
+        row.imageZoomFeaturePresent[0].text = 'No';
+      }
+
+      /* if (row.brandText && row.name) {
+        if (row.name[0].text.split(' ')[0] !== row.brandText[0].text) {
+          // row.nameExtended[0].text = row.brandText[0].text + ' - ' + row.name[0].text;
+          row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.name[0].text }];
+        }
+      } */
+
+      if (!row.brandText) {
+        row.brandText = [{ text: row.name[0].text.split(' ')[0] }];
+      }
+
+      if (row.mpc) {
+        row.mpc[0].text = row.mpc[0].text.trim();
+      }
+
+      if (row.attributes) {
+        row.attributes.forEach(elm => { elm.text = elm.text.replace(/[\n\s]+/, ' : '); });
+      }
+      if (row.videos) {
+        const videos = Array.from(new Set(row.videos.map(elm => elm.text.trim())));
+        row.videos = videos.map(text => ({ text }));
+      }
+      if (row.discount) {
+        const discount = row.discount[0].text;
+        const price = row.price[0].text;
+        const listPrice = row.listPrice[0].text;
+        row.promotion = [{ text: `Antes ${listPrice.trim()} ahora ${price.trim()}, Oportunidad ${discount.trim()}` }];
+      }
+      Object.keys(row).forEach(header => row[header].forEach(el => {
+        el.text = el.text ? cleanUp(el.text) : el.text;
+      }));
+      if (row.description) {
+        row.productDescriptionLength = [{ text: row.description[0].text.length }];
+        row.productDescriptionWordCount = [{ text: row.description[0].text.split(' ').length }];
       }
     }
   }
