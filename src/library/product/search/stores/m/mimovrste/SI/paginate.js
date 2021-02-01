@@ -9,7 +9,7 @@ module.exports = {
     spinnerSelector: null,
     loadedSelector: null,
     noResultsXPath: null,
-    stopConditionSelectorOrXpath: 'button[class="nav-pagin-item--next"]',
+    stopConditionSelectorOrXpath: 'button.nav-pagin-item--next',
     openSearchDefinition: {
       template: 'https://www.mimovrste.com/iskanje?page={page}&s={searchTerms}',
     },

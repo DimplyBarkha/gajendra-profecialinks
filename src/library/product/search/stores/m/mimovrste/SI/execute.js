@@ -7,7 +7,7 @@ module.exports = {
     domain: 'mimovrste.com',
     url: 'https://www.mimovrste.com/iskanje?s={searchTerms}',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: null, // '//div[@class="msg msg--indent-medium msg--warning"]',
     zipcode: '',
   },
 };
