@@ -12,16 +12,23 @@ async function implementation (
   await new Promise((resolve) => setTimeout(resolve, 2000));
   await context.evaluate(async () => {
     const popUp = document.querySelector('div.fancybox-skin');
+    const window = document.querySelector('div[class*="QSIWebResponsiveDialog-Layout1-SI_9WvVJ37XGlhRADb_content"]');
     if (popUp) popUp.remove();
+    if (window) window.remove();
   });
-
   await context.evaluate(async () => {
     for (let i = 0; i <= document.body.scrollHeight; i = i + 500) {
       window.scroll(0, i);
       await new Promise((resolve) => setTimeout(resolve, 1000));
     }
   });
-  return await context.extract(productDetails, { transform });
+  const data = await context.extract(productDetails, { transform });
+  for (let i = 0; i < data[0].group.length; i++) {
+    if ('aggregateRating2' in data[0].group[i]) {
+      data[0].group[i].aggregateRating2[0].text = data[0].group[i].aggregateRating2[0].text.split(' ')[0];
+    }
+  }
+  return data;
 }
 
 module.exports = {
