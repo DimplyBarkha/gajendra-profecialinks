@@ -63,7 +63,7 @@ fields:
   # xpath: //a[@class="px_pdp_brand_click"]//text()
 - name: quantity
   description: Quantity as described on the page
-  xpath: //dt[normalize-space(text())='Inhoud']/following-sibling::dd[1]
+  xpath: //div[@id="added_quantity"]
 - name: weightNet
   description: Net weight as described on the page
   xpath: //div[@id='weight_net']
