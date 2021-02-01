@@ -9,11 +9,15 @@ fields:
 - name: image
   singleValue: true
   description: URL of the main product image
-  xpath: //meta[@property="og:image"]/@content
+  # xpath: //meta[@property="og:image"]/@content
+  xpath: //div[@class="photo "]//img[@itemprop="image"]/@src
+  regExp: (.+)
+  regExpReplace: https://www.medikamente-per-klick.de$1
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
-  xpath: //div[@class="boxProductDetail"]//h1[@itemprop="name"]//text()
+  # xpath: //div[@class="boxProductDetail"]//h1[@itemprop="name"]//text()
+  xpath: //img[@name="mainImage"]/@alt
 - name: alternateImages
   type: FILE[]
   singleValue: false
@@ -34,12 +38,13 @@ fields:
 - name: listPrice
   type: CURRENCY
   description: The stated undiscounted price for the product
-  xpath: //div[@class="wide-6 productInformations offerDetails"]//dd[@class="listPrice"]
+  xpath: //dl[@class="productPrice"]//dd[@class="listPrice"]//text()
+  # xpath: //div[@id="ii_listPrice"]
 - name: price
   type: CURRENCY
   description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-  xpath: //dl[@class="productPrice"]//dd[@class="yourPrice price" or @class="yourPrice"]
+  xpath: //dl[@class="productPrice"]//dd[@class="yourPrice price" or @class="yourPrice"]//text()
 - name: availabilityText
   singleValue: true
   xpath: //div[@class='wide-6 productInformations offerDetails']//dl[@class="productAvailability"]//span[@class="value-title"]/@title
@@ -47,11 +52,12 @@ fields:
   regExp: in_stock
   regExpReplace: In Stock
 - name: description
-  type: TEXT[]
+  # type: TEXT[]
   singleValue: false 
   description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-  xpath: //div[@class="nano-content"]//div[@itemprop="description"]//dd
+  # xpath: //div[@class="nano-content"]//div[@itemprop="description"]//dd
+  xpath: //div[@id="ii_desc"]
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -79,7 +85,7 @@ fields:
 - name: gtin
   singleValue: true
   description: GTIN code (includes UPC/EAN)
-  xpath: //div[@class="nano"]//input[@name="productId"]/@value
+  xpath: //div[@class="addToCartForm"]//input[@name="product_id"]/@value | //div[@id="ii_gtin"]
 - name: sku
   singleValue: true
   description: The store-specific product identifier
@@ -88,7 +94,7 @@ fields:
 - name: variantId
   singleValue: true
   # xpath: //div[@class="wide-6 productInformations offerDetails"]//dd[@itemprop="productID"]//text()
-  xpath: (//dl[@class="productInfos"]//dd[@itemprop="productID"]//text())[1]
+  xpath: //div[contains(@class,"productInformations")]//dd[@itemprop="productID"]
 - name: mpc
   singleValue: true
   description: The manufacturer model code (unique) of the product
@@ -112,14 +118,17 @@ fields:
   description: Content under "warnings" header
 - name: aggregateRating
   description: The number of ratings
-  xpath: //div[@class="fr wide-6"]//span[@class="rank"]//text()[6]
-  regExp: '\d+\.\d+'
+  singleValue: true
+  xpath: //div[contains(@class,'fr')]//span[@class="rank"]
+  regExp: .*?(\d.?\d?).*
+  regExpReplace: $1
 - name: ratingCount
   singleValue: true
   description: The stated aggregate rating
   xpath: //div[@id="productReview"]//span[@itemprop="reviewCount"]//text()
 - name: manufacturerImages
   singleValue: false
+  xptah: //div[@id="ii_manufacturerImages"]
 - name: manufacturerDescription
   singleValue: false
   type: TEXT
@@ -492,7 +501,7 @@ fields:
   singleValue: false
   description: null
   type: TEXT[]
-  xpath: //div[@itemprop="description"]//ul//li
+  xpath: (//div[@itemprop="description"]//ul//li)[position()<100]
 - name: prop65Warning
   singleValue: true
   description: null
