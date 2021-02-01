@@ -14,19 +14,7 @@ async function implementation (
 ) {
   console.log('params', parameters);
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
-
-  //await context.evaluateInFrame('iframe', () => grecaptcha.execute());
-
-  await dependencies.goto({ 
-    url, zipcode: inputs.zipcode,
-    firstRequestTimeout: 60000,
-    timeout: 60000,
-    waitUntil: 'load',
-    checkBlocked: false,
-    antiCaptchaOptions: {
-      type: 'RECAPTCHA',
-    },
-   });
+  await dependencies.goto({ url, zipcode: inputs.zipcode});
   await new Promise((resolve, reject) => setTimeout(resolve, 3000));
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
