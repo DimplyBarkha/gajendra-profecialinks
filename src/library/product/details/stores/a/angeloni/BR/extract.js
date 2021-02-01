@@ -52,18 +52,17 @@ module.exports = {
       let jsonDataText = '';
       jsonDataNodes.forEach(jsonDataNode => {
         const jsonDataNodeText = jsonDataNode.textContent;
-        jsonDataNodeText.includes('price') ? jsonDataText = jsonDataNodeText : '';
+        jsonDataText = jsonDataNodeText.includes('price') ? jsonDataNodeText : '';
       });
-      const jsonDataObject = JSON.parse(jsonDataText);
-      console.log(jsonDataObject);
+      const jsonDataObject = jsonDataText ? JSON.parse(jsonDataText) : null;
       if (jsonDataObject) {
         // pirce
         addElementToDocument('ag-price', jsonDataObject.offers.price);
         // availabilityText
         if (jsonDataObject.offers.availability) {
           jsonDataObject.offers.availability.includes('OutOfStock')
-            ? addElementToDocument('ag-availability', 'Out of Stock')
-            : addElementToDocument('ag-availability', 'In Stock');
+            ? addElementToDocument('ag-availability', 'Out of stock')
+            : addElementToDocument('ag-availability', 'In stock');
         }
       }
 
@@ -82,8 +81,29 @@ module.exports = {
           addElementToDocument('ag-desc-bullets', bulletsMatch.length);
         }
       }
+
+      const descrInfoTitles = document.querySelectorAll('h2.titulo');
+      let descrInfoArr;
+      descrInfoTitles.forEach(descrInfoTitle => {
+        if (descrInfoTitle.textContent.includes('Informações Adicionais')) {
+          const descrInfoNode = descrInfoTitle.nextElementSibling;
+          const descrInfoInner = descrInfoNode.innerHTML;
+          descrInfoArr = descrInfoInner.replace(/&nbsp;/gm, '').split('<br>');
+        }
+      });
+      if (descrInfoArr.length > 0) {
+        descrInfoArr.forEach(descrItem => {
+          function getInfoItem (infoItem, infoStr, divId) {
+            if (infoItem.toLowerCase().includes(infoStr)) {
+              const textValue = descrItem.replace(/.* - /, '');
+              addElementToDocument(divId, textValue);
+              return textValue;
+            }
+          }
+          getInfoItem(descrItem, 'marca', 'ag-brand');
+        });
+      }
     });
     return await context.extract(productDetails, { transform });
   },
 };
-
