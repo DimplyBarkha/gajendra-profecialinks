@@ -40,13 +40,13 @@ module.exports = {
           await new Promise((resolve, reject) => setTimeout(resolve, 1000));
           // @ts-ignore
           while (scrollTop <= findPos(document.evaluate('//section[contains(@class, "footer--shops")]//div[@class="footer--container"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue)[0] && document.evaluate("//div[contains(@class,'DlNoVpsv8MABrtE8wLdel')]//a", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null).snapshotLength <= 160) {
-            await stall(300);
+            await stall(2000);
             lastScrollValue = scrollTop;
-            scrollTop += 1000;
+            scrollTop += 500;
             window.scroll(lastScrollValue, scrollTop);
             // @ts-ignore
             if (scrollTop >= findPos(document.evaluate('//section[contains(@class, "footer--shops")]//div[@class="footer--container"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue)[0]) {
-              await stall(2000);
+              await stall(3000);
               break;
             }
           }
