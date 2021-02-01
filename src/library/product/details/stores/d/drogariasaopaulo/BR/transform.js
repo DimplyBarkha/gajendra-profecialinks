@@ -8,25 +8,25 @@ const transform = (data, context) => {
   const clean = (text) =>
     text
       .toString()
-      .replace(/\r\n|\r|\n/g, " ")
-      .replace(/&amp;nbsp;/g, " ")
-      .replace(/&amp;#160/g, " ")
-      .replace(/\u00A0/g, " ")
-      .replace(/\s{2,}/g, " ")
+      .replace(/\r\n|\r|\n/g, ' ')
+      .replace(/&amp;nbsp;/g, ' ')
+      .replace(/&amp;#160/g, ' ')
+      .replace(/\u00A0/g, ' ')
+      .replace(/\s{2,}/g, ' ')
       .replace(/"\s{1,}/g, '"')
       .replace(/\s{1,}"/g, '"')
-      .replace(/^ +| +$|( )+/g, " ")
+      .replace(/^ +| +$|( )+/g, ' ')
       // eslint-disable-next-line no-control-regex
-      .replace(/[\x00-\x1F]/g, "")
-      .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, " ");
+      .replace(/[\x00-\x1F]/g, '')
+      .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   data.forEach((obj) =>
     obj.group.forEach((row) =>
       Object.keys(row).forEach((header) =>
         row[header].forEach((el) => {
           el.text = clean(el.text);
-        })
-      )
-    )
+        }),
+      ),
+    ),
   );
 
   for (const { group } of data) {
@@ -62,20 +62,36 @@ const transform = (data, context) => {
           productDetails = JSON.parse(regexMatch[1]);
           row.brandText = [{ text: productDetails.productBrandName }];
         }
+        if (row.variantId) {
+          console.log('Start');
+          product = row.variantId[0].text;
+          console.log('product');
+          console.log(product);
+          regEx = /\(([^)]+)\)/;
+          regexMatch = regEx.exec(product);
+          console.log('regexMatch');
+          console.log(regexMatch);
+
+          productDetails = JSON.parse(regexMatch[1]);
+          console.log('productDetails');
+          console.log('variantId');
+          console.log(productDetails.productId);
+          row.variantId = [{ text: productDetails.productId }];
+        }
         if (row.price) {
-          let price = row.price[0].text;
- 
+          const price = row.price[0].text;
+
           var fprice = price.slice(3);
           console.log(fprice);
-          
+
           row.price = [{ text: fprice }];
         }
         if (row.listPrice) {
-          let listPrice = row.listPrice[0].text;
- 
+          const listPrice = row.listPrice[0].text;
+
           var flistPrice = listPrice.slice(3);
           console.log(flistPrice);
-          
+
           row.price = [{ text: flistPrice }];
         }
         // if (row.gtin) {
@@ -102,14 +118,14 @@ const transform = (data, context) => {
           row.availabilityText = [
             {
               text:
-                row.availabilityText[0].text === "true"
-                  ? "In Stock"
-                  : "Out Of Stock",
+                row.availabilityText[0].text === 'true'
+                  ? 'In Stock'
+                  : 'Out Of Stock',
             },
           ];
         }
       } catch (exception) {
-        console.log("Error in transform", exception);
+        console.log('Error in transform', exception);
       }
     }
   }

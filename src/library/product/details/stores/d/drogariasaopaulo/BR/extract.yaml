@@ -12,7 +12,7 @@ fields:
     xpath: //a[contains(@id,'botaoZoom')]/img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //ul[contains(@class,'thumbs')]/li/a/@rel
+    xpath: //ul[contains(@class,'thumbs')]/li[position()>1]/a/@rel
     description: Other product images (not in manufacturer description)
   - name: metaKeywords
     singleValue: true
@@ -44,12 +44,12 @@ fields:
       should be "In Stock"
   - name: description
     singleValue: false
-    xpath: //div/h1/div[contains(@class,'productName')]
+    xpath: //div[contains(@class,'productDescription')]
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-  - name: additionalDescription
-    singleValue: true
-    xpath: //div[contains(@class,'productDescription')]
+  # - name: additionalDescription
+  #   singleValue: true
+  #   xpath: //div[contains(@class,'productDescription')]
   - name: priceCurrency
     singleValue: true
     xpath: //div[contains(@class,'rnk-container-product-select-especification')]//div[contains(@class,'productPrice')]//strong[contains(@class,'skuBestPrice')]
@@ -89,9 +89,10 @@ fields:
     singleValue: true
     xpath: //div[contains(@class, 'skuReference')]
     description: The store-specific product identifier
-  # - name: variantId
-  #   singleValue: true
-  #   description: Identifier for a variant from a store where variants share the same sku
+  - name: variantId
+    xpath: //script[contains(text(),'productId')]
+    singleValue: true
+    description: Identifier for a variant from a store where variants share the same sku
   # - name: mpc
   #   singleValue: true
   #   description: The manufacturer model code (unique) of the product
@@ -238,10 +239,11 @@ fields:
   # - name: otherSellersShipping
   #   singleValue: false
   #   description: null
-  # - name: secondaryImageTotal
-  #   singleValue: true
-  #   description: null
-  #   type: NUMBER
+  - name: secondaryImageTotal
+    singleValue: true
+    description: null
+    xpath: count(//ul[contains(@class,'thumbs')]/li[position()>1])
+    type: NUMBER
   # - name: news
   #   singleValue: true
   #   description: null
@@ -406,15 +408,17 @@ fields:
   # - name: warranty
   #   singleValue: true
   #   description: Guarantee associated with the product
-  # - name: storage
-  #   singleValue: true
-  #   description: Suggested storage location for product
+  - name: storage
+    singleValue: true
+    xpath: //div[2]/div[2]/div/div/div/div[2]/div/text()[preceding-sibling::strong[2]]
+    description: Suggested storage location for product
   # - name: countryOfOrigin
   #   singleValue: true
   #   description: The country from which the product originates
-  # - name: allergyAdvice
-  #   singleValue: true
-  #   description: Allergy information associated with the product
+  - name: allergyAdvice
+    singleValue: true
+    xpath: //div[2]/div[2]/div/div/div/div[2]/div/strong[2]
+    description: Allergy information associated with the product
   # - name: recyclingInformation
   #   singleValue: true
   #   description: Recycling information associated with the product
