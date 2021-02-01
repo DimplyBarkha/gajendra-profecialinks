@@ -21,7 +21,7 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(async () => {
-      await new Promise(resolve => setTimeout(resolve, 11000));
+      await new Promise(resolve => setTimeout(resolve, 1000));
       const element = document.querySelectorAll('div.row.active div.product-info-description li');
       if (element) {
         for (let i = 1; i <= element.length; i++) {
@@ -95,7 +95,7 @@ module.exports = {
         document.body.appendChild(newDiv);
       }
     });
-    await new Promise(resolve => setTimeout(resolve, 11000));
+    await new Promise(resolve => setTimeout(resolve, 5000));
     await context.evaluate(async () => {
       const parentNode1 = document.querySelector('div.syndi_powerpage');
       await new Promise(resolve => setTimeout(resolve, 2000));
@@ -149,7 +149,7 @@ module.exports = {
             // await context.setBlockAds(false);
             // await context.setLoadAllResources(true);
             // await context.setLoadImages(true);
-            await new Promise(resolve => setTimeout(resolve, 4000));
+            await new Promise(resolve => setTimeout(resolve, 2000));
           } catch (err) { }
         }
       }
@@ -165,14 +165,14 @@ module.exports = {
     });
     await context.evaluate(async () => {
       const parentNode1 = document.querySelector('div.syndi_powerpage');
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await new Promise(resolve => setTimeout(resolve, 1000));
       if (parentNode1 && parentNode1.shadowRoot) {
         const fetchNode = parentNode1.shadowRoot.firstChild;
         // @ts-ignore
         const allVideos = Array.from(fetchNode.querySelectorAll('video'));
         for (let item = 0; item < allVideos.length; item++) {
           allVideos[item].click();
-          await new Promise(resolve => setTimeout(resolve, 3000));
+          await new Promise(resolve => setTimeout(resolve, 1000));
         }
       }
       // @ts-ignore
@@ -183,6 +183,10 @@ module.exports = {
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
+    });
+    await context.captureRequests(async function () {
+      const videoRequest = context.searchForRequest('https://content.syndigo.com/asset/', 'GET', undefined, 3000);
+      console.log('videos-------->', videoRequest);
     });
     // captureRequests(): Promise<void>
     // searchForRequest(urlPattern: string, method: string, pastTimestamp: number, timeout: number): Promise<any>
@@ -238,7 +242,7 @@ module.exports = {
       }
       try {
         const vidImage = Array.from(document.querySelectorAll('img[id*="videoOverlay"]'));
-        console.log('vidImage--->', vidImage);
+        // console.log('vidImage--->', vidImage);
         // @ts-ignore
         const vidArray = [];
         for (let item = 0; item < vidImage.length; item++) {
@@ -260,7 +264,10 @@ module.exports = {
     // await context.evaluateInFrame('iframe[id="wcframable1-0"]', function () {
     //   const videoLink = document.querySelector('video[aria-label="video player"]').getAttribute('src');
     //   // @ts-ignore
-    //   videoLink && videoLink.textContent && document.body.setAttribute('videospan', videoLink.textContent);
+    //   // videoLink && videoLink.textContent && document.body.setAttribute('videospan', videoLink.textContent);
+    //   if (videoLink && videoLink.textContent) {
+    //     document.body.setAttribute('videospan', videoLink.textContent);
+    //   }
     // });
     return await context.extract(productDetails, { transform });
   },
