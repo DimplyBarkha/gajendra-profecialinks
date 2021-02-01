@@ -8,7 +8,7 @@ module.exports = {
     domain: 'sephora.com',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
+  /*implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
@@ -34,5 +34,5 @@ module.exports = {
     await applyScroll(context);
     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
     return await context.extract(productDetails, { transform });
-  },
+  },*/
 };
