@@ -159,7 +159,7 @@ module.exports = {
       var aval = getXpath('(//p[contains(@class,"availability_value")])//text()', 'nodeValue');
       if (aval != null) {
         if (aval.includes('Out of Stock')) {
-          aval = 'Out Of Stock';
+          aval = 'Out of Stock';
           addElementToDocument('aval', aval);
         } else if (aval.includes('In Stock')) {
           aval = 'In Stock';

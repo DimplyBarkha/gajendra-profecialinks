@@ -54,8 +54,9 @@ async function implementation(
     var varSize = getAllXpath('//div[contains(@class,"product-variation-size__item")]/@value', 'nodeValue');
     var vcdid = getAllXpath('//div[contains(@class,"product-variation-shade__item")]/a/@data-id', 'nodeValue');
     var vsdid = getXpath('//input[@id="product_selectedsize"]/@value', 'nodeValue');
+    var pgurl = getXpath('//meta[@property="og:url"]/@content', 'nodeValue');
 
-    if (varShade.length > 0) {
+    if (varShade.length > 1) {
       for (var i = 0; i < varShade.length; i++) {
         if (varShade[i].match(/(.+=$)/gm) != null) {
           vurls.push((varShade[i] + vcdid[i]));
@@ -67,7 +68,7 @@ async function implementation(
         addElementToDocument('vurls', vurls[i]);
       }
 
-    } else if (varSize.length > 0) {
+    } else if (varSize.length > 1) {
       for (var i = 0; i < varSize.length; i++) {
         if (varSize[i].match(/(.+=$)/gm) != null) {
           vurls.push((varSize[i] + vsdid));
@@ -78,6 +79,8 @@ async function implementation(
       for (var i = 0; i < vurls.length; i++) {
         addElementToDocument('vurls', vurls[i]);
       }
+    } else if (varSize.length == 1 || varShade.length == 1) {
+      addElementToDocument('vurls', pgurl);
     }
   });
   return await context.extract(variants, { transform });
