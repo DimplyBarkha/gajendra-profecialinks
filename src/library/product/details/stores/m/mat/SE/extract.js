@@ -179,29 +179,31 @@ module.exports = {
 
       // @ts-ignore
       const rawdata = getXpath("//script[@type='application/ld+json']/text()", 'nodeValue');
-      const jsondata = JSON.parse(rawdata);
-      var currency = jsondata.offers.priceCurrency;
-      var price = jsondata.offers.price;
-      if (price != null) {
-        var num = Number(price)
-        price = num + " " + currency
-        addElementToDocument('price', price);
-      }
-
-      var gtin = jsondata.gtin13;
-      if (gtin != null) {
-        addElementToDocument('gtin', gtin);
-      }
-
-      var stock = jsondata.offers.availability;
-      if (stock != null) {
-        stock = stock.split("org/")[1]
-        if (stock.includes("In")) {
-          stock = "In Stock"
-        } else {
-          stock = "Out of Stock"
+      if (rawdata != null) {
+        const jsondata = JSON.parse(rawdata);
+        var currency = jsondata.offers.priceCurrency;
+        var price = jsondata.offers.price;
+        if (price != null) {
+          var num = Number(price)
+          price = num + " " + currency
+          addElementToDocument('price', price);
         }
-        addElementToDocument('stock', stock);
+
+        var gtin = jsondata.gtin13;
+        if (gtin != null) {
+          addElementToDocument('gtin', gtin);
+        }
+
+        var stock = jsondata.offers.availability;
+        if (stock != null) {
+          stock = stock.split("org/")[1]
+          if (stock.includes("In")) {
+            stock = "In Stock"
+          } else {
+            stock = "Out of Stock"
+          }
+          addElementToDocument('stock', stock);
+        }
       }
 
       // @ts-ignore
