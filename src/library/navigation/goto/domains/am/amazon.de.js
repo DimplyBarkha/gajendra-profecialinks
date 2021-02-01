@@ -1,3 +1,4 @@
+const { implementation, dependencies } = require('./amazon');
 
 module.exports = {
   implements: 'navigation/goto',
@@ -5,6 +6,9 @@ module.exports = {
     domain: 'amazon.de',
     timeout: 50000,
     country: 'DE',
-    store: 'amazonApparel',
+    store: 'amazon',
+    // store: 'amazonApparel',
   },
+  implementation,
+  dependencies,
 };
