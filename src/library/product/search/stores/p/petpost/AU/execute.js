@@ -37,7 +37,7 @@ async function implementation (
       }
     });
   };
-  await applyScroll(context);
+  /*await applyScroll(context);
   await new Promise((resolve, reject) => setTimeout(resolve, 3000));
   try{
     await context.waitForSelector('div.-mx-2>div>button',{timeout:500});
@@ -64,7 +64,7 @@ async function implementation (
     await applyScroll(context);
   }catch(e){
 
-  }
+  }*/
 
 
   if (parameters.loadedSelector) {
