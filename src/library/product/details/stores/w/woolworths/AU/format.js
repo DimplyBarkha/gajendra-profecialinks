@@ -41,12 +41,26 @@ const transform = (data) => {
             }
 
             if (row.variantId) {
-                let variId = [];
-                row.variantId.forEach(item => {
-                    variId =  /[^/]*$/.exec(item.text)[0].split(".");
-                    item.text = "" + variId[0];
-                });
-            }
+              row.variantId.forEach(item => {
+                let data = JSON.parse(item.text);
+                if(data['sku']){
+                  if(data['sku']){
+                    item.text = data['sku'];
+                  }
+                }else{
+                  item.text = "";
+                }
+              });
+          }
+
+
+            // if (row.variantId) {
+            //     let variId = [];
+            //     row.variantId.forEach(item => {
+            //         variId =  /[^/]*$/.exec(item.text)[0].split(".");
+            //         item.text = "" + variId[0];
+            //     });
+            // }
 
             if (row.description) {
               let info = [];

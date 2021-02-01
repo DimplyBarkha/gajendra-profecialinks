@@ -4,14 +4,15 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: false
+    singleValue: true
     xpath: //shared-image-zoomer[contains(@class,'main-image')]//img[contains(@class,'imageZoomerComponent-main--image')]//@src
   - name: sku
     singleValue: false
     xpath: //div[@class='ng-star-inserted']//script[@type='application/ld+json']
   - name: variantId
     singleValue: false
-    xpath: //shared-image-zoomer[contains(@class,'main-image')]//img[contains(@class,'imageZoomerComponent-main--image')]//@src
+    # xpath: //shared-image-zoomer[contains(@class,'main-image')]//img[contains(@class,'imageZoomerComponent-main--image')]//@src
+    xpath: //div[@class='ng-star-inserted']//script[@type='application/ld+json']
   - name: nameExtended
     singleValue: false
     xpath: //div[@class='shelfProductTile-information']//h1
@@ -86,6 +87,10 @@ fields:
   - name: proteinPerServing
     singleValue: false
     xpath: //wow-product-details-nutrition-table//ul//li[contains(.,'Protein')]//following-sibling::li[1]
+  - name: promotion
+    singleValue: false
+    xpath: //wow-product-details-panel//div[@class='shelfProductTagCenter']//a//span
+
 
 
 
