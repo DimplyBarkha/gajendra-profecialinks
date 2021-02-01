@@ -30,6 +30,7 @@ module.exports = {
     await context.waitForSelector('.private-product-detail');
     await context.evaluate(async () => {
       const currentProduct = document.querySelector('.private-product-detail__content');
+      const imgContainer = document.querySelector('.thumbnail__container');
       const headLinesOfProduct = document.querySelectorAll('.headline1-r');
       const pricePerUnit = headLinesOfProduct[headLinesOfProduct.length - 1];
 
@@ -39,7 +40,9 @@ module.exports = {
       const response = await fetch(requestUrl).then(res => res.json());
       const { price_instructions } = response;
       const { brand } = response.details;
-      console.log(brand);
+      const { photos } = response;
+
+      console.log(photos);
 
       console.log(price_instructions);
 
@@ -73,7 +76,12 @@ module.exports = {
         addHiddenDiv('helper-reference_price', `${price_instructions.reference_price}`, currentProduct);
         addHiddenDiv('helper-reference_format', `${price_instructions.reference_format}`, currentProduct);
         addHiddenDiv('helper-ean', response.ean, currentProduct);
+        addHiddenDiv('helper-ean', response.ean, currentProduct);
         addHiddenDiv('helper-brand', brand, currentProduct);
+        photos.forEach(item => {
+          console.log(item.regular);
+          addHiddenDiv('helper-secondary-images', item.regular, imgContainer);
+        });
       }
     });
 
