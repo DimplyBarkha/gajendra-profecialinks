@@ -3,8 +3,8 @@
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
  */
-const transform = (data) => {
-  const cleanUp = (data, context) => {
+const transform = (data, context) => {
+  const cleanUp = (data) => {
     const clean = text => text.toString()
       .replace(/\r\n|\r|\n/g, ' ')
       .replace(/&amp;nbsp;/g, ' ')
@@ -22,8 +22,16 @@ const transform = (data) => {
     }))));
     return data;
   };
+  const state = context.getState();
+  let indexTemp = state.indexTemp || 0;
   for (const { group } of data) {
     for (const row of group) {
+      if (row.variantId) {
+        var arrIds = row.variantId[0].text.split(',');
+        arrIds.splice(0, 1);
+        row.variantId = [{ text: arrIds[indexTemp] }];
+        row.sku = [{ text: arrIds[indexTemp] }];
+      }
       if (row.additionalDescBulletInfo) {
         var arrBullets = [];
         row.additionalDescBulletInfo.forEach(item => {
@@ -39,22 +47,11 @@ const transform = (data) => {
         });
         row.alternateImages = [{ text: arrImg.join(' | ') }];
       }
-
-      // if (row.description) {
-      //   let text = '';
-      //   row.description.forEach(item => {
-      //     text += item.text.replace(/-\s/g, ' || ').trim();
-      //   });
-
-      //   row.description = [{ text }];
-      // }
-
       if (row.nameExtended && row.variantName) {
         row.nameExtended.forEach(item => {
           item.text = `${item.text} ${row.variantName[0].text}`;
         });
       }
-
       if (row.videos) {
         var arrVideos = [];
         var arrJsonVideo = JSON.parse(row.videos[0].text);
@@ -63,8 +60,10 @@ const transform = (data) => {
         });
         row.videos = [{ text: arrVideos.join(' | ') }];
       }
+      indexTemp = indexTemp + 1;
     }
   }
+  context.setState({ indexTemp });
   return cleanUp(data);
 };
 
