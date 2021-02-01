@@ -16,7 +16,8 @@ fields:
     singleValue: true
     description: URL of the main product image
     xpath: //div[contains(@class,"image-container")]//img/@src
-    regExp: http.*
+    regExp: (http.*\/size\/)(.*)
+    regExpReplace: $1DEFAULT.jpg
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -57,7 +58,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: normalize-space(//h1[@class='product-title'])
+    xpath: //h3[contains(text(), 'Beskrivelse')]/../../following-sibling::div[@class='content']/div
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
