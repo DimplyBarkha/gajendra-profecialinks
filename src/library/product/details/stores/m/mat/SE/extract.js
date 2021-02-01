@@ -204,12 +204,13 @@ module.exports = {
           }
           addElementToDocument('stock', stock);
         }
-      }
 
-      // @ts-ignore
-      var productID = window.product.id;
-      if (productID != null) {
-        addElementToDocument('id', productID);
+
+        // @ts-ignore
+        var productID = window.product.id;
+        if (productID != null) {
+          addElementToDocument('id', productID);
+        }
       }
 
       // const brand = jsondata.brand;
