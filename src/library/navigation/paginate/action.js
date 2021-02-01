@@ -37,7 +37,7 @@ async function implementation (
   let nextLink;
 
   if (stopConditionSelectorOrXpath) {
-    const conditionIsTrue = await context.waitForFunction((sel) => {
+    const conditionIsTrue = await context.evaluate((sel) => {
       try {
         const isThere = document.querySelector(sel);
         return !!isThere;
@@ -49,7 +49,7 @@ async function implementation (
           return false;
         }
       }
-    }, { timeout: 10000 }, stopConditionSelectorOrXpath);
+    }, stopConditionSelectorOrXpath);
     // @ts-ignore
     if (conditionIsTrue) return false;
   }
