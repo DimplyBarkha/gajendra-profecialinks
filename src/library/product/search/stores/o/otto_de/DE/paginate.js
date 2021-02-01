@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: '#san_pagingBottomNext > button',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'body',
+    loadedSelector: null,
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'otto.de',
