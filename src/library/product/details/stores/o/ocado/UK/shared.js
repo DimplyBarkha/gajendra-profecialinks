@@ -98,15 +98,15 @@ const transform = (data) => {
         if (text.includes('Origin:')) {
           fWarning = text.split('Origin:')[0].trim();
         }
-        if (text.includes('Usage:')) {
+        else if (text.includes('Usage:')) {
           fWarning = text.split('Usage:')[0].trim();
         }
         else if (text.includes('Additional Information:')) {
           fWarning = text.split('Additional Information:')[0].trim();
         } else {
-          // if(!text.includes('Origin:')) {
-          //   fWarning = text2;
-          // }   
+          if(!text.includes('Origin:')) {
+            fWarning = text2;
+          }   
         }
         row.warnings = [{ text: fWarning.replace(/Additional Information: Caplets| Additional Information: Capsules/gm, '').trim() }];
       }
