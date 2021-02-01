@@ -283,7 +283,8 @@ module.exports = {
 
       const listPrice = getXpath("//del[@class='rrp-price']", 'innerText');
       if (listPrice) {
-        addElementToDocument('added_listPrice', listPrice.replace(/,/g, '.'));
+        // addElementToDocument('added_listPrice', listPrice.replace(/,/g, '.'));
+        addElementToDocument('added_listPrice', listPrice);
       }
 
       const availability = getXpath("//div[@class='add-to-cart-button']", 'innerText');
@@ -296,7 +297,7 @@ module.exports = {
       var price = getXpath("//b[contains(@class, 'pro-price')]", 'innerText');
       if (price) {
         price = price.trim();
-        price = price.replace(',', '.');
+        // price = price.replace(',', '.');
         const priceComponents = price.split(' ');
         addElementToDocument('added_price', priceComponents[1] + ' ' + priceComponents[0]);
       }
