@@ -44,112 +44,13 @@ module.exports = {
     //     //   }
     //     // }
 
-    // await context.evaluate(function () {
-    //   console.log(window.location.href + ' is the url');
 
-    //   function createNewDiv(headingText, imageSrc, imageAlt, altImages, priceSpan, brandText, netWeight, color, variantId, gtin) {
-    //     const newHeading = document.createElement('h1');
-    //     const newImage = document.createElement('img');
-    //     const newDiv = document.createElement('div');
-    //     const variantDiv = document.createElement('div');
-    //     const tblData1 = document.createElement('td');
-    //     const tblData2 = document.createElement('td');
-    //     const tblData3 = document.createElement('td');
-    //     const tblData4 = document.createElement('td');
-    //     const tblData5 = document.createElement('td');
-    //     const tblData6 = document.createElement('td');
-    //     const tblData7 = document.createElement('td');
-    //     const tblData8 = document.createElement('td');
-    //     const newTable = document.createElement('table');
-    //     if (brandText !== '') {
-    //       tblData1.textContent = 'marke';
-    //       tblData2.textContent = brandText;
-    //       newTable.appendChild(tblData1);
-    //       newTable.appendChild(tblData2);
-    //     }
-    //     if (netWeight !== '') {
-    //       tblData3.textContent = 'weight';
-    //       tblData4.textContent = netWeight;
-    //       newTable.appendChild(tblData3);
-    //       newTable.appendChild(tblData4);
-    //     }
-    //     if (color !== '') {
-    //       tblData5.textContent = 'color';
-    //       tblData6.textContent = color;
-    //       newTable.appendChild(tblData5);
-    //       newTable.appendChild(tblData6);
-    //     }
-    //     if (gtin !== '') {
-    //       tblData7.textContent = 'GTIN';
-    //       tblData8.textContent = gtin;
-    //       newTable.appendChild(tblData7);
-    //       newTable.appendChild(tblData8);
-    //     }
-    //     newDiv.id = 'vi_main_img_fs';
-    //     const listArr = document.createElement('ul');
-    //     for (let i = 0; i <= altImages.length; i++) {
-    //       const liElement = document.createElement('li');
-    //       const altImage = document.createElement('img');
-    //       if (i !== 0) altImage.setAttribute('src', altImages[i - 1].getAttribute('src'));
-    //       liElement.appendChild(altImage);
-    //       listArr.appendChild(liElement);
-    //       newDiv.appendChild(listArr);
-    //     }
-    //     const spanPrice = document.createElement('span');
-    //     spanPrice.id = 'prcIsum';
-    //     spanPrice.textContent = priceSpan;
-    //     newHeading.id = 'itemTitle';
-    //     newHeading.textContent = headingText;
-    //     newImage.id = 'icImg';
-    //     newImage.setAttribute('src', imageSrc);
-    //     newImage.setAttribute('alt', imageAlt);
-    //     variantDiv.id = 'descItemNumber';
-    //     variantDiv.textContent = variantId;
-    //     newDiv.style.display = 'none';
-    //     newImage.style.display = 'none';
-    //     newHeading.style.display = 'none';
-    //     spanPrice.style.display = 'none';
-    //     variantDiv.style.display = 'none';
-    //     document.body.appendChild(newDiv);
-    //     document.body.appendChild(newImage);
-    //     document.body.appendChild(newHeading);
-    //     document.body.appendChild(spanPrice);
-    //     document.body.appendChild(newTable);
-    //   }
-
-    //   if (window.location.href.includes('/p/')) {
-    //     const headingText = document.querySelector('h1[class="product-title"]').textContent;
-    //     let imageSrc = '';
-    //     let imageAlt = '';
-    //     if (document.querySelector('div[class*="vi-image-gallery__wrapper"]')) {
-    //       imageSrc = document.querySelector('div[class*="vi-image-gallery__wrapper"] li:first-child img').getAttribute('src');
-    //       imageAlt = document.querySelector('div[class*="vi-image-gallery__wrapper"] li:first-child img').getAttribute('alt');
-    //     }
-    //     const secImages = document.querySelectorAll('div[class="thumbPicturePanel "] img');
-    //     let price = '';
-    //     if (document.querySelector('div[class="display-price"]')) {
-    //       price = document.querySelector('div[class="display-price"]').textContent;
-    //     }
-    //     let brandText = '';
-    //     let netWeight = '';
-    //     let color = '';
-    //     let variantId = '';
-    //     let gtin = '';
-
-    //     const sname = document.querySelectorAll('div[class="s-name"]');
-    //     if (document.querySelector('input[id="iid"]')) { variantId = document.querySelector('input[id="iid"]').getAttribute('value'); } else if (document.querySelector('div[id="app-product-sticky-header"]')) { variantId = document.querySelector('div[class="vi-component-transaction-layer"]').getAttribute('data-itemid'); }
-    //     for (let i = 0; i < sname.length; i++) {
-    //       if (sname[i].textContent === 'Gewicht') { netWeight = sname[i].nextSibling.innerText; }
-    //       if (sname[i].textContent === 'Marke') brandText = sname[i].nextSibling.innerText;
-    //       if (sname[i].textContent === 'Farbe') color = sname[i].nextSibling.innerText;
-    //       if (sname[i].textContent === 'EAN') gtin = sname[i].nextSibling.innerText;
-    //     }
-    //     createNewDiv(headingText, imageSrc, imageAlt, secImages, price, brandText, netWeight, color, variantId, gtin);
-    //   }
-    // });
+    const currentUrl = await context.evaluate(() => {
+      return window.location.href;
+    });
 
     // Extracting data from product page
-    await context.extract(productDetails, { transform });
+    // await context.extract(productDetails, { transform });
 
     const src = await context.evaluate(async function () {
       const iframe = document.querySelector('iframe#desc_ifr');
@@ -165,64 +66,123 @@ module.exports = {
         await context.setBypassCSP(true);
         await context.goto(src, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
         await context.waitForSelector('div#ds_div');
-        const inTheBoxUrl = await context.evaluate(async function () {
-          const imgArray = document.querySelectorAll('div.lieferleft img');
-          const inTheBoxUrlArray = [];
-          let i = 0;
-          for (i = 0; i < imgArray.length; i++) {
-            inTheBoxUrlArray.push(imgArray[i].src);
-          }
-          const textArray = document.querySelectorAll('div.lieferleft p');
-          const inTheBoxText = [];
-          for (i = 0; i < textArray.length; i++) {
-            inTheBoxText.push(textArray[i].innerText);
-          }
-          console.log('inTheBox code execution complete');
-
-          return { inTheBoxUrlArray, inTheBoxText };
-        });
-        if (inTheBoxUrl !== null) {
-          await context.evaluate(async function (inTheBoxUrl) {
-            function addHiddenDiv (id, content) {
-              const newDiv = document.createElement('div');
-              newDiv.id = id;
-              newDiv.textContent = content;
-              newDiv.style.display = 'none';
-              document.body.appendChild(newDiv);
-            }
-
-            function getNodesFromxpath (STR_XPATH, context) {
-              var xresult = document.evaluate(
-                STR_XPATH,
-                context,
-                null,
-                XPathResult.ANY_TYPE,
-                null,
-              );
-              var xnodes = [];
-              var xres;
-              while ((xres = xresult.iterateNext())) {
-                xnodes.push(xres);
-              }
-              return xnodes;
-            }
-            const compareTableXpath = '//p[contains(.,"Vergleich")]';
-            if (getNodesFromxpath(compareTableXpath, document)) {
-              addHiddenDiv('hasComparisionTable', 'Yes');
-            }
-            inTheBoxUrl.inTheBoxUrlArray.forEach(elm => {
-              addHiddenDiv('inTheBoxUrl', elm);
-            });
-            inTheBoxUrl.inTheBoxText.forEach(elm => {
-              addHiddenDiv('inTheBoxText', elm);
-            });
-          }, inTheBoxUrl);
-        }
-        console.log('inTheBox code execution completed');
-        return await context.extract(productDetails, { type: 'MERGE_ROWS', transform });
       } catch (error) {
         console.log('could not load page', error);
       }
     }
+
+    const inTheBoxUrl = await context.evaluate(async function () {
+      // const imgArray = document.querySelectorAll('div.lieferleft img');
+      const imgArray = document.querySelectorAll('div.inthebox span img');
+      const inTheBoxUrlArray = [];
+      imgArray.forEach(img => {
+        if (img.getAttribute('src')) {
+          inTheBoxUrlArray.push(img.getAttribute('src'));
+        }
+      })
+      //const textArray = document.querySelectorAll('div.lieferleft p');
+      const textArray = document.querySelectorAll('div.inthebox span.title');
+      const inTheBoxText = [];
+      textArray.forEach(txt => {
+        if (txt.innerText) {
+          inTheBoxText.push(txt.innerText);
+        }
+      });
+      console.log('inTheBox code execution complete');
+
+      function getNodesFromxpath(STR_XPATH, context) {
+        var xresult = document.evaluate(
+          STR_XPATH,
+          context,
+          null,
+          XPathResult.ANY_TYPE,
+          null,
+        );
+        var xnodes = [];
+        var xres;
+        while ((xres = xresult.iterateNext())) {
+          xnodes.push(xres);
+        }
+        return xnodes;
+      }
+      // const compareTableXpath = '//p[contains(.,"Vergleich")]';
+      const compareTableXpath = '//h1[contains(.,"Vergleich")]';
+      const comparisionTable = getNodesFromxpath(compareTableXpath, document);
+
+      let aplusImages = document.querySelectorAll('div.gallery_d img, label img, div.feature span img, div.inthebox span img, div.brand img');
+      let aplusImage = [];
+      aplusImages.forEach(img => {
+        if (img.getAttribute('src')) {
+          aplusImage.push(img.getAttribute('src'));
+        }
+      })
+      const manufacturercDescr = document.querySelector('div#ds_div .container.threes');
+      const manufacturercDesc = manufacturercDescr && manufacturercDescr.innerText.trim();
+
+
+      let specsText = '';
+      if (document.querySelectorAll('div[class*="p-wrapper"] div[class*="p-spec"]').length !== 0) {
+        const specDivs = document.querySelectorAll('div[class*="p-wrapper"] div[class*="p-spec"]');
+        for (let i = 0; i < specDivs.length; i++) {
+          if (specDivs[i].querySelector('span[class*="p-val"]') && specDivs[i].querySelector('span[class*="p-val"]').innerText !== '') { specsText += specDivs[i].querySelector('span[class*="p-title"]').innerText + ' || ' + specDivs[i].querySelector('span[class*="p-text"]').innerText + ' || '; }
+          if (specDivs[i].querySelector('b') && specDivs[i].querySelector('b').innerText !== '') { specsText += specDivs[i].querySelector('p').innerText + ' || '; }
+        }
+      } else if (document.querySelectorAll('table td div[id*="ds_div"] p')) {
+        const specsParas = document.querySelectorAll('table td div[id*="ds_div"] p');
+        for (let i = 0; i < specsParas.length; i++) {
+          if (!specsParas[i].innerText.includes('Specifications')) { specsText += specsParas[i].innerText + ' || '; }
+        }
+      }
+      if (document.querySelectorAll('div[class*="container"] div[class="spec"]').length !== 0) {
+        const specDivs = document.querySelectorAll('div[class*="container"] div[class="spec"]');
+        for (let i = 0; i < specDivs.length; i++) {
+          if (specDivs[i].querySelector('span[class*="val"]') && specDivs[i].querySelector('span[class*="val"]').innerText !== '') { specsText += specDivs[i].querySelector('span[class*="title"]').innerText + ' || ' + specDivs[i].querySelector('span[class*="val"]').innerText + ' || '; }
+          if (specDivs[i].querySelector('b') && specDivs[i].querySelector('b').innerText !== '') { specsText += specDivs[i].querySelector('p').innerText + ' || '; }
+        }
+      }
+
+      return { inTheBoxUrlArray, inTheBoxText, comparisionTable, aplusImage, specsText, manufacturercDesc };
+    });
+
+    await context.goto(currentUrl, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
+
+    try {
+      await context.waitForSelector('iframe#desc_ifr');
+    } catch (err) {
+      console.log(err);
+    }
+
+    await context.evaluate(async function (inTheBoxUrl) {
+      function addHiddenDiv(id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+
+
+      if (inTheBoxUrl.comparisionTable.length > 0) {
+        addHiddenDiv('hasComparisionTable', 'Yes');
+      }
+
+      const inTheboxText = inTheBoxUrl.inTheBoxText.join(' || ')
+      addHiddenDiv('inTheBoxText', inTheboxText);
+
+      const inTheboxUrls = inTheBoxUrl.inTheBoxUrlArray.join(' || ')
+      addHiddenDiv('inTheBoxUrl', inTheboxUrls);
+
+      console.log('inTheBox code execution completed');
+
+      const aplusImages = inTheBoxUrl.aplusImage.join(' || ')
+      addHiddenDiv('manufacturerImages', aplusImages);
+
+      addHiddenDiv('manufacturercDesc', inTheBoxUrl.manufacturercDesc);
+
+
+      addHiddenDiv('specsDiv', inTheBoxUrl.specsText);
+    }, inTheBoxUrl);
+    return await await context.extract(productDetails, { transform });
+
   },
 };

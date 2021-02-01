@@ -5,3 +5,20 @@ fields:
     defaultValue: EU
   - name: unInterruptedPDP
     xpath: //div[contains(@id,'nume_html') and not(contains(.,'Verkäufers'))]//div[contains(@class,"mfe-reco")]//li[contains(@class,"mfe-reco-ct") ]
+  - name: inTheBoxUrl
+    singleValue: false
+    xpath: //div[@id="inTheBoxUrl"]
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //div[@id="inTheBoxText"]
+    description: Must include text to show the accessories/tools which come with the product
+  - name: hasComparisonTable
+    xpath:  //div[@id="hasComparisionTable"]
+    defaultValue: No
+  - name: manufacturerImages
+    singleValue: true
+    xpath: //div[@id="manufacturerImages"]
+  - name: manufacturerDescription
+    singleValue: true
+    xpath: //div[@id="manufacturercDesc"] 
+
