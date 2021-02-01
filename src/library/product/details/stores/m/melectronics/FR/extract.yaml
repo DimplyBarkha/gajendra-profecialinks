@@ -122,5 +122,9 @@ fields:
   - name: customerServiceAvailability
     xpath: //div[@class="footer--content"]//div[@class="service-nav service-nav__footer"]
     regExp: (.+)
-    regExpReplace: 'Yes'
+    regExpReplace: "Yes"
   - name: secondaryImageTotal
+  - name: video
+    xpath: //iframe[@class="detail-showcase--main-img"]//@src
+  - name: videoLength
+    xpath: //span[@class="ytp-time-duration"]
