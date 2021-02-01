@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -128,7 +128,6 @@ fields:
     regExpReplace: Yes
     defaultValue: No
   - name: technicalInformationPdfPresent
-    singleValue: true
     xpath: //div[@class="guides"]
     regExp: (.+)
     regExpReplace: 'Yes'
@@ -136,7 +135,6 @@ fields:
   - name: imageZoomFeaturePresent
     defaultValue: Yes
   - name: materials
-    singleValue: true
     xpath: //div[contains(translate(string(), 'Material', 'Material'), 'Material')]/div[@class="value"]
   - name: firstVariant
     singleValue: false
@@ -144,10 +142,8 @@ fields:
     regExp: (\Item.*#)(.*)
     regExpReplace: $2
   - name: quantity
-    singleValue: true
     xpath: //div[contains(translate(string(), 'Width Range', 'Width Range'), 'Width Range')]/div[@class="value"]
   - name: warnings
-    singleValue: true
     xpath: //div[@class="props65"]//span[@class="title"]
   - name: variants
     xpath: //div[contains(@class,"swatchWrapper")]//button/@data-url
