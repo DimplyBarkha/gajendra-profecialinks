@@ -36,6 +36,7 @@ async function implementation (
       }
     }
     // elements from data Layer object
+    try{
     const dataObj = findJsonData('(', ');')
     const data = dataObj.ecommerce.impressions;
     console.log('data ===', JSON.stringify(dataObj));
@@ -53,6 +54,9 @@ async function implementation (
       const fullName = `${data[i].brand} ${data[i].name} ${desc}`;
       console.log('in loop end $$ i ===', i);
       addElementToDocument(doc, 'added-name', fullName.trim());
+    }}
+    catch(e){
+      console.log("error ",e);
     }
   }); // , { transform }
   return await context.extract(productDetails, { transform });

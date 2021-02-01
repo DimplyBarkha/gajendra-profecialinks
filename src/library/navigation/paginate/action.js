@@ -199,6 +199,7 @@ module.exports = {
     name: 'offset',
     description: 'offset (0 indexed)',
   }],
+  // @ts-ignore
   get path () {
     const actionjsPath = preCompileFunctions.getRobotTemplateName();
     return `${actionjsPath}/stores/\${store[0:1]}/\${store}/\${country}/paginate`;
