@@ -22,14 +22,13 @@ fields:
     xpath:  //div[@class="productsList"]//dd[@itemprop="productID"]
   - name: gtin
     singleValue: false
-    xpath: //form/@name
-    regExp: cart(\w+)_.*
-    regExpReplace: $1
+    # xpath: //form/@name
+    # regExp: cart(\w+)_.*
+    # regExpReplace: $1
   - name: price
-    type: CURRENCY
-    xpath:  //div[@class="productsList"]//dd[@class="yourPrice" or @class="yourPrice price"]
+    # xpath:  //div[@class="productsList"]//dd[@class="yourPrice" or @class="yourPrice price"]
     singleValue: false
-    # xpath: //div[starts-with(@id,'ii_price')]
+    xpath: //div[starts-with(@id,'ii_price')]
   - name: aggregateRating
     xpath:  //div[@class="productsList"]//span[@itemprop='ratingValue']
   - name: reviewCount
