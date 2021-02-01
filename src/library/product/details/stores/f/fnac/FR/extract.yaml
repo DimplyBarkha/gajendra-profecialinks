@@ -6,17 +6,15 @@ fields:
   - name: image
     singleValue: false
     description: URL of the main product image
-    xpath: //div[@class="slick-track"]//div[contains(@class, "productVisuals") and contains(@class, "slick-current")]/@data-src
+    xpath: //div[@class="slick-track"]//div[contains(@class, "productVisuals") and contains(@class, "slick-current")]/@data-src-zoom
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
     xpath: //div[@class="slick-track"]//div[contains(@class, "productVisuals") and contains(@class, "slick-current")]//img/@alt
-  - name: secondaryImageTotal
-    singleValue: false
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@class="slick-track"]//div[contains(@class, "productVisuals") and not(contains(@class, "slick-current"))]/img/@src
+    xpath: //div[@class="slick-track"]//div[contains(@class, "productVisuals") and not(contains(@class, "slick-current"))]/@data-src-zoom
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content
@@ -26,8 +24,9 @@ fields:
     description: The categories (e.g. from breadcrumbs)
     xpath: //ul[@class="f-breadcrumb"]/li[position() > 1]
   - name: nameExtended
-    singleValue: false    
-    xpath: //h1[@class="f-productHeader-Title"]
+    singleValue: false
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
@@ -52,7 +51,7 @@ fields:
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
-    xpath:  (//dt[contains(text(), "Poids") or  contains(text(), "Poids du produit")]//following-sibling::*)[1]
+    xpath:  //dt[contains(text(), "Poids") or  contains(text(), "Poids du produit")]//following-sibling::*
   - name: ratingCount
     singleValue: false
     description: The number of ratings
@@ -66,7 +65,7 @@ fields:
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
-    xpath: //a[@class='f-shopBox-MPInfoSellerTitle']
+    # xpath: //dd[@class="f-shopBox-MPProductInfoItem"]
   - name: name
     singleValue: false
     description: The product name
@@ -85,10 +84,7 @@ fields:
     xpath: //div[@class="characteristicsStrate__item  characteristicsStrate__item--long "]//dt[contains(text(), "Mention Légale")]//following-sibling::*
   - name: sku
     singleValue: false
-    xpath: //script[contains(text(),'sku')]
-    #"sku":"9172525",
-    regExp: \"sku\"\s*:\s*\"(.+?)\"
-    regExpReplace: $1
+    xpath: //div[@id="added_sku"]
   - name: gtin
     singleValue: false
     xpath: //div[contains(@class, "f-productPage")]/@data-ean13
@@ -100,49 +96,14 @@ fields:
     xpath: //dt[contains(text(), "Dimensions")]//following-sibling::*
   - name: manufacturer
     singleValue: false
-    xpath: //div[@class='f-productHeader-additionalInformation f-productHeader-subTitle']//span[@class='f-productHeader-subTitleLabel']/a
   - name: promotion
     singleValue: false
-    xpath: //div[@class='f-productOffer-commercialOperation']
-  - name: manufacturerDescription
-    singleValue: false
-    xpath: //div[@id='flix-std-inpage']
-  - name: manufacturerImages
-    singleValue: false
-    xpath: //div[@id='flix-std-inpage']//img/@srcset
-  - name: warnings
-    singleValue: false
-    xpath: //div[@class='characteristicsStrate__lists']//dl//dt[contains(text(),'Avertissement de sécurité')]/parent::dl/dd    
-  - name: productOtherInformation
-    singleValue: false
-    xpath: //div[@class='characteristicsStrate__lists']//dl[@class='characteristicsStrate__item']
   - name: videos
     singleValue: false  
-    xpath: //div[contains(@class, "f-productVisuals-main")]//div[contains(@class, "VideoPlayer")]//video[contains(@id, "video")]/source/@src
-  - name: videos2
-    singleValue: false  
-    xpath: //div[@id='fullPlaylist']//div[contains(@class,'fullJwPlayerWarp')]//iframe/@src    
-  - name: galleryVideos
-    singleValue: false  
-    xpath: //div[contains(@class, "f-productVisuals-main")]//div[contains(@class, "VideoPlayer")]//video[contains(@id, "video")]/source/@src
+    xpath: //div[contains(@class, "f-productVisuals-main")]//div[contains(@class, "VideoPlayer")]//video[contains(@id, "video")]/@src
   - name: variantId
     singleValue: false  
     xpath: //div[contains(@class, "f-productPage")]/@data-prid
   - name: description
     singleValue: false  
     xpath: //div[contains(@class, "summaryStrate__raw")] | //div[contains(@class, "characteristicsStrate__item") and contains(@class, "item--long")]
-  - name: description2
-    singleValue: false  
-    xpath: //div[@class='characteristicsStrate__lists']  
-  - name: unInterruptedPDP
-    xpath: //div[contains(@class,"miniFA__top")]//img/@alt | //@updp
-    regExp: '[^|]+'
-  - name: hasComparisonTable
-    defaultValue: No
-    xpath: //div[@class="flix-comp-container"]
-    regExp: .+
-    regExpReplace: 'Yes'
-  - name: inTheBoxUrl
-    xpath:  //div[@class="flix-std-table"]//img[not(ancestor::div[@class="flix-dimensional-image"])]/@data-flixsrcset
-  - name: inTheBoxText
-    xpath: //div[@class="flix-std-content"]//span

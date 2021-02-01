@@ -1,4 +1,44 @@
-const { transform } = require('./format');
+const { transform } = require('../format');
+async function implementation (
+  inputs,
+  parameters,
+  context,
+  dependencies,
+) {
+  const { transform } = parameters;
+  const { productDetails } = dependencies;
+  await context.evaluate(async function () {
+    function addHiddenDiv (id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+
+    function fetchDetailsFromScript () {
+      const scriptTagSelectorLD = document.querySelector('script[type="application/ld+json"]');
+      const scriptTagDataLD = scriptTagSelectorLD ? scriptTagSelectorLD.innerText : '';
+      let scriptTagJSONLD = '';
+      try {
+        scriptTagJSONLD = scriptTagDataLD ? JSON.parse(scriptTagDataLD) : '';
+      } catch (e) {
+        console.log('Error in converting text to JSON....');
+        scriptTagJSONLD = '';
+      }
+      let sku = scriptTagJSONLD ? scriptTagJSONLD.sku ? scriptTagJSONLD.sku : '' : '';
+      // If sku is blank then taking product id as sku
+      if (!sku) {
+        const skuSelector = document.querySelector('div[class*="f-productPage"]');
+        sku = skuSelector ? skuSelector.getAttribute('data-prid') : '';
+      }
+      addHiddenDiv('added_sku', sku);
+    }
+    fetchDetailsFromScript();
+  });
+  return await context.extract(productDetails, { transform });
+}
+
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
@@ -8,55 +48,5 @@ module.exports = {
     domain: 'fnac.com',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
-    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-    const applyScroll = async function (context) {
-      await context.evaluate(async function () {
-        let scrollTop = 0;
-        while (scrollTop !== 5000) {
-          await stall(1000);
-          scrollTop += 1000;
-          window.scroll(0, scrollTop);
-          if (scrollTop === 5000) {
-            await stall(1000);
-            break;
-          }
-        }
-        function stall(ms) {
-          return new Promise((resolve, reject) => {
-            setTimeout(() => {
-              resolve();
-            }, ms);
-          });
-        }
-      });
-    };
-    await applyScroll(context);
-    await new Promise((resolve, reject) => setTimeout(resolve, 10000));
-    try{
-      await context.waitForSelector('div[class*="flix-std-table"] img');
-    }
-    catch(e){
-      console.log("Couldn't find selector");
-    }
-    /**
-     * Note: Comment API as it is getting blocked and might effect block rate.
-    async function getUPDP() {
-      const strateType = ['CustomersAlsoBought', 'ComplementaryProducts', 'DoNotMiss', 'InkCartridge', 'NavigationHistory'];
-      const productId = document.querySelector('.f-productPage').getAttribute('data-prid');
-      const API = strateType.map(type => `https://www.fnac.com/Nav/API/Article/GetStrate?prid=${productId}&catalogRef=1&strateType=${type}`);
-      const promises = API.map(api => fetch(api));
-      const responses = await Promise.all(promises);
-      const validResponse = responses.filter(response => response.headers.get('content-length') > 0);
-      const data = await Promise.all(validResponse.map(r => r.json()));
-      const UPDP = data.map(elm => elm.ArticleThumbnailList).flat().map(elm => elm.Title.TitleFull);
-      document.body.setAttribute('updp', UPDP.join('|'));
-    }
-    try {
-      await context.evaluate(getUPDP);
-    } catch (error) {
-      console.log('Error getting UPDP. Error: ', error);
-    }*/
-    return await context.extract(productDetails, { transform });
-  },
+  implementation,
 };
