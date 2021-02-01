@@ -184,10 +184,15 @@ module.exports = {
         document.body.appendChild(newDiv);
       }
     });
-    await context.captureRequests(async function () {
-      const videoRequest = context.searchForRequest('https://content.syndigo.com/asset/', 'GET', undefined, 3000);
-      console.log('videos-------->', videoRequest);
-    });
+    // await context.captureRequests(async function () {
+    //   const videoRequest = context.searchForRequest('https://content.syndigo.com/asset/', 'GET', undefined, 3000);
+    //   console.log('videos-------->', videoRequest);
+    // });
+    const videoRequest = await context.searchForRequest('https://content.syndigo.com/asset/.*', 'GET');
+    // const videoRequest1 = await context.searchForRequest('.*.ts', 'GET');
+    // const videoRequest = await context.searchForRequest(/https:\/\/content.syndigo.com\/asset\/803bf9f8-94fb-4a78-b2be-ff643d761c67\/8500k\/803bf9f8-94fb-4a78-b2be-ff643d761c67.ts/g, 'GET', undefined, 2000);
+    console.log('videos-------->', videoRequest);
+    // console.log('videos-------->', videoRequest1);
     // captureRequests(): Promise<void>
     // searchForRequest(urlPattern: string, method: string, pastTimestamp: number, timeout: number): Promise<any>
     await context.evaluate(async function () {
