@@ -61,6 +61,15 @@ module.exports = {
         addElementToDocument('variants-count', `${skuArr.length}`);
       }
 
+      const descResults = [];
+      const descriptionElements = document.evaluate('//div[@itemprop="description"]/p | //div[@itemprop="description"]/text() | //div[@itemprop="description"]//strong|//div[@itemprop="description"]//li', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      for (let i = 0; i <= descriptionElements.snapshotLength; ++i) {
+        const descriptionText = descriptionElements.snapshotItem(i) ? descriptionElements.snapshotItem(i).textContent : null;
+        if (descriptionText) descResults.push(descriptionText);
+      }
+      const desciption = descResults.length ? descResults.join(' | ').trim() : '';
+
+      addElementToDocument('desciptionText', desciption);
       const privacyPolicy = document.querySelector('a[href*="privacy-policy"]') ? 'Yes' : 'No';
       addElementToDocument('privacyPolicy', privacyPolicy);
 
