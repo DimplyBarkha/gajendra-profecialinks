@@ -100,6 +100,26 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.price) {
+        const priceArr = row.price.map((item) => {
+          if (item.text.includes('$.')) {
+            return item.text.replace('.', '0.');
+          } else {
+            return item.text;
+          }
+        });
+        row.price = priceArr;
+      }
+      if (row.listPrice) {
+        const priceArr = row.listPrice.map((item) => {
+          if (item.text.includes('$.')) {
+            return item.text.replace('.', '0.');
+          } else {
+            return item.text;
+          }
+        });
+        row.listPrice = priceArr;
+      }
       // if (row.description) {
       //   let text = '';
       //   let descTop = '';
