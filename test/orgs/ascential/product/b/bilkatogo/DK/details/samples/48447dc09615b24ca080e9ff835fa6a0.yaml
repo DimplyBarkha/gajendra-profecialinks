@@ -1,0 +1,94 @@
+input:
+  _url: http://bilkatogo.dk
+  URL: https://www.bilkatogo.dk/produkt/Budget-%C3%98ko.-hakkede-tomater/60303/
+extractions:
+  - html: https://workbench.import.io/html/run=698aa8f4-a6f6-475f-a65a-c2dc5c0d204b/task=26140a42-9ef2-4e23-9f33-e23a29500fb5/ed2e103c-87ff-42fd-a0b2-6f3e74f57295.html
+    extractionConfigId: product/details/stores/b/bilkatogo/DK/extract
+    data:
+      - group:
+          - category:
+              - text: Forside
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]
+              - text: Kolonial
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]
+              - text: Konserves og survarer
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]
+              - text: Dåsetomater
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]
+            image:
+              - text: https://dsdam.imgix.net/services/assets.img/id/a8552636-2afb-47a0-9e42-6ebab479f234/size/FULLSCALE.jpg?w=400&auto=format&q=40
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: Budget Øko. hakkede tomater
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/h1[1]
+            quantity:
+              - text: 400 g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/p[1]/span[1]
+            description:
+              - text: Budget Øko. hakkede tomater
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]
+            gtin:
+              - text: "5712872293088"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/p[3]/text()[1]
+            sku:
+              - text: "60303"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/p[4]/text()[1]
+            mpc:
+              - text: "62133101"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/p[5]/text()[1]
+            servingSize:
+              - text: "100"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/h3[1]
+            servingSizeUom:
+              - text: gr.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/h3[1]
+            caloriesPerServing:
+              - text: 24 Kcal
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/strong[1]
+            totalFatPerServing:
+              - text: 0,50
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/strong[1]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/strong[1]
+            saturatedFatPerServing:
+              - text: 0,10
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/strong[1]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/strong[1]
+            totalCarbPerServing:
+              - text: 3,80
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[5]/div[1]/strong[1]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[5]/div[1]/strong[1]
+            totalSugarsPerServing:
+              - text: 2,80
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[6]/div[1]/strong[1]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[6]/div[1]/strong[1]
+            proteinPerServing:
+              - text: 1,10
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[7]/div[1]/strong[1]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[7]/div[1]/strong[1]
+            saltPerServing:
+              - text: 0,03
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[8]/div[1]/strong[1]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[8]/div[1]/strong[1]
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[2]
+            listPrice:
+              - text: "5.25"
+            price:
+              - text: "5.25"
+            descriptionBullets:
+              - text: "0"
+        xpath: /html
+    timestamp: 1603888397653
