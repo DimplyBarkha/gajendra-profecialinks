@@ -1,0 +1,162 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //meta[@property="og:image"]/@content
+    regExp: >-
+      ^(.*)$
+    regExpReplace: >-
+      https:$1
+  - name: imageAlt
+    singleValue: false
+    xpath: //img[@id='image_grande']/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //span[contains(@class,'gv-vignette')][position()>1]//img/@src
+    regExp: (.*)(v_)(.*)
+    regExpReplace: https:$1$3
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: price
+    type: number
+    singleValue: false
+    xpath: //div[@class='fa-infos-prix']//@data-prix-vente | //div[contains(@class,"fa-prix")]//span[@class="prix"]
+  - name: priceCurrency
+    singleValue: false
+    defaultValue: €
+  - name: sku
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
+    regExp: sku":"([^"]+)
+    regExpReplace: $1
+  - name: variantId
+    singleValue: false
+    xpath: //div[@id='wc-power-page']/@data-product-id
+  - name: mpc
+    singleValue: false
+    xpath: (//div[@id='flix-media-container']//@data-flix-mpn)[1]
+  - name: ratingCount
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"reviewCount")]
+    regExp: reviewCount":(\d+),"(\w+)":([0-9.]+)
+    regExpReplace: $1
+  - name: aggregateRating
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"ratingValue")]
+    regExp: reviewCount":(\d+),"(\w+)":([0-9.]+)
+    regExpReplace: $3
+  - name: gtin
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"gtin")]
+    regExp: gtin13":"([^"]+)
+    regExpReplace: $1
+  - name: brandText
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"brand")]
+    regExp: brand":{"@context":"[^"]+","@type":"[^"]+","name":"([^"]+)
+    regExpReplace: $1
+  - name: manufacturer
+    singleValue: false
+  - name: availabilityText
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"availability")]
+    regExp: InStock
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: shippingInfo
+    singleValue: false
+    xpath: //div[@class='fa-buy-box']//div[contains(@class,'fa-vendu-par')]//span
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@itemprop="name"]
+  - name: name
+    singleValue: false
+    xpath: //h1[contains(@class,'fa-titre-article')]
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    xpath: //div[@class='p-l p-b']//a/@href
+    regExp: (^.*)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: listPrice
+    type: number
+    singleValue: false
+    xpath: //div[@class='fa-infos-prix']//@data-prix-origine
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div[contains(@id,"fiche")]//div[contains(@class,"points-forts")]//div[@class="fa-bloc-main"]/ul[@class="fa-liste-points-forts"]/li)
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[contains(@id,"fiche")]//div[contains(@class,"points-forts")]//div[@class="fa-bloc-main"]/ul[@class="fa-liste-points-forts"]/li
+  - name: specifications
+    singleValue: false
+    xpath: //div[contains(@class,'fa-bloc-main')]//div[contains(@class,"ls-ligne")] | //div[contains(@class,'fa-bloc-main')]//p
+  - name: warranty
+    singleValue: false
+    xpath: (//div[contains(@class,'fa-avantage')]//div[contains(@class,'uba-icone-avantage uba-icone-avantage-texte')])[1]
+  - name: colorCode
+    singleValue: false
+    xpath: //span[@class='fa-couleur current']/@style
+    regExp: (#(.*))
+    regExpReplace: $2
+  - name: manufacturerDescription
+    xpath: //div[@id="flix-std-inpage"]//div[contains(@class,'inpage_selector_info') or @id="flix_version_element"] | //div[@id="flix-std-inpage"]//div[contains(@class,'specification')]/preceding-sibling::* | //div[@id="flix-std-inpage"][not(//div[contains(@class,'specification')])] | //div[@class="miele-floorcare"] | //div[@class="fa-fiche-bloc"]//div[contains(@id,"flix-bissell-inpage")] | //body/@description
+  - name: termsAndConditions
+    singleValue: false
+    defaultValue: No
+  - name: manufacturerImages
+    xpath: //div[@id="inpage_container"]//img/@data-flixsrcset | //div[@id="inpage_container"]//img/@src |  //body/@images
+  - name: videos
+    singleValue: false
+   # xpath: //div[@id='flix-media-container']//a/@onclick | //script[@type="text/javascript"][contains(.,"url_video")]
+    xpath: //body/@videos
+  - name: variants
+    singleValue: false
+    xpath: //div[contains(@class,'fa-liste-decli')]//a/@href
+    regExp: (\d+)(?!.*\d)
+    regExpReplace: $1
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[contains(@class,'fa-liste-decli')]//a/@href)
+  - name: category
+    singleValue: false
+    xpath: //div[contains(@class,'bh-fil-ariane')]//span[contains(@class,'br-lien')][position()>1]
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@id,"fiche")]//div[contains(@class,"points-forts")]//div[@class="fa-bloc-main"]/div[@class="fa-description"]
+  - name: weightNet
+    singleValue: false
+    xpath: normalize-space(//div[span[contains(text(), 'Poids net')]]//span[2])
+  - name: shippingDimensions
+    singleValue: false
+    xpath: normalize-space(//div[span[contains(text(), 'Dimensions')]]//span[2])
+  - name: color
+    singleValue: false
+    xpath: normalize-space(//div[span[contains(text(), 'Coloris :')]]//span[2])
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: normalize-space(//div[span[contains(text(), 'Origine')]]//span[2])
+  - name: promotion
+    singleValue: true
+    description: promotion text on product page  
+    xpath: //div[contains(@class,"fa-prix")]//span[@class="reduction"]
+  - name: secondaryImageTotal 
+    type: NUMBER
+    xpath: count(//span[contains(@class,'gv-vignette')][position()>1]//img/@src)
+  - name: inTheBoxUrl
+    singleValue: false
+    xpath: //div[@class="inpage_selector_InTheBox"]//div[@class="flix-background-image"]//img/@data-flixsrcset
+    regExp: (.+)(\s?200w)(.+)
+    regExpReplace: https:$1
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //div[@class="inpage_selector_InTheBox"]//div[contains(@class,"flix-std-desc")]//span
+    description: Must include text to show the accessories/tools which come with the product
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //div[contains(@class,"fa-fiche-bloc")]//div[contains(@id,"art")]//h2//a//span[@class='titre-ligne'][1]
+    
