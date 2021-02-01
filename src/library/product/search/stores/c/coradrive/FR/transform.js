@@ -39,7 +39,7 @@ const transform = (data, context) => {
       if (row.productUrl) {
         row.productUrl.forEach((item) => {
           if (!item.text.includes('http')) {
-            item.text = `https://www.coradrive.fr${item.text}`;
+            item.text = `https://www.cora.fr${item.text}`;
           }
         });
       }
