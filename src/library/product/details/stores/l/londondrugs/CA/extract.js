@@ -10,7 +10,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     }, selector);
   };
 
-  if (checkExistance('div.error-page-message')) {
+  if (!checkExistance('div.error-page-message')) {
     return;
   }
   await context.waitForSelector('h1[itemprop="name"]', 3000);

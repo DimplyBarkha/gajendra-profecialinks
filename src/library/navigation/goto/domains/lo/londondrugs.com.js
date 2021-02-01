@@ -90,7 +90,15 @@ module.exports = {
           }
 
           isCaptchaFramePresent = await checkExistance(captchaFrame);
+
+          if (isCaptchaFramePresent) {
+            console.log('Failed to load captcha');
+            // @ts-ignore
+            return context.reportBlocked(lastResponseData.code, 'Blocked: Could not solve CAPTCHA, attempts=' + numberOfCaptchas);
+          }
         } catch (e) {
+          console.log(e);
+          console.log('@@@@@@@');
           console.log('Captcha did not load');
           console.log(JSON.stringify(lastResponseData));
           // @ts-ignore
@@ -118,15 +126,6 @@ module.exports = {
       }
     };
 
-    // let isCaptchaFramePresent = await checkExistance(captchaFrame);
-
-    isCaptchaFramePresent = await checkExistance(captchaFrame);
-
-    if (isCaptchaFramePresent) {
-      console.log('Failed to load captcha');
-      // @ts-ignore
-      return context.reportBlocked(lastResponseData.code, 'Blocked: Could not solve CAPTCHA, attempts=' + numberOfCaptchas);
-    }
     async function autoScroll (page) {
       await page.evaluate(async () => {
         await new Promise((resolve, reject) => {

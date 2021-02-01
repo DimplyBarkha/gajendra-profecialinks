@@ -5,8 +5,14 @@ parameters:
   store: londondrugs
   zipcode: ""
 proxy:
-  zone: ZCA
+  zone: CAN
   type: DATA_CENTER
+policy:
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 60
+  backoffPolicy: LINEAR
+  retryWithResidentialProxyAfter: 1
 meta:
   branches:
     dyson_londondrugs_ca_core:
