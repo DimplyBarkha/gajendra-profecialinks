@@ -12,7 +12,7 @@ module.exports = {
     openSearchDefinition: {
       template:'https://www.fnac.com/SearchResult/ResultList.aspx?Search={searchTerms}&PageIndex={page}',
     },
-    domain: 'fnac.fr',
-    zipcode: "''",
+    domain: 'fnac.com',
+    zipcode: '',
   },
 };
