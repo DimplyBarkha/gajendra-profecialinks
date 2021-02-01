@@ -5,8 +5,8 @@ module.exports = {
     country: 'KO',
     store: 'coupang',
     domain: 'coupang.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div#container',
+    noResultsXPath: '//h3[contains(@class,"error-img")]',
     zipcode: '',
   },
 };
