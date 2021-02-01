@@ -105,9 +105,10 @@ fields:
     xpath: //div[@id="pd_manufacturer"]
   - name: manufacturerDescription
     singleValue: false
-    xpath: 
+    xpath: //h2[contains(.,'Produktmerkmale')]/following-sibling::div//text()
   - name: manufacturerImages
     singleValue: false
+    xpath: //h2[contains(.,'Produktmerkmale')]/following-sibling::div//img/@src
   - name: gtin
     singleValue: false
     xpath: //div[@id="gtin"]
