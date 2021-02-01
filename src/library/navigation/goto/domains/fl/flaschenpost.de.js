@@ -14,7 +14,7 @@ module.exports = {
     await context.goto(url, { timeout, waitUntil: 'load', checkBlocked: true, captureRequests: true });
     // patch for synchronicity issue between json decoring and goto result
     if (url) {
-      await new Promise((resolve) => setTimeout(resolve, 5000));
+      await new Promise((resolve) => setTimeout(resolve, 10000));
     }
   },
 };
