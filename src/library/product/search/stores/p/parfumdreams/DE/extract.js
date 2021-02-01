@@ -35,7 +35,7 @@ module.exports = {
           splitJsonData2 = JSON.parse(splitJsonData2);
           for (var i = 0; i < splitJsonData2.length; i++) {
             addHiddenDiv('ean', splitJsonData2[i].ean, i);
-            addHiddenDiv('id', splitJsonData2[i].itemNumber, i);
+            addHiddenDiv('id', splitJsonData2[i].simpleId, i);
           }
         }
       }
