@@ -348,8 +348,8 @@ fields:
     description: null
   - name: specifications
     description: The physical dimensions of the product including packaging.
-    # xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-specification__dimensions ')]/ul|//div[@id='specsText']//text()
-    xpath: //h2[contains(@class,'product-specification__heading')]/following-sibling::*//*[not(self::script)]/text()
+    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-specification__dimensions ')]/ul|//div[@id='specsText']//text()
+    # xpath: //h2[contains(@class,'product-specification__heading')]/following-sibling::*//*[not(self::script)]/text()
   - name: warranty #localedependent
     description: Guarantee associated with the product
     xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),'arranty ')] or .//*[contains(text(),'uarantee ')]])[1]
