@@ -17,7 +17,7 @@ fields:
     singleValue: true
     xpath: //div[@id="ag-price"]
   - name: availabilityText
-    defaultValue: In Stock
+    defaultValue: In stock
     xpath: //div[@id="ag-availability"]
   - name: description
     singleValue: false
@@ -43,3 +43,5 @@ fields:
     xpath: //div[@id="ag-desc-bullets"]
   - name: countryOfOrigin
     xpath: //*[contains (@class, 'selo-product')]/@title
+  - name: brandText
+    xpath: //div[@id='ag-brand']
