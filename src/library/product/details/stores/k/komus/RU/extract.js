@@ -22,8 +22,7 @@ module.exports = {
         else result = elem ? elem.singleNodeValue : '';
         return result && result.trim ? result.trim() : result;
       };
-      
-      var name = getXpath('(//div[@data-videoid="productVideoPrimary"])[2]/@data-videoid', 'nodeValue');
+            
       if (name != null) {
         // @ts-ignore
         document.querySelector('div[data-videoid="productVideoPrimary"]:last-child').click()
