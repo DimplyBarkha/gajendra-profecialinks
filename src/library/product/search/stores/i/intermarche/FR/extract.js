@@ -1,9 +1,10 @@
+const { transform } = require("../../../../shared");
 module.exports = {
   implements: "product/search/extract",
   parameterValues: {
     country: "FR",
     store: "intermarche",
-    transform: null,
+    transform: transform,
     domain: "intermarche.com",
     zipcode: "",
   },
@@ -46,7 +47,7 @@ module.exports = {
       async function sample() {
         console.log("a");
         console.log("waiting...");
-        let delayres = await delay(6000);
+        let delayres = await stall(6000);
         console.log("b");
       }
       sample();
@@ -56,7 +57,6 @@ module.exports = {
           "/product/" +
           product[i].parentNode.dataset.id;
         addHiddenDiv("ii_produrl", url, i);
-        addHiddenDiv("ii_rankOrganic", i + 1, i);
       }
     });
     return await context.extract(productDetails, { transform });

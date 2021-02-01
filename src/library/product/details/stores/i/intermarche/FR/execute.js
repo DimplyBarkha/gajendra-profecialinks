@@ -4,7 +4,7 @@ module.exports = {
     country: "FR",
     store: "intermarche",
     domain: "intermarche.com",
-    loadedSelector: null,
+    loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: "",
   },
