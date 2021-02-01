@@ -6,7 +6,7 @@ module.exports = {
     store: 'otto_de',
     domain: 'otto.de',
     url: 'https://www.otto.de/suche/{searchTerms}/',
-    loadedSelector: null,
+    loadedSelector: 'div[class="content contentWithSidebar"]',
     noResultsXPath: null,
     zipcode: '',
   },
