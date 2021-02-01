@@ -26,12 +26,12 @@ async function implementation (
     await context.waitForSelector('a.ProductCard-Content');
     console.log('comming for click');
     let tmphref= await context.evaluate(function(){
-      return document.querySelector('a.ProductCard-Content').href;
+      location.href=document.querySelector('a.ProductCard-Content').href;
     });
     console.log('tmphref:',tmphref);
-    await context.goto(tmphref);
-    await context.waitForNavigation();
-    await new Promise((resolve, reject) => setTimeout(resolve, 8000));
+    //await context.goto(tmphref);
+    //await context.waitForNavigation();
+    //await new Promise((resolve, reject) => setTimeout(resolve, 8000));
   }catch(e){
     console.log('................................commint to error..................');
   }
