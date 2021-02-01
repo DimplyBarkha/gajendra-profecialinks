@@ -14,6 +14,25 @@ module.exports = {
     context,
     dependencies,
   ) => {
+    let pageExists = true
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
+
+    try {
+      await context.waitForXPath('//div[@class="rzgLFq"]');
+      pageExists = await context.evaluate(async function () {
+        if (document.evaluate('//*[contains(text(),"Votre recherche de Machine")] | //h2[contains(text(),"malheureusement plus disponible")]', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext()) {
+          return false
+        } else {
+          return true
+        }
+      })
+    } catch (error) {
+    }
+    if (!pageExists) {
+      return await context.extract(productDetails, { transform });
+    }
+
     try {
       await context.click('._3tGEA8 a');
     } catch (error) {
@@ -30,6 +49,7 @@ module.exports = {
       console.log('details missing');
     }
     await context.evaluate(async function () {
+
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
@@ -69,10 +89,7 @@ module.exports = {
         console.log('add element to document failed!!');
       }
     });
-    const { transform } = parameters;
-    const { productDetails } = dependencies;
     await context.extract(productDetails, { transform });
-
     await context.waitForXPath('//h3[@class="_3L3q2V _3ZjYJW _2zLas_"]/div');
   },
 };
