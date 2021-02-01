@@ -21,15 +21,6 @@ const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.id) {
-        row.id.forEach(item => {
-          var myRegexp = /fr\/p\/(\d+)\//g;
-          var match = myRegexp.exec(item.text);
-          if (match) {
-            item.text = match[1].trim();
-          } else {
-            delete row.id;
-          }
-        });
         row.rankOrganic = [{ text: rank }];
         row.rank = [{ text: rank }];
         rank = rank + 1;

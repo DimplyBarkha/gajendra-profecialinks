@@ -1,35 +1,74 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,'DlNoVpsv8MABrtE8wLdel')]
+recordXPath: //div[contains(@id,"pd_div")]
 fields:
-  - name: productUrl
-    singleValue: false
-    xpath: //div[contains(@class,'DlNoVpsv8MABrtE8wLdel')]/a/@href
-  - name: name
-    singleValue: false
-    xpath: //div[@class='_1ylr7ZqaNStFKeyroKYurg']
-  - name: price
-    singleValue: false
-    xpath: //div[@class='_26Qr4U1N4ID_qGORELpAK0']/span/span[1]/span[2]/span
-  - name: thumbnail
-    singleValue: false
-    xpath: //img[contains(@class,"_1tvfFmovoQ2TZxT0gZBswg")]/@src
-  - name: brandText
-    singleValue: false
-    xpath: //div[@class='_1BACmaaaExCgnZr-6b9fO']
-  - name: reviewCount
-    singleValue: false
-    xpath: //div[@id="msrc-widget"]//span[contains(@class,'sc-fzozJi')]
-  - name: aggregateRating2
-    singleValue: false
-    xpath: //div[@id="msrc-widget"]//div[contains(@class,"sc-AxiKw eSbheu")]//span[contains(@class,'sc-AxheI')][1]/@title
-    regExp: \:\s*([\d\.]+)
-    regExpReplace: $1
   - name: id
     singleValue: false
-    xpath: //div[contains(@class,'DlNoVpsv8MABrtE8wLdel')]/a/@href
+    xpath: //div[@id="pd_id"]
+  - name: name
+    singleValue: false
+    xpath: //div[@id="pd_name"]
+  - name: brandText
+    singleValue: false
+    xpath: //div[@id="pd_brand_name"]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@id="pd_url"]
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@id="pd_thumbnail"]
+  # - name: listPrice
+  #   singleValue: false
+  #   xpath: //div[@id="pd_listprice"]
+  - name: price
+    singleValue: false
+    xpath: //div[@id="pd_price"]
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[@id="pd_rating"]
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@id="pd_review"]
   - name: rankOrganic
-    SingleValue: false
+    singleValue: false
   - name: rank
-    SingleValue: false
+    singleValue: false
+  # - name: soldBy
+  #   singleValue: false
+  #   xpath: //div[@id="pd_seller"]
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id='search-url']
+# recordXPath: //div[contains(@class,'DlNoVpsv8MABrtE8wLdel')]
+# fields:
+#   - name: productUrl
+#     singleValue: false
+#     xpath: //div[contains(@class,'DlNoVpsv8MABrtE8wLdel')]/a/@href
+#   - name: name
+#     singleValue: false
+#     xpath: //div[@class='_1ylr7ZqaNStFKeyroKYurg']
+#   - name: price
+#     singleValue: false
+#     xpath: //div[@class='_26Qr4U1N4ID_qGORELpAK0']/span/span[1]/span[2]/span
+#   - name: thumbnail
+#     singleValue: false
+#     xpath: //img[contains(@class,"_1tvfFmovoQ2TZxT0gZBswg")]/@src
+#   - name: brandText
+#     singleValue: false
+#     xpath: //div[@class='_1BACmaaaExCgnZr-6b9fO']
+#   - name: reviewCount
+#     singleValue: false
+#     xpath: //div[@id="msrc-widget"]//span[contains(@class,'sc-fzozJi')]
+#   - name: aggregateRating2
+#     singleValue: false
+#     xpath: //div[@id="msrc-widget"]//div[contains(@class,"sc-AxiKw eSbheu")]//span[contains(@class,'sc-AxheI')][1]/@title
+#     regExp: \:\s*([\d\.]+)
+#     regExpReplace: $1
+#   - name: id
+#     singleValue: false
+#     xpath: //div[contains(@class,'DlNoVpsv8MABrtE8wLdel')]/a/@href
+#   - name: rankOrganic
+#     SingleValue: false
+#   - name: rank
+#     SingleValue: false
