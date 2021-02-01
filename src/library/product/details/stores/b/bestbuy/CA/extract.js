@@ -226,6 +226,18 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
+
+      //availabilityText
+      const isNotProdPage = !!document.querySelector('#page-not-found')
+      const addToCartNode = document.querySelector('div[class*="addToCartButtonContainer"] [class*=addToCartButton]');
+      if(!isNotProdPage) {
+         if(addToCartNode) {
+           addElementToDocument('availabilityText', 'In Stock');
+         } else {
+           addElementToDocument('availabilityText', 'Out Of Stock');
+         }
+      }
+
       let videoLinkArr = [];
       const videos = document.querySelectorAll('img[class="middle_1qXv8"]');
       for (let index = 0; index < videos.length; index++) {

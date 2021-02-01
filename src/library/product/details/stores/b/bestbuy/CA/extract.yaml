@@ -10,10 +10,10 @@ fields:
     # regExp: (.+)
     # regExpReplace: $1
   - name: availabilityText
-    xpath: //div[contains(@class,"addToCartButtonContainer")]//button[contains(@class,"addToCartButton")]
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out Of Stock
+    xpath: //div[@id="availabilityText"]
+    # regExp: (.+)
+    # regExpReplace: In Stock
+    # defaultValue: Out Of Stock
   - name: shippingInfo
     xpath: //div[contains(@class,"soldByBestBuy")] | //div[contains(@class,"soldBy")]
   - name: weightNet
@@ -147,3 +147,4 @@ fields:
     xpath: //ul[contains(@class,'boxContents')]//li
   - name: hasComparisonTable
     defaultValue: No
+    
