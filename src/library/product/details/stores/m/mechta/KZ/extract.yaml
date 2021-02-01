@@ -28,17 +28,17 @@ fields:
   - name: nameExtended
     singleValue: false
     xpath: //div[@class="text-ts5"]/text() | //title
+  # - name: availabilityText
+  #   singleValue: false
+  #   xpath: //div[contains(text(),"Купить в кредит")]/text()
+  #   regExp: (.+)
+  #   regExpReplace: In Stock
   - name: availabilityText
-    singleValue: false
-    xpath: //div[contains(text(),"Купить в кредит")]/text()
-    regExp: (.+)
-    regExpReplace: In Stock
-  - name: availabilityText1
     singleValue: false
     xpath: //div[contains(text(),"Нет в наличии")]/text()
     regExp: (.+)
     regExpReplace: Out Of Stock
-    # defaultValue: Out of Stock
+    defaultValue: In Stock
   - name: price
     singleValue: false
     xpath: //div[contains(@class,'text-bold text-ts5 text-color1')]//text()
@@ -79,7 +79,7 @@ fields:
     xpath: //div[contains(@class,'text-ts1 text-bold text-primary q-pl-sm bg-white')]
   - name: secondaryImageTotal
     singleValue: true
-    xpath: count((//div[contains(@class,"row no-wrap items-start q-gutter-x-sm")]//div[@class="q-img__image absolute-full"])[position()>1]/@style)
+    xpath: count((//div[contains(@class,"row no-wrap items-start q-gutter-x-sm")]//div[@role="img"])[position()>1])
   # - name: specificationsValue
   #   singleValue: false
   #   # specification = specification1 : specification 2 |

@@ -63,7 +63,7 @@ const transform = (data) => {
         row.specifications = specs;
       }
       if (row.alternateImages) {
-        row.alternateImages.splice(0, 1);
+        // row.alternateImages.splice(0, 1);
         row.alternateImages.forEach(item => {
           item.text = 'https://www.mechta.kz' + item.text;
         });
