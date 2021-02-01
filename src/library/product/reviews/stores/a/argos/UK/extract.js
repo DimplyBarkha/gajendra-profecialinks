@@ -30,7 +30,12 @@ async function implementation (
   const reviewsAvailable = await isSelectorAvailable(cssReviews);
   if (reviewsAvailable) {
     await context.click(cssReviews);
-    await context.waitForSelector(cssReviewsRow, { timeout: 5000 });
+
+    try {
+      await context.waitForSelector(cssReviewsRow, { timeout: 5000 });
+    } catch (e) {
+      console.log('no reviews available');
+    }
 
     const showMoreAvailable = await isSelectorAvailable(cssShowMore);
     console.log(`showMoreAvailable: ${showMoreAvailable}`);
