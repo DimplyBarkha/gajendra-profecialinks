@@ -33,9 +33,11 @@ const transform = (data) => {
         row.descriptionBullets = [{ text: arrBullets.length }];
       }
       if (row.alternateImages) {
+        var arrImg = [];
         row.alternateImages.forEach(item => {
-          item.text = '| '+item.text;
+          arrImg.push(item.text);
         });
+        row.alternateImages = [{ text: arrImg.join(' | ') }];
       }
 
       // if (row.description) {
@@ -54,13 +56,12 @@ const transform = (data) => {
       }
 
       if (row.videos) {
-        var arrVideos = '';
+        var arrVideos = [];
         var arrJsonVideo = JSON.parse(row.videos[0].text);
         arrJsonVideo.forEach(vdoUrl => {
-          // arrVideos.push(vdoUrl);
-          arrVideos+='|'+vdoUrl;
+          arrVideos.push(vdoUrl);
         });
-        row.videos = [{ text: arrVideos }];
+        row.videos = [{ text: arrVideos.join(' | ') }];
       }
     }
   }
