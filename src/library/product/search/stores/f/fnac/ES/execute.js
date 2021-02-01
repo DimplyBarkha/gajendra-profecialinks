@@ -8,6 +8,6 @@ module.exports = {
     url: 'https://www.fnac.es/SearchResult/ResultList.aspx?Search={searchTerms}',
     loadedSelector: 'div.Article-itemInfo',
     noResultsXPath: '//div[contains(@class, "noResults")]',
-    zipcode: "''",
+    zipcode: '',
   },
 };

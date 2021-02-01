@@ -1,4 +1,5 @@
-const { transform } = require('./format');
+
+const { transform } = require('../format');
 
 module.exports = {
   implements: 'product/search/extract',
@@ -7,6 +8,6 @@ module.exports = {
     store: 'fnac',
     transform,
     domain: 'fnac.es',
-    zipcode: "''",
+    zipcode: '',
   },
 };

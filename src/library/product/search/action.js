@@ -30,6 +30,11 @@ module.exports = {
       type: 'string',
     },
     {
+      name: 'Brands',
+      description: 'brands to search for',
+      type: 'string',
+    },
+    {
       name: 'results',
       description: 'the minimum number of results required',
       type: 'number',
