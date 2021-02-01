@@ -4,8 +4,8 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'walmartToGo',
-    // domain: 'grocery.walmart.com',
-    domain: 'walmarttogo.api',
+    domain: 'grocery.walmart.com',
+    // domain: 'walmarttogo.api',
     loadedSelector: 'div[data-automation-id="productPageTile"] div[class*="imageContainer"] img[data-automation-id="image"] , div[data-automation-id="productPageTile"] div[class*="imageContainer"] img[data-tl-id="ProductPage-primary-image"]',
     noResultsXPath: '(//*[@id="shoppingContent"]//section[contains(@class,"ProductPage__errorContainer")]|//*[@id="shoppingContent"]//*[@data-automation-id="noResultsSearchTerm"])[1]|//div[contains(@class, "_404__container")]',
     // loadedSelector: null,

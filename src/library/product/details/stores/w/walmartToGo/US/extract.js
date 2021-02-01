@@ -5,8 +5,8 @@ module.exports = {
     country: 'US',
     store: 'walmartToGo',
     transform: transform,
-    // domain: 'grocery.walmart.com',
-    domain: 'walmarttogo.api',
+    domain: 'grocery.walmart.com',
+    // domain: 'walmarttogo.api',
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {

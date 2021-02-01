@@ -26,7 +26,7 @@ async function implementation(inputs, parameters, context, dependencies) {
 
   // Add zipCode-StoreId map.
   const storeIdObj = {
-    '20166': '2038'
+    '20166': '2086'
   }
   if (!inputs.storeId && inputs.zipcode) {
     inputs.storeId = storeIdObj[inputs.zipcode] && storeIdObj[inputs.zipcode.toString()];
@@ -41,7 +41,8 @@ async function implementation(inputs, parameters, context, dependencies) {
 module.exports = {
   implements: 'product/details/createUrl',
   parameterValues: {
-    domain: 'walmarttogo.api',
+    // domain: 'walmarttogo.api',
+    domain: 'grocery.walmart.com',
     prefix: null,
     url: 'https://www.walmart.com/grocery/v3/api/products/{id}?itemFields=all&nutritionPrescriptive=true',
     country: 'US',
