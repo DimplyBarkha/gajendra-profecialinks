@@ -131,7 +131,7 @@ fields:
   - name: galleryVideos
     singleValue: false
     # xpath : //div[@id="videos"]|//div[contains(@class,'video-slides')]/@data-url
-    xpath: //div[@id="flix_hotspots"]/*[@id='flix_product_video']/@src
+    xpath: //div[@id="flix_hotspots"]/*[@id='flix_product_video']/@src | //div[contains(@class,"slides-group")]//img[@data-type="video"]//@data-url
     # xpath: //div[@class="image-layout-slides-group"]//img/@data-url | 
   - name: inTheBoxUrl
     xpath: //div[contains(@class,'InTheBox')]//img/@data-flixsrcset
