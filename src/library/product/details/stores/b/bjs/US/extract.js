@@ -16,9 +16,13 @@ module.exports = {
         throw new Error('Not a product Page');
       }
     });
-    await context.waitForSelector('.pr-snippet-stars-reco-inline .pr-snippet-rating-decimal');
+    try{
+      await context.waitForSelector('.pr-snippet-stars-reco-inline .pr-snippet-rating-decimal');
+      await context.waitForSelector('.pr-snippet-stars-reco-stars');
+    }catch(error){ console.log("await error..")}
+   // await context.waitForSelector('.pr-snippet-stars-reco-inline .pr-snippet-rating-decimal');
     await context.waitForSelector('.productimageblock #magic-zoom-id');
-    await context.waitForSelector('.pr-snippet-stars-reco-stars');
+    //await context.waitForSelector('.pr-snippet-stars-reco-stars');
     await context.evaluate(async function () {
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
@@ -54,6 +58,34 @@ module.exports = {
         return result;
       };
 
+     // await context.waitForSelector('.pr-snippet-stars-reco-inline .pr-snippet-rating-decimal');
+     // await context.waitForSelector('.pr-snippet-stars-reco-stars');
+    try{
+      const rating = document.querySelector('.pr-snippet-stars-reco-inline .pr-snippet-rating-decimal') ? document.querySelector('.pr-snippet-stars-reco-inline .pr-snippet-rating-decimal').innerText : 0;
+      console.log("rating: ", rating);
+      //await new Promise(resolve => setTimeout(resolve, 300000000));
+      if(rating != null){
+        document.body.setAttribute('import-rating', rating);
+      }
+      }catch(error){
+        console.log("rating Path error...");
+      }
+
+
+      const ratingPath = getXpath("//div[@class='pr-snippet-stars-container']/div[@class='pr-snippet-stars pr-snippet-stars-png ']/div[@class='pr-snippet-rating-decimal']/text()", 'nodeValue');
+      console.log("ratingPath::", ratingPath);
+      //addElementToDocument('import-rating', ratingPath);
+
+      
+      const ratingXPath = getXpath("//div[@class='pr-snippet']/div/div/div[@class='pr-snippet-rating-decimal']/text()", 'textContent');
+      console.log("ratingXPath::", ratingXPath);
+      if(ratingXPath != null){
+        addElementToDocument('import-rating', ratingXPath);
+      }else{
+        addElementToDocument('import-rating', "0");
+
+      }
+      
       const btext = getXpath("//script[@type='application/ld+json'][2]/text()",'nodeValue');
      //nst btext = getXpath("//html/body/app-root/div/div[2]/div/app-pdp-preprocessor/div/app-pdp-layout-template/script[2]/text()",'nodeValue');
       console.log("btext::::", btext);
@@ -169,18 +201,28 @@ module.exports = {
       // -----------------------------
       // -----------------------------
 
+      
       const availabilityText = document.querySelector('#addtocart-target') ? 'In stock' : 'Out of stock';
       let gtin = document.querySelector('.prod-item-model-number > span:first-child') ? document.querySelector('.prod-item-model-number > span:first-child').innerText : null;
       gtin = gtin ? gtin.split(':') : null;
       gtin = gtin ? gtin[gtin.length - 1].trim() : null;
-      const rating = document.querySelector('.pr-snippet-stars-reco-inline .pr-snippet-rating-decimal') ? document.querySelector('.pr-snippet-stars-reco-inline .pr-snippet-rating-decimal').innerText : 0;
-      console.log("rating: ", rating);
+      // try{
+      // const rating = document.querySelector('.pr-snippet-stars-reco-inline .pr-snippet-rating-decimal') ? document.querySelector('.pr-snippet-stars-reco-inline .pr-snippet-rating-decimal').innerText : 0;
+      // console.log("rating: ", rating);
+      // //await new Promise(resolve => setTimeout(resolve, 100000000));
+      // if(rating != null){
+      //   document.body.setAttribute('import-rating', rating);
+      // }
+      // }catch(error){
+      //   // @ts-ignore
+      //   console.log("rating: ", rating);
+      // }
       let reviews = document.querySelector('.desktopOnly .product-details .reviewnum') ? document.querySelector('.desktopOnly .product-details .reviewnum').innerText : '0';
       reviews = reviews.match(/\d+/g)[0];
       document.body.setAttribute('import-seller-name', `BJ's Wholesale Club`);
       document.body.setAttribute('import-seller-availability', availabilityText);
       document.body.setAttribute('import-gtin', gtin);
-      document.body.setAttribute('import-rating', rating);
+     // document.body.setAttribute('import-rating', rating);
       document.body.setAttribute('import-reviews', reviews);
       document.body.setAttribute('import-enhanced-content', 'false');
 

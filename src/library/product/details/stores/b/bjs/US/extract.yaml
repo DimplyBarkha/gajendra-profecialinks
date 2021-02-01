@@ -127,7 +127,10 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     xpath: //body/@import-rating
-    defaultValue: "0"
+    #xpath: //div[@id="import-rating"]
+    type: NUMBER
+    #regExp: ^([^\s]+)
+    #defaultValue: "0"
   - name: shippingInfo
     singleValue: true
     xpath: //*[@id="desktopShippingtabcontent"]/div/app-pdp-tab-shipping-and-returns-molecule/div/div/p[1]
