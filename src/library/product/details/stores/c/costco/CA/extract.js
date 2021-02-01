@@ -193,7 +193,7 @@ module.exports = {
       if (iframe) {
         const video = iframe.contentWindow.document.getElementsByTagName('video');
         const videoUrls = [...video].map(elm => elm.src);
-        document.body.setAttribute('video', videoUrls.join(' | '));
+        document.body.setAttribute('video', videoUrls.join(' |'));
       }
       const specXpath = '//div[contains(@class,"product-info-specs")]//div[@class="row"]';
       const specValue = getAllXpath(specXpath, 'innerText');
@@ -258,6 +258,12 @@ module.exports = {
         }
       }
       addElementToDocument('availabilityText', availabilityText);
+
+      //enhancedContent
+      const enhancedContent = document.querySelector('#wc-power-page');
+      if(enhancedContent) {
+        addElementToDocument('enhancedContent', enhancedContent.innerText);
+      }
 
       // xpath for priceValue
       const priceXpath = '//div[contains(@id,"pull-right-price")]/span';

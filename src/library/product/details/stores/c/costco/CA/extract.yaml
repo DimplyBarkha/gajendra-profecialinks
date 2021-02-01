@@ -124,7 +124,7 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     description: The extended description of the product supplied by the lister
-    xpath: //div[contains(@id,"wc-power-page")]
+    xpath: //div[@id="enhancedContent"]
   - name: manufacturerImages
     description: Images within the third party description
     xpath: //div[contains(@id,"wc-power-page")]//img//@src
