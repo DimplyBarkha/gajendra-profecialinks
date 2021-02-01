@@ -9,6 +9,7 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+    // await context.waitForXPath("//div[@class='bv-control-bar-count']//span[@role='status']");
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -17,6 +18,8 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
+<<<<<<< HEAD
+=======
       function stall (ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
@@ -25,6 +28,7 @@ module.exports = {
         });
       }
 
+>>>>>>> 0c8bc30c7c70a1c79ea4fc39b11de2a659b1cbd7
       const getXpath = (xpath, prop) => {
         const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
         let result;
@@ -42,13 +46,38 @@ module.exports = {
         }
         return result;
       };
-
+      // const ratingNode = getXpath("//div[@class='bv-control-bar-count']//span[@role='status']", 'innerText');
+      // console.log(ratingNode);
+      // if (ratingNode !== null) {
+      //   var ratingResult = ratingNode.split(' ');
+      //   console.log(ratingResult);
+      //   var ratingCount = ratingResult[ratingResult.length - 2];
+      //   console.log(ratingCount);
+      //   addElementToDocument('added_ratingcount', ratingCount);
+      // }
       // const category = getAllXpath("//div[@data-auid='breadcrumb']//ol//text()", 'nodeValue');
       // console.log('category   ' + category);
       // addElementToDocument('added_category', category);
+<<<<<<< HEAD
+      const description1 = getAllXpath("//div[@class='product-details-content']//div[@class='']", 'innerText').join('||');
+      const description2 = getAllXpath("//div[@class='product-details-content']//div[@class='active']", 'innerText').join('||');
+      console.log('description1:   ' + description1);
+      console.log('description2:  ' + description2);
+      let finalDesc;
+      if (description2 !== null && description2 !== '') {
+        finalDesc = description1 + '||' + description2;
+      } else {
+        finalDesc = description1;
+      }
+      console.log('finalDesc:   ' + finalDesc);
+      addElementToDocument('added_description', finalDesc);
+      // const description = getAllXpath("//div[@class='product-details-content']//div[@class='']", 'innerText').join('||');
+      // console.log('description*************************   ' + description);
+=======
 
       // const description = getAllXpath("//div[@class='product-details-content']//div[@class=''] | //div[@class='product-details-content']//div[@class='active']", 'innerText');
       // console.log('description   ' + description);
+>>>>>>> 0c8bc30c7c70a1c79ea4fc39b11de2a659b1cbd7
       // addElementToDocument('added_description', description);
 
       const addtionalDescBullets = getAllXpath("//div[@class='product-details-content']//div[@class='']//li", 'innerText');

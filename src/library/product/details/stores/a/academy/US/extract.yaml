@@ -3,27 +3,36 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: price
+    singleValue: false
+    xpath: //span[@data-auid='regPrice'] | //span[@data-auid='nowPrice']
+    # xpath: //div[@data-auid='PDP_ProductPrice']//span[@data-auid='regPrice'] | //div[@data-auid='PDP_ProductPrice']//span[@data-auid='nowPrice']
+    regExp: (.+)\b(\d+)(\d{2})\b
+    regExpReplace: $1$2.$3
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
   - name: image
     singleValue: true
     xpath: //main[@class='css-1ef219']//picture//img//@src
-    description: URL of the main product image
   - name: imageAlt
     singleValue: true
     xpath: //main[@class='css-1ef219']//picture//img//@alt
-    description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
+<<<<<<< HEAD
+    xpath: //div[@class='swiper-wrapper']/button[position()>1]/img/@src
+=======
     #xpath: //div[@class='swiper-wrapper']/button[position()>1]/img/@src
     xpath: //div[contains(@class,'swiper-slide')][position() >1]//picture//img/@src
     description: Other product images (not in manufacturer description)
+>>>>>>> 0c8bc30c7c70a1c79ea4fc39b11de2a659b1cbd7
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name='keywords']/@content
     description: The <meta> keywords content
   - name: category
     singleValue: false
-    xpath: //div[@class="css-439590"]//div[@data-auid='breadcrumb']//ol//a[1]
-    #xpath: //div[@id='added_category']
+    xpath: //div[@class='css-439590']//li[position()>1]//span/text()
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: false
@@ -33,14 +42,11 @@ fields:
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
     singleValue: true
-    description: The stated undiscounted price for the product
-  - name: price
-    singleValue: true
-    xpath: //div[@data-auid='PDP_ProductPrice']//span[@data-auid='regPrice']
+    xpath: //div[@data-auid='PDP_ProductPrice']
+    # xpath: //span[@data-auid='regPrice']
     regExp: (.+)\b(\d+)(\d{2})\b
     regExpReplace: $1$2.$3
-    description: The offered price for the selected product variant - if a user
-      clicks add to basket this is the price they would be charged
+    description: The stated undiscounted price for the product
   - name: availabilityText
     #xpath: //div[@data-auid='PDP_PickupInfo_BOPIS']//span[@class='ok css-bjzkj7']//text()
     xpath: //div[@id="renderShipItAtc"]//div[@class='css-18vvx1w']//text()
@@ -50,7 +56,7 @@ fields:
   - name: description
     singleValue: false
     xpath: //div[@id='added_description']
-    #xpath: //div[@class='product-details-content']//div[@class=''] | //div[@class='product-details-content']//div[@class='active']
+    # xpath: //div[@class='product-details-content']//div[@class=''] | //div[@class='product-details-content']//div[@class='active']
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
@@ -60,6 +66,7 @@ fields:
     type: NUMBER
   - name: brandText
     singleValue: true
+    xpath: //div[@class='recs--4 row flex-nowrap flex-lg-nowrap mobile-overflow-scroll']//a/@data-brand
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: manufacturer
@@ -110,6 +117,15 @@ fields:
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: true
+<<<<<<< HEAD
+    # xpath: //div[@class='bv-control-bar-count']//span[@role='status']
+    # xpath: //div[@id='added_ratingcount']
+    xpath: //div[@data-auid='Rating Stars']//text()
+    description: The number of ratings
+    type: NUMBER
+    # regExp: ([0-9]{1,}) ratings
+    # regExpReplace: $1
+=======
     #xpath: //div[@class='bv-content-reference-data bv-content-author-name']
     #xpath: //div[@data-auid='Rating Stars']//text()
     xpath: //div[@id="added_ratingCount1"]/text()
@@ -118,13 +134,20 @@ fields:
       # //div[@class='bv-header']//div[@class='bv-control-bar-count']//span//text()
     description: The number of ratings
     #type: NUMBER
+>>>>>>> 0c8bc30c7c70a1c79ea4fc39b11de2a659b1cbd7
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: true
+<<<<<<< HEAD
+    xpath: //div[@data-auid='Rating Stars']//text()
+      # //div[@class='bv-secondary-rating-summary-stars bv-table-row']//span[@class='bv-off-screen']
+      # //span[@class='bv-secondary-rating-summary-rating bv-table-cell']
+=======
     #xpath: //span[@class='bv-secondary-rating-summary-rating bv-table-cell']
     xpath: //div[@data-auid='Rating Stars']//text()
+>>>>>>> 0c8bc30c7c70a1c79ea4fc39b11de2a659b1cbd7
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
   - name: shippingInfo
@@ -255,6 +278,7 @@ fields:
     singleValue: false
     description: null
   - name: secondaryImageTotal
+    xpath: count(//div[@class='swiper-wrapper']/button[position()>1]/img/@src)
     singleValue: true
     description: null
     type: NUMBER
@@ -491,7 +515,7 @@ fields:
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[@class='css-zoj4i']//text()
+    xpath: count(//div[@class='css-zoj4i']//text())
     description: null
   - name: prop65Warning
     singleValue: true
