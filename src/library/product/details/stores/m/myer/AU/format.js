@@ -34,22 +34,27 @@ const transform = (data) => {
           if (row.descriptionBullets) {
             row.descriptionBullets = [{'text':row.descriptionBullets.length,'xpath':row.descriptionBullets[0].xpath}];
           }
-          if (row.description) {
-            let info = [];          
-            row.description.forEach(item => {
-              info.push(item.text.replace(/(\s*\n\s*)+/g, ' || ').trim());            
-            });
-            row.description = [{'text':info.join(' | '),'xpath':row.description[0].xpath}];          
-          }
-
-          if (row.price) {      
-            let info = [];  
-            row.price.forEach(item => {      
-              info  = item.text.split(" ");
+          if (row.availabilityText) {      
+            row.availabilityText.forEach(item => {      
+              item.text  = item.text.slice(1,-3);
+              item.text  = item.text.replace("http://schema.org/",'');
+              if (item.text == 'LimitedAvailability'){
+                row.availabilityText = [{"text": 'LowStock', "xpath": row.availabilityText[0].xpath}]
+              }
+              if (item.text == 'InStock'){
+                row.availabilityText = [{"text": 'In Stock', "xpath": row.availabilityText[0].xpath}]
+              }
+              if (item.text != 'InStock' && item.text != 'LimitedAvailability'){
+                row.availabilityText = [{"text": 'Out of Stock', "xpath": row.availabilityText[0].xpath}]
+              }
             });         
-            row.price = [{'text':info[0],'xpath':row.price[0].xpath}];
           }
-
+          if (row.price) {      
+            row.price.forEach(item => {      
+              item.text  = item.text.slice(1,-1);
+              item.text  = '$'+item.text;
+            });         
+          }
         }
     }
     return cleanUp(data);
