@@ -8,18 +8,17 @@ fields:
   - name: sponsored
     defaultValue: false
   - name: productUrl
-    description: The URL for the product details page
     xpath: //div[@class="infinite-scroll-component "]/div/div[2]/div[3]/div[1]/h2
     regExp: ^(.+)$
     regExpReplace: https://www.jjfoodservice.com/product/Basingstoke/$1/
+  - name: id
+    xpath: //div[@class="sc-cgHJcJ eljhpY"]/div[2]/text()[1]  
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: (//div[@id="jjfoods"]/div/div/main/section/article/div/div/div/div/div/div/picture/img/@data-src)
+    xpath: //picture//img/@data-src
   - name: name
     description: The product name
     xpath: //div[@data-rw="product--name"]/h1
   - name: price
     description: The offered price for the product
     xpath: //div[@class="infinite-scroll-component "]/div[1]/div[2]/div[3]/div[3]/div[2]
-  - name: id
-    xpath: //div[@class="infinite-scroll-component "]/div[1]/div[2]/div[3]/div[1]/h2

@@ -11,7 +11,7 @@ fields:
     description: URL of the main product image
     regExp: (.+)(/w_700,h_700,c_scale)(.+)
     regExpReplace: $1$3
-    xpath: (//div[@id="jjfoods"]/div[1]/div[3]/main/div[3]/div[1]/div[1]/div[1]/div[1]//img/@src)[1]
+    xpath: (//div[@id="jjfoods"]/div[1]/div[3]/main/div[3]/div[1]/div[1]/div[1]/div[1]/picture/img/@src)[1]
   - name: imageAlt
     description: Alt text of the main product image
   - name: alternateImages
@@ -29,12 +29,11 @@ fields:
   - name: listPrice
     description: The stated undiscounted price for the product
   - name: price
-    xpath: concat(//span[@class="sc-ekHBYt eiwnUM"]/div[contains(text(),'Delivery')]/span/text()[1],'',//span[@class="sc-ekHBYt eiwnUM"]/div[contains(text(),'Delivery')]/span/text()[2])
+    xpath: (//span[@class="sc-ekHBYt eiwnUM"]/div[contains(text(),'Delivery')]/span/text())[1]
   - name: availabilityText
     regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock    
-    xpath: //a[@class="sc-iwsKbI sc-gZMcBi sc-bsVVwV cEEFQQ"]
+    regExpReplace: In Stock   
+    xpath: (//a[@data-rw="product--add-button"])[1]
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
