@@ -11,6 +11,7 @@ module.exports = {
     // loadedSelector: 'ol.products.list.items.product-items',
     // loadedSelector: '#maincontent > div.columns > div.column.main > div.search.results  ol > li > div',
     openSearchDefinition: null,
+    nextPageUrlSelector: '[class="action  next"]',
     domain: 'skin.pt',
     zipcode: '',
   },
