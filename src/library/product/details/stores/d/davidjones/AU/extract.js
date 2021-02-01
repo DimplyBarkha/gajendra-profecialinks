@@ -16,14 +16,14 @@ module.exports = {
     dependencies,
   ) => {
     const variantCount = await context.evaluate(async function () {
-      return document.querySelectorAll('ul > li.size-0 > input').length;
+      return document.querySelectorAll('div.fake-select > ul > li > input').length;
     });
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.extract(productDetails, { transform:transform[0] });
     for (let index = 2; index <= variantCount; index++) {
       try {
-        await context.click(`ul > li.size-0:nth-child(${index})`);
+        await context.click(`div.fake-select > ul > li:nth-child(${index})`);
         await new Promise(resolve => setTimeout(resolve, 500));
         if (variantCount !== index) {
           await context.extract(productDetails, { type: 'APPEND', transform:transform[0]  });
