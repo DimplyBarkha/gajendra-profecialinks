@@ -109,6 +109,7 @@ fields:
     singleValue: true
     description: Content under "directions" header
   - name: warnings
+    xpath: //*[contains(text(), "AVISO IMPORTANTE:")]/following-sibling::text() | //*[contains(text(), "Aviso Importante:")]/following-sibling::text() | //b[contains(text(), "AVISO IMPORTANTE:")]/text() | //b[contains(text(), "O Ministério da Saúde Adverte:")]/following-sibling::text()
     singleValue: true
     description: Content under "warnings" header
   - name: ratingCount
