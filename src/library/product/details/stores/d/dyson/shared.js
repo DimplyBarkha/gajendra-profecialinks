@@ -288,7 +288,7 @@ async function implementation (
 
     // get the videos
     // const videos = ' (//div[contains(concat(\' \',normalize-space(@class),\' \'),\' s7videoviewer \') and boolean(//div[contains(@class,"product-hero__button-container")]/a)])[1]/@data-video-src';
-    const videos = `(//div[contains(concat(' ',normalize-space(@class),' '),' s7videoviewer ') and boolean(//div[contains(@class,"product-hero__button-container")]/a)])[1]/@data-video-src | (//div[contains(concat(' ',normalize-space(@class),' '),' s7videoviewer ')])[1]/@data-video-src`;
+    const videos = `(//div[contains(concat(' ',normalize-space(@class),' '),' s7videoviewer ') and boolean(//div[contains(@class,"product-hero__button-container")]/a)])[1]/@data-video-src | //section//li//div[contains(@class,'s7videoviewer')][@data-autoplay]/@data-video-src`;
     addElementToDocument('added_videos', getAllXpath(videos, 'nodeValue').map(v => `${window.location.hostname}${v}`));
   });
   return await context.extract(productDetails, { transform: parameters.transform });
