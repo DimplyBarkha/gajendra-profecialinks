@@ -6,30 +6,22 @@ fields:
   - name: image
     singleValue: true 
     xpath: //div[contains(@class, "image-container")]//img/@src[1]
-    # xpath: //main[@id="main-content"]/div[contains(@class, 'rmq-55d4a504')]/div/div[1]/img/@src
   - name: imageAlt
     singleValue: true 
     xpath: //div[contains(@class, "image-container")]//img/@alt
   - name: alternateImages
     xpath: //div[contains(@aria-label, "Item images")]//li[position()>1]//img/@src
-    # xpath: //main[@id="main-content"]//div[contains(@class, 'rmq-c76db721')]/div[position()>1]/img/@src
   - name: metaKeywords
     description: The <meta> keywords content
   - name: category
     xpath: (//div[contains(@class, "item-detail-module")]//div[contains(@aria-label, "breadcrumbs")])[1]//a
-    # xpath: //div[@aria-label="breadcrumbs"]/div[position()>1]/a|//div[@aria-label="breadcrumbs"]/div[last()]
   - name: nameExtended
     xpath: //div[@id="ii_nameExtended"]
-    # xpath: concat(//div[contains(@class, "itemModalHeader")]//h2[contains(@class, "item-title")], " ", //ul[contains(@aria-labelledby, "Flavor-variant-selections")]//li//button[contains(@aria-label, "select")], " ", //ul[contains(@aria-labelledby, "Size-variant-selections")]//li//button[contains(@aria-label, "select")])
-    # xpath: //main[@id="main-content"]/div[4]/div/div[2]/h3
   - name: listPrice
     xpath: //div[contains(@class, "itemModalHeader")]//span[contains(text(), "Original Price:")]/following-sibling::span[contains(@class, "item-full-price")]
     description: The stated undiscounted price for the product
   - name: price
     xpath: //div[contains(@class, "item-price")]//span[contains(text(), "Current price:")]/following-sibling::span
-    # xpath: //main[@id="main-content"]/div[contains(@class, 'rmq-ff')]/div/div[@style]/div[1]
-    # regExp: (.)(.+)
-    # regExpReplace: $2
   - name: availabilityText
     singleValue: true 
     xpath: //form//button[contains(text(), 'Add to cart')]
@@ -41,10 +33,6 @@ fields:
   - name: descriptionBullets
     description: Number of ul > li tags in the description
     type: NUMBER
-  - name: brandText
-    # xpath: //div[contains(@class, "itemModalHeader")]//h2[contains(@class, "item-title")]
-    # regExp: (^\w+)
-    # regExpReplace: $1 
   - name: manufacturer
     description: Product manufacturer
   - name: quantity
@@ -61,10 +49,6 @@ fields:
     xpath: //meta[@property="og:url"]/@content|//link[contains(@href, "instacart.com/store/items/item_")]/@href
     regExp: >-
       ((?<=item_).*?(?=\?)|(?<=item_).*)
-  # - name: sku
-  #   xpath: //meta[@property="og:url"]/@content|//link[contains(@href, "instacart.com/store/items/item_")]/@href
-  #   regExp: >-
-  #     ((?<=item_).*?(?=\?)|(?<=item_).*)
   - name: variantId
     description: Identifier for a variant from a store where variants share the same sku
     xpath: //meta[@property="og:url"]/@content|//link[contains(@href, "instacart.com/store/items/item_")]/@href
@@ -77,7 +61,6 @@ fields:
       the site to quantity)
   - name: directions
     xpath: //h3[contains(text(),'Directions')]/following-sibling::div
-    # xpath: //main[@id="main-content"]/div[contains(@class, 'rmq')]/div/div[contains(@style, 'flex:2')]//h3[contains(text(), 'Directions')]/following-sibling::div
   - name: warnings
     xpath: //h3[contains(text(),'Warning')]/following-sibling::div
     description: Content under "warnings" header
@@ -195,48 +178,33 @@ fields:
     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//div[contains(text(), 'Serving Size')]
     regExp: >-   
       [0-9,<,.]+
-    # type: NUMBER
   - name: servingSizeUom
     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//div[contains(text(), 'Serving Size')]
     regExp: ([^\d]+$)   
-    # regExp: (Serving Size (.+) (\w+))
-    # regExpReplace: $3
   - name: numberOfServingsInPackage
-    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//div[contains(text(), 'Servings Per')]
-    regExp: (Servings Per Container (.+))
-    regExpReplace: $2
+    xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//div[contains(text(), 'Servings Per Container')]
+    regExp: (\d+) 
     description: Suggested number of servings of the product.
-#     type: NUMBER
   - name: caloriesPerServing
     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Calories')]/ancestor::li
     regExp: >-   
       [0-9,<,.]+
-#     type: NUMBER
   - name: caloriesFromFatPerServing
     description: Nutritional Information for Calories From Fat content - Usually
       based on per 100g serving
-#     type: NUMBER
   - name: totalFatPerServing
     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Total Fat')]/ancestor::li/text()
     regExp: >-   
       [0-9,<,.]+
-#     type: NUMBER    
-    # xpath: //main[@id="main-content"]/div[contains(@class, 'rmq')]//li/strong[contains(text(), 'Total Fat')]/following-sibling::text()[2]
-    # regExp: ((\d+).?(\d+))?(\w)
-    # regExpReplace: $1
   - name: totalFatPerServingUom
     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Total Fat')]/ancestor::li/text()
     regExp: ([g|mg|mcg|IU]+$)
-    # xpath: //main[@id="main-content"]/div[contains(@class, 'rmq')]//li/strong[contains(text(), 'Total Fat')]/following-sibling::text()[2]
-    # regExp: ((\d+).?(\d+))?(\w)
-    # regExpReplace: $4
   - name: saturatedFatPerServing
     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//li[contains(text(), 'Saturated Fat')]/text()[not(.="Saturated Fat")]
     regExp: >-   
       [0-9,<,.]+
     description: Nutritional Information for Saturated Fat content - Usually based
       on per 100g serving
-    # type: NUMBER
   - name: saturatedFatPerServingUom
     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//li[contains(text(), 'Saturated Fat')]/text()[not(.="Saturated Fat")]
     regExp: ([g|mg|mcg|IU]+$)
@@ -247,7 +215,6 @@ fields:
       [0-9,<,.]+
     description: Nutritional Information for Trans Fat content - Usually based on
       per 100g serving
-    # type: NUMBER
   - name: transFatPerServingUom
     description: Unit of Measure Data for Trans Fat content
     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//li[contains(text(), 'Trans Fat')]
@@ -258,22 +225,16 @@ fields:
       per 100g serving
     regExp: >-   
       [0-9,<,.]+
-    # type: NUMBER
   - name: cholesterolPerServingUom
     description: Unit of Measure Data for Cholesterol content
     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Cholesterol')]/ancestor::li/text()[not(.=" ")]
-    regExp: (?:([\d\.]+)\s?(\w+))
-    regExpReplace: $2    
+    regExp: ([g|mg|mcg|IU]+$)  
   - name: sodiumPerServing
     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Sodium')]/ancestor::li/text()
-    # regExp: ((\d+).?(\d+))?(\w)
-    # regExpReplace: $1
     regExp: >-   
       [0-9,<,.]+
   - name: sodiumPerServingUom
     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Sodium')]/ancestor::li/text()
-    # regExp: ((\d+).?(\d+))?(\w+)
-    # regExpReplace: $4
     regExp: ([g|mg|mcg|IU]+$)
   - name: totalCarbPerServing
     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Total Carbohydrate')]/ancestor::li/text()
@@ -281,45 +242,30 @@ fields:
       [0-9,<,.]+
   - name: totalCarbPerServingUom
     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Total Carbohydrate')]/ancestor::li/text()
-    # regExp: ((\d+).?(\d+))?(\w)
-    # regExpReplace: $4
     regExp: ([g|mg|mcg|IU]+$)
   - name: dietaryFibrePerServing
     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//li[contains(text(), 'Dietary Fiber')]/text()[not(.="Dietary Fiber")]
-    # type: NUMBER
-    # regExp: ((\d+).?(\d+))?(\w)
-    # regExpReplace: $1
     regExp: >-   
       [0-9,<,.]+
   - name: dietaryFibrePerServingUom
     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//li[contains(text(), 'Dietary Fiber')]/text()[not(.="Dietary Fiber")]
     regExp: ([g|mg|mcg|IU]+$)
-    # regExp: ((\d+).?(\d+))?(\w)
-    # regExpReplace: $4
   - name: totalSugarsPerServing
     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//li[contains(text(), 'Sugars')]/text()[not(.="Sugars")]
-    # type: NUMBER
-    # regExp: ((\d+).?(\d+))?(\w)
-    # regExpReplace: $1
     regExp: >-   
       [0-9,<,.]+
   - name: totalSugarsPerServingUom
     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//li[contains(text(), 'Sugars')]/text()[not(.="Sugars")]
     regExp: ([g|mg|mcg|IU]+$)
-    # regExp: ((\d+).?(\d+))?(\w)
-    # regExpReplace: $4
   - name: proteinPerServing
     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Protein')]/ancestor::li/text()
     description: Nutritional Information for Protein content - Usually based on per
       100g serving
     regExp: >-   
       [0-9,<,.]+
-    # type: NUMBER
   - name: proteinPerServingUom
     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//strong[contains(text(), 'Protein')]/ancestor::li/text()
     regExp: ([g|mg|mcg|IU]+$)
-    # regExp: ((\d+).?(\d+))?(\w)
-    # regExpReplace: $4
     description: Unit of Measure Data for Protein
   - name: vitaminAPerServing
     description: Nutritional Information for Vitamin A content - Usually based on
