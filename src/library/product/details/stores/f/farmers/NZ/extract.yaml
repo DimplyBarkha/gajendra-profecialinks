@@ -73,7 +73,10 @@ fields:
     defaultValue: '0'
   - name: videos
     singleValue: false
-    xpath: //div[contains(@id,'video-url')] | //iframe[contains(@id,'flix-iframe0')]/@src 
+    xpath: //div[contains(@id,'video-url')]
+  - name: videos1
+    singleValue: false
+    xpath: //iframe[contains(@id,'flix-iframe0')]/@src
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[@id='inpage_container']

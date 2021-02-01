@@ -32,6 +32,15 @@ const transform = (data) => {
           },
         ];
       }
+      if (!row.videos) {
+        if (row.videos1) {
+          let a = [];
+          for (let i = 0; i < row.videos1.length; i++) {
+            a.push({ text: row.videos1[i].text });
+          }
+          row.videos = a;
+        }
+      }
       if (row.alternateImages) {
         if (row.alternateImages[0].text === row.image[0].text) {
           row.alternateImages.shift();

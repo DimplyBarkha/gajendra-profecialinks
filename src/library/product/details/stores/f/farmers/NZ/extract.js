@@ -29,12 +29,55 @@ module.exports = {
       return url;
     });
 
+    const applyScroll = async function (context) {
+      await context.evaluate(async function () {
+        let scrollTop = 0;
+        while (scrollTop !== 20000) {
+          await stall(500);
+          scrollTop += 1000;
+          window.scroll(0, scrollTop);
+          if (scrollTop === 20000) {
+            await stall(5000);
+            break;
+          }
+        }
+        function stall (ms) {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve();
+            }, ms);
+          });
+        }
+      });
+    };
+
+    await applyScroll(context);
+
     const iframeSelector = 'div#inpage_container iframe, iframe#eky-dyson-iframe';
     try {
       await context.waitForSelector(iframeSelector, { timout: 30000 });
     } catch (error) {
       console.log('Can\'t load iframe.');
     }
+
+    let videos = null;
+    videos = await context.evaluate(() => {
+      const iframeVideoSelector = 'div.flix-videodiv iframe';
+      const videoEle = document.querySelectorAll(iframeVideoSelector);
+      let allVideos = [];
+      if(videoEle) {
+        videoEle.forEach(ele => {
+          if(ele) {
+            let videoUrl = ele.hasAttribute('src') ? ele.getAttribute('src') : (ele.hasAttribute('_src') ? ele.getAttribute('_src') : '');
+            console.log('videoUrl : ' + videoUrl);
+            if(videoUrl) allVideos.push(videoUrl);
+          }
+        })
+      }
+      return allVideos;
+    });
+    console.log('videos : ' + videos);
+
     let newImages = null;
     let accessories = null;
     const checkExistance = async (selector) => {
@@ -123,7 +166,7 @@ module.exports = {
     }
     console.log(newImages + ' are new images and product url is ' + productUrl);
 
-    await context.evaluate(async (newImages, accessories) => {
+    await context.evaluate(async (newImages, accessories, videos) => {
       var src = '';
       // let iframeLink='';
       const imageEle = document.querySelectorAll('div#inpage_container img');
@@ -135,6 +178,14 @@ module.exports = {
         if (src) {
           addHiddenDiv('video-url', src);
         }
+      }
+
+      console.log('videos : ' + videos);
+      if (videos.length > 0) {
+        videos.forEach(video => {
+          console.log('video : ' + video);
+          if (video) addHiddenDiv('video-url', video);
+        })
       }
 
       if (newImages) {
@@ -205,7 +256,7 @@ module.exports = {
         newDiv2.style.display = 'none';
         document.body.appendChild(newDiv2);
       }
-    }, newImages, accessories);
+    }, newImages, accessories, videos);
     return await context.extract(productDetails, { transform });
   },
 };
