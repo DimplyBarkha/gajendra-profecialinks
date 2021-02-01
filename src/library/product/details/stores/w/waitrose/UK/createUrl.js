@@ -12,6 +12,10 @@ async function implementation (
 
     await dependencies.goto({ url });
     const detailsPage = await context.evaluate(async (productCode) => {
+      if (document.evaluate('//div[contains(text(), "Our systems have detected unusual traffic")]', document, null, XPathResult.ANY_TYPE, null)) {
+        // return `https://www.waitrose.com/ecom/shop/search?&searchTerm=${productCode}`;
+        console.log("captcha");
+      }
       if (document.querySelector('div[id="introAgreeButton"] span[class="CwaK9"] span[class="RveJvd snByac"]') !== null) {
         document.querySelector('div[id="introAgreeButton"] span[class="CwaK9"] span[class="RveJvd snByac"]').click();
       }
@@ -26,7 +30,7 @@ async function implementation (
             return document.querySelectorAll('div[class="yuRUbf"] a')[i].getAttribute('href');
           }
         }
-        return 'https://www.waitrose.com/';
+        return `https://www.waitrose.com/ecom/shop/search?&searchTerm=${productCode}`;
       }
     }, productCode);
     return detailsPage || url;
