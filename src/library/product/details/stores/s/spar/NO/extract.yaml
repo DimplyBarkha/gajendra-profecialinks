@@ -33,7 +33,7 @@ fields:
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
-  xpath: //h1[@itemprop="name"]
+  xpath: //div[@id='nameExtended']
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
@@ -72,6 +72,7 @@ fields:
   singleValue: true
   description: Quantity as described on the page
   xpath: //p[@class="cw-product__variant"]
+  regExp: \d+\,?\.?(\d+)?(g|pk|l|rl|mg|ml)
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page

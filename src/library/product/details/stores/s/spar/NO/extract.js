@@ -20,6 +20,14 @@ module.exports = {
         document.body.appendChild(catElement);
       }
 
+      const brandXpath = "(//li[@class='ws-manufacturer-info__item'][strong[contains(.,'Merke')]] | //li[@class='ws-manufacturer-info__item'][strong[contains(.,'Brand')]])[1]";
+      const brand = document.evaluate(brandXpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue
+        ? document.evaluate(brandXpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.textContent.replace(/^[^:]+:\s?/g, '') : '';
+      const nameXpath = "//h1[@itemprop='name']";
+      const name = document.evaluate(nameXpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue
+        ? document.evaluate(nameXpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.textContent : '';
+      if (name.match(brand)) addElementToDocument('nameExtended', name);
+      else if (name && brand) addElementToDocument('nameExtended', `${brand}-${name}`);
       const addToCartBtn = document.querySelector('div.cw-product__details button.ws-add-to-cart__button--add') ? 'In Stock' : 'Out of Stock';
       addElementToDocument('availability', addToCartBtn);
 
