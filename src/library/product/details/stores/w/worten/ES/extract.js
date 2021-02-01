@@ -250,23 +250,30 @@ module.exports = {
 
       const videos = [...document.querySelectorAll('.demoupUI-videocontainer video>source[type="video/mp4"]')];
       const videoGallery = [...document.querySelectorAll('img.demoupUI-thumb')];
-      const urls = [];
+      //const urls = [];
       if (videoGallery.length > 0) {
         for (let i = 0; i < videoGallery.length; i++) {
-          urls.push(videoGallery[i].getAttribute('src').replace(/(.+)-1-(.+)/g, 'https:$1.mp4'));
+          addHiddenDiv('galleryVideo', videoGallery[i].getAttribute('src').replace(/(.+)-(\d+)-(.+).jpg/g, 'https:$1.mp4'));
         }
       }
       else {
         for (let i = 0; i < videos.length; i++) {
           if (videos[i].getAttribute('src').match('http')) {
-            urls.push(videos[i].getAttribute('src'));
+            addHiddenDiv('galleryVideo', videos[i].getAttribute('src'));
           } else {
-            urls.push('https:' + videos[i].getAttribute('src'));
+            addHiddenDiv('galleryVideo', 'https:' + videos[i].getAttribute('src'));
           }
         }
       }
-      const allUrls = urls.join(' | ');
-      document.querySelector('body').setAttribute('galleryVideo', allUrls);
+      // const allUrls = urls.join(' | ');
+      function addHiddenDiv(id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+      // document.querySelector('body').setAttribute('galleryVideo', allUrls);
     });
 
 
