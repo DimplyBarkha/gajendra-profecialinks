@@ -25,13 +25,13 @@ fields:
   description: Alt text of the main product image
 - name: alternateImages
   singleValue: false
-  xpath: "(//*[@id='added_alternateImages']//text())[position()>1]"
-  # xpath: "//*[@id='added_alternateImages']//text()"
+  #xpath: "(//*[@id='added_alternateImages']//text())[position()>1]"
+  xpath: "//*[@id='added_alternateImages']//text()"
   description: Other product images (not in manufacturer description)
 - name: shownImages
   singleValue: false
-  xpath: "(//*[@id='added_alternateImages']//text())[position()>1]"
-  # xpath: "//*[@id='added_alternateImages']//text()"
+  #xpath: "(//*[@id='added_alternateImages']//text())[position()>1]"
+  xpath: "//*[@id='added_alternateImages']//text()"
   description: Other product images (not in manufacturer description)
 - name: metaKeywords
   singleValue: true
@@ -203,7 +203,7 @@ fields:
   description:
 - name: secondaryImageTotal
   singleValue: true
-  xpath: "count((//*[@id='added_alternateImages']//text())[position()>1])"
+  xpath: "//*[@id='added_alternateImages']//text()"
   description:
 - name: ingredientsList
   singleValue: true
@@ -438,7 +438,7 @@ fields:
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
 - name: highQualityImages
   singleValue: false
-  xpath: "(//*[@id='added_alternateImages']//text())[position()>1]"
+  xpath: "//*[@id='added_alternateImages']//text()"
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.
