@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  *
  * @param {ImportIO.Group[]} data
@@ -32,7 +33,7 @@ const transform = (data, context) => {
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
-        if(row.productUrl){
+        /*if(row.productUrl){
             row.productUrl.forEach(item=>{
                 item.text="https://www.petpost.com.au"+item.text;
             })
@@ -63,6 +64,18 @@ const transform = (data, context) => {
               });
             }
           })
+        }*/
+        if(row.productUrl){
+          let tmpObj;
+          row.productUrl.forEach(item=>{
+            tmpObj=JSON.parse(item.text);
+            //console.log('tmpObj :',tmpObj);
+            item.text=tmpObj.url;
+          })
+          row.thumbnail=[{"text":tmpObj.thumbnailImageUrl}];
+          row.id=[{"text":tmpObj.sku}];
+          row.price=[{"text":"$"+tmpObj.price}];
+          row.name=[{"text":tmpObj.title}];
         }            
       }
     }

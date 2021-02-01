@@ -1,21 +1,26 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="-mx-2"]//div[contains(@class,"collection-product")]
+#recordXPath: //div[@class="-mx-2"]//div[contains(@class,"collection-product")]
+recordXPath: //div[@id="jdCustomDivJSONData"]/div
 fields:
   - name: productUrl
     singleValue: false
-    xpath: //a[contains(@class,"collection-product-link")]/@href
+    #xpath: //a[contains(@class,"collection-product-link")]/@href
+    xpath: //div[@id="jdCustomDivJSONData"]/div
   - name: thumbnail
     singleValue: false
-    xpath: //a[contains(@class,"collection-product-link")]//span[contains(@class,"block-image") and contains(@class,"absolute ")]/@style
+    #xpath: //a[contains(@class,"collection-product-link")]//span[contains(@class,"block-image") and contains(@class,"absolute ")]/@style
+    xpath: //div[@id="jdCustomDivJSONData"]/div
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,"product-price-container")]//span[contains(@class,"now-price")]/text()
+    #xpath: //div[contains(@class,"product-price-container")]//span[contains(@class,"now-price")]/text()
+    xpath: //div[@id="jdCustomDivJSONData"]/div
   - name: name
     singleValue: false
-    xpath: //a[contains(@class,"collection-product-link")]//div[contains(@class,"yotpo") and contains(@class,"yotpo bottomLine")]/@data-name
+    #xpath: //a[contains(@class,"collection-product-link")]//div[contains(@class,"yotpo") and contains(@class,"yotpo bottomLine")]/@data-name
+    xpath: //div[@id="jdCustomDivJSONData"]/div
   - name: id
     singleValue: false
-    xpath: //a[contains(@class,"collection-product-link")]//div[contains(@class,"yotpo") and contains(@class,"yotpo bottomLine")]/@data-bread-crumbs
-  
+    #xpath: //a[contains(@class,"collection-product-link")]//div[contains(@class,"yotpo") and contains(@class,"yotpo bottomLine")]/@data-bread-crumbs
+    xpath: //div[@id="jdCustomDivJSONData"]/div
