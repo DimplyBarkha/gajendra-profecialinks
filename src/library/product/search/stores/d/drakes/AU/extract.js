@@ -24,7 +24,7 @@ module.exports = {
         let id = prodUrl.match(/.+\/(.+)/) ? prodUrl.match(/.+\/(.+)/)[1] : '';
         if (id.length > 60) {
           const idArr = id.split('-');
-          id = idArr.map((item) => item.substr(0, 1).toUpperCase()).join('');
+          id = idArr.map((item) => item.substr(0, 1).toLowerCase()).join('');
         }
         prodElem.setAttribute('added_id', id);
       }
