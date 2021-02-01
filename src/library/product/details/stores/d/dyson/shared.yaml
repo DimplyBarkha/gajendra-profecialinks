@@ -53,6 +53,8 @@ fields:
     # xpath: //script[contains(@type,"application/ld+json")]
     # regExp: /+(\w+Stock)
     # regExpReplace: $1
+  - name: priceCurrency
+    xpath: //div[@id='added_currency']  
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from

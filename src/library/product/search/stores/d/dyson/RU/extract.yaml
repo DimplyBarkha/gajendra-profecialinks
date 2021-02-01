@@ -6,7 +6,10 @@ recordXPath: null
 fields:
   - name: id
     singleValue: false
-    xpath: //div[@class="id"]
+    # xpath: //div[@class="id"]
+    xpath: //h5[@class="product-name"]//a/@href
+    regExp: (.+)-((\d+)-(\d+))\/
+    regExpReplace: $2
   #- name: sponsored
   #  singleValue: false
   #  description: Is sponsored/paid
