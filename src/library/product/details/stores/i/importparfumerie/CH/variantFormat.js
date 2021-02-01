@@ -10,6 +10,14 @@ const transform = (data) => {
               row.variantUrl.forEach(item => {
                   item.text = "https://www.impo.ch/de/p/"+item.text;
               });
+              if (row.variantUrl.length > 1) {
+                row.variantUrl.shift();
+              }
+          }
+          if (row.variantId) {
+            if (row.variantId.length > 1) {
+              row.variantId.shift();
+            }
           }
       }
   }    
