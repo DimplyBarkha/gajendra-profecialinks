@@ -14,7 +14,27 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  
+  try{
+    await context.waitForSelector('div.VerifyCityModal__Actions>button.ButtonNext_Theme-Alpha');
+    await context.click('div.VerifyCityModal__Actions>button.ButtonNext_Theme-Alpha');
+    await new Promise((resolve, reject) => setTimeout(resolve, 500));
+  }catch(e){
+    console.log('........................not popup..........................');
+  }
+  try{
+    //console.log('comming for xpath');
+    //await context.waitForSelector('a.ProductCard-Content');
+    console.log('comming for click');
+    let tmphref= await context.evaluate(function(){
+      return document.querySelector('a.ProductCard-Content').href;
+    });
+    console.log('tmphref:',tmphref);
+    await context.goto(tmphref);
+    await context.waitForNavigation();
+    await new Promise((resolve, reject) => setTimeout(resolve, 8000));
+  }catch(e){
+    console.log('................................commint to error..................');
+  }
 
   function addHiddenDiv (id, content) {
     const newDiv = document.createElement('div');
