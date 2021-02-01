@@ -45,7 +45,7 @@ const transform = (data, context) => {
             if(row.price){
                 row.price.forEach(item=>{
                     let prcArr=item.text.replace('Od:','').split('(');
-                    item.text=prcArr[0].trim();
+                    item.text=prcArr[0].trim().replace('.',',');
                 })
             }              
             if(row.id){
