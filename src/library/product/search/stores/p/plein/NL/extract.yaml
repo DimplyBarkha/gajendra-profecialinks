@@ -1,32 +1,39 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,"product-view-container")]
+recordXPath: //div[contains(@class,"col-xs-12 col-sm-6 col-lg-4 col-xl-3 product-view-container")]
 fields:
   - name: productUrl
-    xpath: //a[@class="umbrella"]/@href
-  - name: thumbnail
-    xpath: //div[contains(@class,"col-sm-5")]/div/img/@src
-  - name: name
-    xpath: //div[@class="product-title"]/@title
+    SingleValue: false
+    xpath: //div[contains(@class,"product-view-container")]//a[1][not(contains(@class,'rating'))]/@href
   - name: id
-    xpath: //a[contains(@class,"fa-shopping-cart")]/@data-modal-js-addtocart 
+    SingleValue: false
+    xpath: //a[contains(@class,'btn btn-addcart')]/@data-modal-js-addtocart
+  - name: id1
+    SingleValue: false
+    xpath: //div[contains(@class,'clear product-grid-view')]//div[contains(@class,'col-md-12 product-view-img')]//img/@src
+    regExp: \d{4,}
+    regExpReplace:
+  - name: name
+    SingleValue: false
+    # xpath: //div[contains(@class,'clear product-grid-view')]/div[@class='col-md-12 col-sm-7 col-xs-6 product-view-info']
+    xpath: //div[@class='col-md-12 product-view-name']
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[contains(@class,'clear product-grid-view')]//div[contains(@class,'col-md-12 product-view-img')]//img/@src
+  - name: price 
+    SingleValue: false 
+    xpath: //div[contains(@class,'clear product-grid-view')]//div[contains(@class,'col-md-12 product-view-price-cart')]//strong
+  - name: listPrice
+    SingleValue: false 
+    xpath: //div[contains(@class,'clear product-grid-view')]//div[contains(@class,'col-md-12 product-view-price-cart')]//span//span
   - name: reviewCount
-    xpath: 
-    regExp: \d+
+    SingleValue: false
+    xpath: //div[contains(@class,'clear product-grid-view')]//div[contains(@class,'col-md-12 product-view-rating')]//small
+    defaultValue: 0
   - name: ratingCount
-    xpath: //a[contains(@class,"fa-shopping-cart")]/@data-modal-rating-count
-    regExp: \d+
-  - name: price
-    singleValue: false
-    xpath: //a[contains(@class,"fa-shopping-cart")]/@data-modal-unit-price
-  - name: aggregateRating2
-    xpath: 
-    regExp:
-    regExpReplace: $1
-  - name: rankOrganic
-    singleValue: false
-  - name: rank
-    singleValue: false
-  - name: sponsored
-    defaultValue: false
+    SingleValue: false
+    defaultValue: 0
+  - name: aggregateRating
+    SingleValue: false
+    defaultValue: 0
