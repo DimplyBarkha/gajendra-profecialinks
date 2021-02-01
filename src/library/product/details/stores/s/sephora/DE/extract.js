@@ -151,10 +151,10 @@ async function implementation(
     }
 
     //availabilityText
-    var aval = getXpath("//span[contains(@class,'availability-status')]", 'nodeValue');
+    var aval = getXpath("//span[contains(@class,'availability-status')]/text()", 'nodeValue');
     if(aval != null){
       if(aval.includes("Verfügbar")){
-        aval = "In Stockk";
+        aval = "In Stock";
       }else{
         aval = "Out Of Stock"
       }
