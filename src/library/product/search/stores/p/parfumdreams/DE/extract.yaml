@@ -12,7 +12,7 @@ fields:
     singleValue: false
     xpath: //div[@class='product-image c d-12']/a/@href
     regExp: (^\/.+)
-    regExpReplace: https://en.parfumdreams.de$1
+    regExpReplace: https://www.parfumdreams.de$1
   - name: thumbnail
     singleValue: false
     xpath:  //div[@class='product-image c d-12']/a/img/@src
@@ -23,16 +23,17 @@ fields:
     regExpReplace: €$1
   - name: id
     singleValue: false
-    xpath: //div[@class='product-image c d-12']/a/@onclick
-    regExp: \"id\":(.*),\"simpleId\"
-    regExpReplace: $1
+    xpath: //html//div[@id='id']
+  - name: gtin
+    singleValue: false
+    xpath: //html//div[@id='ean']
   - name: rankOrganic
     singleValue: false
-    xpath: //div[@class='product-image c d-12']/a/@onclick
-    regExp: \"position\":(.*)},
-    regExpReplace: $1
+    #xpath: //div[@class='product-image c d-12']/a/@onclick
+    #regExp: \"position\":(.*)},
+    #regExpReplace: $1
   - name: rank
     singleValue: false
-    xpath: //div[@class='product-image c d-12']/a/@onclick
-    regExp: \"position\":(.*)},
-    regExpReplace: $1
+    #xpath: //div[@class='product-image c d-12']/a/@onclick
+    #regExp: \"position\":(.*)},
+    #regExpReplace: $1

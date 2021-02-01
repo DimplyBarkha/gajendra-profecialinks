@@ -44,11 +44,19 @@ module.exports = {
         if (name.includes("not available")) {
           name = "Out of Stock";
         } else {
-          name = "In stock";
+          name = "In Stock";
         }
         addElementToDocument('name', name);
       }
+<<<<<<< HEAD
       
+=======
+      var perunit = getXpath('(//*[@id="schema-offer"]/div[2]/p[1]/text())[1]', 'nodeValue');
+      if (perunit != null) {
+        perunit = perunit.split("/")[1]
+        addElementToDocument('perunit', perunit);
+      }
+>>>>>>> 65cc757d255a1b295f8b33ead6821de29fd84079
     });
 
 

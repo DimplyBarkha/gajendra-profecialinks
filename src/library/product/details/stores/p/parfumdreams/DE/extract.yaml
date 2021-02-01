@@ -8,6 +8,9 @@ fields:
     xpath: /html/head/title
     regExp: (.*) \|
     regExpReplace: $1
+  - name: id
+    singleValue: true
+    xpath: (//meta[@itemprop='sku']/@content)[1]
   - name: productUrl
     singleValue: true
     xpath: //link[@rel="canonical"]/@href
@@ -16,13 +19,19 @@ fields:
     xpath: //*[@id="right-column"]/div/div[1]/div/div[2]/div[1]/div[1]/h1
   - name: gtin
     singleValue: true
-    xpath: //*[@id="schema-offer"]/div[3]/meta[3]/@content
+    xpath: //*[@id="right-column"]/div/meta/@content
   - name: description
     singleValue: true
     xpath: //div[@class='footer-content']/div[1]
   - name: price
     singleValue: true
+<<<<<<< HEAD
     xpath: //div[@class="variation clearfix active"]//div[@class="font-headline mbs05"]/text()[1]
+=======
+    xpath: (//div[@class="variation clearfix active"]//div[@class="font-headline mbs05"]/text()[1]|//div[@itemprop='offers']/div/div[contains(text(),'€')]/text())[1]
+    #regExp: (€.+)\*
+    #regExpReplace: $1
+>>>>>>> 65cc757d255a1b295f8b33ead6821de29fd84079
   - name: listPrice
     singleValue: false
     xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[3]/div/div[1]/div/div[2]/form/div[1]/div[3]/div[1]/div/span
@@ -34,7 +43,9 @@ fields:
     xpath: //h1[@class='hide-text']
   - name: sku
     singleValue: true
-    xpath: //*[@id="right-column"]/div/meta/@content
+    xpath: //div[@id='articlenumberDiv']
+    regExp: (\d*)
+    regExpReplace: $1
   - name: mpc
     singleValue: true
     #xpath: //*[@id="right-column"]/div/meta/@content   
@@ -52,7 +63,7 @@ fields:
     xpath: //div[@class="variation clearfix active"]//div[@class="font-headline description mbs1"]/text()
   - name: variantId
     singleValue: false
-    xpath: (//*[@id="schema-offer"]/div[1]/div/input/@value|(//meta[@itemprop='sku']/@content[1])[1])[2]
+    xpath: //*[@id="schema-offer"]/div[3]/meta[2]/@content
   - name: availabilityText
     singleValue: true
     xpath: //html//div[@id="name"]
@@ -80,6 +91,11 @@ fields:
     xpath: (//*[@id="schema-offer"]/div[2]/p[1]/text())[1]
     #regExp: \€(.+)\*(.*)
     #regExpReplace: $1$2
+  - name: pricePerUnitUom
+    singleValue: true
+    xpath: //html//div[@id='perunit']
+    #regExp: \/(.*)
+    #regExpReplace: $1 
   - name: imageAlt
     singleValue: true
     xpath: //*[@id="article-primary-image"]/div/img[1]/@alt
