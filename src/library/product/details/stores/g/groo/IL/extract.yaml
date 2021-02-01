@@ -13,7 +13,7 @@ fields:
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class='inner-img']/img/@src
+    xpath: (//div[contains(@id,"productDescription")][not(contains(@class,"hidden"))]//div[@class='inner-img']/img/@src)[position()>1]
     description: Other product images (not in manufacturer description)
   - name: metaKeywords
     singleValue: true
@@ -49,13 +49,13 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[@class="extra-description-block"][1]//div[@class="description-section"]//div[@class='content']//text()
+    xpath: //div[contains(@id,"productExtraDescription")][not(contains(@class,"hidden"))][1]//div[@class="description-section"]//div[@class='content']//text()
      # //div[@class='content']//ul/li
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
     singleValue: true
-    xpath: count(//div[@class="extra-description-block"][1]//div[@class="description-section"][1]//div[@class='content']//ul//li)
+    xpath: count(//div[contains(@id,"productExtraDescription")][not(contains(@class,"hidden"))][1]//div[@class="description-section"]//div[@class='content']//text())
     #count(//div[@class='content']//ul/li)
     description: Number of ul > li tags in the description
     type: NUMBER
@@ -70,7 +70,7 @@ fields:
       e.g. "Visit the Gillette Store"
   - name: aggregateRating
     singleValue: true
-    manualSelector: script[id='opportunity-schema']
+    manualSelector: //script[@id='opportunity-schema'][contains(.,"InStock")]
     regExp: (\"ratingValue\"\:\")([^"]+)(",")
     regExpReplace: $2
     #xpath: count(//div[@class='start_box ']//span//img)
@@ -129,7 +129,8 @@ fields:
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: true
-    xpath: //div[@class="start_box "]//span[@class='csat-counter-text']//text()
+    xpath: //div[contains(@id,"productDescription")][not(contains(@class,"hidden"))]//div[@class="start_box "]//span[@class='csat-counter-text']//text()
+    # xpath: //div[@class="start_box "]//span[@class='csat-counter-text']//text()
     description: The number of ratings
     type: NUMBER
     defaultvalue: ''
@@ -138,7 +139,7 @@ fields:
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: true
-    manualSelector: script[id='opportunity-schema']
+    manualSelector: //script[@id='opportunity-schema'][contains(.,"InStock")]
     regExp: (\"ratingValue\"\:\")([^"]+)(",")
     regExpReplace: $2
     #xpath: count(//div[@class='start_box ']//span//img)
@@ -430,7 +431,7 @@ fields:
     description: null
   - name: specifications
     singleValue: true
-    xpath: //ul//li//div//span[contains(text(), 'מידות')]//text()
+    xpath: //div[contains(@id,"productExtraDescription")][not(contains(@class,"hidden"))]//ul//li//div//span[contains(text(), 'מידות')]//text()
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: true
@@ -504,7 +505,7 @@ fields:
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[@class="extra-description-block"][1]//div[@class="description-section"][1]//div[@class='content']//ul//li
+    xpath: //div[contains(@id,"productExtraDescription")][not(contains(@class,"hidden"))]//div[@class="extra-description-block"][1]//div[@class="description-section"][1]//div[@class='content']//ul//li
     # //div[@class='content']//ul/li
     description: null
   - name: prop65Warning

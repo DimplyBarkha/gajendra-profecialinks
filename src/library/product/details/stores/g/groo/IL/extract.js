@@ -38,7 +38,7 @@ module.exports = {
       }
       addElementToDocument('added_netWeight', netWeightValue);
 
-      const otherDescriptionXpath = "//div[@id='productExtraDescription']";
+      const otherDescriptionXpath = "//div[@id='productExtraDescription'][not(contains(@class,'hidden'))]";
       const otherDescriptionStr = getXpath(otherDescriptionXpath, 'innerText');
       // .replace(/\r\n|\r|\n/g, ' ');
       addElementToDocument('added_productOtherInformation', otherDescriptionStr);
