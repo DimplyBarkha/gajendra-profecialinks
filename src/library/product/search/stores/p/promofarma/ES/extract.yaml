@@ -13,8 +13,8 @@ fields:
     xpath: //div[@class="col-6 col-sm-12 column-text"]/div/a/@href
   - name: thumbnail
     xpath: //img[starts-with(@class,'GA')]/@src | //img[starts-with(@class,' GA')]/@src | //a[@class="link"]/img/@data-retina 
-  - name: aggregateRating  
-    xpath: //div[@id='aggregateRating'] 
+  - name: aggregateRating2
+    xpath: //html//div[@id='aggregateRating'] 
   - name: searchUrl
     xpath: //html//div[@id='added-searchurl'] 
   - name: reviewCount
