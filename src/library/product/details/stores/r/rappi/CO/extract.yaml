@@ -22,7 +22,7 @@ fields:
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: false
-    xpath: //meta[@property="og:title"]/@content
+    xpath: //h3[@class="product-name"]/text()
     # xpath: //h3[@class="product-name"]/text()
   - name: listPrice
     singleValue: false
@@ -39,7 +39,9 @@ fields:
     # defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[contains(@class,"product-description")]/text()
+    xpath: //script[contains(@type,"application/ld+json") and contains(text(), "sku")]
+    regExp: description\W+([^"]+)
+    regExpReplace: $1
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
