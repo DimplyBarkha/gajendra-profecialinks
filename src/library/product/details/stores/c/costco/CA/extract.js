@@ -11,6 +11,43 @@ module.exports = {
   },
 
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
+    const applyScroll = async function (context) {
+      await context.evaluate(async function () {
+        let scrollTop = 0;
+        while (scrollTop !== 20000) {
+          await stall(500);
+          scrollTop += 1000;
+          window.scroll(0, scrollTop);
+          if (scrollTop === 20000) {
+            await stall(5000);
+            break;
+          }
+        }
+        function stall (ms) {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve();
+            }, ms);
+          });
+        }
+      });
+    };
+    await applyScroll(context);
+    
+    try {
+      await context.waitForSelector('[name="view-more"]', {timeout: 30000});
+      console.log("found view more")
+    } catch(er) {
+      console.log(er.message);
+    }
+
+    try {
+      await context.click('[name="view-more"]');
+    } catch(er) {
+      console.log(er.message);
+    }
+    await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+    await applyScroll(context);
     await context.evaluate(async function () {
       console.log('waiting for page to load');
       await new Promise(resolve => setTimeout(resolve, 50000));
@@ -152,6 +189,12 @@ module.exports = {
         addElementToDocument('added_video_url', videoUrlObj.playlist[0].file);
       }
 
+      const iframe = document.querySelector('[title="Product Videos"]');
+      if (iframe) {
+        const video = iframe.contentWindow.document.getElementsByTagName('video');
+        const videoUrls = [...video].map(elm => elm.src);
+        document.body.setAttribute('video', videoUrls.join(' | '));
+      }
       const specXpath = '//div[contains(@class,"product-info-specs")]//div[@class="row"]';
       const specValue = getAllXpath(specXpath, 'innerText');
       let specVal = '';

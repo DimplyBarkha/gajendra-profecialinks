@@ -124,12 +124,14 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     description: The extended description of the product supplied by the lister
+    xpath: //div[contains(@id,"wc-power-page")]
   - name: manufacturerImages
     description: Images within the third party description
+    xpath: //div[contains(@id,"wc-power-page")]//img//@src
   - name: videos
     description: URLs of videos on page
     #xpath: //div[@class="flix-videodiv inpage_selector_video"]//iframe/@src | //div[@id="html5videostage"]//video/@src
-    xpath: //div[@id="added_video_url"]/text()
+    xpath: //div[@id="added_video_url"]/text() | //body//@video
   - name: name
     description: The product name
     xpath: //h1[contains(@itemprop,'name')]/text()
