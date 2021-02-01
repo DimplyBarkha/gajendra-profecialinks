@@ -59,7 +59,7 @@ fields:
     xpath: //div[contains(@class,"swatch-option") and contains(@aria-checked,"true")]//div[@class="custom-option-label col-4"][contains(text(),"ml")]
   - name: gtin
     singleValue: false
-    xpath: //div[@class="price-box price-final_price"]/@data-product-id
+    #xpath: //div[@class="price-box price-final_price"]/@data-product-id
   - name: sku
     singleValue: false
     xpath: //meta[@itemprop="sku"]/@content
