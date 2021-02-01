@@ -65,7 +65,10 @@ module.exports = {
       };
 
       for (let i = 0; i < wholeVariants.length; i++) {
-        addElementToDocument('product_variant_url', wholeVariants[i]);
+        let variantUrl = wholeVariants[i];
+        const variantUrlMatch = variantUrl.match(/(\d+\?skuId=(\d+))/);
+        if (variantUrlMatch && variantUrlMatch.length === 3) variantUrl = variantUrl.replace(variantUrlMatch[1], variantUrlMatch[2]);
+        addElementToDocument('product_variant_url', variantUrl);
       }
       if (!wholeVariants.length) addElementToDocument('product_variant_url', window.location.href);
     });
