@@ -132,6 +132,26 @@ const transform = (data) => {
         const witb = Array.from(new Set(row.inTheBoxUrl.map(elm => elm.text.trim())));
         row.inTheBoxUrl = witb.map(text => ({ text }));
       }
+      if (row.price) {
+        const priceArr = row.price.map((item) => {
+          if (item.text.includes('$.')) {
+            return item.text.replace('.', '0.');
+          } else {
+            return item.text;
+          }
+        });
+        row.price = priceArr;
+      }
+      if (row.listPrice) {
+        const priceArr = row.listPrice.map((item) => {
+          if (item.text.includes('$.')) {
+            return item.text.replace('.', '0.');
+          } else {
+            return item.text;
+          }
+        });
+        row.listPrice = priceArr;
+      }
     }
   }
   return data;

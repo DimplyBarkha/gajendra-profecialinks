@@ -23,7 +23,7 @@ fields:
     xpath: //nav[@class="breadcrumb-container"]//ul//li//a
   - name: listPrice
     singleValue: false
-    xpath: //span[@class="was"]
+    xpath: //div[contains(@class,"ProductTitleWrapper-PDP")]//span[@class="was"]
   - name: price
     singleValue: false
     xpath: //span[@class="aPrice large"]
@@ -93,10 +93,10 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     # xpath: //div[contains(@id,"wc-aplus")]/descendant::*[not(contains(@style,"none")) and not(name()='style')]
-    manualSelector: div[id="wc-aplus"]
+    manualSelector: div[id=SP_ACPage] div[id="wc-aplus"]
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[contains(@class,"wc-media-inner-wrap") or contains(@class,"wc-rf-banner-image-container")]//img/@src
+    xpath: //div[@id="SP_ACPage"]//div[contains(@class,"wc-media-inner-wrap") or contains(@class,"wc-rf-banner-image-container")]//img/@src
   - name: gtin
     singleValue: false
     xpath: //script[contains(text(),'productDetails')]
