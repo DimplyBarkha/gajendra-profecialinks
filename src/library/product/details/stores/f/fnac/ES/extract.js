@@ -1,6 +1,6 @@
 const { transform } = require('../format');
 
-async function implementation (inputs, parameters, context, dependencies) {
+async function implementation(inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
@@ -34,7 +34,6 @@ async function implementation (inputs, parameters, context, dependencies) {
     if (json.brand) {
       addHiddenDiv('brandText', json.brand.name);
     }
-  });
 
   const setValueInDivToDOM = async (id, content) => {
     console.log(`Adding id: ${id} and content of ${id} to DOM`);
