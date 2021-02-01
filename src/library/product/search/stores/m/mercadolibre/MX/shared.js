@@ -24,6 +24,12 @@ const transform = (data, context) => {
   // const productCodes = state.productCodes || [];
   for (const { group } of data) {
     for (const row of group) {
+      if (row.productUrl) {
+        const index = row.productUrl[0].text.indexOf('#searchVariation');
+        if (index > -1) {
+          row.productUrl[0].text = row.productUrl[0].text.slice(0, index);
+        }
+      }
       rankCounter += 1;
       if (!row.sponsored) {
         orgRankCounter += 1;
