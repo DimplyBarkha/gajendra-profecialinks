@@ -198,8 +198,9 @@ fields:
     # type: NUMBER
   - name: servingSizeUom
     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//div[contains(text(), 'Serving Size')]
-    regExp: (Serving Size (.+) (\w+))
-    regExpReplace: $3
+    regExp: ([^\d]+$)   
+    # regExp: (Serving Size (.+) (\w+))
+    # regExpReplace: $3
   - name: numberOfServingsInPackage
     xpath: //h3[contains(text(), 'Nutrition Facts')]/ancestor::div//div[contains(text(), 'Servings Per')]
     regExp: (Servings Per Container (.+))

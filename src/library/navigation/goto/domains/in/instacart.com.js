@@ -51,6 +51,6 @@ module.exports = {
 
     await context.waitForSelector(`span[data-identifier="store_info"] a[href^="${storeId}"]`, { timeout: 15000 });
 
-    await context.goto(url, { timeout: 30000, waitUntil: 'load', checkBlocked: false });
+    await context.goto(url, { timeout: 38000, waitUntil: 'load', checkBlocked: false });
   },
 };
