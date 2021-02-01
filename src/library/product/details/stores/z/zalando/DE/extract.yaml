@@ -136,7 +136,8 @@ fields:
   xpath: ancestor::html//div[@id="variant_count"]
 - name: color
   description: A textual description of the colour
-  xpath: ancestor::html//x-wrapper-re-1-3/div[last()]/div/span[contains(text(), "Colour")]/following-sibling::span
+  # xpath: ancestor::html//x-wrapper-re-1-3/div[last()]/div/span[contains(text(), "Colour")]/following-sibling::span
+  xpath: "@variant_information"
 - name: colorCode
   singleValue: true
   description: A code description of the color (e.g. RGB hex)

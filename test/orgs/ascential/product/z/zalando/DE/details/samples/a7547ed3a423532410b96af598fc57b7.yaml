@@ -2,7 +2,7 @@ input:
   _url: http://zalando.de
   URL: https://en.zalando.de/rains-bum-bag-mini-bum-bag-ri054h00q-g11.html
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=f05bbcbd-f617-4774-bbfd-2645527fa9fc/task=16e4b35c-791f-47d5-ac17-c98fd9d1cfe0/e9c12cd1-2a7b-4606-a8aa-6c842ba868c6.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=8156cac6-9913-49b2-8978-8e87da4db58e/task=33283338-ec08-4c39-a050-5424e37f87d3/b688c440-112c-4f39-97b2-30426c91d774.html
     extractionConfigId: product/details/stores/z/zalando/DE/extract
     data:
       - group:
@@ -29,6 +29,12 @@ extractions:
             nameExtended:
               - text: Rains Gürteltasche coral
                 xpath: /html/body/div[7]/@name_extended
+            listPrice:
+              - text: 46,95 €
+                xpath: /html/body/div[7]/@list_price
+            price:
+              - text: 23,45 €
+                xpath: /html/body/div[7]/@price
             availabilityText:
               - text: Out Of Stock
                 xpath: /html/body/div[7]/@availability_text
@@ -63,6 +69,9 @@ extractions:
             variantCount:
               - text: "1"
                 xpath: /html/body/div[9]
+            color:
+              - text: coral
+                xpath: /html/body/div[7]/@variant_information
             name:
               - text: Gürteltasche
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/h1[1]
@@ -84,4 +93,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1611741919032
+    timestamp: 1612180939466

@@ -2,7 +2,7 @@ input:
   _url: http://zalando.de
   URL: https://en.zalando.de/pai-skincare-rosehip-bioregenerate-face-oil-pah34g00i-s11.html
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=f05bbcbd-f617-4774-bbfd-2645527fa9fc/task=8de29d16-188c-4ca7-8247-e2056dd53329/14e8f42f-7bc2-4f08-b3dd-00c929816626.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=8156cac6-9913-49b2-8978-8e87da4db58e/task=e311503e-f548-4e67-b34a-2d0a754dc31b/7bfccc26-954b-4dfc-8da5-74676db54ca9.html
     extractionConfigId: product/details/stores/z/zalando/DE/extract
     data:
       - group:
@@ -23,6 +23,9 @@ extractions:
             nameExtended:
               - text: Pai skincare ROSEHIP BIOREGENERATE - Gesichtsöl
                 xpath: /html/body/div[7]/@name_extended
+            price:
+              - text: 28,95 €
+                xpath: /html/body/div[7]/@price
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[7]/@availability_text
@@ -89,4 +92,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1611741917468
+    timestamp: 1612180936147
