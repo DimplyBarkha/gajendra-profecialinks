@@ -12,35 +12,37 @@ module.exports = {
     await context.setLoadAllResources(true);
     await context.setLoadImages(true);
     await context.setJavaScriptEnabled(true);
-    await context.goto(url, {
+    // Added #SP_ACPage after url to load enhanced content block.
+    const newUrl = `${url}#SP_ACPage`;
+    await context.goto(newUrl, {
       firstRequestTimeout: 60000,
       timeout: 60000,
       waitUntil: 'load',
       checkBlocked: true,
 
     });
-    async function autoScroll(page) {
-      await page.evaluate(async () => {
-        await new Promise((resolve) => {
-          var totalHeight = 0;
-          var distance = 100;
-          var timer = setInterval(() => {
-            var scrollHeight = document.body.scrollHeight;
-            window.scrollBy(0, distance);
-            totalHeight += distance;
+    // async function autoScroll(page) {
+    //   await page.evaluate(async () => {
+    //     await new Promise((resolve) => {
+    //       var totalHeight = 0;
+    //       var distance = 100;
+    //       var timer = setInterval(() => {
+    //         var scrollHeight = document.body.scrollHeight;
+    //         window.scrollBy(0, distance);
+    //         totalHeight += distance;
 
-            if (totalHeight >= scrollHeight) {
-              clearInterval(timer);
-              resolve();
-            }
-          }, 100);
-        });
-      });
-    }
+    //         if (totalHeight >= scrollHeight) {
+    //           clearInterval(timer);
+    //           resolve();
+    //         }
+    //       }, 100);
+    //     });
+    //   });
+    // }
     console.log(zipcode);
     if (zipcode) {
       await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
     }
-    await autoScroll(context);
+    // await autoScroll(context);
   },
 };
