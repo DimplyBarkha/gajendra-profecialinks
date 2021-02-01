@@ -56,7 +56,7 @@ const transform = (data) => {
         });
         row.description = [
           {
-            text: text.slice(0, -3),
+            text: text.slice(0, -4),
           },
         ];
       }
@@ -103,6 +103,21 @@ const transform = (data) => {
           }
         });
         row.totalCarbPerServing = [
+          {
+            text: text,
+          },
+        ];
+      }
+      if (row.proteinPerServing) {
+        let text = '';
+        row.proteinPerServing.forEach(item => {
+          if (item.text.includes(',')) {
+            text = `${item.text.replace(',', '.')}`;
+          } else {
+            text = item.text;
+          }
+        });
+        row.proteinPerServing = [
           {
             text: text,
           },

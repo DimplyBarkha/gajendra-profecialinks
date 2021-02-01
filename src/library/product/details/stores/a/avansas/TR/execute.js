@@ -5,8 +5,8 @@ module.exports = {
     country: 'TR',
     store: 'avansas',
     domain: 'avansas.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div.product-list-area',
+    noResultsXPath: '//h2/strong/following-sibling::text()',
     zipcode: "''",
   },
 };
