@@ -6,8 +6,8 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[@id="exo-results"]//ul[@id="exo-result-list"]//li[@class="exo-result"]//div[@data-zta="productVariants"]//div[contains(@class,'product__offer')][1]//meta[@itemprop="price"]/@content
-    regExp: (.+)
-    regExpReplace: € $1    
+    regExp: (\d+)(\.)?(\d{1,2})?    
+    regExpReplace: € $1,$3   
   - name: name
     singleValue: false
     xpath: //div[@id="exo-results"]//ul[@id="exo-result-list"]//li[@class="exo-result"]//a[@data-zta="productListLink"]/text()
