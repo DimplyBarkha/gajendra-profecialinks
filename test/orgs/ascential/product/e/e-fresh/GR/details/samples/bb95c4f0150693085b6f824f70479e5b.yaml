@@ -2,7 +2,7 @@ input:
   id: 4100000201
   _url: http://e-fresh.gr
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=3cbb42f2-8e56-48f2-8459-ec642600bd66/task=177635ce-f812-416b-9956-7c56c2bd1b75/ab34fab1-4c33-47db-904d-50ad87b93fb5.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5f22cd9f-9647-43d6-b543-2d4e955e4249/task=d821e722-dd1f-46b2-a520-46eae9b2086f/4d993ca5-bd1d-42b3-89f5-0ac65aaec0cc.html
     extractionConfigId: product/details/stores/e/e-fresh/GR/extract
     data:
       - group:
@@ -42,19 +42,22 @@ extractions:
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/p[1]
             brandText:
               - text: Ίον
-                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[4]/strong[1]
+                xpath: /html/body/div[7]
             manufacturer:
               - text: Ίον
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[4]/strong[1]
-            gtin:
-              - text: "5012501010094"
-                xpath: /html/body/div[8]
+            weightNet:
+              - text: 100g
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/h2[1]
             sku:
               - text: "4100000201"
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/span[1]
             variantId:
               - text: "4100000201"
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/span[1]
+            mpc:
+              - text: "5012501010094"
+                xpath: /html/body/div[8]
             name:
               - text: Σοκολάτα Γάλακτος ΙΟΝ (100g)
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/h2[1]
@@ -110,12 +113,17 @@ extractions:
             saltPerServingUom:
               - text: g
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]/span[1]
-            allergyAdvice:
-              - text: Γαλα, Σογιας, ξηρων, καρπων, πρωτεϊνων, σιτου
-                xpath: /html/body/div[11]
+            pricePerUnit:
+              - text: 14.200 € / kg
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]
+            pricePerUnitUom:
+              - text: kg
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]
             imageZoomFeaturePresent:
               - text: Yes
                 xpath: /html/body/div[14]
+            variantCount:
+              - text: "0"
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -139,4 +147,4 @@ extractions:
                 locale: el
                 value: 0
         xpath: /
-    timestamp: 1610969576160
+    timestamp: 1612215252238

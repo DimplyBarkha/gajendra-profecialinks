@@ -59,7 +59,7 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //div[@class="supplier"]//strong
+    xpath: //div[@id='brand']
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -72,13 +72,14 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
+    xpath: //h2[@class="title"]
+    regExp: (?<=\().+(?=\))
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: //div[@id='gtin']
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -92,6 +93,7 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
+    xpath: //div[@id='gtin']
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -128,7 +130,7 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
-    type: NUMBER
+    defaultValue: '0'
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -440,7 +442,6 @@ fields:
   - name: allergyAdvice
     singleValue: true
     description: Allergy information associated with the product
-    xpath: //div[@id="allergens"]
   - name: recyclingInformation
     singleValue: true
     description: Recycling information associated with the product
@@ -456,9 +457,12 @@ fields:
   - name: pricePerUnit
     singleValue: true
     description: Price of the product split into certain units
+    xpath: //div[@class="price-per-unit"]//div[contains(@class,'price')]
   - name: pricePerUnitUom
     singleValue: true
     description: The unit of measurement used in price_per_unit
+    xpath: //div[@class="price-per-unit"]//div[contains(@class,'price')]
+    regExp: (?<=\/\s).+
   - name: promotion
     singleValue: true
     description: promotion text on product page

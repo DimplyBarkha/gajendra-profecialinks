@@ -2,7 +2,7 @@ input:
   id: 4100000099
   _url: http://e-fresh.gr
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=3cbb42f2-8e56-48f2-8459-ec642600bd66/task=c321a5e3-cc1f-4481-a996-bd7ba2434fec/3b437e0e-251e-4879-b98e-15ebc52b53b2.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5f22cd9f-9647-43d6-b543-2d4e955e4249/task=91dd4526-b62c-4cbb-907a-3758757b9dd4/cba1ec8e-d32a-48d6-bd83-0afdba994975.html
     extractionConfigId: product/details/stores/e/e-fresh/GR/extract
     data:
       - group:
@@ -40,19 +40,22 @@ extractions:
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/p[1]
             brandText:
               - text: Παπαδοπούλου
-                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[4]/strong[1]
+                xpath: /html/body/div[7]
             manufacturer:
               - text: Παπαδοπούλου
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[4]/strong[1]
-            gtin:
-              - text: "5201004366467"
-                xpath: /html/body/div[8]
+            weightNet:
+              - text: 5x28g
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/h2[1]
             sku:
               - text: "4100000099"
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/span[1]
             variantId:
               - text: "4100000099"
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/span[1]
+            mpc:
+              - text: "5201004366467"
+                xpath: /html/body/div[8]
             name:
               - text: Μπάρες Δημητριακών Digestive Κόκκινα Φρούτα και Γάλα Παπαδοπούλου (5x28g)
                   -0,30€
@@ -123,16 +126,20 @@ extractions:
             saltPerServingUom:
               - text: g
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]/span[1]
-            allergyAdvice:
-              - text: σίτου, σίτου, σόγιας, γλουτένη σίτου, κριθαριού, κριθαριού, κριθαριού,
-                  γάλακτος, σόγιας, Ξηρούς καρπούς.
-                xpath: /html/body/div[11]
+            pricePerUnit:
+              - text: 21.786 € / kg
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]
+            pricePerUnitUom:
+              - text: kg
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]
             promotion:
               - text: -0,30€
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
             imageZoomFeaturePresent:
               - text: Yes
                 xpath: /html/body/div[14]
+            variantCount:
+              - text: "0"
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -156,4 +163,4 @@ extractions:
                 locale: el
                 value: 0
         xpath: /
-    timestamp: 1610969574192
+    timestamp: 1612215250033

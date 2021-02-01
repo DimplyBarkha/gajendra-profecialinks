@@ -2,7 +2,7 @@ input:
   id: 4400000796
   _url: http://e-fresh.gr
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=3cbb42f2-8e56-48f2-8459-ec642600bd66/task=354514f6-a57d-4939-a91a-86e93b9893be/207078db-0b2d-4817-bb41-21c5796bc754.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5f22cd9f-9647-43d6-b543-2d4e955e4249/task=da08b851-d0fb-4921-b969-32cde28e7bc6/0e34ce68-f6d9-4d89-a23f-782f550c020b.html
     extractionConfigId: product/details/stores/e/e-fresh/GR/extract
     data:
       - group:
@@ -51,29 +51,40 @@ extractions:
               - text: "Μάθε περισσότερα για τα προϊόντα Klinex εδώ: www.klinex.gr"
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/p[2]
             brandText:
-              - text: Ελαϊς-Unilever Hellas Α.Ε.
-                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[3]/strong[1]
+              - text: Klinex
+                xpath: /html/body/div[8]
             manufacturer:
               - text: Ελαϊς-Unilever Hellas Α.Ε.
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[3]/strong[1]
-            gtin:
-              - text: "5201028540522"
-                xpath: /html/body/div[9]
+            weightNet:
+              - text: 2lt
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/h2[1]
             sku:
               - text: "4400000796"
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/span[1]
             variantId:
               - text: "4400000796"
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/span[1]
+            mpc:
+              - text: "5201028540522"
+                xpath: /html/body/div[9]
             name:
               - text: Χλωρίνη Ultra Protection Pink Klinex (2lt)
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/h2[1]
+            pricePerUnit:
+              - text: 1.700 € / lt
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]
+            pricePerUnitUom:
+              - text: lt
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]
             promotion:
               - text: -20%
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
             imageZoomFeaturePresent:
               - text: Yes
                 xpath: /html/body/div[15]
+            variantCount:
+              - text: "0"
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -97,4 +108,4 @@ extractions:
                 locale: el
                 value: 1
         xpath: /
-    timestamp: 1610969574338
+    timestamp: 1612215251313
