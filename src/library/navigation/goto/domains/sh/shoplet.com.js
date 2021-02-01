@@ -17,6 +17,7 @@ module.exports = {
         return document.querySelector('div#captcha-container.captcha');
       });
       if(hasCaptchaExists){
+        
         //await context.evaluateInFrame('iframe', () => grecaptcha.execute());
         try {
           await context.evaluateInFrame('iframe', () => grecaptcha.execute());
