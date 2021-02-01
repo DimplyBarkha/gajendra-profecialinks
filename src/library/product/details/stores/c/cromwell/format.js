@@ -24,7 +24,8 @@ const transform = (data, context) => {
           let t = item.text.replace(/\n/g, '||')
           item.text = item.text.replace(/More Information/, '');
           item.text = item.text.replace(/Description/, '');
-          item.text = item.text.replace(/•/g, '||');
+          item.text = item.text.replace(/•/g, '|');
+          item.text=item.text.trim()
         });
       }
 
@@ -56,6 +57,23 @@ const transform = (data, context) => {
       //   }
       //   row.additionalDescBulletInfo[0].text = formattedStr;
       // }
+      if(row.price){
+        row.price.forEach(item => {
+          let price =item.text.substr(3, item.text.length-1);
+          let currency=item.text.substr(0, 3);
+          price=parseFloat(price)
+          price=price.toFixed(2)
+          if(currency==='GBP')
+            currency='£'
+            item.text=currency+price
+        });
+      }
+      if(row.packSize && row.packSize.length>1)
+      {
+        let firstElement=row.packSize[0].text
+        row.packSize=[];
+        row.packSize.push({text:firstElement})
+      }
 
       if (row.variants) {
         const variantArray = row.variants.map((item) => {
@@ -81,7 +99,7 @@ const transform = (data, context) => {
       if (row.availabilityText) {
         let newText = 'In Stock';
         row.availabilityText.forEach(item => {
-          if (item.text === 'Discontinued') {
+          if (item.text === 'Discontinued'||item.text==='More coming soon.'||item.text==='Out of Stock') {
             newText = 'Out Of Stock';
           }
         });

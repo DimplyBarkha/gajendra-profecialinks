@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -14,16 +14,13 @@ fields:
     xpath: (//div[contains(@class,'image-gallery-slide')]//div//a//@href)[1]
   - name: price
     singleValue: false
-    xpath: //div[@class="ProductVariantPrice"]//p[@class="ProductVariantPrice_MainPrice"]//strong
+    xpath: concat(//meta[@name='og:price:currency']/@content,//meta[@name='og:price:amount']/@content)
   - name: description
     singleValue: false
     xpath: //div[@class="ProductVariantBriefDetailsB"]
   - name: category
     singleValue: false
-    xpath: //ol[@class="Breadcrumb"]//li[2]
-  - name: category
-    singleValue: false
-    xpath: //ol[@class="Breadcrumb"]//li[position()>2]
+    xpath: //ol[@class="Breadcrumb"]//li[position()>=2]
   - name: nameExtended
     singleValue: false
     xpath: //h1[@class="productBrandName"]
@@ -35,16 +32,16 @@ fields:
     xpath: //h2[@class="productCodeSku"]//span[@data-e2e="productSku"]
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class="image-gallery-slide  right "]//div//a//@href
+    xpath: (//div[contains(@class,'image-gallery-slide')]//div//a//@href)[position()>1]
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//div[@class="image-gallery-thumbnails-container"]//button[@class="image-gallery-thumbnail"][position()>0]//img//@src)
   - name: packSize
     singleValue: false
-    xpath: //div[@id="pack_size_Text"] | //li[@class="ProductFurtherInfo_attrTable__item"]//div[@class="ProductFurtherInfo_attrTable__item__info"]//strong[contains(text(),"Pack Quantity")]//following-sibling::span
+    xpath: //li[contains(text(),'Pack Quantity')]//following-sibling::b |//div[@id="pack_size_Text"] | //li[@class="ProductFurtherInfo_attrTable__item"]//div[@class="ProductFurtherInfo_attrTable__item__info"]//strong[contains(text(),"Pack Quantity")]//following-sibling::span
   - name: variantId
     singleValue: false
-    xpath: //div[@id="variant_id_Text"] | //li[@class="ProductFurtherInfo_attrTable__item"]//div[@class="ProductFurtherInfo_attrTable__item__info"]//strong[contains(text(),"MFR Part No.")]//following-sibling::span//div
+    xpath: substring-before(substring-after(//div[@class='ProductVariantScreen']//script,'"mpn":"'),'",')
   - name: shippingDimensions
     singleValue: false
     xpath: //li[@class="ProductFurtherInfo_attrTable__item"]//div[@class="ProductFurtherInfo_attrTable__item__info"]//strong[contains(text(),'Dimensions')]//following-sibling::span//div
@@ -57,6 +54,7 @@ fields:
   - name: availabilityText
     singleValue: false
     xpath: (//div[@data-e2e="StockMessage"])[1]
+    defaultValue: Out of Stock
   - name: color
     singleValue: false
     xpath: //div[@id="color_Text"] | //li[@class="ProductFurtherInfo_attrTable__item"]//div[@class="ProductFurtherInfo_attrTable__item__info"]//strong[contains(text(),"Colour")]//following-sibling::span

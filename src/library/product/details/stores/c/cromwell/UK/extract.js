@@ -14,6 +14,15 @@ module.exports = {
     context,
     dependencies,
   ) => {
+    await context.evaluate(async ()=>{
+      const isList=document.getElementsByClassName('FamilyDetailsPanel FamilyDetailsPanel_ListView')
+      if(isList.length!==0)
+      {
+        let firstElement=document.evaluate("((//div[@class='FamilyDetailsPanel FamilyDetailsPanel_ListView'])[1]//a)[1]", document, null, XPathResult.ANY_TYPE, null).iterateNext().click()
+        
+      }
+      await new Promise(resolve => setTimeout(resolve, 5000));
+    })
     await new Promise(resolve => setTimeout(resolve, 5000));
     await context.evaluate(async () => {
       function addHiddenDiv(id, content) {
