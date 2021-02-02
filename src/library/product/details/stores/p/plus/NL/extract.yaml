@@ -42,7 +42,7 @@ fields:
     xpath: //div[@class="description-container"] | //div[contains(@class,"wettelijke_naam")]//div[@class="prod-attrib-val"]
   - name: descriptionBullets
     description: Number of ul > li tags in the description
-    xpath: //body/@bullet-count
+    xpath: ancestor::html//body/@bullet-count
   - name: brandText
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"

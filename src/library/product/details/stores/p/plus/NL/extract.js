@@ -57,6 +57,7 @@ module.exports = {
         }
         const { transform } = parameters;
         const { productDetails } = dependencies;
+        await context.evaluate(() => { document.body.setAttribute("bullet-count", (document.querySelector("div[class*=description-container]").innerText.split('•').length - 1).toString()) });
         return await context.extract(productDetails, { transform });
     },
 };
