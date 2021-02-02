@@ -96,7 +96,7 @@ fields:
     xpath: //figure/div/img/@alt
   - name: promotion
     singleValue: true
-    xpath: //div[@class='promo-sticker_content__32tnN']
+    xpath: //div[contains(@data-testhook, 'promo-sticker')]/div
   - name: listPrice
     singleValue: true
     xpath: //div[@class='product-card-hero-price_wasContainer__3N8Oa']

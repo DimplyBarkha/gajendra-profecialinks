@@ -20,6 +20,10 @@ const transform = (data) => {
     }
   }
 
+  function cleanText (str) {
+    return str.replace(/(\r\n|\n|\r)/gm, '').replace(/\s+/g, ' ').trim();
+  }
+
   function table (data, text, onlyNumb = false, onlySize = false) {
     let a;
     let findText;
@@ -48,9 +52,11 @@ const transform = (data) => {
         if (gr.sizeText && gr.size) {
           const end = gr.size[0].text.indexOf(gr.sizeText[0].text);
           gr.size[0].text = gr.size[0].text.slice(0, end);
+          gr.nameExtended[0].text = gr.nameExtended[0].text + ' ' + gr.size[0].text;
         }
         if (gr && gr.price && gr.price.length) gr.price[0].text = gr.price[0].text.replace('.', ',');
         if (gr && gr.category && gr.category.length) gr.category.shift();
+        if (gr && gr.promotion && gr.promotion.length) gr.promotion[0].text = cleanText(gr.promotion[0].text);
         if (gr && gr.variantId && gr.variantId.length) {
           const mainData = JSON.parse(gr.variantId[0].text);
           gr.variantId[0].text = mainData.sku;
