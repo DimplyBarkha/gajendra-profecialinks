@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'plein.nl',
     prefix: null,
-    url: null,
+    url: 'https://www.plein.nl/zoeken?search={id}',
     country: 'NL',
     store: 'plein',
     zipcode: '',
