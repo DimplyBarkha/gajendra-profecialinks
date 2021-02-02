@@ -1,3 +1,4 @@
+const { implementation, dependencies } = require('./amazon');
 
 module.exports = {
   implements: 'navigation/goto',
@@ -8,4 +9,6 @@ module.exports = {
     store: 'amazon',
     zipcode: '',
   },
+  implementation,
+  dependencies,
 };

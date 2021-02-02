@@ -137,5 +137,9 @@ module.exports = {
     domain: 'amazon.fr',
     zipcode: "''",
   },
+  dependencies: {
+    productReviews: 'extraction:product/reviews/stores/${store[0:1]}/${store}/${country}/extract',
+    goto: 'action:navigation/goto',
+  },
   implementation,
 };
