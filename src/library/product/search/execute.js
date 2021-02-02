@@ -1,6 +1,6 @@
 /**
  *
- * @param { { keywords: string, zipcode: string, storeID: string ,query: string} } inputs
+ * @param { { searchURL: string , keywords: string, zipcode: string, storeID: string ,query: string} } inputs
  * @param { { url: string, loadedSelector?: string, noResultsXPath: string } } parameters
  * @param { ImportIO.IContext } context
  * @param { { goto: ImportIO.Action} } dependencies
@@ -11,8 +11,15 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { keywords, query } = inputs;
+  const { searchURL, keywords, query } = inputs;
+
+  console.log(`searchURL: ${searchURL}`);
+  url = searchURL || url;
   console.log(url);
+
+  if (url.includes('{searchTerms}') && !keywords) throw new Error('No keywords provided');
+  if (url.includes('{queryParams}') && !query) throw new Error('No query provided');
+
   const destinationUrl = url
     .replace('{searchTerms}', encodeURIComponent(keywords))
     .replace('{queryParams}', query);
@@ -56,6 +63,11 @@ module.exports = {
     },
   ],
   inputs: [
+    {
+      name: 'searchURL',
+      description: 'search URL',
+      type: 'string',
+    },
     {
       name: 'keywords',
       description: 'keywords to search for',
