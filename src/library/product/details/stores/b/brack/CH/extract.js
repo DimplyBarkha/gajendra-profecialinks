@@ -19,23 +19,24 @@ module.exports = {
     // extracting single product/variant data
     const extractSingleProductData = async () => {
       await context.evaluate(async () => {
-        let scrollTop = 0;
-        while (scrollTop !== 15000) {
-          await stall(1000);
-          scrollTop += 1000;
-          window.scroll(0, scrollTop);
-          if (scrollTop === 15000) {
-            await stall(1000);
-            break;
-          }
-        }
-        function stall (ms) {
-          return new Promise((resolve, reject) => {
-            setTimeout(() => {
-              resolve();
-            }, ms);
-          });
-        }
+        window.scrollTo(0, document.body.scrollHeight);
+        //   let scrollTop = 0;
+        //   while (scrollTop !== 15000) {
+        //     await stall(1000);
+        //     scrollTop += 1000;
+        //     window.scroll(0, scrollTop);
+        //     if (scrollTop === 15000) {
+        //       await stall(1000);
+        //       break;
+        //     }
+        //   }
+        //   function stall (ms) {
+        //     return new Promise((resolve, reject) => {
+        //       setTimeout(() => {
+        //         resolve();
+        //       }, ms);
+        //     });
+        //   }
 
         const body = document.querySelector('body');
         const productInfoJSON = document.querySelector('div.pdp__stage script[type="application/ld+json"]');
@@ -132,13 +133,13 @@ module.exports = {
     }
 
     dataRef.forEach(row => {
-      // const alternateImages = row.group[0].alternateImages;
-      // if (alternateImages) {
-      //   alternateImages.forEach(image => {
-      //     image.text = 'https:' + image.text;
-      //     image.text = image.text.replace('xs3', 'xxl');
-      //   });
-      // }
+      const alternateImages = row.group[0].alternateImages;
+      if (alternateImages) {
+        alternateImages.forEach(image => {
+          image.text = 'https:' + image.text;
+          image.text = image.text.replace('xs3', 'xxl');
+        });
+      }
 
       const availability = row.group[0].availabilityText;
       if (availability) {
