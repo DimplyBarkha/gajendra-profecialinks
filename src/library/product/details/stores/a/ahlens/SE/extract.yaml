@@ -16,7 +16,7 @@ fields:
   - name: nameExtended
     xpath: concat(//div[@ng-if="product.brand && !product.attributes.new"]/a/text()," ", //div[@class="ah-pdp-info"]//h1/text())       
   - name: price
-    xpath: //div[@class='altImage2'] 
+    xpath: //div[@class='altImage1'] 
   - name: availabilityText
     xpath: //div[@class="ah-pdp-cta"]//span[contains(text(),'Lägg i varukorg')]
     regExp: (.+)
@@ -27,8 +27,10 @@ fields:
   - name: directions  
     xpath: //ul[@class="ah-pdp-info-list ah-faq"]/li/h2[contains(text(),'Användning')]/ancestor::li//div
   - name: quantity   
-    xpath: //ul[@class="ul--plain"]/li[contains(text(),'Volym')]
+    xpath: //span[contains(text(),'storlek')]/following::ul[@class="ul--plain m0"]/li[@ng-repeat]//a[@class="ah-dropdown__item active"]//div[@class="epsilon nobreak-ellipsis"]
     regExp: \d.+
+  # - name: packSize  
+  #   xpath: (//div[@class="ah-dropdown"]//span[@class="accessibility"]/following-sibling::text())[1]
   - name: brandText
     xpath: //div[@class='zeta mb-']/a[@class='weight--bold a--no-decoration']/text()
   - name: sku

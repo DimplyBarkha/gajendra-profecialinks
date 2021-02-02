@@ -1,0 +1,11 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    xpath: //span[contains(text(),'storlek')]/following::ul[@class="ul--plain m0"]/li[@ng-repeat]/a/@href
+    regExp: (?!.*-)(.+)\W+
+    regExpReplace: $1
+  - name: variantUrl
+    xpath: //span[contains(text(),'storlek')]/following::ul[@class="ul--plain m0"]/li[@ng-repeat]/a/@href
