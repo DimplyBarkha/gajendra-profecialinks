@@ -25,12 +25,14 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[@class="breadcrumb"]/ol/li
+    # xpath: //div[@class="breadcrumb"]/ol/li
+    xpath: //div[@class="breadcrumb"]/ol/li//h2
   - name: nameExtended
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //h1[@class="product-name"]
+    xpath: //h1[@class="product-name"] | //div[@class="label"]//span[@class="attribute-value"]
+    # xpath: //h1[contains(@class,"product-name")]//span[@itemprop="brand"] | //h1[contains(@class,"product-name")]//div[@itemprop="name"]
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
@@ -81,11 +83,13 @@ fields:
   - name: sku
     singleValue: false
     description: The store-specific product identifier
-    xpath: //span[@itemprop="productID"]
+    # xpath: //span[@itemprop="productID"]
+    xpath: //input[@id="pid"]/@value
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //span[@itemprop="productID"]
+    # xpath: //span[@itemprop="productID"]
+    xpath: //h1[@class="product-name"]//div[@itemprop="name"]/@rpcValue
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
@@ -241,6 +245,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: false
     description: null
+    xpath: count(//div[@class="product-primary-image"]/div[contains(@class,"main-image")]//img[contains(@class,"dri")][preceding-sibling::*]/@src)
     type: NUMBER
   - name: news
     singleValue: false
