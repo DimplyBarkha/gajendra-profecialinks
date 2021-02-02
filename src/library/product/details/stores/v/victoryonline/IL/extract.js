@@ -28,7 +28,7 @@ module.exports = {
         dataRef[0].group[0].sku[0].text = dataRef[0].group[0].sku[0].text.match(/(\d+)/)[1];
       }
     }
-    const regexp = /Category":"(.+?)"/
+    const regexp = /Category":"(.+?)"/;
     if (categoryScriptString && regexp.test(categoryScriptString)) {
       dataRef[0].group[0].category = [{
         text: regexp.exec(categoryScriptString)[1],
