@@ -6,7 +6,7 @@ module.exports = {
     store: 'petstock',
     domain: 'petstock.com.au',
     loadedSelector: 'div[itemprop="product"]',
-    noResultsXPath: '//div[@class="container"]//h1[@class="h2"][contains(text(),"Whoops")]|//h1[contains(.," is no longer available" )]',
+    noResultsXPath: '//div[@class="container"]//h1[@class="h2"][contains(text(),"Whoops")]|//h1[contains(.," is no longer available" )]|//pre[contains(text(), "An Exception was thrown while handling: Not Found")]',
     zipcode: '',
   },
 };
