@@ -4,7 +4,8 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: productUrl
-    xpath:  //div[@class="productsList"]//a[@itemprop="url"]/@href
+    # xpath:  //div[@class="productsList"]//a[@itemprop="url"]/@href
+    xpath: //div[@class="productsList"]//a[@itemprop="url"]/@href | //div[@class="replacementPZNMessage"]/a/@href
   - name: thumbnail
     description: The URL for the product thumbnail image
     xpath:  //div[@class="productsList"]//img[@itemprop="image" and @class="lazy photo"]/@data-original|//div[@class="productsList"]//img[@itemprop="image" and @class="photo"]/@src
