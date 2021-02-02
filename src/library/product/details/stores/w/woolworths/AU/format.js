@@ -52,8 +52,6 @@ const transform = (data) => {
           }
         });
       }
-
-
       // if (row.variantId) {
       //     let variId = [];
       //     row.variantId.forEach(item => {
@@ -61,8 +59,7 @@ const transform = (data) => {
       //         item.text = "" + variId[0];
       //     });
       // }
-
-      if (row.description) {
+     if (row.description) {
         let info = [];
         row.description.forEach(item => {
           info.push(item.text.replace(/(\s*\n\s*)+/g, ' || ').trim());
@@ -158,36 +155,65 @@ const transform = (data) => {
       }
 
       if (row.quantity) {
+        let size = '';
         row.quantity.forEach(item => {
-          let split =  item.text.split('');
-          item.text = split[split.lenght-1];
+          const quantity1 = item.text.split(" ");
+          size = quantity1[quantity1.length - 1];
         });
-
       }
 
       if (row.sodiumPerServing) {
         row.sodiumPerServing.forEach(item => {
-          if(item.text.includes("mg")){
+          if (item.text.includes("mg")) {
             let split = item.text.split("mg");
             item.text = `${split[0]}`;
           }
-          });
+        });
 
       }
       if (row.saturatedFatPerServing) {
         row.saturatedFatPerServing.forEach(item => {
-          if(item.text.includes("g")){
+          if (item.text.includes("g")) {
             let split = item.text.split("g");
             item.text = `${split[0]}`;
           }
-          });
+        });
 
       }
 
+      if (row.promotion) {
+        let text = [];
+        let join = '';
+        row.promotion.forEach(item => {
+          text.push(item.text);
+        });
+        text.reverse();
+        for (let index = 0; index < text.length; index++) {
+          join += text[index].trim() + ' ';
+        }
+        row.promotion = [
+          {
+            text: join,
+          },
+        ];
+      }
+      if (row.proteinPerServing) {
+        row.proteinPerServing.forEach(item => {
+          if (item.text.includes("g")) {
+            let split = item.text.split("g");
+            item.text = `${split[0]}`;
+          }
+        });
+      }
 
-
-
-
+      if (row.totalCarbperServing) {
+        row.totalCarbperServing.forEach(item => {
+          if (item.text.includes("g")) {
+            let split = item.text.split("g");
+            item.text = `${split[0]}`;
+          }
+        });
+      }
 
     }
   }

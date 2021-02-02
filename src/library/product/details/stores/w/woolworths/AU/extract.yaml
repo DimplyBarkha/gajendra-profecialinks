@@ -76,7 +76,7 @@ fields:
     singleValue: false
     xpath: //wow-product-details-nutrition-table//ul//li[contains(.,'saturated')]//following-sibling::li[1]
   - name: sodiumPerServing
-    singleValue: false
+    singleValue: true
     xpath: //wow-product-details-nutrition-table//ul//li[contains(.,'Sodium')]//following-sibling::li[1]
   - name: totalCarbPerServing
     singleValue: false
@@ -89,7 +89,7 @@ fields:
     xpath: //wow-product-details-nutrition-table//ul//li[contains(.,'Protein')]//following-sibling::li[1]
   - name: promotion
     singleValue: false
-    xpath: //wow-product-details-panel//div[@class='shelfProductTagCenter']//a//span
+    xpath: //wow-product-details-panel//div[@class='shelfProductTagCenter']//span[@class='link-no-pointer-events ng-star-inserted'] | //wow-product-details-panel//div[@class='shelfProductTileOffer']//p[contains(@class,'shelfProductTileOffer-text')]
   - name: allergyAdvice
     singleValue: false
     xpath: //h3[text()='Allergen']//following-sibling::wow-view-more//div[contains(@class,'viewMore-')]//div//text()
