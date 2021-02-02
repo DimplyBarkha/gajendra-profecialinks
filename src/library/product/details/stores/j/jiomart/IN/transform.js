@@ -25,6 +25,16 @@ const transform = (data, context) => {
 
         row.description = [{ text: descText }];
       }
+
+        if (row.quantity && row.quantity[0].text.includes('Buy')) {
+            delete row.quantity;
+        }
+
+        if (row.ratingCount && row.ratingCount[0].value === 0){
+            delete row.ratingCount;
+            delete row.aggregateRating;
+            delete row.aggregateRatingText;
+        }
     }
   }
 

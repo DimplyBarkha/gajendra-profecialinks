@@ -71,8 +71,12 @@ fields:
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: //div[@class="title-section"]/h1
+    regExp: >-
+      \((.+)\)
+    regExpReplace: $1
+    # regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    # regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -82,9 +86,11 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    xpath: //input[@id="sku_val"]/@value
   - name: sku
     singleValue: true
     description: The store-specific product identifier
+    xpath: //input[@id="sku_val"]/@value
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
@@ -98,6 +104,7 @@ fields:
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
+    xpath: //div[@class="disclaimer"]/p
   - name: directions
     singleValue: true
     description: Content under "directions" header
@@ -108,13 +115,18 @@ fields:
     singleValue: true
     description: The number of ratings
     type: NUMBER
+    xpath: //span[@class="total-rating-count"]
+    regExp: >-
+      [0-9]+
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
+    xpath: concat((//div[@class="rating-content"]/text())[position()=1] , //div[@class="rating-content"]/span[@class="light-shade"])
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
+    xpath: //div[@class="rating-content"]/text()
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -146,6 +158,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
+    xpath: //div[@class="title-section"]/h1
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -496,6 +509,10 @@ fields:
     singleValue: true
     description: Information related to customer service availability (text), ['Yes','No']
     defaultValue: No
+    xpath: //*[contains(text(),"Contact Us")] | //*[contains(text(),"Customer Services")]
+    regExp: >-
+      (.+)
+    regExpReplace: Yes
   - name: materials
     singleValue: true
     description: Materials used to make the product
