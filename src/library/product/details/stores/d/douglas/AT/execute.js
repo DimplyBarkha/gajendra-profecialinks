@@ -6,7 +6,7 @@ module.exports = {
     store: 'douglas',
     domain: 'douglas.at',
     loadedSelector: '.media-gallery__main-image img',
-    noResultsXPath: '//div[contains(@class,"error-404-component")]',
+    noResultsXPath: '//div[contains(@class,"error-404-component")] | //div[contains(@class,"homepage")]',
     zipcode: '',
   },
 };
