@@ -32,7 +32,6 @@ module.exports = {
         document.body.appendChild(element);
       }
     });
-    await context.waitForSelector('div[data-bv-v="contentList:1"]');
     const productId = await context.evaluate(async function () {
       await new Promise((resolve) => setTimeout(resolve, 500));
       const productId = document.querySelector('div[data-bv-v="contentList:1"]') ? document.querySelector('div[data-bv-v="contentList:1"]').getAttribute('data-product-id') : '';
