@@ -6,6 +6,9 @@ fields:
   - name: image
     singleValue: true
     xpath: //figure[@id="image-preview-container"]/img/@src
+  - name: ratingCount
+    singleValue: true
+    xpath: (//div[@class="ooB-rel item-rating-stars ooB-ib"]/div/div/span/text())[1]
   - name: category
     singleValue: false
     xpath: //ul[@typeof="BreadcrumbList"]/li[position()>1 and position()<last()]/a/span/text()
@@ -15,6 +18,9 @@ fields:
     # regExp: (\d),(\d.+)
     # regExReplace: $1,$2
     type: CURRENCY
+  - name: availabilityText
+    singleValue: true
+    xpath: //html//div[@id="avl"]
   - name: description
     singleValue: false
     xpath: //div[@property="gr:description"]

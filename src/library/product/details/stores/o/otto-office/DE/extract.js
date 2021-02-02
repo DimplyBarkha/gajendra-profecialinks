@@ -38,7 +38,15 @@ module.exports = {
         var str = spec.join(" || ");
         addElementToDocument('str', str);
       }
+      var avl = getXpath('//button[@class="ooB-mb6 ooB-w100 ooBtn ooBtn-green ooBtn-arrow-right btn-add-to-basket"]/text()', 'nodeValue');
+      if (avl != null) {
+        avl = "In Stock"
+        addElementToDocument('avl', avl);
+      } else {
+        avl = "Out Of Stock"
+        addElementToDocument('avl', avl);
+      }
     });
     await context.extract(productDetails);
-    },
-    };
+  },
+};
