@@ -1,11 +1,11 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@data-comp,"Swatches")]//div[@role="none"]/div[contains(@data-comp,"ProductSwatchItem")]/button
+recordXPath: //div[contains(@data-comp,"Swatches")]//div[@role="none"]/div[contains(@data-comp,"ProductSwatchItem")]/button | //div[contains(@data-comp,"Swatches")]//div[contains(@data-comp,"SwatchGroup")]/div/button[contains(@data-comp,"SwatchItem")]
 fields:
   - name: variantId
     singleValue: false
-    xpath: //div[contains(@data-comp,"Swatches")]//div[@role="none"]/div[contains(@data-comp,"ProductSwatchItem")]/button//img/@src
+    xpath: //div[contains(@data-comp,"Swatches")]//div[@role="none"]/div[contains(@data-comp,"ProductSwatchItem")]/button//img/@src | //div[contains(@data-comp,"Swatches")]//div[contains(@data-comp,"SwatchGroup")]/div/button[contains(@data-comp,"SwatchItem")]//img/@src
   - name: variant
     singleValue: false
-    xpath: //div[contains(@data-comp,"Swatches")]//div[@role="none"]/div[contains(@data-comp,"ProductSwatchItem")]/button//img/@alt
+    xpath: //div[contains(@data-comp,"Swatches")]//div[@role="none"]/div[contains(@data-comp,"ProductSwatchItem")]/button//img/@alt | //div[contains(@data-comp,"Swatches")]//div[contains(@data-comp,"SwatchGroup")]/div/button[contains(@data-comp,"SwatchItem")]//img/@alt
