@@ -5,7 +5,8 @@ recordXPath: null
 fields:
   - name: id
     singleValue: false
-    xpath: //div[contains(@class,'twoColumnLayout__main--minWidth')]//div[@class="productImage__wrapper"]//a/@data-gtin
+    # xpath: //div[contains(@class,'twoColumnLayout__main--minWidth')]//div[@class="productImage__wrapper"]//a/@data-gtin 
+    xpath: //div[contains(@class,'twoColumnLayout__main--minWidth')]//div[@class="productImage__wrapper"]/following-sibling::div[@class="productBox__couponsSection hidden"]/@product-sku
   - name: thumbnail
     singleValue: false
     xpath: //div[contains(@class,'twoColumnLayout__main--minWidth')]//div[@class="productImage__wrapper"]//img/@src
