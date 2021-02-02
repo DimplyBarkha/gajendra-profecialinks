@@ -6,6 +6,10 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  // await context.evaluate(()=>{
+  //   document.querySelector('#buyTheLook').scrollIntoView();
+  // });
+  // await context.waitForSelector('section[aria-labelledby="reviewTitle"]')
   try {
     await context.waitForSelector('button[aria-label*="video"]', { timeout: 20000 });
     await context.click('button[aria-label*="video"]');
@@ -18,9 +22,11 @@ async function implementation (
     const urlElement = document.querySelector('meta[property="og:url"]');
     const url = urlElement && urlElement.getAttribute('content');
     const id = url.replace(/(.+)(\/prd\/)(\d+)/g, '$3');
+    console.log('ID', id);
     const apiLink = `https://www.asos.com/api/product/catalogue/v3/stockprice?productIds=${id}&store=ROW&currency=GBP&keyStoreDataversion=j42uv2x-26`;
     const response = await fetch(apiLink);
     const responseData = await response.json();
+    console.log('Variant-ID',responseData);
     const rpc = responseData && responseData[0].productCode;
     const variantIdarray = [];
     const sizeArray = [];
@@ -89,27 +95,48 @@ async function implementation (
     }
     const videoDiv = document.querySelector('video[class*="amp-page amp-video-element"] > source[type*="mp4"]');
     const videoUrl = videoDiv && videoDiv.getAttribute('src');
-    const ratingData = window && window.asos && window.asos.pdp && window.asos.pdp.config && window.asos.pdp.config.ratings;
-    const rating = ratingData && ratingData.averageOverallRating;
-    const review = ratingData && ratingData.totalReviewCount;
+    const ratingData = window.asos.pdp.config.ratings;
+    const rating = ratingData.averageOverallRating;
+    console.log('rating ', rating);
+    const review = ratingData.totalReviewCount;
+    console.log('Review ', review);
     // const outOfStock = document.querySelector('h3[class*="out-of-stock"]');
     // if (outOfStock.innerText.toLowerCase() == 'out of stock') {
+     
+        const array = window.location.href.split('/');
+        console.log('URL array',array);
+        let variant = array[array.length-1];
+        console.log('Variant',variant);
     variantIdarray.forEach((element, index) => {
       const variantDiv = document.createElement('div');
       variantDiv.className = 'variantinfo';
       variantDiv.style.display = 'none';
+      console.log('Variant-ID', variantIdarray[index]);
       variantDiv.innerText = actualSizeArray[index];
+      if (variantIdarray[index] == variant){
+      console.log("iNSIDE");  
       variantDiv.setAttribute('upc', variantIdarray[index]);
+      console.log("UPC",variantIdarray[index]);  
       variantDiv.setAttribute('sku', skuArray[index]);
+      console.log("Sku",skuArray[index]);  
       variantDiv.setAttribute('rpc', rpc);
+      console.log("RPC",rpc);  
       variantDiv.setAttribute('colour', variantColour[index]);
+      console.log("colour",variantColour[index]);  
       variantDiv.setAttribute('brand', brand);
+      console.log("Brand", brand);  
       variantDiv.setAttribute('rating', rating);
+      console.log("rating", rating);  
       variantDiv.setAttribute('review', review);
+      console.log("Review", review);  
       variantDiv.setAttribute('videourl', videoUrl);
+      console.log("videourl", videoUrl);  
       variantDiv.setAttribute('availability', availabilityArray[index]);
+      console.log("Availability", availabilityArray[index]);  
       variantDiv.setAttribute('image', actualImageArray[index]);
+      console.log("image", actualImageArray[index]);  
       document.body.append(variantDiv);
+      }
     });
     // } else {
     //   const appendElements = document.querySelectorAll('select[data-id*="sizeSelect"] > option:not(:first-child)');
@@ -126,6 +153,23 @@ async function implementation (
     //   })
     // }
   });
+//   for(let i=0;i<5;i++){
+//     let rating = await context.evaluate(()=>{
+//       // @ts-ignore
+//       return Boolean(document.querySelector('.star-rating'));
+//     })
+//     if(rating){
+//       break;
+//     }
+//   try{
+//   await context.waitForSelector('.star-rating',{timeout: 40000});
+  
+//   }catch(e){
+//     await context.reload();
+//     console.log('Rating not present');
+//   }
+// }
+console.log("extracting data");
   return await context.extract(productDetails, { transform });
 }
 const { cleanUp } = require('../shared');
