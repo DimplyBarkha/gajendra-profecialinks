@@ -40,10 +40,10 @@ module.exports = {
     var data = await context.extract(productDetails, { transform });
     for (let k = 0; k < data.length; k++) {
       for (let i = 0; i < data[k].group.length; i++) {
-        if ('sku' in data[k].group[i]) {
+        if ('sku' in data[k].group[i] && productId !== '') {
           data[k].group[i].sku[0].text = productId;
         }
-        if ('variantId' in data[k].group[i]) {
+        if ('variantId' in data[k].group[i] && productId !== '') {
           data[k].group[i].variantId[0].text = productId;
         }
         if ('caloriesPerServing' in data[k].group[i] && data[k].group[i].caloriesPerServing.length > 1) {
