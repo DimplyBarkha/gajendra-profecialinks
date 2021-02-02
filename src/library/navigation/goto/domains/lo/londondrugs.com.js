@@ -18,6 +18,7 @@ module.exports = {
     url = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
     let numberOfCaptchas = 0;
     await context.captureRequests();
+    await context.setFirstRequestTimeout(90000);
     await context.setAntiFingerprint(false);
     await context.setBlockAds(false);
     await context.setLoadAllResources(true);
@@ -49,7 +50,6 @@ module.exports = {
 
     const run = async () => {
       lastResponseData = context.goto(url, {
-        firstRequestTimeout: 60000,
         waitUntil: 'load',
         checkBlocked: true,
         js_enabled: true,
