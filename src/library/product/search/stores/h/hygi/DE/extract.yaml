@@ -8,9 +8,8 @@ fields:
   #   xpath: //a[@title="Ir para a próxima página"]/@href
   - name: id
     singleValue: false
-    xpath: //article//figure//div[@class="product-item-slideshow-slide slick-slide slick-current slick-active"]//img/@src
-    regExp: (.+import/)(\d+)(.+)
-    regExpReplace: $2
+    xpath: //a[@class="click product-item-link"]/@href
+    regExp: \d+$
   - name: name
     singleValue: false
     xpath: //div[@class="product-item-text"]/h3
@@ -21,7 +20,7 @@ fields:
     regExpReplace: https://www.hygi.de$1
   - name: thumbnail
     singleValue: false
-    xpath: //article//figure//div[@class="product-item-slideshow-slide slick-slide slick-current slick-active"]//img/@src
+    xpath: //article//figure[@class="product-item-figure"]/img/@data-original|//article//div[@data-slick-index="1"]/div/img/@data-lazy
   - name: reviewCount
     singleValue: false
   - name: price
