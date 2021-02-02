@@ -3,82 +3,13 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //section[@class='js_reviewArticleListContainer']//article[contains(@class, 'sdp-review__article__list')]
 fields:
-  - name: brand
-    description: Product brand shown - this may actually NOT be just a brand name e.g. "Visit the Gillette Store"
-    xpath: ancestor::html//section[@id="contents"]//a[@class="prod-brand-name"]
-  - name: colour
-    description: Product colour
-  - name: flavour
-    description: Product flavour
   - name: helpful
-    description: Number of people who said the review was helpful
     xpath: //div[@class='sdp-review__article__list__help js_reviewArticleHelpfulContainer']/@data-count
-  - name: location
-    description: reviewer location
-    defaultValue: KO
-  - name: mediaURL
-    description: product media url
-    xpath: ancestor::html//section[@id="contents"]//div[@class="prod-image__items"]//img/@src
-  - name: pageTitle
-    description: The url of the page title
-    xpath: ancestor::html/head/title
-  - name: productFamily
-    description: The url of the page productFamily
-    xpath: ancestor::html//section[@id='contents']//ul[@id='breadcrumb']
-  - name: productRange
-    description: The url of the page productRange
-    xpath: ancestor::html//section[@id='contents']//ul[@id='breadcrumb']//li[4]
   - name: rating
-    description: The rating of review
     xpath: //div[@class='sdp-review__article__list__info__product-info__star-gray']//div[contains(@class, 'sdp-review__article__list__info__product-info__star-orange')]/@data-rating
+  - name: reviewDate
+    xpath: //div[@class='sdp-review__article__list__info__product-info__reg-date']
   - name: reviewText
-    description: The text of the review
     xpath: //div[@class='sdp-review__article__list__review js_reviewArticleContentContainer']
   - name: reviewTitle
-    description: The title of the review
     xpath: //div[@class='sdp-review__article__list__info__product-info__name']
-  - name: sku
-    description: The sku
-  - name: verifiedPurchase
-    description: Whether this of an item the reviewer purchased. "Yes" if true else ""
-    xpath: 
-  - name: aggregateRating
-    description: The product rating
-    xpath: ancestor::html//section[contains(@class, 'sdp-review__average')]//div[contains(@class, 'sdp-review__average__total-star__info-orange')]/@data-rating
-  - name: sourceUrl
-    description: The url of the product url
-  - name: name
-    description: The product name
-    xpath: ancestor::html//div[@class='prod-buy-header']//h2[@class='prod-buy-header__title']
-  - name: commentCount
-    description: Number of comments on the review
-  - name: reviewDate
-    description: Date the review was made
-    xpath: //div[@class='sdp-review__article__list__info__product-info__reg-date']
-  - name: user
-    description: The user name of the reviewer
-    xpath: //div[@class='sdp-review__article__list__info']//span[contains(@class, 'sdp-review__article__list__info__user__name')]
-  - name: reviewerTags
-    singleValue: falsee
-    description: The tags a reviewer has
-  - name: gtin
-    singleValue: false
-    description: GTIN code (includes UPC/EAN)
-  - name: productUrl
-    singleValue: false
-    description: The url of the product details page
-    xpath: ancestor::html//meta[@property='og:url']/@content
-  - name: manufacturerResponse
-    singleValue: false
-    description: The response of the manufacturer (if any)
-  - name: syndicatedFrom
-    singleValue: false
-    description: Stated place the review was syndicated from
-  - name: reviewUrl
-    singleValue: false
-    description: A direct link to the review
-  - name: reviewedSku
-    singleValue: false
-    description: The SKU of the item that was reviewed (may be different from the
-      sku the review was shown on). 1 if sku == reviewedSku else 0. Get sku
-      value, transform will handle the value.

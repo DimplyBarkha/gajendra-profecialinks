@@ -5,11 +5,10 @@ module.exports = {
     country: 'KO',
     store: 'coupang',
     domain: 'coupang.com',
-    loadedSelector: null,
-    noResultsXPath: null,
-    reviewUrl: null,
+    loadedSelector: 'section#contents',
+    noResultsXPath: '//h3[contains(@class,"error-img")]',
+    reviewUrl: 'https://www.coupang.com/vp/products/{id}?isAddedCart=',
     sortButtonSelectors: null,
     zipcode: '',
   },
 };
-////div[contains(@class, "sdp-review__article__no-review")]
