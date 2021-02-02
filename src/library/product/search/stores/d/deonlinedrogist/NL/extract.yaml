@@ -13,7 +13,7 @@ fields:
     xpath: //div[@class="c-prod-results__imgWrapper"]//img/@src     
   - name: name
     singleValue: false
-    xpath: //div[@class="c-prod-results__subtitle"]
+    xpath: //div[@class="c-prod-results__imgWrapper"]/img/@title
     description: Alt text of the main product image
   - name: productUrl
     singleValue: false
@@ -24,12 +24,13 @@ fields:
     singleValue: true
     description: Alt text of the main product image
     xpath: //*[@class="c-prod-results__price"]//div[2]
+    #xpath: //div[@id='price_added']
   - name: listPrice
     singleValue: true
     description: Alt text of the main product image
     xpath: //div[@id="prod-results"]//div[@class="c-prod-results__price-old"]
-    regExp: (^([^€]*))(\,)([^\€]*)($)
-    regExpReplace: $5 $2.$4
+    # regExp: (^([^€]*))(\,)([^\€]*)($)
+    # regExpReplace: $5 $2.$4
     defaultValue: "0"
   - name: manufacturer
     singleValue: true

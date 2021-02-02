@@ -57,6 +57,22 @@ module.exports = {
         }
         return result;
       };
+
+      // const idXpath = getAllXpath("//div[@id='prod-results']//ul//a/@data-id",'nodeValue').join('|');
+      // console.log("idXpath::", idXpath.split('|'));
+      // var idLength = (idXpath.split('|')).length;
+      // console.log("idLength:::", idLength);
+
+      // const priceXpath = getAllXpath("//*[@class='c-prod-results__price']//div[2]/text()",'nodeValue').join('|');
+      // //console.log("idXpath::", priceXpath.split('|'));
+      // var priceValue = priceXpath.split('|');
+
+      // for(var i = 0; i< idLength; i++){
+      // const idObj = JSON.stringify(priceValue[i]);
+      // console.log("idObj:::", idObj)
+      // addElementToDocument('price_added', idObj.replace('"',''));
+      // }
+
     });
     return await context.extract(productDetails, { transform });
   },
