@@ -11,9 +11,14 @@ fields:
     xpath: //div[@class='priceFinal']/text()
     regExp: (\$\d+)\.?(\d+)?
     regExpReplace: $1,$2
+  # - name: id
+  #   singleValue: false
+  #   xpath: //ul[@class='listaProductos']/div/input[@id='codigo-producto-gtm']/@value
   - name: id
     singleValue: false
-    xpath: //input[@id='codigo-producto-gtm']/@value
+    xpath: //div[@class='nameProduct']/a/@href
+    regExp: \/(\d+)\/
+    regExpReplace: $1
   - name: productUrl
     singleValue: false
     xpath: //div[@class='nameProduct']/a/@href
