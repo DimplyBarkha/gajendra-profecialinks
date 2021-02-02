@@ -1,4 +1,5 @@
-const { transform } = require('../../../../shared');
+const { transform } = require('./transform');
+const { Helpers } = require('../../../../../../helpers/helpers');
 
 async function implementation (
   inputs,
@@ -8,6 +9,7 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  const helper = new Helpers(context);
 
   await context.click('button[data-dismiss="modal"]', { timeout: 3000 })
     .catch(() => console.log('No modal present!'));
@@ -26,6 +28,8 @@ async function implementation (
       numResultsOnPage = document.querySelectorAll('div[class*=cat-item]').length;
     }
   });
+
+  await helper.addURLtoDocument('my-url');
 
   return await context.extract(productDetails, { transform });
 }

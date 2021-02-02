@@ -9,6 +9,16 @@ module.exports = {
     zipcode: '',
     country: 'IN',
   },
+  implementation: async ({ url, zipcode }, parameters, context, dependencies) => {
+    const timeout = parameters.timeout ? parameters.timeout : 30000;
+    const res = await context.goto(url, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: true });
+    if (res.status === 404) {
+      throw new Error('blocked!');
+    }
+    if (zipcode) {
+      await dependencies.setZipCode({ url, zipcode });
+    }
+  },
 };
 
 // module.exports = {

@@ -3,12 +3,22 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //div[@class="cat-item "]
 fields:
+  - name: quantity
+    singleValue: false
+    xpath: //span[@class="clsgetname"]
+    regExp: >-
+      \((.+)\)
+    regExpReplace: $1
+  - name: storeName
+    singleValue: false
+    defaultValue: 'JioMart'
   - name: paid
     singleValue: false
     description: Whether this is a sponsored/paid result
     type: BOOLEAN
   - name: searchUrl
     singleValue: false
+    xpath: ancestor::html//div[@id="my-url"]
   - name: brand
     singleValue: false
     description: The brand name
@@ -28,9 +38,14 @@ fields:
   - name: productUrl
     singleValue: false
     description: The URL for the product details page
+    xpath: //a[@class="category_name"]/@href
+    regExp: >-
+      (.+)
+    regExpReplace: https://www.jiomart.com$1
   - name: thumbnail
     singleValue: false
     description: The URL for the product thumbnail image
+    xpath: //img[@class="product-image-photo"]/@src
   - name: name
     singleValue: false
     description: The product name
@@ -44,7 +59,7 @@ fields:
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
-      [0-9]{13}
+    xpath: //div[@class="cart_btn"]/button/@data-sku
   - name: aggregateRatingText
     singleValue: false
     description: The stated aggregate rating
@@ -59,6 +74,10 @@ fields:
   - name: price
     singleValue: false
     description: The offered price for the product
+    xpath: //span[@id="final_price"]
+  - name: listPrice
+    singleValue: false
+    xpath: //strike[@id="price"]
   - name: manufacturer
     singleValue: false
     description: Product manufacturer
