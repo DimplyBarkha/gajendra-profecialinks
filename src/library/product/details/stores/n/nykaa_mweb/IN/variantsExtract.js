@@ -66,6 +66,8 @@ module.exports = {
 
       for (let i = 0; i < wholeVariants.length; i++) {
         let variantUrl = wholeVariants[i];
+        const text = variantUrl.match(/\d+\?(.*?)skuId=\d+/) ? variantUrl.match(/\d+\?(.*?)skuId=\d+/)[1] : '';
+        if (text) variantUrl = variantUrl.replace(text, '');
         const variantUrlMatch = variantUrl.match(/(\d+\?skuId=(\d+))/);
         if (variantUrlMatch && variantUrlMatch.length === 3) variantUrl = variantUrl.replace(variantUrlMatch[1], variantUrlMatch[2]);
         addElementToDocument('product_variant_url', variantUrl);
