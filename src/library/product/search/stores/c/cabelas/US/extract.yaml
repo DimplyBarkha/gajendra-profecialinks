@@ -1,14 +1,17 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class="product_listing_container"]/ul/li
 fields:
   - name: thumbnail
-    singleValue: single
-    xpath: (//div[@class="image"]/a/img)/@src
+    singleValue: false
+    xpath: //div[@class="image"]/a/img/@src
   - name: id
-    singleValue: single
-    xpath: //ul[@class="grid_mode grid"]/li/input/@value
+    singleValue: false
+    xpath: //div[@class="image"]/a/img/@src
+    regExp: BassPro(\/*)(\d+)
+    regExpReplace: $2
+    # xpath: //ul[@class="grid_mode grid"]/li/input/@value
     # xpath: //div[@class="product_price "]/@id
     # type: NUMBER
     # regExp: (\d+)
@@ -21,18 +24,24 @@ fields:
   #   type: NUMBER
   #   xpath: //ul[@class="grid_mode grid"]/li/@data-ss-variation-applied
   - name: price
-    singleValue: single
-    xpath: (//span[@class="price "]/span)
-    regExp: 
+    singleValue: false
+    xpath: //span[@id="sku"]/input/@value
+    # regExp: (\$(.+))
+    # regExpReplace: $2
   - name: name
     singleValue: false
-    xpath: (//div[@class="product_name"]/a)
+    xpath: //div[@class="product_name"]/a
   - name: productUrl
     singleValue: false
-    xpath: (//div[@class="product_name"]/a)/@href
+    xpath: //div[@class="product_name"]/a/@href
   - name: reviewCount
+    regExp: \(((\d+))(.+)
+    regExpReplace: $1
     singleValue: false
-    xpath: (//div/span[@class="bvReviews"])
+    xpath: //div/span[@class="bvReviews"]
   - name: aggregateRating2
     singleValue: false
     xpath: //div[contains(@id, 'bps_plp_reviews')]/span/@class
+  - name: searchUrl
+    singleValue: true
+    xpath: ancestor::html//div[@id='searchUrl']

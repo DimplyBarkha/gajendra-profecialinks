@@ -39,6 +39,12 @@ const transform = (data, context) => {
         ];
       }
 
+      if (row.name) {
+        row.name.forEach(item => {
+          item.text = item.text.replace(/(')/, '').trim();
+        });
+      }
+
       rankCounter += 1;
       if (!row.sponsored) {
         orgRankCounter += 1;
