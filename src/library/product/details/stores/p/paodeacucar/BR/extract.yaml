@@ -49,7 +49,7 @@ fields:
   - name: description
     singleValue: false
     xpath: //*[contains(text(), "Descrição do produto")]/../..
-    regExp: (Descrição\s*do\s*produto\s*)([\s\S]*)
+    regExp: (Descrição\s*do\s*produto\s*)([\s\S]*)(?:Composição:|Ingredientes:)(.*\n*)
     regExpReplace: $2
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description

@@ -2,7 +2,7 @@ input:
   RPC: 1015832
   _url: http://paodeacucar.com
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=fc841a87-054c-4916-ade0-8a508398983f/task=3ac5cf24-90df-48d7-8909-c4ce308ca130/43c3f016-06a1-4fde-b4f9-e3299ddb3c24.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=df2d0791-d5ca-49ee-b579-2bdf054db3d5/task=4c24905e-3622-4356-97bb-7d578cce6f8a/dabe22a5-3591-4593-9c65-139befdc8956.html
     extractionConfigId: product/details/stores/p/paodeacucar/BR/extract
     data:
       - group:
@@ -43,9 +43,9 @@ extractions:
                 xpath: /html/body/div[1]/div[4]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
               - text: https://static.paodeacucar.com/img/uploads/1/241/476241x200x200.jpg
                 xpath: /html/body/div[1]/div[4]/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            price:
-              - text: R$ 165,99
-                xpath: /html/body/div[1]/div[4]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]
+            availabilityText:
+              - text: Out of stock
+                xpath: /html/body/div[1]/div[4]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/p[1]/text()[1]
             description:
               - text: >-
                   Ingredientes:
@@ -107,8 +107,6 @@ extractions:
                 xpath: /html/body/div[1]/div[4]/div[1]/div[4]/div[1]/div[2]/p[1]
               - text: CONTÉM GLÚTEN
                 xpath: /html/body/div[1]/div[4]/div[1]/div[4]/div[1]/div[2]/p[1]
-            availabilityText:
-              - text: In stock
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -128,4 +126,4 @@ extractions:
                 locale: pt_BR
                 value: 0
         xpath: /html
-    timestamp: 1611523255047
+    timestamp: 1612283011759
