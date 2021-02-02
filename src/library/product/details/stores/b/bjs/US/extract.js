@@ -71,6 +71,14 @@ module.exports = {
         console.log("rating Path error...");
       }
 
+      const listPriceXpath = getXpath("//div[@class='online-price-and-green-price']/div/div[@_ngcontent-bjs-universal-app-c147='']/div/div/div[@class='online-Price-strike']/text()",'nodeValue');
+      //console.log("listPriceXpath:: Reg $139.99 :", listPriceXpath);
+      if(listPriceXpath != null){
+        var listPrice = listPriceXpath.split(' ');
+        //console.log("listPrice:::", listPrice[1]);
+        addElementToDocument('list-price', listPrice[1]);
+      }
+      
 
       const ratingPath = getXpath("//div[@class='pr-snippet-stars-container']/div[@class='pr-snippet-stars pr-snippet-stars-png ']/div[@class='pr-snippet-rating-decimal']/text()", 'nodeValue');
       console.log("ratingPath::", ratingPath);
@@ -171,7 +179,7 @@ module.exports = {
         addElementToDocument('rating_added', (ratingXpath.split(" ")[0]));
       }
 
-      const altImageXpath = getAllXpath("//div[@class='mcs-items-container']/div/div/a/@data-image", 'nodeValue').join(' | ');
+      const altImageXpath = getAllXpath("//div[@class='mcs-items-container']/div[@class='mcs-item'][position()>1]/div/a/@data-image", 'nodeValue').join(' | ');
       var altImageXpathValue = altImageXpath.split('|');
 
       addElementToDocument('alt_image_added', altImageXpath);
@@ -227,6 +235,7 @@ module.exports = {
       document.body.setAttribute('import-enhanced-content', 'false');
 
       const videoItems = document.querySelectorAll('.thumbnailvideoimage');
+      console.log("videoItems::::", videoItems);
       const videos = [];
 
       for (const video of videoItems) {

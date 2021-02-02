@@ -31,6 +31,8 @@ fields:
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
     singleValue: true
+    #xpath: //div[@class="online-price-and-green-price"]/div/div[@_ngcontent-bjs-universal-app-c147=""]/div/div/div[@class="online-Price-strike"]/text()
+    xpath: //div[@id="list-price"]
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
@@ -51,7 +53,8 @@ fields:
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
     singleValue: true
-    xpath: count(//*[@id="desktopDescriptiontabcontent"]/div[1]/app-pdp-tab-description-molecule/div/div/ul/li)
+    #xpath: count(//*[@id="desktopDescriptiontabcontent"]/div[1]/app-pdp-tab-description-molecule/div/div/ul/li)
+    xpath: count(//*[@id="slot4"]/div[5]/div/app-pdp-item-details-organism/div[2]/app-pdp-product-feature-molecule/div/p[2]/li)
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
