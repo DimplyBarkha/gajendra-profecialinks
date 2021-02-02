@@ -47,7 +47,7 @@ const implementation = async function (
         for(var i=0; i<p.length; i++){
           p[i] = p[i].trim();
           p[i] = p[i].replace("Ord pris ","");
-          p[i] = p[i].replace(",",".");
+          // p[i] = p[i].replace(",",".");
           addHiddenDiv1('price', p[i], i);
       }
 
