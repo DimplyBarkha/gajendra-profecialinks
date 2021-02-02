@@ -156,16 +156,11 @@ module.exports = {
         addElementToDocument('url', url);
       }
 
+      // Availability 
       var aval = getXpath('(//p[contains(@class,"availability_value")])//text()', 'nodeValue');
-      if (aval != null) {
-        if (aval.includes('Out of Stock')) {
-          aval = 'Out of Stock';
-          addElementToDocument('aval', aval);
-        } else if (aval.includes('In Stock')) {
-          aval = 'In Stock';
-          addElementToDocument('aval', aval);
-        }
-      }
+      addElementToDocument('aval', aval);
+      
+      
       var str = getXpath('(//div[@class="product_detail pdp__detail small-12 medium-6 large-5 columns"]//span[@class="bv-rating_value "]/@style)[1]', 'nodeValue');
       if (str != null) {
         // for (var i = 0; i < str.length; i++) {
