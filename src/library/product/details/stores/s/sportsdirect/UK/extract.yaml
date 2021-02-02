@@ -96,7 +96,7 @@ fields:
     regExpReplace: Yes
     defaultValue: No
   - name: imageZoomFeaturePresent
-    xpath: //div[@class="mainImageButtons"]//span[@class='zoomButton']
+    xpath: ancestor::html//div[@class="mainImageButtons"]//span[@class='zoomButton']
     regExp: (.+)
     regExpReplace: Yes
     defaultValue: No
