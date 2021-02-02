@@ -102,7 +102,7 @@ fields:
   - name: ratingCount
     singleValue: true
     description: The number of ratings
-    xpath: //span[@itemprop='reviewCount']/text()|//span[@itemprop='reviewCount']/font/font/text()
+    xpath: //span[@itemprop='reviewCount']/text()|//span[@itemprop='reviewCount']/font/font/text() | //span[@itemprop='reviewCount']/text()|//span[@itemprop='reviewCount']/text()
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating

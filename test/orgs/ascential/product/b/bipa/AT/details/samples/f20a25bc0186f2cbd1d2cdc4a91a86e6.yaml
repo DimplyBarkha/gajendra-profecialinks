@@ -2,12 +2,12 @@ input:
   id: 372703
   _url: http://bipa.at
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=200e5a0e-bee8-44bb-8786-04abdc5d8e8e/task=58ae0d4c-fa8f-47b7-b2d2-b94693c7528d/753f89ae-ccf1-4404-aff0-3793646ce0d1.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=b319947a-a00e-4889-8622-5d87071d0aa1/task=2cb38008-d4d2-4c49-b3e2-8f33afa48489/13cae737-f2ae-4d35-8191-991ff48ede16.html
     extractionConfigId: product/details/stores/b/bipa/AT/extract
     data:
       - group:
           - image:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1611298543489/original/372703.png?sw=450&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612248938807/original/372703.png?sw=450&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
             imageAlt:
               - text: Fa Kahuna Duschgel
@@ -24,6 +24,9 @@ extractions:
             nameExtended:
               - text: Fa Kahuna Duschgel
                 xpath: /html/head[1]/meta[10]/@content
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[1]/div[1]/div[1]/span[1]/text()[1]
             description:
               - text: Mit purem Kukuinuss-Öl
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/text()[1]
@@ -71,7 +74,7 @@ extractions:
               - text: Kahuna Duschgel
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]/text()[1]
             pricePerUnit:
-              - text: 100 ml 0.46
+              - text: 100 ml 0.52
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/text()[1]
             pricePerUnitUom:
               - text: ml
@@ -91,8 +94,6 @@ extractions:
             imageZoomFeaturePresent:
               - text: yes
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/@zoom
-            availabilityText:
-              - text: Out of Stock
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -104,7 +105,7 @@ extractions:
             Image360Present:
               - text: No
             price:
-              - text: 1,15
+              - text: 1,29
             descriptionBullets:
               - text: "5"
                 type: NUMBER
@@ -118,4 +119,4 @@ extractions:
                 locale: de_AT
                 value: 0
         xpath: /
-    timestamp: 1611324606244
+    timestamp: 1612281678811
