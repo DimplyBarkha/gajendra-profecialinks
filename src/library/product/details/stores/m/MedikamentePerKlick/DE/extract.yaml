@@ -10,7 +10,7 @@ fields:
   singleValue: true
   description: URL of the main product image
   # xpath: //meta[@property="og:image"]/@content
-  xpath: //div[@class="photo "]//img[@itemprop="image"]/@src
+  xpath:  //div[@class="photo " or @class="photo with-multiple-photo" or @class="photo sonderpreis with-multiple-photo"]//img[@name="mainImage"]/@src
   regExp: (.+)
   regExpReplace: https://www.medikamente-per-klick.de$1
 - name: imageAlt
@@ -22,7 +22,7 @@ fields:
   type: FILE[]
   singleValue: false
   description: Other product images (not in manufacturer description)
-  xpath: (//div[@class="photo with-multiple-photo" or @class="photo sparset with-multiple-photo"]//div[@class="slick-track"]//img/@src)[position()>1]
+  xpath: (//div[@class="photo with-multiple-photo" or @class="photo sparset with-multiple-photo" or @class="multiple-photo slick-initialized slick-slider"]//div[@class="slick-track"]//img/@src)[position()>1]
   regExp: (.+)
   regExpReplace: https://www.medikamente-per-klick.de$1
 - name: metaKeywords
@@ -55,7 +55,7 @@ fields:
   singleValue: false 
   description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-  xpath: //div[@class="nano-content"]//div[@itemprop="description"]//dd
+  xpath: //div[@class="nano-content"]//div[@itemprop="description"]//dd//text()
   # xpath: //div[@id="ii_desc"]
 - name: descriptionBullets
   singleValue: true
@@ -84,7 +84,9 @@ fields:
 - name: gtin
   singleValue: true
   description: GTIN code (includes UPC/EAN)
-  xpath: //div[@class="addToCartForm"]//input[@name="product_id"]/@value | //div[@id="ii_gtin"]
+  manualSelector: script[type='text/javascript']
+  regExp: '(productId: ")(\d+)'
+  regExpReplace: $2
 - name: sku
   singleValue: true
   description: The store-specific product identifier
@@ -118,7 +120,7 @@ fields:
 - name: aggregateRating
   description: The number of ratings
   singleValue: true
-  xpath: //div[contains(@class,'fr')]//span[@class="rank"]
+  xpath: //div[contains(@class,'fr')]//span[@class="rank"]//text()[6]
   regExp: .*?(\d.?\d?).*
   regExpReplace: $1
 - name: ratingCount
@@ -131,8 +133,8 @@ fields:
 - name: manufacturerDescription
   singleValue: false
   type: TEXT
-  # xpath: //dd[@class="productLongDescription"]
-  xpath: //dd[@class="productLongDescription"]//following-sibling::dt//following-sibling::dd
+  xpath: //div[@class="nano-content"]//dd
+  # xpath: //dd[@class="productLongDescription"]//following-sibling::dt//following-sibling::dd
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
@@ -262,7 +264,7 @@ fields:
   singleValue: true
   description: null
   type: NUMBER
-  xpath: count((//div[@class="photo with-multiple-photo" or @class="photo sparset with-multiple-photo"]//div[@class="slick-track"]//img/@src)[position()>1])
+  xpath: count((//div[@class="photo with-multiple-photo" or @class="photo sparset with-multiple-photo" or @class="multiple-photo slick-initialized slick-slider"]//div[@class="slick-track"]//img/@src)[position()>1])
 - name: news
   singleValue: true
   description: null

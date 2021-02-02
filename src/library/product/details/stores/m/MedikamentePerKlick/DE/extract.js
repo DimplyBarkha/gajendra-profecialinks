@@ -21,7 +21,7 @@ module.exports = {
       const description = descSelector ? descSelector.getAttribute('content').replace(/(.*?)-.*/, '$1') : '';
       addHiddenDiv('ii_description', description);
       // prices Block
-      const priceSelector = document.querySelector('dl[class="productPrice"]>dd[class="yourPrice"]');
+      const priceSelector = document.querySelector('dl[class="productPrice"]>dd[class="yourPrice"],dd[class="yourPrice price"]');
       // @ts-ignore
       const price = priceSelector ? priceSelector.innerText.replace('.', '').replace(',', '.').trim() : '';
       addHiddenDiv('ii_price', price);
@@ -40,13 +40,13 @@ module.exports = {
       addHiddenDiv('ii_manufacturerImages', imageURL);
 
       // gtin
-      const gtinForm = document.querySelector('div[class="addToCartForm"] input[name="product_id"]');
-      if (!gtinForm) {
-        const gtinSelector = document.evaluate('//*[contains(text(),"product_id")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-        let gtin = gtinSelector ? gtinSelector.textContent.match(/.*product_id=(\w+?)".*/) : '';
-        gtin = gtin ? gtin[1] : '';
-        addHiddenDiv('ii_gtin', gtin);
-      }
+      // const gtinForm = document.querySelector('div[class="addToCartForm"] input[name="product_id"]');
+      // if (!gtinForm) {
+        // const gtinSelector = document.evaluate('//*[contains(text(),"product_id")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        // let gtin = gtinSelector ? gtinSelector.textContent.match(/.*product_id=(\w+?)".*/) : '';
+        // gtin = gtin ? gtin[1] : '';
+        // addHiddenDiv('ii_gtin', gtin);
+      // }
       // manufacturer Desc
       const manufacturerDescSelector = document.querySelector('dd[class="productLongDescription"]');
       let additionalDescription = '';
