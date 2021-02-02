@@ -125,10 +125,10 @@ fields:
     xpath: //html//div[@id='guarantee']
   - name: technicalInformationPdfPresent
     singleValue: false
-    xpath: //ul[@class='jcarousel-list jcarousel-list-horizontal']//a/@href
+    xpath: (//ul[@class='jcarousel-list jcarousel-list-horizontal']//a)[1]/@href
     regExp: (.+)
-    regExpReplace: https:$1
-    # defaultValue: No
+    regExpReplace: Yes
+    defaultValue: No
   - name: termsAndConditions
     singleValue: false
     description: Terms and conditions information text ['Yes','No']
