@@ -16,6 +16,7 @@ module.exports = {
       else builtUrl = await dependencies.createUrl(inputs);
     }
     await context.setBlockAds(false);
+    await context.setFirstRequestTimeout(90000);
     await dependencies.goto({ ...inputs, url: builtUrl || url });
 
     if (loadedSelector) {
