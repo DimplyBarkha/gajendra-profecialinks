@@ -100,17 +100,51 @@ module.exports = {
           // @ts-ignore
           descriptionTab.click();
 
-          const mainDescriptionElement = document.querySelector('div[class*="react-tabs__tab-content"] > p')
-            ? document.querySelector('div[class*="react-tabs__tab-content"] > p')
-            : document.querySelector('div[class*="react-tabs__tab-content"]');
-          const descriptionLiElements = document.querySelectorAll('div[class*="react-tabs__tab-content"] li');
+          const mainDescXPath = document
+            .evaluate(
+              '//div[contains(@class, "react-tabs__tab-content")]/p[1]/text()',
+              document,
+              null,
+              XPathResult.UNORDERED_NODE_ITERATOR_TYPE,
+              null,
+            )
+            .iterateNext();
+          const mainDescAlternateXPath = document
+            .evaluate(
+              '//div[contains(@class, "react-tabs__tab-content")]/text()',
+              document,
+              null,
+              XPathResult.UNORDERED_NODE_ITERATOR_TYPE,
+              null,
+            )
+            .iterateNext();
+          const mainDescriptionElement = mainDescXPath && mainDescXPath.textContent !== ''
+            ? mainDescXPath
+            : mainDescAlternateXPath;
+
+          const liIterator = document
+            .evaluate(
+              '//div[contains(@class, "react-tabs__tab-content")]//li/text()',
+              document,
+              null,
+              XPathResult.UNORDERED_NODE_ITERATOR_TYPE,
+              null,
+            );
+          const descriptionLiElements = [];
+          let currentLi = liIterator.iterateNext();
+          while (currentLi) {
+            descriptionLiElements.push(currentLi);
+            currentLi = liIterator.iterateNext();
+          }
           let descriptionData = '';
           if (mainDescriptionElement) {
             descriptionData += mainDescriptionElement.textContent;
           }
           if (descriptionLiElements.length > 0) {
             descriptionLiElements.forEach(element => {
-              descriptionData += ' || ' + element.textContent;
+              if (!element.textContent.includes('Guaranteed Analysis')) {
+                descriptionData += ' || ' + element.textContent;
+              }
             });
           }
           body.setAttribute('description', descriptionData);
