@@ -6,7 +6,7 @@ module.exports = {
     country: 'KO',
     store: 'auction',
     nextLinkSelector: null,
-    nextPageUrlSelector: null,
+    nextPageUrlSelector: 'a.link--next_page',
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,

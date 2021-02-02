@@ -1,13 +1,19 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class='section--itemcard']//div[@class='section--itemcard_info']
 fields:
-  - name: paginationUrl
-    singleValue: false
-    description: desired url to pass in chain
-    xpath: //text()
-  - name: resultsCount
-    singleValue: false
-    description: total number of results
-    xpath: ancestor::html//div[@id="my-results-count"]
+  - name: manufacturer
+    description: The manufacturer of the search
+    xpath: //span[@class='text--brand']
+  - name: name
+    description: The title of the product
+    xpath: //span[@class='text--title']
+  - name: productUrl
+    description: The url of the product
+    xpath: //a[@class='link--itemcard']/@href
+  - name: reviewCount
+    description: The reviewCount of the product
+    xpath: //span[@class='text--reviewcnt']
+  - name: sku
+    description: The sku of the product
