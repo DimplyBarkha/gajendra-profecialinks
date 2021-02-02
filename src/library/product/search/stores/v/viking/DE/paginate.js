@@ -4,11 +4,11 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'viking',
-    nextLinkSelector: 'a#paginationPageNext[rel="next"]',
+    nextLinkSelector: '.page-item page-item--navigation > #paginationPageNext > span',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'main#siteContent',
-    noResultsXPath: null,
+    noResultsXPath: '//div[@id="searchEmpty"] | //div[@id="productPage"]',
     openSearchDefinition: null,
     domain: 'viking.de',
     zipcode: '',

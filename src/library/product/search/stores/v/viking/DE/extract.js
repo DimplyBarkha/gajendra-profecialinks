@@ -22,7 +22,7 @@ module.exports = {
           await stall(1000);
           scrollTop += 1000;
           window.scroll(0, scrollTop);
-          if (scrollTop === 10000) {
+          if (scrollTop >= 10000) {
             await stall(1000);
             break;
           }
