@@ -77,10 +77,10 @@ fields:
     xpath: //div[contains(@class,'row hidden-md-down')]//a[contains(@class,'btn product-add-to-cart')]/@data-modal-rating-count
   - name: availabilityText
     singleValue: false
-    xpath: //div[contains(@class,"product-block")]//a[@class="btn product-add-to-cart"]
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    # xpath: //div[contains(@class,"product-block")]//a[@class="btn product-add-to-cart"]
+    # regExp: (.+)
+    # regExpReplace: In Stock
+    defaultValue: In Stock
   - name: promotion
     singleValue: false
     xpath: //div[@class="product-block"]//div[@class="pricing-row"]//span[@class="product-discount"]
