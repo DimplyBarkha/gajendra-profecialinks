@@ -3,11 +3,11 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //div[@data-hook="review"]
 fields:
-  - name: helpful
+  - name: helpfulCount
     xpath: //span[@data-hook="helpful-vote-statement"]
     regExp: (.*) persone
     regExpReplace: $1
-  - name: rating
+  - name: reviewRating
     xpath: //i[@data-hook="review-star-rating"]/span
     regExp: (.*) su
     regExpReplace: $1
