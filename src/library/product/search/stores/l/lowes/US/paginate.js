@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'lowes',
     openSearchDefinition: {
-      template: 'https://www.lowes.com/search?searchTerm={searchTerms}&page={page}',
+      template: 'https://www.lowes.com/search?searchTerm={searchTerms}&page={page}#[!opt!]{"first_request_timeout":50000,"force200":true}[/!opt!]',
     },
     mutationSelector: null,
     spinnerSelector: null,

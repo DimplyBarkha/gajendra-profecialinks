@@ -1,5 +1,11 @@
 const { transform } = require('../../../../shared');
 async function implementation (inputs, parameters, context, dependencies) {
+  const { page } = inputs;
+  // NOTE: Ugly hack to avoid nightmare timeout error in case of more reviews, limiting pages to 35
+
+  if (page > 5) {
+    return false;
+  }
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
