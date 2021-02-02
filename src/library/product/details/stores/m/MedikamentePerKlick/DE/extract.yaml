@@ -36,15 +36,14 @@ fields:
   description: The categories (e.g. from breadcrumbs)
   xpath: //div[@itemprop="breadcrumb"]//a[not(contains(@class,'main'))]//span//text()
 - name: listPrice
-  type: CURRENCY
   description: The stated undiscounted price for the product
-  xpath: //dl[@class="productPrice"]//dd[@class="listPrice"]//text()
-  # xpath: //div[@id="ii_listPrice"]
+  # xpath: //dl[@class="productPrice"]//dd[@class="listPrice"]//text()
+  xpath: //div[@id="ii_listPrice"]
 - name: price
-  type: CURRENCY
   description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-  xpath: //dl[@class="productPrice"]//dd[@class="yourPrice price" or @class="yourPrice"]//text()
+  # xpath: //dl[@class="productPrice"]//dd[@class="yourPrice price" or @class="yourPrice"]//text()
+  xpath: //div[starts-with(@id,'ii_price')]
 - name: availabilityText
   singleValue: true
   xpath: //div[@class='wide-6 productInformations offerDetails']//dl[@class="productAvailability"]//span[@class="value-title"]/@title
@@ -56,8 +55,8 @@ fields:
   singleValue: false 
   description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-  # xpath: //div[@class="nano-content"]//div[@itemprop="description"]//dd
-  xpath: //div[@id="ii_desc"]
+  xpath: //div[@class="nano-content"]//div[@itemprop="description"]//dd
+  # xpath: //div[@id="ii_desc"]
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
