@@ -16,8 +16,6 @@ module.exports = {
   ) {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-
-
     // @ts-ignore
     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
 
@@ -29,122 +27,83 @@ module.exports = {
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
-
-      // @ts-ignore
-      await new Promise((resolve, reject) => setTimeout(resolve, 8000));
-      const warningButton = document.getElementsByClassName('ui-tabs_tab  button')[5];
-
-      if (warningButton && warningButton.textContent === 'Ostrzeżenia i pozostałe informacje') {
+      var xPathRes = document.evaluate("//div[@class=\"ui-tabs_header-inner\"]/a[contains(text(),'Ostrzeżenia i pozostałe informacje')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+      try {
         // @ts-ignore
-        warningButton.click();
-        try {
-          let tabContent = document.evaluate("//h3[contains(text(),'Pozostałe informacje')]/following::p[1]/text()", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-          let tabContent1 = document.evaluate("//div[@class='ui-tabs_tab-content']/div/h3/text()", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-          let fourthContent = tabContent.textContent;
-          let heading = tabContent1.textContent;
-          let content = heading+" "+ fourthContent;
-          addHiddenDiv('wid', content);
-        } catch (error) {
-        }
+        xPathRes.singleNodeValue.click();
+
+        let tabContent1 = document.evaluate("//div[@class='ui-tabs_tab-content']/div", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        let content = tabContent1.textContent;
+        addHiddenDiv('wid', content);
+      } catch (error) {
       }
-      const warningButton2 = document.getElementsByClassName('ui-tabs_tab  button')[4];
-
-      if (warningButton2 && warningButton2.textContent === 'Ostrzeżenia i pozostałe informacje') {
+      try {
+        let tabContent1 = document.evaluate("//div[@class='ui-tabs_tab-content']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        let firstContent = tabContent1.textContent;
+        var xPathRes3 = document.evaluate("//div[@class=\"ui-tabs_header-inner\"]/a[contains(text(),'Opakowanie')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
         // @ts-ignore
-        warningButton2.click();
-        try {
-          let tabContent = document.evaluate("//h3[contains(text(),'Przepisy')]/following::p[1]/text()", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-          let tabContent1 = document.evaluate("//div[@class='ui-tabs_tab-content']/div/h3/text()", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-          let fourthContent = tabContent.textContent;
-          let heading = tabContent1.textContent;
-          let content = heading +" "+ fourthContent;
-          addHiddenDiv('wid', content);
-        } catch (error) {
-        }
+        xPathRes3.singleNodeValue.click();
+        await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+        let tabContent = document.evaluate("//div[@class='ui-tabs_tab-content']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        let fourthContent = tabContent.textContent;
+        let content = firstContent + fourthContent;
+        //console.log("content :::" + content);
+        addHiddenDiv('addDescid', content);
+      } catch (error) {
       }
-      const warningButton1 = document.getElementsByClassName('ui-tabs_tab  button')[4];
-      //const warningButton0 = document.getElementsByClassName('ui-tabs_tab  button')[0];
-      if (warningButton1 && warningButton1.textContent === 'Opakowanie') {
+      var xPathRes4 = document.evaluate("//div[@class=\"ui-tabs_header-inner\"]/a[contains(text(),'Informacje producenta')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+      try {
         // @ts-ignore
-        warningButton1.click();
-        try {
-          let tabContent = document.evaluate("//div[@class='ui-tabs_tab-content']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-          let fourthContent = tabContent.textContent;
-          console.log("addDesc :::"+fourthContent);
-          addHiddenDiv('addDescid', fourthContent);
-        } catch (error) {
-        }
+        xPathRes4.singleNodeValue.click();
+        let tabContent = document.evaluate("//h3[contains(text(),'Opis produktu')]/following::p[1]/text()", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        let fifthContent = tabContent.textContent;
+        addHiddenDiv('mid', fifthContent);
+      } catch (error) {
       }
-      const manufacturerButton = document.getElementsByClassName('ui-tabs_tab  button')[5];
-
-      if (manufacturerButton && manufacturerButton.textContent === 'Informacje producenta') {
+      var xPathRes5 = document.evaluate("//div[@class=\"ui-tabs_header-inner\"]/a[contains(text(),'Przygotowywanie i przechowywanie')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+      try {
         // @ts-ignore
-        manufacturerButton.click();
-        try {
-          let tabContent = document.evaluate("//h3[contains(text(),'Opis produktu')]/following::p[1]/text()", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-          let fifthContent = tabContent.textContent;
-          addHiddenDiv('mid', fifthContent);
-        } catch (error) {
-
-        }
+        xPathRes5.singleNodeValue.click();
+        let tabContent = document.evaluate("//h3[contains(text(),'Przygotowanie i stosowanie')]/following::p[1]/text()", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        let thirdContent = tabContent.textContent;
+        addHiddenDiv('did', thirdContent);
+      } catch (error) {
       }
-
-      const preparationButton = document.getElementsByClassName('ui-tabs_tab  button')[3];
-
-      if (preparationButton && preparationButton.textContent === 'Przygotowywanie i przechowywanie') {
+      var xPathRes6 = document.evaluate("//div[@class=\"ui-tabs_header-inner\"]/a[contains(text(),'Wartości odżywcze')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+      try {
         // @ts-ignore
-        preparationButton.click();
-        try {
-          let tabContent = document.evaluate("//h3[contains(text(),'Przygotowanie i stosowanie')]/following::p[1]/text()", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-          let thirdContent = tabContent.textContent;
-          addHiddenDiv('did', thirdContent);
-        } catch (error) {
+        xPathRes6.singleNodeValue.click();
+        let tabContent = document.evaluate("//h3[contains(text(),'Obliczona wartość odżywcza')]//following::td[contains(text(),'Wartość energetyczna (kJ)')]/following::td[1]/text()", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        let tabContent1 = document.evaluate("//h3[contains(text(),'Obliczona wartość odżywcza')]//following::td[contains(text(),'Wartość energetyczna (kcal)')]/following::td[1]/text()", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        let tabContent2 = document.evaluate("//h3[contains(text(),'Obliczona wartość odżywcza')]//following::td[contains(text(),'Tłuszcz (g)')]/following::td[1]/text()", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        let tabContent3 = document.evaluate("//h3[contains(text(),'Obliczona wartość odżywcza')]//following::td[contains(text(),'Tłuszcz (g)')]/following::td[1]/text()", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        let tabContent4 = document.evaluate("//h3[contains(text(),'Obliczona wartość odżywcza')]//following::td[contains(text(),' w tym cukry (g)')]/following::td[1]/text()", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
 
-        }
+        let caloriesPerServing = tabContent.textContent;
+        let caloriesFromFatPerServing = tabContent1.textContent;
+        let totalFatPerServing = tabContent2.textContent;
+        // @ts-ignore
+        let totalFatPerServingUom = tabContent3.textContent;
+        let tatalSugarPerServing = tabContent4.textContent;
+        addHiddenDiv('cid', caloriesPerServing);
+        addHiddenDiv('cpid', caloriesFromFatPerServing);
+        addHiddenDiv('tfid', totalFatPerServing);
+        addHiddenDiv('tfsid', totalFatPerServing);
+        // addHiddenDiv('tfpuid',totalFatPerServingUom.slice)
+        addHiddenDiv('tssid', tatalSugarPerServing)
+      } catch (error) {
       }
-      const nutritionButton = document.getElementsByClassName('ui-tabs_tab  button')[2];
-
-      if (nutritionButton && nutritionButton.textContent === 'Wartości odżywcze') {
+      var xPathRes7 = document.evaluate("//div[@class=\"ui-tabs_header-inner\"]/a[contains(text(),'Składniki')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+      try {
         // @ts-ignore
-        nutritionButton.click();
-        try {
-          let tabContent = document.evaluate("//h3[contains(text(),'Obliczona wartość odżywcza')]//following::td[contains(text(),'Wartość energetyczna (kJ)')]/following::td[1]/text()", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-          let tabContent1 = document.evaluate("//h3[contains(text(),'Obliczona wartość odżywcza')]//following::td[contains(text(),'Wartość energetyczna (kcal)')]/following::td[1]/text()", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-          let tabContent2 = document.evaluate("//h3[contains(text(),'Obliczona wartość odżywcza')]//following::td[contains(text(),'Tłuszcz (g)')]/following::td[1]/text()", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-          let tabContent3 = document.evaluate("//h3[contains(text(),'Obliczona wartość odżywcza')]//following::td[contains(text(),'Tłuszcz (g)')]/following::td[1]/text()", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-          let tabContent4 = document.evaluate("//h3[contains(text(),'Obliczona wartość odżywcza')]//following::td[contains(text(),' w tym cukry (g)')]/following::td[1]/text()", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-
-          let caloriesPerServing = tabContent.textContent;
-          let caloriesFromFatPerServing = tabContent1.textContent;
-          let totalFatPerServing = tabContent2.textContent;
-          // @ts-ignore
-          let totalFatPerServingUom = tabContent3.textContent;
-          let tatalSugarPerServing = tabContent4.textContent;
-          addHiddenDiv('cid', caloriesPerServing);
-          addHiddenDiv('cpid', caloriesFromFatPerServing);
-          addHiddenDiv('tfid', totalFatPerServing);
-          addHiddenDiv('tfsid', totalFatPerServing);
-          // addHiddenDiv('tfpuid',totalFatPerServingUom.slice)
-          addHiddenDiv('tssid', tatalSugarPerServing)
-        } catch (error) {
-
-        }
-      }
-
-      const componentsButton = document.getElementsByClassName('ui-tabs_tab  button')[1];
-
-      if (componentsButton && componentsButton.textContent === 'Składniki') {
-        // @ts-ignore
-        componentsButton.click();
-        try {
-          let tabContent = document.evaluate("//div[@class='ui-tabs_tab-content']/div/p", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-          let tabContent1 = document.evaluate("//h3[contains(text(),'Zalecenia dla alergików')]/following::table/tbody", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-          let componentInfo = tabContent.textContent;
-          let allergyInfo = tabContent1.textContent;
-          addHiddenDiv('componentid', componentInfo);
-          addHiddenDiv('aid', allergyInfo);
-        } catch (error) {
-        }
+        xPathRes7.singleNodeValue.click();
+        let tabContent = document.evaluate("//div[@class='ui-tabs_tab-content']/div/p", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        let tabContent1 = document.evaluate("//h3[contains(text(),'Zalecenia dla alergików')]/following::table/tbody", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        let componentInfo = tabContent.textContent;
+        let allergyInfo = tabContent1.textContent;
+        addHiddenDiv('componentid', componentInfo);
+        addHiddenDiv('aid', allergyInfo);
+      } catch (error) {
       }
       const regex = "/"
       let pidhref = document.evaluate("//a[@class='button orange higher']/@href", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -157,7 +116,8 @@ module.exports = {
           addHiddenDiv('id1', sku);
         } catch (error) {
         }
-      }      //To get availability details
+      }
+      //To get availability details
       let availabilityText;
       let availability = document.evaluate("//div[@itemprop='availability']/@content", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       if (availability) {
@@ -165,7 +125,7 @@ module.exports = {
           if (availability.textContent.includes('InStock')) {
             availabilityText = "IN Stock";
           } if (availability.textContent.includes('OutOfStock')) {
-            availabilityText = "Out Of Stock";
+            availabilityText = "Out of Stock";
           }
           addHiddenDiv('avaid', availabilityText);
         } catch (error) {

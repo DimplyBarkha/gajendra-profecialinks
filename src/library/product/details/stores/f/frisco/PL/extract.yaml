@@ -26,9 +26,6 @@ fields:
   - name: availabilityText
     singleValue: true
     xpath: //div[@id="avaid"]/text()
-  - name: description
-    singleValue: false
-    xpath: concat(//div[@class="ui-tabs_tab-content"]/div/p, " " ,//div[@id="addDescid"]/text())
   - name: brandText
     singleValue: true
     xpath: //meta[@itemprop="brand"]/@content
@@ -101,5 +98,8 @@ fields:
   - name: _url
     singleValue: true
     xpath: //link[@rel="canonical"]/@href
+  - name: description
+    singleValue: false
+    xpath: //div[@id="addDescid"]/text()
 
     
