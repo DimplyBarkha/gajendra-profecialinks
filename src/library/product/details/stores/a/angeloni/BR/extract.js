@@ -22,24 +22,24 @@ module.exports = {
     await context.waitForSelector('.box-produto a');
     await context.clickAndWaitForNavigation('.box-produto a', {}, {});
     await context.evaluate(async () => {
-      let scrollTop = 0;
-      while (scrollTop <= 20000) {
-        await stall(100);
-        scrollTop += 2000;
-        window.scroll(0, scrollTop);
-        if (scrollTop === 30000) {
-          await stall(1000);
-          break;
-        }
-      }
+      // let scrollTop = 0;
+      // while (scrollTop <= 20000) {
+      //   await stall(100);
+      //   scrollTop += 2000;
+      //   window.scroll(0, scrollTop);
+      //   if (scrollTop === 30000) {
+      //     await stall(1000);
+      //     break;
+      //   }
+      // }
 
-      function stall (ms) {
-        return new Promise((resolve) => {
-          setTimeout(() => {
-            resolve();
-          }, ms);
-        });
-      }
+      // function stall (ms) {
+      //   return new Promise((resolve) => {
+      //     setTimeout(() => {
+      //       resolve();
+      //     }, ms);
+      //   });
+      // }
 
       function addElementToDocument (key, value) {
         const createdElem = document.querySelector(`#${key}`);
@@ -77,12 +77,22 @@ module.exports = {
       }
 
       // descriptionBullets
-      const descrInfo = document.querySelector('.box-info-produto__info');
+      let bulletsMatch = 0;
+      let boxInfoContent = '';
+      const descrInfo = document.querySelectorAll('.box-info-produto__info');
       if (descrInfo) {
-        const descrInfoText = descrInfo.textContent;
-        const bulletsMatch = descrInfoText.match(/•/gmi);
-        if (bulletsMatch) {
-          addElementToDocument('ag-desc-bullets', bulletsMatch.length);
+        descrInfo.forEach(descrInfoItem => {
+          const descrInfoText = descrInfoItem.textContent;
+          boxInfoContent += descrInfoText.trim().replace(/(\r\n|\n|\r)/, ' ');
+          if(descrInfoText.match(/•/gmi)){
+            bulletsMatch = bulletsMatch + descrInfoText.match(/•/gmi).length;
+          }
+        })
+        if (bulletsMatch > 0) {
+          addElementToDocument('ag-desc-bullets', bulletsMatch);
+        }
+        if (boxInfoContent) {
+          addElementToDocument('ag-desc-text', boxInfoContent);
         }
       }
 
@@ -95,19 +105,18 @@ module.exports = {
           descrInfoArr = descrInfoInner.replace(/&nbsp;/gm, '').split('<br>');
         }
       });
-      addElementToDocument('ag-arr', descrInfoArr);
-      // if (descrInfoArr) {
-      //   descrInfoArr.forEach(descrItem => {
-      //     function getInfoItem (infoItem, infoStr, divId) {
-      //       if (infoItem.toLowerCase().includes(infoStr)) {
-      //         const textValue = descrItem.replace(/.* - /, '');
-      //         addElementToDocument(divId, textValue);
-      //         return textValue;
-      //       }
-      //     }
-      //     getInfoItem(descrItem, 'marca', 'ag-brand');
-      //   });
-      // }
+      if (descrInfoArr) {
+        descrInfoArr.forEach(descrItem => {
+          function getInfoItem (infoItem, infoStr, divId) {
+            if (infoItem.toLowerCase().includes(infoStr)) {
+              const textValue = descrItem.replace(/.* - /, '');
+              addElementToDocument(divId, textValue);
+              return textValue;
+            }
+          }
+          getInfoItem(descrItem, 'marca', 'ag-brand');
+        });
+      }
     });
     return await context.extract(productDetails, { transform });
   },
