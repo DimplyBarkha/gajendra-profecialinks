@@ -54,7 +54,11 @@ async function implementation(
       var description =''
       var description1=''
       var description2 = ''
+      var name_extend=''
       description1 = getXpath('//div[@class="descriptionContainer"]//text()', 'nodeValue');
+      name_extend = getXpath('//ul[@class="pdp breadcrumb"]/li[last()]').innerText;
+      name_extend = name_extend+' - WoodWick'
+      // @ts-ignore
       description2 = getElementByXpath('//div[@class="fragContent row"]').innerText;
       function getElementByXpath(path) {
         return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -65,6 +69,7 @@ async function implementation(
       description= description1+' '+ description2
       addElementToDocument('product_id', a);
       addElementToDocument('availabilty', b);
+      addElementToDocument('name_extend', name_extend);
       addElementToDocument('description', description);
       
   });
