@@ -17,8 +17,8 @@ const transform = (data, context) => {
       if (row.description) {
         let descText = row.description[0].text.replace('•', '|| ');
 
-        if (row.additionalBullets) {
-          row.additionalBullets.forEach(bullet => {
+        if (row.additionalDescBulletInfo) {
+          row.additionalDescBulletInfo.forEach(bullet => {
             descText += `|| ${bullet.text}`;
           });
         }
@@ -26,15 +26,24 @@ const transform = (data, context) => {
         row.description = [{ text: descText }];
       }
 
-        if (row.quantity && row.quantity[0].text.includes('Buy')) {
-            delete row.quantity;
-        }
+      if (row.quantity && row.quantity[0].text.includes('Buy')) {
+        delete row.quantity;
+      }
 
-        if (row.ratingCount && row.ratingCount[0].value === 0){
-            delete row.ratingCount;
-            delete row.aggregateRating;
-            delete row.aggregateRatingText;
-        }
+      if (row.ratingCount && row.ratingCount[0].value === 0) {
+        delete row.ratingCount;
+        delete row.aggregateRating;
+        delete row.aggregateRatingText;
+      }
+
+      if (row.promotion && row.promotion.length > 1) {
+        const allPromos = row.promotion.map(promo => promo.text);
+        row.promotion = [{ text: allPromos }];
+      }
+
+      row.privacyPolicy ? row.privacyPolicy = [{ text: 'Yes' }] : row.privacyPolicy = [{ text: 'No' }];
+      row.customerServiceAvailability ? row.customerServiceAvailability = [{ text: 'Yes' }] : row.customerServiceAvailability = [{ text: 'No' }];
+      row.termsAndConditions ? row.termsAndConditions = [{ text: 'Yes' }] : row.termsAndConditions = [{ text: 'No' }];
     }
   }
 

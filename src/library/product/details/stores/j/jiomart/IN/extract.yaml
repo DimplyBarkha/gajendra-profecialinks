@@ -46,14 +46,15 @@ fields:
     # regExp: (.+)
     # regExpReplace: In Stock
     # defaultValue: Out of Stock
+  - name: additionalDescBulletInfo
+    singleValue: false
+    description: null
+    xpath: //section[@id="manu_description"]//div[@class="content_txt"]//li
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
     xpath: //div[@id="first_desc"]
-  - name: additionalBullets 
-    singleValue: false
-    xpath: //section[@id="manu_description"]//div[@class="content_txt"]//li
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -411,6 +412,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
+    xpath: //h1[contains(text(),"Product Information")]//following-sibling::div[@class="content_txt"]
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -420,6 +422,7 @@ fields:
   - name: countryOfOrigin
     singleValue: true
     description: The country from which the product originates
+    xpath: //th[contains(text(),"Country of Origin")]//following-sibling::td
   - name: allergyAdvice
     singleValue: true
     description: Allergy information associated with the product
@@ -442,8 +445,9 @@ fields:
     singleValue: true
     description: The unit of measurement used in price_per_unit
   - name: promotion
-    singleValue: true
+    singleValue: false
     description: promotion text on product page
+    xpath: //span[@class="disc-price"] | //div[@class="save-offer"] | //section[@id="offer-section"]//a
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
@@ -476,9 +480,6 @@ fields:
   - name: variants
     singleValue: false
     description: null
-  - name: additionalDescBulletInfo
-    singleValue: false
-    description: null
   - name: prop65Warning
     singleValue: true
     description: null
@@ -497,22 +498,16 @@ fields:
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
     defaultValue: No
-  - name: termsAndConditions
-    singleValue: true
-    description: Terms and conditions information text ['Yes','No']
-    defaultValue: No
   - name: privacyPolicy
     singleValue: true
-    description: Privacy Policy information text ['Yes','No']
-    defaultValue: No
+    xpath: //*[contains(text(),"Privacy policy")]
+  - name: termsAndConditions
+    singleValue: true
+    xpath: //*[contains(text(),"Terms and conditions")]
   - name: customerServiceAvailability
     singleValue: true
     description: Information related to customer service availability (text), ['Yes','No']
-    defaultValue: No
     xpath: //*[contains(text(),"Contact Us")] | //*[contains(text(),"Customer Services")]
-    regExp: >-
-      (.+)
-    regExpReplace: Yes
   - name: materials
     singleValue: true
     description: Materials used to make the product
