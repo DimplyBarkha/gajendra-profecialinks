@@ -10,17 +10,22 @@ async function implementation (
   console.log('inputs:: ', inputs);
   const { id } = inputs;
   console.log('parameters:: ', parameters);
+  const navigate = await context.evaluate(async function () {
+    return document.querySelector('div[data-impressions="search-results-grid"] div.product-picture a');
+  });
   if (id) {
     await new Promise((resolve, reject) => setTimeout(resolve, 10000));
-    await context.waitForXPath('//div[@data-impressions="search-results-grid"]//div[@class="product-picture"]/a/@href');
-    await context.waitForSelector('div[data-impressions="search-results-grid"] div.product-picture a');
-    console.log('everything fine !!!');
-    await context.evaluate(() => {
-      const firstItem = document.querySelector('div[data-impressions="search-results-grid"] div.product-picture a');
-      if (firstItem) {
-        firstItem.click();
-      }
-    });
+    if (navigate) {
+      await context.waitForXPath('//div[@data-impressions="search-results-grid"]//div[@class="product-picture"]/a/@href');
+      await context.waitForSelector('div[data-impressions="search-results-grid"] div.product-picture a');
+      console.log('everything fine !!!');
+      await context.evaluate(() => {
+        const firstItem = document.querySelector('div[data-impressions="search-results-grid"] div.product-picture a');
+        if (firstItem) {
+          firstItem.click();
+        }
+      });
+    }
   }
 
   await new Promise((resolve, reject) => setTimeout(resolve, 10000));
