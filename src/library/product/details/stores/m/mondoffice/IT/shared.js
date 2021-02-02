@@ -29,7 +29,14 @@ const transform = (data) => {
         }
         if (gr && gr.specification && gr.specification.length) gr.specification = [{ text: gr.specification.map(e => e.text).join(' ') }];
         if (gr && gr.descriptionBullets && gr.descriptionBullets.length) gr.descriptionBullets = [{ text: gr.descriptionBullets.length }];
-        if (gr && gr.secondaryImageTotal && gr.secondaryImageTotal.length) gr.secondaryImageTotal = [{ text: gr.secondaryImageTotal.length }];
+        if (gr && gr.secondaryImageTotal && gr.secondaryImageTotal.length) gr.secondaryImageTotal = [{ text: gr.secondaryImageTotal.length - 1 }];
+        if (gr && gr.alternateImages && gr.alternateImages.length) {
+          gr.alternateImages = gr.alternateImages.filter((item, index) => {
+            if(index !== 0) {
+              return item;
+            }
+          });
+        }
       } catch (e) {
         console.log(e);
       }
