@@ -82,8 +82,9 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //script[contains(@type,'application')]
-    regExp: sku([":\s]+)([\d\w]+)(",)
+    xpath: //div[@id="sku"]
+    # xpath: //script[contains(@type,'application')]
+    # regExp: sku([":\s]+)([\d\w]+)(",)
     regExpReplace: $2
   - name: variantId
     singleValue: true
@@ -94,8 +95,9 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: //script[contains(@type,'application')]
-    regExp: mpn(":")([\w\d()-\s\/]+)(",)
+    xpath: //div[@id="sku"]
+    # xpath: //script[contains(@type,'application')]
+    # regExp: mpn(":")([\w\d()-\s\/]+)(",)
     regExpReplace: $2
   - name: packSize
     singleValue: true
