@@ -110,6 +110,11 @@ fields:
   - name: quantity
     xpath: //div[@id="my-qty"][last()] 
     regExp: (\d+) (ML|UN|UD|ST)
+  - name: quantity1
+    singleValue: false
+    xpath: //script[@type="text/javascript" and contains(text(),'variant')]
+    regExp: variant":"([^"]+)
+    regExpReplace: $1
   - name: variantInformation
     xpath: //div[@id="my-color"][last()] |//div[@id="my-variantInf"][last()] 
   - name: ratingCount

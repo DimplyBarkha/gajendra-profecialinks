@@ -47,7 +47,10 @@ const transform = (data) => {
         });
         row.nameExtended[0].text = row.nameExtended[0].text.trim();
       }
-
+      if (!row.quantity && row.quantity1 && row.quantity1.length) {
+        const text = row.quantity1[0].text;
+        row.quantity = [{ text }];
+      }
       if (row.name) {
         const nDesc = [];
         let newDesc = '';
@@ -74,6 +77,7 @@ const transform = (data) => {
       }
       if (!row.aggregateRating && row.aggregateRating1 && row.aggregateRating1.length) {
         row.aggregateRating1[0].text = row.aggregateRating1[0].text.trim();
+        row.aggregateRating1[0].text = row.aggregateRating1[0].text.replace('.', ',');
         row.aggregateRating = row.aggregateRating1;
       }
       if ((!row.nameExtended || !row.nameExtended.length) && row.name) {
