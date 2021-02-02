@@ -18,9 +18,6 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  await context.waitForXPath('//div[@class="tile__product-slide-rating-wrapper"]');
-  // await context.waitForSelector('div[class="tile__product-slide-rating-wrapper"]');
-  // await context.waitForXPath('//div[@class="tile__product-slide-rating-wrapper"]');
   await context.evaluate(async function () {
     let scrollTop = 0;
     while (scrollTop !== 1000) {
@@ -32,8 +29,6 @@ async function implementation(
         break;
       }
     }
-
-
 
     function stall(ms) {
       return new Promise((resolve, reject) => {
@@ -53,14 +48,27 @@ async function implementation(
     const originalDiv = document.querySelectorAll("div[class='tile__product-slide-image-container']")[index];
     originalDiv.parentNode.insertBefore(newDiv, originalDiv);
   }
-  const aggregateRating = document.querySelectorAll("e2-rating")
-  for (let k = 0; k < aggregateRating.length; k++) {
-  // @ts-ignore
-  let singleRating = aggregateRating[k].getAttribute("rating");
-  console.log(singleRating,'=singleRating')
-  addHiddenDiv('aggregateRating', singleRating, k);
-  }
+  // const aggregateRating = document.querySelectorAll("e2-rating")
+//   for (let k = 0; k < aggregateRating.length; k++) {
+//   // @ts-ignore
+// // <<<<<<< HEAD
+//   let singleRating = aggregateRating[k].getAttribute("rating");
+//   // let singleRating = aggregateRating[k].getAttribute("reviews-number");
+//   console.log(singleRating,'=singleRating')
+//   addHiddenDiv('aggregateRating', singleRating, k);
+//   }
 
+  try{
+    // @ts-ignore
+    document.querySelector('#onetrust-accept-btn-handler').click()
+    await new Promise(r => setTimeout(r, 6000));
+    console.log('----------------------------------cookies')
+    // }
+    }
+    catch(error)
+    {
+
+    }
   function addHiddenDiv1(id, content, index) {
     const newDiv = document.createElement('div');
     newDiv.id = id;

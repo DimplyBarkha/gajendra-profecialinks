@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
+    loadedSelector: 'body',
     noResultsXPath: null,
     domain: 'kruidvat.nl',
     openSearchDefinition: {
