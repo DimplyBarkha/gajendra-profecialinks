@@ -133,24 +133,24 @@ const transform = (data) => {
         row.inTheBoxUrl = witb.map(text => ({ text }));
       }
       if (row.price) {
-        const priceArr = row.price.map((item) => {
+        const priceArr = Array.from(new Set(row.price.map((item) => {
           if (item.text.includes('$.')) {
             return item.text.replace('.', '0.');
           } else {
             return item.text;
           }
-        });
-        row.price = priceArr;
+        })));
+        row.price = priceArr.map(text => ({ text }));
       }
       if (row.listPrice) {
-        const priceArr = row.listPrice.map((item) => {
+        const priceArr = Array.from(new Set(row.price.map((item) => {
           if (item.text.includes('$.')) {
             return item.text.replace('.', '0.');
           } else {
             return item.text;
           }
-        });
-        row.listPrice = priceArr;
+        })));
+        row.listPrice = priceArr.map(text => ({ text }));
       }
     }
   }
