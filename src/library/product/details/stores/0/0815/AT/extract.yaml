@@ -85,13 +85,14 @@ fields:
     xpath: //div[@id="sku"]
     # xpath: //script[contains(@type,'application')]
     # regExp: sku([":\s]+)([\d\w]+)(",)
-    regExpReplace: $2
+    # regExpReplace: $2
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //script[contains(@type,'text')]
-    regExp: productId(["':\s]+)([\d\w]+)(",)
-    regExpReplace: $2
+    # xpath: //script[contains(@type,'text')]
+    # regExp: productId(["':\s]+)([\d\w]+)(",)
+    # regExpReplace: $2
+    xpath: //div[@id="variantId"]
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -488,7 +489,7 @@ fields:
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //*[@itemprop="description"]//ul/li
+    xpath: //*[@itemprop="description"]//ul/li | //*[@itemprop="description"]//div[contains(.,'Produkteigenschaften')]/following-sibling::div
     description: null
   - name: prop65Warning
     singleValue: true
