@@ -50,16 +50,10 @@ fields:
     xpath: //h2[@class='brand-name']//a/@href  
   - name: sku
     singleValue: false    
-    xpath: //div[@id='maincontent']//script[@type='application/ld+json' and contains(text(),'sku')]
-    #"sku":"10574502055-1"
-    regExp: \"sku\"\s*:\s*\"(.+?)\"
-    regExpReplace: $1
+    xpath: //ul[@class="detail-content"]/li[@id="tab-details-2"]//table//th/div[text()="Tuotenumero"]/parent::*/parent::*/td
   - name: variantId
     singleValue: false
-    xpath: //div[@id='maincontent']//script[@type='application/ld+json' and contains(text(),'sku')]
-    #"sku":"10574502055-1"
-    regExp: \"sku\"\s*:\s*\"(.+?)\"
-    regExpReplace: $1  
+    xpath: //button[@class="btn-favourites js-pdp-favourites"]/@data-pid
   - name: variantInformation
     singleValue: false
     xpath: (//div[@class='main-detail-block']//select[@class='custom-select form-control select-size']/option/@data-attr-value)[1]
@@ -68,10 +62,8 @@ fields:
     xpath: (//div[@class='main-detail-block']//select[@class='custom-select form-control select-size']/option/@data-attr-value)[1]
   - name: variantCount
     singleValue: false
-    # COUNT it
-    xpath: //div[@class="swatch-item-wrapper"]//div[contains(@class,'swiper-slide')]//button
-    defaultValue: '0'
-    type: NUMBER  
+    xpath: count(//div[@class="swatch-item-wrapper"]//div[contains(@class,'swiper-slide')]//button)
+    defaultValue: 1
   - name: specifications
     singleValue: false
     xpath: //h2[text()='Lisätietoja']//following-sibling::div[contains(@class,'content')]//table//tr
