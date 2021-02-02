@@ -2,7 +2,7 @@ input:
   id: 10110
   _url: http://bruneau.fr
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=bfa60771-bbaf-4d4b-97cd-b58b68dbb25e/task=a0ba41aa-dd9d-4641-b813-5d7aac530fc5/7256426d-c4e1-49f4-8d76-4ea20992f48f.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=b2ea93fe-ffb5-4339-bf3a-18cd83809d4d/task=0fbf357f-2f1a-4d1d-affc-713684075090/53f3c30c-8717-4aa4-bba8-dd5a768f2525.html
     extractionConfigId: product/details/stores/b/bruneau/FR/extract
     data:
       - group:
@@ -15,9 +15,6 @@ extractions:
             imageAlt:
               - text: Serviette de table Tork ouate blanche 2 plis 39 x 39 cm - Paquet de 150
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
-            alternateImages:
-              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/10/11/10110.jpg?width=83&height=83&mode=Default&quality=85&scale=upscalecanvas
-                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[1]/img[1]/@src
             category:
               - text: Alimentation et réception
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/a[1]/span[1]
@@ -47,9 +44,6 @@ extractions:
               - text: En paquet de 150 serviettes.
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[2]/div[1]/div[1]/text()[3]
             brandText:
-              - text: Voir tous les produits Tork
-                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/a[1]/img[1]/@title
-            manufacturer:
               - text: Tork
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/a[1]/@content
             sku:
@@ -79,13 +73,6 @@ extractions:
             color:
               - text: Blanc
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/ul[1]/li[1]/img[1]/@title
-            manufacturerDescription:
-              - text: Ouate blanche double épaisseur.
-                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[2]/div[1]/div[1]/text()[1]
-              - text: "Dimensions : 39 x 39 cm."
-                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[2]/div[1]/div[1]/text()[2]
-              - text: En paquet de 150 serviettes.
-                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[2]/div[1]/div[1]/text()[3]
             name:
               - text: Serviette de table Tork ouate blanche 2 plis 39 x 39 cm - Paquet de 150
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/h1[1]
@@ -117,5 +104,7 @@ extractions:
               - text: "1"
             promotion:
               - text: ""
+            firstVariant:
+              - text: "Couleur : Blanc"
         xpath: /
-    timestamp: 1611139909058
+    timestamp: 1612259567377

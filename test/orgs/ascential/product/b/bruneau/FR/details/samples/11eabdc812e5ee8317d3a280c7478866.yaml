@@ -2,7 +2,7 @@ input:
   id: 12609
   _url: http://bruneau.fr
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=bfa60771-bbaf-4d4b-97cd-b58b68dbb25e/task=9da3457b-e5ba-4cd9-83b6-b22b016138bf/6eb1b00a-5bd0-4e56-9476-bad720572ce0.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=b2ea93fe-ffb5-4339-bf3a-18cd83809d4d/task=aeda5b79-eb6a-44dc-bf44-b30f7adc6547/5a0b2172-25c2-4863-a39f-5aae9c548320.html
     extractionConfigId: product/details/stores/b/bruneau/FR/extract
     data:
       - group:
@@ -15,9 +15,6 @@ extractions:
             imageAlt:
               - text: Lingettes imprégnées mains et surface Tifon - Boîte de 70 lingettes
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
-            alternateImages:
-              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/12/60/12609.jpg?width=83&height=83&mode=Default&quality=85&scale=upscalecanvas
-                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[1]/img[1]/@src
             category:
               - text: Hygiène et entretien
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/a[1]/span[1]
@@ -75,18 +72,6 @@ extractions:
             shippingDimensions:
               - text: 30 x 33
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/text()[1]
-            manufacturerDescription:
-              - text: Nettoient et dégraissent. Non agressive pour la peau. Sans eau, sans
-                  rinçage sans résidu.
-                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[2]/div[1]/div[1]/text()[1]
-              - text: Nettoient les mains et surfaces (outils, mécaniques…).
-                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[2]/div[1]/div[1]/text()[2]
-              - text: Eliminent graisses, huiles, peintures, colles et résines. Parfum agrumes.
-                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[2]/div[1]/div[1]/text()[3]
-              - text: "Dimensions lingettes : 30 x 33 cm."
-                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[2]/div[1]/div[1]/text()[4]
-              - text: Boîte de 70 lingettes.
-                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[2]/div[1]/div[1]/text()[5]
             name:
               - text: Lingettes imprégnées mains et surface Tifon - Boîte de 70 lingettes
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/h1[1]
@@ -109,5 +94,7 @@ extractions:
               - text: "0"
             promotion:
               - text: ""
+            firstVariant:
+              - text: ""
         xpath: /
-    timestamp: 1611139910522
+    timestamp: 1612259567154

@@ -2,7 +2,7 @@ input:
   id: 48653
   _url: http://bruneau.fr
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=bfa60771-bbaf-4d4b-97cd-b58b68dbb25e/task=63968ab5-7252-4589-8ea8-ef6488da1ef8/52cc2173-7764-4b9b-b98c-a015994b8c0b.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=b2ea93fe-ffb5-4339-bf3a-18cd83809d4d/task=8a5fe4d0-cd09-4b7e-9567-9f279b47d2c3/b68ea72c-d09c-4647-b845-f94a8bb12044.html
     extractionConfigId: product/details/stores/b/bruneau/FR/extract
     data:
       - group:
@@ -16,8 +16,6 @@ extractions:
               - text: Chiffons non tissés Tork 530 blanc - Boîte de 120
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
             alternateImages:
-              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/48/65/48653.jpg?width=83&height=83&mode=Default&quality=85&scale=upscalecanvas
-                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[1]/img[1]/@src
               - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/48/65/48653A.jpg?width=83&height=83&mode=Default&quality=85&scale=upscalecanvas
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/img[1]/@src
             category:
@@ -42,9 +40,6 @@ extractions:
               - text: In Stock
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[7]/button[1]/span[2]
             brandText:
-              - text: Voir tous les produits Tork
-                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/a[1]/img[1]/@title
-            manufacturer:
               - text: Tork
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/a[1]/@content
             sku:
@@ -99,5 +94,7 @@ extractions:
               - text: "1"
             promotion:
               - text: ""
+            firstVariant:
+              - text: "Couleur : Blanc"
         xpath: /
-    timestamp: 1611139914065
+    timestamp: 1612259570244

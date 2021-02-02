@@ -2,7 +2,7 @@ input:
   id: 710546
   _url: http://bruneau.fr
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=bfa60771-bbaf-4d4b-97cd-b58b68dbb25e/task=21e64262-4e3b-4c15-ae0c-3326d2b66006/8b907272-e85e-40fd-a39e-8d46b9d39eab.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=b2ea93fe-ffb5-4339-bf3a-18cd83809d4d/task=0cd16dff-eec8-4f57-9163-4f74eb87e2cb/4b9c6801-bba8-4bbe-803d-44cdaa2e9850.html
     extractionConfigId: product/details/stores/b/bruneau/FR/extract
     data:
       - group:
@@ -15,9 +15,6 @@ extractions:
             imageAlt:
               - text: Papier essuie-mains pliage en C Tork H3 Advanced - Carton de 2560
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
-            alternateImages:
-              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/71/05/46/710546.jpg?width=83&height=83&mode=Default&quality=85&scale=upscalecanvas
-                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[1]/img[1]/@src
             category:
               - text: Hygiène et entretien
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/a[1]/span[1]
@@ -40,9 +37,6 @@ extractions:
               - text: In Stock
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[7]/button[1]/span[2]
             brandText:
-              - text: Voir tous les produits Tork
-                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/a[1]/img[1]/@title
-            manufacturer:
               - text: Tork
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/a[1]/@content
             sku:
@@ -94,5 +88,7 @@ extractions:
               - text: "1"
             promotion:
               - text: jusqu'à -30%
+            firstVariant:
+              - text: "Couleur : Blanc"
         xpath: /
-    timestamp: 1611139910772
+    timestamp: 1612259567341

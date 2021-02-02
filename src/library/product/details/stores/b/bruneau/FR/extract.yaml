@@ -24,7 +24,7 @@ fields:
   description: Alt text of the main product image
 - name: alternateImages
   singleValue: false
-  xpath: //div[@class='image-carousel']//img/@src
+  xpath: //div[@class='image-carousel']/ul/li[not(contains(@class, 'selected'))]/img[not(contains(@src, 'video'))]/@src
   description: Other product images (not in manufacturer description)
 - name: metaKeywords
   singleValue: true
@@ -68,12 +68,11 @@ fields:
   description: Number of ul > li tags in the description
 - name: brandText
   singleValue: true
-  xpath: //div[@id='product-brand']/a/img/@title
+  xpath: //div[@id='product-brand']/a/@content
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
 - name: manufacturer
   singleValue: true
-  xpath: //div[@id='product-brand']/a/@content
   description: Product manufacturer
 - name: quantity #todo
   singleValue: true
@@ -152,7 +151,6 @@ fields:
 - name: manufacturerDescription 
   singleValue: false
   description: The extended description of the product supplied by the lister
-  xpath: //div[@id='product-detail-description']/text() | //h2[@class='product-description']/text()
 - name: manufacturerImages 
   singleValue: false
   description: Images within the third party description
@@ -460,6 +458,7 @@ fields:
     to populate "first_variant" for all variants of a product, this rpc becomes the
     common link between other variants. method 3 = apply some logic to determine link
     between variants, this will need analysis
+  xpath: normalize-space(//div[@class='product-variance']/div)
 - name: variants
   singleValue: false
   xpath: //div[@id='product-variance-container']//ul/li/@data-name
