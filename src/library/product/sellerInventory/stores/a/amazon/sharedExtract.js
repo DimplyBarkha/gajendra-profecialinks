@@ -22,6 +22,9 @@ const getStockFunc = async function ({ context, sellerId, id, url }) {
         hasToCartBtn: '#hlb-view-cart-announce',
         hasProdsToDeleteInCart: 'div[data-asin] div[class*=removed]:not([style=""]) + div input[value*="Delete"], .sc-list-item-content input[data-action=delete]',
         hasAddOnModal: '#attach-popover-lgtbox:not([style*="display: none"])',
+        hasAddOnModalBtn: '#attachSiNoCoverage-announce',
+        hasAddOnModalBtnAlt: '#attach-popover-lgtbox:not([style*="display: none"])',
+        hasAddOnPopUp: '#siNoCoverage-announce',
         hasToCartFromModal: 'input[type=submit][aria-labelledby*="cart"]',
         hasItemsInCart: '#nav-cart-count:not([class*="cart-0"])',
         hasdropDownQuantity: '[import=element] span[data-action*=dropdown]',
@@ -48,7 +51,7 @@ const getStockFunc = async function ({ context, sellerId, id, url }) {
       elementChecks.isOffersPage = window.ue_pty ? window.ue_pty.includes("OfferListing") : false
       elementChecks.hasVariants = !!window.isTwisterPage
       elementChecks.windowLocation =  window.location ? window.location : {}
-      elementChecks.sellerName = elementChecks.sellerName ? document.querySelector(`${selectors.sellerName}`).innerText : false;
+      elementChecks.sellerName = elementChecks.sellerName ? document.evaluate('(//*[contains(@id, "buyNew_cbb")]//*[contains(@id, "sfsb_accordion_head")]/div[1]/div//span[2] | //div[@id="used"]//*[contains(@id,"tabular-buybox")]/table/tbody/tr[1]/td[2]//span[contains(@class, "a-truncate-full")]//a | //div[contains(@id,"used")]//*[contains(@id,"merchant-info")]/a[contains(@id,"seller")][1] | //div[contains(@id,"used")]//*[contains(@id, "merchant-info")]/a[contains(@id,"seller")] | //*[contains(@id, "qualifiedBuybox")]//*[contains(@id, "tabular-buybox")]/table/tbody/tr[2]/td[2]//span[contains(@class, "a-truncate-full")]//a | //div[contains(@id,"new")]//*[contains(@id, "tabular-buybox")]/table/tbody/tr[2]/td[2]//span[contains(@class, "a-truncate-full")]//a | //*[contains(@id,"qualifiedBuybox")]//*[contains(@id, "merchant-info")]//a | //div[contains(@id,"new")]//*[contains(@id,"merchant-info")]//a)[1]', document, null, XPathResult.ANY_TYPE, null).iterateNext().innerText : false;
       if(!!document.body){
         document.body.setAttribute('current_page_url', window.location.href);
       }
@@ -244,32 +247,41 @@ const getStockFunc = async function ({ context, sellerId, id, url }) {
 
   // decline add ons from pop out modal with cart button or addons
   if (page.hasAddOnModal) {
-    await context.evaluate(async () => {
-      if(document.querySelector('#attachSiNoCoverage-announce')){
-        document.querySelector('#attachSiNoCoverage-announce').click();
+      if(page.hasAddOnModalBtn){
+        await context.click('#attachSiNoCoverage-announce');
         await new Promise(resolve => setTimeout(resolve, 2000));
-      }else if(document.querySelector('#attach-popover-lgtbox:not([style*="display: none"])')){
-        document.querySelector('#attach-popover-lgtbox:not([style*="display: none"])').click();
+      }else if(page.hasAddOnModalBtnAlt){
+        await context.click('#attach-popover-lgtbox:not([style*="display: none"])');
         await new Promise(resolve => setTimeout(resolve, 2000));
       }
-    });
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise(resolve => setTimeout(resolve, 3000));
+    page = await pageContext();
+    await handlePage(page, null);
+  }
+  if (page.hasAddOnPopUp) {
+    await context.click('#siNoCoverage-announce');
+    await new Promise(resolve => setTimeout(resolve, 5000));
     page = await pageContext();
     await handlePage(page, null);
   }
 
+
   let pageCheck = 0;
   while (!page.isCartPage && pageCheck < 5) {
     if (page.hasToCartFromModal) {
-      await context.click('input[type=submit][aria-labelledby*="cart"]');
+      await context.click('#nav-cart');
+      // await context.click('#attach-view-cart-button-form input[type=submit][aria-labelledby*="cart"]');
+      await new Promise(resolve => setTimeout(resolve, 2000));
     } else if (page.isCartTransitionPage) {
       await context.click('#hlb-view-cart-announce');
+      await new Promise(resolve => setTimeout(resolve, 2000));
     } else if (!page.hasToCartFromModal && !page.hasAdOnModal && page.hasItemsInCart) {
       await context.click('#nav-cart');
+      await new Promise(resolve => setTimeout(resolve, 2000));
     }
     pageCheck++;
     await context.waitForNavigation();
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    await new Promise(resolve => setTimeout(resolve, 3000));
     page = await pageContext();
     await handlePage(page, null);
   }
