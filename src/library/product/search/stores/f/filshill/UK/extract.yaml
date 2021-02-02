@@ -5,26 +5,29 @@ recordXPath: null
 fields: 
   - name: id
     singleValue: true
-    xpath: //*[contains(@class,"ProdDetails2")]//div[2]/input/@value
+    xpath: //div[@id='id']
   - name: name
     singleValue: true
-    xpath: //*[contains(@class,"ProdDetails")]//div//a//text()
+    xpath: //div[@id='name']
   - name: productUrl
     singleValue: true
-    xpath: concat('https://sales.filshill.co.uk/products/ProdDetails.asp?product_code=','',//*[contains(@class,"ProdDetails2")]//div[2]/input/@value)
-  - name: _url
-    singleValue: true
-    xpath: concat(('https://sales.filshill.co.uk/products/gridlistsearch.asp?product_desc='),'',(//*[contains(@class,"ProdDetails2")]//div[2]/input/@value))  
+    xpath: //div[@id='productUrl']
+  - name: searchUrl
+    singleValue: false
+    xpath: //div[@id='added-searchurl'] 
   - name: gtin
     singleValue: true
+  - name: availabilityText
+    singleValue: true
+    xpath: //div[@id="availability"]
   - name: thumbnail
     singleValue: true
-    xpath: //img[contains(@id,"prod")]/@src
+    xpath: //div[@id="thumbnail"]
   - name: reviewCount
     singleValue: true
   - name: price
     singleValue: true
-    xpath: //div[@class="PromoPrice"]
+    xpath: //div[@id='price']
   - name: manufacturer
     singleValue: true
   - name: soldBy
