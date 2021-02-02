@@ -32,7 +32,7 @@ fields:
     xpath: //a[@class="video"]/@href
   - name: nameExtended
     description: The product name
-    xpath: //h1[contains(@data-comp,"DisplayName")]//text()
+    xpath: //h1[contains(@data-comp,"DisplayName")]//text() | //div[@data-at="sku_size"]/text()[not(contains(.,'ITEM'))] | //div[@id='ii_color']
   - name: quantity
     xpath: (//div[@id="ii_quantity"]|//div[contains(@data-comp,"SwatchDescription")]//span//span|//div[contains(@data-comp,"SwatchDescription")]//text())
   - name: category

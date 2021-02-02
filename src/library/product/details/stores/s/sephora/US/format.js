@@ -47,7 +47,17 @@ const transform = (data, context) => {
           const bulletReplace = text.replace(/ - /g, ' || ');
           row.directions[0].text = bulletReplace;
         }
-
+        if (row.nameExtended) {
+          let text = '';
+          row.nameExtended.forEach(item => {
+            text = row.nameExtended.map(elm => elm.text).join(' - ');
+          });
+          row.nameExtended = [
+            {
+              text: text.replace('SIZE',''),
+            },
+          ];
+        }
         if (row.image) {
           const text = row.image[0].text;
           const splits = text.split('?');

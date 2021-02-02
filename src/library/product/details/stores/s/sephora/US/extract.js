@@ -285,7 +285,7 @@ module.exports = {
           if (promises) {
             const responses = await Promise.all(promises);
             const json = await Promise.all(responses.map(elm => elm.json()));
-            const videoUrls = json.map(elm => elm.sources.find(elm => elm.container === 'MP4').src);
+            const videoUrls = json.map(elm => elm.sources && elm.sources.find(elm => elm.container === 'MP4').src);
             console.log(videoUrls);
             return videoUrls;
           }
