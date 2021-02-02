@@ -14,7 +14,7 @@ fields:
     # xpath: //div[@class='TiQ3Vc main-image']//img[not(@xpath=1)][position()>1]/@src
     # regExp: background-image\Wurl\W(.+)\W
     # regExpReplace: $1
-    xpath: //ol[contains(@aria-label, "Images")]//li//div[contains(@aria-label,"See image")]/img/@src
+    xpath: //ol[contains(@aria-label, "Images")]//li//div[contains(@aria-label,"See image")]/img/@src | //ol[contains(@class,"CsEVae")]//li//div[contains(@class,"thumbnail")]/img/@src
   - name: metaKeywords
     singleValue: false
   - name: category
@@ -46,7 +46,7 @@ fields:
     #type: NUMBER
   - name: brandText
     singleValue: false
-    xpath: //div[@id="added-brandText"]  | //td[contains(text(),'Brand')]/following-sibling::td
+    xpath: //div[@id="added-brandText"]  | //td[contains(text(),'Brand')]/following-sibling::td | //td[contains(text(),'Marca')]/following-sibling::td
   - name: manufacturer
     singleValue: false
   - name: quantity
