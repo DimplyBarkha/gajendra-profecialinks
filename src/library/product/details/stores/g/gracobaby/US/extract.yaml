@@ -13,7 +13,7 @@ fields:
   - name: alternateImages
     singleValue: false
     # regExp: (.*\?)
-    xpath: //button[@class="carousel-img-wrap"]/parent::div[not(contains(@class,'active'))]/button/img/@src
+    xpath: //html//div[@class='alternateImages']
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
@@ -109,7 +109,7 @@ fields:
     defaultValue: Yes
   - name: manufacturerImages
     singleValue: false
-    xpath: //img[@class="wc-media wc-image"]/@src
+    xpath: //html//div[@class='manufactureralternateImages']
   - name: firstVariant
     singleValue: false
     xpath: (//div[contains(@class,'color-attribute')]/@aria-describedby)[1]

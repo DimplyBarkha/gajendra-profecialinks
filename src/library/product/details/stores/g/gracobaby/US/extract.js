@@ -46,6 +46,10 @@ module.exports = {
         var doubleSeparatorText = data.join(' ');
         addHiddenDiv(id, doubleSeparatorText);
       };
+      const pipeSeparator = (data) => {
+        var doubleSeparatorText = data.join(' || ');
+        return '||' + doubleSeparatorText;
+      };
       try {
         const addDescBulletInfo = getAllXpath("//ul[@id='collapsible-pdp-details-2']/li/text()|//ul[@id='collapsible-pdp-details-4']/li/text()", 'nodeValue');
         pipeSeparatorDouble('addDescBulletInfo', addDescBulletInfo);
@@ -58,45 +62,44 @@ module.exports = {
       } catch (error) {
 
       }
-      var descFinal = [];
-      const pushFunction = function (data) {
-        for (let i = 0; i < data.length; i++) {
-          descFinal.push(data[i]);
-        }
-      }
+      var descFinal = "";
+      // const pushFunction = function (data) {
+      //   for (let i = 0; i < data.length; i++) {
+      //     descFinal.push(data[i]);
+      //   }
+      // }
 
       try {
-        const mainDesc = getAllXpath("//div[@id='collapsible-pdp-details-1']/text()", 'nodeValue');
-        pushFunction(mainDesc);
+        // @ts-ignore
+        const mainDesc = document.querySelector("div[id='collapsible-pdp-details-1']").innerText
+        descFinal += mainDesc;
       } catch (error) {
 
       }
 
-      for (let i = 0; i < descFinal.length; i++) {
-        console.log(descFinal[i]);
-      }
+
       try {
         const upperDesc = getAllXpath("//div[@class='details']//li/text()", 'nodeValue');
-        pushFunction(upperDesc);
+        descFinal += pipeSeparator(upperDesc);
       } catch (error) {
 
       }
       try {
         const belowLI = getAllXpath("//ul[@id='collapsible-pdp-details-2']/li/text()", 'nodeValue');
-        pushFunction(belowLI);
+        descFinal += pipeSeparator(belowLI);
       } catch (error) {
 
       }
-      commaSeparatorDouble('adddescriptionInfo', descFinal)
+      addHiddenDiv('adddescriptionInfo', descFinal)
       try {
         const addwarningInfo = getAllXpath("//ul[@id='collapsible-pdp-details-4']/li/text()", 'nodeValue');
-        commaSeparatorDouble('addwarningInfo', addwarningInfo);
+        commaSeparatorDouble('addwarningInfo', pipeSeparator(addwarningInfo));
       } catch (error) {
 
       }
       try {
         const addManufacturerDescInfo = getAllXpath("//ul[@id='collapsible-pdp-details-2']/li/text()", 'nodeValue');
-        commaSeparatorDouble('addManufacturerDescInfo', addManufacturerDescInfo);
+        commaSeparatorDouble('addManufacturerDescInfo', pipeSeparator(addManufacturerDescInfo));
       } catch (error) {
 
       }
@@ -108,8 +111,9 @@ module.exports = {
 
       }
       try {
-        const addDirectionInfo = getAllXpath("//div[@id='collapsible-pdp-details-6']/span/text()", 'nodeValue');
-        pipeSeparatorDouble('addDirectionInfo', addDirectionInfo);
+        // @ts-ignore
+        const addDirectionInfo = document.querySelector("div[id='collapsible-pdp-details-6']").innerText;
+        addHiddenDiv('addDirectionInfo', addDirectionInfo);
       } catch (error) {
 
       }
@@ -154,6 +158,28 @@ module.exports = {
         const price = getAllXpath('//script[@type="application/ld+json" and contains(text(),"availability")]/text()', 'nodeValue');
         let finalprice = JSON.parse(price[0]);
         addHiddenDiv('price', '$' + finalprice.offers.price);
+      } catch (error) {
+
+      }
+      try {
+        const alternateImages = getAllXpath('//button[@class="carousel-img-wrap"]/parent::div[not(contains(@class,"active"))]/button/img/@src', 'nodeValue');
+        // @ts-ignore
+        let finalImages = [...new Set(alternateImages)];
+        for (let i = 0; i < finalImages.length; i++) {
+          addHiddenDiv('alternateImages', finalImages[i].replace(/\?wid=180&hei=180/g,''));
+        }
+
+      } catch (error) {
+
+      }
+      try {
+        const manufactureralternateImages = getAllXpath('//div[@class="wc-aplus-body"]//img/@src', 'nodeValue');
+        // @ts-ignore
+        let finalmanufactureralternateImages = [...new Set(manufactureralternateImages)];
+        for (let i = 0; i < finalmanufactureralternateImages.length; i++) {
+          addHiddenDiv('manufactureralternateImages', finalmanufactureralternateImages[i]);
+        }
+
       } catch (error) {
 
       }
