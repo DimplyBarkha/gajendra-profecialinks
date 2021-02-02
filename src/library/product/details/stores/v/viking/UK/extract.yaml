@@ -97,8 +97,7 @@ fields:
 - name: packSize
   description: The number of packs in the product offer (if stated separately on the
     site to quantity)
-  xpath: //td[text()='Packaged Quantity']/following-sibling::td
-  regExp: \d+
+  xpath: //div[@id='packSize']
 - name: legalDisclaimer
   singleValue: true
   description: Content under "legal disclaimer" header

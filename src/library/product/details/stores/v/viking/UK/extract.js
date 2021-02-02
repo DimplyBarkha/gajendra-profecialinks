@@ -53,6 +53,10 @@ module.exports = {
           addElementToDocument('alternateImg', imgUrl);
         }
       }
+      const packSizeFromTitle = document.querySelector('h1[itemprop="name"]') && document.querySelector('h1[itemprop="name"]').textContent.match('Pack of') ? document.querySelector('h1[itemprop="name"]').textContent.replace(/^(.*)(?=Pack\sof)/g, '').replace(/(?<=\d)[^\d]+$/g, '') : '';
+      const packSizeFromDom = document.evaluate('//td[text()="Packaged Quantity"]/following-sibling::td', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      if (packSizeFromTitle) addElementToDocument('packSize', packSizeFromTitle);
+      else if (packSizeFromDom) addElementToDocument('packSize', packSizeFromDom.textContent.replace(/[^\d]+/g, ''));
       const productId = document.querySelector('span[itemprop="sku"]') ? document.querySelector('span[itemprop="sku"]').textContent : '';
       const videos = document.querySelectorAll('div#s7viewer_swatches_listbox div.s7thumb div[type="video"]');
       for (let j = 1; j < videos.length + 1; j++) {
