@@ -26,7 +26,7 @@ fields:
   - name: manufacturer
     xpath: //h4[contains(., 'Kontaktdaten') or contains(., 'Lebensmittelunternehmer')]/following-sibling::p[1]/text()[1]
   - name: availabilityText
-    xpath: //link[contains(@class, 'rm-product__availability')]/@href
+    xpath: //link[contains(@class, 'rm-product__availability')]/@href | //span[@class="rm-icon__text"]//text()[contains(.,'Filiale verfügbar')]
   - name: quantity
     xpath: //div[contains(@class, 'rm-product__unit')]/div[contains(@class, 'rm-product__unit')]
   - name: gtin
@@ -38,7 +38,7 @@ fields:
   - name: directions
     xpath: //article[contains(@itemprop,"description")]//h2[contains(., 'Anwendung')]/following-sibling::div[contains(@class, 'rm-accordion__detail-info')]
   - name: warnings
-    xpath: //h4[contains(., 'Warnhinweise')]/following-sibling::* | //h2[contains(., 'Warnhinweise')]/following-sibling::*
+    xpath: //h4[contains(., 'Warnhinweise')]/following-sibling::*[not(contains(.,'Warnhinweise'))] | //h2[contains(., 'Warnhinweise')]/following-sibling::*[not(contains(.,'Warnhinweise'))]
   - name: servingSize
     xpath: //th[contains(., 'Durchschnittliche Nährwertangaben')]/following-sibling::th[1]
     regExp: pro\s?(\d+)\s?(.+),(.+)
@@ -146,3 +146,12 @@ fields:
     xpath: //div[contains(@class, 'rm-variations__colors')]//a[contains(@class, 'rm-variations__item') and not(contains(@class, 'rm-variations__item--selected'))]/@href
     regExp: (.+)\/p\/(\d+)
     regExpReplace: $2
+  - name: vitaminAPerServing
+    xpath: //div[@class="rm-accordion__detail-info"]//text()[contains(.,'Vitamin A')]
+    regExp: Vitamin\sA\s\(?([0-9.]+)
+    regExpReplace: $1
+  - name: vitaminAPerServingUom
+    xpath: //div[@class="rm-accordion__detail-info"]//text()[contains(.,'Vitamin A')]
+    regExp: (IE/kg|IE)
+  - name: variantInformation
+    xpath: //a[contains(@class,'variations__item--selected')]

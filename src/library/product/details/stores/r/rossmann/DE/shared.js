@@ -8,7 +8,7 @@ const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.nameExtended && row.variantInfo) {
-        row.nameExtended = [{ text: `${row.nameExtended[0].text} - ${row.variantInfo[0].text}` }];
+        row.nameExtended = [{ text: `${row.nameExtended[0].text} ${row.variantInfo[0].text}` }];
       }
 
       if (row.price) {
@@ -22,10 +22,12 @@ const transform = (data) => {
 
       if (row.availabilityText) {
         const availabilityText = row.availabilityText[0].text;
-        if (availabilityText.includes('InStock')) {
-          row.availabilityText[0].text = 'In stock';
+        if (availabilityText.includes('InStock') || availabilityText.includes('LimitedAvailability')) {
+          row.availabilityText[0].text = 'In Stock';
+        } else if (availabilityText.includes('verfügbar')) {
+          row.availabilityText[0].text = 'In Store Only';
         } else {
-          row.availabilityText[0].text = 'Out of stock';
+          row.availabilityText[0].text = 'Out of Stock';
         }
       }
 
