@@ -23,15 +23,15 @@ module.exports = {
       /*eslint-disable */
       const regexListPrice = /((?<="highPrice\"\:\s\").+?(?="))/;
       const currency = "TL";
-      const price = scriptPrice.innerText.match(regexPrice);
-      const listPrice = scriptPrice.innerText.match(regexListPrice);
+      const price = scriptPrice ? scriptPrice.innerText.match(regexPrice): null;
+      const listPrice = scriptPrice ? scriptPrice.innerText.match(regexListPrice) : null;
       if (listPrice) {
         listPrice[0] = listPrice[0].replace(".", ",");
       }
       if (price) {
         price[0] = price[0].replace(".", ",");
       }
-      if (addToCart) {
+      if (addToCart && price) {
         scriptPrice.setAttribute("correctPrice", price[0] + " " + currency);
         if (price[0] !== listPrice[0]) {
           scriptPrice.setAttribute(
