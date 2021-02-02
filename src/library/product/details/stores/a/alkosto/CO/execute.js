@@ -6,7 +6,8 @@ module.exports = {
     store: 'alkosto',
     domain: 'alkosto.com',
     loadedSelector: 'ul[class="products-grid first last odd"] , div[class="product-view"]',
-    noResultsXPath: null,
+    // noResultsXPath: '//p[@class="note-msg"]|//div[@class="bannerpro-container"]',
+    noResultsXPath: '//div[@class="bannerpro-container"]',
     zipcode: '',
   },
 };

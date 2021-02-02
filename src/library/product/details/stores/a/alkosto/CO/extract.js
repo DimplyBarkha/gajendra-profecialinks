@@ -33,14 +33,6 @@ module.exports = {
       await context.setBlockAds(false);
     }
     await loadResources();
-
-    // const productMore = await context.evaluate(function () {
-    //  return Boolean(document.evaluate("//div[@class='product-view']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue);
-    // });
-
-    // if (productMore) {
-    // await context.click('hts-product-tab span[class="show-link"]', {}, { timeout: 50000 });
-    // await context.click('hts-product-tab a', {}, { timeout: 50000 });
     try {
       await context.waitForSelector('div[id="std-description"] img', {}, { timeout: 50000 });
     } catch (error) {
@@ -71,12 +63,27 @@ module.exports = {
         return result && result.trim ? result.trim() : result;
       };
       const aggregateRatingXpath = getXpath("//script[@class='y-rich-snippet-script']", 'innerText');
-      if (aggregateRatingXpath && typeof aggregateRatingXpath === 'string') {
-        var aggregateRatingObj = JSON.parse(aggregateRatingXpath);
-        // console.log(parseFloat(aggregateRatingObj.aggregateRating.ratingValue));
-        addElementToDocument('added_aggregate', aggregateRatingObj.aggregateRating.ratingValue.replace(/\./g, ','));
+      try {
+        if (aggregateRatingXpath && typeof aggregateRatingXpath === 'string') {
+          var aggregateRatingObj = JSON.parse(aggregateRatingXpath);
+          // console.log(parseFloat(aggregateRatingObj.aggregateRating.ratingValue));
+          addElementToDocument('added_aggregate', aggregateRatingObj.aggregateRating.ratingValue.replace(/\./g, ','));
+        }
+      } catch (error) {
+        const aggregateRatingXpath2 = getXpath('//div[@class="yotpo-display-wrapper" and @aria-hidden="true"]//a/@aria-label', 'nodeValue');
+        if (aggregateRatingXpath2) {
+          addElementToDocument('added_aggregate', aggregateRatingXpath2.substring(0, aggregateRatingXpath2.indexOf(' ')).replace(/\./g, ','));
+        }
       }
-
+      const aggregateRatingCountXpath = getXpath("//div[@class='yotpo-display-wrapper' and @aria-hidden='true']//a", 'innerText');
+      if (aggregateRatingCountXpath) {
+        var patt = /[0-9]+/g;
+        if (patt.test(aggregateRatingCountXpath)) {
+          addElementToDocument('added_ratingCount', aggregateRatingCountXpath);
+        } else {
+          addElementToDocument('added_ratingCount', 0);
+        }
+      }
       const specificationsXpath = "//table[@id='product-attribute-specs-table']//tbody//tr";
       var specificationsStr = getAllXpath(specificationsXpath, 'innerText').join('');
       addElementToDocument('added_specifications', specificationsStr);
@@ -84,17 +91,16 @@ module.exports = {
       const listPrice = "//div[@class='product-main-info']//span[@class='price-old']";
       var listPricePath = getXpath(listPrice, 'innerText');
       if (listPricePath !== null) {
-        addElementToDocument('added_listPrice', listPricePath.replace(/\./g, ','));
+        // addElementToDocument('added_listPrice', listPricePath.replace(/\D/g, '').replace(/(\d{3})$/g, ',$1'));
+        addElementToDocument('added_listPrice', listPricePath.replace(/\./g, ''));
       }
       // const price = "//div[@class='product-main-info']//p[@class='special-price']//span[contains(@id,'product-price')]";
       const price = "//div[@class='product-main-info']//p[@class='special-price']//span[contains(@id,'product-price')] | //div[@class='product-main-info']//div[@class='price-box']//span[@class='regular-price']";
       var pricePath = getXpath(price, 'innerText');
       if (pricePath !== null) {
-        addElementToDocument('added_price', pricePath.replace(/\./g, ','));
-      }
-      // const secondaryImageTotalXpath = "//div[@class='product-img-box']//div[@class='more-views']//ul//li//a/@href";
-      // var secondaryImages = getAllXpath(secondaryImageTotalXpath, 'nodeValue');
-      // addElementToDocument('added_secondaryImageTotal', secondaryImages.length);
+        // addElementToDocument('added_price', pricePath.replace(/\D/g, '').replace(/(\d{3})$/g, ',$1'));
+        addElementToDocument('added_price', pricePath.replace(/\./g, ''));
+      } 
     });
     // }
     await context.extract(productDetails, { transform: transformParam });

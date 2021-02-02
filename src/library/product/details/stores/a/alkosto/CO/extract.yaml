@@ -109,8 +109,12 @@ fields:
   - name: ratingCount
     singleValue: true
     description: The number of ratings
-    xpath: //div[@class='yotpo-display-wrapper']//a
+    #xpath: //div[@class='yotpo-display-wrapper']//a
+    xpath: //div[@id='added_ratingCount']
+    #regExp: ([.\0-9]+)
+    #regExpReplace: $1
     type: NUMBER
+    #defaultValue: 0
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
@@ -151,7 +155,8 @@ fields:
     singleValue: false
     description: Images within the third party description
     #xpath: //div[@id="std-description"]//section//article//div[contains(@class,"OnlyMob")]//img/@src
-    xpath: (//div[@id="std-description"])[1]//img/@src
+    #xpath: (//div[@id="std-description"])[1]//img/@src
+    xpath: (//div[@id="std-description"])[1]//img[not(contains(@src,'loading'))]/@src | //div[@id='flix-inpage']//img/@srcset
   - name: videos
     singleValue: false
     description: URLs of videos on page
@@ -159,6 +164,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
+    xpath: //div[@class="product-name"]/h1/text()
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
