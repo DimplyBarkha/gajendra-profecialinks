@@ -17,11 +17,22 @@ module.exports = {
         document.querySelector('span.Price').textContent = document.querySelector('span.Price').textContent.replace(/₪/g, '') + ' ' + document.querySelector('meta[itemprop="priceCurrency"]').getAttribute('content');
       }
     });
+
+    const categoryScriptString = await context.evaluate(() => {
+      return document.evaluate('//script[contains(.,"Category")]', document, null, XPathResult.STRING_TYPE, null).stringValue;
+    });
+
     const dataRef = await context.extract(productDetails, { transform });
     if (dataRef[0].group[0].sku) {
       if (/(\d+)/.test(dataRef[0].group[0].sku[0].text)) {
         dataRef[0].group[0].sku[0].text = dataRef[0].group[0].sku[0].text.match(/(\d+)/)[1];
       }
+    }
+    const regexp = /Category":"(.+?)"/
+    if (categoryScriptString && regexp.test(categoryScriptString)) {
+      dataRef[0].group[0].category = [{
+        text: regexp.exec(categoryScriptString)[1],
+      }];
     }
     return dataRef;
   },
