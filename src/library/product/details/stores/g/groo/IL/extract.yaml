@@ -70,7 +70,7 @@ fields:
       e.g. "Visit the Gillette Store"
   - name: aggregateRating
     singleValue: true
-    manualSelector: //script[@id='opportunity-schema'][contains(.,"InStock")]
+    xpath: //script[@id='opportunity-schema'][contains(.,"InStock")]
     regExp: (\"ratingValue\"\:\")([^"]+)(",")
     regExpReplace: $2
     #xpath: count(//div[@class='start_box ']//span//img)
