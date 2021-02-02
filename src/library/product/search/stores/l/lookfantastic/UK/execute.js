@@ -6,7 +6,7 @@ module.exports = {
     store: 'lookfantastic',
     domain: 'lookfantastic.com',
     url: 'https://www.lookfantastic.com/elysium.search?search={searchTerms}',
-    loadedSelector: "body",
+    loadedSelector: "ul.productListProducts_products li",
     noResultsXPath: null,
   },
 };
