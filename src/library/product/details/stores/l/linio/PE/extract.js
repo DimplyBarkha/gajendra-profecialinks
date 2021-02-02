@@ -41,25 +41,25 @@ module.exports = {
   //   }
   //   return result;
   //   };
-    var getXpath = (xpath, prop) => {
-    var elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
-    let result;
-    if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
-    else result = elem ? elem.singleNodeValue : '';
-    return result && result.trim ? result.trim() : result;
-    };
-    var backgroundURL = getXpath("(//script[contains(@src,'https://googleads.g.doubleclick.net/pagead/viewthroughconversion')]/@src)[1]", 'nodeValue');
-    console.log(backgroundURL,'--------------------backgrpound')
-    if (backgroundURL != null)
-  { 
-  var a=(backgroundURL).split('prodid%3D')[1];
-  }
-  else{
-    a= ''
-  }
-  console.log(a,'-----aaa---------------backgrpound')
+  //   var getXpath = (xpath, prop) => {
+  //   var elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+  //   let result;
+  //   if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+  //   else result = elem ? elem.singleNodeValue : '';
+  //   return result && result.trim ? result.trim() : result;
+  //   };
+  //   var backgroundURL = getXpath("(//script[contains(@src,'https://googleads.g.doubleclick.net/pagead/viewthroughconversion')]/@src)[1]", 'nodeValue');
+  //   console.log(backgroundURL,'--------------------backgrpound')
+  //   if (backgroundURL != null)
+  // { 
+  // var a=(backgroundURL).split('prodid%3D')[1];
+  // }
+  // else{
+  //   a= ''
+  // }
+  // console.log(a,'-----aaa---------------backgrpound')
 
-  addElementToDocument('product_id', a);
+  // addElementToDocument('product_id', a);
   //   var brand = getAllXpath('//a[@itemprop="brand"]//text()', 'nodeValue');
   //   // var brand1= brand.ignoreCase;
   //   var nameExptend;
