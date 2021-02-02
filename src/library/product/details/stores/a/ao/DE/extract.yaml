@@ -397,7 +397,7 @@ fields:
   description:
 - name: specifications
   description: The physical dimensions of the product including packaging.
-  xpath: //div[contains(@data-tag-name,'alle-nützlichen-informationen-auf-einen-blick')]//div[contains(@class,"accordionContent")]//table
+  xpath: //div[contains(@data-tag-name,'alle-nützlichen-informationen-auf-einen-blick')]//div[contains(@class,"accordionContent")]//table | //*[contains(@id,"productSpecification")]//div[contains(@class,"visible")]//span
 - name: warranty
   singleValue: true
   description: Guarantee associated with the product
