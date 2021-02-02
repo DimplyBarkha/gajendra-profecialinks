@@ -7,6 +7,7 @@ module.exports = {
     transform: transform,
     domain: 'costco.com',
   },
+  // @ts-ignore
   implementation: async (inputs,
     parameters,
     context,
@@ -21,6 +22,7 @@ module.exports = {
       if (moreBtn && moreBtn.length > 0) {
         for (let cnt = 0; cnt < moreBtn.length; cnt++) {
           try {
+            // @ts-ignore
             moreBtn[cnt].click();
             await new Promise(resolve => setTimeout(resolve, 2000));
           } catch (err) { }
@@ -38,6 +40,7 @@ module.exports = {
             // await context.setLoadAllResources(true);
             // await context.setLoadImages(true);
             // await context.setJavaScriptEnabled(true);
+            // @ts-ignore
             moreBtn[cnt].click();
             // await context.setBlockAds(false);
             // await context.setLoadAllResources(true);
@@ -54,6 +57,7 @@ module.exports = {
       let manuFacturerDesc = '';
       const images = [];
       if (descNode) {
+        // @ts-ignore
         manuFacturerDesc = descNode.outerText;
         console.log('manuFacturerDesc ==', manuFacturerDesc);
         manuFacturerDesc = manuFacturerDesc.replace(/\n{1,}"/g, ' ').replace(/\s{1,}"/g, ' ');
@@ -63,9 +67,11 @@ module.exports = {
         await new Promise(resolve => setTimeout(resolve, 8000));
         if (descNode1 && descNode1.shadowRoot) {
           const fetchNode = descNode1.shadowRoot.firstChild;
+          // @ts-ignore
           let text = fetchNode.innerText;
           text = text.replace(/\n{1,}"/g, ' ').replace(/\s{1,}"/g, ' ');
           manuFacturerDesc = manuFacturerDesc + text;
+          // @ts-ignore
           const manImages = fetchNode.querySelectorAll('img');
           if (manImages && manImages.length > 0) {
             for (let i = 0; i < manImages.length; i++) {
@@ -127,6 +133,7 @@ module.exports = {
       try {
         const iframe = document.querySelector('[title="Product Videos"]');
         if (iframe) {
+          // @ts-ignore
           const video = iframe.contentWindow.document.getElementsByTagName('video');
           const videoUrls = [...video].map(elm => elm.src);
           document.querySelector('head').setAttribute('video', videoUrls.join(''));
@@ -157,6 +164,7 @@ module.exports = {
       } catch (err) {}
     });
     await context.evaluate(async function () {
+      // @ts-ignore
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
@@ -166,9 +174,11 @@ module.exports = {
       }
       try {
         const vidImage = Array.from(document.querySelectorAll('img[id*="videoOverlay"]'));
-        console.log('vidImage--->', vidImage);
-        const vidArray = [];
+        // console.log('vidImage--->', vidImage);
+        // @ts-ignore
+        // const vidArray = [];
         for (let item = 0; item < vidImage.length; item++) {
+          // @ts-ignore
           vidImage[item].click();
           await new Promise(resolve => setTimeout(resolve, 3000));
           // const element = document.evaluate('//form[contains(@action,"video-player")]/@action', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -247,11 +257,13 @@ module.exports = {
       try {
         for (let j = 0; j < variantLength; j++) {
           await context.evaluate(async (j) => {
+            // @ts-ignore
             return document.querySelectorAll('div[id=theSwatches] a>img')[j].click();
           }, j);
           await new Promise(resolve => setTimeout(resolve, 1000));
           for (let k = 0; k < variantLength1; k++) {
             await context.evaluate(async (k) => {
+              // @ts-ignore
               return document.querySelectorAll('span[role="radiogroup"] label')[k].click();
             }, k);
 
@@ -276,6 +288,7 @@ module.exports = {
       if (variantLength >= 1 && variantLength1 === 0) {
         for (let k = 0; k < variantLength; k++) {
           await context.evaluate(async (k) => {
+            // @ts-ignore
             return document.querySelectorAll('div[id=theSwatches] a>img')[k].click();
           }, k);
 
@@ -290,6 +303,7 @@ module.exports = {
         if (variantLength1 >= 1 && variantLength === 0) {
           for (let k = 0; k < variantLength1; k++) {
             await context.evaluate(async (k) => {
+              // @ts-ignore
               return document.querySelectorAll('span[role="radiogroup"] label')[k].click();
             }, k);
 
@@ -344,7 +358,9 @@ module.exports = {
         // console.log('manudescription->', manuDesc);
         if (!desc && desc.length === 0 && !manuDesc && manuDesc.length === 0) {
           const newDescription = Array.from(document.querySelectorAll('div[class*="product-info-description"]'));
+          // @ts-ignore
           const newDesc = newDescription && newDescription.length > 0 ? newDescription[0].innerText : '';
+          // @ts-ignore
           console.log('array->', newDescription[0].innerText);
           if (newDesc && newDesc.length > 0) {
             // console.log('newDesc', newDesc);
@@ -352,6 +368,7 @@ module.exports = {
           }
         } else if (desc && desc.length > 0) {
           const newDescription = Array.from(document.querySelectorAll('div[class*="product-info-description"]'));
+          // @ts-ignore
           const newDesc = newDescription && newDescription.length > 0 ? description.innerText + newDescription[0].innerText : '';
           // console.log('array->', newDescription[0].innerText);
           if (newDesc && newDesc.length > 0) {
@@ -365,6 +382,7 @@ module.exports = {
         const updpList = [];
 
         if (similarItemsList.length) {
+          // @ts-ignore
           for (const item of similarItemsList) {
             const title = item.querySelector('.caption .description') ? item.querySelector('.caption .description').innerText : null;
 
@@ -376,6 +394,7 @@ module.exports = {
 
         const recommendedProducts = document.querySelectorAll('#viewItem-Carousel .hl-product');
 
+        // @ts-ignore
         for (const item of recommendedProducts) {
           const title = item.querySelector('.caption .description') ? item.querySelector('.caption .description').innerText : null;
 
@@ -418,12 +437,14 @@ module.exports = {
     //     }
     //   });
     // }
+    // @ts-ignore
     async function preparePage () {
       await new Promise(resolve => setTimeout(resolve, 1000));
       try {
         await context.evaluate(async () => {
           const iframe = document.querySelector('[title="Product Videos"]');
           if (iframe) {
+            // @ts-ignore
             const video = iframe.contentWindow.document.getElementsByTagName('video');
             const videoUrls = [...video].map(elm => elm.src);
             document.querySelector('head').setAttribute('video', videoUrls.join(''));
@@ -451,31 +472,45 @@ module.exports = {
         });
       } catch (err) {}
     }
-    // await new Promise(resolve => setTimeout(resolve, 50000));
-    // await context.evaluate(async function () {
-    //   const arr = [];
-    //   const videoLink = document.querySelector('.flix-jw') ? document.querySelector('.flix-jw').value.match(/file":"([^"]+)/)[1].replace(/^\\\/\\\//, '').replace(/\\\//g, '/') : '';
-    //   if (videoLink !== '') {
-    //     arr.push(videoLink);
-    //   }
-    //   document.querySelectorAll('#vjs_video_1_html5_api').forEach(item => {
-    //     const videoUrl = item.getAttribute('src');
-    //     arr.push(videoUrl);
-    //   });
-    //   const id = document.querySelector('#product-body-item-number') ? document.querySelector('#product-body-item-number').textContent.match(/(\d+)/g) : '';
-    //   if (id !== '') {
-    //     const url = `https://cors-anywhere.herokuapp.com/https://sc.liveclicker.net/service/api?method=liveclicker.widget.getList&account_id=69&dim5=${id}&format=json`;
-    //     const data = await fetch(url);
-    //     const json = await data.json();
-    //     const array = json.widgets.widget;
-    //     array.forEach(item => {
-    //       const val = item.asset_id;
-    //       const url = `https://d2vxgxvhgubbj8.cloudfront.net/videos/69/${val}_1_liveclicker.mp4`;
-    //       arr.push(url);
-    //     });
-    //   }
-    //   document.querySelector('body').setAttribute('videos', arr.join('|'));
-    // });
+    await context.evaluate(async () => {
+      const moreBtn = document.querySelectorAll('div input[name="view-more"]');
+      if (moreBtn && moreBtn.length > 0) {
+        for (let cnt = 0; cnt < moreBtn.length; cnt++) {
+          try {
+            // @ts-ignore
+            moreBtn[cnt].click();
+            await new Promise(resolve => setTimeout(resolve, 2000));
+          } catch (err) { }
+        }
+      }
+    });
+    await context.evaluate(async () => {
+      const parentNode1 = document.querySelector('div.syndi_powerpage');
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      if (parentNode1 && parentNode1.shadowRoot && parentNode1.shadowRoot.firstChild) {
+        const fetchNode = parentNode1.shadowRoot.firstChild;
+        // @ts-ignore
+        const allVideos = Array.from(fetchNode.querySelectorAll('video'));
+        for (let item = 0; item < allVideos.length; item++) {
+          allVideos[item].click();
+          await new Promise(resolve => setTimeout(resolve, 1000));
+        }
+      }
+    });
+    var videoRequest = await context.searchForRequest('https://content.syndigo.com/asset/.*ts', 'GET');
+    if (videoRequest && videoRequest.url) {
+      console.log('videos-------->', videoRequest.url);
+      await context.evaluate((videoRequest) => {
+        function addHiddenDiv (id, content) {
+          const newDiv = document.createElement('div');
+          newDiv.id = id;
+          newDiv.textContent = content;
+          newDiv.style.display = 'none';
+          document.body.appendChild(newDiv);
+        }
+        addHiddenDiv('videos1', videoRequest.url);
+      }, videoRequest);
+    }
     return await context.extract(productDetails, { transform });
   },
 };
