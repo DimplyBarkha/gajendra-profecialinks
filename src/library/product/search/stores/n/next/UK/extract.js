@@ -8,7 +8,6 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-
   await new Promise((resolve) => setTimeout(resolve, 2000));
   await context.evaluate(async function () {
     // remove popups
@@ -20,27 +19,30 @@ async function implementation (
       document.querySelector('div[class="CookieConsentCross"]').click();
     }
   });
-  await context.evaluate(async function () {
-    // const productsAmount = parseInt(document.querySelector('input[id="hiddenVerticalFilterResultCount"]').value);
-    // scroll the page
-    for (let i = 0; i <= 6; i++) {
-      const elements = document.querySelectorAll('article[class="Item Fashion  "]');
-      const id = document.querySelectorAll('article[class="Item Fashion  "]').length - 1;
-      elements[id].scrollIntoView();
-      console.log(id);
-      console.log('scrolled', document.body.scrollHeight);
-      // console.log(document.querySelectorAll('article[class="Item Fashion  "]').length);
-      await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-      // window.scrollBy(0, 5000);
-      // window.scrollTo({ top: (document.body.scrollHeight) - 1500, behavior: 'smooth' });
-      // const elements = document.querySelectorAll('article[class="Item Fashion  "]').length;
-      // const productsAmount = parseInt(document.querySelector('div[id="total-results-count"]').innerText.replace(' Products', ''));
-      // if (elements >= 150 || elements === productsAmount) {
-      //   break;
-      // }
+  await context.evaluate(async () => {
+    const addElementToDOM = (tag, id, content) => {
+      const parent = document.querySelector('div[class="spell-correct"], div[class="SearchedFor"]');
+      const element = document.createElement(tag);
+      element.id = id;
+      element.href = content;
+      element.style.display = 'block';
+      parent.appendChild(element);
+    };
+    // add next link selector
+    const location = window.location.href;
+    const index = parseInt(location.split('srt=')[1]) + 24;
+    const elements = document.querySelectorAll('article[class="Item Fashion  "]').length;
+    const lastElement = document.querySelectorAll('article[class="Item Fashion  "]')[elements - 1].id ? document.querySelectorAll('article[class="Item Fashion  "]')[elements - 1].id.match(/\d+/)[0] : '';
+    if (lastElement === document.querySelector('div[class="Count"]').innerText.match(/\d+/)[0]) {
+      return null;
+    }
+    const link = location.split(/\d+$/)[0] + index.toString();
+    if (link !== null) {
+      addElementToDOM('a', 'nextLinkSelector', link);
+      document.querySelector('a[id="nextLinkSelector"]').innerText = "nextLink";
     }
   });
-  var data = await context.extract(productDetails, { transform });
+  const data = await context.extract(productDetails, { transform });
   for (let i = 0; i < data[0].group.length; i++) {
     if ('thumbnail' in data[0].group[i]) {
       if (data[0].group[i].thumbnail[0].text.includes('greyPlaceholder') && data[0].group[i].id) {
@@ -53,7 +55,7 @@ async function implementation (
     }
   }
   return data;
-}
+};
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
