@@ -55,6 +55,9 @@ async function implementation (inputs, parameters, context, dependencies) {
   if (dataRef[0].group[0].image) {
     dataRef[0].group[0].image[0].text = 'https:' + dataRef[0].group[0].image[0].text;
   }
+  if (dataRef[0].group[0].description) {
+    dataRef[0].group[0].description[0].text = dataRef[0].group[0].description[0].text.replace("''", "'");
+  }
   return dataRef;
 }
 
