@@ -7,6 +7,12 @@ parameters:
   domain: boulanger.com
   store: boulanger
   zipcode: "''"
+policy:
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 60
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 99
 meta:
   branches:
     tdcm_boulanger_FR_core:
