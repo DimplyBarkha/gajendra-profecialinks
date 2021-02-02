@@ -28,7 +28,7 @@ const transform = (data, context) => {
     for (const row of group) {
       if (row.variantId) {
         var arrIds = row.variantId[0].text.split(',');
-        arrIds.splice(0, 1);
+        arrIds.length > 1 && arrIds.splice(0, 1);
         row.variantId = [{ text: arrIds[indexTemp] }];
         row.sku = [{ text: arrIds[indexTemp] }];
       }
