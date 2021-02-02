@@ -87,7 +87,7 @@ module.exports = {
       if (syndiPowerpage) {
         const headings = Array.from(syndiPowerpage.shadowRoot.querySelectorAll('h2'));
         headings.forEach(h2 => {
-          if (h2.innerText.includes('In the box') || h2.innerText.includes('In The Box') || h2.innerText.includes('in the box') || h2.innerText.includes("What's Included")) {
+          if (h2.innerText.includes('In the box') || h2.innerText.includes('In The Box') || h2.innerText.includes('in the box') || h2.innerText.includes("What's Included") || h2.innerText.includes('In the Box')) {
             const parent = h2.parentElement;
             const inTheBoxEls = parent.querySelectorAll('.syndigo-featureset-feature');
             inTheBoxEls.forEach(el => {
