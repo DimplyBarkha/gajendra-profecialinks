@@ -78,8 +78,8 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,'text-ts1 text-bold text-primary q-pl-sm bg-white')]
   - name: secondaryImageTotal
-    singleValue: true
-    xpath: count((//div[contains(@class,"row no-wrap items-start q-gutter-x-sm")]//div[@role="img"])[position()>1])
+    singleValue: false
+    xpath: count((//div[contains(@class,"row no-wrap items-start q-gutter-x-sm")]//div[@class="q-img__image absolute-full"])[position()>1]/@style)
   # - name: specificationsValue
   #   singleValue: false
   #   # specification = specification1 : specification 2 |
@@ -90,9 +90,15 @@ fields:
   - name: warranty
     singleValue: false
     xpath: //div[contains(@class,'aa_dt_p')]//span[normalize-space()='Гарантия:']//parent::div//following-sibling::div
+  - name: manufacturerImages1
+    singleValue: false
+    xpath: //div[contains(@class,"q-pt-md text-color15 text-ts7")]//div/@style
+    regExp: url\W+([^']+)
+    regExpReplace: https://www.mechta.kz/$1
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[contains(@class,"q-pt-md text-color15 text-ts7")]//div[@class="aa_marketing full_width"]//img/@src
+    xpath: //div[contains(@class,"q-pt-md text-color15 text-ts7")]//div//img/@src | //div[contains(@class,"q-pt-md text-color15 text-ts7")]//div[@class="aa_marketing full_width"]//img/@src
+    # xpath: //div[contains(@class,"q-pt-md text-color15 text-ts7")]//div[@class="aa_marketing full_width"]//img/@src
   - name: manufacturerDescription
     singleValue: false
     # xpath: //div[contains(@class,"q-pt-md text-color15 text-ts7")]//div[@class="aa_marketing full_width"]/div//text()
