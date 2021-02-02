@@ -24,7 +24,7 @@ fields:
     xpath: //wow-product-details-panel//shared-price//div[contains(@class,'price price--large')]//text()
   - name: availabilityText
     singleValue: false
-    xpath: boolean(//div[contains(@class,'cartControls')]//button[contains(@class,'cartControls-addButton')])
+    xpath: boolean(//div[contains(@class,'product-panel')]//wow-product-details-panel//div[contains(@class,'shelfProductTile-cartControls')]//button[contains(@class,'cartControls-addButton')]//span[contains(.,'Add to cart')])
   - name: description
     singleValue: false
     xpath: //h2[text()='Product Details']/following-sibling::wow-view-more//div[contains(@class,'viewMore-')]//div//text()
@@ -59,7 +59,7 @@ fields:
     xpath: //h3[text()='Ingredients']/parent::section[contains(@class,'ingredients')]//wow-view-more//div[contains(@class,'viewMore-')]//div//text()
   - name: quantity
     singleValue: false
-    defaultValue: 1
+    xpath: //div[@class='shelfProductTile-information']//h1
   - name: imageZoomFeaturePresent
     singleValue: false
     defaultValue: "Yes"
@@ -90,7 +90,12 @@ fields:
   - name: promotion
     singleValue: false
     xpath: //wow-product-details-panel//div[@class='shelfProductTagCenter']//a//span
-
+  - name: allergyAdvice
+    singleValue: false
+    xpath: //h3[text()='Allergen']//following-sibling::wow-view-more//div[contains(@class,'viewMore-')]//div//text()
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//h2[text()='Product Details']/following-sibling::wow-view-more//div[contains(@class,'viewMore-')]//div//text())
 
 
 
