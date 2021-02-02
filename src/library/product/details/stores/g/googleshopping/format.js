@@ -48,6 +48,11 @@ const transform = (data) => {
         row.description = [{ text: descs.join(' || ') }];
         console.log('row.description = ', row.description);
       }
+
+      if (!row.brandText && row.name) {
+        const brand = row.name[0].text.split(' ');
+        row.brandText[0].text = brand[0];
+      }
       //   let cntObj;
       //   if (row.addedDescCnt) {
       //     row.addedDescCnt.forEach(item => {
@@ -93,7 +98,7 @@ const transform = (data) => {
         });
         console.log('params:', params);
         console.log('vars:', vars);
-        if(vars){
+        if (vars) {
           vars.forEach(item => {
             item.text = params.join('|');
           });
@@ -128,9 +133,9 @@ const transform = (data) => {
         row.inTheBoxText = specs;
       }
       if ((!row.inTheBoxText || !row.inTheBoxText.length) && row.inTheBoxTxt1) {
-        console.log('inTheBoxText1',row.inTheBoxTxt1);
+        console.log('inTheBoxText1', row.inTheBoxTxt1);
         row.inTheBoxText = row.inTheBoxTxt1;
-        console.log("inTheBoxText", row.inTheBoxText);
+        console.log('inTheBoxText', row.inTheBoxText);
       }
       if (row.shippingInfo) {
         const vars = [];
@@ -141,7 +146,7 @@ const transform = (data) => {
           params[cnt] = item.text;
           cnt++;
         });
-        if(vars){
+        if (vars) {
           vars.forEach(item => {
             item.text = params.join('|');
           });
@@ -154,7 +159,6 @@ const transform = (data) => {
           item.text = item.text.split(',')[0];
         });
       }
-      
 
       // if (row.inTheBoxText) {
       //   const info = [];
