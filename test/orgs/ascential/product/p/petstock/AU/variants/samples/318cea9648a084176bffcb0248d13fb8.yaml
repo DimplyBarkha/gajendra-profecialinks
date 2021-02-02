@@ -1,0 +1,25 @@
+input:
+  _url: http://petstock.com.au
+  URL: https://www.petstock.com.au/product/cat/hill-s-science-diet-kitten-chicken-dry-cat-food/54164
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=e0dfafc3-99b9-47d8-808d-89b6db5de526/task=46cde6a6-18bb-4671-8543-d33fcfd78552/c341d941-b068-4980-8b31-a4616a182e69.html
+    extractionConfigId: product/details/stores/p/petstock/AU/variantsExtract
+    data:
+      - group:
+          - variantUrl:
+              - text: https://www.petstock.com.au/product/cat/hill-s-science-diet-kitten-chicken-dry-cat-food/54164
+                xpath: /html/body/div[4]
+          - variantUrl:
+              - text: https://www.petstock.com.au/product/cat/hill-s-science-diet-kitten-chicken-dry-cat-food/54167
+                xpath: /html/body/div[5]
+          - variantUrl:
+              - text: https://www.petstock.com.au/product/cat/hill-s-science-diet-kitten-chicken-dry-cat-food/54171
+                xpath: /html/body/div[6]
+          - variantUrl:
+              - text: https://www.petstock.com.au/product/cat/hill-s-science-diet-kitten-chicken-dry-cat-food/54174
+                xpath: /html/body/div[7]
+          - variantUrl:
+              - text: https://www.petstock.com.au/product/cat/hill-s-science-diet-kitten-chicken-dry-cat-food/67843
+                xpath: /html/body/div[8]
+        xpath: /html/body
+    timestamp: 1612252762372

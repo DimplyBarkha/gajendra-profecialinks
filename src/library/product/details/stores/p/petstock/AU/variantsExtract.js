@@ -15,7 +15,7 @@ async function implementation (
       return newDiv;
     }
     const scriptHTML = document.evaluate('//script[contains(text(),"skus")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-    const JSstring = scriptHTML && scriptHTML.textContent ? scriptHTML.textContent.split('var skus = ')[1].split(';')[0] : '';
+    const JSstring = scriptHTML && scriptHTML.textContent ? scriptHTML.textContent.split('var skus = ')[1].split('var category')[0] : '';
     const idArr = JSstring ? JSstring.match(/id:\s\d+/g) : '';
     if (idArr.length !== 0) {
       for (let i = 0; i < idArr.length; i++) {
