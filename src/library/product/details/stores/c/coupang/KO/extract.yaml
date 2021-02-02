@@ -3,25 +3,25 @@ regionsSelector: null
 recordSelector: null
 recordXPath: '//div[@id="container"]'
 fields:
-  - name: brand
+  - name: manufacturer
     xpath: //a[@class="prod-brand-name"]/font/font
   - name: colour
   - name: flavour
-  - name: imageUrl
+  - name: image
     xpath: //div[@class="prod-image"]//img[@class="prod-image__detail"]/@src
     regExp: (.*)
     regExpReplace: http:$1
   - name: pageTitle
     xpath: ancestor::html//meta[@property="og:title"]/@content
-  - name: productFamily
+  - name: category
     xpath: //ul[@id="breadcrumb"]//li/a[contains(@href,"/np")]
-  - name: productRange
+  - name: subCategory
     xpath: //ul[@id="breadcrumb"]//li[last()]/a[contains(@href,"/np")]
-  - name: reviewsCount
+  - name: reviewCount
     xpath: //span[@class="count"]
     regExp: (.*)개
     regExpReplace: $1
-  - name: reviewsPageOffset
+  - name: pageOffset
   - name: sku
     xpath: //section[@id="contents"]/@data-reference
     regExp: productId":"(.*)",

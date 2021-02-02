@@ -3,7 +3,7 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //div[contains(@class, 'search-content')]//ul[@id='productList']//li[@class='search-product ']
 fields:
-  - name: brand
+  - name: manufacturer
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name e.g. "Visit the Gillette Store"
   - name: name
@@ -13,6 +13,11 @@ fields:
     singleValue: false
     description: desired url to pass in chain
     xpath: //a[@class='search-product-link']/@href
-    regExp: >-
-      (.+)
+    regExp: (.+)
     regExpReplace: https://www.coupang.com$1
+  - name: reviewCount
+    xpath: //span[@class="rating-total-count"]
+    regExp: \d+
+    regExpReplace:
+  - name: sku
+    xpath: //li[contains(@class,"search-product")]/@data-product-id

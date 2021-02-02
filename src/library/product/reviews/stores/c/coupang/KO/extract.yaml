@@ -3,9 +3,9 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //section[@class='js_reviewArticleListContainer']//article[contains(@class, 'sdp-review__article__list')]
 fields:
-  - name: helpful
+  - name: helpfulCount
     xpath: //div[@class='sdp-review__article__list__help js_reviewArticleHelpfulContainer']/@data-count
-  - name: rating
+  - name: reviewRating
     xpath: //div[@class='sdp-review__article__list__info__product-info__star-gray']//div[contains(@class, 'sdp-review__article__list__info__product-info__star-orange')]/@data-rating
   - name: reviewDate
     xpath: //div[@class='sdp-review__article__list__info__product-info__reg-date']
