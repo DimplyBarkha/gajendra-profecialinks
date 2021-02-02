@@ -62,7 +62,7 @@ fields:
     xpath: normalize-space(//div[@class="margin-vert-normal"]//div[contains(text(), "PZN")]/../div[not(contains(text(), "PZN"))])
   - name: directions
     singleValue: false    
-    xpath: //*[@id="tabs-1"]//*[contains(text(), "Anwendung")]/following-sibling::text() | //*[@id="tabs-1"]//*[contains(text(), "Anwendung")]/parent::p/following-sibling::*
+    xpath: //*[@id="tabs-1"]//*[contains(text(), "Anwendung")]/following-sibling::text() | //*[@id="tabs-1"]//*[contains(text(), "Anwendung")]/following-sibling::strong | //*[@id="tabs-1"]//*[contains(text(), "Anwendung")]/following-sibling::ul | //*[@id="tabs-1"]//*[contains(text(), "Anwendung")]/following-sibling::ol | //*[@id="tabs-1"]//*[contains(text(), "Anwendung")]/parent::p/following-sibling::* 
   - name: ingredientsList
     singleValue: false
     xpath: //*[@class="table_check margin-vert-smaller"]

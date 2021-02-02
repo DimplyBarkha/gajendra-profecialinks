@@ -36,11 +36,15 @@ const transform = (data) => {
       if (row.description) {
         let finalDesc = '';
         for (let i = 0; i < row.description.length; i++) {
-          if (row.description[i].xpath.includes('li')) {
-            finalDesc = finalDesc.trim() + ' ||' + row.description[i].text;
+          if (row.description[i].text.startsWith('#youtube-player-details') ) {
+
+          }
+          else if (row.description[i].xpath.includes('li')) {            
+            finalDesc = finalDesc.trim() + ' || ' + row.description[i].text;
           } else {
             finalDesc = finalDesc + row.description[i].text + ' ';
           }
+
           if (finalDesc.startsWith('||')) {
             finalDesc = finalDesc.substring(2);
           }          
@@ -71,23 +75,28 @@ const transform = (data) => {
         let ingredients = '';
         let finalIngredients = '';
         let activeIngredients = '';
-        const containsIngredients = ingredientsParent.includes('Inhaltsstoffe'); 
-        const containsActiveIngredients = ingredientsParent.includes('Wirkstoffe');  
+        const containsIngredientsRegex = new RegExp("\\b"+"Inhaltsstoffe"+"\\b");
+        const containsIngredients = containsIngredientsRegex.test(ingredientsParent);        
+        const containsActiveIngredientsRegex = new RegExp("\\b"+"Wirkstoffe"+"\\b");        
+        const containsActiveIngredients = containsActiveIngredientsRegex.test(ingredientsParent);
         if (row.ingredientsList.length > 1) {
           activeIngredients = row.ingredientsList[1].text;
         }         
                      
         if (containsIngredients) {
           ingredients = ingredientsParent.split('Inhaltsstoffe')[1];    
-          finalIngredients = 'Inhaltsstoffe' + ingredients  + ' ' + activeIngredients.substr(12, activeIngredients.length);        
+          ingredients ? finalIngredients = 'Inhaltsstoffe' + ingredients  + ' ' + activeIngredients.substr(12, activeIngredients.length)        
+          : finalIngredients = activeIngredients.substr(12, activeIngredients.length);
+
         } else {
           finalIngredients = activeIngredients.substr(12, activeIngredients.length);
         }
 
         if (containsActiveIngredients)        {
-          const aIngredients = ingredientsParent.split('Wirkstoffe');          
-          finalIngredients = finalIngredients + 'Wirkstoffe' + aIngredients[aIngredients.length - 1];
+          const aIngredients = ingredientsParent.split(containsActiveIngredientsRegex);          
+          finalIngredients = finalIngredients + ' Wirkstoffe' + aIngredients[aIngredients.length - 1];
         }
+        finalIngredients = finalIngredients.trim();
         row.ingredientsList = [{text: finalIngredients}];
       }
       
