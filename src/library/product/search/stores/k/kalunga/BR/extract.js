@@ -27,6 +27,7 @@ module.exports = {
       }
       let inc = 1;
       const url = 'https://www.kalunga.com.br/getBusca';
+
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
@@ -34,8 +35,10 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
-      addElementToDocument('search_terms', location.pathname.replace('/busca/', ''))
+
+      addElementToDocument('search_terms', location.pathname.replace('/busca/', ''));
       addElementToDocument('url', location.href);
+
       async function getData () {
         const formData = new FormData();
         inc++;
@@ -54,7 +57,7 @@ module.exports = {
         }).then(response => response.json())
           .catch(error => console.error('Error:', error))
           .then(response => {
-            if (inc < +lastPage) {
+            if (+lastPage >= 5 ? inc < 5 : inc < +lastPage) {
               try {
                 document.getElementById('divProdutoDepartamento').innerHTML += response.templateProdutos;
                 getData();
@@ -71,9 +74,10 @@ module.exports = {
             }
           });
       }
+
       getData();
     });
-    await context.waitForSelector('#hrefs', { timeout: 500000 });
+    await context.waitForSelector('#hrefs');
     return await context.extract(productDetails, { transform });
   },
 };

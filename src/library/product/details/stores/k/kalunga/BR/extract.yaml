@@ -39,3 +39,7 @@ fields:
     singleValue: true
   - name: alternateImages
     xpath: //div[@class='owl-stage']/div[@class='owl-item active']/div/img/@src
+  - name: ratingCount
+    xpath: //div[@class='d-flex align-items-center']/p
+  - name: aggregateRating
+    xpath: count(//div[@class="reviews"]/div/div/i[contains(@class, 'text-warning')])

@@ -20,8 +20,9 @@ const transform = (data) => {
           });
         }
         if (gr.price) gr.price[0].text = cleanText(gr.price[0].text.replace('R$', ''));
-        if (gr.description) gr.description = [{ text: gr.description.map(e => cleanText(e.text)).join(' || ') }];
+        if (gr.description) gr.description = [{ text: gr.description.map(e => cleanText(e.text)).join(' ') }];
         if (gr.variantId) gr.variantId[0].text = gr.variantId[0].text.replace(onlyNumbers, '');
+        if (gr.ratingCount) gr.ratingCount[0].text = gr.ratingCount[0].text.replace(onlyNumbers, '');
         if (gr.alternateImages) gr.alternateImages = gr.alternateImages.splice(1, gr.alternateImages.length - 1);
         if (gr.specificationsList && gr.specifications) {
           const list = gr.specificationsList.map(e => e.text).join(' || ')
