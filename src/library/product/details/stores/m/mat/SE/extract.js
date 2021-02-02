@@ -186,6 +186,7 @@ module.exports = {
         if (price != null) {
           var num = Number(price)
           price = num + " " + currency
+          price = price.replace(".",",");
           addElementToDocument('price', price);
         }
 
