@@ -32,13 +32,15 @@ module.exports = {
           break;
         }
       }
-      function stall(ms) {
+
+      function stall (ms) {
         return new Promise((resolve) => {
           setTimeout(() => {
             resolve();
           }, ms);
         });
       }
+
       function addElementToDocument (key, value) {
         const createdElem = document.querySelector(`#${key}`);
         if (!createdElem) {
@@ -93,19 +95,19 @@ module.exports = {
           descrInfoArr = descrInfoInner.replace(/&nbsp;/gm, '').split('<br>');
         }
       });
-      if (descrInfoArr) {
-        descrInfoArr.forEach(descrItem => {
-          function getInfoItem (infoItem, infoStr, divId) {
-            if (infoItem.toLowerCase().includes(infoStr)) {
-              const textValue = descrItem.replace(/.* - /, '');
-              addElementToDocument(divId, textValue);
-              return textValue;
-            }
-          }
-
-          getInfoItem(descrItem, 'marca', 'ag-brand');
-        });
-      }
+      addElementToDocument('ag-arr', descrInfoArr);
+      // if (descrInfoArr) {
+      //   descrInfoArr.forEach(descrItem => {
+      //     function getInfoItem (infoItem, infoStr, divId) {
+      //       if (infoItem.toLowerCase().includes(infoStr)) {
+      //         const textValue = descrItem.replace(/.* - /, '');
+      //         addElementToDocument(divId, textValue);
+      //         return textValue;
+      //       }
+      //     }
+      //     getInfoItem(descrItem, 'marca', 'ag-brand');
+      //   });
+      // }
     });
     return await context.extract(productDetails, { transform });
   },
