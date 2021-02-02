@@ -8,14 +8,17 @@ fields:
     xpath: //div[@class="article-left article-thumbnail"]/a/@href
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //div[@class="article-left article-thumbnail"]/a/img/@data-src
+    type: FILE
+    xpath: //div[@class="article-left article-thumbnail"]//a[@class="title"]/img/@data-src
   - name: name
     type: TEXT
     xpath: //div[@class="article-left article-thumbnail"]/a/img/@alt
   - name: id
     description: The store-specific product identifier
-    xpath: //div[@class='form-group to-basket-default']//button/@data-datamints-enhancedga-product
-    regExp: '(\"id\"\:\ ")([^"]+)'
+    # xpath: //div[@class='form-group to-basket-default']//button/@data-datamints-enhancedga-product
+    # regExp: '(\"id\"\:\ ")([^"]+)'
+    xpath: //div[@class="article-left article-thumbnail"]//a[@class="title"]/img/@data-src
+    regExp: (ximage_)([A-Z 0-9]+)
     regExpReplace: $2
   - name: aggregateRating2
     xpath: //div[@class='rating ']/@data-rating
