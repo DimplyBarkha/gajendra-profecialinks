@@ -431,7 +431,8 @@ fields:
     description: null
   - name: specifications
     description: The physical dimensions of the product including packaging.
-    xpath: //section[contains(@class,'productSpecification ue-spechl')]//div[contains(@class,'accordionContentInner')]//div/span
+    xpath: //*[contains(@id,"productSpecification")]//div[contains(@class,"visible")]//span
+    # xpath: //section[contains(@class,'productSpecification ue-spechl')]//div[contains(@class,'accordionContentInner')]//div/span
   - name: specifications2
     description: The physical dimensions of the product including packaging.
     xpath: //div[contains(@data-tag-name,'key-information')]//tr/*[contains(@class,'second') or contains(@class,'third')]
