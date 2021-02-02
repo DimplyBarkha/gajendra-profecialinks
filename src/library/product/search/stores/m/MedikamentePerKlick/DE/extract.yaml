@@ -5,9 +5,6 @@ recordXPath: null
 fields:
   - name: productUrl
     xpath:  //div[@class="productsList"]//a[@itemprop="url"]/@href
-  - name: rankOrganic
-    singleValue: false
-    # xpath: //div[starts-with(@id,'ii_rank')]
   - name: thumbnail
     description: The URL for the product thumbnail image
     xpath:  //div[@class="productsList"]//img[@itemprop="image" and @class="lazy photo"]/@data-original|//div[@class="productsList"]//img[@itemprop="image" and @class="photo"]/@src
@@ -26,9 +23,9 @@ fields:
     # regExp: cart(\w+)_.*
     # regExpReplace: $1
   - name: price
-    # xpath:  //div[@class="productsList"]//dd[@class="yourPrice" or @class="yourPrice price"]
+    xpath:  //div[@class="productsList"]//span[@itemprop="price"]/@content
     singleValue: false
-    xpath: //div[starts-with(@id,'ii_price')]
+    # xpath: //div[starts-with(@id,'ii_price')]
   - name: aggregateRating
     xpath:  //div[@class="productsList"]//span[@itemprop='ratingValue']
   - name: reviewCount
