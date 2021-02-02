@@ -6,7 +6,7 @@ async function implementation(
   dependencies,
 ) {
   const { transform } = parameters;
-  const { productDetails } = dependencies;
+  const { productDetails, goto } = dependencies;
 
   function stall(ms) {
     return new Promise(resolve => {
@@ -46,7 +46,7 @@ async function implementation(
     fetchDetailsFromScript();
   });
 
-  const currentUrl = await context.evaluate(function () {
+  const url = await context.evaluate(function () {
     return window.location.href;
   });
 
@@ -80,31 +80,19 @@ async function implementation(
     });
 
     video = await context.evaluate(function () {
-      let videos = [];
       let vid = document.querySelectorAll('div[class="eky-header-video-container black"] video')
-      vid.forEach(video => {
-        if (video && video.getAttribute('src')) {
-
-          videos.push(video.src);
-        }
-      });
-
-      return videos;
+      return Array.from(vid).map(video => video && video.getAttribute('src'))
     });
-
-    await context.goto(currentUrl, { timeout: 50000 });
+    
+    /**
+     * Using dependencies.goto
+     * On coming back to main url, we sometimes encounter captcha again.
+     */
+    await goto({url});
   }
   await stall(3000);
 
   await context.evaluate(async function (video) {
-
-    function stall(ms) {
-      return new Promise(resolve => {
-        setTimeout(() => {
-          resolve();
-        }, ms);
-      });
-    }
 
     function addHiddenDiv(id, content) {
       const newDiv = document.createElement('div');
@@ -128,6 +116,10 @@ module.exports = {
     transform,
     domain: 'fnac.com',
     zipcode: '',
+  },
+  dependencies: {
+    productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
+    goto: 'action:navigation/goto',
   },
   implementation,
 };
