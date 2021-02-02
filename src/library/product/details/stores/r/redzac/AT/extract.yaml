@@ -14,8 +14,13 @@ fields:
     - name: alternateImages
       # singleValue: false
       description: Other product images (not in manufacturer description)
-      xpath: //div[contains(@class,"jcarousel-clip jcarousel-clip-horizontal all_items_visible")]//ul[contains(@class,'jcarousel-list jcarousel-list-horizontal')]/li[@class="jcarousel-item"]//img/@src
-      # regExp: (https.*version=\d*)
+      xpath: //div[contains(@class,"product_files")]//ul[contains(@class,"carousel-list")]//li[not(contains(@class,"active"))]//img/@src
+      regExp: (.+)
+      regExpReplace: https://www.redzac.at$1
+    - name: secondaryImageTotal
+      singleValue: true
+      type: NUMBER
+      xpath: count(//div[contains(@class,"product_files")]//ul[contains(@class,"carousel-list")]//li[not(contains(@class,"active"))]//img/@src)
     - name: metaKeywords
       singleValue: true
       description: The <meta> keywords content
