@@ -376,7 +376,7 @@ fields:
     description: The unit of measurement used in price_per_unit
   - name: promotion
     description: promotion text on product page
-    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero__savings ')]
+    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero__savings ')] | //div[@class="product-hero__price-top"]/div[contains(@class,'promotion')]
   - name: alcoholContent #missing
     description: Alcohol content information
   - name: newVersion #missing
