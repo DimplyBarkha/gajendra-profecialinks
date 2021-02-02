@@ -1,0 +1,26 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields: 
+  - name: id
+    xpath: //div[@class="list-item relative"]/@data-object-id
+  - name: productUrl
+    xpath: //div[@class="list-item relative"]/a[@data-ga="internal"]/@href
+  - name: thumbnail
+    regExp: ^(.+)$
+    regExpReplace: https:$1
+    xpath: //div[@class="list-item relative"]/a[@data-ga="internal"]/img/@src
+  - name: name
+    xpath: //div[@class="list-item relative"]/@data-product-name
+  - name: price
+    xpath: //p[@class="list-item-price"]/text()
+  - name: reviewCount
+    type: NUMBER
+    xpath: //div[@class="flex star-container" and @style="display:;"]/span/text()
+  - name: rankOrganic
+    xpath: //div[@id='rankOrganic']/text()
+  - name: rank
+    xpath: //div[@id='rankOrganic']/text()
+  - name: aggregateRating2
+    xpath: //div[@id='aggregateRating']/text()
