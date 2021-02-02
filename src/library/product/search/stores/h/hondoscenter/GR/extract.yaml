@@ -17,7 +17,9 @@ fields:
   - name: id
     singleValue: false
     # xpath: //html//div[@id="upc"]
-    xpath: //td[contains(@class,"Properties")]/table/tbody/tr[1]/td[contains(@class,"UPCs")]/text()
+    # //span[@class='reference-code'][not(@style)] | //span[@class='reference-code'][@style]/ancestor::div/@prod-number
+    # xpath: //td[contains(@class,"Properties")]/table/tbody/tr[1]/td[contains(@class,"UPCs")]/text() | //td[@class="Id depth_3"]/text()
+    xpath: //td[@class="UPCs depth_4"]/text()|//td[@class="UPCs depth_4"][string-length(text())=0]/parent::tr/parent::tbody/parent::table/parent::td/preceding-sibling::td[starts-with(@class,'Id depth_3')]
     regExp: ^\d+
     # regExp: (.*)
     # xpath: //ul[@class="items-list "]//@data-productid
