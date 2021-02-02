@@ -90,16 +90,6 @@ module.exports = {
         var abc1 = abc2 + ' || ' + abc3;
         addElementToDocument('abc1', abc1);
       }*/
-      
-    /*  //directions
-      var direct = getAllXpath('(//div[@id="tab_tips"])/descendant::text()', 'nodeValue');
-      var arr = ""
-      for(var i = 0;i<direct.length;i++)
-      {
-        arr =+direct[i];
-      }
-      var dir = arr.toString().replace("\n\n","").replaceAll("\n","||")
-      addElementToDocument('dir', dir);*/
 
       // Direction
   const getDirection = (d) => {
