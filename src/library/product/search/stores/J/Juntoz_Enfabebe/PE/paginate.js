@@ -9,7 +9,7 @@ module.exports = {
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'body',
+    loadedSelector: '#body-juntoz',
     loadedXpath: null,
     noResultsXPath: '//li[@class="pagination-last ng-scope disabled"]/a',
     stopConditionSelectorOrXpath: null,
