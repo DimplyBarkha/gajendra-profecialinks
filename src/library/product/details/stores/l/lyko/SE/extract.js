@@ -27,10 +27,20 @@ module.exports = {
         return result && result.trim ? result.trim() : result;
       };
       // @ts-ignore
+      var aggregateRating = '';
+      // @ts-ignore
       const rawdata = document.querySelectorAll('script[type="application/ld+json"]')[0].innerText;
       const jsondata = JSON.parse(rawdata);
       const gtin = jsondata.gtin13;
       const gtin1 = jsondata.gtin8;
+      const image = jsondata.image;
+      if( "aggregateRating" in jsondata ) {
+        aggregateRating = jsondata.aggregateRating.ratingValue;
+        // do something
+    }
+    else{
+      aggregateRating = '';
+    }
       var gtina=''
       if (gtin != null){
         gtina=gtin
@@ -40,9 +50,10 @@ module.exports = {
       }
       const price = jsondata.offers.price;
       // console.log(gtin,'gtin')
-      // const aggregateRating = jsondata.aggregateRating.ratingValue;
       addElementToDocument('gtin', (gtina));
       addElementToDocument('price', price);
+      addElementToDocument('image', image);
+      addElementToDocument('aggregateRating', aggregateRating);
       // let singleRating;
       // var ratings = document.querySelectorAll("div[class='hide-when-purchase-disabled prices'] div[class='ratings']");
       // if (ratings.length > 0) {

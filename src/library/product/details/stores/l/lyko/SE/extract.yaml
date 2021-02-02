@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //div[@id="large-image"]//picture/img/@src
+    xpath: //div[@id="image"]
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -27,7 +27,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: concat(//h1/div[position()=2], ' ', //h1/div[position()=3])
+    xpath: concat(//h1/div[position()=1],' ', //h1/div[position()=2], ' ', //h1/div[position()=3])
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -114,7 +114,7 @@ fields:
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    xpath: count(//span[@class="_3xRTgs _2uY6NB _2qZN_b"]/span[@class="_2pZFUY"])
+    xpath: //div[@id="aggregateRating"]
     type: NUMBER
   - name: shippingInfo
     singleValue: true
