@@ -100,7 +100,7 @@ module.exports = {
       if (pricePath !== null) {
         // addElementToDocument('added_price', pricePath.replace(/\D/g, '').replace(/(\d{3})$/g, ',$1'));
         addElementToDocument('added_price', pricePath.replace(/\./g, ''));
-      } 
+      }
     });
     // }
     await context.extract(productDetails, { transform: transformParam });
