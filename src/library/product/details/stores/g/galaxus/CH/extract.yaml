@@ -23,7 +23,7 @@ fields:
     xpath: //div[contains(@id, 'slide-')]//picture[contains(@class,'mediaPicture')]/source[1]/@srcset
   - name: secondaryImageTotal
     singleValue: false
-    xpath: count(//div[contains(@class,"dots__StyledDots-sc-")]//a[contains(@data-test,"nactive")])  
+    xpath: //div[contains(@id, 'slide-')]//picture[contains(@class,'mediaPicture')]/source[1]/@srcset
   - name: brandText
     singleValue: false  
     xpath: //meta[@property="og:brand"]/@content
@@ -38,7 +38,7 @@ fields:
     xpath: //div[contains(@class,"expandablePanel__ExpandedPanelContent-sc-")]//table//tr
   - name: availabilityText
     singleValue: false
-    xpath: //meta[@property="og:availability"]/@content
+    xpath: //button[@id="addToCartButton"]/@title
     defaultValue: In Stock
   - name: sku
     singleValue: false
@@ -92,4 +92,4 @@ fields:
     xpath: //div[contains(@class,'volumeDiscountPrices__VolumePricesStyled-iu7k2d-0')]//button[contains(@class,'styled__DeprecatedStyledButton-sc-17ihqnc-1')] 
   - name: shippingInfo
     singleValue: false
-    xpath: //div[@data-test="offerFrom"]//div[not(@class)]//a[contains(@class,"styled__StyledLink-sc-5q25ol-0")]/parent::*
+    xpath: //div[@data-test="offerFrom"]//div[not(@class)]//a[contains(@class,"styled__")]/parent::*

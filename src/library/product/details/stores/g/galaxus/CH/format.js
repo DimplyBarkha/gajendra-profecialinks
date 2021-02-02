@@ -57,7 +57,7 @@ const transform = (data) => {
        }
        if(row.availabilityText){
         row.availabilityText.forEach(item => {
-          if (item.text == 'out of stock'){
+          if (item.text == 'Ajouter au panier'){
             row.availabilityText = [{"text": 'Out of Stock', "xpath": row.availabilityText[0].xpath}]
           }else{
             row.availabilityText = [{"text": 'In Stock', "xpath": row.availabilityText[0].xpath}]
@@ -76,6 +76,21 @@ const transform = (data) => {
             row.alternateImages.shift();
           }
        }
+       if (row.secondaryImageTotal) {
+        row.secondaryImageTotal.forEach(item => {
+            item.text = item.text.replace(/,.*/, '');
+            item.text = item.text.replace('1x', '');
+            item.text = 'I'+ item.text;
+            item.text = item.text.slice(1, -1);
+            item.text = item.text.replace(/\?.*/, '');
+        });
+        if (row.secondaryImageTotal) {
+          row.secondaryImageTotal.shift();
+        }
+        if (row.secondaryImageTotal) {
+          row.secondaryImageTotal = [{'text':row.secondaryImageTotal.length, 'xpath':row.secondaryImageTotal[0].xpath}];              
+        } 
+     }
         if (row.description) {
             let description_ar = [];
             row.description.forEach(item => {
@@ -119,6 +134,7 @@ const transform = (data) => {
         if (row.descriptionBullets) {
           row.descriptionBullets = [{'text':row.descriptionBullets.length, 'xpath':row.descriptionBullets[0].xpath}];              
         } 
+        
         if (row.category) {
           let info = [];
           row.category.forEach(item => {
