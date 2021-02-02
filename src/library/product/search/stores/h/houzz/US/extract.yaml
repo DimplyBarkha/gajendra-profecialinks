@@ -55,3 +55,19 @@ fields:
   - name: searchUrl
     singleValue: false
     xpath: //div[@id="ii_searchURL"]
+
+  - name: aggregateRatingText
+    singleValue: true
+    description: The stated aggregate rating
+    xpath: //span[@class="star-rating hz-product-card__review-stars"]/@aria-label
+  - name: ratingCount
+    singleValue: true
+    description: The number of ratings
+  - name: reviewCount
+    singleValue: true
+    description: The number of reviews
+    xpath: //span[@class="star-rating__review-text"]
+  - name: aggregateRating
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: //span[@class="star-rating hz-product-card__review-stars"]/@aria-label
