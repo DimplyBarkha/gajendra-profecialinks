@@ -2,7 +2,7 @@ input:
   _url: http://keshop.com
   URL: https://www.keshop.com/es/en/schwarzkopf-mad-about-waves/light-splash-conditioner-250-ml.html
 extractions:
-  - html: https://workbench.import.io/html/run=9625a24b-93fc-4c8a-a071-60b49367b912/task=17d7e6b2-d834-4f59-b0a2-c325d2c4cc05/24cce467-d580-47c3-a657-40b675a38cf9.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=a2b0cb73-a461-4c06-8ef4-8806712d0638/task=bced7766-5d7d-470b-a4ff-7f0b2242ad8b/e75a3183-5ae3-42c3-953a-04b740a6157d.html
     extractionConfigId: product/details/stores/k/keshop/ES/extract
     data:
       - group:
@@ -15,11 +15,6 @@ extractions:
             imageAlt:
               - text: Light Splash Conditioner - 250 ml
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]/img[1]/@alt
-            category:
-              - text: Schwarzkopf
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[1]/a[1]
-              - text: Mad About Waves
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[2]/a[1]
             listPrice:
               - text: 15,73 €
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/p[2]/span[1]/span[2]
@@ -36,17 +31,16 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
               - text: "Benefits of Light Splash Conditioner:"
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/h2[1]
-              - text: >-
-                  It conditions and helps untangle hair.
-                   
-                  It provides lightweight hydration to hair.
-                   
-                  It promotes a gentle beach style.
-                   
-                  It doesn't add weight to hair.
-                   
-                  It reinforces hair while offering thermal protection (up to 80ºC).
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]
+              - text: It conditions and helps untangle hair.
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]
+              - text: It provides lightweight hydration to hair.
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: It promotes a gentle beach style.
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: It doesn't add weight to hair.
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]
+              - text: It reinforces hair while offering thermal protection (up to 80ºC).
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]
             brandText:
               - text: Schwarzkopf
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[1]/a[1]
@@ -63,8 +57,12 @@ extractions:
               - text: "1904"
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/form[1]/p[1]/input[2]/@value
             mpc:
-              - text: "1904"
+              - text: KSES1904
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/form[1]/p[1]/input[2]/@value
+            directions:
+              - text: Shake it before use. Spray on damp hair and style for optimum
+                  distribution. Do not rinse.
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]
             aggregateRatingText:
               - text: "10"
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/a[1]/img[1]/@src
@@ -72,23 +70,27 @@ extractions:
               - text: "5"
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/a[1]/img[1]/@ratingnormalized
                 type: STRING
-            manufacturerDescription:
-              - text: Lamia Azzouzzi, stylist at Javier Equip S.L.
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/p[1]
-              - text: "\"It doesn't matter if your hair is fine: its light formula will help you
-                  define your waves without weighing them down.\""
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/p[1]
-              - text: Lamia Azzouzzi, stylist at Javier Equip S.L.
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/p[1]
-              - text: "\"It doesn't matter if your hair is fine: its light formula will help you
-                  define your waves without weighing them down.\""
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/p[1]
             manufacturerImages:
               - text: //www.keshop.com/es/modules/jscomposer/uploads/Expertos/Lamia-Azzouzi80.jpg
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
             name:
               - text: Light Splash Conditioner - 250 ml
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[3]
+            ingredientsList:
+              - text: "Main ingredients:"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[3]
+              - text: "Aquarine complex with Polyamide-1: it provides intense hydration to hair
+                  to sublimate curls definition."
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[4]
+              - text: "Full Llist of Ingredients:"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[5]
+              - text: Aqua - Isododecane - Cyclomethicone - Phenyl Trimethicone - Polyimide-1 -
+                  Hydrolyzed Keratin - Dimethiconol - Cetyl PEG/PPG-10/1
+                  Dimethicone - Polyquaternium-16 - Parfum - Citric Acid -
+                  Panthenol - Cetrimonium Chloride - Sodium Benzoate - Linalool
+                  - Benzyl Salicylate - Limonene - Citronellol - Benzyl Alcohol
+                  - Phenoxyethanol - Potassium Sorbate
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[6]
             additionalDescBulletInfo:
               - text: It conditions and helps untangle hair.
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]
@@ -108,13 +110,19 @@ extractions:
               - text: No
             imageZoomFeaturePresent:
               - text: No
+            category:
+              - text: Mad About Waves
             nameExtended:
               - text: Schwarzkopf Light Splash Conditioner - 250 ml
             descriptionBullets:
               - text: "5"
             ratingCount:
               - text: "1"
+            manufacturerDescription:
+              - text: "Lamia Azzouzzi, stylist at Javier Equip S.L.\"It doesn't matter if your
+                  hair is fine: its light formula will help you define your
+                  waves without weighing them down.\""
             promotion:
               - text: 50% de descuento
         xpath: /
-    timestamp: 1607604341204
+    timestamp: 1612278674571

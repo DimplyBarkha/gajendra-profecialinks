@@ -28,7 +28,7 @@ fields:
   description: The <meta> keywords content
 - name: category
   singleValue: false
-  xpath: //span[@class='manufacturer_name']/a | //span[@class='category_name']/a
+  xpath: normalize-space(//span[@class='category_name']/a)
   description: The categories (e.g. from breadcrumbs)
 - name: nameExtended 
   singleValue: true
@@ -55,7 +55,7 @@ fields:
   defaultValue: Out of Stock
 - name: description 
   singleValue: false
-  xpath: (//div[@class='wpb_wrapper'])[1]//p[1] | (//div[@class='wpb_wrapper'])[1]//h2[1] | (//div[@class='wpb_wrapper'])[1]//ul
+  xpath: (//div[@class='wpb_wrapper'])[1]//p[1] | (//div[@class='wpb_wrapper'])[1]//h2[1] | (//div[@class='wpb_wrapper'])[1]//ul/li
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
 - name: descriptionBullets
@@ -97,6 +97,8 @@ fields:
 - name: mpc
   singleValue: true
   xpath: //input[@name='id_product']/@value
+  regExp: (.+)
+  regExpReplace: KSES$1
   description: The manufacturer model code (unique) of the product
 - name: packSize
   singleValue: true
@@ -138,6 +140,7 @@ fields:
 - name: variantCount
   singleValue: true
   description: Number of variants listed
+  defaultValue: 0
 - name: color
   singleValue: true
   description: A textual description of the colour
