@@ -101,15 +101,17 @@ fields:
     xpath: normalize-space(//div[contains(@id,"productMoreInfo")]//h4[contains(text(),"légale")])
   - name: ratingCount
     singleValue: false
-    description: The number of ratings
-    type: NUMBER
+    xpath: //script[@type="application/ld+json" and contains(text(),"reviewCount")] | //no-script[@type="application/ld+json" and contains(text(),"reviewCount")]
+    regExp: reviewCount":"([^,]+)"
+    regExpReplace: $1
   - name: aggregateRatingText
     singleValue: false
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: false
-    description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    xpath: normalize-space(//div[contains(@class,"c-product-detail__informations")]//div[contains(@class,"c-rate-star__note")])
+    regExp: (.+)\/
+    regExpReplace: $1
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
@@ -140,7 +142,7 @@ fields:
     description: URLs of videos on page
   - name: name
     singleValue: false
-    xpath: //div[contains(@id,"content")]//h1
+    xpath: //div[contains(@class,"c-product-detail__informations")]//h1[contains(@class,"c-product-detail__title")]
     description: The product name
   - name: inStorePrice
     singleValue: false
@@ -231,7 +233,7 @@ fields:
     description: null
   - name: secondaryImageTotal
     singleValue: false
-    xpath: count(//div[contains(@class,"picture")]//div[contains(@id,"thumbs")]//li[position()>1]//img/@src)
+    xpath: count(//div[contains(@class,"c-image-product-viewer__image-slide")][position()>1]//img/@src)
   - name: news
     singleValue: false
     description: null
