@@ -2,13 +2,16 @@ input:
   _url: http://thewhiskyexchange.com
   URL: https://www.thewhiskyexchange.com/p/45653/ardmore-1996-21-year-old-adelphi
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=a9cb1e9d-5b44-4284-bd57-4711d337d472/task=cbaae3d2-bf95-483f-9065-5a0c8b8b17a1/a8c7f465-6244-4c3a-8486-7f2fb64a086a.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=f16cce2c-4d9b-4653-be88-123e0227b2fc/task=912c7ff1-4925-470c-9274-9322cf1bdd24/b5b665d1-9b20-4908-aa9f-af1e8a5fc54b.html
     extractionConfigId: product/details/stores/t/thewhiskyexchange/UK/extract
     data:
       - group:
           - productUrl:
               - text: https://www.thewhiskyexchange.com/p/45653/ardmore-1996-21-year-old-adelphi
                 xpath: /html/head[1]/link[5]/@href
+            image:
+              - text: https://img.thewhiskyexchange.com/900/ardadl1996v1.jpg
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/div[1]/img[1]/@src
             imageAlt:
               - text: Ardmore 1996 / 21 Year Old / Adelphi
                 xpath: /html/body/div[3]/div[6]/article[1]/div[1]/div[1]/img[1]/@alt
@@ -88,4 +91,4 @@ extractions:
             secondaryImageTotal:
               - text: "0"
         xpath: /
-    timestamp: 1611057033299
+    timestamp: 1612257732945

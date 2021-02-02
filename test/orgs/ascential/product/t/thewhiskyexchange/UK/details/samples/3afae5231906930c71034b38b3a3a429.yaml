@@ -2,13 +2,16 @@ input:
   _url: http://thewhiskyexchange.com
   URL: https://www.thewhiskyexchange.com/p/34877/auchentoshan-american-oak-and-tin-cup-gift-set
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=a9cb1e9d-5b44-4284-bd57-4711d337d472/task=1230fee5-986b-4ffa-b4d4-ee65219200d9/10ff1463-96bd-4bd5-94d8-3b99a4e7e1e4.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=f16cce2c-4d9b-4653-be88-123e0227b2fc/task=2183df67-dbd8-478d-94af-3ac12b7a667e/22fe4f4f-1bc3-412e-8315-818e4c5a1b3e.html
     extractionConfigId: product/details/stores/t/thewhiskyexchange/UK/extract
     data:
       - group:
           - productUrl:
               - text: https://www.thewhiskyexchange.com/p/34877/auchentoshan-american-oak-and-tin-cup-gift-set
                 xpath: /html/head[1]/link[5]/@href
+            image:
+              - text: https://img.thewhiskyexchange.com/900/aucob.non21.jpg
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/div[1]/img[1]/@src
             imageAlt:
               - text: Auchentoshan American Oak and Tin Cup Gift Set
                 xpath: /html/body/div[3]/div[6]/article[1]/div[1]/div[1]/img[1]/@alt
@@ -81,4 +84,4 @@ extractions:
             secondaryImageTotal:
               - text: "0"
         xpath: /
-    timestamp: 1611057036593
+    timestamp: 1612257736648

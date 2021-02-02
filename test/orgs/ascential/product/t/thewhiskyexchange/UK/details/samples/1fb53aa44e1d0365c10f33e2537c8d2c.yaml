@@ -2,13 +2,16 @@ input:
   _url: http://thewhiskyexchange.com
   URL: https://www.thewhiskyexchange.com/p/33961/courvoisier-vs-miniature
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=a9cb1e9d-5b44-4284-bd57-4711d337d472/task=31849736-bf79-4737-b778-9861f711b8bc/8e40e0a1-84f5-483e-9649-61567436fc02.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=f16cce2c-4d9b-4653-be88-123e0227b2fc/task=a6b45e3e-c804-44a1-b4d4-c23fe4a30084/7a3c3f7b-3500-4164-b9a8-a7b494e31451.html
     extractionConfigId: product/details/stores/t/thewhiskyexchange/UK/extract
     data:
       - group:
           - productUrl:
               - text: https://www.thewhiskyexchange.com/p/33961/courvoisier-vs-miniature
                 xpath: /html/head[1]/link[5]/@href
+            image:
+              - text: https://img.thewhiskyexchange.com/900/mini_cognc_cou5.jpg
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/div[1]/img[1]/@src
             imageAlt:
               - text: Courvoisier VS / Miniature
                 xpath: /html/body/div[3]/div[6]/article[1]/div[1]/div[1]/img[1]/@alt
@@ -85,4 +88,4 @@ extractions:
             secondaryImageTotal:
               - text: "0"
         xpath: /
-    timestamp: 1611057040098
+    timestamp: 1612257736025

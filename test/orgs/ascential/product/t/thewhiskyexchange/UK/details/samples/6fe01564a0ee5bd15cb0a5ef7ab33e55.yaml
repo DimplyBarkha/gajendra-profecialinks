@@ -2,13 +2,16 @@ input:
   _url: http://thewhiskyexchange.com
   URL: https://www.thewhiskyexchange.com/p/34085/jack-daniels-tennessee-fire-miniature
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=a9cb1e9d-5b44-4284-bd57-4711d337d472/task=b420dbe2-9b39-4328-bb30-6f00eb6ad4b0/bf71e6e3-d64f-4e12-a51f-f3f95d13146c.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=f16cce2c-4d9b-4653-be88-123e0227b2fc/task=24d7eac2-f42c-4222-a806-31a653e1f795/171f4102-8866-4be7-9fcc-79a1df3d8e86.html
     extractionConfigId: product/details/stores/t/thewhiskyexchange/UK/extract
     data:
       - group:
           - productUrl:
               - text: https://www.thewhiskyexchange.com/p/34085/jack-daniels-tennessee-fire-miniature
                 xpath: /html/head[1]/link[5]/@href
+            image:
+              - text: https://img.thewhiskyexchange.com/900/mini_w-liq_jac2.jpg
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/div[1]/img[1]/@src
             imageAlt:
               - text: Jack Daniel's Tennessee Fire / Miniature
                 xpath: /html/body/div[3]/div[6]/article[1]/div[1]/div[1]/img[1]/@alt
@@ -93,4 +96,4 @@ extractions:
             secondaryImageTotal:
               - text: "0"
         xpath: /
-    timestamp: 1611057037435
+    timestamp: 1612257738836
