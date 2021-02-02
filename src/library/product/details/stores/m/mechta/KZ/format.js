@@ -62,12 +62,12 @@ const transform = (data) => {
         });
         row.specifications = specs;
       }
-      if (row.alternateImages) {
-        // row.alternateImages.splice(0, 1);
-        row.alternateImages.forEach(item => {
-          item.text = 'https://www.mechta.kz' + item.text;
-        });
-      }
+      // if (row.alternateImages) {
+      //   // row.alternateImages.splice(0, 1);
+      //   row.alternateImages.forEach(item => {
+      //     item.text = 'https://www.mechta.kz' + item.text;
+      //   });
+      // }
       if (row.manufacturerImages) {
         row.manufacturerImages.forEach(item => {
           item.text = 'https://www.mechta.kz' + item.text;
@@ -120,6 +120,11 @@ const transform = (data) => {
         console.log('availabilityText1', row.availabilityText1);
         row.availabilityText = row.availabilityText1;
         console.log("availabilityText", row.availabilityText);
+      }
+      if ((!row.manufacturerImages || !row.manufacturerImages.length) && row.manufacturerImages1) {
+        console.log('manufacturerImages1', row.manufacturerImages1);
+        row.manufacturerImages = row.manufacturerImages1;
+        console.log("manufacturerImages::", row.manufacturerImages);
       }
       if (row.videos) {
         const unInterruptedPDPs = [];
