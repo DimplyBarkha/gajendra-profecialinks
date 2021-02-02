@@ -159,11 +159,36 @@ const transform = (data) => {
 
       if (row.quantity) {
         row.quantity.forEach(item => {
-          let split = item.text.replace(/[^0-9]/g, '');
-          item.text = split;
+          let split =  item.text.split('');
+          item.text = split[split.lenght-1];
         });
 
       }
+
+      if (row.sodiumPerServing) {
+        row.sodiumPerServing.forEach(item => {
+          if(item.text.includes("mg")){
+            let split = item.text.split("mg");
+            item.text = `${split[0]}`;
+          }
+          });
+
+      }
+      if (row.saturatedFatPerServing) {
+        row.saturatedFatPerServing.forEach(item => {
+          if(item.text.includes("g")){
+            let split = item.text.split("g");
+            item.text = `${split[0]}`;
+          }
+          });
+
+      }
+
+
+
+
+
+
     }
   }
   return cleanUp(data);
