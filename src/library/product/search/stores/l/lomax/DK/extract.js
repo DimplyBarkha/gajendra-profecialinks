@@ -25,6 +25,13 @@ module.exports = {
         const originalDiv = document.querySelectorAll("a[class='product-link'] h5")[index];
         originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
+      function addElementToDocument(key, value) {
+        const catElement = document.createElement('div');
+        catElement.id = key;
+        catElement.textContent = value;
+        catElement.style.display = 'none';
+        document.body.appendChild(catElement);
+      }
       const getAllXpath = (xpath, prop) => {
         const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         const result = [];
@@ -34,6 +41,8 @@ module.exports = {
         }
         return result;
       };
+      const URL = window.location.href;
+      addElementToDocument('pd_url', URL);
       const aggr = getAllXpath('//div[@class="product-info border-bottom py-3 "]/@data-gtm-rating', 'nodeValue');
       for (let i = 0; i < aggr.length; i++) {
         // @ts-ignore
