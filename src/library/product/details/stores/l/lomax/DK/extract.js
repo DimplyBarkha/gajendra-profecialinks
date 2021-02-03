@@ -33,20 +33,36 @@ module.exports = {
         }
         return result;
       };
-      var variant = getAllXpath('//div[@class="productdesc-content"]//text()', 'nodeValue');
-      var final = "";
-      if (variant.length >= 1) {
-        for (var i = 0; i < variant.length; i++) {
-          final = final + variant[i];
-        }
-      }
-      var promotion = getXpath('//h2[@class="lead-small"]/text()', 'nodeValue');
-      if(promotion != null){
-        final = promotion + final;
-        }
-        if( final.length >= 1){
-          addElementToDocument('final', final)
-          }
+      //  // Single Pipe Concatenation
+      //  const pipeSeparatorSingle = (id, data) => {
+      //   var singleSeparatorText = data.join(' | ');
+      //   addElementToDocument(id, singleSeparatorText);
+      // };
+       // Double Pipe Concatenation
+       const pipeSeparatorDouble = (id, data) => {
+        var doubleSeparatorText = data.join(' || ');
+        addElementToDocument(id, doubleSeparatorText);
+       };
+       const pipeSeparator = (data) => {
+        var doubleSeparatorText = data.join(' || ');
+        return ' ||'+ doubleSeparatorText;
+        };
+      // var variant = getAllXpath('//div[@class="productdesc-content"]//text()', 'nodeValue');
+      // var final = "";
+      // if (variant.length >= 1) {
+      //   for (var i = 0; i < variant.length; i++) {
+      //     final = final + variant[i];
+      //   }
+      // }
+      // var promotion = getXpath('//h2[@class="lead-small"]/text()', 'nodeValue');
+      // if(promotion != null){
+      //   // @ts-ignore
+      //   pipeSeparatorSingle('promotion', singleSeparatorText);
+      //   final = promotion + final;
+      //   }
+      //   if( final.length >= 1){
+      //     addElementToDocument('final', final)
+      //     }
       const aggr = getXpath("//div[@class='container productcard']/@data-gtm-rating", 'nodeValue');
       try {
         if (aggr != null) {
@@ -74,8 +90,29 @@ module.exports = {
       }
       catch (error) {
       }
-      // let onlinePrice = price.concat(" kr,")
-      // addElementToDocument('price', onlinePrice)
+      var descFinal = "";
+      try {
+        // @ts-ignore
+        var promotion = getXpath('//h2[@class="lead-small"]/text()', 'nodeValue');
+        descFinal += promotion;
+        // descFinal += pipeSeparator(promotion);
+      } catch (error) {
+
+      }
+      try {
+        var variant = getAllXpath('//div[@class="productdesc-content"]//h3/text()|//div[@class="productdesc-content"]//p/text()', 'nodeValue');
+        descFinal += pipeSeparator(variant);
+        descFinal += variant;
+      } catch (error) {
+
+      }
+      try {
+        const belowLI = getAllXpath('(//ul)[10]/li/text()', 'nodeValue');
+        descFinal += pipeSeparator(belowLI);
+      } catch (error) {
+
+      }
+      addElementToDocument('final', descFinal)
     });
     await context.extract(productDetails, { transform: transformParam });
   },
