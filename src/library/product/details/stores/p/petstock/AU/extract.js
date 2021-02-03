@@ -62,7 +62,7 @@ module.exports = {
       }
 
       const descResults = [];
-      const descriptionElements = document.evaluate('//div[@itemprop="description"]/p | //div[@itemprop="description"]/text() | //div[@itemprop="description"]//strong|//div[@itemprop="description"]//li', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      const descriptionElements = document.evaluate('//div[@itemprop="description"]/p | //div[@itemprop="description"]/text() | //div[@itemprop="description"]/h5| //div[@itemprop="description"]//strong|//div[@itemprop="description"]//li | //div[@id="vet-disclaimer-box"]/p', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
       for (let i = 0; i <= descriptionElements.snapshotLength; ++i) {
         const descriptionText = descriptionElements.snapshotItem(i) ? descriptionElements.snapshotItem(i).textContent : null;
         if (descriptionText) descResults.push(descriptionText);

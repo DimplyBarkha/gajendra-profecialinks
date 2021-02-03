@@ -2,7 +2,7 @@ input:
   _url: http://petstock.com.au
   URL: https://www.petstock.com.au/product/dog/rogz-reflective-nylon-dog-lead/59202
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=16a1fc74-9732-41f2-956f-99d1076c3234/task=829aa732-d810-4f6c-b5c5-967dc2e9aa6e/ae6fb237-0c43-4305-a706-18cae93a0ec2.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=3f325a0b-9285-4c2d-a160-a6fafff710e7/task=9e4fe979-8eae-4251-b0e2-2e3bc2b94643/13b7ad0e-7f5a-4c7f-ade8-3aa92e286f33.html
     extractionConfigId: product/details/stores/p/petstock/AU/extract
     data:
       - group:
@@ -19,15 +19,6 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]
               - text: Leads
                 xpath: /html/body/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
-            description:
-              - text: The Rogz Reflective Fixed dog lead represents simplicity and
-                  functionality, and is the key to the popularity of this lead,
-                  which matches perfectly with the collar and harness of the
-                  same style. Made from high strength nylon webbing, and
-                  interwoven with high visibility reflective thread, this
-                  durable lead will stand the test of time and keep your curious
-                  canine from straying too far.
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/text()[1]
             brandText:
               - text: Rogz
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/@data-brand
@@ -86,12 +77,21 @@ extractions:
             variantCount:
               - text: "29"
                 xpath: /html/body/div[10]
+            description:
+              - text: The Rogz Reflective Fixed dog lead represents simplicity and
+                  functionality, and is the key to the popularity of this lead,
+                  which matches perfectly with the collar and harness of the
+                  same style. Made from high strength nylon webbing, and
+                  interwoven with high visibility reflective thread, this
+                  durable lead will stand the test of time and keep your curious
+                  canine from straying too far.
+                xpath: /html/body/div[11]
             privacyPolicy:
               - text: Yes
-                xpath: /html/body/div[11]
+                xpath: /html/body/div[12]
             customerServiceAvailability:
               - text: Yes
-                xpath: /html/body/div[12]
+                xpath: /html/body/div[13]
             price:
               - text: $21.99
             descriptionBullets:
@@ -107,4 +107,4 @@ extractions:
             promotion:
               - text: ""
         xpath: /html/body
-    timestamp: 1611762219598
+    timestamp: 1612355101876

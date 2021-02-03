@@ -2,7 +2,7 @@ input:
   _url: http://petstock.com.au
   URL: https://www.petstock.com.au/product/dog/my-dog-chef-select-chicken-supreme-wet-dog-food-6x100g/50303
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=16a1fc74-9732-41f2-956f-99d1076c3234/task=f9d60d31-d9b5-4318-8d87-7eda62259bc3/b2ee509d-e708-496e-b0c7-25f237a8d1a6.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=3f325a0b-9285-4c2d-a160-a6fafff710e7/task=c7ec3015-2cf6-4227-bb37-74086e3e812c/63b2f9c3-a60d-48f8-b5a3-d55267de158e.html
     extractionConfigId: product/details/stores/p/petstock/AU/extract
     data:
       - group:
@@ -19,15 +19,6 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]
               - text: Wet Food
                 xpath: /html/body/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
-            description:
-              - text: My Dog Chicken Supreme is a favourite in the My Dog range. Not only is it
-                  highly nutritious, but this dish is rich in meaty goodness
-                  with succulent chicken cooked in its own juices. This
-                  convenient six pack saves you money as well as trips to the
-                  store. The My Dog range is made in Australia using recipes
-                  that meet the nutritional levels established by AAFCO Dog Food
-                  Nutrition Profiles for adult dogs.
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/text()[1]
             brandText:
               - text: My Dog
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/@data-brand
@@ -83,12 +74,21 @@ extractions:
             variantCount:
               - text: "1"
                 xpath: /html/body/div[10]
+            description:
+              - text: My Dog Chicken Supreme is a favourite in the My Dog range. Not only is it
+                  highly nutritious, but this dish is rich in meaty goodness
+                  with succulent chicken cooked in its own juices. This
+                  convenient six pack saves you money as well as trips to the
+                  store. The My Dog range is made in Australia using recipes
+                  that meet the nutritional levels established by AAFCO Dog Food
+                  Nutrition Profiles for adult dogs.
+                xpath: /html/body/div[11]
             privacyPolicy:
               - text: Yes
-                xpath: /html/body/div[11]
+                xpath: /html/body/div[12]
             customerServiceAvailability:
               - text: Yes
-                xpath: /html/body/div[12]
+                xpath: /html/body/div[13]
             price:
               - text: $8.59
             descriptionBullets:
@@ -104,4 +104,4 @@ extractions:
             promotion:
               - text: Autoship Price (Save 10%)
         xpath: /html/body
-    timestamp: 1611762220540
+    timestamp: 1612355102709

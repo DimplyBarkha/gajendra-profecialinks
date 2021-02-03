@@ -2,7 +2,7 @@ input:
   _url: http://petstock.com.au
   URL: https://www.petstock.com.au/product/dog/royal-canin-miniature-schnauzer-adult-dry-dog-food/48960
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=16a1fc74-9732-41f2-956f-99d1076c3234/task=81daf192-42d9-4a79-826d-88f39eb40412/275088f7-5a1e-4371-9be3-18fb9645744f.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=3f325a0b-9285-4c2d-a160-a6fafff710e7/task=5a7f3b5a-6b3c-40ea-9c23-af52f9369b21/e93d7f1b-d098-4990-9dcf-e6b668486de5.html
     extractionConfigId: product/details/stores/p/petstock/AU/extract
     data:
       - group:
@@ -19,30 +19,6 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]
               - text: Dry Food
                 xpath: /html/body/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
-            description:
-              - text: Royal Canin Miniature Schnauzer complete dry food for dogs - Specially for
-                  adult and mature Miniature Schnauzers - Over 10 months old.
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/p[1]
-              - text: Urinary Tract Health
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/p[2]
-              - text: The Miniature Schnauzer is particularly prone to developing bladder
-                  stones. This food helps maintain a healthy urinary system,
-                  while also encouraging your dog to drink in order to promote
-                  urine dilution.
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/p[3]
-              - text: Intense Coat Colour
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/p[4]
-              - text: This formula contains optimal levels of specific amino acids to help
-                  maintain the coat's natural colour.
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/p[5]
-              - text: Ideal Weight
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/p[6]
-              - text: This formula helps maintain the Miniature Schnauzer's ideal weight.
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/p[7]
-              - text: Exclusive Kibble
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/p[8]
-              - text: Designed for dental health, this formula helps reduce tartar formation.
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/p[9]
             brandText:
               - text: Royal Canin
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/@data-brand
@@ -107,12 +83,27 @@ extractions:
             variantCount:
               - text: "2"
                 xpath: /html/body/div[10]
+            description:
+              - text: Royal Canin Miniature Schnauzer complete dry food for dogs - Specially for
+                  adult and mature Miniature Schnauzers - Over 10 months old. |
+                  Urinary Tract Health | Urinary Tract Health | The Miniature
+                  Schnauzer is particularly prone to developing bladder stones.
+                  This food helps maintain a healthy urinary system, while also
+                  encouraging your dog to drink in order to promote urine
+                  dilution. | Intense Coat Colour | Intense Coat Colour | This
+                  formula contains optimal levels of specific amino acids to
+                  help maintain the coat's natural colour. | Ideal Weight |
+                  Ideal Weight | This formula helps maintain the Miniature
+                  Schnauzer's ideal weight. | Exclusive Kibble | Exclusive
+                  Kibble | Designed for dental health, this formula helps reduce
+                  tartar formation.
+                xpath: /html/body/div[11]
             privacyPolicy:
               - text: Yes
-                xpath: /html/body/div[11]
+                xpath: /html/body/div[12]
             customerServiceAvailability:
               - text: Yes
-                xpath: /html/body/div[12]
+                xpath: /html/body/div[13]
             price:
               - text: $42.99
             descriptionBullets:
@@ -128,4 +119,4 @@ extractions:
             promotion:
               - text: Autoship Price (Save 15%)
         xpath: /html/body
-    timestamp: 1611762218317
+    timestamp: 1612355101980

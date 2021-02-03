@@ -2,7 +2,7 @@ input:
   _url: http://petstock.com.au
   URL: https://www.petstock.com.au/product/dog/petlife-click-go-outdoor-bed/56331
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=16a1fc74-9732-41f2-956f-99d1076c3234/task=3566afef-3b35-4d5e-bf79-fd378b81da05/86f64f82-90c1-4e7f-b056-d63ebc860850.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=3f325a0b-9285-4c2d-a160-a6fafff710e7/task=3d0c03f0-d331-43b6-b256-1665e2d22488/dd5f7198-51fa-40f3-aeee-a2ea86d983d2.html
     extractionConfigId: product/details/stores/p/petstock/AU/extract
     data:
       - group:
@@ -19,20 +19,9 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]
               - text: Bedding
                 xpath: /html/body/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
-            description:
-              - text: The PetLife Click & Go Bed makes setting up and moving your outdoor pet
-                  bed a breeze. The bed clicks together in one easy step with no
-                  tools required.The bed is flea and water resistant and is easy
-                  to clean so it's ideal for outdoor use.
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/p[1]
-              - text: Suitable for:Small breed dogs
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/p[2]
-              - text: One click assembly - no tools required
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]
-              - text: Flea and Water resistant
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]
-              - text: Available in 4 sizes
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]
+            listPrice:
+              - text: $179.00
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/section[1]/div[3]/form[1]/ol[1]/li[2]/div[3]/div[1]/div[2]
             brandText:
               - text: Petlife
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/@data-brand
@@ -88,14 +77,23 @@ extractions:
             variantCount:
               - text: "4"
                 xpath: /html/body/div[10]
+            description:
+              - text: "The PetLife Click & Go Bed makes setting up and moving your outdoor pet
+                  bed a breeze. The bed clicks together in one easy step with no
+                  tools required.The bed is flea and water resistant and is easy
+                  to clean so it's ideal for outdoor use. | Suitable for:Small
+                  breed dogs | Suitable for: | Features and Benefits | One click
+                  assembly - no tools required | Flea and Water resistant |
+                  Available in 4 sizes"
+                xpath: /html/body/div[11]
             privacyPolicy:
               - text: Yes
-                xpath: /html/body/div[11]
+                xpath: /html/body/div[12]
             customerServiceAvailability:
               - text: Yes
-                xpath: /html/body/div[12]
+                xpath: /html/body/div[13]
             price:
-              - text: $179.00
+              - text: $143.20
             descriptionBullets:
               - text: "3"
             quantity:
@@ -109,4 +107,4 @@ extractions:
             promotion:
               - text: ""
         xpath: /html/body
-    timestamp: 1611762219134
+    timestamp: 1612355101109
