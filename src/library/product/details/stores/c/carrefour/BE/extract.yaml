@@ -29,7 +29,7 @@ fields:
     xpath: //*[contains(@id,"productid")]//div[contains(@class,'pdp-priceSection')]//button[contains(@class,'btn_add_to_cart')]//span[text()='Ajouter']
     regExp: (.+)
     regExpReplace: In Stock
-    defaultValue: Out of Stock
+    defaultValue: In Stock
   - name: price
     singleValue: false
     xpath: //*[contains(@id,"productid")]//div[contains(@class,'pdp-priceSection')]//div[@class='prod-price-sec']//span[@class='prod-price']  
@@ -76,12 +76,12 @@ fields:
     regExpReplace: $1    
   - name: dietaryFibrePerServing
     singleValue: false
-    xpath: (//div[@class="dataDecode"]//tbody//tr//td[contains(normalize-space(),'Fibres alimentaires')]//following-sibling::td)[1]
+    xpath: (//div[@class="dataDecode"]//tbody//tr//td[contains(normalize-space(),'Fibres')]//following-sibling::td)[1]
     regExp: (.+?)\s+
     regExpReplace: $1
   - name: dietaryFibrePerServingUom
     singleValue: false
-    xpath: (//div[@class="dataDecode"]//tbody//tr//td[contains(normalize-space(),'Fibres alimentaires')]//following-sibling::td)[1]
+    xpath: (//div[@class="dataDecode"]//tbody//tr//td[contains(normalize-space(),'Fibres')]//following-sibling::td)[1]
     regExp: \s+(.+)
     regExpReplace: $1    
   - name: saturatedFatPerServing
@@ -114,14 +114,20 @@ fields:
     xpath: (//div[@class="dataDecode"]//tbody//tr//td[contains(normalize-space(),'Matières grasses')]//following-sibling::td)[1]
     regExp: \s+(.+)
     regExpReplace: $1
+  - name: calciumPerServing
+    singleValue: false
+    xpath: //td[.="Ca:"]/following-sibling::td
+  - name: magnesiumPerServing
+    singleValue: false
+    xpath: //td[.="Mg:"]/following-sibling::td
   - name: caloriesPerServing
     singleValue: false
-    xpath: (//div[@class="dataDecode"]//tbody//tr//td[contains(normalize-space(),'Energie2')]//following-sibling::td)[1]
+    xpath: (//td[contains(.,"Energie")]/following-sibling::td)[1]
     regExp: (.+?)\s+
     regExpReplace: $1
   - name: caloriesPerServingUom
     singleValue: false
-    xpath: (//div[@class="dataDecode"]//tbody//tr//td[contains(normalize-space(),'Energie2')]//following-sibling::td)[1]
+    xpath: (//td[contains(.,"Energie")]/following-sibling::td)[1]
     regExp: \s+(.+)
     regExpReplace: $1    
   - name: saltPerServing
@@ -136,12 +142,12 @@ fields:
     regExpReplace: $1
   - name: totalSugarsPerServing
     singleValue: false
-    xpath: (//div[@class="dataDecode"]//tbody//tr//td[contains(normalize-space(),'dont sucres')]//following-sibling::td)[1]
+    xpath: (//div[@class="dataDecode"]//tbody//tr//td[contains(normalize-space(),'sucres')]//following-sibling::td)[1]
     regExp: (.+?)\s+
     regExpReplace: $1
   - name: totalSugarsPerServingUom
     singleValue: false
-    xpath: (//div[@class="dataDecode"]//tbody//tr//td[contains(normalize-space(),'dont sucres')]//following-sibling::td)[1]
+    xpath: (//div[@class="dataDecode"]//tbody//tr//td[contains(normalize-space(),'sucres')]//following-sibling::td)[1]
     regExp: \s+(.+)
     regExpReplace: $1    
   - name: recyclingInformation
@@ -159,6 +165,20 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: false
     xpath: //span[contains(@class,'con-search-magnifying-glass')]
-    regExp: (.+)
+    regExp: (.+)   (([0-9]+)\W+([a-zA-Z]+))$
     regExpReplace: Yes
     defaultValue: No
+  - name: listPrice
+    singleValue: false
+    xpath: //div[contains(@class,'css-65w75')]//del | //p[@class="promotion"]/del
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//ul[@id='image-gallery1']//div[not(contains(@data-id,'-1'))]//img/@src)
+  - name: quantity
+    singleValue: false
+    xpath: //h1//div[@class='prod-title']
+    regExp: (([0-9]+)\W+([a-zA-Z]+))$
+    regExpReplace: Yes
+  - name: sodiumPerServing
+    singleValue: false
+    xpath: //td[.="Na:"]/following-sibling::td

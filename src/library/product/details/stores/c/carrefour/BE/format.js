@@ -25,16 +25,16 @@ const transform = (data) => {
   };
   for (const { group } of data) {
     for (const row of group) {
-      if (row.image) {
-        row.image.forEach(item => {
-          item.text = 'https://drive.carrefour.eu' + item.text;
-        });
-      }
-      if (row.alternateImages) {
-        row.alternateImages.forEach(item => {
-          item.text = 'https://drive.carrefour.eu' + item.text;
-        });
-      }
+      // if (row.image) {
+      //   row.image.forEach(item => {
+      //     item.text = 'https://drive.carrefour.eu' + item.text;
+      //   });
+      // }
+      // if (row.alternateImages) {
+      //   row.alternateImages.forEach(item => {
+      //     item.text = 'https://drive.carrefour.eu' + item.text;
+      //   });
+      // }
       if (row.brandText) {
         if (row.nameExtended) {
           row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.nameExtended[0].text }];

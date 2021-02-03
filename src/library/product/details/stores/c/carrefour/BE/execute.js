@@ -5,8 +5,7 @@ module.exports = {
     country: 'BE',
     store: 'carrefour',
     domain: 'carrefour.eu',
-    loadedSelector: 'div#product-detail-container',
-    noResultsXPath: "//div[@class='search-empty']",
+    noResultsXPath: '//h2[contains(.,"0 résultats correspondants à")]',
     zipcode: '',
   },
 };
