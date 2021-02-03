@@ -1,0 +1,13 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: paginationUrl
+    singleValue: false
+    description: desired url to pass in chain
+    xpath: //text()
+  - name: resultsCount
+    singleValue: false
+    description: total number of results
+    xpath: ancestor::html//div[@id="my-results-count"]
