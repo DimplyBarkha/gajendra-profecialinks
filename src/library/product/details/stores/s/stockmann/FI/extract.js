@@ -35,6 +35,26 @@ async function implementation (
   } catch (err) {
     console.log('Error adding UPDP', err);
   }
+
+  const variantCount = await context.evaluate(async function () {
+    return document.querySelectorAll('div.swatch-item-wrapper div.swiper-wrapper>div.swiper-slide>button').length;
+  });
+
+  await context.extract(productDetails, { transform:transform[0] });
+  for (let index = 2; index <= variantCount; index++) {
+    try {
+      await context.click(`div.swatch-item-wrapper div.swiper-wrapper>div.swiper-slide:nth-child(${index})>button`);
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      if (variantCount !== index) {
+        await context.extract(productDetails, { type: 'APPEND', transform:transform[0]  });
+      } else {
+        return await context.extract(productDetails, { type: 'APPEND', transform:transform[0]  });
+      }
+    } catch (error) {
+      console.log('Error While itrerating over the variants',error);
+    }
+  }
+
   return await context.extract(productDetails, { transform });
 }
 module.exports = {

@@ -47,6 +47,17 @@ const transform = (data) => {
         });
         row.specifications = [{ text: arrSpecs.join(' || ') }];
       }
+      if(row.variantId){
+        let tmpObj;
+        row.variantId.forEach(item=>{
+          tmpObj=JSON.parse(item.text);
+          if(tmpObj.hasOwnProperty('id')){
+            item.text=tmpObj.id;
+          }else{
+            item.text='';
+          }
+        })
+      }
     }
   }
   return cleanUp(data);
