@@ -110,7 +110,7 @@ module.exports = {
       altImagesList.id = 'alternate_images_list';
       altImagesList.style.display = 'none';
       document.body.appendChild(altImagesList);
-      const imgThumbnails = document.querySelectorAll('div[data-test="product-images"] ul > li');
+      const imgThumbnails = document.querySelectorAll('div[data-test="product-images"] ul > li:not(.nav--video-still)');
       const iterations = imgThumbnails.length || 1;
       for (let i = 0; i < iterations; i++) {
         if (imgThumbnails.length) {

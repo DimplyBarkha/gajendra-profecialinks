@@ -192,7 +192,7 @@ fields:
   description: 
 - name: secondaryImageTotal
   description: 
-  xpath: count(//div[@data-test="product-images"]//ul/li[position() > 1])
+  xpath: count(//div[@data-test="product-images"]//ul/li[not(contains(@class, "nav--video-still")) and position() > 1])
   # xpath: count((//div[contains(@class, "js_show-more-gallery")]//img)[position() > 1])
 - name: news
   description: 
