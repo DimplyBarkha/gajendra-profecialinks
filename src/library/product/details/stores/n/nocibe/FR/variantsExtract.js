@@ -38,16 +38,20 @@ module.exports = {
           } else {
             const activeVariant = document.querySelector('link[rel="canonical"]')
               ? document.querySelector('link[rel="canonical"]').getAttribute('href') : '';
-            const newDiv = addHiddenDiv('variants', '');
-            addHiddenDiv('variant', activeVariant.match(/-s(\d+)/)[1], activeVariant, newDiv);
+            if (activeVariant !== null) {
+              const newDiv = addHiddenDiv('variants', '');
+              addHiddenDiv('variant', activeVariant.match(/-s(\d+)/)[1], activeVariant, newDiv);
+            }
           }
         });
       }
       if (variants.length === 0) {
         const url = document.evaluate('//link[(@rel="canonical") and not(contains(@href, "youtube"))]/@href', document, null, XPathResult.STRING_TYPE, null).stringValue.trim();
-        const id = url.match(/-s(\d+)/)[1];
-        const newDiv = addHiddenDiv('variants', '');
-        addHiddenDiv('variant', id, url, newDiv);
+        if (url !== '') {
+          const id = url.match(/-s(\d+)/)[1];
+          const newDiv = addHiddenDiv('variants', '');
+          addHiddenDiv('variant', id, url, newDiv);
+        }
       }
     });
     await context.extract(variants);
