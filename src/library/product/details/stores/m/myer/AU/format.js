@@ -49,6 +49,15 @@ const transform = (data) => {
               }
             });         
           }
+          if (row.description) {
+            let description_ar = [];
+            row.description.forEach(item => {
+              description_ar.push(item.text);
+            });
+            if (description_ar.length) {
+              row.description = [{ "text": description_ar.join(" "), 'xpath': row.description[0].xpath }];
+            }
+        }
           if (row.price) {      
             row.price.forEach(item => {      
               item.text  = item.text.slice(1,-1);

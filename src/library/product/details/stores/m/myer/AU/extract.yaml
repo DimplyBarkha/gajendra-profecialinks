@@ -36,7 +36,10 @@ fields:
     regExpReplace: $1
   - name: description
     singleValue: false
-    xpath:  //div[@id='product-details-accordian-description-accordion-id']//div[@class='description']//div[@data-automation="product-description-description"]
+    xpath: //div[@id='product-details-accordian-description-accordion-id']//div[@class='description']//div[@data-automation="pep-attributes"]//ul[@data-automation="pep-attributes-list"] | //div[@id='product-details-accordian-description-accordion-id']//div[@class='description']//div[@data-automation="product-description-description"]
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[@id='product-details-accordian-description-accordion-id']//div[@class='description']//div[@data-automation="product-description-description"]//p[contains(text(),'Product Ingredients:')]
   - name: descriptionBullets
     singleValue: false
     xpath: //div[@id='product-details-accordian-description-accordion-id']//div[@class='description']//ul//li    
