@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: '//div[@class="product-detail"]'
+recordXPath: '//body[@class="nuxt-ready"]'
 fields:
   - name: image
     # singleValue: true
@@ -55,7 +55,10 @@ fields:
       e.g. "Visit the Gillette Store"
   - name: sku
     # singleValue: true
+    xpath: //div[@class='accordion-item-content']/p
     description: The store-specific product identifier
+    regExp: Art\.Nr\.. (\d+)
+    regExpReplace: $1
   - name: variantId
     # singleValue: true
     xpath: //div[@class='accordion-item-content']/p
@@ -84,7 +87,8 @@ fields:
     description: Shipping information for the product
   - name: variantCount
     # singleValue: true
-    xpath: count((//div[@class='product-variant-selector'])[2]/div/label/span/div/div[@class='pvsil-title'])
+    # xpath: count((//div[@class='product-variant-selector'])[2]/div/label/span/div/div[@class='pvsil-title'])
+    xpath: //html//div[@id='variantCount']
     description: Number of variants listed
     type: NUMBER
   - name: name
@@ -119,4 +123,16 @@ fields:
   - name: directions
     # singleValue: false
     xpath: concat(//h2//span[contains(text(),"Fütterungsempfehlung")]/text(),' ',//h2//span[contains(text(),"Fütterungsempfehlung")]/parent::h2/following::div[@class="accordion-item-content"][1])
+    description: null
+  - name: firstVariant
+    # singleValue: false
+    xpath: //html//div[@id='firstVariant']
+    description: null
+  - name: gtin
+    # singleValue: false
+    xpath: //html//div[@id='upcgtin']
+    description: null
+  - name: eangtin
+    # singleValue: false
+    xpath: //html//div[@id='upcgtin']
     description: null
