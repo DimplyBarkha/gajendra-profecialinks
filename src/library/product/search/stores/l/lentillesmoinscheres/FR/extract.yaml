@@ -25,6 +25,6 @@ fields:
   #   xpath: //div[@class="reviews-count-annotation annotation fontRobotoCondensed"]
   - name: id
     singleValue: false
-    xpath: //h3/a/@href
-    regExp: ([^\/]+)(.html)$
+    xpath: //ul[@class='products-catalog row']//li//div[@class='picture']//img/@src
+    regExp: ([^\/]+)(.jpg)
     regExpReplace: $1
