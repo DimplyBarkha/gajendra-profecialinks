@@ -61,17 +61,17 @@ module.exports = {
       }
       // @ts-ignore
       const aa = document.querySelector('section[class="prd_section"] div[class*=\'prd_section\']').innerText
-      if(aa!=null){
-      // @ts-ignore
-      var desc1=aa.replace('Artikelbeschreibung','')
+      if (aa != null) {
+        // @ts-ignore
+        var desc1 = aa.replace('Artikelbeschreibung', '')
         addElementToDocument('desc1', desc1);
-      } 
+      }
       const rawjson = getXpath("//script[@id='productDataJson']/text()", 'nodeValue');
-      
+
       var jsondata = JSON.parse(rawjson);
-      var sku=jsondata.id;
+      var sku = jsondata.id;
       var a = jsondata.sortedVariationIds;
-      
+
       var variants = a.join(' | ');
       addElementToDocument('sku', sku);
       addElementToDocument('variant', variants);
@@ -86,6 +86,19 @@ module.exports = {
       //     //   var npu = perunit.replace(',', '.')
       //     //   addElementToDocument('perunit', npu);
       //     // }
+      const avail = getXpath("//div[@id='availability']/span/text()", 'nodeValue');
+      if (avail != null) {
+        if (avail.includes('leider ausverkauft')) {
+          var newavail = 'Out Of Stock';
+          addElementToDocument('newavail', newavail);
+        }
+        else {
+          var newavail = 'In Stock'
+          addElementToDocument('newavail', newavail);
+        }
+      }
+
+
       const weight = getXpath("(//*[contains(text(),'Gewicht')]//parent::span//parent::td//parent::tr//td[2])[1]/text()", 'nodeValue');
       if (weight != null) {
         try {
