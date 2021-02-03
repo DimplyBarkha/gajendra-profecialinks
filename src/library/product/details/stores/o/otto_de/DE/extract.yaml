@@ -50,7 +50,8 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: concat(//div[@class="prd_module prd_module--noLine prd_sellingPoints js_prd_sellingPoints"],//div[@class="prd_moreBox js_prd_moreBox"]//div[@class="prd_moreBox__content js_prd_moreBox__content"])  
+    xpath: //html//div[@id='desc1']
+    #xpath: concat(//div[@class="prd_module prd_module--noLine prd_sellingPoints js_prd_sellingPoints"],//div[@class="prd_moreBox js_prd_moreBox"]//div[@class="prd_moreBox__content js_prd_moreBox__content"])  
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -86,7 +87,7 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //meta[@itemprop='sku']/@content
+    xpath: //html//div[@id='sku']
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
@@ -137,12 +138,13 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
-    xpath: count(//ul[@class='p_selTiles50 prd_clearfix']/li)
+    xpath: //html//div[@id='cts']
+    #xpath: count(//ul[@class='p_selTiles50 prd_clearfix']/li)
     type: NUMBER
   - name: color
     singleValue: true
     description: A textual description of the colour
-    xpath: //span[contains(text(),'Farbe')]/parent::td/parent::tr/td[2]
+    xpath: (//span[contains(text(),'Farbe')]/parent::td/parent::tr/td[2])[1]
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -465,9 +467,9 @@ fields:
     description: In product page, information about a new version of the product -
       new desription info
   - name: variantInformation
-    singleValue: false
+    singleValue: true
     description: colour / scent / flavour / other
-    xpath: (//span[@class='prd_selectedValue']/text())[1]
+    xpath: (//span[@class='prd_selectedValue']/text())[1]|(//span[@class='prd_selectedValue'])//text()
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
@@ -479,7 +481,7 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
-    xpath: (//div[@class='reco_cinema reco_productlineCinema']/div[@class='reco_cinema__container']/ul/li/a[@class='reco_cinema__adslink']/@title|//ul[@class='p_selTiles50 prd_clearfix']/li/@title)[1]  
+    xpath: (//span[@class='prd_selectedValue']/text())[1]|(//span[@class='prd_selectedValue'])//text()  
   - name: variants
     singleValue: false
     description: null
