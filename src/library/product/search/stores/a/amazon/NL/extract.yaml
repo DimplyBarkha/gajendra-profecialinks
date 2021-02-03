@@ -1,9 +1,10 @@
 extends: ../shared
 fields:
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: false
-    xpath: //div[contains(@class,"_multi-card-creative-desktop_Rating_container")]/i | //span[contains(@aria-label,"stelle")]/@aria-label | //div[@class="s-main-slot s-result-list s-search-results sg-row"]/div/div/span/div/div/div[3]/div/span/@aria-label | //div[@class="a-row a-size-small"]/span/span/a/i/span/text()
+    xpath: //div[@class='a-row a-size-small']/span[contains(@aria-label,"sterren")]/@aria-label
     regExp: ^([^\s]+)
+    type: NUMBER
   - name: ratingCount
     singleValue: false
     xpath: //div[@class="s-main-slot s-result-list s-search-results sg-row"]/div/div/span/div/div/div[3]/div/span[2]/@aria-label | //div[@class="a-row a-size-small"]/span[2]/@aria-label
@@ -17,8 +18,8 @@ fields:
     defaultValue: '.|,'
   - name: domain
     defaultValue: 'amazon.nl'  
-  # - name: price
-  #   singleValue: false
-  #   xpath: //span[@data-a-color="price"]/span[@class="a-offscreen"] | //*[@data-click-el="price"]/@aria-label | //span[contains(@class,"a-price _multi-card-creative-desktop_Price")]/span[1] | //span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")] | //span[@cel_widget_id="MAIN-SEARCH_RESULTS" and not(/div[contains(@class, "sg-col-inner")])]//div[contains(@class, "a-section") and //span[@class="a-price"]][1]//span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")]
-  #   regExp: (^([^€]*))(\,)([^\€]*)($)
-  #   regExpReplace: $5 $2.$4  
+  - name: price
+    singleValue: false
+    xpath: //span[@data-a-color="price"]/span[@class="a-offscreen"] | //*[@data-click-el="price"]/@aria-label | //span[contains(@class,"a-price _multi-card-creative-desktop_Price")]/span[1] | //span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")] | //span[@cel_widget_id="MAIN-SEARCH_RESULTS" and not(/div[contains(@class, "sg-col-inner")])]//div[contains(@class, "a-section") and //span[@class="a-price"]][1]//span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")]
+    regExp: (^([^€]*))(\,)([^\€]*)($)
+    regExpReplace: $5 $2.$4 
