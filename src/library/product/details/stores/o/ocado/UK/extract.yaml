@@ -191,6 +191,10 @@ fields:
     xpath: //div[@class="bop-gallery__item  bop-gallery__itemImage"]/img/@src
     regExp: (.+)_640x640.jpg
     regExpReplace: http://www.ocado.com$1_1280x1280.jpg
+  - name: secondaryImageTotal
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath: count(//div[@class="bop-gallery__item  bop-gallery__itemImage"]/img/@src)
   - name: ratingCount
     description: The number of ratings
     type: NUMBER
@@ -261,6 +265,10 @@ fields:
     type: NUMBER
     xpath: //div[@class='gn-accordionElement'][1]//div/div[@class='bop-info__content'][not(preceding-sibling::h6)]/text() | //div[@class='gn-accordionElement'][1]//div/div[@class='bop-info__content'][not(preceding-sibling::h6)]/p
   - name: videos
+    singleValue: false
+    description: URLs of videos on page
+    xpath: //iframe[@class='bop-gallery__video']/@src
+  - name: galleryVideos
     singleValue: false
     description: URLs of videos on page
     xpath: //iframe[@class='bop-gallery__video']/@src
