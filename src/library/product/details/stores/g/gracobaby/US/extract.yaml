@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: false
     xpath: //button[contains(@aria-label,'1 of ')]/img/@src
-    # regExp: (.*\?)
+    regExp: (.*\?)
   - name: imageAlt
     singleValue: false
     xpath: //button[contains(@aria-label,'1 of ')]/img/@alt
@@ -110,18 +110,20 @@ fields:
   - name: manufacturerImages
     singleValue: false
     xpath: //html//div[@class='manufactureralternateImages']
-  - name: firstVariant
-    singleValue: false
-    xpath: (//div[contains(@class,'color-attribute')]/@aria-describedby)[1]
   - name: variantCount
     singleValue: false
     xpath: count(//div[contains(@class,'color-attribute')]/span[contains(@class,'js-nonretail')]/@data-attr-value)
   - name: variants
     singleValue: false
-    xpath: count(//div[contains(@class,'color-attribute')]/span[contains(@class,'js-nonretail')]/@data-attr-value)
-  - name: video
+    xpath: //html//div[@class='variantsAll']
+  - name: videos
     singleValue: false
     xpath: //html//div[@class="addvideoInfo"]
   - name: listPrice
     singleValue: false
     xpath: //div[@class="prices-add-to-cart-actions mobile d-md-none "]//span[contains(@class,'strike-through')]/span/text()
+  - name: hasComparisonTable
+    xpath: //h2[contains(text(),'Comparison')]
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
