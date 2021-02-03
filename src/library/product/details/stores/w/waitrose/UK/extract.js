@@ -32,19 +32,14 @@ module.exports = {
         document.body.appendChild(element);
       }
     });
-    const productId = await context.evaluate(async function () {
-      await new Promise((resolve) => setTimeout(resolve, 500));
-      const productId = document.querySelector('div[data-bv-v="contentList:1"]') ? document.querySelector('div[data-bv-v="contentList:1"]').getAttribute('data-product-id') : '';
-      return productId;
-    });
     var data = await context.extract(productDetails, { transform });
     for (let k = 0; k < data.length; k++) {
       for (let i = 0; i < data[k].group.length; i++) {
-        if ('sku' in data[k].group[i] && productId !== '') {
-          data[k].group[i].sku[0].text = productId;
+        if ('sku' in data[k].group[i]) {
+          data[k].group[i].sku[0].text = data[k].group[i].sku[0].text.split('/').pop().split('-')[0];
         }
-        if ('variantId' in data[k].group[i] && productId !== '') {
-          data[k].group[i].variantId[0].text = productId;
+        if ('variantId' in data[k].group[i]) {
+          data[k].group[i].variantId[0].text = data[k].group[i].variantId[0].text.split('/').pop().split('-')[0];
         }
         if ('caloriesPerServing' in data[k].group[i] && data[k].group[i].caloriesPerServing.length > 1) {
           data[k].group[i].caloriesPerServing[0].text += '/' + data[k].group[i].caloriesPerServing[1].text;

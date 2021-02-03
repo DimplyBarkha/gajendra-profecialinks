@@ -37,7 +37,7 @@ fields:
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
 - name: listPrice
-  xpath: //span[contains(@class, "offerDescription")]
+  xpath: //span[contains(@class, "offerDescription") and not(contains(text(), "Add 2 for"))]
   regExp: .\d+.\d+$
   singleValue: true
   description: The stated undiscounted price for the product
@@ -84,13 +84,11 @@ fields:
   description: GTIN code (includes UPC/EAN)
 - name: sku
   singleValue: true
-  defaultValue: '123'
-  xpath: //div[contains(@class, "bv-shared")]/@data-product-id
+  xpath: //a[@id="productUrl"]/@title
   description: The store-specific product identifier
 - name: variantId
   singleValue: true
-  defaultValue: '123'
-  xpath: //div[contains(@class, "bv-shared")]/@data-product-id
+  xpath: //a[@id="productUrl"]/@title
   description: Identifier for a variant from a store where variants share the same
     sku
 - name: mpc
@@ -116,8 +114,6 @@ fields:
   singleValue: false
   type: STRING
   xpath: //span[@class="ratingText___2kURz"]/span/text()
-  # xpath: //div[@class="bv-header"]//span[@class="bv-content-pagination-pages-current"]/text()
-  # regExp: ([^\s]\d+[^\s])
   description: The number of ratings
 - name: aggregateRatingText
   singleValue: true
@@ -449,7 +445,7 @@ fields:
   description: Unit of Measure Data for Salt
 - name: dietaryInformation
   singleValue: true
-  xpath: //h3[text()="Lifestyle"]/following-sibling::ul,  //h3[text()="Nutritional claims"]/following-sibling::ul
+  xpath: //h3[text()="Lifestyle"]/following-sibling::ul | //h3[text()="Nutritional claims"]/following-sibling::ul
   description: 
 - name: specifications
   singleValue: true
