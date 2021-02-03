@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     domain: 'jdsports.co.uk',
-    store: 'jdsports',
+    store: 'JD_Sports',
     zipcode: '',
   },
 };

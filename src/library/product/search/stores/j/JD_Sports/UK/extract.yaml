@@ -10,9 +10,8 @@ fields:
     regExpReplace: https://www.jdsports.co.uk$1
   - name: thumbnail
     description: The URL for the product thumbnail image
-    type: FILE
     # xpath: //ul[not(contains(@class,'productList rcHldr'))]//a[@class="itemImage"]/picture//img/@src
-    xpath: //ul[@id="productListMain"]//img[@class="thumbnail imageLazy loaded"]/@srcset
+    xpath: //ul[@id="productListMain"]//a/picture/source/@srcset
     regExp: ((\w.+)[,])
     regExpReplace: $2
   - name: name
