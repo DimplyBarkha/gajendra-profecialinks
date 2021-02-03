@@ -23,13 +23,13 @@ fields:
     xpath: //div[@itemprop="offers"]//div[contains(@class,"MuiTypography-h3 MuiTypography-colorTextSecondary")]
   - name: price
     singleValue: false
-    xpath: //div[@itemprop="offers"]//div[contains(@class,"MuiTypography-h1 MuiTypography-colorError")]
+    xpath: //div[contains(@class,"MuiTypography-h1 MuiTypography-noWrap") or (contains(@class,"MuiTypography-noWrap"))]
   - name: availabilityText
     singleValue: false
     xpath: //div[@itemprop="offers"]/meta[@itemprop="availability" and @content="https://schema.org/InStock"]/@content
     regExp: (.+)
     regExpReplace: In Stock
-    defaultValue: Out of Stock
+    defaultValue: Out Of Stock
   - name: description
     singleValue: false
     xpath: //div[@class="MuiTabs-root"]/following::*/div[@class="react-swipeable-view-container"]/div[1]
@@ -56,8 +56,8 @@ fields:
     singleValue: false
     xpath: //div[@itemtype="http://schema.org/Product"]/meta[@itemprop="gtin13"]/@content
   - name: sku
-    singleValue: true
-    description: The store-specific product identifier
+    singleValue: false
+    xpath: //div[@itemtype="http://schema.org/Product"]/@data-product-id
   - name: variantId
     singleValue: false
     xpath: //div[@itemtype="http://schema.org/Product"]/meta[@itemprop="gtin13"]/@content
@@ -198,7 +198,7 @@ fields:
     description: null
   - name: otherSellersName
     singleValue: false
-    description: null
+    xpath: //p[contains(.,"Adres producenta:")]//text()
   - name: otherSellersPrice
     singleValue: false
     description: null
