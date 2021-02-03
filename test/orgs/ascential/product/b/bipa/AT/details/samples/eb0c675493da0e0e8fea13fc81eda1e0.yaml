@@ -2,12 +2,12 @@ input:
   id: 747714
   _url: http://bipa.at
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=4a7f73d8-4f1f-47db-9563-9447dbd460b7/task=c9d9ae0a-6b7f-4976-ac58-d24170ce38ee/1cd175ac-df81-4f62-a19b-2dbd28b38cae.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=0960b02e-37c7-42ae-bc7d-9495307639b4/task=5107753c-48dd-4e44-9088-59bbed9f9572/ccc69903-09bb-42b4-a2be-72e1f59d7c56.html
     extractionConfigId: product/details/stores/b/bipa/AT/extract
     data:
       - group:
           - image:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1611298543489/original/747714.png?sw=450&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612346602167/original/747714.png?sw=450&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
             imageAlt:
               - text: GOSH Catchy Eyes Mascara
@@ -24,9 +24,6 @@ extractions:
             nameExtended:
               - text: GOSH Catchy Eyes Mascara
                 xpath: /html/head[1]/meta[10]/@content
-            listPrice:
-              - text: 11,99
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/span[1]/text()[1]
             availabilityText:
               - text: In stock
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[1]/div[1]/div[1]/span[1]/text()[1]
@@ -54,14 +51,23 @@ extractions:
             quantity:
               - text: 1 Stück
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/text()[1]
+            sku:
+              - text: B3-747714
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/script[1]
+            variantId:
+              - text: B3-747714
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/script[1]
             mpc:
               - text: "5701278609944"
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/script[1]
+            ratingCount:
+              - text: "14"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/@ratingcount
             aggregateRatingText:
-              - text: "4.928571428571429"
+              - text: 5,0
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/@ratingextracted
             aggregateRating:
-              - text: "4.928571428571429"
+              - text: 5,0
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/@ratingextracted
             name:
               - text: Catchy Eyes Mascara
@@ -89,7 +95,7 @@ extractions:
             Image360Present:
               - text: No
             price:
-              - text: 8,99
+              - text: 11,99
             descriptionBullets:
               - text: "4"
                 type: NUMBER
@@ -103,4 +109,4 @@ extractions:
                 locale: de_AT
                 value: 0
         xpath: /
-    timestamp: 1611322741026
+    timestamp: 1612359189276

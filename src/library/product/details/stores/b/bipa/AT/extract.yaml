@@ -76,11 +76,13 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //div[@class='bv-shared bv-core-container-495']/@data-product-id 
+    xpath: //div[@class='pdp__cockpit']/div/script
+    regExp: (?<=productId = ").+?(?=")
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //div[@class='bv-shared bv-core-container-495']/@data-product-id
+    xpath: //div[@class='pdp__cockpit']/div/script
+    regExp: (?<=productId = ").+?(?=")
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -102,7 +104,7 @@ fields:
   - name: ratingCount
     singleValue: true
     description: The number of ratings
-    xpath: //span[@itemprop='reviewCount']/text()|//span[@itemprop='reviewCount']/font/font/text() | //span[@itemprop='reviewCount']/text()|//span[@itemprop='reviewCount']/text()
+    xpath: //div[@class='pdp__wrapper--content']/@ratingcount
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating

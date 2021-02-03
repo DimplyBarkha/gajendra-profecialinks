@@ -2,12 +2,12 @@ input:
   id: 725017
   _url: http://bipa.at
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=b319947a-a00e-4889-8622-5d87071d0aa1/task=1a9a9d2b-5494-4578-b073-02aca76824b4/adb0e290-e76c-44a8-bd35-730936eb2533.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=0960b02e-37c7-42ae-bc7d-9495307639b4/task=02dc0c93-3869-4454-9eca-3d7e39c77eec/cdc58a6c-b262-4186-aa64-2c80f6cbf3c9.html
     extractionConfigId: product/details/stores/b/bipa/AT/extract
     data:
       - group:
           - image:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612248938807/original/725017.png?sw=450&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612346602167/original/725017.png?sw=450&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
             imageAlt:
               - text: MANHATTAN Soft Compact Powder
@@ -54,14 +54,23 @@ extractions:
             weightGross:
               - text: "Bruttogewicht: 45 Gramm"
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/text()[1]
+            sku:
+              - text: B3-729543
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/script[1]
+            variantId:
+              - text: B3-729543
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/script[1]
             mpc:
               - text: "4002554169345"
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/script[1]
+            ratingCount:
+              - text: "91"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/@ratingcount
             aggregateRatingText:
-              - text: 4,3
+              - text: 4,2
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/@ratingextracted
             aggregateRating:
-              - text: 4,3
+              - text: 4,2
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/@ratingextracted
             name:
               - text: Soft Compact Powder
@@ -109,4 +118,4 @@ extractions:
                 locale: de_AT
                 value: 5
         xpath: /
-    timestamp: 1612281679814
+    timestamp: 1612359188310

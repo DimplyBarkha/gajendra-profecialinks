@@ -2,12 +2,12 @@ input:
   id: 293467
   _url: http://bipa.at
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=b319947a-a00e-4889-8622-5d87071d0aa1/task=f021b945-080a-4263-97fd-34837afc99f8/449e16bc-7c65-45ba-a55a-7f79b521e32a.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=0960b02e-37c7-42ae-bc7d-9495307639b4/task=3b2d9e12-16b4-4970-bf1a-b0c31a9618dc/9fae2f8e-0ec2-4047-9778-723262d04410.html
     extractionConfigId: product/details/stores/b/bipa/AT/extract
     data:
       - group:
           - image:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612248938807/original/293467.png?sw=450&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612346602167/original/293467.png?sw=450&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
             imageAlt:
               - text: TENA Silhouette Lady Pants Creme M
@@ -33,14 +33,23 @@ extractions:
             quantity:
               - text: 9 Stück
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/text()[1]
+            sku:
+              - text: B3-293467
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/script[1]
+            variantId:
+              - text: B3-293467
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/script[1]
             mpc:
               - text: "7322541065670"
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/script[1]
+            ratingCount:
+              - text: "9"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/@ratingcount
             aggregateRatingText:
-              - text: 4,2
+              - text: 4,1
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/@ratingextracted
             aggregateRating:
-              - text: 4,2
+              - text: 4,1
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/@ratingextracted
             name:
               - text: Silhouette Lady Pants Creme M
@@ -73,4 +82,4 @@ extractions:
                 locale: de_AT
                 value: 0
         xpath: /
-    timestamp: 1612281676180
+    timestamp: 1612359184692
