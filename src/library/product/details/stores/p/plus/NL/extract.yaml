@@ -53,7 +53,7 @@ fields:
   - name: quantity
     description: Quantity as described on the page
     xpath: //div[@class="product-detail-packing"]
-    regExp: ([\d]+)(\s\w+)
+    regExp: ([\d.]+)(\s\w+)
   - name: weightNet
     description: Net weight as described on the page
   - name: weightGross
