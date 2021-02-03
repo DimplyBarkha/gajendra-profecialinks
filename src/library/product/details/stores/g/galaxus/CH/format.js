@@ -88,7 +88,7 @@ const transform = (data) => {
           row.secondaryImageTotal.shift();
         }
         if (row.secondaryImageTotal) {
-          row.secondaryImageTotal = [{'text':row.secondaryImageTotal.length, 'xpath':row.secondaryImageTotal[0].xpath}];              
+          row.secondaryImageTotal = [{'text':row.secondaryImageTotal.length}];              
         } 
      }
         if (row.description) {
@@ -97,9 +97,18 @@ const transform = (data) => {
               description_ar.push(item.text);
             });
             if (description_ar.length) {
-              row.description = [{ "text": description_ar.join(" || "), 'xpath': row.description[0].xpath }];
+              row.description = [{ "text": description_ar.join("siva").replace(/siva.*/, ''), 'xpath': row.description[0].xpath }];
             }
         }
+        if (row.nameExtended) {
+          let info = [];
+          row.nameExtended.forEach(item => {
+            info.push(item.text);
+          });
+          if (info.length) {
+            row.nameExtended = [{ "text": info.join(" "), 'xpath': row.nameExtended[0].xpath }];
+          }
+      }
         if(row.variants){
         
           let value = []
