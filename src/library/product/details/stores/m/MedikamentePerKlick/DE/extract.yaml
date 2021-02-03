@@ -10,7 +10,7 @@ fields:
   singleValue: true
   description: URL of the main product image
   # xpath: //meta[@property="og:image"]/@content
-  xpath:  //div[@class="photo " or @class="photo with-multiple-photo" or @class="photo sonderpreis with-multiple-photo"]//img[@name="mainImage"]/@src
+  xpath:  //img[@name="mainImage"]/@src
   regExp: (.+)
   regExpReplace: https://www.medikamente-per-klick.de$1
 - name: imageAlt
@@ -48,7 +48,9 @@ fields:
   singleValue: true
   xpath: //div[@class="wide-6 productInformations offerDetails"]//dd[@class="availability status status1"]/span/@title
   # xpath: //div[@class="wide-6 productInformations offerDetails"]//dl[3]/dd[@class="availability status status1"]/span/@title
-  defaultValue: Out of Stock
+  defaultValue: In Stock
+  regExp: out_of_stock
+  regExpReplace: Out of Stock
 - name: description
   # type: TEXT[]
   singleValue: false 
@@ -94,7 +96,7 @@ fields:
 - name: variantId
   singleValue: true
   # xpath: //div[@class="wide-6 productInformations offerDetails"]//dd[@itemprop="productID"]//text()
-  xpath: //div[contains(@class,"productInformations")]//dd[@itemprop="productID"]
+  xpath: (//dl[@class="productInfos"]//dd[@itemprop="productID"]//text())[1]
 - name: mpc
   singleValue: true
   description: The manufacturer model code (unique) of the product
@@ -454,10 +456,11 @@ fields:
   description: List of additives in the product
 - name: pricePerUnit
   singleValue: true
+  type: CURRENCY
   description: Price of the product split into certain units
   xpath: //dl[@class="productPrice"]//dd[@class="groundPrice"]
-  regExp: '(\d+,\d+)'
-  regExpReplace: $1
+  # regExp: '(\d+,\d+)'
+  # regExpReplace: $1
 - name: pricePerUnitUom
   singleValue: true
   description: The unit of measurement used in price_per_unit
