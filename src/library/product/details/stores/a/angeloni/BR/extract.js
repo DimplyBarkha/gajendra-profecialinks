@@ -11,6 +11,7 @@ module.exports = {
   implementation: async (inputs, parameters, context, dependencies) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
+    await context.waitForSelector('.box-produto a');
     await context.evaluate(async () => {
       if (document.querySelector('.box-produto a')) {
         document.querySelector(('.box-produto a')).removeAttribute('onClick');
@@ -19,16 +20,15 @@ module.exports = {
       }
     });
     // await new Promise((resolve, reject) => setTimeout(resolve, 100000));
-    await context.waitForSelector('.box-produto a');
     await context.clickAndWaitForNavigation('.box-produto a', {}, {});
     await context.evaluate(async () => {
       let scrollTop = 0;
       while (scrollTop <= 20000) {
-        await stall(100);
+        await stall(200);
         scrollTop += 2000;
         window.scroll(0, scrollTop);
         if (scrollTop === 30000) {
-          await stall(500);
+          await stall(2000);
           break;
         }
       }
