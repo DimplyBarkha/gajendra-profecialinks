@@ -45,6 +45,17 @@ const transform = (data) => {
                     text: text.replace(new RegExp('(.+\\/)\\/(.+)', 'g'), '$1$2'),
                 }, ];
             }
+            if (row.image){
+                const img = row.image[0].text;
+                let text= '';
+                if(img.includes('noimage')){
+                    text=img;
+                }
+                else{
+                    text= img.replace(/(.+)(h=\d+&w=\d+)/g,'$1h=1280&w=1280');
+                }
+                row.image=[{text}];
+            }
         }
     }
     return data;

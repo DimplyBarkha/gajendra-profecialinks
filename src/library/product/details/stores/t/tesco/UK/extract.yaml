@@ -6,8 +6,8 @@ fields:
   - name: image
     singleValue: true
     xpath: //img[@class="product-image product-image-visible"]/@src|//div[contains(@class,'product-image--wrapper')]/span//img/@src
-    regExp: (.+)(h=\d+&w=\d+)
-    regExpReplace: $1h=1280&w=1280
+    # regExp: (.+)(h=\d+&w=\d+)
+    # regExpReplace: $1h=1280&w=1280
   - name: alternateImages
     singleValue: false
     xpath: //body//@additional_image
@@ -36,7 +36,7 @@ fields:
     xpath: //script[@type="application/ld+json"][contains(text(),'availability":"http://schema.org/InStock"')]
     regExp: InStock
     regExpReplace: In Stock
-    defaultValue: Out Of Stock
+    defaultValue: Out of Stock
   - name: descriptionBullets
     singleValue: false
   - name: ingredientsList
@@ -154,11 +154,11 @@ fields:
     regExp: g
   - name: calciumPerServing
     singleValue: true
-    xpath: //td[normalize-space(text())="Calcium"]/following-sibling::td[1] |//td[contains(text(),"Calcium")]/following-sibling::td[1]
+    xpath: //td[normalize-space(text())="Calcium"]/following-sibling::td[1] |//td[contains(text(),"Calcium")]/following-sibling::td[1] |//td[contains(text(),"calcium")]/following-sibling::td[1]
     regExp: (\d+(\.\d+)?)
   - name: calciumPerServingUom
     singleValue: true
-    xpath: //td[normalize-space(text())="Calcium"]/following-sibling::td[1] | //td[contains(text(),"Calcium")]/following-sibling::td[1]
+    xpath: //td[normalize-space(text())="Calcium"]/following-sibling::td[1] | //td[contains(text(),"Calcium")]/following-sibling::td[1] |//td[contains(text(),"calcium")]/following-sibling::td[1]
     regExp: mg
   - name: dietaryFibrePerServing
     singleValue: true

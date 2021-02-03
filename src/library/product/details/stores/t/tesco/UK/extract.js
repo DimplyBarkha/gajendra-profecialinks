@@ -50,7 +50,7 @@ module.exports = {
         await context.evaluate(() => {
             let text = '';
             let x = document.evaluate(
-                '//div[@id="product-description"]/* | //div[@id="product-marketing"]/* | //div[@id="manufacturer-marketing"]/* | //div[@id="features"]/* | //div[@id="pack-size"]/*',
+                '//div[@id="product-description"]/* | //div[@id="product-marketing"]/* | //*[@id="brand-marketing"]/* | //*[@id="other-information"]/* | //div[@id="manufacturer-marketing"]/* | //div[@id="features"]/* | //div[@id="pack-size"]/* | //div[@id="health-claims"]/*',
                 document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null,
             );
             for (let i = 0; i < x.snapshotLength; i++) {
@@ -74,7 +74,7 @@ module.exports = {
         })
 
         //await context.waitForSelector('div.product-image__container');
-        await new Promise(resolve => setTimeout(resolve, 8000));
+        // await new Promise(resolve => setTimeout(resolve, 8000));
         const { transform } = parameters;
         const { productDetails } = dependencies;
         await context.extract(productDetails, { transform });
