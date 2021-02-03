@@ -12,7 +12,12 @@ async function implementation (
   const url = await context.evaluate(async (id) => {
     const res = await fetch(`https://www.douglas.at/api/v2/products/${id}`);
     const data = await res.json();
-    const url = 'https://www.douglas.at' + data.url;
+    let url = '';
+    if (data.errors) {
+      url = 'https://www.douglas.at';
+    } else {
+      url = 'https://www.douglas.at' + data.url;
+    }
     return url;
   }, id);
   return url;
