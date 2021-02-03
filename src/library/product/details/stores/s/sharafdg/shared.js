@@ -47,7 +47,7 @@ const transform = (data) => {
         row.description.forEach(item => {
           tempDesc.push(item.text);
         });
-        row.description = [{ text: tempDesc.join(' | ') }];
+        row.description = [{ text: tempDesc.join(' ') }];
       }
       if (row.videos) {
         const video = [];
