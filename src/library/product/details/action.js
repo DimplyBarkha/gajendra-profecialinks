@@ -1,7 +1,7 @@
 /**
  *
  * @param { { URL: string, parentInput: string, id: any, RPC: string, UPC: any, SKU: string, zipcode: string, storeID: string, storeId: string } } inputs
- * @param { { store: any, country: any, zipcode: any, storeId: any } } parameters
+ * @param { { store: any, country: any, zipcode: any, storeID: any } } parameters
  * @param { ImportIO.IContext } context
  * @param { { execute: ImportIO.Action, extract: ImportIO.Action } } dependencies
  */
@@ -11,7 +11,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   const url = URL;
   const id = RPC || SKU || UPC || inputs.id;
   const zipcode = inputs.zipcode || parameters.zipcode;
-  const storeId = inputs.storeId || storeID || parameters.storeId;
+  const storeId = inputs.storeID || storeID || parameters.storeID;
 
   const newInput = { ...inputs, storeId, zipcode, url, id };
 
@@ -40,6 +40,11 @@ module.exports = {
     },
     {
       name: 'zipcode',
+      description: 'to set location',
+      optional: true,
+    },
+    {
+      name: 'storeID',
       description: 'to set location',
       optional: true,
     },

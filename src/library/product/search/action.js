@@ -62,7 +62,7 @@ module.exports = {
     extract: 'action:product/search/extract',
   },
   path: './search/stores/${store[0:1]}/${store}/${country}/search',
-  implementation: async (inputs, { country, store, domain, zipcode }, context, { execute, extract, paginate }) => {
+  implementation: async (inputs, { country, store, domain, zipcode, storeID }, context, { execute, extract, paginate }) => {
     const { keywords, Keywords, results = 150, Brands, query } = inputs;
 
     const inputKeywords = Keywords || keywords || Brands;
@@ -74,6 +74,7 @@ module.exports = {
       ...inputs,
       keywords: inputKeywords,
       zipcode: inputs.zipcode || zipcode,
+      storeID: inputs.storeID || storeID,
       query: query,
     });
 
