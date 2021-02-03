@@ -6,7 +6,7 @@ module.exports = {
     store: 'meijer_US',
     domain: 'meijer.com',
     url: 'https://www.meijer.com/shop/en/search/?q={searchTerms}&page=0',
-    loadedSelector: 'body',
+    loadedSelector: "div.product-item",
     noResultsXPath: null,
     zipcode: '',
   },
