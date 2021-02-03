@@ -34,9 +34,9 @@ fields:
   regExp: (\d+)
   type: NUMBER
 - name: rank
-  xpath: ((count(../../../preceding-sibling::div))*4) + ((count(../../preceding-sibling::div))+1)
+  # xpath: ((count(../../../preceding-sibling::div))*4) + ((count(../../preceding-sibling::div))+1)
 - name: rankOrganic
-  xpath: ((count(../../../preceding-sibling::div))*4) + ((count(../../preceding-sibling::div))+1)
+  # xpath: ((count(../../../preceding-sibling::div))*4) + ((count(../../preceding-sibling::div))+1)
   type: NUMBER
 - name: sponsored
   description: Is sponsored/paid
