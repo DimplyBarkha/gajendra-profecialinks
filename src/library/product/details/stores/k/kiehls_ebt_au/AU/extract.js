@@ -67,44 +67,39 @@ module.exports = {
         addElementToDocument('qty2',qty2);
       }
 
-      /*//Ingredient List
-      var ingre = getAllXpath('', 'nodeValue');
-      var ing = ingre.toString()
-      addElementToDocument('ing', ing);*/
-
-     /* //Directions
-      var directions = getAllXpath('//div[@id="tab_tips"]/p','nodeValue');
-      var direction = getAllXpath('//div[@id="tab_tips"]/ul/li/text()','nodeValue');
-      var abc1 = direction.join(' || ').replaceAll('•','');
-      if (directions != null && direction == null) {
-        var abc1 = directions;
-        addElementToDocument('abc1', abc1);
+        //IngredientList
+      const getIngredients = (ingre) => {
+      var arr = "";
+      for (var i = 0; i < ingre.length; i++) {
+      arr += ingre[i];
       }
-      else if (direction != null && directions == null) {
-        var abc1 = direction.join(' || ').replaceAll('•','');
-        addElementToDocument('abc1', abc1);
+      var rmP = arr.replace('Print', '');
+      var spec = rmP.trim().replaceAll('\n', '||');
+      var spe = spec.trim().replaceAll('-', '');
+      var specs = spe.trim().replaceAll('•'||'●', '');
+      addElementToDocument('ing', ing);
       }
-      else if (desc != null && desc1 != null) {
-        var abc2 = directions;
-        var abc3 = direction.join(' || ').replaceAll('•','');
-        var abc1 = abc2 + ' || ' + abc3;
-        addElementToDocument('abc1', abc1);
-      }*/
+      var ingre = getAllXpath('//div[@class="ingredient"]/descendant::text()', 'nodeValue');
+      var ingred = getAllXpath('//div[contains(@id,"ing-copy")]/descendant::text()', 'nodeValue');
+      if(ingre==null||ingre.toString() == " ")
+      getIngredients(ingred);
+      else
+      getIngredients(ingre);
 
-      // Direction
-  const getDirection = (d) => {
-  var arr = "";
-  for (var i = 0; i < d.length; i++) {
-  arr += d[i];
-  }
-  var rmP = arr.replace('Print', '');
-  var spec = rmP.trim().replaceAll('\n', '||');
-  var spe = spec.trim().replaceAll('-', '');
-  var specs = spe.trim().replaceAll('•', '');
-  addElementToDocument('specs', specs);
-  }
-  var direction = getAllXpath('(//div[@id="tab_tips"])/descendant::text()', 'nodeValue');
-  getDirection(direction);
+          // Direction
+      const getDirection = (d) => {
+      var arr = "";
+      for (var i = 0; i < d.length; i++) {
+      arr += d[i];
+      }
+      var rmP = arr.replace('Print', '');
+      var spec = rmP.trim().replaceAll('\n', '||');
+      var spe = spec.trim().replaceAll('-', '');
+      var specs = spe.trim().replaceAll('•'||'●', '');
+      addElementToDocument('specs', specs);
+      }
+      var direction = getAllXpath('(//div[@id="tab_tips"])/descendant::text()', 'nodeValue');
+      getDirection(direction);
 
     //Product Description
     const getDescription = (d) => {
@@ -121,29 +116,6 @@ module.exports = {
     var description = getAllXpath('//div[@id="tab_details"]/descendant::text()', 'nodeValue');
     getDescription(description);
 
-
-
-      
-
-      //Description
-      var desc = getAllXpath('//div[@id="tab_details"]/div/ul/li/text()', 'nodeValue');
-      var desc1 = getAllXpath('//div[@id="tab_details"]/div/p/text()', 'nodeValue');
-      if (desc != null && desc1 == null) {
-        var xy1 = desc.join(' || ').replaceAll('•','');
-        addElementToDocument('xyz', xyz);
-      }
-      else if (desc1 != null && desc == null) {
-        var xyz = desc1.join(' || ').replaceAll('•','');
-        addElementToDocument('xyz', xyz);
-      }
-      else if (desc != null && desc1 != null) {
-        var xyz1 = desc.join(' || ').replaceAll('•','');
-        var xyz2 = desc1.join(' || ').replaceAll('•','');
-        var xyz = xyz2 + ' || ' + xyz1;
-        addElementToDocument('xyz', xyz);
-      }
-
-
       // Method to Retrieve Xpath content of a Multiple Nodes
       var getXpath = (xpath, prop) => {
         var elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
@@ -152,20 +124,6 @@ module.exports = {
         else result = elem ? elem.singleNodeValue : '';
         return result && result.trim ? result.trim() : result;
       };
-      /*var description = getXpath('//div[@class="js-target"]/a/text()', 'nodeValue');
-      var description1 = getXpath("(//div[@class='b-pdp-carousel-item']/picture/img/@alt)[1]", 'nodeValue');
-      description = description + ' ' + description1;
-      addElementToDocument('description', description);*/
-      
-      /*//Availability
-      var aval = getXpath('//div[@class="availability wrapper-in_stock "]/p[2]/span/text()', 'nodeValue');
-      if (aval != null) {
-        aval = 'In stock';
-        addElementToDocument('aval', aval);
-      } else {
-        aval = 'Out Of Stock'
-        addElementToDocument('aval', aval);
-      }*/
 
       var aval = getXpath('//div[contains(@class,"availability")]/p[2]/span/text()', 'nodeValue');
       if (aval != null) {

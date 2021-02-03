@@ -85,11 +85,7 @@ fields:
   - name: ingredientsList
     singleValue: true
     description: List of Ingredients from site - can be string of data if no discernible start/end point
-    xpath: //div[@class="ingredient"]/descendant::text()[1]
-  - name: warnings
-    singleValue: true
-    description: Content under "warnings" header
-    xpath: //div[@class="ingredient"]/descendant::text()[2]
+    xpath: //html//div[@id='ing']
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
