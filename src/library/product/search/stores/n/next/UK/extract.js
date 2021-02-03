@@ -37,6 +37,18 @@ async function implementation (
     if (lastElement === document.querySelector('div[class="Count"]').innerText.match(/\d+/)[0]) {
       return null;
     }
+    if (location.includes('/category-')) {
+      if (!location.match(/\d+/)) {
+        const link = location + '#2';
+      };
+      if (location.match(/\d+/)) {
+        const pageNo = parseInt(str.split('#')[1]) + 1
+        const link = location.split('#')[0] + '#' + pageNo.toString();
+      }
+      addElementToDOM(parent, 'a', 'nextLinkSelector', link);
+      document.querySelector('a[id="nextLinkSelector"]').innerText = "nextLink";
+      return null;
+    }
     const link = location.split(/\d+$/)[0] + index.toString();
     if (link !== null) {
       addElementToDOM(parent, 'a', 'nextLinkSelector', link);
