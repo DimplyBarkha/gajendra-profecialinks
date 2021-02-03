@@ -9,7 +9,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     prices.forEach(element => {
       const price = element.textContent;
       if (price) {
-        element.setAttribute('price', price.replace('.', ','));
+        element.setAttribute('price', price.replace('.', ''));
       }
     });
     // id
@@ -36,7 +36,10 @@ async function implementation (inputs, parameters, context, dependencies) {
     const allProducts = document.querySelectorAll('div[class="card-item js-product-data"]');
     allProducts.forEach((e, i) => e.setAttribute('rank', `${i + 1}`));
     const last = allProducts.length.toString();
-    if (!url.includes('/p2') || !url.includes('/p3') || !url.includes('/p4')) sessionStorage.setItem('item1', last);
+    const firstPage = document.querySelector('ul#listing-paginator li[class="active"]')
+      // @ts-ignore
+      ? document.querySelector('ul#listing-paginator li[class="active"]').innerText : '';
+    if (firstPage === '1') sessionStorage.setItem('item1', last);
     if (url.includes('/p2')) sessionStorage.setItem('item2', last);
     if (url.includes('/p3')) sessionStorage.setItem('item3', last);
     if (url.includes('/p4')) sessionStorage.setItem('item4', last);
