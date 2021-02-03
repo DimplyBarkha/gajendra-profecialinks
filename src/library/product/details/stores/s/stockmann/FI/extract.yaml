@@ -38,7 +38,7 @@ fields:
     xpath: //div[@class='main-detail-column']//div[@class='prices']//div[@class='price']//span[contains(@class,'for-sale')]//span
   - name: description
     singleValue: false
-    xpath: //h2[text()='Tuotekuvaus']//following-sibling::div[contains(@class,'content')]/text()
+    xpath: //h2[text()='Tuotekuvaus']//following-sibling::div[contains(@class,'content')]
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //h2[text()='Tuotekuvaus']//following-sibling::div[contains(@class,'content')]//ul//li
@@ -77,6 +77,8 @@ fields:
     singleValue: false
     # add https://www.youtube.com/watch?v= before it
     xpath: //li[@class='b-video-item']//div[@class='b-video-item-tile']/@data-videoid
+    regExp: (.+)
+    regExpReplace: https://www.youtube.com/watch?v=$1
   - name: shippingDimensions
     singleValue: false
     xpath: //h2[text()='Lisätietoja']//following-sibling::div[contains(@class,'content')]//table//tr//th//div[text()='Kokotiedot']//parent::th//following-sibling::td
