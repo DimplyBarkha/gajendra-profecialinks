@@ -26,6 +26,19 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
+      try{
+      var rating=document.querySelectorAll('div[class="rating"] a[class]')
+      var len=document.querySelectorAll('div.clearfix > div.description > span > b > a').length
+      for(let i=0;i<len;i++)
+     {
+       var data=rating[i].className.split("-")
+       addHiddenDiv("rating",data[data.length-1],i)
+     }
+    }
+    catch(e)
+    {
+      
+    }
       const product = document.querySelectorAll('div#product-list div.data-tracking-product');
       const URL = window.location.href;
       for (let i = 0; i < product.length; i++) {
@@ -45,6 +58,7 @@ module.exports = {
        } catch (error) {
          
        } 
+      
       }
       const URL1 = window.location.href;
       try {

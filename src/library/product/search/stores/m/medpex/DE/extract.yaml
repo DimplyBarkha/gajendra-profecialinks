@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@id="product-list"] //div[@class="clearfix"]
 fields:
   - name: id
     singleValue: false
@@ -43,6 +43,9 @@ fields:
   - name: ratingCount
     singleValue: false
     xpath: //div[@class="rating"]/span/a
-  - name: searchUrl
+  - name: aggregateRating 
     singleValue: false
+    xpath: //div[@id="rating"]
+  - name: searchUrl
+    singleValue: true
     xpath: ancestor::html//div[@id="pd_url"]
