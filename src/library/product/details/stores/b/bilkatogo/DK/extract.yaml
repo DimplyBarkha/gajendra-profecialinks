@@ -49,7 +49,6 @@ fields:
     description: Availability as described on page for the selected variant. If there
       is no availability but the product can be added to cart, this field should be
       "In Stock"
-   #xpath: //div[contains(@id, 'stockInfo')]
     xpath: //div[@class='add-to-basket-btn']//span[contains(text(),'Læg i kurv')]
     regExp: (.+)
     regExpReplace: In Stock
@@ -74,7 +73,6 @@ fields:
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    # xpath: //p/span[1]
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -85,25 +83,19 @@ fields:
     singleValue: true
     description: GTIN code (includes UPC/EAN)
     xpath: //span[contains(text(),'EAN')]/../div
-    #regExp: ([0-9]+$)
   - name: sku
     singleValue: true
     description: The store-specific product identifier
     xpath: //span[contains(text(),'PID')]/../div
-    #regExp: ([0-9]+$)
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same
       sku
     xpath: //span[contains(text(),'PID')]/../div
-    #regExp: ([0-9]+$)
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    #xpath: //div[@id='details']//text()[contains(., 'ID:')]
     xpath: //span[contains(text(),'Article')]/../div
-    # regExp: (Article)\s(\d+)
-    # regExpReplace : $2
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on the
@@ -464,8 +456,6 @@ fields:
   - name: pricePerUnitUom
     description: The unit of measurement used in price_per_unit
     xpath: //div[@id='pricePerUnitUom']
-    # regExp: (.*)(/)(.*)
-    # regExpReplace: $3
   - name: promotion
     singleValue: true
     description: promotion text on product page

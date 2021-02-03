@@ -77,15 +77,6 @@ module.exports = {
         addElementToDocument('finalPrice', finalPrice);
       }
 
-      // const unitPrice = document.querySelector('p[class*=\'separated-list\']>span:last-child')
-      //   ? document.querySelector('p[class*=\'separated-list\']>span:last-child').innerText.trim() : '';
-      // if (unitPrice) {
-      //   // eslint-disable-next-line no-useless-escape
-      //   const unitPriceRegex = /([\d,]+)\/?([\d,]+)?/g;
-      //   // eslint-disable-next-line no-useless-escape
-      //   const unitPriceUomRegex = /[^\.]+\.$/g;
-      //   const unitPriceString = unitPriceRegex.exec(unitPrice)[1] + ' DKK';
-      //   const unitPriceUomString = unitPriceUomRegex.exec(unitPrice)[0];
       const pricePerUnit = document.querySelector('div[class="product-sub-title"]');
       let pricePerUnitSliced = '';
       let pricePerUnitUOM = '';
