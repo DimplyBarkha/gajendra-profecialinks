@@ -22,24 +22,24 @@ module.exports = {
     await context.waitForSelector('.box-produto a');
     await context.clickAndWaitForNavigation('.box-produto a', {}, {});
     await context.evaluate(async () => {
-      // let scrollTop = 0;
-      // while (scrollTop <= 20000) {
-      //   await stall(100);
-      //   scrollTop += 2000;
-      //   window.scroll(0, scrollTop);
-      //   if (scrollTop === 30000) {
-      //     await stall(1000);
-      //     break;
-      //   }
-      // }
+      let scrollTop = 0;
+      while (scrollTop <= 20000) {
+        await stall(100);
+        scrollTop += 2000;
+        window.scroll(0, scrollTop);
+        if (scrollTop === 30000) {
+          await stall(500);
+          break;
+        }
+      }
 
-      // function stall (ms) {
-      //   return new Promise((resolve) => {
-      //     setTimeout(() => {
-      //       resolve();
-      //     }, ms);
-      //   });
-      // }
+      function stall (ms) {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
 
       function addElementToDocument (key, value) {
         const createdElem = document.querySelector(`#${key}`);
