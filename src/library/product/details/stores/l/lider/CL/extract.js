@@ -11,11 +11,13 @@ module.exports = {
   implementation: async (inputs, parameters, context, dependencies) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    await context.evaluate(() => {
-      const element = document.querySelector('div[id="collection"]');
-      element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
-    });
-    await context.evaluateInFrame('iframe', () => {
+    // await context.evaluate(() => {
+    //   const element = document.querySelector("iframe.iframe");
+    //   element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+    // });
+    await context.waitForSelector('iframe.iframe');
+    await new Promise((resolve) => setTimeout(resolve, 10000));
+    await context.evaluateInFrame('iframe.iframe', () => {
       function addHiddenDiv1(id, content, index) {
         const newDiv = document.createElement("div");
         newDiv.id = id;
