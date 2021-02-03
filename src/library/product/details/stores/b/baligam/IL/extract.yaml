@@ -11,7 +11,7 @@ fields:
   xpath : //div[contains(@class, "desktop-big-img show-desktop image-zoom js-image-zoom")]//img/@alt
 - name: alternateImages
   singleValue: false
-  xpath: //div[@class="main-images-slider"]//div[@class="inner-img"][position()>0]//img/@src
+  xpath: //div[@class="main-images-slider"]//div[@class="inner-img"][position()>1]//img/@src
 - name: metaKeywords
   singleValue: true
 - name: category
@@ -173,3 +173,7 @@ fields:
   defaultValue: No
 - name: unInterruptedPDP
   xpath: //div[contains(@class,"recommended")]//a[contains(@class,"deal-box")]
+- name: secondaryImageTotal
+  singleValue: true
+  xpath: count(//div[@class="main-images-slider"]//div[@class="inner-img"][position()>1]//img/@src)
+  type: NUMBER
