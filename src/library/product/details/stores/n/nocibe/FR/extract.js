@@ -26,12 +26,12 @@ module.exports = {
     });
     // extracting video
     const iframeSelector = 'div[class*="video-inner"] iframe';
-    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+
     if (await checkExistance(iframeSelector)) {
       const iframeUrl = await context.evaluate((iframeSelector) => {
         return document.querySelector(iframeSelector).getAttribute('src');
       }, iframeSelector);
-      await context.goto(iframeUrl, { timeout: 50000, waitUntil: 'networkidle0', checkBlocked: true });
+      await context.goto(iframeUrl);
       await context.waitForXPath('//link[@rel="canonical"][contains(@href, "youtube")]');
       const video = await context.evaluate(() => {
         const src = ele('link[rel="canonical"][href*="youtube"]');
@@ -48,8 +48,7 @@ module.exports = {
         return value;
       });
 
-      await context.goto(url, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
-      await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+      await context.goto(url);
       await context.evaluate((video) => {
         video = video.join(' | ');
         document.querySelector('body').setAttribute('video-src', video);
@@ -62,7 +61,6 @@ module.exports = {
         return window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
       }
     });
-    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
 
     await context.evaluate(async function () {
       function addElementToDocument (key, value, src) {
@@ -129,37 +127,25 @@ module.exports = {
         }
         addElementToDocument('bulletHidden', countHidden);
       }
-
-      const manufacturerImgSrc = document.querySelectorAll('div[class*="pyramid-img"] img')
-        ? document.querySelectorAll('div[class*="pyramid-img"] img') : [];
-      // @ts-ignore
-      [...manufacturerImgSrc].map(e => addElementToDocument('manufacturerImgSrc', '', e.src));
-      const brandLink = document.querySelector('div[class*="prdct__logo"] a, div[class*="prdct__banner"] a')
-        // @ts-ignore
-        ? document.querySelector('div[class*="prdct__logo"] a, div[class*="prdct__banner"] a').href : '';
-      addElementToDocument('brandLink', '', brandLink);
     });
-    await new Promise((resolve, reject) => setTimeout(resolve, 4000));
+
     await context.evaluate(async function () {
       const openDirections = document.querySelector('a[href="#conseils"]');
       // @ts-ignore
       if (openDirections) {
         // @ts-ignore
         openDirections.click();
-        await new Promise((resolve, reject) => setTimeout(resolve, 4000));
+        await new Promise((resolve, reject) => setTimeout(resolve, 500));
         const directions = document.querySelector('div#conseils');
         // @ts-ignore
         if (directions !== undefined && directions !== null) openDirections.setAttribute('directions', directions.innerText.split('\n').join(' '));
       }
     });
-    await new Promise((resolve, reject) => setTimeout(resolve, 4000));
+
     await context.evaluate(async function () {
       const openIngredients = document.querySelector('a[href="#ingredients"]');
-      if (openIngredients !== undefined && openIngredients !== null) {
-        // @ts-ignore
-        openIngredients.click();
-        await new Promise((resolve, reject) => setTimeout(resolve, 4000));
-      }
+      // @ts-ignore
+      if (openIngredients !== undefined && openIngredients !== null) openIngredients.click();
     });
 
     var dataRef = await context.extract(productDetails, { transform });
@@ -193,6 +179,11 @@ module.exports = {
       if (row.manufacturer) {
         row.manufacturer.forEach(item => {
           item.text = item.text ? item.text.split('|').shift().trim() : '';
+        });
+      }
+      if (row.brandLink) {
+        row.brandLink.forEach(item => {
+          item.text = !item.text.includes('nocibe.fr') ? 'https://www.nocibe.fr'.concat(item.text) : item.text;
         });
       }
       if (row.videos) {

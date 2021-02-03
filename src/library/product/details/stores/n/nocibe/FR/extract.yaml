@@ -86,10 +86,12 @@ fields:
   description: GTIN code (includes UPC/EAN)
 - name: sku
   singleValue: true
+  type: STRING
   description: The store-specific product identifier
   xpath: //input[@id='skuId']/@value
 - name: variantId
   singleValue: true
+  type: STRING
   description: Identifier for a variant from a store where variants share the same
     sku
   xpath: //input[@id='skuId']/@value
@@ -150,7 +152,7 @@ fields:
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
-  xpath: //div[@id='manufacturerImgSrc']/@src
+  xpath: //div[contains(@class,'pyramid-img')]/img/@src
 - name: videos
   singleValue: false
   description: URLs of videos on page
@@ -177,10 +179,7 @@ fields:
 - name: brandLink
   singleValue: true
   description: 
-  xpath: //div[@id='brandLink']/@src
-    # xpath: //div[contains(@class,'prdct__logo') or contains(@class,'prdct__banner')]//a/@href
-  # regExp: (.*)
-  # regExpReplace: https://www.nocibe.fr$1
+  xpath: //div[contains(@class, 'prdct__logo')]/a/@href | //div[contains(@class, 'prdct__banner')]/a/@href | //div[@class='prdct__banner gtm-autopromo']//a/@href
 - name: internationalShipping
   singleValue: true
   description: Text next to bullet point
