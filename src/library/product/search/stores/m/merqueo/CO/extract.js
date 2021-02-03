@@ -1,4 +1,5 @@
 const { transform } = require('../../../../shared');
+const search = require('../../../a/amazon/US/search');
 
 async function implementation (inputs, parameters, context, dependencies) {
   const { productDetails } = dependencies;
@@ -33,10 +34,15 @@ async function implementation (inputs, parameters, context, dependencies) {
       addProp(i, 'producturl', productUrl);
       addProp(i, 'price', String(price));
     }
+
+    const searchUrl = document.location.href;
+
+    addProp(0, 'searchurl', searchUrl);
   });
 
   return await context.extract(productDetails, { transform }, 'MERGE_ROWS');
 }
+
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
