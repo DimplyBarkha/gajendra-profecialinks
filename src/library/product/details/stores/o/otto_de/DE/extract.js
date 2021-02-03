@@ -34,6 +34,17 @@ module.exports = {
         return result && result.trim ? result.trim() : result;
       };
       // @ts-ignore
+      const rpc=getXpath("//li[@class='p_selected ']/@data-variationid/text()", 'nodeValue');
+      if(rpc!=null){
+        var rpcid=rpc
+        addElementToDocument('rpcid', rpc)
+      }
+      else{
+        const rpc2=getXpath("//div[@data-trigger='productDetailView']/@data-variationid/text()", 'nodeValue');
+        var rpcid=rpc2
+        addElementToDocument('rpcid', rpc2)
+      }
+      
       const rawdata = getXpath("//div[@class='prd_price__main']/span/span[@id='reducedPriceAmount']/@content|//div[@class='prd_price__main']/span/span[@id='normalPriceAmount']/@content", 'nodeValue');
       if (rawdata != null) {
         var nr = rawdata//.replace('.', ',')

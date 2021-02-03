@@ -90,7 +90,8 @@ fields:
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //div[@class='exactag js_exactag']/@data-productid|//ul[@class='p_selTiles50 prd_clearfix']/li/@data-productid
+    xpath: //html//div[@id='rpcid']
+    #xpath: //div[@class='exactag js_exactag']/@data-productid|//ul[@class='p_selTiles50 prd_clearfix']/li/@data-productid
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -136,7 +137,7 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
-    xpath: count(//div[@class='reco_cinema reco_productlineCinema']/div[@class='reco_cinema__container']/ul/li/a[@class='reco_cinema__adslink']/@href)
+    xpath: count(//ul[@class='p_selTiles50 prd_clearfix']/li)
     type: NUMBER
   - name: color
     singleValue: true
@@ -466,7 +467,7 @@ fields:
   - name: variantInformation
     singleValue: false
     description: colour / scent / flavour / other
-    xpath: //div[@class='reco_cinema reco_productlineCinema']/div[@class='reco_cinema__container']/ul/li/a[@class='reco_cinema__adslink']/@title|//ul[@class='p_selTiles50 prd_clearfix']/li/@title
+    xpath: (//span[@class='prd_selectedValue']/text())[1]
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
