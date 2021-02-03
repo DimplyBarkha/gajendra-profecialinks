@@ -12,7 +12,7 @@ fields:
   #   regExp: \d+$
   - name: id
     singleValue: false
-    xpath: //article//figure[@class="product-item-figure"]/img/@data-original|//article//div[@data-slick-index="1"]/div/img/@data-lazy
+    xpath: //article//figure[@class="product-item-figure"]/img/@data-original|//article//div[@data-slick-index="1"]/div/img/@data-lazy|//article//figure//div[@data-slick-index="0" and not(@id)]//img/@src
     regExp: (.+/)(\d+)(_listing.+)
     regExpReplace: $2
   - name: name
@@ -25,7 +25,7 @@ fields:
     regExpReplace: https://www.hygi.de$1
   - name: thumbnail
     singleValue: false
-    xpath: //article//figure[@class="product-item-figure"]/img/@data-original|//article//div[@data-slick-index="1"]/div/img/@data-lazy
+    xpath: //article//figure[@class="product-item-figure"]/img/@data-original|//article//div[@data-slick-index="1"]/div/img/@data-lazy|//article//figure//div[@data-slick-index="0" and not(@id)]//img/@src
   - name: reviewCount
     singleValue: false
   - name: price
