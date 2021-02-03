@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'rappi.com.co',
     prefix: null,
-    url: 'https://www.rappi.com.co/product/6660086_{id}',
+    url: 'https://www.rappi.com.co/producto/6660086_{id}',
     country: 'CO',
     store: 'rappi',
     zipcode: '',
