@@ -4,13 +4,16 @@ module.exports = {
   parameterValues: {
     country: 'FR',
     store: 'cdiscount',
-    nextLinkSelector: 'a[class*=NxtPage]',
+    resultsDivSelector: 'ul[id="lpBloc"]',
+    nextLinkSelector: null,//'div.pgLightPrevNext > a[class*=NxtPage]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'ul[id="lpBloc"]',
-    noResultsXPath: '//*[@class="lrTryAgain"]',
-    openSearchDefinition: null,
-    domain: 'cdiscount.fr',
-    zipcode: "''",
+    noResultsXPath: '//*[@class="lrTryAgain"] | //*[@class="noResult"] | //body/img[@class="centerImage pc"]',
+    openSearchDefinition: {
+      template: 'https://www.cdiscount.com/search/10/{searchTerms}.html?page={page}&_his_',
+    },
+    domain: 'cdiscount.com',
+    zipcode: '',
   },
 };

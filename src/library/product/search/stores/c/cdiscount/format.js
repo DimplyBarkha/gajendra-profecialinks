@@ -65,6 +65,12 @@ const transform = (data, context) => {
           }
         });
       }
+
+      if (row.soldBy) {
+        let text = row.soldBy[0].text + " " + row.soldBy[1].text;
+        row.soldBy = [{text}];
+      }
+
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
