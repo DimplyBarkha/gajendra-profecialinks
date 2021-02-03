@@ -28,7 +28,7 @@ fields:
   - name: availabilityText
     xpath: //link[contains(@class, 'rm-product__availability')]/@href | //span[@class="rm-icon__text"]//text()[contains(.,'Filiale verfügbar')]
   - name: quantity
-    xpath: //div[contains(@class, 'rm-product__unit')]/div[contains(@class, 'rm-product__unit')]
+    xpath: //div[contains(@class, 'rm-product__unit')]/div[contains(@class, 'rm-product__unit')][position()=last()] | //div[@class="rm-product__prop"]
   - name: gtin
     xpath: //span[contains(@itemprop, 'sku')]/@content
   - name: sku
