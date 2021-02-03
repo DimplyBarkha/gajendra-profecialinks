@@ -43,6 +43,7 @@ module.exports = {
       for (let i = 0; i < totalImages; i++) {
         console.log('sai')
         console.log(replaceChar(mainImageURL, nextletter, mainImageURL.indexOf(".jpg") - 1))
+        addHiddenDiv1("alt_imgs", replaceChar(mainImageURL, nextletter, mainImageURL.indexOf(".jpg") - 1), 0);
         nextletter = nextChar(nextletter);
       }
     });
