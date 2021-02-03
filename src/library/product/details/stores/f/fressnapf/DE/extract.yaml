@@ -114,7 +114,7 @@ fields:
     description: promotion text on product page
   - name: variantInformation
     # singleValue: false
-    xpath: //div[@class='section-content']/div[@class='product-overview']/div/div/div/div/div/div/div/label/span/div/div[1]
+    xpath: //div[@class='section-content']/div[@class='product-overview']/div/div/div/div/div/div/div/label[@class='radio-button radio-button--checked']/span/div/div[1] | //div[@class='grid']/div/div/div/div[@class='product-variant-selector']/div/div/span[@class='c-selected-item']
     description: colour / scent / flavour / other
   - name: variants
     # singleValue: false
