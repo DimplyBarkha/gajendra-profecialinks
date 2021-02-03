@@ -25,17 +25,40 @@ const transform = (data) => {
   };
   for (const { group } of data) {
     for (const row of group) {
-      if (row.description) {
-        const description_ar = [];
-        row.description.forEach(item => {
-          // description_ar.push(item.text);
-          item.text = item.text.replace(/\n \n/g, '|');
+      // if (row.description) {
+      //   const nDesc = [];
+      //   let newDesc = '';
+      //   let idx = 0;
+      //   row.description.forEach(item => {
+      //     nDesc[0] = item;
+      //     if (idx > 0) {
+      //       newDesc = newDesc + '||';
+      //     }
+      //     newDesc = newDesc + item.text;
+      //     idx++;
+      //   });
+      //   nDesc.forEach(item => {
+      //     item.text = newDesc;
+      //   });
+      //   row.description = nDesc;
+      // }
+      if (row.specifications) {
+        const nDesc = [];
+        let newDesc = '';
+        let idx = 0;
+        row.specifications.forEach(item => {
+          nDesc[0] = item;
+          if (idx > 0) {
+            newDesc = newDesc + '||';
+          }
+          newDesc = newDesc + item.text;
+          idx++;
         });
-        // if (description_ar.length) {
-        //   row.description = [{ "text": description_ar.join(" || "), 'xpath': row.description[0].xpath }];
-        // }
+        nDesc.forEach(item => {
+          item.text = newDesc;
+        });
+        row.specifications = nDesc;
       }
-
       if (row.aggregateRating) {
         row.aggregateRating.forEach(item => {
           item.text = Number(item.text);
@@ -63,15 +86,21 @@ const transform = (data) => {
           });
         }
       }
-      // if (row.specifications) {
-      //   const specifications_ar = [];
-      //   row.specifications.forEach(item => {
-      //     specifications_ar.push(item.text);
-      //   });
-      //   if (specifications_ar.length) {
-      //     row.specifications = [{ text: specifications_ar.join(' || '), xpath: row.specifications[0].xpath }];
-      //   }
+      // if (row.description) {
+      //   const text = '';
+      //   row.description = [{
+      //     text: row.description.reduce((item, currItem) => item ? `${item}  ${currItem.text.replace(/:(\s*\n\s*)+/g, ': ').replace(/(\s*\n\s*)+/, ' || ')}` : currItem.text.replace(/:(\s*\n\s*)/g, ': ').replace(/(\s*\n\s*)+/, ' || '), ''),
+      //   }];
       // }
+      if (row.description) {
+        const description_ar = [];
+        row.description.forEach(item => {
+          description_ar.push(item.text);
+        });
+        if (description_ar.length) {
+          row.description = [{ text: description_ar.join(' || '), xpath: row.description[0].xpath }];
+        }
+      }
       // if (row.descriptionBullets) {
       //   row.descriptionBullets = [{'text':row.descriptionBullets.length, 'xpath':row.descriptionBullets[0].xpath}];
       // }
