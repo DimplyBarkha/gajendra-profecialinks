@@ -29,7 +29,7 @@ const transform = (data, context) => {
       }
       row.rank = [{ text: rankCounter }];
       if (row.id && row.id[0]) {
-        row.id[0].text = row.price[0].text.replace('900065872_', ',');
+        row.id[0].text = row.id[0].text.replace('900065872_', '');
       }
       if (row.price) {
         // let text = '';
