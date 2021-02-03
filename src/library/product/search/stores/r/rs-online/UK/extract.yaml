@@ -6,6 +6,8 @@ fields:
   - name: id
     singleValue: false
     xpath: //div/@data-bv-product-id|//div/div[text()="RS Stock No."]/a/span[@data-qa="value"]
+    regExp: (\d+)(-?)(\d+)
+    regExpReplace: $1$3
   - name: name
     singleValue: false
     xpath: //div[@class="row margin-bottom"]//a|//div[@class="wrapper_1i8rKsLZ description_FbmxLk1-"]/@title
