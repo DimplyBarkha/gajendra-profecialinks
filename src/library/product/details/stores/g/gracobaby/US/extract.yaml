@@ -6,7 +6,8 @@ fields:
   - name: image
     singleValue: false
     xpath: //button[contains(@aria-label,'1 of ')]/img/@src
-    regExp: (.*\?)
+    regExp: (.*)\?
+    regExpReplace: $1
   - name: imageAlt
     singleValue: false
     xpath: //button[contains(@aria-label,'1 of ')]/img/@alt

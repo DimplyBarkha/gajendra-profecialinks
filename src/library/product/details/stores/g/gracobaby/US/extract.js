@@ -76,8 +76,6 @@ module.exports = {
       } catch (error) {
 
       }
-
-
       try {
         const upperDesc = getAllXpath("//div[@class='details']//li/text()", 'nodeValue');
         descFinal += pipeSeparator(upperDesc);
