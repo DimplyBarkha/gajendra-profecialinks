@@ -143,7 +143,7 @@ const transform = (data) => {
         row.price = priceArr.map(text => ({ text }));
       }
       if (row.listPrice) {
-        const priceArr = Array.from(new Set(row.price.map((item) => {
+        const priceArr = Array.from(new Set(row.listPrice.map((item) => {
           if (item.text.includes('$.')) {
             return item.text.replace('.', '0.');
           } else {
