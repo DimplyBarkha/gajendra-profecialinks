@@ -61,12 +61,12 @@ async function implementation (
     const thumbNailText = getAllXpath("//*[contains(@id,'catalogEntry_img')]/img/@src", 'nodeValue').join('|');
     var thumbNailTextValue = thumbNailText.split('|');
 
-    const idPath = getAllXpath("//input[contains(@id,'comparebox_')]/@value", 'nodeValue').join('|');
+    const idPath = getAllXpath("//span[contains(@class,'product_sku nodisplay')]", 'innerText').join('|');
     var myIdArr = idPath.split('|');
     for (var i = 0; i < myIdArr.length; i++) {
       try {
         addElementToDocumentOld('id', myIdArr[i]);
-        addElementToDocumentOld('price', priceTextValue[i].replace(/,/g, '.'));
+        addElementToDocumentOld('price', priceTextValue[i]);
         addElementToDocumentOld('name', nameTextValue[i]);
         addElementToDocumentOld('manufacturer', manufacturerTextValue[i]);
         addElementToDocumentOld('productUrl', productURLTextValue[i]);
