@@ -17,11 +17,11 @@ module.exports = {
     await context.evaluate(async function () {
       let text = '';
       let bulletText = '';
-      const value = document.querySelector('div.product-summary');
+      const value = document.querySelector('div[data-testhook="product-summary"]');
       if (value) {
         getDesc(value);
       }
-      const val = document.querySelector('div.product-info-description');
+      const val = document.querySelector('div[data-testhook="product-info-description"]');
       if (val) {
         getDesc(val);
       }

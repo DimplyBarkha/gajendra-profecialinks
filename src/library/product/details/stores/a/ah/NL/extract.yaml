@@ -10,16 +10,16 @@ fields:
   - name: category
     xpath: //ol/li[@itemprop="itemListElement"][position()>1]
   - name: nameExtended
-    xpath: concat(//h1[1],' ',//div[contains(@class,"product-card-header_unitInfo")]/text())
+    xpath: concat(//h1[contains(@class, 'title')],' ',//div[contains(@class,"product-card-header_unitInfo")]/text())
   - name: listPrice
     description: The stated undiscounted price for the product
     xpath: //div[contains(@class,"product-card-hero-price_root")]//div[contains(@class,"price_was_")]
   - name: price
     xpath: //div[contains(@class,"product-card-hero-price_root")]//div[contains(@class,"price_now")] 
   - name: availabilityText
-    xpath: //html/body/script[4]
-    regExp: (.+availableOnline":false,"orderable.+)
-    regExpReplace: In Store
+    xpath: //p[@data-testhook="product-availability-label"]//*[contains(text(), 'winkel')]
+    regExp: (.+)
+    regExpReplace: In Store Only
     defaultValue: In stock
   - name: description
     xpath: //div[@id="desc"]
@@ -47,9 +47,9 @@ fields:
   - name: variantCount
     xpath: count(//a[contains(@class,'product-recommendations')]//@href)
   - name: name
-    xpath: //h1[1]
+    xpath: //h1[contains(@class, 'title')]
   - name: ingredientsList
-    xpath: //div[contains(@class,"product-info-ingredients")]/p[1]
+    xpath: //div[contains(@class,"product-info")]//span[contains(text(), 'Ingrediënten')]
   - name: servingSize
     xpath: //th[contains(.,'Soort')]//following-sibling::th
     regExp: (.+\d+)
@@ -143,7 +143,7 @@ fields:
   - name: allergyAdvice
     xpath: //h4[contains(.,'Allergie-informatie')]//following-sibling::p/span
   - name: productOtherInformation
-    xpath: //div[@class="product-info-description"]//div[@class="product-summary"]/p
+    xpath: //h4[contains(text(), 'Extra info')]/following::div[@data-testhook="product-summary"]
   - name: pricePerUnit
     xpath: //span[contains(@class,"product-card-header_unitPrice")]//text()[position()>last()-1]
   - name: pricePerUnitUom
@@ -184,3 +184,5 @@ fields:
     defaultValue: Sold by Albert Heijn
   - name: variantInformation
     xpath: //a[contains(@class,'product-recommendations')]/../../..//div[contains(@class,"product-card-header_unitInfo")]/text()
+  - name: promotion
+    xpath: normalize-space(//div[contains(@class, 'promo-sticker_content')])
