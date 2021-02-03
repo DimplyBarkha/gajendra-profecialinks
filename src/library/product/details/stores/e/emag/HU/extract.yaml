@@ -31,33 +31,37 @@ fields:
   description: The categories (e.g. from breadcrumbs)
   xpath: //ol[@class="breadcrumb"]/li
 - name: nameExtended
-  singleValue: false
+  singleValue: false 
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
   xpath: //h1[@class="page-title"]
 - name: listPrice
   singleValue: false
   description: The stated undiscounted price for the product
-  xpath: //div[@class="product-highlight product-page-pricing"]/descendant::p[@class="product-old-price"]
-  regExp: '.*F'
+  xpath: (//p[@class="product-old-price"])[1]
 - name: price
   singleValue: false
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
   xpath: //div[@class="product-highlight product-page-pricing"]/descendant::p[@class="product-new-price"]
 - name: availabilityText
-  singleValue: true
+  singleValue: false
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
   defaultValue: "In Stock"
+  xpath: //span[@class="label label-unavailable"]
+  regExp: '(.+)'
+  regExpReplace: "Out of Stock"
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
+  xpath: //section[@class="page-section page-section-light gtm_product-page-description"]/descendant::div[@class="container pad-btm-lg"]
 - name: descriptionBullets
   singleValue: false
   description: Number of ul > li tags in the description
+  xpath: count(//section[@class="page-section page-section-light gtm_product-page-description"]/descendant::div[@class="container pad-btm-lg"]/descendant::ul/li)
 - name: brandText
   singleValue: false
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
@@ -84,9 +88,7 @@ fields:
 - name: sku
   singleValue: false
   description: The store-specific product identifier
-  xpath: //span[@class="product-code-display pull-left"]
-  regExp: ': (.*)'
-  regExpReplace: $1
+  xpath: //div[@class="disclaimer-section"]/p/a/@sku
 - name: variantId
   singleValue: false
   description: Identifier for a variant from a store where variants share the same
@@ -113,21 +115,22 @@ fields:
   singleValue: true
   description: Content under "warnings" header
 - name: ratingCount
-  singleValue: true
+  singleValue: false
   description: The number of ratings
-  xpath: //small[@class="hidden-xs"]
-  regExp: '[0-9]\w+'
+  xpath: //p[@class="small semibold font-size-sm text-muted"]
+  regExp: '([0-9]+)'
+  regExpReplace: $1
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
 - name: aggregateRating
-  singleValue: true
+  singleValue: false
   description: The stated aggregate rating normalized to be out of 5
   xpath: //span[@class="star-rating-text gtm_rp101318"]
 - name: shippingInfo
-  singleValue: true
+  singleValue: false
   description: Shipping information for the product
-  xpath: //div[@class="product-highlight product-page-pricing"]/span
+  xpath: //div[@class="inline-block"]
 - name: shippingDimensions
   singleValue: true
   description: Stated shipping dimensions
@@ -156,7 +159,7 @@ fields:
 - name: videos
   singleValue: false
   description: URLs of videos on page
-  xpath: //div[@id="description-body"]/descendant::iframe/@src | //video/@src
+  xpath: //div[@id="description-body"]/descendant::iframe/@src | //video/@src | //video/@poster
 - name: name
   singleValue: false
   description: The product name
@@ -251,9 +254,9 @@ fields:
   singleValue: false
   description: 
 - name: secondaryImageTotal
-  singleValue: true
+  singleValue: false
   description:
-  xpath: count(//div[@class="ph-body"]/div[@class="thumbnail-wrapper ph-card"]/a/img[@referrerpolicy="unsafe-url"]/@src)
+  xpath: count(//div[@data-ph-dots="false"]/div/div/div[contains(@class, 'thumbnail')])
 - name: news
   singleValue: true
   description: 
