@@ -32,8 +32,8 @@ fields:
     xpath: //div[contains(@class,'row hidden-md-down')]//div[@class='pricing-row']//span[@class='product-recommended']
   - name: description
     singleValue: false
-    # xpath: //div[@class="col-xs-12 col-lg-6"]//div[not(@class)][2] | //div[@class="col-xs-12 col-lg-6"]//div[not(@class)][2]//ul/li
-    xpath: //div[@class="col-xs-12 col-lg-6"]/div[not(@class)][2] 
+    xpath: //div[@class="col-xs-12 col-lg-6"]//div[not(@class)][2] | //div[@class="col-xs-12 col-lg-6"]//div[not(@class)][2]//ul/li
+    # xpath: //div[@class="col-xs-12 col-lg-6"]/div[not(@class)][2]//text()
   - name: specifications
     singleValue: false
     xpath: //div[@class="product-details product-details-hidden"]//ul//li
