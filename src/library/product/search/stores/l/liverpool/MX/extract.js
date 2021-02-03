@@ -55,11 +55,11 @@ module.exports = {
                             const lengthArray = productInfoJson.itemListElement.length;
                             // @ts-ignore
                             const itemList = productInfoJson.itemListElement;
-                            alert(itemList[0].item)
-                            for (let i = 1; i <= lengthArray; i++) {
+                            // alert(itemList[0].item)
+                            for (let i = 0; i <= lengthArray-1; i++) {
                                 if (Object.keys(itemList[i].item.aggregateRating).length > 1) {
-                                    const finalValue = itemList[i].item.aggregateRating.ratingValue
-                                    const url = itemList[i].item.url
+                                    const finalValue = itemList[i].item.aggregateRating.ratingValue;
+                                    const url = itemList[i].item.url;
                                     addHiddenDiv('finalValue', finalValue, i);
                                     addHiddenDiv('url', url, i);
                                     i++;
