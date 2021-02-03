@@ -17,17 +17,17 @@ const cleanUp = (data, context) => {
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ')
     .trim();
-  
-    for (const { group } of data) {
-      for (const row of group) {
-        if (row.ingredientsList) {
-          row.ingredientsList[0].text = row.ingredientsList[0].text.replace(/^INGREDIENTS:/i, '');
-        }
-        if (row.packSize) {
-          row.packSize[0].text = row.packSize[0].text.replace(/Each/, 'Count');
-        }
+
+  for (const { group } of data) {
+    for (const row of group) {
+      if (row.ingredientsList) {
+        row.ingredientsList[0].text = row.ingredientsList[0].text.replace(/^INGREDIENTS:/i, '');
+      }
+      if (row.packSize) {
+        row.packSize[0].text = row.packSize[0].text.replace(/Each/, 'Count');
       }
     }
+  }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
     el.text = clean(el.text);
   }))));

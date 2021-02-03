@@ -11,13 +11,7 @@ module.exports = {
   implementation: async (inputs, parameters, context, dependencies) => {
     console.log('inputs', inputs);
     const { timeout = 10000 } = parameters;
-    let { url, zipcode, storeId, StoreID } = inputs;
-    if(!url.match(/https:\/\/www.walmart.com\/grocery\/v3\/api/)) {
-      storeId = StoreID || storeId || '5334';
-      zipcode = zipcode || '';
-      const id = url.match(/[^\/]+$/)[0];
-      url = `https://www.walmart.com/grocery/v3/api/products/${id}?itemFields=all&nutritionPrescriptive=true` + `&storeId=${storeId}#zipcode=${zipcode}`;
-    }
+    const { url } = inputs;
     const memory = {};
     const backconnect = !!memory.backconnect;
     const benchmark = !!memory.benchmark;
