@@ -9,10 +9,10 @@ fields:
 - name: image
   singleValue: true
   description: URL of the main product image
-  # xpath: //meta[@property="og:image"]/@content
-  xpath:  (//div[@class="boxProductDetail"]//img[@name="mainImage" or @itemprop="image"]/@src)[1]
-  regExp: (.+)
-  regExpReplace: https://www.medikamente-per-klick.de$1
+  xpath: //meta[@property="og:image"]/@content
+  # xpath:  (//div[@class="boxProductDetail"]//img[@name="mainImage" or @itemprop="image"]/@src)[1]
+  # regExp: (.+)
+  # regExpReplace: https://www.medikamente-per-klick.de$1
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
@@ -46,11 +46,12 @@ fields:
   xpath: //div[starts-with(@id,'ii_price')]
 - name: availabilityText
   singleValue: true
-  xpath: (//meta[@itemprop="availability"]/@content)[1]
+  type: TEXT
+  xpath: (//meta[@itemprop='availability']/@content)[1]
   # xpath: //div[@class="wide-6 productInformations offerDetails"]//dl[3]/dd[@class="availability status status1"]/span/@title
-  defaultValue: Out of Stock
-  regExp: http://schema.org/InStock
+  regExp: .+InStock
   regExpReplace: In Stock
+  defaultValue: Out of Stock
 - name: description
   # type: TEXT[]
   singleValue: false 
