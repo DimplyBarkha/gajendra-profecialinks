@@ -9,26 +9,17 @@ const implementation = async ({ url, id, zipcode, storeId }, { loadedSelector, n
     let newContent = '';
     do {
       newContent = await context.content();
-      console.log('newContent', newContent);
       // it seems even without clicking the button captcha can be solved, this piece of code makes the chances higher
       await context.evaluate(async function () {
         const captchaButton = document.querySelector('div.captcha-button button.emg-button.emg-btn-large.emg-btn-full');
         if (captchaButton) {
-          console.log('Found button to captcha which i will try to .click() here it is ->', captchaButton);
+          console.log('Found button to captcha which i will try to .click() here it is ->', captchaButton.textContent);
           // @ts-ignore
           // eslint-disable-next-line no-undef
           captchaButton.click();
         }
       });
       await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-      if (newContent.includes('submit')) {
-        console.log('CAPTCHA SOLVED SKIPPING WAIT LOOP');
-        console.log('CAPTCHA SOLVED SKIPPING WAIT LOOP');
-        console.log('CAPTCHA SOLVED SKIPPING WAIT LOOP');
-        console.log('CAPTCHA SOLVED SKIPPING WAIT LOOP');
-        console.log('CAPTCHA SOLVED SKIPPING WAIT LOOP');
-        console.log('CAPTCHA SOLVED SKIPPING WAIT LOOP');
-      }
     } while (!newContent.includes('submit'));
   }
 
@@ -82,14 +73,12 @@ const implementation = async ({ url, id, zipcode, storeId }, { loadedSelector, n
         console.log('Captcha did not load');
       }
     }
-    console.log('AFTER LOOP THAT SOLVES CAPTCHA: \n');
     // wait for homepage to load
     await context.waitForNavigation();
-    // get current url and check if homepage url with solved captcha, if yes go again to product page if not throw error (throwing error will cause next retry of this crawl run task to occur)
+    // get current url and check if it indicates that captcha has been solved, if yes go again to product page if not throw error (throwing error will cause next retry of this crawl run task to occur)
     const currentUrl = await context.evaluate(async () => {
       return window.location.href;
     });
-    console.log('currentURL: ', currentUrl);
     if (currentUrl !== 'https://www.emag.ro/?captcha_status=ok') {
       throw Error('CAPTCHA SOLVING METHOD FAILED');
     } else {
