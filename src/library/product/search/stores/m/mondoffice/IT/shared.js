@@ -38,28 +38,29 @@ const transform = (data, context) => {
     context.setState({ orgRankCounter });
     context.setState({ productCodes });
 
-  // function findField (key, arr = data) {
-  //   const a = arr.map(el => el.group);
-  //   let obj = [];
-  //   a.forEach(e => {
-  //     e.forEach(el => {
-  //       if (el[key]) {
-  //         obj = el[key];
-  //       }
-  //     });
-  //   });
-  //   return obj;
-  // }
-  // data.forEach(el => {
-  //   el.group.forEach((gr, index) => {
-  //     try {
-  //       gr['_url'] = findField('url');
-  //       gr['_input'] = findField('input');
-  //     } catch (e) {
-  //       console.log(e);
-  //     }
-  //   });
-  // });
+  function findField (key, arr = data) {
+    const a = arr.map(el => el.group);
+    let obj = [];
+    a.forEach(e => {
+      e.forEach(el => {
+        if (el[key]) {
+          obj = el[key];
+        }
+      });
+    });
+    return obj;
+  }
+  data.forEach(el => {
+    el.group.forEach((gr, index) => {
+      if(gr.aggregateRating){
+          const calcRating = (Number(gr.aggregateRating[0].text.replace(/,/, '.')) / 20).toFixed(1)
+          gr.aggregateRating[0].text = `${calcRating}`
+      }
+      if(gr.reviewCount){
+          gr.reviewCount[0].text = gr.reviewCount[0].text.replace(/\D/gmi, '');
+      }
+    });
+  });
   return data;
 };
 module.exports = { transform };

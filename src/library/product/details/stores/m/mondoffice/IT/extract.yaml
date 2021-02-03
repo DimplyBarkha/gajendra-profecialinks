@@ -11,10 +11,10 @@ fields:
     xpath: //ul[@id='tns1']/li[@id='tns1-item0']/img[@class='pr-2']/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@id='customize-thumbnails']/div/img/@src
+    xpath: //*[contains(@class, 'sku-slider-wrapper')]//li//img/@src
   - name: secondaryImageTotal
     singleValue: false
-    xpath: //div[@id='customize-thumbnails']/div/img/@src
+    xpath: //*[contains(@class, 'sku-slider-wrapper')]//li//img/@src
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name='keywords']/@content
@@ -47,8 +47,10 @@ fields:
   - name: specifications
     singleValue: false
     xpath: //div[contains(@class,'description-sku__attribute')]/ul[@class='col wrap']/li
-
-
+  - name: aggregateRating
+    xpath: //div[contains(@class, 'product-sku')]//*[contains (@class, 'ratings')]/@data-value
+  - name: ratingCount
+    xpath: //div[contains(@class, 'product-sku')]//*[contains (@class, 'ratings__number')]
 
 
 

@@ -37,6 +37,13 @@ const transform = (data) => {
             }
           });
         }
+        if(gr && gr.aggregateRating && gr.aggregateRating.length) {
+          const calcRating = (Number(gr.aggregateRating[0].text.replace(/,/, '.')) / 20).toFixed(1)
+          gr.aggregateRating[0].text = `${calcRating}`
+        }
+        if(gr && gr.category && gr.category.length) {
+          gr.category.pop();
+        }
       } catch (e) {
         console.log(e);
       }
