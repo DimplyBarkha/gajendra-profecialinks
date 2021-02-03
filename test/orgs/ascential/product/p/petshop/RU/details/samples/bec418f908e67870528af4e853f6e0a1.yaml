@@ -2,7 +2,7 @@ input:
   id: 36158
   _url: http://petshop.ru
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=78ed1659-91fb-4bdb-9a3c-098852c22a62/task=47fe06d4-c28c-420a-a4cd-f79ac12a0ac7/61c6b34c-d241-4c25-8cce-dc0a41180a1e.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=84f4e92e-ae9d-47b6-88d3-305b2c01ced6/task=8eb7eebc-fc30-4a70-b2a8-ea05df96ac13/58e84ed7-0c8d-491f-a813-b2cf4d0fb4c3.html
     extractionConfigId: product/details/stores/p/petshop/RU/extract
     data:
       - group:
@@ -18,11 +18,8 @@ extractions:
             nameExtended:
               - text: Felix хрустящее лакомство со вкусом рыбы
                 xpath: /html/body/ol[1]/li[1]/@name_extended
-            listPrice:
-              - text: 63 ₽
-                xpath: /html/body/ol[1]/li[1]/@list_price
             price:
-              - text: 50 ₽
+              - text: 63 ₽
                 xpath: /html/body/ol[1]/li[1]/@price
             availabilityText:
               - text: In Stock
@@ -49,11 +46,17 @@ extractions:
             weightNet:
               - text: 60 г
                 xpath: /html/body/ol[1]/li[1]/@weight
+            sku:
+              - text: "537985"
+                xpath: /html/body/ol[1]/li[1]/@added_sku
             variantId:
               - text: "36158"
                 xpath: /html/body/ol[1]/li[1]/@variant_id
+            mpc:
+              - text: "36158"
+                xpath: /html/body/ol[1]/li[1]/@added_mpc
             ratingCount:
-              - text: "41"
+              - text: "45"
                 xpath: /html/body/ol[1]/li[1]/@rating_count
             aggregateRating:
               - text: "4.7"
@@ -87,10 +90,10 @@ extractions:
               - text: кг
                 xpath: /html/body/ol[1]/li[1]/@serving_size_uom
             totalFatPerServing:
-              - text: "19.5"
+              - text: ","
                 xpath: /html/body/ol[1]/li[1]/@total_fat_per_serving
             totalFatPerServingUom:
-              - text: "%"
+              - text: экстракты растительного белка
                 xpath: /html/body/ol[1]/li[1]/@total_fat_per_serving_uom
             dietaryFibrePerServing:
               - text: "0.5"
@@ -104,6 +107,12 @@ extractions:
             proteinPerServingUom:
               - text: "%"
                 xpath: /html/body/ol[1]/li[1]/@protein_per_serving_uom
+            vitaminAPerServing:
+              - text: "32000"
+                xpath: /html/body/ol[1]/li[1]/@vitamin_a_per_serving
+            vitaminAPerServingUom:
+              - text: МЕ
+                xpath: /html/body/ol[1]/li[1]/@vitamin_a_per_serving_uom
             ironPerServing:
               - text: "1"
                 xpath: /html/body/ol[1]/li[1]/@iron_per_serving
@@ -115,19 +124,20 @@ extractions:
                 xpath: /html/body/ol[1]/li[1]/@image_360_present
             category:
               - text: Каталог
-                xpath: /html/body/div[6]/div[1]/ul[1]/li[3]
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[3]/a[1]
               - text: Товары для кошек
-                xpath: /html/body/div[6]/div[1]/ul[1]/li[5]
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[5]/a[1]
               - text: Витамины, добавки
-                xpath: /html/body/div[6]/div[1]/ul[1]/li[7]
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[7]/a[1]
               - text: Лакомства
-                xpath: /html/body/div[6]/div[1]/ul[1]/li[9]
-              - text: Хрустящее лакомство со вкусом рыбы
-                xpath: /html/body/div[6]/div[1]/ul[1]/li[11]
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[9]/a[1]
+            manufacturerImages:
+              - text: https://www.petshop.ru/upload/iblock/a7d/a7d12508d0baa90fb369bf93b2830985.jpg
+                xpath: /html/body/ol[2]/li[1]/@src
             variants:
               - text: 60 г
                 xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[1]/div[1]/div[1]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1611305127140
+    timestamp: 1612351525160

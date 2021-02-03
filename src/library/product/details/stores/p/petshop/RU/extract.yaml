@@ -92,6 +92,7 @@ fields:
 - name: mpc
   singleValue: tru
   description: The manufacturer model code (unique) of the product
+  xpath: //@added_mpc
 - name: packSize
   singleValue: true
   description: The number of packs in the product offer (if stated separately on the
@@ -143,6 +144,7 @@ fields:
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
+  xpath: ancestor::html//ol[@id="manufacturer_images"]/li/@src
 - name: videos
   singleValue: false
   description: URLs of videos on page
@@ -416,6 +418,7 @@ fields:
 - name: storage
   singleValue: true
   description: Suggested storage location for product
+  xpath: //@storage
 - name: countryOfOrigin
   singleValue: true
   description: The country from which the product originates

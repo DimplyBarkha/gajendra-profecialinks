@@ -65,49 +65,34 @@ module.exports = {
         await new Promise((resolve) => setTimeout(resolve, 500));
       }
 
-      const directions = document.evaluate(
-        '(//button[div[text()="Описание"]]/following-sibling::div[position()=1]//div[@name="active-tab"]//table)[1]',
-        document,
-        null,
-        XPathResult.STRING_TYPE,
-        null,
-      ).stringValue;
+      const directions = document
+        .evaluate(
+          '(//button[div[text()="Описание"]]/following-sibling::div[position()=1]//div[@name="active-tab"]//table)[1]',
+          document,
+          null,
+          XPathResult.STRING_TYPE,
+          null,
+        )
+        .stringValue.trim();
+
       document.body.setAttribute('directions', directions);
 
-      // const descriptionArr = [];
-      // const descriptionParent = document.evaluate(
-      //   '//button[div[text()="Описание"]]/following-sibling::div[position()=1]//div[@name="active-tab"]//div[@data-testid="ProductDescription__content"]/div[contains(@class, "style_text")]/div/div',
-      //   document,
-      //   null,
-      //   XPathResult.ANY_UNORDERED_NODE_TYPE,
-      //   null,
-      // ).singleNodeValue;
-      // if (descriptionParent) {
-      //   for (let i = 0; i < descriptionParent.childNodes.length; i++) {
-      //     const row = descriptionParent.childNodes[i];
-      //     if (row.nodeName === 'TABLE') break;
-      //     const hasTable = !!(row.nodeType === 1 && row.querySelector('table'));
-      //     if (!hasTable) descriptionArr.push(row.textContent);
-      //     else {
-      //       for (let j = 0; j < row.childNodes.length; j++) {
-      //         const child = row.children[j];
-      //         if (child.nodeType === 1 && (child.querySelector('table') || child.nodeName === 'TABLE')) break;
-      //         descriptionArr.push(child.textContent);
-      //       }
-      //     }
-      //   }
-      // }
-
-      // const description = descriptionArr.map((item) => item.trim()).join(' ');
       return getDescription();
+    });
 
-      // return document.evaluate(
-      //   '//button[div[text()="Описание"]]/following-sibling::div[position()=1]//div[@name="active-tab"]',
-      //   document,
-      //   null,
-      //   XPathResult.STRING_TYPE,
-      //   null,
-      // ).stringValue;
+    // adding manufacturer images
+    await context.evaluate(async => {
+      const allImages = document.querySelectorAll('div[data-testid="ProductDescription__content"] img');
+      const imagesList = document.createElement('ol');
+      imagesList.id = 'manufacturer_images';
+      imagesList.style.display = 'none';
+      document.body.appendChild(imagesList);
+      for (let i = 0; i < allImages.length; i++) {
+        const image = allImages[i];
+        const listItem = document.createElement('li');
+        listItem.setAttribute('src', image.src);
+        imagesList.appendChild(listItem);
+      }
     });
 
     // Switching to the product's composition tab
@@ -176,9 +161,17 @@ module.exports = {
             productScript && productScript.match(productObjRegexp) ? productScript.match(productObjRegexp)[1] : '{}';
           const productObj = JSON.parse(productObjString).product;
 
-          const skuScript = document.evaluate('//section[contains(@class, "style_product_head")]/script', document, null, XPathResult.STRING_TYPE, null).stringValue;
+          const skuScript = document.evaluate(
+            '//section[contains(@class, "style_product_head")]/script',
+            document,
+            null,
+            XPathResult.STRING_TYPE,
+            null,
+          ).stringValue;
           const sku = skuScript.match(/"sku":"(.+?)"/) ? skuScript.match(/"sku":"(.+?)"/)[1] : '';
+          const mpc = skuScript.match(/"mpn":"(.+?)"/) ? skuScript.match(/"mpn":"(.+?)"/)[1] : '';
           listElem.setAttribute('added_sku', sku);
+          listElem.setAttribute('added_mpc', mpc);
 
           const imagesList = document.createElement('ol');
           imagesList.id = 'images';
@@ -272,6 +265,14 @@ module.exports = {
             if (ratingCountMatch) listElem.setAttribute('rating_count', ratingCountMatch[1]);
           }
 
+          const compositionText = document.evaluate(
+            '//div[@data-testid="ProductComposition__title"]/following-sibling::div[1]',
+            document,
+            null,
+            XPathResult.STRING_TYPE,
+            null,
+          ).stringValue;
+
           const servingText = document.evaluate(
             '//span[(contains(. , "Пищевая ценность") or contains(. , "Добавки") and contains(. , "г"))]',
             document,
@@ -299,30 +300,38 @@ module.exports = {
           listElem.setAttribute('serving_size_uom', servingSizeUom);
           listElem.setAttribute('calories_per_serving', caloriesPerServing);
 
-          let fatElem;
-          const fatSnapshot = document.evaluate(
-            '//*[(name()="tr" or name()="li") and contains(translate(. , "ЖИР", "жир"), "жир")]',
-            document,
-            null,
-            XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
-            null,
-          );
-          for (let i = 0; i < fatSnapshot.snapshotLength; i++) {
-            const elem = fatSnapshot.snapshotItem(i);
-            const elemText = elem.textContent.toLowerCase().trim();
-            if (elemText.startsWith('жир') || elemText.match(/жиры?[\s,:]/)) {
-              fatElem = elem;
-              break;
-            }
-          }
-          if (!fatElem) fatElem = fatSnapshot.snapshotItem(fatSnapshot.snapshotLength - 1);
-          const fatText = fatElem ? fatElem.textContent : '';
+          const fatMatch = compositionText.match(/жир(\s–|:|\s-)?\s?([\d.,]+)(.+?)[;,]/i);
+          let totalFatPerServing = fatMatch ? fatMatch[2] : '';
+          let totalFatPerServingUom = fatMatch ? fatMatch[3] : '';
 
-          const fatRegexp = /((\d+)([.,]\d+)?)\s?(.+)?/;
-          const totalFatPerServing = fatText.match(fatRegexp) ? fatText.match(fatRegexp)[1] : '';
-          let totalFatPerServingUom =
-            fatText.match(fatRegexp) && fatText.match(fatRegexp)[4] ? fatText.match(fatRegexp)[4].replace(',', '') : '';
-          if (!totalFatPerServingUom && fatText.includes('%')) totalFatPerServingUom = '%';
+          if (!totalFatPerServing) {
+            let fatElem;
+            const fatSnapshot = document.evaluate(
+              '//*[(name()="tr" or name()="li") and contains(translate(. , "ЖИР", "жир"), "жир")]',
+              document,
+              null,
+              XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
+              null,
+            );
+            for (let i = 0; i < fatSnapshot.snapshotLength; i++) {
+              const elem = fatSnapshot.snapshotItem(i);
+              const elemText = elem.textContent.toLowerCase().trim();
+              if (elemText.startsWith('жир') || elemText.match(/жиры?[\s,:]/)) {
+                fatElem = elem;
+                break;
+              }
+            }
+            if (!fatElem) fatElem = fatSnapshot.snapshotItem(fatSnapshot.snapshotLength - 1);
+            const fatText = fatElem ? fatElem.textContent : '';
+
+            const fatRegexp = /((\d+)([.,]\d+)?)\s?(.+)?/;
+            totalFatPerServing = fatText.match(fatRegexp) ? fatText.match(fatRegexp)[1] : '';
+            totalFatPerServingUom =
+              fatText.match(fatRegexp) && fatText.match(fatRegexp)[4]
+                ? fatText.match(fatRegexp)[4].replace(',', '')
+                : '';
+            if (!totalFatPerServingUom && fatText.includes('%')) totalFatPerServingUom = '%';
+          }
 
           listElem.setAttribute('total_fat_per_serving', totalFatPerServing);
           listElem.setAttribute('total_fat_per_serving_uom', totalFatPerServingUom);
@@ -355,16 +364,22 @@ module.exports = {
           listElem.setAttribute('total_carb_per_serving', totalCarbPerServing);
           listElem.setAttribute('total_carb_per_serving_uom', totalCarbPerServingUom);
 
-          const fibreText = document.evaluate(
-            '//*[(name()="tr" or name()="li") and (contains(translate(. , "КЛЕТЧАТКА", "клетчатка"), "клетчатка") or contains(translate(. , "ВОЛОКНО", "волокно"), "волокно"))]',
-            document,
-            null,
-            XPathResult.STRING_TYPE,
-            null,
-          ).stringValue;
-          const fibreRegexp = /((\d+)([.,]\d+)?)\s?(.+)?/;
-          const dietaryFibrePerServing = fibreText.match(fibreRegexp) ? fibreText.match(fibreRegexp)[1] : '';
-          const dietaryFibrePerServingUom = fibreText.match(fibreRegexp) ? fibreText.match(fibreRegexp)[4] : '';
+          const fibreMatch = compositionText.match(/клетчатка(\s–|:|\s-)?\s?([\d.,]+)(.+?)[;,]/i);
+          let dietaryFibrePerServing = fibreMatch ? fibreMatch[2] : '';
+          let dietaryFibrePerServingUom = fibreMatch ? fibreMatch[3] : '';
+
+          if (!dietaryFibrePerServing) {
+            const fibreText = document.evaluate(
+              '//*[(name()="tr" or name()="li") and (contains(translate(. , "КЛЕТЧАТКА", "клетчатка"), "клетчатка") or contains(translate(. , "ВОЛОКНО", "волокно"), "волокно"))]',
+              document,
+              null,
+              XPathResult.STRING_TYPE,
+              null,
+            ).stringValue;
+            const fibreRegexp = /((\d+)([.,]\d+)?)\s?(.+)?/;
+            dietaryFibrePerServing = fibreText.match(fibreRegexp) ? fibreText.match(fibreRegexp)[1] : '';
+            dietaryFibrePerServingUom = fibreText.match(fibreRegexp) ? fibreText.match(fibreRegexp)[4] : '';
+          }
 
           listElem.setAttribute('dietary_fibre_per_serving', dietaryFibrePerServing);
           listElem.setAttribute('dietary_fibre_per_serving_uom', dietaryFibrePerServingUom);
@@ -384,31 +399,49 @@ module.exports = {
           listElem.setAttribute('total_sugar_per_serving', totalSugarsPerServing);
           listElem.setAttribute('total_sugar_per_serving_uom', totalSugarsPerServingUom);
 
-          const proteinText = document.evaluate(
-            '(//*[(name()="tr" or name()="li") and (contains(translate(. , "БЕЛОК", "белок"), "белок") or contains(translate(. , "БЕЛКИ", "белки"), "белки"))])[last()]',
-            // '//tr[td[contains(. , "белок") or contains(. , "белки")] and contains(. , "г") and not(contains(. , "%"))]',
-            document,
-            null,
-            XPathResult.STRING_TYPE,
-            null,
-          ).stringValue;
-          const proteinRegExp = /((\d+)([.,]\d+)?)\s?(.+)?/;
-          const proteinPerServing = proteinText.match(proteinRegExp) ? proteinText.match(proteinRegExp)[1] : '';
-          const proteinPerServingUom = proteinText.match(proteinRegExp) ? proteinText.match(proteinRegExp)[4] : '';
+          const proteinMatch = compositionText.match(/бело?ки?(\s–|:|\s-)?\s?([\d.,]+)(.+?)[;,]/i);
+          let proteinPerServing = proteinMatch ? proteinMatch[2] : '';
+          let proteinPerServingUom = proteinMatch ? proteinMatch[3] : '';
+
+          if (!proteinPerServing) {
+            const proteinText = document.evaluate(
+              '(//*[(name()="tr" or name()="li") and (contains(translate(. , "БЕЛОК", "белок"), "белок") or contains(translate(. , "БЕЛКИ", "белки"), "белки"))])[last()]',
+              // '//tr[td[contains(. , "белок") or contains(. , "белки")] and contains(. , "г") and not(contains(. , "%"))]',
+              document,
+              null,
+              XPathResult.STRING_TYPE,
+              null,
+            ).stringValue;
+            const proteinRegExp = /((\d+)([.,]\d+)?)\s?(.+)?/;
+            proteinPerServing = proteinText.match(proteinRegExp) ? proteinText.match(proteinRegExp)[1] : '';
+            proteinPerServingUom = proteinText.match(proteinRegExp) ? proteinText.match(proteinRegExp)[4] : '';
+          }
 
           listElem.setAttribute('protein_per_serving', proteinPerServing);
           listElem.setAttribute('protein_per_serving_uom', proteinPerServingUom);
 
-          const vitaminAText = document.evaluate(
-            '(//*[(name()="tr" or name()="li") and contains(translate(. , "ВИТАМИН A", "витамин a"), "витамин a")])[last()]',
-            document,
-            null,
-            XPathResult.STRING_TYPE,
-            null,
-          ).stringValue;
-          const vitaminARegExp = /((\d+)([.,]\d+)?)\s?(.+)?/;
-          const vitaminAPerServing = vitaminAText.match(vitaminARegExp) ? vitaminAText.match(vitaminARegExp)[1] : '';
-          const vitaminAPerServingUom = vitaminAText.match(vitaminARegExp) ? vitaminAText.match(vitaminARegExp)[4] : '';
+          let vitaminAMatch = compositionText.match(/(МЕ\/кг):\sвитамин [АA]:?\s?([\d,.]+)/i);
+          let vitaminAPerServing = vitaminAMatch ? vitaminAMatch[2] : '';
+          let vitaminAPerServingUom = vitaminAMatch ? vitaminAMatch[1] : '';
+
+          if (!vitaminAPerServing) {
+            vitaminAMatch = compositionText.match(/витамин [АA](\s–|:|\s-)?( не менее)?\s?([\d.,]+)(.+?)[;,:]/i);
+            vitaminAPerServing = vitaminAMatch ? vitaminAMatch[3] : '';
+            vitaminAPerServingUom = vitaminAMatch ? vitaminAMatch[4] : '';
+          }
+
+          if (!vitaminAPerServing) {
+            const vitaminAText = document.evaluate(
+              '(//*[(name()="tr" or name()="li") and contains(translate(. , "ВИТАМИН A", "витамин a"), "витамин а")])[last()]',
+              document,
+              null,
+              XPathResult.STRING_TYPE,
+              null,
+            ).stringValue;
+            const vitaminARegExp = /((\d+)([.,]\d+)?)\s?(.+)?/;
+            vitaminAPerServing = vitaminAText.match(vitaminARegExp) ? vitaminAText.match(vitaminARegExp)[1] : '';
+            vitaminAPerServingUom = vitaminAText.match(vitaminARegExp) ? vitaminAText.match(vitaminARegExp)[4] : '';
+          }
 
           listElem.setAttribute('vitamin_a_per_serving', vitaminAPerServing);
           listElem.setAttribute('vitamin_a_per_serving_uom', vitaminAPerServingUom);
@@ -525,6 +558,7 @@ module.exports = {
               )
               .stringValue.replace('Состав:', '');
           }
+
           if (!ingredients) {
             const ingredientsElem = document.querySelector('div[class*="style_composition_composition"]');
             const ingredientsArr = [];
@@ -532,6 +566,16 @@ module.exports = {
             ingredients = ingredientsArr.join(' ');
           }
           listElem.setAttribute('ingredients', ingredients.replace(/\n+/g, ' ').trim());
+
+          let directions = document.body.getAttribute('directions');
+          if (!directions) {
+            directions = compositionText.match(/(Рекоменд.+)/) ? compositionText.match(/(Рекоменд.+)/)[1] : '';
+            document.body.setAttribute('directions', directions);
+          }
+
+          const storageMatch = compositionText.match(/Условия хранения:?\s?(.+)/i);
+          const storage = storageMatch ? storageMatch[1] : '';
+          listElem.setAttribute('storage', storage);
 
           addedList.appendChild(listElem);
         },

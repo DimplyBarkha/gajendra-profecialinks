@@ -2,7 +2,7 @@ input:
   id: 11122
   _url: http://petshop.ru
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=78ed1659-91fb-4bdb-9a3c-098852c22a62/task=39eef3ce-23fb-4359-98ea-1144fc45be8c/0225bf86-a9dc-41f8-b427-d366d3813c9d.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=84f4e92e-ae9d-47b6-88d3-305b2c01ced6/task=8addb29e-a749-4292-b077-cf7a2f93ab02/2258eeee-759f-4504-85fd-1bcb2720923a.html
     extractionConfigId: product/details/stores/p/petshop/RU/extract
     data:
       - group:
@@ -24,10 +24,10 @@ extractions:
                   пищеварительной системы и способствует нормальному стулу.
                 xpath: /html/body/ol[1]/li[1]/@description
             variantId:
-              - text: "40955"
+              - text: "11122"
                 xpath: /html/body/ol[1]/li[1]/@variant_id
             ratingCount:
-              - text: "423"
+              - text: "426"
                 xpath: /html/body/ol[1]/li[1]/@rating_count
             aggregateRating:
               - text: "5"
@@ -91,16 +91,14 @@ extractions:
                 xpath: /html/body/ol[1]/li[1]/@image_360_present
             category:
               - text: Каталог
-                xpath: /html/body/div[7]/div[1]/ul[1]/li[3]
+                xpath: /html/body/div[7]/div[1]/ul[1]/li[3]/a[1]
               - text: Товары для собак
-                xpath: /html/body/div[7]/div[1]/ul[1]/li[5]
+                xpath: /html/body/div[7]/div[1]/ul[1]/li[5]/a[1]
               - text: Сухие корма
-                xpath: /html/body/div[7]/div[1]/ul[1]/li[7]
+                xpath: /html/body/div[7]/div[1]/ul[1]/li[7]/a[1]
               - text: Щенки
-                xpath: /html/body/div[7]/div[1]/ul[1]/li[9]
-              - text: Для щенков гигантских пород 8-18/24 мес.
-                xpath: /html/body/div[7]/div[1]/ul[1]/li[11]
+                xpath: /html/body/div[7]/div[1]/ul[1]/li[9]/a[1]
             imageZoomFeaturePresent:
               - text: "false"
         xpath: /html
-    timestamp: 1611305128173
+    timestamp: 1612351528015

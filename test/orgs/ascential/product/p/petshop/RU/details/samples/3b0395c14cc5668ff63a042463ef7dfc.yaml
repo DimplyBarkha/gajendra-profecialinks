@@ -2,7 +2,7 @@ input:
   id: 25199
   _url: http://petshop.ru
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=78ed1659-91fb-4bdb-9a3c-098852c22a62/task=edfe00de-ca47-43c8-868b-ad291de4e648/056d1a9b-1618-4aee-8d46-b9b0d4fdc731.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=84f4e92e-ae9d-47b6-88d3-305b2c01ced6/task=794df5c6-e40f-4fd6-be59-5029b6a28fc8/e47fe2bf-02e3-42ed-a228-79a8c342a88c.html
     extractionConfigId: product/details/stores/p/petshop/RU/extract
     data:
       - group:
@@ -45,9 +45,15 @@ extractions:
             weightNet:
               - text: 85 г
                 xpath: /html/body/ol[1]/li[1]/@weight
+            sku:
+              - text: "372211"
+                xpath: /html/body/ol[1]/li[1]/@added_sku
             variantId:
               - text: "25199"
                 xpath: /html/body/ol[1]/li[1]/@variant_id
+            mpc:
+              - text: "25199"
+                xpath: /html/body/ol[1]/li[1]/@added_mpc
             ratingCount:
               - text: "289"
                 xpath: /html/body/ol[1]/li[1]/@rating_count
@@ -76,15 +82,13 @@ extractions:
                 xpath: /html/body/ol[1]/li[1]/@image_360_present
             category:
               - text: Каталог
-                xpath: /html/body/div[6]/div[1]/ul[1]/li[3]
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[3]/a[1]
               - text: Товары для кошек
-                xpath: /html/body/div[6]/div[1]/ul[1]/li[5]
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[5]/a[1]
               - text: Консервы
-                xpath: /html/body/div[6]/div[1]/ul[1]/li[7]
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[7]/a[1]
               - text: Паучи
-                xpath: /html/body/div[6]/div[1]/ul[1]/li[9]
-              - text: Кусочки в соусе для кошек при мочекаменной болезни с курицей
-                xpath: /html/body/div[6]/div[1]/ul[1]/li[11]
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[9]/a[1]
             directions:
               - text: >-
                   Способствует образованию недонасыщенной мочи для
@@ -103,10 +107,19 @@ extractions:
                    
                    позволяет поддерживать идеальную массу тела (ожирение является фактором риска для урологического синдрома).
                 xpath: /html/body/@directions
+            manufacturerImages:
+              - text: https://www.proplan.ru/vet/uploads/sp/articles/PVD_Icon_Feline_UR_StOx_1.jpg
+                xpath: /html/body/ol[2]/li[1]/@src
+              - text: https://www.proplan.ru/vet/uploads/sp/articles/PVD_Icon_Feline_UR_StOx_2.jpg
+                xpath: /html/body/ol[2]/li[2]/@src
+              - text: https://www.proplan.ru/vet/uploads/sp/articles/PVD_Icon_Feline_UR_StOx_3.jpg
+                xpath: /html/body/ol[2]/li[3]/@src
+              - text: https://www.petshop.ru/upload/iblock/e4a/e4af77fee769adde900be5c408aa6679.jpg
+                xpath: /html/body/ol[2]/li[4]/@src
             variants:
               - text: 85 г
                 xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[1]/div[1]/div[1]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1611305124785
+    timestamp: 1612351524760
