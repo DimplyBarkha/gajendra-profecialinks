@@ -85,7 +85,7 @@ async function implementation (
         addHiddenDiv('my-variantId', variantId);
         let variantInf = '';
         if (variantLength > 2) {
-          const variantInfXpath = '//h2[contains(@class,"rd__headline--80") and @title] | //div[contains(@class,"rd__headline--80") and @title]';
+          const variantInfXpath = '(//h2[contains(@class,"rd__headline--80") and @title] | //div[contains(@class,"rd__headline--80") and @title])[2]';
           variantInf = getSingleText(variantInfXpath, document, index - 1);
           addHiddenDiv('my-variantInf', variantInf);
         } else {
@@ -106,7 +106,7 @@ async function implementation (
         const availab1 = getSingleText(availabXpath1, document, index);
         addHiddenDiv('my-availab1', availab1);
 
-        const listPriceXpath = '//div[@class="rd__product-details__options__price__item__amount sd__product-details__options__price__item__amount"]//div[contains(@class,"sd__product-details__options__price__item__quantity")] | //div[contains(text(), "Precio base hidratante:")]//..//following-sibling::span[@class="rd__headline--130"]';
+        const listPriceXpath = '//div[@class="rd__product-details__options__price__item__amount sd__product-details__options__price__item__amount"]//div[contains(@class,"sd__product-details__options__price__item__quantity")] | //div[contains(text(), "Precio base hidratante:")]//..//following-sibling::span[@class="rd__headline--130"] | //div[@class="rd__headline rd__headline--100"]';
         const listPrice = getSingleText(listPriceXpath, document, index - 1);
         addHiddenDiv('my-listPrice', listPrice);
 
@@ -219,7 +219,7 @@ async function implementation (
         const availab = getSingleText(availabXpath, document, index - 1);
         addHiddenDiv1('my-availab', availab);
 
-        const listPriceXpath = '//div[@class="rd__product-details__options__price__item__amount sd__product-details__options__price__item__amount"]//div[contains(@class,"sd__product-details__options__price__item__quantity")] | //div[contains(@class,"rd__headline--100 rd__copytext--50")]';
+        const listPriceXpath = '//div[@class="rd__product-details__options__price__item__amount sd__product-details__options__price__item__amount"]//div[contains(@class,"sd__product-details__options__price__item__quantity")] | //div[contains(text(), "Precio base hidratante:")]//..//following-sibling::span[@class="rd__headline--130"] | //div[@class="rd__headline rd__headline--100"]';
         const listPrice = getSingleText(listPriceXpath, document, index - 1);
         addHiddenDiv1('my-listPrice', listPrice);
 
