@@ -109,7 +109,7 @@ async function implementation(
     }
 
     let lezyBeeUrl = await context.evaluate(() => {
-        return document.querySelector('iframe#loadbeeIframeId').getAttribute('src')
+        if (document.querySelector('iframe#loadbeeIframeId')) { return document.querySelector('iframe#loadbeeIframeId').getAttribute('src') } else { return false }
     });
 
     if (lezyBeeUrl) {
