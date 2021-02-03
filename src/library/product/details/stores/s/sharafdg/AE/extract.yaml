@@ -39,7 +39,7 @@ fields:
   - name: promotion
     xpath: //div[contains(@class,'quick-right')]//div[contains(@class,'discount-holder')]//div[contains(@class,'product-disc')]
   - name:  description
-    xpath: //div[@class='detailspecbox']//table//tr
+    xpath: //div[@class='detailspecbox']//table[@class="product-spec"]//th | //div[@class='detailspecbox']//table[@class="product-spec"]//td
   - name: specificationsLabel
     xpath: //table[@class="product-spec"]//tbody//td[@class="specs-heading"]
   - name: specifications
@@ -83,7 +83,7 @@ fields:
     regExp: (.+\s)(.+)(\s.+)
     regExpReplace: https:$2
   - name: manufacturerDescription
-    xpath: //div[@id="prodcut-tab1"]//div[@class="inpage_selector_feature"]
+    xpath: //div[@id="prodcut-tab1"]//div[@id="inpage_container"]
   - name: warranty
     xpath: //div[contains(@class,'quick-right')]//i[contains(@class,'dg-warranty') or contains(@class,'sh-warranty')]//parent::div/parent::div
   - name: energyEfficiency
