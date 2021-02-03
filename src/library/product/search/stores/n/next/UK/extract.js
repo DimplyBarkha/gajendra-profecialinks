@@ -20,8 +20,8 @@ async function implementation (
     }
   });
   await context.evaluate(async () => {
-    const addElementToDOM = (tag, id, content) => {
-      const parent = document.querySelector('div[class="spell-correct"], div[class="SearchedFor"]');
+    const addElementToDOM = (domElement, tag, id, content) => {
+      const parent = domElement;
       const element = document.createElement(tag);
       element.id = id;
       element.href = content;
@@ -30,6 +30,7 @@ async function implementation (
     };
     // add next link selector
     const location = window.location.href;
+    const parent = document.querySelector('div[class="spell-correct"], div[class="SearchedFor"]');
     const index = parseInt(location.split('srt=')[1]) + 24;
     const elements = document.querySelectorAll('article[class="Item Fashion  "]').length;
     const lastElement = document.querySelectorAll('article[class="Item Fashion  "]')[elements - 1].id ? document.querySelectorAll('article[class="Item Fashion  "]')[elements - 1].id.match(/\d+/)[0] : '';
@@ -38,7 +39,7 @@ async function implementation (
     }
     const link = location.split(/\d+$/)[0] + index.toString();
     if (link !== null) {
-      addElementToDOM('a', 'nextLinkSelector', link);
+      addElementToDOM(parent, 'a', 'nextLinkSelector', link);
       document.querySelector('a[id="nextLinkSelector"]').innerText = "nextLink";
     }
   });
