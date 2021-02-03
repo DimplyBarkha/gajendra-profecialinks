@@ -1,13 +1,13 @@
 const { cleanUp } = require('../../../../shared');
 
-async function implementation(inputs, parameters, context, dependencies) {
+async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
   await context.evaluate(async () => {
     await new Promise((resolve, reject) => setTimeout(resolve, 1000));
 
-    function addElementToDocument(id, value, key) {
+    function addElementToDocument (id, value, key) {
       const catElement = document.createElement('div');
       catElement.id = id;
       catElement.innerText = value;
@@ -57,12 +57,12 @@ async function implementation(inputs, parameters, context, dependencies) {
       }
     }
     await new Promise((resolve, reject) => setTimeout(resolve, 1000));
-    //set gtin
-    let scripts = document.querySelectorAll('script[type="application/ld+json"]');
+    // set gtin
+    const scripts = document.querySelectorAll('script[type="application/ld+json"]');
     for (let i = 0; i < scripts.length; i++) {
-      let script = JSON.parse(scripts[i].innerText);
-      if (script.hasOwnProperty('offers')) {
-        addElementToDocument('gtin', script.offers.gtin8)
+      const script = scripts[i].innerText;
+      if (script.includes('gtin8')) {
+        addElementToDocument('gtin', script.match(/"gtin8": "(\d+)"/)[1]);
       }
     }
 
@@ -107,11 +107,10 @@ async function implementation(inputs, parameters, context, dependencies) {
     if (pricePerUnit && pricePerUnit.match(/per\s?(.+)/)) addElementToDocument('added-price-uom', pricePerUnit.match(/per\s?(.+)/)[1]);
     const availability = document.querySelector('span[itemprop=availability]') ? document.querySelector('span[itemprop=availability]').textContent : '';
     if (availability === 'outOfStock') {
-      addElementToDocument('added-availability', 'Out Of Stock')
+      addElementToDocument('added-availability', 'Out Of Stock');
     } else if (availability === 'inStock' || availability === 'lowStock') {
-      addElementToDocument('added-availability', 'In Stock')
+      addElementToDocument('added-availability', 'In Stock');
     }
-
   });
   // return await context.extract(productDetails, { transform });
   const dataRef = await context.extract(productDetails, { transform });
