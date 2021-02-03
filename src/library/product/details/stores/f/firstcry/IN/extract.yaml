@@ -454,7 +454,7 @@ fields:
   - name: countryOfOrigin
     singleValue: true
     description: The country from which the product originates
-    xpath: //br/following-sibling::b[contains(text(),"Made In:")]/following-sibling::text()[1]
+    xpath: //br/following-sibling::b[contains(text(),"Made In:")]/following-sibling::text()[1] | //*[contains(text(), 'Country of Origin:')]/following::text()[1] | //*[contains(text(), 'Made In:')]/following::text()[1]
     
   - name: allergyAdvice
     singleValue: true
