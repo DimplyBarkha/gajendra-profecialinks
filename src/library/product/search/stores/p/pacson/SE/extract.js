@@ -33,30 +33,30 @@ async function implementation(
       const originalDiv = document.querySelectorAll('li[class="product-list__item columns small-12 medium-2"]')[index];
       originalDiv.parentNode.insertBefore(newDiv, originalDiv);
     }
-    let rankOrganic;
-    let url = window.location.href;
-    let checkPageNumber = url.split('&')[1];
-    try {
-      if (checkPageNumber.startsWith('page=')) {
-        rankOrganic = checkPageNumber.replace('page=', '');
-      }
-    }
-    catch (err) {
-    }
+    // let rankOrganic;
+    // let url = window.location.href;
+    // let checkPageNumber = url.split('&')[1];
+    // try {
+    //   if (checkPageNumber.startsWith('page=')) {
+    //     rankOrganic = checkPageNumber.replace('page=', '');
+    //   }
+    // }
+    // catch (err) {
+    // }
 
 
-    var dup = Number(rankOrganic);
-    dup = dup - 1; 
+    // var dup = Number(rankOrganic);
+    // dup = dup - 1; 
 
-    if (!rankOrganic) {
-      rankOrganic = 1;
-    } else {
-      rankOrganic = (dup * 24) + 1;
-    }
-    const urlProduct = document.querySelectorAll('li[class="product-list__item columns small-12 medium-2"]');
-    for (let i = 0; i < urlProduct.length; i++) {
-      addHiddenDiv('rankOrganic', rankOrganic++, i);
-    }
+    // if (!rankOrganic) {
+    //   rankOrganic = 1;
+    // } else {
+    //   rankOrganic = (dup * 24) + 1;
+    // }
+    // const urlProduct = document.querySelectorAll('li[class="product-list__item columns small-12 medium-2"]');
+    // for (let i = 0; i < urlProduct.length; i++) {
+    //   addHiddenDiv('rankOrganic', rankOrganic++, i);
+    // }
 
 
     // Method to Retrieve Xpath content of a Single Node
@@ -67,6 +67,13 @@ async function implementation(
       else result = elem ? elem.singleNodeValue : '';
       return result && result.trim ? result.trim() : result;
     };
+    function addHiddenDiv1(id, content, index) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      const originalDiv = document.querySelectorAll('ul[class="row product-list"] li')[index];
+      originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+    }
 
     var pagination = getXpath("//ul[@class='pagination']/li[last()]/a/@class", 'nodeValue');
     if (pagination === 'pagination__link') {
@@ -106,11 +113,23 @@ async function implementation(
     var backgroundURL = getAllXpath('//span[@class="product__name__productitemno"]/text()', 'nodeValue');
     sliceURL(backgroundURL);
 
-    const URL = window.location.href;
-    if(URL != null){
-      addElementToDocument('pd_url', URL);
-    }
+    // const URL = window.location.href;
+    // try {
+    //   document.getElementById('pd_url').remove();
+    // } catch (error) {
+    // }
+    // if(URL != null){
+    //   console.log("11111111111111111111111111111111111111111111111111111");
+    //   console.log(URL);
+    //   addElementToDocument('pd_url', URL);
+    // }
 
+    const url = window.location.href;
+      const search = document.querySelectorAll('ul[class="row product-list"] li')
+      for (let i = 0; i <search.length; i++){
+        addHiddenDiv1('added-searchurl', url, i);
+
+      }
 
   });
   return await context.extract(productDetails, { transform });
