@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     description: URL of the main product image
-    xpath: //div[@class="imageCont"]/img/@data-src
+    xpath: //div[@class="imageCont"]//img/@data-src
   - name: descriptionBullets
     xpath: count(//div[@id="celek"]//ul//li)
   - name: imageAlt
@@ -25,7 +25,7 @@ fields:
   - name: nameExtended
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //div[@id="h1c"]//h1
+    xpath:  //div[@class="title-cnt"]//h1[@itemprop="name"]
   - name: listPrice
     description: The stated undiscounted price for the product
     xpath: //span[contains(@class,"price_compare")] | //tr[@class="priceCompare"]/td[@class="c2"]
@@ -119,7 +119,7 @@ fields:
     xpath: count(//div[contains(@class,"blok_pp")]//ul//li)
   - name: name
     description: The product name
-    xpath: //div[@id="h1c"]//h1
+    xpath: //div[@class="title-cnt"]//h1[@itemprop="name"]
   - name: technicalInformationPdfPresent
     defaultValue: No
     xpath: //div[@class="blockMoreInfoG"]//span[not(contains(@id,"rowWarranty"))][last()]/a/@href
