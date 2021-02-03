@@ -16,10 +16,12 @@ fields:
     xpath: //div[@class="infinite-scroll-component "]/div/div[2]/div[3]/div/h2  
   - name: thumbnail
     description: The URL for the product thumbnail image
+    regExp: (.+)(/w_304,h_304,c_scale)(.+)
+    regExpReplace: $1$3    
     xpath: (//div[@class="infinite-scroll-component "]/div/div[2]/div//img/@src)
   - name: name
     description: The product name
     xpath: //div[@data-rw="product--name"]/h1
   - name: price
     description: The offered price for the product
-    xpath: //div[@class="infinite-scroll-component "]/div[1]/div[2]/div[3]/div[3]/div[2]
+    xpath: //div[@class="infinite-scroll-component "]/div/div[2]/div[3]/div[3]/div[2]

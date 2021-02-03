@@ -11,7 +11,7 @@ fields:
     description: URL of the main product image
     regExp: (.+)(/w_700,h_700,c_scale)(.+)
     regExpReplace: $1$3
-    xpath: (//div[@id="jjfoods"]/div[1]/div[3]/main/div[3]/div[1]/div[1]/div[1]/div[1]//img/@src)
+    xpath: (//div[@id="jjfoods"]/div[1]/div[3]/main/div[3]/div[1]/div[1]/div[1]/div[1]//img/@src)[1]
   - name: imageAlt
     description: Alt text of the main product image
   - name: alternateImages
