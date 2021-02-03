@@ -14,18 +14,23 @@ module.exports = {
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
         let count = document.querySelectorAll('div.home-product-cards div.home-dest-electro').length;
-        while (count < 150) {
-          const oldCount = count;
-          document.querySelector('a.ver-mas-productos[style="display: block;"]') && document.querySelector('a.ver-mas-productos[style="display: block;"]').click();
-          await new Promise(resolve => setTimeout(resolve, 2000));
-          count = document.querySelectorAll('div.home-product-cards div.home-dest-electro').length;
-
-          window.scrollTo(0, document.body.scrollHeight);
-          await new Promise(resolve => setTimeout(resolve, 2000));
-
-          if (oldCount === count) {
-            break;
+        let iterCnt = 0;
+        while (iterCnt < 2) {
+          // const oldCount = count;
+          try {
+            document.querySelector('a.ver-mas-productos[style="display: block;"]') && document.querySelector('a.ver-mas-productos[style="display: block;"]').click();
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            count = document.querySelectorAll('div.home-product-cards div.home-dest-electro').length;
+  
+            window.scrollTo(0, document.body.scrollHeight);
+            await new Promise(resolve => setTimeout(resolve, 2000));  
+          } catch (err) {
+            
           }
+          iterCnt++;
+          // if (oldCount === count) {
+          //   break;
+          // }
         }
       });
     };
