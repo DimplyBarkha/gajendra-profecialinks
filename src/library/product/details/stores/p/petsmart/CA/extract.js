@@ -26,6 +26,35 @@ module.exports = {
       await context.evaluate(async () => {
         const body = document.querySelector('body');
 
+        // getting brand from description tab or product header
+        let brand = document
+          .evaluate(
+            '//b[contains(text(), "Brand:")]/following-sibling::text()[1]',
+            document,
+            null,
+            XPathResult.UNORDERED_NODE_ITERATOR_TYPE,
+            null,
+          )
+          .iterateNext();
+
+        if (brand) {
+          body.setAttribute('brand', brand.textContent);
+        } else {
+          brand = document
+            .evaluate(
+              '//a[@class="brand-details"]',
+              document,
+              null,
+              XPathResult.UNORDERED_NODE_ITERATOR_TYPE,
+              null,
+            )
+            .iterateNext();
+
+          if (brand) {
+            body.setAttribute('brand', brand.textContent);
+          }
+        }
+
         // getting data from directions tab
         const directionsTab = document
           .evaluate(
@@ -43,7 +72,7 @@ module.exports = {
             ? document
               .querySelector('div.react-tabs__tab-content')
             // @ts-ignore
-              .innerText.trim()
+              .innerText.split('\n').slice(1).join('\n')
             : '';
           body.setAttribute('directions', directions);
         }
