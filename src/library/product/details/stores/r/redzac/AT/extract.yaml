@@ -14,13 +14,15 @@ fields:
     - name: alternateImages
       # singleValue: false
       description: Other product images (not in manufacturer description)
-      xpath: //div[contains(@class,"product_files")]//ul[contains(@class,"carousel-list")]//li[not(contains(@class,"active"))]//img/@src
+      # xpath: //div[contains(@class,"product_files")]//ul[contains(@class,"carousel-list")]//li[not(contains(@class,"active"))]//img/@src
+      xpath: //div[contains(@class,"product_files")]//ul[contains(@class,"carousel-list")]//li[position()>1]//img/@src[not(contains(.,'youtube') or contains(.,'content'))]
       regExp: (.+)
       regExpReplace: https://www.redzac.at$1
     - name: secondaryImageTotal
       singleValue: true
       type: NUMBER
-      xpath: count(//div[contains(@class,"product_files")]//ul[contains(@class,"carousel-list")]//li[not(contains(@class,"active"))]//img/@src)
+      # xpath: count(//div[contains(@class,"product_files")]//ul[contains(@class,"carousel-list")]//li[not(contains(@class,"active"))]//img/@src)
+      xpath: count(//div[contains(@class,"product_files")]//ul[contains(@class,"carousel-list")]//li[position()>1]//img/@src[not(contains(.,'youtube') or contains(.,'content'))])
     - name: metaKeywords
       singleValue: true
       description: The <meta> keywords content
