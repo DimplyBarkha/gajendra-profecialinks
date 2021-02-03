@@ -32,11 +32,11 @@ module.exports = {
         addElementToDocument('ab', ab);
       }
 
-      var desc = getAllXpath("//div[@class='b-details-content']/ul/li/text()", 'nodeValue');
-      if (desc != null) {
-        var specs = desc.join(' || ');
-        addElementToDocument('specs', specs);
-      }
+      // var desc = getAllXpath("//div[@class='b-details-content']/ul/li/text()", 'nodeValue');
+      // if (desc != null) {
+      //   var specs = desc.join(' || ');
+      //   addElementToDocument('specs', specs);
+      // }
 
       // Method to Retrieve Xpath content of a Multiple Nodes
 
@@ -72,6 +72,12 @@ module.exports = {
         abc = (abc) / 20;
         addElementToDocument('agg', abc);
         // }
+      }
+      // alternateimage
+      var alternateimage = getAllXpath('(//div[@class="b-pdp-thumbs-carousel js-pdp-thumbs-carousel slick-initialized slick-slider slick-vertical"])/div/div/div[position()>1 and position() <= last()]/div/div/picture/img/@src', 'nodeValue');
+      if (alternateimage != null) {
+        var AltImg = alternateimage.join(' | ');
+        addElementToDocument('AltImg', AltImg);
       }
     });
     await context.extract(productDetails);
