@@ -8,7 +8,7 @@ module.exports = {
     // mutationSelector: 'div[class*="Loader__LoaderIcon"]',
     spinnerSelector: 'div[class*="Loader__LoaderIcon"]',
     loadedSelector: 'ul[class*="ProductsGrid__ProductsGridWrapper"] li',
-    // noResultsXPath: '//h2[contains(@class,"NoResultsMessage")]',
+    noResultsXPath: '//h2[contains(@class,"NoResultsMessage")]',
     openSearchDefinition: null,
     domain: 'casasbahia.com.br',
     zipcode: "''",
