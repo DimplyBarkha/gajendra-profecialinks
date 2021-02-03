@@ -3,12 +3,15 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: sku
+    singleValue: false
+    description: The store-specific product identifier
+    xpath: //div[@class="product-item__sku hide-on-mobile"]/text()
+    regExp: (\d+)
+    regExpReplace: $1
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
-    xpath: //div[@class="price-box__content price-box__content_old"]/span[@class="price-value"]
-    regExp: (\d+)?(\s*)(\d+)
-    regExpReplace: $1$3     
   - name: paid
     singleValue: true
     description: Whether this is a sponsored/paid result
@@ -17,6 +20,7 @@ fields:
     singleValue: true
     description: The brand name
     example: Panasonic
+   # xpath: //*[@id="root"]/div/div[3]/div/div[6]/div[2]/div[1]/div/div/div/div[4]/div[1]/a/div/h2/span[1]
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
@@ -36,19 +40,14 @@ fields:
   - name: mpc
     singleValue: true
     description: The model code of the product
+   # xpath: //*[@id="root"]/div/div[3]/div/div[6]/div[2]/div[1]/div/div/div/div[4]/div[2]/span
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-  - name: sku
-    singleValue: false
-    description: The store-specific product identifier
-    xpath: //div[@class="product-item__sku hide-on-mobile"]/text()
-    regExp: (\d+)
-    regExpReplace: $1
   - name: ratingCount
     singleValue: true
     description: The number of ratings
-    xpath: //a[@class="js-gtm-product-review js-gtm-product-title product-item__review-item"]/span/text() | //span[@class="js-gtm-product-review"]/text()
+    # xpath: //a[@class="js-gtm-product-review js-gtm-product-title product-item__review-item"]/span/text() | //span[@class="js-gtm-product-review"]/text()
   - name: reviewCount
     singleValue: true
     description: The number of reviews
@@ -68,18 +67,29 @@ fields:
   - name: endorsementText
     singleValue: true
     description: The text that signifies that a product is endorsed
+  # - name: aggregateRatingText
+  #   singleValue: false
+  #   description: The stated aggregate rating
+  #   xpath: //div[@class="aggregateRating"]
+  #   # regExp: ([\d])([.])([\d])
+  #   regExp: (\d.+)(\d)
+  #   regExpReplace: $1.$2
+  #   type: NUMBER
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
+  #  xpath: //*[@id="root"]/div/div[3]/div/div[6]/div[2]/div[1]/div/div/div/div[4]/div[5]/div[1]/div/span
   - name: rank
     singleValue: true
     description: search/listing rank
-    xpath: //div[@class="rank"]
-    type: NUMBER  
+    # xpath: //div[@class="pd_rank"]
+    type: NUMBER
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
-    xpath: //div[@class="rank"]
+    # xpath: //div[@data-gtm-position]/@data-gtm-position
+    # xpath: //div/@data-gtm-position
+    # xpath: //div[@class="pd_rank"]
     type: NUMBER 
   - name: sponsored
     singleValue: true
@@ -90,15 +100,23 @@ fields:
   - name: id
     singleValue: false
     description: Unique id (within this extractor)
-    xpath: //div[@class="product-item__sku hide-on-mobile"]/text()
+    # xpath: //div[@class="product-item products-list__item js-item out-of-stock-item _blocks-replaced"]/@data-gtm-product #search-IM
+    xpath: //div[@class="product-item__sku hide-on-mobile"]/text() #search
     regExp: (\d+)
     regExpReplace: $1
+    # regExp: (eventProductId':')([\d.]+)
+    # regExpReplace: $2
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per extractor)
     xpath: //a[@class="product-item__name-link js-gtm-product-title"]
   - name: aggregateRating2
     singleValue: true
-    type: NUMBER
+    # type: NUMBER
     description: The stated aggregate rating normalized to be out of 5
     xpath: //div[@class="aggregateRating"]
+    regExp: (\d+)(\.)(\d+)
+    regExpReplace: $1,$3
+  - name: searchUrl
+    singleValue: true
+    xpath: //div[@class='searchurl']

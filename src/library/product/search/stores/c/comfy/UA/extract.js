@@ -1,3 +1,5 @@
+const { transform } = require('./transform');
+
 async function implementation (
   // @ts-ignore
   inputs,
@@ -5,7 +7,7 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { transform } = parameters;
+  // const { transform } = parameters;
   const { productDetails } = dependencies;
 
   await context.evaluate(() => {
@@ -17,34 +19,28 @@ async function implementation (
       el.appendChild(newDiv);
     }
 
-    const itemContainers = document.querySelectorAll('._blocks-replaced');
-    let rank = 1;
-    // @ts-ignore
-    for (const itemContainer of itemContainers) {
-      console.log(itemContainer);
-      const totalRank = itemContainer + rank;
-      addHiddenDiv(itemContainer, 'rank', totalRank);
-      rank++;
-    }
-
-    const aggregateRating = document.querySelectorAll('div.rating-box__active-wrap');
+    const url = window.location.href;
+    const aggregateRating = document.querySelectorAll('div[class*="rating-box__active"]:not([style*="max-width"])');
     for (let k = 0; k < aggregateRating.length; k++) {
       // @ts-ignore
       let singleRating = aggregateRating[k].style.width;
       singleRating = singleRating.slice(0, singleRating.length - 1);
       singleRating = (5 * singleRating) / 100;
       singleRating = singleRating.toFixed(1);
+      console.log(singleRating);
       addHiddenDiv(aggregateRating[k], 'aggregateRating', singleRating);
+
+      addHiddenDiv(aggregateRating[k], 'searchurl', url);
     }
   });
-  return await context.extract(productDetails, { transform });
+  return await context.extract(productDetails, { transform: parameters.transform });
 }
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'UA',
     store: 'comfy',
-    transform: null,
+    transform: transform,
     domain: 'comfy.ua',
     zipcode: '',
   },
