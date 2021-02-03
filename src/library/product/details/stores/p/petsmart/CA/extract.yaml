@@ -46,7 +46,7 @@ fields:
   #   defaultValue: Out of stock
   - name: description
     singleValue: false
-    xpath: //body/@productDescription
+    xpath: //div[@class="react-tabs" and contains(.,'Description')]//div[@id="react-tabs-1"]//div[contains(@class, "react-tabs__tab-content")]//b[contains(text(),'DESCRIPTION')]/following::p[1] | //div[@class="react-tabs" and contains(.,'Description')]//div[@id="react-tabs-1"]//div[contains(@class, "react-tabs__tab-content") and not(contains(b,'DESCRIPTION'))]/text() | //div[@class="react-tabs" and contains(.,'Description')]//div[@id="react-tabs-1"]//div[contains(@class, "react-tabs__tab-content") and not(contains(b,'DESCRIPTION'))]//p[not(contains(b,''))]
   - name: descriptionBullets
     singleValue: true
     xpath: count(//div[contains(@class, "react-tabs__tab-content")]/li)
@@ -577,4 +577,4 @@ fields:
     regExpReplace: $1
   - name: shortDescription
     singleValue: false
-    xpath: //body/@productDescription
+    xpath: //div[@class="react-tabs" and contains(.,'Description')]//div[@id="react-tabs-1"]//div[contains(@class, "react-tabs__tab-content")]//b[contains(text(),'DESCRIPTION')]/following::p[1] | //div[@class="react-tabs" and contains(.,'Description')]//div[@id="react-tabs-1"]//div[contains(@class, "react-tabs__tab-content") and not(contains(b,'DESCRIPTION'))]/text() | //div[@class="react-tabs" and contains(.,'Description')]//div[@id="react-tabs-1"]//div[contains(@class, "react-tabs__tab-content") and not(contains(b,'DESCRIPTION'))]//p[not(contains(b,''))]
