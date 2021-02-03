@@ -69,9 +69,9 @@ fields:
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    xpath: //span[@class='prd_price__normAmount']
-    regExp: \/(.*)
-    regExpReplace: $1
+    xpath: //li[@class="p_selected "]/@title | //option[@selected='selected']/@title
+    #regExp: \/(.*)
+    #regExpReplace: $1
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
