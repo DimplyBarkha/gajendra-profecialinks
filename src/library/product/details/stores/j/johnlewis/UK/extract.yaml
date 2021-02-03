@@ -108,16 +108,22 @@ fields:
   - name: ratingCount
     singleValue: false
     description: The number of ratings
-    manualSelector: span.bin-count
-    regExp: \d+
+    # manualSelector: span.bin-count
+    # regExp: \d+
+    xpath: (//div[@data-cy="ratings-and-review-count"])[1] | //div[@class="stars-caption"]/text()
+    regExp: (\d+)
+    type: NUMBER
   - name: aggregateRatingText
     singleValue: false
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
-    manualSelector: span.review-indicator-sprites
-    regExp: \d+.\d+
+    # manualSelector: span.review-indicator-sprites
+    # regExp: \d+.\d+
+    xpath: (//div[contains(@class,"RatingsAndReviewsLink")]/a/@aria-label)[1] | //div[@class='star-ratings']/@title
+    regExp: (Rated)?\s?([^]+)\s(out of 5 stars)
+    regExpReplace: $2
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
