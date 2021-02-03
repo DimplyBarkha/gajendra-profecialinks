@@ -19,7 +19,7 @@ fields:
   - name: id
     xpath: //div[@data-cy="productInfoTitle"]/a/@href
     description: The store-specific product identifier
-    regExp: \d+
+    regExp: (\d+)"*$
   - name: price
     xpath: //div[@class="css-5hsjzt e14k98vr0"]
     type: CURRENCY
