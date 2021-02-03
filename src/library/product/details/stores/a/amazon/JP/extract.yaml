@@ -14,9 +14,9 @@ fields:
   - name: pageTitle
     xpath: ancestor::html//meta[@name="title"]/@content
   - name: category
-    xpath: //ul[contains(@class,"a-unordered-list")]//li/span[@class="a-list-item"]/a/text()
+    #xpath: //ul[contains(@class,"a-unordered-list")]//li/span[@class="a-list-item"]/a/text()
   - name: subCategory
-    xpath: //ul[contains(@class,"a-unordered-list")]//li[last()]/span[@class="a-list-item"]/a/text()
+    #xpath: //ul[contains(@class,"a-unordered-list")]//li[last()]/span[@class="a-list-item"]/a/text()
   - name: reviewCount
     xpath: (//span[@id="acrCustomerReviewText"])[1]
     regExp: (.*) ratings
