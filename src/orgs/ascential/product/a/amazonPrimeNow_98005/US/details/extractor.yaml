@@ -2,10 +2,16 @@ robot: product/details
 parameters:
   country: US
   domain: primenow.amazon.com
-  store: amazonPrimeNow_98005
+  store: amazonPrimeNow
   zipcode: "98005"
+proxy:
+  zone: ZUS
+  type: DATA_CENTER
 meta:
   branches:
-    amazonPrimeNow_98005-details:
-      extractor: 36b6e03a-e7da-4411-9228-c770e12c0951
+    development:
+      extractor: f2d8d125-3bdb-4136-a229-bf87b91bccd5
       legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
+    staging:
+      extractor: 86d6d332-d973-456f-8dac-e717ff24b48a
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94

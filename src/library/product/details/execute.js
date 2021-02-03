@@ -76,6 +76,12 @@ module.exports = {
       type: 'string',
       optional: true,
     },
+    {
+      name: 'zipcode',
+      description: 'zipcode to set  location',
+      type: 'string',
+      optional: true,
+    },
   ],
   dependencies: {
     goto: 'action:navigation/goto',
