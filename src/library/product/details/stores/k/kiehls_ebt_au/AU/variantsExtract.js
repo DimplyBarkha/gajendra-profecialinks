@@ -43,20 +43,20 @@ async function implementation(
       return result && result.trim ? result.trim() : result;
       };
     
-
-    //var vurls =[];
+    //Variant URL
+    var vurls =[];
     var pgurl= getXpath('//meta[@property="og:url"]/@content','nodeValue');
     var vId = getAllXpath('//div/ul/li/a/@data-variantid','nodeValue');
     vId = [...new Set(vId)];
-    //if(vId.length=1)
-     // addElementToDocument('vurls',pgurl);
-    //else
-    //{
+    if(vId.length==1)
+      addElementToDocument('vurls',pgurl);
+    else
+    {
     for(var i=0;i<vId.length;i++){
       //vurls.push(pgurl.replace(pgurl.match(/(\d+?).html/gm),vId[i]+".html"));
       addElementToDocument('vurls',pgurl.replace(pgurl.match(/(\d+?).html/gm),vId[i]+".html"));
     }
-    //}
+    };
 
   });
 return await context.extract(variants, { transform });

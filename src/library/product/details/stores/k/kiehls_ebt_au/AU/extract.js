@@ -31,15 +31,21 @@ module.exports = {
       var pn = getAllXpath('(//div/h1[@class="product_name"]/span[1])/text()', 'nodeValue');
       var pq = getAllXpath('//div[@class="hidden-mobile b-product_name"]/h2/text()', 'nodeValue');
       if (pn != null && pq != null) {
-        var ab = pn + ' | ' + pq;
+        var ab1 = pn + ' | ' + pq;
+        var ab = ab1.trim().replaceAll('’', '');
         addElementToDocument('ab', ab);
       }
 
       //nameExtended
       var x = getAllXpath('(//div/h1[@class="product_name"]/span[1])/text()', 'nodeValue');
-      var y = getAllXpath('//div[@id="product_content"]/div[1]/ul[1]/li[1]/div/ul/li[@class="selected"]/a/@title ', 'nodeValue');
+      var y = getAllXpath('//li[@class="selected"]/a/@title ', 'nodeValue');
       if (x != null && y != null) {
         var xy = x + ' | ' + y;
+        addElementToDocument('xy', xy);
+      }
+      else
+      {
+        var xy = '';
         addElementToDocument('xy', xy);
       }
 
@@ -76,7 +82,7 @@ module.exports = {
       var rmP = arr.replace('Print', '');
       var spec = rmP.trim().replaceAll('\n', '||');
       var spe = spec.trim().replaceAll('-', '');
-      var specs = spe.trim().replaceAll('•'||'●', '');
+      var ing = spe.trim().replaceAll('•'||'●', '');
       addElementToDocument('ing', ing);
       }
       var ingre = getAllXpath('//div[@class="ingredient"]/descendant::text()', 'nodeValue');
@@ -95,7 +101,8 @@ module.exports = {
       var rmP = arr.replace('Print', '');
       var spec = rmP.trim().replaceAll('\n', '||');
       var spe = spec.trim().replaceAll('-', '');
-      var specs = spe.trim().replaceAll('•'||'●', '');
+      var specs1 = spe.trim().replaceAll('•'||'●', '');
+      var specs = specs1.trim().replaceAll('’', '');
       addElementToDocument('specs', specs);
       }
       var direction = getAllXpath('(//div[@id="tab_tips"])/descendant::text()', 'nodeValue');
@@ -110,7 +117,8 @@ module.exports = {
     var rmP = arr.replace('Print', '');
     var descr = rmP.trim().replaceAll('\n', '||');
     var des = descr.trim().replaceAll('-', '');
-    var descrip = des.trim().replaceAll('•', '');
+    var specs = des.trim().replaceAll('’', '');
+    var descrip = specs.trim().replaceAll('•'||'●', '');
     addElementToDocument('descrip', descrip);
     }
     var description = getAllXpath('//div[@id="tab_details"]/descendant::text()', 'nodeValue');
