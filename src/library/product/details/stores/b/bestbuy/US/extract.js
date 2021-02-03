@@ -349,6 +349,10 @@ async function implementation (
                     if (shadowText) {
                       shadowText += fetchedData.innerText;
                     }
+                    const imgArr = parsedData.querySelectorAll('div[class*=wc-pc-tabbed-content] div[class*="wc-pc-content"] img');
+                    for (let i = 0; i < imgArr.length; i++) {
+                      shadowImage.push(imgArr[i].src);
+                    }
                   }
                   // }
                   // const tabButtons = document.querySelectorAll('div.wc-ms-navbar ul li a');
