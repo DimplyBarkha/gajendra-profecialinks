@@ -12,7 +12,7 @@ fields:
     xpath: //a[@data-testid="product_name"]/@href
   - name: price
     SingleValue: false
-    xpath: //div[@data-testid="product-card-discount-price" and @type="discount"]
+    xpath: //div[@data-testid="product-card-discount-price" and @type="discount"] | //div[@data-testid="product-card-original-price" and @type="original"]
   - name: listPrice
     SingleValue: false
     xpath: //div[@data-testid="product-card-original-price" and @type="original"]
