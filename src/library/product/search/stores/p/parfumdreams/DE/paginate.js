@@ -83,13 +83,22 @@ async function implementation(
   }, [nextPageUrlSelector, 'head link[rel="next"]']);
 
   const pageURL = await context.evaluate(() => {
+    let finalPage;
     let page = window.location.href;
-    return page.split('?')[0];
+    if (page.includes('/Redken')) {
+      finalPage = page.split('?')[0] + '?p={page}';
+    }
+    else {
+      finalPage = 'https://www.parfumdreams.de/?m=5&search={searchTerms}&p={page}';
+    }
+    console.log('sai')
+    console.log(finalPage)
+    return finalPage;
   })
 
   if (!url && openSearchDefinition) {
     const { pageStartNb = 1, indexOffset, pageOffset, pageIndexMultiplier } = openSearchDefinition;
-    var template = pageURL + "?p={page}";
+    var template = pageURL;
     const pageNb = page + pageStartNb - 1;
     url = template
       .replace(/{searchTerms}/g, encodeURIComponent(keywords))
