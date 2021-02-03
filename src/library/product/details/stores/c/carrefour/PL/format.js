@@ -25,60 +25,71 @@ const transform = (data) => {
   };
   for (const { group } of data) {
     for (const row of group) {
-      let storageStr='',directionsStr='',ingredientsListStr='';
-      if(row.directions){
-        row.directions.forEach(item=>{
-          let tmp=JSON.parse(item.text);
-          let tmp1=tmp.props.initialState.product.data.descriptionAttributeSets[0].descriptionAttributes;
-          //console.log('tmp: ',tmp.props.initialState.product.data.descriptionAttributeSets[0].descriptionAttributes);
-          for(let key in tmp1){
-            //console.log('key:',key);
-            //console.log('key:',key);
-            let keyVal=tmp1[key];
-            //console.log('keyVal:',keyVal);
-            if(keyVal.name=='Przechowywanie'){
-              storageStr=keyVal.value;
+      let storageStr = ''; let directionsStr = ''; let ingredientsListStr = '';
+      if (row.directions) {
+        row.directions.forEach(item => {
+          const tmp = JSON.parse(item.text);
+          const tmp1 = tmp.props.initialState.product.data.descriptionAttributeSets[0].descriptionAttributes;
+          // console.log('tmp: ',tmp.props.initialState.product.data.descriptionAttributeSets[0].descriptionAttributes);
+          for (const key in tmp1) {
+            // console.log('key:',key);
+            // console.log('key:',key);
+            const keyVal = tmp1[key];
+            // console.log('keyVal:',keyVal);
+            if (keyVal.name == 'Przechowywanie') {
+              storageStr = keyVal.value;
             }
-            if(keyVal.name=='Przygotowanie i stosowanie'){
-              directionsStr=keyVal.value;
+            if (keyVal.name == 'Przygotowanie i stosowanie') {
+              directionsStr = keyVal.value;
             }
-            if(keyVal.name="Składniki"){
-              ingredientsListStr=keyVal.value;
+            if (keyVal.name = 'Składniki') {
+              ingredientsListStr = keyVal.value;
             }
           }
-        })
-        //row.ingredientsList=[{"text":ingredientsListStr}];
-        row.storage=[{"text":storageStr}];
-        row.directions=[{"text":directionsStr}];
+        });
+        // row.ingredientsList=[{"text":ingredientsListStr}];
+        row.storage = [{ text: storageStr }];
+        row.directions = [{ text: directionsStr }];
       }
-      if(row.alternateImages){
-        row.alternateImages.forEach(item=>{
-          item.text=item.text.replace('/90x90/','/900x900/');
-        })
+      if (row.otherSellersName) {
+        let text = '';
+        row.otherSellersName.forEach(item => {
+          text += `${item.text.replace('Adres producenta:', '')}`;
+        });
+        row.otherSellersName = [
+          {
+            text: text.slice(0, -1),
+          },
+        ];
       }
-      if(row.caloriesPerServing){
-        row.caloriesPerServingUom=[{"text":"kal"}];
+      if (row.alternateImages) {
+        row.alternateImages.forEach(item => {
+          item.text = item.text.replace('/90x90/', '/900x900/');
+        });
       }
-      if(row.totalFatPerServing){
-        row.totalFatPerServingUom=[{"text":"g"}];
+      if (row.caloriesPerServing) {
+        row.caloriesPerServingUom = [{ text: 'kal' }];
       }
-      if(row.saturatedFatPerServing){
-        row.saturatedFatPerServingUom=[{"text":"g"}];
+      if (row.totalFatPerServing) {
+        row.totalFatPerServingUom = [{ text: 'g' }];
       }
-      if(row.totalCarbPerServing){
-        row.totalCarbPerServingUom=[{"text":"g"}];
+      if (row.saturatedFatPerServing) {
+        row.saturatedFatPerServingUom = [{ text: 'g' }];
       }
-      if(row.dietaryFibrePerServing){
-        row.dietaryFibrePerServingUom=[{"text":"g"}];
+      if (row.totalCarbPerServing) {
+        row.totalCarbPerServingUom = [{ text: 'g' }];
       }
-      if(row.totalSugarsPerServing){
-        row.totalSugarsPerServingUom=[{"text":"g"}];
+      if (row.dietaryFibrePerServing) {
+        row.dietaryFibrePerServingUom = [{ text: 'g' }];
       }
-      if(row.proteinPerServing){
-        row.proteinPerServingUom=[{"text":"g"}];
+      if (row.totalSugarsPerServing) {
+        row.totalSugarsPerServingUom = [{ text: 'g' }];
       }
-      if(row.saltPerServing){
-        row.saltPerServingUom=[{"text":"g"}];
+      if (row.proteinPerServing) {
+        row.proteinPerServingUom = [{ text: 'g' }];
+      }
+      if (row.saltPerServing) {
+        row.saltPerServingUom = [{ text: 'g' }];
       }
     }
   }
