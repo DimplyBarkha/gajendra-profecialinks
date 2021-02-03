@@ -20,29 +20,41 @@ module.exports = {
       }
 
       let scrollTop = 0;
-      while (scrollTop !== 20000) {
+      while (scrollTop !== 5000) {
         await stall(1000);
-        scrollTop += 20000;
+        scrollTop += 500;
         window.scroll(0, scrollTop);
-        if (scrollTop === 20000) {
+        if (scrollTop === 5000) {
           await stall(500);
           break;
         }
       }
       // const moreButton = document.evaluate('//div[contains(@class,"LoadMore__Wrapper-")]//button', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
-      const moreButton = document.evaluate('//button[contains(@class,"Button-sc-1o0ywp5-0")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+      let moreButton = document.evaluate('//div[contains(@class,"LoadMore__Wrapper-")]//button[contains(@class,"Button-sc-1o0ywp5-0")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
       console.log('moreButton:: ', moreButton.singleNodeValue);
       if (moreButton && moreButton.singleNodeValue != null) {
         let index = 0;
-        while (index < 5) {
+        while (index < 7) {
           try {
+            moreButton = document.evaluate('//div[contains(@class,"LoadMore__Wrapper-")]//button[contains(@class,"Button-sc-1o0ywp5-0")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
             moreButton.singleNodeValue.click();
             console.log('more button clicked: ', index);
-          } catch (e) { }
-          await new Promise((resolve, reject) => setTimeout(resolve, 500));
-          index++;
+            index++;
+            await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+            let scrollTop = 0;
+            while (scrollTop !== 10000) {
+              await stall(1000);
+              scrollTop += 500;
+              window.scroll(0, scrollTop);
+              if (scrollTop === 10000) {
+                await stall(500);
+                break;
+              }
+            }
+          } catch (e) {
+            console.log('error on more button: ', e);
+          }
         }
-        // index++;
       }
     });
     return await context.extract(productDetails, { transform });
