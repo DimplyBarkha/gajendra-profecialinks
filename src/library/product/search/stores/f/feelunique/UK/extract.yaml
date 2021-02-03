@@ -3,9 +3,17 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  # - name: id
+  #   singleValue: false
+  #   xpath: //div[@class="Product"]/@data-sku
+  # - name: id
+  #   singleValue: false
+  #   xpath: //div[@class="Product-image-wrapper"]/img/@data-src
+  #   regExp: (.+/)(\d+)(/sub-products/)(\d+)(_.+)
+  #   regExpReplace: $2-$4.
   - name: id
     singleValue: false
-    xpath: //div[@class="Product"]/@data-sku
+    xpath: //html//div[@id="searchID"]
   - name: name
     singleValue: false
     xpath: //div[@class="Product-summary "]
