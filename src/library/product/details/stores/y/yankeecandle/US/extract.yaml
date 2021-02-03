@@ -520,5 +520,7 @@ fields:
     singleValue: true
     description: The URL of the product
     xpath: //meta[@name="og:url"]/@content
-    regExp: https://www.yankeecandle.com(.+)
-    regExpReplace: https://woodwick.yankeecandle.com$1
+    regExp: (.+)
+    regExpReplace: https://www.yankeecandle.com$1
+    # regExp: https://www.yankeecandle.com(.+)
+    # regExpReplace: https://woodwick.yankeecandle.com$1
