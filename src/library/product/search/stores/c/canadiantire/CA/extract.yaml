@@ -1,11 +1,11 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="temporary-grid-item"]
+recordXPath: //div[@class="temporary-grid-item"] | //div[@class='pdp-product-image-and-buy-box__inner g-main-column general-product']
 fields:
   - name: id
     singleValue: false
-    xpath: //a[@class="product-tile-srp__main-link"]/@data-anchor | //div[contains(@id, 'div#pd_productId')]
+    xpath: //a[@class="product-tile-srp__main-link"]/@data-anchor | //div[contains(@data-bv-show, 'inline_rating')]/@data-bv-product-id
   - name: name
     singleValue: false
     manualSelector: div.product-tile-srp__middle-content h3.product-tile-srp__title.grid--grid-view__item, h1.pdp-header__product-name
@@ -19,12 +19,12 @@ fields:
     regExpReplace: $1
   - name: thumbnail
     singleValue: false
-    xpath: //img[@class="product-tile-srp__image"]/@src | //div[contains(@id, 'pd_productImage')]
+    xpath: //img[@class="product-tile-srp__image"]/@src | //div[contains(@id, 'pdp-product-image-s7viewer_flyout')]//img[1]/@src
     # regExp: (.+)
     # regExpReplace: https:$1
   - name: price
     singleValue: false
-    manualSelector: section.product-tile__price, span.price__total-value, span.price__now--value-srp, div#pd_productPrice
+    manualSelector: section.product-tile__price, span.price__total-value, span.price__now--value-srp, span.price__reg-value 
   - name: aggregateRating2
     singleValue: false
     manualSelector: div.bv-off-screen, div.pdp-header__reviews div.bv-off-screen

@@ -33,6 +33,11 @@ const transform = (data, context) => {
       if (row.productUrl) {
         row.productUrl[0].text = "https://www.canadiantire.ca".concat(row.productUrl[0].text);
       }
+      if (row.thumbnail) {
+        if (!(row.thumbnail[0].text.includes('https'))) {
+          row.thumbnail[0].text = `https:${row.thumbnail[0].text}`;
+        }
+      }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
