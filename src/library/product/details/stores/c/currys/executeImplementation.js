@@ -32,14 +32,14 @@ const implementation = async (
     await acceptCookies();
     await waitForSelectorLoad();
   } else if (id) {
-    await context.goto(domain, { timeout, waitUntil: 'networkidle0' });
+    await context.goto(`https://www.currys.co.uk/gbuk/search-keywords/xx_xx_xx_xx_xx/${id}/xx-criteria.html`, { timeout, waitUntil: 'networkidle0' });
     await acceptCookies();
-    await context.waitForSelector('input[name="search-field"]', { timeout });
-    await context.evaluate(async function (inpId) {
-      const inp = document.querySelector('input[name="search-field"]');
-      inp.value = inpId;
-    }, id);
-    await context.click('form[action*="search_keywords"] button');
+    //await context.waitForSelector('input[name="search-field"]', { timeout });
+    // await context.evaluate(async function (inpId) {
+    //   const inp = document.querySelector('input[name="search-field"]');
+    //   inp.value = inpId;
+    // }, id);
+    // await context.click('form[action*="search_keywords"] button');
     await context.waitForNavigation({ timeout, waitUntil: 'load' });
     await waitForSelectorLoad();
   }
