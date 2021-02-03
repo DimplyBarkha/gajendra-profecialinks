@@ -27,7 +27,8 @@ fields:
   - name: price
     xpath: (//p[(@class='price now')]//span[(@class='price-display')]|//p[(@class='price')]//span[(@class='price-display')])
   - name: availabilityText
-    xpath: //button[@title="Add to bag"]
+    singleValue: true
+    xpath: //button[@title="Add to bag" and not(@disabled)]
     regExp: (.+)
     regExpReplace: In stock
     defaultValue: Out of Stock
@@ -73,7 +74,7 @@ fields:
     defaultValue: "0"
   - name: productOtherInformation
   - name: color
-    xpath: //span[contains(@class, 'colour-label')]
+    xpath: //div[@class='selected']//span[@class= 'colour-label']
   - name: packaging
   - name: promotion
   - name: ratingCount
@@ -86,6 +87,8 @@ fields:
     regExpReplace: 'YES'
     defaultValue: 'NO'
   - name: Image360Present
+  - name: ImageZoomFeaturePresent
+    xpath: //div[@class='image-zoom']
   - name: manufacturerImages
   - name: upc
   - name: eangtin
@@ -95,6 +98,7 @@ fields:
   - name: newDescription
   - name: lbbPrice
   - name: firstVariant
+    xpath: //div[@class='fake-select']//div[@class='selected']
   - name: variants
   - name: gtin
   - name: manufacturerDescription

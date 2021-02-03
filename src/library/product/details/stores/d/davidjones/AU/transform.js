@@ -105,6 +105,18 @@ const transform = (data, context) => {
         });
         row.inTheBoxText = [{ text: text.trim() }];
       }
+
+      if (row.ImageZoomFeaturePresent) {
+        let text = '';
+        row.ImageZoomFeaturePresent.forEach(item => {
+           if(item.text.trim() == "Zoom"){
+             text = 'Yes'
+           }else{
+             text = 'No'
+           }
+        });
+        row.ImageZoomFeaturePresent = [{ text: text, xpath: row.ImageZoomFeaturePresent[0].xpath }];
+      }
     }
   }
  
