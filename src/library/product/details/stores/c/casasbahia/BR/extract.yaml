@@ -5,7 +5,8 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //img[contains(@itemprop,'image')]/@src
+    xpath: //div[@class="zoomPad"]/img/@src
+    # xpath: //img[contains(@itemprop,'image')]/@src
   - name: imageAlt
     singleValue: true
     xpath: //img[contains(@itemprop,'image')]/@alt
@@ -28,7 +29,7 @@ fields:
     xpath: //div[@class="breadcrumb"]//span[@itemprop='name']
   - name: availabilityText
     singleValue: true
-    xpath: //a[@id="btnAdicionarCarrinho" and @class="bt buy"]
+    xpath: //a[@id="btnAdicionarCarrinho" and @class="bt buy"] | //td[@class="addCart"]/a[.="Comprar"] | //div[@id="buy-box"]/button[.="Comprar"]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -44,17 +45,18 @@ fields:
     type: NUMBER
   - name: aggregateRating
     singleValue: true
-    xpath: //span[@class="nota yv-itens"]//label
-    type: NUMBER
+    xpath: //span[@itemprop="ratingValue"]
+    # type: NUMBER
   - name: promotion
     singleValue: true
-    xpath: //div[contains(@id,'_percentual')]/span
+    xpath: //div[contains(@id,'_percentual')]/span | //div[@id="product-price-box"]//span[@class=" css-fv6pw7 eym5xli0"]
   - name: listPrice
     singleValue: true
     xpath: //strong[contains(@id,'_precoDeValue')]
   - name: description
     singleValue: false
-    xpath: //div[@id="descricao"]
+    xpath: //div[@id="caracteristicas"]
+    # xpath: //div[@id="descricao"]
   # - name: descriptionBullets
   #   singleValue: false
   #   xpath: //div[@class="detalhesProduto infoImportante"]//div[@class="descricao"]/ul/li
@@ -66,7 +68,7 @@ fields:
     xpath: //input[@id='ctl00_Conteudo_hdnIdSkuSelecionado']/@value    
   - name: variantId
     singleValue: true
-    xpath: //input[@id='ctl00_Conteudo_hdnIdSkuSelecionado']/@value      
+    xpath: //input[@id="IdProduto"]/@value    
   - name: firstVariant
     singleValue: true
     xpath: //input[@id='ctl00_Conteudo_hdnIdSkuSelecionado']/@value    
@@ -85,9 +87,33 @@ fields:
     xpath: //select[@data-id='dropdown-skus']/option/@value
   - name: gtin
     singleValue: true
-    xpath: //span[@itemprop="productEan"]
-    regExp: EAN\s*(.+)\)
-    regExpReplace: $1
+    xpath: //span[@itemprop="productEan"]/text()  | //span[@class="productEan"]/text()
+    regExp: \d{7,}
+    # regExpReplace: $1
   - name: imageZoomFeaturePresent
     singleValue: true    
     defaultValue: YES
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@class="detalhesProduto"]/h2[1] | //div[@class="detalhesProduto"]/div[not(@id="caracteristicas")]
+  - name: secondaryImageTotal
+    singleValue: true
+    xpath: count(//div[contains(@class,'contCarousel')]//a/@rel)
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id="flix-inpage"]//div[@class="flix-connected"]//li//img/@data-flixsrcset | //div[@id="pd-details"]/div/img/@src
+    # regExp: (.+)
+    # regExpReplace: https:$1
+  - name: videos
+    singleValue: false
+    xpath: //div[@id="wpPlayerVideo"]/embed/@src
+  - name: url
+    singleValue: false
+    xpath: //link[@rel="canonical"]/@href
+  - name: URL
+    singleValue: false
+    xpath: //link[@rel="canonical"]/@href
+  - name: _url
+    singleValue: false
+    xpath: //link[@rel="canonical"]/@href
+

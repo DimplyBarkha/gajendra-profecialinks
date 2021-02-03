@@ -45,35 +45,87 @@ const transform = (data) => {
           row.category.splice(0, 1);
         }
       }
-      if (row.price) {        
+      if (row.price) {
         row.price.forEach(item => {
-          item.text = item.text.replace('.','');
-          item.text = item.text.replace(',','.');
-        });        
+          item.text = item.text.replace('.', '');
+          item.text = item.text.replace(',', '.');
+        });
       }
-      if (row.listPrice) {        
+      if (row.aggregateRating) {
+        row.aggregateRating.forEach(item => {
+          // item.text = item.text.replace('.', '');
+          item.text = item.text.replace(',', '.');
+        });
+      }
+      if (row.description) {
+        const nDesc = [];
+        let newDesc = '';
+        let idx = 0;
+        row.description.forEach(item => {
+          nDesc[0] = item;
+          if (idx > 0) {
+            newDesc = newDesc + ' ';
+          }
+          newDesc = newDesc + item.text;
+          idx++;
+        });
+        nDesc.forEach(item => {
+          item.text = newDesc;
+        });
+        row.description = nDesc;
+      }
+      if (row.listPrice) {
         row.listPrice.forEach(item => {
-          item.text = item.text.replace('.','');
-          item.text = item.text.replace(',','.');
-        });        
+          item.text = item.text.replace('.', '');
+          item.text = item.text.replace(',', '.');
+        });
+      }
+      if (row.manufacturerDescription) {
+        const nDesc = [];
+        let newDesc = '';
+        let idx = 0;
+        row.manufacturerDescription.forEach(item => {
+          nDesc[0] = item;
+          if (idx > 0) {
+            newDesc = newDesc + ' ';
+          }
+          newDesc = newDesc + item.text;
+          idx++;
+        });
+        nDesc.forEach(item => {
+          item.text = newDesc;
+        });
+        row.manufacturerDescription = nDesc;
+      }
+      if (row.listPrice) {
+        row.listPrice.forEach(item => {
+          item.text = item.text.replace('.', '');
+          item.text = item.text.replace(',', '.');
+        });
+      }
+      if (row.description) {
+        row.description.forEach(item => {
+          item.text = item.text.replace('Características ', '');
+          //item.text = item.text.replace(',', '.');
+        });
       }
       if (row.variantCount) {
-        row.variantCount = [{'text':row.variantCount.length}];
+        row.variantCount = [{ text: row.variantCount.length }];
       }
       if (row.variants) {
         var arr_temp = [];
         row.price.forEach(item => {
           arr_temp.push(item.text);
         });
-        row.variants = [{'text':arr_temp.join('|')}];
+        row.variants = [{ text: arr_temp.join('|') }];
       }
       if (row.additionalDescBulletInfo) {
         var arr_temp = [];
         row.price.forEach(item => {
           arr_temp.push(item.text);
         });
-        row.additionalDescBulletInfo = [{'text': '||' + arr_temp.join('||')}];
-      }      
+        row.additionalDescBulletInfo = [{ text: '||' + arr_temp.join('||') }];
+      }
     }
   }
   return cleanUp(data);
