@@ -20,6 +20,9 @@ const transform = (data, context) => {
       if (row.quantity && row.quantity[0].text.includes('Buy')) {
         delete row.quantity;
       }
+      if (!row.id && row.gtin){
+        row.id = [{ text: row.gtin[0].text }];
+      }
 
       rankCounter += 1;
       if (!row.sponsored) {

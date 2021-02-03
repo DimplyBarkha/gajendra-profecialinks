@@ -35,6 +35,7 @@ fields:
   - name: id
     singleValue: false
     description: Unique id (within this extractor)
+    xpath: //div[@class="cart_btn"]/button/@data-sku
   - name: productUrl
     singleValue: false
     description: The URL for the product details page
