@@ -26,6 +26,25 @@ async function implementation (
     context.waitForNavigation();
     await context.goto(linkURL);
   }
+
+
+  await context.evaluate(async () => {
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
+    async function infiniteScroll () {
+      let prevScroll = document.documentElement.scrollTop;
+      while (true) {
+        window.scrollBy(0, document.documentElement.clientHeight);
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        const currentScroll = document.documentElement.scrollTop;
+        if (currentScroll === prevScroll) {
+          break;
+        }
+        prevScroll = currentScroll;
+      }
+    }
+    await infiniteScroll();
+  });
   return await context.extract(productDetails, { transform });
 }
 

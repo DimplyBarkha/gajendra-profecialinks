@@ -9,11 +9,11 @@ module.exports = {
     zipcode: '',
   },
 
-  implementation: async ({ url, zipcode, storeId }, parameterValues, context, dependencies) => {
+  implementation: async ({ url, zipcode, storeId, storeID }, parameterValues, context, dependencies) => {
     // const mainUrl = zipcode ? `https://${parameterValues.domain}/store/home?guest=true&current_zip_code=${zipcode}` : '`https://www.instacart.com/store/home?guest=true';
     // await context.goto(mainUrl, { timeout: 35000, waitUntil: 'load', checkBlocked: false });
 
-    const inputUrl = zipcode ? `https://www.instacart.com/store/${storeId}/storefront?guest=true&current_zip_code=${zipcode}` : `https://www.instacart.com/store/${storeId}/storefront?guest=true`;
+    const inputUrl = zipcode ? `https://www.instacart.com/store/${storeID}/storefront?guest=true&current_zip_code=${zipcode}` : `https://www.instacart.com/store/${storeId}/storefront?guest=true`;
     await context.goto(inputUrl, { timeout: 55000, waitUntil: 'load', checkBlocked: false });
 
     const onMainPage = await context.evaluate(async function () {
@@ -49,7 +49,7 @@ module.exports = {
       }
     }
 
-    await context.waitForSelector(`span[data-identifier="store_info"] a[href^="${storeId}"]`, { timeout: 15000 });
+    await context.waitForSelector(`span[data-identifier="store_info"] a[href^="${storeID}"]`, { timeout: 15000 });
 
     await context.goto(url, { timeout: 38000, waitUntil: 'load', checkBlocked: false });
   },
