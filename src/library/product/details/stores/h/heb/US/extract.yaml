@@ -63,10 +63,11 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: true
-    xpath: //input[@id="defaultChildSku"]/@value
+    # xpath: //input[@id="defaultChildSku"]/@value
+    xpath: //input[@id="productId"]/@value
   - name: variantId
     singleValue: true
-    xpath: //input[@id="productId"]/@value
+    # xpath: //input[@id="productId"]/@value
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
