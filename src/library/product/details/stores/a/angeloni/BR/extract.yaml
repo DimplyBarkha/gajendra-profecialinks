@@ -9,7 +9,7 @@ fields:
   - name: _url
   - name: category
     singleValue: false
-    xpath: //*[contains(@class,"breadcumb__link")]
+    xpath: //ul[@id="breadcumbsList"]/li
   - name: nameExtended
     singleValue: true
     xpath: //*[contains (@class, 'box-desc-prod__titulo-produto')]
@@ -39,7 +39,6 @@ fields:
     singleValue: false
     xpath: //div[contains (@class, 'gallery-thumbs')]//div//img/@src
   - name: imageZoomFeaturePresent
-    defaultValue: No
     xpath: //div[@id="ag-zoom"]
   - name: descriptionBullets
     xpath: //div[@id="ag-desc-bullets"]

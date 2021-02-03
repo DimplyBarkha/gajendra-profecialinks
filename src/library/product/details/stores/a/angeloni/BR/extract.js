@@ -74,6 +74,8 @@ module.exports = {
       const mainImg = document.querySelector('.box-galeria img');
       if (mainImg && mainImg.classList.contains('zoom')) {
         addElementToDocument('ag-zoom', 'Yes');
+      } else {
+        addElementToDocument('ag-zoom', 'No');
       }
 
       // descriptionBullets
@@ -116,6 +118,20 @@ module.exports = {
           }
           getInfoItem(descrItem, 'marca', 'ag-brand');
         });
+      }
+
+
+      const breadcumbsItems = document.querySelectorAll('.breadcumb__link span');
+      if(breadcumbsItems){
+        const breadcumbsList = document.createElement('ul');
+        breadcumbsList.id = 'breadcumbsList'
+        document.body.append(breadcumbsList);
+        breadcumbsItems.forEach((item, index) => {
+          const breadcumbsItem = document.createElement('li');
+          breadcumbsItem.textContent = item.textContent;
+          breadcumbsList.append(breadcumbsItem);
+          // addElementToDocument(`breadcumbsItem breadcumbsItem-${index}`, item.textContent);
+        })
       }
     });
     return await context.extract(productDetails, { transform });
