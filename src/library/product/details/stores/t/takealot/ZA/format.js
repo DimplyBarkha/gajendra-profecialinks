@@ -66,6 +66,12 @@ const transform = (data) => {
         row.materials=[{"text":materialsStr}];
       }
       
+      if(row.ratingCount){
+        row.ratingCount.forEach(item=>{
+          let tmp=item.text.split(' ');
+          item.text=tmp[0];
+        })
+      }
       
       if(row.description){
         let inf=[];

@@ -26,13 +26,13 @@ fields:
     xpath: //div[@class="buybox-module_price_2YUFa"]/span
   - name: availabilityText
     singleValue: false
-    xpath: //div[@class="pdp-core-module_pdp-stock-seller-section_1z8OM"]//div[contains(@class,"stock-availability-status")]/span
+    xpath: //div[@class="buybox-actions"]//button[contains(@class,"add-to-cart-button") and text()="Add to Cart"]
     regExp: (.+)
     regExpReplace: In Stock
-    defaultValue: Out of Stock
+    defaultValue: Out Of Stock
   - name: description
     singleValue: false
-    xpath: //div[contains(@class,"product-description-module_product-description_3bMdX")]/p
+    xpath: //div[contains(@class,"product-description-module_product-description_3bMdX")]
   - name: descriptionBullets
     singleValue: false
     xpath: //div[contains(@class,"bullet-point-attributes-list")]//li
@@ -51,11 +51,11 @@ fields:
   - name: ratingCount
     singleValue: false
     xpath: //div[contains(@class,"rating-and-reviews")]//div[contains(@class,"reviews")]/a
-    regExp: ([0-9]{1,}) Reviews
-    regExpReplace: $1
+    #regExp: ([0-9]{1,}) Reviews
+    #regExpReplace: $1
   - name: aggregateRating
     singleValue: false
-    xpath: count(//div[contains(@class,"rating-and-reviews")]//div[@class="rating rating-module_rating_1rLjy"]/i[contains(@class,"full")])
+    xpath: //div[contains(@class,"reviews-list-module_content-rating_")]/div[contains(@class,"reviews-list-module_number_")]
   - name: shippingInfo
     singleValue: false
     xpath: //div[@class="pdp-core-module_main-seller_20BMu"]//a
@@ -104,3 +104,15 @@ fields:
   - name: weightNet
     singleValue: false
     xpath: //div[@class="product-description  product-description-module_product-description_3bMdX"]/p[contains(text(),"Specifications:")]/text()
+  - name: videos
+    singleValue: false
+    xpath: //a[contains(@href,"youtu.be/")]/iframe[contains(@src,"youtube.com/")]
+  - name: promotion
+    singleValue: false
+    xpath: //li/div[@class="badge saving "]/span
+  - name: allergyAdvice
+    singleValue: false
+    xpath: //p[starts-with(text(),"Allergens")] | //div[starts-with(text(),"Allergens") or starts-with(text(),"ALLERGENS")]
+  - name: ingredientsList
+    singleValue: false
+    xpath: //p[starts-with(text(),"Ingredients")] | //div[starts-with(text(),"Ingredients:")]/following-sibling::div[1] | //div[starts-with(text(),"Ingredients")]
