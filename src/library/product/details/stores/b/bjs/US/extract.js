@@ -71,6 +71,15 @@ module.exports = {
         console.log("rating Path error...");
       }
 
+      const varienIdPath = getXpath("//link[@rel='canonical']/@href",'nodeValue');
+      console.log("varienIdPath:::", varienIdPath);
+      var varIdSplit = varienIdPath.split('/');
+      console.log("varIdSplit:::", varIdSplit.length);
+      for(var i=0; i<varIdSplit.length ;i++){
+        console.log("varientId is::::", varIdSplit[(varIdSplit.length) -1]);
+        addElementToDocument('varientId-added', varIdSplit[(varIdSplit.length) -1]);
+      }
+
       const listPriceXpath = getXpath("//div[@class='online-price-and-green-price']/div/div[@_ngcontent-bjs-universal-app-c147='']/div/div/div[@class='online-Price-strike']/text()",'nodeValue');
       //console.log("listPriceXpath:: Reg $139.99 :", listPriceXpath);
       if(listPriceXpath != null){
@@ -134,8 +143,8 @@ module.exports = {
       const quanityXpath1 = getXpath("//table[@class='table table-bordered']//tbody[@class='specs-table-body']/tr/th[contains(.,'Size')]/following-sibling::td[1]", 'innerText');
 
       const quanityXpath2 = getXpath("//table[@class='table table-bordered']//tbody[@class='specs-table-body']/tr/th[contains(.,'Unit Size')]/following-sibling::td[1]", 'innerText');
-
-
+      console.log("quanityXpath1:::", quanityXpath1);
+      console.log("quanityXpath2:::", quanityXpath2);
       if (quanityXpath1 != null) {
         addElementToDocument('quantity_added', quanityXpath1);
       } else {
