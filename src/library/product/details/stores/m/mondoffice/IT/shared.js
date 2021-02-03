@@ -38,7 +38,7 @@ const transform = (data) => {
           });
         }
         if(gr && gr.aggregateRating && gr.aggregateRating.length) {
-          const calcRating = (Number(gr.aggregateRating[0].text.replace(/,/, '.')) / 20).toFixed(1)
+          const calcRating = (Number(gr.aggregateRating[0].text.replace(/,/, '.')) / 20).toFixed(1).replace(/\./gmi, ',');
           gr.aggregateRating[0].text = `${calcRating}`
         }
         if(gr && gr.category && gr.category.length) {

@@ -52,9 +52,9 @@ const transform = (data, context) => {
   }
   data.forEach(el => {
     el.group.forEach((gr, index) => {
-      if(gr.aggregateRating){
-          const calcRating = (Number(gr.aggregateRating[0].text.replace(/,/, '.')) / 20).toFixed(1)
-          gr.aggregateRating[0].text = `${calcRating}`
+      if(gr.aggregateRating2){
+          const calcRating = (Number(gr.aggregateRating2[0].text.replace(/,/, '.')) / 20).toFixed(1).replace(/\./gm, ',');
+          gr.aggregateRating2[0].text = `${calcRating}`
       }
       if(gr.reviewCount){
           gr.reviewCount[0].text = gr.reviewCount[0].text.replace(/\D/gmi, '');
