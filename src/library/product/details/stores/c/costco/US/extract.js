@@ -276,8 +276,8 @@ module.exports = {
     var videoRequest = await context.searchForRequest('https://content.syndigo.com/asset/.*ts', 'GET');
     // videoRequest = videoRequest.JSON.stringify();
     // const data = (videoRequest && videoRequest.responseBody && videoRequest.responseBody.body) ? JSON.parse(videoRequest) : null;
-    console.log('videos-------->', videoRequest.url);
     if (videoRequest && videoRequest.url) {
+      console.log('videos-------->', videoRequest.url);
       await context.evaluate((videoRequest) => {
         function addHiddenDiv (id, content) {
           const newDiv = document.createElement('div');
