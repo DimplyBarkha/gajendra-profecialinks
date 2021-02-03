@@ -223,10 +223,13 @@ module.exports = {
       // }
     }, parentInput);
     await context.evaluate(async function () {
+      
       var heading = document.querySelector('h1');
+      const sku = Sephora.productPage.defaultSkuId;
       const rating = Sephora && Sephora.mboxAttrs && Sephora.mboxAttrs.productRating && Sephora.mboxAttrs.productRating.toFixed(1);
       if (heading) {
         heading.setAttribute('rating', rating);
+        heading.setAttribute('sku', sku);
       }
       async function getReviewCount () {
         let productId = Sephora && Sephora.mboxAttrs && Sephora.mboxAttrs.productId;
