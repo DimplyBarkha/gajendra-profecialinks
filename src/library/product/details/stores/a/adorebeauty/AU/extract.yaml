@@ -19,8 +19,18 @@ fields:
     xpath: count(//div[@class="thumbnail-gallery__inner"]/div[position()>1]//img[not(contains(@src,'product-loader')) and not(contains(@src,'ytimg'))]/@src)
   - name: sku
     xpath: //meta[contains(@itemprop,'sku')]/@content
+  - name: firstVariantIdTest
+    xpath: //script[contains(., "product_id")]
+    regExp: product_id="(.*?)"\;
+    regExpReplace: $1
+  - name: allVariantsIdTest
+    xpath: //script[contains(., "child_product_id_i_mv")]
+    regExp: child_product_id_i_mv=(.*?)\;
+    regExpReplace: $1    
   - name: variantId
     xpath: //meta[contains(@itemprop,'sku')]/@content
+    # regExp: child_product_id_i_mv=(.*?)\;
+    # regExpReplace: $1
   - name: variantCount
     defaultValue: "0"
   - name: brandText
@@ -73,3 +83,9 @@ fields:
     description: Compare the range table or matrix must be present for all vacuum cleaners & air treatment. This is not required for personal care or lighting. As a minimum the comparison table will compare against 1 additional Dyson product.
   - name: variantName
     manualSelector: section.product-configurator__dropdown p.product-dropdown-select__name
+  # - name: quantity
+  #   singleValue: true
+  #   xpath: 
+  #   description: Quantity as described on the page
+  #   regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+  #   regExpReplace: $1$2$3$4
