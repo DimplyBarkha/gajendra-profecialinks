@@ -5,8 +5,8 @@ module.exports = {
     country: 'RU',
     store: 'komus',
     domain: 'komus.ru',
-    loadedSelector: 'div[class="b-content b-content--main"]',
-    noResultsXPath: 'p[class="b-contentTitle b-contentTitle--search"]',
+    loadedSelector: 'div[id="bContainerMain"]',
+    noResultsXPath: '//div[@class="content-double-column i-mb45"]',
     zipcode: '',
   },
 };
