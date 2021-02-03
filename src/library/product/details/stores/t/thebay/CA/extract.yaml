@@ -54,7 +54,7 @@ fields:
     defaultValue: 1
   - name: nameExtended
     singleValue: false
-    xpath: //div[contains(@class,'product-secondary-section')]//div[@class='row']//h1[contains(@class,'product')]  | //ul[contains(@class,"radio-group")]//li[position()=last()]//button[contains(@class,'color-attribute radio-group-trigger adobelaunch__colorlink')]/@aria-describedby | //span[contains(@class,"size non-input-label ")]//span[@class="text2"]
+    xpath: //div[contains(@class,'product-secondary-section')]//div[@class='row']//h1[contains(@class,'product')]  | //ul[contains(@class,"radio-group")]//li[position()=last()]//button[contains(@class,'color-attribute radio-group-trigger adobelaunch__colorlink')]/@aria-describedby | //select[contains(@class,"form-control select-color")]//option[contains(@class,"adobelaunch__colorlink selectable")][2]/@data-adobelaunchproductcolor | //span[contains(@class,"size non-input-label ")]//span[@class="text2"] 
   - name: gtin
     singleValue: false
     xpath: //div[@class='primary-image active']//img/@src
