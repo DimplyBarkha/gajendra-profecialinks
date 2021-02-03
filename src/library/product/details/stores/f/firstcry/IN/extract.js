@@ -26,7 +26,7 @@ async function implementation (
       if (totalImgCount > 0) addHiddenDiv('imgCount', totalImgCount);
     }
     // @ts-ignore
-    const color = document.querySelector('#big-img').alt;
+    const color = document.querySelector('#big-img') ? document.querySelector('#big-img').alt : null;
     var variant = '';
     if (color) {
       variant = color.split('-')[1];
