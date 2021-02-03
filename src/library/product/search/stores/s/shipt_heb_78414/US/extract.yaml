@@ -1,25 +1,25 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //ul[@data-test="ProductGrid-list"]/li[@data-test="ProductGrid-product-list-item"]
+recordXPath: //div[contains(@id,"added-product-")]
 fields:
   - name: id
     singleValue: false
-    # xpath: //@product-id
+    xpath: //@product-id
   - name: searchUrl
     singleValue: true
-    # xpath: ancestor::html//div[@id='added-search-url']
+    xpath: ancestor::html//div[@id='added-search-url']
   - name: name
     singleValue: false
-    xpath: //p[@data-test="ProductCard-product-name"]
+    xpath: //@product-name
   - name: productUrl
     singleValue: false
-    # xpath: //@product-url
+    xpath: //@product-url
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
-    xpath: //picture/source/@srcset
+    xpath: //@product-image
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -31,7 +31,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    # xpath: //@product-price
+    xpath: //@product-price
   - name: manufacturer
     singleValue: true
   - name: soldBy
@@ -41,12 +41,12 @@ fields:
   - name: rank
     singleValue: false
     description: search/listing rank
-    # xpath: //@rank
+    xpath: //@rank
     type: NUMBER
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
-    # xpath: //@rankorganic
+    xpath: //@rank
     type: NUMBER
   - name: sponsored
     singleValue: false
@@ -56,3 +56,4 @@ fields:
   # - name: totalRecordCount
   #   singleValue: true 
   #   type: NUMBER
+  
