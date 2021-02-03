@@ -151,6 +151,16 @@ module.exports = {
             ? mainDescXPath
             : mainDescAlternateXPath;
 
+          const additionalDescElement = document
+            .evaluate(
+              '//div[contains(@class, "react-tabs__tab-content")]/p[2]/b/text()',
+              document,
+              null,
+              XPathResult.UNORDERED_NODE_ITERATOR_TYPE,
+              null,
+            )
+            .iterateNext();
+
           const liIterator = document
             .evaluate(
               '//div[contains(@class, "react-tabs__tab-content")]//li/text()',
@@ -168,6 +178,9 @@ module.exports = {
           let descriptionData = '';
           if (mainDescriptionElement) {
             descriptionData += mainDescriptionElement.textContent;
+          }
+          if (additionalDescElement) {
+            descriptionData += ' ' + additionalDescElement.textContent;
           }
           if (descriptionLiElements.length > 0) {
             descriptionLiElements.forEach(element => {
