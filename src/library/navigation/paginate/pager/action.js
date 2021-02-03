@@ -5,7 +5,6 @@
   *  nextLinkSelector: string,
   *  mutationSelector: string,
   *  loadedSelector: string,
-  *  loadedXpath: string,
   *  spinnerSelector: string,
   * }} inputs
   * @param { Record<string, any> } parameters
@@ -22,7 +21,6 @@ async function implementation (
     nextLinkSelector,
     mutationSelector,
     loadedSelector,
-    loadedXpath,
     spinnerSelector,
   } = inputs;
 
@@ -32,7 +30,7 @@ async function implementation (
     await context.waitForFunction((selector) => {
       console.log(selector, document.querySelector(selector));
       return !document.querySelector(selector);
-    }, { timeout: 80000 }, spinnerSelector);
+    }, { timeout: 60000 }, spinnerSelector);
     console.log('Spinner went away', spinnerSelector);
     return true;
   }
@@ -42,19 +40,16 @@ async function implementation (
     await Promise.all([
       context.click(nextLinkSelector),
       // possible race condition if the data returned too fast, but unlikely
-      context.waitForMutuation(mutationSelector, { timeout: 80000 }),
+      context.waitForMutuation(mutationSelector, { timeout: 60000 }),
     ]);
     return true;
   }
 
   if (nextLinkSelector) {
     console.log('Clicking', nextLinkSelector);
-    await context.clickAndWaitForNavigation(nextLinkSelector, {}, { timeout: 80000 });
+    await context.clickAndWaitForNavigation(nextLinkSelector, {}, { timeout: 90000 });
     if (loadedSelector) {
-      await context.waitForSelector(loadedSelector, { timeout: 80000 });
-    }
-    if (loadedXpath) {
-      await context.waitForXPath(loadedXpath, { timeout: 20000 });
+      await context.waitForSelector(loadedSelector, { timeout: 90000 });
     }
     return true;
   }

@@ -1,0 +1,51 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="grid-of-five clearfix box-products-list"]/div
+fields: 
+  - name: id
+    singleValue: false
+    xpath: //span[@class='reference-code'][not(@style)] | //span[@class='reference-code'][@style]/ancestor::div/@prod-number
+    # //span[@class='reference-code'] | //div[@class="grid-of-five clearfix box-products-list"]/div/@prod-number
+    regExp: (\d+)
+    # //div[@class="grid-of-five clearfix box-products-list"]/div/@prod-number
+    # //div[@id='content-prod-boxes']/div/@prod-number
+  - name: rankOrganic
+    singleValue: false
+  - name: name
+    singleValue: false
+    xpath: //div[@class='product-details']/a
+    # xpath: //div[@class='product-details']/a/span[2]/text()
+    # concat(//div[@class='product-details']/a/span[1]/text(),' ',//div[@class='product-details']/a/span[2]/text())
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class='product-details']/a/@href
+    regExp: (/.+)
+    regExpReplace: https://www.lider.cl$1
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='photo-container']/img/@src
+  - name: reviewCount
+    singleValue: false
+  - name: aggregateRating
+    singleValue: false
+    # xpath: //span[@class='bv-off-screen']
+    # regExp: (\d+)
+  - name: price
+    singleValue: false
+    # type: CURRENCY
+    xpath: //html//div[@id='price']
+      # //span[@class='price-sell']
+  - name: manufacturer
+    singleValue: false
+  - name: soldBy
+    singleValue: false
+  - name: rank
+    singleValue: false
+  - name: endorsementText
+    singleValue: false
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id="pd_url"]
