@@ -38,6 +38,9 @@ module.exports = {
       } catch (error) {
       }
       try {
+        var xPathRes10 = document.evaluate("//div[@class=\"ui-tabs_header-inner\"]/a[contains(text(),'Opis produktu')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+        // @ts-ignore
+        xPathRes10.singleNodeValue.click();
         let tabContent1 = document.evaluate("//div[@class='ui-tabs_tab-content']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         let firstContent = tabContent1.textContent;
         var xPathRes3 = document.evaluate("//div[@class=\"ui-tabs_header-inner\"]/a[contains(text(),'Opakowanie')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
@@ -47,7 +50,6 @@ module.exports = {
         let tabContent = document.evaluate("//div[@class='ui-tabs_tab-content']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         let fourthContent = tabContent.textContent;
         let content = firstContent + fourthContent;
-        //console.log("content :::" + content);
         addHiddenDiv('addDescid', content);
       } catch (error) {
       }
