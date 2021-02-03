@@ -1,45 +1,55 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: color
-    singleValue: true
-    description: A textual description of the colour
-    xpath: (//*[contains(text(), 'Färg/Material')]/following-sibling::*[1])[3]
   - name: image
-    singleValue: true
+    singleValue: false
     description: URL of the main product image
     xpath: //div[@class='gallery__details__img js-gallery-image'][1]/div[@class='js-image-placeholder gallery__details__placeholder']/img/@src
+    regExp: (.+\/)(500\/500)(.+)
+    regExpReplace: $1705/600$3
   - name: imageAlt
-    singleValue: true
+    singleValue: false
     description: Alt text of the main product image
     xpath: //div[@class='gallery__details__img js-gallery-image'][1]/div[@class='js-image-placeholder gallery__details__placeholder']/img/@alt
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //section[@id='vipGalleryOnPage']/div/div/div/div/picture/source/@srcset
+    # xpath: //div[position()>1]/div[@class="js-image-placeholder gallery__details__placeholder"]/img/@src
+    # xpath: //section[@id='vipGalleryOnPage']/div/div/div/div/picture/source/@srcset
+    xpath: //div[position()>1]/div[@class="gallery__thumb thumb__is__image"]/picture/source/@srcset
+    regExp: (.+\/)(60\/60)(.+)
+    regExpReplace: $1500/500$3
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[@class='breadcrumb-outer']/div[@class='breadcrumb-wrapper']/ol[@class='breadcrumb-list']/li[@class='breadcrumb-list__item'][4]/a[@class='breadcrumb-list__link']/span
+    # xpath: //div[@class='breadcrumb-outer']/div[@class='breadcrumb-wrapper']/ol[@class='breadcrumb-list']/li[@class='breadcrumb-list__item'][4]/a[@class='breadcrumb-list__link']/span
+    xpath: //div[@class='breadcrumb-outer']/div[@class='breadcrumb-wrapper']/ol[@class='breadcrumb-list']/li[@class='breadcrumb-list__item'][position()>1 and position() < last()]/a[@class='breadcrumb-list__link']/span
   - name: nameExtended
-    singleValue: true
+    singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //div[@id='content']/div[@class='vip-outer']/header[@class='vip__heading__outer']/div[@class='vip__heading']/div/span[@class='vip__heading__secondary']
+    xpath: concat(//header[@class='vip__heading__outer']/div[@class='vip__heading']/div/h1/text(),'',//header[@class='vip__heading__outer']/div[@class='vip__heading']/div/span/span/text(),'',//header[@class='vip__heading__outer']/div[@class='vip__heading']/div/span/text())
+    # xpath: //div[@id='content']/div[@class='vip-outer']/header[@class='vip__heading__outer']/div[@class='vip__heading']/div/span[@class='vip__heading__secondary']
   - name: listPrice
-    singleValue: true
+    singleValue: false
     description: The stated undiscounted price for the product
-    xpath: //div[@class='vip__price-box-wrapper']/div[@class='vip__price-box-product']/div[@class='vip__price-box-price']
+    xpath: //div[@class='vip__price-box-wrapper']/div[@class='vip__price-box-product']/div[@class='vip__price-box-price stroke']
+    regExp: (\d+)(\.?)(\d+)?
+    regExpReplace: $1,$3
   - name: price
-    singleValue: true
+    singleValue: false
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[@class='vip__price-box-wrapper']/div[@class='vip__price-box-product']/div[@class='vip__price-box-price']
+    xpath: //div[@class='vip__price-box-wrapper']/div[@class='vip__price-box-product']/div[@class='vip__price-box-price'] | //div[@class='campaign-banner__info__right']/span[@class='top']
+    # regExp: (\d+)(\.?)(\d+)(.+)
+    # regExp: (\d.+)
+    regExp: (\d+)(\.?)(\d+)?
+    regExpReplace: $1,$3
   - name: availabilityText
     singleValue: false
     description: Availability as described on page for the selected variant. If
@@ -48,47 +58,51 @@ fields:
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
-    xpath: //div[@class='vip__price-add-to-cart-wrap js-add-to-cart-wrap js-vip-main-atb']/button[@class='button button-action button-lg js-add-to-cart js-click-track js-sniper-click']
+    xpath: //div[@class="vip__price-box-buttons"]/div/button
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class='vip__video-description__container']/div[@class='vip__video-description__text js-expandable-block']/div[@class='js-expandable-text text-expand minimized'] | //div[@id='content']/div[@class='vip-outer']/section[@id='descriptionSection']/div[@class='vip__video-description']
+    xpath: concat(//section[@class='vip__product__outdated']/div[@class='product__outdated__intro'],'',//h3[@class='vip__description__header'],'',//div[@class='vip__description__bullets'],'',//div[@class="vip__video-description__container"]//div[@class='js-expandable-text text-expand minimized'],'',//div[@class='vip__addition-info__inner'])
+    # xpath: //div[@class='vip__video-description__container']/div[@class='vip__video-description__text js-expandable-block']/div[@class='js-expandable-text text-expand minimized'] | //div[@id='content']/div[@class='vip-outer']/section[@id='descriptionSection']/div[@class='vip__video-description']
   - name: descriptionBullets
-    singleValue: true
+    singleValue: false
     description: Number of ul > li tags in the description
     type: NUMBER
+    xpath: count(//div[@class='vip__description__bullets']/div[@class="list-item"])
   - name: brandText
-    singleValue: true
+    singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
     xpath: //div[@id='content']/div[@class='vip-outer']/header[@class='vip__heading__outer']/div[@class='vip__heading']/div/h1
   - name: manufacturer
-    singleValue: true
+    singleValue: false
     description: Product manufacturer
-    xpath: //div[@id='content']/div[@class='vip-outer']/header[@class='vip__heading__outer']/div[@class='vip__heading']/div/h1
+    # xpath: //div[@id='content']/div[@class='vip-outer']/header[@class='vip__heading__outer']/div[@class='vip__heading']/div/h1
   - name: quantity
     singleValue: false
     description: Quantity as described on the page
     regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     regExpReplace: $1$2$3$4
   - name: weightNet
-    singleValue: true
+    singleValue: false
     description: Net weight as described on the page
-    xpath: //th[contains(text(), 'Nettovikt')]/following-sibling::*[1] | //th[contains(text(), 'Nettovikt')]/following-sibling::*[1]
+    xpath: //section[@class="vip__specifications__outer js-spec-section"]//div[@class="vip__specifications__line"]/div[contains(text(), 'Nettovikt')]/following-sibling::*[1]
+    # xpath: //th[contains(text(), 'Nettovikt')]/following-sibling::*[1]
   - name: weightGross
-    singleValue: true
+    singleValue: false
     description: Gross weight as described on the page
-    xpath: //th[contains(text(), 'Bruttovikt')]/following-sibling::*[1]
+    xpath: //section[@class="vip__specifications__outer js-spec-section"]//div[@class="vip__specifications__line"]/div[contains(text(), 'Bruttovikt')]/following-sibling::*[1]
+    # xpath: //th[contains(text(), 'Bruttovikt')]/following-sibling::*[1]
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
   - name: sku
-    singleValue: true
+    singleValue: false
     description: The store-specific product identifier
     xpath: //div[@id='content']/div[@class='vip-outer']/header[@class='vip__heading__outer']/div[@class='vip__heading__npk']/span[@class='js-sku-small']
   - name: variantId
-    singleValue: true
+    singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
     xpath: //div[@id='content']/div[@class='vip-outer']/header[@class='vip__heading__outer']/div[@class='vip__heading__npk']/span[@class='js-sku-small']
   - name: mpc
@@ -98,7 +112,7 @@ fields:
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
-    xpath: concat(//th[contains(text(), 'Höjd')],'  ',//th[contains(text(), 'Höjd')]/following-sibling::*[1])
+    # xpath: concat(//th[contains(text(), 'Höjd')],'  ',//th[contains(text(), 'Höjd')]/following-sibling::*[1])
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
@@ -109,25 +123,29 @@ fields:
     singleValue: true
     description: Content under "warnings" header
   - name: ratingCount
-    singleValue: true
+    singleValue: false
     description: The number of ratings
     type: NUMBER
     xpath: //header[@class='vip__reviews__header']/span[@class='vip__reviews__header__links']/a[@class='js-click-track js-sniper-click']
-  - name: aggregateRatingText
-    singleValue: true
-    description: The stated aggregate rating
+  # - name: aggregateRatingText
+  #   singleValue: true
+  #   description: The stated aggregate rating
   - name: aggregateRating
-    singleValue: true
+    singleValue: false
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    # type: NUMBER
     xpath: //div[@class='vip__reviews']/header[@class='vip__reviews__header']/span[@class='vip__reviews__header__label']
-  - name: shippingInfo
-    singleValue: true
-    description: Shipping information for the product
-    xpath: //div[@id='vip__accordion-delivery-info-desktop']/div[@class='vip__accordion__header js-accordion js-sniper-click js-click-track']/span[@class='vip__accordion__header-text delivery-header']
+    regExp: (\d+)(\.?)(\d+)?
+    regExpReplace: $1,$3
+  # - name: shippingInfo
+  #   singleValue: true
+  #   description: Shipping information for the product
+  #   xpath: //div[@id='vip__accordion-delivery-info-desktop']/div[@class='vip__accordion__header js-accordion js-sniper-click js-click-track']/span[@class='vip__accordion__header-text delivery-header']
   - name: shippingDimensions
-    singleValue: true
+    singleValue: false
     description: Stated shipping dimensions
+    xpath: concat(//section[@class="vip__specifications__outer js-spec-section"]//div[@class="vip__specifications__line"]/div[contains(text(), 'Höjd')]/following-sibling::*[1],' ',//section[@class="vip__specifications__outer js-spec-section"]//div[@class="vip__specifications__line"]/div[contains(text(), 'Bredd')]/following-sibling::*[1],' ', //section[@class="vip__specifications__outer js-spec-section"]//div[@class="vip__specifications__line"]/div[contains(text(), 'Djup')]/following-sibling::*[1])
+    # xpath: concat(//th[contains(text(), 'Höjd')]/following-sibling::*[1],' | ',//th[contains(text(), 'Höjd max.')]/following-sibling::*[1],' | ', //th[contains(text(), 'Bredd')]/following-sibling::*[1],' | ', //th[contains(text(), 'Djup')]/following-sibling::*[1])
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
@@ -141,17 +159,17 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
+    xpath: concat(//div[@class='vip__superspecs']/h2,'',//section[@class='vip__superspecs__outer']/div[@class='vip__superspecs']/div[@class="vip__superspecs__container"])
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[@class='vip__heading']/a/img[@class='vip__heading__img']/@src | //div[@class='vip-outer']/header[@class='vip__heading__outer']/div[@class='miele__header']/a/img/@src
-  - name: videos
-    singleValue: false
-    description: URLs of videos on page
+    xpath: //div[@class="vip__specifications"]/div/div[@class="vip__specifications__table"]/a[@class="vip__specifications__sheet js-click-track js-sniper-click"]/@href | //section/div[@class='vip__superspecs']/div[@class='vip__superspecs__container']/div[@class='vip__superspecs__spec']/div[@class='vip__superspecs__image']/img/@src | //section//div[@class='vip__superspecs']/div[@class="vip__superspecs__container"]/div[@class="vip__superspecs__expandable-block js-superspec-block-desktop"]/div/div/img/@src
+    # xpath: //div[@class='vip__heading']/a/img[@class='vip__heading__img']/@src | //div[@class='vip-outer']/header[@class='vip__heading__outer']/div[@class='miele__header']/a/img/@src
   - name: name
-    singleValue: true
+    singleValue: false
     description: The product name
-    xpath: //div[@class='breadcrumb-wrapper']/ol[@class='breadcrumb-list']/li[@class='breadcrumb-list__item'][5]/a[@class='breadcrumb-list__link']/span
+    # xpath: //div[@class='breadcrumb-wrapper']/ol[@class='breadcrumb-list']/li[@class='breadcrumb-list__item'][5]/a[@class='breadcrumb-list__link']/span
+    xpath: concat(//header[@class='vip__heading__outer']/div[@class='vip__heading']/div/h1/text(),'',//header[@class='vip__heading__outer']/div[@class='vip__heading']/div/span/span/text(),'',//header[@class='vip__heading__outer']/div[@class='vip__heading']/div/span/text())
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -170,6 +188,13 @@ fields:
   - name: brandLink
     singleValue: true
     description: null
+  - name: videos
+    singleValue: false
+    description: URLs of videos on page
+    # xpath: //div[@class="vip__video-description__container"]//div[@class="gallery__details__video js-video-placeholder"]/img/@src
+    xpath: //div[@class="js-gallery-thumb gallery__thumb-wrapper js-click-track js-sniper-click"]/div[@class="gallery__thumb thumb__is__video"]/picture/source/@srcset
+    regExp: (.+\.co\/)([\d.]+\/)([\d.]+)
+    regExpReplace: $1v.ihtml/player.html?source=embed&photo%5fid=$3&autoPlay=1
   - name: internationalShipping
     singleValue: true
     description: Text next to bullet point
@@ -240,10 +265,10 @@ fields:
     singleValue: false
     description: null
   - name: secondaryImageTotal
-    singleValue: true
+    singleValue: false
     description: null
     type: NUMBER
-    xpath: count(//section[@id='vipGalleryOnPage']/div/div/div/div/picture/source/@srcset)
+    xpath: count(//div[position()>1]/div[@class="gallery__thumb thumb__is__image"]/picture/source/@srcset)
   - name: news
     singleValue: true
     description: null
@@ -405,7 +430,8 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: //div[@id='content']/div[@class='vip-outer']/section[@id='specificationSection']/div[@class='vip__specifications']
+    xpath: //div[@id='specification']
+    # xpath: //div[@id='content']/div[@class='vip-outer']/section[@id='specificationSection']/div[@class='vip__specifications']
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -438,8 +464,9 @@ fields:
     singleValue: true
     description: The unit of measurement used in price_per_unit
   - name: promotion
-    singleValue: true
+    singleValue: false
     description: promotion text on product page
+    xpath: //div[@class="gallery__details__outer"]/div[@class="badge-wrapper badge-discount"]/div[@class="badge-icon-wrapper"]/span[@class="badge-discount-text"]
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
@@ -484,10 +511,11 @@ fields:
       https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
     example: 4 - 99 years
   - name: energyEfficiency
-    singleValue: true
+    singleValue: false
     description: Energy rating of a product.
       https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
     example: A+, A+++, B
+    xpath: (//th[contains(text(), 'Energiklass')]/following-sibling::*[1])[1]
   - name: technicalInformationPdfPresent
     singleValue: true
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
@@ -517,7 +545,7 @@ fields:
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
   - name: materials
-    singleValue: true
+    singleValue: false
     description: Materials used to make the product
-    example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
-    xpath: (//*[contains(text(), 'Färg/Material')]/following-sibling::*[1])[3]
+    # example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+    xpath: (//div[@class="vip__specifications__container"]//div[contains(text(), 'Färg/Material')]/following-sibling::*[1])[1]
