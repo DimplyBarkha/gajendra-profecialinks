@@ -29,7 +29,7 @@ const transform = (data) => {
             row.additionalDescBulletInfo.forEach(item=>{
               arr_info.push(item.text);
             });            
-            row.additionalDescBulletInfo = [{'text':'| '+arr_info.join(' | ')}];
+            row.additionalDescBulletInfo = [{'text':''+arr_info.join(' || ')}];
           }          
           if (row.descriptionBullets) {
             row.descriptionBullets = [{'text':row.descriptionBullets.length,'xpath':row.descriptionBullets[0].xpath}];
@@ -57,6 +57,11 @@ const transform = (data) => {
             if (description_ar.length) {
               row.description = [{ "text": description_ar.join(" "), 'xpath': row.description[0].xpath }];
             }
+        }
+        if (row.ingredientsList) {      
+          row.ingredientsList.forEach(item => {      
+            item.text  = item.text.replace("Product Ingredients: ",'');
+          });         
         }
           if (row.price) {      
             row.price.forEach(item => {      

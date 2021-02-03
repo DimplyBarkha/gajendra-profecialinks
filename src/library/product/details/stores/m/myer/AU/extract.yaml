@@ -12,6 +12,9 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //li[position()>1]//img[@data-automation="product-image" and @class='css-ys4vis']/@src  
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//li[position()>1]//img[@data-automation="product-image" and @class='css-ys4vis']/@src)  
   - name: category
     singleValue: false
     xpath: //nav[@data-automation="breadcrumb"]//ol/li//a[contains(@id,'breadcrumb-s_')]
@@ -60,6 +63,7 @@ fields:
     xpath: //div[@class="rating_summary_container"]//div[@itemprop="ratingValue"]      
   - name: variantCount
     singleValue: false
+    xpath: count(//div[@class="drawers-container"]//ul[@data-automation="drawer-body"]//li)
     defaultValue: '0'    
   - name: color
     singleValue: false
