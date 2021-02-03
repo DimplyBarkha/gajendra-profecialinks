@@ -11,20 +11,38 @@ module.exports = {
   implementation: async (inputs, parameters, context, dependencies) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    await context.evaluateInFrame('iframe[id="uic_3"]', () => {
+    await context.evaluate(() => {
+      const element = document.querySelector('div[id="collection"]');
+      element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+    });
+    await context.evaluateInFrame('iframe', () => {
+      function addHiddenDiv1(id, content, index) {
+        const newDiv = document.createElement("div");
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = "none";
+        const originalDiv = document.querySelectorAll('div[id="productPrice"]')[index];
+        originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+      }
       var mainImage = document.querySelector('meta[property="og:image"]');
       let mainImageURL = mainImage.getAttribute("content");
       let totalImages = document.querySelectorAll('span[class="pane thumbnailPane"] span').length;
       totalImages = totalImages - 1;
-      // var sec_img = getAllXpath("//meta[@property='og:image']/@content","nodeValue");
-      var dot_position = mainImageURL.indexOf(".jpg") - 1;
       function replaceChar(origString, replaceChar, index) {
         let firstPart = origString.substr(0, index);
         let lastPart = origString.substr(index + 1);
         let newString = firstPart + replaceChar + lastPart;
         return newString;
       }
-      for (let i = 0; i<totalImages; i++){}
+      function nextChar(c) {
+        return String.fromCharCode(c.charCodeAt(0) + 1);
+      }
+      let nextletter = 'b';
+      for (let i = 0; i < totalImages; i++) {
+        console.log('sai')
+        console.log(replaceChar(mainImageURL, nextletter, mainImageURL.indexOf(".jpg") - 1))
+        nextletter = nextChar(nextletter);
+      }
     });
     await context.evaluate(() => {
       const getAllXpath = (xpath, prop) => {
