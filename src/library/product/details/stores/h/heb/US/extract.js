@@ -24,12 +24,25 @@ module.exports = {
     else result = elem ? elem.singleNodeValue : '';
     return result && result.trim ? result.trim() : result;
   };
-  // const brand1 = getXpath("(//div[@class='block-right']//script[@type='application/json']/text())[1]", 'nodeValue');
-  // if (brand1 != null){
-  //   var ubc = JSON.parse(brand1)
-  //   var brand = ubc[0].ecommerce.add.products[0].brand
-  //   addElementToDocument('brand', brand);
-  // }
+  //availibility//
+  var avail = getXpath("(//div[@class='pdp error-message']/text())[1]", 'nodeValue');
+  if (avail != null){
+    avail = "Out of Stock"
+    addElementToDocument("avail", avail)
+  }
+  else {
+    avail = "In Stock"
+    addElementToDocument("avail", avail)
+  }
+
+  //image//
+  var image = getXpath("(//div[@class='pdp-mobile-image-container']/img)[1]/@src", 'nodeValue');
+  if (image != null){
+    image = image.replace('https','http')
+    addElementToDocument("image", image)
+  }
+
+
 });
 
 await context.extract(productDetails);
