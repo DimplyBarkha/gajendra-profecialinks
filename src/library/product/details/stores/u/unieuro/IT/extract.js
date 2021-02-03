@@ -107,6 +107,35 @@ async function implementation(
     if (await context.evaluate(() => { return document.querySelector('div[id*="no-results-message"]') })) {
         return;
     }
+
+    let lezyBeeUrl = await context.evaluate(() => {
+        return document.querySelector('iframe#loadbeeIframeId').getAttribute('src')
+    });
+
+    if (lezyBeeUrl) {
+        let url = await context.evaluate(() => {
+            return window.location.href
+        })
+        await context.goto(lezyBeeUrl, { timwout: 10000, waitUntil: 'networkidle0', block_ads: false, js_enabled: true });
+        await context.waitForSelector("#body");
+        let cloneEC = await context.evaluate(() => {
+            let div = document.querySelectorAll('body>div.wrapper')
+            let str = "";
+            div.forEach((node) => {
+                str = str + node.innerText
+            })
+            return str;
+        })
+        await context.goto(url, { timwout: 10000, waitUntil: 'networkidle0', block_ads: false, js_enabled: true });
+        await context.waitForSelector('.container');
+        await context.evaluate((cloneEC) => {
+            let div = document.createElement('div');
+            div.setAttribute('id', "inpage_container")
+            div.innerText = cloneEC;
+            document.body.append(div);
+        }, cloneEC)
+    }
+
     return await context.extract(productDetails, { transform });
 }
 
