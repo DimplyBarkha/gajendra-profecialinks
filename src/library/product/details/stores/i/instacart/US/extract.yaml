@@ -11,6 +11,9 @@ fields:
     xpath: //div[contains(@class, "image-container")]//img/@alt
   - name: alternateImages
     xpath: //div[contains(@aria-label, "Item images")]//li[position()>1]//img/@src
+  - name: secondaryImageTotal
+    singleValue: true
+    xpath: count(//div[contains(@aria-label, "Item images")]//li[position()>1]//img/@src)
   - name: metaKeywords
     description: The <meta> keywords content
   - name: category
