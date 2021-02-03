@@ -1,6 +1,6 @@
 /**
  *
- * @param { { keywords: string, zipcode: string, storeID: string } } inputs
+ * @param { { searchURL: string , keywords: string, zipcode: string, storeID: string ,query: string} } inputs
  * @param { { url: string, loadedSelector?: string, noResultsXPath: string } } parameters
  * @param { ImportIO.IContext } context
  * @param { { goto: ImportIO.Action} } dependencies
@@ -11,8 +11,18 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { keywords } = inputs;
-  const destinationUrl = url.replace('{searchTerms}', encodeURIComponent(keywords));
+  const { searchURL, keywords, query } = inputs;
+
+  console.log(`searchURL: ${searchURL}`);
+  url = searchURL || url;
+  console.log(url);
+
+  if (url.includes('{searchTerms}') && !keywords) throw new Error('No keywords provided');
+  if (url.includes('{queryParams}') && !query) throw new Error('No query provided');
+
+  const destinationUrl = url
+    .replace('{searchTerms}', encodeURIComponent(keywords))
+    .replace('{queryParams}', query);
   await dependencies.goto({ ...inputs, url: destinationUrl });
 
   if (loadedSelector) {
@@ -20,14 +30,8 @@ async function implementation (
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
     }, { timeout: 10000 }, loadedSelector, noResultsXPath);
   }
-  console.log('Checking no results', noResultsXPath);
-  return await context.evaluate((xp) => {
-    const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
-    console.log(xp, r);
-    const e = r.iterateNext();
-    console.log(e);
-    return !e;
-  }, noResultsXPath);
+  console.log(`noResultsXPath: ${noResultsXPath}`);
+  return await context.evaluate((xp) => !document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext(), noResultsXPath);
 }
 
 module.exports = {
@@ -60,6 +64,11 @@ module.exports = {
   ],
   inputs: [
     {
+      name: 'searchURL',
+      description: 'search URL',
+      type: 'string',
+    },
+    {
       name: 'keywords',
       description: 'keywords to search for',
       type: 'string',
@@ -72,6 +81,12 @@ module.exports = {
     {
       name: 'storeID',
       description: 'Id of the store',
+      type: 'string',
+      optional: true,
+    },
+    {
+      name: 'query',
+      description: 'Part of a URL',
       type: 'string',
       optional: true,
     },
