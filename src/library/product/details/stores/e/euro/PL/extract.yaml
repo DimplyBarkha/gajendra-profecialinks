@@ -1,0 +1,143 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    xpath: //a[@id='big-photo']//img/@src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: alternateImages
+    #xpath: //div[@class='product-photos']//li[1]//following-sibling::li//a/@href
+    #//div[@class='product-photos']//li/a/@href
+    xpath: //div[@id='miniatures-list']//li[contains(@class, 'miniatures-photo')][position() > 1]/a/@href
+  - name: productUrl
+    xpath: //link[@rel="canonical"]/@href
+  - name: metaKeywords
+    xpath: //meta[contains(@name,"keyword")]/@content
+  - name: description
+    xpath: //div[@class="product-info"]//div[@class="attributes-row"] | //div[@id="product-info"]//div[@class="attributes-row"]
+  - name: gtin
+    xpath: //script[@type="application/ld+json"][contains(text(),"gtin13")]
+    regExp: gtin13":\s"([^"]+)
+    regExpReplace: $1
+  - name: sku
+    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
+    regExp: sku":\s"([^"]+)
+    regExpReplace: $1
+  - name: ratingCount
+    # xpath: //div[@id="product-main"]//a[contains(@class,"rating-count")]/em
+    xpath: //script[@type="application/ld+json"][contains(text(),"aggregateRating")]
+    regExp: reviewCount":\s"([^"]+)
+    regExpReplace: $1
+  - name: aggregateRating
+    xpath: //script[@type="application/ld+json"][contains(text(),"aggregateRating")]
+    regExp: ratingValue":\s"([^"]+)
+    regExpReplace: $1
+  - name: imageAlt
+    xpath: //a[@id='big-photo']//img//@alt
+  - name: category
+    xpath: //div[@id='breadcrumb']//ul//li[position()<last()][position()!=2]
+  - name: nameExtended
+    xpath: //div[@class='product-header']//h1/text()
+    #regExp: name":\s"([^"]+)
+    #regExpReplace: $1
+  - name: listPrice
+    xpath: //div[@id='product-top']//div[@class='price-old'] | //ul[@class="price-tabs"]/li/a[count(*)>1]/*[last()]/div | //ul[@class="price-tabs"]/li/a[count(*)=1]
+  - name: price
+    xpath: //script[@type='application/ld+json'][contains(., 'offers')]
+    regExp: price". "((\d+)\.(\d+))"
+    regExpReplace: $2,$3
+  - name: availabilityText
+    xpath: //script[@type='application/ld+json'][contains(., 'offers')]
+    regExp: availability". "http:\/\/schema.org\/(InStock|Instock|InStore|InStoreOnly)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  # - name: descriptionBullets
+  #   xpath: count(//div[@id='description-text']//ul//li)
+  - name: brandText
+    xpath: //a[@class="product-brand"]/@title
+  - name: manufacturer
+    xpath: normalize-space(//td[contains(text(),'Nazwa producenta / importera')]//following-sibling::td/text())
+  - name: weightGross
+    xpath: normalize-space(//td[contains(.//text(),'Waga z opakowaniem')]//following-sibling::td)
+  - name: variantId
+    xpath: (//div[@class="action-buttons"]/a/@data-product)[1]
+  - name: shippingDimensions
+    xpath: normalize-space(//td[contains(text(),'Wymiary opakowania')]//following-sibling::td)
+  - name: shippingWeight
+    xpath: normalize-space(//td[contains(.//text(),'Waga z opakowaniem')]//following-sibling::td)
+  - name: color
+    xpath: normalize-space(//tr//td[contains(text(),'Kolor')]//following-sibling::td)
+  - name: manufacturerDescription
+    xpath:
+      //section[@data-section-id="opis"] | //li[@id="opis"]
+      #
+    # xpath: //div[contains(@class,"col-xs-12")] | //div[contains(@class,"esm-col")]/div/span  | //div[contains(@class,"esm-col")]/div/p | //div[@class="col-desc"] | //p[@class='small']/text() | //p[@class="margin-t-sm-12 font-weight-sm-300"]/text()  | //div[contains(@class,"description-col")]/p | //div[@class="display-desktop"]//text() | //div[@class="e-text e-widget"] |  //div[@id="description-text"]
+    # xpath:  //div[contains(@class,"esm-col")]//div//span  | //div[contains(@class,"e-text")] |//div[@class="col-desc"] |//p[@class='small']/text() | //p[@class="margin-t-sm-12 font-weight-sm-300"]/text()  | //div[contains(@class,"description-col")]/p | //div[contains(@class,"col-xs-12")]
+    # //p[@class='small']/text() | //p[@class="margin-t-sm-12 font-weight-sm-300"]/text()      //div[@id="description-text"]//div[contains(@class,"esm-col")]/text()
+  - name: name
+    xpath: //meta[contains(@property,"og:title")]/@content
+  - name: specifications
+    xpath: //table[@class='description-tech-details js-tech-details']//tr[not(@class='group-name')]
+  - name: warranty
+    xpath: //td[contains(text(),'Gwarancja')][1]//following-sibling::td/text()
+  - name: energyEfficiency
+    xpath: normalize-space(//a[contains(text(),'Klasa energetyczna')]//..//following-sibling::td)
+  - name: videos
+    # xpath: //div[@id="description-videos"]//iframe/@src | //a[contains(@class,"ytp-title-link")]/@href | //div[@class="ytp-title-expanded-heading"]//a/@href | //button[contains(@class,'video-preview')]/@data-src | //h2[@class="ytp-title-expanded-title"]//a/@href | //div[@class="video-container"]/iframe/@src
+    xpath: //import-video/@data | //div[@class="description-content-inner"]//a[contains(@href,"youtube")]/@href | //iframe[contains(@src,"youtube")]/@src
+    regExp: (\/\/.*)
+    regExpReplace: https:$1
+    # //button[@class='video-preview js-video-preview']/@data-src
+  - name: galleryVideos
+    xpath: //import-video/@data | //div[@class="description-content-inner"]//a[contains(@href,"youtube")]/@href | //iframe[contains(@src,"youtube")]/@src
+    regExp: (\/\/.*)
+    regExpReplace: https:$1
+  - name: weightNet
+    xpath: normalize-space(//td[contains(text(),"Waga") and not(contains(text(),"opakowaniem"))]//following-sibling::td)
+  - name: manufacturerImages
+    xpath: //div[@class='description-content-inner']//img[not(contains(@src,"blank.gif"))]/@src
+    # //div[@class="col-img"]/img/@src | //div[@class="description-py5"][2]//following-sibling::div//img/@src |
+    # //div[@class='margin-t-lg-32']//div[@class='tct']//img[@class='lazy loaded']/@src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: variantCount
+    xpath: count(//div[contains(@class,"variant-list js-variant-list")]/a)
+  - name: mpc
+    xpath: //td[contains(text(),'Kod producenta')][1]//following-sibling::td/text()
+  - name: variantInformation
+    xpath: //div[@id="product-variants"]//div/a[contains(@class,"active")]/@title
+    # xpath: //div[@class='current-variant']//div[@class='name']/text()
+  - name: firstVariant
+    xpath: //div[@class='current-variant']//div[@class='value']/text()
+  - name: variantCount
+    xpath: count(//div[@id="product-variants"]//a)
+  - name: promotion
+    xpath: concat(//div[@class="instalment-message-label"]/text(),'' , //div[@class="instalment-message-label"]/span/text(),'' , //div[@class="promo-instalment-box"]/div/text() ,'', //div[@class="promo-instalment-subtitle"]/text())
+    # xpath:
+  - name: packSize
+    xpath: //div[@class="product-info"]//a[@title="Pojemność - pralki"]/../../span[@class="attribute-value"]
+  - name: variants
+    xpath: //div[@id="product-variants"]//div/a/span
+  - name: firstVariant
+    xpath: //div[@id="product-variants"]//div/a[1]/span
+  - name: secondaryImageTotal
+    xpath: count(//div[@id='miniatures-list']//li[contains(@class, 'miniatures-photo')][position() > 1]/a/@href)
+  - name: currencyOverride
+    defaultValue: PLN
+  - name: quantity
+    xpath: //div[contains(@class,"variant-wrapper")]//a[contains(@class,"active-item")]
+  - name: inTheBoxUrl
+    xpath: //h3[contains(.,'Zawartość') or contains(.,'W pudełku')  or contains(.,'W opakowaniu')]//ancestor::div/following-sibling::div[1][contains(@class,'description')]//img/@src | //h4[contains(.,'W opakowaniu')]/following-sibling::div//img/@src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: inTheBoxText
+    xpath: //h3[contains(.,'Zawartość') or contains(.,'W pudełku')  or contains(.,'W opakowaniu')]//ancestor::div/following-sibling::div[1][contains(@class,'description')]//img/following-sibling::p[contains(@class,'description')] |  //h4[contains(.,'W opakowaniu')]/following-sibling::div//img/parent::div/following-sibling::div//h6/text()
+  - name: hasComparisonTable
+    defaultValue: No
+    xpath: //div[@id='description-content']//table//tbody/tr[1]/td[1]
+    regExp: (.+)
+    regExpReplace: Yes
+  - name: unInterruptedPDP
+    xpath: //section[@id="recommended-products"]//ul//li//div[@class="product-box"]//h3 | //div[@id='dynamic-suite']//div[contains(@class, 'suite-main-product')]/div[@class='product-name'] | //div[@id='dynamic-suite']//div[contains(@class, 'dynamic-suite-packages')]//div[contains(@class, 'package-product-name')]
