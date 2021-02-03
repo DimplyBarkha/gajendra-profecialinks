@@ -49,5 +49,4 @@ module.exports = {
     noResultsXPath: "//p[contains(text(),'The page you are looking for cannot be found')]",
     zipcode: '',
   },
-  implementation,
 };
