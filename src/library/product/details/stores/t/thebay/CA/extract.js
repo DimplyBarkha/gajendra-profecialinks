@@ -19,18 +19,34 @@ module.exports = {
     });
     const { transform } = parameters;
     const { productDetails } = dependencies;
+
+    try {
+      await context.click('span#consent-close');
+      await new Promise(resolve => setTimeout(resolve, 500));
+    } catch (error) {
+      console.log(error);
+    }
+
     await context.extract(productDetails, { transform });
     for (let index = 2; index <= variantCount; index++) {
       try {
-        await context.click(`ul.selection-list.ps > li:nth-child(${index})`);
-        await new Promise(resolve => setTimeout(resolve, 500));
+        const status = await context.evaluate(async function (index) {
+          const sel = `ul.selection-list li:not(.option-disabled):nth-child(${index})`;
+          document.querySelector(sel) && document.querySelector(sel).click();
+          return document.querySelector(sel);
+        }, index);
+
+        //await context.click(`ul.selection-list.ps.ps--active-y li:not(.option-disabled):nth-child(${index})`);
+        await new Promise(resolve => setTimeout(resolve, 1000));
         if (variantCount !== index) {
-          await context.extract(productDetails, { type: 'APPEND', transform  });
+          if (status) {
+            await context.extract(productDetails, { type: 'APPEND', transform });
+          }
         } else {
-          return await context.extract(productDetails, { type: 'APPEND', transform  });
+          return await context.extract(productDetails, { type: 'APPEND', transform });
         }
       } catch (error) {
-        console.log('Error While itrerating over the variants',error);
+        console.log('Error While itrerating over the variants', error);
       }
     }
   },
