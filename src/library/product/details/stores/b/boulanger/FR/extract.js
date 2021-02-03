@@ -111,7 +111,7 @@ module.exports = {
         const bullets = additionalDescBulletInfoSelector.querySelectorAll('li');
         bullets.forEach(element => {
           const text = element.innerText;
-          const fixedText = `||${text}||`;
+          const fixedText = `${text}||`;
           element.innerText = fixedText;
         });
       }

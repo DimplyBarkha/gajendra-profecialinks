@@ -65,7 +65,7 @@ fields:
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
-    xpath: count(//span[@id='spanProductDescriptionId']//ul//li)
+    xpath: count(//ul[@class='bestpoints-list']/li)
   - name: brandText
     singleValue: true
     description:
@@ -86,6 +86,7 @@ fields:
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
+    xpath: //span[contains(translate(., 'Net', 'net'), 'Poids Brut')]/ancestor::td/text()
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
@@ -104,7 +105,6 @@ fields:
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
-    xpath: //img[@itemprop='image']/@alt
   - name: packSize
     singleValue: true
     description:
@@ -138,13 +138,14 @@ fields:
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
-    xpath: //span[contains(text(), 'Dimensions l x h x p  :')]/ancestor::td/text()
+    xpath: //span[contains(text(), 'Dimensions l x h x p  :')]/ancestor::td/text() | //span[contains(text(), 'L x H x P')]/ancestor::td/text()
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
   - name: variantCount
     singleValue: true
     description: Number of variants listed
+    defaultValue: "0"
   - name: color
     singleValue: false
     description: A textual description of the colour
@@ -163,11 +164,11 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[@class='jp-type-single']//video/@src | //div[@class='video_grid_thumb_cell']/div/@data-video-asset-name | //video[@id='s7VideoElement']/source/@src
+    xpath: //div[@class='jp-type-single']//video/@src | //div[@class='video_grid_thumb_cell']/div/@data-video-asset-name | //video[@id='s7VideoElement']/source/@src | //video[@class='s7Video']/@src
   - name: galleryVideos
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[@class='jp-type-single']//video/@src | //div[@class='video_grid_thumb_cell']/div/@data-video-asset-name | //video[@id='s7VideoElement']/source/@src
+    xpath: //div[@class='jp-type-single']//video/@src | //div[@class='video_grid_thumb_cell']/div/@data-video-asset-name | //video[@id='s7VideoElement']/source/@src | //video[@class='s7Video']/@src
   - name: name
     singleValue: true
     description: The product name
@@ -175,7 +176,6 @@ fields:
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
-    xpath: //div[@class='pb-left']//p[@class='fix-price']
   - name: asin
     singleValue: true
     description:
@@ -434,7 +434,7 @@ fields:
   - name: warranty
     singleValue: false
     description: Guarantee associated with the product
-    xpath: //div[@class='warranty-content']/p
+    xpath: //div[@class='warranty-content']/p | //p[@class='warranty-content']/span[1]
   - name: storage
     singleValue: true
     description: Suggested storage location for product
