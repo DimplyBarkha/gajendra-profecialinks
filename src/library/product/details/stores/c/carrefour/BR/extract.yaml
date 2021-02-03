@@ -47,7 +47,7 @@ fields:
     defaultValue: Out Of Stock
   - name: description
     singleValue: false
-    xpath: //body/@desc
+    xpath: //body/@desc|//div[contains(@class, 'productDescriptionText')]
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
@@ -55,14 +55,14 @@ fields:
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
-    xpath: //meta[@property="product:brand"]/@content
+    xpath: //div[contains(@class, 'productBrandContainer')]/span[contains(@class, 'productBrandName')]
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: manufacturer
     singleValue: false
     description: Product manufacturer
-    xpath: //*[@data-specification="Fabricante"]/following-sibling::*
+    xpath: //span[@data-specification-name="Fabricante"]/@data-specification-value
   - name: quantity
     singleValue: false
     description: Quantity as described on the page
@@ -249,7 +249,7 @@ fields:
     singleValue: false
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
-    xpath: //*[@data-specification="Ingredientes"]/following-sibling::*
+    xpath: //span[@data-specification-name="Ingredientes"]/@data-specification-value
   - name: servingSize
     singleValue: false
     description: The size of serving Nutritional information is based on.
@@ -404,7 +404,7 @@ fields:
   - name: storage
     singleValue: false
     description: Suggested storage location for product
-    xpath: //*[@data-specification="Recomendações de Conservação"]/following-sibling::*
+    xpath: //span[@data-specification-name="Recomendações de Conservação"]/@data-specification-value
   - name: countryOfOrigin
     singleValue: false
     description: The country from which the product originates
@@ -412,7 +412,7 @@ fields:
   - name: allergyAdvice
     singleValue: false
     description: Allergy information associated with the product
-    xpath: //*[@data-specification="Componentes Alérgicos"]/following-sibling::*
+    xpath: //span[@data-specification-name="Componentes Alérgicos"]/@data-specification-value
   - name: recyclingInformation
     singleValue: false
     description: Recycling information associated with the product
@@ -421,7 +421,7 @@ fields:
     description: Any other product information
   - name: packaging
     singleValue: false
-    xpath: //*[@data-specification="Embalagem"]/following-sibling::*
+    xpath: //span[@data-specification-name="Embalagem"]/@data-specification-value
     description: Packaging information
   - name: additives
     singleValue: false
@@ -439,7 +439,7 @@ fields:
   - name: alcoholContent
     singleValue: false
     description: Alcohol content information
-    xpath: //*[@data-specification="Graduação Alcóolica"]/following-sibling::*
+    xpath: //*[@data-specification-name="Graduação Alcóolica"]/following::div//span[@data-specification-name="Graduação Alcóolica"]
   - name: newVersion
     singleValue: false
     description: In product page, information about a new version of the product
@@ -513,10 +513,12 @@ fields:
     defaultValue: No
   - name: imageZoomFeaturePresent
     singleValue: false
-    xpath: (//div[contains(@class,'swiper-wrapper')]/@style)[4]
+    xpath: (//div[contains(@class,'swiper-wrapper')]/@style)
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     regExp: (.+)
     regExpReplace: 'Yes'
     defaultValue: 'No'
+  - name: unInterruptedPDP
+    xpath: //section[contains(@class, 'relative carrefourbr')]//div[contains(@aria-label, 'of')]//h2

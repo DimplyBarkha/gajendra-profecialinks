@@ -21,7 +21,7 @@ module.exports = {
           await new Promise(resolve => setTimeout(resolve, 2000));
           count = document.querySelectorAll('ul[data-testid="scrollable-list-view"] div[class="ltr-6hrfmx"]').length;
           const scrollElement = document.querySelector('ul[data-testid="scrollable-list-view"] > li');
-
+          await new Promise((resolve, reject) => setTimeout(resolve, 3000));
           if (scrollElement) {
             scrollElement.scrollIntoView({ behaviour: 'smooth', block: 'end' });
             await new Promise(resolve => setTimeout(resolve, 2000));
