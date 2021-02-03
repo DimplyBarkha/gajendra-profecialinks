@@ -57,7 +57,7 @@ const transform = (data) => {
        }
        if(row.availabilityText){
         row.availabilityText.forEach(item => {
-          if (item.text == 'Ajouter au panier'){
+          if (item.text == 'out of stock'){
             row.availabilityText = [{"text": 'Out of Stock', "xpath": row.availabilityText[0].xpath}]
           }else{
             row.availabilityText = [{"text": 'In Stock', "xpath": row.availabilityText[0].xpath}]

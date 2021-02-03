@@ -38,7 +38,7 @@ fields:
     xpath: //div[contains(@class,"expandablePanel__ExpandedPanelContent-sc-")]//table//tr
   - name: availabilityText
     singleValue: false
-    xpath: //button[@id="addToCartButton"]/@title
+    xpath: //meta[@property="og:availability"]/@content
     defaultValue: In Stock
   - name: sku
     singleValue: false
