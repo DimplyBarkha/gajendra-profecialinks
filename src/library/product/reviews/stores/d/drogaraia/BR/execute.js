@@ -6,7 +6,7 @@ module.exports = {
     domain: 'drogaraia.com.br',
     loadedSelector: 'ul.ts-reviews-list > li',
     noResultsXPath: null,
-    reviewUrl: 'https://www.drogaraia.com.br/{id}',
+    reviewUrl: 'https://www.drogaraia.com.br/search?w={id}',
     zipcode: '',
   },
 };

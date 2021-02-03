@@ -78,6 +78,29 @@ const transform = (data, context) => {
                   ];
             }
         }
+        if(row.imageZoomFeaturePresent){
+          row.imageZoomFeaturePresent = [
+            {
+              text: "Yes"
+            },
+          ];
+        }
+        if(row.customerServiceAvailability){
+          row.customerServiceAvailability =[
+            {
+              text: "Yes"
+            }
+          ]
+        }
+        if(row.aggregateRating){
+          var rating = row.aggregateRating[0].text
+          var rate = rating.replace(".", ",");
+          row.aggregateRating =[
+            {
+              text: rate
+            }
+          ]
+        }
       } catch (exception) {
         console.log("Error in transform", exception);
       }

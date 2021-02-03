@@ -59,7 +59,7 @@ fields:
     xpath: //div[contains(@class,"raia-arrasa")]
   - name: listPrice
     singleValue: true
-    xpath: //p[@class="old-price"]/span[@class="price"]
+    xpath: //div[contains(@class,"comum-price")]//p[contains(@class,"old-price")]/span[2]
     regExp: (?<=^..)(.*)
     regExpReplace: $1
   - name: weightNet
@@ -71,3 +71,10 @@ fields:
   - name: eangtin
     singleValue: true
     xpath: //div[@class='page']/div[@class='main-container col1-layout']/div[@class='main']/div[@class='col-main']/div[@class='rd-main']/div[@class='product-view']/div[@class='product-essential']/form[@id='product_addtocart_form']/div[@id='details']/div[@id='myTabContent']/div[@id='caract']/div/table[@id='product-attribute-specs-table']/tbody/tr[@class='even'][1]/td[@class='data last']
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    xpath: //div[contains(@class,'zoomContainer')]/@class
+  - name: customerServiceAvailability
+    singleValue: true
+    xpath: //div[contains(@class,'row contacts')]
+    
