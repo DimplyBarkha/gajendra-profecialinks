@@ -43,13 +43,12 @@ const transform = (data) => {
       if (row.sku) {
         row.sku.forEach(item => {
           let data = JSON.parse(item.text);
-          if(data['sku']){
-            if(data['sku']){
-              item.text = data['sku'];
-            }
+          console.log('dataObj :',data);
+          if(data.hasOwnProperty('gtin13')){
+            item.text=data.gtin13;
           }else{
-            item.text = "";
-          }           
+            item.text="";
+          }
         });
       }
       if (row.gtin) {
