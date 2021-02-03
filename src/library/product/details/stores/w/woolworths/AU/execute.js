@@ -5,7 +5,7 @@ module.exports = {
     country: 'AU',
     store: 'woolworths',
     domain: 'woolworths.com.au',
-    loadedSelector: null,
+    loadedSelector: 'div.body-container',
     noResultsXPath: '//div[@class="errorPage"]',
     zipcode: '',
   },

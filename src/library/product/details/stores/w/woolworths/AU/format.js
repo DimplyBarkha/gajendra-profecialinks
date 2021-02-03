@@ -155,10 +155,9 @@ const transform = (data) => {
       }
 
       if (row.quantity) {
-        let size = '';
         row.quantity.forEach(item => {
           const quantity1 = item.text.split(" ");
-          size = quantity1[quantity1.length - 1];
+          item.text = quantity1[quantity1.length - 1];
         });
       }
 
@@ -190,7 +189,10 @@ const transform = (data) => {
         text.reverse();
         for (let index = 0; index < text.length; index++) {
           join += text[index].trim() + ' ';
+          console.log("join",join);
+
         }
+        join = join.slice(0,-1);
         row.promotion = [
           {
             text: join,
