@@ -26,7 +26,31 @@ async function implementation (
   const { productDetails } = dependencies;
   let list = await context.evaluate(() => !document.evaluate(`//div[@class="pagination"]/following-sibling::ul[@id="data-plp_produits"][1]/li[@class="product-grid-item"]/article`, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue)
   console.log('list: ', list);
+  let newUrl;
   if (!list) {
+    try {
+      await context.waitForSelector('button#footer_tc_privacy_button', { timeout: 90000 });
+      let cookieBtnClicked = 0; 
+      await context.evaluate( () => {
+      // await context.evaluateInFrame('div.v-content__wrap iframe', () => {
+        let cookieButton = document.querySelector('button#footer_tc_privacy_button');
+        if (cookieButton) {
+          // @ts-ignore
+          cookieButton.click();
+          cookieBtnClicked = 1;
+        }
+      });
+      console.log('cookieBtnClicked before if: ', cookieBtnClicked);
+      if(cookieBtnClicked === 1){
+        console.log('cookieBtnClicked: ', cookieBtnClicked);
+        // await context.goto(newUrl, { timeout: 80000, waitUntil: 'load', checkBlocked: true });
+        // await context.waitForNavigation();
+        // await context.reload();
+        // await context.waitForNavigation();
+      }
+      } catch (error) {
+        console.log('error: ', error);
+      }
     async function firstItemLink() {
       return await context.evaluate(function () {
         //-------------------
@@ -54,62 +78,61 @@ async function implementation (
     }
     const url = await firstItemLink();
     console.log('url: ', url);
-    if (url !== null) {
-      await context.goto(url, { timeout: 80000, waitUntil: 'load', checkBlocked: true });
+    newUrl = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
+    if (newUrl !== null) {
+      await context.goto(newUrl, { timeout: 80000, waitUntil: 'load', checkBlocked: true });
     }
     await context.waitForNavigation();
   }
-  await new Promise((resolve, reject) => setTimeout(resolve, 8000));
+  
   //-------------------------
-      try {
-      await context.waitForXPath('//button[@id="footer_tc_privacy_button"]', { timeout: 30000 });
-      await context.evaluateInFrame('iframe', () => {
-        let cookieButton = document.querySelector('button#footer_tc_privacy_button');
-        if (cookieButton) {
-          // @ts-ignore
-          cookieButton.click();
-        }
-      });
-      } catch (error) {
-        console.log('error: ', error);
+  try {
+    await context.waitForSelector('button#footer_tc_privacy_button', { timeout: 90000 });
+    let cookieBtnClicked = 0; 
+    await context.evaluate( () => {
+    // await context.evaluateInFrame('div.v-content__wrap iframe', () => {
+      let cookieButton = document.querySelector('button#footer_tc_privacy_button');
+      if (cookieButton) {
+        // @ts-ignore
+        cookieButton.click();
+        cookieBtnClicked = 1;
       }
+    });
+    console.log('cookieBtnClicked before if: ', cookieBtnClicked);
+    if(cookieBtnClicked === 1){
+      console.log('cookieBtnClicked: ', cookieBtnClicked);
+      // await context.goto(newUrl, { timeout: 80000, waitUntil: 'load', checkBlocked: true });
+      // await context.waitForNavigation();
+      // await context.reload();
+      // await context.waitForNavigation();
+    }
+    } catch (error) {
+      console.log('error: ', error);
+    }
       // try {
-      // await context.waitForXPath('//div[@class="ab-popin_content"]', { timeout: 30000 });
-      // await context.evaluateInFrame('iframe', () => {
-      //   let closePopUp = document.querySelector('div.ab-popin_content button.modal__close');
-      //   if (closePopUp) {
+      // await context.waitForSelector('div.v-content__wrap div#iframe-wrapper iframe', { timeout: 90000 });
+      // let cookieBtnClicked = 0; 
+      // await context.evaluateInFrame('div.v-content__wrap div#iframe-wrapper iframe', () => {
+      // // await context.evaluateInFrame('div.v-content__wrap iframe', () => {
+      //   let cookieButton = document.querySelector('button#footer_tc_privacy_button');
+      //   if (cookieButton) {
       //     // @ts-ignore
-      //     closePopUp.click();
+      //     cookieButton.click();
+      //     cookieBtnClicked = 1;
       //   }
       // });
+      // console.log('cookieBtnClicked before if: ', cookieBtnClicked);
+      // if(cookieBtnClicked === 1){
+      //   console.log('cookieBtnClicked: ', cookieBtnClicked);
+      //   // await context.goto(newUrl, { timeout: 80000, waitUntil: 'load', checkBlocked: true });
+      //   // await context.waitForNavigation();
+      //   await context.reload();
+      //   await context.waitForNavigation();
+      // }
       // } catch (error) {
       //   console.log('error: ', error);
       // }
-      // try {
-      //   await context.waitForXPath('//div[@class="ab-popin_content"]', { timeout: 30000 });
-      //   await context.evaluateInFrame('iframe', () => {
-      //     let closePopUp = document.querySelector('div.ab-popin_content button.modal__close');
-      //     if (closePopUp) {
-      //       // @ts-ignore
-      //       closePopUp.click();
-      //     }
-      //   });
-      //   } catch (error) {
-      //     console.log('error: ', error);
-      //   }
-        try {
-          await context.waitForXPath('//div[@class="ab-popin_content"]', { timeout: 30000 });
-          await context.click('//div[@class="ab-popin_content"]');
-          // await context.evaluateInFrame('iframe', () => {
-          //   let closePopUp = document.querySelector('div.ab-popin_content button.modal__close');
-          //   if (closePopUp) {
-          //     // @ts-ignore
-          //     closePopUp.click();
-          //   }
-          // });
-          } catch (error) {
-            console.log('error: ', error);
-          }
+     
   await context.evaluate(async (parentInput) => {
     async function infiniteScroll () {
       let prevScroll = document.documentElement.scrollTop;
@@ -141,11 +164,16 @@ async function implementation (
     }
     let enhancedDescHTML = document.querySelector('div#flix-inpage');
     let enhancedDescHTML1 = document.querySelector('div#wc-aplus');
+    let enhancedDescHTML2 = document.querySelector('div#flix-dyson-new-inpage');
     if(enhancedDescHTML){
       let enhancedDesc = enhancedDescHTML ? enhancedDescHTML.innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').trim() : '';
       addHiddenDiv('cr_enhancedContent',enhancedDesc);
     }else if(enhancedDescHTML1){
       let enhancedDesc = enhancedDescHTML1 ? enhancedDescHTML1.innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').replace('Le contenu suivant est fourni par la marque:', '').trim() : '';
+      addHiddenDiv('cr_enhancedContent',enhancedDesc);
+      // https://www.carrefour.fr/p/soupe-deshydratee-thai-poule-et-citronnelle-knorr-8722700027775
+    }else if(enhancedDescHTML2){
+      let enhancedDesc = enhancedDescHTML2 ? enhancedDescHTML2.innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').replace('Le contenu suivant est fourni par la marque:', '').trim() : '';
       addHiddenDiv('cr_enhancedContent',enhancedDesc);
       // https://www.carrefour.fr/p/soupe-deshydratee-thai-poule-et-citronnelle-knorr-8722700027775
     }

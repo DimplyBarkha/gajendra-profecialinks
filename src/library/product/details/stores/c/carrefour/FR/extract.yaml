@@ -37,13 +37,13 @@ fields:
     singleValue: false
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //span[contains(@class, "product-card-price__price--final")]
+    xpath: //div[@id="data-produit-card"]//span[contains(@class, "product-card-price__price--final")]
   - name: availabilityText
     singleValue: false
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //*[contains(@class, "main-details__click-collect-title")] | //meta[@itemprop="availability"]/@content
+    xpath: //div[@id="data-produit-card"]//div[@class="add-to-cart"]//button[contains(@class, "add-to-cart__plus")] | //*[contains(@class, "main-details__click-collect-title")] | //meta[@itemprop="availability"]/@content
     defaultValue: In Stock
   - name: description
     singleValue: false
@@ -246,6 +246,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: false
     description: null
+    xpath: count(//div[contains(@class,"zoomable-image")]/img/@src)
     type: NUMBER
   - name: news
     singleValue: false
@@ -512,7 +513,7 @@ fields:
   - name: customerServiceAvailability
     singleValue: false
     description: Information related to customer service availability (text), ['Yes','No']
-    defaultValue: No
+    defaultValue: Yes
   - name: materials
     singleValue: false
     description: Materials used to make the product
@@ -527,4 +528,4 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    defaultValue: Yes

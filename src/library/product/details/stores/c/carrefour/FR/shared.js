@@ -29,6 +29,11 @@ const transform = (data) => {
                 item.text = item.text.replace('.',',');
               });
             }
+            if (row.quantity) {
+              row.quantity.forEach(item => {
+                item.text = item.text.replace(/\-\s(.*)/,'$1');
+              });
+            }
             if (row.alternateImages) {
               row.alternateImages.shift();
               row.alternateImages.forEach(item => {
@@ -81,10 +86,10 @@ const transform = (data) => {
             }
             if (row.availabilityText) {
               row.availabilityText.forEach(item => {
-                if((item.text.includes('InStoreOnly')) || (item.text.includes('Product to be collected in store in 2 hours'))){
+                if((item.text.includes('InStock'))|| (item.text.includes('InStoreOnly')) || (item.text.includes('ACHETER')) || (item.text.includes('Product to be collected in store in 2 hours'))){
                   item.text = 'In Stock';
                 }else{
-                  item.text = 'Out Of Stock';
+                  item.text = 'Out of Stock';
                 } 
               });
             }
