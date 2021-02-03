@@ -1,5 +1,4 @@
 const { transform } = require('./transform');
-const { Helpers } = require('../../../../../../helpers/helpers');
 
 async function implementation (
   inputs,
@@ -8,13 +7,12 @@ async function implementation (
   dependencies,
 ) {
   const { transform } = parameters;
-  const { productDetails } = dependencies;
+  const { productDetails, Helpers: { Helpers } } = dependencies;
   const helper = new Helpers(context);
 
   await context.click('button[data-dismiss="modal"]', { timeout: 3000 })
     .catch(() => console.log('No modal present!'));
 
-  // scroll, scroll!
   await context.evaluate(async () => {
     let moreResults = document.evaluate('boolean(//button[@class="ais-InfiniteHits-loadMore" and not(@disabled)])', document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue;
     let numResultsOnPage = 0;
@@ -42,6 +40,10 @@ module.exports = {
     transform,
     domain: 'jiomart.com',
     zipcode: '',
+  },
+  dependencies: {
+    productDetails: 'extraction:product/search/stores/${store[0:1]}/${store}/${country}/extract',
+    Helpers: 'module:helpers/helpers',
   },
   implementation,
 };
