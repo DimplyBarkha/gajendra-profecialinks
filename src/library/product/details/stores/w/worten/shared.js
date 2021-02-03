@@ -107,6 +107,18 @@ const transform = (data) => {
           }
         });
       }
+      if (row.videos) {
+        let text = '';
+        row.videos.forEach(item => {         
+            text += item.text + ' | ' ;
+          
+        });
+        row.videos = [
+          {
+            text: text,
+          },
+        ];
+      }
     }
   }
   return data;
