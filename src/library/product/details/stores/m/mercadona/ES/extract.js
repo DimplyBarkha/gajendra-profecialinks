@@ -61,8 +61,6 @@ module.exports = {
           console.log(price_instructions.total_units);
           return price_instructions.total_units;
         }
-
-        return 'null';
       }
 
       if (currentProduct) {
