@@ -28,14 +28,14 @@ module.exports = {
       let mainImageURL = mainImage.getAttribute("content");
       let totalImages = document.querySelectorAll('span[class="pane thumbnailPane"] span').length;
       totalImages = totalImages - 1;
-      function replaceChar(origString, replaceChar, index) {
+      function replaceChar(origString, nextletter, index) {
         let firstPart = origString.substr(0, index);
         let lastPart = origString.substr(index + 1);
-        let newString = firstPart + replaceChar + lastPart;
+        let newString = firstPart + nextletter + lastPart;
         return newString;
       }
-      function nextChar(c) {
-        return String.fromCharCode(c.charCodeAt(0) + 1);
+      function nextChar(letter) {
+        return String.fromCharCode(letter.charCodeAt(0) + 1);
       }
       let nextletter = 'b';
       for (let i = 0; i < totalImages; i++) {
@@ -65,9 +65,7 @@ module.exports = {
         newDiv.id = id;
         newDiv.textContent = content;
         newDiv.style.display = "none";
-        const originalDiv = document.querySelectorAll('div[id="productPrice"]')[
-          index
-        ];
+        const originalDiv = document.querySelectorAll('div[id="productPrice"]')[index];
         originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
       var price = getAllXpath("//p[@class='price']/text()", "nodeValue");
@@ -77,10 +75,7 @@ module.exports = {
           addHiddenDiv1("price", price1, i);
         }
       }
-      var hprice = getAllXpath(
-        "//p[@itemprop='highPrice']/text()",
-        "nodeValue"
-      );
+      var hprice = getAllXpath("//p[@itemprop='highPrice']/text()", "nodeValue");
       if (hprice != null) {
         for (var i = 0; i < hprice.length; i++) {
           var price2 = hprice[i].replace(".", ",");
