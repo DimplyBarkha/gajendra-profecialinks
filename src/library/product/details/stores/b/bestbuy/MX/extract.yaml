@@ -9,6 +9,9 @@ fields:
   - name: metaKeywords
     singleValue: false
     xpath: //title
+  - name: productUrl
+    singleValue: false
+    xpath: //meta[@property="og:url"]/@content
   - name: category
     singleValue: false
     xpath: //ol[@id='breadcrumb-list']//li/a
