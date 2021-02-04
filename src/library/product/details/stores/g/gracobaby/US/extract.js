@@ -78,13 +78,18 @@ module.exports = {
       }
       try {
         const upperDesc = getAllXpath("//div[@class='details']//li/text()", 'nodeValue');
-        descFinal += pipeSeparator(upperDesc);
+        if (upperDesc.length > 0) {
+          descFinal += pipeSeparator(upperDesc);
+        }
+
       } catch (error) {
 
       }
       try {
         const belowLI = getAllXpath("//ul[@id='collapsible-pdp-details-2']/li/text()", 'nodeValue');
-        descFinal += pipeSeparator(belowLI);
+        if (belowLI.length > 0) {
+          descFinal += pipeSeparator(belowLI);
+        }
       } catch (error) {
 
       }
