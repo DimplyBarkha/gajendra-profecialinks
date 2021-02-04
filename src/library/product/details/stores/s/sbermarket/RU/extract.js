@@ -35,6 +35,14 @@ module.exports = {
       const retailerSku = dataJson && dataJson.preloadedState.viewData.product.offer.retailerSku ? dataJson.preloadedState.viewData.product.offer.retailerSku : null;
       if (retailerSku) addElementToDocument('retailer_sku_id', retailerSku);
 
+      const images = document.evaluate('//div[contains(@class,"product_cards")]//meta[@itemprop="image"]/parent::div//div[@data-node-type="slides"][position()>1]//img', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      const imgArr = [];
+      for (let i = 0; i < images.snapshotLength; i++) {
+        const imgUrl = images.snapshotItem(i).getAttribute('src') ? images.snapshotItem(i).getAttribute('src') : '';
+        imgArr.push(imgUrl);
+      };
+      addElementToDocument('imgUrl', imgArr.join(' | '));
+
       const availability = getEleByXpath('//link[@itemprop="availability"]/@href[contains(., "InStock")]');
       const availabilityText = availability ? 'In Stock' : 'Out Of Stock';
       const servingSize = document.querySelector('h3.nutrition__title');
