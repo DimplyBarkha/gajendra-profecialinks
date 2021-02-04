@@ -35,10 +35,10 @@ fields:
     xpath: //link[@rel='canonical']/@href
   - name: category
     singleValue: false
-    xpath: //div[contains(@id, 'breadcrumbs')]//ul/li[not(@class)]
+    xpath: //div[contains(@id, 'breadcrumbs')]//ul/li//a
   - name: breadcrumbs
     singleValue: false
-    xpath: //div[contains(@id, 'breadcrumbs')]//ul/li[not(@class)]
+    xpath: //div[contains(@id, 'breadcrumbs')]//ul/li//a
   - name: nameExtended
     #singleValue: true
     xpath: //span[@id="productTitle"]
@@ -50,7 +50,7 @@ fields:
     xpath: (//span[contains(@id,"priceblock_dealprice")] | //*[@id="priceblock_ourprice"][not(contains(@class,"a-text-strike"))] | //div[contains(@id, "variation_size_name")]/ul/li/span/div/span/span[contains(@class, "selected")]//span[contains(@id, "_price")]/span[contains(@class, "Price")])[1] | //span[@id="priceblock_saleprice"] | //li[contains(@class,selected) and contains(@class,"swatchElement")]//span[contains(@class,"a-size-base a-color-price")] | //span[contains(@class,"header-price")][not(@id="subscriptionPrice")] | //li[@class="swatchSelect"]//span[@class="olp-message a-color-price"]/span/text()[last()] | //div[@id="buyNew_noncbb"]/span
   - name: availabilityText
     singleValue: false
-    xpath: (//*[normalize-space(@id)='availability']/span[not(span)] | //*[normalize-space(@id)='availability']/span/span[last()] | //*[normalize-space(@id)='availability-string']/span[not(span)])[1]
+    xpath: (//*[normalize-space(@id)='availability']/span[not(span[normalize-space(text())!=""])] | //*[normalize-space(@id)='availability']/span/span[last()] | //*[normalize-space(@id)='availability-string']/span[not(span)])[1]
     defaultValue: 'Out of Stock'
   # - name: unavailableMsg
   #   singleValue: false
@@ -117,6 +117,8 @@ fields:
   - name: warnings
     singleValue: false
     xpath: (//*[contains(@class, 'a-alert-heading') and contains(text(), 'WARNING')]/following-sibling::div[contains(@class, 'a-alert-content')] | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Safety Information')]/../p[text()]/text() | //div[contains(@id, "important-information")]/div[contains(@class, "a-section content") and contains(., "Warning")])[1] | (//div[@id='importantInformation_feature_div']//div[contains(.,'Safety Information')]/p)
+  - name: warningsFallback
+    xpath: //td[@class="warningAlertImageColumn"]/following-sibling::td[1]
   - name: ratingCount
     singleValue: false
     # xpath: //div[@id="averageCustomerReviews_feature_div"]//*[@id="acrCustomerReviewText"]/text()
