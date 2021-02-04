@@ -29,6 +29,9 @@ module.exports = {
       if (document.querySelector('div.btns button.btnf-yes')) {
         document.querySelector('div.btns button.btnf-yes').click();
       }
+      if (document.querySelector('div#popup_image_61')) {
+        document.querySelector('div#popup_image_61 button').click();
+      }
       if (document.querySelector('input#juminsag')) {
         document.getElementById('juminsag').value = '19840101';
         if (document.querySelector('button#entrance')) {

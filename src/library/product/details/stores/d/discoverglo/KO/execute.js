@@ -6,7 +6,7 @@ module.exports = {
     store: 'discoverglo',
     domain: 'discoverglo.co.kr',
     loadedSelector: 'body',
-    noResultsXPath: '//div[@class="intro-contents-wrap"]',
+    noResultsXPath: '//div[contains(@class,"error")]/h1/small[contains(text(),"Page not found")]',
     zipcode: '',
   },
 };
