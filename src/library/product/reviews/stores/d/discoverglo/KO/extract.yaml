@@ -1,0 +1,13 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@class="review-list"]//li
+fields:
+  - name: helpfulCount
+  - name: reviewRating
+  - name: reviewDate
+    xpath: //span[@class="date"]/font/font
+  - name: reviewText
+    xpath: //p[@class="review"]//text()
+  - name: reviewTitle
+    xpath: //li/strong//text()

@@ -1,0 +1,25 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@class="colorset"]
+fields:
+  - name: manufacturer
+    defaultValue: glo
+  - name: colour
+    xpath: //ul[@class="colorset"]/li[1]/button/@data_color
+  - name: flavour
+  - name: image
+    xpath: //div[@class="rotation-box"]/img[1]/@src
+    regExp: (.*)
+    regExpReplace: https://www.discoverglo.co.kr$1
+  - name: pageTitle
+    xpath: ancestor::html//meta[@property="og:title"]/@content
+  - name: category
+  - name: subCategory
+  - name: reviewCount
+    xpath: //li[@id="showTab2"]//span/text()
+    regExp: /d
+    regExpReplace: $1
+  - name: pageOffset
+  - name: sku
+    xpath: //ul[@class="colorset"]/li[1]/button/@data_sku
