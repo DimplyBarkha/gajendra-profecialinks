@@ -1,10 +1,10 @@
-
+const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'DE',
     store: 'flaschenpost',
-    transform: null,
+    transform: cleanUp,
     domain: 'flaschenpost.de',
     zipcode: '28199',
   },

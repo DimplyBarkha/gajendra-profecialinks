@@ -52,7 +52,7 @@ fields:
     xpath: //div[@class="swiper-wrapper"]//p[2]/text()
   - name: manufacturer
     singleValue: false
-    xpath: //div[@class="swiper-wrapper"]//p[1][contains(text(),'Hersteller')]/text()
+    xpath: //div[@id="fp-zip-check-modal"]//p[@class='fontMedium']
   - name: caloriesPerServing
     singleValue: false
     xpath: //tbody//tr//td[contains(text(),'Brennwert')]/following-sibling::td[1]

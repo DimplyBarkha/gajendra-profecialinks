@@ -25,7 +25,7 @@ module.exports = {
         try {
           // @ts-ignore
           await context.waitForSelector('div[class="fp-productList"]', 6000)
-          await new Promise(r => setTimeout(r, 6000));
+          await new Promise(r => setTimeout(r, 10000));
         } catch (error) {
 
         }

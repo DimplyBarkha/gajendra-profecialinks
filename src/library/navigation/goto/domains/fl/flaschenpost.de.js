@@ -13,8 +13,11 @@ module.exports = {
     const { url, zipcode, storeId } = inputs;
     await context.goto(url, { timeout, waitUntil: 'load', checkBlocked: true, captureRequests: true });
     // patch for synchronicity issue between json decoring and goto result
-    if (url) {
-      await new Promise((resolve) => setTimeout(resolve, 10000));
+    try {
+      // @ts-ignore
+      await context.waitForSelector('div[class="fp-productList"]', 8000)      
+    } catch (error) {
+      await new Promise(r => setTimeout(r, 11000));
     }
   },
 };
