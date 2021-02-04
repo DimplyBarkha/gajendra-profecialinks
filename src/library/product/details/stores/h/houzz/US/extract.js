@@ -96,14 +96,9 @@ async function implementation(
     const seller = findXpath("//div[contains(@class,'product-spec-item') and contains(.,'Sold By')]//dd");
     const lbb = seller.toLowerCase().includes('houzz') ? 'No' : 'Yes';
     if (lbb === 'Yes') {
-      clickXpath("//li[contains(@class,'hzui-tabs__label') and contains(.,'Shipping and Returns')]");
+
       addHiddenDiv('ii_otherSellerName', seller);
-      const price = findXpath("//span[contains(@class,'pricing-info__price')]");
-      addHiddenDiv('ii_price', price);
-      let shippingPrice = findXpath("//span[contains(@class,'product-main-seller__shipping')]");
-      shippingPrice = shippingPrice.replace(/.*(\$\d+).*/, '$1');
-      addHiddenDiv('ii_shippingPrice', shippingPrice);
-      addHiddenDiv('ii_lbb', lbb);
+
     }
     
     if (specific != null){
