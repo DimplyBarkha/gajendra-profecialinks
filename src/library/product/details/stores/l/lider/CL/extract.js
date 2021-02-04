@@ -12,39 +12,6 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(() => {
-      const element = document.querySelector('div[id="collection"]');
-      element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
-    });
-    await context.evaluateInFrame('iframe', () => {
-      function addHiddenDiv1(id, content, index) {
-        const newDiv = document.createElement("div");
-        newDiv.id = id;
-        newDiv.textContent = content;
-        newDiv.style.display = "none";
-        const originalDiv = document.querySelectorAll('div[id="productPrice"]')[index];
-        originalDiv.parentNode.insertBefore(newDiv, originalDiv);
-      }
-      var mainImage = document.querySelector('meta[property="og:image"]');
-      let mainImageURL = mainImage.getAttribute("content");
-      let totalImages = document.querySelectorAll('span[class="pane thumbnailPane"] span').length;
-      totalImages = totalImages - 1;
-      function replaceChar(origString, replaceChar, index) {
-        let firstPart = origString.substr(0, index);
-        let lastPart = origString.substr(index + 1);
-        let newString = firstPart + replaceChar + lastPart;
-        return newString;
-      }
-      function nextChar(c) {
-        return String.fromCharCode(c.charCodeAt(0) + 1);
-      }
-      let nextletter = 'b';
-      for (let i = 0; i < totalImages; i++) {
-        console.log('sai')
-        console.log(replaceChar(mainImageURL, nextletter, mainImageURL.indexOf(".jpg") - 1))
-        nextletter = nextChar(nextletter);
-      }
-    });
-    await context.evaluate(() => {
       const getAllXpath = (xpath, prop) => {
         const nodeSet = document.evaluate(
           xpath,
@@ -88,58 +55,26 @@ module.exports = {
           addHiddenDiv1("hprice", price2, i);
         }
       }
+
+      var mainImage = document.querySelector('meta[property="og:image"]');
+      let mainImageURL = mainImage.getAttribute("content");
+      console.log(mainImageURL);
+      let FinalImageNumber = mainImageURL.match(/(\d+)/g)[0];
+      let fetchURL = 'https://wlmstatic.lider.cl/contentassets/galleries/' + FinalImageNumber + '.xml';
+      console.log(fetchURL);
+      let finalArrImg = [];
+      fetch(fetchURL).then(res => res.text()).then(res => {
+        const p = new DOMParser();
+        const xmlDOM = p.parseFromString(res, "text/xml");
+        Array.from(xmlDOM.querySelectorAll('item > image')).forEach(i => finalArrImg.push(i.textContent));
+      });
+      console.log(FinalImageNumber);
+      console.log(finalArrImg);
+      for (let i = 0; i < finalArrImg.length; i++) {
+        addHiddenDiv1('alternateImg', mainImageURL.replace(/file:.+jpg/g, finalArrImg[i]))
+      }
     });
     return await context.extract(productDetails, { transform });
   },
 };
 
-// implementation: async (
-//   { inputstring },
-//   { country, domain },
-//   context,
-//   { productDetails }
-// ) => {
-//   await context.evaluate(() => {
-//     function addElementToDocument(key, value) {
-//       const catElement = document.createElement("div");
-//       catElement.id = key;
-//       catElement.textContent = value;
-//       catElement.style.display = "none";
-//       document.body.appendChild(catElement);
-//     }
-//     const getAllXpath = (xpath, prop) => {
-//       const nodeSet = document.evaluate(
-//         xpath,
-//         document,
-//         null,
-//         XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
-//         null
-//       );
-//       const result = [];
-//       for (let index = 0; index < nodeSet.snapshotLength; index++) {
-//         const element = nodeSet.snapshotItem(index);
-//         if (element) result.push(prop ? element[prop] : element.nodeValue);
-//       }
-//       return result;
-//     };
-//     var getXpath = (xpath, prop) => {
-//       var elem = document.evaluate(
-//         xpath,
-//         document,
-//         null,
-//         XPathResult.ANY_UNORDERED_NODE_TYPE,
-//         null
-//       );
-//       let result;
-//       if (prop && elem && elem.singleNodeValue)
-//         result = elem.singleNodeValue[prop];
-//       else result = elem ? elem.singleNodeValue : "";
-//       return result && result.trim ? result.trim() : result;
-//     };
-//     var zz = getXpath("//div[@class='pane stitchedView']/img[1]/@src", "nodeValue");
-//     if (zz != null) {
-//       addElementToDocument("zz", zz);
-//     }
-//   });
-//   await context.extract(productDetails);
-// },
