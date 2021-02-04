@@ -39,9 +39,10 @@ fields:
     # defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //script[contains(@type,"application/ld+json") and contains(text(), "sku")]
-    regExp: description\W+([^"]+)
-    regExpReplace: $1
+    xpath: //div[contains(@class,"product-description ng-star-inserted")]
+    # xpath: //script[contains(@type,"application/ld+json") and contains(text(), "sku")]
+    # regExp: description\W+([^"]+)
+    # regExpReplace: $1
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
