@@ -20,11 +20,15 @@ async function implementation (inputs, parameters, context, dependencies) {
         const descriptionSelector = document.querySelector('.skuFullDescContent');
         let description = '';
 
-        descriptionSelector.querySelectorAll('p').forEach(p => {
-          description += p.textContent + ' |';
-        });
+        if (descriptionSelector !== null) {
+          descriptionSelector.querySelectorAll('p').forEach(p => {
+            description += p.textContent + ' |';
+          });
+        }
 
-        document.querySelector('div[id="skuFullDesc"]').setAttribute('description', description);
+        if (description !== null && description !== '') {
+          document.querySelector('div[id="skuFullDesc"]').setAttribute('description', description);
+        }
       });
 
       if (await context.evaluate(() => {
@@ -34,11 +38,15 @@ async function implementation (inputs, parameters, context, dependencies) {
           const descriptionSelector = document.querySelector('.skuFullDescContent');
           let description = '';
 
-          descriptionSelector.querySelectorAll('p').forEach(p => {
-            description += p.textContent + ' |';
-          });
+          if (descriptionSelector !== null) {
+            descriptionSelector.querySelectorAll('p').forEach(p => {
+              description += p.textContent + ' |';
+            });
+          }
 
-          document.querySelector('div[id="skuFullDesc"]').setAttribute('description', description);
+          if (description !== null && description !== '') {
+            document.querySelector('div[id="skuFullDesc"]').setAttribute('description', description);
+          }
         });
 
         return await context.extract(productDetails, { transform }, 'MERGE_ROWS');
@@ -58,11 +66,15 @@ async function implementation (inputs, parameters, context, dependencies) {
       const descriptionSelector = document.querySelector('.skuFullDescContent');
       let description = '';
 
-      descriptionSelector.querySelectorAll('p').forEach(p => {
-        description += p.textContent + ' |';
-      });
+      if (descriptionSelector !== null) {
+        descriptionSelector.querySelectorAll('p').forEach(p => {
+          description += p.textContent + ' |';
+        });
+      }
 
-      document.querySelector('div[id="skuFullDesc"]').setAttribute('description', description);
+      if (description !== null && description !== '') {
+        document.querySelector('div[id="skuFullDesc"]').setAttribute('description', description);
+      }
 
       const videoSelector = document.querySelectorAll('div[type="video"]');
 
