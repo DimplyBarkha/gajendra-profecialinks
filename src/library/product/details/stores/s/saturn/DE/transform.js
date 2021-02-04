@@ -43,7 +43,7 @@ const transform = (data, context) => {
       }
       if (row.hasComparisonTable) {
         row.hasComparisonTable[0].text = row.hasComparisonTable[0].text.replace('4', 'Yes');
-    }
+      }
       // if (row.unInterruptedPDP) {
       //   for (let i = 0; i < row.unInterruptedPDP.length; i++) {
       //   row.unInterruptedPDP[i].text = `|| ${row.unInterruptedPDP[i].text}`;
