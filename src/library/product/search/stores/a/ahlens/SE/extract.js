@@ -16,7 +16,7 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     const { url, zipcode, storeId } = inputs;
-    await context.waitForSelector('td[class="docs depth_0"]>table>tbody>tr', 6000)
+    await context.waitForSelector('td[class="docs depth_0"]>table>tbody', 6000)
     await context.evaluate(async () => {
       function addHiddenDivPrice(id, content, index) {
         const newDiv = document.createElement('div');
