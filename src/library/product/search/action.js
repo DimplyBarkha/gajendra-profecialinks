@@ -1,3 +1,11 @@
+/**
+ *
+ * @param { { URL: string, keywords: string, Keywords: string, Brands: string, results: string, query: string } } inputs
+ * @param { { store: any, country: any, zipcode: any, storeID: any } } parameters
+ * @param { ImportIO.IContext } context
+ * @param { { execute: ImportIO.Action, paginate: ImportIO.Action, extract: ImportIO.Action } } dependencies
+ */
+
 module.exports = {
   parameters: [
     {
@@ -17,8 +25,20 @@ module.exports = {
       description: 'to set location',
       optional: true,
     },
+    {
+      name: 'storeID',
+      description: 'Id of the store',
+      type: 'string',
+      optional: true,
+    },
   ],
   inputs: [
+    {
+      name: 'URL',
+      description: 'product listing url',
+      type: 'string',
+      optional: true,
+    },
     {
       name: 'keywords',
       description: 'keywords to search for',
@@ -40,8 +60,8 @@ module.exports = {
       type: 'number',
     },
     {
-      name: 'Brands',
-      description: 'brands to search for',
+      name: 'query',
+      description: 'Part of a uniform resource locator (URL)',
       type: 'string',
     },
   ],
@@ -52,16 +72,18 @@ module.exports = {
   },
   path: './search/stores/${store[0:1]}/${store}/${country}/search',
   implementation: async (inputs, { country, store, domain, zipcode }, context, { execute, extract, paginate }) => {
-    const { keywords, Keywords, results = 150, Brands } = inputs;
-
+    const { URL, keywords, Keywords, results = 150, Brands, query } = inputs;
     const inputKeywords = Keywords || keywords || Brands;
 
     // TODO: consider moving this to a reusable function
     const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
     const resultsReturned = await execute({
+      ...inputs,
+      searchURL: URL,
       keywords: inputKeywords,
       zipcode: inputs.zipcode || zipcode,
+      query: query,
     });
 
     // do the search
@@ -76,10 +98,13 @@ module.exports = {
 
     let collected = length(pageOne);
 
-    console.log('Got initial number of results', collected);
+    console.log(`Got initial number of results: ${collected}`);
 
     // check we have some data
-    if (collected === 0) return;
+    if (collected === 0) {
+      console.log('Was not able to collect any data on the first page');
+      return;
+    }
 
     let page = 2;
     while (collected < results && await paginate({ keywords: inputKeywords, page, offset: collected })) {
