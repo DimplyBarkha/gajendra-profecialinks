@@ -23,7 +23,7 @@ fields:
     xpath: //div[@class="pricePerUnit"]/div[@class="updListPrice"]
   - name: availabilityText
     singleValue: false
-    defaultValue: In Stock
+    xpath: boolean(//div[@class='titleAndItemCount']//a[contains(.,'Comprar')])
   - name: brandText
     singleValue: false
     xpath: //div[@class="productSubtitle"]
@@ -48,7 +48,7 @@ fields:
   - name: videos
     singleValue: false
     # xpath: //div[@class="ytp-title-text"]/a/@href
-    xpath: //div[@class="productDetailSubArea"]//div[@class='body']//iframe//@src
+    xpath: //div[@class="productDetailSubArea"]//div[@class='body']//iframe//@src |  //table//iframe//@src
   - name: name
     singleValue: false
     xpath: //div[@class="productTitle"]
@@ -83,5 +83,9 @@ fields:
     xpath: //div[@class='productDetailSubArea']//div[@class='body']//p//img//@src
   - name: alternateImages
     singleValue: false
-    xpath: //script[@type='application/ld+json']
+    xpath: //div[@class='imageAdditionalInfo']//a//img//@src
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[@class='imageAdditionalInfo']//a//img//@src)
+
 
