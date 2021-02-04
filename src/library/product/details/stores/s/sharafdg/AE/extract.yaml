@@ -39,7 +39,7 @@ fields:
   - name: promotion
     xpath: //div[contains(@class,'quick-right')]//div[contains(@class,'discount-holder')]//div[contains(@class,'product-disc')]
   - name:  description
-    xpath: //div[@class='detailspecbox']//table[@class="product-spec"]//tr
+    xpath: //div[@class='detailspecbox']//table[@class="product-spec"]//tr/th[not(@synthetic)] | //div[@class='detailspecbox']//table[@class="product-spec"]//tr/td
   - name: specificationsLabel
     xpath: //table[@class="product-spec"]//tbody//td[@class="specs-heading"]
   - name: specifications
