@@ -86,15 +86,15 @@ const transform = (data, context) => {
         row.ratingCount = [{ text: ratingcount[size], xpath: row.ratingCount[0].xpath }];
       }
 
-      if (row.secondaryImageTotal) {
-        let count = 0;
+      // if (row.secondaryImageTotal) {
+      //   let count = 0;
 
-        row.secondaryImageTotal.forEach(item => {
-          count++;
-        });
+      //   row.secondaryImageTotal.forEach(item => {
+      //     count++;
+      //   });
 
-        row.secondaryImageTotal = [{ text: count, xpath: row.secondaryImageTotal[0].xpath }];
-      }
+      //   row.secondaryImageTotal = [{ text: count, xpath: row.secondaryImageTotal[0].xpath }];
+      // }
 
       if (row.inTheBoxText) {
         let text = '';

@@ -1,44 +1,46 @@
-singleRecord: true
+singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //form[@class="item-selection"]//ul//li|//main[@id="main"]//h1[@itemprop="name"]
 fields:
   - name: image
     description: URL of the main product image
-    xpath : //a[contains(@class,"medium-image")]/img/@src
+    xpath : ancestor::html//a[contains(@class,"medium-image")]/img/@src
     regExp: (.+)
     regExpReplace: https://www.davidjones.com$1
   - name: imageAlt
     xpath : //a[contains(@class,"medium-image")]/img/@alt
   - name: alternateImages
     description: Other product images (not in manufacturer description)
-    xpath: //div[@class='slick-track']/li/a/img/@src
+    xpath: ancestor::html//div[@class='slick-track']/li[position()>1][not(contains(@class,'slick-cloned'))]/a/img/@src
+    # xpath: //div[@class='slick-track']/li/a/img/@src
     regExp: ^(.+)$
     regExpReplace: https://www.davidjones.com$1
   - name: secondaryImageTotal
     description: Other product images (not in manufacturer description)
-    xpath: //div[@class='slick-track']/li/a/img/@src
+    xpath: count(ancestor::html//div[@class='slick-track']/li[position()>1][not(contains(@class,'slick-cloned'))]/a/img/@src)
+    # xpath: //div[@class='slick-track']/li/a/img/@src
   - name: metaKeywords
-    xpath: //meta[@name="Keywords"]/@content
+    xpath: ancestor::html//meta[@name="Keywords"]/@content
   - name: category
-    xpath: //ul[contains(@class, 'breadcrumb')]//li[position()>1 and position()<last()]
+    xpath: ancestor::html//ul[contains(@class, 'breadcrumb')]//li[position()>1 and position()<last()]
   - name: nameExtended
-    xpath: concat(//*[@class="brand"]//span,' ',//h1[@itemprop='name'])
+    xpath: concat(ancestor::html//*[@class="brand"]//span,' ',//h1[@itemprop='name'])
   - name: price
-    xpath: (//p[(@class='price now')]//span[(@class='price-display')]|//p[(@class='price')]//span[(@class='price-display')])
+    xpath: (ancestor::html//p[(@class='price now')]//span[(@class='price-display')]|ancestor::html//p[(@class='price')]//span[(@class='price-display')])
   - name: availabilityText
     singleValue: true
-    xpath: //button[@title="Add to bag" and not(@disabled)]
+    xpath: ancestor::html//button[@title="Add to bag" and not(@disabled)]
     regExp: (.+)
     regExpReplace: In stock
     defaultValue: Out of Stock
   - name: description
-    xpath: //div[@class='content long-description']
+    xpath: ancestor::html//div[@class='content long-description']
   - name: descriptionBullets
     type: NUMBER
-    xpath: count(//div[@class='content long-description']//li)
+    xpath: count(ancestor::html//div[@class='content long-description']//li)
   - name: brandText
-    xpath: //*[@class="brand"]//span
+    xpath: ancestor::html//*[@class="brand"]//span
   - name: manufacturer
   - name: quantity
     regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
@@ -50,38 +52,38 @@ fields:
   - name: sku
     xpath: //@data-product-sku
   - name: variantId
-    xpath: //li[contains(@class,"main top-product")]/@data-colour
+    xpath: //input[@type="radio"]/@value
   - name: variantInformation
-    xpath: //div[@class='selected']//span[@class='colour-label']
+    xpath: //span[@class='colour-label']
   - name: mpc
-    xpath: //span//strong[text()='Product Code:']//following::span[1]
+    xpath: ancestor::html//span//strong[text()='Product Code:']//following::span[1]
   - name: packSize
   - name: productUrl
-    xpath: //meta[@property='og:url']/@content
+    xpath: ancestor::html//meta[@property='og:url']/@content
   - name: videos
-    xpath: //li[(@class="video top-product default slick-slide")]/a/@href
+    xpath: ancestor::html//li[(@class="video top-product default slick-slide")]/a/@href
   - name: name
-    xpath:  concat(//*[@class="brand"]//span,'-',//h1[@itemprop='name'])
+    xpath:  concat(ancestor::html//*[@class="brand"]//span,'-',ancestor::html//h1[@itemprop='name'])
   - name: specifications
-    xpath: //div[@class='content long-description']//p//strong[contains(text(),'specifications')]//following-sibling::text()|//div[(@class='content long-description')]//following-sibling::strong[contains(text(),'Specifications')]//following-sibling::text()
+    xpath: ancestor::html//div[@class='content long-description']//p//strong[contains(text(),'specifications')]//following-sibling::text()|ancestor::html//div[(@class='content long-description')]//following-sibling::strong[contains(text(),'Specifications')]//following-sibling::text()
   - name: warranty
-    xpath: //div[(@class='content long-description')]/p/strong[contains(text(),'Warranty')]/following-sibling::text()[1]|//div[(@class='content long-description')]//text()[contains(.,'guarantee')]
+    xpath: ancestor::html//div[(@class='content long-description')]/p/strong[contains(text(),'Warranty')]/following-sibling::text()[1]|ancestor::html//div[(@class='content long-description')]//text()[contains(.,'guarantee')]
   - name: shippingDimensions
   - name: shippingWeight
   - name: recyclingInformation
   - name: variantCount
     type: NUMBER
-    defaultValue: "0"
+    xpath: count(//form[@class="item-selection"]//ul//li)
   - name: productOtherInformation
   - name: color
-    xpath: //div[@class='selected']//span[@class= 'colour-label']
+    xpath: //span[@class='colour-label']
   - name: packaging
   - name: promotion
   - name: ratingCount
   - name: countryOfOrigin
   - name: energyEfficiency
   - name: additionalDescBulletInfo
-    xpath: //div[@class='content long-description']/li/strong
+    xpath: ancestor::html//div[@class='content long-description']/li/strong
   - name: technicalInformationPdfPresent
     regExp: (.+)
     regExpReplace: 'YES'
@@ -93,26 +95,26 @@ fields:
   - name: upc
   - name: eangtin
   - name: listPrice
-    xpath: //p[(@class='price was')]//span[(@class='price-display')]
+    xpath: ancestor::html//p[(@class='price was')]//span[(@class='price-display')]
   - name: colorCode
   - name: newDescription
   - name: lbbPrice
   - name: firstVariant
-    xpath: //div[@class='fake-select']//div[@class='selected']
+    xpath: ancestor::html//div[@class='fake-select']//div[@class='selected']
   - name: variants
   - name: gtin
   - name: manufacturerDescription
   - name: termsAndConditions
-    xpath: boolean(//h3[contains(text(),'Terms and Conditions')])
+    xpath: boolean(ancestor::html//h3[contains(text(),'Terms and Conditions')])
   - name: aggregateRating
-    xpath: //button[@id='ratings-summary']//@aria-label
+    xpath: ancestor::html//button[@id='ratings-summary']//@aria-label
   - name: ratingCount
-    xpath: //button[@id='ratings-summary']//@aria-label
+    xpath: ancestor::html//button[@id='ratings-summary']//@aria-label
   - name: ingredientsList
-    xpath: //div[@class="content long-description"]//p[text()="Ingredients"]/br[last()]/following-sibling::text()
+    xpath: ancestor::html//div[@class="content long-description"]//p[text()="Ingredients"]/br[last()]/following-sibling::text()
   - name: inTheBoxUrl
   - name: inTheBoxText
-    xpath: //div[contains(@class,"long-description")]
+    xpath: ancestor::html//div[contains(@class,"long-description")]
   - name: hasComparisonTable
     defaultValue: No
   - name: unInterruptedPDP
