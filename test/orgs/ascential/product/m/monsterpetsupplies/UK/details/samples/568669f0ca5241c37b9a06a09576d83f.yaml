@@ -2,16 +2,13 @@ input:
   id: DF19263_5
   _url: http://monsterpetsupplies.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=1cc3c6b6-2b99-4b77-b247-d95b40fef056/task=25d6ee17-8027-4c77-b26c-cdf0a6140cb7/448c0d0f-496f-4c50-b131-31febddb74c0.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=27e13b09-635e-478b-8f5e-19d6a6b9c189/task=9d9b4591-d479-419f-9835-9a3bc8ead5f6/7109c60c-0aab-4250-8489-4efd2886c831.html
     extractionConfigId: product/details/stores/m/monsterpetsupplies/UK/extract
     data:
       - group:
           - productUrl:
               - text: https://www.monsterpetsupplies.co.uk/dog/puppy-dry-food/royal-canin-mini-junior-dog-food
                 xpath: /html/head[1]/link[11]/@href
-            image:
-              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1589877130/users/1002020_1_tvupk2.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/img[1]/@src
             imageAlt:
               - text: Royal Canin Mini Puppy Dry Dog Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/span[1]/img[1]/@alt
@@ -35,17 +32,17 @@ extractions:
               - text: Puppy Dry Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]/a[4]
             nameExtended:
-              - text: Royal Canin Mini Puppy Dry Dog Food 8kg x 2
-                xpath: /html/body/div[17]
+              - text: Royal Canin Mini Puppy Dry Dog Food - 8kg x 2 & FREE Delivery
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/@name_extended
             listPrice:
               - text: £87.90
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/div[2]/p[2]
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/@list_price
             price:
               - text: £76.75
-                xpath: /html/body/div[18]
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/@price
             availabilityText:
-              - text: Out Of Stock
-                xpath: /html/body/div[20]
+              - text: In Stock
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/@availability
             description:
               - text: "ROYAL CANIN Mini Puppy Dry Dog Food is both scrummy and nutritious! ROYAL
                   CANIN Mini Puppy food is formulated with the nutritional needs
@@ -95,55 +92,431 @@ extractions:
                   oil fats: 20%. Moisture: 0%. Protein: 31%. Know how much to
                   serve up See guidelines above. Want to know more? Visit
                   www.royalcanin.co.uk"
-                xpath: /html/body/div[22]
+                xpath: /html/body/div[17]
+            descriptionBullets:
+              - text: "3"
             brandText:
               - text: Royal Canin
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/meta[1]/@content
             quantity:
-              - text: 8kg
-                xpath: /html/body/div[30]
+              - text: 8kg x 2 & FREE Delivery
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/@variant_name
             sku:
               - text: DF19263_5
-                xpath: /html/body/div[16]
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/@sku
             variantId:
               - text: DF19263_5
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/@sku
+            variantCount:
+              - text: "4"
                 xpath: /html/body/div[16]
             name:
               - text: Royal Canin Mini Puppy Dry Dog Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/h1[1]
             totalFatPerServing:
               - text: "20"
-                xpath: /html/body/div[23]
+                xpath: /html/body/div[18]
             totalFatPerServingUom:
               - text: "%"
-                xpath: /html/body/div[24]
+                xpath: /html/body/div[19]
             dietaryFibrePerServing:
               - text: "1.4"
-                xpath: /html/body/div[27]
+                xpath: /html/body/div[22]
             dietaryFibrePerServingUom:
               - text: "%"
-                xpath: /html/body/div[28]
+                xpath: /html/body/div[23]
             proteinPerServing:
               - text: .
-                xpath: /html/body/div[25]
+                xpath: /html/body/div[20]
             proteinPerServingUom:
               - text: P
-                xpath: /html/body/div[26]
-            promotion:
-              - text: You Save £11.15 (13%)
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/div[3]/p[1]
-            variantInformation:
-              - text: 8kg x 2 & FREE Delivery
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/h5[1]
-            firstVariant:
-              - text: DF19263
-                xpath: /html/body/div[16]
+                xpath: /html/body/div[21]
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[31]
+                xpath: /html/body/div[25]
+          - productUrl:
+              - text: https://www.monsterpetsupplies.co.uk/dog/puppy-dry-food/royal-canin-mini-junior-dog-food
+                xpath: /html/head[1]/link[11]/@href
+            imageAlt:
+              - text: Royal Canin Mini Puppy Dry Dog Food
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/span[1]/img[1]/@alt
+            alternateImages:
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1546946387/alt2qwfprkakxroh0myd_dp6w3f.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/img[1]/@src
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1546946533/d3wb4xtuvynseqvrsvyr_oow1vk.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/img[1]/@src
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1546946581/um0dcjzewumljayoebia_widqxx.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/img[1]/@src
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1546946610/feerlmvvo1wun2yfgmzd_dw69bw.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/img[1]/@src
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1575280982/users/dunqd6jk8kqmojycsizo-1_cmht7h.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/img[1]/@src
+            metaKeywords:
+              - text: royal canin mini puppy dry dog food
+                xpath: /html/head[1]/meta[4]/@content
+            category:
+              - text: Dog
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]/a[3]
+              - text: Puppy Dry Food
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]/a[4]
+            nameExtended:
+              - text: Royal Canin Mini Puppy Dry Dog Food - 8kg & FREE Delivery
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[2]/section[1]/@name_extended
+            listPrice:
+              - text: £43.95
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[2]/section[1]/@list_price
+            price:
+              - text: £41.75
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[2]/section[1]/@price
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[2]/section[1]/@availability
+            description:
+              - text: "ROYAL CANIN Mini Puppy Dry Dog Food is both scrummy and nutritious! ROYAL
+                  CANIN Mini Puppy food is formulated with the nutritional needs
+                  of your puppy in mind and is suitable for puppies aged 2-10
+                  months that will have an adult weight of up to 10kg. Your
+                  puppy’s growth period is such an essential stage in its life;
+                  it’s the time of big changes and new discoveries. Within this
+                  period, your puppy’s immune system is developing gradually.
+                  That’s why ROYAL CANIN Mini Puppy contains a patented complex
+                  of antioxidants – including vitamin E – to help support your
+                  puppy’s natural defences as it grows. The shape of the kibble
+                  is small and easy to chew, perfect for your puppy’s small
+                  mouth, and both the smell and flavour are optimised to tempt
+                  even the fussiest of dogs; it also helps to support its dental
+                  health and general oral hygiene. By containing a combination
+                  of nutrients with high quality protein (such as L.I.P – known
+                  for its high digestibility) as well as prebiotics, ROYAL CANIN
+                  Mini Puppy supports the digestive health and balance of
+                  intestinal flora, which contributes to good stool quality by
+                  reducing faecal smell and quantity. Features: Immune system
+                  support - Growth is an essential stage in your dog’s life: it
+                  is the time of big changes, discoveries and new encounters.
+                  During this key period, the puppy’s immune system develops
+                  gradually. MINI PUPPY helps support your puppy’s natural
+                  defences thanks particularly to a patented* complex of
+                  antioxidants including vitamin E. *France, patent No
+                  EP1146870. Digestive health - Combination of nutrients with
+                  high quality protein (L.I.P.*) and prebiotics (FOS) to support
+                  digestive health and balance of intestinal flora, which
+                  contributes to good stool quality. *Protein selected for its
+                  very high digestibility. Intense energy content - Meets the
+                  energy needs of small breed puppies during the growth period,
+                  and satisfies fussy appetites. What’s in it? Additives:
+                  Vitamin A: 21500 IU, Vitamin D3: 1000 IU, Vitamin E: 510 mg,
+                  E1 (Iron): 38 mg, E2 (Iodine): 3,8 mg, E4 (Copper): 12 mg, E5
+                  (Manganese): 49 mg, E6 (Zinc): 126 mg, E8 (Selenium): 0,06 mg
+                  - Technological additives: Clinoptilolite of sedimentary
+                  origin: 10 g - Sensory additives: Yucca extract: 125 mg -
+                  Preservatives - Antioxidants. * L.I.P.: protein selected for
+                  its very high digestibility. Composition: Dehydrated poultry
+                  protein, rice, animal fats, vegetable protein isolate*, maize,
+                  beet pulp, maize flour, hydrolysed animal proteins, maize
+                  gluten, minerals, fish oil, soya oil, fructo-oligo-saccharides
+                  (0,34%), hydrolysed yeast (source of manno-oligo-saccharides),
+                  yeasts extracts (source of betaglucans), marigold extract
+                  (source of lutein). Crude ash: 7.7%. Crude fibre: 1.4%. Crude
+                  oil fats: 20%. Moisture: 0%. Protein: 31%. Know how much to
+                  serve up See guidelines above. Want to know more? Visit
+                  www.royalcanin.co.uk"
+                xpath: /html/body/div[17]
             descriptionBullets:
               - text: "3"
+            brandText:
+              - text: Royal Canin
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/meta[1]/@content
+            quantity:
+              - text: 8kg & FREE Delivery
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[2]/section[1]/@variant_name
+            sku:
+              - text: DF19263_5
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[2]/section[1]/@sku
+            variantId:
+              - text: DF19263_5
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[2]/section[1]/@sku
             variantCount:
               - text: "4"
-        xpath: /
-    timestamp: 1611558093557
+                xpath: /html/body/div[16]
+            name:
+              - text: Royal Canin Mini Puppy Dry Dog Food
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/h1[1]
+            totalFatPerServing:
+              - text: "20"
+                xpath: /html/body/div[18]
+            totalFatPerServingUom:
+              - text: "%"
+                xpath: /html/body/div[19]
+            dietaryFibrePerServing:
+              - text: "1.4"
+                xpath: /html/body/div[22]
+            dietaryFibrePerServingUom:
+              - text: "%"
+                xpath: /html/body/div[23]
+            proteinPerServing:
+              - text: .
+                xpath: /html/body/div[20]
+            proteinPerServingUom:
+              - text: P
+                xpath: /html/body/div[21]
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[25]
+          - productUrl:
+              - text: https://www.monsterpetsupplies.co.uk/dog/puppy-dry-food/royal-canin-mini-junior-dog-food
+                xpath: /html/head[1]/link[11]/@href
+            imageAlt:
+              - text: Royal Canin Mini Puppy Dry Dog Food
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/span[1]/img[1]/@alt
+            alternateImages:
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1546946387/alt2qwfprkakxroh0myd_dp6w3f.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/img[1]/@src
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1546946533/d3wb4xtuvynseqvrsvyr_oow1vk.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/img[1]/@src
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1546946581/um0dcjzewumljayoebia_widqxx.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/img[1]/@src
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1546946610/feerlmvvo1wun2yfgmzd_dw69bw.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/img[1]/@src
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1575280982/users/dunqd6jk8kqmojycsizo-1_cmht7h.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/img[1]/@src
+            metaKeywords:
+              - text: royal canin mini puppy dry dog food
+                xpath: /html/head[1]/meta[4]/@content
+            category:
+              - text: Dog
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]/a[3]
+              - text: Puppy Dry Food
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]/a[4]
+            nameExtended:
+              - text: Royal Canin Mini Puppy Dry Dog Food - 4kg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[3]/section[1]/@name_extended
+            listPrice:
+              - text: £24.29
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[3]/section[1]/@list_price
+            price:
+              - text: £22.89
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[3]/section[1]/@price
+            availabilityText:
+              - text: Out Of Stock
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[3]/section[1]/@availability
+            description:
+              - text: "ROYAL CANIN Mini Puppy Dry Dog Food is both scrummy and nutritious! ROYAL
+                  CANIN Mini Puppy food is formulated with the nutritional needs
+                  of your puppy in mind and is suitable for puppies aged 2-10
+                  months that will have an adult weight of up to 10kg. Your
+                  puppy’s growth period is such an essential stage in its life;
+                  it’s the time of big changes and new discoveries. Within this
+                  period, your puppy’s immune system is developing gradually.
+                  That’s why ROYAL CANIN Mini Puppy contains a patented complex
+                  of antioxidants – including vitamin E – to help support your
+                  puppy’s natural defences as it grows. The shape of the kibble
+                  is small and easy to chew, perfect for your puppy’s small
+                  mouth, and both the smell and flavour are optimised to tempt
+                  even the fussiest of dogs; it also helps to support its dental
+                  health and general oral hygiene. By containing a combination
+                  of nutrients with high quality protein (such as L.I.P – known
+                  for its high digestibility) as well as prebiotics, ROYAL CANIN
+                  Mini Puppy supports the digestive health and balance of
+                  intestinal flora, which contributes to good stool quality by
+                  reducing faecal smell and quantity. Features: Immune system
+                  support - Growth is an essential stage in your dog’s life: it
+                  is the time of big changes, discoveries and new encounters.
+                  During this key period, the puppy’s immune system develops
+                  gradually. MINI PUPPY helps support your puppy’s natural
+                  defences thanks particularly to a patented* complex of
+                  antioxidants including vitamin E. *France, patent No
+                  EP1146870. Digestive health - Combination of nutrients with
+                  high quality protein (L.I.P.*) and prebiotics (FOS) to support
+                  digestive health and balance of intestinal flora, which
+                  contributes to good stool quality. *Protein selected for its
+                  very high digestibility. Intense energy content - Meets the
+                  energy needs of small breed puppies during the growth period,
+                  and satisfies fussy appetites. What’s in it? Additives:
+                  Vitamin A: 21500 IU, Vitamin D3: 1000 IU, Vitamin E: 510 mg,
+                  E1 (Iron): 38 mg, E2 (Iodine): 3,8 mg, E4 (Copper): 12 mg, E5
+                  (Manganese): 49 mg, E6 (Zinc): 126 mg, E8 (Selenium): 0,06 mg
+                  - Technological additives: Clinoptilolite of sedimentary
+                  origin: 10 g - Sensory additives: Yucca extract: 125 mg -
+                  Preservatives - Antioxidants. * L.I.P.: protein selected for
+                  its very high digestibility. Composition: Dehydrated poultry
+                  protein, rice, animal fats, vegetable protein isolate*, maize,
+                  beet pulp, maize flour, hydrolysed animal proteins, maize
+                  gluten, minerals, fish oil, soya oil, fructo-oligo-saccharides
+                  (0,34%), hydrolysed yeast (source of manno-oligo-saccharides),
+                  yeasts extracts (source of betaglucans), marigold extract
+                  (source of lutein). Crude ash: 7.7%. Crude fibre: 1.4%. Crude
+                  oil fats: 20%. Moisture: 0%. Protein: 31%. Know how much to
+                  serve up See guidelines above. Want to know more? Visit
+                  www.royalcanin.co.uk"
+                xpath: /html/body/div[17]
+            descriptionBullets:
+              - text: "3"
+            brandText:
+              - text: Royal Canin
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/meta[1]/@content
+            quantity:
+              - text: 4kg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[3]/section[1]/@variant_name
+            sku:
+              - text: DF19263_5
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[3]/section[1]/@sku
+            variantId:
+              - text: DF19263_5
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[3]/section[1]/@sku
+            variantCount:
+              - text: "4"
+                xpath: /html/body/div[16]
+            name:
+              - text: Royal Canin Mini Puppy Dry Dog Food
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/h1[1]
+            totalFatPerServing:
+              - text: "20"
+                xpath: /html/body/div[18]
+            totalFatPerServingUom:
+              - text: "%"
+                xpath: /html/body/div[19]
+            dietaryFibrePerServing:
+              - text: "1.4"
+                xpath: /html/body/div[22]
+            dietaryFibrePerServingUom:
+              - text: "%"
+                xpath: /html/body/div[23]
+            proteinPerServing:
+              - text: .
+                xpath: /html/body/div[20]
+            proteinPerServingUom:
+              - text: P
+                xpath: /html/body/div[21]
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[25]
+          - productUrl:
+              - text: https://www.monsterpetsupplies.co.uk/dog/puppy-dry-food/royal-canin-mini-junior-dog-food
+                xpath: /html/head[1]/link[11]/@href
+            imageAlt:
+              - text: Royal Canin Mini Puppy Dry Dog Food
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/span[1]/img[1]/@alt
+            alternateImages:
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1546946387/alt2qwfprkakxroh0myd_dp6w3f.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/img[1]/@src
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1546946533/d3wb4xtuvynseqvrsvyr_oow1vk.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/img[1]/@src
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1546946581/um0dcjzewumljayoebia_widqxx.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/img[1]/@src
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1546946610/feerlmvvo1wun2yfgmzd_dw69bw.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/img[1]/@src
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1575280982/users/dunqd6jk8kqmojycsizo-1_cmht7h.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/img[1]/@src
+            metaKeywords:
+              - text: royal canin mini puppy dry dog food
+                xpath: /html/head[1]/meta[4]/@content
+            category:
+              - text: Dog
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]/a[3]
+              - text: Puppy Dry Food
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]/a[4]
+            nameExtended:
+              - text: Royal Canin Mini Puppy Dry Dog Food - 2kg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[4]/section[1]/@name_extended
+            listPrice:
+              - text: £14.19
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[4]/section[1]/@list_price
+            price:
+              - text: £12.55
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[4]/section[1]/@price
+            availabilityText:
+              - text: Out Of Stock
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[4]/section[1]/@availability
+            description:
+              - text: "ROYAL CANIN Mini Puppy Dry Dog Food is both scrummy and nutritious! ROYAL
+                  CANIN Mini Puppy food is formulated with the nutritional needs
+                  of your puppy in mind and is suitable for puppies aged 2-10
+                  months that will have an adult weight of up to 10kg. Your
+                  puppy’s growth period is such an essential stage in its life;
+                  it’s the time of big changes and new discoveries. Within this
+                  period, your puppy’s immune system is developing gradually.
+                  That’s why ROYAL CANIN Mini Puppy contains a patented complex
+                  of antioxidants – including vitamin E – to help support your
+                  puppy’s natural defences as it grows. The shape of the kibble
+                  is small and easy to chew, perfect for your puppy’s small
+                  mouth, and both the smell and flavour are optimised to tempt
+                  even the fussiest of dogs; it also helps to support its dental
+                  health and general oral hygiene. By containing a combination
+                  of nutrients with high quality protein (such as L.I.P – known
+                  for its high digestibility) as well as prebiotics, ROYAL CANIN
+                  Mini Puppy supports the digestive health and balance of
+                  intestinal flora, which contributes to good stool quality by
+                  reducing faecal smell and quantity. Features: Immune system
+                  support - Growth is an essential stage in your dog’s life: it
+                  is the time of big changes, discoveries and new encounters.
+                  During this key period, the puppy’s immune system develops
+                  gradually. MINI PUPPY helps support your puppy’s natural
+                  defences thanks particularly to a patented* complex of
+                  antioxidants including vitamin E. *France, patent No
+                  EP1146870. Digestive health - Combination of nutrients with
+                  high quality protein (L.I.P.*) and prebiotics (FOS) to support
+                  digestive health and balance of intestinal flora, which
+                  contributes to good stool quality. *Protein selected for its
+                  very high digestibility. Intense energy content - Meets the
+                  energy needs of small breed puppies during the growth period,
+                  and satisfies fussy appetites. What’s in it? Additives:
+                  Vitamin A: 21500 IU, Vitamin D3: 1000 IU, Vitamin E: 510 mg,
+                  E1 (Iron): 38 mg, E2 (Iodine): 3,8 mg, E4 (Copper): 12 mg, E5
+                  (Manganese): 49 mg, E6 (Zinc): 126 mg, E8 (Selenium): 0,06 mg
+                  - Technological additives: Clinoptilolite of sedimentary
+                  origin: 10 g - Sensory additives: Yucca extract: 125 mg -
+                  Preservatives - Antioxidants. * L.I.P.: protein selected for
+                  its very high digestibility. Composition: Dehydrated poultry
+                  protein, rice, animal fats, vegetable protein isolate*, maize,
+                  beet pulp, maize flour, hydrolysed animal proteins, maize
+                  gluten, minerals, fish oil, soya oil, fructo-oligo-saccharides
+                  (0,34%), hydrolysed yeast (source of manno-oligo-saccharides),
+                  yeasts extracts (source of betaglucans), marigold extract
+                  (source of lutein). Crude ash: 7.7%. Crude fibre: 1.4%. Crude
+                  oil fats: 20%. Moisture: 0%. Protein: 31%. Know how much to
+                  serve up See guidelines above. Want to know more? Visit
+                  www.royalcanin.co.uk"
+                xpath: /html/body/div[17]
+            descriptionBullets:
+              - text: "3"
+            brandText:
+              - text: Royal Canin
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/meta[1]/@content
+            quantity:
+              - text: 2kg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[4]/section[1]/@variant_name
+            sku:
+              - text: DF19263_5
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[4]/section[1]/@sku
+            variantId:
+              - text: DF19263_5
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[4]/section[1]/@sku
+            variantCount:
+              - text: "4"
+                xpath: /html/body/div[16]
+            name:
+              - text: Royal Canin Mini Puppy Dry Dog Food
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/h1[1]
+            totalFatPerServing:
+              - text: "20"
+                xpath: /html/body/div[18]
+            totalFatPerServingUom:
+              - text: "%"
+                xpath: /html/body/div[19]
+            dietaryFibrePerServing:
+              - text: "1.4"
+                xpath: /html/body/div[22]
+            dietaryFibrePerServingUom:
+              - text: "%"
+                xpath: /html/body/div[23]
+            proteinPerServing:
+              - text: .
+                xpath: /html/body/div[20]
+            proteinPerServingUom:
+              - text: P
+                xpath: /html/body/div[21]
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[25]
+        xpath: /html
+    timestamp: 1612424758684

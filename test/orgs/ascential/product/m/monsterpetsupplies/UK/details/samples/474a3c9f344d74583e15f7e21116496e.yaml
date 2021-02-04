@@ -2,16 +2,13 @@ input:
   id: CF27386_1
   _url: http://monsterpetsupplies.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=1cc3c6b6-2b99-4b77-b247-d95b40fef056/task=76521247-e8a9-4e4d-907a-7034e2b43baf/deb2cf81-717c-4e59-ada9-e8152ec3b786.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=27e13b09-635e-478b-8f5e-19d6a6b9c189/task=6cefdbca-caa6-4943-9efe-dac7bcd0e6a6/e1ec331a-d967-4940-b370-24e394ed590e.html
     extractionConfigId: product/details/stores/m/monsterpetsupplies/UK/extract
     data:
       - group:
           - productUrl:
               - text: https://www.monsterpetsupplies.co.uk/cat/wet-cat-food/felix-sensations-crunchies-cat-food-meat-100g-x-40
                 xpath: /html/head[1]/link[11]/@href
-            image:
-              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1574861904/users/7613036010542_T517_ha3eoo.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/img[1]/@src
             imageAlt:
               - text: Felix Sensations Mixed Selection Crunchies Adult Cat Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/span[1]/img[1]/@alt
@@ -27,14 +24,14 @@ extractions:
               - text: Wet Cat Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]/a[4]
             nameExtended:
-              - text: Felix Sensations Mixed Selection Crunchies Adult Cat Food 100g x 40
-                xpath: /html/body/div[17]
+              - text: Felix Sensations Mixed Selection Crunchies Adult Cat Food - 100g x 40
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/@name_extended
             price:
               - text: £21.59
-                xpath: /html/body/div[18]
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/@price
             availabilityText:
-              - text: In Stock
-                xpath: /html/body/div[20]
+              - text: Out Of Stock
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/@availability
             description:
               - text: "Felix Sensations Meat Crunchies Adult Cat Food is a range of delicious
                   meals with a delicious crunchy topping for a fascinating
@@ -54,18 +51,23 @@ extractions:
                   4%); minerals; various sugars. 40g Crunchy Crumbles Topping:
                   Cereals; Meat and animal derivatives; Oils and fats; Vegetable
                   protein extracts; Various sugars; Minerals; Yeast."
-                xpath: /html/body/div[22]
+                xpath: /html/body/div[17]
+            descriptionBullets:
+              - text: "5"
             brandText:
               - text: FELIX
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/meta[1]/@content
             quantity:
-              - text: 100g
-                xpath: /html/body/div[24]
+              - text: 100g x 40
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/@variant_name
             sku:
               - text: CF27386_1
-                xpath: /html/body/div[16]
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/@sku
             variantId:
               - text: CF27386_1
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/@sku
+            variantCount:
+              - text: "2"
                 xpath: /html/body/div[16]
             name:
               - text: Felix Sensations Mixed Selection Crunchies Adult Cat Food
@@ -76,19 +78,85 @@ extractions:
                   40g Crunchy Crumbles Topping: Cereals; Meat and animal
                   derivatives; Oils and fats; Vegetable protein extracts;
                   Various sugars; Minerals; Yeast."
-                xpath: /html/body/div[23]
-            variantInformation:
-              - text: 100g x 40
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/h5[1]
-            firstVariant:
-              - text: CF27386
-                xpath: /html/body/div[16]
+                xpath: /html/body/div[18]
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[25]
+                xpath: /html/body/div[19]
+          - productUrl:
+              - text: https://www.monsterpetsupplies.co.uk/cat/wet-cat-food/felix-sensations-crunchies-cat-food-meat-100g-x-40
+                xpath: /html/head[1]/link[11]/@href
+            imageAlt:
+              - text: Felix Sensations Mixed Selection Crunchies Adult Cat Food
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/span[1]/img[1]/@alt
+            alternateImages:
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1610012265/users/8473116_T1_aoxzdf.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/img[1]/@src
+            metaKeywords:
+              - text: felix sensations mixed selection crunchies adult cat food
+                xpath: /html/head[1]/meta[4]/@content
+            category:
+              - text: Cat
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]/a[3]
+              - text: Wet Cat Food
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]/a[4]
+            nameExtended:
+              - text: Felix Sensations Mixed Selection Crunchies Adult Cat Food - 100g x 10
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[2]/section[1]/@name_extended
+            price:
+              - text: £5.49
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[2]/section[1]/@price
+            availabilityText:
+              - text: Out Of Stock
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[2]/section[1]/@availability
+            description:
+              - text: "Felix Sensations Meat Crunchies Adult Cat Food is a range of delicious
+                  meals with a delicious crunchy topping for a fascinating
+                  combination of tastes and textures. These exciting Sensations
+                  varieties come with a convenient, re-sealable pouch of light
+                  and crispy crumbles to sprinkle on your cat's meal to add a
+                  delightfully satisfying crunch. Each meal is a source of
+                  essential Omega 6 fatty acids with the right combination of
+                  balanced minerals and vitamins to help keep your cat full of
+                  vitality and ready for mischief! They're packed with healthy
+                  goodness and satisfy 100% of your cat's daily needs when
+                  served according to the feeding guidelines. What's inside (Box
+                  of 10) 3x with Beef in Jelly 3x with Chicken in Jelly 2x with
+                  Tuna in Jelly 2x with Lamb in Jelly Crunchy Dry Topping
+                  Ingredients 100g Pouches: Meat and animal derivatives;
+                  vegetable protein extracts; fish and fish derivatives (tuna
+                  4%); minerals; various sugars. 40g Crunchy Crumbles Topping:
+                  Cereals; Meat and animal derivatives; Oils and fats; Vegetable
+                  protein extracts; Various sugars; Minerals; Yeast."
+                xpath: /html/body/div[17]
             descriptionBullets:
               - text: "5"
+            brandText:
+              - text: FELIX
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/meta[1]/@content
+            quantity:
+              - text: 100g x 10
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[2]/section[1]/@variant_name
+            sku:
+              - text: CF27386_1
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[2]/section[1]/@sku
+            variantId:
+              - text: CF27386_1
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[2]/section[1]/@sku
             variantCount:
               - text: "2"
-        xpath: /
-    timestamp: 1611558093656
+                xpath: /html/body/div[16]
+            name:
+              - text: Felix Sensations Mixed Selection Crunchies Adult Cat Food
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/h1[1]
+            ingredientsList:
+              - text: "100g Pouches: Meat and animal derivatives; vegetable protein extracts;
+                  fish and fish derivatives (tuna 4%); minerals; various sugars.
+                  40g Crunchy Crumbles Topping: Cereals; Meat and animal
+                  derivatives; Oils and fats; Vegetable protein extracts;
+                  Various sugars; Minerals; Yeast."
+                xpath: /html/body/div[18]
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[19]
+        xpath: /html
+    timestamp: 1612424760673

@@ -2,16 +2,13 @@ input:
   id: CF19061_1
   _url: http://monsterpetsupplies.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=3199b42b-e9bd-4eeb-8828-044900093400/task=046d6943-17a0-407f-8a99-c4bd6734faf7/9cb1b65c-6c37-4095-8c41-6d71073d78e4.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=27e13b09-635e-478b-8f5e-19d6a6b9c189/task=cec52a7f-dce0-4f1c-b090-451103663131/32a1148f-51f8-49f8-b110-13f2a79b4f2c.html
     extractionConfigId: product/details/stores/m/monsterpetsupplies/UK/extract
     data:
       - group:
           - productUrl:
               - text: https://www.monsterpetsupplies.co.uk/cat/wet-cat-food/gourmet-perle-mini-fillets-with-chicken-24-x-85g
                 xpath: /html/head[1]/link[11]/@href
-            image:
-              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1607444328/users/5000161030149_t517_qaoxdj.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/img[1]/@src
             imageAlt:
               - text: Gourmet Perle Mini Chicken Fillets Cat Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/span[1]/img[1]/@alt
@@ -29,14 +26,14 @@ extractions:
               - text: Wet Cat Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]/a[4]
             nameExtended:
-              - text: Gourmet Perle Mini Chicken Fillets Cat Food
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/h1[1]
+              - text: Gourmet Perle Mini Chicken Fillets Cat Food - 85g x 24
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/@name_extended
             price:
               - text: £14.15
-                xpath: /html/body/div[18]
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/@price
             availabilityText:
-              - text: In Stock
-                xpath: /html/body/div[20]
+              - text: Out Of Stock
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/@availability
             description:
               - text: "Gourmet Gold Perle is a tantalising recipe of chicken in a rich gravy for
                   a delectable & nutritionally complete cat food that even the
@@ -52,34 +49,33 @@ extractions:
                   and feeling fantastic. Ingredients: Meat and animal
                   derivatives (of which beef 4%), vegetable protein extracts,
                   fish and fish derivatives, minerals, various sugars."
-                xpath: /html/body/div[22]
+                xpath: /html/body/div[17]
+            descriptionBullets:
+              - text: "0"
             brandText:
               - text: Gourmet
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/meta[1]/@content
             quantity:
-              - text: 85g
-                xpath: /html/body/div[24]
+              - text: 85g x 24
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/@variant_name
             sku:
               - text: CF19061_1
-                xpath: /html/body/div[16]
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/@sku
             variantId:
               - text: CF19061_1
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/@sku
+            variantCount:
+              - text: "1"
                 xpath: /html/body/div[16]
             name:
               - text: Gourmet Perle Mini Chicken Fillets Cat Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/h1[1]
-            variantInformation:
-              - text: 85g x 24
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/h5[1]
-            firstVariant:
-              - text: CF19061
-                xpath: /html/body/div[16]
+            ingredientsList:
+              - text: Meat and animal derivatives (of which beef 4%), vegetable protein
+                  extracts, fish and fish derivatives, minerals, various sugars.
+                xpath: /html/body/div[18]
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[25]
-            descriptionBullets:
-              - text: "0"
-            variantCount:
-              - text: "1"
-        xpath: /
-    timestamp: 1611129768964
+                xpath: /html/body/div[19]
+        xpath: /html
+    timestamp: 1612424757083

@@ -25,23 +25,7 @@ module.exports = {
     },
   ],
   implementation: async ({ url, id }, { transform }, context, { productDetails }) => {
-    const prodId = id;
     await context.evaluate((prodId) => {
-      var getSiblings = function (elem) {
-        // Setup siblings array and get the first sibling
-        const siblings = [];
-        let sibling = elem.parentNode.firstChild;
-
-        // Loop through each sibling and push to the array
-        while (sibling) {
-          if (sibling.nodeType === 1 && sibling !== elem) {
-            siblings.push(sibling);
-          }
-          sibling = sibling.nextSibling;
-        }
-        return siblings;
-      };
-
       const addElementToDom = (element, id) => {
         const div = document.createElement('div');
         div.id = id;
@@ -49,31 +33,38 @@ module.exports = {
         document.body.appendChild(div);
       };
 
-      const skuNode = document.querySelector(`meta[content="${prodId}"]`);
-      const productNode = getSiblings(skuNode);
-      addElementToDom(prodId, 'sku');
-      productNode.forEach((element) => {
-        addElementToDom(element.getAttribute('content'), element.getAttribute('itemprop'));
-      });
+      const allVariants = document.querySelectorAll('div.price-wrap section.monster-product-desc-details');
+      for (let i = 0; i < allVariants.length; i++) {
+        const variantElem = allVariants[i];
+        const name = document.querySelector('h1[itemprop="name"]') ? document.querySelector('h1[itemprop="name"]').textContent : '';
+        const price = variantElem.querySelector('p.varient-price')
+          ? variantElem.querySelector('p.varient-price').textContent
+          : '';
+        const listPrice = variantElem.querySelector('p.discount')
+          ? variantElem.querySelector('p.discount').textContent.replace('RRP:', '').trim()
+          : '';
+        const variantName = variantElem.querySelector('h5.variant-title')
+          ? variantElem.querySelector('h5.variant-title').textContent
+          : '';
+        const sku = document
+          .evaluate('.//p[contains(text(), "SKU")]', document, null, XPathResult.STRING_TYPE, null)
+          .stringValue.replace('SKU:', '')
+          .trim();
+        const promotion = variantElem.querySelector('span.product-offer-text')
+          ? variantElem.querySelector('span.product-offer-text').textContent
+          : '';
+        const availability = variantElem.querySelector('p.stock-alert') ? 'Out Of Stock' : 'In Stock';
 
-      const parentProdNode = skuNode.parentElement.parentElement;
-      parentProdNode.setAttribute('target', 'to-add');
-
-      const availRegExp = /http:\/\/schema\.org\/(.+)/;
-      const availabilityElem = document.querySelector('div[id="availability"]');
-      if (availabilityElem) {
-        const availRaw = availabilityElem.textContent.match(availRegExp)[1];
-        availabilityElem.textContent = availRaw === 'InStock' ? 'In Stock' : 'Out Of Stock';
+        variantElem.setAttribute('name_extended', `${name} - ${variantName}`);
+        variantElem.setAttribute('price', price);
+        variantElem.setAttribute('list_price', listPrice);
+        variantElem.setAttribute('variant_name', variantName);
+        variantElem.setAttribute('sku', sku);
+        variantElem.setAttribute('promotion', promotion);
+        variantElem.setAttribute('availability', availability);
       }
 
-      // const variantElem = document.evaluate(
-      //   `//div[@class="price-wrap" and contains(. , "${prodId}")]`,
-      //   document,
-      //   null,
-      //   XPathResult.ANY_UNORDERED_NODE_TYPE,
-      //   null,
-      // ).singleNodeValue;
-
+      addElementToDom(allVariants.length, 'variant_count');
       const descriptionElem = document.querySelector('div[itemprop="description"]');
       const description = descriptionElem ? descriptionElem.innerText.replace(/\n+/g, ' ').trim() : '';
       addElementToDom(description, 'description');
@@ -151,15 +142,8 @@ module.exports = {
       }
 
       addElementToDom(ingredientsText.replace('Ingredients:', '').replace(/\n+/g, ' '), 'ingredients');
-
-      const fullNameElem = document.querySelector('div#name');
-      const quantityRegExp = /([\d,.]+[kgm]{1,2})/;
-      if (fullNameElem && fullNameElem.textContent.match(quantityRegExp)) {
-        addElementToDom(fullNameElem.textContent.match(quantityRegExp)[1], 'quantity');
-      }
-
       document.querySelector('img[class="zoomImg"]') ? addElementToDom('Yes', 'Zoom') : addElementToDom('No', 'Zoom');
-    }, prodId);
+    });
 
     return await context.extract(productDetails, { transform });
   },

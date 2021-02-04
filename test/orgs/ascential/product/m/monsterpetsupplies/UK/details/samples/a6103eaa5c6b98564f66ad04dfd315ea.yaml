@@ -2,16 +2,13 @@ input:
   id: CF21491_1
   _url: http://monsterpetsupplies.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=1cc3c6b6-2b99-4b77-b247-d95b40fef056/task=25d3c152-61ab-42a0-a28b-1944e30d1c91/4ab0d668-5b38-4142-ad52-34917310915b.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=27e13b09-635e-478b-8f5e-19d6a6b9c189/task=9eb2612c-951f-443a-b780-febd1c578521/a608850a-437a-4e10-8b77-74ae86a15082.html
     extractionConfigId: product/details/stores/m/monsterpetsupplies/UK/extract
     data:
       - group:
           - productUrl:
               - text: https://www.monsterpetsupplies.co.uk/cat/wet-cat-food/gourmet-perle-pouch-delicate-meat-duos-12x85g
                 xpath: /html/head[1]/link[11]/@href
-            image:
-              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1551172460/5385056_T1_l4mwdf.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/img[1]/@src
             imageAlt:
               - text: Gourmet Perle Delicate Meats Duo Cat Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/span[1]/img[1]/@alt
@@ -27,14 +24,14 @@ extractions:
               - text: Wet Cat Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]/a[4]
             nameExtended:
-              - text: Gourmet Perle Delicate Meats Duo Cat Food 85g x 12
-                xpath: /html/body/div[17]
+              - text: Gourmet Perle Delicate Meats Duo Cat Food - 85g x 12
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/@name_extended
             price:
               - text: £5.99
-                xpath: /html/body/div[18]
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/@price
             availabilityText:
               - text: Out Of Stock
-                xpath: /html/body/div[20]
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/@availability
             description:
               - text: "Gourmet Gold Perle Delicate Meat Duo are nutritionally balanced &
                   thoroughly delectable recipes to tickle the fancy of even the
@@ -50,18 +47,23 @@ extractions:
                   puss will be absolutely spoiled for choice! Ingredients: Meat
                   and animal derivatives (meat 14%), vegetable protein extracts,
                   fish and fish derivatives, minerals, various sugars."
-                xpath: /html/body/div[22]
+                xpath: /html/body/div[17]
+            descriptionBullets:
+              - text: "0"
             brandText:
               - text: Gourmet
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/section[2]/meta[1]/@content
             quantity:
-              - text: 85g
-                xpath: /html/body/div[24]
+              - text: 85g x 12
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/@variant_name
             sku:
               - text: CF21491_1
-                xpath: /html/body/div[16]
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/@sku
             variantId:
               - text: CF21491_1
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/@sku
+            variantCount:
+              - text: "1"
                 xpath: /html/body/div[16]
             name:
               - text: Gourmet Perle Delicate Meats Duo Cat Food
@@ -69,19 +71,9 @@ extractions:
             ingredientsList:
               - text: Meat and animal derivatives (meat 14%), vegetable protein extracts, fish
                   and fish derivatives, minerals, various sugars.
-                xpath: /html/body/div[23]
-            variantInformation:
-              - text: 85g x 12
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[2]/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/h5[1]
-            firstVariant:
-              - text: CF21491
-                xpath: /html/body/div[16]
+                xpath: /html/body/div[18]
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[25]
-            descriptionBullets:
-              - text: "0"
-            variantCount:
-              - text: "1"
-        xpath: /
-    timestamp: 1611558085011
+                xpath: /html/body/div[19]
+        xpath: /html
+    timestamp: 1612424757474

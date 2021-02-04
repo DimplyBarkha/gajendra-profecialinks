@@ -1,6 +1,6 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
+recordSelector: 'div.price-wrap section.monster-product-desc-details'
 recordXPath: null
 fields:
 - name: _input
@@ -15,7 +15,7 @@ fields:
 - name: image
   singleValue: true
   description: URL of the main product image
-  xpath: (//div[contains(@class, "monster-pet-product clearfix")]//div[@id="productShowcaseInner"]//li[position() = 1]/img/@src)
+  xpath: ancestor::html//div[contains(@class, "monster-pet-product clearfix")]//div[@id="productShowcaseInner"]//li[position() = 1]/img/@src
   regExp: (.+\/upload)(\/.+?)(\/.+)
   regExpReplace: $1$3
 - name: imageAlt
@@ -25,62 +25,58 @@ fields:
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
-  xpath: (//div[contains(@class, "monster-pet-product clearfix")]//div[@id="productShowcaseInner"]//li/img/@src)
+  xpath: ancestor::html//div[contains(@class, "monster-pet-product clearfix")]//div[@id="productShowcaseInner"]//li[position() > 1]/img/@src
   regExp: (.+\/upload)(\/.+?)(\/.+)
   regExpReplace: $1$3
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
-  xpath: //meta[@name="keywords"]/@content
+  xpath: ancestor::html//meta[@name="keywords"]/@content
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
-  xpath: (//div[contains(@class, "breadcrumbs-inner")]//a)[position()>2]
+  xpath: ancestor::html//div[contains(@class, "breadcrumbs-inner")]//a[position()>2]
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
-  xpath: //div[@id="name"]
-  # xpath: //h1[@itemprop="name"]
+  xpath: '@name_extended'
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
-  xpath: //div[@target="to-add"]//p[contains(@class, "discount")]
-  regExp: £\d+\.?(\d+)?
+  xpath: '@list_price'
 - name: price
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
-  xpath: //div[@id="price"]
-  regExp: (.+)
-  regExpReplace: £$1
+  xpath: '@price'
 - name: availabilityText
   singleValue: true
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
-  xpath: //div[@id="availability"]
+  xpath: '@availability'
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: //div[@id="description"]
+  xpath: ancestor::html//div[@id="description"]
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
-  xpath: count(//div[@itemprop="description"]//li)
+  xpath: count(ancestor::html//div[@itemprop="description"]//li)
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
-  xpath: //meta[@itemprop="brand"]/@content
+  xpath: ancestor::html//meta[@itemprop="brand"]/@content
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
-  xpath: //div[@id="quantity"]
+  xpath: '@variant_name'
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page
@@ -93,11 +89,11 @@ fields:
 - name: sku
   singleValue: true
   description: The store-specific product identifier
-  xpath: //div[@id="sku"]
+  xpath: '@sku'
 - name: variantId
   singleValue: false
   description: Identifier for a variant from a store where variants share the same sku
-  xpath: //div[@id="sku"]
+  xpath: '@sku'
 - name: mpc
   singleValue: true
   description: The manufacturer model code (unique) of the product
@@ -135,7 +131,7 @@ fields:
 - name: variantCount
   singleValue: true
   description: Number of variants listed
-  xpath: count(//div[@class="price-wrap"])
+  xpath: ancestor::html//div[@id="variant_count"]
 - name: color
   singleValue: true
   description: A textual description of the colour
@@ -154,7 +150,7 @@ fields:
 - name: name
   singleValue: true
   description: The product name
-  xpath: //h1[@itemprop="name"]
+  xpath: ancestor::html//h1[@itemprop="name"]
 - name: inStorePrice
   singleValue: true
   description: Price in the selected store
@@ -258,7 +254,7 @@ fields:
   singleValue: true
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
-  xpath: //div[@id="ingredients"]
+  xpath: ancestor::html//div[@id="ingredients"]
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.
@@ -280,11 +276,11 @@ fields:
   singleValue: true
   description: Nutritional Information for Total Fat content - Usually based on per
     100g serving
-  xpath: //div[@id="fat_value"]
+  xpath: ancestor::html//div[@id="fat_value"]
 - name: totalFatPerServingUom
   singleValue: true
   description: Unit of Measure Data for Total Fat content
-  xpath: //div[@id="fat_uom"]
+  xpath: ancestor::html//div[@id="fat_uom"]
 - name: saturatedFatPerServing
   singleValue: true
   description: Nutritional Information for Saturated Fat content - Usually based on
@@ -324,11 +320,11 @@ fields:
   singleValue: true
   description: Nutritional Information for Dietary Fibre content - Usually based on
     per 100g serving
-  xpath: //div[@id="fibre_value"]
+  xpath: ancestor::html//div[@id="fibre_value"]
 - name: dietaryFibrePerServingUom
   singleValue: true
   description: Unit of Measure Data for Dietary Fibre content
-  xpath: //div[@id="fibre_uom"]
+  xpath: ancestor::html//div[@id="fibre_uom"]
 - name: totalSugarsPerServing
   singleValue: true
   description: Nutritional Information for Total Sugar content - Usually based on
@@ -340,38 +336,38 @@ fields:
   singleValue: true
   description: Nutritional Information for Protein content - Usually based on per
     100g serving
-  xpath: //div[@id="protein_value"]
+  xpath: ancestor::html//div[@id="protein_value"]
 - name: proteinPerServingUom
   singleValue: true
   description: Unit of Measure Data for Protein
-  xpath: //div[@id="protein_uom"]
+  xpath: ancestor::html//div[@id="protein_uom"]
 - name: vitaminAPerServing
   singleValue: true
   description: Nutritional Information for Vitamin A content - Usually based on per
     100g serving
-  xpath: //div[@id="vit_a_value"]
+  xpath: ancestor::html//div[@id="vit_a_value"]
 - name: vitaminAPerServingUom
   singleValue: true
   description: Unit of Measure Data for Vitamin A
-  xpath: //div[@id="vit_a_uom"]
+  xpath: ancestor::html//div[@id="vit_a_uom"]
 - name: vitaminCPerServing
   singleValue: true
   description: Nutritional Information for Vitamin C content - Usually based on per
     100g serving
-  xpath: //div[@id="vit_c_value"]
+  xpath: ancestor::html//div[@id="vit_c_value"]
 - name: vitaminCPerServingUom
   singleValue: true
   description: Unit of Measure Data for Vitamin C
-  xpath: //div[@id="vit_c_uom"]
+  xpath: ancestor::html//div[@id="vit_c_uom"]
 - name: calciumPerServing
   singleValue: true
   description: Nutritional Information for Calcium content - Usually based on per
     100g serving
-  xpath: //div[@id="calcium_value"]
+  xpath: ancestor::html//div[@id="calcium_value"]
 - name: calciumPerServingUom
   singleValue: true
   description: Unit of Measure Data for Calcium
-  xpath: //div[@id="calcium_uom"]
+  xpath: ancestor::html//div[@id="calcium_uom"]
 - name: ironPerServing
   singleValue: true
   description: Nutritional Information for Iron content - Usually based on per 100g
@@ -435,7 +431,7 @@ fields:
 - name: promotion
   singleValue: true
   description: promotion text on product page
-  xpath: //div[@target="to-add"]//p[contains(@class, "save-message")]
+  xpath: '@promotion'
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information
@@ -464,11 +460,10 @@ fields:
     to populate "first_variant" for all variants of a product, this rpc becomes the
     common link between other variants. method 3 = apply some logic to determine link
     between variants, this will need analysis
-  xpath: //div[@id="sku"]
-  regExp: ^[a-zA-Z0-9]*
+  xpath: ancestor::html//div[@class="price-wrap"][1]//section[@class=" monster-product-desc-details"]/@sku
 - name: variants
   singleValue: false
-  description: //meta[@itemprop="sku"]
+  description: ancestor::html//div[@class="price-wrap"]//section[@class=" monster-product-desc-details"]/@sku
 - name: additionalDescBulletInfo
   singleValue: false
   description: 
@@ -514,4 +509,4 @@ fields:
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
   defaultValue: false
-  xpath: //div[@id="Zoom"]
+  xpath: ancestor::html//div[@id="Zoom"]
