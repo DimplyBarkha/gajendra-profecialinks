@@ -46,10 +46,11 @@ fields:
   xpath: //div[starts-with(@id,'ii_price')]
 - name: availabilityText
   singleValue: true
-  xpath: (//dl[@class="productAvailability"])[1]//span[@class="value-title"]//@title
-  # regExp: out_of_stock
-  # regExpReplace: Out of Stock 
-  # defaultValue: In Stock 
+  # xpath: (//dl[@class="productAvailability"])[1]//span[@class="value-title"]//@title
+  xpath: //div[@class="wide-6 productInformations offerDetails"]//dd[@class="availability status status3" or @class="availability status status1"]/span/@title
+  regExp: in_stock
+  regExpReplace: In Stock 
+  defaultValue: Out of Stock 
 - name: description
   # type: TEXT[
   singleValue: false 
