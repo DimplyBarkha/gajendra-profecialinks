@@ -36,14 +36,15 @@ module.exports = {
     } catch (error) {
       throw new Error('Access got denied');
     }
-    const hasProducts = jsonObj.products.length > 0;
 
-    if (hasProducts) {
+    if (jsonObj.products) {
       const path = jsonObj.products[0].productInfo.productURL;
 
       console.log(`!!!!path : ${path}`);
 
       return `https://${domain}${path}`;
     }
+
+    if (jsonObj.messages) console.log(jsonObj.messages.map(m => m.message).join('\n'));
   },
 };
