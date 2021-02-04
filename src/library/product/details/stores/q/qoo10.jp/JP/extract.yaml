@@ -1,0 +1,35 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="review_summary"]//ul[@id='reviews_wrapper']/li
+fields:
+  - name: manufacturer
+    singleValue: false
+    description: Product brand shown - this may actually NOT be just a brand name e.g. "Visit the Gillette Store"
+    xpath: //h2[@id="goods_name"]//a[@id='btn_brand']/@title
+  - name: colour
+    singleValue: false
+    xpath: ancestor::html//ul[@class='select_chip big']//li//span/@title
+  - name: flavour
+    singleValue: false
+  - name: image
+    description: product media url
+    xpath: //div[@id="gl_div_goods_img_ma"]/a/img/@src
+  - name: pageTitle
+    description: The url of the page title
+    xpath: //title
+  - name: category
+    singleValue: false
+    xpath: //ul[@class="category_depth_list"]/li
+  - name: subCategory
+    singleValue: false
+    description: Product range 
+    xpath: //ul[@class="category_depth_list"]/li
+  - name: reviewCount
+    type: NUMBER
+    description: Number of comments on the review
+    xpath: //li[@id="tab_review"]//em[@id="opinion_count"]
+  - name: sku
+    singleValue: false
+    description: The store-specific product identifier
+  - name: pageOffset
