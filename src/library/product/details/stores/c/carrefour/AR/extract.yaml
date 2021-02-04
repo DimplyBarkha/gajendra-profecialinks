@@ -35,10 +35,10 @@ fields:
     xpath: //div[contains(@class,'price-info')]//p[contains(@class,'regular-price')]
   - name:  description
     singleValue: false
-    xpath: //div[contains(@class,'descripcion-content')]//div[@class='descripcion-texto']/text()
+    xpath: //div[@class="especifiacion-box"]
   - name: descriptionBullets
     singleValue: false
-    xpath: //div[contains(@class,'descripcion-content')]//div[@class='descripcion-list']//li
+    xpath: //div[@class="especifiacion-box"]//ul//li
   - name: brandText
     singleValue: false
     xpath: //div[@class='product-shop']//p[contains(@class,'brand')]
@@ -47,10 +47,10 @@ fields:
     xpath: //div[@class='especifiacion-box']//span[contains(text(),'Modelo')]//following-sibling::span
   - name: sku
     singleValue: false
-    xpath: //meta[@property='og:url']/@content    
+    xpath: //input[@name="product"]/@value   
   - name: variantId
     singleValue: false
-    xpath: //meta[@property='og:url']/@content    
+    xpath: //input[@name="product"]/@value   
   - name: promotion
     singleValue: false
     xpath: //div[@class='product-shop']//p[contains(@class,'offer')]
@@ -93,3 +93,6 @@ fields:
   - name: color
     singleValue: true
     xpath: //div[@class='especifiacion-box']//span[contains(text(),'Color')]//following-sibling::span
+  - name: quantity
+    singleValue: true
+    defaultValue: 1 L.

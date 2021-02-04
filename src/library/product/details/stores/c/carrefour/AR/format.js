@@ -25,17 +25,17 @@ const transform = (data) => {
   };
   for (const { group } of data) {
     for (const row of group) {
-      if (row.sku) {
-        row.sku.forEach(item => {
-          // "productId":"1555143"
-          var myRegexp = /.+\/(.+?)\.htm/g;
-          var match = myRegexp.exec(item.text);
-          if (match.length) {
-            item.text = match[1].trim();
-          }
-          row.variantId = [{ text: row.sku[0].text }];
-        });
-      }
+      // if (row.sku) {
+      //   row.sku.forEach(item => {
+      //     // "productId":"1555143"
+      //     var myRegexp = /.+\/(.+?)\.htm/g;
+      //     var match = myRegexp.exec(item.text);
+      //     if (match.length) {
+      //       item.text = match[1].trim();
+      //     }
+      //     row.variantId = [{ text: row.sku[0].text }];
+      //   });
+      // }
       if (row.specifications) {
         var info = [];
         row.specifications.forEach(item => {
