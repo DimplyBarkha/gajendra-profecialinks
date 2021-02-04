@@ -70,8 +70,11 @@ const transform = (data) => {
         row.inTheBoxUrl.forEach((inTheBoxUrlItem) => {
           inTheBoxUrlItem.text = inTheBoxUrlItem.text.replace(/,.*/, '');
           inTheBoxUrlItem.text = inTheBoxUrlItem.text.replace('200w', '');
-          inTheBoxUrlItem.text = 'I' + inTheBoxUrlItem.text;
-          inTheBoxUrlItem.text = inTheBoxUrlItem.text.slice(1, -1);
+          // inTheBoxUrlItem.text = 'I' + inTheBoxUrlItem.text;
+          // inTheBoxUrlItem.text = inTheBoxUrlItem.text.slice(1, -1);
+          if (!inTheBoxUrlItem.text.match('https://') && inTheBoxUrlItem.text.startsWith('//')) {
+            inTheBoxUrlItem.text = `https:${inTheBoxUrlItem.text}`;
+            }
         });
       }
 

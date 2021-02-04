@@ -522,10 +522,10 @@ fields:
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
   - name: inTheBoxUrl
     singleValue: false
-    xpath: //div[starts-with(@id,"inTheBoxUrl-")]
+    xpath: //div[starts-with(@id,"inTheBoxUrl-")] | //div[@id='added_inTheBoxUrl']
   - name: inTheBoxText
     singleValue: false
-    xpath: //div[starts-with(@id,"inTheBoxText-")]
+    xpath: //div[starts-with(@id,"inTheBoxText-")] | //div[@id='added_inTheBoxText']
   - name: hasComparisonTable
     singleValue: true
     defaultValue: No
