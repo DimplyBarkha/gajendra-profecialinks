@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -47,7 +47,8 @@ fields:
     xpath: //div[@class="body"]//table//td//img/@src
   - name: videos
     singleValue: false
-    xpath: //div[@class="ytp-title-text"]/a/@href
+    # xpath: //div[@class="ytp-title-text"]/a/@href
+    xpath: //div[@class="productDetailSubArea"]//div[@class='body']//iframe//@src
   - name: name
     singleValue: false
     xpath: //div[@class="productTitle"]
@@ -56,10 +57,11 @@ fields:
     defaultValue: Yes
   - name: description
     singleValue: false
-    xpath: //div[@class="productDetailSubArea"]/div[@class="body"]/p
+    # xpath: //div[@class="productDetailSubArea"]/div[@class="body"]/p
+    xpath: //div[@class ='contentLeftTop']//tr//p[not(img)]
   - name: ingredientsList
     singleValue: false
-    xpath: //div[@class="productDetailSubArea"]/div[@class="body"]/p/strong[contains(text(),"Ingredientes")]/parent::*/text()
+    xpath: //div[@class="productDetailSubArea"]/div[@class="body"]/p/strong[contains(text(),"Ingredientes")]/parent::*/text() | //div[contains(@class,"additionalProductInformation")]//span[contains(.,'Lista de ingredientes:')]//following-sibling::span//text()
   - name: directions
     singleValue: false
     xpath: //div[@class="productDetailSubArea"]//div[@class="title" and text()="Dicas"]/parent::*/following::div[@class="body"]/p
@@ -68,4 +70,18 @@ fields:
     xpath: //div[@class="Rating"]/span/div[contains(@class,"star-rating-on")]/a
   - name: promotion
     singleValue: false
-    xpath: //div[@class="productPricingDescription"]/div[@class="largeIcon"]/div[@class="superPriceIconInner superPriceIconLarge25"]/@title
+    # xpath: //div[@class="productPricingDescription"]/div[@class="largeIcon"]/div[@class="superPriceIconInner superPriceIconLarge25"]/@title
+    xpath: //div[@class="productPricingDescription"]//div[@class='discountCard']//div[@class='cardDiscountText'][position()=1]//span[@class='iconDiscountText']  | //div[@class="productPricingDescription"]//div[@class='discountCard']//div[@class='cardDiscountText'][position()=1]//span[@class='discountValue']
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count((//div[@class="productDetailSubArea"]//div[@class='body'])[1]/p[contains(.,'Benefícios:')]//text()[contains(.,' Benefícios:')]//following-sibling::text()[contains(.,'-')])
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@id='contactName']//text()
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@class='productDetailSubArea']//div[@class='body']//p//img//@src
+  - name: alternateImages
+    singleValue: false
+    xpath: //script[@type='application/ld+json']
+

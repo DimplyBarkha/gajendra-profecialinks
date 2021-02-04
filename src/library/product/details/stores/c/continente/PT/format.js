@@ -3,7 +3,7 @@
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
  */
-const transform = (data) => {  
+const transform = (data) => {
     const cleanUp = (data, context) => {
       const clean = text => text.toString()
       .replace(/\r\n|\r|\n/g, ' ')
@@ -59,13 +59,22 @@ const transform = (data) => {
             item.text=reviewCountData[0];
           });
         }
-        if(row.description){
-          let inf=[];
-          row.description.forEach(item=>{
-            inf.push(item.text);
-          })
-          row.description=[{"text":inf.join(' ')}];
+        // if(row.description){
+        //   let inf=[];
+        //   row.description.forEach(item=>{
+        //     inf.push(item.text);
+        //   })
+        //   row.description=[{"text":inf.join(' ')}];
+        // }
+        if (row.description) {
+          console.log("row.description",row.description);
+          let text = '';
+          row.description.forEach(item => {
+            text += item.text;
+          });
+          row. description = [{ text }];
         }
+
         if(row.aggregateRating){
           let inf=[];
           row.aggregateRating.forEach(item=>{
@@ -76,6 +85,14 @@ const transform = (data) => {
         if(bText!=''){
           row.nameExtended=[{"text":bText+" - "+nText}];
         }
+        if (row.promotion) {
+          let text = '';
+          row.promotion.forEach(item => {
+            text += item.text;
+          });
+          row.promotion = [{ text }];
+        }
+
       }
     }
     return cleanUp(data);

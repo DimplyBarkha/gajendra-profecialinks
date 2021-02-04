@@ -33,9 +33,10 @@ module.exports = {
     country: 'PT',
     store: 'continente',
     domain: 'continente.pt',
-    loadedSelector: null,
+    loadedSelector:'div#main',
     noResultsXPath: null,
-    nextLinkSelector: 'li._40',
+    // nextLinkSelector: 'li._40',
+    nextLinkSelector: null,
     zipcode: '',
   },implementation
 };
