@@ -100,9 +100,10 @@ const transform = (data) => {
           delete row.listPrice;
         }
       }
-      if (row.price[0].text.includes('$-')) {
-        row.price = row.listPrice;
-        console.log(row.listPrice[0]);
+      if (row.price && row.listPrice) {
+        if (row.price[0].text.includes('$-')) {
+          row.price = row.listPrice;
+        }
       }
       if (row.termsAndConditions) {
         row.termsAndConditions[0].text = row.termsAndConditions[0].text === 'No' ? 'No' : 'Yes';
