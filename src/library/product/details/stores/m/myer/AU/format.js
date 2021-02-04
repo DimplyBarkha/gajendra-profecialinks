@@ -49,6 +49,23 @@ const transform = (data) => {
               }
             });         
           }
+          if(row.variants){
+        
+            let value = []
+            //console.log('Hey there')
+            for (let index = 0; index < row.variants.length; ++index) {
+              value.push(row.variants[index].text);
+              //console.log(index, value);
+            }
+            row.variants = [{"text": value.join(' | '), "xpath": row.variants[0].xpath}]
+          }
+          if(row.variantInformation){
+            var strVariantInfo = ''
+            row.variantInformation.forEach(item => {
+              strVariantInfo = strVariantInfo + item.text + ' | '
+            })
+             row.variantInformation = [{"text": strVariantInfo, "xpath": row.variantInformation[0].xpath}]
+          }     
           if (row.description) {
             let description_ar = [];
             row.description.forEach(item => {

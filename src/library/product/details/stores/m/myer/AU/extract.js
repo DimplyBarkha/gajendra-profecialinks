@@ -8,22 +8,46 @@ module.exports = {
     domain: 'myer.com.au',
     zipcode: '',
   },
-  implementation: async function (
+  implementation: async (
     inputs,
     parameters,
     context,
     dependencies,
-  ) {
-    const { productDetails } = dependencies;
+  ) => {
+    const variantCount = await context.evaluate(async function () {
+      return document.querySelectorAll('ul.css-111qmqk > li').length;
+    });
     const { transform } = parameters;
-    try {
-      await context.waitForSelector('div[class="rec_name"]', { timeout: 30000 });
-      await new Promise((resolve, reject) => setTimeout(resolve, 90000));
-      console.log('selector of inTheBox exist');
-    } catch (e) {
-      console.log("selector of inTheBox doesn't exist");
-    }
-    return await context.extract(productDetails, { transform });
+    const { productDetails } = dependencies;
 
+    try {
+      await context.click('ul.css-111qmqk > li > button.css-1qfcket.css-z4sq4c');
+      await new Promise(resolve => setTimeout(resolve, 500));
+    } catch (error) {
+      console.log(error);
+    }
+
+    await context.extract(productDetails, { transform });
+    for (let index = 2; index <= variantCount; index++) {
+      try {
+        const status = await context.evaluate(async function (index) {
+          const sel = `ul.css-111qmqk > li > button.css-1qfcket.css-z4sq4c:nth-child(${index})`;
+          document.querySelector(sel) && document.querySelector(sel).click();
+          return document.querySelector(sel);
+        }, index);
+
+        //await context.click(`ul.selection-list.ps.ps--active-y li:not(.option-disabled):nth-child(${index})`);
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        if (variantCount !== index) {
+          if (status) {
+            await context.extract(productDetails, { type: 'APPEND', transform });
+          }
+        } else {
+          return await context.extract(productDetails, { type: 'APPEND', transform });
+        }
+      } catch (error) {
+        console.log('Error While itrerating over the variants', error);
+      }
+    }
   },
 };

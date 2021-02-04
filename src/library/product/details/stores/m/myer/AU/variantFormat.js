@@ -19,16 +19,7 @@ const transform = (data) => {
   
     for (const { group } of data) {
       for (const row of group) {
-        if (row.variantId) {
-          if (row.variantId.length > 1) {
-            row.variantId.shift();
-          }
-        }
-        if (row.variantUrl) {
-          if (row.variantUrl.length > 1) {
-            row.variantUrl.shift();
-          }
-        }
+      
         if (row.variantAsins) {
           let text = '';
           row.variantAsins.forEach(item => {

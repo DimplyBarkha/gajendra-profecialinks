@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'myer.com.au',
     prefix: null,
-    url: 'https://www.myer.com.au/search?query={id}',
+    url: null,
     country: 'AU',
     store: 'myer',
     zipcode: '',

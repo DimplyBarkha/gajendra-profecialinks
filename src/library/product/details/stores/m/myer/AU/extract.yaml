@@ -65,6 +65,15 @@ fields:
     singleValue: false
     xpath: count(//div[@class="drawers-container"]//ul[@data-automation="drawer-body"]//li)
     defaultValue: '0'    
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@class="drawers-container"]//ul[@data-automation="drawer-body"]//li//button[contains(@class,"css-1qfcket")]/@data-automation
+  - name: firstVariant
+    singleValue: false
+    xpath: //div[@class="drawers-container"]//ul[@data-automation="drawer-body"]//li[1]//button[contains(@class,"css-1qfcket")]/@data-automation
+  - name: variants
+    singleValue: false
+    xpath: //div[@class="drawers-container"]//ul[@data-automation="drawer-body"]//li//button[contains(@class,"css-1qfcket")]/@data-automation
   - name: color
     singleValue: false
     xpath: //div[@data-automation="colour-select-container"]//span[@data-automation]
