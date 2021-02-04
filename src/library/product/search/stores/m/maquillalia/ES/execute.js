@@ -7,7 +7,7 @@ module.exports = {
     domain: 'maquillalia.com',
     url: "https://www.maquillalia.com/search.php?buscar={searchTerms}",
     // loadedSelector: "main.Container",
-    // loadedSelector: "div.prdt",
+    loadedSelector: null,
     // loadedXpath: '//div[@class="ListProds BX Row Cols B03 Sp0"]',
     noResultsXPath: null,
     zipcode: '',
