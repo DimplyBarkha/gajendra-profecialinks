@@ -4,13 +4,11 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: sku
-    singleValue: false
     description: The store-specific product identifier
     xpath: //div[@class="product-item__sku hide-on-mobile"]/text() | //div[contains(@class,'product-item__sku')]
     regExp: \d+
   - name: listPrice
-    singleValue: false
-    description: The stated undiscounted price for the product
+    xpath: //div[contains(@class, 'price-box__content') and not(contains(@class, 'price-box__content_old'))]//span[@class="price-value"]
   - name: paid
     singleValue: true
     description: Whether this is a sponsored/paid result
