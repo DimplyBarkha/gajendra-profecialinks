@@ -65,9 +65,9 @@ fields:
     type: NUMBER
   - name: brandText
     singleValue: true
+    type: TEXT
     description: Product brand shown - this may actually NOT be just a brand name
-    xpath: //div//h1[@class='modal-heading']//text()
-    regExp: '^(?:\S+\s+\n?){1,2}'
+    xpath: //div[@class='container-product-more-pdp']//span[(contains(text(),'About the Producer'))]/following-sibling::span//text()
   - name: manufacturer
     singleValue: true
     type: TEXT
@@ -101,7 +101,8 @@ fields:
     singleValue: true
     description: The number of packs in the product offer
     xpath: //div[@class='product-heading']/h1//text()
-    regExp: '[^-]*$'
+    regExp: '(- )(\d.+)'
+    regExpReplace: $2
   - name: legalDisclaimer
     type: TEXT
     description: Content under "legal disclaimer" header
