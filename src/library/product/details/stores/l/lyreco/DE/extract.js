@@ -68,6 +68,10 @@ module.exports = {
         addElementToDocument('spec', spec);
       }
 
+      //category ( ov is strict to "Ihre Ergebnisse" )
+      var cat = "Ihre Ergebnisse";
+      addElementToDocument('cat', cat);
+
 
     });
     await context.extract(productDetails);
