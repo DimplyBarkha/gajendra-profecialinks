@@ -161,24 +161,24 @@ const transform = (data) => {
         });
       }
 
-      if (row.sodiumPerServing) {
-        row.sodiumPerServing.forEach(item => {
-          if (item.text.includes("mg")) {
-            let split = item.text.split("mg");
-            item.text = `${split[0]}`;
-          }
-        });
+      // if (row.sodiumPerServing) {
+      //   row.sodiumPerServing.forEach(item => {
+      //     if (item.text.includes("mg")) {
+      //       let split = item.text.split("mg");
+      //       item.text = `${split[0]}`;
+      //     }
+      //   });
 
-      }
-      if (row.saturatedFatPerServing) {
-        row.saturatedFatPerServing.forEach(item => {
-          if (item.text.includes("g")) {
-            let split = item.text.split("g");
-            item.text = `${split[0]}`;
-          }
-        });
+      // }
+      // if (row.saturatedFatPerServing) {
+      //   row.saturatedFatPerServing.forEach(item => {
+      //     if (item.text.includes("g")) {
+      //       let split = item.text.split("g");
+      //       item.text = `${split[0]}`;
+      //     }
+      //   });
 
-      }
+      // }
 
       if (row.promotion) {
         let text = [];
@@ -199,23 +199,37 @@ const transform = (data) => {
           },
         ];
       }
-      if (row.proteinPerServing) {
-        row.proteinPerServing.forEach(item => {
-          if (item.text.includes("g")) {
-            let split = item.text.split("g");
-            item.text = `${split[0]}`;
-          }
-        });
-      }
 
-      if (row.totalCarbperServing) {
-        row.totalCarbperServing.forEach(item => {
-          if (item.text.includes("g")) {
-            let split = item.text.split("g");
-            item.text = `${split[0]}`;
+      if (row.listPrice) {
+        row.listPrice.forEach(item => {
+          let data = JSON.parse(item.text);
+          console.log("data",data);
+          if (data['offers']) {
+            if (data['offers']['price']) {
+              item.text = data['offers']['price'];
+            }
+          } else {
+            item.text = "";
           }
         });
       }
+      // if (row.proteinPerServing) {
+      //   row.proteinPerServing.forEach(item => {
+      //     if (item.text.includes("g")) {
+      //       let split = item.text.split("g");
+      //       item.text = `${split[0]}`;
+      //     }
+      //   });
+      // }
+
+      // if (row.totalCarbperServing) {
+      //   row.totalCarbperServing.forEach(item => {
+      //     if (item.text.includes("g")) {
+      //       let split = item.text.split("g");
+      //       item.text = `${split[0]}`;
+      //     }
+      //   });
+      // }
 
     }
   }

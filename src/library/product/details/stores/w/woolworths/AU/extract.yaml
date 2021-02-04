@@ -96,7 +96,9 @@ fields:
   - name: descriptionBullets
     singleValue: false
     xpath: count(//h2[text()='Product Details']/following-sibling::wow-view-more//div[contains(@class,'viewMore-')]//div//text())
-
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class='ng-star-inserted']//script[@type='application/ld+json']
 
 
 
