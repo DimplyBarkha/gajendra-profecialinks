@@ -7,31 +7,31 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  console.log("inputs:: ", inputs);
-  const {url, id } = inputs;
-  console.log("parameters:: ", parameters);
-  if(id){
-  await new Promise((resolve, reject) => setTimeout(resolve, 10000));
-  await context.waitForXPath('//div[@id="resultadosBusquedaContainerGeneral"]//a');
+  console.log('inputs:: ', inputs);
+  const { url, id } = inputs;
+  console.log('parameters:: ', parameters);
+  if (id) {
+    await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+    await context.waitForXPath('//div[@id="resultadosBusquedaContainerGeneral"]//a');
 
-  await context.waitForSelector('div#resultadosBusquedaContainerGeneral a');
-  console.log('everything fine !!!');
-  await context.evaluate(() => {
-    const firstItem = document.querySelector('div#resultadosBusquedaContainerGeneral a');
-    firstItem.click();
-  });
+    await context.waitForSelector('div#resultadosBusquedaContainerGeneral a');
+    console.log('everything fine !!!');
+    await context.evaluate(() => {
+      const firstItem = document.querySelector('div#resultadosBusquedaContainerGeneral a');
+      firstItem.click();
+    });
 
-  await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 10000));
 
-  await context.evaluate(async function () {
-    function addHiddenDiv (id, content) {
-      const newDiv = document.createElement('div');
-      newDiv.id = id;
-      newDiv.textContent = content;
-      newDiv.style.display = 'none';
-      document.body.appendChild(newDiv);
-    }   
-  });
+    await context.evaluate(async function () {
+      function addHiddenDiv (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+    });
   }
   return await context.extract(productDetails, { transform });
 }

@@ -71,7 +71,19 @@ const transform = (data) => {
         row.manufacturer = row.manufacturer1;
       }
       if (row.gtin && row.gtin[1]) {
-        row.gtin[1].text = row.gtin[1].text.replace('UPC ', ' ');
+        row.gtin[1].text = row.gtin[1].text.replace('UPC ', '');
+      }
+      if (row.ingredientsList) {
+        console.log('row.ingredientsList', row.ingredientsList);
+      //   let text = '';
+      //   row.ingredientsList.forEach(item => {
+      //     text = item.text.trim();
+      //   });
+      //   row.ingredientsList = [
+      //     {
+      //       text: text,
+      //     },
+      //   ];
       }
       if (row.variantId && row.variantId[0]) {
         row.variantId[0].text = row.variantId[0].text.replace('UPC ', '');
@@ -120,7 +132,7 @@ const transform = (data) => {
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')} || `;
+          text += `${item.text.replace(/\n \n/g, ':')} || `.trim();
         });
         row.description = [
           {
@@ -165,11 +177,11 @@ const transform = (data) => {
       if (row.ingredientsList) {
         let text = '';
         row.ingredientsList.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')}  `;
+          text += `${item.text.replace(/\n \n/g, ':')} `.trim();
         });
         row.ingredientsList = [
           {
-            text: text.slice(0, -1),
+            text: text,
           },
         ];
       }
