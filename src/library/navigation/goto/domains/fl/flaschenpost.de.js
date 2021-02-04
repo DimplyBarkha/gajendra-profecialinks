@@ -15,9 +15,9 @@ module.exports = {
     // patch for synchronicity issue between json decoring and goto result
     try {
       // @ts-ignore
-      await context.waitForSelector('div[class="fp-productList"]', 8000)      
+      await context.waitForSelector('div[class="fp-productList"]', 6000)      
     } catch (error) {
-      await new Promise(r => setTimeout(r, 11000));
+      await new Promise(r => setTimeout(r, 10000));
     }
   },
 };
