@@ -2,27 +2,30 @@ input:
   id: DF19263_5
   _url: http://monsterpetsupplies.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=27e13b09-635e-478b-8f5e-19d6a6b9c189/task=9d9b4591-d479-419f-9835-9a3bc8ead5f6/7109c60c-0aab-4250-8489-4efd2886c831.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=b7a103d0-5423-4f37-a282-4fd1e0cbe60a/task=7adc93ec-c9c0-4489-925a-977582444ac4/5fcdac8b-53dc-440c-b780-410326f27de7.html
     extractionConfigId: product/details/stores/m/monsterpetsupplies/UK/extract
     data:
       - group:
           - productUrl:
               - text: https://www.monsterpetsupplies.co.uk/dog/puppy-dry-food/royal-canin-mini-junior-dog-food
                 xpath: /html/head[1]/link[11]/@href
+            image:
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1589877130/users/1002020_1_tvupk2.jpg
+                xpath: /html/body/ol[1]/li[1]/@image
             imageAlt:
               - text: Royal Canin Mini Puppy Dry Dog Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/span[1]/img[1]/@alt
             alternateImages:
               - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1546946387/alt2qwfprkakxroh0myd_dp6w3f.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/img[1]/@src
+                xpath: /html/body/ol[1]/li[2]/@image
               - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1546946533/d3wb4xtuvynseqvrsvyr_oow1vk.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/img[1]/@src
+                xpath: /html/body/ol[1]/li[3]/@image
               - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1546946581/um0dcjzewumljayoebia_widqxx.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/img[1]/@src
+                xpath: /html/body/ol[1]/li[4]/@image
               - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1546946610/feerlmvvo1wun2yfgmzd_dw69bw.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/img[1]/@src
+                xpath: /html/body/ol[1]/li[5]/@image
               - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1575280982/users/dunqd6jk8kqmojycsizo-1_cmht7h.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/img[1]/@src
+                xpath: /html/body/ol[1]/li[6]/@image
             metaKeywords:
               - text: royal canin mini puppy dry dog food
                 xpath: /html/head[1]/meta[4]/@content
@@ -137,20 +140,23 @@ extractions:
           - productUrl:
               - text: https://www.monsterpetsupplies.co.uk/dog/puppy-dry-food/royal-canin-mini-junior-dog-food
                 xpath: /html/head[1]/link[11]/@href
+            image:
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1589877130/users/1002020_1_tvupk2.jpg
+                xpath: /html/body/ol[1]/li[1]/@image
             imageAlt:
               - text: Royal Canin Mini Puppy Dry Dog Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/span[1]/img[1]/@alt
             alternateImages:
               - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1546946387/alt2qwfprkakxroh0myd_dp6w3f.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/img[1]/@src
+                xpath: /html/body/ol[1]/li[2]/@image
               - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1546946533/d3wb4xtuvynseqvrsvyr_oow1vk.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/img[1]/@src
+                xpath: /html/body/ol[1]/li[3]/@image
               - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1546946581/um0dcjzewumljayoebia_widqxx.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/img[1]/@src
+                xpath: /html/body/ol[1]/li[4]/@image
               - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1546946610/feerlmvvo1wun2yfgmzd_dw69bw.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/img[1]/@src
+                xpath: /html/body/ol[1]/li[5]/@image
               - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1575280982/users/dunqd6jk8kqmojycsizo-1_cmht7h.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/img[1]/@src
+                xpath: /html/body/ol[1]/li[6]/@image
             metaKeywords:
               - text: royal canin mini puppy dry dog food
                 xpath: /html/head[1]/meta[4]/@content
@@ -265,20 +271,23 @@ extractions:
           - productUrl:
               - text: https://www.monsterpetsupplies.co.uk/dog/puppy-dry-food/royal-canin-mini-junior-dog-food
                 xpath: /html/head[1]/link[11]/@href
+            image:
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1589877130/users/1002020_1_tvupk2.jpg
+                xpath: /html/body/ol[1]/li[1]/@image
             imageAlt:
               - text: Royal Canin Mini Puppy Dry Dog Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/span[1]/img[1]/@alt
             alternateImages:
               - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1546946387/alt2qwfprkakxroh0myd_dp6w3f.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/img[1]/@src
+                xpath: /html/body/ol[1]/li[2]/@image
               - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1546946533/d3wb4xtuvynseqvrsvyr_oow1vk.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/img[1]/@src
+                xpath: /html/body/ol[1]/li[3]/@image
               - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1546946581/um0dcjzewumljayoebia_widqxx.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/img[1]/@src
+                xpath: /html/body/ol[1]/li[4]/@image
               - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1546946610/feerlmvvo1wun2yfgmzd_dw69bw.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/img[1]/@src
+                xpath: /html/body/ol[1]/li[5]/@image
               - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1575280982/users/dunqd6jk8kqmojycsizo-1_cmht7h.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/img[1]/@src
+                xpath: /html/body/ol[1]/li[6]/@image
             metaKeywords:
               - text: royal canin mini puppy dry dog food
                 xpath: /html/head[1]/meta[4]/@content
@@ -393,20 +402,23 @@ extractions:
           - productUrl:
               - text: https://www.monsterpetsupplies.co.uk/dog/puppy-dry-food/royal-canin-mini-junior-dog-food
                 xpath: /html/head[1]/link[11]/@href
+            image:
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1589877130/users/1002020_1_tvupk2.jpg
+                xpath: /html/body/ol[1]/li[1]/@image
             imageAlt:
               - text: Royal Canin Mini Puppy Dry Dog Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/span[1]/img[1]/@alt
             alternateImages:
               - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1546946387/alt2qwfprkakxroh0myd_dp6w3f.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/img[1]/@src
+                xpath: /html/body/ol[1]/li[2]/@image
               - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1546946533/d3wb4xtuvynseqvrsvyr_oow1vk.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/img[1]/@src
+                xpath: /html/body/ol[1]/li[3]/@image
               - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1546946581/um0dcjzewumljayoebia_widqxx.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/img[1]/@src
+                xpath: /html/body/ol[1]/li[4]/@image
               - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1546946610/feerlmvvo1wun2yfgmzd_dw69bw.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/img[1]/@src
+                xpath: /html/body/ol[1]/li[5]/@image
               - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1575280982/users/dunqd6jk8kqmojycsizo-1_cmht7h.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/img[1]/@src
+                xpath: /html/body/ol[1]/li[6]/@image
             metaKeywords:
               - text: royal canin mini puppy dry dog food
                 xpath: /html/head[1]/meta[4]/@content
@@ -519,4 +531,4 @@ extractions:
               - text: Yes
                 xpath: /html/body/div[25]
         xpath: /html
-    timestamp: 1612424758684
+    timestamp: 1612444096722

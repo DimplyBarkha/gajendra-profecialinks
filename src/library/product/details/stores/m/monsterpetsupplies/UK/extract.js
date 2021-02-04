@@ -36,7 +36,9 @@ module.exports = {
       const allVariants = document.querySelectorAll('div.price-wrap section.monster-product-desc-details');
       for (let i = 0; i < allVariants.length; i++) {
         const variantElem = allVariants[i];
-        const name = document.querySelector('h1[itemprop="name"]') ? document.querySelector('h1[itemprop="name"]').textContent : '';
+        const name = document.querySelector('h1[itemprop="name"]')
+          ? document.querySelector('h1[itemprop="name"]').textContent
+          : '';
         const price = variantElem.querySelector('p.varient-price')
           ? variantElem.querySelector('p.varient-price').textContent
           : '';
@@ -62,6 +64,22 @@ module.exports = {
         variantElem.setAttribute('sku', sku);
         variantElem.setAttribute('promotion', promotion);
         variantElem.setAttribute('availability', availability);
+      }
+
+      const imagesList = document.createElement('ol');
+      imagesList.id = 'images_list';
+      imagesList.style.display = 'none';
+      document.body.appendChild(imagesList);
+
+      const allImages = document.querySelectorAll('div.monster-pet-product.clearfix div#productShowcaseInner li > img');
+      for (let i = 0; i < allImages.length; i++) {
+        const listItem = document.createElement('li');
+        const image = allImages[i];
+        let src = image.getAttribute('src');
+        const srcMatch = src.match(/(.+\/upload)(\/.+?)(\/.+)/);
+        src = srcMatch ? `${srcMatch[1]}${srcMatch[3]}` : src;
+        listItem.setAttribute('image', src);
+        imagesList.appendChild(listItem);
       }
 
       addElementToDom(allVariants.length, 'variant_count');

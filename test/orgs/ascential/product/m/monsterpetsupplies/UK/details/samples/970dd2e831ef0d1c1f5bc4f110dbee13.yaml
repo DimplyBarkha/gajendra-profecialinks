@@ -2,21 +2,24 @@ input:
   id: CF19061_1
   _url: http://monsterpetsupplies.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=27e13b09-635e-478b-8f5e-19d6a6b9c189/task=cec52a7f-dce0-4f1c-b090-451103663131/32a1148f-51f8-49f8-b110-13f2a79b4f2c.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=b7a103d0-5423-4f37-a282-4fd1e0cbe60a/task=182a7112-8127-4c87-ab08-59635fb3ad57/3bcfbe10-4252-46e9-abd6-7ad637a35d6e.html
     extractionConfigId: product/details/stores/m/monsterpetsupplies/UK/extract
     data:
       - group:
           - productUrl:
               - text: https://www.monsterpetsupplies.co.uk/cat/wet-cat-food/gourmet-perle-mini-fillets-with-chicken-24-x-85g
                 xpath: /html/head[1]/link[11]/@href
+            image:
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1607444328/users/5000161030149_t517_qaoxdj.jpg
+                xpath: /html/body/ol[1]/li[1]/@image
             imageAlt:
               - text: Gourmet Perle Mini Chicken Fillets Cat Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/span[1]/img[1]/@alt
             alternateImages:
               - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1551176013/5000161030149_vquud1.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/img[1]/@src
+                xpath: /html/body/ol[1]/li[2]/@image
               - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1607444326/users/5000161030149_t3_ac59ty.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/img[1]/@src
+                xpath: /html/body/ol[1]/li[3]/@image
             metaKeywords:
               - text: gourmet perle mini chicken fillets cat food
                 xpath: /html/head[1]/meta[4]/@content
@@ -78,4 +81,4 @@ extractions:
               - text: Yes
                 xpath: /html/body/div[19]
         xpath: /html
-    timestamp: 1612424757083
+    timestamp: 1612444083611

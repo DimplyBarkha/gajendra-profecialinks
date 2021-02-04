@@ -2,19 +2,22 @@ input:
   id: CF27386_1
   _url: http://monsterpetsupplies.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=27e13b09-635e-478b-8f5e-19d6a6b9c189/task=6cefdbca-caa6-4943-9efe-dac7bcd0e6a6/e1ec331a-d967-4940-b370-24e394ed590e.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=b7a103d0-5423-4f37-a282-4fd1e0cbe60a/task=7529ee5c-4ff4-4f74-a27c-da7ae27d0379/c741f854-9a6c-484b-b9fa-8ee7e4591a9a.html
     extractionConfigId: product/details/stores/m/monsterpetsupplies/UK/extract
     data:
       - group:
           - productUrl:
               - text: https://www.monsterpetsupplies.co.uk/cat/wet-cat-food/felix-sensations-crunchies-cat-food-meat-100g-x-40
                 xpath: /html/head[1]/link[11]/@href
+            image:
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1574861904/users/7613036010542_T517_ha3eoo.jpg
+                xpath: /html/body/ol[1]/li[1]/@image
             imageAlt:
               - text: Felix Sensations Mixed Selection Crunchies Adult Cat Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/span[1]/img[1]/@alt
             alternateImages:
               - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1610012265/users/8473116_T1_aoxzdf.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/img[1]/@src
+                xpath: /html/body/ol[1]/li[2]/@image
             metaKeywords:
               - text: felix sensations mixed selection crunchies adult cat food
                 xpath: /html/head[1]/meta[4]/@content
@@ -85,12 +88,15 @@ extractions:
           - productUrl:
               - text: https://www.monsterpetsupplies.co.uk/cat/wet-cat-food/felix-sensations-crunchies-cat-food-meat-100g-x-40
                 xpath: /html/head[1]/link[11]/@href
+            image:
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1574861904/users/7613036010542_T517_ha3eoo.jpg
+                xpath: /html/body/ol[1]/li[1]/@image
             imageAlt:
               - text: Felix Sensations Mixed Selection Crunchies Adult Cat Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/span[1]/img[1]/@alt
             alternateImages:
               - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1610012265/users/8473116_T1_aoxzdf.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/img[1]/@src
+                xpath: /html/body/ol[1]/li[2]/@image
             metaKeywords:
               - text: felix sensations mixed selection crunchies adult cat food
                 xpath: /html/head[1]/meta[4]/@content
@@ -159,4 +165,4 @@ extractions:
               - text: Yes
                 xpath: /html/body/div[19]
         xpath: /html
-    timestamp: 1612424760673
+    timestamp: 1612444089732

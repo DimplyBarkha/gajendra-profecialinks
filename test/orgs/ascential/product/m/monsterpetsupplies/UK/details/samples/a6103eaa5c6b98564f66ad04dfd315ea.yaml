@@ -2,19 +2,22 @@ input:
   id: CF21491_1
   _url: http://monsterpetsupplies.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=27e13b09-635e-478b-8f5e-19d6a6b9c189/task=9eb2612c-951f-443a-b780-febd1c578521/a608850a-437a-4e10-8b77-74ae86a15082.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=b7a103d0-5423-4f37-a282-4fd1e0cbe60a/task=b0de8519-aef3-4a0a-ae07-cb9b58d8f1e2/56af8a6a-a5ea-4dcc-9c32-6ddffcfff353.html
     extractionConfigId: product/details/stores/m/monsterpetsupplies/UK/extract
     data:
       - group:
           - productUrl:
               - text: https://www.monsterpetsupplies.co.uk/cat/wet-cat-food/gourmet-perle-pouch-delicate-meat-duos-12x85g
                 xpath: /html/head[1]/link[11]/@href
+            image:
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1551172460/5385056_T1_l4mwdf.jpg
+                xpath: /html/body/ol[1]/li[1]/@image
             imageAlt:
               - text: Gourmet Perle Delicate Meats Duo Cat Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/span[1]/img[1]/@alt
             alternateImages:
               - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1607533960/users/5385056_T3_zq4ffj.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/img[1]/@src
+                xpath: /html/body/ol[1]/li[2]/@image
             metaKeywords:
               - text: gourmet perle delicate meats duo cat food
                 xpath: /html/head[1]/meta[4]/@content
@@ -76,4 +79,4 @@ extractions:
               - text: Yes
                 xpath: /html/body/div[19]
         xpath: /html
-    timestamp: 1612424757474
+    timestamp: 1612444084661

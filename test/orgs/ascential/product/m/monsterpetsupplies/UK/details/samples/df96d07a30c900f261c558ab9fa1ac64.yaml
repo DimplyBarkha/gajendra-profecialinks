@@ -2,29 +2,32 @@ input:
   id: DF25497_2
   _url: http://monsterpetsupplies.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=27e13b09-635e-478b-8f5e-19d6a6b9c189/task=77b43875-1aec-44bd-aa1d-514372a5328f/a781731a-ca16-4176-b237-12996227d9e8.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=b7a103d0-5423-4f37-a282-4fd1e0cbe60a/task=8e6d207e-c854-43bc-9330-bffe2948cfb8/ec31c069-19e9-489c-8e12-2bc6e67ef4e9.html
     extractionConfigId: product/details/stores/m/monsterpetsupplies/UK/extract
     data:
       - group:
           - productUrl:
               - text: https://www.monsterpetsupplies.co.uk/dog/natural-dog-food/beyond-simply-9-chicken2kg
                 xpath: /html/head[1]/link[11]/@href
+            image:
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1600870436/users/7613037046175_mfr1lf.jpg
+                xpath: /html/body/ol[1]/li[1]/@image
             imageAlt:
               - text: Purina Beyond Simply 9 Chicken & Barley Adult Dog Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/span[1]/img[1]/@alt
             alternateImages:
               - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1601630205/users/Beyond_Dog_Chicken_Barley_PARENT_MHI_l1zkh1.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/img[1]/@src
+                xpath: /html/body/ol[1]/li[2]/@image
               - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1600870437/users/7613037046175_t65_rslr0d.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/img[1]/@src
+                xpath: /html/body/ol[1]/li[3]/@image
               - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1600870437/users/7613037046175_t63_ltlwz6.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/img[1]/@src
+                xpath: /html/body/ol[1]/li[4]/@image
               - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1600870438/users/7613037046175_t62_rusien.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/img[1]/@src
+                xpath: /html/body/ol[1]/li[5]/@image
               - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1600870437/users/7613037046175_t60_x4hiog.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/img[1]/@src
+                xpath: /html/body/ol[1]/li[6]/@image
               - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1600870437/users/7613037046175_t64_mv6bnq.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/img[1]/@src
+                xpath: /html/body/ol[1]/li[7]/@image
             metaKeywords:
               - text: purina beyond simply 9 chicken & barley adult dog food
                 xpath: /html/head[1]/meta[4]/@content
@@ -123,22 +126,25 @@ extractions:
           - productUrl:
               - text: https://www.monsterpetsupplies.co.uk/dog/natural-dog-food/beyond-simply-9-chicken2kg
                 xpath: /html/head[1]/link[11]/@href
+            image:
+              - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1600870436/users/7613037046175_mfr1lf.jpg
+                xpath: /html/body/ol[1]/li[1]/@image
             imageAlt:
               - text: Purina Beyond Simply 9 Chicken & Barley Adult Dog Food
                 xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/span[1]/img[1]/@alt
             alternateImages:
               - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1601630205/users/Beyond_Dog_Chicken_Barley_PARENT_MHI_l1zkh1.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/img[1]/@src
+                xpath: /html/body/ol[1]/li[2]/@image
               - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1600870437/users/7613037046175_t65_rslr0d.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/img[1]/@src
+                xpath: /html/body/ol[1]/li[3]/@image
               - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1600870437/users/7613037046175_t63_ltlwz6.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/img[1]/@src
+                xpath: /html/body/ol[1]/li[4]/@image
               - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1600870438/users/7613037046175_t62_rusien.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/img[1]/@src
+                xpath: /html/body/ol[1]/li[5]/@image
               - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1600870437/users/7613037046175_t60_x4hiog.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/img[1]/@src
+                xpath: /html/body/ol[1]/li[6]/@image
               - text: https://res.cloudinary.com/monsterpetsupplies/image/upload/v1600870437/users/7613037046175_t64_mv6bnq.jpg
-                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/img[1]/@src
+                xpath: /html/body/ol[1]/li[7]/@image
             metaKeywords:
               - text: purina beyond simply 9 chicken & barley adult dog food
                 xpath: /html/head[1]/meta[4]/@content
@@ -231,4 +237,4 @@ extractions:
               - text: Yes
                 xpath: /html/body/div[25]
         xpath: /html
-    timestamp: 1612424759522
+    timestamp: 1612444087345
