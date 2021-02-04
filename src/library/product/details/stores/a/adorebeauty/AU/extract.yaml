@@ -4,7 +4,7 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    xpath: //ul[@class="glide__slides"]//li[position()=1]//div[@class='image-container']//img[@lazy='loading']/@data-src
+    xpath: //ul[@class="glide__slides"]//li[position()=1]//div[@class='image-container']//img[@lazy='loading']/@data-src|//ul[@class="glide__slides"]//li[position()=1]//div[@class='image-container']//img[@width='500']/@src
     regExp: (.+)(png|jpg)
   - name: imageAlt
     xpath: //div[@class='image-container']//img[@lazy='loading']/@alt

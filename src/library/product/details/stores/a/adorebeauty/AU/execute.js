@@ -5,7 +5,7 @@ module.exports = {
     store: 'adorebeauty',
     domain: 'adorebeauty.com.au',
     loadedSelector: 'section.product-main',
-    noResultsXPath: null,
+    noResultsXPath: "//h1[contains(text(), 'Sorry but we couldn't find the page')]",
     zipcode: '',
   },
 };
