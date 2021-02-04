@@ -13,11 +13,11 @@ const implementation = async (inputs, { loadedSelector, noResultsXPath }, contex
     else builtUrl = await dependencies.createUrl(inputs);
   }
   await dependencies.goto({ ...inputs, url: builtUrl || url });
-  await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
   try{
     await context.waitForSelector('div.cookie-dialog-screen button.cookie-consent-accept');
     await context.click('div.cookie-dialog-screen button.cookie-consent-accept');
-    await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 1000));
   }catch(e){
 
   }

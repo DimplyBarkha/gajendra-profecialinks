@@ -45,7 +45,7 @@ async function implementation (
     for (let index = 2; index <= variantCount; index++) {
       try {
         await context.click(`div.swatch-item-wrapper div.swiper-wrapper>div.swiper-slide:nth-child(${index})>button`);
-        await new Promise(resolve => setTimeout(resolve, 10000));
+        await new Promise(resolve => setTimeout(resolve, 6000));
         if (variantCount !== index) {
           await context.extract(productDetails, { type: 'APPEND', transform:transform[0]  });
         } else {
