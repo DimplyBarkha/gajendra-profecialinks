@@ -21,5 +21,5 @@ fields:
   - name: price
     singleValue: false
     xpath: //span[@data-a-color="price"]/span[@class="a-offscreen"] | //*[@data-click-el="price"]/@aria-label | //span[contains(@class,"a-price _multi-card-creative-desktop_Price")]/span[1] | //span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")] | //span[@cel_widget_id="MAIN-SEARCH_RESULTS" and not(/div[contains(@class, "sg-col-inner")])]//div[contains(@class, "a-section") and //span[@class="a-price"]][1]//span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")]
-    regExp: (^([^€]*))(\,)([^\€]*)($)
-    regExpReplace: $5 $2.$4 
+    # regExp: (^([^€]*))(\,)([^\€]*)($)
+    # regExpReplace: $5 $2.$4 

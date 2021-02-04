@@ -10,3 +10,9 @@ fields:
 - name: brandText
   singleValue: false
   xpath: //div[@id="bylineInfo"]/span/span | //div[@id='bylineInfo_feature_div']/div[@id='bylineInfo']
+- name: manufacturer
+  singleValue: false
+  xpath: //*[normalize-space(text())='Fabricante']/following-sibling::*[1]
+- name: gtin
+  singleValue: false
+  xpath: //*[normalize-space(text())="EAN"]/following-sibling::*[1]
