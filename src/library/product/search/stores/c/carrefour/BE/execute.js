@@ -42,7 +42,7 @@ module.exports = {
     country: 'BE',
     store: 'carrefour',
     domain: 'carrefour.eu',
-    url: 'https://drive.carrefour.eu/fr/search?text={searchTerms}',
+    url: 'https://drive.carrefour.eu/fr/search?q={searchTerms}',
     loadedSelector: 'ul.product__listing div.product-item',
     noResultsXPath: '//h2[contains(.,"0 résultats correspondants à")]',
     // noResultsXPath: '//div[@class="slp-container" and contains(.,"Aucun résultat ne correspond à votre recherche. Veuillez faire une nouvelle recherche")]',
