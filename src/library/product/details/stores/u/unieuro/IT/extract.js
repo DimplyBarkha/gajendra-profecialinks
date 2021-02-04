@@ -9,6 +9,12 @@ async function implementation(
     const { transform } = parameters;
     const { productDetails } = dependencies;
     try {
+        await context.waitForSelector('button[id="onetrust-accept-btn-handler"]', { timeout: 5000 });
+        await context.click('button[id="onetrust-accept-btn-handler"]');
+    } catch (e) {
+        console.log("accept cookie button not present...\nError: " + e);
+    }
+    try {
         await context.waitForSelector('div[id="inpage_container"] img', { timeout: 10000 });
     } catch (error) {
         console.log("Manufacturer Description did not loaded....");
@@ -117,9 +123,9 @@ async function implementation(
             return window.location.href
         })
         await context.goto(lezyBeeUrl, { timwout: 10000, waitUntil: 'networkidle0', block_ads: false, js_enabled: true });
-        await context.waitForSelector("#body");
+        await context.waitForSelector("body>div.wrapper, body>div.main-container");
         let cloneEC = await context.evaluate(() => {
-            let div = document.querySelectorAll('body>div.wrapper')
+            let div = document.querySelectorAll('body>div.wrapper, body>div.main-container')
             let str = "";
             div.forEach((node) => {
                 str = str + node.innerText
