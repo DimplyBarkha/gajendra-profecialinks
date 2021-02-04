@@ -5,7 +5,7 @@ module.exports = {
     domain: 'mediamarkt.ch',
     timeout: 10000000,
     country: 'CH',
-    store: 'mediamarkt_ch_de',
+    store: 'mediamarkt_ch_de', // also valid for mediamarkt_ch_fr
     zipcode: '',
   },
   implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
