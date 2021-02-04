@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="clearfix"]
+recordXPath: //div[@class="product-list-entry data-tracking-product"]
 fields:
   - name: id
     singleValue: false
@@ -24,9 +24,9 @@ fields:
   - name: url
     singleValue: false
     xpath: //div[@id="pd_url"]
-  - name: aggregateRating
-    singleValue: false
-    xpath: //div[@id="pd_aggregateRating"]
+  # - name: aggregateRating
+  #   singleValue: false
+  #   xpath: //div[@id="pd_aggregateRating"]
   - name: reviewCount
     singleValue: false
     xpath: //div[@class="rating"]/span/a
