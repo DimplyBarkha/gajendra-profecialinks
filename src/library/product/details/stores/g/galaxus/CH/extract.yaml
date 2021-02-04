@@ -51,8 +51,8 @@ fields:
     regExp: sku":([^,]+)
     regExpReplace: $1
   - name: price
-    singleValue: false
-    xpath: concat(//meta[@property="product:price:currency"]/@content,'',//meta[@property="product:price:amount"]/@content) 
+    singleValue: true
+    xpath: //div[contains(@class,"productDetail")]//div[contains(@class,"Z1")]//strong[not(@class)] | //div[contains(@class,"productDetail")]//div[contains(@class,"Z1")][1]//strong
   - name: weightNet
     singleValue: false
     xpath: //table[contains(@class,"Z1")]//th//h4[text()="Produktdimensionen"]//parent::*/parent::*/parent::*/parent::*/tbody//td[contains(text(),"Gewicht")]/parent::tr/td[2]
@@ -66,6 +66,9 @@ fields:
     singleValue: false
     xpath: //meta[@property="og:rating_count"]/@content
     defaultValue: 0
+  - name: termsAndConditions
+    singleValue: false
+    defaultValue: 'yes'
   - name: reviewCount
     singleValue: false
     xpath: //meta[@property="og:rating_count"]/@content
@@ -81,7 +84,7 @@ fields:
     xpath: //div[contains(@class,"productDetail ")]//span[contains(@class,"productHeaderTitle__Properties-")]
   - name: variantCount
     singleValue: false
-    xpath: count(//span[contains(@class,"volumeDiscountPrices__SaleStyled-iu7k2d-1")])
+    xpath: count(//span[starts-with(@class,"volumeDiscountPrices__SaleStyled")])
   - name: firstVariant
     singleValue: false
     xpath: //script[contains(text(), "sku")][1]/text()
@@ -89,10 +92,10 @@ fields:
     regExpReplace: $1
   - name: variants
     singleValue: false
-    xpath: //span[contains(@class,"volumeDiscountPrices__SaleStyled-iu7k2d-1")]
+    manualSelector: span[class^='volumeDiscountPrices__SaleStyled']
   - name: variantInformation
     singleValue: false
-    xpath: //div[contains(@class,'volumeDiscountPrices__VolumePricesStyled-iu7k2d-0')]//button[contains(@class,'styled__DeprecatedStyledButton-sc-17ihqnc-1')] 
+    manualSelector: span[class^='volumeDiscountPrices__SaleStyled']
   - name: shippingInfo
     singleValue: false
     xpath: //div[@data-test="offerFrom"]//div[not(@class)]//a[contains(@class,"styled__")]/parent::*

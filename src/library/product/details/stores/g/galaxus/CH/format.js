@@ -43,6 +43,7 @@ const transform = (data) => {
             row.price.forEach(item => {
                 item.text = item.text.replace(/\s*/g, '').trim();
                 item.text = item.text.replace('.', '.').trim();
+                item.text = "CHF"+item.text;
             });
         }
         if (row.image) {

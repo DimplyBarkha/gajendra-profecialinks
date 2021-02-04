@@ -21,9 +21,9 @@ async function implementation (
   await dependencies.goto({ url, zipcode, storeId });
   await new Promise((resolve, reject) => setTimeout(resolve, 1000));
     try{
-      await context.waitForSelector('div.expandablePanel__ExpandedPanelContent-sc-1dj0gc8-2.ktiyNu.fade__Fade-fp5b7c-0.gPofqU > button.styled__DeprecatedStyledLink-xb32ls-0.eHOXHK.expandableContentWrapper__ShowMoreButton-aorfkp-0.gRHpPQ',{timeout:500});
+      await context.waitForSelector('div.expandablePanel__ExpandedPanelContent-sc-1dj0gc8-2.ktiyNu.fade__Fade-fp5b7c-0.gPofqU > button[data-test="showMoreButton-description"].styled__DeprecatedStyledLink-xb32ls-0.eHOXHK.expandableContentWrapper__ShowMoreButton-aorfkp-0.gRHpPQ',{timeout:500});
       await new Promise((resolve, reject) => setTimeout(resolve, 1000));
-      await context.click('div.expandablePanel__ExpandedPanelContent-sc-1dj0gc8-2.ktiyNu.fade__Fade-fp5b7c-0.gPofqU > button.styled__DeprecatedStyledLink-xb32ls-0.eHOXHK.expandableContentWrapper__ShowMoreButton-aorfkp-0.gRHpPQ');
+      await context.click('div.expandablePanel__ExpandedPanelContent-sc-1dj0gc8-2.ktiyNu.fade__Fade-fp5b7c-0.gPofqU > button[data-test="showMoreButton-description"].styled__DeprecatedStyledLink-xb32ls-0.eHOXHK.expandableContentWrapper__ShowMoreButton-aorfkp-0.gRHpPQ');
       await new Promise((resolve, reject) => setTimeout(resolve, 8000));
     }catch(e){
   
