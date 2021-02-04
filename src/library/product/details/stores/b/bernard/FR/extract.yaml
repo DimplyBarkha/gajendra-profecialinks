@@ -6,129 +6,101 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: (//img[@class="skuImageSTD"]/@src)[1]
-    regExp: (.+)
-    regExpReplace: https:$1
-  - name: imageAlt
+    xpath: //img[@class="pr-2"]/@src
+    # regExp: (.+)
+    # regExpReplace: https:$1
+  - name: productUrl
     singleValue: true
-    description: Alt text of the main product image
-    xpath: (//img[@id="SkuPageMainImg"]/@alt)[1]
+    description: Url of the the product
+    xpath: //link[@rel="canonical"]/@href
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //li[@class="itemThumb"]
+    xpath: //div[@data-nav="1"]//img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //ol[@class='ML_s breadCrumbSchema']//span//text()
+    xpath: //ol[@class="page-breadcrumb"]//span//a//@title
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${tstType}" if necessary (fixed per feed)
     type: TEXT
-    xpath: //h1[@class="skuName"]/text()
+    xpath: //h1[@class="product-sku__title"]/text()
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
+    xpath: //span[@class="product-sku__old-price"]
+    type: CURRENCY
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //span[@id="stickyProductBarPriceLabel"]//text()
+    xpath: //span[@class="product-sku__price-min"]
+    type: CURRENCY
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     type: TEXT
-    xpath: //span[@class="leadText SL_m"]
+    defaultValue: In Stock
   - name: description
-    singleValue: true
+    singleValue: false
     description: Product description supplied by the website
-    xpath: //div[@id="SkuTabDescription"]
+    xpath: //div[@class="description-sku__figure-text"]//text()
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
-    xpath: count(//div[@class="qOverflow"]//ul//li)
+    xpath: count(//div[@class="description-sku__figure-text"]//text())
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    regExp: '[^:]*$'
-    xpath: (//div[@class="formLabel SL_m"])[1]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: (//div[@class="formLabel SL_m"])[1]
-    regExp: '[^:]*$'
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    xpath: (//td[@class="grey PBBorder"])[1]
-  - name: weightNet
-    singleValue: true
-    description: Net weight as described on the page
-  - name: weightGross
-    singleValue: true
-    description: Gross weight as described on the page
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: (//div[@class="formLabel"]/text())[1]
+    xpath: //div[@class="col product-sku__ref"]
     regExp: (\d{3,9})
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: (//div[@class="formLabel"]/text())[1]
+    xpath: //div[@class="col product-sku__ref"]
     regExp: (\d{3,9})
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: (//div[@class="formLabel"]/text())[1]
+    xpath: //div[@class="col product-sku__ref"]
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
+    xpath: //span[contains(text(),'Nombre de feuilles')]/following-sibling::strong//text()
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
-  - name: directions
-    singleValue: true
-    description: Content under "directions" header
-  - name: warnings
-    singleValue: true
-    description: Content under "warnings" header
   - name: reviewCount
     singleValue: true
-    description: The number of ratings
-    xpath: //span[@class="link scTrack scLink"]
-  - name: name
-    singleValue: true
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${tstType}" if necessary (fixed per feed)
-    type: TEXT
-    xpath: //h1[@class="skuName"]/text()
-  - name: aggregateRatingText
-    singleValue: true
-    description: The stated aggregate rating
-  - name: aggregateRating2
-    singleValue: true
-    description: The stated aggregate rating normalized to be out of 5
-    xpath: //span[@id="productRating"]
+    description: The number of ratings)
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
-    xpath: (//li[@class="txtDesc oddRow"])[6]
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
@@ -139,7 +111,6 @@ fields:
   - name: color
     singleValue: true
     description: A textual description of the colour
-    regExp: '[^:]*$'
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -158,18 +129,6 @@ fields:
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
-  - name: asin
-    singleValue: true
-    description: null
-  - name: coupon
-    singleValue: true
-    description: Text of any coupon offer
-  - name: amazonChoice
-    singleValue: true
-    description: YES or Blank
-  - name: amazonChoiceCategory
-    singleValue: true
-    description: Text of link next to Amazon choice graphic
   - name: brandLink
     singleValue: true
     description: null
@@ -246,7 +205,7 @@ fields:
     singleValue: true
     description: null
     type: NUMBER
-    xpath: count(//li[@class="itemThumb"])
+    xpath: count(//div[@data-nav="1"]//img/@src)
   - name: news
     singleValue: true
     description: null
@@ -408,7 +367,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: //div[@id="skuTabSpecifications"]
+    xpath: //ul[@class="col wrap"]
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -439,11 +398,10 @@ fields:
   - name: pricePerUnitUom
     singleValue: true
     description: The unit of measurement used in price_per_unit
-  # - name: promotion
-  #   singleValue: true
-  #   description: promotion text on product page
-  #   xpath: (//span[@id="spnNavItemName"])[6]
-  #   type: TEXT
+  - name: promotion
+    singleValue: false
+    description: promotion text on product page
+    xpath: //div[@class="col product-sku__promo"]
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
@@ -479,8 +437,6 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
-    xpath: //div[@id="SkuTabDescription"]
-    type: TEXT[]
   - name: prop65Warning
     singleValue: true
     description: null
