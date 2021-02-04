@@ -188,7 +188,8 @@ fields:
     xpath: //section[@id="in_box-accordion"]//ul/li
   - name: unInterruptedPDP
     singleValue: false    
-    xpath: //div[@class="slider"]//ul[@class="slider-list"]//li[contains(@class,'slider-slide')]//h2[@itemprop="name"]//a/@title
+    # xpath: //div[@class="slider"]//ul[@class="slider-list"]//li[contains(@class,'slider-slide')]//h2[@itemprop="name"]//a/@title
+    xpath: //div[@class="slider"]//ul[@class="slider-list"]//li[contains(@class,'slider-slide')]//h2//a/@title
   - name: hasComparisonTable
     singleValue: true
     defaultValue: No
