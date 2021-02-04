@@ -126,15 +126,11 @@ module.exports = {
 
       // Product Description 
       const getDescription = (d) => {
-        var arr = "";
-        for (var i = 0; i < d.length; i++) {
-          arr += d[i];
-        }
-        var rmP = arr.replace('Print', '');
-        var specs = rmP.trim().replaceAll('\n', '||');
-        addElementToDocument('specs', specs);
-      }
-      var description = getAllXpath('(//div[@id="tab_description"])/descendant::text()', 'nodeValue');
+        var desc = d.replaceAll(/\n+/gm,'\n').replaceAll('•'||'●','||').replaceAll('\n','|').replaceAll('|||','||');        
+        addElementToDocument('specs',desc);
+      };
+      // @ts-ignore
+      var description = document.querySelector('div[id="tab_description"]').innerText;
       getDescription(description);
 
       // Directions 
