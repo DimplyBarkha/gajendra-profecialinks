@@ -5,8 +5,8 @@ module.exports = {
     store: 'aptekagemini',
     domain: 'aptekagemini.pl',
     url: 'https://www.aptekagemini.pl/znajdz?query={searchTerms}',
-    loadedSelector: '[class="ais-SortBy"]',
-    noResultsXPath: '//div/h2[@class=""]',
+    loadedXPath: '//ol[contains(@class,"ais-Hits-list")]//li[contains(@class,"ais-Hits-item")]//div[@class = "product-card__container"]',
+    noResultsXPath: '//h2[contains(.,"Niestety")]',
     zipcode: '',
   },
 
