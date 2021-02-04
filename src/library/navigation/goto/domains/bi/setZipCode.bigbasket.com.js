@@ -4,7 +4,6 @@ async function implementation(
   context,
   dependencies,
 ) {
-  const { storeId, zipcode } = inputs;
   //code for appending the storeId and Zipcode
   await context.evaluate(async (inputs) => {
     const locationElement = document.evaluate('//span[contains(text(),"Login")]/../preceding-sibling::div[1]', document).iterateNext();
@@ -26,7 +25,7 @@ async function implementation(
     let ourZipcode = null;
     for (let i = 0; i < allOptions.snapshotLength; i++) {
       let data = allOptions.snapshotItem(i).textContent;
-      if (data === inputs.zipcode) {
+      if (data === inputs.Postcode) {
         ourZipcode = allOptions.snapshotItem(i);
       }
     }
@@ -36,7 +35,7 @@ async function implementation(
     }
     const storeIdElement = document.evaluate('//input[contains(@placeholder,"Enter your area / apartment / pincode")]', document).iterateNext();
     if (storeIdElement) {
-      storeIdElement.value = inputs.storeId;
+      storeIdElement.value = inputs.StoreID;
     }
     const countinueElement = document.evaluate('//button[contains(text(),"Continue")]', document).iterateNext();
     if (countinueElement) {
@@ -46,8 +45,8 @@ async function implementation(
   }, inputs)
   await context.evaluate((inputs) => {
     const zipcodeDiv = document.querySelector('div[id="price"]');
-    zipcodeDiv.setAttribute('storeid', inputs.storeId);
-    zipcodeDiv.setAttribute('zipcode', inputs.zipcode);
+    zipcodeDiv.setAttribute('storeid', inputs.StoreID);
+    zipcodeDiv.setAttribute('zipcode', inputs.Postcode);
     console.log('appended the zipinformation successfully');
   }, inputs)
 }

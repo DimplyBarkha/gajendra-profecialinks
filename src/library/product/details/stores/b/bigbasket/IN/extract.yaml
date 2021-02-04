@@ -109,12 +109,13 @@ fields:
 
   # extra GEO fields
   - name: onlineStore
-    singleValue: true
     description: store name
+    xpath: //div[@id="mainHeader"]/div/div/div[2]
   - name: drive
     description: Postcode/Drive of the store to identifyPostcode/Drive of the store - To identify which postcode for a certain retailer.
     xpath: //div[@id="price"]/@zipcode
   - name: driveId
+    xpath: //div[@id="price"]/@zipcode
   - name: retailerId
     singleValue: true
     description: Store number - To identify which store for a certain retailer.
