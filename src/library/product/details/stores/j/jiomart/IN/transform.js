@@ -26,8 +26,17 @@ const transform = (data, context) => {
         row.description = [{ text: descText }];
       }
 
-      if (row.quantity && row.quantity[0].text.includes('Buy')) {
-        delete row.quantity;
+      if (row.quantity) {
+        const quantText = row.quantity[0].text;
+        const lowerCasedQuant = quantText.toLowerCase();
+
+        if (lowerCasedQuant.includes('set') || lowerCasedQuant.includes('pack') || lowerCasedQuant.includes('pak') || lowerCasedQuant.includes('pcs')) {
+          row.packSize = [{ text: quantText }];
+        }
+
+        if (!lowerCasedQuant.includes('size')) {
+          delete row.quantity;
+        }
       }
 
       if (row.ratingCount && row.ratingCount[0].value === 0) {

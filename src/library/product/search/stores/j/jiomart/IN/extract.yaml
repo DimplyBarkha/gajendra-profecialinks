@@ -54,13 +54,13 @@ fields:
   - name: sku
     singleValue: false
     description: The store-specific product identifier
+    xpath: //div[@class="cart_btn"]/button/@data-sku
   - name: mpc
     singleValue: false
     description: The model code of the product
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
-    xpath: //div[@class="cart_btn"]/button/@data-sku
   - name: aggregateRatingText
     singleValue: false
     description: The stated aggregate rating

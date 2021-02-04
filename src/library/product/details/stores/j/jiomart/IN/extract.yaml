@@ -69,6 +69,14 @@ fields:
     singleValue: true
     description: Product manufacturer
     xpath: //th[contains(text(),"Manufacturer")]//following-sibling::td
+  # - name: packSize
+  #   singleValue: true
+  #   description: The number of packs in the product offer (if stated separately on
+  #     the site to quantity)
+  #   xpath: //div[@class="title-section"]/h1
+  #   regExp: >-
+  #     \((.+)\)
+  #   regExpReplace: $1
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -98,10 +106,6 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-  - name: packSize
-    singleValue: true
-    description: The number of packs in the product offer (if stated separately on
-      the site to quantity)
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
@@ -131,6 +135,7 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
+    xpath: //div[@class="seller_details"]
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
