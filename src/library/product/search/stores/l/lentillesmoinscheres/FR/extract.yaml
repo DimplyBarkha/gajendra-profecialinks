@@ -26,5 +26,5 @@ fields:
   - name: id
     singleValue: false
     xpath: //ul[@class='products-catalog row']//li//div[@class='picture']//img/@src
-    regExp: ([^\/]+)(.jpg)
-    regExpReplace: $1
+    # regExp: product\/(.+\/)?([A-Z0-9-]+)(-_-\d+)?(([0-9\_x]+)?\.(jpg|gif))
+    # regExpReplace: $2$3
