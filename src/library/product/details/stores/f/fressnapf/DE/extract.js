@@ -10,7 +10,7 @@ module.exports = {
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
     await context.evaluate(async function () {
-      function addHiddenDiv(id, content, index) {
+      function addHiddenDiv (id, content, index) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
@@ -26,7 +26,7 @@ module.exports = {
       //   const originalDiv = document.querySelectorAll("div[class='pvsil-title']")[0];
       //   originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       // }
-      function addHiddenDiv2(id, content, index) {
+      function addHiddenDiv2 (id, content, index) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
