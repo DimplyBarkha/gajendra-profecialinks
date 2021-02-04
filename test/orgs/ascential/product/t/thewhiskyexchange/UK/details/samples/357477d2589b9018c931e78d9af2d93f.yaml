@@ -2,13 +2,16 @@ input:
   _url: http://thewhiskyexchange.com
   URL: https://www.thewhiskyexchange.com/p/47563/bowmore-2001-over-15-year-old-artist-8-lmdw
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=f16cce2c-4d9b-4653-be88-123e0227b2fc/task=48273395-26d5-40de-b26e-b175f074b327/03da5cc8-3908-476f-9c11-86a88e5394ff.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=0d6de0b3-afb3-48b5-997a-415fc5410669/task=b41a59a6-f57b-4ad4-b086-2e53642c9f38/e88269f5-e2ab-4384-bf2e-c7fb0ae8a25b.html
     extractionConfigId: product/details/stores/t/thewhiskyexchange/UK/extract
     data:
       - group:
           - productUrl:
               - text: https://www.thewhiskyexchange.com/p/47563/bowmore-2001-over-15-year-old-artist-8-lmdw
                 xpath: /html/head[1]/link[5]/@href
+            image:
+              - text: https://img.thewhiskyexchange.com/900/bowmdw2001v2.jpg
+                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@src
             imageAlt:
               - text: "Bowmore 2001 / Over 15 Year Old / Artist #8 / LMDW"
                 xpath: /html/body/div[3]/div[6]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
@@ -27,12 +30,6 @@ extractions:
             nameExtended:
               - text: "Bowmore 2001 Over 15 Year Old Artist #8 LMDW"
                 xpath: /html/body/div[3]/div[6]/article[1]/div[1]/header[1]/h1[1]
-            price:
-              - text: £420
-                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/div[2]/div[1]/div[1]/p[2]
-            availabilityText:
-              - text: In Stock
-                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/div[2]/div[1]/div[1]/p[1]
             brandText:
               - text: Bowmore
                 xpath: /html/body/div[3]/div[6]/article[1]/div[4]/h2[1]
@@ -48,9 +45,6 @@ extractions:
             name:
               - text: "Bowmore 2001 Over 15 Year Old Artist #8 LMDW"
                 xpath: /html/body/div[3]/div[6]/article[1]/div[1]/header[1]/h1[1]
-            inStorePrice:
-              - text: £350
-                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/div[2]/div[1]/div[1]/p[3]
             countryOfOrigin:
               - text: Scotland
                 xpath: /html/body/div[3]/div[6]/article[1]/div[3]/div[1]/div[2]/div[1]/ul[1]/li[7]/p[1]
@@ -67,15 +61,11 @@ extractions:
                   Cask Type: Sherry Finish
                   Cask Number: 108
                 xpath: /html/body/div[6]
-            pricePerUnit:
-              - text: £600
-                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/div[2]/div[1]/div[1]/p[4]
-            pricePerUnitUom:
-              - text: litre
-                xpath: /html/body/div[3]/div[6]/article[1]/div[1]/div[2]/div[1]/div[1]/p[4]/@unit
             alcoholContent:
               - text: 55.3%
                 xpath: /html/body/div[3]/div[6]/article[1]/div[1]/header[1]/p[1]
+            availabilityText:
+              - text: Out of Stock
             ratingCount:
               - text: "0"
             technicalInformationPdfPresent:
@@ -106,4 +96,4 @@ extractions:
             secondaryImageTotal:
               - text: "0"
         xpath: /
-    timestamp: 1612257737383
+    timestamp: 1612431531889
