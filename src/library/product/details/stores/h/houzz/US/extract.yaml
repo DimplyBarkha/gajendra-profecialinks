@@ -14,7 +14,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: (//div[@data-compid="product_thumb"])/img/@src
+    xpath: //div[contains(@data-compid,'product_thumb')][position()>1]//img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -99,7 +99,7 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //div[@id='ii_variantId']
+    xpath: //div[@id='ii_sku']
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
@@ -157,6 +157,7 @@ fields:
     description: Number of variants listed
     type: NUMBER
     xpath: //p[@class="product-variations-theme-option-label text-bold mb0"]/span
+    defaultValue: 0
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -261,15 +262,7 @@ fields:
   - name: featureBullets
     singleValue: false
     description: null
-  - name: otherSellersName
-    singleValue: false
-    description: null
-  - name: otherSellersPrice
-    singleValue: false
-    description: null
-  - name: otherSellersShipping
-    singleValue: false
-    description: null
+
   - name: secondaryImageTotal
     singleValue: true
     description: null
@@ -524,7 +517,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
-    xpath: //div[@id='ii_description']
+    xpath: //div[@id='ii_bullets_info']
   - name: prop65Warning
     singleValue: true
     description: null
@@ -572,3 +565,14 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: Yes
+
+  - name: otherSellersName
+    singleValue: false
+    xpath: //div[@id='ii_otherSellerName'][last()]
+    description: null
+  - name: otherSellersPrice
+    singleValue: false
+    xpath: //div[@id='ii_price'][last()]
+    description: null
+  - name: otherSellersShipping
+    xpath: //div[@id='ii_shippingPrice'][last()]

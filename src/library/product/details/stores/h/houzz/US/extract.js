@@ -43,26 +43,77 @@ async function implementation(
         addHiddenDiv("ii_" + outputName, result.label);
       }
     }
+    function clickXpath (xpath) {
+      const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      // @ts-ignore
+      element && element.click();
+    }
+    function findXpath (xpath) {
+      const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const productDetails = element && element.textContent ? element.textContent : '';
+      return productDetails;
+    }
+    await clickXpath('//button[@aria-controls="productDescription"] | //li[@data-component="product_description"]')
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
     try{
-      var content = document.getElementsByClassName("hzui-tabs__content")[0].innerText;
-    }catch(err){
-      console.log(err)
+    if(document.querySelector("div[class*='vp-redesign-description']") != null){
+      var descr = document.querySelector("div[class*='vp-redesign-description']").innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/gm, ' ').trim()
+    }else{
+      var descr = document.querySelector('div[id*="productDescription"]').innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/gm, ' ').trim()
+    }}catch(e){
+      console.log(e)
+    }
+
+    const arrayBullets =  []
+    const additiona = document.querySelectorAll(".description-item") ? document.querySelectorAll(".description-item") : [];
+
+    additiona.forEach(item => {
+      arrayBullets.push(item.innerText);
+    });
+
+    addHiddenDiv('ii_bullets_info', arrayBullets.join(' || '));
+
+    if(document.querySelector(".description-item") != null){
+      var bullet = document.querySelectorAll(".description-item").length
+    }else{
+      var bullet = 0
+    }
+
+
+    await clickXpath('//button[@aria-controls="productSpecification"] | //li[@data-component="product_specs"]')
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    try{
+    if(document.querySelector("dl[class*='product-specs-group ']") != null){
+      var specific = document.querySelector("dl[class*='product-specs-group ']").innerHTML.replace(/<\/dd.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/gm, ' ').trim()
+    }else{
+      var specific = document.querySelector('dl[class*="product-specs-group mtl mb0"]').innerHTML.replace(/<\/dd.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/gm, ' ').trim()
+    }}catch(e){
+      console.log(e)
+    }
+
+    const seller = findXpath("//div[contains(@class,'product-spec-item') and contains(.,'Sold By')]//dd");
+    const lbb = seller.toLowerCase().includes('houzz') ? 'No' : 'Yes';
+    if (lbb === 'Yes') {
+      clickXpath("//li[contains(@class,'hzui-tabs__label') and contains(.,'Shipping and Returns')]");
+      addHiddenDiv('ii_otherSellerName', seller);
+      const price = findXpath("//span[contains(@class,'pricing-info__price')]");
+      addHiddenDiv('ii_price', price);
+      let shippingPrice = findXpath("//span[contains(@class,'product-main-seller__shipping')]");
+      shippingPrice = shippingPrice.replace(/.*(\$\d+).*/, '$1');
+      addHiddenDiv('ii_shippingPrice', shippingPrice);
+      addHiddenDiv('ii_lbb', lbb);
     }
     
-    try{
-      var updated_content  = content.replace(/(\r\n|\n|\r)/gm, "").replace("See All SpecificationsReport incorrect information or image")
-    }catch(err){
-      console.log(err);
-    }
-    
-    if (updated_content != null){
-      addHiddenDiv("ii_content",updated_content)
+    if (specific != null){
+      addHiddenDiv("ii_content",specific)
     }
 
     var imagesCount = document.getElementsByClassName("alt-images__thumb")
     if (imagesCount != null){
       if(imagesCount.length != 0){
-        addHiddenDiv("ii_imageCount",imagesCount.length)
+        addHiddenDiv("ii_imageCount",imagesCount.length-1)
       }else{
         addHiddenDiv("ii_imageCount",0)
       }
@@ -165,12 +216,12 @@ async function implementation(
         };
 
       try{
-        addHiddenDiv("ii_bulletcount",jsonParsed[0].description.split("\r\n-").length-1);
+        addHiddenDiv("ii_bulletcount",bullet);
       }catch(err){
         console.log(err)
       };
       try{
-        addHiddenDiv("ii_fulldescription","Product Description"+jsonParsed[0].description.replaceAll("-",""));
+        addHiddenDiv("ii_fulldescription","Product Description"+descr);
       }catch(err){
         console.log(err)
       };
