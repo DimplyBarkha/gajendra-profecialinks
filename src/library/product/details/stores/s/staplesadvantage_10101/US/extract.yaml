@@ -36,8 +36,9 @@ fields:
   singleValue: false
   xpath: //div[@class="price-info__final_price"]
 - name: availabilityText
-  singleValue: true
-  defaultValue: "In Stock"
+  singleValue: false
+  xpath: //div[@class="grid__container"]/@availability
+  regExpReplace: $1 Out of stock
 - name: description
   singleValue: false
   xpath: normalize-space(//div[@id="ProdDescSpec"])

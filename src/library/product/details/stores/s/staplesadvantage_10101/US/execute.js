@@ -96,6 +96,7 @@ async function implementation (inputs, parameters, context, dependencies) {
 
   await context.evaluate(() => {
     let descriptionFixed = '';
+    const outOfAvailability = document.querySelector('div[aria-label="Notification Bubble"]');
     const description = document.querySelectorAll('div[id="ProductDetailsSummaryWrapper"]>ul>li');
     console.log(description);
     if (description.length !== 0) {
@@ -103,6 +104,11 @@ async function implementation (inputs, parameters, context, dependencies) {
         descriptionFixed = descriptionFixed + element.textContent + ' || ';
       });
       document.querySelector('div[id="ProductDetailsSummaryWrapper"]>ul').setAttribute('description', descriptionFixed);
+    }
+    if (outOfAvailability === null) {
+      document.querySelector('div.grid__container').setAttribute('availability', 'In stock');
+    } else {
+      document.querySelector('div.grid__container').setAttribute('availability', 'Out of stock');
     }
   });
 

@@ -48,9 +48,13 @@ async function implementation (inputs, parameters, context, dependencies) {
 
         image = manufacturerImages[i].src;
 
-        document.querySelectorAll('.manufacturer-info')[i].setAttribute('src', image);
+        if (image !== null) {
+          document.querySelectorAll('.manufacturer-info')[i].setAttribute('src', image);
+        }
       }
-      document.querySelector('.manufacturer-info').setAttribute('description', manufacturerDescription);
+      if (manufacturerDescription !== null && manufacturerDescription !== '') {
+        document.querySelector('.manufacturer-info').setAttribute('description', manufacturerDescription);
+      }
     });
 
     await context.evaluate(() => {
