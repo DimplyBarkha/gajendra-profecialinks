@@ -44,6 +44,11 @@ module.exports = {
       optional: true,
     },
     {
+      name: 'storeId',
+      description: 'to set location',
+      optional: true,
+    },
+    {
       name: 'storeID',
       description: 'to set location',
       optional: true,
@@ -95,6 +100,11 @@ module.exports = {
       name: 'storeID',
       description: 'Id of the store',
       type: 'string',
+      optional: true,
+    },
+    {
+      name: 'storeId',
+      description: 'to set location',
       optional: true,
     },
   ],
