@@ -53,7 +53,8 @@ async function implementation (
   await context.evaluate(function (products) {
     for (let i = 0; i < products.length; i++) {
       const div = document.createElement('div');
-      div.id = products[i].onlineInventory? products[i].onlineInventory.itemNumber : products[i].clubInventory.itemNumber ;
+      console.log('i'+ i);
+      div.id = products[i].onlineInventory? products[i].onlineInventory.itemNumber : (products[i].clubInventory? products[i].clubInventory.itemNumber : products[i].productId) ;
       div.className = 'products-extract';
 
       const name = document.createElement('span');
@@ -77,7 +78,7 @@ async function implementation (
       div.appendChild(productReviews);
 
       const productPricing = document.createElement('span');
-      productPricing.setAttribute('name', products[i].onlinePricing ? products[i].onlinePricing.finalPrice.currencyAmount: products[i].clubPricing.finalPrice.currencyAmount);
+      productPricing.setAttribute('name', products[i].onlinePricing ? products[i].onlinePricing.finalPrice.currencyAmount: (products[i].clubPricing ? products[i].clubPricing.finalPrice.currencyAmount : ''));
       div.appendChild(productPricing);
 
       document.body.appendChild(div);
