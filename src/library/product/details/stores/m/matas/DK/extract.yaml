@@ -26,7 +26,8 @@ fields:
     # singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //span[@class='breadcrumb__text js-csquare-currentBreadcrumbText']
+    xpath: //html//div[@id='product_desc']
+    # //span[@class='breadcrumb__text js-csquare-currentBreadcrumbText']
   - name: listPrice
     # singleValue: true
     description: The stated undiscounted price for the product

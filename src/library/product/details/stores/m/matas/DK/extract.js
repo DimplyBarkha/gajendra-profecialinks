@@ -51,6 +51,9 @@ module.exports = {
         originalDiv.parentNode.insertBefore(newDiv, originalDiv);
         // document.body.appendChild(newDiv);
         }
+        // @ts-ignore
+        const nameExtended=document.querySelector('h1[class*="product-name"]').innerText;
+        addHiddenDiv("product_desc", nameExtended);  
       // Method to replace , with . for price
       // var price = getAllXpath('//div[@class="product-page__price"]//span[@class="nowrap"]/text() | (//span[@class="nowrap"])[1]/text()', "nodeValue");
       // if (price[0] != null) {
