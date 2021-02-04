@@ -6,7 +6,7 @@ module.exports = {
     store: 'ah',
     domain: 'ah.be',
     url: 'https://www.ah.be/zoeken?query={searchTerms}',
-    noResultsXPath: null,
+    // noResultsXPath: 'boolean(div[@class="load-more_root__9MiHC"]/button) = 0',
     zipcode: '',
   },
 };
