@@ -6,7 +6,7 @@ module.exports = {
     store: 'dosfarma',
     domain: 'dosfarma.com',
     loadedSelector: 'div.product_primary',
-    noResultsXPath: null,
+    noResultsXPath: '//article[contains(.,"Este producto ya no esta disponible")]',
     zipcode: '',
   },
 };
