@@ -20,9 +20,8 @@ async function implementation (
         document.querySelector('div[class="t7xA6 m114nf aID8W"]').remove();
       }
       if (document.querySelectorAll('div[class="yuRUbf"] a') !== null) {
-        console.log(productCode);
         for (let i = 0; i < document.querySelectorAll('div[class="yuRUbf"] a').length; i++) {
-          if (document.querySelectorAll('div[class="yuRUbf"] a')[i].getAttribute('href').includes(`/${productCode}-`)) {
+          if (document.querySelectorAll('div[class="yuRUbf"] a')[i].getAttribute('href') !== null && document.querySelectorAll('div[class="yuRUbf"] a')[i].getAttribute('href').includes(`/${productCode}-`)) {
             return document.querySelectorAll('div[class="yuRUbf"] a')[i].getAttribute('href');
           }
         }
