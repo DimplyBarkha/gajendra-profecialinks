@@ -11,6 +11,7 @@ async function implementation(
     try {
         await context.waitForSelector('button[id="onetrust-accept-btn-handler"]', { timeout: 5000 });
         await context.click('button[id="onetrust-accept-btn-handler"]');
+        console.log("Accepted cookies ")
     } catch (e) {
         console.log("accept cookie button not present...\nError: " + e);
     }
