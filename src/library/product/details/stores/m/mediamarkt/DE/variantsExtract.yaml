@@ -6,11 +6,11 @@ fields:
   - name: variantId
     singleValue: false
     description: variant id, to uniquely identify variant
-    xpath: //*[@id='ii_variant']    
+    xpath: //*[@id='product_variant']    
   - name: variantUrl
     singleValue: false
     description: variant Url
-    xpath: //*[@id='ii_variant']
+    xpath: //*[@id='product_variant']
     regExp: (\d+)
-    regExpReplace: https://www.mediamarkt.de/catentry/$1
+    regExpReplace: https://www.mediamarkt.de/de/product/-$1.html
  

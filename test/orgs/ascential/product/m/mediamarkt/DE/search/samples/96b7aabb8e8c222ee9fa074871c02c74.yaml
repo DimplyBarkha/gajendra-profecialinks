@@ -1,0 +1,1145 @@
+input:
+  keywords: Barttrimmer
+  _url: http://mediamarkt.de
+extractions:
+  - html: https://workbench.import.io/html/run=11327750-aa2c-44f4-9764-f848c08e7f04/task=99ec3046-e7a3-48b1-bf7a-f4c27da1e89e/8f28e71d-2838-4516-bc2f-9d8be3cbb931.html
+    extractionConfigId: product/search/stores/m/mediamarkt/DE/extract
+    data:
+      - group:
+          - searchUrl:
+              - text: https://www.mediamarkt.de/de/search.html?page=3&query=Barttrimmer
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/@searchurl
+            name:
+              - text: WAHL Aqua Trim Barttrimmer
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]
+            productUrl:
+              - text: https://www.mediamarkt.de/de/product/_wahl-aqua-trim-2608123.html
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_70224712/mobile_200_200_png
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: "64.38"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]/div[2]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]
+            manufacturer:
+              - text: WAHL
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]/span[1]
+            rank:
+              - text: "101"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/text()[1]
+                type: NUMBER
+                raw: "101"
+                locale: de_DE
+                value: 101
+            rankOrganic:
+              - text: "101"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/text()[1]
+                type: NUMBER
+                raw: "101"
+                locale: de_DE
+                value: 101
+          - searchUrl:
+              - text: https://www.mediamarkt.de/de/search.html?page=3&query=Barttrimmer
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/@searchurl
+            name:
+              - text: PHILIPS Multigroom Series 5000 MG5716 - Präszisions-Trimmer Multigroomer,
+                  Grau
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]
+            productUrl:
+              - text: https://www.mediamarkt.de/de/product/_philips-multigroom-series-5000-mg5716-präszisions-trimmer-2670811.html
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_78361369/mobile_200_200_png
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,5833
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/@aria-label
+                type: STRING
+            reviewCount:
+              - text: "36"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            ratingCount:
+              - text: "36"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: "45.45"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/div[1]/div[2]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]
+            manufacturer:
+              - text: PHILIPS
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]/span[1]
+            rank:
+              - text: "102"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/text()[1]
+                type: NUMBER
+                raw: "102"
+                locale: de_DE
+                value: 102
+            rankOrganic:
+              - text: "102"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/text()[1]
+                type: NUMBER
+                raw: "102"
+                locale: de_DE
+                value: 102
+          - searchUrl:
+              - text: https://www.mediamarkt.de/de/search.html?page=3&query=Barttrimmer
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/@searchurl
+            name:
+              - text: BABYLISS T890E Barttrimmer
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]
+            productUrl:
+              - text: https://www.mediamarkt.de/de/product/_babyliss-t890e-2589494.html
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/@href
+            thumbnail:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_69722533/mobile_200_200_png
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            aggregateRating2:
+              - text: 3,6667
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@aria-label
+                type: STRING
+            reviewCount:
+              - text: "6"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            ratingCount:
+              - text: "6"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: "62.99"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]
+            manufacturer:
+              - text: BABYLISS
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]/span[1]
+            rank:
+              - text: "103"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/text()[1]
+                type: NUMBER
+                raw: "103"
+                locale: de_DE
+                value: 103
+            rankOrganic:
+              - text: "103"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/text()[1]
+                type: NUMBER
+                raw: "103"
+                locale: de_DE
+                value: 103
+          - searchUrl:
+              - text: https://www.mediamarkt.de/de/search.html?page=3&query=Barttrimmer
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/@searchurl
+            name:
+              - text: BRAUN BT 5090 Bartschneider
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]
+            productUrl:
+              - text: https://www.mediamarkt.de/de/product/_braun-bt-5090-2058114.html
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/@href
+            aggregateRating2:
+              - text: 4,5339
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@aria-label
+                type: STRING
+            reviewCount:
+              - text: "236"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            ratingCount:
+              - text: "236"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: "57.07"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]
+            manufacturer:
+              - text: BRAUN
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]/span[1]
+            rank:
+              - text: "104"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/div[1]/text()[1]
+                type: NUMBER
+                raw: "104"
+                locale: de_DE
+                value: 104
+            rankOrganic:
+              - text: "104"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/div[1]/text()[1]
+                type: NUMBER
+                raw: "104"
+                locale: de_DE
+                value: 104
+          - searchUrl:
+              - text: https://www.mediamarkt.de/de/search.html?page=3&query=Barttrimmer
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/@searchurl
+            name:
+              - text: PHILIPS BT 5515/15 Bartschneider
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]
+            productUrl:
+              - text: https://www.mediamarkt.de/de/product/_philips-bt-5515-15-2528097.html
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/@href
+            thumbnail:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_72281166/mobile_200_200_png
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,6529
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@aria-label
+                type: STRING
+            reviewCount:
+              - text: "242"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            ratingCount:
+              - text: "242"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: 47.–
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]
+            manufacturer:
+              - text: PHILIPS
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]/span[1]
+            rank:
+              - text: "105"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/div[1]/text()[1]
+                type: NUMBER
+                raw: "105"
+                locale: de_DE
+                value: 105
+            rankOrganic:
+              - text: "105"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/div[1]/text()[1]
+                type: NUMBER
+                raw: "105"
+                locale: de_DE
+                value: 105
+          - searchUrl:
+              - text: https://www.mediamarkt.de/de/search.html?page=3&query=Barttrimmer
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/@searchurl
+            name:
+              - text: PHILIPS BT 3216/14 Bartschneider
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]
+            productUrl:
+              - text: https://www.mediamarkt.de/de/product/_philips-bt-3216-14-2395812.html
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/@href
+            thumbnail:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-77188857/mobile_200_200_png
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,4154
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@aria-label
+                type: STRING
+            reviewCount:
+              - text: "65"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            ratingCount:
+              - text: "65"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: "31.20"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]
+            manufacturer:
+              - text: PHILIPS
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]/span[1]
+            rank:
+              - text: "106"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/div[1]/text()[1]
+                type: NUMBER
+                raw: "106"
+                locale: de_DE
+                value: 106
+            rankOrganic:
+              - text: "106"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/div[1]/text()[1]
+                type: NUMBER
+                raw: "106"
+                locale: de_DE
+                value: 106
+          - searchUrl:
+              - text: https://www.mediamarkt.de/de/search.html?page=3&query=Barttrimmer
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/@searchurl
+            name:
+              - text: FAKIR 9201001 Stubby Bartschneider
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]
+            productUrl:
+              - text: https://www.mediamarkt.de/de/product/_fakir-9201001-stubby-2589686.html
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/@href
+            thumbnail:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_70688298/mobile_200_200_png
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: "19.23"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]
+            manufacturer:
+              - text: FAKIR
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]/span[1]
+            rank:
+              - text: "107"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/div[1]/text()[1]
+                type: NUMBER
+                raw: "107"
+                locale: de_DE
+                value: 107
+            rankOrganic:
+              - text: "107"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/div[1]/text()[1]
+                type: NUMBER
+                raw: "107"
+                locale: de_DE
+                value: 107
+          - searchUrl:
+              - text: https://www.mediamarkt.de/de/search.html?page=3&query=Barttrimmer
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/@searchurl
+            name:
+              - text: FAKIR 9191001 Stubby Bartschneider
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]
+            productUrl:
+              - text: https://www.mediamarkt.de/de/product/_fakir-9191001-stubby-2589685.html
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/@href
+            thumbnail:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_70688013/mobile_200_200_png
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: "19.86"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]
+            manufacturer:
+              - text: FAKIR
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]/span[1]
+            rank:
+              - text: "108"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/div[1]/text()[1]
+                type: NUMBER
+                raw: "108"
+                locale: de_DE
+                value: 108
+            rankOrganic:
+              - text: "108"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/div[1]/text()[1]
+                type: NUMBER
+                raw: "108"
+                locale: de_DE
+                value: 108
+          - searchUrl:
+              - text: https://www.mediamarkt.de/de/search.html?page=3&query=Barttrimmer
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/@searchurl
+            name:
+              - text: WAHL Stainless Steel Gold Barttrimmer
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]
+            productUrl:
+              - text: https://www.mediamarkt.de/de/product/_wahl-stainless-steel-gold-2525135.html
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/@href
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: "124.61"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]
+            manufacturer:
+              - text: WAHL
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]/span[1]
+            rank:
+              - text: "109"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/div[1]/text()[1]
+                type: NUMBER
+                raw: "109"
+                locale: de_DE
+                value: 109
+            rankOrganic:
+              - text: "109"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/div[1]/text()[1]
+                type: NUMBER
+                raw: "109"
+                locale: de_DE
+                value: 109
+          - searchUrl:
+              - text: https://www.mediamarkt.de/de/search.html?page=3&query=Barttrimmer
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[10]/@searchurl
+            name:
+              - text: PHILIPS OneBlade Pro QP6620 Face + Body Trimmer, Schwarz/Silber
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[10]/a[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]
+            productUrl:
+              - text: https://www.mediamarkt.de/de/product/_philips-oneblade-pro-qp6620-face - body-2643594.html
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[10]/a[1]/@href
+            aggregateRating2:
+              - text: 4,6595
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[10]/a[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/@aria-label
+                type: STRING
+            reviewCount:
+              - text: "279"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[10]/a[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            ratingCount:
+              - text: "279"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[10]/a[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: "80.94"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[10]/a[1]/div[1]/div[2]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]
+            manufacturer:
+              - text: PHILIPS
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[10]/a[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]/span[1]
+            rank:
+              - text: "110"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[10]/div[1]/text()[1]
+                type: NUMBER
+                raw: "110"
+                locale: de_DE
+                value: 110
+            rankOrganic:
+              - text: "110"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[10]/div[1]/text()[1]
+                type: NUMBER
+                raw: "110"
+                locale: de_DE
+                value: 110
+          - searchUrl:
+              - text: https://www.mediamarkt.de/de/search.html?page=3&query=Barttrimmer
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[11]/@searchurl
+            name:
+              - text: PHILIPS MG 1100/16 Bartschneider
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[11]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]
+            productUrl:
+              - text: https://www.mediamarkt.de/de/product/_philips-mg-1100-16-1980323.html
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[11]/a[1]/@href
+            thumbnail:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-67966907/mobile_200_200_png
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[11]/a[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,5556
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[11]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@aria-label
+                type: STRING
+            reviewCount:
+              - text: "45"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[11]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            ratingCount:
+              - text: "45"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[11]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: "26.94"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[11]/a[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]
+            manufacturer:
+              - text: PHILIPS
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[11]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]/span[1]
+            rank:
+              - text: "111"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[11]/div[1]/text()[1]
+                type: NUMBER
+                raw: "111"
+                locale: de_DE
+                value: 111
+            rankOrganic:
+              - text: "111"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[11]/div[1]/text()[1]
+                type: NUMBER
+                raw: "111"
+                locale: de_DE
+                value: 111
+          - searchUrl:
+              - text: https://www.mediamarkt.de/de/search.html?page=3&query=Barttrimmer
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[12]/@searchurl
+            name:
+              - text: PHILIPS QP 6505/20 OneBlade Pro Trimmer
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[12]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]
+            productUrl:
+              - text: https://www.mediamarkt.de/de/product/_philips-qp-6505-20-oneblade-pro-2457188.html
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[12]/a[1]/@href
+            thumbnail:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-78234042/mobile_200_200_png
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[12]/a[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,6217
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[12]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@aria-label
+                type: STRING
+            reviewCount:
+              - text: "460"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[12]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            ratingCount:
+              - text: "460"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[12]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: "46.21"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[12]/a[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]
+            manufacturer:
+              - text: PHILIPS
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[12]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]/span[1]
+            rank:
+              - text: "112"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[12]/div[1]/text()[1]
+                type: NUMBER
+                raw: "112"
+                locale: de_DE
+                value: 112
+            rankOrganic:
+              - text: "112"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[12]/div[1]/text()[1]
+                type: NUMBER
+                raw: "112"
+                locale: de_DE
+                value: 112
+          - searchUrl:
+              - text: https://www.mediamarkt.de/de/search.html?page=3&query=Barttrimmer
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[13]/@searchurl
+            name:
+              - text: BRAUN BT7040 Bartschneider
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[13]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]
+            productUrl:
+              - text: https://www.mediamarkt.de/de/product/_braun-bt7040-2512522.html
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[13]/a[1]/@href
+            thumbnail:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-80220750/mobile_200_200_png
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[13]/a[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,8344
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[13]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@aria-label
+                type: STRING
+            reviewCount:
+              - text: "157"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[13]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            ratingCount:
+              - text: "157"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[13]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: "75.46"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[13]/a[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]
+            manufacturer:
+              - text: BRAUN
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[13]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]/span[1]
+            rank:
+              - text: "113"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[13]/div[1]/text()[1]
+                type: NUMBER
+                raw: "113"
+                locale: de_DE
+                value: 113
+            rankOrganic:
+              - text: "113"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[13]/div[1]/text()[1]
+                type: NUMBER
+                raw: "113"
+                locale: de_DE
+                value: 113
+          - searchUrl:
+              - text: https://www.mediamarkt.de/de/search.html?page=3&query=Barttrimmer
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[14]/@searchurl
+            name:
+              - text: BRAUN HC 5010 Haarschneider Schwarz
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[14]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]
+            productUrl:
+              - text: https://www.mediamarkt.de/de/product/_braun-hc-5010-2058120.html
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[14]/a[1]/@href
+            thumbnail:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-78391597/mobile_200_200_png
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[14]/a[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,6152
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[14]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@aria-label
+                type: STRING
+            reviewCount:
+              - text: "369"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[14]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            ratingCount:
+              - text: "369"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[14]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: "31.90"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[14]/a[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]
+            manufacturer:
+              - text: BRAUN
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[14]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]/span[1]
+            rank:
+              - text: "114"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[14]/div[1]/text()[1]
+                type: NUMBER
+                raw: "114"
+                locale: de_DE
+                value: 114
+            rankOrganic:
+              - text: "114"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[14]/div[1]/text()[1]
+                type: NUMBER
+                raw: "114"
+                locale: de_DE
+                value: 114
+          - searchUrl:
+              - text: https://www.mediamarkt.de/de/search.html?page=3&query=Barttrimmer
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[15]/@searchurl
+            name:
+              - text: BRAUN BT5060 Bartschneider
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[15]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]
+            productUrl:
+              - text: https://www.mediamarkt.de/de/product/_braun-bt5060-2512521.html
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[15]/a[1]/@href
+            aggregateRating2:
+              - text: 4,7886
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[15]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@aria-label
+                type: STRING
+            reviewCount:
+              - text: "123"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[15]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            ratingCount:
+              - text: "123"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[15]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: "50.83"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[15]/a[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]
+            manufacturer:
+              - text: BRAUN
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[15]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]/span[1]
+            rank:
+              - text: "115"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[15]/div[1]/text()[1]
+                type: NUMBER
+                raw: "115"
+                locale: de_DE
+                value: 115
+            rankOrganic:
+              - text: "115"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[15]/div[1]/text()[1]
+                type: NUMBER
+                raw: "115"
+                locale: de_DE
+                value: 115
+          - searchUrl:
+              - text: https://www.mediamarkt.de/de/search.html?page=3&query=Barttrimmer
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[16]/@searchurl
+            name:
+              - text: BRAUN S5-7 Trimmeraufsatz
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[16]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]
+            productUrl:
+              - text: https://www.mediamarkt.de/de/product/_braun-s5-7-2647438.html
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[16]/a[1]/@href
+            thumbnail:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_74108470/mobile_200_200_png
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[16]/a[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[16]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[16]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: "24.87"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[16]/a[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]
+            manufacturer:
+              - text: BRAUN
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[16]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]/span[1]
+            rank:
+              - text: "116"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[16]/div[1]/text()[1]
+                type: NUMBER
+                raw: "116"
+                locale: de_DE
+                value: 116
+            rankOrganic:
+              - text: "116"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[16]/div[1]/text()[1]
+                type: NUMBER
+                raw: "116"
+                locale: de_DE
+                value: 116
+          - searchUrl:
+              - text: https://www.mediamarkt.de/de/search.html?page=3&query=Barttrimmer
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[17]/@searchurl
+            name:
+              - text: BRAUN HC 5090 Haarschneider Silber
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[17]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]
+            productUrl:
+              - text: https://www.mediamarkt.de/de/product/_braun-hc-5090-2058119.html
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[17]/a[1]/@href
+            thumbnail:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-78135929/mobile_200_200_png
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[17]/a[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,6858
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[17]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@aria-label
+                type: STRING
+            reviewCount:
+              - text: "296"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[17]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            ratingCount:
+              - text: "296"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[17]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: "44.99"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[17]/a[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]
+            manufacturer:
+              - text: BRAUN
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[17]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]/span[1]
+            rank:
+              - text: "117"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[17]/div[1]/text()[1]
+                type: NUMBER
+                raw: "117"
+                locale: de_DE
+                value: 117
+            rankOrganic:
+              - text: "117"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[17]/div[1]/text()[1]
+                type: NUMBER
+                raw: "117"
+                locale: de_DE
+                value: 117
+          - searchUrl:
+              - text: https://www.mediamarkt.de/de/search.html?page=3&query=Barttrimmer
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[18]/@searchurl
+            name:
+              - text: BRAUN EN 10 Nasen-/Ohrhaartrimmer, Silber
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[18]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]
+            productUrl:
+              - text: https://www.mediamarkt.de/de/product/_braun-en-10-1076765.html
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[18]/a[1]/@href
+            thumbnail:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-15578640/mobile_200_200_png
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[18]/a[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,3333
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[18]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@aria-label
+                type: STRING
+            reviewCount:
+              - text: "18"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[18]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            ratingCount:
+              - text: "18"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[18]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: "16.91"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[18]/a[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]
+            manufacturer:
+              - text: BRAUN
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[18]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]/span[1]
+            rank:
+              - text: "118"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[18]/div[1]/text()[1]
+                type: NUMBER
+                raw: "118"
+                locale: de_DE
+                value: 118
+            rankOrganic:
+              - text: "118"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[18]/div[1]/text()[1]
+                type: NUMBER
+                raw: "118"
+                locale: de_DE
+                value: 118
+          - searchUrl:
+              - text: https://www.mediamarkt.de/de/search.html?page=3&query=Barttrimmer
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[19]/@searchurl
+            name:
+              - text: BRAUN MGK7020 10-in-1 Multigroomer, Schwarz/Silber
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[19]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]
+            productUrl:
+              - text: https://www.mediamarkt.de/de/product/_braun-mgk7020-10-in-1-2512517.html
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[19]/a[1]/@href
+            thumbnail:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-80220867/mobile_200_200_png
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[19]/a[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,7442
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[19]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@aria-label
+                type: STRING
+            reviewCount:
+              - text: "129"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[19]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            ratingCount:
+              - text: "129"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[19]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: "73.12"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[19]/a[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]
+            manufacturer:
+              - text: BRAUN
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[19]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]/span[1]
+            rank:
+              - text: "119"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[19]/div[1]/text()[1]
+                type: NUMBER
+                raw: "119"
+                locale: de_DE
+                value: 119
+            rankOrganic:
+              - text: "119"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[19]/div[1]/text()[1]
+                type: NUMBER
+                raw: "119"
+                locale: de_DE
+                value: 119
+          - searchUrl:
+              - text: https://www.mediamarkt.de/de/search.html?page=3&query=Barttrimmer
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[20]/@searchurl
+            name:
+              - text: BRAUN MGK 3085 Multigroomer, Schwarz/Blau
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[20]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]
+            productUrl:
+              - text: https://www.mediamarkt.de/de/product/_braun-mgk-3085-2441034.html
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[20]/a[1]/@href
+            aggregateRating2:
+              - text: 4,5406
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[20]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@aria-label
+                type: STRING
+            reviewCount:
+              - text: "542"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[20]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            ratingCount:
+              - text: "542"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[20]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: "50.37"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[20]/a[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]
+            manufacturer:
+              - text: BRAUN
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[20]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]/span[1]
+            rank:
+              - text: "120"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[20]/div[1]/text()[1]
+                type: NUMBER
+                raw: "120"
+                locale: de_DE
+                value: 120
+            rankOrganic:
+              - text: "120"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[20]/div[1]/text()[1]
+                type: NUMBER
+                raw: "120"
+                locale: de_DE
+                value: 120
+          - searchUrl:
+              - text: https://www.mediamarkt.de/de/search.html?page=3&query=Barttrimmer
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[21]/@searchurl
+            name:
+              - text: BRAUN BT 5070 Bartschneider
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[21]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]
+            productUrl:
+              - text: https://www.mediamarkt.de/de/product/_braun-bt-5070-2058115.html
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[21]/a[1]/@href
+            aggregateRating2:
+              - text: 4,5238
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[21]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@aria-label
+                type: STRING
+            reviewCount:
+              - text: "231"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[21]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            ratingCount:
+              - text: "231"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[21]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: "52.83"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[21]/a[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]
+            manufacturer:
+              - text: BRAUN
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[21]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]/span[1]
+            rank:
+              - text: "121"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[21]/div[1]/text()[1]
+                type: NUMBER
+                raw: "121"
+                locale: de_DE
+                value: 121
+            rankOrganic:
+              - text: "121"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[21]/div[1]/text()[1]
+                type: NUMBER
+                raw: "121"
+                locale: de_DE
+                value: 121
+          - searchUrl:
+              - text: https://www.mediamarkt.de/de/search.html?page=3&query=Barttrimmer
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[22]/@searchurl
+            name:
+              - text: BRAUN HC 5050 Haarschneider Schwarz
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[22]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]
+            productUrl:
+              - text: https://www.mediamarkt.de/de/product/_braun-hc-5050-2076641.html
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[22]/a[1]/@href
+            thumbnail:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-76112547/mobile_200_200_png
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[22]/a[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,6217
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[22]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@aria-label
+                type: STRING
+            reviewCount:
+              - text: "304"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[22]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            ratingCount:
+              - text: "304"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[22]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: 35.–
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[22]/a[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]
+            manufacturer:
+              - text: BRAUN
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[22]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]/span[1]
+            rank:
+              - text: "122"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[22]/div[1]/text()[1]
+                type: NUMBER
+                raw: "122"
+                locale: de_DE
+                value: 122
+            rankOrganic:
+              - text: "122"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[22]/div[1]/text()[1]
+                type: NUMBER
+                raw: "122"
+                locale: de_DE
+                value: 122
+          - searchUrl:
+              - text: https://www.mediamarkt.de/de/search.html?page=3&query=Barttrimmer
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[23]/@searchurl
+            name:
+              - text: BRAUN Präzisionstrimmer PT5010 Trimmer
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[23]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]
+            productUrl:
+              - text: https://www.mediamarkt.de/de/product/_braun-präzisionstrimmer-pt5010-2058128.html
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[23]/a[1]/@href
+            thumbnail:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-69767999/mobile_200_200_png
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[23]/a[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            aggregateRating2:
+              - text: 3,9091
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[23]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@aria-label
+                type: STRING
+            reviewCount:
+              - text: "11"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[23]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            ratingCount:
+              - text: "11"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[23]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: "14.19"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[23]/a[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]
+            manufacturer:
+              - text: BRAUN
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[23]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]/span[1]
+            rank:
+              - text: "123"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[23]/div[1]/text()[1]
+                type: NUMBER
+                raw: "123"
+                locale: de_DE
+                value: 123
+            rankOrganic:
+              - text: "123"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[23]/div[1]/text()[1]
+                type: NUMBER
+                raw: "123"
+                locale: de_DE
+                value: 123
+          - searchUrl:
+              - text: https://www.mediamarkt.de/de/search.html?page=3&query=Barttrimmer
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[24]/@searchurl
+            name:
+              - text: BRAUN BT 7240 Haarschneider
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[24]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]
+            productUrl:
+              - text: https://www.mediamarkt.de/de/product/_braun-bt-7240-2618967.html
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[24]/a[1]/@href
+            thumbnail:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_72612969/mobile_200_200_png
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[24]/a[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,8061
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[24]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@aria-label
+                type: STRING
+            reviewCount:
+              - text: "196"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[24]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            ratingCount:
+              - text: "196"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[24]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: "65.95"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[24]/a[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]
+            manufacturer:
+              - text: BRAUN
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[24]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]/span[1]
+            rank:
+              - text: "124"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[24]/div[1]/text()[1]
+                type: NUMBER
+                raw: "124"
+                locale: de_DE
+                value: 124
+            rankOrganic:
+              - text: "124"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[24]/div[1]/text()[1]
+                type: NUMBER
+                raw: "124"
+                locale: de_DE
+                value: 124
+          - searchUrl:
+              - text: https://www.mediamarkt.de/de/search.html?page=3&query=Barttrimmer
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[25]/@searchurl
+            name:
+              - text: BRAUN SERIES 5 50-M4500CS Rasierer Mintgrün (Cassette)
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[25]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]
+            productUrl:
+              - text: https://www.mediamarkt.de/de/product/_braun-series-5-50-m4500cs-2647432.html
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[25]/a[1]/@href
+            thumbnail:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_74036332/mobile_200_200_png
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[25]/a[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,3871
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[25]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@aria-label
+                type: STRING
+            reviewCount:
+              - text: "62"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[25]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            ratingCount:
+              - text: "62"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[25]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: "115.17"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[25]/a[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]
+            manufacturer:
+              - text: BRAUN
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[25]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]/span[1]
+            rank:
+              - text: "125"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[25]/div[1]/text()[1]
+                type: NUMBER
+                raw: "125"
+                locale: de_DE
+                value: 125
+            rankOrganic:
+              - text: "125"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[25]/div[1]/text()[1]
+                type: NUMBER
+                raw: "125"
+                locale: de_DE
+                value: 125
+          - searchUrl:
+              - text: https://www.mediamarkt.de/de/search.html?page=3&query=Barttrimmer
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[26]/@searchurl
+            name:
+              - text: BRAUN SERIES 6 60-N4820CS Rasierer Grau (Cassette)
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[26]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]
+            productUrl:
+              - text: https://www.mediamarkt.de/de/product/_braun-series-6-60-n4820cs-2647431.html
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[26]/a[1]/@href
+            thumbnail:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_74036373/mobile_200_200_png
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[26]/a[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,661
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[26]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@aria-label
+                type: STRING
+            reviewCount:
+              - text: "59"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[26]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            ratingCount:
+              - text: "59"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[26]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: "162.99"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[26]/a[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]
+            manufacturer:
+              - text: BRAUN
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[26]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]/span[1]
+            rank:
+              - text: "126"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[26]/div[1]/text()[1]
+                type: NUMBER
+                raw: "126"
+                locale: de_DE
+                value: 126
+            rankOrganic:
+              - text: "126"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[26]/div[1]/text()[1]
+                type: NUMBER
+                raw: "126"
+                locale: de_DE
+                value: 126
+          - searchUrl:
+              - text: https://www.mediamarkt.de/de/search.html?page=3&query=Barttrimmer
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[27]/@searchurl
+            name:
+              - text: BRAUN Series 6 60-B4500CS Rasierer Blau (SensoFlex)
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[27]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]
+            productUrl:
+              - text: https://www.mediamarkt.de/de/product/_braun-series-6-60-b4500cs-2673748.html
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[27]/a[1]/@href
+            thumbnail:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_76735016/mobile_200_200_png
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[27]/a[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[27]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[27]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: "165.82"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[27]/a[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]
+            manufacturer:
+              - text: BRAUN
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[27]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]/span[1]
+            rank:
+              - text: "127"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[27]/div[1]/text()[1]
+                type: NUMBER
+                raw: "127"
+                locale: de_DE
+                value: 127
+            rankOrganic:
+              - text: "127"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[27]/div[1]/text()[1]
+                type: NUMBER
+                raw: "127"
+                locale: de_DE
+                value: 127
+          - searchUrl:
+              - text: https://www.mediamarkt.de/de/search.html?page=3&query=Barttrimmer
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[28]/@searchurl
+            name:
+              - text: BRAUN BT 3022 Bartschneider
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[28]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]
+            productUrl:
+              - text: https://www.mediamarkt.de/de/product/_braun-bt-3022-2411669.html
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[28]/a[1]/@href
+            thumbnail:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-77504488/mobile_200_200_png
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[28]/a[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,3504
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[28]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@aria-label
+                type: STRING
+            reviewCount:
+              - text: "117"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[28]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            ratingCount:
+              - text: "117"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[28]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: "31.79"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[28]/a[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]
+            manufacturer:
+              - text: BRAUN
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[28]/a[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]/span[1]
+            rank:
+              - text: "128"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[28]/div[1]/text()[1]
+                type: NUMBER
+                raw: "128"
+                locale: de_DE
+                value: 128
+            rankOrganic:
+              - text: "128"
+                xpath: /html/body/div[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[28]/div[1]/text()[1]
+                type: NUMBER
+                raw: "128"
+                locale: de_DE
+                value: 128
+        xpath: /html
+    timestamp: 1606393110325
