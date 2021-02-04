@@ -3,7 +3,8 @@ const { transform } = require('./transform');
 
 async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
-  const { productDetails } = dependencies;
+  const { productDetails, helperModule: { Helpers }  } = dependencies;
+  const helper = new Helpers(context);
   const privacySelector = '#privacy-layer-accept-all-button';
   const privacyButton = await context.evaluate(
     (selector) => !!document.querySelector(selector),
@@ -203,6 +204,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     }
     //   window.getComputedStyle(element).display
   });
+  await helper.removeScriptsWhichContains('vendors~main.js');
   return await context.extract(productDetails, { transform });
 }
 
@@ -214,6 +216,10 @@ module.exports = {
     transform,
     domain: 'saturn.de',
     zipcode: '',
+  },
+  dependencies: {
+    helperModule: 'module:helpers/helpers',
+    productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
   },
   implementation,
 };
