@@ -320,10 +320,13 @@ const transform = (data, context) => {
       }
       if (row.availabilityText) {
         // Added the regex for different locale which say Usually ships in etc.
-        const usuallyShipsRegex = /(Usually|Genellikle)/gi;
+        const usuallyShipsRegex = /(Usually|Genellikle|Generalmente|Habituellement|Gewöhnlich)/gi;
         const availabilityMap = {
           usually: 'In Stock',
           genellikle: 'Stokta var',
+          generalmente: 'Disponibile',
+          habituellement: 'En stock',
+          gewöhnlich: 'Auf Lager',
         };
         const match = row.availabilityText[0].text.match(usuallyShipsRegex);
         if (match) {
@@ -379,6 +382,11 @@ const transform = (data, context) => {
       }
       if (row.alternateImages) {
         row.secondaryImageTotal = [{ text: row.alternateImages.length }];
+      }
+      if (!row.warnings && row.warningsFallback) {
+        const text = row.warningsFallback[0].text;
+        row.warnings = [{ text }];
+        delete row.warningsFallback;
       }
       Object.keys(row).forEach(header => {
         row[header].forEach(el => {
