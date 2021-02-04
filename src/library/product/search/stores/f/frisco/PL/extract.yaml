@@ -12,6 +12,8 @@ fields:
 - name: price
   singleValue: false
   xpath: //td[@class='price depth_3']
+  regExp: (\d+)\.(\d+)
+  regExpReplace: $1,$2 zł
 - name: name
   singleValue: false
   xpath: //table/tbody/tr[1]/td[@class='products depth_0']/table/tbody/tr/td[@class="product depth_1"]/table/tbody/tr/td[@class="name depth_2"]/table/tbody/tr/td[@class='en depth_3']

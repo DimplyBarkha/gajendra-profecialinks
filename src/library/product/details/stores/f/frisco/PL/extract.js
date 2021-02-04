@@ -43,13 +43,16 @@ module.exports = {
         xPathRes10.singleNodeValue.click();
         let tabContent1 = document.evaluate("//div[@class='ui-tabs_tab-content']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         let firstContent = tabContent1.textContent;
+        let content = firstContent;
         var xPathRes3 = document.evaluate("//div[@class=\"ui-tabs_header-inner\"]/a[contains(text(),'Opakowanie')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+        if(xPathRes3){
         // @ts-ignore
         xPathRes3.singleNodeValue.click();
         await new Promise((resolve, reject) => setTimeout(resolve, 3000));
         let tabContent = document.evaluate("//div[@class='ui-tabs_tab-content']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         let fourthContent = tabContent.textContent;
-        let content = firstContent + fourthContent;
+        content = firstContent + fourthContent;
+        }
         addHiddenDiv('addDescid', content);
       } catch (error) {
       }
