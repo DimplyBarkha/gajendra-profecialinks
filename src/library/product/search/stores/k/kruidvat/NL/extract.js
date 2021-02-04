@@ -48,16 +48,6 @@ async function implementation(
     const originalDiv = document.querySelectorAll("div[class='tile__product-slide-image-container']")[index];
     originalDiv.parentNode.insertBefore(newDiv, originalDiv);
   }
-  // const aggregateRating = document.querySelectorAll("e2-rating")
-//   for (let k = 0; k < aggregateRating.length; k++) {
-//   // @ts-ignore
-// // <<<<<<< HEAD
-//   let singleRating = aggregateRating[k].getAttribute("rating");
-//   // let singleRating = aggregateRating[k].getAttribute("reviews-number");
-//   console.log(singleRating,'=singleRating')
-//   addHiddenDiv('aggregateRating', singleRating, k);
-//   }
-
   try{
     // @ts-ignore
     document.querySelector('#onetrust-accept-btn-handler').click()
