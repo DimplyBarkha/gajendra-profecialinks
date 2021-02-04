@@ -19,6 +19,7 @@ fields:
     regExpReplace: $3
   - name: metaKeywords
     singleValue: false
+    xpath: //meta[contains(@name, "keywords")]/@content
     description: The <meta> keywords content
   - name: category
     singleValue: false
@@ -424,6 +425,7 @@ fields:
     description: null
   - name: specifications
     singleValue: false
+    xpath: //div[contains(@class,"iconograph-holder")]//ul//li
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: false
