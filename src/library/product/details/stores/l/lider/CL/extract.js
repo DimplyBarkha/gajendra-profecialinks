@@ -11,7 +11,7 @@ module.exports = {
   implementation: async (inputs, parameters, context, dependencies) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    await context.evaluate(() => {
+    await context.evaluate (async () => {
       const getAllXpath = (xpath, prop) => {
         const nodeSet = document.evaluate(
           xpath,
@@ -58,15 +58,15 @@ module.exports = {
       let fetchURL = 'https://wlmstatic.lider.cl/contentassets/galleries/' + FinalImageNumber + '.xml';
       console.log(fetchURL);
       let finalArrImg = [];
-      fetch(fetchURL).then(res => res.text()).then(res => {
+      await fetch(fetchURL).then(res => res.text()).then(res => {
         const p = new DOMParser();
         const xmlDOM = p.parseFromString(res, "text/xml");
         Array.from(xmlDOM.querySelectorAll('item > image')).forEach(i => finalArrImg.push(i.textContent));
       });
       console.log(FinalImageNumber);
       console.log(finalArrImg);
-      for (let i = 0; i < finalArrImg.length; i++) {
-        addHiddenDiv1('alternateImg', mainImageURL.replace(/file:.+jpg/g, finalArrImg[i]))
+      for (let i = 1; i < finalArrImg.length; i++) {
+        addHiddenDiv1('alternateImg', mainImageURL.replace(/file:.+jpg/g, finalArrImg[i]), 0)
       }
     });
     return await context.extract(productDetails, { transform });
