@@ -1,24 +1,24 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,"page-search-results")]//div[@class="search-card j-search-card"]
+recordXPath: //div[contains(@class,"page-search-results")]//div[contains(@class,"search-card j-search-card")]
 fields:
   - name: id
-    SingleValue: false
-    xpath: //div[@class="search-card j-search-card"]/a/@href
+    singleValue: false
+    xpath:  //div[contains(@class,"search-card j-search-card")]/@data-card-id
   - name: productUrl
-    SingleValue: false
-    xpath: //div[@class="search-card j-search-card"]/a/@href
+    singleValue: false
+    xpath:  //a[@itemprop="url"]/@href | //a[@class="header-card-search__link"]/@href
   - name: price
-    SingleValue: false
+    singleValue: false
     xpath: //div[@class="price-search__present"]
   - name: thumbnail
-    SingleValue: false
+    singleValue: false
     xpath: //img[@class="search-card__image"]/@src
   - name: name
-    SingleValue: false
+    singleValue: false
     xpath: //div[contains(@class,"header-card-search")]//h4[@class="header-card-search__title"]
   - name: rankOrganic
-    SingleValue: false
+    singleValue: false
   - name: rank
-    SingleValue: false
+    singleValue: false

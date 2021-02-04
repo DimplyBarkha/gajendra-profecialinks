@@ -27,30 +27,29 @@ const transform = (data) => {
     for (const row of group) {
       if (row.thumbnail) {
         row.thumbnail.forEach(item => {
-          item.text = "https://b-apteka.ru" + item.text;
-          item.text = item.text.replace('/catalog','/normal');
+          item.text = 'https://b-apteka.ru' + item.text;
+          item.text = item.text.replace('/catalog', '/normal');
         });
       }
       if (row.productUrl) {
         row.productUrl.forEach(item => {
-          if(item.text.indexOf('b-apteka.ru') < 0){
-            item.text = "https://b-apteka.ru/" + item.text;
-          }
-        });
-      }      
-      if (row.id) {
-        row.id.forEach(item => {
-          var myRegexp = /.+\/(\d+)-/g;
-          var match = myRegexp.exec(item.text);
-          if (match) {
-            item.text = match[1];
-          }
-          else {
-            delete row.id;
+          if (item.text.indexOf('b-apteka.ru') < 0) {
+            item.text = 'https://b-apteka.ru/' + item.text;
           }
         });
       }
-      row.rank = row.rankOrganic = [{ "text": rank }];
+      // if (row.id) {
+      //   row.id.forEach(item => {
+      //     var myRegexp = /.+\/(\d+)-/g;
+      //     var match = myRegexp.exec(item.text);
+      //     if (match) {
+      //       item.text = match[1];
+      //     } else {
+      //       delete row.id;
+      //     }
+      //   });
+      // }
+      row.rank = row.rankOrganic = [{ text: rank }];
       rank++;
     }
   }
