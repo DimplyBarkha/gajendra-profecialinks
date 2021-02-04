@@ -6,7 +6,7 @@ module.exports = {
     prefix: null,
     url: null,
     store: 'jiomart',
-    zipcode: '',
+    zipcode: '560012',
     country: 'IN',
   },
 };

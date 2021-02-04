@@ -39,7 +39,7 @@ module.exports = {
     store: 'jiomart',
     transform,
     domain: 'jiomart.com',
-    zipcode: '',
+    zipcode: '560012',
   },
   dependencies: {
     productDetails: 'extraction:product/search/stores/${store[0:1]}/${store}/${country}/extract',

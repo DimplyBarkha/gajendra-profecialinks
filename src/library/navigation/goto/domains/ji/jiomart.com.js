@@ -6,12 +6,28 @@ module.exports = {
     timeout: 25000,
     jsonToTable: null,
     store: 'jiomart',
-    zipcode: '',
+    zipcode: '560012',
     country: 'IN',
   },
-  implementation: async ({ url, zipcode }, parameters, context, dependencies) => {
-    const timeout = parameters.timeout ? parameters.timeout : 30000;
-    const res = await context.goto(url, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: true });
+  implementation: async ({ url }, parameters, context, dependencies) => {
+    const { timeout, zipcode } = parameters;
+
+    const res = await context.goto(url, { 
+      first_request_timeout: 60000, 
+      timeout, waitUntil: 'load', 
+      checkBlocked: true,
+      headers: { pin: "560012"},
+      cookies: [
+          {"name":"nms_mgo_pincode","value":"560012"},
+          {"name":"nms_mgo_city","value":"Bangalore"},
+          {"name":"nms_mgo_state_code","value":"KA"},
+        ]
+      // cookies: {
+      //   nms_mgo_pincode: "560012",
+      //   nms_mgo_city: "Bangalore",
+      //   nms_mgo_state_code: "KA"
+      // }
+    });
     if (res.status === 404) {
       throw new Error('blocked!');
     }
@@ -20,6 +36,7 @@ module.exports = {
     }
   },
 };
+
 
 // module.exports = {
 //   implements: 'navigation/goto',
@@ -37,11 +54,11 @@ module.exports = {
 //     if (zipcode) {
 //       await context.goto(`https://www.jiomart.com/mst/rest/v1/pin/${zipcode}`, { waitUntil: 'load' });
 //       const locationCookie = await context.evaluate(async (zipcode) => {
-//         const response = JSON.parse(document.querySelector('body pre').textContent);
+        // const response = JSON.parse(document.querySelector('body pre').textContent);
 
-//         const pincode = response.result.pin || zipcode;
-//         const city = response.result.city;
-//         const stateCode = response.result.state_code;
+        // const pincode = response.result.pin || zipcode;
+        // const city = response.result.city;
+        // const stateCode = response.result.state_code;
 
 //         return `nms_mgo_pincode = ${pincode}; nms_mgo_city = ${city}; nms_mgo_state_code = ${stateCode}`
 //       });

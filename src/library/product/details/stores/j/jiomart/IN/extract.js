@@ -7,6 +7,6 @@ module.exports = {
     store: 'jiomart',
     transform,
     domain: 'jiomart.com',
-    zipcode: '',
+    zipcode: '560012',
   },
 };

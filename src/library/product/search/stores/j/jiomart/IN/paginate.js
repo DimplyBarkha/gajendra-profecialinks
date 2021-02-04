@@ -17,6 +17,6 @@ module.exports = {
     resultsDivSelector: null,
     openSearchDefinition: null,
     domain: 'jiomart.com',
-    zipcode: '',
+    zipcode: '560012',
   },
 };

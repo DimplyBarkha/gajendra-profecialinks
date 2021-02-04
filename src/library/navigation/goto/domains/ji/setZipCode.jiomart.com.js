@@ -5,6 +5,28 @@ module.exports = {
     country: 'IN',
     domain: 'jiomart.com',
     store: 'jiomart',
-    zipcode: '',
+    zipcode: '560012',
+  },
+  implementation: async ({ url,zipcode }, parameters, context, dependencies) => {
+    // await context.evaluate(async(zipcode)=>{
+    //   const localeResponse = await fetch(`https://www.jiomart.com/mst/rest/v1/pin/${zipcode}`);
+    //   if (localeResponse.status == 200){
+    //     window.location.reload();
+    //   }
+    // },zipcode);
+    try{
+      await new Promise(res=>setTimeout(res,3000))
+      await context.click('li#pincode_section', { timeout:7000 });
+      await context.waitForSelector('input.inp_text', { timeout: 7000 });
+      await new Promise(res=>setTimeout(res,3000))
+      await context.setInputValue('input.inp_text',zipcode);
+      await new Promise(res=>setTimeout(res,3000))
+      await context.clickAndWaitForNavigation('div.pin_detail button.apply_btn', { timeout: 7000, waitUntil:'networkidle0' });
+      await new Promise(res=>setTimeout(res,3000))
+
+    } catch(err){
+      throw new Error(`Pincode change failed, ${err}`);
+    }
+
   },
 };

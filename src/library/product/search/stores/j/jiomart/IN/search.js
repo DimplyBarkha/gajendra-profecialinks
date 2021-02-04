@@ -5,7 +5,7 @@ module.exports = {
     country: 'IN',
     store: 'jiomart',
     domain: 'jiomart.com',
-    zipcode: '',
+    zipcode: '560012',
     storeID: null,
   },
 };

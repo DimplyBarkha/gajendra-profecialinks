@@ -7,6 +7,6 @@ module.exports = {
     domain: 'jiomart.com',
     loadedSelector: 'main#maincontent',
     noResultsXPath: '//div[@class="empty_listing"]',
-    zipcode: '',
+    zipcode: '560012',
   },
 };

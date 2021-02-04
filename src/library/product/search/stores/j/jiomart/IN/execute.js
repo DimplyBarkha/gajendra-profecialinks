@@ -8,6 +8,6 @@ module.exports = {
     url: 'https://www.jiomart.com/catalogsearch/result?q={searchTerms}',
     loadedSelector: 'div[class*=cat-item]',
     noResultsXPath: '//div[@class="noresult"]',
-    zipcode: '',
+    zipcode: '560012',
   },
 };
