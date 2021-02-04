@@ -286,9 +286,9 @@ module.exports = {
 
       const jsonData = getXpath("//script[@id='__NEXT_DATA__']", 'innerText');
       var jsonParse = JSON.parse(jsonData);
+      const variants = jsonParse.props.pageProps.productGroup ? jsonParse.props.pageProps.productGroup.children : null;
       console.log(jsonParse);
       console.log(jsonParse.props.pageProps.productGroup.children);
-      const variants = jsonParse.props.pageProps.productGroup.children;
       const targetElement = document.querySelector('body');
       const newUl = document.createElement('ul');
       newUl.id = 'variantsadd';
@@ -296,7 +296,7 @@ module.exports = {
 
       const ul = document.querySelector('#variantsadd');
       try {
-        if (variants.length) {
+        if (variants && variants.length) {
           for (let i = 0; i < variants.length; i++) {
             const listItem = document.createElement('li');
 
