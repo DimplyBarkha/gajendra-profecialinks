@@ -32,15 +32,11 @@ const transform = (data, context) => {
         row.variantId = [{ text: arrIds[indexTemp] }];
         row.sku = [{ text: arrIds[indexTemp] }];
       }
-      if (row.firstVariantIdTest && row.allVariantsIdTest) {
-        if (indexTemp === 0) {
-          row.variantId = [{ text: row.firstVariantIdTest[0].text }];
-        } else {
-          var arrVariantIds = row.allVariantsIdTest[0].text.split(',').slice(0, -1);
-          if (arrVariantIds[indexTemp - 1]) {
-            row.variantId = [{ text: arrVariantIds[indexTemp - 1].replace('[', '') }];
-          }
-        }
+      if (row.altVariantId) {
+        row.variantId = [{ text: row.altVariantId[0].text }];
+      }
+      if (row.altVariantSku) {
+        row.sku = [{ text: row.altVariantSku[0].text }];
       }
       if (row.additionalDescBulletInfo) {
         var arrBullets = [];

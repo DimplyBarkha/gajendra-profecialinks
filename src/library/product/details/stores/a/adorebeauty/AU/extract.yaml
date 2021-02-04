@@ -19,14 +19,10 @@ fields:
     xpath: count(//div[@class="thumbnail-gallery__inner"]/div[position()>1]//img[not(contains(@src,'product-loader')) and not(contains(@src,'ytimg'))]/@src)
   - name: sku
     xpath: //meta[contains(@itemprop,'sku')]/@content
-  - name: firstVariantIdTest
-    xpath: //script[contains(., "product_id")]
-    regExp: product_id="(.*?)"\;
-    regExpReplace: $1
-  - name: allVariantsIdTest
-    xpath: //script[contains(., "child_product_id_i_mv")]
-    regExp: child_product_id_i_mv=(.*?)\;
-    regExpReplace: $1    
+  - name: altVariantId
+    xpath: //button[contains(@class, "is-selected")]/ancestor::li/@ii_variantid
+  - name: altVariantSku
+    xpath: //button[contains(@class, "is-selected")]/ancestor::li/@ii_sku
   - name: variantId
     xpath: //meta[contains(@itemprop,'sku')]/@content
     # regExp: child_product_id_i_mv=(.*?)\;
