@@ -34,12 +34,13 @@ module.exports = {
       console.log('moreButton:: ', moreButton.singleNodeValue);
       if (moreButton && moreButton.singleNodeValue != null) {
         let index = 0;
+        // try {
         while (index < 7) {
           try {
+            index++;
             moreButton = document.evaluate('//div[contains(@class,"LoadMore__Wrapper-")]//button[contains(@class,"Button-sc-1o0ywp5-0")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
             moreButton.singleNodeValue.click();
-            console.log('more button clicked: ', index);
-            index++;
+            console.log('more button clicked: ', index - 1);
             await new Promise((resolve, reject) => setTimeout(resolve, 2000));
             let scrollTop = 0;
             while (scrollTop !== 10000) {
@@ -52,9 +53,10 @@ module.exports = {
               }
             }
           } catch (e) {
-            console.log('error on more button: ', e);
+            // console.log('error on more button: ', e);
           }
         }
+        // } catch (e) {}
       }
     });
     return await context.extract(productDetails, { transform });
