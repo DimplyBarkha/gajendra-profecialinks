@@ -19,12 +19,9 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //ul[@class='products-catalog row']//li//div[@class='picture']//img/@src
-  # - name: reviewCount
-  #   singleValue: false
-  #   type: NUMBER
-  #   xpath: //div[@class="reviews-count-annotation annotation fontRobotoCondensed"]
   - name: id
     singleValue: false
     xpath: //html//div[@id="id"]
-    # regExp: product\/(.+\/)?([A-Z0-9-]+)(-_-\d+)?(([0-9\_x]+)?\.(jpg|gif))
-    # regExpReplace: $2$3
+  - name: sku
+    singleValue: false
+    xpath: //html//div[@id="id"]
