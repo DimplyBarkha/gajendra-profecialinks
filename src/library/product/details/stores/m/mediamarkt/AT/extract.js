@@ -39,7 +39,7 @@ module.exports = {
     } catch (err) {
       console.log('no load more button for specification');
     }
-    await context.evaluate(function () {
+    await context.evaluate(async () => {
       if (document.querySelector('div[data-test="mms-accordion-features"] a[class*="ProductFeatures__StyledExpand"]')) {
         const accordionClicker = document.querySelector('div[data-test="mms-accordion-features"] a[class*="ProductFeatures__StyledExpand"]');
         accordionClicker.click();
