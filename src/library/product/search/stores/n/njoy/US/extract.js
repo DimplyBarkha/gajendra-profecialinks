@@ -7,35 +7,28 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
   try {
-    await context.waitForSelector('a[class="button confirmm-age"]', { timeout: 7000 });
+    await context.waitForSelector('a[id="sel_country_close_pop"]', { timeout: 7000 });
   } catch (e) {
-    console.log('age selector not found');
+    console.log('popup selector not found');
   }
 
   await context.evaluate(async function () {
-    const ageConfIframe = document.querySelector('a.button.confirmm-age');
+    const ageConfIframe = document.querySelector('a#sel_country_close_pop');
     if (ageConfIframe) {
-      document.querySelector('a.button.confirmm-age').click();
+      document.querySelector('a#sel_country_close_pop').click();
     }
     return !!ageConfIframe;
   });
-
-  try {
-    await context.waitForSelector('div[data-review-id]:not(.yotpo-hidden)', { timeout: 7000 });
-  } catch (e) {
-    console.log('review selector not found');
-  }
-
   return await context.extract(productDetails, { transform });
 }
 
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
-    country: 'US',
-    store: 'njoy',
+    country: 'UK',
+    store: 'JD_Sports',
     transform: null,
-    domain: 'shop.njoy.com',
+    domain: 'jdsports.co.uk',
     zipcode: '',
   },
   implementation,

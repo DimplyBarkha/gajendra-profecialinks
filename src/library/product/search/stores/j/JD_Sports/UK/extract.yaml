@@ -10,10 +10,11 @@ fields:
     regExpReplace: https://www.jdsports.co.uk$1
   - name: thumbnail
     description: The URL for the product thumbnail image
+    singleValue: false
     # xpath: //ul[not(contains(@class,'productList rcHldr'))]//a[@class="itemImage"]/picture//img/@src
-    xpath: //ul[@id="productListMain"]//a/picture/source/@srcset
-    regExp: ((\w.+)[,])
-    regExpReplace: $2
+    xpath: //ul[@id="productListMain"]//a[@class="itemImage"]/picture/source/@srcset
+    regExp: (\w.+)[,]
+    regExpReplace: $1
   - name: name
     type: TEXT
     xpath: //ul[@id='productListMain']//span[@class='itemTitle']//a//text()
@@ -27,4 +28,4 @@ fields:
   - name: price
     description: The offered price for the product
     type: CURRENCY
-    xpath: //ul[@id='productListMain']//div[@class='itemPrice']//span[@data-e2e="product-listing-price"]
+    xpath: //div[@class='itemPrice']//span[@data-e2e="product-listing-price"]
