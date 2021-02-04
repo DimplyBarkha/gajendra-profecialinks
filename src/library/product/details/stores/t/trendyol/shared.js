@@ -42,13 +42,21 @@ const transform = (data) => {
       }
       if (row.sku) {
         row.sku.forEach(item => {
-          let data = JSON.parse(item.text);
-          console.log('dataObj :',data);
-          if(data.hasOwnProperty('gtin13')){
-            item.text=data.gtin13;
+          let skuVal=item.text.replace('window.__PRODUCT_DETAIL_APP_INITIAL_STATE__ = ', '').slice(0, -1) ;
+          let data = JSON.parse(skuVal);
+          console.log('dataObjsku :',data.product.variants);
+          if(data.product.hasOwnProperty('productCode')){
+            item.text=data.product.productCode;
+          }else if(data.product.hasOwnProperty('variants')){
+            item.text=data.product.variants[0].barcode;
           }else{
             item.text="";
           }
+          /*if(data.hasOwnProperty('gtin13')){
+            item.text=data.gtin13;
+          }else{
+            item.text="";
+          }*/
         });
       }
       if (row.gtin) {

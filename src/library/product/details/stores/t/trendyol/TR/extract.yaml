@@ -54,7 +54,7 @@ fields:
     # regExpReplace: $2
   - name: sku
     description: The store-specific product identifier
-    xpath: //script[@type="application/ld+json" and contains(text(),"gtin13")]/text()
+    xpath: //script[@type="application/javascript" and contains(text(), "window.__PRODUCT_DETAIL_APP_INITIAL_STATE__")]/text()
     # regExp: (.+"sku":\s")(([^"])+)(.+)
     # regExpReplace: $2
   - name: variantId
