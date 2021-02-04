@@ -47,11 +47,10 @@ fields:
 - name: availabilityText
   singleValue: true
   type: TEXT
-  xpath: (//meta[@itemprop='availability']/@content)[1]
-  # xpath: //div[@class="wide-6 productInformations offerDetails"]//dl[3]/dd[@class="availability status status1"]/span/@title
-  regExp: .+InStock
-  regExpReplace: In Stock
-  defaultValue: Out of Stock
+  xpath: (//dl[@class="productAvailability"])[1]//span[@class="value-title"]/@title
+  regExp: out_of_stock
+  regExpReplace: Out of Stock
+  defaultValue: In Stock 
 - name: description
   # type: TEXT[]
   singleValue: false 
