@@ -7,11 +7,13 @@ module.exports = {
     store: 'mediamarkt',
     zipcode: '',
   },
-  implementation: async (inputs, parameterValues, context, dependencies) => {
-    const url = inputs.url;
-
+  implementation: async (inputs, parameters, context, dependencies) => {
+    const { url } = inputs;
+    await context.setBlockAds(false);
+    await context.setLoadAllResources(true);
+    await context.setLoadImages(true);
     await context.goto(url, {
-      timeout: 30000,
+      timeout: 60000,
       waitUntil: 'load',
       checkBlocked: true,
     });

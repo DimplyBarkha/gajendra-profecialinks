@@ -62,11 +62,6 @@ module.exports = {
         document.querySelector('div[class^="ProductFeatures"] a[class^="Linkstyled"]').click();
       }
 
-      if (document.querySelector('[data-test="mms-th-gallery"] [direction="next"]')) {
-        document.querySelector('[data-test="mms-th-gallery"] [direction="next"]').click();
-      }
-    });
-
     // let moreInfoSelector=null;
     // moreInfoSelector=await context.evaluate(async function () {
     // if(document.querySelector('section img[alt="DYSON"]')){
@@ -78,16 +73,16 @@ module.exports = {
     //     return null;
     // });
 
-    await context.evaluate(async function () {
-      if (document.querySelector('section img[alt="DYSON"]')) {
-        const moreInfoSpan = document.querySelector('section img[alt="DYSON"]');
-        moreInfoSpan.click();
-        await new Promise((resolve, reject) => setTimeout(resolve, 6000));
-      }
+    // await context.evaluate(async function () {
+    //   if(document.querySelector('section img[alt="DYSON"]')){
+    //     let moreInfoSpan=document.querySelector('section img[alt="DYSON"]');
+    //     moreInfoSpan.click();
+    //     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+    //     }
 
-      // let playBtn=document.querySelector('div[id="player"] button[class*="play-button"]');
-      // playBtn.click();
-    });
+    //     // let playBtn=document.querySelector('div[id="player"] button[class*="play-button"]');
+    //     // playBtn.click();
+    //   });
 
     try {
       await context.waitForSelector('div[class*="flix-std-row"]', { timeout: 95000 });
@@ -118,6 +113,13 @@ module.exports = {
     //   addHiddenDiv('enhancedContent',enhancedContent);
     //   });
     // }
+    try {
+      await context.waitForSelector('div.Foldable__StyledFoldable-sc-1e6f7m3-0.bTXMvT >div > div > div > div:nth-child(2) > div > button > span', { timeout: 10000 });
+      await context.click('div.Foldable__StyledFoldable-sc-1e6f7m3-0.bTXMvT >div > div > div > div:nth-child(2) > div > button > span');
+      await context.waitForSelector('#flix-inpage', { timeout: 10000 });
+    } catch (err) {
+      console.log('got some err', err.message);
+    }
 
     await context.extract(productDetails, { transform: transformParam });
   },

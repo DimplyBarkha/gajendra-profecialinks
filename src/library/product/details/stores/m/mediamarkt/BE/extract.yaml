@@ -118,11 +118,13 @@ fields:
     type: NUMBER
   - name: aggregateRatingText
     singleValue: true
-    xpath: //span[@itemprop="ratingValue"]
+    # xpath: //span[@itemprop="ratingValue"]
+    xpath: //span[@itemprop="ratingValue"] | //div[@itemprop="ratingValue"]
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: true
-    xpath: //span[@itemprop="ratingValue"]
+    # xpath: //span[@itemprop="ratingValue"]
+    xpath: //span[@itemprop="ratingValue"] | //div[@itemprop="ratingValue"]
     description: The stated aggregate rating normalized to be out of 5
   - name: shippingInfo
     singleValue: false
@@ -379,17 +381,17 @@ fields:
     regExpReplace: $1
   - name: inTheBoxUrl
     singleValue: false
-    xpath: //*[@id="added_ii_inBoxUrls"]//li
+    xpath: //div[contains(@class, "accessories product-accessories")]//div[contains(@class, "products-carousel")]//ul[@class="products-grid"]//li//div[contains(@class, "base-info")]//*[self::div[contains(@class, "info-wrapper")] or self::h3]
+  - name: inTheBoxUrl
+    singleValue: false
+    xpath: //*[@id="ii_inTheBoxUrl"]
   - name: inTheBoxText
     singleValue: false
-    xpath: //*[@id="ii_inBoxText"]|(//dl[@class="specification"]//dt[contains(text(),"Verpakkingsinhoud")]//following-sibling::dd)[1]
-    description: Must include text to show the accessories/tools which come with the product
+    xpath: //*[@id="ii_inTheBoxText"]
+  - name: backUpInTheBoxText
+    singleValue: false
+    xpath: (//dl[@class="specification"]//dt[(text()="Verpakkingsinhoud:")]//following-sibling::dd)[1]
   - name: hasComparisonTable
     singleValue: true
-    xpath: //*[@id="ii_comparisionText"]
-    defaultValue: false
-    description: Compare the range table or matrix must be present for all vacuum cleaners & air treatment. This is not required for personal care or lighting. As a minimum the comparison table will compare against 1 additional Dyson product.
-  - name: unInterruptedPDP
-    singleValue: false
-    xpath: //div[contains(@class, "recommendation-box")]//li//a[contains(@class, "product-link")]
-    description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
+    xpath: //*[@id="ii_hasComparisionTable"]
+

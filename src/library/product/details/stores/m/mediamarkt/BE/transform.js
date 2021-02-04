@@ -30,6 +30,33 @@ const transform = (data, context) => {
           },
         ];
       }
+
+      if (row.inTheBoxUrl) {
+        console.log(row.inTheBoxUrl);
+        row.inTheBoxUrl.forEach(item => {
+          if (item.text.includes(',')) {
+            item.text.replace(/,/g, '||');
+          }
+        });
+      }
+
+      if (row.inTheBoxText) {
+        console.log(row.inTheBoxText);
+        row.inTheBoxText.forEach(item => {
+          if (item.text.includes(',')) {
+            item.text.replace(/,/g, '||');
+          }
+        });
+      }
+
+      if (!row.inTheBoxText && row.backUpInTheBoxText) {
+        console.log(row.backUpInTheBoxText);
+        row.backUpInTheBoxText.forEach(item => {
+          item.text = item.text.replace(/\//g, '||');
+        });
+        row.inTheBoxText = row.backUpInTheBoxText;
+      }
+
       if (row.promotion) {
         const text = [];
         row.promotion.forEach(item => {
@@ -143,12 +170,6 @@ const transform = (data, context) => {
           text.push(item.text);
         });
         row.legalDisclaimer[0].text = text.join(' ');
-      }
-
-      if (row.inTheBoxText) {
-        if (row.inTheBoxText[0].text.includes(' / ')) {
-          row.inTheBoxText[0].text = row.inTheBoxText[0].text.replace(/\//gm, ' || ');
-        }
       }
 
       if (row.uninterruptedPDP) {

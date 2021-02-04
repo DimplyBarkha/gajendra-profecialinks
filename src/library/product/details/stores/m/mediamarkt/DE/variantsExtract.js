@@ -45,20 +45,18 @@ async function implementation (
 
   const productID = await getElementByXpath('(//span[contains(@class, "DetailsHeader__")]//span)[1]');
 
-  const variantArr = await getVariants(productID);
+  // const variantArr = await getVariants(productID);
 
-  await context.evaluate(async ({ variantArr }) => {
-    const addElementToDocument = (key, value) => {
-      const catElement = document.createElement('div');
-      catElement.id = key;
-      catElement.textContent = value;
-      catElement.style.display = 'none';
-      document.body.appendChild(catElement);
-    };
-    for (let i = 0; i < variantArr.length; i++) {
-      addElementToDocument('product_variant', variantArr[i]);
-    }
-  }, { variantArr });
+  const variantNodes = document.querySelectorAll('div[class^="ProductVariantsstyled"] a');
+  if (variantNodes.length) {
+    // @ts-ignore
+    [...variantNodes].forEach((element) => {
+      // const text = getVariantsText(element.getAttribute('href'));
+      // variantList.push(text);
+      // console.log(text);
+    });
+  }
+  // }, { variantArr });
   return await context.extract(variants);
 }
 module.exports = {

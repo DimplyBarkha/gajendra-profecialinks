@@ -1,17 +1,26 @@
+// @ts-nocheck
 
 class SharedHelpers {
   constructor (context) {
     this.context = context;
   }
 
-  async addHiddenInfo (elementID, content) {
-    await this.context.evaluate(async function (elementID, content) {
-      const newDiv = document.createElement('div');
-      newDiv.id = elementID;
-      newDiv.textContent = content;
-      newDiv.style.display = 'none';
-      document.body.appendChild(newDiv);
-    }, elementID, content);
+  async addHiddenInfo (elementID, content, contentArr = []) {
+    contentArr = contentArr.length ? contentArr : [content];
+    await this.context.evaluate(async function (elementID, content, contentArr) {
+      if (contentArr.length === 0) {
+        contentArr.push(content);
+      } else {
+        // contentArr.push('');
+        contentArr.forEach((element) => {
+          const newDiv = document.createElement('div');
+          newDiv.id = elementID;
+          newDiv.textContent = element;
+          newDiv.style.display = 'none';
+          document.body.appendChild(newDiv);
+        });
+      }
+    }, elementID, content, contentArr);
   }
 
   async addHiddenArrayList (elementID, value) {
@@ -47,11 +56,8 @@ class SharedHelpers {
       waitUntil: 'load',
     });
     try {
-      await this.context.waitForSelector('div.preview-more a', { timeout: 35000 });
-      await this.context.evaluate(async () => {
-        const previewButton = document.querySelector('div.preview-more a');
-        previewButton.click();
-      });
+      await this.context.waitForSelector('div.more, .preview-more a', { timeout: 35000 });
+      await this.context.click('div.more, .preview-more a');
     } catch (error) {
       console.log('No preview button');
     }
@@ -76,22 +82,18 @@ class SharedHelpers {
       return document.querySelector('body').innerText;
     });
     if (inBoxSelector) {
-      inBoxText = await this.context.evaluate(async function (inBoxSelector) {
-        const boxTexts = document.querySelectorAll(inBoxSelector + ' p');
-        const text = [];
-        boxTexts.forEach((element) => {
-          text.push(element.innerText);
-        });
-        return text.join(' || ');
-      }, inBoxSelector);
-      inBoxUrls = await this.context.evaluate(async function (inBoxSelector, getAttrImgSrc) {
-        const images = document.querySelectorAll(inBoxSelector + ' img');
-        const imagesSrc = [];
-        [...images].forEach((element) => {
-          imagesSrc.push(element.getAttribute(getAttrImgSrc));
-        });
-        return imagesSrc;
+      const inTheBoxData = await this.context.evaluate(async function (inBoxSelector, getAttrImgSrc) {
+        const inBoxUrls = [];
+        const inBoxText = [];
+        const getAllProducts = document.querySelectorAll(inBoxSelector + ' div:not(.side-pics)');
+        for (let i = 0; i < getAllProducts.length; i++) {
+          inBoxUrls.push(getAllProducts[i].querySelector('img').getAttribute(getAttrImgSrc));
+          inBoxText.push(getAllProducts[i].querySelector('p').innerText);
+        }
+        return { inBoxText, inBoxUrls };
       }, inBoxSelector, getAttrImgSrc);
+      inBoxText = inTheBoxData.inBoxText;
+      inBoxUrls = inTheBoxData.inBoxUrls;
     }
     if (comparisionTableSelector) {
       comparisionText = await this.context.evaluate(async function (comparisionTableSelector) {
@@ -100,13 +102,41 @@ class SharedHelpers {
     }
     console.log(inBoxText);
     content = text;
+
+    await this.context.waitForSelector(imgSelector, { timeout: 300000 });
     const images = await this.context.evaluate(async function (imgSelector, getAttrImgSrc) {
       const images = document.querySelectorAll(imgSelector);
+      const backImgs = [...document.querySelectorAll('*[style*="background-image"]')];
+      const src = [];
+      let srcUnique = [];
+      if (backImgs) {
+        backImgs.forEach(img => {
+          let link = img.getAttribute('style').replace(/(.+\()(.+)(\))(.+)?/, '$2');
+          if (link.includes('"')) {
+            link = link.replace(/"/g, '');
+          }
+          src.push(link);
+        });
+        srcUnique = [...new Set(src)];
+      }
       const imagesSrc = [];
       [...images].forEach((element) => {
         imagesSrc.push(element.getAttribute(getAttrImgSrc));
       });
-      return imagesSrc;
+      if (srcUnique.length >= 1) {
+        srcUnique.forEach(src => {
+          imagesSrc.push(src);
+        });
+      }
+      const allImages = [];
+      for (let i = 0; i < imagesSrc.length; i++) {
+        if (imagesSrc[i] === '' || imagesSrc[i] === null) {
+          continue;
+        } else {
+          allImages.push(imagesSrc[i]);
+        }
+      }
+      return allImages;
     }, imgSelector, getAttrImgSrc);
     image = images;
 

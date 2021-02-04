@@ -88,6 +88,7 @@ fields:
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
+    xpath: //*[contains(text(),'Artikelnummer:')]/following-sibling::dd/span
   - name: packSize
     singleValue: false
     description: The number of packs in the product offer (if stated separately on
@@ -104,11 +105,11 @@ fields:
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: false
-    xpath: //span[@itemprop="reviewCount"]
+    xpath: //*[@itemprop="reviewCount"]/@content
     description: The number of ratings
   - name: aggregateRating
     singleValue: false
-    xpath: //span[@itemprop="ratingValue"]
+    xpath: //*[@itemprop="ratingValue"]
     description: The stated aggregate rating normalized to be out of 5
   - name: shippingInfo
     singleValue: false
@@ -134,11 +135,11 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
-    xpath: //article[@class="description"]
+    xpath: normalize-space(//article[@class="description"]|//div[contains(@id,"flix-dyson-new-inpage")])
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
-    xpath: //article[@class="description"]//img/@src
+    xpath: //article[@class="description"]//img/@src | //div[contains(@id,"inpage_container")]//div[contains(@class,"flix-background-image")]//img/@srcset
     description: Images within the third party description
   - name: videos
     singleValue: false
@@ -355,9 +356,9 @@ fields:
     description: Must include text to show the accessories/tools which come with the product
   - name: hasComparisonTable
     singleValue: true
-    xpath: boolean(//div[@class="containerron"]/following-sibling::img[contains(@src,"chart_SE")]/@src)
+    xpath: boolean(//img[contains(@src,"C_chart")])
     description: Compare the range table or matrix must be present for all vacuum cleaners & air treatment. This is not required for personal care or lighting. As a minimum the comparison table will compare against 1 additional Dyson product.
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //div[contains(@class, "base-info")]//h3//a
+    xpath: //div[contains(@class, "base-info")]//h3//a | //div[starts-with(@class,"prodRelBox-item")]//h3 | //div[@class="swogo-container swogo-container-pdp"]//div[@class="swogo-main"]//a[@class="swogo-product-link"]/div | //div[@class="swogo-alternatives-box"]/div[@class="swogo-alternative"]//div[@class="swogo-title"]
     description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections

@@ -9,14 +9,10 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
-    loadedXpath: null,
-    noResultsXPath: '//div[@class="ZeroResultsView__PageSection-sc-15n7m0l-0 cZToiD"]',
-    stopConditionSelectorOrXpath: null,
-    resultsDivSelector: null,
-    openSearchDefinition: {
-      pageStartNb: 1,
-      template: 'https://www.mediamarkt.de/de/search.html?&query={searchTerms}&page={page}',
-    },
+    noResultsXPath: null,
+    // openSearchDefinition: {
+    //   template: 'https://www.mediamarkt.de/de/search.html?page={page}&query={searchTerms}',
+    // },
     domain: 'mediamarkt.de',
     zipcode: '',
   },
