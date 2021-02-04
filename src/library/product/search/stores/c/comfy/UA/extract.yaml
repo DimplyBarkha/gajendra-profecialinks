@@ -6,9 +6,8 @@ fields:
   - name: sku
     singleValue: false
     description: The store-specific product identifier
-    xpath: //div[@class="product-item__sku hide-on-mobile"]/text()
-    regExp: (\d+)
-    regExpReplace: $1
+    xpath: //div[@class="product-item__sku hide-on-mobile"]/text() | //div[contains(@class,'product-item__sku')]
+    regExp: \d+
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
@@ -32,7 +31,7 @@ fields:
   - name: thumbnail
     singleValue: true
     description: The URL for the product thumbnail image
-    xpath: //li[@class="product-item-gallery__item slick-slide slick-current slick-active"]//img/@src
+    xpath: //li[@class="product-item-gallery__item slick-slide slick-current slick-active"]//img/@src | //img[contains(@class,'product-lazy') and contains(@src, 'data')]/@data-src | //img[contains(@class,'product-lazy') and not(contains(@src, 'data'))]/@src
   - name: name
     singleValue: true
     description: The product name
