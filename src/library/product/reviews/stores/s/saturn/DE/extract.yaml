@@ -1,0 +1,68 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //section[contains(@id,"reviews")]//div[contains(@class,"Cardstyled__StyledCardWrapper") and not(contains(@class,"ReviewHeader"))]
+fields:
+  - name: helpfulCount
+    type: NUMBER
+    xpath: //span[contains(@class,"ReviewFeedbackPositiveNegativeCount")][1]
+    description: Number of people who said the review was helpful
+  - name: commentCount
+    type: NUMBER
+    description: Number of comments on the review
+  - name: brandText
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    xpath: ancestor::html//div[contains(@class,"ManufacturerImageWrap")]//img/@title
+  - name: name
+    description: The product name
+    xpath: ancestor::html//div[@data-test="mms-select-details-header"]//h1
+  - name: sku
+    description: The store-specific product identifier
+    xpath: ancestor::html//meta[@property="og:url"]/@content
+    regExp: (\d+)(?=.html)
+  - name: reviewDate
+    type: DATETIME
+    description: Date the review was made
+    xpath: //div[contains(@class,"FlexBox__StyledBox")][1]/div[2]//span
+  - name: reviewRating
+    type: NUMBER
+    description: Rating normalized to be out of 5
+    xpath: //div[@data-test="mms-customer-rating"]/@ratings
+  - name: reviewText
+    description: The text of the review
+    xpath: //p[2]
+  - name: reviewTitle
+    description: The title of the review
+    xpath: //p[contains(@class,"InfoTypo")][1]
+  - name: reviewerTags
+    description: The tags a reviewer has
+  - name: gtin
+    description: GTIN code (includes UPC/EAN)
+    xpath: ancestor::html//script[@type="application/ld+json"]
+    regExp: (gtin13[:"]+)([\d]+)(?=[,"]+)
+    regExpReplace: $2
+  - name: productUrl
+    description: The url of the product details page
+    xpath: ancestor::html//body/@url
+  - name: verifiedPurchase
+    description: Whether this of an item the reviewer purchased. "Yes" if true else ""
+    xpath: //div[contains(@class,"VerifiedPurchaserIcon")]/@content
+  - name: manufacturerResponse
+    description: The response of the manufacturer (if any)
+  - name: syndicatedFrom
+    description: Stated place the review was syndicated from
+  - name: reviewUrl
+    description: A direct link to the review
+  - name: reviewedSku
+    description: The SKU of the item that was reviewed (may be different from the
+      sku the review was shown on). 1 if sku == reviewedSku else 0. Get sku
+      value, transform will handle the value.
+  - name: user
+    description: The user name of the reviewer
+    type: TEXT
+    xpath: //span[contains(@class,"ReviewAuthor")]
+    regExp: (?=by )(.+)
+  - name: aggregateRating
+    description: The product rating
+    xpath: ancestor::html//div[contains(@class,"AverageRating")]/div/span
