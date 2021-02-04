@@ -4,12 +4,16 @@ module.exports = {
   parameterValues: {
     country: 'FI',
     store: 'tokmanni',
-    nextLinkSelector: '#kuPagination1 > a:nth-child(6)',
+    nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'main[class="page-main"]',
+    loadedSelector: null,
     noResultsXPath: null,
-    openSearchDefinition: null,
+    openSearchDefinition: 
+    {
+    template: 'https://eucs11.ksearchnet.com/cloud-search/n-search/search?ticket=klevu-15488592134928913&term={searchTerms}&paginationStartsFrom={pageOffset}&sortPrice=false&showOutOfStockProducts=true&klevuFetchPopularTerms=false&klevu_priceInterval=500&fetchMinMaxPrice=true&klevu_multiSelectFilters=true&noOfResults=48&klevuSort=rel&enableFilters=true&visibility=search&category=KLEVU_PRODUCT&klevu_filterLimit=50&lsqt=OR&responseType=json#[!opt!]{"type":"json"}[/!opt!]'
+    ,pageOffset: 48,
+    },
     domain: 'tokmanni.fi',
     zipcode: '',
   },
