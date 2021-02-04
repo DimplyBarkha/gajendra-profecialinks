@@ -37,6 +37,7 @@ module.exports = {
         else result = elem ? elem.singleNodeValue : '';
         return result && result.trim ? result.trim() : result;
       };
+      try{
       const variantInformation = getXpath("//h1[@class='productName_title']//text()", 'nodeValue');
       var VI = variantInformation.split(" ");
       addElementToDocument('variantInformation', VI[VI.length - 1]);
@@ -47,6 +48,9 @@ module.exports = {
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
+      }
+      catch(e)
+      {}
       function findAndInsertLabel(obj, labelName, outputName) {
         const result = findLabel(obj, labelName);
         if (result != null) {
