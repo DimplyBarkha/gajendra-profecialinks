@@ -22,10 +22,15 @@ module.exports = {
         return newDiv;
       }
 
+      // select each text node in description section and replace signs which are indicating that text is bullet point to double pipes
       function changebulletPointsToDoublePipes (selector) {
         const descriptionTextNodes = document.evaluate(selector, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         for (let i = 0; i < descriptionTextNodes.snapshotLength; i++) {
-          descriptionTextNodes.snapshotItem(i).textContent = descriptionTextNodes.snapshotItem(i).textContent.replace(/^(•|-|\*|\d\.|✓)/, ' || ');
+          console.log(descriptionTextNodes.snapshotItem(i).textContent);
+          descriptionTextNodes.snapshotItem(i).textContent = descriptionTextNodes.snapshotItem(i).textContent.replace(/^ *?(•|-|\*|\d\.|✓)/, ' || ');
+          if ((/^\s*(•|-|\*|\d\.|✓)\s*$/).test(descriptionTextNodes.snapshotItem(i).textContent)) {
+            descriptionTextNodes.snapshotItem(i).textContent = descriptionTextNodes.snapshotItem(i).textContent.replace(/^\s*(•|-|\*|\d\.|✓)\s*$/, ' || ');
+          }
         }
       }
       function extractNutritionInfo () {
@@ -102,7 +107,7 @@ module.exports = {
         addHiddenDiv('price', `${priceWholes.stringValue},${priceFractions.stringValue}€`);
       }
 
-      const variantRegexp = /\/(\d.+)\/$/;
+      const variantRegexp = /\/(\d{3,}.+)\/$/;
       const variantIdLinkElement = document.querySelector('link[rel="canonical"]');
       if (variantIdLinkElement) {
         const variantMatch = variantRegexp.exec(variantIdLinkElement.getAttribute('href'));
@@ -114,6 +119,7 @@ module.exports = {
         addHiddenDiv('variantId', bodyVariantId);
       }
 
+      // only way to scrape nameExtended and price fields from broken/raw details page
       const htmlJsonElement = document.querySelector('body>section[class="jum-additional-info row"]>div[data-jum-product-details]');
       if (htmlJsonElement) {
         const jsonObj = JSON.parse(htmlJsonElement.getAttribute('data-jum-product-details'));
@@ -151,10 +157,9 @@ module.exports = {
       }];
     }
     if (dataRef[0].group[0].description && dataRef[0].group[0].description[0].text.includes('||')) {
-      const bulletInfoArray = dataRef[0].group[0].description[0].text.match(/( \|\|.+)/g);
+      const bulletInfoArray = dataRef[0].group[0].description[0].text.match(/( ?\|\|.+)/g);
       let bulletInfoString = '';
       bulletInfoArray.forEach(bullet => {
-        console.log(bullet);
         bulletInfoString += bullet;
       });
       dataRef[0].group[0].additionalDescBulletInfo = [{
