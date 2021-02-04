@@ -7,12 +7,17 @@ async function implementation(
 ) {
     const { transform } = parameters;
     const { productDetails } = dependencies;
+    await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+    await context.waitForSelector('a.loadMoreButton', 6000)
+    await context.click('a.loadMoreButton');
     await context.evaluate(async () => {
-        while (!!document.querySelector('a.loadMoreButton')) {
-            // @ts-ignore
-            document.querySelector('a.loadMoreButton').click()
-            await new Promise(r => setTimeout(r, 6000));
-        }
+
+        
+            // while (!!document.querySelector('a.loadMoreButton')) {
+            //     // @ts-ignore
+            //     document.querySelector('a.loadMoreButton').click()
+            //     await new Promise(r => setTimeout(r, 6000));
+       
         function addHiddenDiv(id, content, index) {
             const newDiv = document.createElement('div');
             newDiv.id = id;
