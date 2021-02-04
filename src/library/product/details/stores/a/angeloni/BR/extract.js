@@ -40,7 +40,9 @@ module.exports = {
           }, ms);
         });
       }
-
+    });
+    await context.waitForSelector('.prod-info');
+    await context.evaluate(async () => {
       function addElementToDocument (key, value) {
         const createdElem = document.querySelector(`#${key}`);
         if (!createdElem) {

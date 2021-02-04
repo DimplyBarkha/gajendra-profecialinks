@@ -47,6 +47,11 @@ const transform = (data) => {
         if (altImagesCount > 0) {
           fieldName.secondaryImageTotal = [{ text: `${altImagesCount}` }];
         }
+        fieldName.alternateImages.map(item => item.text = 'https:' + item.text);
+      }
+
+      if (fieldName.image) {
+        fieldName.image[0].text = 'https:' + fieldName.image[0].text;
       }
 
       if (fieldName.price) {
