@@ -65,13 +65,13 @@ async function implementation (
     return data;
   };
 
-  function checkIfReviewIsFromLast30Days (lastDate, reviewDate) {
-    console.log('lastDate' + lastDate);
-    console.log('reviewDate' + reviewDate);
-    const timestamp = new Date(lastDate).getTime() - (30 * 24 * 60 * 60 * 1000);
-    console.log('timestamp' + timestamp);
-    console.log(new Date(reviewDate).getTime());
-    if (new Date(reviewDate).getTime() >= timestamp) {
+  function checkIfReviewIsFromLast30Days (reviewDate) {
+    const reviewDateTimestamp = new Date(reviewDate).getTime();
+    console.log(`Review Date ${reviewDateTimestamp}`);
+    const currentDate = new Date();
+    const last30DaysTimestamp = currentDate.setMonth(currentDate.getMonth() - 1);
+    console.log(`Timestamp ${last30DaysTimestamp}`);
+    if (reviewDateTimestamp >= last30DaysTimestamp) {
       console.log('True');
       return true;
     }
@@ -80,6 +80,7 @@ async function implementation (
   }
 
   let extractedReviews = [];
+  let last30DaysReviews = [];
   const req = await context.searchForRequest('https://api.bazaarvoice.com/data/batch.*', 'GET', 0, 60);
   let data = (req && req.status === 200 && req.responseBody && req.responseBody.body) ? req.responseBody.body : null;
   console.log('req' + req.url);
@@ -93,32 +94,28 @@ async function implementation (
     return false;
   }
 
-  extractedReviews = extractedReviews.concat(data.BatchedResults.q1.Results);
-
-  const lastReviewDate = extractedReviews[0].SubmissionTime;
-  const firstReviewDate = extractedReviews[extractedReviews.length - 1].SubmissionTime;
-
-  if (checkIfReviewIsFromLast30Days(lastReviewDate, firstReviewDate) && data.BatchedResults.q1.TotalResults > extractedReviews.length) {
-    let apiReviews = [];
-    const expectedPages = Math.round(totalReviews / 100);
-    console.log('Pages found' + expectedPages);
-    for (let i = 0; i < expectedPages; i++) {
-      const apiRequestURL = req.url.replace(/limit.q1=8/, 'limit.q1=100').replace(/offset.q1=0/, `offset.q1=${i}`);
-      let targetReviews = await getData(apiRequestURL);
-      targetReviews = targetReviews.replace(/BV._internal.dataHandler0\((.+)\)/, '$1');
-      targetReviews = JSON.parse(targetReviews);
-      apiReviews = apiReviews.concat(targetReviews.BatchedResults.q1.Results);
-      if (!checkIfReviewIsFromLast30Days(lastReviewDate, targetReviews.BatchedResults.q1.Results[targetReviews.BatchedResults.q1.Results.length - 1].SubmissionTime)) {
-        break;
-      }
-    }
-
+  let apiReviews = [];
+  const expectedPages = Math.round(totalReviews / 100);
+  console.log('Pages found' + expectedPages);
+  for (let i = 0; i < expectedPages; i++) {
+    const apiRequestURL = req.url.replace(/limit.q1=8/, 'limit.q1=100').replace(/offset.q1=0/, `offset.q1=${i}`);
+    let targetReviews = await getData(apiRequestURL);
+    targetReviews = targetReviews.replace(/BV._internal.dataHandler0\((.+)\)/, '$1');
+    targetReviews = JSON.parse(targetReviews);
+    apiReviews = apiReviews.concat(targetReviews.BatchedResults.q1.Results);
     if (apiReviews.length !== 0) {
       extractedReviews = apiReviews;
     }
   }
 
   console.log('Extracted reviews' + extractedReviews.length);
+
+  for (let reviews of extractedReviews) {
+    if (!checkIfReviewIsFromLast30Days(reviews.SubmissionTime)) {
+       break;
+    }
+    last30DaysReviews.push(reviews);
+  }
 
   // Get the product details
   const productDetails = await context.evaluate(function () {
@@ -213,7 +210,7 @@ async function implementation (
 
       document.body.appendChild(div);
     }
-  }, extractedReviews, productDetails, destinationUrl);
+  }, last30DaysReviews, productDetails, destinationUrl);
 
   return true;
 }
