@@ -12,7 +12,7 @@ fields:
   - name: imageAlt
     xpath: //div[@id="carousel"]/div[1]/img/@alt
   - name: category
-    xpath: //div[@class="_3moNK"]//a[contains(@class,'rippleEffect')][position()>1]/text() |//div[@class="_3moNK"]//span[contains(@class,'rippleEffect')] | //div[@class="_28KVX"]//a[contains(@class,'rippleEffect')][position()>1]/text()
+    xpath: //div[@class="_3moNK"]//a[contains(@class,'rippleEffect')][position()>1 and position()<=last()]/text() |//div[@class="_28KVX"]//a[contains(@class,'rippleEffect')][position()>1 and position()<=last()]/text()
   - name: name
     xpath: //h1
   - name: nameExtended
@@ -49,7 +49,7 @@ fields:
   - name: variantInformation
     xpath: //h1/@size
   - name: variantCount
-    xpath: count(//div[@class="_1LiCn"]/div[position()>1])
+    xpath: count(//div[@class="_1LiCn"]/div)
   - name: variants
     xpath: //h1/@variants
   - name: secondaryImageTotal
@@ -70,7 +70,7 @@ fields:
     xpath: "//td[contains(text(),'You Save: ')] | //td[contains(text(),'You Save: ')]/following-sibling::td"
   - name: gtin
     xpath: //h1/@gtin
-    regExp: :\s(.+)
+    regExp: Code:\s(\d+)
     regExpReplace: $1
   - name: firstVariant
     xpath: //h1/@first
@@ -96,8 +96,14 @@ fields:
   - name: technicalInformationPdfPresent
     defaultValue: No
   - name: termsAndConditions
+    xpath: //div[@class="zc0T4"]//ul/li/a[contains(text(),"Terms")]
+    regExp: (.+)
+    regExpReplace: Yes
     defaultValue: No
   - name: privacyPolicy
+    xpath: //div[@class="zc0T4"]//ul/li/a[contains(text(),"Privacy Policy")]
+    regExp: (.+)
+    regExpReplace: Yes
     defaultValue: No
   - name: customerServiceAvailability
     defaultValue: No
