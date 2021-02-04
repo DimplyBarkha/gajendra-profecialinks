@@ -1,56 +1,44 @@
+const { transform } = require('./variantFormat');
 
-async function implementation (
-  inputs,
-  parameters,
-  context,
-  dependencies,
-) {
-  const { createUrl, variants } = dependencies;
-  await context.evaluate(function () {
-    function addHiddenDiv (id, content) {
-      const newDiv = document.createElement('div');
-      newDiv.id = id;
-      newDiv.textContent = content;
-      newDiv.style.display = 'none';
-      document.body.appendChild(newDiv);
-      return newDiv;
-    }
-
-    const variantList = [];
-
-    function getVariantsText (url) {
-      let variantUrl = url.match(/(?<=-)(.*?)(?=\.)/gm) ? url.match(/(?<=-)(.*?)(?=\.)/gm)[0] : '';
-      variantUrl = variantUrl.length ? (variantUrl.match(/[^-]+$/gm) ? variantUrl.match(/[^-]+$/gm)[0] : '') : '';
-      return variantUrl;
-    }
-
-    const url = window.location.href;
-    const mainVariant = getVariantsText(url);
-    variantList.push(mainVariant);
-
-    const variantNodes = document.querySelectorAll('div.product-attributes__color-item');
-    if (variantNodes.length) {
-      [...variantNodes].forEach((element) => {
-        const text = getVariantsText(element.getAttribute('data-action-id'));
-        variantList.push(text);
-      });
-    }
-
-    const variants = new Set(variantList);
-    variants.forEach((element) => {
-      addHiddenDiv('ii_variant', element);
-    });
-  }, createUrl);
-  return await context.extract(variants);
-}
 module.exports = {
   implements: 'product/details/variants/variantsExtract',
   parameterValues: {
     country: 'NL',
     store: 'mediamarkt',
-    transform: null,
+    transform,
     domain: 'mediamarkt.nl',
     zipcode: '',
   },
-  implementation,
+  implementation: async function implementation (
+    inputs,
+    parameters,
+    context,
+    dependencies,
+  ) {
+    const { transform } = parameters;
+    const { createUrl, variants } = dependencies;
+    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+
+    const getMainVariant = async function (context) {
+      await context.evaluate(async function () {
+        if (!document.querySelector('div.product-attributes__group')) {
+          var URL = window.location.href;
+
+          const newDiv = document.createElement('div');
+          newDiv.className = 'product-attributes__group';
+          newDiv.style.display = 'none';
+          document.body.appendChild(newDiv);
+
+          const variantDiv = document.createElement('div');
+          variantDiv.setAttribute('data-action-id', URL);
+          variantDiv.style.display = 'none';
+          newDiv.appendChild(variantDiv);
+        }
+      }, createUrl);
+    };
+
+    await getMainVariant(context);
+    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+    return await context.extract(variants, { transform });
+  },
 };

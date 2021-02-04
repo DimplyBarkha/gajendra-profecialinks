@@ -1,16 +1,13 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[contains(@class,"product-attributes__group")]/div
 fields:
   - name: variantId
     singleValue: false
     description: variant id, to uniquely identify variant
-    xpath: //*[@id='ii_variant']    
+    xpath: ./@data-action-id  
   - name: variantUrl
     singleValue: false
     description: variant Url
-    xpath: //*[@id='ii_variant']
-    regExp: (\d+)
-    regExpReplace: https://www.mediamarkt.nl/catentry/$1
- 
+    xpath: ./@data-action-id

@@ -4,9 +4,21 @@ module.exports = {
   parameterValues: {
     domain: 'mediamarkt.nl',
     prefix: null,
-    url: 'https://www.mediamarkt.nl/catentry/{id}',
+    url: null,
     country: 'NL',
     store: 'mediamarkt',
     zipcode: '',
+  },
+  implementation: (
+    inputs,
+    parameters,
+    context,
+    dependencies,
+  ) => {
+    const { id } = inputs;
+    const { domain } = parameters;
+
+    const gotoUrl = `https://${domain}/nl/search.html?query=${id}&searchProfile=onlineshop&channel=mmnlnl`;
+    return gotoUrl;
   },
 };
