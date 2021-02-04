@@ -8,7 +8,8 @@ fields:
     description: URL of the main product image
     # xpath: //div[@id='s7_mixedmediaview_3074457345620800621_zoomView']/div/div[3]/canvas
     # xpath: //*[@id="s7_mixedmediaview_3074457345620800621_swatches_listbox"]/div/div
-    xpath: //html//div[@id='altImages']
+    xpath: //div[@class="pdp_non_chart_wishlist"]//img[@style="display:none;"]/@src
+      # //html//div[@id='altImages']
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -73,8 +74,6 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    # xpath: //h1[@class="main_header"]
-    # regExp: (^\S+)
     xpath: //html//div[@id="brand"]
   - name: manufacturer
     singleValue: true
@@ -99,8 +98,8 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: (//span[@class="sku"])
-    regExp: (\d{7})
+    xpath: //meta[@name="pageIdentifier"]/@content
+    # regExp: (\d{7})
   - name: variantId
     singleValue: true
     description: The store-specific product identifier
@@ -265,6 +264,7 @@ fields:
     singleValue: true
     description: null
     type: NUMBER
+    xpath: count(//html//div[@id='alter'])
   - name: news
     singleValue: true
     description: null

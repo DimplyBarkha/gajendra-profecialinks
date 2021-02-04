@@ -55,7 +55,9 @@ module.exports = {
 
       const sliceURL1 = (data) => {
         for (let index = 0; index < data.length; index++) {
-          addElementToDocument('alter', data[index].slice(50, -3));
+          var abc = data[index].slice(50, -3);
+          abc = abc.replace("wid=56&hei=56","wid=500&hei=500");
+          addElementToDocument('alter', abc);
         }
       };
       var alter = getAllXpath("(//div[@class='s7thumb'])[position() >1]/@style", 'nodeValue');
@@ -68,7 +70,7 @@ module.exports = {
       var desc1 = getXpath('(//div[@class="VProduct_img"]/following-sibling::div/p)/text()[1]', 'nodeValue');
       var desc2 = getXpath('(//div[@class="VProduct_img"]/following-sibling::div/p)/text()[2]', 'nodeValue');
       if (desc2 != null) {
-        desc1 = desc1 + "\n " + desc2+" \n";
+        desc1 = desc1 + "\n" + desc2+" \n";
       }
       var desc3 = getAllXpath('(//div[@class="VProduct_img"]/following-sibling::div)/ul/li/text()', 'nodeValue');
       var desc7 = getAllXpath('//div[@class="col12 acol12 ccol4 left slot7"]/text()', 'nodeValue');
@@ -79,10 +81,15 @@ module.exports = {
         }
       })
       xx = xx.trim();
+      // if (desc3 != null && xx != null) {
+      //   var desc4 = desc3.join(" || ");
+      //   var main = desc1 + " || " + desc4+" "+xx;
+      // }
       if (desc3 != null && xx != null) {
-        var desc4 = desc3.join(" || ");
-        var main = desc1 + " || " + desc4+" "+xx;
+        var desc4 = desc3.join(" ");
+        var main = desc1 + "  " + desc4;
       }
+
       addElementToDocument('desc', main);
 
       var size = getXpath('//div[@class="definingAttributes"]/div[contains(text(),"Size")]/text()', 'nodeValue');
@@ -137,7 +144,10 @@ module.exports = {
         brand = brand.split(" ")[0];
         addElementToDocument('brand', brand);
       }
-
+    
+      // brand
+      // var brand = "Cabelas";
+      // addElementToDocument('brand', brand);
 
     });
     await context.extract(productDetails);
