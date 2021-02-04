@@ -23,7 +23,7 @@ module.exports = {
     await context.setAntiFingerprint(false);
     await context.setUseRelayProxy(false);
 
-    const responseStatus = await context.goto(url, {
+    await context.goto(url, {
       firstRequestTimeout: 60000,
       timeout: timeout,
       waitUntil: 'load',

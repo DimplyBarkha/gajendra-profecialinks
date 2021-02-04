@@ -32,24 +32,23 @@ async function implementation (
   };
 
   await context.evaluate(async function () {
-    
-    let featButton = document.querySelector('div.features-wrapper a');
+    const featButton = document.querySelector('div.features-wrapper a');
     if (featButton) {
       // @ts-ignore
       featButton.click();
     }
-    let flixButton = document.querySelector('button.flix_expand');
+    const flixButton = document.querySelector('button.flix_expand');
     if (flixButton) {
       // @ts-ignore
       flixButton.click();
     }
-    let featValues = document.querySelectorAll('#features dd + dd');
+    const featValues = document.querySelectorAll('#features dd + dd');
     if (featValues) {
       featValues.forEach(element => {
         element.remove();
       });
     }
-    let videoButton = document.querySelector('#flix_product_video');
+    const videoButton = document.querySelector('#flix_product_video');
     if (videoButton) {
       // @ts-ignore
       videoButton.dispatchEvent(new Event('click'));
@@ -69,5 +68,5 @@ module.exports = {
     domain: 'mediamarkt.hu',
     zipcode: "''",
   },
-  implementation
+  implementation,
 };

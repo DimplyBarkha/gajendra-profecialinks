@@ -31,32 +31,31 @@ async function implementation (
 }
 
 module.exports = {
-  parameters: [
-    {
-      name: 'country',
-      description: '2 letter ISO code for the country',
-    },
-    {
-      name: 'store',
-      description: 'store name',
-    },
-    {
-      name: 'domain',
-      description: 'top private domain (e.g. amazon.com)',
-    },
-    {
-      name: 'url',
-      description: 'Open Search search url pattern, e.g. http://example.com/?q={searchTerms}',
-    },
-    {
-      name: 'loadedSelector',
-      description: 'XPath to tell us the page has loaded',
-      optional: true,
-    },
-    {
-      name: 'noResultsXPath',
-      description: 'XPath to tell us the page has loaded',
-    },
+  parameters: [{
+    name: 'country',
+    description: '2 letter ISO code for the country',
+  },
+  {
+    name: 'store',
+    description: 'store name',
+  },
+  {
+    name: 'domain',
+    description: 'top private domain (e.g. amazon.com)',
+  },
+  {
+    name: 'url',
+    description: 'Open Search search url pattern, e.g. http://example.com/?q={searchTerms}',
+  },
+  {
+    name: 'loadedSelector',
+    description: 'XPath to tell us the page has loaded',
+    optional: true,
+  },
+  {
+    name: 'noResultsXPath',
+    description: 'XPath to tell us the page has loaded',
+  },
   ],
   inputs: [
     {

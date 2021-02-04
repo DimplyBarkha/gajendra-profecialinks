@@ -1,6 +1,6 @@
 const { transform } = require('./variantFormat');
 
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -12,10 +12,9 @@ async function implementation(
 
   const getMainVariant = async function (context) {
     await context.evaluate(async function () {
-      if (!document.querySelector('div.product-attributes__group'))
-      {
+      if (!document.querySelector('div.product-attributes__group')) {
         var URL = window.location.href;
-            
+
         const newDiv = document.createElement('div');
         newDiv.className = 'product-attributes__group';
         newDiv.style.display = 'none';
@@ -31,7 +30,7 @@ async function implementation(
 
   await getMainVariant(context);
   await new Promise((resolve, reject) => setTimeout(resolve, 6000));
-  return await context.extract(variants, {transform});
+  return await context.extract(variants, { transform });
 }
 
 module.exports = {
@@ -43,5 +42,5 @@ module.exports = {
     domain: 'mediamarkt.hu',
     zipcode: "''",
   },
-  implementation
+  implementation,
 };

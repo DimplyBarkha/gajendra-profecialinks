@@ -25,11 +25,11 @@ const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.nameExtended) {
-        let brandData = '';
+        // let brandData = '';
         let nameExtended = '';
         if (row.brandText) {
           row.brandText.map((item) => {
-            brandData = item.text;
+            // brandData = item.text;
           });
           row.nameExtended.map((item) => {
             nameExtended = item.text;

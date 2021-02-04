@@ -18,11 +18,11 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
 
-    let enhancedContentVidSel = 'iframe[src*="youtube"], iframe[ _src*="youtube"]';
+    const enhancedContentVidSel = 'iframe[src*="youtube"], iframe[ _src*="youtube"]';
     let videosLoaded = false;
     console.log('waiting for 10 secs!!');
     await new Promise(resolve => setTimeout(resolve, 10000));
-    
+
     console.time('scrolling');
     await context.evaluate(async () => {
       async function infiniteScroll () {
@@ -38,7 +38,6 @@ module.exports = {
         }
       }
       await infiniteScroll();
-  
     });
     console.timeEnd('scrolling');
     console.log('done scrolling!');
@@ -47,46 +46,46 @@ module.exports = {
       await context.waitForSelector(enhancedContentVidSel);
       console.log('videos loaded');
       videosLoaded = true;
-    } catch(err) {
+    } catch (err) {
       console.log('had some error while waiting for video div', err.message);
     }
 
     videosLoaded = await context.evaluate(async (enhancedContentVidSel) => {
-      let allVidElms = document.querySelectorAll(enhancedContentVidSel);
-      if(allVidElms.length > 0) {
+      const allVidElms = document.querySelectorAll(enhancedContentVidSel);
+      if (allVidElms.length > 0) {
         console.log(`we have a total of ${allVidElms.length}`);
         return true;
       }
       return false;
     },
     enhancedContentVidSel);
-    
+
     console.log('videosLoaded', videosLoaded);
-    if(!videosLoaded) {
+    if (!videosLoaded) {
       console.log('not loaded yet!! trying waiting again');
       try {
         await context.waitForSelector(enhancedContentVidSel);
         console.log('videos loaded');
         videosLoaded = await context.evaluate(async (enhancedContentVidSel) => {
-          let allVidElms = document.querySelectorAll(enhancedContentVidSel);
-          if(allVidElms.length > 0) {
+          const allVidElms = document.querySelectorAll(enhancedContentVidSel);
+          if (allVidElms.length > 0) {
             console.log(`we have a total of ${allVidElms.length}`);
             return true;
           }
           return false;
         },
         enhancedContentVidSel);
-      } catch(err) {
+      } catch (err) {
         console.log('had some error while waiting for video div', err.message);
       }
     }
 
     console.log('videosLoaded', videosLoaded);
-    if(!videosLoaded) {
+    if (!videosLoaded) {
       console.log('cannot help it!! videos are not there');
     }
 
-    if(videosLoaded) {
+    if (videosLoaded) {
       await context.evaluate(async (enhancedContentVidSel) => {
         async function addElementToDocumentAsync (key, value) {
           const catElement = document.createElement('div');
@@ -94,13 +93,13 @@ module.exports = {
           catElement.textContent = value;
           document.body.appendChild(catElement);
         }
-        let videoArr = [];
-        let allVideosElm = document.querySelectorAll(enhancedContentVidSel);
-        if(allVideosElm && allVideosElm.length > 0) {
-          for(let i = 0; i < allVideosElm.length; i++) {
-            let thisElm = allVideosElm[i];
+        const videoArr = [];
+        const allVideosElm = document.querySelectorAll(enhancedContentVidSel);
+        if (allVideosElm && allVideosElm.length > 0) {
+          for (let i = 0; i < allVideosElm.length; i++) {
+            const thisElm = allVideosElm[i];
             let thisVidUrl = thisElm.getAttribute('src');
-            if(!thisVidUrl) {
+            if (!thisVidUrl) {
               thisVidUrl = thisElm.getAttribute('_src');
             }
             console.log('url - ' + thisVidUrl);
@@ -115,23 +114,21 @@ module.exports = {
       enhancedContentVidSel);
     }
 
-    let manufacDescSelArr = ['div[id*="description"] div[class*="product"]', 'div[id="af-product-card"]', 'div[class*="b-offerRWD_description "]'];
-    let showMoreBtnXPath = '//a[contains(@class,"m-btn")][contains(.,"Rozwiń opis")]';
-    let isShowMorePrsent = false;
+    const manufacDescSelArr = ['div[id*="description"] div[class*="product"]', 'div[id="af-product-card"]', 'div[class*="b-offerRWD_description "]'];
+    const showMoreBtnXPath = '//a[contains(@class,"m-btn")][contains(.,"Rozwiń opis")]';
     try {
       await context.waitForXPath(showMoreBtnXPath);
       console.log('we have the btn');
       await context.evaluate(async (showMoreBtnXPath) => {
-        let elm = document.evaluate(showMoreBtnXPath, document, null, 7, null);
-        if(elm && elm.snapshotLength > 0) {
+        const elm = document.evaluate(showMoreBtnXPath, document, null, 7, null);
+        if (elm && elm.snapshotLength > 0) {
           elm.snapshotItem(0).click();
         }
       }, showMoreBtnXPath);
-    }catch(err) {
+    } catch (err) {
       console.log('had some error while clicking the load more btn', err.message);
     }
 
-    
     await context.evaluate(async (manufacDescSelArr) => {
       async function addElementToDocumentAsync (key, value) {
         const catElement = document.createElement('div');
@@ -142,23 +139,23 @@ module.exports = {
 
       let manufacDescText = '';
       let elm = [];
-      let thisPageSel = ''
-      for(let i = 0; i < manufacDescSelArr.length; i++) {
+      let thisPageSel = '';
+      for (let i = 0; i < manufacDescSelArr.length; i++) {
         elm = document.querySelectorAll(manufacDescSelArr[i]);
-        if(elm && elm.length > 0 && elm[0] && elm[0].innerText) {
+        if (elm && elm.length > 0 && elm[0] && elm[0].innerText) {
           thisPageSel = manufacDescSelArr[i];
           break;
         }
       }
       let allImages = [];
-      if(elm && elm[0]) {
+      if (elm && elm[0]) {
         manufacDescText = elm[0].innerText;
         allImages = elm[0].querySelectorAll('img');
       }
       console.log(manufacDescText);
       console.log('this page has ' + thisPageSel + ' for manufacturerDesc');
-      let allImagesUrl = [];
-      for(let i = 0; i < allImages.length; i++) {
+      const allImagesUrl = [];
+      for (let i = 0; i < allImages.length; i++) {
         console.log(allImages[i].getAttribute('src'));
         allImagesUrl.push('https:' + allImages[i].getAttribute('src'));
       }
@@ -166,8 +163,7 @@ module.exports = {
       await addElementToDocumentAsync('manufacdescimgs', allImagesUrl.join(' || '));
     },
     manufacDescSelArr);
-    
 
     return await context.extract(productDetails, { transform });
-  }
+  },
 };

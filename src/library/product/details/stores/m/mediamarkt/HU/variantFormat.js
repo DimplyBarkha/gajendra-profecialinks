@@ -4,7 +4,7 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data, context) => {
-    const clean = text =>
+  const clean = text =>
     text.toString()
       .replace(/\r\n|\r|\n/g, ' ')
       .replace(/&amp;nbsp;/g, ' ')
@@ -18,31 +18,29 @@ const transform = (data, context) => {
       .replace(/[\x00-\x1F]/g, '')
       .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
 
-    data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
-        if (typeof el.text !== 'undefined') {
-            el.text = clean(el.text);
-        }
-    }))));
-  
-    for (const { group } of data) {
-      for (const row of group) {
+  data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+    if (typeof el.text !== 'undefined') {
+      el.text = clean(el.text);
+    }
+  }))));
 
-        if (row.variantId) {
-            let temp = row.variantId[0].text.split('-');
-            row.variantId[0].text = temp[temp.length-1].split('.')[0];
-        }
+  for (const { group } of data) {
+    for (const row of group) {
+      if (row.variantId) {
+        const temp = row.variantId[0].text.split('-');
+        row.variantId[0].text = temp[temp.length - 1].split('.')[0];
+      }
 
-        if (row.variantUrl) {
-            let item = row.variantUrl[0];
-            let string = 'https://www.mediamarkt.hu';
-            if(!item.text.startsWith(string)) { 
-                item.text = string.concat(item.text);           
-            }
+      if (row.variantUrl) {
+        const item = row.variantUrl[0];
+        const string = 'https://www.mediamarkt.hu';
+        if (!item.text.startsWith(string)) {
+          item.text = string.concat(item.text);
         }
       }
     }
+  }
 
-    return data;
-  };
-  module.exports = { transform };
-  
+  return data;
+};
+module.exports = { transform };

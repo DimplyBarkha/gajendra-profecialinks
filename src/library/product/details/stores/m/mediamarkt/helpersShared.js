@@ -85,7 +85,7 @@ class SharedHelpers {
         return text.join(' || ');
       }, inBoxSelector);
       inBoxUrls = await this.context.evaluate(async function (inBoxSelector, getAttrImgSrc) {
-        const images = document.querySelectorAll(inBoxSelector+' img');
+        const images = document.querySelectorAll(inBoxSelector + ' img');
         const imagesSrc = [];
         [...images].forEach((element) => {
           imagesSrc.push(element.getAttribute(getAttrImgSrc));

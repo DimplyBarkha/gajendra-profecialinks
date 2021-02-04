@@ -24,7 +24,7 @@ module.exports = {
     // });
 
     // await sharedhelpers.addHiddenInfo('priceValue', priceValue);
-    
+
     await new Promise((resolve, reject) => setTimeout(resolve, 1000));
 
     return await context.extract(productDetails, { transform });

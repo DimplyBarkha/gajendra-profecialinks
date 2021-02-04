@@ -16,7 +16,7 @@ module.exports = {
   },
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails, Helpers, SharedHelpers }) => {
     const sharedhelpers = new SharedHelpers(context);
-    
+
     await context.waitForFunction(function (sel) {
       return Boolean(document.querySelector(sel));
     }, { timeout: 15000 }, 'body');
@@ -33,45 +33,39 @@ module.exports = {
     const avail = await sharedhelpers.getEleByXpath('//button[contains(text(), "In den Warenkorb")]');
 
     await sharedhelpers.addHiddenInfo('ii_availText', avail ? 'In Stock' : 'Out of Stock');
-    try{     
+    try {
       await context.waitForSelector('button[class*=ProductFeatures] span');
       await context.click('button[class*=ProductFeatures] span');
-    }catch(err){
+    } catch (err) {
       console.log('no load more button for specification');
     }
     await context.evaluate(function () {
-      
-      if(document.querySelector('div[data-test="mms-accordion-features"] a[class*="ProductFeatures__StyledExpand"]')){
-        let accordionClicker=document.querySelector('div[data-test="mms-accordion-features"] a[class*="ProductFeatures__StyledExpand"]');
+      if (document.querySelector('div[data-test="mms-accordion-features"] a[class*="ProductFeatures__StyledExpand"]')) {
+        const accordionClicker = document.querySelector('div[data-test="mms-accordion-features"] a[class*="ProductFeatures__StyledExpand"]');
         accordionClicker.click();
       }
-      if(document.querySelector('div[class*="ProductFeatures__StyledFeatureContainer"]')){
-        let specsData=document.querySelectorAll('div[class*="ProductFeatures__StyledFeatureContainer"] table tbody td');
-        let specsAppended='';
-        for(let i=0;i<specsData.length;i++){
-          if(i!==specsData.length-1)
-            specsAppended+=specsData[i].innerText+" || ";
-          else
-            specsAppended+=specsData[i].innerText;
+      if (document.querySelector('div[class*="ProductFeatures__StyledFeatureContainer"]')) {
+        const specsData = document.querySelectorAll('div[class*="ProductFeatures__StyledFeatureContainer"] table tbody td');
+        let specsAppended = '';
+        for (let i = 0; i < specsData.length; i++) {
+          if (i !== specsData.length - 1) { specsAppended += specsData[i].innerText + ' || '; } else { specsAppended += specsData[i].innerText; }
         }
-        let newDiv = document.createElement('div');
+        const newDiv = document.createElement('div');
         newDiv.id = 'specs';
         newDiv.textContent = specsAppended;
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
-//div[contains(@class,'ProductFeatures__StyledFeatureContainer')]//table//tbody//td//text()
-        
+      // div[contains(@class,'ProductFeatures__StyledFeatureContainer')]//table//tbody//td//text()
+
       if (document.querySelector('div[class^="ProductFeatures"] a[class^="Linkstyled"]')) {
         document.querySelector('div[class^="ProductFeatures"] a[class^="Linkstyled"]').click();
       }
 
       if (document.querySelector('[data-test="mms-th-gallery"] [direction="next"]')) {
-        document.querySelector('[data-test="mms-th-gallery"] [direction="next"]').click()
+        document.querySelector('[data-test="mms-th-gallery"] [direction="next"]').click();
       }
-
     });
-
 
     // let moreInfoSelector=null;
     // moreInfoSelector=await context.evaluate(async function () {
@@ -85,21 +79,20 @@ module.exports = {
     // });
 
     await context.evaluate(async function () {
-      if(document.querySelector('section img[alt="DYSON"]')){
-        let moreInfoSpan=document.querySelector('section img[alt="DYSON"]');
+      if (document.querySelector('section img[alt="DYSON"]')) {
+        const moreInfoSpan = document.querySelector('section img[alt="DYSON"]');
         moreInfoSpan.click();
         await new Promise((resolve, reject) => setTimeout(resolve, 6000));
-        }
+      }
 
-        // let playBtn=document.querySelector('div[id="player"] button[class*="play-button"]');
-        // playBtn.click();
-      });
-    
-        try{
-        await context.waitForSelector('div[class*="flix-std-row"]', { timeout: 95000 });
-        //div[@id="player"]//button[contains(@class,'play-button')|//div[contains(@class,'ProductDescription')]//iframe
-        
-        }catch(e){console.log('videos not loaded')}
+      // let playBtn=document.querySelector('div[id="player"] button[class*="play-button"]');
+      // playBtn.click();
+    });
+
+    try {
+      await context.waitForSelector('div[class*="flix-std-row"]', { timeout: 95000 });
+      // div[@id="player"]//button[contains(@class,'play-button')|//div[contains(@class,'ProductDescription')]//iframe
+    } catch (e) { console.log('videos not loaded'); }
     // if(moreInfoSelector!==null){
     //   // await context.waitForSelector
     //   // try{
@@ -125,7 +118,7 @@ module.exports = {
     //   addHiddenDiv('enhancedContent',enhancedContent);
     //   });
     // }
-      
+
     await context.extract(productDetails, { transform: transformParam });
   },
 };

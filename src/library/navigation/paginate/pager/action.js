@@ -1,4 +1,3 @@
-
 /**
  *
  * @param {{
@@ -53,14 +52,14 @@ async function implementation (
     if (loadedSelector) {
       try {
         await context.waitForSelector(loadedSelector, { timeout: 30000 });
-      } catch(err) {
+      } catch (err) {
         console.log('we got some error while waiting for', loadedSelector, err.message);
       }
     }
     if (loadedXpath) {
       try {
         await context.waitForXPath(loadedXpath, { timeout: 30000 });
-      } catch(err) {
+      } catch (err) {
         console.log('we got some error while waiting for', loadedXpath, err.message);
       }
     }
@@ -72,7 +71,6 @@ async function implementation (
 module.exports = {
   parameters: [],
   inputs: [],
-  dependencies: {
-  },
+  dependencies: {},
   implementation,
 };

@@ -28,6 +28,8 @@ async function implementation (
     // Fetching gtin through directly available function from script tag
     let gtin = '';
     try {
+      // @ts-ignore
+      // eslint-disable-next-line no-undef
       gtin = getEan();
     } catch (e) {
       console.log('Gtin function not available hence cannot be fetched....');

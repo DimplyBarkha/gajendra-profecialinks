@@ -157,7 +157,6 @@ const transform = (data, context) => {
         row.variantInformation[0].text = row.variantInformation[0].text.replace('Farbe: ', '');
       }
 
-    
       if (row.productOtherInformation) {
         let text = '';
         row.productOtherInformation.forEach(item => {
@@ -219,7 +218,7 @@ const transform = (data, context) => {
         if ((row.manufacturerImages[0].text.includes('media.flixcar.com') || row.manufacturerImages[0].text.includes('syndication.flix360.com')) && row.manufacturerImages[0].text.includes('1000w')) {
           row.manufacturerImages.forEach(item => {
             const img = item.text.split(' ')[0];
-            const imgText =  img;
+            const imgText = img;
             item.text = imgText;
           });
         }

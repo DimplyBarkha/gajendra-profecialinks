@@ -9,7 +9,6 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ url }, { country, domain, transform }, context, { productDetails }) => {
-
     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
     await context.evaluate(async function () {
       function addHiddenDiv (id, content, index) {

@@ -33,7 +33,7 @@ module.exports = {
     // @ts-ignore
     await context.evaluate(async function (context) {
       const seeAllSelector = document.querySelector('div[class*="product-accessories"] div.next');
-      for(let i=0; i<5; i++) {
+      for (let i = 0; i < 5; i++) {
         seeAllSelector.click();
       }
 
@@ -47,7 +47,7 @@ module.exports = {
     });
     await context.evaluate(async function (context) {
       const seeAllSelector1 = document.querySelector('#produktdetailseiten_reco-bottom div.next');
-      for(let i=0; i<5; i++) {
+      for (let i = 0; i < 5; i++) {
         seeAllSelector1.click();
       }
     });

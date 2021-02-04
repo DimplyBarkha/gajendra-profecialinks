@@ -1,4 +1,4 @@
-//const { implementation } = require('./mediamarkt.com.tr');
+// const { implementation } = require('./mediamarkt.com.tr');
 
 module.exports = {
   implements: 'navigation/goto',
@@ -9,7 +9,7 @@ module.exports = {
     country: 'ES',
     zipcode: '',
   },
-  implementation : async (
+  implementation: async (
     { url, zipcode, storeId, id },
     parameters,
     context,
