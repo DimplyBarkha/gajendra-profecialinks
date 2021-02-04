@@ -7,11 +7,10 @@
  */
 async function implementation (
   inputs,
-  parameters,
+  { loadedSelector, noResultsXPath },
   context,
   dependencies,
 ) {
-  console.log('params', parameters);
   let { url, id, zipcode, storeId } = inputs;
   if (!url) {
     if (!id) {
@@ -25,7 +24,18 @@ async function implementation (
   }catch (e) {
     console.log(e);
   }  
-  
+  if (loadedSelector) {
+    await context.waitForFunction(
+      (selector, xpath) => {
+        return !!(document.querySelector(selector) || document.evaluate(xpath, document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue);
+      },
+      { timeout: 10000 },
+      loadedSelector,
+      noResultsXPath,
+    );
+  }
+  return await context.evaluate((xpath) => !document.evaluate(xpath, document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue, noResultsXPath);
+
 }
 module.exports = {
   implements: 'product/details/execute',
@@ -33,8 +43,8 @@ module.exports = {
     country: 'US',
     store: 'bedbathandbeyond',
     domain: 'bedbathandbeyond.com',
-    // loadedSelector: "h2[id='reviewsHeading']",
-    // noResultsXPath: "//h1//span[text()='Results Not Found']",
+    loadedSelector: "div[class^='ProductDetailsLayout'] h1",
+    noResultsXPath: "//h1//span[text()='Results Not Found']|//main[@role='main']//div[@class='cmsContent']",
     zipcode: '',
   },
   implementation,
