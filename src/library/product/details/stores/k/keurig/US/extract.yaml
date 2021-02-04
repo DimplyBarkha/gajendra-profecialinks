@@ -17,6 +17,12 @@ fields:
     xpath: (//div[@class="s7thumb"]/@style)[position()>1]
     regExp: (.*)url(\(\")(.*)(\"\);)
     regExpReplace: $3
+  - name: imagejson
+    singleValue: false
+    xpath: //div[@id="pd_jsonimage"]
+  - name: alter1s
+    singleValue: false
+    xpath: (//div[@id="pd_images"])[position()>1]
   - name: metaKeywords
     singleValue: false
     xpath: //meta[contains(@name, "keywords")]/@content
@@ -91,7 +97,11 @@ fields:
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //meta[@itemprop="sku"]/@content
+    xpath: //li[contains(@class,"selectVariant active")]/@data-code | //div[contains(@class,"productVariantColor active")]//a/@data-swatch-color
+  - name: variantId1
+    singleValue: false
+    xpath: //meta[@itemprop="sku"]/@content 
+    regExpReplace: $2
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
@@ -158,9 +168,12 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //video/@poster
-    regExp: (.*)image(\/)(.*)(\?)(.*)
-    regExpReplace: https://images.keurig.com/is/content/$3
+    xpath: //div[contains(@id,"s7_videoviewpremiumTemplate")]/@data-url
+    regExp: (.+)
+    regExpReplace: https://images.keurig.com/is/content/$1
+  - name: videos1
+    singleValue: false
+    xpath: //video[contains(@class,"video-container")]//source[contains(@type,"video/mp4")]/@src
   - name: name
     singleValue: false
     description: The product name

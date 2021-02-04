@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'keurig.com',
     prefix: null,
-    url: null,
+    url : 'https://www.keurig.com/p/{id}',
     country: 'US',
     store: 'keurig',
     zipcode: '',
