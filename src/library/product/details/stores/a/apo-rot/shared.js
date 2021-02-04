@@ -70,12 +70,12 @@ const transform = (data) => {
         ];
       }
 
-      if (row.ingredientsList && row.ingredientsList.length) {            
+      if (row.ingredientsList && row.ingredientsList.length) {
         let ingredientsParent = row.ingredientsList[0].text;
         let ingredients = '';
         let finalIngredients = '';
         let activeIngredients = '';
-        const containsIngredientsRegex = new RegExp("\\b"+"Inhaltsstoffe"+"\\b");
+        const containsIngredientsRegex = new RegExp("\\b"+"Inhaltsstoffe"+"\\b | \\b"+"Ingredients"+"\\b");
         const containsIngredients = containsIngredientsRegex.test(ingredientsParent);        
         const containsActiveIngredientsRegex = new RegExp("\\b"+"Wirkstoffe"+"\\b");        
         const containsActiveIngredients = containsActiveIngredientsRegex.test(ingredientsParent);
@@ -84,7 +84,7 @@ const transform = (data) => {
         }         
                      
         if (containsIngredients) {
-          ingredients = ingredientsParent.split('Inhaltsstoffe')[1];    
+          ingredients = ingredientsParent.split(containsIngredientsRegex)[1];    
           ingredients ? finalIngredients = 'Inhaltsstoffe' + ingredients  + ' ' + activeIngredients.substr(12, activeIngredients.length)        
           : finalIngredients = activeIngredients.substr(12, activeIngredients.length);
 
