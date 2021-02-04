@@ -45,10 +45,10 @@ module.exports = {
       //   }
       // };
       var backgroundURL = getXpath("(//div[@class='s7thumb'])[1]/@style", 'nodeValue');
-      if (backgroundURL != null){
+      if (backgroundURL != null) {
         var i = backgroundURL.slice(50, -3);
-        i = i.replace("wid=56","wid=300");
-        i = i.replace("hei=56","wid=300");
+        i = i.replace("wid=56", "wid=300");
+        i = i.replace("hei=56", "wid=300");
         addElementToDocument('altImages', i);
       }
       // sliceURL(backgroundURL);
@@ -56,7 +56,7 @@ module.exports = {
       const sliceURL1 = (data) => {
         for (let index = 0; index < data.length; index++) {
           var abc = data[index].slice(50, -3);
-          abc = abc.replace("wid=56&hei=56","wid=500&hei=500");
+          abc = abc.replace("wid=56&hei=56", "wid=500&hei=500");
           addElementToDocument('alter', abc);
         }
       };
@@ -64,13 +64,13 @@ module.exports = {
       if (alter != null) {
         sliceURL1(alter);
       }
-    
+
 
       //description
       var desc1 = getXpath('(//div[@class="VProduct_img"]/following-sibling::div/p)/text()[1]', 'nodeValue');
       var desc2 = getXpath('(//div[@class="VProduct_img"]/following-sibling::div/p)/text()[2]', 'nodeValue');
       if (desc2 != null) {
-        desc1 = desc1 + "\n" + desc2+" \n";
+        desc1 = desc1 + "\n" + desc2 + " \n";
       }
       var desc3 = getAllXpath('(//div[@class="VProduct_img"]/following-sibling::div)/ul/li/text()', 'nodeValue');
       var desc7 = getAllXpath('//div[@class="col12 acol12 ccol4 left slot7"]/text()', 'nodeValue');
@@ -93,18 +93,18 @@ module.exports = {
       addElementToDocument('desc', main);
 
       var size = getXpath('//div[@class="definingAttributes"]/div[contains(text(),"Size")]/text()', 'nodeValue');
-      if ( size != null){
+      if (size != null) {
         size = size.split(": ")[1];
         addElementToDocument('size', size);
       }
 
       var mpc = getXpath('//div[@class="col2 gridCell ModelNumber unanchored"]/div/text()', 'nodeValue');
-      if (mpc == null){
+      if (mpc == null) {
         mpc = getXpath('(//div[@class="VProduct_img"]/following-sibling::div/p)/text()[2]', 'nodeValue');
-        if(mpc != null){
+        if (mpc != null) {
           mpc = mpc.split(": ")[1];
-          if (mpc != null){
-            mpc = mpc.replace(".","");
+          if (mpc != null) {
+            mpc = mpc.replace(".", "");
           }
         }
       }
@@ -112,19 +112,19 @@ module.exports = {
 
 
       var bullet = getAllXpath('(//div[@class="VProduct_img"]/following-sibling::div)/ul/li/text()', 'nodeValue');
-      if ( bullet != null){
+      if (bullet != null) {
         var bullet1 = bullet.join(" || ");
-        bullet1 = " || "+bullet1;
-        if(bullet1 != null){
+        bullet1 = " || " + bullet1;
+        if (bullet1 != null) {
           addElementToDocument('bullet1', bullet1);
         }
       }
 
       var warn = getXpath('//div[@id="CA_PROP65_Dialog_Disclaimer"]/li/text()[2]', 'nodeValue');
-      if (warn != null){
+      if (warn != null) {
         warn = warn.split(": ")[1];
         var warn1 = getXpath('//div[@id="CA_PROP65_Dialog_Disclaimer"]/li/a/text()', 'nodeValue');
-        if (warn1 != null){
+        if (warn1 != null) {
           var warning = warn + warn1;
           addElementToDocument('warning', warning);
         }
@@ -134,20 +134,55 @@ module.exports = {
       addElementToDocument('ppp', ppp);
 
       var varinfo = getXpath('//div[@class="definingAttributes"]/div[contains(text(),"Color")]/text()', 'nodeValue');
-      if (varinfo != null){
+      if (varinfo != null) {
         varinfo = varinfo.split(": ")[1];
         addElementToDocument('varinfo', varinfo);
       }
 
       var brand = getXpath('(//a[@class="logo-size"]/img)[1]/@alt', 'nodeValue');
-      if(brand != null){
+      if (brand != null) {
         brand = brand.split(" ")[0];
         addElementToDocument('brand', brand);
       }
-    
+
       // brand
       // var brand = "Cabelas";
       // addElementToDocument('brand', brand);
+
+      // RPC
+      // var first = getXpath('(//span[@class="sku"])/text()', 'nodeValue');
+      var rpc = getXpath('//div[@class="pdp_non_chart_wishlist"]//img[@style="display:none;"]/@src', 'nodeValue');
+      if (rpc != null) {
+        if (rpc.includes("/")) {
+          var arr = rpc.split("/");
+          rpc = arr[arr.length - 1];
+          if (rpc.includes("_")) {
+            rpc = rpc.split("_")[0];
+            addElementToDocument('rpc', rpc);
+          }
+        }
+      } else {
+        var rpc2 = getXpath('//div[@class="widget_product_image_viewer"]/input/@value', 'nodeValue');
+        if (rpc2 != null) {
+          if (rpc2.includes("/")) {
+            var arr = rpc2.split("/");
+            rpc2 = arr[arr.length - 1];
+            if (rpc2.includes("_")) {
+              rpc2 = rpc2.split("_")[0];
+              addElementToDocument('rpc', rpc2);
+            }
+          }
+        }
+      }
+
+      //image
+      var img1 = getXpath('//div[@class="pdp_non_chart_wishlist"]//img[@style="display:none;"]/@src', 'nodeValue');
+      var img2 = getXpath('//div[@class="widget_product_image_viewer"]/input/@value', 'nodeValue');
+      if (img1 != null) {
+        addElementToDocument('image', img1);
+      } else if (img2 != null) {
+        addElementToDocument('image', img2);
+      }
 
     });
     await context.extract(productDetails);

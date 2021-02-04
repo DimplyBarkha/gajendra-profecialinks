@@ -8,7 +8,7 @@ fields:
     description: URL of the main product image
     # xpath: //div[@id='s7_mixedmediaview_3074457345620800621_zoomView']/div/div[3]/canvas
     # xpath: //*[@id="s7_mixedmediaview_3074457345620800621_swatches_listbox"]/div/div
-    xpath: //div[@class="pdp_non_chart_wishlist"]//img[@style="display:none;"]/@src
+    xpath: //html//div[@id="image"]
       # //html//div[@id='altImages']
   - name: imageAlt
     singleValue: true
@@ -103,8 +103,7 @@ fields:
   - name: variantId
     singleValue: true
     description: The store-specific product identifier
-    xpath: (//span[@class="sku"])
-    regExp: (\d{7})
+    xpath: //html//div[@id="rpc"]
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
