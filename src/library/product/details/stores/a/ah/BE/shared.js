@@ -54,6 +54,13 @@ const transform = (data) => {
           gr.size[0].text = gr.size[0].text.slice(0, end);
           gr.nameExtended[0].text = gr.nameExtended[0].text + ' ' + gr.size[0].text;
         }
+        if (gr && gr.availabilityText && gr.availabilityText.length) {
+          if (gr.availabilityText[0].text === 'Alleen in de winkel') {
+            gr.availabilityText[0].text = 'In Store Only';
+          }
+        } else {
+          gr['availabilityText'] = [{ text: 'In stock' }];
+        }
         if (gr && gr.price && gr.price.length) gr.price[0].text = gr.price[0].text.replace('.', ',');
         if (gr && gr.category && gr.category.length) gr.category.shift();
         if (gr && gr.promotion && gr.promotion.length) gr.promotion[0].text = cleanText(gr.promotion[0].text);
