@@ -3,6 +3,34 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields: 
+  - name: name
+    singleValue: false
+    xpath: //h2[@class="catalog-products-body__product-name"]/a[2]
+  - name: price
+    singleValue: false
+    xpath: //section[@class="catalog-products-body__product-prices"]/span[contains(@class,"catalog-products-body__product-special-price")]
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="catalog-products-body__product-wrapper"]/figure[@class="catalog-products-body__product-img"]/a/img/@src        
   - name: id
     singleValue: false
-    xpath: //div[@class="catalog-products-body__product-wrapper"]/figure[@class="catalog-products-body__product-img"]/a/@href 
+    xpath: //div[@class="catalog-products-body__product-wrapper"]/figure[@class="catalog-products-body__product-img"]/a/@href  
+    regExp: (.+\=)(\d+)
+    regExpReplace: $2  
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="catalog-products-body__product-wrapper"]/figure[@class="catalog-products-body__product-img"]/a/@href  
+    #regExp: (.*)$
+    regExp: (/.+)
+    regExpReplace: https://www.juntoz.com$1    
+  - name: brand
+    singleValue: true
+    xpath: //span[@class="catalog-products-body__product-brand ng-binding"] 
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER    

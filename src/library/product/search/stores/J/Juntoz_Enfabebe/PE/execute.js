@@ -7,7 +7,7 @@ module.exports = {
     domain: 'enfabebe.juntoz.com',
     url: 'https://enfabebe.juntoz.com/catalogo?keywords={searchTerms}',
     loadedSelector: 'body',
-    noResultsXPath: null,
+    noResultsXPath: '//li[@class="pagination-next ng-scope disabled"]/a',
     zipcode: '',
   },
 };

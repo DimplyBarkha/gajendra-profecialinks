@@ -13,7 +13,7 @@ module.exports = {
     window.location.reload()
     
     });
-    await new Promise(r => setTimeout(r, 6000));
+    await new Promise(r => setTimeout(r, 3000));
     await context.extract(productDetails);
     },
     };

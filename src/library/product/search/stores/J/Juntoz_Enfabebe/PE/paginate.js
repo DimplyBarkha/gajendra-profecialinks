@@ -11,8 +11,8 @@ module.exports = {
     spinnerSelector: null,
     loadedSelector: 'body',
     loadedXpath: null,
-    noResultsXPath: '//li[@class="pagination-next ng-scope disabled"]/a',
-    stopConditionSelectorOrXpath: null,
+    noResultsXPath: null,
+    stopConditionSelectorOrXpath: '//li[@class="pagination-next ng-scope disabled"]/a',
     resultsDivSelector: null,
     openSearchDefinition: {
       template: 'https://enfabebe.juntoz.com/catalogo?keywords={searchTerms}&allStore=false&specialPrice=false&page={page}',
