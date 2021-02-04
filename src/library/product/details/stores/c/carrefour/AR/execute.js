@@ -6,7 +6,7 @@ module.exports = {
     store: 'carrefour',
     domain: 'carrefour.com.ar',
     loadedSelector: 'div.product-name',
-    noResultsXPath: "//h1[contains(text(),'Página no encontrada')]",
+    noResultsXPath: '//h2[contains(.,"looking for does not exist.")]',
     zipcode: '',
   },
 };

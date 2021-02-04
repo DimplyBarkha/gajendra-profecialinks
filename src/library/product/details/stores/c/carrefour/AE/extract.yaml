@@ -149,7 +149,7 @@ fields:
     singleValue: false
     xpath: //div[.="Fat"]/following-sibling::div[1]
     regExp: (\d+(\.|\,\d)?\d*)\s?([a-zA-Z]|%)?
-    regExpReplace: $3
+    regExpReplace: $1
   - name: totalFatPerServingUom
     singleValue: false
     xpath: //div[.="Fat"]/following-sibling::div[1]
@@ -159,7 +159,7 @@ fields:
     singleValue: false
     xpath: //div[.="Sugar"]/following-sibling::div[1]
     regExp: (\d+(\.|\,\d)?\d*)\s?([a-zA-Z]|%)?
-    regExpReplace: $3
+    regExpReplace: $1
   - name: totalSugarsPerServingUom
     singleValue: false
     xpath: //div[.="Sugar"]/following-sibling::div[1]

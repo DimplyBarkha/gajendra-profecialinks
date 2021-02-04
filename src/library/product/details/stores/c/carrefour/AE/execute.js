@@ -57,7 +57,7 @@ module.exports = {
     store: 'carrefour',
     domain: 'carrefouruae.com',
     // loadedSelector: 'h1.css-17yb6kp',
-    // noResultsXPath: '//h2[contains(text(),"Sorry! The page you\'re looking for does not exist")]',
+    noResultsXPath: '//h1[contains(text(),"Página no encontrada")]',
     zipcode: '',
   },
   // implementation,

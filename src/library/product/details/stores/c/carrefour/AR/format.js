@@ -63,11 +63,11 @@ const transform = (data) => {
           item.text = item.text.replace(',', '.');
         });
       }
-      if (row.brandText) {
-        if (row.nameExtended) {
-          row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.nameExtended[0].text }];
-        }
-      }
+      // if (row.brandText) {
+      //   if (row.nameExtended) {
+      //     row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.nameExtended[0].text }];
+      //   }
+      // }
       if (row.descriptionBullets) {
         var tempInfo = [];
         row.descriptionBullets.forEach(item => {
