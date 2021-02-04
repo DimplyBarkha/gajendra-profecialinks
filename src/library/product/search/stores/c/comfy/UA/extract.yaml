@@ -4,9 +4,12 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: sku
+    singleValue: false
     description: The store-specific product identifier
-    xpath: //div[@class="product-item__sku hide-on-mobile"]/text() | //div[contains(@class,'product-item__sku')]
-    regExp: \d+
+    # xpath: //div[contains(@class,'product-item__sku')]
+    xpath: //div[@class="product-item__sku hide-on-mobile"]/text() | //div[contains(@class,'product-item__sku')]  #search
+    regExp: (\d+)
+    regExpReplace: $1
   - name: listPrice
     xpath: //div[contains(@class, 'price-box__content') and not(contains(@class, 'price-box__content_old'))]//span[@class="price-value"]
   - name: paid
@@ -56,8 +59,8 @@ fields:
     singleValue: false
     description: The offered price for the product
     xpath: //div[@class="price-box__content-i"]/span[@class="price-value"]
-    regExp: (\d+)?(\s*)(\d+)
-    regExpReplace: $1$3
+    regExp: ((\d+?)(\s*)(\d+))
+    regExpReplace: $1
   - name: soldBy
     singleValue: true
     description: The name of the seller of the item (if available)
@@ -98,7 +101,8 @@ fields:
     singleValue: false
     description: Unique id (within this extractor)
     # xpath: //div[@class="product-item products-list__item js-item out-of-stock-item _blocks-replaced"]/@data-gtm-product #search-IM
-    xpath: //div[@class="product-item__sku hide-on-mobile"]/text() #search
+    # xpath: //div[@class="product-item__sku hide-on-mobile"]/text() #search
+    xpath: //div[contains(@class,"product-item__sku")]/text() #search
     regExp: (\d+)
     regExpReplace: $1
     # regExp: (eventProductId':')([\d.]+)
