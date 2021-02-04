@@ -41,6 +41,19 @@ const transform = (data) => {
                 }else if(item.text.includes('le flacon de')){
                   item.text = item.text.replace(/le\sflacon\sde(.*)/,'$1')
                   item.text = item.text.replace(/\-\s(.*)/,'$1');
+                }else if(item.text.includes(' de ')){
+                  item.text = item.text.replace(/(.*)de(.*)/,'$2')
+                  if(item.text.includes('-')){
+                    item.text = item.text.replace(/(.*)\-(.*)/,'$2');
+                  }
+                }
+                else if(item.text.includes(" d'")){
+                  item.text = item.text.replace(/(.*)d'(.*)/,'$2')
+                  if(item.text.includes('-')){
+                    item.text = item.text.replace(/(.*)\-(.*)/,'$2');
+                  }
+                }else {
+                  item.text = '';
                 }
               });
             }

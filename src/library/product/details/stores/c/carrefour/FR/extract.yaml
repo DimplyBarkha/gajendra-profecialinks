@@ -14,7 +14,8 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[contains(@class,"zoomable-image")]/img/@src
+    # xpath: //div[contains(@class,"zoomable-image")]/img/@src
+    xpath: //div[contains(@class, "carousel__siema")]/div/div[position() > 1]//div[contains(@class,"zoomable-image")]/img/@src
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content
@@ -246,7 +247,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: false
     description: null
-    xpath: count(//div[contains(@class,"zoomable-image")]/img/@src)
+    xpath: count(//div[contains(@class,"pdp-hero__thumbs")]/a[position() > 1])
     type: NUMBER
   - name: news
     singleValue: false
