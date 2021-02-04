@@ -30,10 +30,11 @@ module.exports = {
       if (counterRes) {
         const reg = /[^0-9.]/g;
         counterRes = counterRes.replace(reg, '') * 1 / 36;
-        counterRes = counterRes.toFixed(0) * 1;
+        counterRes = Math.ceil(counterRes);
         let searchTermsString = location.href;
         const start = searchTermsString.indexOf('=');
         searchTermsString = searchTermsString.slice(start, searchTermsString.length).replace('=', '');
+        console.log(counterRes);
         if (counterRes > 1) {
           window.location = `https://www.ah.be/zoeken?query=${searchTermsString}&page=${counterRes}`;
         }
