@@ -32,9 +32,7 @@ module.exports = {
         newDiv.id = id;
         newDiv.textContent = content;
         newDiv.style.display = "none";
-        const originalDiv = document.querySelectorAll('div[id="productPrice"]')[
-          index
-        ];
+        const originalDiv = document.querySelectorAll('div[id="productPrice"]')[index];
         originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
       var price = getAllXpath("//p[@class='price']/text()", "nodeValue");
@@ -44,10 +42,7 @@ module.exports = {
           addHiddenDiv1("price", price1, i);
         }
       }
-      var hprice = getAllXpath(
-        "//p[@itemprop='highPrice']/text()",
-        "nodeValue"
-      );
+      var hprice = getAllXpath("//p[@itemprop='highPrice']/text()", "nodeValue");
       if (hprice != null) {
         for (var i = 0; i < hprice.length; i++) {
           var price2 = hprice[i].replace(".", ",");
