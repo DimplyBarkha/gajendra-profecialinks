@@ -1,0 +1,66 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: brand
+    description: The brand name
+    xpath: //div[@id="added-table"]/table/tbody/tr/td[@class="brand"]//td[@class="name"]
+    example: Panasonic
+  - name: category
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //div[@id="added-table"]/table/tbody/tr/td[@class="categoryHierarchy"]
+    example:
+      [
+        "Dental Care",
+        "Toothbrushes & Accessories",
+        "Electric Toothbrushes & Accessories",
+        "Electric Toothbrushes",
+        "Rotating",
+      ]
+  - name: productUrl
+    description: The URL for the product details page
+    xpath: //div[@id="added-table"]/table/tbody/tr/td[@class="url"]
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    xpath: //div[@id="added-table"]/table/tbody/tr/td[@class="images"]//tbody/tr[1]
+  - name: name
+    description: The product name
+    xpath: //div[@id="added-table"]/table/tbody/tr/td[@class="name"]
+  - name: sku
+    description: The store-specific product identifier
+  - name: mpc
+    description: The model code of the product
+  - name: gtin
+    description: GTIN code (includes UPC/EAN)
+  - name: ratingCount
+    description: The number of ratings
+    xpath: //div[@id="added-table"]/table/tbody/tr/td[@class="ratingScore"]//td[@class="totalCount"]
+  - name: reviewCount
+    description: The number of reviews
+  - name: price
+    description: The offered price for the product
+    xpath: //div[@id="added-table"]/table/tbody/tr/td[@class="price"]//td[@class="sellingPrice"]
+  - name: listPrice
+    description: The stated undiscounted price for the product
+    xpath: //div[@id="added-table"]/table/tbody/tr/td[@class="price"]//td[@class="originalPrice"]
+  - name: manufacturer
+    description: Product manufacturer
+  - name: soldBy
+    description: The name of the seller of the item (if available)
+  - name: rank
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    description: Is sponsored/paid
+    type: BOOLEAN
+  - name: id
+    xpath: //div[@id="added-table"]/table/tbody/tr/td[@class="id"]
+  - name: aggregateRating2
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: //div[@id="added-table"]/table/tbody/tr/td[@class="ratingScore"]//td[@class="averageRating"]
+  - name: searchUrl
+    xpath: //body/@search-url
