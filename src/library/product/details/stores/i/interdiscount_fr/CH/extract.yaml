@@ -12,11 +12,11 @@ fields:
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
-    xpath: (//div[contains(@class,"swiper-slide _20ncMD ")]/../..//img)[position()>1]/@src
+    xpath: (//div[contains(@class,"_20ncMD")]/../..//img)[position()>1]/@src
     # xpath: (//img[@property="image"])[position()>1]/@src
   - name: secondaryImageTotal
     singleValue: false
-    xpath: count((//div[contains(@class,"swiper-slide _20ncMD ")]/../..//img)[position()>1]/@src)
+    xpath: count((//div[contains(@class,"_20ncMD")]/../..//img)[position()>1]/@src)
   - name: metaKeywords
     singleValue: false
   - name: category
