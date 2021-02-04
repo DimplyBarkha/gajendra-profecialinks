@@ -4,8 +4,14 @@ parameters:
   domain: rappi.com.mx
   store: rappi_walmart
   zipcode: ""
+proxy:
+  zone: MEX
+  type: RESIDENTIAL
 meta:
   branches:
     dev:
       extractor: 468eccbe-bc19-426f-b6dc-fd08db3ec376
       legacyAccountId: 85e1dabd-5c4e-414e-925b-b1692098d5f0
+    techops-rappi_walmart-search:
+      extractor: 5649feb4-db63-463b-972f-6d6d5b0069e3
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
