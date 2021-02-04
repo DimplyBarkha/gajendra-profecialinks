@@ -1,6 +1,6 @@
 const { transform } = require('../shared');
-//const { transform } = require('../shared');
-async function implementation(
+// const { transform } = require('../shared');
+async function implementation (
   inputs,
   parameters,
   context,
@@ -8,9 +8,9 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  console.log("inputs:: ", inputs);
+  console.log('inputs:: ', inputs);
   const { url, id } = inputs;
-  console.log("parameters:: ", parameters);
+  console.log('parameters:: ', parameters);
   if (id) {
     await new Promise((resolve, reject) => setTimeout(resolve, 10000));
     await context.waitForXPath('//article//a');
@@ -34,7 +34,7 @@ async function implementation(
   //   }
   // });
   await context.evaluate(async function () {
-    function addHiddenDiv(id, content) {
+    function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
       newDiv.textContent = content;
@@ -45,7 +45,7 @@ async function implementation(
   var variantLength = await context.evaluate(async () => {
     return (document.querySelectorAll('div.buybox-wrapper label.cw-form-button-toggle__label')) ? document.querySelectorAll('div.buybox-wrapper label.cw-form-button-toggle__label').length : 0;
   });
-  console.log("variantLength:: ", variantLength);
+  console.log('variantLength:: ', variantLength);
   if (variantLength > 1) {
     for (let j = 0; j < variantLength; j++) {
       await context.evaluate(async (j) => {
@@ -53,7 +53,7 @@ async function implementation(
       }, j);
       console.log('Inside variants', j);
       if (j !== variantLength - 1) { await context.extract(productDetails, { transform }, { type: 'APPEND' }); }
-    }    
+    }
   }
   return await context.extract(productDetails, { transform });
 }

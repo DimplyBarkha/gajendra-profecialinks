@@ -43,7 +43,8 @@ fields:
     defaultValue: In Stock
   - name: description
     singleValue: false
-    xpath: //span[@itemprop="description"]/p 
+    # xpath: //span[@itemprop="description"]/p
+    xpath: //section[@class="descriptions__content cw-tabs__content--left"]/span[1] | //section[@class="descriptions__content cw-tabs__content--left"]/span[2] | //section[@class="descriptions__content cw-tabs__content--left"]/ul
   - name: descriptionBullets
     singleValue: false
     xpath: count(//section[@class="descriptions__content cw-tabs__content--left"]/ul//li)
@@ -92,7 +93,7 @@ fields:
     regExpReplace: $1
   - name: directions
     singleValue: false
-    xpath: //article[@id="Feeding-Instructions"]
+    xpath: //article[@id="Feeding-Instructions"]//span[contains(@class,'cw-type__h1')][1] | //article[@id="Feeding-Instructions"]//div[contains(@class,'cw-bullets')][1]
   - name: warnings
     singleValue: false
     xpath: //div[@class="popover-content"]/p/text()
@@ -100,7 +101,7 @@ fields:
     singleValue: false
     # xpath: //a[@href="#ugc-section"]/text()
     # xpath: //div[@class="ugc ugc-head"]/picture/img/@aria-label
-    xpath: //a//span[@itemprop="reviewCount"]
+    xpath: //div[@class="ugc ugc-head"]/span
   - name: aggregateRatingText
   - name: aggregateRating
     singleValue: false
@@ -126,8 +127,12 @@ fields:
     xpath: //div[@role="radiogroup"]/div[1]/@data-qe-id
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[contains(@class,"cw-row__item chewy-plus__split-row__content")] | //div[@class="cw-row__item chewy-plus__content"] | //div[contains(@class,"pdp-ext-content")]//text() |  //div[contains(@class,"cw-row__item chewy-plus__split-row__content")]//div | //div[@class="row margin-bottom-0"]//tbody/tr
+    # xpath: //div[contains(@class,"cw-row__item chewy-plus__split-row__content")] | //div[@class="cw-row__item chewy-plus__content"] | //div[contains(@class,"pdp-ext-content")]//text() |  //div[contains(@class,"cw-row__item chewy-plus__split-row__content")]//div | //div[@class="row margin-bottom-0"]//tbody/tr
     #xpath: //div[@class="pdp-ext-section"]//div[@class="pdp-ext-content"]| //div[contains(@class,"cw-row__item chewy-plus__split-row__content")]//div
+    xpath: //div[contains(@class,'chewy-plus')]//div[contains(@class,'container')]/section | //div[contains(@class,'chewy-plus')]//section[contains(@class,'chewy-plus__about')]
+  - name: manufacturerDescription1
+    singleValue: false
+    xpath: //article[contains(@data-feature-name,'enhanced-content')]//div[contains(@class,'container')] | //article[contains(@data-feature-name,'enhanced-content')]//div[@class="content"]/div[@class="main"] | //article[contains(@data-feature-name,'enhanced-content')]//div[@class="about"]
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@class="cms-include"]//img/@src
@@ -181,11 +186,11 @@ fields:
   - name: numberOfServingsInPackage
     singleValue: false
     description: Suggested number of servings of the product.
-  # - name: caloriesPerServing
-  #   singleValue: false
-  #   xpath: //span[contains(text(),"Caloric Content")]/following-sibling::p
-  #   regExp: (^(?:\S+\s+\n?){1,1})
-  #   regExpReplace: $1
+  - name: caloriesPerServing
+    singleValue: false
+    xpath: //span[contains(text(),"Caloric Content")]/following-sibling::p[1]
+    regExp: ^(.*)? kcal\/kg
+    regExpReplace: $1
   - name: caloriesFromFatPerServing
     singleValue: false
   - name: totalFatPerServing
@@ -380,9 +385,9 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: false
     defaultValue: Yes
-  - name: ratingCount
-    singleValue: false
+  # - name: ratingCount
+  #   singleValue: false
     # xpath: //a[@href="#ugc-section"]/text()
     # xpath: //div[@class="ugc ugc-head"]/picture/img/@aria-label
-    xpath: //a//span[@itemprop="reviewCount"]
+    # xpath: //a//span[@itemprop="reviewCount"]
 
