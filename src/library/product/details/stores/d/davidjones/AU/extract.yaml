@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //form[@class="item-selection"]//ul//li|//main[@id="main"]//h1[@itemprop="name"]
+recordXPath: //form[@class="item-selection"]//ul//li|//form[@class="item-selection"]//div[contains(@class, "form-item colour empty")]|//article[@id="page-content"]//div[@itemscope="itemscope"][contains(@class, "not-buyable")]
 fields:
   - name: image
     description: URL of the main product image
@@ -46,13 +46,17 @@ fields:
     regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     regExpReplace: $1$2$3$4
   - name: weightNet
-    xpath: //span[contains(text(),'Specifications')]//following::text()[contains(.,'Weight')]|//strong[contains(text(),'specifications')]//following::text()[contains(.,'Weight')]|//strong[contains(text(),'Specifications')]//following::text()[contains(.,'weight')]|//span[contains(text(),'specifications')]//following::text()[contains(.,'weight')]
+    xpath: ancestor::html//span[contains(text(),'Specifications')]//following::text()[contains(.,'Weight')]|//strong[contains(text(),'specifications')]//following::text()[contains(.,'Weight')]|ancestor::html//strong[contains(text(),'Specifications')]//following::text()[contains(.,'weight')]|ancestor::html//span[contains(text(),'specifications')]//following::text()[contains(.,'weight')]
   - name: weightGross
   - name: gtin
   - name: sku
     xpath: //@data-product-sku
+  - name: skuAlternate
+    xpath: ancestor::html//article[@id="page-content"]//div[@itemscope="itemscope"]/@data-product-sku
   - name: variantId
     xpath: //input[@type="radio"]/@value
+  - name: variantIdAlternate
+    xpath:  ancestor::html//li[contains(@class, "main top-product default on slick-slide slick-current slick-active")]/@data-colour
   - name: variantInformation
     xpath: //span[@class='colour-label']
   - name: mpc

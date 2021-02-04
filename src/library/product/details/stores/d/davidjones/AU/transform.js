@@ -117,6 +117,14 @@ const transform = (data, context) => {
         });
         row.ImageZoomFeaturePresent = [{ text: text, xpath: row.ImageZoomFeaturePresent[0].xpath }];
       }
+
+      if (!row.sku && row.skuAlternate) {
+        row.sku = [{ text: row.skuAlternate[0].text, xpath: row.skuAlternate[0].xpath }];
+      }
+
+      if (!row.variantId && row.variantIdAlternate) {
+        row.variantId = [{ text: row.variantIdAlternate[0].text, xpath: row.variantIdAlternate[0].xpath }];
+      }
     }
   }
  
