@@ -30,6 +30,7 @@ fields:
   - name: reviewCount
     SingleValue: false
     xpath: //div[contains(@class,'clear product-grid-view')]//div[contains(@class,'col-md-12 product-view-rating')]//small
+    regExp: \d{1,}
     defaultValue: 0
   - name: ratingCount
     SingleValue: false
