@@ -32,9 +32,11 @@ async function implementation (inputs, parameters, context, dependencies) {
 
   await context.evaluate(() => {
     const url = window.location.href;
-
+    let sku = url.match('pd/(.*?/)');
+    sku = sku[1].replace('/', '');
     const brandLink = document.querySelector('div.disclaimer-section>p>a');
 
+    brandLink.setAttribute('sku', sku);
     brandLink.setAttribute('brandlink', brandLink.href);
     brandLink.setAttribute('url', url);
   });

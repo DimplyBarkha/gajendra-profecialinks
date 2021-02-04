@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="card-item js-product-data"]
+recordXPath: //div[@id="card_grid"] //div[starts-with(@class, "card-section-wrapper js-section-wrapper")]
 fields:
   - name: id
     singleValue: false
@@ -10,10 +10,10 @@ fields:
     singleValue: true
   - name: name
     singleValue: false
-    xpath: //div[@class="card-item js-product-data"]/@data-name
+    xpath: //h2[@class="card-body product-title-zone"]/@product-name
   - name: productUrl
     singleValue: false
-    xpath: //div[@class="card-item js-product-data"]//div[@class="card-heading"]/a/@href
+    xpath: //div[@class="card-heading"]/a/@href
   - name: gtin
     singleValue: false
   - name: thumbnail
@@ -23,18 +23,18 @@ fields:
     singleValue: false
   - name: aggregateRating2
     singleValue: false
-    xpath: //div[@class="card-item js-product-data"]//div[contains(@class, "star-rating star-rating-read")]/@rating
+    xpath: //div[contains(@class, "star-rating star-rating-read")]/@rating
   - name: reviewCount
     singleValue: false
-    xpath: //div[@class="card-item js-product-data"]//span[@class="visible-xs-inline-block "]
+    xpath: //span[@class="visible-xs-inline-block "]
     regExp: \d+
   - name: ratingCount
     singleValue: false
-    xpath: //div[@class="card-item js-product-data"]//span[@class="visible-xs-inline-block "]
+    xpath: //span[@class="visible-xs-inline-block "]
     regExp: \d+
   - name: price
     singleValue: false
-    xpath: //div[@class="card-item js-product-data"]//p[@class="product-new-price"]/@price
+    xpath: //p[@class="product-new-price"]/@price
   - name: manufacturer
     singleValue: true
   - name: soldBy

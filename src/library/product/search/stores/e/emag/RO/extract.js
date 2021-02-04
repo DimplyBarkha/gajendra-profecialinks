@@ -7,7 +7,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   await new Promise((resolve, reject) => setTimeout(resolve, 4000));
 
   await context.evaluate(async function () {
-    const price = document.querySelectorAll('div[class="card-item js-product-data"] p[class="product-new-price"]');
+    const price = document.querySelectorAll('div#card_grid div.card-section-wrapper.js-section-wrapper p[class="product-new-price"]');
     price.forEach((element) => {
       const number = element.textContent.match(/\d+/)[0];
       const firstPrice = number.slice(0, -2);
@@ -18,7 +18,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     });
 
     // id
-    const ids = document.querySelectorAll('div[class="card-item js-product-data"] div[class="card-toolbox"] > button[data-productid]');
+    const ids = document.querySelectorAll('div#card_grid div.card-section-wrapper.js-section-wrapper div[class="card-toolbox"] > button[data-productid]');
     ids.forEach(e => {
       if (e.getAttribute('data-product') !== null) {
         const id = JSON.parse(e.getAttribute('data-product')).pnk;
@@ -26,8 +26,17 @@ async function implementation (inputs, parameters, context, dependencies) {
       }
     });
 
+    // name
+    const names = document.querySelectorAll('div#card_grid div.card-section-wrapper.js-section-wrapper h2.product-title-zone');
+    names.forEach(e => {
+      if (e.innerText) {
+        const name = e.innerText.trim();
+        e.setAttribute('product-name', name);
+      }
+    });
+
     // replace . with , in rating
-    var rating = document.querySelectorAll('div.card-item.js-product-data div.star-rating.star-rating-read');
+    var rating = document.querySelectorAll('div#card_grid div.card-section-wrapper.js-section-wrapper div.star-rating.star-rating-read');
     const regex = /\d\.?(\d+)?/gm;
 
     rating.forEach((element) => {
