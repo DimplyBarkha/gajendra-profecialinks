@@ -102,7 +102,7 @@ fields:
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
-    xpath: //script[@data-flix-mpn]/@data-flix-mpn
+    xpath: //div[@id="header-page"]//p[@class="product-ids ng-star-inserted"]
   - name: packSize
     singleValue: false
     description:
