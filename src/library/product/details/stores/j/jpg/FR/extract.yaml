@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //main[@class="container"]//li[@class="sku-slider-item js-sku-slider-item flex row tns-item tns-slide-active"]//img//@srcset 
+    xpath: //main[@class="container"]//li[@class="sku-slider-item js-sku-slider-item flex row tns-item tns-slide-active"]//img//@src 
   - name: alternateImages
     singleValue: false
     xpath: //div[@aria-label="Carousel Pagination"]//div[@data-nav][position()>1]//img//@src 
@@ -19,12 +19,10 @@ fields:
     singleValue: true
     xpath: //h1[@class="product-sku__title"]//text()
   - name: listPrice
-    singleValue: true    
-    type: CURRENCY
+    singleValue: true
     xpath: //span[@class="product-sku__old-price"]//text()
   - name: price
-    singleValue: true
-    type: CURRENCY
+    singleValue: true    
     xpath: //span[@class="product-sku__price-min"]//text()
   - name: availabilityText
     singleValue: true
@@ -34,11 +32,11 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[@class='description-sku__figure-text']
+    xpath: concat(//div[@class="product-sku__details"] , //div[@class='description-sku__figure-text'])
   - name: descriptionBullets
     singleValue: true    
     type: NUMBER
-    xpath: count(//div[@class='description-sku__figure-text']/ul/li)
+    xpath: count(//div[@class='description-sku__figure-text']/ul/li | //div[@class="product-sku__details"]/ul/li)
   - name: brandText
     singleValue: true
     xpath: (//div[@class="product-sku__reinsurance-container"]//@data-mf | //div[@id="feature"]//span[contains(text(),'arque')]/following-sibling::*)[1]
@@ -56,7 +54,7 @@ fields:
     xpath: //div[@class="col product-sku__ref"]/text()    
   - name: shippingDimensions
     singleValue: true
-    xpath: concat(//span[contains(text(),'Hauteur')]/following-sibling::strong,"|",//span[contains(text(),'Largeur')]/following-sibling::strong) 
+    xpath: //span[contains(text(),'Largeur')]/following-sibling::strong
   - name: secondaryImageTotal
     singleValue: true
     type: NUMBER
@@ -66,7 +64,7 @@ fields:
     xpath: concat(//div[@class="description-sku-wrapper__section container"],//div[@class='description-sku__figure-text'])  
   - name: promotion
     singleValue: true
-    xpath: concat((//div[@class="product-sku__price-table__row row3"]//text())[1]," ",(//div[@class="product-sku__price-table__row row3"]//text())[3])   
+    xpath: //div[@class="col product-sku__promo"]   
   - name: technicalInformationPdfPresent
     singleValue: true
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
