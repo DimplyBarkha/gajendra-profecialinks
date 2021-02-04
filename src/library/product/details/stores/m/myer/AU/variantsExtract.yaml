@@ -1,14 +1,14 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[contains(@class,"dy-recommendations__slider-conatiner")]//div[contains(@class,"dy-recommendations__slider-wrapper")]//a
 fields:
   - name: variantId
     singleValue: false
     description: variant id, to uniquely identify variant
-    xpath: //div[@data-automation="colour-select-container"]//button[@data-automation="select-colour"]//span/@data-automation
+    xpath: //div[contains(@class,"dy-recommendations__slider-conatiner")]//div[contains(@class,"dy-recommendations__slider-wrapper")]//a/@data-dy-sku
   - name: variantUrl
     singleValue: false
     description: variant Url
-    xpath: concat(//li[contains(@class,"bv-content-pagination-buttons-item bv-content-pagination-buttons-item-next")]//a/@href,'?colour=',//div[@data-automation="colour-select-container"]//button[@data-automation="select-colour"]//span/@data-automation) 
+    xpath: //div[contains(@class,"dy-recommendations__slider-conatiner")]//div[contains(@class,"dy-recommendations__slider-wrapper")]//a/@href
     

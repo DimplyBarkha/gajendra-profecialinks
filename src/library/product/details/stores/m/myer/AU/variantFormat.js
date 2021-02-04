@@ -19,29 +19,10 @@ const transform = (data) => {
   
     for (const { group } of data) {
       for (const row of group) {
-      
-        if (row.variantAsins) {
-          let text = '';
-          row.variantAsins.forEach(item => {
-            text += `${item.text} | `;
-          });
-          row.variantAsins = [
-            {
-              text: cleanUp(text.slice(0, -3)),
-            },
-          ];
-        }
-        if (row.variants) {
-          let text = '';
-          row.variants.forEach(item => {
-            text += `${item.text} | `;
-          });
-          row.variants = [
-            {
-              text: cleanUp(text.slice(0, -3)),
-            },
-          ];
-          row.firstVariant = row.gtin;
+        if (row.variantUrl) {      
+          row.variantUrl.forEach(item => {      
+            item.text  = 'https://www.myer.com.au'+item.text;
+          });         
         }
       }
     }
