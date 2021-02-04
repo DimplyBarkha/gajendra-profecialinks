@@ -1,10 +1,10 @@
-
+const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/variants/variantsExtract',
   parameterValues: {
     country: 'UK',
     store: 'lookfantastic',
-    transform: null,
+    transform: cleanUp,
     domain: 'lookfantastic.com',
     zipcode: '',
   },
@@ -32,7 +32,7 @@ module.exports = {
 
       }
     });
-    await context.extract(productDetails, { transform: transformParam });
+    await context.extract(productDetails);
   },
 };
 
