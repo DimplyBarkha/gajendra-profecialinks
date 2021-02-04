@@ -1,10 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto/setZipCode',
+  implements: 'product/details',
   parameterValues: {
     country: 'CH',
-    domain: 'mediamarkt.ch',
     store: 'mediamarkt_ch_de',
+    domain: 'mediamarkt.ch',
     zipcode: '',
   },
 };

@@ -1,0 +1,152 @@
+input:
+  id: 1992946
+  _url: http://mediamarkt.ch
+extractions:
+  - html: https://workbench.import.io/html/run=04447b04-954b-4fb3-ad71-658dea655b13/task=d4bce4d5-8fe3-439c-95af-45078d2a50fa/8a1e145f-0e75-414b-a0f7-201ae7799f82.html
+    extractionConfigId: product/details/stores/m/mediamarkt_ch_de/CH/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.mediamarkt.ch/de/product/_nescaf%C3%A9-dolce-gusto-cappuccino-1992946.html
+                xpath: /html/head[1]/link[1]/@href
+            image:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_74599331/fee_325_225_png/NESCAF%C3%89-Dolce-Gusto-Cappuccino---Kafeekapseln
+                xpath: /html/body/div[2]/aside[1]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: NESCAFÉ Dolce Gusto Cappuccino - Kafeekapseln
+                xpath: /html/body/div[2]/aside[1]/div[1]/a[1]/img[1]/@alt
+            alternateImages:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_74599333/fee_52_41_png/NESCAF%C3%89-Dolce-Gusto-Cappuccino---Kafeekapseln
+                xpath: /html/body/div[2]/aside[1]/ul[1]/li[3]/a[1]/img[1]/@src
+            category:
+              - text: Kochen & Essen
+                xpath: /html/body/div[2]/nav[1]/ul[1]/li[2]
+              - text: Kaffeemaschinen
+                xpath: /html/body/div[2]/nav[1]/ul[1]/li[3]
+              - text: Kaffee & Kaffeekapseln
+                xpath: /html/body/div[2]/nav[1]/ul[1]/li[4]
+            nameExtended:
+              - text: NESCAFÉ Dolce Gusto Cappuccino Kafeekapseln
+                xpath: /html/body/div[2]/div[2]/div[1]/h1[1]
+            availabilityText:
+              - text: InStock
+                xpath: /html/body/div[2]/div[2]/div[2]/div[1]/div[3]/meta[1]/@content
+            description:
+              - text: "Vorhang auf für einen Kaffee-Klassiker: der Cappuccino! Ein aromatischer
+                  Espresso aus einem Premium Arabica Blend und einem Hauch
+                  Robusta vereinen sich harmonisch mit leckerer Vollmilch. Alles
+                  vereint in unseren beiden kleinen NESCAFÉ® Dolce Gusto®
+                  Cappuccino Kapseln! Gekrönt wird der NESCAFÉ® Dolce Gusto®
+                  Cappuccino von einem verbesserten, vollmundigeren EXTRA
+                  CREMOSO Milchschaum, der für noch mehr Cremigkeit sorgt. Lust
+                  auf das gewisse Extra? Verfeinere ihn mit süssem Kakaopulver
+                  und kreiere so dein individuelles Lieblingsgetränk. Entdecke
+                  mit den NESCAFÉ® Dolce Gusto® Cappuccino Kapseln ein
+                  italienisches Kultgetränk ganz neu. Ein intensiver Espresso
+                  mit reichen, kräftigen Aromen, kombiniert mit dem leichten
+                  Geschmack von cremigem Vollmilchschaum. Unsere kreativen
+                  Kaffeeschöpfer haben den NESCAFÉ® Dolce Gusto® Cappuccino nach
+                  italienischer Art perfektioniert: Die dunkel gerösteten
+                  südamerikanischen Arabica-Bohnen sind mit cremigem Milchschaum
+                  bedeckt und mit einem Hauch von Zucker verfeinert. Dank bis zu
+                  15 bar Pumpendruck unserer Kaffeemaschinen erhältst du
+                  professionellen Kaffee mit einer dichten, samtigen Crema. Die
+                  Aromaversiegelung bewahrt die Frische des Kaffees – damit jede
+                  Tasse vollmundig und aromatisch ist. Lege zuerst die
+                  Milchkapsel (weiss) in deine NESCAFÉ® Dolce Gusto® Maschine.
+                  Wiederhole dies anschliessend mit der Kaffeekapsel (braun) und
+                  geniesse deinen perfekten Cappuccino. "
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[5]/article[1]/p[2]
+            brandText:
+              - text: NESCAFÉ
+                xpath: /html/head[1]/meta[24]/@content
+            manufacturer:
+              - text: NESCAFÉ
+                xpath: /html/head[1]/meta[24]/@content
+            quantity:
+              - text: 3x 16
+                xpath: /html/body/div[2]/div[2]/div[1]/dl[1]/dd[4]
+            gtin:
+              - text: "7613036303859"
+                xpath: /html/body/script[4]
+            sku:
+              - text: "1992946"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/dl[1]/dd[1]/span[1]
+            variantId:
+              - text: "1992946"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/dl[1]/dd[1]/span[1]
+            mpc:
+              - text: 12385112-48
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[1]/dl[1]/dd[8]
+            name:
+              - text: NESCAFÉ Dolce Gusto Cappuccino Kafeekapseln
+                xpath: /html/body/div[2]/div[2]/div[1]/h1[1]
+            servingSize:
+              - text: per 100 g / 100 ml
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/h2[1]
+            servingSizeUom:
+              - text: g/ml
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/h2[1]
+            caloriesPerServing:
+              - text: "423"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[2]
+            totalFatPerServing:
+              - text: "20.4"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[3]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[3]
+            saturatedFatPerServing:
+              - text: "10.3"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[4]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[4]
+            totalCarbPerServing:
+              - text: "35.9"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[5]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[5]
+            dietaryFibrePerServing:
+              - text: "12.9"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[7]
+            dietaryFibrePerServingUom:
+              - text: g
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[7]
+            totalSugarsPerServing:
+              - text: "23.9"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[6]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[6]
+            proteinPerServing:
+              - text: "17.4"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[8]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[8]
+            saltPerServing:
+              - text: "0.45"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[9]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[9]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+            price:
+              - text: CHF 17.95
+            descriptionBullets:
+              - text: "0"
+        xpath: /
+    timestamp: 1606390560237

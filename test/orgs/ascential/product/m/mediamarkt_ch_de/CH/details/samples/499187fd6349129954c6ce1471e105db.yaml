@@ -1,0 +1,117 @@
+input:
+  id: 1989833
+  _url: http://mediamarkt.ch
+extractions:
+  - html: https://workbench.import.io/html/run=04447b04-954b-4fb3-ad71-658dea655b13/task=d44da560-b01e-47cd-8939-ac2709413c61/45b22996-5abb-43c4-8737-ed09eee41ba9.html
+    extractionConfigId: product/details/stores/m/mediamarkt_ch_de/CH/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.mediamarkt.ch/de/product/_dyson-supersonic-mother-s-day-gift-edition-1989833.html
+                xpath: /html/head[1]/link[1]/@href
+            image:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_74033921/fee_325_225_png/DYSON-Supersonic-Mother%27s-Day-Gift-Edition---Haartrockner-%28Anthrazit-Fuchsia%29
+                xpath: /html/body/div[2]/aside[1]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: DYSON Supersonic Mother's Day Gift Edition - Haartrockner
+                  (Anthrazit/Fuchsia)
+                xpath: /html/body/div[2]/aside[1]/div[1]/a[1]/img[1]/@alt
+            alternateImages:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_74033919/fee_52_41_png/DYSON-Supersonic-Mother%27s-Day-Gift-Edition---Haartrockner-%28Anthrazit-Fuchsia%29
+                xpath: /html/body/div[2]/aside[1]/ul[1]/li[3]/a[1]/img[1]/@src
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_74033918/fee_52_41_png/DYSON-Supersonic-Mother%27s-Day-Gift-Edition---Haartrockner-%28Anthrazit-Fuchsia%29
+                xpath: /html/body/div[2]/aside[1]/ul[1]/li[4]/a[1]/img[1]/@src
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_74033916/fee_52_41_png/DYSON-Supersonic-Mother%27s-Day-Gift-Edition---Haartrockner-%28Anthrazit-Fuchsia%29
+                xpath: /html/body/div[2]/aside[1]/ul[1]/li[5]/a[1]/img[1]/@src
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_74033917/fee_52_41_png/DYSON-Supersonic-Mother%27s-Day-Gift-Edition---Haartrockner-%28Anthrazit-Fuchsia%29
+                xpath: /html/body/div[2]/aside[1]/ul[1]/li[6]/a[1]/img[1]/@src
+            category:
+              - text: Körperpflege & Fitness
+                xpath: /html/body/div[2]/nav[1]/ul[1]/li[2]
+              - text: Haarstyling
+                xpath: /html/body/div[2]/nav[1]/ul[1]/li[3]
+              - text: Föhn
+                xpath: /html/body/div[2]/nav[1]/ul[1]/li[4]
+            nameExtended:
+              - text: DYSON Supersonic Mother's Day Gift Edition Haartrockner
+                  (Anthrazit/Fuchsia)
+                xpath: /html/body/div[2]/div[2]/div[1]/h1[1]
+            listPrice:
+              - text: "54.95"
+                xpath: /html/body/div[2]/div[2]/div[5]/div[1]/div[4]/div[1]/div[2]/div[1]/ul[1]/li[4]/div[1]/a[1]/div[2]/div[1]/div[1]
+            availabilityText:
+              - text: InStock
+                xpath: /html/body/div[2]/div[2]/div[2]/div[1]/div[3]/meta[1]/@content
+            description:
+              - text: "Temperatursensor schützt vor extremen Hitzeschäden, um den natürlichen
+                  Glanz zu erhalten. Die intelligente Temperatur-Regulierung
+                  misst die Lufttemperatur 20 Mal pro Sekunde. Schnelles
+                  Trocknen Präziser und starker Luftstrom dank des
+                  leistungsstarken digitalen Motors und der Air MultiplierTM
+                  Technologie. Entwickelt für Balance Der einzige Haartrockner,
+                  bei dem der Motor nicht im Kopf, sondern im Handgriff sitzt.
+                  Sanftes und kontrolliertes Styling Die Dyson Smoothing-Düse
+                  erzeugt einen sanften, präzisen Luftstrom, mit dem Sie Ihr
+                  Haar gleichzeitig trocknen und stylen können. Optimierte
+                  Akustik Der leistungsstarke Motor wurde so optimiert, dass er
+                  eine unerhörbare Frequenz erzeugt. Er ist ausserdem von einem
+                  System zur Vibrationsreduzierung umgeben. Magnetische Aufsätze
+                  Der einzige Haartrockner mit magnetischen Düsen für ein
+                  schnelles und einfaches befestigen Cool Touch Technik Dank
+                  Heat Shield-Technologie bleiben die Oberflächen der Aufsätze
+                  kühl- selbst beim Stylen aus nächster Nähe. Kein Gitter. Keine
+                  verfangenen Haare. Anstelle des Gitters befindet sich eine
+                  Öffnung, in der sich keine Haare verfangen können Negative
+                  Ionen Verringern die statische Aufladung der Haare. Leicht zu
+                  reinigender Filter Filtermanschette zum Reinigen einfach
+                  drehen und abnehmen. "
+                xpath: /html/body/div[2]/div[2]/div[5]/div[1]/div[5]/article[1]/h3[2]
+            brandText:
+              - text: DYSON
+                xpath: /html/head[1]/meta[24]/@content
+            manufacturer:
+              - text: DYSON
+                xpath: /html/head[1]/meta[24]/@content
+            weightNet:
+              - text: 630 g
+                xpath: /html/body/div[2]/div[2]/div[5]/div[1]/div[6]/div[1]/div[2]/div[1]/section[4]/dl[1]/dd[6]
+            gtin:
+              - text: "5025155045350"
+                xpath: /html/body/script[4]
+            sku:
+              - text: "1989833"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/dl[1]/dd[1]/span[1]
+            variantId:
+              - text: "1989833"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/dl[1]/dd[1]/span[1]
+            mpc:
+              - text: 333171-01
+                xpath: /html/body/div[2]/div[2]/div[5]/div[1]/div[6]/div[1]/div[2]/div[1]/section[4]/dl[1]/dd[9]
+            color:
+              - text: Anthrazit/Fuchsia
+                xpath: /html/body/div[2]/div[2]/div[5]/div[1]/div[6]/div[1]/div[2]/div[1]/section[4]/dl[1]/dd[5]
+            name:
+              - text: DYSON Supersonic Mother's Day Gift Edition Haartrockner
+                  (Anthrazit/Fuchsia)
+                xpath: /html/body/div[2]/div[2]/div[1]/h1[1]
+            warranty:
+              - text: "24"
+                xpath: /html/body/div[2]/div[2]/div[5]/div[1]/div[6]/div[1]/div[2]/div[1]/section[4]/dl[1]/dd[8]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+            price:
+              - text: CHF 449.95
+            descriptionBullets:
+              - text: "0"
+        xpath: /
+    timestamp: 1606390559733

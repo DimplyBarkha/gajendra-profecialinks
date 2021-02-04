@@ -3,18 +3,19 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'mediamarkt.ch',
-    timeout: 35000,
+    timeout: 10000000,
     country: 'CH',
-    store: 'mediamarkt',
+    store: 'mediamarkt_ch_de',
     zipcode: '',
   },
-  implementation: async ({ url }, parameters, context, dependencies) => {
+  implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
+    const timeout = parameters.timeout ? parameters.timeout : 1000000;
+    await context.setAntiFingerprint(false);
+    await context.setLoadAllResources(true);
     await context.setBlockAds(false);
-    await context.goto(`${url}`, {
-      anti_fingerprint: true,
-      discard_CSP_header: false,
-      timeout: 100000,
-      waitUntil: 'load',
-    });
+    await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true, load_all_resources: true, images_enabled: true });
+    if (zipcode) {
+      await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
+    }
   },
 };
