@@ -335,7 +335,8 @@ const transform = (data, context) => {
       }
       if (row.gtin) {
         // Getting only 10 UPCs.
-        const text = row.gtin.slice(0, 10).map(elm => elm.text).join(' ');
+        const gtins = row.gtin.map(elm => elm.text.trim());
+        const text = Array.from(new Set(gtins.slice(0, 10))).join(' ');
         row.gtin = [{ text }];
       }
       if (!row.image && row.imageFallback) {
