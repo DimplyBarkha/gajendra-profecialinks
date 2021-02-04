@@ -87,8 +87,8 @@ fields:
   - name: directions
     singleValue: false
     xpath: //b[contains(text(), "Gebruik")]/following-sibling::text()[1]
-  - name: video
+  - name: videos
     singleValue: false
-    xpath: //li[@class="b-video-item"]/div/@data-videoid
+    xpath: //li[@class="b-video-item"]/div/@data-videoid | //li//div[@data-videoid]
     regExp: (.+)
     regExpReplace: https://www.youtube.com/watch?v=$1
