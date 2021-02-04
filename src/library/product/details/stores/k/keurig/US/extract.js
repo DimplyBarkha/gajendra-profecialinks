@@ -37,6 +37,26 @@ module.exports = {
     } catch (error) {
       console.log('see more button not found');
     }
+    await context.evaluate(() => {
+      function addHiddenDiv (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+      // addHiddenDiv('servingSize_added', ingredients);
+      const spec = document.evaluate('//*[contains(text(),"Specs")]//parent::p', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      if (spec) {
+        var specList1;
+        let specification = '';
+
+        specList1 = document.evaluate('//*[contains(text(),"Specs")]//parent::p', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        console.log('specList1', specList1);
+        specification = specList1 ? specList1.innerHTML : '';
+        addHiddenDiv('specification_added', specification);
+      }
+    });
     await new Promise(resolve => setTimeout(resolve, 10000));
     return await context.extract(productDetails, { transform });
   },

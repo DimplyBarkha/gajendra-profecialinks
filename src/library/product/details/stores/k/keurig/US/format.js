@@ -36,6 +36,11 @@ const transform = (data) => {
       if (row.description) {
         row.description = [{ text: row.description[0].text.replace(/•/gm, '||').replace(/Nutritional Information$/, '') }];
       }
+      if (row.specifications) {
+        row.specifications.forEach((specificationsItem) => {
+          specificationsItem.text = specificationsItem.text.replace('<strong>Specs:</strong><br>', '').replace(/<br\s*\/?>/gm, ' ||').trim();
+        });
+      }
       if (row.variants1 && row.variants1.length > 1) {
         row.variants = row.variants1;
         row.variantCount = [{ text: row.variants1.length }];
