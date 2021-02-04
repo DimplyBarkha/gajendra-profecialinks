@@ -121,6 +121,7 @@ fields:
     singleValue: true
     description: The number of ratings
     type: NUMBER
+    xpath: count(//div[contains(@class,'specs-list')]//span[@class="bv-off-screen"])
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
@@ -128,6 +129,9 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
+    xpath: //div[contains(@class,'specs-list')]//span[@class="bv-off-screen"]
+    regExp: (^(\d.\d)|^(\d))
+    regExpReplace: $1
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
