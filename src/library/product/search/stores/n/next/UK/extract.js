@@ -29,18 +29,31 @@ async function implementation (
       parent.appendChild(element);
     };
     // add next link selector
-    const location = window.location.href;
+    let location = window.location.href;
     const parent = document.querySelector('div[class="spell-correct"], div[class="SearchedFor"]');
-    const index = parseInt(location.split('srt=')[1]) + 24;
     const elements = document.querySelectorAll('article[class="Item Fashion  "]').length;
     const lastElement = document.querySelectorAll('article[class="Item Fashion  "]')[elements - 1].id ? document.querySelectorAll('article[class="Item Fashion  "]')[elements - 1].id.match(/\d+/)[0] : '';
     if (lastElement === document.querySelector('div[class="Count"]').innerText.match(/\d+/)[0]) {
       return null;
     }
-    const link = location.split(/\d+$/)[0] + index.toString();
-    if (link !== null) {
-      addElementToDOM(parent, 'a', 'nextLinkSelector', link);
-      document.querySelector('a[id="nextLinkSelector"]').innerText = "nextLink";
+    if (!location.includes('range=price[0,35000]')) {
+      if (!location.includes('-srt-')) {
+        location = location + '-srt-0';
+      }
+      const index = parseInt(location.split('-srt-')[1]) + 24;
+      const link = location.split(/\d+$/)[0] + index.toString();
+      if (link !== null) {
+        addElementToDOM(parent, 'a', 'nextLinkSelector', link);
+        document.querySelector('a[id="nextLinkSelector"]').innerText = "nextLink";
+      }
+    }
+    if (location.includes('range=price[0,35000]')) {
+      const index = parseInt(location.split('srt=')[1]) + 24;
+      const link = location.split(/\d+$/)[0] + index.toString();
+      if (link !== null) {
+        addElementToDOM(parent, 'a', 'nextLinkSelector', link);
+        document.querySelector('a[id="nextLinkSelector"]').innerText = "nextLink";
+      }
     }
   });
   const data = await context.extract(productDetails, { transform });
