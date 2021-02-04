@@ -129,6 +129,10 @@ fields:
   - name: videos
     singleValue: false
     xpath: //div[@class="videos"]
+    regExp: '[^|]+'
+  - name: manufacturerVideos
+    xpath: ancestor::html//@video
+    regExp: '[^|]+'
   - name: videoLength
     singleValue: false
     xpath: //div[@class="videoLength"]

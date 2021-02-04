@@ -747,6 +747,30 @@ async function implementation (
     await stall(12000);
   });
 
+  async function manufacturerVideos () {
+    let links = [];
+    const id = document.querySelector('div[class="sku"]').innerText.trim();
+    const api = `https://content.syndigo.com/page/72d23878-8496-46b3-a3b1-9fe02eda2e53/${id}.json`;
+    const response = await fetch(api);
+    const json = await response.json();
+    if (Object.keys(json).length) {
+      const videoObj = Object.values(Object.values(Object.values(Object.values(json.experiences))).find(elm => elm.hasOwnProperty('experiences')).experiences['power-page'].widgets).filter(elm => elm.widgetType.match(/VideoGallery/i));
+      const videos = videoObj[0].items.map(elm => elm.video.sources[0].url);
+      const responses = await Promise.all(videos.map(url => fetch(url)));
+      const text = await Promise.all(responses.map(t => t.text()));
+      links = text.map((elm, i) => videos[i].replace(/playlist.m3u8/, elm.match(/[^\n]+.m3u8/)[0]));
+    }
+    if (document.querySelector('div.wc-video-gallery')) {
+      links = links.concat(Array.from(document.querySelector('div.wc-video-gallery').querySelector('iframe').contentDocument.querySelectorAll('video')).map(elm => elm.src));
+    }
+    document.body.setAttribute('video', links.join(' | '));
+    return links;
+  }
+  try {
+    await context.evaluate(manufacturerVideos);
+  } catch (error) {
+    console.log('Error adding syndigo videos. Error: ', error);
+  }
   await context.extract(productDetails, { transform: transformParam });
 }
 

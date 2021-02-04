@@ -54,6 +54,9 @@ const transform = (data) => {
           .replace(/(.*)(Show more)$/, '$1');
         row.manufacturerDescription = [{ text: manufacturerDescription }];
       }
+      if (row.manufacturerVideos) {
+        row.videos = row.videos ? [...row.manufacturerVideos, ...row.videos] : row.manufacturerVideos;
+      }
     }
   }
 
@@ -69,7 +72,8 @@ const transform = (data) => {
     .replace(/^ +| +$|( )+/g, ' ')
   // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
-    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ')
+    .trim();
 
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
     el.text = clean(el.text);
