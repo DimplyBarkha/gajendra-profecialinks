@@ -16,10 +16,8 @@ const transform = (data) => {
     .replace(/^ +| +$|( )+/g, ' ')
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
-    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
-  data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
-    el.text = clean(el.text);
-  }))));
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ')
+    .trim();
 
   for (const { group } of data) {
     for (const row of group) {
@@ -65,64 +63,67 @@ const transform = (data) => {
         ];
       }
 
-      if (row.description) {
-        let text = '';
-        row.description.forEach(item => {
-          text += `|| ${item.text} `;
-        });
-        row.description = [
-          {
-            text: `${text.trim()}`,
-          },
-        ];
-      }
+      // if (row.description) {
+      //   let text = '';
+      //   row.description.forEach(item => {
+      //     text += `|| ${item.text} `;
+      //   });
+      //   row.description = [
+      //     {
+      //       text: `${text.trim()}`,
+      //     },
+      //   ];
+      // }
 
-      if (row.descriptionExtended) {
-        let text = '';
-        row.descriptionExtended.forEach(item => {
-          text += `${item.text} `;
-        });
-        text = text.trim();
-        if (row.description) {
-          row.description = [
-            {
-              text: `${row.description[0].text} ${text}`,
-            },
-          ];
-        } else {
-          row.description = [
-            {
-              text: `${text}`,
-            },
-          ];
-        }
-        delete row.descriptionExtended;
-      }
+      // if (row.descriptionExtended) {
+      //   let text = '';
+      //   row.descriptionExtended.forEach(item => {
+      //     text += `${item.text} `;
+      //   });
+      //   text = text.trim();
+      //   if (row.description) {
+      //     row.description = [
+      //       {
+      //         text: `${row.description[0].text} ${text}`,
+      //       },
+      //     ];
+      //   } else {
+      //     row.description = [
+      //       {
+      //         text: `${text}`,
+      //       },
+      //     ];
+      //   }
+      //   delete row.descriptionExtended;
+      // }
 
-      if (row.descriptionAdditional) {
-        let text = '';
-        row.descriptionAdditional.forEach(item => {
-          text += `|| ${item.text} `;
-        });
-        text = text.trim();
-        if (row.description) {
-          row.description = [
-            {
-              text: `${row.description[0].text} ${text}`,
-            },
-          ];
-        } else {
-          row.description = [
-            {
-              text: `${text}`,
-            },
-          ];
-        }
-        delete row.descriptionAdditional;
-      }
+      // if (row.descriptionAdditional) {
+      //   let text = '';
+      //   row.descriptionAdditional.forEach(item => {
+      //     text += `|| ${item.text} `;
+      //   });
+      //   text = text.trim();
+      //   if (row.description) {
+      //     row.description = [
+      //       {
+      //         text: `${row.description[0].text} ${text}`,
+      //       },
+      //     ];
+      //   } else {
+      //     row.description = [
+      //       {
+      //         text: `${text}`,
+      //       },
+      //     ];
+      //   }
+      //   delete row.descriptionAdditional;
+      // }
 
-      if (row.description) {
-        row.additionalDescBulletInfo = row.description;
+      if (row.additionalDescBulletInfo) {
+        row.additionalDescBulletInfo.map(function (bullet) {
+          // return [{ text: bullet[0].text.replace('||', '') }];
+          bullet.text = bullet.text.replace('||', '');
+        });
       }
 
       if (row.image) {
@@ -133,6 +134,22 @@ const transform = (data) => {
 
       if (!row.ingredientsList && row.ingredientsList2) {
         row.ingredientsList = row.ingredientsList2;
+      }
+
+      if (row.ingredientsList) {
+        let ingredientsList = '';
+        row.ingredientsList.map(function (ingredient) {
+          ingredientsList += `${ingredient.text} `;
+        });
+        row.ingredientsList[0].text = ingredientsList;
+      }
+
+      if (row.storage) {
+        let storageString = '';
+        row.storage.map(function (storage) {
+          storageString += `${storage.text} `;
+        });
+        row.storage[0].text = storageString;
       }
 
       if (row.ingredientsList) {
@@ -174,6 +191,11 @@ const transform = (data) => {
       }
     }
   }
+
+  data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+    el.text = clean(el.text);
+  }))));
+
   return data;
 };
 

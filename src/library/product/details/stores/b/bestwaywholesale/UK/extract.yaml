@@ -17,13 +17,13 @@ fields:
     xpath: //*[@id="productPrice"]
   - name: description
     singleValue: false
-    xpath: //div[contains(@class,'prodtabcontents current')]/ul/li
-  - name: descriptionExtended
-    singleValue: false
-    xpath: //div[contains(@class,'prodtabcontents current')]/p[not(preceding-sibling::h2)] | //div[contains(@class,'prodtabcontents current')]/span[contains(@itemprop,'description')][not(preceding-sibling::h2)]/p/text()
-  - name: descriptionAdditional
-    singleValue: false
-    xpath: //div[contains(.,'Additional Information')]/ul/li
+    xpath: //div[contains(@class, 'accordionButton') and contains(., 'Description')]/following-sibling::div[contains(@class, 'accordionContent ')][1]
+  # - name: descriptionExtended
+  #   singleValue: false
+  #   xpath: //div[contains(@class,'prodtabcontents current')]/p[not(preceding-sibling::h2)] | //div[contains(@class,'prodtabcontents current')]/span[contains(@itemprop,'description')][not(preceding-sibling::h2)]/p/text()
+  # - name: descriptionAdditional
+  #   singleValue: false
+  #   xpath: //div[contains(.,'Additional Information') or contains(., 'DESCRIPTION')]/ul/li
   - name: ingredientsList
     singleValue: false
     xpath: //div[contains(@class,"prodtabcontents")]//h2[contains(text(), 'Ingredients')]/following-sibling::*[(following-sibling::p and preceding-sibling::h5) or following-sibling::h2]
@@ -122,7 +122,7 @@ fields:
     xpath: /html/body//table[@class='prodtable']//*[contains(text(), 'Retail EAN')]/following-sibling::td
   - name: storage
     singleValue: false
-    xpath: normalize-space(//h2[contains(text(), 'Storage')]/following-sibling::p[1])
+    xpath: //h2[contains(text(), 'Storage')]/following-sibling::p[1]/text()
   - name: countryOfOrigin
     singleValue: false
     xpath: //*[contains(text(), 'Country of Origin')]/following-sibling::td[1]
@@ -139,8 +139,10 @@ fields:
     singleValue: false
     xpath: normalize-space(concat(//h2[contains(.,"Product Marketing")]/following-sibling::span[1], ' ', //h2[contains(.,"Brand Marketing")], ' ', //h2[contains(.,"Brand Marketing")]/following-sibling::p))
   - name: descriptionBullets
-    singleValue: false
-    xpath: count(/html/body//div[contains(@class,'prodtabcontents current') or contains(.,'Additional Information')]/ul/li)
+    singleValue: true
+    xpath: count(//div[contains(@class, 'accordionButton') and contains(., 'Description')]/following-sibling::div[contains(@class, 'accordionContent ')][1]//ul/li)
+  - name: additionalDescBulletInfo
+    xpath: //div[contains(@class, 'accordionButton') and contains(., 'Description')]/following-sibling::div[contains(@class, 'accordionContent ')][1]//ul/li
   - name: imageAlt
     singleValue: false
     xpath: //*[contains(@class, 'prodimage')]//img/@alt

@@ -202,6 +202,25 @@ async function implementation (inputs,
     console.log('Error while evaluating manufacturing info' + err);
   }
 
+  try {
+    await context.evaluate(function () {
+      const xpath = "//div[contains(@class, 'accordionButton') and contains(., 'Description')]/following-sibling::div[contains(@class, 'accordionContent ')][1]//ul/li";
+      const descUl = getEleByXpath(xpath);
+      function getEleByXpath (xpath) {
+        const element = document.evaluate(xpath, document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        console.log('Element' + element);
+        return element;
+      }
+      if (descUl) {
+        for (let i = 0; i < descUl.snapshotLength; i++) {
+          descUl.snapshotItem(i).textContent = `|| ${descUl.snapshotItem(i).textContent}`;
+        }
+      }
+    });
+  } catch (err) {
+
+  }
+
   const { productDetails } = dependencies;
   const { transform } = parameters;
   return await context.extract(productDetails, { transform });
