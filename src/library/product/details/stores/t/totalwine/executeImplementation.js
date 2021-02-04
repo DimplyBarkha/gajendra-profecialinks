@@ -54,8 +54,8 @@ const implementation = async function (
     const storeId = url.replace(/(.+)(s=)(\d+)(&)(.+)/g, '$3');
     console.log('storeid value' + storeId);
     const appendElement = document.querySelector('div[class*="productDetailContainer"] div[class*="productHeader"] h1[class*="productTitle"]');
-    appendElement.setAttribute('zipcodeinformation', zipcode);
-    appendElement.setAttribute('storeidinformation', storeId);
+    appendElement && appendElement.setAttribute('zipcodeinformation', zipcode);
+    appendElement && appendElement.setAttribute('storeidinformation', storeId);
   }, zipcode)
   // }
 
