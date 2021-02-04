@@ -1,8 +1,13 @@
 
-class Helpers {
+module.exports.Helpers = class {
   constructor (context) {
     this.context = context;
   }
+
+  // this file is invoked by writting the following:
+  // const { Helpers } = require('../../../../../../helpers/helpers');
+  // const helper = new Helpers(context)
+  // helper.function()
 
   // Function which adds an element to the document
   async addItemToDocument (key, value, { parentID = '', type = 'div', clss = '' } = {}) {
@@ -83,30 +88,47 @@ class Helpers {
   // Function which checks a selecor
   async checkSelector (selector, type) {
     let elemIsThere;
-    if (type === 'xpath') elemIsThere = await this.checkXpathSelector(selector);
-    else if (type === 'css') elemIsThere = await this.checkCSSSelector(selector);
+    if (type.toLowerCase() === 'xpath') elemIsThere = await this.checkXpathSelector(selector);
+    else if (type.toLowerCase() === 'css') elemIsThere = await this.checkCSSSelector(selector);
     else return false;
     return elemIsThere;
   }
 
   // Function which checks if the provided object of selectors is there then navigate and click
-  async checkAndReturnProp (selector, type, property, allMatches) {
+  async checkAndReturnProp (selector, type, property) {
     if (!this.checkSelector(selector, type)) return;
-    return await this.context.evaluate(({ selector, property, type, allMatches }) => {
+    return await this.context.evaluate(({ selector, property, type }) => {
       let elem;
-      if (type === 'xpath') {
-        if (allMatches) {
-          const nodeSet = document.evaluate(selector, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-          elem = [];
-          for (let index = 0; index < nodeSet.snapshotLength; index++) {
-            const element = nodeSet.snapshotItem(index);
-            if (element) elem.push(property && element[property] ? element[property] : (element.nodeValue || element));
-          }
-        } else elem = document.evaluate(selector, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
-      } else if (type === 'css') elem = document.querySelector(selector);
-      console.log(elem);
-      return elem && elem[property] && elem[property].trim ? elem[property].trim() : (elem[property] || elem);
-    }, { selector, property, type, allMatches });
+      if (type.toLowerCase() === 'xpath') elem = document.evaluate(selector, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
+      else if (type.toLowerCase() === 'css') elem = document.querySelector(selector);
+      return elem[property];
+    }, { selector, property, type });
   }
-}
-module.exports = Helpers;
+
+  // Function which makes a click
+  async ifThereClickOnIt (selector) {
+    try {
+      await this.context.waitForSelector(selector, { timeout: 5000 });
+    } catch (error) {
+      console.log(`The following selector was not found: ${selector}`);
+      return false;
+    }
+    const hasItem = await this.context.evaluate((selector) => {
+      return document.querySelector(selector) !== null;
+    }, selector);
+    if (hasItem) {
+      // try both click
+      try {
+        await this.context.click(selector, { timeout: 2000 });
+      } catch (error) {
+        // context click did not work and that is ok
+      }
+      await this.context.evaluate((selector) => {
+        const elem = document.querySelector(selector);
+        if (elem) elem.click();
+      }, selector);
+      return true;
+    }
+    return false;
+  }
+};
