@@ -40,34 +40,32 @@ async function implementation(
     function dataBind(domElement, obj) {    
       var bind = domElement.getAttribute("bind").split(":");
     }
-  // function addHiddenDiv(id, content, index) {
-  //   const newDiv = document.createElement('div');
-  //   newDiv.id = id;
-  //   newDiv.textContent = content;
-  //   newDiv.style.display = 'none';
-  //   const originalDiv = document.querySelectorAll("div[class='container pagecontent']")[index];
-  //   originalDiv.parentNode.insertBefore(newDiv, originalDiv);
-  // }
-  // var Ean =''
-  // const priceDecimal = document.getElementsByClassName('product-information__text product-information__ean')[0].innerHTML;
-  // const check = priceDecimal.includes('EAN code:')
-  // if (check == true){
-  //   Ean = priceDecimal.replace("EAN code:", "");
-
-  // }
-  // else{
-  //   Ean=''
-  // }
-  // console.log('----------------------------------Ean')
-  // addHiddenDiv('Ean', Ean);
-  // const aggregateRating = document.querySelectorAll("e2-rating")
-  // for (let k = 0; k < aggregateRating.length; k++) {
-  // // @ts-ignore
-  // let singleRating = aggregateRating[k].getAttribute("rating");
-  // console.log(singleRating,'=singleRating')
-  // addHiddenDiv('aggregateRating', singleRating, k);
-  // }
-
+    function addElementToDocument(key, value) {
+      const catElement = document.createElement('div');
+      catElement.id = key;
+      catElement.textContent = value;
+      catElement.style.display = 'none';
+      document.body.appendChild(catElement);
+      }
+      var getXpath = (xpath, prop) => {
+        var elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+        let result;
+        if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+        else result = elem ? elem.singleNodeValue : '';
+        return result && result.trim ? result.trim() : result;
+        };
+        // var elmnt = document.getElementById("myAnchor");
+        // var attr = elmnt.getAttributeNode("target").value;
+    var backgroundURL = getXpath('(//@data-stock)[1]').value;
+    console.log(backgroundURL,'backgroundurl-----------')
+    if (backgroundURL.includes('inStock')){
+      var availabilty="In Stock"
+    }
+    else{
+      var availabilty ="Out of Stock"
+    }
+    addElementToDocument('availabilty', availabilty);
+    
   try{
     // @ts-ignore
     document.querySelector('#onetrust-accept-btn-handler').click()

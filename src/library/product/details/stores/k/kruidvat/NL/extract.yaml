@@ -34,6 +34,7 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
+    xpath: //span[@itemprop="price"]
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
@@ -44,7 +45,7 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: (//@data-stock)[1]
+    xpath: //div[@id="availabilty"]
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -76,8 +77,7 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: //p[@class="product-information__text product-information__ean"]
-    regExp: \d+
+    xpath: (//@product-code)[1]
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -255,6 +255,7 @@ fields:
     singleValue: true
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
+    xpath: //*[contains(text(),'Ingredientendeclaratie')]/following::p[1]
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
