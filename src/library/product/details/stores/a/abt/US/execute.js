@@ -6,7 +6,7 @@ module.exports = {
     store: 'abt',
     domain: 'abt.com',
     loadedSelector: 'div#tabbed-pane,div#product_content',
-    noResultsXPath: null,
+    noResultsXPath: '//h2[@class="nopagetext"]',
     zipcode: '',
   },
 };

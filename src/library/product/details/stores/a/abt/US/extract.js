@@ -131,7 +131,7 @@ async function implementation(
       }
       console.log('in the box images are: ',inTheBoxImages);
       inTheBoxImages = [...new Set(inTheBoxImages)];
-      const inTheBox = inTheBoxImages.join(' | ');
+      const inTheBox = inTheBoxImages.join(' || ');
       inTheBoxUrl = inTheBoxUrl + inTheBox;
       if (inTheBoxUrl) addElementToDocument('inTheBoxUrl', inTheBoxUrl);
 
@@ -144,7 +144,7 @@ async function implementation(
         }
       }
       manImagesArray = [...new Set(manImagesArray)];
-      const manImages = manImagesArray.join(' | ');
+      const manImages = manImagesArray.join(' || ');
       document.querySelector('body').setAttribute('manImages', manImages);
     }
     const viedoContainer = document.querySelector('div#productvideocontainer script')
