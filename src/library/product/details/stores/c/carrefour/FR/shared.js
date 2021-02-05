@@ -31,17 +31,18 @@ const transform = (data) => {
             }
             if (row.quantity) {
               row.quantity.forEach(item => {
-                if(item.text.includes('la boite de')){ 
-                item.text = item.text.replace(/la\sboite\sde(.*)/,'$1');
-                if(item.text.includes('-')){
-                  item.text = item.text.replace(/(.*)\-(.*)/,'$2');
-                }
-                } else if(item.text.includes('la bouteille d')){
-                  item.text = item.text.replace(/la\sbouteille\sd\'(.*)/,'$1');
-                }else if(item.text.includes('le flacon de')){
-                  item.text = item.text.replace(/le\sflacon\sde(.*)/,'$1')
-                  item.text = item.text.replace(/\-\s(.*)/,'$1');
-                }else if(item.text.includes(' de ')){
+                // if(item.text.includes('la boite de')){ 
+                // item.text = item.text.replace(/la\sboite\sde(.*)/,'$1');
+                // if(item.text.includes('-')){
+                //   item.text = item.text.replace(/(.*)\-(.*)/,'$2');
+                // }
+                // } else if(item.text.includes('la bouteille d')){
+                //   item.text = item.text.replace(/la\sbouteille\sd\'(.*)/,'$1');
+                // }else if(item.text.includes('le flacon de')){
+                //   item.text = item.text.replace(/le\sflacon\sde(.*)/,'$1')
+                //   item.text = item.text.replace(/\-\s(.*)/,'$1');
+                // }else 
+                if(item.text.includes(' de ')){
                   item.text = item.text.replace(/(.*)de(.*)/,'$2')
                   if(item.text.includes('-')){
                     item.text = item.text.replace(/(.*)\-(.*)/,'$2');
@@ -58,7 +59,7 @@ const transform = (data) => {
               });
             }
             if (row.alternateImages) {
-              row.alternateImages.shift();
+              // row.alternateImages.shift();
               row.alternateImages.forEach(item => {
                 if((item.text.includes('https://www.carrefour.fr'))){
                   item.text = item.text;

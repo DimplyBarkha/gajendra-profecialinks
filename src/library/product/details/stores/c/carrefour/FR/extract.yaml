@@ -28,12 +28,12 @@ fields:
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
     # xpath: //div[@id="data-produit-card"]//h1[contains(@class, "pdp-card__title")]
-    xpath: //div[@class="pdp-card__header--text"]/*[not(self::div)] 
-    # xpath: //div[@class="pdp-card__header--text"]
+    # xpath: //div[@class="pdp-card__header--text"]/*[not(self::div)] 
+    xpath: //div[@class="pdp-card__header--text"]
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
-    xpath: //div[contains(@class, "product-card-price__crossed-out")]
+    xpath: //div[@id="data-produit-card"]//div[contains(@class, "product-card-price__crossed-out")]
   - name: price
     singleValue: false
     description: The offered price for the selected product variant - if a user
