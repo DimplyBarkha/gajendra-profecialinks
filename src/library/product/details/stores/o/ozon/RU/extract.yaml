@@ -1,0 +1,143 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    description: URL of the main product image
+    xpath: //div[@id='oz-image']
+  - name: url
+    singleValue: true
+    xpath: //div[@id="pageUrl"]
+  - name: category
+    xpath: //ol[@class='b6z4']//li
+  - name: nameExtended
+    singleValue: true
+    description:
+      The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //h1[@class='b3a8']
+  - name: price
+    singleValue: true
+    xpath: //span[contains(@class,'c8q7')]/span | //div[@id="oz-price"]
+  - name: listPrice
+    singleValue: true
+    xpath: //span[@class='c8r']
+  - name: availabilityText
+    singleValue: true
+    defaultValue: Out of Stock
+    xpath: //div[@id='oz-availability']
+  - name: description
+    singleValue: true
+    xpath: //div[@class='bq3'][1]/div[@id='section-description']//div[1]
+  - name: ingredientsList
+    xpath: //div[@id='ingredientsList']
+  - name: brandText
+    xpath: //div[@id='brandText']
+  - name: manufacturer
+    xpath: //div[@id='brandText']
+  - name: quantity
+    xpath: //div[@id='quantity-size']
+  - name: packSize
+    xpath: //div[@id='quantity']
+  - name: weightNet
+    xpath: //div[@id='weightGross']
+  - name: weightGross
+    xpath: //div[@id='weightNet']
+  - name: sku
+    xpath: //div[@id='skuId']
+  - name: variantId
+    xpath: //script[@type="application/ld+json"]
+  - name: directions
+    xpath: //div[@id='directions']
+  - name: warnings
+    xpath: //div[@id='warnings']
+  - name: caloriesPerServing
+    xpath: //div[@id='caloriesPerServing']
+  - name: magnesiumPerServing
+    xpath: //div[@id='ingredientsList']
+  - name: totalFatPerServing
+    xpath: //div[@id='totalFatPerServing']
+  - name: totalFatPerServingUom
+    defaultValue: 'г'
+    xpath: //div[@id='totalFatPerServingUom']
+  - name: sodiumPerServing
+    xpath: //script[@type="application/ld+json"]
+  - name: totalCarbPerServing
+    xpath: //div[@id='totalCarbPerServing']
+  - name: totalCarbPerServingUom
+    defaultValue: 'г'
+    xpath: //div[@id='totalCarbPerServingUom']
+  - name: proteinPerServing
+    xpath: //div[@id='proteinPerServing']
+  - name: proteinPerServingUom
+    defaultValue: 'г'
+    xpath: //div[@id='proteinPerServingUom']
+  - name: calciumPerServing
+    xpath: //div[@id='calciumPerServing']
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@id, "oz-add-img")]
+  - name: secondaryImageTotal
+    xpath: //div[contains(@id, "oz-add-img-total")]
+  - name: ratingCount
+    xpath: //script[@type="application/ld+json"]
+  - name: aggregateRating
+    xpath: //script[@type="application/ld+json"]
+  - name: shippingInfo
+    xpath: //div[@class="b2z2"]/div/div/div[@class='b1c5']/div[@class='b1c6']
+  - name: shippingDimensions
+    xpath: //div[@id='shippingDimensions']
+  - name: specifications
+    singleValue: true
+    xpath: //div[@data-widget="paginator"]//div[@class='b5b2']/div | //div[@data-widget="paginator"]//div[@class="da3"]/div
+  - name: shippingWeight
+    xpath: //div[@id='weightGross']
+  - name: warranty
+    xpath: //div[@id='warranty']
+  - name: storage
+    xpath: //div[@id='storage']
+  - name: countryOfOrigin
+    defaultValue: 'Россия'
+    xpath: //div[@id='countryOfOrigin']
+  - name: videos
+    xpath: //div[@id="videos"]
+  - name: input
+    xpath: //script[@type="application/ld+json"]
+  - name: imageAlt
+    singleValue: true
+    xpath: //div[@class="a8n3"]/div/img/@alt
+  - name: promotion
+    xpath: //div[@class='b2h1 b2h3']/span[@class='b2h2'][1]
+  - name: firstVariant
+    xpath: //script[@type="application/ld+json"]
+  - name: name
+    xpath: //h1[@class='b3a8']
+  - name: descriptionBullets
+    xpath: //div[@id="oz-descriptionBullets"]
+  - name: inTheBoxUrl
+    xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset
+    regExp: (.+800w,\s)(.+(.png|.jpg))(.+)
+    regExpReplace: $2
+  - name: inTheBoxText
+    xpath: //h3[contains(text(),'Комплектация')]/following-sibling::p
+  - name: hasComparisonTable
+    xpath: //div[contains(text(), "Tavola di comparazione")]
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: unInterruptedPDP
+    xpath: //div[contains(text(),'Спонсорские товары')]/parent::div/parent::div/parent::div/following-sibling::div//div[@class="ui-p0"]//a//span[@class="j4 j5"] | //div[contains(text(),'Похожие товары')]/parent::div/parent::div/parent::div/following-sibling::div//div[@class="ui-p0"]//a//span[@class="j4 j5"] | //div[contains(text(),'Рекомендуем также')]/parent::div/parent::div/following-sibling::div//div[contains(@class,'f-body')] | //div[contains(text(),'Спонсорские товары')]/parent::div/parent::div/following-sibling::div//div[contains(@class,'f-body')] | //div[contains(text(),'С этим товаром покупают')]/parent::div/parent::div/following-sibling::div//div[contains(@class,'f-body')] | //div[contains(text(),'Похожие товары')]/parent::div/parent::div/following-sibling::div//div[contains(@class,'f-body')] | //div[contains(text(),'Продавец рекомендует')]/parent::div/parent::div/following-sibling::div//div[contains(@class,'f-body')]
+  - name: pageTitle
+    singleValue: false
+    description: The url of the page title
+    xpath: html/head/title
+  - name: subCategory
+    description: Product range
+    xpath: //ol[@class="b6z4"]/li[position()=count(//ol[@class="b6z4"]/li)-1]
+  - name: reviewCount
+    singleValue: false
+    xpath: //script[@type="application/ld+json"]
+  - name: colour
+    xpath: //div[contains(@class,'a2l9')]/@title
