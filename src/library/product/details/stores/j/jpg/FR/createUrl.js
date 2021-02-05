@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'jpg.fr',
     prefix: null,
-    url: 'https://www.jpg.fr/INTERSHOP/web/WFS/RAJA-JPG-Site/fr_FR/-/EUR/ViewParametricSearch-ProductPaging?PageNumber=0&PageSize=20&SortingAttribute=&ViewType=1&SearchTerm={id}',
+    url: null,
     country: 'FR',
     store: 'jpg',
     zipcode: '',

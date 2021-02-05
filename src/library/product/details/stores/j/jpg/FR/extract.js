@@ -8,4 +8,26 @@ module.exports = {
     domain: 'jpg.fr',
     zipcode: '',
   },
+  implementation: async (inputs,
+    parameters,
+    context,
+    dependencies,
+  ) => {
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
+    await context.waitForSelector('div[class="col"] div[class="product-sku-wrapper"]', 6000)    
+    await context.evaluate(async () => {
+      try {
+        // @ts-ignore
+      document.querySelector('button[id=onetrust-accept-btn-handler]').click()
+      await new Promise(r => setTimeout(r, 6000));
+      } catch (error) {
+        
+      } 
+    
+    });
+ 
+      return await context.extract(productDetails, { transform });
+  
+    },
 };

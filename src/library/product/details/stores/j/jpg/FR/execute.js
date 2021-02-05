@@ -5,7 +5,7 @@ module.exports = {
     country: 'FR',
     store: 'jpg',
     domain: 'jpg.fr',
-    loadedSelector: 'body',
+    loadedSelector: 'div[class="col"] div[class="product-sku-wrapper"]',
     noResultsXPath: '//section[@class="error-pages__container col mb-8"]',
     zipcode: '',
   },
