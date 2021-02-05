@@ -1,14 +1,14 @@
 async function implementation (inputs, parameters, context, dependencies) {
   const { id } = inputs;
   const { goto } = dependencies;
-  /* API to get storeID from zipcode, currently hardcoding using storeIdObj as API might get blocked. */
+  /* API to get storeID from zipcode */
   async function getStoreId (zipcode) {
     await goto({ url: `https://www.walmart.com/grocery/v4/api/serviceAvailability?postalCode=${zipcode}` });
     const json = await context.evaluate(() => JSON.parse(document.body.innerText));
     return json.accessPointList[0].assortmentStoreId || json.accessPointList[0].dispenseStoreId;
   }
 
-  // Add zipCode-StoreId map.
+  // Add zipCode-StoreId map. use it if want to avoid API
   const storeIdObj = {
     20166: '2038',
   };

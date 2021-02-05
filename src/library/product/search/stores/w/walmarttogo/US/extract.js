@@ -1,15 +1,15 @@
 const { transform } = require('../../../../shared');
-
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
   dependencies,
 ) {
   const { transform } = parameters;
-  const { productDetails,goto } = dependencies;
-  function addDynamicTable(jsonData) {
-    function generateDynamicTable(jsonData) {
+  const { productDetails } = dependencies;
+
+  function addDynamicTable (jsonData) {
+    function generateDynamicTable (jsonData) {
       const dataLength = jsonData.length;
 
       jsonData = jsonData.map((elm) => {
@@ -90,34 +90,48 @@ async function implementation(
     document.body.innerHTML = '';
     document.body.append(container);
   }
-  async function getData() {
-    async function getBasicData(api) {
-      const response = await goto(api);
-      const json = await response.json();
-      return json.basic;
-    }
-    const dataSelected = JSON.parse(document.body.innerText);
-    const data = [dataSelected];
-    const selectedId = dataSelected.USItemId;
-    const basicApi = window.location.href.replace(/storeId=\d+/, 'storeId=5334');
-    if (!dataSelected.basic.image) {
-      dataSelected.basic = await getBasicData(basicApi);
-    }
-    if (dataSelected.variantProducts) {
-      const ids = Object.values(dataSelected.variantProducts).map(elm => elm.usItemId).filter(elm => elm !== selectedId);
-      for (const id of ids) {
-        const response = await fetch(window.location.href.replace(/products\/[^\?]+/, `products/${id}`));
-        const json = await response.json();
-        if (!json.basic.image) {
-          json.basic = await getBasicData(basicApi.replace(/storeId=\d+/, 'storeId=5334'));
-        }
-        data.push(json);
-      }
-    }
-    return data;
+  async function getData () {
+    return [JSON.parse(document.body.innerText)];
   }
-
-  console.log('Hello');
+  async function addPageLinks () {
+    async function getNextLink () {
+      const query = {};
+      window.location.search.split(/&/).forEach(elm => { query[elm.match(/^[^=]+/)[0]] = elm.match(/[^=]+$/)[0]; });
+      let nextLink = 'stop';
+      const totalCount = Number(document.querySelector('[class="totalCount"]').innerText);
+      if (totalCount < (Number(query['?count']) * Number(query.page))) {
+        return nextLink;
+      }
+      query.page = Number(query.page) + 1;
+      query.offset = Number(query.offset) + Number(query['?count']);
+      nextLink = 'https://www.walmart.com/grocery/v4/api/products/search' + Object.entries(query).map(elm => `${elm[0]}=${elm[1]}`).join('&');
+      return nextLink;
+    }
+    const currentPage = window.location.href;
+    const nextLink = await getNextLink();
+    const cp = document.createElement('a');
+    cp.id = 'currentPage';
+    cp.href = currentPage;
+    document.body.append(cp);
+    const np = document.createElement('a');
+    cp.id = 'nextLink';
+    np.href = nextLink;
+    document.body.append(np);
+  }
+  try {
+    const data = await context.evaluate(getData);
+    await context.evaluate(addDynamicTable, data);
+  } catch (error) {
+    console.log('Error adding data. Error: ', error);
+  }
+  try {    
+    // Add next link url
+    await context.evaluate(addPageLinks);
+  } catch (error) {
+    
+    console.log('Error adding links. Error: ', error);
+  }
+  return await context.extract(productDetails, { transform });
 }
 module.exports = {
   implements: 'product/search/extract',
