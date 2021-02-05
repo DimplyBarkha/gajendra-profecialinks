@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
+    loadedSelector: 'div[class="main-content"]',
     noResultsXPath: null,
     stopConditionSelectorOrXpath: '(//li[@class="pagination__arrow pagination__arrow--right"]/a)[2]',
     resultsDivSelector: null,

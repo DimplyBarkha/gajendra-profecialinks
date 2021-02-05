@@ -46,6 +46,9 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     xpath: //html//div[@id="avl"]
+  # - name: _url
+  #   singleValue: true
+  #   xpath: //link[@rel="canonical"]/@href
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
