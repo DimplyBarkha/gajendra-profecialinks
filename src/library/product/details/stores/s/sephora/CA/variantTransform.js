@@ -16,7 +16,8 @@ const transform = (data) => {
       .replace(/^ +| +$|( )+/g, ' ')
     // eslint-disable-next-line no-control-regex
       .replace(/[\x00-\x1F]/g, '')
-      .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+      .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ')
+      .trim();
     data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
       el.text = clean(el.text);
     }))));
@@ -24,26 +25,12 @@ const transform = (data) => {
   };
   for (const { group } of data) {
     for (const row of group) {
-      if (row.nameExtended) {
-        let tmpName = '';
-        row.nameExtended.forEach(item => {
-          if (tmpName == '') {
-            tmpName = item.text;
-          } else {
-            tmpName = tmpName + ' - ' + item.text;
-          }
-        });
-        row.nameExtended = [{ text: tmpName }];
-      }
-      if (row.variants) {
-        const inf = [];
-        row.variants.forEach(item => {
-          inf.push(item.text);
-        });
-        row.variants = [{ text: inf.join(' | ') }];
-        row.variantCount = [{ text: inf.length }];
-      } else {
-        row.variantCount = [{ text: 0 }];
+      if (row.baseUrl && row.sku) {
+        const sku = row.sku[0].text;
+        const baseUrl = row.baseUrl[0].text;
+
+        row.variantUrl = [{ text: `${baseUrl}?skuId=${sku}` }];
+        delete row.baseUrl;
       }
     }
   }

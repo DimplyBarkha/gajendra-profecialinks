@@ -64,5 +64,5 @@ module.exports = {
     noResultsXPath: '//div[@id="main"]//div[@id="primary"]/div[@class="no-hits-content"]',
     zipcode: '',
   },
-  //implementation
+  // implementation
 };

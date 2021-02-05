@@ -1,4 +1,4 @@
-const {transform}=require('../GR/format');
+const { transform } = require('../GR/format');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {

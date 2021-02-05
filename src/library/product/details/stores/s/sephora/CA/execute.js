@@ -72,7 +72,7 @@ const implementation = async (inputs, { loadedSelector, noResultsXPath }, contex
         // addHiddenDiv('ii_video', src);
       });
     }
-  });  
+  });
 
   if (loadedSelector) {
     await context.waitForFunction(
@@ -84,8 +84,10 @@ const implementation = async (inputs, { loadedSelector, noResultsXPath }, contex
       noResultsXPath,
     );
   }
-  
-  return await context.evaluate((xpath) => !document.evaluate(xpath, document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue, noResultsXPath);
+
+  return await context.evaluate((xpath) => {
+    return !document.evaluate(xpath, document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue;
+  }, noResultsXPath);
 };
 /// /div[@data-comp="HeroMediaList "]/div[1]//div[@data-hammer-carousel-inner="true"]//button
 module.exports = {
@@ -94,8 +96,8 @@ module.exports = {
     country: 'CA',
     store: 'sephora',
     domain: 'sephora.ca',
-    loadedSelector: null,
-    noResultsXPath: '//h1[contains(text(),"Sorry, we couldn’t find a match for")]',
+    loadedSelector: 'div[rootid="ProductPage"]',
+    noResultsXPath: 'boolean(//h1[contains(text(),"Sorry, we couldn’t find a match for")])',
     zipcode: '',
   },
   implementation,

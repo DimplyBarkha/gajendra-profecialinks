@@ -1,11 +1,24 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@data-comp,"Swatches")]//div[@role="none"]/div[contains(@data-comp,"ProductSwatchItem")]/button | //div[contains(@data-comp,"Swatches")]//div[contains(@data-comp,"SwatchGroup")]/div/button[contains(@data-comp,"SwatchItem")]
+recordXPath: //div[@id="variant-sku"]
+# recordXPath: //div[contains(@data-comp,"Swatches")]//div[@role="none"]/div[contains(@data-comp,"ProductSwatchItem")]/button | //div[contains(@data-comp,"Swatches")]//div[contains(@data-comp,"SwatchGroup")]/div/button[contains(@data-comp,"SwatchItem")]
 fields:
+  # - name: variantId
+  #   singleValue: false
+  #   xpath: //div[contains(@data-comp,"Swatches")]//div[@role="none"]/div[contains(@data-comp,"ProductSwatchItem")]/button//img/@src | //div[contains(@data-comp,"Swatches")]//div[contains(@data-comp,"SwatchGroup")]/div/button[contains(@data-comp,"SwatchItem")]//img/@src
+  # - name: variant
+  #   singleValue: false
+  #   xpath: //div[contains(@data-comp,"Swatches")]//div[@role="none"]/div[contains(@data-comp,"ProductSwatchItem")]/button//img/@alt | //div[contains(@data-comp,"Swatches")]//div[contains(@data-comp,"SwatchGroup")]/div/button[contains(@data-comp,"SwatchItem")]//img/@alt
+  - name: sku
+    singleValue: false
+    xpath: //text()
   - name: variantId
     singleValue: false
-    xpath: //div[contains(@data-comp,"Swatches")]//div[@role="none"]/div[contains(@data-comp,"ProductSwatchItem")]/button//img/@src | //div[contains(@data-comp,"Swatches")]//div[contains(@data-comp,"SwatchGroup")]/div/button[contains(@data-comp,"SwatchItem")]//img/@src
-  - name: variant
+    xpath: //text()
+  - name: name
     singleValue: false
-    xpath: //div[contains(@data-comp,"Swatches")]//div[@role="none"]/div[contains(@data-comp,"ProductSwatchItem")]/button//img/@alt | //div[contains(@data-comp,"Swatches")]//div[contains(@data-comp,"SwatchGroup")]/div/button[contains(@data-comp,"SwatchItem")]//img/@alt
+    xpath: ancestor::html//h1[contains(@class,"e65zztl0")]/span
+  - name: baseUrl
+    singleValue: false
+    xpath: ancestor::html//meta[@property="og:url"]/@content

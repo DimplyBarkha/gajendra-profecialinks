@@ -23,7 +23,7 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       rankCounter += 1;
-      let skyIdStr='';
+      const skyIdStr = '';
       if (!row.sponsored) {
         orgRankCounter += 1;
         row.rankOrganic = [{ text: orgRankCounter }];
@@ -32,7 +32,7 @@ const transform = (data, context) => {
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
-      /*if(row.thumbnail){
+      /* if(row.thumbnail){
         row.thumbnail.forEach(item=>{
             item.text="https://www.sephora.com"+item.text;
         })
@@ -74,22 +74,22 @@ const transform = (data, context) => {
           row.aggregateRating.forEach(item=>{
               item.text=item.text.replace(' stars','');
           })
-      }*/
+      } */
       let tmpObj;
-      if(row.thumbnail){
+      if (row.thumbnail) {
         let tmpObj;
-        row.thumbnail.forEach(item=>{
-          tmpObj=JSON.parse(item.text);
-          //console.log('tmpObj :',tmpObj);
-          item.text="https://www.sephora.com"+tmpObj.image250;
-        })
-        row.productUrl=[{"text":"https://www.sephora.com"+tmpObj.targetUrl}];
-        row.id=[{"text":tmpObj.skuId}];
-        row.price=[{"text":tmpObj.listPrice}];
-        row.name=[{"text":tmpObj.productName}];
-        row.aggregateRating=[{"text":parseFloat(tmpObj.rating).toFixed(1).toString()}];
-        row.reviewCount=[{"text":tmpObj.reviews}];
-        row.ratingCount=[{"text":tmpObj.reviews}];
+        row.thumbnail.forEach(item => {
+          tmpObj = JSON.parse(item.text);
+          // console.log('tmpObj :',tmpObj);
+          item.text = 'https://www.sephora.com' + tmpObj.image250;
+        });
+        row.productUrl = [{ text: 'https://www.sephora.com' + tmpObj.targetUrl }];
+        row.id = [{ text: tmpObj.skuId }];
+        row.price = [{ text: tmpObj.listPrice }];
+        row.name = [{ text: tmpObj.productName }];
+        row.aggregateRating = [{ text: parseFloat(tmpObj.rating).toFixed(1).toString() }];
+        row.reviewCount = [{ text: tmpObj.reviews }];
+        row.ratingCount = [{ text: tmpObj.reviews }];
       }
     }
   }

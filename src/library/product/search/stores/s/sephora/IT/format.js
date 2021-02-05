@@ -31,31 +31,31 @@ const transform = (data, context) => {
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
-      if(row.id){
-        row.id.forEach(item=>{
-          let tmpObj=JSON.parse(item.text);
-          item.text=tmpObj.product_sku;
-        })
+      if (row.id) {
+        row.id.forEach(item => {
+          const tmpObj = JSON.parse(item.text);
+          item.text = tmpObj.product_sku;
+        });
       }
-      if(row.aggregateRating){
-        let ratVal=0;
-        row.aggregateRating.forEach(item=>{
-          if(item.text=='/on/demandware.static/Sites-Sephora_IT-Site/-/default/dwf843d5fd/images/svg-icons/rating-star-full-icon.svg'){
+      if (row.aggregateRating) {
+        let ratVal = 0;
+        row.aggregateRating.forEach(item => {
+          if (item.text == '/on/demandware.static/Sites-Sephora_IT-Site/-/default/dwf843d5fd/images/svg-icons/rating-star-full-icon.svg') {
             ratVal++;
-          }else if(item.text=='16px'){
-            ratVal=ratVal+0.5;
+          } else if (item.text == '16px') {
+            ratVal = ratVal + 0.5;
           }
-        })
-        if(ratVal>0){
-          row.aggregateRating=[{"text":ratVal}];
+        });
+        if (ratVal > 0) {
+          row.aggregateRating = [{ text: ratVal }];
         }
       }
-      if(row.thumbnail){
-        row.thumbnail.forEach(item=>{
-          if(item.text.indexOf('https://www.sephora.it')==-1){
-            item.text='https://www.sephora.it'+item.text;
+      if (row.thumbnail) {
+        row.thumbnail.forEach(item => {
+          if (item.text.indexOf('https://www.sephora.it') == -1) {
+            item.text = 'https://www.sephora.it' + item.text;
           }
-        })
+        });
       }
     }
   }
