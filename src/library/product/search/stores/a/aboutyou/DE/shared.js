@@ -20,37 +20,49 @@ const transform = (data, context) => {
   let orgRankCounter = state.orgRankCounter || 0;
   let rankCounter = state.rankCounter || 0;
   const productCodes = state.productCodes || [];
-  for (const { group } of data) {
-    for (const row of group) {
-      if (row.price) {
-        let text = '';
-        row.price.forEach(item => {
-          if (item.text.match(/\b\d{5}\b/g)) {
-            text = `${item.text.match(/\b\d{5}\b/g)[0].match(/^\d{3}/g)[0]}.${item.text.match(/\b\d{5}\b/g)[0].match(/\d{2}$/g)[0]}`;
-          } else if (item.text.match(/\b\d{4}\b/g)) {
-            text = `${item.text.match(/\b\d{4}\b/g)[0].match(/^\d{2}/g)[0]}.${item.text.match(/\b\d{4}\b/g)[0].match(/\d{2}$/g)[0]}`;
-          } else if (item.text.match(/\b\d{3}\b/g)) {
-            text = `${item.text.match(/\b\d{3}\b/g)[0].match(/^\d{2}/g)[0]}.${item.text.match(/\b\d{3}\b/g)[0].match(/\d{1}$/g)[0]}`;
-          } else {
-            text = item.text;
-          }
-        });
-        row.price = [
-          {
-            text,
-          },
-        ];
+  try {
+    for (const { group } of data) {
+      for (const row of group) {
+        if (row.price) {
+          let text = '';
+          row.price.forEach(item => {
+            if (item.text.match(/\b\d{5}\b/g)) {
+              text = `${item.text.match(/\b\d{5}\b/g)[0].match(/^\d{3}/g)[0]}.${item.text.match(/\b\d{5}\b/g)[0].match(/\d{2}$/g)[0]}`;
+            } else if (item.text.match(/\b\d{4}\b/g)) {
+              text = `${item.text.match(/\b\d{4}\b/g)[0].match(/^\d{2}/g)[0]}.${item.text.match(/\b\d{4}\b/g)[0].match(/\d{2}$/g)[0]}`;
+            } else if (item.text.match(/\b\d{3}\b/g)) {
+              text = `${item.text.match(/\b\d{3}\b/g)[0].match(/^\d{2}/g)[0]}.${item.text.match(/\b\d{3}\b/g)[0].match(/\d{1}$/g)[0]}`;
+            } else {
+              text = item.text;
+            }
+          });
+          row.price = [
+            {
+              text,
+            },
+          ];
+        }
+        if (row.brand) {
+          row.name = [{ text: `${row.brand[0].text} ${row.name ? row.name[0].text: ''}`.trim() }]
+        }
+
+        if (row.color && row.name) {
+          row.name = [{ text: `${row.name[0].text} in ${row.color[0].text}` }]
+        }
+
+        rankCounter += 1;
+        if (!row.sponsored) {
+          orgRankCounter += 1;
+          row.rankOrganic = [{ text: orgRankCounter }];
+        }
+        row.rank = [{ text: rankCounter }];
+        Object.keys(row).forEach(header => row[header].forEach(el => {
+          el.text = clean(el.text);
+        }));
       }
-      rankCounter += 1;
-      if (!row.sponsored) {
-        orgRankCounter += 1;
-        row.rankOrganic = [{ text: orgRankCounter }];
-      }
-      row.rank = [{ text: rankCounter }];
-      Object.keys(row).forEach(header => row[header].forEach(el => {
-        el.text = clean(el.text);
-      }));
     }
+  } catch (err) {
+    console.log('Error while transforming the data' + err);
   }
   context.setState({ rankCounter });
   context.setState({ orgRankCounter });
