@@ -7,7 +7,7 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
   try {
-    await context.waitForSelector('a[id="sel_country_close_pop"]', { timeout: 10000 });
+    await context.waitForSelector('a[id="sel_country_close_pop"]', { timeout: 50000 });
   } catch (e) {
     console.log('popup selector not found');
   }
