@@ -4,36 +4,39 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: thumbnail
-    singleValue: false
-    xpath: //img[@class='productImage']/@src
+    singleValue: true
+    xpath: //html//div[@id='img']
+    #xpath: //img[@class='productImage']/@src
   - name: name
-    singleValue: false
-    #xpath: //html//div[@id='newname']
-    xpath: //a[@class='productLink']/span/text()
+    singleValue: true
+    xpath: //html//div[@id='newname']
+    #xpath: //a[@class='productLink']/span/text()
   - name: productUrl
     singleValue: true
-    xpath: //a[@class='productLink']/@href
-    regExp: (.*)
-    regExpReplace: https://www.otto.de$1
+    xpath: //html//div[@id='url']
+    #xpath: //a[@class='productLink']/@href
+    #regExp: (.*)
+    #regExpReplace: https://www.otto.de$1
   - name: price
     singleValue: single
     xpath: //html//div[@id='price']
   - name: manufacturer
-    singleValue: false
-    xpath: //p[@class='brand']
+    singleValue: true
+    xpath: //html//div[@id='newname']
+    #xpath: //p[@class='brand']
   - name: reviewCount
-    singleValue: false
-    xpath: //span[@class= 'nrOfReviews']
+    singleValue: true
+    xpath: //html//div[@id='review']
+    #xpath: //span[@class= 'nrOfReviews']
   - name: rank
     singleValue: false
-    xpath:
   - name: rankOrganic
     singleValue: false
-    xpath:
   - name: id
     singleValue: true
     xpath: //html//div[@id='prodid']
     #xpath: //article[@class='product clearfix']/@data-variationid|//article[@class='product']/@data-variationid
   - name: aggregateRating
-    singleValue: false
-    xpath: //a[@class='rating']
+    singleValue: true
+    xpath: //html//div[@id='aggr']
+    #xpath: //a[@class='rating']
