@@ -25,7 +25,7 @@ module.exports = {
 
     await context.evaluate(async function (attributeOptions) {
       if (attributeOptions) {
-        const attribute = document.querySelector(`ul.product-palette > li.product-palette__item:nth-child(0)`);
+        const attribute = document.querySelector(`ul.product-palette > li.product-palette__item:nth-child(1)`);
         const altImg = attribute ? attribute.querySelector('img').getAttribute('alt') : '';
         if (altImg.length) {
           const jsonData = attributeOptions[altImg];

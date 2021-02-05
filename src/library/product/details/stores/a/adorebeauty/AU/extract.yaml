@@ -24,7 +24,7 @@ fields:
   - name: altVariantSku
     xpath: //button[contains(@class, "is-selected")]/ancestor::li/@ii_sku
   - name: variantId
-    xpath: //meta[contains(@itemprop,'sku')]/@content
+    xpath: //meta[contains(@itemprop,'productID')]/@content
     # regExp: child_product_id_i_mv=(.*?)\;
     # regExpReplace: $1
   - name: variantCount
