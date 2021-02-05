@@ -4,7 +4,24 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+
+  await context.evaluate(async function () {
+    const body = document.body;
+    const html = document.documentElement;
+    const pageHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+
+    let scrollTop = 0;
+    while (scrollTop <= pageHeight) {
+      await new Promise((resolve) => setTimeout(resolve, 500));
+      scrollTop += 200;
+      window.scroll(0, scrollTop);
+    }
+  });
+
+  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+
+  console.log('--------------> code in extract.js is working');
 
   await context.evaluate(async function () {
     const price = document.querySelectorAll('div#card_grid div.card-section-wrapper.js-section-wrapper p[class="product-new-price"]');
@@ -19,6 +36,8 @@ async function implementation (inputs, parameters, context, dependencies) {
 
     // id
     const ids = document.querySelectorAll('div#card_grid div.card-section-wrapper.js-section-wrapper div[class="card-toolbox"] > button[data-productid]');
+    console.log('--------------> looking for IDs');
+    console.log(`--------------> number of Ids: ${ids.length}`);
     ids.forEach(e => {
       if (e.getAttribute('data-product') !== null) {
         const id = JSON.parse(e.getAttribute('data-product')).pnk;
@@ -47,7 +66,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     });
   });
 
-  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 1000));
   return await context.extract(productDetails, { transform });
 }
 
