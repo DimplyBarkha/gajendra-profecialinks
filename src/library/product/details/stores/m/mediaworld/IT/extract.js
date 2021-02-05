@@ -32,6 +32,12 @@ module.exports = {
         console.log('No record');
       }
     } */
+    await context.waitForSelector('button#onetrust-accept-btn-handler').catch((err) => {
+      console.log('count not load button' + err);
+    });
+    await context.click('button#onetrust-accept-btn-handler').catch((err) => {
+      console.log('count not load button' + err);
+    });
     const iframeLink = 'iframe[id="eky-dyson-iframe"]';
 
     const optionalWait = async (sel) => {
@@ -122,7 +128,13 @@ module.exports = {
     }
 
     try {
+      await context.waitForSelector('div[id="flix_hotspots"] svg[id="flix_product_video"]', { timeout: 100000 });
       await context.click('div[id="flix_hotspots"] svg[id="flix_product_video"]', {}, { timeout: 100000 });
+      await context.waitForSelector('iframe#flix-iframe12');
+      const videoURl = document.querySelector('iframe#flix-iframe12') ? document.querySelector('iframe#flix-iframe12').getAttribute('src') : null;
+      if (videoURl) {
+        document.body.setAttribute('video-url', videoURl);
+      }
     } catch (error) {
       console.log('error');
     }
