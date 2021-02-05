@@ -8,12 +8,6 @@ module.exports = {
     zipcode: '560012',
   },
   implementation: async ({ url,zipcode }, parameters, context, dependencies) => {
-    // await context.evaluate(async(zipcode)=>{
-    //   const localeResponse = await fetch(`https://www.jiomart.com/mst/rest/v1/pin/${zipcode}`);
-    //   if (localeResponse.status == 200){
-    //     window.location.reload();
-    //   }
-    // },zipcode);
     try{
       await new Promise(res=>setTimeout(res,3000))
       await context.click('li#pincode_section', { timeout:7000 });
