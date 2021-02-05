@@ -11,7 +11,7 @@ fields:
     xpath: //div[@class='main-media']//img[@itemprop="image"]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class,"slick-slide") and position()>1]//div/@data-imageurl
+    xpath: //div[@class="thumb"]/img/@src
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
@@ -30,6 +30,8 @@ fields:
   - name: availabilityText
     singleValue: false
     xpath: //div[@class="availability"]//span[contains(@class,"message")]
+    regExp: (.+)
+    regExpReplace: In Stock 
     defaultValue: Out of Stock
   - name: description
     singleValue: false
@@ -60,10 +62,12 @@ fields:
     xpath: //span[@itemprop="mpn"]
   - name: ratingCount
     singleValue: false
-    xpath: //a[@class="total-reviews"]
+    xpath: //a[@class="total-reviews"]/@title | //div[@class="total-reviews-summary"] | //a[@class="total-reviews"]
+    regExp: \d{1,}
+    regExpReplace:
   - name: aggregateRating
     singleValue: false
-    xpath: //a[contains(@class,"star-rating-container")]/@data-rating
+    xpath: //a[contains(@class,"star-rating-container")]/@data-rating | //a[@href="#URV"]/@data-rating
   - name: variantCount
     singleValue: false
     defaultValue: '0'
@@ -105,7 +109,11 @@ fields:
     xpath: //div[@class="overview-wrapper"]//div[@class="main-features"]//li
   - name: customerServiceAvailability
     singleValue: false
-    xpath: 
-  - name: customerServiceAvailability
-    singleValue: false
     xpath: //div[contains(@class,"warranty-list")]//div[contains(@class,"item")]
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[@class="thumb"]/img/@src)
+  
+  
+  
+  
