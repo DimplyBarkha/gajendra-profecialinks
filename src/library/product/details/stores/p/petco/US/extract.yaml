@@ -1,31 +1,31 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
-recordSelector: div[class*="ProductVariationsstyled__OptionsContainer"] div[class*="floats__FloatContainer"]:nth-last-child(1) select option
+recordSelector: null
 recordXPath: //div[contains(@class,"ProductVariationsstyled__OptionsContainer")]//div[contains(@class,"floats__FloatContainer")][last()]//select//option
 fields:
   - name: image
-    xpath: //@mainimage
-    regExp: (.+)
-    regExpReplace: https://$1
+    xpath: ancestor::html//meta[@property="og:image"]/@content
   - name: imageAlt
     xpath: //@name
   - name: alternateImages
-    xpath: //@alternateimages
+    xpath: ancestor::html//div[contains(@class,"Thumbnails__Carousel")]//div[contains(@class,"Shared__CarouselItem")][position()>1]//img/@src
   - name: secondaryImageTotal
     xpath: count(//div[contains(@class,"Thumbnails__InnerWrapper")]//div[contains(@class,"Shared__CarouselItem")][position()>1])
   - name: metaKeywords
   - name: category
     xpath: ancestor::html//ul[contains(@class,"Breadcrumbsstyled__BreadcrumbContainer")]//li[position()>1]//a
   - name: nameExtended
-    xpath: //@name
+    xpath: ancestor::html//h1[contains(@class,"ProductNamestyled")]
   - name: listPrice
-    xpath: //@listprice
+    xpath: ancestor::html//div[contains(@class,"PriceColumnContainer")]/div[contains(@class,"PriceRowContainer")][1]/span
+    regExp: (reg\s)(.+)
+    regExpReplace: $2
   - name: price
-    xpath: //@price
+    xpath: ancestor::html//div[contains(@class,"PriceColumnContainer")]/div[contains(@class,"PriceRowContainer")][1]/text()
   - name: availabilityText
-    xpath: //@availability
+    xpath: ancestor::html//button[contains(@class,"AddToCart")]
   - name: description
-    xpath: ancestor::html//div[contains(@class,"DescriptionContainer")]//p | ancestor::html//div[contains(@class,"DescriptionContainer")]//ul//li[not(contains(@class,"StyledLi"))]
+    xpath: ancestor::html//body/@additional-description
   - name: descriptionBullets
     xpath: count(//div[contains(@class,"DescriptionContainer")]//ul//li)
   - name: brandText
@@ -35,11 +35,13 @@ fields:
     xpath: ancestor::html//ul[contains(@class,"DetailsTablestyled")]//li[contains(.,"Weight")]//h5/following-sibling::*
   - name: weightGross
   - name: quantity
-    xpath: //@size[not(contains(.,"null"))]
+    xpath: ancestor::html//div[contains(@class,"ProductVariations")]//option[@selected]/@label
   - name: gtin
-    xpath: //@upcnumber[not(contains(.,"null"))]
+    xpath: ancestor::html//script[@type="application/ld+json"][1]
+    regExp: (.+)(gtin12":\s")(\d+)(.+)
+    regExpReplace: $3
   - name: sku
-    xpath: //@sku
+    xpath: ancestor::html//ul[contains(@class,"DetailsList")]//li/h5[contains(@class,"ItemTitle")][contains(.,"SKU")]/following-sibling::p
   - name: variantId
     xpath: //@variantid
   - name: mpc
@@ -67,7 +69,9 @@ fields:
     xpath: ancestor::html//ul[contains(@class,"DetailsTablestyled")]//li[contains(.,"Primary Color")]//h5/following-sibling::*
   - name: colorCode
   - name: manufacturerDescription
+    xpath: ancestor::html//div[contains(@id,"inpage_container")]//div[@class="flix-std-content"] | ancestor::html//div[contains(@id,"inpage_container")]//div[contains(@class,"flix-padfeed")] | ancestor::html//div[contains(@id,"inpage_container")]//div[contains(@class,"flix-title")] | ancestor::html//div[contains(@id,"inpage_container")]//div[contains(@class,"flix-passagemeat")]
   - name: manufacturerImages
+    xpath: ancestor::html//div[contains(@id,"inpage_container")]//img/@data-srcset
   - name: videos
   - name: name
     xpath: //@name

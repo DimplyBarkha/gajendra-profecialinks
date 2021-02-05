@@ -36,19 +36,11 @@ async function implementation (
         const images = [];
         array[i].setAttribute('name', jsonString[Object.keys(jsonString)[i]].name);
         array[i].setAttribute('variantId', jsonString[Object.keys(jsonString)[i]].id);
-        array[i].setAttribute('sku', jsonString[Object.keys(jsonString)[i]].sku);
-        array[i].setAttribute('price', jsonString[Object.keys(jsonString)[i]].price.price_USD);
-        array[i].setAttribute('listPrice', jsonString[Object.keys(jsonString)[i]].price.listprice_USD);
-        array[i].setAttribute('mainImage', jsonString[Object.keys(jsonString)[i]].thumbnail);
-        array[i].setAttribute('upcNumber', jsonString[Object.keys(jsonString)[i]].upcNumber);
-        array[i].setAttribute('size', varInfo[i]);
         array[i].setAttribute('directions', jsonString[Object.keys(jsonString)[i]].directions.directions);
         array[i].setAttribute('warranty', jsonString[Object.keys(jsonString)[i]].warranty.warranty);
-        array[i].setAttribute('availability', jsonString[Object.keys(jsonString)[i]].inventory.inventoryStatus);
         for (var j = 1; j < jsonString[Object.keys(jsonString)[i]].pip.images.length; j++) {
           images.push(`https:${jsonString[Object.keys(jsonString)[i]].pip.images[j].imgURL}`);
         }
-        array[i].setAttribute('alternateImages', images);
         array[i].setAttribute('variantCount', Object.keys(jsonString).length);
         array[i].setAttribute('firstVariant', jsonString[Object.keys(jsonString)[0]].sku);
         array[i].setAttribute('variants', Object.keys(jsonString));
@@ -88,6 +80,49 @@ async function implementation (
       getproductInfo();
     }
   });
+
+  try {
+    await context.evaluate(() => {
+      const desc = document.evaluate(
+        '//div[contains(@class,"DescriptionContainer")]/div//p | //div[contains(@class,"DescriptionContainer")]/div//ul',
+        document,
+        null,
+        XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
+        null,
+      );
+      let text = '';
+      let t = '';
+      let z = '';
+      for (let i = 0; i < desc.snapshotLength; i++) {
+        const item = desc.snapshotItem(i);
+        if (item.nodeName === 'STYLE') {
+          item.remove();
+        } else if (item.querySelector('button')) {
+          item.querySelector('button').remove();
+          z = item.innerText;
+        } else if (item.nodeName === 'UL') {
+          const lis = [...item.querySelectorAll('li')];
+          lis.forEach(li => {
+            t = t + (t ? ' || ' : '') + li.innerText;
+          });
+          z = ' || ' + t;
+        } else {
+          z = item.innerText;
+        }
+        text = text + (text ? ' ' : '') + z;
+      }
+      text = text.replace(/undefined/gs, '');
+      document.body.setAttribute('additional-description', text);
+    });
+  } catch (e) {
+    console.log(e.message);
+  }
+
+  try {
+    await context.waitForXPath('//div[contains(@id,"inpage_container")]//img/@src', { timeout: 30000 });
+  } catch (e) {
+    console.log(e.message);
+  }
   return await context.extract(productDetails, { transform });
 }
 module.exports = {

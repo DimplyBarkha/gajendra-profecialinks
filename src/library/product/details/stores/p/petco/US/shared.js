@@ -7,22 +7,6 @@
 const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
-      if (row.additionalDescBulletInfo) {
-        let text = '';
-        row.additionalDescBulletInfo.forEach(item => {
-          text = text + (text ? ' ' : ' ') + item.text;
-        });
-        row.additionalDescBulletInfo = [{ text }];
-      }
-
-      if (row.additionalDescBulletInfo) {
-        let text = '';
-        row.additionalDescBulletInfo.forEach(item => {
-          text = item.text.replace(/-/g, ' || ');
-        });
-        row.additionalDescBulletInfo = [{ text }];
-      }
-
       if (row.variants) {
         let text = '';
         row.variants.forEach(item => {
@@ -32,27 +16,7 @@ const transform = (data) => {
             text = item.text;
           }
         });
-        row.variants = [
-          {
-            text,
-          },
-        ];
-      }
-
-      if (row.alternateImages) {
-        let text = '';
-        row.alternateImages.forEach(item => {
-          if (item.text.includes(',https')) {
-            text = item.text.replace(/,https/g, ' | https');
-          } else {
-            text = item.text;
-          }
-        });
-        row.alternateImages = [
-          {
-            text,
-          },
-        ];
+        row.variants = [{ text }];
       }
 
       if (row.variantInformation) {
@@ -71,14 +35,6 @@ const transform = (data) => {
         ];
       }
 
-      if (row.description) {
-        let text = '';
-        row.description.forEach(item => {
-          text = text + (text ? ' || ' : ' ') + item.text;
-        });
-        row.description = [{ text }];
-      }
-
       if (row.ingredientsList) {
         let text = '';
         row.ingredientsList.forEach(item => {
@@ -90,7 +46,7 @@ const transform = (data) => {
       if (row.availabilityText) {
         let text = '';
         row.availabilityText.forEach(item => {
-          if (item.text === 'Available') {
+          if (item.text === 'ADD TO CART') {
             text = 'In Stock';
           } else {
             text = 'Out of Stock';
@@ -110,6 +66,28 @@ const transform = (data) => {
           },
         ];
         delete row.specificationsLabel;
+      }
+
+      if (row.price && row.listPrice) {
+        let promo;
+        let price = row.price[0].text;
+        let listPrice = row.listPrice[0].text;
+        price = price.replace('$', '');
+        price = Number(price);
+        listPrice = listPrice.replace('$', '');
+        listPrice = Number(listPrice);
+        promo = ((listPrice - price) / listPrice) * 100;
+        promo = Math.round(promo);
+        const text = `save ${promo}%`;
+        row.promotion = [{ text }];
+      }
+
+      if (row.manufacturerDescription) {
+        let text = '';
+        row.manufacturerDescription.forEach(item => {
+          text = text + (text ? ' ' : '') + item.text;
+        });
+        row.manufacturerDescription = [{ text }];
       }
     }
   }
