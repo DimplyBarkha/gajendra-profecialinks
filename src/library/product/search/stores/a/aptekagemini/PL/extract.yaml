@@ -5,8 +5,8 @@ recordXPath: //ol[contains(@class,"ais-Hits-list")]//li[contains(@class,'ais-Hit
 fields:
   - name: productUrl
     description: The URL for the product details page
-    xpath: //a/@href
-    regExp: (.+)
+    xpath: //a[contains(@class, 'product-card__link')]/@href
+    regExp: (.*)
     regExpReplace: https://www.aptekagemini.pl$1
   - name: thumbnail
     xpath: //span[contains(@class, "thumbnail")]/img/@data-src
@@ -16,7 +16,7 @@ fields:
     xpath: //a/@title
   - name: price
     xpath: //span[@class="money-price__amount"]
-    regExp: (\d+\,\d+)
+    # regExp: (\d+\,\d+)
   - name: rank
     description: search/listing rank
     type: NUMBER

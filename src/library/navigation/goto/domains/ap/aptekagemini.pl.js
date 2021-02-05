@@ -12,11 +12,12 @@ module.exports = {
     const timeout = parameters.timeout ? parameters.timeout : 50000;
     await context.setBlockAds(false);
     await context.setAntiFingerprint(false);
-    await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
+    const URL = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
+    await context.goto(URL, { timeout: timeout, waitUntil: 'networkidle0' });
     try {
       await context.waitForSelector('div[class="vue-modal__content"]');
       await context.click('button[class*="button vue-privacy"]');
-      console.log('cookies box clicked successfully')
+      console.log('cookies box clicked successfully');
     } catch (e) {
       console.log('No cookie box');
     }
