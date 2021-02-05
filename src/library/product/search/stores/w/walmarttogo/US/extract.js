@@ -113,10 +113,12 @@ async function implementation (
     cp.id = 'currentPage';
     cp.href = currentPage;
     document.body.append(cp);
-    const np = document.createElement('a');
-    cp.id = 'nextLink';
-    np.href = nextLink;
-    document.body.append(np);
+    if (nextLink !== 'stop') {
+      const np = document.createElement('a');
+      cp.id = 'nextLink';
+      np.href = nextLink;
+      document.body.append(np);
+    }
   }
   try {
     const data = await context.evaluate(getData);
@@ -124,11 +126,10 @@ async function implementation (
   } catch (error) {
     console.log('Error adding data. Error: ', error);
   }
-  try {    
+  try {
     // Add next link url
     await context.evaluate(addPageLinks);
   } catch (error) {
-    
     console.log('Error adding links. Error: ', error);
   }
   return await context.extract(productDetails, { transform });
