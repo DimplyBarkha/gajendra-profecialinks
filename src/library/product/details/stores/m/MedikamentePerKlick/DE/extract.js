@@ -21,7 +21,7 @@ module.exports = {
       const description = descSelector ? descSelector.getAttribute('content').replace(/(.*?)-.*/, '$1') : '';
       addHiddenDiv('ii_description', description);
       // prices Block
-      const priceSelector = document.querySelector('dl[class="productPrice"]>dd[class="yourPrice price" or class="yourPrice"]');
+      const priceSelector = document.querySelector('dl[class="productPrice"] dd[class*="yourPrice"]');
       // @ts-ignore
       const price = priceSelector ? priceSelector.innerText.replace('.', '').replace(',', '.').trim() : '';
       addHiddenDiv('ii_price', price);
