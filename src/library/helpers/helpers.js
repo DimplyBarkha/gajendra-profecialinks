@@ -134,13 +134,14 @@ module.exports.Helpers = class {
 
   // Syndigo API1 code to append enhanced content.
   async syndigoAPI1 (productID, pageId) {
-    const api = `https://scontent.webcollage.net/${pageId}/power-page?ird=true&channel-product-id=${productID}`;
-    // api.allorigins.win to avoid cors
-    const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(api)}`);
-    // const response = await fetch(api);
-    const text = (await response.json()).contents;
-    //   const text = await response.text();
-    try {
+    async function appendData (productID, pageId) {
+      const api = `https://scontent.webcollage.net/${pageId}/power-page?ird=true&channel-product-id=${productID}`;
+      // api.allorigins.win to avoid cors
+      const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(api)}`);
+      // const response = await fetch(api);
+      const text = (await response.json()).contents;
+      //   const text = await response.text();
+      // eslint-disable-next-line no-eval
       eval(text.replace('document.getElementsByTagName(\'head\')[0].appendChild(_wcscript);', '//document.getElementsByTagName(\'head\')[0].appendChild(_wcscript);')); // might fail if response doesnt has the data.
       // add HTM Content
       const div = document.createElement('div');
@@ -148,6 +149,9 @@ module.exports.Helpers = class {
       div.innerHTML = window._wccontent.aplus.html;
       // @TODO Should we retrun div instead?
       document.body.append(div);
+    }
+    try {
+      await this.context.evaluate(appendData, productID, pageId);
     } catch (error) {
       console.log('Enhanced content not found. Error: ', error);
     }
@@ -230,7 +234,7 @@ module.exports.Helpers = class {
       return false;
     }
     try {
-      await addECWidgets(productID, pageId);
+      await this.context.evaluate(addECWidgets, productID, pageId);
     } catch (error) {
       console.log('Error adding aplus widgets. Error: ', error);
     }
