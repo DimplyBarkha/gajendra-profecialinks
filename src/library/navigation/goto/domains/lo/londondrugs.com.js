@@ -15,16 +15,16 @@ module.exports = {
     var lastResponseData;
     var isCaptchaFramePresent;
 
-    url = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
+    // url = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
     let numberOfCaptchas = 0;
     await context.captureRequests();
     await context.setFirstRequestTimeout(90000);
-    await context.setAntiFingerprint(false);
-    await context.setBlockAds(false);
-    await context.setLoadAllResources(true);
-    await context.setLoadImages(true);
+    // await context.setAntiFingerprint(false);
+    // await context.setBlockAds(false);
+    // await context.setLoadAllResources(true);
+    // await context.setLoadImages(true);
     await context.setJavaScriptEnabled(true);
-    await context.setUseRelayProxy(false);
+    // await context.setUseRelayProxy(false);
 
     // await context.goto(url, {
     //   firstRequestTimeout: 60000,
