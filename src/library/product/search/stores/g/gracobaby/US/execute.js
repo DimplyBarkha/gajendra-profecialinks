@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'gracobaby',
     domain: 'gracobaby.com',
-    url: 'https://www.gracobaby.com/search?q={searchTerms}&start=0&sz=1000&view=product',
+    url: 'https://www.gracobaby.com/search?q={searchTerms}&start=0&sz=24&view=product',
     loadedSelector: '#maincontent',
     noResultsXPath: null,
     zipcode: '',
