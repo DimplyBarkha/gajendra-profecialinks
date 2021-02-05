@@ -25,7 +25,7 @@ const transform = (data) => {
       }
       if (row.ingredientsList) {
         const ingredientsListArr = row.ingredientsList.map((item) => {
-          return typeof (item.text) === 'string' ? item.text.replace('[There is a trailing space here]', '').replace(/\n/gm, '').replace(/(\\|")+/gm, '') : '|';
+          return typeof (item.text) === 'string' ? item.text.trim().replace('[There is a trailing space here]', '').replace(/\n/gm, '').replace(/(\\|")+/gm, '') : '|';
         });
         row.ingredientsList = [{ text: ingredientsListArr.join(' | '), xpath: row.ingredientsList[0].xpath }];
       }
