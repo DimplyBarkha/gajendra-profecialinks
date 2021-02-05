@@ -27,7 +27,7 @@ fields:
     xpath: boolean(//div[contains(@class,'product-panel')]//wow-product-details-panel//div[contains(@class,'shelfProductTile-cartControls')]//button[contains(@class,'cartControls-addButton')]//span[contains(.,'Add to cart')])
   - name: description
     singleValue: false
-    xpath: //h2[text()='Product Details']/following-sibling::wow-view-more//div[contains(@class,'viewMore-')]//div//text()
+    xpath: //h2[text()='Product Details']/following-sibling::wow-view-more//div[contains(@class,'viewMore-')]//div//text() | //h2[text()='Bundle Details']/following-sibling::wow-view-more//div[contains(@class,'viewMore-')]//div//text()
   - name: variantCount
     singleValue: false
   - name: ratingCount
@@ -95,10 +95,11 @@ fields:
     xpath: //h3[text()='Allergen']//following-sibling::wow-view-more//div[contains(@class,'viewMore-')]//div//text()
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//h2[text()='Product Details']/following-sibling::wow-view-more//div[contains(@class,'viewMore-')]//div//text())
+    xpath: count(//h2[text()='Product Details']/following-sibling::wow-view-more//div[contains(@class,'viewMore-')]//div//text() | //h2[text()='Bundle Details']/following-sibling::wow-view-more//div[contains(@class,'viewMore-')]//div//text())
   - name: listPrice
     singleValue: false
-    xpath: //div[@class='ng-star-inserted']//script[@type='application/ld+json']
+    # xpath: //div[@class='ng-star-inserted']//script[@type='application/ld+json']
+    xpath: //wow-product-details-panel//shared-price//div[contains(@class,'price-was price--large ng-star-inserted')]//text()
 
 
 

@@ -200,19 +200,19 @@ const transform = (data) => {
         ];
       }
 
-      if (row.listPrice) {
-        row.listPrice.forEach(item => {
-          let data = JSON.parse(item.text);
-          console.log("data",data);
-          if (data['offers']) {
-            if (data['offers']['price']) {
-              item.text = data['offers']['price'];
-            }
-          } else {
-            item.text = "";
-          }
-        });
-      }
+      // if (row.listPrice) {
+      //   row.listPrice.forEach(item => {
+      //     let data = JSON.parse(item.text);
+      //     console.log("data",data);
+      //     if (data['offers']) {
+      //       if (data['offers']['price']) {
+      //         item.text = data['offers']['price'];
+      //       }
+      //     } else {
+      //       item.text = "";
+      //     }
+      //   });
+      // }
       // if (row.proteinPerServing) {
       //   row.proteinPerServing.forEach(item => {
       //     if (item.text.includes("g")) {
