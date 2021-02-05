@@ -38,9 +38,7 @@ module.exports = {
         document.body.appendChild(catElement);
       };
 
-      // add search url
-      const searchUrl = window.location.href;
-      addElementToDocument('searchUrl', searchUrl);
+      addElementToDocument('searchUrl', window.location.href);
 
       const products = document.querySelectorAll('li[itemtype="http://schema.org/Product"]');
       const prefix = 'https://www.viovet.co.uk';

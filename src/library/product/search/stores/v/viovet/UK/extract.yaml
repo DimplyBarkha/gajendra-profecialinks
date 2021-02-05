@@ -5,35 +5,38 @@ recordXPath: //li[@itemtype="http://schema.org/Product"]
 fields:
   - name: id
     singleValue: false
+    xpath: //a/@href
+    regExp: .+\/(.+)\/\?
+    regExpReplace: $1
   - name: searchUrl
     singleValue: true
     xpath: ancestor::html//div[@id="searchUrl"][last()]
   - name: name
     singleValue: false
-    xpath: //li[@itemtype="http://schema.org/Product"]//h2[@itemprop="name"]
+    xpath: //h2[@itemprop="name"]
   - name: productUrl
     singleValue: false
-    xpath: //li[@itemtype="http://schema.org/Product"]/@product_url
+    xpath: //@product_url
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
-    xpath: //li[@itemtype="http://schema.org/Product"]/@image_url
+    xpath: //@image_url
     regExp: (.+?),.*?(\/.+)
     regExpReplace: $1$2
   - name: aggregateRating
     singleValue: false
-    xpath: //li[@itemtype="http://schema.org/Product"]//i[@itemprop="ratingValue"]/@content
+    xpath: //i[@itemprop="ratingValue"]/@content
   - name: aggregateRating2
     singleValue: false
   - name: reviewCount
     singleValue: false
-    xpath : //li[@itemtype="http://schema.org/Product"]//span[@itemprop="reviewCount"]/@content
+    xpath: //span[@itemprop="reviewCount"]/@content
   - name: ratingCount
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //li[@itemtype="http://schema.org/Product"]//span[@class="_sale-price"]
+    xpath: //span[@class="_sale-price"]
   - name: manufacturer
     singleValue: true
   - name: soldBy
