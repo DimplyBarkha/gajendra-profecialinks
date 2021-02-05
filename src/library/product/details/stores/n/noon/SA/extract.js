@@ -17,18 +17,18 @@ module.exports = {
   ) {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    try{
-      await context.evaluate(()=>{
+    try {
+      await context.evaluate(() => {
         scroll(0, 1500);
-      })
+      });
       await context.waitForSelector('video source');
       await context.evaluate(() => {
         let video = '';
         video = document.querySelector('video source').getAttribute('src');
-        document.querySelector('body').setAttribute('video',video);
-      })
-    }catch(err){
-      console.log('No video present')
+        document.querySelector('body').setAttribute('video', video);
+      });
+    } catch (err) {
+      console.log('No video present');
     }
     try {
       await context.waitForXpath('//div[contains(.,"Customer Also Viewed")]/following-sibling::div//div[contains(@class,"swiper-wrapper")]/div[contains(@class,"swiper-slide")]//div[@class="productImage"]//img//@alt', { timeout: 10000 });
@@ -69,8 +69,8 @@ module.exports = {
         document.body.appendChild(newDiv);
       }
 
-      let descriptionBulletCount = document.evaluate(`count(//span[starts-with(.,'Highlights')]//parent::div/ul/li)`,document).numberValue;
-      addHiddenDiv('descriptionBulletCount' , descriptionBulletCount);
+      const descriptionBulletCount = document.evaluate('count(//span[starts-with(.,\'Highlights\')]//parent::div/ul/li)', document).numberValue;
+      addHiddenDiv('descriptionBulletCount', descriptionBulletCount);
 
       if (document.querySelector('div[class="viewFullSpec"] a')) {
         document.querySelector('div[class="viewFullSpec"] a').click();
@@ -86,6 +86,7 @@ module.exports = {
       }
       addHiddenDiv('specsText', specsText);
     });
+    await context.click('#Overview').catch(() => { console.log('Overview tab is not present'); });
     return await context.extract(productDetails, { transform });
   },
 };
