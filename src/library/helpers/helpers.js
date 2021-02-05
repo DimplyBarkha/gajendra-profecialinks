@@ -131,4 +131,108 @@ module.exports.Helpers = class {
     }
     return false;
   }
+
+  // Syndigo API1 code to append enhanced content.
+  async syndigoAPI1 (productID, pageId) {
+    const api = `https://scontent.webcollage.net/${pageId}/power-page?ird=true&channel-product-id=${productID}`;
+    // api.allorigins.win to avoid cors
+    const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(api)}`);
+    // const response = await fetch(api);
+    const text = (await response.json()).contents;
+    //   const text = await response.text();
+    try {
+      eval(text.replace('document.getElementsByTagName(\'head\')[0].appendChild(_wcscript);', '//document.getElementsByTagName(\'head\')[0].appendChild(_wcscript);')); // might fail if response doesnt has the data.
+      // add HTM Content
+      const div = document.createElement('div');
+      div.id = 'added-ec1';
+      div.innerHTML = window._wccontent.aplus.html;
+      // @TODO Should we retrun div instead?
+      document.body.append(div);
+    } catch (error) {
+      console.log('Enhanced content not found. Error: ', error);
+    }
+  }
+
+  // Syndigo API2 code to append enhanced content.
+  async syndigoAPI2 (productID, pageId) {
+    async function getWidgetHtml (widget) {
+      const h2 = document.createElement('h2');
+      h2.setAttribute('class', 'syndigo-widget-section-header');
+      h2.innerText = widget.headerText;
+      const div = document.createElement('div');
+      div.setAttribute('class', 'syndigo-featureset');
+      const html = await getFeatureSet(widget.items, widget.widgetType);
+      div.innerHTML = html;
+      const mainDiv = document.createElement('div');
+      mainDiv.setAttribute('class', 'widgets');
+      mainDiv.append(h2);
+      mainDiv.append(div);
+      return mainDiv;
+    }
+
+    async function getFeatureSet (items, widgetType) {
+      if (widgetType === 'FeatureSet') {
+        const mainDiv = document.createElement('div');
+        for (const feature of items[0].features) {
+          if (!feature.assetType.match(/video/gi)) {
+            if (feature.assetType === 'Image') {
+              const img = document.createElement('img');
+              img.alt = feature.caption;
+              img.src = feature.asset.url.replace('{0}', feature.asset.originalWidth);
+              mainDiv.appendChild(img);
+            }
+            const div = document.createElement('div');
+            const html = feature.description;
+            div.innerHTML = html;
+            mainDiv.append(div);
+          }
+        }
+        return mainDiv.innerHTML;
+      }
+      if (widgetType === 'VideoGallery') {
+        const mainDiv = document.createElement('div');
+        for (const video of items) {
+          const vid = document.createElement('video');
+          vid.setAttribute('alt', video.video.caption);
+          const url = video.video.sources[0].url;
+          const response = await fetch(url);
+          const text = await response.text();
+          vid.src = url.replace(/playlist.m3u8/, text.match(/[^\n]+.m3u8/)[0]);
+          mainDiv.appendChild(vid);
+          const div = document.createElement('div');
+          const html = video.description;
+          div.innerHTML = html;
+          mainDiv.append(div);
+        }
+        return mainDiv.innerHTML;
+      }
+    }
+    async function addECWidgets (productID, pageId) {
+      const json = await getJsonData(productID, pageId);
+      if (!json) return;
+      const widgets = Object.values(Object.values(json.experiences)[0].experiences['power-page'].widgets);
+      const enhancesContent = document.createElement('div');
+      for (const widget of widgets) {
+        const element = await getWidgetHtml(widget);
+        enhancesContent.appendChild(element);
+      }
+      enhancesContent.id = 'added-ec2';
+      // @TODO Should we retrun div instead?
+      document.body.append(enhancesContent);
+    }
+    async function getJsonData (productID, pageId) {
+      const api = `https://content.syndigo.com/page/${pageId}/${productID}.json`;
+      const response = await fetch(api);
+      const json = await response.json();
+      if (Object.keys(json).length) {
+        return json;
+      }
+      return false;
+    }
+    try {
+      await addECWidgets(productID, pageId);
+    } catch (error) {
+      console.log('Error adding aplus widgets. Error: ', error);
+    }
+  }
 };
