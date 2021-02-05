@@ -9,10 +9,14 @@ fields:
     xpath: (//div[@class="big-image small-12 large-10 columns"]/img)/@src
     regExp: (storage/.*)
     regExpReplace: https://pacson.se/$1
-  - name: url
+  # - name: url
+  #   singleValue: true
+  #   description: A harvest url
+  #   xpath: //link[@rel="canonical"]/@href
+  - name: productUrl
     singleValue: true
     description: A harvest url
-    xpath: //link[@rel="canonical"]/@href
+    xpath: //meta[@property="og:url"]/@content
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -60,8 +64,12 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //html//div[@id='availability']
+    # xpath: //html//div[@id='availability']
     # defaultValue: Out of Stock
+    xpath: //html//div[@id="aval"]
+    # regExp: (.+)
+    # regExpReplace: Out Of Stock
+    # defaultValue: In Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from

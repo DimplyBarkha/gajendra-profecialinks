@@ -1,4 +1,4 @@
-const {transform} = require('./format')
+const { transform } = require('./format')
 // const { transform } = require('../../../../extract');
 module.exports = {
   implements: 'product/details/extract',
@@ -39,16 +39,16 @@ module.exports = {
       };
 
       var price = getXpath('(//div[@class="product-detail__price-info"]/span[@class="price prio-30"])/text()', 'nodeValue');
-      if (price != null){
-        // price = price.replace(",",".");
-        price = price.slice(0,-3);
-        price = price+" kr";
+      if (price != null) {
+        price = price.replace(",", ".");
+        price = price.slice(0, -3);
+        price = price + " kr";
         addElementToDocument('price', price);
       }
 
       //mpc
       var mpc = getXpath("//div[contains(text(),'Artikelnummer')]/text()", 'nodeValue');
-      if (mpc != null){
+      if (mpc != null) {
         mpc = mpc.split(": ")[1];
         addElementToDocument('mpc', mpc);
       }
@@ -57,33 +57,61 @@ module.exports = {
       var brand = getXpath("(//div[@class='product-detail__specification']/table/tbody/tr/th[1])[contains(text(),'Varumärke')]/following-sibling::th/text()", 'nodeValue');
       var desc = getXpath("//h1[@class='product-page__title']/span/text()", 'nodeValue');
       var desc2 = getXpath("(//h1[@class='product-page__title'])/text()[2]", 'nodeValue');
-      if (desc2 != null){
+      if (desc2 != null) {
         desc = desc + " " + desc2;
         // if(brand != null) {
         //     desc = brand+"-"+desc;
         // }
       }
-      if(desc != null){
+      if (desc != null) {
         addElementToDocument('desc', desc);
       }
 
 
       //description
       var description = getXpath('//div[@class="product-detail__description__80"]/text()', 'nodeValue');
-      if ( description != null && description.length > 1){
+      if (description != null && description.length > 1) {
         description = description.trim();
         addElementToDocument('description', description);
-      }
-      description = getXpath('//div[@class="product-detail__description__80"]/p/b/text()', 'nodeValue');
-      if (description != null && description.length > 1){
-        description = description.trim();
+      } else {
+        description = getXpath('//div[@class="product-detail__description__80"]/p/b/text()', 'nodeValue');
+        if (description != null && description.length > 1) {
+          description = description.trim();
           addElementToDocument('description', description);
+        } else {
+          description = getXpath('//div[@class="product-detail__description__80"]/p/text()', 'nodeValue');
+          if (description != null && description.length > 1) {
+            description = description.trim();
+            var ext = getAllXpath('//div[@class="product-detail__description__80"]/p[2]/text()', 'nodeValue');
+            if (ext.length >= 1) {
+              var final = "";
+              for (var i = 0; i < ext.length; i++) {
+                final = final + ext[i];
+              }
+              description = description + final;
+              var ext2 = getXpath('//div[@class="product-detail__description__80"]/p[3]/text()', 'nodeValue');
+              if(ext2 != null){
+                description = description + ext2;
+              }
+              var ext3 = getXpath('//div[@class="product-detail__description__80"]/p[4]/text()', 'nodeValue');
+              if(ext3 != null){
+                description = description + ext3;
+              }
+            }
+            addElementToDocument('description', description);
+          }
+        }
       }
-      description = getXpath('//div[@class="product-detail__description__80"]/p/text()', 'nodeValue');
-      if ( description != null && description.length > 1){
-        description = description.trim();
-        addElementToDocument('description', description);
-      }
+      // description = getXpath('//div[@class="product-detail__description__80"]/p/b/text()', 'nodeValue');
+      // if (description != null && description.length > 1) {
+      //   description = description.trim();
+      //   addElementToDocument('description', description);
+      // }
+      // description = getXpath('//div[@class="product-detail__description__80"]/p/text()', 'nodeValue');
+      // if (description != null && description.length > 1) {
+      //   description = description.trim();
+      //   addElementToDocument('description', description);
+      // }
 
       // if ( description != null){
       //   if( description.length > 1){
@@ -101,50 +129,61 @@ module.exports = {
       //sec image total
       var res = getAllXpath('//ul[@class="carousel-thumbnails small-12 large-2 columns"]/li/img/@src', 'nodeValue');
       var cnt = res.length - 1;
-      if(cnt > 0){
+      if (cnt > 0) {
         addElementToDocument('cnt', cnt);
       }
 
       //alternate image
       var altimg = getAllXpath('//ul[@class="carousel-thumbnails small-12 large-2 columns"]/li/img/@src', 'nodeValue');
-      if ( altimg != null){
-        for (var i=1; i < altimg.length; i++){
+      if (altimg != null) {
+        for (var i = 1; i < altimg.length; i++) {
           var ext = "https://pacson.se"
-          altimg[i]= ext+altimg[i];
+          altimg[i] = ext + altimg[i];
           addElementToDocument('altimg', altimg[i]);
         }
       }
 
-      var availability = getXpath('//a[@class="button buy-button product-detail__buy-button disabled"]/text()', 'nodeValue');
-      if (availability != null){
-        availability = "In stock";
-      } else {
-        availability = "Out of stock";
-      }
-      addElementToDocument('availability', availability);
+      // var availability = getXpath('//a[@class="button buy-button product-detail__buy-button disabled"]/text()', 'nodeValue');
+      // if (availability != null){
+      //   availability = "In stock";
+      // } else {
+      //   availability = "Out of stock";
+      // }
+      // addElementToDocument('availability', availability);
 
       var spec = getAllXpath('//div[@class="product-detail__specification"]/table/tbody/tr', 'nodeValue');
       var specification = "";
 
       var val1 = getAllXpath('//div[@class="product-detail__specification"]/table/tbody/tr[1]/th/text()', 'nodeValue');
 
-      if( val1 != null){
+      if (val1 != null) {
         var val = val1.join(": ");
         specification = specification + val;
       }
-      
+
       var val2;
       val2 = getAllXpath('//div[@class="product-detail__specification"]/table/tbody/tr[position()>1 and position()<= last()]/td/text()', 'nodeValue');
       var s = ""
-      for ( let i =0 ; i< val2.length; i=i+2){
-        s = s + " " +val2[i]+": "+val2[i+1]+" || ";
+      for (let i = 0; i < val2.length; i = i + 2) {
+        s = s + " " + val2[i] + ": " + val2[i + 1] + " || ";
       }
-      if(s!=null){
-        specification = specification+" || "+s;
-        specification = specification.slice(0,-3);
+      if (s != null) {
+        specification = specification + " || " + s;
+        specification = specification.slice(0, -3);
         addElementToDocument('specification', specification);
       }
-      
+
+      //aval
+      var aval = getXpath('(//link[@itemprop="availability"])[last()]/@href', 'nodeValue');
+      if (aval != null) {
+        aval = "Out Of Stock";
+      } else {
+        aval = "In Stock";
+      }
+      if (aval != null) {
+        addElementToDocument('aval', aval);
+      }
+
     });
     await context.extract(productDetails);
   },
