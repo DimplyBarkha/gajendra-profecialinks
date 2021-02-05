@@ -10,64 +10,61 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  // Without such high wait when you search by brand name site will often not have enough time to load.
-  await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+  const checkIfLoadMoreButtonIsPresent = async () => {
+    return await context.evaluate(async () => {
+      const button = document.querySelector('button#btnVerMais');
+      if (!button) {
+        return false;
+      } else if (button.getAttribute('style') && button.getAttribute('style').includes('none')) {
+        return false;
+      } else {
+        return true;
+      }
+    });
+  };
+  const countProducts = async () => {
+    return await context.evaluate(async () => {
+      return document.querySelectorAll('div#containerResultsFilter div.active[id]').length;
+    });
+  };
 
-  // Real work
+  let isLoadMoreButtonPresent = await checkIfLoadMoreButtonIsPresent();
+  let productsAmount = await countProducts();
+
+  while (isLoadMoreButtonPresent && productsAmount < 150) {
+    await context.click('button#btnVerMais');
+    await context.waitForXPath(`(//div[@id="containerResultsFilter"]//div[contains(@class, " active") and @id])[${productsAmount + 1}]`);
+    isLoadMoreButtonPresent = await checkIfLoadMoreButtonIsPresent();
+    productsAmount = await countProducts();
+  }
+
   await context.evaluate(async () => {
-    function stall (ms) {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve();
-        }, ms);
-      });
-    }
-    const addProp = (selector, iterator, propName, value) => {
-      document.querySelectorAll(selector)[iterator].setAttribute(propName, value);
-    };
-
-    let productsBeforeUploading = 0;
-
-    const loadAllProducts = async (howMuch) => {
-      const moreProductsButton = document.querySelector('button#btnVerMais');
-      const productsOnPage = document.querySelectorAll('div.col.active').length;
-      var check = howMuch === undefined ? true : (productsOnPage < howMuch);
-      console.log(productsOnPage);
-      const currentUrl = window.location.href;
-      // since the searchurl changes after loading more records and the old records become assigned to the newest url, it is neceaary to link the urls before the click event
-      for (let i = productsBeforeUploading; i < productsOnPage; i++) {
-        console.log(`All products length is ${productsOnPage}`);
-        console.log(currentUrl);
-        console.log(productsOnPage);
-        console.log(productsBeforeUploading);
-        addProp('div.col.active', i, 'searchurl', currentUrl);
-      }
-      productsBeforeUploading = productsOnPage;
-      if (moreProductsButton.style.display !== 'none' && check) {
-        moreProductsButton.click();
-        console.log('click done');
-        await stall(5000);
-        loadAllProducts(howMuch);
-      }
-    };
-    // if you want to load
-    await loadAllProducts(150);
-    // it is necessary to set such a big wait time - shorter time limits numer of collected records and there is a lot of epmty searchurls
-    await new Promise((resolve, reject) => setTimeout(resolve, 20000));
-    // rating
-    const allProducts = document.querySelectorAll('div.col.active');
-    allProducts.forEach((product) => {
-      const rating = product.querySelector(':scope .star-ratings-css-top');
-      if (rating) {
-        const percentage = rating.style.width;
-        const re = /\d+.?\d+(?=%)/;
-        const valuePercent = re.exec(percentage);
-        const value = (Math.round((valuePercent / 100 * 5 + Number.EPSILON) * 100) / 100).toFixed(2);
-        product.setAttribute('rating', value);
+    const searcUrl = window.location.href;
+    const products = document.querySelectorAll('div#containerResultsFilter div.active[id]');
+    products.forEach(product => {
+      // full name
+      const collectData = (selector) => {
+        return product.querySelector(selector) ? product.querySelector(selector).textContent : '';
+      };
+      const brand = collectData('h3');
+      const name = collectData('h2');
+      const info = collectData('div.tipo');
+      const variant = collectData('li > div.mini-tab.active');
+      const fullName = `${brand} ${name} ${info} ${variant}`.trim();
+      product.setAttribute('fullname', fullName);
+      // search url
+      product.setAttribute('searchurl', searcUrl);
+      // rating
+      const rating = product.querySelector('div.star-ratings-css-top');
+      if (rating && rating.getAttribute('style')) {
+        const ratingPercentage = rating.getAttribute('style').match(/width: ([\d.]+)%/) ? Number(rating.getAttribute('style').match(/width: ([\d.]+)%/)[1]) : 0;
+        if (ratingPercentage) {
+          const ratingValue = (ratingPercentage / 20).toFixed(1);
+          product.setAttribute('rating', ratingValue);
+        }
       }
     });
   });
-
   return await context.extract(productDetails, { transform });
 }
 

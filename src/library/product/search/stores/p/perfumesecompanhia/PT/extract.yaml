@@ -2,44 +2,44 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class, 'col ')][contains(@class, ' active')]
+recordXPath: //div[@id="containerResultsFilter"]//div[contains(@class, " active") and @id]
 fields:
   - name: id
     singleValue: false
-    xpath: //div[contains(@class, 'col ')][contains(@class, ' active')]//@data-prod
+    xpath: //@data-prod
   - name: searchUrl 
     singleValue: false
-    xpath: //div[contains(@class, 'col ')][contains(@class, ' active')]/@searchurl
+    xpath: //@searchurl
   - name: name
     singleValue: false
-    xpath: //div[contains(@class, 'col ')][contains(@class, ' active')]/h2
+    xpath: //@fullname
   - name: productUrl
     singleValue: false
-    xpath: //div[contains(@class, 'col ')][contains(@class, ' active')]/a/@href
+    xpath: //a/@href
     regExp: (.+)
     regExpReplace: https://www.perfumesecompanhia.pt$1
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
-    xpath: //div[contains(@class, 'col ')][contains(@class, ' active')]//div[@class="preview-img"]/img/@src
+    xpath: //div[@class="preview-img"]/img/@src
     regExp: (.+)
     regExpReplace: https://www.perfumesecompanhia.pt/$1
   - name: aggregateRating 
     singleValue: false
-    xpath: //div[contains(@class, 'col ')][contains(@class, ' active')]/@rating
   - name: aggregateRating2
+    type: STRING
     singleValue: false
+    xpath: //@rating
   - name: reviewCount
     singleValue: false
   - name: ratingCount
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //div[contains(@class, 'col ')][contains(@class, ' active')]//span[@class="show price-promotion"]
+    xpath: //ul[@id="nav"]/li/span[@class="show price-promotion" or @class="show"]
   - name: manufacturer
     singleValue: true
-    xpath: //div[contains(@class, 'col ')][contains(@class, ' active')]/h3
   - name: soldBy
     singleValue: true
   - name: endorsementText
