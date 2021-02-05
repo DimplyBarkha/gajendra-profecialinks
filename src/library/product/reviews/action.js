@@ -17,7 +17,7 @@ async function implementation (
   const inputUrl = url;
   const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
-  const date = new Date(days ? new Date().setDate(new Date().getDate() - days) : dateOrigin);
+  const date = new Date(+days ? new Date().setDate(new Date().getDate() - days) : dateOrigin);
   console.log(`Date Limit: "${date}"`);
 
   const resultsReturned = await execute({ url, id, zipcode, date, days, Brands });

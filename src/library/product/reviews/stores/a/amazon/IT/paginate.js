@@ -1,6 +1,6 @@
 /**
  *
- * @param { { _date?: string, page: number, keywords: string } } inputs
+ * @param { { date?: string, page: number, id: string } } inputs
  * @param { ImportIO.IContext } context
  * @param { Record<string, any> } dependencies
  */
@@ -10,7 +10,7 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { _date, page, id } = inputs;
+  const { date, page, id } = inputs;
   const loadedSelector = 'div[data-hook=review]';
   const noResultsXPath = '//div[contains(@class, "no-reviews-section")]';
   const openSearchDefinition = {
@@ -58,14 +58,16 @@ async function implementation (
 
   let url = await context.evaluate(function () {
     /** @type { HTMLLinkElement } */
-    const next = document.querySelector('head link[rel="next"]');
+    const next = document.querySelector('li.a-last a');
     if (!next) {
       return false;
     }
     return next.href;
   });
 
-  if ((new Date(await context.evaluate(checkDate)).setHours(0, 0, 0, 0) - new Date(_date).setHours(0, 0, 0, 0)) < 0) {
+  console.log('end date is ', new Date(date).setHours(0, 0, 0, 0));
+
+  if ((new Date(await context.evaluate(checkDate)).setHours(0, 0, 0, 0) - new Date(date).setHours(0, 0, 0, 0)) < 0) {
     return false;
   } else {
     if (!url && openSearchDefinition) {
@@ -80,10 +82,10 @@ async function implementation (
   }
   async function checkNoPagination () {
     const nextPageBtn = document.querySelector('ul.a-pagination>li.a-last>a');
-    if(!nextPageBtn){
-      return true
-    }else{
-      return false
+    if (!nextPageBtn) {
+      return true;
+    } else {
+      return false;
     }
   }
   if (await context.evaluate(checkNoPagination)) {
