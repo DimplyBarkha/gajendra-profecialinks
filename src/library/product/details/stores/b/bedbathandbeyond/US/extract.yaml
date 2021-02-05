@@ -80,7 +80,8 @@ fields:
     xpath: '0'
   - name: manufacturerDescription
     SingleValue: false
-    xpath: //div[@id='productDetails']//*[self::div or self::li]
+    xpath: //div[contains(@class, "wc-aplus-body")]//div[contains(@class, "wc-rf-banner-box-outer")]|//div[contains(@class, "wc-fragment")]//h2|//div[contains(@class, "wc-fragment")]//div[contains(@class, "wc-aplus-body")]//ul[contains(@class, "wc-rich-features")]//li//*[contains(@class, "wc-rich-content")]
+    # xpath: //div[@id='productDetails']//*[self::div or self::li]
   - name: videos
     SingleValue: false
     xpath: //div[@id='rclModal']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li//button/img[@alt='Video']/@src

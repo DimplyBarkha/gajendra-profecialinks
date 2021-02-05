@@ -58,6 +58,18 @@ module.exports = {
         firstItem.click();
       });   
     } catch (err) { }
+    async function scrollToRec (node) {
+      await context.evaluate(async (node) => {
+        const element = document.querySelector(node) || null;
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+          await new Promise((resolve) => {
+            setTimeout(resolve, 5000);
+          });
+        }
+      }, node);
+    }
+    await scrollToRec('footer');
     await context.evaluate(async () => {
       // const descNode = document.querySelector('div.product-info-description');
       let desc = '';

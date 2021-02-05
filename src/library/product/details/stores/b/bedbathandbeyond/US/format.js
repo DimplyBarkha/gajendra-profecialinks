@@ -64,18 +64,18 @@ const transform = (data) => {
               }
           });          
         }
-        if (row.descriptionBullets) {
-          let info = [];          
-          row.descriptionBullets.forEach(item => {
-            info.push(item.text);
-          });
-          if (info.length){
-            row.descriptionBullets = [{'text':info.length,'xpath':row.descriptionBullets[0].xpath}];          
-          }
-          else{
-            delete row.descriptionBullets;
-          }
-        }
+        // if (row.descriptionBullets) {
+        //   let info = [];          
+        //   row.descriptionBullets.forEach(item => {
+        //     info.push(item.text);
+        //   });
+        //   if (info.length){
+        //     row.descriptionBullets = [{'text':info.length,'xpath':row.descriptionBullets[0].xpath}];          
+        //   }
+        //   else{
+        //     delete row.descriptionBullets;
+        //   }
+        // }
         if (row.listPrice) {
           row.listPrice.forEach(item => {
             item.text = item.text.replace(/(\s*was\s*)+/isg, '').trim();
@@ -125,13 +125,13 @@ const transform = (data) => {
         //   row.additionalDescBulletInfo = [{'text':'|| '+arr_info.join(' || ')}];
         //   ad_dec_data = '|| '+arr_info.join(' || ');
         // }
-        if (row.additionalDescBulletInfo) {
-          let info = [];
-          row.additionalDescBulletInfo.forEach(item => {
-              info.push(item.text.replace(/(\s*\n\s*)+/g, ' || ').trim());
-          });
-          row.additionalDescBulletInfo = [{'text':info.join(' || '),'xpath':row.additionalDescBulletInfo[0].xpath}];
-        }
+        // if (row.additionalDescBulletInfo) {
+        //   let info = [];
+        //   row.additionalDescBulletInfo.forEach(item => {
+        //       info.push(item.text.replace(/(\s*\n\s*)+/g, ' || ').trim());
+        //   });
+        //   row.additionalDescBulletInfo = [{'text':info.join(' || '),'xpath':row.additionalDescBulletInfo[0].xpath}];
+        // }
         if (row.description) {
           let info = [];          
           row.description.forEach(item => {
