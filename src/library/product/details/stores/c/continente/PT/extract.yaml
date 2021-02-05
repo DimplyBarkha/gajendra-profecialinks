@@ -80,7 +80,7 @@ fields:
     xpath: //div[@id='contactName']//text()
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@class='productDetailSubArea']//div[@class='body']//p//img//@src
+    xpath: //div[@class='productDetailSubArea']//div[@class='body']//p//img//@src | //div[@class='productDetailSubArea']//div[@class='body']//td//img//@src
   - name: alternateImages
     singleValue: false
     xpath: //div[@class='imageAdditionalInfo']//a//img//@src
