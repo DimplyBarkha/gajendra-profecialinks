@@ -58,6 +58,26 @@ module.exports = {
         return result;
       };
 
+
+      const varientInfoXpath1 = getAllXpath("//div[@class='dropdown-menu unique-dropdown-menu']/ul/li/text()",'nodeValue').join('|');
+      console.log("varientInfoXpath1:::SIZE:::", varientInfoXpath1);
+
+      const varientInfoXpath2 = getAllXpath("//div[@class='swatch-blk']/ul/li/@id",'nodeValue').join('|');
+      console.log("varientInfoXpath2:::ID:::", varientInfoXpath2.split('|'));
+      var varientInfoXpathArray = varientInfoXpath2.split('|');
+      var ids = [];
+      for(let i=0; i< varientInfoXpathArray.length ; i++){
+        console.log((varientInfoXpathArray[i].split('_')[1]));
+        ids.push(varientInfoXpathArray[i].split('_')[1]);
+      }
+      console.log(ids.join('|| '));
+      var varientInfo = "SIZE: "+varientInfoXpath1 +"VariantIDs: "+ids.join('| ');
+      console.log("varientInfo:::"+ varientInfo);
+      addElementToDocument("variant_info_added", varientInfo);
+
+
+      
+
      // await context.waitForSelector('.pr-snippet-stars-reco-inline .pr-snippet-rating-decimal');
      // await context.waitForSelector('.pr-snippet-stars-reco-stars');
     try{
@@ -150,9 +170,7 @@ module.exports = {
       } else {
         addElementToDocument('quantity_added', quanityXpath2);
       }
-
       
-
       const jsonstr = getXpath("//*[@id='contentOverlay']/div/app-pdp-preprocessor/div/app-pdp-layout-template/script[2]/text()", 'nodeValue');
       console.log("jsonstr:::", jsonstr);
       if (jsonstr) {

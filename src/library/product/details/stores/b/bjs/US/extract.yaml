@@ -138,7 +138,7 @@ fields:
     #defaultValue: "0"
   - name: shippingInfo
     singleValue: true
-    xpath: //*[@id="desktopShippingtabcontent"]/div/app-pdp-tab-shipping-and-returns-molecule/div/div/p[1]
+    #xpath: //*[@id="desktopShippingtabcontent"]/div/app-pdp-tab-shipping-and-returns-molecule/div/div/p[1]
     description: Shipping information for the product
   - name: shippingDimensions
     singleValue: true
@@ -492,6 +492,7 @@ fields:
       new desription info
   - name: variantInformation
     singleValue: true
+    xpath: //div[@id="variant_info_added"]
     description: colour / scent / flavour / other
   - name: firstVariant
     singleValue: true
