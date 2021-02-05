@@ -10,9 +10,8 @@ async function implementation (
   const { productDetails } = dependencies;
 
   try{
-    await new Promise(resolve => setTimeout(resolve, 8000));
+    await new Promise(resolve => setTimeout(resolve, 10000));
     await context.evaluate(async function () {
-      
       
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
@@ -100,7 +99,7 @@ module.exports = {
     country: 'FR',
     store: 'cdiscount',
     transform,
-    domain: 'cdiscount.com',
+    domain: 'cdiscount.fr',
     zipcode: '',
   },
   implementation,
