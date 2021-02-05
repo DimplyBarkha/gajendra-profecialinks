@@ -31,11 +31,17 @@ fields:
   - name: listPrice
     singleValue: false
     xpath: 
-  - name: availabilityText
-    singleValue: false
-    xpath: //script[contains(.,'availability')]//text()
+  #- name: availabilityText
+    #singleValue: false
+    #xpath: //script[contains(.,'availability')]//text()
     # xpath: //div[@class='primary-ctas']//button//span
-    defaultValue: "In Stock"
+    #defaultValue: "In Stock"
+  - name: availabilityText
+    singleValue: true
+    xpath: //button[@title="Add to cart"]
+    regExp: (.+)
+    regExpReplace: In stock
+    defaultValue: Out of Stock
   - name: description
     singleValue: false
     xpath: //div[@id='productDescription']//div[contains(@class,'short-description') or contains(@class,'long-description')]/*[self::p or self::ul]
@@ -112,7 +118,8 @@ fields:
     xpath: //div[contains(@class,'product-long-description')] | //div[contains(@id,'flix-inpage')]//div[@id='inpage_container']//div[@class='inpage_selector_feature']
   - name: videos
     singleValue: false
-    xpath: //div[contains(@class,'fullJwPlayerWarp fullPlaylist-')]//input//@value
+    xpath: concat(//div[contains(@class,'fullJwPlayerWarp fullPlaylist-')]//input//@value,'',//div[@class='product-carousel-wrapper']//iframe//@src)
+    
 
 # Custom Fields 
   - name: inTheBoxUrl

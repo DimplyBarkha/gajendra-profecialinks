@@ -91,17 +91,25 @@ const transform = (data) => {
       }
       if (row.videos) {
         row.videos.forEach(item => {
-          const data = JSON.parse(item.text);
-          if (data.playlist) {
-            if (data.playlist[0]) {
-              item.text = data.playlist[0].file;
-              item.text = 'https:' + item.text;
-            }else{
+         try{ 
+          if(item.text.indexOf("h") == 0){
+            item.text = item.text.trim()
+          }else{ 
+            const data = JSON.parse(item.text);
+            if (data.playlist) {
+              if (data.playlist[0]) {
+                item.text = data.playlist[0].file;
+                item.text = 'https:' + item.text;
+              }else{
+                item.text = '';
+              }
+            } else {
               item.text = '';
             }
-          } else {
-            item.text = '';
           }
+         }catch(error){
+          console.log("Error  ",error)
+         }
         });
       }
       if (row.description) {
@@ -131,19 +139,29 @@ const transform = (data) => {
         });
         row.additionalDescBulletInfo = [{ text: info.join(' | '), xpath: row.additionalDescBulletInfo[0].xpath }];
       }
-      if (row.availabilityText) {
-        row.availabilityText.forEach(item => {
-          const data = JSON.parse(item.text);
-          if (data.offers[0]) {
-            item.text = data.offers[0].availability;
-            if (item.text.trim().includes('InStock')) {
-              item.text = 'In Stock';
-            } else {
-              item.text = 'Out of Stock';
-            }
-          }
-        });
-      }
+      
+      // if (row.availabilityText) {
+      //   row.availabilityText.forEach(item => {
+      //     const data = JSON.parse(item.text);
+
+      //     if (data) {
+      //       if(data.offers[0]){
+      //         item.text = data.offers[0].availability;
+      //         if (item.text.trim().includes('InStock')) {
+      //            item.text = 'In Stock';
+      //         } else {
+      //            item.text = 'Out of Stock';
+      //         }
+      //       }else{
+      //         item.text = 'In Stock';
+      //       }
+      //     }else{
+      //       item.text = 'In Stock';
+      //     }
+
+      //   });
+      // }
+
       if (row.termsAndConditions) {
         row.termsAndConditions.forEach(item => {
           item.text = 'Yes';
