@@ -67,7 +67,7 @@ module.exports = {
     country: 'AU',
     store: 'binglee',
     domain: 'binglee.com.au',
-    nextLinkSelector: 'div.pages pull-right > ol > li > a.false next pager-arrow > i.fa fa-angle-right fa-3x',
+    nextLinkSelector: 'div[id*="toolbar-bottom"] div[class*="show-pagination"] ol > li[class*="pager-arrow pager-next"] a[class*="next pager-arrow"]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div.category-view',
