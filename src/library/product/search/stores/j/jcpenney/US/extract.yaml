@@ -1,7 +1,8 @@
+
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //td[contains(@class,"products depth_1")]/table/tbody/tr
+recordXPath: //div[@data-automation-id="productCard"]
 fields: 
 - name: rank
   singleValue: true
@@ -9,29 +10,28 @@ fields:
   type: NUMBER
 - name: id
   description: Unique id (within this extractor)
-  xpath: //td[contains(@class,"skuId depth_2")]
+  xpath: //div[@data-automation-id="productCard"]/@skuvalue
 - name: productUrl
   description: The URL for the product details page
-  xpath: //td[contains(@class,"pdpUrl depth_2")]
+  xpath: //div[@data-automation-id="productCard"]/@productvalue
   regExp: (.+)
   regExpReplace: https://www.jcpenney.com$1
 - name: thumbnail
   description: The URL for the product thumbnail image
-  xpath: //td[contains(@class,"thumbnailImageId depth_3")]
+  xpath: //div[@data-automation-id="productCard"]/@imagevalue
   regExp: (.+)
   regExpReplace: https://s7d4.scene7.com/is/image/JCPenney/$1?wid=350&hei=350&op_usm=.4,.8,0,0&resmode=sharp2
 - name: name
   description: The product name
-  xpath: //td[contains(@class,"name depth_2")]
+  xpath: //div[@data-automation-id="productCard"]/@namevalue
 - name: gtin
   description: GTIN code (includes UPC/EAN)
 - name: reviewCount
   description: The number of reviews
-  xpath: //td[contains(@class,"reviewCount depth_2")]
+  xpath: //div[@data-automation-id="productCard"]/@reviewvalue
 - name: price
   description: The offered price for the product
-  xpath: //td[contains(@class,"fpacPriceMax depth_2")] | //td[contains(@class,"currentMin depth_2")]
+  xpath: //div[@data-automation-id="productCard"]/@pricevalue
 - name: aggregateRating
   description: The stated aggregate rating normalized to be out of 5
-  type: NUMBER
-  xpath: //td[contains(@class,"averageRating depth_2")]
+  xpath: //div[@data-automation-id="productCard"]/@ratingvalue

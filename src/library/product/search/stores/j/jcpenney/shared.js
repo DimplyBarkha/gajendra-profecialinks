@@ -16,6 +16,26 @@ const transform = (data, context) => {
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+    for (const { group } of data) {
+      for (const row of group) {
+        if(row.reviewCount){
+          if(row.reviewCount[0].text.includes('undefined')){
+            row.reviewCount[0].text = 0
+          }
+        }
+        if(row.aggregateRating){
+          if(row.aggregateRating[0].text.includes('VALUE') || row.aggregateRating[0].text.includes('undefined')){
+            row.aggregateRating[0].text = ''
+          }
+        }
+        // if(row.id){
+        //   if(row.id[0].text.includes('undefined')){
+        //     row.id[0].text = ''
+        //   }
+        // }
+        
+      }
+    }
   const state = context.getState();
   let orgRankCounter = state.orgRankCounter || 0;
   let rankCounter = state.rankCounter || 0;
