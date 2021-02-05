@@ -15,7 +15,7 @@ module.exports = {
   ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    await context.waitForSelector('div[class="col"] div[class="product-sku-wrapper"]', 6000)    
+    await context.waitForSelector('div[class="col"]', 6000)    
     await context.evaluate(async () => {
       try {
         // @ts-ignore
