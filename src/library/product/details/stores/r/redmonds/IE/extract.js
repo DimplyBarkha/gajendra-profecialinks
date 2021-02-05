@@ -40,7 +40,18 @@ module.exports = {
 
     // const sectionsDiv = 'div.inpage_selector_specification table[class="flix-std-specs-table"]';
     // await context.waitForSelector(sectionsDiv, { timeout: 9000 });
-
+    // async function scrollToRec (node) {
+    //   await context.evaluate(async (node) => {
+    //     const element = document.querySelector(node) || null;
+    //     if (element) {
+    //       element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+    //       await new Promise((resolve) => {
+    //         setTimeout(resolve, 5000);
+    //       });
+    //     }
+    //   }, node);
+    // }
+    // await scrollToRec('div.footer-container, div,block-footer-bottom');
     await context.evaluate(async function () {
       // Add Here
       function addElementToDocument (key, value) {
@@ -127,7 +138,6 @@ module.exports = {
         }
         addElementToDocument('added_aplus_images', aplusImages.join('|'));
       }
-
       function stall (ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
@@ -145,6 +155,156 @@ module.exports = {
         }
       };
     });
+
+    const enhanced_content = await context.evaluate(async function () {
+      return document.evaluate("//div[@class='flix-std-container-fluid']//div[@class='flix-std-row']//div", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null).snapshotLength;
+    });
+
+    const iframeEnhancedContent = await context.evaluate(async function () {
+      return document.querySelector('div.eky-container-limited iframe#eky-dyson-iframe') ? document.querySelector('div.eky-container-limited iframe#eky-dyson-iframe').src : null;
+    });
+
+    if (enhanced_content === 0 && iframeEnhancedContent) {
+      const link = await context.evaluate(async function () {
+        return window.location.href;
+      });
+      console.log(iframeEnhancedContent)
+      const apiManufCall = iframeEnhancedContent;
+      let content = null;
+      let inBoxText = null;
+      let inBoxUrls = null;
+      await context.goto(apiManufCall, {
+        timeout: 100000,
+        waitUntil: 'load',
+      });
+      try {
+        await context.waitForSelector('div.more, .preview-more a', { timeout: 15000 });
+        await context.click('div.more, .preview-more a');
+      } catch (error) {
+        console.log('No preview button');
+      }
+      await context.evaluate(async () => {
+        await new Promise((resolve) => setTimeout(resolve, 5000));
+
+        async function infiniteScroll () {
+          let prevScroll = document.documentElement.scrollTop;
+          while (true) {
+            window.scrollBy(0, document.documentElement.clientHeight);
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            const currentScroll = document.documentElement.scrollTop;
+            if (currentScroll === prevScroll) {
+              break;
+            }
+            prevScroll = currentScroll;
+          }
+        }
+        await infiniteScroll();
+      });
+      const text = await context.evaluate(async function () {
+        return document.querySelector('body').innerText;
+      });
+      const inTheBoxData = await context.evaluate(async function () {
+        let inBoxUrls = [];
+        let inBoxText = [];
+        const getAllProducts = document.querySelectorAll('div.eky-accessory');
+        for (let i = 0; i < getAllProducts.length; i++) {
+          inBoxUrls.push('https://media.flixfacts.com/eyekandy/dyson/v11/en/'+getAllProducts[i].querySelector('img').getAttribute('src'));
+          inBoxText.push(getAllProducts[i].querySelector('div.eky-accesory-title').innerText);
+        }
+        inBoxUrls = inBoxUrls.join(' | ');
+        inBoxText = inBoxText.join(' | ');
+        return { inBoxText, inBoxUrls };
+      });
+      console.log('inthe box!!');
+      console.log(inTheBoxData)
+
+      // const comparisionText = await this.context.evaluate(async function (comparisionTableSelector) {
+      //   return (!!document.querySelector(comparisionTableSelector) && document.querySelector(comparisionTableSelector).offsetHeight > 0 && document.querySelector(comparisionTableSelector).offsetWidth) > 0;
+      // }, comparisionTableSelector);
+      console.log(inBoxText);
+      content = text;
+
+      // await this.context.waitForSelector(imgSelector, { timeout: 300000 });
+      const aplusImages = await context.evaluate(async function () {
+        const images = document.querySelectorAll('img');
+        const backImgs = [...document.querySelectorAll('*[style*="background-image"]')];
+        const src = [];
+        let srcUnique = [];
+        if (backImgs) {
+          backImgs.forEach(img => {
+            let link = img.getAttribute('style').replace(/(.+\()(.+)(\))(.+)?/, '$2');
+            if (link.includes('"')) {
+              link = link.replace(/"/g, '');
+            }
+            src.push(link);
+          });
+          srcUnique = [...new Set(src)];
+        }
+        const imagesSrc = [];
+        [...images].forEach((element) => {
+          imagesSrc.push(element.getAttribute('src'));
+        });
+        if (srcUnique.length >= 1) {
+          srcUnique.forEach(src => {
+            imagesSrc.push(src);
+          });
+        }
+        const allImages = [];
+        for (let i = 0; i < imagesSrc.length; i++) {
+          if (imagesSrc[i] === '' || imagesSrc[i] === null) {
+            continue;
+          } else {
+            if (imagesSrc[i].startsWith('images/')) {
+              allImages.push('https://media.flixfacts.com/eyekandy/dyson/v11/en/'+imagesSrc[i]);
+            } else {
+              allImages.push(imagesSrc[i]);
+            }
+          }
+        }
+        return allImages;
+      });
+      const video = await context.evaluate(async function () {
+        const videosElements = document.querySelectorAll('video');
+        const videoSrc = [];
+        [...videosElements].forEach((element) => {
+          if (element.getAttribute('src')) {
+            videoSrc.push('https://media.flixfacts.com/eyekandy/dyson/v11/en/'+element.getAttribute('src').toString());
+          }
+        });
+        const videosArr = Array.from(new Set(videoSrc));
+        console.log('dsdsds videosdsd')
+        console.log(videosArr)
+        return videosArr.join(' || ');
+      });
+      console.log('dsdsds video 212')
+      console.log(video)
+
+      const specs = await context.evaluate(async function () {
+        const specArr = [];
+        const allSpecifications = document.querySelectorAll('div#specifications div.eky-specs-col');
+        for (let i = 0; i < allSpecifications.length; i++) {
+          specArr.push(allSpecifications[i].innerText);
+        }
+        return specArr.join(' || ');
+      });
+
+      await context.goto(link);
+      await context.evaluate(async function (inTheBoxData, content, aplusImages, video, specs) {
+        function addElementToDocument (key, value) {
+          const catElement = document.createElement('div');
+          catElement.id = key;
+          catElement.textContent = value;
+          catElement.style.display = 'none';
+          document.body.appendChild(catElement);
+        }
+        addElementToDocument('added_intheboxurl', inTheBoxData.inBoxUrls);
+        addElementToDocument('added_intheboxtext', inTheBoxData.inBoxText);
+        addElementToDocument('added_aplus_images', aplusImages.join(' | '));
+        addElementToDocument('added_videos', video);
+        addElementToDocument('added_specifications', specs);
+        addElementToDocument('added_enhanced_content', content);
+      }, inTheBoxData, content, aplusImages, video, specs);
+    }
 
     return await context.extract(productDetails, { transform: transformParam });
   },
