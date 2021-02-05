@@ -14,9 +14,9 @@ async function implementation (inputs, parameters, context, dependencies) {
         const offSet = window.location.href.match('offSet=([0-9]+)');
         return parseInt(offSet[1]) >= 100;
       })) {
-        return await context.extract(productDetails, { transform });
+        return await context.extract(productDetails, { transform }, 'MERGE_ROWS');
       } else {
-        await context.extract(productDetails, { transform });
+        await context.extract(productDetails, { transform }, 'MERGE_ROWS');
 
         await new Promise((resolve) => setTimeout(resolve, 3000));
 
@@ -26,7 +26,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       }
     } while (true);
   } else {
-    return await context.extract(productDetails, { transform });
+    return await context.extract(productDetails, { transform }, 'MERGE_ROWS');
   }
 }
 
