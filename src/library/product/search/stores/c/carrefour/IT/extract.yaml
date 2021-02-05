@@ -1,0 +1,35 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,'product-item')]
+fields:
+  - name: productUrl
+    xpath: //div[contains(@class,"product-item")]/div/a[contains(@class,"product-link")]/@href
+    regExp: ^(.+)$
+    regExpReplace: https://www.carrefour.it$1
+    singleValue: false
+    description: The URL for the product details page
+  - name: thumbnail
+    xpath: //div[contains(@class,"image-container")]/div/img/@data-src
+    singleValue: false
+    description: The URL for the product thumbnail image
+  - name: name
+    xpath: //a[contains(@class,"product-link")]/h3
+    singleValue: false
+    description: The product name
+  - name: price
+    xpath: //span[contains(@class,"value")]
+    singleValue: false
+    description: The offered price for the product
+  - name: _url
+    xpath: //div[contains(@class,"show-more")]/div/button/@page-url
+    singleValue: false
+    description: URL of the page
+  - name: id
+    xpath: //div[contains(@class,"product-item")]/div/@data-pid
+    singleValue: false
+    description: id of the product
+  - name: rank
+    
+   
+        
