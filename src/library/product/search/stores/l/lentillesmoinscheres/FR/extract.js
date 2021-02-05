@@ -8,14 +8,12 @@ module.exports = {
     domain: 'lentillesmoinscheres.com',
     zipcode: '',
   },
-  implementation,
-};
-async function implementation(
-  inputs,
-  parameters,
-  context,
-  dependencies,
-) {
+  implementation: async (inputs,
+    parameters,
+    context,
+    dependencies,
+  ) => {
+  const { transform } = parameters;
   const { productDetails } = dependencies;
   await context.evaluate(async function () {
     function addHiddenDiv1(id, content, index) {
@@ -51,4 +49,5 @@ async function implementation(
     }
   });
   return await context.extract(productDetails, { transform });
+},
 }
