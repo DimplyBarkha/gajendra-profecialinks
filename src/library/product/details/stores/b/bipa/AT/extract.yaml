@@ -65,15 +65,13 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-    xpath: //div[@class='lmiv-entry lmiv-secondlevel'][last()]/br[1]/following-sibling::text()[1]|//div[@class='lmiv-entry lmiv-secondlevel'][last()]/font[last()]/font/text()
-    regExp: (?<=Nettogehalt)(\:)( )(.+)
-    regExpReplace: $4
+    xpath: //div[@class='lmiv-entry lmiv-secondlevel']
+    regExp: (?<=Nettogehalt:\ ).+
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
-    xpath: //div[@class='lmiv-entry lmiv-secondlevel'][last()]/br[1]/preceding-sibling::text()[1]|//div[@class='lmiv-entry lmiv-secondlevel'][last()]/font[1]/font/text()
-    regExp: (?<=Bruttogewicht)(\:)( )(.+)
-    regExpReplace: $3
+    xpath: //div[@class='lmiv-entry lmiv-secondlevel'][last()]
+    regExp: (?<=Bruttogewicht:\ ).+
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
