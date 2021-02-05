@@ -59,6 +59,11 @@ module.exports = {
       if (price) {
         price.querySelector('sup').textContent = `,${price.querySelector('sup').textContent}`;
         addElementToDocument('price', price.textContent.replace(/\./g, '').match(/\d.+/)[0]);
+      } else {
+        const priceFromScript = document.evaluate('//script[contains(.,"offer_id")]', document, null, XPathResult.STRING_TYPE, null).stringValue;
+        if (priceFromScript && /price: {"current":(.+?),/.test(priceFromScript)) {
+          addElementToDocument('price', priceFromScript.match(/price: {"current":(.+?),/)[1].replace(/\./g, ',') + ' Lei');
+        }
       }
     });
     const dataRef = await context.extract(productDetails, { transform });
