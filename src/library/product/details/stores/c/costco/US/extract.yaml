@@ -124,6 +124,10 @@ fields:
     # xpath: //div[@class="wc-aplus-body"]//img/@src | //div[@class="product-info-description"]//img//@src[contains(.,'img/') or (contains(.,'http') and contains(.,'.jpg'))]
   - name: videos
     xpath: //div[@class="wc-player-outer-wrap wc-vp"]//video/@src | //meta[@itemprop="contentUrl"]/@content | //body/@videos | //meta//@content[contains(.,'.mp4')] | //head/@*[contains(.,'http')] | //head/@video | //head/@*[contains(.,'http')] | //div[@id='videos'] | //div[@id='videoSrc'] | //form[contains(@action,"video-player")]/@action | //div[@id='videos1'] | //div[@id='videos2']
+  - name: videos1
+    xpath: //div[@class="fullJwPlayerWarp fullPlaylist-0"]/input/@value
+    regExp: file":"([^"]+)
+    regExpReplace: $1
   - name: name
     xpath: //h1[@itemprop="name"]
   - name: secondaryImageTotal

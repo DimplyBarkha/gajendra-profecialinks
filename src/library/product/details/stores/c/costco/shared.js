@@ -81,6 +81,14 @@ const transform = (data) => {
           }
         });
       }
+      if (!row.videos && row.videos1 && row.videos1.length) {
+        if (row.videos1[0].text.includes('content.jwplatform.com')) {
+          // row.videos1[0].text = row.videos1[0].text.replace(/\/\//g, '');
+          const arr = row.videos1[0].text.split('/');
+          row.videos1[0].text = 'http://content.jwplatform.com/videos/' + arr[4];
+          row.videos = row.videos1;
+        }
+      }
 
       let myDesc = '';
       if (row.myDescription && row.myDescription.length > 0) {
