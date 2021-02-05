@@ -232,7 +232,7 @@ fields:
     regExp: (\b(\w+)$)
   - name: imageZoomFeaturePresent
     singleValue: false
-    xpath: //div[@data-dmid="detail-image-container"]//div[@data-dmid="image-container"]/div/img/@data-dmid
+    xpath: (//div[@data-dmid="detail-image-container"]//div[@data-dmid="image-container"]/div/img/@data-dmid)[1]
   - name: videos
     singleValue: false
     xpath: //div[contains(@id, 'youtubeVideoUrl_')]
