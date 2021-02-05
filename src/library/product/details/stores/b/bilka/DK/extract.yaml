@@ -150,3 +150,11 @@ fields:
     xpath: //div[contains(@class,'recommendations')]//div[contains(@class,'swiper-slide')]
   - name: hasComparisonTable
     defaultValue: No
+  - name: inTheBoxUrl
+    singleValue: false
+    xpath: //div[contains(@class, 'inpage_selector_InTheBox')]//div[contains(@class,"flix-background-image")]/img/@data-flixsrcset
+    regExp: (.+)\s200w
+    regExpReplace: https:$1
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //div[contains(@class, 'inpage_selector_InTheBox')]//div[contains(@class,"flix-std-desc")]/span
