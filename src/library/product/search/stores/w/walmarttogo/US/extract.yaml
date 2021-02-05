@@ -34,73 +34,34 @@ fields:
     singleValue: false
     description: The product name
     xpath: td[@class="basic"]/table/tbody/tr/td[@class="name"]
-#   - name: sku
-#     singleValue: false
-#     description: The store-specific product identifier
-#   - name: mpc
-#     singleValue: false
-#     description: The model code of the product
-#   - name: gtin
-#     singleValue: false
-#     description: GTIN code (includes UPC/EAN)
-#   - name: aggregateRatingText
-#     singleValue: false
-#     description: The stated aggregate rating
-#   - name: aggregateRating2
-#     singleValue: false
-#   - name: ratingCount
-#     singleValue: false
-#     description: The number of ratings
-#   - name: reviewCount
-#     singleValue: false
-#     description: The number of reviews
-#   - name: price
-#     singleValue: false
-#     description: The offered price for the product
-#     xpath: //div[@data-automation-id="productTileDetails"]//*[@data-automation-id="salePrice"]
-#   - name: listPrice
-#     singleValue: false
-#     description: The stated undiscounted price for the product
-#   - name: manufacturer
-#     singleValue: false
-#     description: Product manufacturer
-#   - name: soldBy
-#     singleValue: false
-#     description: The name of the seller of the item (if available)
-#   - name: endorsementText
-#     singleValue: false
-#     description: The text that signifies that a product is endorsed
-#   - name: shippingInfo
-#     singleValue: false
-#     description: Shipping information for the product
-# #  SHould these be source specific formulas or in the extractor?
-#   - name: id
-#     singleValue: false
-#     description: Unique id (within this extractor)
-#     xpath: ./@id
-#     regExp: (?:item-(\d+))$
-#     regExpReplace: $1
-#   - name: nameExtended
-#     singleValue: false
-#     description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per extractor)
-#   - name: aggregateRating
-#     singleValue: false
-#     description: The stated aggregate rating normalized to be out of 5
-#     type: NUMBER
-#   - name: rank
-#     singleValue: false
-#     description: search/listing rank
-#     type: NUMBER    
-#   - name: rankOrganic
-#     singleValue: false
-#     description: The position (rank) within the list excluding sponsored/paid results
-#     type: NUMBER 
-#   - name: sponsored
-#     singleValue: false
-#     description: Is sponsored/paid
-#     type: BOOLEAN
-#     selector: div[data-automation-id="sponsoredProductTile"]
-#   - name: totalRecordCount
-#     singleValue: true 
-#     xpath: //p[@id="resultcount"]/strong
+  - name: sku
+    singleValue: false
+    description: Product Code
+    xpath: //td[@class="products"]/table/tbody/tr/td[@class="sku"]
+  - name: thumbnail
+    singleValue: false
+    description: Product Image
+    xpath: //td[@class="image"]/table/tbody/tr/td[@class="thumbnail"]
+  - name: aggregateRating
+    xpath: //td[@class="detailed"]/table/tbody/tr/td[@class="rating"]
+  - name: reviewCount
+    singleValue: false
+    description: review Count
+    xpath: //td[@class="detailed"]/table/tbody/tr/td[@class="reviewsCount"]
+  - name: id
+    singleValue: false
+    description: Product Id
+    xpath: //td[@class="products"]/table/tbody/tr/td[@class="USItemId"]
+  - name: displayUnitPrice
+    singleValue: false
+    description: display unit price
+    xpath: //td[@class="price"]/table/tbody/tr/td[@class="displayUnitPrice"]
+  - name: displayPrice
+    singleValue: false
+    description: display Price
+    xpath: //td[@class="price"]/table/tbody/tr/td[@class="displayPrice"]
+  - name: salesQuantity
+    singleValue: false
+    description: sales Quantity
+    xpath: //td[@class="price"]/table/tbody/tr/td[@class="salesQuantity"]  
     

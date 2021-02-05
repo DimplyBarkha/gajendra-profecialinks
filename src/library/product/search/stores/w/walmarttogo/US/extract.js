@@ -82,6 +82,7 @@ async function implementation (
       }
     }
     const table = generateDynamicTable(jsonData);
+    console.log("table", jsonData);
     const container = document.createElement('div');
     container.setAttribute('id', 'added-table');
     container.setAttribute('style', 'overflow:auto');
@@ -105,6 +106,7 @@ async function implementation (
       query.page = Number(query.page) + 1;
       query.offset = Number(query.offset) + Number(query['?count']);
       nextLink = 'https://www.walmart.com/grocery/v4/api/products/search' + Object.entries(query).map(elm => `${elm[0]}=${elm[1]}`).join('&');
+      console.log('hi',nextLink);
       return nextLink;
     }
     const currentPage = window.location.href;
