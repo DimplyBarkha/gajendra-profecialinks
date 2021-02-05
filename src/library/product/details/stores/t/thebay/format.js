@@ -37,13 +37,13 @@ const transform = (data, context) => {
         row.ratingCount = [{ text: rating_count[0], xpath: row.ratingCount[0].xpath }];
       }
       if (row.description) {
-        const description_ar = [];
+        const descriptionArr = [];
         row.description.forEach(item => {
           item.text = item.text.replace(/Style Code.*/g, '').trim();
-          description_ar.push(item.text);
+          descriptionArr.push(item.text);
         });
-        if (description_ar.length) {
-          row.description = [{ text: description_ar.join(), xpath: row.description[0].xpath }];
+        if (descriptionArr.length) {
+          row.description = [{ text: descriptionArr.join(), xpath: row.description[0].xpath }];
         }
       }
       if (row.variantId) {
@@ -51,6 +51,7 @@ const transform = (data, context) => {
           item.text = item.text.replace(/(\s*)+/g, '').trim();
           item.text = item.text.replace('StyleCode:', '').trim();
         });
+        row.firstVariant = [{ text: row.variantId[0].text }];
       }
       if (row.image) {
         row.image.forEach(item => {
@@ -150,53 +151,23 @@ const transform = (data, context) => {
           }
         });
       }
-
-      if (row.firstVariant) {
-        let data = [];
-        row.firstVariant.forEach(item => {
-          data = item.text.split('= ');
-          item.text = data[1].replace(';', '').trim();
-          const data1 = JSON.parse(item.text);
-          if (data1.products) {
-            if (data1.products[0].skus[index]) {
-              item.text = data1.products[0].skus[index].sku;
-              row.variantId = row.firstVariant;
-            } else {
-              item.text = '';
-            }
-          } else {
-            item.text = '';
-          }
-        });
-      }
       if (row.variants) {
-        let data = [];
         const info = [];
         row.variants.forEach(item => {
-          data = item.text.split('= ');
-          item.text = data[1].replace(';', '').trim();
-          const data1 = JSON.parse(item.text);
-          if (data1.products[0].skus[1]) {
-            data1.products[0].skus.forEach(product => {
-              item.text = product.sku;
-              info.push(item.text.trim());
+          const data = JSON.parse(item.text);
+          if (data.products) {
+            data.products.forEach(product => {
+              if (product.skus) {
+                product.skus.forEach(skuDict => {
+                  if (skuDict.sku) {
+                    info.push(skuDict.sku);
+                  }
+                });
+              }
             });
-          } else {
-            item.text = '';
           }
         });
-        row.variants = [{ text: info.join(' | '), xpath: row.variants[0].xpath }];
-      }
-      if (row.mpc) {
-        row.mpc.forEach(item => {
-          const data = item.text.split('\n');
-          const data1 = JSON.parse(data[0]);
-          if (data1.mpn) {
-            item.text = data1.mpn;
-          } else {
-            item.text = '';
-          }
-        });
+        row.variants = [{ text: info.join(' | ') }];
       }
       index++;
     }

@@ -34,6 +34,8 @@ fields:
   - name: variantId
     singleValue: false
     xpath: //div[@class='value content']//div[@class='product-detail-id']
+  - name: firstVariant
+    singleValue: false    
   - name: listPrice
     singleValue: false
     xpath: //div[@class='price']//span[@class='price']//span[@class='list strike-through ']//span[contains(@class,'formatted_price')]
@@ -60,13 +62,13 @@ fields:
     xpath: //div[@class='primary-image active']//img/@src
   - name: variantInformation
     singleValue: false
-    xpath: //div[@class='attributes']//fieldset//ul//li//@data-attr-value
-  - name: firstVariant
-    singleValue: false
-    xpath: //script[@type="text/javascript" and contains(text(),'pageDataObj =')]
+    xpath: //div[@class='attributes']//fieldset//ul//li//@data-attr-value  
   - name: variants
     singleValue: false
     xpath: //script[@type="text/javascript" and contains(text(),'pageDataObj =')]
+    #pageDataObj = {"
+    regExp: pageDataObj\s*=\s*(.+?});
+    regExpReplace: $1
   - name: additionaldescbulletinfo
     singleValue: false
     xpath: //div[contains(@id,'collapsible-details')]//ul//li
@@ -94,6 +96,9 @@ fields:
   - name: mpc
     singleValue: false
     xpath: (//script[@type='application/ld+json']//text())[1]
+    # "mpn":"ECAM35025SB"
+    regExp: \"mpn\":\"(.+?)\"
+    regExpReplace: $1
   - name: color
     singleValue: false
     xpath: //span[contains(@class,'color')]//span[contains(text(),'Colour')]/following-sibling::span
