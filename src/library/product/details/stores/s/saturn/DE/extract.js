@@ -3,7 +3,7 @@ const { transform } = require('./transform');
 
 async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
-  const { productDetails, helperModule: { Helpers }  } = dependencies;
+  const { productDetails, helperModule: { Helpers } } = dependencies;
   const helper = new Helpers(context);
   const privacySelector = '#privacy-layer-accept-all-button';
   const privacyButton = await context.evaluate(

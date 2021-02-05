@@ -28,8 +28,7 @@ module.exports = {
       divs.forEach((div) => {
         div.setAttribute('content', 'Yes');
       });
-
-      async function removeBtn (dateSelector, btnSelector) {
+    /*   async function removeBtn (dateSelector, btnSelector) {
         if (!document.body.getAttribute('firstrevdate')) {
           const div = document.querySelector(dateSelector);
           console.log(div);
@@ -57,7 +56,7 @@ module.exports = {
         });
       }
       await removeBtn('section[id*="reviews"] div[class*="Cardstyled__StyledCardWrapper"] div[class*="FlexBox__StyledBox"]:nth-child(1) > div:nth-child(2) span', 'span[class*="ReviewsPaginationWrapper"] button');
-    });
+ */ });
     const { transform } = parameters;
     const { productReviews } = dependencies;
     return await context.extract(productReviews, { transform });

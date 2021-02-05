@@ -13,6 +13,7 @@ module.exports = {
     noResultsXPath: null,
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
+    dateSelector: 'section[id*="reviews"] div[class*="Cardstyled__StyledCardWrapper"] div[class*="FlexBox__StyledBox"]:nth-child(1) > div:nth-child(2) span',
     openSearchDefinition: null,
     domain: 'saturn.de',
     zipcode: '',
