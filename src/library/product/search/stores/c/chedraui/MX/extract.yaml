@@ -8,7 +8,8 @@ fields:
     # xpath: //input[contains(@class,"productClickData_plp_id_")]/@value 
     # //div[@class="plp-buttons"]//form/@id 
     xpath: //div[@class="plp-product-thumb"]//img/@src
-    regExp: \d{10,}
+    regExp: \d{6,}
+    # regExp: \d+
     # regExpReplace: $1
   - name: price
     singleValue: false
