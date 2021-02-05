@@ -10,6 +10,30 @@ module.exports = {
     zipcode: "''",
   },
   implementation: async (inputs, { transform }, context, { productDetails: data }) => {
+    const applyScroll = async function (context) {
+      console.log('calling applyScroll-----------');
+      await context.evaluate(async function () {
+        let scrollTop = 0;
+        while (scrollTop !== 20000) {
+          await stall(1000);
+          scrollTop += 1000;
+          console.log('calling applyScroll evaluate-----------', window);
+          window.scroll(0, scrollTop);
+          if (scrollTop === 20000) {
+            await stall(5000);
+            break;
+          }
+        }
+        function stall(ms) {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve();
+            }, ms);
+          });
+        }
+      });
+    };
+    await applyScroll(context);
     await context.evaluate(async function () {
       const addHiddenDiv = (id, content, container) => {
         const newDiv = document.createElement('div');
