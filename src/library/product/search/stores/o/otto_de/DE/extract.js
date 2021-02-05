@@ -1,4 +1,4 @@
-const { addAlias } = require('module-alias');
+// const { addAlias } = require('module-alias');
 const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
@@ -13,23 +13,23 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(async () => {
-      // let scrollTop = 0;
-      // while (scrollTop !== 1000) {
-      //   await stall(1000);
-      //   scrollTop += 1700;
-      //   window.scroll(0, scrollTop);
-      //   if (scrollTop === 1700) {
-      //    await stall(2000);
-      //     break;
-      //   }
-      // }
-      //  function stall(ms) {
-      //   return new Promise((resolve, reject) => {
-      //      setTimeout(() => {
-      //       resolve();
-      //      }, ms);
-      //    });
-      //  }
+      let scrollTop = 0;
+      while (scrollTop !== 20000) {
+        await stall(500);
+        scrollTop += 1000;
+        window.scroll(0, scrollTop);
+        if (scrollTop === 20000) {
+          await stall(5000);
+          break;
+        }
+      }
+      function stall(ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
       var tempData, valueVariant, valueRating;
       const rawData = document.querySelectorAll('script[type="application/ld+json"]');
       for (let i = 0; i < rawData.length; i++) {
@@ -60,15 +60,7 @@ module.exports = {
         const originalDiv = document.querySelectorAll("script[type='application/ld+json']")[index];
         originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
-      const getAllXpath = (xpath, prop) => {
-        const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        const result = [];
-        for (let index = 0; index < nodeSet.snapshotLength; index++) {
-          const element = nodeSet.snapshotItem(index);
-          if (element) result.push(prop ? element[prop] : element.nodeValue);
-        }
-        return result;
-      };
+
 
       var aa = document.querySelectorAll("script[type='application/ld+json']");
       if (aa != null) {
@@ -79,19 +71,19 @@ module.exports = {
           addHiddenDiv('newname', rawjson.name, i)
           addHiddenDiv('price', rawjson.offers[0].price, i)
           addHiddenDiv('img', rawjson.image, i)
-          addHiddenDiv('url', 'https://www.otto.de'+rawjson.url, i)
+          addHiddenDiv('url', 'https://www.otto.de' + rawjson.url, i)
           addHiddenDiv('brand', rawjson.brand, i)
-          var prodid=rawjson.url.split('/#variationId=')[1]
+          var prodid = rawjson.url.split('/#variationId=')[1]
           addHiddenDiv('prodid', prodid, i)
-          try{
+          try {
             addHiddenDiv('aggr', rawjson.aggregateRating[0].ratingValue, i)
           }
-          catch(error){}
-          try{
+          catch (error) { }
+          try {
             addHiddenDiv('review', rawjson.aggregateRating[0].reviewCount, i)
           }
-          catch(error){}
-          
+          catch (error) { }
+
 
         }
       }

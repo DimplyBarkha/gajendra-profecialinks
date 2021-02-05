@@ -83,16 +83,25 @@ async function implementation(
     return next.href;
   }, [nextPageUrlSelector, 'head link[rel="next"]']);
 
-//Edits to add custom JS
-  
-  
+  //Edits to add custom JS
+
+
   const productoffset = await context.evaluate(async () => {
-    let arr=[]
-    const rawData = document.querySelectorAll('script[type="application/ld+json"]');
-    var startat= rawData.length;
+    const getAllXpath = (xpath, prop) => {
+      const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      const result = [];
+      for (let index = 0; index < nodeSet.snapshotLength; index++) {
+        const element = nodeSet.snapshotItem(index);
+        if (element) result.push(prop ? element[prop] : element.nodeValue);
+      }
+      return result;
+    };
+    let arr = [];
+    const rawData = getAllXpath('//script[@type="application/ld+json"]', 'nodeValue');
+    var startat = rawData.length;
     arr.push(startat);
     // @ts-ignore
-    const stopat= parseInt(document.querySelector('span[class="item"] strong').innerText.replace('(','').replace(')',''))
+    const stopat = parseInt(document.querySelector('span[class="item"] strong').innerText.replace('(', '').replace(')', ''))
     arr.push(stopat);
     return arr;
   });
@@ -101,14 +110,14 @@ async function implementation(
   if (!url && openSearchDefinition) {
     const { pageStartNb = 1, indexOffset, pageOffset, pageIndexMultiplier, template } = openSearchDefinition;
     const pageNb = page + pageStartNb - 1;
-    if (offset+productoffset[0]<=productoffset[1]){
+    if (offset < productoffset[1]) {
       url = template
-      .replace(/{searchTerms}/g, encodeURIComponent(keywords))
-      .replace(/{id}/g, encodeURIComponent(id))
-      .replace(/{date}/g, encodeURIComponent(date))
-      .replace(/{page}/g, (pageNb + (pageOffset || 0)).toString())
-      .replace(/{index}/g, (pageNb * (pageIndexMultiplier || 0)).toString())
-      .replace(/{offset}/g, (offset + (productoffset[0] || 0)).toString());
+        .replace(/{searchTerms}/g, encodeURIComponent(keywords))
+        .replace(/{id}/g, encodeURIComponent(id))
+        .replace(/{date}/g, encodeURIComponent(date))
+        .replace(/{page}/g, (pageNb + (pageOffset || 0)).toString())
+        .replace(/{index}/g, (pageNb * (pageIndexMultiplier || 0)).toString())
+        .replace(/{offset}/g, (offset).toString());
     }
   }
 
