@@ -4,6 +4,12 @@ parameters:
   domain: zalando.de
   store: zalando_mweb
   zipcode: ""
+policy:
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 60
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 99
 meta:
   branches:
     tdcm_zalando_mweb_DE_search:
