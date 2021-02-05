@@ -38,7 +38,7 @@ const transform = (data) => {
       if (row.additionalDescBulletInfo) {
         let text = '';
         row.additionalDescBulletInfo.forEach(item => {
-          text += ` || ${item.text}`;
+          text += `${item.text} || `;
         });
         row.additionalDescBulletInfo = [
           {
@@ -46,17 +46,24 @@ const transform = (data) => {
           },
         ];
       }
-      if (row.description) {
-        let text = '';
-        row.description.forEach(item => {
-          text += `${item.text}`;
+      if (row.aggregateRating2) {
+        row.aggregateRating2.forEach(item => {
+          item.text = item.text.replace(/\s*/g, '');
+          item.text =  item.text.replace(".",",");
         });
-        row.description = [
-          {
-            text: text,
-          },
-        ];
-      }
+    }
+    if (row.description) {
+      let text = '';
+      row.description.forEach(item => {
+        text += `${item.text}`;
+      });
+      row.description = [
+        {
+          text: text,
+        },
+      ];
+    }
+
       if (row.sku) {
         row.sku.forEach(item => {
           let skuVal=item.text.replace('window.__PRODUCT_DETAIL_APP_INITIAL_STATE__ = ', '').slice(0, -1) ;
