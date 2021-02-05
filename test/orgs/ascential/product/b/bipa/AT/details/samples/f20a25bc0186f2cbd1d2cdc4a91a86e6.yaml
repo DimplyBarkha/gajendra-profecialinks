@@ -2,19 +2,17 @@ input:
   id: 372703
   _url: http://bipa.at
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=0960b02e-37c7-42ae-bc7d-9495307639b4/task=42e12661-48ac-4445-baa0-7b2f3ad3c02d/1ba9a6ef-4779-49f9-8128-3735797f7c07.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=d4890489-f950-4d29-a651-4f4cb744b1c9/task=8ba32678-d824-4725-9b0c-009623009f9d/3c3d4c9a-5fc8-47e0-9326-d143859f4935.html
     extractionConfigId: product/details/stores/b/bipa/AT/extract
     data:
       - group:
           - image:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612346602167/original/372703.png?sw=450&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612511918818/original/372703.png?sw=450&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
             imageAlt:
               - text: Fa Kahuna Duschgel
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@alt
             category:
-              - text: Home
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/a[1]/text()[1]
               - text: Pflege
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/a[1]/text()[1]
               - text: Körper
@@ -53,20 +51,6 @@ extractions:
             quantity:
               - text: 250 ml
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/text()[1]
-            weightNet:
-              - text: Aqua (Water, Eau), Sodium Laureth Sulfate, Cocamidopropyl Betaine, Sodium
-                  Chloride, Parfum (Fragrance), Guar Hydroxypropyltrimonium
-                  Chloride, Aleurites Moluccanus Seed Oil, Coco - Glucoside,
-                  Caprylyl / Capryl Glucoside, Propylene Glycol, PEG - 7
-                  Glyceryl Cocoate , Laureth - 2, Tocopherol, Hydrogenated Palm
-                  Glycerides Citrate, Benzophenone - 4, Sodium Hydroxide, Citric
-                  Acid, Linalool, Limonene, Citronellol, Hexyl Cinnamal, Sodium
-                  Benzoate, Sodium Salicylate, Benzyl Alcohol, CI 47005 (Yellow
-                  10), CI 16035 (Red 40)
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/text()[2]
-            weightGross:
-              - text: "Biozid:"
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/text()[1]
             sku:
               - text: B3-372703
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/script[1]
@@ -125,4 +109,4 @@ extractions:
                 locale: de_AT
                 value: 0
         xpath: /
-    timestamp: 1612359188584
+    timestamp: 1612512155501

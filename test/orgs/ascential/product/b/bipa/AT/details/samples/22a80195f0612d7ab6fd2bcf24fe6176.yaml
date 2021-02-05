@@ -2,32 +2,30 @@ input:
   id: 253606
   _url: http://bipa.at
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=0960b02e-37c7-42ae-bc7d-9495307639b4/task=84218234-9f4d-49c8-9a2c-9bbfffaa7603/d4f4c99c-1e74-41b2-a724-580db362947c.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=d4890489-f950-4d29-a651-4f4cb744b1c9/task=e596c18e-864e-4577-ab3b-84ff4f649030/53900d39-08eb-4dd6-b3af-015c5af785c5.html
     extractionConfigId: product/details/stores/b/bipa/AT/extract
     data:
       - group:
           - image:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612346602167/original/253606.png?sw=450&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612511918818/original/253606.png?sw=450&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
             imageAlt:
               - text: "Bild: Womanizer Druckwellenvibrator Premium White Chrome Womanizer
                   Druckwellenvibrator Premium White Chrome"
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612346602167/original/253606_1.png?sw=450&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612511918818/original/253606_1.png?sw=450&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/img[1]/@src
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612346602167/original/253606_2.png?sw=450&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612511918818/original/253606_2.png?sw=450&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/img[1]/@src
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612346602167/original/253606_3.png?sw=450&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612511918818/original/253606_3.png?sw=450&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/img[1]/@src
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612346602167/original/253606_4.png?sw=450&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612511918818/original/253606_4.png?sw=450&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/img[1]/@src
             metaKeywords:
               - text: womanizer, amorelie womanizer, womanizer premium
                 xpath: /html/head[1]/meta[5]/@content
             category:
-              - text: Home
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/a[1]/text()[1]
               - text: Love
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/a[1]/text()[1]
               - text: Sexspielzeug für Frauen
@@ -85,9 +83,6 @@ extractions:
             ratingCount:
               - text: "10"
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/@ratingcount
-            aggregateRatingText:
-              - text: 4,5
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/@ratingextracted
             aggregateRating:
               - text: 4,5
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/@ratingextracted
@@ -136,4 +131,4 @@ extractions:
                 locale: de_AT
                 value: 0
         xpath: /
-    timestamp: 1612359185189
+    timestamp: 1612512153400

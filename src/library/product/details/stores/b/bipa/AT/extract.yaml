@@ -22,7 +22,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //ol[@id='breadcrumb']/li/a/text()|//ol[@id='breadcrumb']/li/a/font/font/text()
+    xpath: //ol[@id='breadcrumb']/li[position()>1]/a/text()|//ol[@id='breadcrumb']/li[position()>1]/a/font/font/text()
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"   and appending " - ${variantType}" if necessary (fixed per feed)
@@ -66,10 +66,14 @@ fields:
     singleValue: true
     description: Net weight as described on the page
     xpath: //div[@class='lmiv-entry lmiv-secondlevel'][last()]/br[1]/following-sibling::text()[1]|//div[@class='lmiv-entry lmiv-secondlevel'][last()]/font[last()]/font/text()
+    regExp: (?<=Nettogehalt)(\:)( )(.+)
+    regExpReplace: $4
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
     xpath: //div[@class='lmiv-entry lmiv-secondlevel'][last()]/br[1]/preceding-sibling::text()[1]|//div[@class='lmiv-entry lmiv-secondlevel'][last()]/font[1]/font/text()
+    regExp: (?<=Bruttogewicht)(\:)( )(.+)
+    regExpReplace: $3
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
@@ -108,7 +112,7 @@ fields:
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
-    xpath: //div[@class='pdp__wrapper--content']/@ratingextracted
+    xpath: //div[@class='pdp__wracatpper--content']/@ratingextracted
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5

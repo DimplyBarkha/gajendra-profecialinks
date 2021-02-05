@@ -2,19 +2,17 @@ input:
   id: 725017
   _url: http://bipa.at
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=0960b02e-37c7-42ae-bc7d-9495307639b4/task=02dc0c93-3869-4454-9eca-3d7e39c77eec/cdc58a6c-b262-4186-aa64-2c80f6cbf3c9.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=d4890489-f950-4d29-a651-4f4cb744b1c9/task=0592dcac-2d31-45a8-b9ea-148b1bdfcec0/983793e0-9fb3-40d1-b5c6-01aad52bbe80.html
     extractionConfigId: product/details/stores/b/bipa/AT/extract
     data:
       - group:
           - image:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612346602167/original/725017.png?sw=450&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612511918818/original/725017.png?sw=450&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
             imageAlt:
               - text: MANHATTAN Soft Compact Powder
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@alt
             category:
-              - text: Home
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/a[1]/text()[1]
               - text: Make-up
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/a[1]/text()[1]
               - text: Gesicht
@@ -49,11 +47,8 @@ extractions:
               - text: 1 Stück
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/text()[1]
             weightNet:
-              - text: "Nettogehalt: 9 Gramm"
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/text()[2]
-            weightGross:
-              - text: "Bruttogewicht: 45 Gramm"
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/text()[1]
+              - text: $4
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/text()[2]
             sku:
               - text: B3-729543
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/script[1]
@@ -64,11 +59,8 @@ extractions:
               - text: "4002554169345"
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/script[1]
             ratingCount:
-              - text: "91"
+              - text: "95"
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/@ratingcount
-            aggregateRatingText:
-              - text: 4,2
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/@ratingextracted
             aggregateRating:
               - text: 4,2
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/@ratingextracted
@@ -77,7 +69,7 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]/text()[1]
             countryOfOrigin:
               - text: ITALIEN
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/text()[2]
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/text()[2]
             variantInformation:
               - text: Farbe wählen
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[1]/div[1]/h5[1]/text()[1]
@@ -118,4 +110,4 @@ extractions:
                 locale: de_AT
                 value: 5
         xpath: /
-    timestamp: 1612359188310
+    timestamp: 1612512156324
