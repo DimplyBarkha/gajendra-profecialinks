@@ -79,5 +79,4 @@ module.exports = {
     noResultsXPath: "//h1[@data-automation='product-not-found-heading'] | //div[@data-automation='out-of-stock-notification-wrapper']//h3[text()='It looks like that item is out of stock']",
     zipcode: '',
   },
-  implementation
 };

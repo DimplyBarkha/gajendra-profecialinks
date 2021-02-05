@@ -19,11 +19,18 @@ const transform = (data) => {
   
     for (const { group } of data) {
       for (const row of group) {
+        if(row.variantId){
+          row.variantId.forEach(item=>{
+            let temp=item.text.split('_Colour_').pop().split('_sw_');
+            item.text=temp[0];
+          })
+        }
         if (row.variantUrl) {      
-          row.variantUrl.forEach(item => {      
-            item.text  = 'https://www.myer.com.au'+item.text;
+          row.variantUrl.forEach(item => {
+             item.text=`${row.currentURL[0].text}?color=${item.text}`;
           });         
         }
+        delete row.currentURL;
       }
     }
     return data;
