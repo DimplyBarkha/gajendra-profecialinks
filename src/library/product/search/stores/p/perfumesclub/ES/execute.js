@@ -5,7 +5,7 @@ module.exports = {
     country: 'ES',
     store: 'perfumesclub',
     domain: 'perfumesclub.com',
-    url: 'https://www.perfumesclub.com/',
+    url: 'https://www.perfumesclub.com/es/{searchTerms}/m/',
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
