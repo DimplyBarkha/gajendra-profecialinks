@@ -7,7 +7,7 @@ module.exports = {
     domain: 'emag.ro',
     url: 'https://www.emag.ro/search/{searchTerms}',
     loadedSelector: 'div[id="card_grid"]',
-    noResultsXPath: '//span[text()="0 rezultate pentru:"]',
+    noResultsXPath: '//span[text()="0 rezultate pentru:"]|//h1[@class="listing-page-title js-head-title"]//span[contains(text(), "0 rezultate")]//span[text()="0 rezultate pentru:"]',
     zipcode: '',
   },
   implementation: async ({ zipcode, keywords },

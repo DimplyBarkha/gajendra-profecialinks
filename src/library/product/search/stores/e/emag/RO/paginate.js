@@ -10,7 +10,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[id="card_grid"]',
-    noResultsXPath: '//span[text()="0 rezultate pentru:"]',
+    noResultsXPath: '//span[text()="0 rezultate pentru:"]|//h1[@class="listing-page-title js-head-title"]//span[contains(text(), "0 rezultate")]',
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
     openSearchDefinition: null,
