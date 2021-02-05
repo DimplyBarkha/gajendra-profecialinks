@@ -25,7 +25,9 @@ module.exports = {
    
     const responseStatus = await context.goto(`${url}`, {
       antiCaptchaOptions: {
+        provider: 'geetest-captcha-solver',
         type: 'GEETEST',
+        autoSubmit: true,
       },
       firstRequestTimeout: 60000,
       timeout: timeout,
@@ -71,7 +73,9 @@ module.exports = {
     } catch (error) {
       const responseStatus = await context.goto(`${url}`, {
         antiCaptchaOptions: {
+          provider: 'geetest-captcha-solver',
           type: 'GEETEST',
+          autoSubmit: true,
         },
         firstRequestTimeout: 60000,
         timeout: timeout,
