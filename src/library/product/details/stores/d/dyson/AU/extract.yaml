@@ -111,7 +111,7 @@ fields:
     xpath: //div[@id="rating"]
   - name: shippingInfo #localedependent
     description: Shipping information for the product
-    xpath: //div[@id="shippingInfo"]
+    xpath: //div[@id="shippingInfo"] | //div[@id="dyson-guarantee"]//*[contains(text(), 'shipping')]
   - name: shippingDimensions #missing
     description: Stated shipping dimensions
   - name: shippingWeight #missing
