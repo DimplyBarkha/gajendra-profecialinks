@@ -54,20 +54,20 @@ fields:
     xpath: //h1[@class='item-brand-name']//a
   - name: sku
     singleValue: false
-    xpath: //div[@id='product-variant-id']/@data-product-id
+    xpath: //div[@class='swatches-group']/ul/li[@class="active"]/a/@data-code | //div[@class='swatches-group']/ul/li[@class="active"]/a/@data-code
   - name: variants
     singleValue: false
     xpath: //div[contains(@class,'swatches-group')]//li//a/@data-code
   - name: variantId
     singleValue: false
-    xpath: //script[contains(text(),'itemid')]
+    xpath: //div[@class='swatches-group']/ul/li[@class="active"]/a/@data-code | //div[@class='swatches-group']/ul/li[@class="active"]/a/@data-code
     #"itemid" : "BB_885609019680",
-    regExp: \"itemid\"\s*:\s*\"(.+?)\"
-    regExpReplace: $1
+    # regExp: \"itemid\"\s*:\s*\"(.+?)\"
+    # regExpReplace: $1
   - name: variantCount
     singleValue: false
     # count variants
-    xpath: //div[contains(@class,'swatches-group')]//li//a/@data-code
+    xpath: count(//div[contains(@class,'swatches-group')]//li//a)
     defaultValue: '0'
     type: NUMBER
   - name: variantInformation

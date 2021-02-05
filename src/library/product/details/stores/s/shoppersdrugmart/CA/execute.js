@@ -19,6 +19,17 @@ async function implementation (
     url = await dependencies.createUrl({ id });
   }
   await dependencies.goto({ url, zipcode, storeId });
+  const productClick = async function (context) {
+    await context.evaluate(async function () {
+      const clickElement = document.querySelector('section[data-testid="product-list"] div.plp__imageWrapper__1iSxD');
+      if (clickElement) {
+        console.log('Clicking on load more btn');
+        // @ts-ignore
+        document.querySelector('section[data-testid="product-list"] div.plp__imageWrapper__1iSxD').click();
+      }
+    });
+  };
+  await productClick(context);
   await new Promise((resolve, reject) => setTimeout(resolve, 12000));
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
@@ -38,5 +49,4 @@ module.exports = {
     noResultsXPath: "//p[contains(text(),'The page you are looking for cannot be found')]",
     zipcode: '',
   },
-  implementation,
 };
