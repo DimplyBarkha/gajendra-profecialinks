@@ -34,8 +34,6 @@ fields:
     # xpath: //p[@class="in-store-price"] | //p[@class="regular-price"]
   - name: price
     singleValue: false
-    description: The offered price for the selected product variant - if a user
-      clicks add to basket this is the price they would be charged
     xpath: //p[@class="price discount"] | //p[@class="price"]
   - name: availabilityText
     singleValue: false
@@ -45,13 +43,10 @@ fields:
     xpath: //p[@class="stock-status available"] | //div[@class="limited-accessability"]
     # regExp: (.+)
     # regExpReplace: In Stock
-    defaultValue: In Stock
+    defaultValue: Out of stock		
   - name: description
     singleValue: false
-    description: Product description supplied by website - may be concatenanted from
-      multiple places; specifically not the manufacturer description
     xpath: //div[@id="bb_description"]
-    # xpath: //div[@data-tab-heading="Beskrivning"] | //div[contains(@class, "content-body product-page-info")]/ul/li
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
@@ -70,10 +65,9 @@ fields:
   - name: quantity
     singleValue: false
     description: Quantity as described on the page
-    xpath: //div[contains(@class , "product-name")]/p | //div[@id="bb_description"]
-    # type: NUMBER
-    # regExp: \s(\d+)\sml
-    # regExpReplace: $1
+    xpath: (//div[contains(@class,'product-name')]//h1)[1]
+    #regExp: \s(\d+)\sml
+    #regExpReplace: $1
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
@@ -83,7 +77,7 @@ fields:
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
-    xpath: //div[@id="bb_gtin"]
+    xpath: substring-before(substring-after(substring-after((//div[@id='apoteket-body']//script)[2],'"gtin13":'),' "'),'"')
   - name: sku
     singleValue: false
     description: The store-specific product identifier
