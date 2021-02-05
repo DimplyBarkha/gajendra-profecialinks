@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'pacson.se',
     prefix: null,
-    url: null,
+    url: 'https://pacson.se/sokresultat?q={id}',
     country: 'SE',
     store: 'pacson',
     zipcode: '',
