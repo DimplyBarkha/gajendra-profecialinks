@@ -7,29 +7,27 @@ module.exports = {
     country: 'FR',
     store: 'boulanger',
     zipcode: "''",
-    implementation: async (inputs, parameterValues, context, dependencies) => {
-      let url = `${inputs.url}`;
-      await context.setBlockAds(false);
-      url = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
-      await context.goto(url, { waitUntil: 'networkidle0', block_ads: false });
-      async function autoScroll (page) {
-        await page.evaluate(async () => {
-          await new Promise((resolve, reject) => {
-            var totalHeight = 0;
-            var distance = 100;
-            var timer = setInterval(() => {
-              var scrollHeight = document.body.scrollHeight;
-              window.scrollBy(0, distance);
-              totalHeight += distance;
-              if (totalHeight >= scrollHeight) {
-                clearInterval(timer);
-                resolve();
-              }
-            }, 100);
-          });
-        });
+  },
+  implementation: async (inputs, parameterValues, context, dependencies) => {
+    const url = `${inputs.url}`;
+    await context.setBlockAds(false);
+    // await context.goto(url, { timeout: 90000, waitUntil: 'networkidle0', block_ads: false });
+    const isBlocked = async () => {
+      return await context.evaluate(async function () {
+        const errorXpath = document.evaluate("//title[contains(text(), 'Error')] | //title[contains(text(), 'Access Denied')]", document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        if (errorXpath.snapshotLength) {
+          return 'true';
+        } else {
+          return 'false';
+        }
+      });
+    };
+    const promise2 = async () => {
+      await new Promise(resolve => setTimeout(resolve, 30000));
+      if (await isBlocked() === 'true') {
+        return await context.reportBlocked();
       }
-      await autoScroll(context);
-    },
+    };
+    Promise.all([context.goto(url, { timeout: 90000, waitUntil: 'networkidle0', block_ads: false }), promise2]);
   },
 };
