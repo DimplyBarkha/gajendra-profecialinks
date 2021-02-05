@@ -14,7 +14,7 @@ async function implementation (
       scrollTop += 1000;
       window.scroll(0, scrollTop);
       if (scrollTop === 20000) {
-        await stall(8000);
+        await stall(1000);
         break;
       }
     }
@@ -37,5 +37,5 @@ module.exports = {
     domain: 'plein.nl',
     zipcode: "''",
   },
-  // implementation,
+  implementation,
 };
