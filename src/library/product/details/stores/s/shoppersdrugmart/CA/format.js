@@ -66,6 +66,18 @@ const transform = (data) => {
           row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.nameExtended[0].text }];
         }
       }
+      if (row.variantId) {
+        row.variantId.forEach(item => {
+          let variantIdVal=item.text.replace('var certona = ', '').slice(0, -1) ;
+          let data = JSON.parse(variantIdVal);
+          console.log('dataObjvariant :',data.itemid);
+          if(data.hasOwnProperty('itemid')){
+            item.text=data.itemid;
+          }else{
+            item.text="";
+          }
+        });
+      }
     }
   }
   return cleanUp(data);

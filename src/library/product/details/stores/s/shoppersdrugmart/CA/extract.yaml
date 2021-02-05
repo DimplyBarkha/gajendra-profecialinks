@@ -32,7 +32,7 @@ fields:
     # defaultValue: Out of Stock
   - name: price
     singleValue: false
-    xpath: //div[@class='product-detail-header']//div[@class='item-product-price']//span[not(contains(@class,'strikethrough'))]
+    xpath: //div[@class='product-detail-header']//div[@class='item-product-price']//span[@class="strikethrough"]
   - name: listPrice
     singleValue: false
     xpath: //div[@class='product-detail-header']//div[@class='item-product-price']//span[@class='strikethrough']
@@ -54,13 +54,13 @@ fields:
     xpath: //h1[@class='item-brand-name']//a
   - name: sku
     singleValue: false
-    xpath: //div[@class='swatches-group']/ul/li[@class="active"]/a/@data-code
+    xpath: //div[@id="product-variant-id"]/@data-product-id
   - name: variants
     singleValue: false
     xpath: //div[contains(@class,'swatches-group')]//li//a/@data-code
   - name: variantId
     singleValue: false
-    xpath: //div[@class='swatches-group']/ul/li[@class="active"]/a/@data-code
+    xpath: //script[@type="text/javascript"][contains(text(), "itemid")]/text()
     #"itemid" : "BB_885609019680",
     # regExp: \"itemid\"\s*:\s*\"(.+?)\"
     # regExpReplace: $1
