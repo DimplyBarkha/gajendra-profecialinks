@@ -7,25 +7,17 @@ const implementation = async ({ url, id, zipcode, storeId }, { loadedSelector, n
 
   async function waitForSolvedCaptcha () {
     let newContent = '';
-    do {
+    let counter = 0;
+    while (counter < 10) {
       newContent = await context.content();
-      // it seems even without clicking the button captcha can be solved, this piece of code makes the chances higher
-      await context.evaluate(async function () {
-        const captchaButton = document.querySelector('div.captcha-button button.emg-button.emg-btn-large.emg-btn-full');
-        if (captchaButton) {
-          console.log('Found button to captcha which i will try to .click() here it is ->', captchaButton.textContent);
-          // @ts-ignore
-          // eslint-disable-next-line no-undef
-          captchaButton.click();
-        }
-      });
+      console.log('Captcha is solving????: \n', newContent);
       await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-    } while (!newContent.includes('submit'));
+      counter++;
+    }
   }
 
   await dependencies.goto({ url, zipcode, storeId });
   const captchaButton = 'div.captcha-button button';
-  const timeout = 30000;
 
   const isCaptcha = await context.evaluate(() => {
     return document.querySelector('div.captcha-button button');
@@ -49,30 +41,6 @@ const implementation = async ({ url, id, zipcode, storeId }, { loadedSelector, n
   } else {
     await context.waitForSelector(captchaButton);
     await waitForSolvedCaptcha();
-
-    const captchaFrame = 'iframe[title="testare reCAPTCHA"]';
-    const maxRetries = 3;
-    let numberOfCaptchas = 0;
-    try {
-      await context.waitForSelector(captchaFrame);
-    } catch (e) {
-      console.log("Didn't find Captcha.");
-    }
-
-    while (numberOfCaptchas < maxRetries) {
-      console.log('isCaptcha', true);
-      ++numberOfCaptchas;
-      await context.waitForNavigation({ timeout });
-      try {
-        console.log(`Trying to solve captcha - count [${numberOfCaptchas}]`);
-        // @ts-ignore
-        // eslint-disable-next-line no-undef
-        await context.evaluateInFrame('iframe', () => grecaptcha.execute());
-        await context.waitForNavigation({ timeout });
-      } catch (e) {
-        console.log('Captcha did not load');
-      }
-    }
     // wait for homepage to load
     await context.waitForNavigation();
     // get current url and check if it indicates that captcha has been solved, if yes go again to product page if not throw error (throwing error will cause next retry of this crawl run task to occur)
