@@ -86,7 +86,7 @@ module.exports = {
         await context.waitForNavigation(timeout);
       }
     }
-    const hasAcceptLink = await context.evaluate((selector) => !!document.querySelector(selector), 'a.didomi-popup-close.didomi-no-link-style');
+    var hasAcceptLink = await context.evaluate((selector) => !!document.querySelector(selector), 'a.didomi-popup-close.didomi-no-link-style');
     if (hasAcceptLink) {
       await context.click('a.didomi-popup-close.didomi-no-link-style');
     }
@@ -98,8 +98,8 @@ module.exports = {
       await context.goto('https://www.intermarche.com/accueil/magasins/02111/brienne-le-chateau-10500');
       await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
     }
-    const hasAcceptLink = await context.evaluate((selector) => !!document.querySelector(selector), 'a.didomi-popup-close.didomi-no-link-style');
-    if (hasAcceptLink) {
+    var AcceptLink = await context.evaluate((selector) => !!document.querySelector(selector), 'a.didomi-popup-close.didomi-no-link-style');
+    if (AcceptLink) {
       await context.click('a.didomi-popup-close.didomi-no-link-style');
     }
   },
