@@ -63,7 +63,6 @@ module.exports = {
         console.log("Didn't find Captcha.");
       }
       while (numberOfCaptchas < maxRetries) {
-        console.log('isCaptcha', true);
         ++numberOfCaptchas;
         await context.waitForNavigation({ timeout });
         try {

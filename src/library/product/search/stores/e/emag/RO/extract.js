@@ -4,7 +4,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  await new Promise((resolve, reject) => setTimeout(resolve, 4000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 5000));
 
   await context.evaluate(async function () {
     const price = document.querySelectorAll('div#card_grid div.card-section-wrapper.js-section-wrapper p[class="product-new-price"]');
@@ -47,6 +47,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     });
   });
 
+  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
   return await context.extract(productDetails, { transform });
 }
 
