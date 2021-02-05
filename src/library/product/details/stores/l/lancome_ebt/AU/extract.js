@@ -103,40 +103,24 @@ module.exports = {
 
       // Ingredient List
       const getIngredientList = (d) => {
-        var arr = "";
-        var ingList;
-        for (var i = 0; i < d.length; i++) {
-          arr += d[i];
-        }
-        var ingList1 = arr.replace('Print', '').trim();
-        if (ingList1.match('●') != null) {
-          ingList = ingList1.replaceAll('●', ' || ');
-        } else if (ingList1.match('•') != null) {
-          ingList = ingList1.replaceAll('•', ' || ');
-        } else if (ingList1.match(',') != null) {
-          ingList = ingList1.replaceAll(',', ' || ');
-        } else {
-          ingList = ingList1;
-        }
-
-        addElementToDocument('ingList', ingList);
+        addElementToDocument('ingList', d.replace('Print', '').trim().replaceAll(/\n+/gm, '\n').replaceAll('•', ',').replaceAll('●', ',').replaceAll('\n', '|'));
       }
-      var ingredientList = getAllXpath('//div[@id="tab_ingredients"]/descendant::text()[position()<last()]', 'nodeValue');
+      var ingredientList = document.querySelector('div[id="tab_ingredients"]').textContent;
       getIngredientList(ingredientList);
 
       // Product Description 
       const getDescription = (d) => {
-        var desc = d.replaceAll(/\n+/gm,'\n').replaceAll('•'||'●','||').replaceAll('\n','|').replaceAll('|||','||');        
-        addElementToDocument('specs',desc);
+        var desc = d.replace('Print', '').trim().replaceAll(/\n+/gm, '\n').replaceAll('•', '||').replaceAll('●', '||').replaceAll('\n', '|').replaceAll('|||', '||');
+        addElementToDocument('specs', desc);
       };
       // @ts-ignore
-      var description = document.querySelector('div[id="tab_description"]').innerText;
+      var description = document.querySelector('div[id="tab_description"]').textContent;
       getDescription(description);
 
       // Directions 
-      var directions = getAllXpath('(//div[@id="tab_productvideo"]//p)/text()', 'nodeValue');
-      var dir = directions.toString().replace('\n', ' || ');
-      addElementToDocument('dir', dir);
+      // @ts-ignore
+      var dir1 = document.querySelector('div[id="tab_productvideo"]').textContent;
+      addElementToDocument('directions', dir1.replace('Print', '').trim().replaceAll(/\n+/gm, '\n').replaceAll('•' || '●', '||').replaceAll('\n', '|').replaceAll('|||', '||'));
 
       // Product url generater
       var url = "";
@@ -164,6 +148,18 @@ module.exports = {
         }
       }
 
+      // Brand
+      var jsonData = JSON.parse(getXpath('(//span/@data-product-impression)[1]', 'nodeValue'));
+      for (var k in jsonData) {
+        var j = jsonData[k].brand;
+      }
+      addElementToDocument('brand', j);
+
+      // Colour
+      var color = getXpath('//div[contains(@class,"selected")]//span[contains(@class,"swatch_text_color product-variation-shade__textcolor hidden")]/text()', 'nodeValue');
+      if (color != null) {
+        addElementToDocument('color', color.match(/[a-zA-Z].+/gm).join());
+      }
 
       var str = getXpath('(//div[@class="product_detail pdp__detail small-12 medium-6 large-5 columns"]//span[@class="bv-rating_value "]/@style)[1]', 'nodeValue');
       if (str != null) {

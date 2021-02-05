@@ -57,6 +57,7 @@ fields:
     type: NUMBER
   - name: brandText
     singleValue: true
+    xpath: //html//div[@id='brand']
     description:
       Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
@@ -65,9 +66,8 @@ fields:
     description: Product manufacturer
   - name: quantity
     singleValue: true
+    xpath: //input[@id="product_selectedsize"]/@value
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -79,11 +79,11 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: true
-    xpath: //div[@id="BVRRContainer"]//div/@data-product-id
+    xpath: (//li[@class="pdp__actions-item"]//a[@class="wishlist_action js_wishlist_button_update c-button--text "])/@data-pid
     description: The store-specific product identifier
   - name: variantId
     singleValue: true
-    xpath: (//li[@class="pdp__actions-item"]//a[@class="wishlist_action js_wishlist_button_update c-button--text "])/@data-pid
+    xpath: //div[@id="BVRRContainer"]//div/@data-product-id
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: true
@@ -98,6 +98,7 @@ fields:
     description: Content under "legal disclaimer" header
   - name: directions
     singleValue: true
+    xpath: //html//div[@id='directions']
     description: Content under "directions" header
   - name: warnings
     singleValue: true
@@ -133,6 +134,7 @@ fields:
     type: NUMBER
   - name: color
     singleValue: true
+    xpath: //html//div[@id='color']
     description: A textual description of the colour
   - name: colorCode
     singleValue: true
