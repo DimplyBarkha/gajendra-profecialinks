@@ -9,8 +9,6 @@ async function implementation ({ inputString }, { country, domain, transform }, 
         const oldScroll = currScroll;
         window.scrollBy(0, 500);
         await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-        window.scrollBy(0, 500);
-        await new Promise((resolve, reject) => setTimeout(resolve, 3000));
         currScroll = document.documentElement.scrollTop;
         count = document.querySelectorAll('div.pageBody-content ul.ProductList>li').length;
         console.log('latest count:',count);
@@ -35,5 +33,4 @@ module.exports = {
     domain: 'delhaize.be',
     zipcode: '',
   },
-  implementation
 };
