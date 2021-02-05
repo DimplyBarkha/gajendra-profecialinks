@@ -8,6 +8,11 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { variants } = dependencies;
+  await context.evaluate(async () => {
+    if (document.querySelector('button[data-dmid="icon-circle-button"] svg[data-dmid="dm-plus"]')) {
+      document.querySelector('button[data-dmid="icon-circle-button"]').click();
+    }
+  });
   var variantCount = await context.evaluate(async () => {
     return (document.querySelectorAll('div[data-dmid="product-variants-selection-container"] div[data-dmid="color-circle-button"]').length) ? document.querySelectorAll('div[data-dmid="product-variants-selection-container"] div[data-dmid="color-circle-button"]').length : 1;
   });
