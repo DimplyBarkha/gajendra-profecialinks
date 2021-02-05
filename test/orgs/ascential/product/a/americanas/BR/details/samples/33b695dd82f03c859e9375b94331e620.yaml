@@ -2,7 +2,7 @@ input:
   _url: http://americanas.com.br
   URL: https://www.americanas.com.br/produto/134188002/lavadora-de-roupas-consul-9kg-branca-cwb09
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=45dbbeee-6407-43fc-ab4b-1362c7bdedb8/task=fdc680c3-00ab-472a-887f-87b394650c31/1c171b71-9264-4ac8-8f95-25dc22244e6f.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=e06334d3-d367-4245-99cc-a2bff7eb7d7f/task=07e3d9cf-d420-49aa-b5ef-c8c9e86f3402/91064dba-b9f2-4c51-a206-040bb78badda.html
     extractionConfigId: product/details/stores/a/americanas/BR/extract
     data:
       - group:
@@ -26,13 +26,13 @@ extractions:
               - text: Máquina de Lavar
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[3]/a[1]/text()[1]
             nameExtended:
-              - text: Lavadora de Roupas Consul 9Kg CWB09 Branca - 220V
+              - text: Lavadora de Roupas Consul 9Kg Branca CWB09 110V
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/span[1]
             price:
               - text: R$ 1.299,99
                 xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]
             name:
-              - text: Lavadora de Roupas Consul 9Kg CWB09 Branca - 220V
+              - text: Lavadora de Roupas Consul 9Kg Branca CWB09 110V
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/span[1]
             description:
               - text: >-
@@ -61,13 +61,14 @@ extractions:
             mpc:
               - text: CWB09ABANA
                 xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[30]/td[2]
-            productUrl:
-              - text: https://www.americanas.com.br/produto/134188002/lavadora-de-roupas-consul-9kg-branca-cwb09?voltagem=220V
-                xpath: /html/body/div[2]
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[3]
+            videos:
+              - text: http://www.youtube.com/embed/window.__APOLLO_STATE__ =
+                  {"ROOT_QUERY":{"__typename":"Query
+                xpath: /html/body/div[4]
             descriptionBullets:
               - text: "0"
         xpath: /html
-    timestamp: 1612447601900
+    timestamp: 1612472215084

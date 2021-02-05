@@ -32,7 +32,7 @@ module.exports = {
       const specifications = document.querySelectorAll("table[class^='src__SpecsCell'] td");
       const specificationsArr = [];
       for (let i = 0; i < specifications.length; i++) {
-        specificationsArr.push(specificationsArr[i].textContent);
+        if (specificationsArr[i]) specificationsArr.push(specificationsArr[i].textContent);
       };
       addElementToDom('specifications', specificationsArr.join(' '));
     });

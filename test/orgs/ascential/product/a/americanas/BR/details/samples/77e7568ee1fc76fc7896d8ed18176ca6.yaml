@@ -2,7 +2,7 @@ input:
   _url: http://americanas.com.br
   URL: https://www.americanas.com.br/produto/1708933455/smart-tv-led-lg-24-monitor-wi-fi-webos-3-5-dtv-machine-ready
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=45dbbeee-6407-43fc-ab4b-1362c7bdedb8/task=946111b4-335b-4b47-97d8-32648d27770c/854c2182-5edb-4f09-8742-0ecd3624430d.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=e06334d3-d367-4245-99cc-a2bff7eb7d7f/task=26ab6320-a586-4f05-8a10-d96c6d46238c/b00a54f6-d0c4-4b1e-ba9f-a27475a0e6c1.html
     extractionConfigId: product/details/stores/a/americanas/BR/extract
     data:
       - group:
@@ -33,10 +33,10 @@ extractions:
               - text: Smart TV LED LG 24" Monitor Wi-Fi Webos 3.5 DTV Machine Ready
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/span[1]
             listPrice:
-              - text: R$ 998,90
+              - text: R$ 1.099,99
                 xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/span[1]
             price:
-              - text: R$ 899,01
+              - text: R$ 1.044,99
                 xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]
             sku:
               - text: "1708933463"
@@ -45,7 +45,7 @@ extractions:
               - text: Smart TV LED LG 24" Monitor Wi-Fi Webos 3.5 DTV Machine Ready
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/span[1]
             coupon:
-              - text: 10%
+              - text: 5%
                 xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]
             description:
               - text: Smart TV Monitor LG 24" LED Wi-Fi webOS 3.5 DTV Bivolt 24TL520S Smart TV
@@ -60,29 +60,30 @@ extractions:
                   ter uma verdadeira experiência digital. O Wi-Fi Integrado
                   permite que você simplesmente conecte sua rede de preferência
                   e pronto. Já começa a navegar por qualquer site ou aplicativo.
-                xpath: /html/body/div[1]/div[1]/div[7]/div[1]
-            manufacturer:
-              - text: LG ELETRONICS
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[11]/td[2]
-            quantity:
-              - text: 3,3
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[6]/td[2]
-            gtin:
-              - text: "7893299911453"
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[2]/td[2]
+                xpath: /html/body/div[1]/div[1]/div[8]/div[1]
             variantId:
               - text: "1708933455"
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[1]/td[2]
+            gtin:
+              - text: "7893299911453"
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[2]/td[2]
+            quantity:
+              - text: 3,3
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[6]/td[2]
             mpc:
               - text: 24TL520S
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[7]/td[2]
-            productUrl:
-              - text: https://www.americanas.com.br/produto/1708933455/smart-tv-led-lg-24-monitor-wi-fi-webos-3-5-dtv-machine-ready
-                xpath: /html/body/div[2]
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[7]/td[2]
+            manufacturer:
+              - text: LG ELETRONICS
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[11]/td[2]
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[3]
+            videos:
+              - text: http://www.youtube.com/embed/window.__APOLLO_STATE__ =
+                  {"ROOT_QUERY":{"__typename":"Query
+                xpath: /html/body/div[4]
             descriptionBullets:
               - text: "0"
         xpath: /html
-    timestamp: 1612447673947
+    timestamp: 1612472231226

@@ -2,7 +2,7 @@ input:
   _url: http://americanas.com.br
   URL: https://www.americanas.com.br/produto/134444782/smart-tv-led-32-lg-hd-thinq-ai-conversor-digital-integrado-3-hdmi-2-usb-wi-fi-preta
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=45dbbeee-6407-43fc-ab4b-1362c7bdedb8/task=8a050b0f-0a09-4f87-ad5a-bb4a80680629/b754d475-d0cc-4b44-9856-0d04b5671211.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=e06334d3-d367-4245-99cc-a2bff7eb7d7f/task=30811d9a-7dd4-4124-bbb1-6685b2efe685/2f547977-7d75-4a57-8fb4-9f957f2d1904.html
     extractionConfigId: product/details/stores/a/americanas/BR/extract
     data:
       - group:
@@ -35,10 +35,10 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/span[1]
             listPrice:
               - text: R$ 1.439,00
-                xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/span[1]
+                xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/span[1]
             price:
               - text: R$ 1.295,10
-                xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]
+                xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[3]/div[1]
             sku:
               - text: "134444791"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[3]/a[1]/@to
@@ -48,7 +48,7 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/span[1]
             coupon:
               - text: 10%
-                xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]
             description:
               - text: >-
                   Todas as informações divulgadas são de responsabilidade do
@@ -70,13 +70,14 @@ extractions:
             variantId:
               - text: "134444782"
                 xpath: /html/body/div[1]/div[1]/div[7]/table[1]/tbody[1]/tr[1]/td[2]
-            productUrl:
-              - text: https://www.americanas.com.br/produto/134444782/smart-tv-led-32-lg-hd-thinq-ai-conversor-digital-integrado-3-hdmi-2-usb-wi-fi-preta
-                xpath: /html/body/div[2]
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[3]
+            videos:
+              - text: http://www.youtube.com/embed/window.__APOLLO_STATE__ =
+                  {"ROOT_QUERY":{"__typename":"Query
+                xpath: /html/body/div[4]
             descriptionBullets:
               - text: "0"
         xpath: /html
-    timestamp: 1612447619331
+    timestamp: 1612472240586

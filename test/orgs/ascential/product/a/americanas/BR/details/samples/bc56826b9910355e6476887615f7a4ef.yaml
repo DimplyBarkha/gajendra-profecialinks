@@ -2,7 +2,7 @@ input:
   _url: http://americanas.com.br
   URL: https://www.americanas.com.br/produto/100044574/tv-led-28-usb-hdmi-rj45-philco-bivolt-ph28n91dsgwa
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=45dbbeee-6407-43fc-ab4b-1362c7bdedb8/task=3fa1f71f-d265-407c-ac3c-a717ac610428/5a30b94c-8671-4280-aa1b-b77ccbe894d8.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=e06334d3-d367-4245-99cc-a2bff7eb7d7f/task=82990f9e-0580-4c58-8709-f16d6a31d7d0/b17ea499-86af-47fb-af70-c67ab487a0cb.html
     extractionConfigId: product/details/stores/a/americanas/BR/extract
     data:
       - group:
@@ -75,13 +75,14 @@ extractions:
             variantId:
               - text: "100044574"
                 xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]
-            productUrl:
-              - text: https://www.americanas.com.br/produto/100044574/tv-led-28-usb-hdmi-rj45-philco-bivolt-ph28n91dsgwa?cor=PRETO&voltagem=BIVOLT
-                xpath: /html/body/div[2]
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[3]
+            videos:
+              - text: http://www.youtube.com/embed/window.__APOLLO_STATE__ =
+                  {"ROOT_QUERY":{"__typename":"Query
+                xpath: /html/body/div[4]
             descriptionBullets:
               - text: "0"
         xpath: /html
-    timestamp: 1612447597353
+    timestamp: 1612472209883
