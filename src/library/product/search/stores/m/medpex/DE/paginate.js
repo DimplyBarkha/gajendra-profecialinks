@@ -3,8 +3,8 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'medpex',
-    nextLinkSelector: '#searchresult > div.pagenav > table > tbody > tr > td:nth-last-child(2)>a',
-    //nextLinkXpath: '//div[@class="pagenav"]//tr//td//a[contains(text(),">")]',
+    //nextLinkSelector: '#searchresult > div.pagenav > table > tbody > tr > td:nth-last-child(2)>a',
+    nextLinkXpath: '//div[@class="pagenav"]//tr//td//a[contains(text(),">")]',
     mutationSelector: null,
     spinnerSelector: null,
     //noResultsXPath: '//div[@id="messageContainer"]/table[@class="error"]',
