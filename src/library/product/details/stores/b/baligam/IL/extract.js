@@ -72,18 +72,26 @@ module.exports = {
       });
       addElementToDocument('addEelementBullentCount', additionalDescBulletInfo.length);
 
-      let specification = '';
-      additionalDescBulletInfo.forEach((item) => {
-        console.log(item);
-        if (item.textContent.includes('צבע') || item.textContent.includes('ליטר/שנייה') ||
-          item.textContent.includes('הספק מנוע') || item.textContent.includes('כבל חשמל באורך') ||
-          item.textContent.includes('משקל') || item.textContent.includes('מידות') ||
-          item.textContent.includes('קוטר')) {
-          specification = specification + item.textContent + '||';
-        }
-      });
-      console.log('specification ' + specification);
-      addElementToDocument('addedSpecificationDetails', specification);
+      // let specification = '';
+      // additionalDescBulletInfo.forEach((item) => {
+      //   console.log(item);
+      //   if (item.textContent.includes('צבע') || item.textContent.includes('ליטר/שנייה') ||
+      //     item.textContent.includes('הספק מנוע') || item.textContent.includes('כבל חשמל באורך') ||
+      //     item.textContent.includes('משקל') || item.textContent.includes('מידות') ||
+      //     item.textContent.includes('קוטר')) {
+      //     specification = specification + item.textContent + '||';
+      //   } 
+      // });
+      let specifications = [];
+      const xpath = '//div[@class="extra-description-block"][1]//div[@class="content"]/ul[1]/li'
+      let specsList = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      for (let index = 0; index < specsList.snapshotLength; index++) {
+        const element = specsList.snapshotItem(index);
+        specifications.push(element.innerText);
+      }
+      let specData = specifications.join(' || ');
+      console.log('specification ' + specData);
+      addElementToDocument('addedSpecificationDetails', specData);
 
       const jsonStr = getXpath("//script[@id='opportunity-schema']/text()", 'nodeValue');
       let available;
