@@ -74,13 +74,9 @@ fields:
 - name: sku
   singleValue: true
   xpath: //p[@itemprop="sku"]
-  regExp: (\d+)
-  regExpReplace: $1
 - name: variantId
   singleValue: true
-  xpath: //link[@rel="canonical"]/@href
-  regExp: (\d+)$
-  regExpReplace: $1
+  xpath: //p[@itemprop="sku"]
 - name: mpc
   singleValue: true
   description: The manufacturer model code (unique) of the product

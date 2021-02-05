@@ -140,6 +140,10 @@ async function implementation (inputs, parameters, context, dependencies) {
   if (dataRef[0].group[0].directions) {
     dataRef[0].group[0].directions[0].text = dataRef[0].group[0].directions[0].text.replace('Product Uses', '').trim();
   }
+  if (dataRef[0].group[0].sku || dataRef[0].group[0].variantId) {
+    dataRef[0].group[0].sku[0].text = dataRef[0].group[0].sku[0].text.replace('Product code:', '').trim();
+    dataRef[0].group[0].variantId[0].text = dataRef[0].group[0].variantId[0].text.replace('Product code:', '').trim();
+  }
   return dataRef;
 }
 module.exports = {
