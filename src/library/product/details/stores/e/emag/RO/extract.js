@@ -12,23 +12,16 @@ module.exports = {
   implementation: async function implementation (inputs, parameters, context, dependencies) {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    await context.evaluate(async () => {
-      const bulletTextElements = document.querySelectorAll('div#description-body li');
-      bulletTextElements.forEach(el => {
-        el.textContent = `|| ${el.textContent}`;
-      });
-    });
 
     function reduceInfoToOneField (field, separator = ' ') {
       if (field && field.length > 1) {
-        let fieldText = '';
-        field.forEach(element => {
-          fieldText += element.text + separator;
-        });
-        field[0].text = fieldText.slice(0, -separator.length);
-        return field.splice(1);
+        field[0].text = field.map((element) => {
+          return element.text;
+        }).join(separator);
+        field.splice(1);
       }
     }
+
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -37,7 +30,28 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
+      // select each text node in description section and replace signs which are indicating that text is bullet point to double pipes
+      function changeTextBulletPointsToDoublePipes (xpath) {
+        const descriptionTextNodes = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        for (let i = 0; i < descriptionTextNodes.snapshotLength; i++) {
+          console.log(descriptionTextNodes.snapshotItem(i).textContent);
+          descriptionTextNodes.snapshotItem(i).textContent = descriptionTextNodes.snapshotItem(i).textContent.replace(/^ *?(•|-|\*|\d\.|✓)/gm, ' || ');
+          if ((/^\s*(•|-|\*|\d\.|✓)\s*$/).test(descriptionTextNodes.snapshotItem(i).textContent)) {
+            descriptionTextNodes.snapshotItem(i).textContent = descriptionTextNodes.snapshotItem(i).textContent.replace(/^\s*(•|-|\*|\d\.|✓)\s*$/, ' || ');
+          }
+        }
+      }
+      // appending double pipes to each li tag in description SPACEHERE placeholder must be appended because spaces at the start of each textNode are beeing omitted durring extraction
+      function changeLiBulletsPointsToDoublePipes (selector) {
+        const bulletTextElements = document.querySelectorAll(selector);
+        bulletTextElements.forEach(el => {
+          el.textContent = `SPACEHERE|| ${el.textContent}`;
+        });
+      }
+      changeTextBulletPointsToDoublePipes('//div[@id="description-body"]//*[not(contains(@class,"plyr"))]/text()[not(.="0")] | //div[@id="description-body"]/text()');
+      changeLiBulletsPointsToDoublePipes('div#description-body li');
       addElementToDocument('url', window.location.href);
+
       const otherInfo = document.evaluate('//p[contains(.,"Caracteristici generale")]/following-sibling::div[@class="table-responsive"]//tbody/tr', document, null, XPathResult.ANY_TYPE, null);
       const nodes = [];
       let node;
@@ -66,14 +80,14 @@ module.exports = {
         }
       }
     });
+
     const dataRef = await context.extract(productDetails, { transform });
 
     if (dataRef[0].group[0].description) {
       dataRef[0].group[0].description = dataRef[0].group[0].description.filter((v, i, a) => a.findIndex(t => (t.text === v.text)) === i);
     }
-    reduceInfoToOneField(dataRef[0].group[0].description);
-    const directions = dataRef[0].group[0].directions;
-    reduceInfoToOneField(directions);
+    reduceInfoToOneField(dataRef[0].group[0].description, '');
+    reduceInfoToOneField(dataRef[0].group[0].directions);
     if (dataRef[0].group[0].manufacturerDescription && dataRef[0].group[0].manufacturerDescription.length > 1) {
       dataRef[0].group[0].manufacturerDescription = dataRef[0].group[0].manufacturerDescription.filter((v, i, a) => a.findIndex(t => (t.text === v.text)) === i);
       reduceInfoToOneField(dataRef[0].group[0].manufacturerDescription);
@@ -88,6 +102,21 @@ module.exports = {
         delete dataRef[0].group[0].price;
       }
     }
+    if (dataRef[0].group[0].description && dataRef[0].group[0].description[0].text.includes('||')) {
+      dataRef[0].group[0].description[0].text = dataRef[0].group[0].description[0].text.replace(/SPACEHERE/g, ' ');
+      const bulletInfoArray = dataRef[0].group[0].description[0].text.match(/( ?\|\|.+?[.|;])/g);
+      let bulletInfoString = '';
+      bulletInfoArray.forEach(bullet => {
+        bulletInfoString += bullet;
+      });
+      dataRef[0].group[0].additionalDescBulletInfo = [{
+        text: bulletInfoString.replace(/\s\|\s.+/, ''),
+      }];
+      dataRef[0].group[0].descriptionBullets = [{
+        text: bulletInfoArray.length,
+      }];
+    }
+
     if (dataRef[0].group[0].aggregateRating) {
       dataRef[0].group[0].aggregateRating[0].text = dataRef[0].group[0].aggregateRating[0].text.replace('.', ',');
       dataRef[0].group[0].aggregateRatingText[0].text = dataRef[0].group[0].aggregateRatingText[0].text.replace('.', ',');
@@ -97,6 +126,9 @@ module.exports = {
     }
     if (dataRef[0].group[0].gtin) {
       dataRef[0].group[0].gtin[0].text = dataRef[0].group[0].gtin[0].text.match(/: (.+)/)[1];
+    }
+    if (dataRef[0].group[0].mpc) {
+      dataRef[0].group[0].mpc[0].text = dataRef[0].group[0].mpc[0].text.match(/: (.+)/)[1];
     }
     if (dataRef[0].group[0].brandLink) {
       dataRef[0].group[0].brandLink[0].text = `http://www.emag.ro${dataRef[0].group[0].brandLink[0].text}`;
