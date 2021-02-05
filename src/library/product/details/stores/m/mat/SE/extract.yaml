@@ -20,7 +20,7 @@ fields:
     xpath: //div[@class='list']/a/text()
   - name: nameExtended
     singleValue: true
-    xpath: concat(//div[@class="heading"]/span/text(),' ',//div[@class="heading"]/h1/text(),' ',//div[@class="brand clearfix"]/strong[1]/text(),' ',//div[@class="brand clearfix"]/span[2]/text(),//div[@class="brand clearfix"]/strong[2]/text())
+    xpath: concat(//div[@class="heading"]/span/text(),' ',//div[@class="heading"]/h1/text(),' ',//div[@class="brand clearfix"]/strong[1]/text())
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
