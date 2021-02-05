@@ -28,6 +28,7 @@ fields:
     # regExp: child_product_id_i_mv=(.*?)\;
     # regExpReplace: $1
   - name: variantCount
+    xpath: count(//ul[contains(@class, "product-palette")]//li)
     defaultValue: "0"
   - name: brandText
     xpath: (//ol[@class='vue-breadcrumb']//span[not(text()='Home') and not(text()='Brand')])[1]

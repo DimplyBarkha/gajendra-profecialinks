@@ -19,10 +19,22 @@ module.exports = {
     });
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    await context.extract(productDetails, { transform });
     const attributeOptions = await context.evaluate(async function () {
       return window && window.__NUXT__ &&  window.__NUXT__.data[0] && window.__NUXT__.data[0].product && window.__NUXT__.data[0].product.attributeOptions ? window.__NUXT__.data[0].product.attributeOptions : null;
     });
+
+    await context.evaluate(async function (attributeOptions) {
+      if (attributeOptions) {
+        const attribute = document.querySelector(`ul.product-palette > li.product-palette__item:nth-child(0)`);
+        const altImg = attribute ? attribute.querySelector('img').getAttribute('alt') : '';
+        if (altImg.length) {
+          const jsonData = attributeOptions[altImg];
+          attribute.setAttribute('ii_variantId', jsonData && jsonData.product_id ? jsonData.product_id : '');
+          attribute.setAttribute('ii_sku', jsonData && jsonData.productSku && jsonData.productSku[0] ? jsonData.productSku[0] : '');
+        }
+      }
+    }, attributeOptions);
+    await context.extract(productDetails, { transform });
     for (let index = 2; index <= variantCount; index++) {
       try {
         await context.evaluate(() => document.querySelectorAll('div[data-wps-popup-close-intent]').forEach(elm => elm.click()));
