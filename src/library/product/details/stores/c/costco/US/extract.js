@@ -8,6 +8,7 @@ module.exports = {
     domain: 'costco.com',
   },
   // @ts-ignore
+  // @ts-ignore
   implementation: async (inputs,
     parameters,
     context,
@@ -16,6 +17,11 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await new Promise(resolve => setTimeout(resolve, 10000));
+
+    await context.setBlockAds(false);
+    await context.setLoadAllResources(true);
+    await context.setAntiFingerprint(false);
+    const timeout = parameters.timeout ? parameters.timeout : 30000;
 
     await context.evaluate(async () => {
       const moreBtn = document.querySelectorAll('div.flix-text-center>div.flix-btn-tech-ctrl');
@@ -36,15 +42,8 @@ module.exports = {
       if (moreBtn && moreBtn.length > 0) {
         for (let cnt = 0; cnt < moreBtn.length; cnt++) {
           try {
-            // await context.setBlockAds(false);
-            // await context.setLoadAllResources(true);
-            // await context.setLoadImages(true);
-            // await context.setJavaScriptEnabled(true);
             // @ts-ignore
             moreBtn[cnt].click();
-            // await context.setBlockAds(false);
-            // await context.setLoadAllResources(true);
-            // await context.setLoadImages(true);
             await new Promise(resolve => setTimeout(resolve, 4000));
           } catch (err) { }
         }
@@ -83,20 +82,6 @@ module.exports = {
         }
       } catch (err) { }
 
-      // try {
-      //   const iframeElem = document.querySelector('iframe[id="wcframable1-0"]');
-      //   const iframeBody = iframeElem.contentWindow.document.body;
-      //   let iframeImages = iframeBody.querySelectorAll('img');
-      //   if (iframeImages && iframeImages.length > 0) {
-      //     for (let i = 0; i < iframeImages.length; i++) {
-      //       let img = iframeImages[i].src;
-      //       images.push(img);
-      //     }
-      //   }
-      //   let ifameTxt = iframeBody.innerText;
-      //   ifameTxt = ifameTxt.replace(/\n{1,}"/g, ' ').replace(/\s{1,}"/g, ' ');
-      //   manuFacturerDesc = manuFacturerDesc + ifameTxt;
-      // } catch (err) {}
       if (images.length > 0) {
         for (let x = 0; x < images.length; x++) {
           addHiddenDiv(`manuf-images-${x}`, images[x]);
@@ -115,13 +100,6 @@ module.exports = {
       return [`desc.length = ${manuFacturerDesc.length}`, `images : ${images.length}`];
     });
     await new Promise(resolve => setTimeout(resolve, 2000));
-    // await context.evaluate(async function () {
-    //   const desc = document.querySelector('div.syndi_powerpage');
-    //   if (desc) {
-    //     let text = desc.shadowRoot.firstChild.innerText;
-    //     text = text.replace('/g\n\s{1,}/', '');
-    //   }
-    // });
     await context.evaluate(async function () {
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
@@ -164,80 +142,15 @@ module.exports = {
       } catch (err) {}
     });
     await context.evaluate(async function () {
-      // @ts-ignore
-      function addHiddenDiv (id, content) {
-        const newDiv = document.createElement('div');
-        newDiv.id = id;
-        newDiv.textContent = content;
-        newDiv.style.display = 'none';
-        document.body.appendChild(newDiv);
-      }
       try {
         const vidImage = Array.from(document.querySelectorAll('img[id*="videoOverlay"]'));
-        // console.log('vidImage--->', vidImage);
-        // @ts-ignore
-        // const vidArray = [];
         for (let item = 0; item < vidImage.length; item++) {
           // @ts-ignore
           vidImage[item].click();
           await new Promise(resolve => setTimeout(resolve, 3000));
-          // const element = document.evaluate('//form[contains(@action,"video-player")]/@action', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-          // console.log('element--->',element);
-          // let videoSrc = element ? element.getAttribute('action') : '';
-          // console.log('videoSrc--->',videoSrc);
-          // videoSrc = 'https:' + videoSrc;
-          // vidArray.push(videoSrc);
-          // console.log('vidArray--->',vidArray);
-          // await new Promise(resolve => setTimeout(resolve, 1000));
         }
-
-        // const videos = vidArray.join(' | ');
-        // addHiddenDiv('formVideos', videos);
-        // const iframe = document.querySelector('[title="Product Videos"]');
-        // if (iframe) {
-        //   const video = iframe.contentWindow.document.getElementsByTagName('video');
-        //   const videoUrls = [...video].map(elm => elm.src);
-        //   document.querySelector('head').setAttribute('video', videoUrls.join(''));
-        // } else {
-        // let id = document.querySelector('p[id="product-body-item-number"]') ? document.querySelector('p[id="product-body-item-number"]').textContent.match(/(\d+)/g) : '';
-        // id = id[0];
-        // const url = 'https://cors-anywhere.herokuapp.com/https://sc.liveclicker.net/service/api?method=liveclicker.widget.getList&account_id=69&dim5=' + id + '&format=json';
-        // // const url = `https://cors-anywhere.herokuapp.com/https://sc.liveclicker.net/service/api?method=liveclicker.widget.getList&account_id=69&dim5=${id}&format=json`;
-        // const data = await fetch(url);
-        // if (data.status === 200) {
-        //   const json = await data.json();
-
-        //   const arr = [];
-        //   const array = json.widgets.widget;
-        //   array.forEach(item => {
-        //     const val = item.asset_id;
-        //     const url = `https://d2vxgxvhgubbj8.cloudfront.net/videos/69/${val}_1_liveclicker.mp4`;
-        //     arr.push(url);
-        //   });
-        //   let count = 0;
-        //   arr.forEach(item => {
-        //     document.querySelector('head').setAttribute(`vid${count}`, item);
-        //     count++;
-        //   });
-        //   addHiddenDiv('videos', arr[0]);
-        // }
-        // }
       } catch (err) {}
     });
-    // if (variantLength1 >= 1) {
-    //   try {
-    //     for (let j = 0; j < variantLength1; j++) {
-    //       await context.evaluate(async (j) => {
-    //         return document.querySelectorAll('span[role="radiogroup"] label')[j].click();
-    //       }, j);
-
-    //       // await clickBtn(j);
-    //       console.log('Inside variants', j);
-    //       await new Promise(resolve => setTimeout(resolve, 1000));
-    //       if (j !== variantLength1 - 1) { await context.extract(productDetails, { transform }); }
-    //     }
-    //   } catch (err) {}
-    // }
     await new Promise(resolve => setTimeout(resolve, 1000));
     var variantLength1 = await context.evaluate(async () => {
       return (document.querySelectorAll('span[role="radiogroup"] label')) ? document.querySelectorAll('span[role="radiogroup"] label').length : 0;
@@ -378,7 +291,7 @@ module.exports = {
         }
 
         const similarItemsList = document.querySelectorAll('#mbox-recommend .hl-product');
-        let hasComparisionTable = false;
+        const hasComparisionTable = false;
         const updpList = [];
 
         if (similarItemsList.length) {
@@ -422,21 +335,7 @@ module.exports = {
     } catch (e) {
       console.log(e);
     };
-    // async function clickBtn(index) {
-    //   await context.evaluate(async (index) => {
-    //     console.log('clicking btn for variants', index);
-    //     try {
-    //       const btn = document.querySelectorAll('div[id=theSwatches] a')[index];
-    //       if (btn) {
-    //         btn.click();
-    //         console.log('Inside variants --- clicked for  ', index);
-    //         await new Promise(resolve => setTimeout(resolve, 2000));
-    //       }
-    //     } catch (err) {
-    //       console.log(err);
-    //     }
-    //   });
-    // }
+    // @ts-ignore
     // @ts-ignore
     async function preparePage () {
       await new Promise(resolve => setTimeout(resolve, 1000));
@@ -497,6 +396,86 @@ module.exports = {
         }
       }
     });
+    let id = '';
+    await context.evaluate(async () => {
+      const parentNode1 = document.querySelector('div[class="syndigo-mosaic-outer syndigo-shadowed-mosaic"]');
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      if (parentNode1 && parentNode1.shadowRoot && parentNode1.shadowRoot.firstChild) {
+        const fetchNode = parentNode1.shadowRoot.firstChild;
+        // @ts-ignore
+        const VideoButton = fetchNode.querySelector('button[class="syndigo-mosaic-ribbon-eye syndigo-mosaic-iconbutton"]');
+        VideoButton.click();
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        // @ts-ignore
+        const VideoButton2 = fetchNode.querySelector('button[class="syndigo-mosaic-ribbon-internal syndigo-mosaic-iconbutton"] path[fill d="M512 903 q94 0 177 -36 q83 -35 145 -97 q62 -62 97 -145 q36 -83 36 -177 q0 -94 -36 -177 q-35 -83 -97 -145 q-62 -62 -145 -97 q-83 -36 -177 -36 q-94 0 -177 36 q-83 35 -145 97 q-62 62 -97 145 q-36 83 -36 177 l0 0 q0 94 36 177 q35 83 97 145 q62 62 145 97 q83 36 177 36 l0 0 ZM512 960 q-106 0 -199 -40 q-94 -40 -163.5 -109.5 q-69.5 -69.5 -109.5 -163.5 q-40 -93 -40 -199 q0 -106 40 -199 q40 -94 109.5 -163.5 q69.5 -69.5 163.5 -109.5 q93 -40 199 -40 q106 0 199 40 q94 40 163.5 109.5 q69.5 69.5 109.5 163.5 q40 93 40 199 l0 0 q0 106 -40 199 q-40 94 -109.5 163.5 q-69.5 69.5 -163.5 109.5 q-93 40 -199 40 l0 0 ZM341 732 l474 -284 l-474 -284 l0 568 l0 0 Z"]');
+        VideoButton2.click();
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        // @ts-ignore
+        const VideoButton3 = fetchNode.querySelector('button[class="syndigo-video-big-play-button"]');
+        VideoButton3.click();
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        // @ts-ignore
+        const VideoId = fetchNode.querySelector('video');
+        id = VideoId.id;
+      }
+    });
+    /// /////////////////////////////////////////////////////////////////////////////////////////////////
+    //  GOTO enhanced content approach
+    //  Get Enhanced HTML.
+    // async function getEnhancedHtmlJS () {
+    //   if (id) {
+    //     // const id = url.match(/(\d+).p\?/)[1];
+    //     await context.goto('https://content.syndigo.com/', { checkBlocked: false });
+    //     return await context.evaluate(async (id) => {
+    //       // const api = `https://scontent.webcollage.net/bestbuy/power-page?ird=true&channel-product-id=${id}`;
+    //       const api = `https://content.syndigo.com/assets/${id}`;
+
+    //       const response = await fetch(api);
+    //       const text = await response.text();
+    //       return text;
+    //       // return text.match(/html\s*:\s*"([^\n]+)/)[1].replace(/"$/, '').replace(/\\/g, '');
+    //     }, id);
+    //   }
+    //   return false;
+    // }
+    // let enhacnedContentJS;
+    // try {
+    //   enhacnedContentJS = await getEnhancedHtmlJS();
+    // } catch (error) {
+    //   console.log('error getting enhanced content');
+    // }
+    // const url = window.location.href;
+    // await context.goto(`${url}&intl=nosplash#[!opt!]{"block_ads":false,"anti_fingerprint":false,"first_request_timeout":60,"load_timeout":30,"load_all_resources":true,"enable_cache":false,"discard_CSP_header":true}[/!opt!]`, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: true });
+    // // Get Enhanced HTML.
+    // if (enhacnedContentJS) {
+    //   await context.evaluate((enhacnedContentJS) => {
+    //     eval(enhacnedContentJS);
+    //     // @ts-ignore
+    //     const html = window._wccontent.aplus.html;
+    //     const newDiv = document.createElement('div');
+    //     newDiv.id = 'webcollage-content';
+    //     newDiv.innerHTML = html;
+    //     document.body.appendChild(newDiv);
+    //     function getIframeHTML (parentIFrame) {
+    //       if (parentIFrame.tagName === 'IFRAME') {
+    //         parentIFrame = parentIFrame.contentDocument;
+    //       }
+    //       const iframes = Array.from(parentIFrame.querySelectorAll('iframe'));
+    //       console.log(iframes);
+    //       for (const iframe of iframes) {
+    //         const html = getIframeHTML(iframe);
+    //         iframe.parentElement.innerHTML = html;
+    //       }
+    //       if (parentIFrame.querySelector('html')) {
+    //         return parentIFrame.querySelector('html').outerHTML;
+    //       }
+    //     }
+    //     getIframeHTML(document.querySelector('#webcollage-content'));
+    //     Array.from(document.querySelectorAll('#webcollage-content .wc-json-data')).forEach(elm => elm.remove());
+    //   }, enhacnedContentJS);
+    // }
+    /// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // SearchForRequest for getting video urls
     var videoRequest = await context.searchForRequest('https://content.syndigo.com/asset/.*ts', 'GET');
     if (videoRequest && videoRequest.url) {
       console.log('videos-------->', videoRequest.url);
@@ -509,6 +488,20 @@ module.exports = {
           document.body.appendChild(newDiv);
         }
         addHiddenDiv('videos1', videoRequest.url);
+      }, videoRequest);
+    }
+    var videoRequest1 = await context.searchForRequest('https://content.syndigo.com/asset/.*m3u8', 'GET');
+    if (videoRequest1 && videoRequest1.url) {
+      console.log('videos-------->', videoRequest1.url);
+      await context.evaluate((videoRequest1) => {
+        function addHiddenDiv (id, content) {
+          const newDiv = document.createElement('div');
+          newDiv.id = id;
+          newDiv.textContent = content;
+          newDiv.style.display = 'none';
+          document.body.appendChild(newDiv);
+        }
+        addHiddenDiv('videos2', videoRequest1.url);
       }, videoRequest);
     }
     return await context.extract(productDetails, { transform });
