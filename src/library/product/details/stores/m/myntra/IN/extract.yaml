@@ -226,3 +226,6 @@ fields:
     description: If 360 image is present in the carousel ['Yes','No']
     example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
     defaultValue: "No" 
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //p[contains(@class,"description-content")]//ul/following-sibling::ul//li
