@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[data-test="product-list"]',
-    noResultsXPath: '//h1[contains(text(), "Sorry, we couldn")]',
+    noResultsXPath: '//h1[contains(text(), "Sorry, we couldn")] | //h1[text()="404 Not Found"]',
     openSearchDefinition: null,
     domain: 'waitrose.com',
     zipcode: '',

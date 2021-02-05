@@ -77,7 +77,16 @@ async function implementation (
       });
     }
   });
-  return await context.extract(productDetails, { transform });
+  const data = await context.extract(productDetails, { transform });
+  if (data[0].group.length > 150) {
+    data[0].group = data[0].group.slice(0, 150);
+  }
+  for (let i = 0; i < data[0].group.length; i++) {
+    if ('id' in data[0].group[i]) {
+      data[0].group[i].id[0].text = data[0].group[i].id[0].text.split('-')[0];
+    }
+  }
+  return data;
 }
 module.exports = {
   implements: 'product/search/extract',
