@@ -100,3 +100,6 @@ fields:
     xpath: //h3[contains(.,"People also")]/parent::div[@class="product-container"]//div[@class="slick-track"]//div[contains(@class,"slick-slide")][not(contains(@class,"slick-cloned"))]//a//h4
   - name: variantCount
     defaultValue: 0
+  - name: color
+    singleValue: false
+    xpath: //table[@class="product-spec"]//td[contains(text(),'Color')]//following-sibling::td
