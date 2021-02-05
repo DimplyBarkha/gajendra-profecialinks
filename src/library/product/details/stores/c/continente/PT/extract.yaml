@@ -58,13 +58,13 @@ fields:
   - name: description
     singleValue: false
     # xpath: //div[@class="productDetailSubArea"]/div[@class="body"]/p
-    xpath: //div[@class ='contentLeftTop']//tr//p[not(img)]
+    xpath:  //div[@class ='contentLeftTop']//tr//p[not(img)] | //div[@class='body']//em
   - name: ingredientsList
     singleValue: false
     xpath: //div[@class="productDetailSubArea"]/div[@class="body"]/p/strong[contains(text(),"Ingredientes")]/parent::*/text() | //div[contains(@class,"additionalProductInformation")]//span[contains(.,'Lista de ingredientes:')]//following-sibling::span//text()
   - name: directions
     singleValue: false
-    xpath: //div[@class="productDetailSubArea"]//div[@class="title" and text()="Dicas"]/parent::*/following::div[@class="body"]/p
+    xpath: //div[@class="productDetailSubArea"]//div[@class="title" and text()="Dicas"]/parent::*/following::div[@class="body"]/p | //div[@id='UnspecifiedPreparationTypePreparationInstructions']/text()
   - name: aggregateRating
     singleValue: false
     xpath: //div[@class="Rating"]/span/div[contains(@class,"star-rating-on")]/a
