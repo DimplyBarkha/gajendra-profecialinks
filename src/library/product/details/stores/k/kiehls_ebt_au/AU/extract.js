@@ -8,6 +8,7 @@ module.exports = {
     domain: 'kiehls.com.au',
     zipcode: '',
   },
+  // @ts-ignore
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
     await context.evaluate(async function () {
       function addElementToDocument(key, value) {
@@ -32,13 +33,14 @@ module.exports = {
       var pq = getAllXpath('//div[@class="hidden-mobile b-product_name"]/h2/text()', 'nodeValue');
       if (pn != null && pq != null) {
         var ab1 = pn + ' | ' + pq;
+        // @ts-ignore
         var ab = ab1.trim().replaceAll('’', '');
         addElementToDocument('ab', ab);
       }
 
       //nameExtended
       var x = getAllXpath('(//div/h1[@class="product_name"]/span[1])/text()', 'nodeValue');
-      var y = getAllXpath('//li[@class="selected"]/a/@title ', 'nodeValue');
+      var y = getAllXpath('(//li[@class="selected"]/a/@title)[1]', 'nodeValue');
       if (x != null && y != null) {
         var xy = x + ' | ' + y;
         addElementToDocument('xy', xy);
@@ -73,56 +75,48 @@ module.exports = {
         addElementToDocument('qty2',qty2);
       }
 
-        //IngredientList
-      const getIngredients = (ingre) => {
-      var arr = "";
-      for (var i = 0; i < ingre.length; i++) {
-      arr += ingre[i];
+      //IngredientList
+      // @ts-ignore
+      
+      var ing = document.querySelectorAll('div[id="tab_ingredients"] div[id="ing-copy"]');
+      var ing1 = []
+      for(var i=0;i<ing.length;i++){
+            // @ts-ignore
+            ing1.push(ing[i].innerText);
       }
-      var rmP = arr.replace('Print', '');
-      var spec = rmP.trim().replaceAll('\n', '||');
-      var spe = spec.trim().replaceAll('-', '');
-      var ing = spe.trim().replaceAll('•'||'●', '');
-      addElementToDocument('ing', ing);
+      try{
+      // @ts-ignore
+      var ing2 = document.querySelector('div[class*="js-ingredients-dialog"][id*="ui-id"]').innerText;
+      ing1.push(ing2);
       }
-      var ingre = getAllXpath('//div[@class="ingredient"]/descendant::text()', 'nodeValue');
-      var ingred = getAllXpath('//div[contains(@id,"ing-copy")]/descendant::text()', 'nodeValue');
-      if(ingre==null||ingre.toString() == " ")
-      getIngredients(ingred);
-      else
-      getIngredients(ingre);
+      catch(error){}
+      // @ts-ignore
+      var ingre = ing1.join('').trim().replaceAll(/\n+/gm,'\n').replaceAll('•'||'●','||').replaceAll('\n',',').replace('Print', '').replaceAll('. ,',',');
+      addElementToDocument('ingre',ingre);
 
-          // Direction
-      const getDirection = (d) => {
-      var arr = "";
-      for (var i = 0; i < d.length; i++) {
-      arr += d[i];
-      }
-      var rmP = arr.replace('Print', '');
-      var spec = rmP.trim().replaceAll('\n', '||');
-      var spe = spec.trim().replaceAll('-', '');
-      var specs1 = spe.trim().replaceAll('•'||'●', '');
-      var specs = specs1.trim().replaceAll('’', '');
+      //Brand
+      try {
+        // @ts-ignore
+        var brand = window.backendGtmEvents[0].ecommerce.detail.products[0].brand;
+        addElementToDocument('brand',brand);
+        } catch (error) {}
+ 
+
+     
+      var direction = document.querySelector('div[id="tab_tips"]').innerText;
+      var specs = direction.trim().replaceAll(/\n+/gm, '').replaceAll('•' || '●', '||').replaceAll('\n', '').replaceAll('’', '').replace('Print', '').replaceAll('-', '');
       addElementToDocument('specs', specs);
-      }
-      var direction = getAllXpath('(//div[@id="tab_tips"])/descendant::text()', 'nodeValue');
-      getDirection(direction);
 
-    //Product Description
+    
+
+    // Product Description
     const getDescription = (d) => {
-    var arr = "";
-    for (var i = 0; i < d.length; i++) {
-    arr += d[i];
-    }
-    var rmP = arr.replace('Print', '');
-    var descr = rmP.trim().replaceAll('\n', '||');
-    var des = descr.trim().replaceAll('-', '');
-    var specs = des.trim().replaceAll('’', '');
-    var descrip = specs.trim().replaceAll('•'||'●', '');
-    addElementToDocument('descrip', descrip);
-    }
-    var description = getAllXpath('//div[@id="tab_details"]/descendant::text()', 'nodeValue');
-    getDescription(description);
+    var desc = d.replaceAll(/\n+/gm, '\n').replaceAll('•' || '●', '||').replaceAll('\n', '|').replaceAll('|||', '||').replaceAll('’', '').replace('Print', '').replaceAll('-', '');
+    addElementToDocument('descrip', desc);
+  };
+  // @ts-ignore
+      var description = document.querySelector('div[id="tab_details"]').innerText;
+      getDescription(description);
 
       // Method to Retrieve Xpath content of a Multiple Nodes
       var getXpath = (xpath, prop) => {

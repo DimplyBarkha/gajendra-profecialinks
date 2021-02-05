@@ -85,7 +85,7 @@ fields:
   - name: ingredientsList
     singleValue: true
     description: List of Ingredients from site - can be string of data if no discernible start/end point
-    xpath: //html//div[@id='ing']
+    xpath: //html//div[@id='ingre']
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
@@ -118,7 +118,7 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //div[@itemprop="seller"]/meta/@content
+    xpath: //html//div[@id='brand']
 
 
 
