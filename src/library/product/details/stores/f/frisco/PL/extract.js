@@ -31,29 +31,34 @@ module.exports = {
       try {
         // @ts-ignore
         xPathRes.singleNodeValue.click();
-
         let tabContent1 = document.evaluate("//div[@class='ui-tabs_tab-content']/div", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         let content = tabContent1.textContent;
         addHiddenDiv('wid', content);
       } catch (error) {
       }
       try {
+        let content;
+        let fourthContent = '';
         var xPathRes10 = document.evaluate("//div[@class=\"ui-tabs_header-inner\"]/a[contains(text(),'Opis produktu')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
-        // @ts-ignore
-        xPathRes10.singleNodeValue.click();
-        let tabContent1 = document.evaluate("//div[@class='ui-tabs_tab-content']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-        let firstContent = tabContent1.textContent;
-        let content = firstContent;
-        var xPathRes3 = document.evaluate("//div[@class=\"ui-tabs_header-inner\"]/a[contains(text(),'Opakowanie')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
-        if(xPathRes3){
-        // @ts-ignore
-        xPathRes3.singleNodeValue.click();
-        await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-        let tabContent = document.evaluate("//div[@class='ui-tabs_tab-content']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-        let fourthContent = tabContent.textContent;
-        content = firstContent + fourthContent;
+        if (xPathRes10) {
+          // @ts-ignore
+          xPathRes10.singleNodeValue.click();
+          let tabContent1 = document.evaluate("//div[@class='ui-tabs_tab-content']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+          let firstContent = tabContent1.textContent;
+          content = firstContent;
+          try {
+            var xPathRes3 = document.evaluate("//div[@class=\"ui-tabs_header-inner\"]/a[contains(text(),'Opakowanie')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+            // @ts-ignore
+            xPathRes3.singleNodeValue.click();
+            await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+            let tabContent = document.evaluate("//div[@class='ui-tabs_tab-content']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+            fourthContent = tabContent.textContent;
+          } catch (error) {
+          }
+          content = firstContent + fourthContent;
+         // console.log("content ::" + content);
+          addHiddenDiv('addDescid', content);
         }
-        addHiddenDiv('addDescid', content);
       } catch (error) {
       }
       var xPathRes4 = document.evaluate("//div[@class=\"ui-tabs_header-inner\"]/a[contains(text(),'Informacje producenta')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
