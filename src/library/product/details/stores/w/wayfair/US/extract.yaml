@@ -4,9 +4,9 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    xpath: //ul[contains(@class,"ProductDetailImage")]//li[position()=1]//div[contains(@class,"ImageComponent")]/img/@src
+    xpath: //ul[contains(@class,"ProductDetailImage")]/li[1]//div[contains(@class,"ProductDetailImageCarousel")]//img/@src
   - name: imageAlt
-    xpath: //ul[contains(@class,"ProductDetailImage")]//li[position()=1]//div[contains(@class,"ImageComponent")]/img/@alt
+    xpath: //ul[contains(@class,"ProductDetailImage")]/li[1]//div[contains(@class,"ProductDetailImageCarousel")]//img/@alt
   - name: category
     xpath: //ol[@class="Breadcrumbs-list"]/li/a
   - name: name
@@ -53,11 +53,11 @@ fields:
   - name: variants
     xpath: //table/tbody//tr[contains(@class,'append_variant')]//td//@id
   - name: alternateImages
-    xpath: //div[contains(@class,"ProductDetailImageCarouselVariantB-imageViewer")]//ul//li[position()>1]//img//@src
+    xpath: //ul[contains(@class,"ProductDetailImage")]/li[position()>1]//div[contains(@class,"ProductDetailImageCarousel")]//img/@src
     # regExp: (.+resize)(.+r50)(.+)
     # regExpReplace: $1-h800-w800%5Ecompr-r85$3
   - name: secondaryImageTotal
-    xpath: count(//div[contains(@class,"ProductDetailImageCarouselVariantB-top")]//ul//li[position()>1]//img//@src)
+    xpath: count(//ul[contains(@class,"ProductDetailImage")]/li[position()>1]//div[contains(@class,"ProductDetailImageCarousel")]//img/@src)
   - name: ratingCount
     xpath: (//span[contains(@class,'ProductRatingNumberWithCount-count--link')])[1]
     regExp: (\d+)
@@ -91,8 +91,14 @@ fields:
   - name: technicalInformationPdfPresent
     defaultValue: No
   - name: termsAndConditions
+    xpath: //div[@class="FooterFinePrint"]/ul/li/a[contains(text(),"Terms")]
+    regExp: (.+)
+    regExpReplace: Yes
     defaultValue: No
   - name: privacyPolicy
+    xpath: //div[@class="FooterFinePrint"]/ul/li/a[contains(text(),"Privacy Policy")]
+    regExp: (.+)
+    regExpReplace: Yes
     defaultValue: No
   - name: customerServiceAvailability
     defaultValue: No

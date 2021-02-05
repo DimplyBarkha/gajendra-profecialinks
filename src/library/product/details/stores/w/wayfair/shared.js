@@ -8,7 +8,7 @@ const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
       let text = '';
-      text = [String(row.name && row.name[0].text), String(row.variantInformation && row.variantInformation[0].text)].filter(e => e !== 'undefined').join(' ');
+      text = [String(row.name && row.name[0].text), String(row.variantInformation && row.variantInformation[0].text)].filter(e => e !== 'undefined').join(' - ');
       row.nameExtended = [
         {
           text: text,

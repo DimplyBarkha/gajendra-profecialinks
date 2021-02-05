@@ -14,7 +14,7 @@ async function implementation (
       scrollTop += 1000;
       window.scroll(0, scrollTop);
       if (scrollTop === 20000) {
-        await stall(5000);
+        await stall(1000);
         break;
       }
     }
@@ -38,7 +38,7 @@ async function implementation (
       for (const i in data) {
         val.push(i);
       }
-      await stall(2000);
+      // await stall(1000);
     } catch (err) {
       console.log({ err });
     }
@@ -80,7 +80,7 @@ async function implementation (
       id.setAttribute('url', window.location.href.replace(/[^htm]+$/g, `l?piid=${val[index].replace(/-/g, '_')}`));
       newlink.appendChild(id);
     }
-    await stall(3000);
+    // await stall(1000);
   });
   return await context.extract(productDetails, { transform });
 }
