@@ -29,7 +29,10 @@ fields:
     xpath: //span[contains(@itemprop,"brand")]
   - name: availabilityText
     singleValue: false
-    defaultValue: In Stock
+    xpath: //div[contains(@id,"addToCart-button_") and @class="addToCart-actions"]/button[contains(@id,"addToCartButton_")]/@class
+    regExp: (.+)
+    regExpReplace: In Stock 
+    defaultValue: Out Of Stock
   - name: sku
     singleValue: false
     xpath: //span[contains(@itemprop,"productId")]
@@ -66,3 +69,6 @@ fields:
   - name: variantCount
     singleValue: false
     defaultValue: 0
+  - name: mpc
+    singleValue: false
+    xpath: //span[contains(@itemprop,"model")]

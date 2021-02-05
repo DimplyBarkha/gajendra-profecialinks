@@ -56,6 +56,15 @@ const transform = (data) => {
             item.text="Size "+item.text;
           })
         }
+        /*if(row.tmp_sku){
+          let tmp='';
+          row.tmp_sku.forEach(item=>{
+            tmp=item.text;
+          })
+          if(tmp=''){
+            row.sku=[{"text":tmp}];
+          }
+        }*/
       }
     }
     return cleanUp(data);
