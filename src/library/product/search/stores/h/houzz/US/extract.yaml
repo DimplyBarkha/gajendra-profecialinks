@@ -73,4 +73,6 @@ fields:
     xpath: //span[@class="star-rating hz-product-card__review-stars"]/@aria-label
   - name: manufacturer
     singleValue: true
-    xpath: //div[@id="ii_manufacture"]
+    xpath: //span[@data-compid="manufacturer"]/span
+    regExp: (^[by ]{3,})(.*)
+    regExpReplace: $2

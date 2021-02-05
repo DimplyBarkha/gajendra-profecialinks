@@ -94,16 +94,7 @@ module.exports = {
         )[index];
         originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
-      try{
-        var maf = document.querySelectorAll('span[data-compid*="manufacturer"] span')
-        var manufacture = []
-        maf.forEach(item => {
-        const name = item.textContent.replace("by ",'')
-        manufacture.push(name)
-        })
-      }catch(err){
-        console.log(err)
-      }
+
 
       var link = document.getElementsByClassName("hz-product-card__link")
       var temp = 0
@@ -115,11 +106,6 @@ module.exports = {
           addHiddenDiv("ii_produrl", url_web, temp);
           const searchURL = window.location.href.split("?")[0]
           addHiddenDiv("ii_searchURL", searchURL, temp);
-          try{
-            addHiddenDiv("ii_manufacture",manufacture[temp],temp)
-          }catch(e){
-            console.log(e)
-          }
           temp++;
         }
       }
