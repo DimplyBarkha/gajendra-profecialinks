@@ -5,7 +5,7 @@ module.exports = {
     country: 'TR',
     store: 'avansas',
     domain: 'avansas.com',
-    loadedSelector: 'div.product-list-area',
+    loadedSelector: null,
     noResultsXPath: '//h2/strong/following-sibling::text()',
     zipcode: "''",
   },
