@@ -4,12 +4,15 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'otto_de',
-    nextLinkSelector: '#san_pagingBottomNext > button',
+    //nextLinkSelector: '#san_pagingBottomNext > button',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[class="content contentWithSidebar"]',
     noResultsXPath: null,
-    openSearchDefinition: null,
+    openSearchDefinition: {
+      offset: 20,
+      template: 'https://www.otto.de/suche/{searchTerms}/?l=gq&o={offset}',
+      },
     domain: 'otto.de',
     zipcode: '',
   },

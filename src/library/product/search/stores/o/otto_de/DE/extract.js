@@ -13,23 +13,23 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(async () => {
-      let scrollTop = 0;
-      while (scrollTop !== 1000) {
-        await stall(1000);
-        scrollTop += 1700;
-        window.scroll(0, scrollTop);
-        if (scrollTop === 1700) {
-         await stall(2000);
-          break;
-        }
-      }
-       function stall(ms) {
-        return new Promise((resolve, reject) => {
-           setTimeout(() => {
-            resolve();
-           }, ms);
-         });
-       }
+      // let scrollTop = 0;
+      // while (scrollTop !== 1000) {
+      //   await stall(1000);
+      //   scrollTop += 1700;
+      //   window.scroll(0, scrollTop);
+      //   if (scrollTop === 1700) {
+      //    await stall(2000);
+      //     break;
+      //   }
+      // }
+      //  function stall(ms) {
+      //   return new Promise((resolve, reject) => {
+      //      setTimeout(() => {
+      //       resolve();
+      //      }, ms);
+      //    });
+      //  }
       var tempData, valueVariant, valueRating;
       const rawData = document.querySelectorAll('script[type="application/ld+json"]');
       for (let i = 0; i < rawData.length; i++) {
