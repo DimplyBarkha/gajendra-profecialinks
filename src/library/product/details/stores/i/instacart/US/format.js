@@ -12,6 +12,9 @@ const cleanUp = (data, context) => {
           item.text = item.text.replace(/(?<=\.net)(.*)(?<=\(jpg\))/g, '');
         });
       }
+      if (!row.nameExtended && row.backupNameExtended) {
+        row.nameExtended = [{ text: row.backupNameExtended[0].text }];
+      }
     }
   }
   const clean = text => text.toString()

@@ -19,7 +19,9 @@ fields:
   - name: category
     xpath: (//div[contains(@class, "item-detail-module")]//div[contains(@aria-label, "breadcrumbs")])[1]//a
   - name: nameExtended
-    xpath: //div[@id="ii_nameExtended"]
+    # xpath: //div[@id="ii_nameExtended"]
+  - name: backupNameExtended
+    xpath: concat(//div[contains(@class, "itemModalHeader")]//h2[contains(@class, "item-title")], ' - ', //div[contains(@class, "itemModalHeader")]//h2[contains(@class, "item-title")]/following-sibling::div//p)
   - name: listPrice
     xpath: //div[contains(@class, "itemModalHeader")]//span[contains(text(), "Original Price:")]/following-sibling::span[contains(@class, "item-full-price")]
     description: The stated undiscounted price for the product

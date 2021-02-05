@@ -31,15 +31,27 @@ module.exports = {
 
       // const nameExtendedWithVariant = document.evaluate('concat(//div[contains(@class, "itemModalHeader")]//h2[contains(@class, "item-title")], " - ", //ul[contains(@aria-labelledby, "Flavor-variant-selections")]//li//button[contains(@aria-label, "select")], " - ", //ul[contains(@aria-labelledby, "Size-variant-selections")]//li//button[contains(@aria-label, "select")])', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
       const name = document.evaluate('//div[contains(@class, "itemModalHeader")]//h2[contains(@class, "item-title")]', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
-
-      if (variantFlavor && variantSize && name) {
+      const sizeQuant = document.evaluate('//div[contains(@class, "itemModalHeader")]//h2[contains(@class, "item-title")]/following-sibling::div//p', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
+      if (variantFlavor && variantSize && name && sizeQuant) {
+        addHiddenDiv('ii_nameExtended', name.textContent + ' - ' + sizeQuant.textContent + ' - ' + variantFlavor.textContent + ' - ' + variantSize.textContent);
+      }
+      else if (variantFlavor && name && sizeQuant) {
+        addHiddenDiv('ii_nameExtended', name.textContent + ' - ' + sizeQuant.textContent + ' - ' + variantFlavor.textContent);
+      } else if (variantSize && name && sizeQuant) {
+        addHiddenDiv('ii_nameExtended', name.textContent + ' - ' + sizeQuant.textContent + ' - ' + variantSize.textContent);
+      }
+      else if (variantFlavor && variantSize && name) {
         addHiddenDiv('ii_nameExtended', name.textContent + ' - ' + variantFlavor.textContent + ' - ' + variantSize.textContent);
       }
       else if (variantFlavor && name) {
         addHiddenDiv('ii_nameExtended', name.textContent + ' - ' + variantFlavor.textContent);
       } else if (variantSize && name) {
         addHiddenDiv('ii_nameExtended', name.textContent + ' - ' + variantSize.textContent);
-      } else if (name) {
+      }
+      else if (sizeQuant && name) {
+        addHiddenDiv('ii_nameExtended', name.textContent + ' - ' + sizeQuant.textContent);
+      }
+      else if (name) {
         addHiddenDiv('ii_nameExtended', name.textContent);
       }
     });
