@@ -204,30 +204,25 @@ const getStockFunc = async function ({ context, sellerId, id, url }) {
 
   // find product&seller in cart
   const productSellerFound = async (sellerId, id) => {
-    return await context.evaluate(async (a, b) => {
-      const productXpath = `//div[@data-asin="${b}" and //*[contains(@href, "${a}")]]/*[1]`;
-      const el = document.evaluate(productXpath, document, null, XPathResult.ANY_TYPE, null).iterateNext();
+    await context.waitForSelector(`div[data-asin=${id}]`)
+    return await context.evaluate(async (sellerId, id) => {
+      const el = document.querySelector(`div[data-asin=${id}] a[href*=${sellerId}]>img`);
       if (el) {
-        console.log('found product')
-        el.parentElement.setAttribute('import', 'element');
-        return !!document.querySelector('div[data-asin][import]:not([data-removed])')
+        el.closest(`div[data-asin=${id}]`).setAttribute('import', 'element');
+        return !!document.querySelector(`div[data-asin=${id}][import='element']:not([data-removed])`)
       }
     }, sellerId, id);
   };
 
   const artifactCartItems = async () => {
     return await context.evaluate(async () => {
-      if(!!document.querySelector('div[data-asin]:not([import]):not([data-removed]) input[value*="Delete"]')){
-        console.log('found artifact prod in cart')
-        return true
-      }
+      return !!document.querySelector('div[data-asin]:not([import]):not([data-removed]) input[data-action*="delete"]')
     })
   }
 
   /* ----------ACTION----------- */
   let page = await pageContext(); 
   const sellerName = page.sellerName;
-  console.log('sellerNameTest', sellerName)
 
   if (page.hasBuyNewBtn) { 
     await context.click('#buyNew_cbb');
@@ -270,7 +265,6 @@ const getStockFunc = async function ({ context, sellerId, id, url }) {
   while (!page.isCartPage && pageCheck < 5) {
     if (page.hasToCartFromModal) {
       await context.click('#nav-cart');
-      // await context.click('#attach-view-cart-button-form input[type=submit][aria-labelledby*="cart"]');
       await new Promise(resolve => setTimeout(resolve, 2000));
     } else if (page.isCartTransitionPage) {
       await context.click('#hlb-view-cart-announce');
@@ -287,15 +281,14 @@ const getStockFunc = async function ({ context, sellerId, id, url }) {
   }
 
   if (page.isCartPage) {
+
     await context.waitForSelector('span.quantity span span,input.sc-quantity-textfield');
     if (await productSellerFound(sellerId, id)) {
       while (await artifactCartItems()) {
-        console.log('deleting prods')
         await context.waitForSelector('div[data-asin][import]:not([data-removed])');
-        await context.click('div[data-asin]:not([import]):not([data-removed]) input[value*="Delete"]');
+        await context.click('div[data-asin]:not([import]):not([data-removed]) input[data-action*="delete"]');
         await new Promise(resolve => setTimeout(resolve, 2000));
         await productSellerFound(sellerId, id);
-        console.log('artifact deleted');
       }
       await productSellerFound(sellerId, id)
       page = await pageContext();
@@ -312,15 +305,22 @@ const getStockFunc = async function ({ context, sellerId, id, url }) {
         return
       };
       await context.waitForSelector('div[data-asin][import]:not([data-removed])')
-    }
-    if(sellerName){
-      console.log('appending seller name')
-      await context.evaluate((sellerName) => {
-        let ele = document.querySelector('div[import=element]');
-        if(ele){
-          ele.setAttribute('seller', sellerName);
-        }
-      }, sellerName)
+
+      if(sellerName){
+        console.log('appending seller name')
+        await context.evaluate((sellerName) => {
+          let ele = document.querySelector('div[import=element]');
+          if(ele){
+            ele.setAttribute('seller', sellerName);
+          }
+        }, sellerName)
+      }
+
+    }else{
+      while (await artifactCartItems()) {
+        await context.click('div[data-asin]:not([import]):not([data-removed]) input[data-action*="delete"]');
+        await new Promise(resolve => setTimeout(resolve, 2000));
+      }
     }
   }
 };

@@ -4,7 +4,7 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: productStock
-    xpath: //html//*[@import="element"]//input[@name="quantityBox"]/@value
+    xpath: (//html//*[@import="element"]//input[contains(@name, "quantity") and not(contains(@type, "hidden"))])[1]/@value
   - name: name
     xpath: //html//*[@import="element"]//span[contains(@class, "product-title")]
   - name: productPrice
