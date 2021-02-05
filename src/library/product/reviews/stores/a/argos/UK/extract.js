@@ -25,9 +25,9 @@ module.exports = {
     }
 
     try {
-      await context.waitForSelector('a[data-test*="reviews-flag-link"', { timeout: 10000 });
+      await context.waitForSelector('a[data-test*="reviews-flag-link"]', { timeout: 10000 });
       await context.evaluate(function () {
-        document.querySelector('a[data-test*="reviews-flag-link"').click();
+        document.querySelector('a[data-test*="reviews-flag-link"]').click();
       });
       await context.waitForSelector('div[id*="reviews"]');
     } catch (err) {
@@ -41,7 +41,7 @@ module.exports = {
 
     const totalReviews = await context.evaluate(() => {
       let totalReviews = 0;
-      const totalReviewsElement = document.querySelector('div[class*="cFzgQO"] div:nth-child(1) p');
+      const totalReviewsElement = document.querySelector('div[class*="bgjPQV"] div:nth-child(1) p');
       if (totalReviewsElement) {
         const totalReviewsStr = totalReviewsElement.textContent.split(' ')[0];
         totalReviews = parseInt(totalReviewsStr, 10);
@@ -53,7 +53,7 @@ module.exports = {
       let reviewDate = '';
       const reviewElements = document.querySelectorAll('div[data-test="review-item"]');
       if (reviewElements && reviewElements.length > 0) {
-        const reviewDateElement = reviewElements[0].querySelector('time[class*="jbcxwt"][datetime]');
+        const reviewDateElement = reviewElements[0].querySelector('time[class*="flXZaC"][datetime]');
         if (reviewDateElement) {
           const pattern = /([0-9]+-[0-9]+-[0-9]+)/i;
           const results = reviewDateElement.dateTime.match(pattern);
@@ -71,7 +71,7 @@ module.exports = {
         let reviewDate = '';
         const reviewElements = document.querySelectorAll('div[data-test="review-item"]');
         if (reviewElements && reviewElements.length > 0) {
-          const reviewDateElement = reviewElements[reviewElements.length - 1].querySelector('time[class*="jbcxwt"][datetime]');
+          const reviewDateElement = reviewElements[reviewElements.length - 1].querySelector('time[class*="flXZaC"][datetime]');
           if (reviewDateElement) {
             const pattern = /([0-9]+-[0-9]+-[0-9]+)/i;
             const results = reviewDateElement.dateTime.match(pattern);
