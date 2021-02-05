@@ -37,10 +37,14 @@ module.exports = {
       }
       console.log('Finished changing language');
     }
+    await context.waitForSelector('script[id="z-nvg-cognac-props"]');
 
     await context.evaluate(async () => {
       const scriptText = document.querySelector('script[id="z-nvg-cognac-props"]').textContent;
       const scriptObj = JSON.parse(scriptText.match(/<!\[CDATA\[(.+)\]\]>/)[1]);
+
+      const oldListElem = document.querySelector('ol#added_product_list');
+      if (oldListElem) oldListElem.remove();
 
       const listElem = document.createElement('ol');
       listElem.id = 'added_product_list';
