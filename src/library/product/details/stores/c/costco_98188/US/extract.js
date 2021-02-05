@@ -18,7 +18,7 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(async () => {
-      await new Promise(resolve => setTimeout(resolve, 11000));
+      await new Promise(resolve => setTimeout(resolve, 5000));
       const element = document.querySelectorAll('div.row.active div.product-info-description li');
       if (element) {
         for (let i = 1; i <= element.length; i++) {
@@ -92,7 +92,7 @@ module.exports = {
         document.body.appendChild(newDiv);
       }
     });
-    await new Promise(resolve => setTimeout(resolve, 11000));
+    await new Promise(resolve => setTimeout(resolve, 2000));
     await context.evaluate(async () => {
       const parentNode1 = document.querySelector('div.syndi_powerpage');
       await new Promise(resolve => setTimeout(resolve, 2000));
@@ -160,6 +160,45 @@ module.exports = {
         }
       } catch (err) {}
     });
+    // await context.evaluate(async () => {
+    //   const moreBtn = document.querySelectorAll('div input[name="view-more"]');
+    //   if (moreBtn && moreBtn.length > 0) {
+    //     for (let cnt = 0; cnt < moreBtn.length; cnt++) {
+    //       try {
+    //         // @ts-ignore
+    //         moreBtn[cnt].click();
+    //         await new Promise(resolve => setTimeout(resolve, 2000));
+    //       } catch (err) { }
+    //     }
+    //   }
+    // });
+    // await context.evaluate(async () => {
+    //   const parentNode1 = document.querySelector('div.syndi_powerpage');
+    //   await new Promise(resolve => setTimeout(resolve, 1000));
+    //   if (parentNode1 && parentNode1.shadowRoot && parentNode1.shadowRoot.firstChild) {
+    //     const fetchNode = parentNode1.shadowRoot.firstChild;
+    //     // @ts-ignore
+    //     const allVideos = Array.from(fetchNode.querySelectorAll('video'));
+    //     for (let item = 0; item < allVideos.length; item++) {
+    //       allVideos[item].click();
+    //       await new Promise(resolve => setTimeout(resolve, 1000));
+    //     }
+    //   }
+    // });
+    // var videoRequest = await context.searchForRequest('https://content.syndigo.com/asset/.*ts', 'GET');
+    // if (videoRequest && videoRequest.url) {
+    //   console.log('videos-------->', videoRequest.url);
+    //   await context.evaluate((videoRequest) => {
+    //     function addHiddenDiv (id, content) {
+    //       const newDiv = document.createElement('div');
+    //       newDiv.id = id;
+    //       newDiv.textContent = content;
+    //       newDiv.style.display = 'none';
+    //       document.body.appendChild(newDiv);
+    //     }
+    //     addHiddenDiv('videos1', videoRequest.url);
+    //   }, videoRequest);
+    // }
 
     return await context.extract(productDetails, { transform });
   },

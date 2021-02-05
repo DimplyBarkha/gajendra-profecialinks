@@ -1,6 +1,6 @@
 fields:
   - name: image
-    xpath: //img[contains(@id,"RICHFXViewerContainer___richfx_id_0_zoomImage")]/@src
+    xpath: //img[contains(@id,"RICHFXViewerContainer___richfx_id_0_zoomImage")]/@src 
   - name: imageAlt
     xpath: //img[@id='initialProductImage']/@alt
   - name: alternateImages
@@ -35,8 +35,8 @@ fields:
   - name: description
     xpath: //div[@id='costco-product-desc']
   - name: descriptionBullets
-    # xpath: count(//ul[@class="pdp-features"]//li)
-    xpath: //ul[contains(@class,'pdp-features')]//li |  //div[@id='nav-pdp-tab-header-3']//div[@class='panel-body col-xs-12']//div[@class='product-info-description']/ul/li
+    xpath: count(//ul[@class="pdp-features"]//li)
+    # xpath: //ul[contains(@class,'pdp-features')]//li |  //div[@id='nav-pdp-tab-header-3']//div[@class='panel-body col-xs-12']//div[@class='product-info-description']/ul/li
   - name: brandText
     xpath: //div[@itemprop="brand"]
   - name: manufacturer
@@ -74,11 +74,11 @@ fields:
     # xpath: //div[@class="wc-reset"]//ul//li//img[@data-asset-type="image"]/@src
     xpath: //div[contains(@id,"manuf-images")] | //div[@class="product-info-description"]//img//@srcset | //div[@class="wc-aplus-body"]//img/@src | //div[@class="product-info-description"]//img//@src[contains(.,'img/') or (contains(.,'http') and contains(.,'.jpg'))]
   - name: videos
-    xpath: //div[@class="wc-player-outer-wrap wc-vp"]//video/@src | //meta[@itemprop="contentUrl"]/@content | //body/@videos | //meta//@content[contains(.,'.mp4')] | //head/@*[contains(.,'http')] | //head/@video | //head/@*[contains(.,'http')]
+    xpath: //div[@class="wc-player-outer-wrap wc-vp"]//video/@src | //meta[@itemprop="contentUrl"]/@content | //body/@videos | //meta//@content[contains(.,'.mp4')] | //head/@*[contains(.,'http')] | //head/@video | //head/@*[contains(.,'http')] | //div[@id='videos'] | //div[@id='videoSrc'] | //form[contains(@action,"video-player")]/@action | //div[@id='videos1']
   - name: name
     xpath: //h1[@itemprop="name"]
-  - name: inStorePrice
-    xpath: //div[contains(@class,"online-price")]//span[@class="op-value"]
+  # - name: inStorePrice
+  #   xpath: //div[contains(@class,"online-price")]//span[@class="op-value"]
   - name: sku
     xpath: //span[@itemprop="sku"] | //input[@class='addedItemInput']/@value
   - name: coupon
@@ -173,7 +173,10 @@ fields:
   - name: pricePerUnit
     xpath: //span[@class="unitcurrency"]
   - name: pricePerUnitUom
-    xpath: //span[@class="unitcurrency"]
+    # xpath: //span[@class="unitcurrency"]
+    xpath: //div[@id="price-per-unit-container"]/span[1]
+    regExp: (.+)(:)
+    regExpReplace: $1
   - name: promotion
     xpath: //p[@class="merchandisingText"]
   - name: alcoholContent
@@ -199,3 +202,5 @@ fields:
   - name: Image360Present
   - name: imageZoomFeaturePresent
     xpath: //span[@id="canvasCaption" and contains(text(),  "Roll over")]
+  - name: image1
+    xpath: //img[@id="productImage"]/@src

@@ -7,9 +7,9 @@ const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
       var bulletsText = '';
-      // var bulletsCount = 0;
+      var bulletsCount = 0;
       if (row.additionalDescBulletInfo && row.additionalDescBulletInfo.length) {
-        // bulletsCount = row.additionalDescBulletInfo.length;
+        bulletsCount = row.additionalDescBulletInfo.length;
         row.additionalDescBulletInfo.forEach((ele) => {
           if (ele.text.includes('||')) {
             bulletsText += ele.text.trim();
@@ -21,32 +21,32 @@ const transform = (data) => {
           {
             text: bulletsText,
           }];
-        // }
-        // if (row.descriptionBullets && bulletsCount) {
-        //   row.descriptionBullets[0].text = bulletsCount;
+      }
+      if (row.descriptionBullets && bulletsCount) {
+        row.descriptionBullets[0].text = bulletsCount;
       }
 
-      if (row.descriptionBullets) {
-        const dups = [];
-        row.descriptionBullets = row.descriptionBullets.filter(function (el) {
-          // If it is not a duplicate, return true
-          if (dups.indexOf(el.text) === -1) {
-            dups.push(el.text);
-            return true;
-          }
-          return false;
-        });
-      }
-      if (row.descriptionBullets) {
-        let counter = 0;
-        for (let i = 0; i < row.descriptionBullets.length; i++) {
-          if (row.descriptionBullets[i].text !== null) counter++;
-        }
-        row.descriptionBullets = [
-          {
-            text: counter,
-          }];
-      }
+      // if (row.descriptionBullets) {
+      //   const dups = [];
+      //   row.descriptionBullets = row.descriptionBullets.filter(function (el) {
+      //     // If it is not a duplicate, return true
+      //     if (dups.indexOf(el.text) === -1) {
+      //       dups.push(el.text);
+      //       return true;
+      //     }
+      //     return false;
+      //   });
+      // }
+      // if (row.descriptionBullets) {
+      //   let counter = 0;
+      //   for (let i = 0; i < row.descriptionBullets.length; i++) {
+      //     if (row.descriptionBullets[i].text !== null) counter++;
+      //   }
+      //   row.descriptionBullets = [
+      //     {
+      //       text: counter,
+      //     }];
+      // }
       if (row.specifications) {
         var specText = '';
         for (var j = 0; j < row.specifications.length; j = j + 2) {
@@ -100,9 +100,10 @@ const transform = (data) => {
           delete row.listPrice;
         }
       }
-      if (row.price[0].text.includes('$-')) {
-        row.price = row.listPrice;
-        console.log(row.listPrice[0]);
+      if (row.price && row.listPrice) {
+        if (row.price[0].text.includes('$-')) {
+          row.price = row.listPrice;
+        }
       }
       if (row.termsAndConditions) {
         row.termsAndConditions[0].text = row.termsAndConditions[0].text === 'No' ? 'No' : 'Yes';
@@ -152,6 +153,9 @@ const transform = (data) => {
         row.ratingCount.forEach(item => {
           item.text = item.text.replace(/s/, '').trim();
         });
+      }
+      if (!row.image && row.image1) {
+        row.image = row.image1;
       }
     }
   }
