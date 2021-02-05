@@ -1,3 +1,14 @@
+const { transform } = require('../../../../shared');
+module.exports = {
+  implements: 'product/search/extract',
+  parameterValues: {
+    country: 'UK',
+    store: 'JD_Sports',
+    transform: transform,
+    domain: 'jdsports.co.uk',
+  },
+  implementation,
+};
 async function implementation (
   inputs,
   parameters,
@@ -21,15 +32,3 @@ async function implementation (
   });
   return await context.extract(productDetails, { transform });
 }
-
-module.exports = {
-  implements: 'product/search/extract',
-  parameterValues: {
-    country: 'UK',
-    store: 'JD_Sports',
-    transform: null,
-    domain: 'jdsports.co.uk',
-    zipcode: '',
-  },
-  implementation,
-};
