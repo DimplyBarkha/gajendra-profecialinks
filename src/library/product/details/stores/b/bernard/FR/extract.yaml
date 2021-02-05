@@ -16,7 +16,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@data-nav="1"]//img/@src
+    xpath: //div[@class="tns-tabs pb-2 flex"]/div[position()>1]/img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -34,13 +34,11 @@ fields:
     singleValue: true
     description: The stated undiscounted price for the product
     xpath: //span[@class="product-sku__old-price"]
-    type: CURRENCY
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: //span[@class="product-sku__price-min"]
-    type: CURRENCY
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -56,7 +54,7 @@ fields:
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
-    xpath: count(//div[@class="description-sku__figure-text"]//text())
+    xpath: count(//div[@class="description-sku__figure-text"]//li)
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -205,7 +203,7 @@ fields:
     singleValue: true
     description: null
     type: NUMBER
-    xpath: count(//div[@data-nav="1"]//img/@src)
+    xpath: count(//div[@class="tns-tabs pb-2 flex"]/div[position()>1]/img/@src)
   - name: news
     singleValue: true
     description: null
