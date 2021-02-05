@@ -46,7 +46,7 @@ const transform = (data) => {
           row.alternateImages2.forEach(item => {
             item.text = item.text.replace(/\?\$.+/g, '');
             item.text = item.text + "?$690$&wid=690&hei=690";
-            row.alternateImages.push({'text':item.text,'xpath':row.alternateImages2[0].xpath});
+            row.alternateImages = [{'text':item.text,'xpath':row.alternateImages2[0].xpath}];
             info.push("1");
           });
           row.secondaryImageTotal = [{'text':info.length,'xpath':row.alternateImages[0].xpath}];
