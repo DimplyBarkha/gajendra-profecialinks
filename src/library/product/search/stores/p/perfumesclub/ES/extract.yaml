@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: id
     singleValue: false
-    xpath: (//div[@class="pInfo"]/div/a/@data-id)[1]
+    xpath: //div[@class="pInfo"]/div/a/@data-id
   - name: name
     singleValue: false
     description: The product name
@@ -26,8 +26,7 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //div[@class="quedanMenos"]/img/@alt
-    regExp: (\d).?(\d)?
-    defaultValue: 0
+    regExp: \b[\w=.]+
   # - name: reviewCount
   #   singleValue: false
   #   xpath: //div[@class="reviews_1KIjQ"]/span/span/text()
