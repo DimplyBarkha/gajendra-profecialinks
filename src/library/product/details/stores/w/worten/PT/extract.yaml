@@ -9,7 +9,7 @@ fields:
     regExpReplace: https://www.worten.pt$1
   - name: imageAlt
     xpath: //div[@class="zoomWrapper"]//img//@alt
-  - name: category 
+  - name: category
     description: The categories (e.g. from breadcrumbs)
     xpath: //section[@data-module-template="breadcrumbs"]//li
   - name: nameExtended
@@ -27,12 +27,14 @@ fields:
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
-    description: Product description supplied by website - may be concatenanted from
+    description:
+      Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
     xpath: //div[contains(@class,"w-product-about-container")]
     html: true
   - name: brandText
-    description: Product brand shown - this may actually NOT be just a brand name,
+    description:
+      Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
     xpath: //ul//li//span[contains(text(),'Marca')]/../span[position()>last()-1]
   - name: weightNet
@@ -55,7 +57,7 @@ fields:
     description: Content under "legal disclaimer" header
     xpath: //div[contains(@class,"product__legal-disclaimer")]
   - name: variantCount
-    defaultValue: '0'
+    defaultValue: "0"
   - name: ratingCount
     description: The number of ratings
     xpath: //script[@type="application/ld+json"][1][contains(text(),"reviewCount")]
@@ -72,7 +74,7 @@ fields:
     xpath: //div[@id="enhanced-content"]
   - name: manufacturerImages
     description: Images within the third party description
-    xpath: //div[@id="flix-std-inpage"]//img//@srcset | //div[@id="inpage_container"]//img//@srcset
+    xpath: //div[@class="enhance-content"]//div[@id="flix-std-inpage"]//img//@srcset | //div[@class="enhance-content"]//div[@id="inpage_container"]//img//@srcset
     regExp: (.+)
     regExpReplace: http:$1
   - name: videos
@@ -120,15 +122,12 @@ fields:
   - name: shippingDimensions
     xpath: //span[contains(text(),'Altura')]/following-sibling::span[1] | //span[contains(text(),'Largura')]/following-sibling::span[1] | //span[contains(text(),'Profundidade')]/following-sibling::span[1]
   - name: inTheBoxUrl
-    xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset
+    xpath: //div[contains(@id, "enhanced-content")]//div[contains(@class, "InTheBox")]//img/@data-flixsrcset
     regExp: (.+800w,\s)(.+(.png|.jpg))(.+)
     regExpReplace: https:$2
   - name: inTheBoxText
-    xpath: //div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")]
+    xpath: //div[contains(@id, "enhanced-content")]//div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")]
   - name: hasComparisonTable
-    xpath: //div[contains(@class,'flix-comp-h2')][contains(text(), "Tabela de comparação")]
-    regExp: (.+)
-    regExpReplace: Yes
-    defaultValue: No
+    xpath: //body/@import-comparision-table
   - name: unInterruptedPDP
-    xpath: //h2[contains(text(),'Quem comprou esta máquina, também comprou')]/parent::header/following-sibling::div[1]//h3
+    xpath: //h2[contains(text(),'Quem comprou esta máquina, também comprou')]/parent::header/following-sibling::div[1]//h3 | //import-updp
