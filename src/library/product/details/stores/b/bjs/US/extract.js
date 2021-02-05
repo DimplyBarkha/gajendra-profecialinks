@@ -60,7 +60,8 @@ module.exports = {
 
 
       const varientInfoXpath1 = getAllXpath("//div[@class='dropdown-menu unique-dropdown-menu']/ul/li/text()",'nodeValue').join('|');
-      console.log("varientInfoXpath1:::SIZE:::", varientInfoXpath1);
+      console.log("varientInfoXpath1:::SIZE:::", varientInfoXpath1.split('|'));
+      var sizeArray = varientInfoXpath1.split('|');
 
       const varientInfoXpath2 = getAllXpath("//div[@class='swatch-blk']/ul/li/@id",'nodeValue').join('|');
       console.log("varientInfoXpath2:::ID:::", varientInfoXpath2.split('|'));
@@ -71,9 +72,37 @@ module.exports = {
         ids.push(varientInfoXpathArray[i].split('_')[1]);
       }
       console.log(ids.join('|| '));
-      var varientInfo = "SIZE: "+varientInfoXpath1 +"VariantIDs: "+ids.join('| ');
-      console.log("varientInfo:::"+ varientInfo);
-      addElementToDocument("variant_info_added", varientInfo);
+
+      //addElementToDocument("variant_info_added", varientInfo);
+
+      if(varientInfoXpath2.length != 0 || varientInfoXpath1.length != 0){
+        console.log("1");
+
+      if(varientInfoXpath1.length != 0 && varientInfoXpath2.length == 0){
+        console.log("2");
+        var varientInfo = "SIZE: "+varientInfoXpath1;
+        addElementToDocument("variant_info_added", varientInfo);
+        console.log("3");
+        return;
+      }
+     if(varientInfoXpath2.length != 0 && varientInfoXpath1.length == 0){
+      console.log("4");
+        var varientInfo = "VariantIDs: "+ids.join('| ');
+        addElementToDocument("variant_info_added", varientInfo);
+        console.log("5");
+        return;
+      }
+      if(varientInfoXpath2.length != 0 && varientInfoXpath1.length != 0){
+        var varientInfo = "SIZE: "+varientInfoXpath1 +", VariantIDs: "+ids.join('| ');
+        console.log("6");
+        console.log("varientInfo:::"+ varientInfo);
+        addElementToDocument("variant_info_added", varientInfo);
+        console.log("7");
+        return;
+      }
+
+     
+    }
 
 
       
@@ -170,7 +199,7 @@ module.exports = {
       } else {
         addElementToDocument('quantity_added', quanityXpath2);
       }
-      
+
       const jsonstr = getXpath("//*[@id='contentOverlay']/div/app-pdp-preprocessor/div/app-pdp-layout-template/script[2]/text()", 'nodeValue');
       console.log("jsonstr:::", jsonstr);
       if (jsonstr) {
