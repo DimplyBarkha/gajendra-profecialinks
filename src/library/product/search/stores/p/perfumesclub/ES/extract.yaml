@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: id
     singleValue: false
-    xpath: //div[@class="pInfo"]/div/a/@data-id
+    xpath: //a[@class="imageProductDouble"]/@data-id
   - name: name
     singleValue: false
     description: The product name
@@ -16,17 +16,14 @@ fields:
     regExp: (/.+)
     regExpReplace: https://www.perfumesclub.com$1
   - name: thumbnail
-    singleValue: false
-    xpath: //div[@class="imageProductBack"]/img/@src
+    xpath: //a[@class="imageProductDouble"]/div/img/@src | //a[@class="imageProductDouble"]/img/@src
   - name: price
     singleValue: false
     description: The offered price for the product
-    xpath: //span[@class="newPriceND"]/strong/text()
+    xpath: //span[@class="newPriceND"]/strong
     type: CURRENCY
   - name: aggregateRating
-    singleValue: false
     xpath: //div[@class="quedanMenos"]/img/@alt
-    regExp: \b[\w=.]+
   # - name: reviewCount
   #   singleValue: false
   #   xpath: //div[@class="reviews_1KIjQ"]/span/span/text()

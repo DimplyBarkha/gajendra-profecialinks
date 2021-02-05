@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'ES',
     store: 'perfumesclub',
-    nextLinkSelector: null,
+    nextLinkSelector: 'div[class="col-12 mar-b-3x"]>a',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
+    loadedSelector: 'body',
     noResultsXPath: null,
     resultsDivSelector: null,
     openSearchDefinition: null,
