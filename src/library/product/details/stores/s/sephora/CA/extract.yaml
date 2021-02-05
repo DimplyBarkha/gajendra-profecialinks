@@ -48,9 +48,10 @@ fields:
     xpath: //div[@data-at="how_to_use_section"]
   - name: ratingCount
     singleValue: false
-    xpath: //h3[text()="Summary"]/following-sibling::*/div[last()]/span
-    regExp: ([^,]+) reviews
-    regExpReplace: $1
+    xpath: //span[@data-at="number_of_reviews"]
+    # xpath: //h3[text()="Summary"]/following-sibling::*/div[last()]/span
+    # regExp: ([^,]+) reviews
+    # regExpReplace: $1
   - name: aggregateRating
     singleValue: false
     xpath: //h3[text()="Summary"]/following-sibling::*/div[last()]/div/span
