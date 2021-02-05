@@ -18,6 +18,23 @@ const transform = (data) => {
           },
         ];
       }
+
+      if (row.alternateImages) {
+        let data = [];
+        row.alternateImages.forEach(item => {
+          data = item.text.split('= ');
+          item.text = data[1].replace(';', '');
+          const data1 = JSON.parse(item.text);
+          if (data1.product.images) {
+            item.text = String(data1.product.images);
+            item.text = item.text.replace(/^[^,]+, */, '');
+            item.text = item.text.replace(',', ' | ');
+          } else {
+            item.text = '';
+          }
+        });
+      }
+
       if (row.additionalDescBulletInfo) {
         let text = '';
         row.additionalDescBulletInfo.forEach(item => {
@@ -32,7 +49,7 @@ const transform = (data) => {
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
-          text += ` || ${item.text}`;
+          text += `${item.text}`;
         });
         row.description = [
           {

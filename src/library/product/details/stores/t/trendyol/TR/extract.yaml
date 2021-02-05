@@ -13,9 +13,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[contains(@class,'slick-vertical')]//div[contains(@class,'slick-slide')][position()>1]//img/@src
-    regExp: (.+_)(org)(.jpg)
-    regExpReplace: $1$2_zoom$3
+    xpath: (//script[@type='application/javascript'][contains(.,'PRODUCT_DETAIL_APP')])[1]//text()
   - name: category
     description: The categories (e.g. from breadcrumbs)
     xpath: //div[@class="breadcrumb full-width"]/a[position()>1]
@@ -39,7 +37,7 @@ fields:
   - name: description
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class="pr-in-dt-cn"]//ul//li[contains(.,' ')] | //div[contains(@class,'pr-desc-content')]
+    xpath: //h1[@class="pr-new-br"]
   - name: descriptionBullets
     description: Number of ul > li tags in the description
     xpath: count(//div[@class="pr-in-dt-cn"]//ul//li[contains(.,' ')] | //div[contains(@class,'pr-desc-content')]//ul//li)

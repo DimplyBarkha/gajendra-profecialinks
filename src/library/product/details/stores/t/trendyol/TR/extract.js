@@ -33,5 +33,11 @@ module.exports = {
         console.log('Error While itrerating over the variants',error);
       }
     }
+   try{
+    await context.click(`button[id='confirmed']`);
+    await new Promise(resolve => setTimeout(resolve, 5000));
+   }catch(error){
+      console.log("Error ",error);
+   }
   },
 };

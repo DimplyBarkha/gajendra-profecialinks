@@ -5,7 +5,7 @@ module.exports = {
     country: 'TR',
     store: 'trendyol',
     domain: 'trendyol.com',
-    loadedSelector: null,
+    loadedSelector: 'div.slick-slide.slick-active.slick-current img',
     noResultsXPath: "//div[@class='no-rslt-text']/span",
     zipcode: '',
   },
