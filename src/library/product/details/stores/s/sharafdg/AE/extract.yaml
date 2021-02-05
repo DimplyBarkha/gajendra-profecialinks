@@ -12,7 +12,7 @@ fields:
   - name: metaKeywords
     xpath: //meta[contains(@name,'keywords')]/@content
   - name: category
-    xpath: //ul[contains(@itemprop,'breadcrumb')]//li
+    xpath: //ul[contains(@class,'woocommerce-breadcrumb')]//li[not(@class="first")]/a/span
   - name: nameExtended
     xpath: //div[contains(@class,'product-title')]//h1
   - name: name
