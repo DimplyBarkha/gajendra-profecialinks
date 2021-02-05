@@ -20,11 +20,12 @@ fields:
     singleValue: true
     description: The store-specific product identifier
     xpath: //figcaption[@class="txt-left bold x-large"]//a//span[1]
-    regExp: (\d+\d)$
-  - name: sku
-    singleValue: true
-    xpath: //figcaption[@class="txt-left bold x-large"]//a//span[1]
-    regExp: (\d+\d)$
+    regExp: (\d+)
+    regxreplace: $1
+  # - name: sku
+  #   singleValue: true
+  #   xpath: //figcaption[@class="txt-left bold x-large"]//a//span[1]
+  #   regExp: (\d+\d)$
   - name: price
     singleValue: true
     description: The offered price for the product
