@@ -105,7 +105,21 @@ const transform = (data) => {
           }
         });
       }
-
+      if (row.directions) {
+        // console.log("row.description",row.description);
+        let text = '';
+        row.directions.forEach(item => {
+          text += item.text;
+        });
+        row.directions = [{ text }];
+      }
+      if (row.alternateImages) {
+        // console.log("row.description",row.description);
+        row.alternateImages.forEach(item => {
+          item.text = item.text.replace('124', '1024').trim();
+          item.text = item.text.replace('124', '1024').trim();
+        });
+      }
     }
   }
   return cleanUp(data);
