@@ -6,7 +6,7 @@ async function implementation (inputs, parameters, context, dependencies) {
 
   await context.evaluate(() => {
     const searchUrl = window.location.href;
-    const products = document.querySelectorAll('//div[@class="productView__productTileRows"]//div[@class="nested_grid_content"]');
+    const products = document.querySelectorAll('div[class="productView__productTileRows"] div[class="nested_grid_content"]');
     products.forEach(product => {
       product.setAttribute('searchurl', searchUrl);
     });
