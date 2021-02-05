@@ -18,6 +18,18 @@ const transform = (data) => {
           },
         ];
       }
+
+      if (row.shippingInfo) {
+        let text= ''
+         row.shippingInfo.forEach(item => {
+           text = row.shippingInfo.map(elm => elm.text).join(' || ');
+         });
+         row.shippingInfo = [
+           {
+             text: text,
+           },
+         ];
+       }
       if (row.manufacturerDescription) {
         const text = row.manufacturerDescription[0].text.replace(/more |Prev Next/g, '').trim();
         row.manufacturerDescription = [{ text }];

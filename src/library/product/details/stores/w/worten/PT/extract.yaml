@@ -113,6 +113,8 @@ fields:
     xpath: count(//div[contains(@class,"product-gallery__thumbs")]//div[contains(@class,"swiper-slide")][position()>1]//a//@data-zoom-image)
   - name: otherSellersName
     xpath: //div[@class="marketplace-product__offers"]//span[@class="product-offers__title-title"]
+  - name: shippingInfo
+    xpath: //div[@class="marketplace-product__offers"]//span[@class="product-offers__title-title"]
   - name: otherSellersShipping2
     xpath: //div[@class="marketplace-product__offers"]//span[@class="product-offers__price-description"]/b
   - name: shippingDimensions
