@@ -8,7 +8,8 @@ fields:
     xpath: //img[@class='productImage']/@src
   - name: name
     singleValue: false
-    xpath: //a[@class='productLink']/span
+    #xpath: //html//div[@id='newname']
+    xpath: //a[@class='productLink']/span/text()
   - name: productUrl
     singleValue: true
     xpath: //a[@class='productLink']/@href
@@ -31,7 +32,8 @@ fields:
     xpath:
   - name: id
     singleValue: true
-    xpath: //article[@class='product clearfix']/@data-variationid|//article[@class='product']/@data-variationid
+    xpath: //html//div[@id='prodid']
+    #xpath: //article[@class='product clearfix']/@data-variationid|//article[@class='product']/@data-variationid
   - name: aggregateRating
     singleValue: false
     xpath: //a[@class='rating']

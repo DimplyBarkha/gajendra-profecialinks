@@ -1,3 +1,4 @@
+const { addAlias } = require('module-alias');
 const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
@@ -14,21 +15,21 @@ module.exports = {
     await context.evaluate(async () => {
       let scrollTop = 0;
       while (scrollTop !== 20000) {
-        await stall(3000);
+        await stall(1000);
         scrollTop += 2000;
         window.scroll(0, scrollTop);
         if (scrollTop === 30000) {
-          await stall(10000);
+         await stall(2000);
           break;
         }
       }
-      function stall(ms) {
+       function stall(ms) {
         return new Promise((resolve, reject) => {
-          setTimeout(() => {
+           setTimeout(() => {
             resolve();
-          }, ms);
-        });
-      }
+           }, ms);
+         });
+       }
       var tempData, valueVariant, valueRating;
       const rawData = document.querySelectorAll('script[type="application/ld+json"]');
       for (let i = 0; i < rawData.length; i++) {
@@ -55,7 +56,7 @@ module.exports = {
         newDiv.id = id;
         newDiv.textContent = content;
         newDiv.style.display = 'none';
-        const originalDiv = document.querySelectorAll("span[class='value']")[index];
+        const originalDiv = document.querySelectorAll('#san_resultSection > article')[index];
         originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
       const getAllXpath = (xpath, prop) => {
@@ -67,7 +68,21 @@ module.exports = {
         }
         return result;
       };
-      // price 
+
+      // var aa = document.querySelectorAll("script[type='application/ld+json']");
+      // if (aa != null) {
+      //   for (var i = 0; i < aa.length; i++) {
+      //     // @ts-ignore
+      //     var rawjson = JSON.parse(aa[i].innerText)
+      //     //var newname = rawjson.name
+      //     addHiddenDiv('newname', rawjson.name, i)
+      //     addHiddenDiv('price', rawjson.offers[0].price, i)
+      //     //addHiddenDiv('newname', rawjson.name, i)
+      //     //addHiddenDiv('newname', rawjson.name, i)
+      //   }
+      // }
+
+      price 
       var price = getAllXpath("//span[@class='value']/text()", 'nodeValue');
       if (price != null) {
         for (var i = 0; i < price.length; i++) {
@@ -75,6 +90,14 @@ module.exports = {
           addHiddenDiv('price', price[i], i);
         }
       }
+      var prodid = getAllXpath("//article[@class='product']/@data-facetted-variation-ids", 'nodeValue');
+      if (prodid != null) {
+        for (var i = 0; i < prodid.length; i++) {
+          prodid[i] = prodid[i].split(",")[0]
+          addHiddenDiv('prodid', prodid[i], i);
+        }
+      }
+
     });
     return await context.extract(productDetails, { transform });
   },
