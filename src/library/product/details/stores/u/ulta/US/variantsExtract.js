@@ -13,7 +13,12 @@ async function implementation(
       newDiv.style.display = 'none';
       return newDiv;
     }
-    let url = window.location.href;
+    // let url = window.location.href;
+    
+    let fullUrl = document.querySelector('meta[property="og:url"]').getAttribute('content');
+    let selectBeforeSku = '(.+)(?=&sku)';
+    let url = fullUrl.includes('sku') ? fullUrl.match(selectBeforeSku)[0] : fullUrl;
+
     const outerDiv = addHiddenDiv('variants_outer', '');
     if (document.querySelector('div.ProductSwatches__Cell div[class=""] img')) {
       document.querySelectorAll('div.ProductSwatches__Cell div[class=""] img').forEach(variant => {
@@ -33,7 +38,7 @@ async function implementation(
       if (skuId) {
         skuUrl = addHiddenDiv('sku_url', `${url}&sku=${skuId}`);
       } else {
-        skuUrl = addHiddenDiv('sku_url', url);
+        skuUrl = addHiddenDiv('sku_url', fullUrl);
       }
       const innerDiv = addHiddenDiv('variants_ul', '');
       innerDiv.appendChild(skudiv);
