@@ -28,7 +28,8 @@ fields:
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
-  xpath: (//div[@class="breadcrumbs"]//li//span)[position() > 1]
+  # xpath: (//div[@class="breadcrumbs"]//li//span)[position() > 1]
+  xpath : (//*[contains(@itemprop,"breadcrumb")]//li)[position() > 1]
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
