@@ -65,7 +65,11 @@ module.exports = {
           return text;
       
       }
-
+      function findXpath (xpath) {
+        const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        const productDetails = element && element.textContent ? element.textContent : '';
+        return productDetails;
+      }
       try{
         let jsonString =  getElementByXpath('//div[@data-vm-context="bpr_qv"]/div/no-script');
         var jsonParsed = JSON.parse(jsonString);
@@ -106,6 +110,13 @@ module.exports = {
           addHiddenDiv("ii_produrl", url_web, temp);
           const searchURL = window.location.href.split("?")[0]
           addHiddenDiv("ii_searchURL", searchURL, temp);
+          try{
+            var xpat = '(//div[@class="hz-product-card__meta"]/span[2]/span[@class="hz-color-link__text "])['+(temp+1)+']'
+            var manufacturer_name =  findXpath(xpat).replace("by ","")
+            addHiddenDiv("ii_mnf", manufacturer_name, temp);
+          }catch(e){
+            console.log(e)
+          }
           temp++;
         }
       }

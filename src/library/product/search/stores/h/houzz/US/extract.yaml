@@ -3,11 +3,6 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: brand
-    singleValue: true
-    description: The brand name
-    example: Panasonic
-    xpath: //a/div/div[@class="hz-product-card__meta"]/span[2]/span[@class="hz-color-link__text "]
   - name: productUrl
     singleValue: true
     description: The URL for the product details page
@@ -41,6 +36,10 @@ fields:
     singleValue: true
     description: Is sponsored/paid
     type: BOOLEAN
+  - name: manufacturer
+    singleValue: true
+    xpath: //div[@id="ii_mnf"]
+
   - name: id
     singleValue: true
     description: Unique id (within this extractor)
@@ -71,8 +70,3 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     xpath: //span[@class="star-rating hz-product-card__review-stars"]/@aria-label
-  - name: manufacturer
-    singleValue: true
-    xpath: //span[@data-compid="manufacturer"]/span
-    regExp: (^[by ]{3,})(.*)
-    regExpReplace: $2
