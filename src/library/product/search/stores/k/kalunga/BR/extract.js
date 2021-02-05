@@ -25,6 +25,7 @@ module.exports = {
       } catch (e) {
         lastPage = 1;
       }
+      const maxRes = 3; // equals 150 items
       let inc = 1;
       const url = 'https://www.kalunga.com.br/getBusca';
 
@@ -57,7 +58,7 @@ module.exports = {
         }).then(response => response.json())
           .catch(error => console.error('Error:', error))
           .then(response => {
-            if (+lastPage >= 5 ? inc < 5 : inc < +lastPage) {
+            if (inc <= +lastPage && inc <= maxRes) {
               try {
                 document.getElementById('divProdutoDepartamento').innerHTML += response.templateProdutos;
                 getData();
@@ -77,7 +78,7 @@ module.exports = {
 
       getData();
     });
-    await context.waitForSelector('#hrefs');
+    await context.waitForSelector('#hrefs', { timeout: 20000 });
     return await context.extract(productDetails, { transform });
   },
 };
