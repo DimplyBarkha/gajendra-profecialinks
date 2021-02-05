@@ -1,0 +1,43 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: true
+    description: Unique id (within this extractor)
+    xpath: //a[contains(@class, "a2g0")]/@href 
+  - name: pageTimestamp
+    singleValue: true
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //a[contains(@class, "a2g0")]
+  - name: productUrl
+    singleValue: true
+    xpath: //a[contains(@class, "a2g0")]/@href
+  - name: aggregateRating
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+    xpath: //div[@class='a1y6 a1z0']/@title
+  - name: reviewCount
+    singleValue: true
+    description: The number of reviews
+    xpath: //div[contains(@class, "a1a9")]/a[@class='a1b']
+  - name: price
+    singleValue: true
+    xpath: //span[contains(@class, "b5v6")]
+  - name: soldBy
+    singleValue: true
+    xpath: //span[@class='a2g6']/font[1] 
+  - name: thumbnail
+    singleValue: true
+    description: The URL for the product thumbnail image
+    xpath: //a[contains(@class, "a2g0")]/@oz-thumbnail
+  - name: manufacturer
+    singleValue: true
+    xpath: //a[contains(@class, "a2g0")]/@oz-brand
+
+
+
