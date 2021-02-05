@@ -58,12 +58,13 @@ async function implementation (
 
   let url = await context.evaluate(function () {
     /** @type { HTMLLinkElement } */
-    const next = document.querySelector('li.a-last a');
+    const next = document.querySelector('head link[rel="next"]');
     if (!next) {
       return false;
     }
     return next.href;
   });
+  console.log('Input param', date);
 
   console.log('end date is ', new Date(date).setHours(0, 0, 0, 0));
 
