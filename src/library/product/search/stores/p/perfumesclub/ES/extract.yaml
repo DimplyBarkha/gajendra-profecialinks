@@ -24,6 +24,10 @@ fields:
     type: CURRENCY
   - name: aggregateRating
     xpath: //div[@class="quedanMenos"]/img/@alt
+    regExp: \b[\w=.]+
+  - name: aggregateRating2
+    xpath: //div[@class="quedanMenos"]/img/@alt
+    type: NUMBER
   # - name: reviewCount
   #   singleValue: false
   #   xpath: //div[@class="reviews_1KIjQ"]/span/span/text()
