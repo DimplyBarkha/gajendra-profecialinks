@@ -1,4 +1,3 @@
-
 async function implementation (
   inputs,
   parameters,
@@ -17,11 +16,11 @@ async function implementation (
     }, { timeout: 10000 }, loggedInSelector);
   }
   await context.setInputValue(passwordSelector, password);
+  await context.click('#btn-login');
   await context.waitForNavigation({ timeout: 50000, waitUntil: 'load' });
   await context.evaluate(function () {
     document.forms[0].submit();
   });
-  await context.waitForNavigation({ timeout: 50000, waitUntil: 'load' });
 }
 
 module.exports = {
