@@ -31,6 +31,13 @@ async function implementation(
       const originalDiv = document.querySelectorAll('div[class="item-product js-product js-equalized js-addtolist-container js-ga"]')[index];
       originalDiv.parentNode.insertBefore(newDiv, originalDiv);
     }
+    function addElementToDocument(key, value) {
+      const catElement = document.createElement("div");
+      catElement.id = key;
+      catElement.textContent = value;
+      catElement.style.display = "none";
+      document.body.appendChild(catElement);
+    }
     const getAllXpath = (xpath, prop) => {
       const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
       const result = [];
@@ -49,7 +56,24 @@ async function implementation(
         addHiddenDiv(id, a, i);
       }
     }
-
+    try {
+      var price = getAllXpath('//div[@class="item-product__price--sale"]/span/span/text() | //div[@class="item-product__price push--bottom"]/span/text()', 'nodeValue');
+      if (price != null) {
+        for (var i = 0; i < price.length; i++) {
+          var price1 = price[i].replace(",", ".");
+          addHiddenDiv("price", price1, i);
+        }
+      }
+      const URL = window.location.href;
+      try {
+        document.getElementById("pd_url").remove();
+      } catch (error) { }
+      addElementToDocument("pd_url", URL);
+    }
+    // @ts-ignore
+    // @ts-ignore
+    catch (error) {
+    }
   });
   return await context.extract(productDetails, { transform });
 };
