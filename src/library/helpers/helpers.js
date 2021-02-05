@@ -182,8 +182,13 @@ module.exports.Helpers = class {
             if (feature.assetType === 'Image') {
               const img = document.createElement('img');
               img.alt = feature.caption;
+              img.title = feature.caption;
               img.src = feature.asset.url.replace('{0}', feature.asset.originalWidth);
+              const caption = document.createElement('div');
+              caption.setAttribute('class', 'caption');
+              caption.innerText = feature.caption;
               mainDiv.appendChild(img);
+              mainDiv.appendChild(caption);
             }
             const div = document.createElement('div');
             const html = feature.description;
@@ -198,11 +203,15 @@ module.exports.Helpers = class {
         for (const video of items) {
           const vid = document.createElement('video');
           vid.setAttribute('alt', video.video.caption);
+          const caption = document.createElement('div');
+          caption.setAttribute('class', 'caption');
+          caption.innerText = video.video.caption;
           const url = video.video.sources[0].url;
           const response = await fetch(url);
           const text = await response.text();
           vid.src = url.replace(/playlist.m3u8/, text.match(/[^\n]+.m3u8/)[0]);
           mainDiv.appendChild(vid);
+          mainDiv.appendChild(caption);
           const div = document.createElement('div');
           const html = video.description;
           div.innerHTML = html;
