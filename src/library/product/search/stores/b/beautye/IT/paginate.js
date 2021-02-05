@@ -25,5 +25,7 @@ module.exports = {
     // },
     domain: 'beautye.it',
     zipcode: '',
+    
   },
-};
+  };
+  

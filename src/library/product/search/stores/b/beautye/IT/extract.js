@@ -8,10 +8,11 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  await new Promise(resolve => setTimeout(resolve, 2000));
+  await new Promise(resolve => setTimeout(resolve, 4000));
 
   // await context.waitForSelector('div>ol>li.product-item');
   await context.evaluate(async function () {
+    try{
     function addElementToDocument (doc, key, value) {
       const catElement = document.createElement('div');
       catElement.id = key;
@@ -22,8 +23,9 @@ async function implementation (
 
     // function to get the json data from the string
     function findJsonData (startString, endString) {
-      try {
+        
         const xpath = '//script[@data-ommit="true"][contains(.,"impressions")]';
+        
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         const scriptContent = element.textContent;
         const startIdx = scriptContent.indexOf(startString);
@@ -31,12 +33,10 @@ async function implementation (
         let jsonStr = scriptContent.substring(startIdx + startString.length, endIdx);
         jsonStr = jsonStr.trim();
         return JSON.parse(jsonStr);
-      } catch (error) {
-        console.log(error.message);
-      }
+     
     }
     // elements from data Layer object
-    try{
+    
     const dataObj = findJsonData('(', ');')
     const data = dataObj.ecommerce.impressions;
     console.log('data ===', JSON.stringify(dataObj));

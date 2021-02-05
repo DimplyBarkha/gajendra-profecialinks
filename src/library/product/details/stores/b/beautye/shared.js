@@ -95,15 +95,10 @@ const transform = (data) => {
           text += item.text+' '; 
         });   
         if (row.brandText && row.brandText.length){
-<<<<<<< HEAD
-        let finalName=(row.brandText[0])?(row.brandText[0].text+' '+text):text;
-        row.nameExtended = [{text: finalName.trim()}];}
-=======
           let finalName=(row.brandText[0].text)?(row.brandText[0].text+' '+text):text;
           row.nameExtended = [{text: finalName.trim()} ];
         }
         
->>>>>>> 7b972930afbf826d54527ee34a985e48cd2a8971
       }
 
       if (row.variants) {
