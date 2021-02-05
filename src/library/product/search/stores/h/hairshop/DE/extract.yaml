@@ -1,0 +1,35 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: name
+    singleValue: false
+    xpath: //div[@class='product-name']/a/@title
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class='product-name']/a/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='product-image']/img/@src
+  - name: price
+    singleValue: false
+    xpath: //p[@class='special-price']/span|//span[@class='regular-price']/span
+  - name: id
+    singleValue: false
+    xpath: //div[@class='wishlist-summary']/a/@data-product-id
+  - name: rank
+    singleValue: false
+    xpath:
+  - name: rankOrganic
+    singleValue: false
+    xpath:
+  - name: reviewCount
+    singleValue: false
+    xpath: //a[@class='rating-link']/text()
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class='rating']/@style
+    regExp: (\:)(.*)
+    regExpReplace: $2
+    defaultValue: 0%

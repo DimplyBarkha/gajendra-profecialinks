@@ -1,0 +1,39 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class='item clearfix no-underline ajx item-link c d-4 p-m-6  ']
+fields:
+  - name: name
+    singleValue: false
+    xpath: //div[@class='product-image c d-12']/a/@onclick
+    regExp: \"name\":\"(.*)\|(.*)\|(.*)\|(.*)\|(.*)\",\"id
+    regExpReplace: $1$3$4$5
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class='product-image c d-12']/a/@href
+    regExp: (^\/.+)
+    regExpReplace: https://www.parfumdreams.de$1
+  - name: thumbnail
+    singleValue: false
+    xpath:  //div[@class='product-image c d-12']/a/img/@src
+  - name: price
+    singleValue: false
+    xpath: //div[@class='product-image c d-12']/a/@onclick
+    regExp: \"priceInCurrency\":\"(.*)\",\"brand
+    regExpReplace: €$1
+  - name: id
+    singleValue: false
+    xpath: //html//div[@id='id']
+  - name: gtin
+    singleValue: false
+    xpath: //html//div[@id='ean']
+  - name: rankOrganic
+    singleValue: false
+    #xpath: //div[@class='product-image c d-12']/a/@onclick
+    #regExp: \"position\":(.*)},
+    #regExpReplace: $1
+  - name: rank
+    singleValue: false
+    #xpath: //div[@class='product-image c d-12']/a/@onclick
+    #regExp: \"position\":(.*)},
+    #regExpReplace: $1
