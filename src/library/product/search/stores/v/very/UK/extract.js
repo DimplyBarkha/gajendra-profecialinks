@@ -1,11 +1,11 @@
 const { transform } = require('../../../../shared');
 
-async function implementation(inputs, parameters, context, dependencies) {
+async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
   await context.evaluate(async () => {
-    function addElementToDocument(key, value) {
+    function addElementToDocument (key, value) {
       const catElement = document.createElement('div');
       catElement.id = key;
       catElement.textContent = value;
@@ -28,6 +28,8 @@ async function implementation(inputs, parameters, context, dependencies) {
         price = element.querySelector('dd[class="productNowPrice"').textContent;
       } else if (element.querySelector('span[class="priceRangeWasValue"]')) {
         price = element.querySelector('span[class="priceRangeWasValue"]').textContent;
+      } else if (element.querySelector('dd[class="productPrice"]')) {
+        price = element.querySelector('dd[class="productPrice"]').textContent;
       }
 
       if (price) {
@@ -50,16 +52,16 @@ async function implementation(inputs, parameters, context, dependencies) {
       element.setAttribute('rank', (index + 1).toString());
     });
 
-    //add id
+    // add id
     var ids = document.querySelectorAll('ul[class="productList"] a[class="productMainImage"]');
     ids.forEach((element) => {
-      let imgSrc = element.querySelector('img').getAttribute('src');
-      let regex = /(?<=very\/)(.*)(?=_SQ)/g;
-      let id = imgSrc.match(regex).toString();
+      const imgSrc = element.querySelector('img').getAttribute('src');
+      const regex = /(?<=very\/)(.*)(?=_SQ)/g;
+      const id = imgSrc.match(regex).toString();
       if (id) {
         element.setAttribute('id', id);
       }
-    })
+    });
   });
 
   return await context.extract(productDetails, { transform });

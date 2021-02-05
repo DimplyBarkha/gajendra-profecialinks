@@ -7,7 +7,7 @@ fields:
     singleValue: false
     # xpath: //a[contains(@class, "productMainImage")]//img/@src
     # regExp: (?<=very\/)(.*)(?=_SQ)
-    xpath: ul[class="productList"] a[class="productMainImage"]/@id
+    xpath: //ul[@class="productList"]//a[@class="productMainImage"]/@id
   - name: searchUrl
     singleValue: true
     xpath: ancestor::html//div[@id="searchUrl"][last()]
