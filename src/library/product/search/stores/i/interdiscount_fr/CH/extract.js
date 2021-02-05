@@ -30,6 +30,7 @@ async function implementation (
   await context.evaluate(async function () {
     // @ts-ignore
     const productInfo = window.__INITIAL_STATE__.products;
+
     async function addEleToDoc (key, value, code) {
       const productCode = new RegExp(`--p${code}`, 'g');
       const productsDiv = document.querySelectorAll('div._3oe9VX');
@@ -56,7 +57,9 @@ async function implementation (
     }
     if (productInfo) {
       const info = Object.keys(productInfo);
+      const URL = window.location.href;
       for (var i = 0; i < info.length; i++) {
+        console.log('inside loop :::: i====', info[i]);
         var code = info[i];
         var item = productInfo[code].code;
         // console.log("item:::: ", item)
@@ -65,6 +68,7 @@ async function implementation (
         if (item && aggregateRating > 0) {
           addEleToDoc('rating', `${aggregateRating}`, `${item}`);
         }
+        addEleToDoc('pd_url', URL, `${item}`);
       }
     }
   });
