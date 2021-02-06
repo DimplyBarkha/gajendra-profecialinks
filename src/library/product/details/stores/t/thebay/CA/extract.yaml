@@ -33,15 +33,14 @@ fields:
     xpath: //div[@class='row']//ol[contains(@class,'breadcrumb')]//li[position()>1]
   - name: variantId
     singleValue: false
-    xpath: //div[@class='value content']//div[@class='product-detail-id']
+    xpath: //ul[contains(@class,'size-attribute')]//li[@selected='selected']/a/@data-adobelaunchsizeproductid | //div[@class='value content']//div[@class='product-detail-id']
   - name: firstVariant
     singleValue: false    
   - name: listPrice
     singleValue: false
     xpath: //div[@class='price']//span[@class='price']//span[@class='list strike-through ']//span[contains(@class,'formatted_price')]
   - name: sku
-    singleValue: false
-    xpath: //div[@class='value content']//div[@class='product-detail-id']
+    singleValue: false    
   - name: ratingCount
     singleValue: false
     xpath: //div[contains(@class,'product-number-rating')]//a

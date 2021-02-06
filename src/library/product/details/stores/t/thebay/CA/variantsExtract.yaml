@@ -6,7 +6,7 @@ fields:
   - name: variantId
     singleValue: false
     description: variant id, to uniquely identify variant
-    xpath: //ul[@class='color-wrapper radio-group-list']//button/@data-adobelaunchcolorproductid | //div[@class='container product-detail product-wrapper']/@data-masterid
+    xpath: //ul[contains(@class,'size-attribute')]//li[@selected='selected']/a/@data-adobelaunchsizeproductid
   - name: variantUrl
     singleValue: false
     description: variant Url

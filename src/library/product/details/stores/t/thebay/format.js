@@ -52,6 +52,7 @@ const transform = (data, context) => {
           item.text = item.text.replace('StyleCode:', '').trim();
         });
         row.firstVariant = [{ text: row.variantId[0].text }];
+        row.sku = [{ text: row.variantId[0].text }];
       }
       if (row.image) {
         row.image.forEach(item => {
