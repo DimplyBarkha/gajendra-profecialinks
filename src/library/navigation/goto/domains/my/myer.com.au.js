@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'myer.com.au',
     // timeout: 9000000,
-    timeout: 12000000,
+    timeout: 50000,
     country: 'AU',
     store: 'myer',
     zipcode: '',
