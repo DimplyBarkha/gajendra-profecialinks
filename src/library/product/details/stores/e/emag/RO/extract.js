@@ -44,9 +44,11 @@ module.exports = {
       // appending double pipes to each li tag in description SPACEHERE placeholder must be appended because spaces at the start of each textNode are beeing omitted durring extraction
       function changeLiBulletsPointsToDoublePipes (selector) {
         const bulletTextElements = document.querySelectorAll(selector);
-        bulletTextElements.forEach(el => {
-          el.textContent = `SPACEHERE|| ${el.textContent}`;
-        });
+        if (bulletTextElements) {
+          bulletTextElements.forEach(el => {
+            el.textContent = `SPACEHERE|| ${el.textContent}`;
+          });
+        }
       }
       changeTextBulletPointsToDoublePipes('//div[@id="description-body"]//*[not(contains(@class,"plyr"))]/text()[not(.="0")] | //div[@id="description-body"]/text()');
       changeLiBulletsPointsToDoublePipes('div#description-body li');
@@ -103,8 +105,8 @@ module.exports = {
       }
     }
     if (dataRef[0].group[0].description && dataRef[0].group[0].description[0].text.includes('||')) {
-      dataRef[0].group[0].description[0].text = dataRef[0].group[0].description[0].text.replace(/SPACEHERE/g, ' ');
-      const bulletInfoArray = dataRef[0].group[0].description[0].text.match(/( ?\|\|.+?[.|;])/g);
+      dataRef[0].group[0].description[0].text = dataRef[0].group[0].description[0].text.replace(/\s{2,}/g, ' ').replace(/SPACEHERE/g, ' ');
+      const bulletInfoArray = dataRef[0].group[0].description[0].text.match(/( ?\|\|.+?[.|;])/gm);
       let bulletInfoString = '';
       bulletInfoArray.forEach(bullet => {
         bulletInfoString += bullet;
@@ -113,7 +115,7 @@ module.exports = {
         text: bulletInfoString.replace(/\s\|\s.+/, ''),
       }];
       dataRef[0].group[0].descriptionBullets = [{
-        text: bulletInfoArray.length,
+        text: dataRef[0].group[0].description[0].text.match(/\|\|/gm).length,
       }];
     }
 
