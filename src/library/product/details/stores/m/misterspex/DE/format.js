@@ -90,8 +90,8 @@ const transform = (data) => {
       if (row.availabilityText){
         let info = [];
         row.availabilityText.forEach(item =>{
-          item.text = item.text.replace(/In den Warenkorb/, "In stock");
-          item.text = item.text.replace(/Weitere Kontaktlinsen entdecken/, "Out of stock");
+          item.text = item.text.replace(/In den Warenkorb/, "In Stock");
+          item.text = item.text.replace(/Weitere Kontaktlinsen entdecken/, "out of stock");
           info.push(item.text);
         });
       };
