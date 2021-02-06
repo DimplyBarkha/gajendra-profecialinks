@@ -7,7 +7,7 @@ module.exports = {
     domain: 'nocibe.fr',
     url: 'https://www.nocibe.fr/resultats/{searchTerms}',
     loadedSelector: 'div[class="products-list"]',
-    noResultsXPath: '//div[@class="srchrslt noresult"] | //div[@class="cntnt__content"] | //section[@id="brandLanding"]',
+    noResultsXPath: '//div[@class="srchrslt noresult"] | //div[@class="cntnt__content"] | //section[@id="brandLanding"] | //div[@class="cmsPageContouring"]',
     zipcode: '',
   },
 };

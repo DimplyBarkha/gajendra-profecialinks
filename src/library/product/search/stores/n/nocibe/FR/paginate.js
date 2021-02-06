@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[class="products-list"]',
-    noResultsXPath: '//div[@class="srchrslt noresult"] | //div[@class="cntnt__content"] | //section[@id="brandLanding"]',
+    noResultsXPath: '//div[@class="srchrslt noresult"] | //div[@class="cntnt__content"] | //section[@id="brandLanding"] | //div[@class="cmsPageContouring"]',
     openSearchDefinition: null,
     domain: 'nocibe.fr',
     zipcode: '',
