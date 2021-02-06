@@ -18,15 +18,6 @@ module.exports = {
     await new Promise(resolve => setTimeout(resolve, 2000));     
     //await new Promise(resolve => setTimeout(resolve, 2000));
     //await new Promise((resolve, reject) => setTimeout(resolve, 40000));
-    try {
-      await context.waitForXPath('//a[@class="HyperLink_6o9ywu ProductMediaCarouselStyle_3wTrlJ"]');
-      await context.waitForSelector('a.HyperLink_6o9ywu.ProductMediaCarouselStyle_3wTrlJ span');
-      console.log('everything fine !!!');
-      await context.evaluate(() => {
-        const firstItem = document.querySelector('a.HyperLink_6o9ywu.ProductMediaCarouselStyle_3wTrlJ span');
-        firstItem.click();
-      });   
-    } catch (err) { }
 
     await context.evaluate(async function () {
       let scrollTop = 0;
@@ -100,6 +91,24 @@ module.exports = {
       }
       if (desc.length > 0) {
         addHiddenDiv('product-desc', desc);
+      }
+      let moreManufContent = '';
+      let manufImg = '';
+      if (document.querySelector('iframe[id^="wcframable"') && document.querySelector('iframe[id^="wcframable"').contentWindow && document.querySelector('iframe[id^="wcframable"').contentWindow.document.querySelector('body')) {
+         let arrManuf = [];
+         let arrManufImg = [];
+         [...document.querySelector('iframe[id^="wcframable"')].forEach(el => {
+          arrManuf.push(el.contentWindow.document.querySelector('body').innerText);
+          arrManufImg.push(el.contentWindow.document.querySelector('img').src);
+         });
+         moreManufContent = arrManuf.join(' | ');
+         manufImg = arrManufImg.join(' | ');
+      }
+      if (moreManufContent.length > 0) {
+        addHiddenDiv('ii_manufContent', moreManufContent);
+      }
+      if (manufImg.length > 0) {
+        addHiddenDiv('ii_manufImg', manufImg);
       }
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
@@ -203,6 +212,15 @@ module.exports = {
     const pageUrl = await context.evaluate(async () => {
       return window.location.href;
     });
+    try {
+      await context.waitForXPath('//a[contains(@class,"ProductMediaCarouselStyle")]');
+      await context.waitForSelector('a[class~="ProductMediaCarouselStyle"] span');
+      console.log('everything fine !!!');
+      await context.evaluate(() => {
+        const firstItem = document.querySelector('a[class~="ProductMediaCarouselStyle"] span');
+        firstItem.click();
+      });
+    } catch (err) { }
 
     console.log('pageUrl ==', pageUrl);
     const manufacturerContentLink = await checkmanufacturerContent();
@@ -210,6 +228,15 @@ module.exports = {
     if (manufacturerContentLink) {
       manContentObj = await fetchManufacturerContentIframe(manufacturerContentLink);
       await context.goto(pageUrl);
+      try {
+        await context.waitForXPath('//a[contains(@class,"ProductMediaCarouselStyle")]');
+        await context.waitForSelector('a[class~="ProductMediaCarouselStyle"] span');
+        console.log('everything fine !!!');
+        await context.evaluate(() => {
+          const firstItem = document.querySelector('a[class~="ProductMediaCarouselStyle"] span');
+          firstItem.click();
+        });
+      } catch (err) { }
     }
     await addContentToDOM(manContentObj, manufacturerContentLink);
 

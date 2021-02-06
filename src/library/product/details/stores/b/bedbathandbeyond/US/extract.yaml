@@ -24,6 +24,7 @@ fields:
     xpath: //div[@class='slick-initialized slick-slider']//div[@class='slick-list']//div[contains(@class,'slick-slide slick-active')]//a//img/@alt
   - name: secondaryImageTotal
     singleValue: false
+    xpath: count(//div[@id='rclModal']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li[not(@class='slick-active')]//button/img/@src)
   - name: alternateImages
     singleValue: false
     xpath: //div[@id='rclModal']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li[not(@class='slick-active')]//button/img/@src
@@ -71,7 +72,7 @@ fields:
     xpath: //div[@id='productDetails']//ul//li
   - name: description
     singleValue: false
-    xpath: //div[@id='productDetails']//div[@itemprop='description']
+    xpath: //div[@id='productDetails']//div[@itemprop='description']|//div[@id='productDetails']//ul//li
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[@id='productDetails']//ul//li)
@@ -80,7 +81,9 @@ fields:
     xpath: '0'
   - name: manufacturerDescription
     SingleValue: false
-    xpath: //div[contains(@class, "wc-aplus-body")]//div[contains(@class, "wc-rf-banner-box-outer")]|//div[contains(@class, "wc-fragment")]//h2|//div[contains(@class, "wc-fragment")]//div[contains(@class, "wc-aplus-body")]//ul[contains(@class, "wc-rich-features")]//li//*[contains(@class, "wc-rich-content")]
+    xpath: //div[contains(@class, "wc-aplus-body")]//div[contains(@class, "wc-rf-banner-box-outer")]|//div[contains(@class, "wc-fragment")]//h2[not(contains(text(), "Overview"))]|//div[contains(@class, "wc-fragment")]//div[contains(@class, "wc-aplus-body")]//ul[contains(@class, "wc-rich-features")]//li//*[contains(@class, "wc-rich-content")]|//div[contains(@class, "wc-pct-header-column-wrapper")]//table|//div[@id="ii_manufContent"]
+    # xpath: //div[contains(@class, "wc-aplus-body")]//div[contains(@class, "wc-rf-banner-box-outer")]|//div[contains(@class, "wc-fragment")]//h2[not(contains(text(), "Overview"))]|//div[contains(@class, "wc-fragment")]//div[contains(@class, "wc-aplus-body")]//ul[contains(@class, "wc-rich-features")]//li//*[contains(@class, "wc-rich-content")]|//div[@id="ii_manufContent"]
+    # xpath: //div[contains(@class, "wc-aplus-body")]//div[contains(@class, "wc-rf-banner-box-outer")]|//div[contains(@class, "wc-fragment")]//h2|//div[contains(@class, "wc-fragment")]//div[contains(@class, "wc-aplus-body")]//ul[contains(@class, "wc-rich-features")]//li//*[contains(@class, "wc-rich-content")]
     # xpath: //div[@id='productDetails']//*[self::div or self::li]
   - name: videos
     SingleValue: false
@@ -96,7 +99,7 @@ fields:
     xpath: //ul[contains(@class,'rclCustomTiles CustomSelect-inline_')]//li[contains(@class,'tilesItem')]//button/@value
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id='wc-aplus']//img/@src  
+    xpath: //div[@id='wc-aplus']//img/@src[not(contains(., "enlarge"))]||//div[@id="ii_manufImg"]
   - name: inTheBoxText
     xpath: //li[contains(., 'Set includes:')]/ul/li
   - name: unInterruptedPDP
