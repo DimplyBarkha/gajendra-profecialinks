@@ -88,7 +88,8 @@ const transform = (data) => {
       if (row.promotion) {
         let text = '';
         row.promotion.forEach(item => {
-          text += item.text;
+          text += ' '+item.text;
+          text = text.replace('','').trim();
         });
         row.promotion = [{ text }];
       }
