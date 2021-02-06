@@ -35,7 +35,7 @@ module.exports = {
         const descriptionTextNodes = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         for (let i = 0; i < descriptionTextNodes.snapshotLength; i++) {
           console.log(descriptionTextNodes.snapshotItem(i).textContent);
-          descriptionTextNodes.snapshotItem(i).textContent = descriptionTextNodes.snapshotItem(i).textContent.replace(/^ *?(•|-|\*|\d\.|✓)/gm, ' || ');
+          descriptionTextNodes.snapshotItem(i).textContent = descriptionTextNodes.snapshotItem(i).textContent.replace(/^\s*?(•|-|\*|\d\.|✓)/gm, ' || ');
           if ((/^\s*(•|-|\*|\d\.|✓)\s*$/).test(descriptionTextNodes.snapshotItem(i).textContent)) {
             descriptionTextNodes.snapshotItem(i).textContent = descriptionTextNodes.snapshotItem(i).textContent.replace(/^\s*(•|-|\*|\d\.|✓)\s*$/, ' || ');
           }
