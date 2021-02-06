@@ -8,7 +8,14 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
-    await await context.setBlockAds(false);
+    await context.setBlockAds(false);
+    await context.setFirstRequestTimeout(100000);
+    await context.setCssEnabled(true);
+    await context.setLoadAllResources(true);
+    await context.setLoadImages(true);
+    await context.setJavaScriptEnabled(true);
+    await context.setAntiFingerprint(false);
+    await context.setUseRelayProxy(false);
     url = `${url}#[!opt!]{"block_ads":false, "force200": true}[/!opt!]`;
     const timeout = parameters.timeout ? parameters.timeout : 10000;
     await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: false, force200: true });

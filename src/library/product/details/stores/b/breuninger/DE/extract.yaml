@@ -26,11 +26,13 @@ fields:
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
-    xpath: //div[@class='shop-slider__item' or @class='shop-slider__item active']//img[@class='bewerten-bild'][contains(@alt, '1')]/@alt
+    xpath: (//*[contains(@class,"shop-grid-row")]//img[contains(@class,"bewerten-thumbnail__image")])[position() = 1]/@alt
+    # xpath: //div[@class='shop-slider__item' or @class='shop-slider__item active']//img[@class='bewerten-bild'][contains(@alt, '1')]/@alt
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[position()>1][contains(@class, 'bewerten-slider')]//img[contains(@class, 'bewerten-slider')]/@src
+    xpath: (//*[contains(@class,"shop-grid-row")]//img[contains(@class,"bewerten-thumbnail__image")])[position() > 1]/@data-src | (//*[contains(@class,"shop-grid-row")]//img[contains(@class,"bewerten-thumbnail__image")])[position() > 1]/@src 
+    # xpath: //div[position()>1][contains(@class, 'bewerten-slider')]//img[contains(@class, 'bewerten-slider')]/@src
   - name: metaKeywords
     description: The <meta> keywords content
   - name: category

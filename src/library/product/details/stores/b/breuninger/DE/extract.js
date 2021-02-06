@@ -37,7 +37,7 @@ module.exports = {
       return null;
     });
     //
-    const myUrl = await context.evaluate(async function () {
+    let myUrl = await context.evaluate(async function () {
       // if (document.querySelector('meta[property="og:url"]')) { return document.querySelector('meta[property="og:url"]').content; }
       return document.URL;
     });
@@ -170,10 +170,12 @@ module.exports = {
         return { specifications: specifications, weightNet: weightNet };
       });
 
-      await goto(myUrl);
+      console.log('need to go back to the prod page', myUrl);
+      myUrl = `${myUrl}#[!opt!]{"block_ads":false, "force200": true}[/!opt!]`;
+      await context.goto(myUrl);
       await context.waitForNavigation();
       await new Promise((resolve, reject) => setTimeout(resolve, 2000));
-    // checking if popup exists and if so, closing it
+      // checking if popup exists and if so, closing it
     }
     acceptButtonPresent = await context.evaluate(async function () {
       return document.querySelector('button[id="uc-btn-accept-banner"]');
@@ -182,6 +184,27 @@ module.exports = {
       await context.click('button[id="uc-btn-accept-banner"]');
       await new Promise((resolve, reject) => setTimeout(resolve, 100));
     }
+
+    async function autoScroll (page) {
+      await page.evaluate(async () => {
+        await new Promise((resolve, reject) => {
+          var totalHeight = 0;
+          var distance = 100;
+          var timer = setInterval(() => {
+            var scrollHeight = document.body.scrollHeight;
+            window.scrollBy(0, distance);
+            totalHeight += distance;
+
+            if (totalHeight >= scrollHeight) {
+              clearInterval(timer);
+              resolve();
+            }
+          }, 100);
+        });
+      });
+    }
+    await autoScroll(context);
+
     // checking if down arrow for photos exist and if so, pressing it
     const arrowDownPresent = await context.evaluate(async function () {
       if (document.querySelector('div[class*="bewerten-slider"]>svg[class*="arrows--down"]')) { return document.querySelector('div[class*="bewerten-slider"]>svg[class*="arrows--down"]'); }
@@ -268,9 +291,43 @@ module.exports = {
     });
 
     addHiddenInfo('ii_description', description);
+
+    let loaderXpath = '//div[contains(@class,"entd-recos")]//div[contains(@class,"shop-spinner")]/*';
+    let loaderIsPresent = true;
+    let thisTime = 0;
+    const maxTime = 120000;
+    while(loaderIsPresent && (thisTime < maxTime)) {
+      try {
+        await context.waitForXPath(loaderXpath);
+        console.log('loaderXpath is still there', loaderXpath);
+        await new Promise(resolve => setTimeout(resolve, 30000));
+      } catch(err) {
+        loaderIsPresent = false;
+        console.log('got some error while waiting for the loader xpath', err.message);
+      }
+      thisTime += 30000;
+    }
+    console.log('loaderIsPresent', loaderIsPresent);
+    console.log('waited for', thisTime);
+
     // manually extracting additional description bullet info
+    // *[class*="bewerten-produkt-detail-tabs"] div>div[class="bewerten-textformat"]>ul>li
+    let descBulletInfoSel = '*[class*="bewerten-produkt-detail-tabs"] div>div[class="bewerten-textformat"]>ul>li';
+    try {
+      await context.waitForSelector(descBulletInfoSel);
+      console.log('we got the selector');
+    } catch(err) {
+      console.log('we got some error while waiting for desc bullets info', err.message);
+      try {
+        await context.waitForSelector(descBulletInfoSel);
+        console.log('we got the selector');
+      } catch(error) {
+        console.log('we got some error while waiting for desc bullets info, again', error.message);
+      }
+    }
     const additionalDescBulletInfo = await context.evaluate(async function () {
-      const bulletInfoParts = document.querySelectorAll('div>div[class="bewerten-textformat"]>ul>li');
+      const bulletInfoParts = document.querySelectorAll('*[class*="bewerten-produkt-detail-tabs"] div>div[class="bewerten-textformat"]>ul>li');
+      console.log('bulletInfoParts.length', bulletInfoParts.length);
       var additionalDescBulletInfo = '';
       for (let i = 0; i < bulletInfoParts.length; i++) {
         additionalDescBulletInfo += `|| ${bulletInfoParts[i].innerText} `;
