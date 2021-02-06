@@ -17,7 +17,7 @@ fields:
     description: The URL for the product thumbnail image
   - name: name
     singleValue: false
-    xpath: //section[contains(@data-testid,"product-list")]//a[contains(@class,"plp__productTileWrapper")]//div[@class="plp__productNameFlavourWrapper__2RIMs"]
+    xpath: //section[contains(@data-testid,"product-list")]//a[contains(@class,"plp__productTileWrapper")]//div[@class="plp__productNameFlavourWrapper__2RIMs"]//p[1]
     description: The product name
   - name: reviewCount
     singleValue: false

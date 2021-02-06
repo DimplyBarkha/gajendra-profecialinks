@@ -27,7 +27,7 @@ module.exports = {
         await context.click(`div.swatches-group > ul > li:nth-child(${index})`);
         await new Promise(resolve => setTimeout(resolve, 500));
         if (variantCount !== index) {
-          await context.evaluate(() => document.querySelectorAll('div[data-wps-popup-close-intent]').forEach(elm => elm.click()));
+          //await context.evaluate(() => document.querySelectorAll('div[data-wps-popup-close-intent]').forEach(elm => elm.click()));
           await context.extract(productDetails, { type: 'APPEND', transform });
         } else {
           return await context.extract(productDetails, { type: 'APPEND', transform });
