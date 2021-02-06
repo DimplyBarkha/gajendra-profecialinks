@@ -8,7 +8,8 @@ fields:
     xpath: //meta[@property="og:url"]/@content
   - name: image
     singleValue: false
-    xpath: //div[contains(@class,'fa--image-gallery-item__desktop')]/div/img[contains(@src,'_1?') or contains(@src,'_01?')][1]/@src
+    xpath: //div[contains(@class,"jsx-3622739909")]/img[@class="jsx-2487856160"]/@src
+    # xpath: //div[contains(@class,'fa--image-gallery-item__desktop')]/div/img[contains(@src,'_1?') or contains(@src,'_01?')][1]/@src
   - name: category
     singleValue: false
     xpath: //ol[contains(@class,'breadcrum')]/li[position() >1 ]
@@ -22,7 +23,8 @@ fields:
     xpath: //meta[@property="og:image:alt"]/@content
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class,'fa--image-gallery-item__desktop')]/div/img[contains(@src,'_') and not(contains(@src,'_1?'))]/@src
+    xpath: (//div[contains(@class,"jsx-3622739909")]/img[@class="jsx-2487856160"]/@src)[position()>1]
+    # xpath: //div[contains(@class,'fa--image-gallery-item__desktop')]/div/img[contains(@src,'_') and not(contains(@src,'_1?'))]/@src
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
@@ -41,15 +43,15 @@ fields:
   - name: energyEfficiency
     singleValue: false
     xpath: //td[contains(text(),'Eficiencia energética')]/following-sibling::td[1]     
-  # - name: gtin 
-  #   singleValue: false
-  #   xpath: //td[contains(text(),'Modelo')]/following-sibling::td[1]    
+  - name: gtin 
+    singleValue: false
+    xpath: //td[contains(text(),'Modelo')]/following-sibling::td[1]    
   - name: name
     singleValue: true
     xpath: //div/@data-name
   - name: nameExtended
     singleValue: true
-    xpath: concat(//div/@data-brand,'-',//div/@data-name) 
+    xpath: concat(//div/@data-brand,'',//div/@data-name) 
   - name: listPrice
     singleValue: false
     xpath: //li[contains(@class,'price-1')]//div[contains(@class,'cmr-icon-container')]/span
@@ -69,7 +71,8 @@ fields:
     xpath: count(//div[contains(@class,'specifications-list')]/ul/li)
   - name: secondaryImageTotal
     singleValue: false
-    xpath: count(//div[contains(@class,'fa--image-gallery-item__desktop')]/div/img[contains(@src,'_') and not(contains(@src,'_1?'))]/@src)
+    xpath: count((//div[contains(@class,"jsx-3622739909")]/img[@class="jsx-2487856160"]/@src)[position()>1])
+    # xpath: count(//div[contains(@class,'fa--image-gallery-item__desktop')]/div/img[contains(@src,'_') and not(contains(@src,'_1?'))]/@src)
   - name: brandText
     singleValue: false
     xpath: //div/@data-brand
@@ -94,3 +97,6 @@ fields:
   - name: specifications
     singleValue: false
     xpath: //table[contains(@class,'specification-table')]
+  - name: manufacturerImages
+    singleValue: false
+    xpath: 
