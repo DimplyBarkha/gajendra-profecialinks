@@ -88,7 +88,9 @@ const transform = (data) => {
       }
       if(row.variantId){
         row.variantId.forEach(item=>{
+          //console.log('item.text',item.text);
           let match=item.text.match(/_Colour_(.+?)_/);
+          //console.log('match',match);
           if(match){
             item.text=match[1];
           }
