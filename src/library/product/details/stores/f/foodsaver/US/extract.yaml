@@ -102,7 +102,7 @@ fields:
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: false
-    xpath: //div[contains(@class,"pdp-tile")]//div[contains(@class,"product-number-rating")]//span[contains(@class,"sr-only")]
+    xpath: //div[contains(@class,"pdp-tile")]//button[@id="ratings-summary"]
     regExp: (.+)\sout of
     regExpReplace: $1
   - name: promotion
@@ -129,7 +129,7 @@ fields:
     description: The product name
   - name: secondaryImageTotal
     singleValue: false
-    xpath: count((//img[@itemprop="image"]/@src)[position()>1])
+    xpath: count((//img[contains(@class,"pdp-thumb-img")]/@src)[position()>1])
     description: null
     #type: NUMBER
   - name: energyEfficiency
