@@ -71,6 +71,21 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
+      // mpc
+      // @ts-ignore
+      const mpcs = [...document.querySelectorAll('script[type="text/javascript"]')].filter(e => e.innerText.includes('ManufacturerId') && e.innerText.includes('dataLayer'));
+      const mpc = [];
+      if (mpcs.length !== 0) {
+        mpcs.forEach(e => {
+          if (e.innerText.match(/ManufacturerId":"(\d+)/) !== null) mpc.push(e.innerText.match(/ManufacturerId":"(\d+)/)[1]);
+        });
+      }
+      addElementToDocument('mpc', mpc[0]);
+      // upc
+      const upc = document.querySelector('span[itemprop="gtin13"]')
+        // @ts-ignore
+        ? document.querySelector('span[itemprop="gtin13"]').innerText : '';
+      addElementToDocument('upc', upc);
       // adding name extended
       const name = document.querySelector('div[class*="prdct__designation"] h1[class="prdct__maintitle"]');
       const variantInfo = document.querySelector('div[class*="prdct__sku-selected"] span[class="prdct__sku-name"], span[class*="prdct__bullets-link active"]');

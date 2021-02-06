@@ -84,6 +84,7 @@ fields:
 - name: gtin
   singleValue: true
   description: GTIN code (includes UPC/EAN)
+  xpath: //div[@id='upc']
 - name: sku
   singleValue: true
   type: STRING
@@ -98,6 +99,7 @@ fields:
 - name: mpc
   singleValue: tru
   description: The manufacturer model code (unique) of the product
+  xpath: //div[@id='mpc']
 - name: packSize
   singleValue: true
   description: The number of packs in the product offer (if stated separately on the

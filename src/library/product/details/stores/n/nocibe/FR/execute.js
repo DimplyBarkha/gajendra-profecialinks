@@ -6,7 +6,7 @@ module.exports = {
     store: 'nocibe',
     domain: 'nocibe.fr',
     loadedSelector: 'section#productPage',
-    noResultsXPath: '//div[contains(@class, "404")]',
+    noResultsXPath: '//div[contains(@class, "404")] | //div[@class="srchrslt noresult"]',
     zipcode: '',
   },
 };

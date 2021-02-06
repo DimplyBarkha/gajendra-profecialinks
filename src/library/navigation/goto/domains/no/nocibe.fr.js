@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'nocibe.fr',
-    timeout: null,
+    timeout: 50000,
     country: 'FR',
     store: 'nocibe',
     zipcode: '',
