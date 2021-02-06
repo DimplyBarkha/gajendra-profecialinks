@@ -9,6 +9,7 @@ fields:
   singleValue: false
 - name: productUrl
   singleValue: false
+  xpath: //div[@class="product-section"]/@url
 - name: _pageTimeStamp
   singleValue: false
 - name: image
@@ -21,7 +22,7 @@ fields:
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
-  xpath: //div[@class="thumbnail left slick-slide slick-active"]/img/@src
+  xpath: '//div[@style="display: block;"]/descendant::div[@class="thumbnail left slick-slide slick-active"]/img/@src | //div[@style=""]/descendant::div[@class="thumbnail left slick-slide slick-active"]/img/@src'
 - name: metaKeywords
   singleValue: false
   description: The <meta> keywords content
@@ -33,7 +34,7 @@ fields:
   singleValue: false
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
-  xpath: //div[@class="main-content"]/descendant::div[@class="simple-description"][contains(@style, 'block')]/h2
+  xpath: //h1[@itemprop="name"]
 - name: listPrice
   singleValue: false
   description: The stated undiscounted price for the product
@@ -58,9 +59,9 @@ fields:
     multiple places; specifically not the manufacturer description
   xpath: //div[@itemprop="description"] | //div[@class="simple-description"]
 - name: descriptionBullets
-  singleValue: true
+  singleValue: false
   description: Number of ul > li tags in the description
-  xpath: count(//div[@itemprop="description"]/li)
+  xpath: 'count(//div[@class="simple-description"][@style="display: block;"]/descendant::ul/li)'
 - name: brandText
   singleValue: false
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
@@ -161,9 +162,9 @@ fields:
 - name: videos
   singleValue: false
   description: URLs of videos on page
-  xpath: //div[@class="media-wrapper video-wrapper"]/@videoUrl
+  xpath: //div[@class="media-wrapper video-wrapper"]/@videoUrl | //p[@class="video-container"]/iframe/@src
 - name: name
-  singleValue: true
+  singleValue: false
   description: The product name
   xpath: //h1[@itemprop="name"]
 - name: inStorePrice
@@ -256,8 +257,9 @@ fields:
   singleValue: false
   description: 
 - name: secondaryImageTotal
-  singleValue: true
-  description: 
+  singleValue: false
+  description:
+  xpath: 'count(//div[@style="display: block;"]/descendant::div[@class="thumbnail left slick-slide slick-active"] | //div[@style=""]/descendant::div[@class="thumbnail left slick-slide slick-active"])'
 - name: news
   singleValue: true
   description: 

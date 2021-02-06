@@ -49,11 +49,14 @@ async function implementation (inputs, parameters, context, dependencies) {
           p++;
         };
       };
+
+      const url = document.location.href;
+      document.querySelector('.product-section').setAttribute('url', url);
     });
   }
 
   const pV3Length = await context.evaluate(() => {
-    return document.querySelectorAll('.product-variant-2>div>div').length;
+    return document.querySelectorAll('.product-variant-2 div[class*="product-info "]').length;
   });
 
   const pV1 = await context.evaluate(() => {
@@ -61,7 +64,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   });
 
   const pV3 = await context.evaluate(() => {
-    return document.querySelectorAll('.product-variant-2>div>div');
+    return document.querySelectorAll('.product-variant-2 div[class*="product-info "]');
   });
   const pV1Length = await context.evaluate(() => {
     return document.querySelectorAll('.product-variant-1>li').length;
