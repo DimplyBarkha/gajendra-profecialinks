@@ -4,9 +4,8 @@ recordSelector: null
 recordXPath: //div[@class='b7y3']
 fields:
   - name: helpfulCount
-    type: NUMBER
     description: Number of people who said the review was helpful
-    xpath: //div[@class='a4l5']/div[@class='a5c3 a4m6']/div[@class='a5c0']/div[@class='a5c1']/div/div[@class='a0l9']/div[@class='a0l9 ui-k4'][1]/button[@class='ui-k6']/div[@class='ui-k8 ui-m ui-m5 ui-l4']/div[@class='ui-n1'] | //div[@class='a6z5 ui-k4']//div[contains(text(),'Да')]
+    xpath: //button//div[contains(text(),"Да")]
     regExp: Да (.*)
     regExpReplace: $1
   - name: commentCount
@@ -29,7 +28,7 @@ fields:
   - name: reviewRating
     type: NUMBER
     description: Rating normalized to be out of 5
-    xpath: //div[@class='ui-a0d0']/@custom_rating
+    xpath: //div[@class='_3xol']/@custom_rating
     #    todo style width
   - name: reviewText
     description: The text of the review
