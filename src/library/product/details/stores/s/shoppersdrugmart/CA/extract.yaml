@@ -8,13 +8,13 @@ fields:
     xpath: //meta[@name='keywords']/@content
   - name: image
     singleValue: false
-    xpath: //div[@id='scroll-slider-thumbnail']//ul[contains(@class,'slides')]//li[contains(@class,'flex-active-slide')]//img/@src
+    xpath: //div[@id='pdp-zoom-image-slider-thumbnail']//ul[contains(@class,'slides')]//li[contains(@class,'flex-active-slide')]//img/@src
   - name: imageAlt
     singleValue: false
-    xpath: //div[@id='scroll-slider-thumbnail']//ul[contains(@class,'slides')]//li[contains(@class,'flex-active-slide')]//img/@alt
+    xpath: //div[@id='pdp-zoom-image-slider-thumbnail']//ul[contains(@class,'slides')]//li[contains(@class,'flex-active-slide')]//img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@id='scroll-slider-thumbnail']//ul[contains(@class,'slides')]//li[not(contains(@class,'flex-active-slide'))]//img/@src
+    xpath: //div[@id='pdp-zoom-image-slider-thumbnail']//ul[contains(@class,'slides')]//li[not(contains(@class,'flex-active-slide'))]//img/@src
   - name: category
     singleValue: false
     xpath: //ul[@class="breadcrumb"]//li//a
@@ -38,7 +38,7 @@ fields:
     xpath: //div[@class='product-detail-header']//div[@class='item-product-price']//span[@class='strikethrough']
   - name: description
     singleValue: false
-    xpath: //div[@class="about-product"]//p[@class='about-product-detail']
+    xpath: concat(//div[@class="about-product"]//p[@class='about-product-detail'], " ", //h4[normalize-space()='FEATURES & BENEFITS']//following-sibling::div/p) 
   # - name: description2
   #   # merge description 1 and 2
   #   singleValue: false
@@ -78,10 +78,10 @@ fields:
     xpath: //div[@class='item-product-optimum-promo-text']/text()
   - name: directions
     singleValue: false
-    xpath: //h4[normalize-space()='HOW TO USE']//following-sibling::div
+    xpath: //h4[normalize-space()='HOW TO USE']//following-sibling::div/p
   - name: ingredientsList
     singleValue: false
-    xpath: //h4[normalize-space()='INGREDIENTS']//following-sibling::div
+    xpath: //h4[normalize-space()='INGREDIENTS']//following-sibling::div/p
   - name: ratingCount
     singleValue: false
     xpath: //div[@class='product-detail-header']//div[@class='pr-snippet-read-and-write']//a[@class='pr-snippet-review-count']    
