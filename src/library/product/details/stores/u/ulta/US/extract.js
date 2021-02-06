@@ -48,26 +48,25 @@ async function implementation(inputs, parameters, context, dependencies) {
     } catch (e) {
       console.log("Video error" + e)
     }
+
     const manufacturerContent = document.querySelector("div#wc-power-page");
     if (manufacturerContent) {
       manufacturerContent.scrollIntoView({ behavior: "smooth" });
       await new Promise((resolve) => setTimeout(resolve, 5000));
-      manufacturerContent.innerHTML = manufacturerContent.innerHTML.replace(
-        /<div\s*class="wc-json-data".*?<\/div>/g,
-        " "
-      );
+      // manufacturerContent.innerHTML = manufacturerContent.innerHTML.replace(
+      //   /<div\s*class="wc-json-data".*?<\/div>/g,
+      //   " "
+      // );
 
       if (!manufacturerContent.innerText) {
-
         await new Promise((resolve) => setTimeout(resolve, 5000));
-        let arrDesc = document.querySelector("div#wc-power-page div.syndi_powerpage")
-        if (arrDesc) {
-          arrDesc = arrDesc.shadowRoot
-          if (arrDesc) {
-            arrDesc = arrDesc.shadowRoot.querySelectorAll('div.syndigo-featureset-feature')
-            const enhancedContent = [...arrDesc].reduce((a, elm) => a + elm.innerText, '');
-            manufacturerContent.innerText = manufacturerContent.innerText + enhancedContent
-          }
+        let arrDesc = document.querySelector("div#wc-power-page div[class*='syndi_powerpage']")
+        // let arrDesc = document.querySelector("div#wc-power-page div.syndi_powerpage")
+        if (arrDesc && arrDesc.shadowRoot) {
+            // arrDesc = arrDesc.shadowRoot.querySelectorAll('div.syndigo-featureset-feature')
+            // const enhancedContent = [...arrDesc].reduce((a, elm) => a + elm.innerText, '');
+            // manufacturerContent.innerText = manufacturerContent.innerText + enhancedContent
+          addHiddenDiv('other-enh-content', arrDesc.shadowRoot.querySelector('div.syndi_powerpage').innerText)
         }
       }
     }
