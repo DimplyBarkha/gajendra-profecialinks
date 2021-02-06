@@ -12,13 +12,12 @@ async function implementation (
   context,
   { execute, extract, paginate },
 ) {
-  // const { URL: url, RPC, SKU, date: dateOrigin = null, days = 30, results = 10000, Brands } = inputs;
-  const { URL: url, RPC, SKU, date, days = 30, results = 10000, Brands } = inputs;
+  const { URL: url, RPC, SKU, date: dateOrigin = null, days, results = 10000, Brands } = inputs;
   const id = RPC || SKU || inputs.id;
   const inputUrl = url;
   const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
-  // const date = new Date(days ? new Date().setDate(new Date().getDate() - days) : dateOrigin);
+  const date = new Date(days ? new Date().setDate(new Date().getDate() - days) : dateOrigin);
   console.log(`Date Limit: "${date}"`);
 
   const resultsReturned = await execute({ url, id, zipcode, date, days, Brands });
