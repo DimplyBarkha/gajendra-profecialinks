@@ -1,14 +1,16 @@
 singleRecord: false
 regionsSelector: null
 # recordSelector: div.Row-sc-1fpt6l5 > div.ProductCol-sc-9tzwht
-recordXPath: //div[contains(@class,'ProductCol-sc-9tzwht hMAycV')]
+# recordXPath: //div[contains(@class,'ProductCol-sc-9tzwht hMAycV')]
+recordXPath: //div[contains(@data-testid,'product-col')]
 fields:
   - name: id
     xpath: //a[@data-testid="product-link"]/@href
     # xpath: //a[contains(@class,'sc-psDhf bAPYME')]/@href
     singleValue: false
   - name: name
-    xpath: //div[contains(@class,'NameNoBrand-sc-1ifpr6 juQXTU')]
+    # xpath: //div[contains(@class,'NameNoBrand-sc-1ifpr6 juQXTU')]
+    xpath: //a[contains(@data-testid,'product-link')]//div[contains(@class,'fragment-search__sc')]/span/following-sibling::div
     singleValue: false
   - name: productUrl
     xpath: //a[@data-testid="product-link"]/@href
@@ -23,8 +25,9 @@ fields:
     # xpath: //span[contains(@class,'BrandName-sc-1hwvb2t hdRRnK')]
     singleValue: false  
   - name: price
-    xpath: //div[contains(@class,'PriceWrapper-sc-p7sel8')]/div
+    # xpath: //div[contains(@class,'PriceWrapper-sc-p7sel8')]/div
     # xpath: //div[contains(@class,'sc-qYUWV jpJVcE PriceWrapper-sc-p7sel8 cJzxCo')]/div
+    xpath: //a[contains(@data-testid,'product-link')]//div[contains(@class,'fragment-search__sc')]/div[contains(text(),'€')]
     singleValue: false
     # type: CURRENCY
   
