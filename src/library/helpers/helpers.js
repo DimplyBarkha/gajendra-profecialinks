@@ -142,6 +142,10 @@ module.exports.Helpers = class {
       const text = (await response.json()).contents;
       //   const text = await response.text();
       // eslint-disable-next-line no-eval
+      if (text.match(/terminatePowerPage/) || !text.match(/_wccontent/)) {
+        console.log('Enhanced content not found');
+        return false;
+      }
       eval(text.replace('document.getElementsByTagName(\'head\')[0].appendChild(_wcscript);', '//document.getElementsByTagName(\'head\')[0].appendChild(_wcscript);')); // might fail if response doesnt has the data.
       // add HTM Content
       const div = document.createElement('div');
@@ -159,66 +163,93 @@ module.exports.Helpers = class {
 
   // Syndigo API2 code to append enhanced content.
   async syndigoAPI2 (productID, pageId) {
+    async function createElement ({ type = 'div', styles = {}, attributes = {}, props = {}, appendTo }) {
+      const element = document.createElement(type);
+      for (const key in styles) { element.style[key] = styles[key]; }
+      for (const key in attributes) { element.setAttribute(key, attributes[key]); }
+      for (const key in props) { element[key] = props[key]; }
+      appendTo && appendTo.append(element);
+      return element;
+    }
     async function getWidgetHtml (widget) {
-      const h2 = document.createElement('h2');
-      h2.setAttribute('class', 'syndigo-widget-section-header');
-      h2.innerText = widget.headerText;
-      const div = document.createElement('div');
-      div.setAttribute('class', 'syndigo-featureset');
-      const html = await getFeatureSet(widget.items, widget.widgetType);
-      div.innerHTML = html;
-      const mainDiv = document.createElement('div');
-      mainDiv.setAttribute('class', 'widgets');
-      mainDiv.append(h2);
-      mainDiv.append(div);
+      const mainDiv = await createElement({});
+      const headerSection = {
+        type: 'h2',
+        attributes: { class: 'syndigo-widget-section-header' },
+        props: { innerText: widget.headerText },
+        appendTo: mainDiv,
+      };
+      await createElement(headerSection);
+      const contentSection = {
+        attributes: { class: 'syndigo-featureset' },
+        props: { innerHTML: await getFeatureSet(widget.items, widget.widgetType) },
+        appendTo: mainDiv,
+      };
+      await createElement(contentSection);
       return mainDiv;
     }
-
     async function getFeatureSet (items, widgetType) {
+      const mainDiv = await createElement({});
       if (widgetType === 'FeatureSet') {
-        const mainDiv = document.createElement('div');
         for (const feature of items[0].features) {
           if (!feature.assetType.match(/video/gi)) {
             if (feature.assetType === 'Image') {
-              const img = document.createElement('img');
-              img.alt = feature.caption;
-              img.title = feature.caption;
-              img.src = feature.asset.url.replace('{0}', feature.asset.originalWidth);
-              const caption = document.createElement('div');
-              caption.setAttribute('class', 'caption');
-              caption.innerText = feature.caption;
-              mainDiv.appendChild(img);
-              mainDiv.appendChild(caption);
+              const img = {
+                type: 'img',
+                attributes: {
+                  alt: feature.caption,
+                  title: feature.caption,
+                  src: feature.asset.url.replace('{0}', feature.asset.originalWidth),
+                },
+                appendTo: mainDiv,
+              };
+              await createElement(img);
+              const caption = {
+                attributes: { class: 'caption' },
+                props: { innerText: feature.caption },
+                appendTo: mainDiv,
+              };
+              await createElement(caption);
             }
-            const div = document.createElement('div');
-            const html = feature.description;
-            div.innerHTML = html;
-            mainDiv.append(div);
+            const description = {
+              attributes: { class: 'description' },
+              props: { innerHTML: feature.description },
+              appendTo: mainDiv,
+            };
+            await createElement(description);
           }
         }
-        return mainDiv.innerHTML;
       }
       if (widgetType === 'VideoGallery') {
-        const mainDiv = document.createElement('div');
         for (const video of items) {
-          const vid = document.createElement('video');
-          vid.setAttribute('alt', video.video.caption);
-          const caption = document.createElement('div');
-          caption.setAttribute('class', 'caption');
-          caption.innerText = video.video.caption;
+          const videoElement = {
+            type: 'video',
+            attributes: {
+              alt: video.video.caption,
+              title: video.video.caption,
+            },
+            appendTo: mainDiv,
+          };
           const url = video.video.sources[0].url;
           const response = await fetch(url);
           const text = await response.text();
-          vid.src = url.replace(/playlist.m3u8/, text.match(/[^\n]+.m3u8/)[0]);
-          mainDiv.appendChild(vid);
-          mainDiv.appendChild(caption);
-          const div = document.createElement('div');
-          const html = video.description;
-          div.innerHTML = html;
-          mainDiv.append(div);
+          videoElement.attributes.src = url.replace(/playlist.m3u8/, text.match(/[^\n]+.m3u8/)[0]);
+          const caption = {
+            attributes: { class: 'caption' },
+            props: { innerText: video.video.caption },
+            appendTo: mainDiv,
+          };
+          await createElement(caption);
+          await createElement(videoElement);
+          const description = {
+            attributes: { class: 'description' },
+            props: { innerHTML: video.description },
+            appendTo: mainDiv,
+          };
+          await createElement(description);
         }
-        return mainDiv.innerHTML;
       }
+      return mainDiv.innerHTML;
     }
     async function addECWidgets (productID, pageId) {
       const json = await getJsonData(productID, pageId);
