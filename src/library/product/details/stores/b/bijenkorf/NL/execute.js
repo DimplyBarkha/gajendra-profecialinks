@@ -72,7 +72,7 @@ module.exports = {
     } else {
       return false;
     }
-    async function autoScroll(page) {
+    async function autoScroll (page) {
       await page.evaluate(async () => {
         await new Promise((resolve, reject) => {
           var totalHeight = 0;
@@ -81,7 +81,6 @@ module.exports = {
             var scrollHeight = document.body.scrollHeight;
             window.scrollBy(0, distance);
             totalHeight += distance;
-
             if (totalHeight >= scrollHeight) {
               clearInterval(timer);
               resolve();

@@ -138,6 +138,11 @@ const transform = (data) => {
         row.quantity = [{ text: row.singleProductVariantInformation[0].text }];
       }
 
+      if (row.unInterruptedPDP) {
+        const pdp = Array.from(new Set(row.unInterruptedPDP.map(elm => elm.text.trim())));
+        row.unInterruptedPDP = pdp.map(text => ({ text }));
+      }
+
       row.imageZoomFeaturePresent = [{ text: 'Yes' }];
     }
   }
