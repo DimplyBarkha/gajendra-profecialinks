@@ -16,7 +16,7 @@ module.exports = {
   ) => {
     await new Promise(resolve => setTimeout(resolve, 2000));
     const variantCount = await context.evaluate(async function () {
-      return document.querySelectorAll('div.swatches-group > ul > li > a').length;
+      return document.querySelectorAll('div.swatches-group > ul > li').length;
     });
     const { transform } = parameters;
     const { productDetails } = dependencies;
@@ -25,7 +25,7 @@ module.exports = {
     for (let index = 1; index <= variantCount; index++) {
       try {
         await context.click(`div.swatches-group > ul > li:nth-child(${index}):not(.active)`);
-        await new Promise(resolve => setTimeout(resolve, 500));
+        await new Promise(resolve => setTimeout(resolve, 2000));
         if (variantCount !== index) {
           //await context.evaluate(() => document.querySelectorAll('div[data-wps-popup-close-intent]').forEach(elm => elm.click()));
           await context.extract(productDetails, { type: 'APPEND', transform });

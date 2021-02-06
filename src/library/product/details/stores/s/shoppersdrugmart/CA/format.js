@@ -53,10 +53,9 @@ const transform = (data) => {
       }
       if (row.availabilityText) {
         row.availabilityText.forEach(item => {
-          if(item.text.indexOf('disable') < 0) {
+          if (item.text.indexOf('disable') < 0) {
             item.text = 'In Stock';
-          }
-          else {
+          } else {
             item.text = 'Out of Stock';
           }
         });
@@ -66,17 +65,32 @@ const transform = (data) => {
           row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.nameExtended[0].text }];
         }
       }
+      // if (row.variantId) {
+      //   row.variantId.forEach(item => {
+      //     const variantIdVal = item.text.replace('var certona = ', '').slice(0, -1);
+      //     const data = JSON.parse(variantIdVal);
+      //     console.log('dataObjvariant :', data.itemid);
+      //     if (data.hasOwnProperty('itemid')) {
+      //       item.text = data.itemid;
+      //     } else {
+      //       item.text = '';
+      //     }
+      //   });
+      // }
+      if (row.sku && row.sku.length > 1) {
+        row.sku = row.sku.splice(1, row.sku.length - 1);
+      }
       if (row.variantId) {
         row.variantId.forEach(item => {
-          let variantIdVal=item.text.replace('var certona = ', '').slice(0, -1) ;
-          let data = JSON.parse(variantIdVal);
-          console.log('dataObjvariant :',data.itemid);
-          if(data.hasOwnProperty('itemid')){
-            item.text=data.itemid;
-          }else{
-            item.text="";
+          const match = item.text.match(/\"itemid\"\s*:\s*\"(.+?)\"/);
+          if (match) {
+            item.text = match[1];
+            item.text = item.text.replace('BB_', '');
           }
         });
+        if (row.variantId.length > 1) {
+          row.variantId = row.variantId.splice(1, row.variantId.length - 1);
+        }
       }
     }
   }
