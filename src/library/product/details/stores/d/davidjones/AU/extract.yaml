@@ -9,23 +9,21 @@ fields:
     regExp: (.+)
     regExpReplace: https://www.davidjones.com$1
   - name: imageAlt
-    xpath : //a[contains(@class,"medium-image")]/img/@alt
+    xpath : ancestor::html//a[contains(@class,"medium-image")]/img/@alt
   - name: alternateImages
     description: Other product images (not in manufacturer description)
     xpath: ancestor::html//div[@class='slick-track']/li[position()>1][not(contains(@class,'slick-cloned'))]/a/img/@src
-    # xpath: //div[@class='slick-track']/li/a/img/@src
     regExp: ^(.+)$
     regExpReplace: https://www.davidjones.com$1
   - name: secondaryImageTotal
     description: Other product images (not in manufacturer description)
     xpath: count(ancestor::html//div[@class='slick-track']/li[position()>1][not(contains(@class,'slick-cloned'))]/a/img/@src)
-    # xpath: //div[@class='slick-track']/li/a/img/@src
   - name: metaKeywords
     xpath: ancestor::html//meta[@name="Keywords"]/@content
   - name: category
     xpath: ancestor::html//ul[contains(@class, 'breadcrumb')]//li[position()>1 and position()<last()]
   - name: nameExtended
-    xpath: concat(ancestor::html//*[@class="brand"]//span,' ',//h1[@itemprop='name'])
+    xpath: concat(ancestor::html//*[@class="brand"]//span,' ',ancestor::html//h1[@itemprop='name'])
   - name: price
     xpath: (ancestor::html//p[(@class='price now')]//span[(@class='price-display')]|ancestor::html//p[(@class='price')]//span[(@class='price-display')])
   - name: availabilityText
@@ -46,7 +44,7 @@ fields:
     regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     regExpReplace: $1$2$3$4
   - name: weightNet
-    xpath: ancestor::html//span[contains(text(),'Specifications')]//following::text()[contains(.,'Weight')]|//strong[contains(text(),'specifications')]//following::text()[contains(.,'Weight')]|ancestor::html//strong[contains(text(),'Specifications')]//following::text()[contains(.,'weight')]|ancestor::html//span[contains(text(),'specifications')]//following::text()[contains(.,'weight')]
+    xpath: ancestor::html//span[contains(text(),'Specifications')]//following::text()[contains(.,'Weight')]|ancestor::html//strong[contains(text(),'specifications')]//following::text()[contains(.,'Weight')]|ancestor::html//strong[contains(text(),'Specifications')]//following::text()[contains(.,'weight')]|ancestor::html//span[contains(text(),'specifications')]//following::text()[contains(.,'weight')]
   - name: weightGross
   - name: gtin
   - name: sku
@@ -94,7 +92,7 @@ fields:
     defaultValue: 'NO'
   - name: Image360Present
   - name: ImageZoomFeaturePresent
-    xpath: //div[@class='image-zoom']
+    xpath: ancestor::html//div[@class='image-zoom']
   - name: manufacturerImages
   - name: upc
   - name: eangtin
