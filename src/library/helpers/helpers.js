@@ -141,11 +141,11 @@ module.exports.Helpers = class {
       // const response = await fetch(api);
       const text = (await response.json()).contents;
       //   const text = await response.text();
-      // eslint-disable-next-line no-eval
       if (text.match(/terminatePowerPage/) || !text.match(/_wccontent/)) {
         console.log('Enhanced content not found');
         return false;
       }
+      // eslint-disable-next-line no-eval
       eval(text.replace('document.getElementsByTagName(\'head\')[0].appendChild(_wcscript);', '//document.getElementsByTagName(\'head\')[0].appendChild(_wcscript);')); // might fail if response doesnt has the data.
       // add HTM Content
       const div = document.createElement('div');
@@ -153,9 +153,10 @@ module.exports.Helpers = class {
       div.innerHTML = window._wccontent.aplus.html;
       // @TODO Should we retrun div instead?
       document.body.append(div);
+      return true;
     }
     try {
-      await this.context.evaluate(appendData, productID, pageId);
+      return await this.context.evaluate(appendData, productID, pageId);
     } catch (error) {
       console.log('Enhanced content not found. Error: ', error);
     }
@@ -253,7 +254,7 @@ module.exports.Helpers = class {
     }
     async function addECWidgets (productID, pageId) {
       const json = await getJsonData(productID, pageId);
-      if (!json) return;
+      if (!json) return false;
       const widgets = Object.values(Object.values(json.experiences)[0].experiences['power-page'].widgets);
       const enhancesContent = document.createElement('div');
       for (const widget of widgets) {
@@ -263,6 +264,7 @@ module.exports.Helpers = class {
       enhancesContent.id = 'added-ec2';
       // @TODO Should we retrun div instead?
       document.body.append(enhancesContent);
+      return true;
     }
     async function getJsonData (productID, pageId) {
       const api = `https://content.syndigo.com/page/${pageId}/${productID}.json`;
@@ -274,7 +276,7 @@ module.exports.Helpers = class {
       return false;
     }
     try {
-      await this.context.evaluate(addECWidgets, productID, pageId);
+      return await this.context.evaluate(addECWidgets, productID, pageId);
     } catch (error) {
       console.log('Error adding aplus widgets. Error: ', error);
     }
