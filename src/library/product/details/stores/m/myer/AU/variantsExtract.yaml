@@ -1,15 +1,12 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
-recordXPath: //div[@class="drawers-container"]//ul[@data-automation="drawer-body"]/li
+recordSelector: div.variants_ul
+recordXPath: //div[@class="variants_ul"]
 fields:
   - name: variantId
     singleValue: false
-    description: variant id, to uniquely identify variant
-    xpath: //div[@class="drawers-container"]//ul[@data-automation="drawer-body"]/li//img/@src
+    manualSelector: div.sku_id
   - name: variantUrl
     singleValue: false
     description: variant Url
-    xpath: //div[@class="drawers-container"]//ul[@data-automation="drawer-body"]/li/button/@data-automation
-  - name: currentURL
-    xpath: ancestor::html//body/@currentURL
+    manualSelector: div.sku_url
