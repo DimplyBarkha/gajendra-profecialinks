@@ -23,7 +23,7 @@ fields:
     singleValue: false
   - name: ingredientsList
     singleValue: false
-    xpath: normalize-space(//button[@aria-label="Zutaten" or @aria-label="Inhaltsstoffe"]/following-sibling::div)
+    xpath: normalize-space(//button[@aria-label="Zutaten" or @aria-label="Inhaltsstoffe" or @aria-label="Zusammensetzung"]/following-sibling::div)
   - name: brandText
     singleValue: false
     xpath: //div[@data-dmid='detail-page-headline-brand-name']
@@ -40,7 +40,7 @@ fields:
     xpath: //meta[@itemprop='gtin13']/@content
   - name: directions
     singleValue: false,
-    xpath: //div[@data-dmid="product-detail-symbol-description-group"]//div[@data-dmid="product-detail-symbol-description"]
+    xpath: //div[@data-dmid="product-detail-symbol-description-group"]//div[@data-dmid="product-detail-symbol-description"] | //button[@aria-label="Feeding recommendation" or @aria-label="Fütterungsempfehlung"]/following-sibling::div
   - name: warnings
     singleValue: false
     xpath: //button[@aria-label="Wichtiger Hinweis"]/following-sibling::div | //button[@aria-label="Warnhinweise"]/following-sibling::div

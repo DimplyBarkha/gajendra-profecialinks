@@ -201,7 +201,7 @@ const transform = (data) => {
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => {
     console.log('header == >', header);
-    if (header !== 'brandText') {
+    if (header !== 'brandText' && header !== 'nameExtended') {
       row[header].forEach(el => {
         el.text = clean(el.text);
       });
