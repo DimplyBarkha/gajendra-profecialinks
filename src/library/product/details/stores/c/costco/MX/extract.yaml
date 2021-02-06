@@ -154,7 +154,9 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //p//iframe//@src
+    xpath: //iframe//@src
+    regExp: (https:\/\/www.youtube.com\/)(.*)
+    regExpReplace: $1$2
   - name: name
     singleValue: true
     description: The product name
