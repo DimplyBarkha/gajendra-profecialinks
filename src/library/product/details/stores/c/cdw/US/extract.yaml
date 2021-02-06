@@ -11,7 +11,9 @@ fields:
     xpath: //div[@class='main-media']//img[@itemprop="image"]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class="thumb"]/img/@src
+    xpath: (//div[@data-type="image"])[position()>1]/img/@src
+    regExp: (.+)
+    regExpReplace: $1
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
@@ -32,7 +34,7 @@ fields:
     xpath: //div[@class="availability"]//span[contains(@class,"message")]
     regExp: (.+)
     regExpReplace: In Stock 
-    defaultValue: Out of Stock
+    # defaultValue: Out of Stock
   - name: description
     singleValue: false
     xpath: //div[@class="product-features"]//li
@@ -64,7 +66,7 @@ fields:
     singleValue: false
     xpath: //a[@class="total-reviews"]/@title | //div[@class="total-reviews-summary"] | //a[@class="total-reviews"]
     regExp: \d{1,}
-    regExpReplace:
+    # regExpReplace:
   - name: aggregateRating
     singleValue: false
     xpath: //a[contains(@class,"star-rating-container")]/@data-rating | //a[@href="#URV"]/@data-rating
@@ -112,7 +114,7 @@ fields:
     xpath: //div[contains(@class,"warranty-list")]//div[contains(@class,"item")]
   - name: secondaryImageTotal
     singleValue: false
-    xpath: count(//div[@class="thumb"]/img/@src)
+    xpath: count((//div[@data-type="image"]/img)[position()>1]/@src)
   
   
   
