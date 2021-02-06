@@ -24,8 +24,14 @@ module.exports = {
       await new Promise((resolve, reject) => setTimeout(resolve, 100));
     }
     // manually extracting shippingInfo
+    var btnPresent = await context.evaluate(async function () {
+      if (document.querySelector('div[class*="desktop"]>h2+h2')) { return document.querySelector('div[class*="desktop"]>h2+h2'); }
+      return null;
+    });
+    if(btnPresent){
     await context.click('div[class*="desktop"]>h2+h2');
     await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+    }
     const shippingInfo = await context.evaluate(async function () {
       if (document.querySelector('div[class*="tab-content"]>section')) { return document.querySelector('div[class*="tab-content"]>section').innerText; }
       return null;
