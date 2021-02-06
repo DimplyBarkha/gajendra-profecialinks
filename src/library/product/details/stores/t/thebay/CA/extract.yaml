@@ -33,7 +33,7 @@ fields:
     xpath: //div[@class='row']//ol[contains(@class,'breadcrumb')]//li[position()>1]
   - name: variantId
     singleValue: false
-    xpath: //ul[contains(@class,'size-attribute')]//li[@selected='selected']/a/@data-adobelaunchsizeproductid | //div[@class='value content']//div[@class='product-detail-id']
+    xpath: //div[@class='value content']//div[@class='product-detail-id'] | //ul[contains(@class,'size-attribute')]//li[@selected='selected' and not(@disabled)]/a/@data-adobelaunchsizeproductid
   - name: firstVariant
     singleValue: false    
   - name: listPrice

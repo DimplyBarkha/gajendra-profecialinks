@@ -56,7 +56,7 @@ module.exports = {
     for (let index = 2; index <= variantCount2; index++) {
       try {
         const status = await context.evaluate(async function (index) {
-          const sel = `ul.size-attribute li:nth-child(${index})`;
+          const sel = `ul.size-attribute li:not([disabled="disabled"]):nth-child(${index})`;
           document.querySelector(sel) && document.querySelector(sel).click();
           return document.querySelector(sel);
         }, index);
