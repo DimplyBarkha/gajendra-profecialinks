@@ -53,6 +53,7 @@ const transform = (data, context) => {
         });
         row.firstVariant = [{ text: row.variantId[0].text }];
         row.sku = [{ text: row.variantId[0].text }];
+        row.variantId = [{text: row.variantId[0].text + '-' + index }];
       }
       if (row.image) {
         row.image.forEach(item => {
