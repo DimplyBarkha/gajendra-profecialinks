@@ -30,17 +30,23 @@ async function implementation (
       return newDiv;
     }
     let url = window.location.href.replace(/#.*/,'');
+    url=url.split('?')[0];
     const outerDiv = addHiddenDiv('variants_outer', '');
     if (document.querySelector('div.drawers-container ul[data-automation="drawer-body"]>li')) {
       document.querySelectorAll('div.drawers-container ul[data-automation="drawer-body"]>li').forEach(variant => {
-        const skuId = variant.querySelector('img')?variant.querySelector('img').src.split('_Colour_').pop().split('_sw_')[0]:'';
-        const skudiv = addHiddenDiv('sku_id', skuId);
-        let skuURL = variant.querySelector('button')?variant.querySelector('button').getAttribute('data-automation'):'';
-        const skuUrl = addHiddenDiv('sku_url', `${url}?color=${skuURL}`);
-        const innerDiv = addHiddenDiv('variants_ul', '');
-        innerDiv.appendChild(skudiv);
-        innerDiv.appendChild(skuUrl);
-        outerDiv.appendChild(innerDiv);
+        let hasAtt=variant.querySelector('button').hasAttribute('disabled');
+        if(hasAtt==true){
+          
+        }else{
+          const skuId = variant.querySelector('img')?variant.querySelector('img').src.split('_Colour_').pop().split('_sw_')[0]:'';
+          const skudiv = addHiddenDiv('sku_id', skuId);
+          let skuURL = variant.querySelector('button')?variant.querySelector('button').getAttribute('data-automation'):'';
+          const skuUrl = addHiddenDiv('sku_url', `${url}?color=${skuURL}`);
+          const innerDiv = addHiddenDiv('variants_ul', '');
+          innerDiv.appendChild(skudiv);
+          innerDiv.appendChild(skuUrl);
+          outerDiv.appendChild(innerDiv);
+        }
       });
     } else {
       const sku = document.querySelector('p[data-automation="product-part-number"] span');
