@@ -232,9 +232,11 @@ module.exports.Helpers = class {
             appendTo: mainDiv,
           };
           const url = video.video.sources[0].url;
-          const response = await fetch(url);
-          const text = await response.text();
-          videoElement.attributes.src = url.replace(/playlist.m3u8/, text.match(/[^\n]+.m3u8/)[0]);
+          if (url.match(/m3u8/)) {
+            const response = await fetch(url);
+            const text = await response.text();
+            videoElement.attributes.src = url.replace(/playlist.m3u8/, text.match(/[^\n]+.m3u8/)[0]);
+          }
           const caption = {
             attributes: { class: 'caption' },
             props: { innerText: video.video.caption },
