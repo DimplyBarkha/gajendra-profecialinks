@@ -24,7 +24,7 @@ module.exports = {
     await context.extract(productDetails, { transform: transform });
     for (let index = 1; index <= variantCount; index++) {
       try {
-        await context.click(`div.swatches-group > ul > li:nth-child(${index})`);
+        await context.click(`div.swatches-group > ul > li:nth-child(${index}):not(.active)`);
         await new Promise(resolve => setTimeout(resolve, 500));
         if (variantCount !== index) {
           //await context.evaluate(() => document.querySelectorAll('div[data-wps-popup-close-intent]').forEach(elm => elm.click()));
