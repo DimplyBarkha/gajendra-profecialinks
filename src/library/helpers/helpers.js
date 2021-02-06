@@ -200,6 +200,8 @@ module.exports.Helpers = class {
                 attributes: {
                   alt: feature.caption,
                   title: feature.caption,
+                  width: 200,
+                  height: 200,
                   src: feature.asset.url.replace('{0}', feature.asset.originalWidth),
                 },
                 appendTo: mainDiv,
