@@ -124,7 +124,7 @@ fields:
     xpath: //div[@class="productInformation"]//div[contains(text(),"Verwendungshinweise")]//following-sibling::div
   - name: warnings
     singleValue: false
-    # xpath: //div[@class="productInformation"]//div[contains(text(),"Sonstiges")]//following-sibling::div
+    xpath: //div[@class="productInformation"]//div[contains(text(),"Sonstiges")]//following-sibling::div
     # xpath: //div[@class="productInformation"]//div[contains(text(),"Divers")]//following-sibling::div
   - name: ratingCount
     singleValue: false
@@ -134,6 +134,7 @@ fields:
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: false
+    # xpath: //span[@class="reviews__header-average-value"]/text()
     xpath: //div[@class="productBasicInfo__rating"]//span[@class="visuallyhidden"]/text()
     regExp: Durchschnittliche Bewertung\W\W(.+)\svon
     regExpReplace: $1

@@ -112,6 +112,17 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.aggregateRating) {
+        let text = '';
+        row.aggregateRating.forEach(item => {
+          text += item.text.replace('.', ',');
+        });
+        row.aggregateRating = [
+          {
+            text: text,
+          },
+        ];
+      }
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
@@ -155,6 +166,11 @@ const transform = (data) => {
             text: text.slice(0, -1),
           },
         ];
+      }
+      if ((!row.listPrice || !row.listPrice.length) && row.listPrice1) {
+        console.log('listPrice1',row.listPrice1);
+        row.listPrice = row.listPrice1;
+        console.log("listPrice", row.listPrice);
       }
       if (row.additionalDescBulletInfo) {
         let text = '';
