@@ -94,7 +94,7 @@ const transform = (data) => {
       }
       if(row.variantId){
         row.variantId.forEach(item=>{
-          let tmp=item.text.replace('/reviews/1','')
+          let tmp=item.text.split('/reviews/')[0]
           let tmpAr=tmp.split('/');
           item.text=tmpAr.pop();
         })
