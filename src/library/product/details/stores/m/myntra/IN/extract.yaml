@@ -124,10 +124,11 @@ fields:
     singleValue: true
     description: Stated shipping weight
   - name: variantCount
-    singleValue: true
+    singleValue: false
+    xpath: count(//ul[@class='colors-shadeList colors-shadeListDesktop']//li//span[@class='colors-shadeName'])
     description: Number of variants listed
     type: NUMBER
-    defaultValue: '0'
+    defaultValue: 0
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -195,6 +196,10 @@ fields:
     xpath: //div[contains(@class,"size-buttons-buttonContainer")]//button|//div[contains(@class,"colors-container")]//li
   - name: firstVariant
     singleValue: true
+    xpath: //div[@id='sku']
+    # xpath: //ul[@class='colors-shadeList colors-shadeListDesktop']//li[1]//a/@href
+    # regExp: \/(\d+)
+    # regExpReplace: $1
     description: Unique identifier for a collection of variants. For a subset of core
       feeds (43) we have a column "first_variant" that is populated with a common code
       to link all variants for a product. method 1 (Preferred) = use common tag (Could
@@ -228,4 +233,14 @@ fields:
     defaultValue: "No" 
   - name: inTheBoxText
     singleValue: false
-    xpath: //p[contains(@class,"description-content")]//ul/following-sibling::ul//li
+    xpath: //p[contains(@class,"description-content")]//b[text()="In The Box:"]/following-sibling::ul//li
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: "Yes"
+  - name: materials
+    singleValue: false
+    xpath: //div[@class='pdp-sizeFitDesc']//h4[text()='Material & Care']/following-sibling::p[@class='pdp-sizeFitDescContent pdp-product-description-content']
+  - name: ingredientsList
+    singleValue: false
+    # xpath: //p[@class='pdp-product-description-content']//b[contains(text(),'INGREDIENTS') or contains(text(),'Ingredients') or contains(text(),'ingredient')][1]/following-sibling::text()[1]
+    xpath: //div[@id="ingredientList"]

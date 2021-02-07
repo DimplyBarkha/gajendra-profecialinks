@@ -22,7 +22,7 @@ module.exports = {
             break;
           }
         }
-        function stall (ms) {
+        function stall(ms) {
           return new Promise((resolve, reject) => {
             setTimeout(() => {
               resolve();
@@ -33,7 +33,7 @@ module.exports = {
     };
     await applyScroll(context);
     await context.evaluate(async function () {
-      function addElementToDocument (key, value) {
+      function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -41,7 +41,7 @@ module.exports = {
         document.body.appendChild(catElement);
       }
 
-      function getElementByXpath (path) {
+      function getElementByXpath(path) {
         return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       }
 
@@ -83,6 +83,21 @@ module.exports = {
       const warranty = getElementByXpath('//p[@class="pdp-product-description-content"]/text()[position() = last()]')
         ? getElementByXpath('//p[@class="pdp-product-description-content"]/text()[position() = last()]').textContent : '';
       if (warranty.match('arranty')) addElementToDocument('warranty', warranty);
+
+      try {
+        let ingredientsType1 = getElementByXpath('//p[contains(@class,"description-content")]//b[text()="Ingredients"]/following-sibling::ul');
+        let ingredientsType2 = getElementByXpath("//p[@class='pdp-product-description-content']//b[contains(text(),'INGREDIENTS') or contains(text(),'Ingredients') or contains(text(),'ingredient')][1]/following-sibling::text()[1]");
+        if (ingredientsType1) {
+          addElementToDocument('ingredientList', ingredientsType1.textContent);
+        }
+        else {
+          addElementToDocument('ingredientList', ingredientsType2.textContent);
+        }
+      }
+      catch (e) {
+        console.log("ingredients section not present.");
+      }
+
     });
     await context.extract(productDetails, { transform });
   },
