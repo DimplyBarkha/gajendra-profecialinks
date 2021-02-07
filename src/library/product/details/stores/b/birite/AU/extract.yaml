@@ -30,7 +30,7 @@ fields:
     defaultValue: ""
   - name: specifications
     singleValue: false
-    xpath: //table[contains(@id,"specs-table")]//tbody//tr
+    xpath: //table[contains(@id,"specs-table")]//tbody//tr | //table[contains(@id,"tablepress")]//tbody//tr
   - name: name
     singleValue: true
     xpath: //h1[contains(@class, 'product_title')]
