@@ -70,7 +70,7 @@ module.exports = {
       if (secondaryImageTotal) {
         addElementToDocument('added_secondaryImageTotal', secondaryImageTotal.length);
       }
-      const descriptionBullets = getAllXpath('//section[@class="panel-inner"]//div[@class="container-grid"]//li', 'nodeValue');
+      const descriptionBullets = getAllXpath('//section[@class="panel-inner"]//div[@class="container-grid"]//li | //h2[text()="Predstavitev"]/following-sibling::section[contains(@class,"panel-inner")]//ul//li', 'nodeValue');
       if (descriptionBullets) {
         addElementToDocument('added_descriptionBullets', descriptionBullets.length);
       }
@@ -273,7 +273,7 @@ module.exports = {
       const dimensions = getXpath("//tr//td[contains(text(), 'Dimenzije škatle')]//following-sibling::td//b", 'innerText');
       addElementToDocument('added_dimensions', dimensions);
 
-      const storage = getXpath("//tr//td[contains(text(), 'shranjevanja')]//following-sibling::td//b", 'innerText');
+      const storage = getXpath("//tr//td[contains(text(), 'shranjevanja')]//following-sibling::td//b | //div[contains(@id,'product-detail-description')]//ul//li[contains(text(),'Pogoji za shranjevanje')]", 'innerText');
       addElementToDocument('added_storage', storage);
 
       const aggregateRating = getXpath("//span[@itemprop='ratingValue']", 'innerText');
