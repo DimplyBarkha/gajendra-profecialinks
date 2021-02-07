@@ -35,14 +35,17 @@ fields:
     defaultValue: 1
   - name: availabilityText
     singleValue: false
-    xpath: //div[@class='nproduct-info']//p[@class='product-buy-subtitle']
+    xpath: //div[@class='nproduct-info']//p[.="Produto sem estoque"]/text()
+    regExp: (.+)
+    regExpReplace: Out Of Stock
+    # defaultValue: Out of Stock
     defaultValue: 'In Stock'  
   - name: description
     singleValue: false
-    xpath: //div[contains(@class,'product-description')]//div[@class='accordion-gradient-content']
-  - name: description2
-    singleValue: false
-    xpath: //div[contains(@class,'product-characteristics')]//div[@class='accordion-gradient-content']
+    xpath: //div[@class="accordion-gradient"]//text()
+  # - name: description2
+  #   singleValue: false
+  #   xpath: //div[contains(@class,'product-characteristics')]//div[@class='accordion-gradient-content']
   - name: directions
     singleValue: false
     xpath: //div[contains(@class,'product-characteristics')]//div[@class='accordion-gradient-content']//h3[@class='product-description-title' and text()='Conselho de Aplicação']//following-sibling::div[1]
@@ -60,7 +63,7 @@ fields:
     xpath: //div[@class='nproduct-info']//div[@class='product-brand']//h2//span[@class='is-hidden']
   - name: promotion
     singleValue: false
-    xpath: //div[@class='nprodct-price']//strong[@class='nproduct-price-max']//span[contains(text(),'desconto')]
+    xpath: //div[@class='nprodct-price']//strong[@class='nproduct-price-max']//span[contains(text(),'desconto')] | //div[@class="product-group-items row "]//span[@class="product-group-label"]
   - name: quantity
     singleValue: false
     defaultValue: 1
