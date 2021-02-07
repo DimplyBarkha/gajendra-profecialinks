@@ -98,15 +98,6 @@ const implementation = async (
         }
     };
 
-    // const isHardBlocked = async (hardBlockedParam) => {
-    //     return await context.evaluateInFrame('iframe', (hardBlockedParam) => {
-    //         const { txtBlocked, cssBlockedTxtContainer } = hardBlockedParam;
-
-    //         const container = document.querySelector(cssBlockedTxtContainer);
-    //         return container && container.innerText.toLowerCase().includes(txtBlocked.toLowerCase());
-    //     }, hardBlockedParam);
-    // };
-
     const isHardBlocked = async (hardBlockedParam) => {
         return await context.evaluateInFrame('iframe', (hardBlockedParam) => {
           const { txtBlocked, cssBlockedTxtContainer } = hardBlockedParam;
@@ -120,7 +111,7 @@ const implementation = async (
           }
 
           // if on block, single text is passed as string
-          return shownText.includes(txtBlocked.toLowerCase());
+          return shownText && shownText.includes(txtBlocked.toLowerCase());
         }, hardBlockedParam);
       };
 

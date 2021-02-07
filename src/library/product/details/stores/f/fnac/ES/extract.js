@@ -34,6 +34,7 @@ async function implementation(inputs, parameters, context, dependencies) {
     if (json.brand) {
       addHiddenDiv('brandText', json.brand.name);
     }
+  })
 
   const setValueInDivToDOM = async (id, content) => {
     console.log(`Adding id: ${id} and content of ${id} to DOM`);
