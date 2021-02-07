@@ -8,6 +8,35 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
+  const cookieBtnOkSel = 'button[class*="CookieLayer-setUserCookiePermissions"]';
+  let cookieBtnPresent = false;
+  try {
+    await context.waitForSelector(cookieBtnOkSel);
+    console.log('got cookieBtnOkSel', cookieBtnOkSel);
+    cookieBtnPresent = true;
+  } catch(err) {
+    console.log('got some error while waiting for cookie btn', err.message);
+    try {
+      await context.waitForSelector(cookieBtnOkSel);
+      console.log('got cookieBtnOkSel', cookieBtnOkSel);
+      cookieBtnPresent = true;
+    } catch(error) {
+      console.log('got some error while waiting for cookie btn, again', error.message);
+    }
+  }
+
+  if(cookieBtnPresent) {
+    await context.evaluate(async (cookieBtnOkSel) => {
+      console.log('need to click cookieBtnOkSel', cookieBtnOkSel);
+      let btnElm = document.querySelectorAll(cookieBtnOkSel);
+      if(btnElm && btnElm.length > 0) {
+        btnElm[0].click();
+        console.log('clicked the btn');
+      }
+    }, cookieBtnOkSel);
+    await new Promise(resolve => setTimeout(resolve, 4000));
+  }
+
   async function addHiddenInfo (elementID, content) {
     await context.evaluate(function (elementID, content) {
       const newDiv = document.createElement('div');
