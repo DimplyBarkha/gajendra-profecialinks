@@ -34,10 +34,17 @@ module.exports = {
       }
     }
    try{
-    await context.click(`button[id='confirmed']`);
-    await new Promise(resolve => setTimeout(resolve, 5000));
-   }catch(error){
-      console.log("Error ",error);
+    let node = await context.evaluate(async function () {
+      return document.querySelectorAll(`button[id='confirmed']`);
+    });
+   
+    if(JSON.stringify(node) !== '{}'){
+      await context.click(`button[id='confirmed']`);
+      await new Promise(resolve => setTimeout(resolve, 9000));
+    }
+    
+   }catch(exception){
+      console.log("Exception ",exception);
    }
   },
 };

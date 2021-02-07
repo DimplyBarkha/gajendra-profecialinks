@@ -11,7 +11,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: (//script[@type='application/javascript'][contains(.,'PRODUCT_DETAIL_APP')])[1]//text()
+    xpath: //script[@type='application/javascript'][contains(.,'PRODUCT_DETAIL_APP')]//text()
   - name: category
     xpath: //div[@class="breadcrumb full-width"]/a[position()>1]
   - name: nameExtended
@@ -19,7 +19,6 @@ fields:
   - name: listPrice
     singleValue: true
     xpath: //div[@class="pr-in-cn"]//span[@class="prc-org"] | //div[@class="pr-in-cn"]//span[contains(@class,"prc-slg prc-slg-w-dsc")]
-    defaultValue: "0"
   - name: price
     singleValue: true
     xpath: //div[@class="pr-in-w"]//span[@class="prc-slg"] | //div[@class="pr-in-w"]//span[@class="prc-dsc"]
@@ -32,7 +31,7 @@ fields:
   - name: description
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //h1[@class="pr-new-br"]
+    xpath: //script[@type="application/javascript" and contains(text(), "window.__PRODUCT_DETAIL_APP_INITIAL_STATE__")]/text()
   - name: descriptionBullets
     xpath: count(//div[@class="pr-in-dt-cn"]//ul//li[contains(.,' ')] | //div[contains(@class,'pr-desc-content')]//ul//li)
   - name: brandText
@@ -52,9 +51,9 @@ fields:
   - name: ratingCount
     xpath: //a[@class="rvw-cnt-tx"]
     regExp: (\d+)
-  - name: aggregateRating2
+  - name: aggregateRating
     singleValue: true
-    xpath: //div[@class="pr-rnr-sm"]/div[@class="pr-rnr-sm-p"]/span
+    xpath: //script[@type="application/javascript" and contains(text(), "window.__PRODUCT_DETAIL_APP_INITIAL_STATE__")]/text()
     #xpath:
     # regExp: (\d+)(\.)(\d+)
     # regExpReplace: $1,$3

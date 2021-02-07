@@ -1,37 +1,44 @@
-
 /**
  *
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
  */
-const transform = (data) => {
+const transform = (data, context) => {
+  const clean = text => text.toString()
+    .replace(/\r\n|\r|\n/g, ' ')
+    .replace(/&amp;nbsp;/g, ' ')
+    .replace(/&amp;#160/g, ' ')
+    .replace(/\u00A0/g, ' ')
+    .replace(/\s{2,}/g, ' ')
+    .replace(/"\s{1,}/g, '"')
+    .replace(/\s{1,}"/g, '"')
+    .replace(/^ +| +$|( )+/g, ' ')
+  // eslint-disable-next-line no-control-regex
+    .replace(/[\x00-\x1F]/g, '')
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+  data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+    el.text = clean(el.text);
+    el.text = el.text.trim();
+  }))));
   for (const { group } of data) {
     for (const row of group) {
-      if (row.productOtherInformation) {
-        let text = '';
-        row.productOtherInformation.forEach(item => {
-          text += ` || ${item.text}`;
-        });
-        row.productOtherInformation = [
-          {
-            text: text,
-          },
-        ];
-      }
+
 
       if (row.alternateImages) {
         let data = [];
+        let images = [];
         row.alternateImages.forEach(item => {
           data = item.text.split('= ');
-          item.text = data[1].replace(';', '');
-          const data1 = JSON.parse(item.text);
+          item.text = data[1].replace('window.__PRODUCT_DETAIL_APP_INITIAL_STATE__ = ', '').slice(0, -1) ;
+          const data1 = JSON.parse(String(item.text));
           if (data1.product.images) {
             item.text = String(data1.product.images);
-            item.text = item.text.replace(/^[^,]+, */, '');
-            item.text = item.text.replace(',', ' | ');
+            item.text = String(item.text).replace(/^[^,]+, */, '');
+             images = String(item.text).split(',');
           } else {
-            item.text = '';
+             images[0] = '';
           }
+          row.alternateImages = [{'text': images.join(' | '),'xpath':row.alternateImages[0].xpath}];
         });
       }
 
@@ -46,33 +53,59 @@ const transform = (data) => {
           },
         ];
       }
-      if (row.aggregateRating2) {
-        row.aggregateRating2.forEach(item => {
-          item.text = item.text.replace(/\s*/g, '');
-          item.text =  item.text.replace(".",",");
-        });
-    }
-    if (row.description) {
-      let text = '';
-      row.description.forEach(item => {
-        text += `${item.text}`;
-      });
-      row.description = [
-        {
-          text: text,
-        },
-      ];
-    }
 
+      if (row.description) {
+        row.description.forEach(item => {
+          let descText=item.text.replace('window.__PRODUCT_DETAIL_APP_INITIAL_STATE__ = ', '').slice(0, -1) ;
+          let data = JSON.parse(descText);
+          if(data.product.metaBrand.hasOwnProperty('name')){
+             if(data.product.metaBrand.hasOwnProperty('name') && data.product.hasOwnProperty('name') ){ 
+              item.text = String(data.product.metaBrand.name) + ' ' + String(data.product.name);
+             }else  if( data.product.hasOwnProperty('name') ){ 
+              item.text =  String(data.product.name);
+             }else{
+              item.text = "";
+             }
+          }else{
+              item.text = "";
+          }
+        });
+      }
+      
+
+      if (row.aggregateRating) {
+        row.aggregateRating.forEach(item => {
+          let avgRating=item.text.replace('window.__PRODUCT_DETAIL_APP_INITIAL_STATE__ = ', '').slice(0, -1) ;
+          let data = JSON.parse(avgRating);
+          if(data.product.hasOwnProperty('ratingScore')){
+             if(data.product.ratingScore.hasOwnProperty('averageRating')){ 
+              item.text = String(data.product.ratingScore.averageRating);
+              item.text = String(item.text).replace(/\s*/g, '');
+              item.text = String(item.text).replace('.',',')
+             }else{
+              item.text = "0";
+             }
+          }else{
+            item.text = "0";
+          }
+        });
+      }
+   
       if (row.sku) {
         row.sku.forEach(item => {
           let skuVal=item.text.replace('window.__PRODUCT_DETAIL_APP_INITIAL_STATE__ = ', '').slice(0, -1) ;
           let data = JSON.parse(skuVal);
-          console.log('dataObjsku :',data.product.variants);
-          if(data.product.hasOwnProperty('productCode')){
+          if(data.product.hasOwnProperty('variants')){
+            if(data.product.variants[0]){
+              item.text=data.product.variants[0].barcode;
+            }else{
+              if(data.product.hasOwnProperty('productCode')){
+                item.text=data.product.productCode;
+              }
+            }
+            
+          }else if(data.product.hasOwnProperty('productCode')){
             item.text=data.product.productCode;
-          }else if(data.product.hasOwnProperty('variants')){
-            item.text=data.product.variants[0].barcode;
           }else{
             item.text="";
           }
@@ -97,20 +130,7 @@ const transform = (data) => {
       }
     }
   }
-  const clean = text => text.toString()
-    .replace(/\r\n|\r|\n/g, ' ')
-    .replace(/&amp;nbsp;/g, ' ')
-    .replace(/&amp;#160/g, ' ')
-    .replace(/\u00A0/g, ' ')
-    .replace(/"\s{1,}/g, '"')
-    .replace(/\s{1,}"/g, '"')
-    .replace(/^ +| +$|( )+/g, ' ')
-    // eslint-disable-next-line no-control-regex
-    .replace(/[\x00-\x1F]/g, '')
-    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
-  data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
-    el.text = clean(el.text);
-  }))));
+ 
   return data;
 };
 
