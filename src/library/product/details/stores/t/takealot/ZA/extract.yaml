@@ -26,9 +26,9 @@ fields:
     xpath: //div[@class="buybox-module_price_2YUFa"]/span
   - name: availabilityText
     singleValue: false
-    xpath: //div[@class="buybox-actions"]//button[contains(@class,"add-to-cart-button") and text()="Add to Cart"]
-    regExp: (.+)
-    regExpReplace: In Stock
+    xpath: //div[@id="myCustomAvailabilityVal"]
+    #regExp: (.+)
+    #regExpReplace: In Stock
     defaultValue: Out Of Stock
   - name: description
     singleValue: false
@@ -55,7 +55,7 @@ fields:
     #regExpReplace: $1
   - name: aggregateRating
     singleValue: false
-    xpath: //div[contains(@class,"reviews-list-module_content-rating_")]/div[contains(@class,"reviews-list-module_number_")]
+    xpath: //div[@id="myCustomReveiwRating"]
   - name: shippingInfo
     singleValue: false
     xpath: //div[@class="pdp-core-module_main-seller_20BMu"]//a

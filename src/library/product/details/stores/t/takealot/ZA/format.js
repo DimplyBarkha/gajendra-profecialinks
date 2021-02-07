@@ -25,6 +25,13 @@ const transform = (data) => {
   for (const { group } of data) {
     var rank = 1, quantityStr='',weightNetStr='',colorStr='',warrantyStr='',materialsStr='';
     for (let row of group) { 
+      if(row.ingredientsList){
+        row.ingredientsList.forEach(item=>{
+          item.text=item.text.replace('Ingredients :','').trim();
+          item.text=item.text.replace('Ingredients:','').trim();
+          item.text=item.text.replace('Ingredients','').trim();
+        })
+      }
       if(row.quantity){
         row.quantity.forEach(item=>{
           if(item.text.indexOf('- Size:')=='0'){

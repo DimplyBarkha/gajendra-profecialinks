@@ -43,6 +43,28 @@ async function implementation (
   }
 
   try{
+    await context.waitForSelector('div#product-tabs div.swiper-slide:last-child',{timeout:1000});
+    await context.click('div#product-tabs div.swiper-slide:last-child',{timeout:1000});
+    await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+    await context.evaluate(async function () {
+      function addElementToDocument (key, value) {
+        const catElement = document.createElement('div');
+        catElement.id = key;
+        catElement.innerHTML = value;
+        catElement.style.display = 'none';
+        document.body.appendChild(catElement);
+      }
+      const myCustomReveiwRating=document.querySelector('div[class^="cell reviews-list-module_content-rating"]>div').innerHTML;
+      if(myCustomReveiwRating!=''){
+        addElementToDocument('myCustomReveiwRating',myCustomReveiwRating);
+      }
+    })
+  }catch(e){
+
+  }
+  
+
+  try{
     await context.waitForSelector('div#product-tabs div.swiper-slide-active',{timeout:1000});
     await context.click('div#product-tabs div.swiper-slide-active',{timeout:1000});
     await new Promise((resolve, reject) => setTimeout(resolve, 1000));
@@ -50,6 +72,22 @@ async function implementation (
 
   }
 
+  try{
+    await context.evaluate(function () {
+      let availability=document.querySelector('div.buybox-actions button.add-to-cart-button');
+      let availabilityVal=availability.getAttribute('class');
+      function addElementToDocument (key, value) {
+        const catElement = document.createElement('div');
+        catElement.id = key;
+        catElement.innerHTML = value;
+        catElement.style.display = 'none';
+        document.body.appendChild(catElement);
+      }
+      addElementToDocument('myCustomAvailabilityVal','In Stock');
+    })
+  }catch(e){
+
+  }
   await new Promise((resolve, reject) => setTimeout(resolve, 5000));
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
