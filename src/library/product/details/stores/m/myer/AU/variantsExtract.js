@@ -41,7 +41,7 @@ async function implementation (
           const skuId = variant.querySelector('img')?variant.querySelector('img').src.split('_Colour_').pop().split('_sw_')[0]:'';
           const skudiv = addHiddenDiv('sku_id', skuId);
           let skuURL = variant.querySelector('button')?variant.querySelector('button').getAttribute('data-automation'):'';
-          const skuUrl = addHiddenDiv('sku_url', `${url}?color=${skuURL}`);
+          const skuUrl = addHiddenDiv('sku_url', `${url}?colour=${skuURL}`);
           const innerDiv = addHiddenDiv('variants_ul', '');
           innerDiv.appendChild(skudiv);
           innerDiv.appendChild(skuUrl);

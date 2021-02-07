@@ -21,11 +21,24 @@ module.exports = {
     try {
       await context.waitForSelector('div[class="rec_name"]', { timeout: 10000 });
       await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+
       console.log('selector of inTheBox exist');
     } catch (e) {
       console.log("selector of inTheBox doesn't exist");
     }
-    return await context.extract(productDetails, { transform });
+    
+    try{
+      await context.evaluate(function () {
+        let tmp=JSON.stringify(window.__NEXT_DATA__).replace(/.*"selectedVariant":{"id":"(.*?)".*/,'$1');
+        const newDiv = document.createElement('div');
+          newDiv.id = 'customselectedVariantDiv';
+          newDiv.textContent = tmp;
+          newDiv.style.display = 'none';
+          document.body.appendChild(newDiv);
+      })
+    }catch(e){
 
+    }
+    return await context.extract(productDetails, { transform });
   },
 };

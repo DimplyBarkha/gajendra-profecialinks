@@ -86,19 +86,6 @@ const transform = (data) => {
           item.text = '$' + item.text;
         });
       }
-      if(row.variantId){
-        row.variantId.forEach(item=>{
-          //console.log('item.text',item.text);
-          let match=item.text.match(/_Colour_(.+?)_/);
-          //console.log('match',match);
-          if(match){
-            item.text=match[1];
-          }
-        });
-        if(row.variantId.length>1){
-          row.variantId.splice(1,row.variantId.length-1);
-        }
-      }
     }
   }
   return cleanUp(data);

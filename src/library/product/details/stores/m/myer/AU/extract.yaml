@@ -54,7 +54,7 @@ fields:
     xpath: //p[@data-automation="product-part-number"]//span
   - name: variantId
     singleValue: false
-    xpath: //p[@data-automation="product-part-number"]//span | //div[@class="select-wrapper"]/button[@data-automation="select-colour"]//img/@src
+    manualSelector: div#customselectedVariantDiv
   - name: ratingCount
     singleValue: false
     xpath: //div[@class="rating_summary_container"]//meta[@itemprop="reviewCount"]/@content
