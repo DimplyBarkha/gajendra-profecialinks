@@ -29,7 +29,7 @@ module.exports = {
   parameterValues: {
     country: 'BR',
     store: 'casasbahia',
-    transform,
+    // transform,
     domain: 'casasbahia.com.br',
     zipcode: "''",
   },

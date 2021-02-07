@@ -30,6 +30,11 @@ const transform = (data) => {
           delete row.alternateImages;
         }
       }
+      if ((!row.sku || !row.sku.length) && row.sku1) {
+        console.log('sku1',row.sku1);
+        row.sku = row.sku1;
+        console.log("sku", row.sku);
+      }
       // if (row.descriptionBullets) {
       //   var bulletArr = [];
       //   row.descriptionBullets.forEach(item => {
