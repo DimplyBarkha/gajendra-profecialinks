@@ -23,13 +23,24 @@ async function implementation(
   // @ts-ignore
   const { productDetails } = dependencies;
 
-  // Waits for enhancedContent to load
+  /**
+   * Waits for enhancedContent to load
+   * enhancedContent sometimes doesn't load, in that case we wait for enhancedContent to load
+   * In case enhancedContent doesn't load at first place, it loads sometimes when we reload the page
+   */
   const enhancedContent = async () => {
     const cssEnhancedContentDiv = '#product-content-block';
     try {
-      await context.waitForSelector(cssEnhancedContentDiv, { timeout: 30000 });
+      await context.waitForSelector(cssEnhancedContentDiv, { timeout: 15000 });
     } catch (error) {
       console.log('Enhanced content not loaded. CSS: ', cssEnhancedContentDiv);
+      console.log('Reloading the page');
+      await context.reload();
+      try {
+        await context.waitForSelector(cssEnhancedContentDiv, { timeout: 15000 });
+      } catch (error) {
+        console.log('Enhanced content not loaded. CSS: ', cssEnhancedContentDiv);
+      }
     }
   }
   await enhancedContent();
