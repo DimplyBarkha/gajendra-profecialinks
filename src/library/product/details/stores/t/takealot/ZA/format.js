@@ -81,24 +81,24 @@ const transform = (data) => {
       }
       
       if(row.description){
-        let inf=[];
+        let totBul=0;
         row.description.forEach(item=>{
-          inf.push(item.text);
+          totBul+=item.text.match(/(\n+\s*)+-/g)?item.text.match(/(\n+\s*)+-/g).length:0;
         })
-        row.description=[{"text":"|| "+inf.join(' || ')}];
+        row.descriptionBullets=[{"text":totBul}];
       }
       if(row.alternateImages){
         row.alternateImages.forEach(item=>{
           item.text=item.text.replace('-list.','-zoom.');
         })
       }
-      if(row.descriptionBullets){
+      /*if(row.descriptionBullets){
         let inf=[];
         row.descriptionBullets.forEach(item=>{
           inf.push(item.text);
         })
         row.descriptionBullets=[{"text":inf.join(' | ')}];
-      }
+      }*/
       if(row.variantId){
         row.variantId.forEach(item=>{
           let tmp=item.text.split('/reviews/')[0]
