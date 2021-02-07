@@ -20,7 +20,7 @@ module.exports = {
         newDiv.id = id;
         newDiv.textContent = content;
         newDiv.style.display = 'none';
-        const originalDiv = document.querySelectorAll('div[class="b-productList__item__picture"]')[index];
+        const originalDiv = document.querySelectorAll('div[class="b-product-list__item__picture"]')[index];
         originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
       function addElementToDocument(key, value) {
@@ -49,7 +49,7 @@ module.exports = {
           addHiddenDiv('altImage1', temp, index);
         }
       };
-      var backgroundURL1 = getAllXpath('//div[@class="b-productList__price"]//a//span[1]/text()', 'nodeValue');
+      var backgroundURL1 = getAllXpath('//div[@class="b-product-list__price"]//a//span[1]/text()', 'nodeValue');
       sliceURL1(backgroundURL1);
     });
     return await context.extract(productDetails, { transform });

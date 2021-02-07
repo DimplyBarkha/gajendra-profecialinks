@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //ul[contains(@class,"product-list")]/li[contains(@class,"productList")]
+recordXPath: //ul[contains(@class,"product-list")]/li[contains(@class,"js-product-item")]
 fields:
   - name: price
     singleValue: false
@@ -9,12 +9,12 @@ fields:
     xpath: //div[@id='altImage1']    
   - name: productUrl
     singleValue: false
-    xpath: //div[@class="b-productList__item__picture"]/a[1]//@href
+    xpath: //div[@class="b-product-list__item__picture"]/a[1]//@href
     regExp: (/.+)
     regExpReplace: https://www.komus.ru$1
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class="b-productList__item__picture"]//a[2]/@href 
+    xpath: //div[@class="b-product-list__item__picture"]//a[2]/@href 
     regExp: (/.+)
     regExpReplace: https://www.komus.ru$1
   - name: aggregateRating2   
@@ -24,11 +24,10 @@ fields:
   - name: reviewCount
     singleValue: false
     type: NUMBER
-    xpath: //a[@class="b-link b-productParams--noprint b-productList__top_5"]
+    xpath: //a[@class="b-link b-productParams--noprint b-product-list__top_5"]
   - name: name
     singleValue: false
-    xpath: //a[@class='b-productList__item__descr--title']
+    xpath: //a[@class='b-product-list__item__descr--title']
   - name: id
-    singleValue: false
-    xpath: //ul[contains(@class,"product-list")]/li[contains(@class,"productList")]/@data-id
-  
+    singleValue: true
+    xpath: //a/@data-id
