@@ -4,12 +4,13 @@ const implementation = async (
     context,
     dependencies,
 ) => {
-    const timeout = parameters.timeout ? parameters.timeout : 60000;
+    const timeout = parameters.timeout ? parameters.timeout : 120000;
     await context.setJavaScriptEnabled(true);
     await context.setCssEnabled(true);
     await context.setLoadAllResources(true);
     await context.setLoadImages(true);
     await context.setBlockAds(false);
+    await context.setFirstRequestTimeout(100000);
     await context.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36');
 
     const gotoFn = async (url) => {
@@ -20,7 +21,7 @@ const implementation = async (
                 type: 'GEETEST',
                 autoSubmit: true,
             },
-            firstRequestTimeout: 60000,
+            firstRequestTimeout: 100000,
             timeout: timeout,
             waitUntil: 'load',
             checkBlocked: false,

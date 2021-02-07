@@ -48,7 +48,7 @@ const transform = (data) => {
           descriptionItem.text = cleanUp(descriptionItem.text);
         });
       }
-      if (row.additionalDescBulletInfo) {
+      if (row.additionalDescBulletInfo && Array.isArray(row.additionalDescBulletInfo) && (row.additionalDescBulletInfo.length > 0)) {
         row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.replace(/(\n\s*){1,}/g, ' || ');
         row.additionalDescBulletInfo[0].text = cleanUp(row.additionalDescBulletInfo[0].text);
       }
@@ -79,7 +79,7 @@ const transform = (data) => {
         row.manufacturerDescription = [{ text: arrTemp.join(' ') }];
       }
       if (row.description2) {
-        if (row.description) {
+        if (row.description && Array.isArray(row.description) && (row.description.length > 0)) {
           row.description = [{ text: row.description[0].text + ' || ' + row.description2[0].text }];
         }
         delete row.description2;
@@ -118,7 +118,10 @@ const transform = (data) => {
           arrV2.push(item.text);
         });
         row.videos2 = [{ text: arrV2.join(' | ') }];
-        row.videos = [{ text: row.videos[0].text + ' | ' + row.videos2[0].text }];
+        if(row.videos && (row.videos.length > 0) && row.videos2 && (row.videos2.length > 0)) {
+          row.videos = [{ text: row.videos[0].text + ' | ' + row.videos2[0].text }];
+        }
+        
         delete row.videos2;
       }
       if (row.manufacturerImages) {
@@ -136,7 +139,7 @@ const transform = (data) => {
           warrantyItem.text = warrantyItem.text.replace('Garantie', '').trim();
         });
       }
-      if (row.specifications) {
+      if (row.specifications && Array.isArray(row.specifications) && (row.specifications.length > 0)) {
         row.specifications[0].text = cleanUp(row.specifications[0].text
           .replace(/(\n\s*){4,}/g, ' || ')
           .replace(/(\n\s*){2,}/g, ' : '));
