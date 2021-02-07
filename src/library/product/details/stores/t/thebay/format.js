@@ -146,7 +146,7 @@ const transform = (data, context) => {
       }
       if (row.availabilityText) {
         row.availabilityText.forEach(item => {
-          if (item.text.trim().includes('Add to Bag')) {
+          if (item.text.trim().toLowerCase().includes('add to bag')) {
             item.text = 'In Stock';
           } else {
             item.text = 'Out of Stock';

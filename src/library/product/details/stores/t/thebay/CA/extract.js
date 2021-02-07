@@ -28,7 +28,7 @@ module.exports = {
     }
     console.log('run variants....');
     await context.extract(productDetails, { transform });
-    for (let index = 2; index <= variantCount; index++) {
+    for (let index = 1; index <= variantCount; index++) {
       try {
         const status = await context.evaluate(async function (index) {
           const sel = `ul.selection-list li:not(.option-disabled):nth-child(${index})`;
@@ -53,20 +53,53 @@ module.exports = {
       return document.querySelectorAll('ul.size-attribute > li').length;
     });
     console.log('run variants....');
-    for (let index = 2; index <= variantCount2; index++) {
+    for (let index = 1; index <= variantCount2; index++) {
       try {
         const status = await context.evaluate(async function (index) {
           const sel = `ul.size-attribute li:not([disabled="disabled"]):nth-child(${index})`;
           document.querySelector(sel) && document.querySelector(sel).click();
+          await new Promise(resolve => setTimeout(resolve, 2000));
+          return document.querySelector(sel);
+        }, index);
+
+        // await context.click(`ul.selection-list.ps.ps--active-y li:not(.option-disabled):nth-child(${index})`);
+        // await new Promise(resolve => setTimeout(resolve, 1000));
+        if (variantCount2 !== index) {
+          if (status) {
+            await context.extract(productDetails, { type: 'APPEND', transform });
+          }
+        } else {
+          return await context.extract(productDetails, { type: 'APPEND', transform });
+        }
+      } catch (error) {
+        console.log('Error While itrerating over the variants', error);
+      }
+    }
+    const variantCount3 = await context.evaluate(async function () {
+      return document.querySelectorAll('ul.color-wrapper li').length;
+    });
+    console.log('run variants....');
+    for (let index = 1; index <= variantCount3; index++) {
+      try {
+        const status = await context.evaluate(async function (index) {
+          const sel = `ul.color-wrapper li:nth-child(${index}) button`;
+          document.querySelector(sel) && document.querySelector(sel).click();
+          await new Promise(resolve => setTimeout(resolve, 2000));
+          const sku = document.querySelector(`ul.color-wrapper li:nth-child(${index}) button span`).getAttribute('style');
+          const match = sku.match(/TheBay\/(.+?)_/is);
+          if (match) {
+            document.querySelector('div.value.content div.product-detail-id').innerHTML = match[1];
+          }
+          // const status = document.querySelector(`ul.color-wrapper li:nth-child(${index}) button span`).getAttribute('class');
+          // if (status && status.toLowerCase().includes('unselectable')) {
+          // }
           return document.querySelector(sel);
         }, index);
 
         // await context.click(`ul.selection-list.ps.ps--active-y li:not(.option-disabled):nth-child(${index})`);
         await new Promise(resolve => setTimeout(resolve, 1000));
         if (variantCount2 !== index) {
-          if (status) {
-            await context.extract(productDetails, { type: 'APPEND', transform });
-          }
+          await context.extract(productDetails, { type: 'APPEND', transform });
         } else {
           return await context.extract(productDetails, { type: 'APPEND', transform });
         }
