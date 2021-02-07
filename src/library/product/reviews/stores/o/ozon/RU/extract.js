@@ -20,7 +20,6 @@ async function implementation (
     }
   });
   await context.evaluate(async () => {
-
     const reviewBlock = document.querySelectorAll('div.b7y3 div._3xol');
     if (reviewBlock.length > 0) {
       for (let j = 0; j < reviewBlock.length; j++) {

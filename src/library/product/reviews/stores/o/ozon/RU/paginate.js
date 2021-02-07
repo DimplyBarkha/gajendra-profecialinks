@@ -38,6 +38,7 @@ async function implementation (
       const engMonth = deToEn[month.toLowerCase()];
       reviewDateRaw = reviewDateRaw.replace(month, engMonth);
     }
+    reviewDateRaw = reviewDateRaw.replace(/\s/g, '-');
     const topReviewDate = new Date(reviewDateRaw);
     if (topReviewDate) {
       const month = '' + (topReviewDate.getMonth() + 1);
@@ -80,7 +81,7 @@ async function implementation (
     return false;
   }
   async function checkNoPagination () {
-    const nextPageBtn = document.evaluate('count(//div[contains(text(),"Дальше")])', document, null, XPathResult.ANY_TYPE, null );
+    const nextPageBtn = document.evaluate('count(//div[contains(text(),"Дальше")])', document, null, XPathResult.ANY_TYPE, null);
     const nBtnlink = document.querySelector('a.a4q7');
     const nextPageBtn1 = nBtnlink.nextElementSibling;
     if (!nextPageBtn && !nextPageBtn1) {
