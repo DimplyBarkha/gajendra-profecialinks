@@ -191,8 +191,8 @@ fields:
     description: In product page, information about a new version of the product - new
       desription info
   - name: variantInformation
-    singleValue: true
     description: colour / scent / flavour / other
+    xpath: //div[contains(@class,"size-buttons-buttonContainer")]//button|//div[contains(@class,"colors-container")]//li
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of core
