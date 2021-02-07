@@ -52,6 +52,7 @@ const transform = (data) => {
           },
         ];
       }
+<<<<<<< HEAD
       if (row.aggregateRating) {
         let text = '';
         row.aggregateRating.forEach(item => {
@@ -103,6 +104,27 @@ const transform = (data) => {
         });
         row.manufacturerImages = manufacturerImage;
       }
+=======
+
+      // if (row.manufacturerImages) {
+      //   const manufacturerImage = [];
+      //   let dupUrl = '';
+      //   let urls = [];
+      //   row.manufacturerImages.forEach(item => {
+      //     console.log('item:: ', item.text);
+      //     urls = row.manufacturerImages.filter(it => item.text === it.text);
+      //     if (urls && urls.length === 1) {
+      //       manufacturerImage.push(item);
+      //     } else {
+      //       if (dupUrl !== item.text) {
+      //         dupUrl = item.text;
+      //         manufacturerImage.push(item);
+      //       }
+      //     }
+      //   });
+      //   row.manufacturerImages = manufacturerImage;
+      // }
+>>>>>>> 94c73e6ac9da10d0da465de552e26126d720165e
 
       if (row.variantUrl) {
         const variantUrls = [];
@@ -121,6 +143,44 @@ const transform = (data) => {
           }
         });
         row.variantUrl = variantUrls;
+      }
+
+      if (row.variantId) {
+        const variantIds = [];
+        let dup = '';
+        let urls = [];
+        row.variantId.forEach(item => {
+          // console.log('item:: ', item.text);
+          urls = row.variantId.filter(it => item.text === it.text);
+          if (urls && urls.length === 1) {
+            variantIds.push(item);
+          } else {
+            if (dup !== item.text) {
+              dup = item.text;
+              variantIds.push(item);
+            }
+          }
+        });
+        row.variantId = variantIds;
+      }
+
+      if (row.unInterruptedPDP) {
+        const unInterruptedPDPs = [];
+        let dup = '';
+        let urls = [];
+        row.unInterruptedPDP.forEach(item => {
+          // console.log('item:: ', item.text);
+          urls = row.unInterruptedPDP.filter(it => item.text === it.text);
+          if (urls && urls.length === 1) {
+            unInterruptedPDPs.push(item);
+          } else {
+            if (dup !== item.text) {
+              dup = item.text;
+              unInterruptedPDPs.push(item);
+            }
+          }
+        });
+        row.unInterruptedPDP = unInterruptedPDPs;
       }
 
       if (row.variantId) {
@@ -165,7 +225,7 @@ const transform = (data) => {
             const startIdx = text.indexOf('vikt');
             if (startIdx > -1) {
               weight = text.split('vikt:')[1];
-              weightRec[0].text = weight.trim();
+              weightRec[0].text = weight ? weight.trim() : '';
             }
           });
           row.weightNet = weightRec;

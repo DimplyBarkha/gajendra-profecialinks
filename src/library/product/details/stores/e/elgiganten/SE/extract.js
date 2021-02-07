@@ -112,7 +112,12 @@ async function implementation (
       addHiddenDiv('vidURL', videoUrl);
     });
   });
-
+  try {
+    await context.click('[data-template="ProductMoreInformationTab"]');
+    await context.click('data-template="ProductSpecificationTab"');
+  } catch (err) {
+    console.log('Error while clicking more');
+  }
   return await context.extract(productDetails, { transform });
 }
 
