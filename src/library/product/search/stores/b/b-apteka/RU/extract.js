@@ -1,4 +1,26 @@
-const {transform} = require('../format')
+const { transform } = require('../format');
+// async function implementation (
+//   inputs,
+//   parameters,
+//   context,
+//   dependencies,
+// ) {
+//   const { transform } = parameters;
+//   const { productDetails } = dependencies;
+//   await context.evaluate(async function () {
+//     const clickOnImages = async function () {
+//       function timeout (ms) {
+//         return new Promise((resolve) => setTimeout(resolve, ms));
+//       }
+//       const nextButton = document.querySelector('a.button.button_default.button_sm.button_block_xs.j-confirm-city-modal-button');
+//       if (nextButton) {
+//         nextButton.click();
+//         await timeout(5000);
+//       }
+//     };
+//   });
+//   // await new Promise((resolve, reject) => setTimeout(resolve, 8000));
+//   // const button = document.getElementsByClassName('button.button_default.button_sm.button_block_xs.j-confirm-city-modal-button')[1];
 
 
 async function implementation (
