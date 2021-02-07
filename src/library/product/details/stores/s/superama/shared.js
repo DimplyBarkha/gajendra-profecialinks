@@ -54,21 +54,25 @@ const transform = (data) => {
         });
       }
       if (row.price && row.price[0]) {
-        row.price[0].text = row.price[0].text.replace(',', '');
-        row.price[0].text = row.price[0].text.replace('.', ',');
+        row.price[0].text = row.price[0].text.replace(',', '.');
+        // row.price[0].text = row.price[0].text.replace('.', ',');
       }
-      if (row.listPrice && row.listPrice[0]) {
-        row.listPrice[0].text = row.listPrice[0].text.replace(',', '');
-        row.listPrice[0].text = row.listPrice[0].text.replace('.', ',');
+      if (row.aggregateRating && row.aggregateRating[0]) {
+        row.aggregateRating[0].text = row.aggregateRating[0].text.replace(',', '.');
+        // row.listPrice[0].text = row.listPrice[0].text.replace('.', ',');
       }
       if (row.gtin && row.gtin[0]) {
         row.gtin[0].text = row.gtin[0].text.replace('UPC ', '');
       }
       if (row.listPrice && row.listPrice[0]) {
-        row.listPrice[0].text = row.listPrice[0].text.replace('$0,00', '');
+        row.listPrice[0].text = row.listPrice[0].text.replace('$0.00', '');
+        row.listPrice[0].text = row.listPrice[0].text.replace(',', '.');
       }
       if ((!row.manufacturer || !row.manufacturer.length) && row.manufacturer1) {
         row.manufacturer = row.manufacturer1;
+      }
+      if (row.gtin && row.gtin[1]) {
+        row.gtin[1].text = row.gtin[1].text.replace('UPC ', '');
       }
       if (row.gtin && row.gtin[1]) {
         row.gtin[1].text = row.gtin[1].text.replace('UPC ', '');
