@@ -26,13 +26,13 @@ fields:
     xpath: //h1[@class='item-brand-name']//p
   - name: availabilityText
     singleValue: false
-    xpath: //div[@class='price-add-product']//div[@class='button-wrapper']//input[contains(@class,'cta-add')]/@class
+    xpath: //div[@class='price-add-product']//div[@class='button-wrapper']//input[contains(@class,'cta-add')]/@class | div[@id="stock_status"]
     # regExp: (.+)
     # regExpReplace: In Stock
     # defaultValue: Out of Stock
   - name: price
     singleValue: false
-    xpath: //div[@class='product-detail-header']//div[@class='item-product-price']//span[@class="strikethrough"]
+    xpath: //div[@class='product-detail-header']//div[@class='item-product-price']//span
   - name: listPrice
     singleValue: false
     xpath: //div[@class='product-detail-header']//div[@class='item-product-price']//span[@class='strikethrough']
@@ -60,7 +60,7 @@ fields:
     xpath: //div[contains(@class,'swatches-group')]//li//a/@data-code
   - name: variantId
     singleValue: false
-    xpath: //script[@type="text/javascript"][contains(text(), "itemid")] | //div[@class='swatches-group']/ul/li[@class="active"]/a/@data-code
+    xpath: //script[@type="text/javascript"][contains(text(), "itemid")]
     #"itemid" : "BB_885609019680",
     # regExp: \"itemid\"\s*:\s*\"(.+?)\"
     # regExpReplace: $1
@@ -94,3 +94,12 @@ fields:
   - name: quantity
     singleValue: false
     xpath: //label[contains(@class,'single-variant-label')]
+  - name: url
+    singleValue: false
+    xpath: //div[@id="product_url"]/@url
+  - name: mainImg
+    singleValue: false
+    xpath: //img[@class="img_from_api"][1]/@src
+  - name: secondaryImages
+    singleValue: false
+    xpath: //div[@id="api_all_images"]/img[position() > 1]/@src

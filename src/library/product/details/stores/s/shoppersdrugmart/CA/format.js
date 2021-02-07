@@ -40,11 +40,6 @@ const transform = (data) => {
           item.text = item.text.trim();
         });
       }
-      if (row.ratingCount) {
-        row.ratingCount.forEach(item => {
-          item.text = item.text.trim();
-        });
-      }
       if (row.quantity) {
         row.quantity.forEach(item => {
           item.text = item.text.replace('Size:', '');
@@ -56,7 +51,7 @@ const transform = (data) => {
           if (item.text.indexOf('disable') < 0) {
             item.text = 'In Stock';
           } else {
-            item.text = 'Out of Stock';
+            item.text = 'Out Of Stock';
           }
         });
       }
@@ -89,8 +84,19 @@ const transform = (data) => {
           }
         });
         if (row.variantId.length > 1) {
-          row.variantId = row.variantId.splice(1, row.variantId.length - 1);
+          row.variantId = row.variantId.splice(0, 1);
         }
+      }
+      if (row.mainImg) {
+        row.image = row.mainImg;
+      }
+      if (row.secondaryImages) {
+        row.alternateImages = row.secondaryImages;
+      }
+      if (row.alternateImages) {
+        row.secondaryImageTotal = [{ text: row.alternateImages.length }];
+      } else {
+        row.secondaryImageTotal = [{ text: 0 }];
       }
     }
   }
