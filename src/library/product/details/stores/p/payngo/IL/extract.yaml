@@ -63,7 +63,7 @@ fields:
     xpath: //div[contains(@class,"yotpo-medium")]/@data-product-id
   - name: specifications
     singleValue: false
-    xpath: //div[contains(@class, 'tab-content additional')]/ul
+    xpath: //div[contains(@class, 'tab-content additional')]/ul | //div//strong[contains(text(),"מפרט טכני")]/following-sibling::text()
   - name: weightNet
     singleValue: false
     xpath: //div[contains(@class, 'description') and not(contains(@class, "product-tab"))]/ul/li[contains(string(), 'משקל')]/p
