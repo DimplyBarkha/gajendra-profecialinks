@@ -38,8 +38,8 @@ fields:
     manualSelector: h1.product-title
   - name: price
     singleValue: false
-    xpath: concat(//meta[@itemprop="price"]/@content,' ',//meta[@itemprop="priceCurrency"]/@content)
-    # xpath: concat(//div[@class="product-price-container"]/span, //div[@class="seller-offer"]/div/span, " ", "SEK")
+    # xpath: concat(//meta[@itemprop="price"]/@content,' ',//meta[@itemprop="priceCurrency"]/@content)
+    xpath: concat((//div[contains(@class,"product-price")]//span)[1], " ", "SEK")
   - name: manufacturerDescription
     singleValue: false
     xpath: //section[contains(@class,"article-page")]

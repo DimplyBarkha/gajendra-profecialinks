@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* eslint-disable no-unused-vars */
 /**
  *
@@ -52,7 +53,6 @@ const transform = (data) => {
           },
         ];
       }
-<<<<<<< HEAD
       if (row.aggregateRating) {
         let text = '';
         row.aggregateRating.forEach(item => {
@@ -104,8 +104,6 @@ const transform = (data) => {
         });
         row.manufacturerImages = manufacturerImage;
       }
-=======
-
       // if (row.manufacturerImages) {
       //   const manufacturerImage = [];
       //   let dupUrl = '';
@@ -124,7 +122,6 @@ const transform = (data) => {
       //   });
       //   row.manufacturerImages = manufacturerImage;
       // }
->>>>>>> 94c73e6ac9da10d0da465de552e26126d720165e
 
       if (row.variantUrl) {
         const variantUrls = [];
