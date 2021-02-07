@@ -11,7 +11,7 @@ const transform = (data) => {
     .replace(/&amp;#160/g, ' ')
     .replace(/\u00A0/g, ' ')
     .replace(/\s{2,}/g, ' ')
-    .replace(/"\s{1,}/g, '"')
+    .replace(/"\s{1,}/g, '" ')
     .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
     // eslint-disable-next-line no-control-regex
@@ -44,15 +44,47 @@ const transform = (data) => {
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')} || `;
+          text += `${item.text.replace(/\n \n/g, ':')}`;
         });
         row.description = [
           {
-            text: text.slice(0, -4),
+            text: text,
           },
         ];
       }
-
+      if (row.aggregateRating) {
+        let text = '';
+        row.aggregateRating.forEach(item => {
+          text += `${item.text.replace(',', '.')}`;
+        });
+        row.aggregateRating = [
+          {
+            text: text,
+          },
+        ];
+      }
+      if (row.manufacturerImages) {
+        let text = '';
+        row.manufacturerImages.forEach(item => {
+          text += `${item.text.replace('https://www.elgiganten.sehttps://www.elgiganten.se', 'https://www.elgiganten.se')}`;
+        });
+        row.manufacturerImages = [
+          {
+            text: text,
+          },
+        ];
+      }
+      // if (row.nameExtended) {
+      //   let text = '';
+      //   row.nameExtended.forEach(item => {
+      //     text += `${item.text.replace('"', '" ')} `;
+      //   });
+      //   row.nameExtended = [
+      //     {
+      //       text: text,
+      //     },
+      //   ];
+      // }
       if (row.manufacturerImages) {
         const manufacturerImage = [];
         let dupUrl = '';
@@ -159,7 +191,7 @@ const transform = (data) => {
         });
         row.shippingDimensions = [
           {
-            text: text.slice(0, -4),
+            text: text.slice(0, -3),
           },
         ];
       }
@@ -205,15 +237,23 @@ const transform = (data) => {
       if (row.manufacturerImages) {
         let text = '';
         row.manufacturerImages.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')} | `;
+          text += `${item.text.replace(/\n \n/g, ':')}|`;
         });
         row.manufacturerImages = [
           {
-            text: text.slice(0, -3),
+            text: text.slice(0, -1),
           },
         ];
       }
-
+      if (row.mpc) {
+        let brandTxt = '';
+        if (row.brandText && row.brandText.length > 0) {
+          brandTxt = row.brandText[0].text;
+        }
+        row.mpc.forEach(item => {
+          item.text = `${brandTxt} ${item.text}`;
+        });
+      }
       if (row.additionalDescBulletInfo) {
         let text = '';
         row.additionalDescBulletInfo.forEach(item => {
@@ -221,7 +261,7 @@ const transform = (data) => {
         });
         row.additionalDescBulletInfo = [
           {
-            text: text.slice(0, -3),
+            text: text.slice(0, -4),
           },
         ];
       }

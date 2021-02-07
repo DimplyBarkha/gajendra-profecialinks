@@ -108,7 +108,7 @@ async function implementation (
     const video = videoApi.items;
     let videoUrl;
     video.forEach(vid => {
-      videoUrl = `https://www.youtube.com/watch?v=${vid.videoId}&feature=youtu.be`;
+      videoUrl = `https://youtu.be/${vid.videoId}`;
       addHiddenDiv('vidURL', videoUrl);
     });
   });
