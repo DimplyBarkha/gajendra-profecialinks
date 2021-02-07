@@ -12,9 +12,11 @@ const transform = (data, context) => {
             if (row.productUrl) {
                 row.productUrl = [{ text: row.productUrl.map(item => "https://www.utkonos.ru" + item.text).join() }]
             }
-            rankCounter += 1;
-            row.rank = [{ text: rankCounter }];
-            row.rankOrganic = [{ text: rankCounter }];
+            if (row.id) {
+                rankCounter += 1;
+                row.rank = [{ text: rankCounter }];
+                row.rankOrganic = [{ text: rankCounter }];
+            }
         }
     }
     context.setState({ rankCounter });
