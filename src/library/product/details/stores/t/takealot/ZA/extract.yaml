@@ -116,3 +116,6 @@ fields:
   - name: ingredientsList
     singleValue: false
     xpath: //p[starts-with(text(),"Ingredients")] | //div[starts-with(text(),"Ingredients:")]/following-sibling::div[1] | //div[starts-with(text(),"Ingredients")]
+  - name: ingredientsListOld
+    singleValue: false
+    xpath: //div[contains(@class,"product-description-module_product-description_3bMdX")]

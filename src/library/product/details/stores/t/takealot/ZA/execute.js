@@ -22,9 +22,9 @@ async function implementation (
   await context.setJavaScriptEnabled(true);
   await new Promise((resolve, reject) => setTimeout(resolve, 5000));
   try{
-    await context.waitForSelector('div#product-tabs div.swiper-slide-next',{timeout:1000});
-    await context.click('div#product-tabs div.swiper-slide-next',{timeout:1000});
-    await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+    await context.waitForSelector('div#product-tabs div.swiper-slide-next');
+    await context.click('div#product-tabs div.swiper-slide-next');
+    await new Promise((resolve, reject) => setTimeout(resolve, 1500));
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -43,9 +43,9 @@ async function implementation (
   }
 
   try{
-    await context.waitForSelector('div#product-tabs div.swiper-slide:last-child',{timeout:1000});
-    await context.click('div#product-tabs div.swiper-slide:last-child',{timeout:1000});
-    await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+    await context.waitForSelector('div#product-tabs div.swiper-slide:last-child');
+    await context.click('div#product-tabs div.swiper-slide:last-child');
+    await new Promise((resolve, reject) => setTimeout(resolve, 2000));
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -65,8 +65,8 @@ async function implementation (
   
 
   try{
-    await context.waitForSelector('div#product-tabs div.swiper-slide-active',{timeout:1000});
-    await context.click('div#product-tabs div.swiper-slide-active',{timeout:1000});
+    await context.waitForSelector('div#product-tabs div.swiper-slide-active');
+    await context.click('div#product-tabs div.swiper-slide-active');
     await new Promise((resolve, reject) => setTimeout(resolve, 1000));
   }catch(e){
 

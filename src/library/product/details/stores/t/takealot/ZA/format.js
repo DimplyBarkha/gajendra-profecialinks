@@ -113,6 +113,24 @@ const transform = (data) => {
         })
         row.additionalDescBulletInfo=[{"text":inf.join(' || ')}];
       }
+      if(!row.ingredientsList){
+        let ingredientsListData='';
+        if(row.ingredientsListOld){
+          row.ingredientsListOld.forEach(item=>{
+            //console.log('item.text::',item.text);
+            let tmp=item.text.match(/Ingredients\s*:\s*\n*(.+?)\n*[.*|$]/is);
+            console.log('tmp::',tmp);
+            if(tmp){
+              ingredientsListData=tmp[1];
+            }
+          })
+          delete row.ingredientsListOld;
+        }
+        console.log('ingredientsListData ::',ingredientsListData);
+        if(ingredientsListData!=''){
+          row.ingredientsList=[{"text":ingredientsListData}];
+        }
+      }
       row.rank = [{ "text": rank }];
       row.rankOrganic = [{ "text": rank }];
       rank++;
