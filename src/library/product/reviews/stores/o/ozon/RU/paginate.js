@@ -1,6 +1,6 @@
 /**
  *
- * @param { { _date?: string, page: number, id: string } } inputs
+ * @param { { date?: string, page: number, id: string } } inputs
  * @param { ImportIO.IContext } context
  * @param { Record<string, any> } dependencies
  */
@@ -10,45 +10,45 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { _date, page, id } = inputs;
+  const { date, page, id } = inputs;
   const loadedSelector = 'div#__ozon';
   const noResultsXPath = '//h2[contains(text(),"Произошла ошибка")]';
   const openSearchDefinition = {
     template: 'https://www.ozon.ru/product/{id}/reviews/?page={page}&sort=created_at_desc',
   };
 
-  // async function checkDate () {
-  //   const deToEn = {
-  //     januar: 'january',
-  //     februar: 'february',
-  //     märz: 'march',
-  //     april: 'april',
-  //     mai: 'may',
-  //     juni: 'june',
-  //     juli: 'july',
-  //     august: 'august',
-  //     september: 'september',
-  //     oktober: 'october',
-  //     november: 'november',
-  //     dezember: 'december',
-  //   };
-  //   let reviewDateRaw = document.querySelector('div[id*="review_list"]>div:nth-last-child(2) span[data-hook*="review-date"]') ? document.querySelector('div[id*="review_list"]>div:nth-last-child(2) span[data-hook*="review-date"]').innerText : '';
-  //   const month = reviewDateRaw.match(/([^\s]+)\s+[^\s]+$/) && reviewDateRaw.match(/([^\s]+)\s+[^\s]+$/)[1].trim();
-  //   if (month) {
-  //     const engMonth = deToEn[month.toLowerCase()];
-  //     reviewDateRaw = reviewDateRaw.replace(month, engMonth);
-  //   }
-  //   const topReviewDate = new Date(reviewDateRaw);
-  //   if (topReviewDate) {
-  //     const month = '' + (topReviewDate.getMonth() + 1);
-  //     const day = '' + topReviewDate.getDate();
-  //     const year = topReviewDate.getFullYear();
-  //     console.log(`${[year, month, day].join('-')}`);
-  //     return `${[year, month, day].join('-')}`;
-  //   } else {
-  //     return false;
-  //   }
-  // }
+  async function checkDate () {
+    const deToEn = {
+      января: 'january',
+      февраля: 'february',
+      марта: 'march',
+      апреля: 'april',
+      мая: 'may',
+      июня: 'june',
+      июля: 'july',
+      августа: 'august',
+      сентября: 'september',
+      октября: 'october',
+      ноября: 'november',
+      декабря: 'december',
+    };
+    let reviewDateRaw = document.querySelector('div.b7y3:nth-last-child(1) div.a4z6') ? document.querySelector('div.b7y3:nth-last-child(1) div.a4z6').innerText : '';
+    const month = reviewDateRaw.match('^(?:.+?[\\s.,;]+){' + (1) + '}([^\\s.,;]+)')[1];
+    if (month) {
+      const engMonth = deToEn[month.toLowerCase()];
+      reviewDateRaw = reviewDateRaw.replace(month, engMonth);
+    }
+    const topReviewDate = new Date(reviewDateRaw);
+    if (topReviewDate) {
+      const month = '' + (topReviewDate.getMonth() + 1);
+      const day = '' + topReviewDate.getDate();
+      const year = topReviewDate.getFullYear();
+      console.log(`${[year, month, day].join('-')}`);
+      return `${[year, month, day].join('-')}`;
+    } else {
+      return false;
+    }
+  }
 
   const { pager } = dependencies;
   const success = await pager({ loadedSelector });
@@ -66,15 +66,15 @@ async function implementation (
     return next.href;
   });
 
-  // if ((new Date(await context.evaluate(checkDate)).setHours(0, 0, 0, 0) - new Date(_date).setHours(0, 0, 0, 0)) < 0) {
-  //   return false;
-  // } else {
+  if ((new Date(await context.evaluate(checkDate)).setHours(0, 0, 0, 0) - new Date(date).setHours(0, 0, 0, 0)) < 0) {
+    return false;
+  } else {
     if (!url && openSearchDefinition) {
       url = openSearchDefinition.template
         .replace('{id}', encodeURIComponent(id))
         .replace('{page}', (page + (openSearchDefinition.pageOffset || 0)).toString());
     }
-  // }
+  }
 
   if (!url) {
     return false;
