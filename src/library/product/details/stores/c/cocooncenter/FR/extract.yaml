@@ -11,7 +11,7 @@ fields:
     xpath: //div[@class="produit_infos_gauche"]//img[@itemprop="image"]/@alt
   - name: category
     singleValue: false
-    xpath: //ul[@class='breadcrumb gtm-bc']/li[position()>1]    
+    xpath: //ul[@class='breadcrumb gtm-bc']/li[position()>1]
   - name: nameExtended
     singleValue: false
     xpath: //meta[@property="og:title"]/@content
@@ -29,7 +29,7 @@ fields:
     xpath: //div[@class='div_ajout_panier btn_fiche_ajout_panier'][not(contains(@style,'display:none;'))]/div[1]
     regExp: (.+)
     regExpReplace: In Stock
-    defaultValue: Out of Stock
+    defaultValue: Out Of Stock
   - name: description
     singleValue: false
     xpath: //div[@itemprop="description"]/div[@id="type_info_prio_11_1"]
@@ -40,6 +40,9 @@ fields:
     singleValue: false
     xpath: //div[@id='detail']//td[@id='type_info_prio_3_1']
   - name: gtin
+    singleValue: false
+    xpath: //div[@id='detail']//span[@itemprop='gtin13']
+  - name: eangtin
     singleValue: false
     xpath: //div[@id='detail']//span[@itemprop='gtin13']
   - name: sku
@@ -57,6 +60,7 @@ fields:
   - name: ratingCount
     singleValue: false
     xpath: //div[@itemprop="aggregateRating"]//meta[@itemprop="reviewCount"]/@content
+    defaultValue: 0
   - name: aggregateRating
     singleValue: false
     xpath: //div[@itemprop="aggregateRating"]//div[@itemprop="ratingValue"]
