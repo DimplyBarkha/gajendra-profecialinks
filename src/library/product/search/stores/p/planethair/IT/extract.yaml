@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="ty-column3"]/div[contains(@class, 'list__item')][not(@trim)]
+recordXPath: //div[@class="ty-column3"]/div[contains(@class, 'list__item')]
 fields:
   - name: id
     singleValue: false
@@ -48,7 +48,6 @@ fields:
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
-    xpath: //@rankorganic
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid

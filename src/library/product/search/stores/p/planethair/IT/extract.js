@@ -1,4 +1,4 @@
-const { transform } = require('../../../../shared');
+const { transform } = require('./shared');
 // @ts-ignore
 async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
@@ -29,28 +29,6 @@ async function implementation (inputs, parameters, context, dependencies) {
     const fullStars = ratingsWithChild.map(e => e.filter(k => !k.classList[1].includes('empty') && !k.classList[1].includes('half')).length);
     const halfStars = ratingsWithChild.map(e => e.filter(k => k.classList[1].includes('half')).length * 0.5);
     ratings.forEach((e, i) => e.setAttribute('ratings', (fullStars[i] + halfStars[i]).toString().replace('.', ',')));
-    function addProp (selector, iterator, propName, value) {
-      document.querySelectorAll(selector)[iterator].setAttribute(propName, value);
-    }
-    const allProducts = document.querySelectorAll('div[class="ty-column3"] > div[class*="list__item"]');
-
-    // rank
-
-    if (allProducts.length !== 0) {
-      for (let i = 0; i < allProducts.length; i++) {
-        addProp('div[class="ty-column3"] > div[class*="list__item"]', i, 'rankorganic', `${i + 1}`);
-      }
-    }
-    const last = allProducts[allProducts.length - 1].getAttribute('rankorganic');
-    if (!searchUrl.includes('&page=2')) {
-      addElementToDocument('itemscount', last);
-    }
-    const rest = 150 - parseInt(last);
-    if (searchUrl.includes('&page=2')) {
-      // @ts-ignore
-      [...allProducts].filter(e => e.getAttribute('rankorganic') > rest)
-        .forEach(e => e.setAttribute('trim', ''));
-    }
   });
   await context.evaluate(async function () {
     const nextPageElement = document.querySelectorAll('a[class*="ty-pagination__next"]');
