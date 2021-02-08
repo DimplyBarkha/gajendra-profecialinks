@@ -11,22 +11,39 @@ module.exports = {
   },
   implementation: async ({ inputString, id }, { transform }, context, { productDetails }) => {
     // Check if the product is available and go to product page
-    let noResults = false;
-    console.log('Wait for the product to load');
-    try {
-      await context.waitForFunction(
-        (selector) => {
-          return !!(document.querySelector(selector));
-        },
-        { timeout: 10000 },
-        '#containerResultsFilter div.preview-img > img[src]',
-      );
-    } catch (e) {
-      console.log('No results for the given product code');
-      noResults = true;
-    }
-    if (!noResults) {
-      await context.click('#containerResultsFilter div.preview-img > img[src]');
+    // let noResults = false;
+    // console.log('Wait for the product to load');
+    // try {
+    //   if (document.querySelector('#containerResultsFilter div.preview-img > img[src]') !== null) {
+    //     await context.waitForFunction(
+    //       (selector) => {
+    //         return !!(document.querySelector(selector));
+    //       },
+    //       { timeout: 10000 },
+    //       '#containerResultsFilter div.preview-img > img[src]',
+    //     );
+    //   }
+    //   if (document.querySelector('div[itemtype*="Product"]')) {
+    //     await context.waitForFunction(
+    //       (selector) => {
+    //         return !!(document.querySelector(selector));
+    //       },
+    //       { timeout: 10000 },
+    //       'div[itemtype*="Product"]',
+    //     );
+    //   }
+    // } catch (e) {
+    //   console.log('No results for the given product code');
+    //   noResults = true;
+    // }
+    const resultPage = await context.evaluate(async () => {
+      return document.querySelectorAll('#containerResultsFilter img, div[itemtype*="Product"]');
+    });
+    const resultOnsearchPage = await context.evaluate(async () => {
+      return document.querySelector('#containerResultsFilter img');
+    });
+    if (resultPage.length !== 0) {
+      if (resultOnsearchPage !== null) await context.click('#containerResultsFilter div.preview-img > img[src]');
       await new Promise(resolve => setTimeout(resolve, 5000));
       // @ts-ignore
       const variantsIdArr = await context.evaluate(async () => [...document.querySelectorAll('button[data-class][data-id]')].map(el => el.getAttribute('data-id')));
