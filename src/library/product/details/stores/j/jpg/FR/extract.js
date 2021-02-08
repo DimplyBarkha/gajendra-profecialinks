@@ -15,7 +15,7 @@ module.exports = {
   ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    await context.waitForSelector('div[class="flex"]', 6000)
+    await context.waitForSelector('div[class="col"]', 6000)
     await context.evaluate(async () => {
       try {
         // @ts-ignore
@@ -52,23 +52,32 @@ module.exports = {
       var arr2 = getAllXpath('//div[@class="description-sku__figure-text"]/ul/li/text()', 'nodeValue');
       var arr3 = getXpath('//div[@class="description-sku__figure-text"]/ul/li/b/text()', 'nodeValue');
       var final = ""
-      if (arr1.length>=1){
-        for(var k=0 ; k<arr1.length; k++){
-          final = final+" || "+ arr1[k]
-          }  
-      }
-      if (arr3!=null){
-        final = final+" || "+arr3
-      }
-      if (arr2.length>=1){
-      for(var k=0 ; k<arr2.length; k++){
-        final = final+" ||"+ arr2[k]
+      if (arr1.length >= 1) {
+        for (var k = 0; k < arr1.length; k++) {
+          final = final + " || " + arr1[k]
         }
       }
-      if (final.length>=1){
+      if (arr3 != null) {
+        final = final + " || " + arr3
+      } else {
+        // @ts-ignore
+        var arr4 = document.querySelector('div[class="description-sku__figure-text"]').innerText
+        // var arr4 = getAllXpath('//div[@class="description-sku__figure-text"]/text()', 'nodeValue');
+        var temp = ""
+        for (var i =0;i<arr4.length;i++){
+          temp  = temp + arr4[i]
+        }
+        final = final+temp
+      }
+      if (arr2.length >= 1) {
+        for (var k = 0; k < arr2.length; k++) {
+          final = final + " ||" + arr2[k]
+        }
+      }
+      if (final.length >= 1) {
         addElementToDocument('desc', final);
       }
-      
+
     });
 
     return await context.extract(productDetails, { transform });
