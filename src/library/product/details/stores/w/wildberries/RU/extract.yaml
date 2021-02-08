@@ -42,6 +42,9 @@ fields:
   - name: variantId
     singleValue: false
     xpath: //input[@id="tbSrch"]/@data-nm-id
+  - name: variants
+    singleValue: false
+    xpath: //div[contains(@class,"j-size-list size-list")]/label//input/@value
   - name: ratingCount
     singleValue: false
     xpath: //a[@id="comments_reviews_link"]/span/i
