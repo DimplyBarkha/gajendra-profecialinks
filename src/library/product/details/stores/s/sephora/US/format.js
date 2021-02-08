@@ -32,11 +32,17 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       try {
-        // if (row.description) {
-        //   const text = row.description[0].text;
-        //   const bulletReplace = text.replace(/ - /g, ' || ');
-        //   row.description[0].text = bulletReplace;
-        // }
+        if (row.variantInformation) {
+          let text = '';
+          row.variantInformation.forEach(item => {
+            text = row.variantInformation.map(elm => elm.text.replace(/Size:|Size|Color:/g,'').trim()).reverse().join(' ');
+          });
+          row.variantInformation = [
+            {
+              text: text,
+            },
+          ];
+        }
         if (row.ingredientsList) {
           const text = row.ingredientsList[0].text;
           const bulletReplace = text.replace(/ - /g, ' || ');
@@ -47,17 +53,7 @@ const transform = (data, context) => {
           const bulletReplace = text.replace(/ - /g, ' || ');
           row.directions[0].text = bulletReplace;
         }
-        if (row.nameExtended) {
-          let text = '';
-          row.nameExtended.forEach(item => {
-            text = row.nameExtended.map(elm => elm.text).join(' - ');
-          });
-          row.nameExtended = [
-            {
-              text: text.replace('SIZE',''),
-            },
-          ];
-        }
+     
         if (row.image) {
           const text = row.image[0].text;
           const splits = text.split('?');
@@ -93,15 +89,7 @@ const transform = (data, context) => {
           row.aggregateRating[0].text = splits[0];
         }
 
-        // if (row.nameExtended) {
-        //   const newName = [];
-        //   const text = row.nameExtended.forEach(name => {
-        //     newName.push(name.text);
-        //     name.text = '';
-        //   });
-        //   const joins = newName.join(' ');
-        //   row.nameExtended = [{ text: joins }];
-        // }
+        
 
         if (row.nameExtended) {
           let text = '';
