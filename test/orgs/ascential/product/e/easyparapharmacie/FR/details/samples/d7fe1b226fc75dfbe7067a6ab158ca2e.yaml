@@ -2,7 +2,7 @@ input:
   _url: http://easyparapharmacie.com
   URL: https://www.easyparapharmacie.com/trousse-mineral-89-soin-hydratant-fortifiant-et-repulpant-1-unite-mineral-89-vichy.html
 extractions:
-  - html: https://workbench.import.io/html/run=617b08c8-853e-4d24-8478-6549e213ba4b/task=22782cbe-2008-4dec-be0d-f991950540d0/9a14e996-75e7-4694-8200-eb9adaf2098e.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=06ab8ea4-65e1-491d-a1be-069cc4063f53/task=20b2c9e3-a20b-47e0-8dbe-39fcbe5fe9e6/b4f031ee-654e-433d-97d1-5d569a57ec60.html
     extractionConfigId: product/details/stores/e/easyparapharmacie/FR/extract
     data:
       - group:
@@ -28,12 +28,9 @@ extractions:
             nameExtended:
               - text: COFFRET SOIN HYDRATANT FORTIFIANT ET REPULPANT MINERAL 89 VICHY
                 xpath: /html/body/div[15]
-            listPrice:
-              - text: 19,90 €
-                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[2]/div[1]/p[1]/span[1]
-            price:
-              - text: 14,90 €
-                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[2]/div[1]/div[1]/p[1]/span[1]/span[1]
+            availabilityText:
+              - text: Plus disponible à la vente
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[2]/div[1]/div[1]/p[1]
             description:
               - text: >-
                   VICHY
@@ -67,33 +64,24 @@ extractions:
                   de toujours vérifier la liste figurant sur le produit acheté.
                 xpath: /html/body/div[18]
             ratingCount:
-              - text: "3"
+              - text: "7"
                 xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[1]/div[2]/div[1]/div[1]/button[1]/div[3]/meta[1]/@content
             aggregateRatingText:
-              - text: "5.0"
+              - text: "4.4"
                 xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[1]/div[2]/div[1]/div[1]/button[1]/div[2]
             aggregateRating:
-              - text: "5.0"
-                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[1]/div[2]/div[1]/div[1]/button[1]/div[2]
+              - text: 4,4
+                xpath: /html/body/div[22]
             variantCount:
               - text: "0"
                 xpath: /html/body/div[19]
             name:
               - text: Coffret Soin Hydratant Fortifiant Et Repulpant Mineral 89 Vichy
                 xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[1]/div[1]/span[1]
-            coupon:
-              - text: -25%
-                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[2]/div[1]/span[1]
             productOtherInformation:
               - text: Minéral 89, le premier geste de toutes les peaux, à appliquer sur peau
                   propre, avant votre soin de jour.
                 xpath: /html/body/div[20]
-            pricePerUnit:
-              - text: 74,50 € /l
-                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[2]/div[1]/div[1]/p[2]
-            pricePerUnitUom:
-              - text: l
-                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[2]/div[1]/div[1]/p[2]/span[2]
             firstVariant:
               - text: "3433425342283"
                 xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[5]/p[1]/span[1]
@@ -103,7 +91,5 @@ extractions:
                   Sodium Hyaluronate , Phenoxyethanol , Caprylyl Glycol , Citric
                   Acid , Biosaccharide Gum-1 (F.I.L. B199024/1)."
                 xpath: /html/body/div[21]
-            availabilityText:
-              - text: In Stock
         xpath: /
-    timestamp: 1608049371069
+    timestamp: 1612791216661

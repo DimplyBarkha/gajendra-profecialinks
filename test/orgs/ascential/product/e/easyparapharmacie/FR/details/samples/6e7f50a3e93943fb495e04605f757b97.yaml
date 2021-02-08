@@ -2,7 +2,7 @@ input:
   _url: http://easyparapharmacie.com
   URL: https://www.easyparapharmacie.com/creme-corps-ultra-nourrissante-2x500-ml-atoderm-bioderma.html
 extractions:
-  - html: https://workbench.import.io/html/run=617b08c8-853e-4d24-8478-6549e213ba4b/task=bf31ce46-5f2d-4a29-aa5a-56174a762a35/bf916c8d-468d-4fbc-8079-5be17ddbf0a7.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=6d431611-31b1-40ba-a728-dd83a8070269/task=95f73626-7f57-4a03-a9bd-e4ba5458bf49/a7b5fb58-6442-4719-b53e-3ddb2abf37a2.html
     extractionConfigId: product/details/stores/e/easyparapharmacie/FR/extract
     data:
       - group:
@@ -10,26 +10,28 @@ extractions:
               - text: https://www.easyparapharmacie.com/creme-corps-ultra-nourrissante-2x500-ml-atoderm-bioderma.html
                 xpath: /html/head[1]/meta[20]/@content
             image:
-              - text: https://cdn.easyparapharmacie.com/media/catalog/product/cache/1/image/494x/0dc2d03fe217f8c83829496872af24a0/c/r/creme-corps-hydratante-et-ultra-nourrissante-2x500-ml-atoderm-peaux-seches-bioderma.jpg
+              - text: https://cdn.easyparapharmacie.com/media/catalog/product/cache/1/image/494x/0dc2d03fe217f8c83829496872af24a0/a/t/atoderm-creme-2x500ml.jpg
                 xpath: /html/head[1]/meta[16]/@content
             imageAlt:
-              - text: Creme Ultra-nourrissante 2x500 ml Atoderm Peaux Seches Bioderma
+              - text: Atoderm Bioderma
                 xpath: /html/head[1]/meta[19]/@content
             alternateImages:
-              - text: https://cdn.easyparapharmacie.com/media/catalog/product/cache/1/image/494x494/0dc2d03fe217f8c83829496872af24a0/c/r/creme-corps-hydratante-et-ultra-nourrissante-2x500-ml-atoderm-peaux-seches-bioderma.jpg
+              - text: https://cdn.easyparapharmacie.com/media/catalog/product/cache/1/image/494x494/0dc2d03fe217f8c83829496872af24a0/a/t/atoderm-creme-2x500ml-label.jpg
                 xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@src
+              - text: https://cdn.easyparapharmacie.com/media/catalog/product/cache/1/image/494x494/0dc2d03fe217f8c83829496872af24a0/a/t/atoderm-creme-2x500ml-texture.jpg
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/img[1]/@src
             category:
-              - text: Creme Ultra-nourrissante 2x500 ml Atoderm Peaux Seches Bioderma
+              - text: Atoderm Bioderma
                 xpath: /html/body/main[1]/div[1]/div[1]/ul[1]/li[2]
             nameExtended:
-              - text: CREME ULTRA-NOURRISSANTE 2X500 ML ATODERM PEAUX SECHES BIODERMA
+              - text: ATODERM BIODERMA
                 xpath: /html/body/div[15]
-            price:
+            listPrice:
               - text: 21,99 €
-                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[2]/div[1]/div[2]/p[1]/span[1]/span[1]
-            availabilityText:
-              - text: En stock
-                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[2]/div[1]/div[1]/p[1]
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[2]/div[1]/p[1]/span[1]
+            price:
+              - text: 17,59 €
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[2]/div[1]/div[1]/p[1]/span[1]/span[1]
             description:
               - text: >-
                   BIODERMA
@@ -76,20 +78,23 @@ extractions:
                   produit acheté.
                 xpath: /html/body/div[18]
             ratingCount:
-              - text: "132"
+              - text: "138"
                 xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/button[1]/div[3]/meta[1]/@content
             aggregateRatingText:
               - text: "4.7"
                 xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/button[1]/div[2]
             aggregateRating:
-              - text: "4.7"
-                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/button[1]/div[2]
+              - text: 4,7
+                xpath: /html/body/div[22]
             variantCount:
               - text: "0"
                 xpath: /html/body/div[19]
             name:
-              - text: Creme Ultra-nourrissante 2x500 ml Atoderm Peaux Seches Bioderma
+              - text: Atoderm Bioderma
                 xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[1]/div[1]/span[1]
+            coupon:
+              - text: -20%
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[2]/div[1]/span[1]
             productOtherInformation:
               - text: Comme tous les produits Bioderma, Atoderm a été conçu pour vous apporter
                   un confort incomparable au quotidien. C'est donc tous les
@@ -105,11 +110,11 @@ extractions:
                   la peau.
                 xpath: /html/body/div[20]
             pricePerUnit:
-              - text: 21,99 € /l
-                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[2]/div[1]/div[2]/p[2]
+              - text: 17,59 € /l
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[2]/div[1]/div[1]/p[2]
             pricePerUnitUom:
               - text: l
-                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[2]/div[1]/div[2]/p[2]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[2]/div[1]/div[1]/p[2]/span[2]
             firstVariant:
               - text: "2630604"
                 xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[5]/p[1]/span[1]
@@ -125,5 +130,7 @@ extractions:
                   Glucose, Fructooligosaccharides, Caprylic/Capric Triglyceride,
                   Laminaria Ochroleuca Extract. [Bi 475]"
                 xpath: /html/body/div[21]
+            availabilityText:
+              - text: In Stock
         xpath: /
-    timestamp: 1608049373177
+    timestamp: 1612786935779

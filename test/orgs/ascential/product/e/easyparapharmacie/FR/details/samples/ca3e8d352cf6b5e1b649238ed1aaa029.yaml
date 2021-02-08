@@ -1,0 +1,112 @@
+input:
+  _url: http://easyparapharmacie.com
+  URL: https://www.easyparapharmacie.com/nuxe-sun-eau-delicieuse-parfumante-format-voyage-30ml.html
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=06ab8ea4-65e1-491d-a1be-069cc4063f53/task=e0e876a4-36ca-4d76-a58e-da1d9c7129f2/fcb3c77a-5f13-4c64-804b-e9503a874422.html
+    extractionConfigId: product/details/stores/e/easyparapharmacie/FR/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.easyparapharmacie.com/nuxe-sun-eau-delicieuse-parfumante-format-voyage-30ml.html
+                xpath: /html/head[1]/meta[20]/@content
+            image:
+              - text: https://cdn.easyparapharmacie.com/media/catalog/product/cache/1/image/494x/0dc2d03fe217f8c83829496872af24a0/n/u/nuxe_sun_eau_delicieuse_parfumante_format_voyage_30ml.jpg
+                xpath: /html/head[1]/meta[16]/@content
+            imageAlt:
+              - text: Sun Eau Delicieuse Parfumante Format Voyage 30ml Nuxe
+                xpath: /html/head[1]/meta[19]/@content
+            category:
+              - text: Sun Eau Delicieuse Parfumante Format Voyage 30ml Nuxe
+                xpath: /html/body/main[1]/div[1]/div[1]/ul[1]/li[2]
+            nameExtended:
+              - text: SUN EAU DELICIEUSE PARFUMANTE FORMAT VOYAGE 30ML NUXE
+                xpath: /html/body/div[15]
+            price:
+              - text: 15,69 €
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[2]/div[1]/div[2]/p[1]/span[1]/span[1]
+            availabilityText:
+              - text: En stock
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[2]/div[1]/div[1]/p[1]
+            description:
+              - text: >-
+                  NUXE SUN
+
+                  Eau délicieuse parfumante
+
+                  Eau fraîche de toilette
+
+                  30ml
+                   
+                  Inspiré du parfum addictif des soins NUXE Sun, l'Eau Délicieuse Parfumante ravive l'esprit de l'été. 
+
+                  Cette brume parfumée imprègne délicatement vos vêtements.
+
+                  Ses harmonies pétillantes d'orange douce et de petit grain éblouissent. 
+
+                  On s'envole vers les tropiques dès que se révèlent les nuances caressantes de coco et de fleurs de Tiaré, couronnées par les accords lascifs de vanille et de muscs. 
+
+                  La nouvelle Eau Délicieuse Parfumante va ensoleiller chaque saison.
+                xpath: /html/body/main[1]/div[1]/div[3]/div[2]/section[1]/div[1]/div[1]
+            brandText:
+              - text: NUXE
+                xpath: /html/body/div[16]
+            manufacturer:
+              - text: NUXE
+                xpath: /html/body/div[16]
+            quantity:
+              - text: "1"
+                xpath: /html/body/div[17]
+            sku:
+              - text: "3264680015342"
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[5]/p[1]/span[1]
+            variantId:
+              - text: "3264680015342"
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[5]/p[1]/span[1]
+            warnings:
+              - text: Contient au moins 85.6 % d'ingrédients d'origine naturelle.La liste des
+                  ingrédients peut être soumise à des variations, nous vous
+                  conseillons de toujours vérifier la liste figurant sur le
+                  produit acheté.
+                xpath: /html/body/div[18]
+            ratingCount:
+              - text: "9"
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/button[1]/div[3]/meta[1]/@content
+            aggregateRatingText:
+              - text: "4.8"
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/button[1]/div[2]
+            aggregateRating:
+              - text: 4,8
+                xpath: /html/body/div[22]
+            variantCount:
+              - text: "0"
+                xpath: /html/body/div[19]
+            name:
+              - text: Sun Eau Delicieuse Parfumante Format Voyage 30ml Nuxe
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[1]/div[1]/span[1]
+            productOtherInformation:
+              - text: Vaporiser le parfum Nuxe Sun Eau délicieuse parfumante à environ 30
+                  centimètres de la peau.Appliquer à volonté sur toutes les
+                  parties découvertes du corps en évitant le contour des
+                  yeux.Renouveler l'application autant de fois que
+                  nécessaire.Pour un effet plus délicat, parfumez votre brosse à
+                  cheveux. Lorsque vous vous coifferez, la fragrance se déposera
+                  uniformément dans votre chevelure. Vous pouvez également la
+                  déposer en voile sur vos draps.
+                xpath: /html/body/div[20]
+            pricePerUnit:
+              - text: 523,00 € /l
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[2]/div[1]/div[2]/p[2]
+            pricePerUnitUom:
+              - text: l
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[2]/div[1]/div[2]/p[2]/span[2]
+            firstVariant:
+              - text: "3264680015342"
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[5]/p[1]/span[1]
+            materials:
+              - text: "Formule INCI : Alcohol Denat., Parfum/Fragrance, Aqua/Water, Eichhornia
+                  Crassipes Extract, Glycerin, Fagraea Berteroana Flower Extract
+                  Limonene, Benzyl Salicylate, Linalool, Citronellol, Geraniol,
+                  Benzyl Alcohol, Citral, Coumarin [N2612/A]."
+                xpath: /html/body/div[21]
+        xpath: /
+    timestamp: 1612791225888
