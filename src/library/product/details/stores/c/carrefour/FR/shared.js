@@ -77,6 +77,14 @@ const transform = (data) => {
                 } 
               });
             }
+            if (row.nameExtended) {
+              row.nameExtended.forEach(item => {
+                if((item.text.includes('Promotion'))){
+                  item.text = item.text.split('Promotion') ? item.text.split('Promotion')[1] : '';
+                  item.text = item.text.trim();
+                }
+              });
+            }
             if (row.image) {
               row.image.forEach(item => {
                 if((item.text.includes('https://www.carrefour.fr'))){
