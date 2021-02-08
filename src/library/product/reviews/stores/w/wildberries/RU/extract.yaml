@@ -1,0 +1,55 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: helpfulCount
+    singleValue: false
+    type: NUMBER
+    xpath: count(//div[@class="comments"]//div[@class="item-comment"])
+  - name: commentCount
+    singleValue: false
+    type: NUMBER
+    xpath: count(//div[@class="comments"]//div[@class="item-comment"])
+  - name: brandText
+    singleValue: false
+    xpath: //span[@class="brand"]
+  - name: name
+    singleValue: false
+    xpath: //span[@class="name"]
+  - name: sku
+    singleValue: false
+    xpath: //input[@id="tbSrch"]/@data-nm-id
+  - name: reviewDate
+    singleValue: false
+    type: DATETIME
+    xpath: //div[@class="comment-content-user-and-time"]//div[@itemprop="datePublished"]/@content
+  - name: reviewRating
+    type: NUMBER
+    singleValue: false
+    xpath: //div[@class="product-rating"]/p/span
+  - name: reviewText
+    singleValue: false
+    xpath: //div[@class="comments"]//div[@class="item-comment"]
+  - name: reviewTitle
+    singleValue: true
+    description: The title of the review
+  - name: reviewerTags
+    singleValue: false
+    description: The tags a reviewer has
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+  - name: productUrl
+    singleValue: false
+    xpath: //meta[@property="og:url"]/@content
+  - name: reviewedSku
+    singleValue: false 
+    xpath: //input[@id="tbSrch"]/@data-nm-id
+  - name: user
+    singleValue: false
+    xpath: //div[@class="comment-content-user-and-time"]//div[@class="author"]//a
+    type: TEXT
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class="product-rating"]/p/span
