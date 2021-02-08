@@ -5,9 +5,9 @@ recordXPath: //div[@class="product-list-entry data-tracking-product"]
 fields:
   - name: id
     singleValue: false
-    xpath: //div[@class="description"]/text()[4]
-    regExp: \:(.*)
-    regExpReplace: $1
+    xpath: //div[@class="product-list-entry data-tracking-product"]/@data-tracking-product-code
+    # regExp: \:(.*)
+    # regExpReplace: $1
   - name: name
     singleValue: false
     xpath: //span[@class="product-name"]

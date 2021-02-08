@@ -17,9 +17,9 @@ fields:
   - name: metaKeywords
     singleValue: true
     xpath: /html/head/meta[@name="keywords"]/@content
-  - name: _pageTimestamp
-    singleValue: true
-    xpath: //div[@id="pd_pageTimestamp"]
+  # - name: _pageTimestamp
+  #   singleValue: true
+  #   xpath: //div[@id="pd_pageTimestamp"]
   - name: category
     singleValue: false
     xpath: //ol[@class="breadcrumb"]//li//a//span[not(contains(., 'Online Apotheke Startseite'))]
