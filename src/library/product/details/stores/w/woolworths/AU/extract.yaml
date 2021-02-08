@@ -45,6 +45,7 @@ fields:
   - name: directions
     singleValue: false
     xpath: //h3[text()='Directions']/parent::section[contains(@class,'directions')]//wow-view-more//div[contains(@class,'viewMore-')]//div//text()
+    defaultValue: "null"
   - name: warnings
     singleValue: false
     xpath: //h3[text()='Product Warnings']/parent::section[contains(@class,'product-warnings')]//div[contains(@class,'viewMore-')]//div//text()
@@ -95,13 +96,7 @@ fields:
     xpath: //h3[text()='Allergen']//following-sibling::wow-view-more//div[contains(@class,'viewMore-')]//div//text()
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//h2[text()='Product Details']/following-sibling::wow-view-more//div[contains(@class,'viewMore-')]//div//text() | //h2[text()='Bundle Details']/following-sibling::wow-view-more//div[contains(@class,'viewMore-')]//div//text())
+    xpath: count(//h2[text()='Product Details']/following-sibling::wow-view-more//div[contains(@class,'viewMore-')]//div//p[starts-with(text(), '-')])
   - name: listPrice
     singleValue: false
-    # xpath: //div[@class='ng-star-inserted']//script[@type='application/ld+json']
     xpath: //wow-product-details-panel//shared-price//div[contains(@class,'price-was price--large ng-star-inserted')]//text()
-
-
-
-
-

@@ -62,9 +62,9 @@ const transform = (data) => {
      if (row.description) {
         let info = [];
         row.description.forEach(item => {
-          info.push(item.text.replace(/(\s*\n\s*)+/g, ' || ').trim());
+          info.push(item.text.replace(/(\s*\n\s*)+/g, ' ').trim());
         });
-        row.description = [{ 'text': info.join(' || '), 'xpath': row.description[0].xpath }];
+        row.description = [{ 'text': info.join(' '), 'xpath': row.description[0].xpath }];
       }
       if (row.warnings) {
         let info = [];
@@ -76,16 +76,16 @@ const transform = (data) => {
       if (row.directions) {
         let info = [];
         row.directions.forEach(item => {
-          info.push(item.text.replace(/(\s*\n\s*)+/g, ' | ').trim());
+          info.push(item.text.replace(/(\s*\n\s*)+/g, '').trim());
         });
-        row.directions = [{ 'text': info.join(' | '), 'xpath': row.directions[0].xpath }];
+        row.directions = [{ 'text': info.join(''), 'xpath': row.directions[0].xpath }];
       }
       if (row.ingredientsList) {
         let info = [];
         row.ingredientsList.forEach(item => {
-          info.push(item.text.replace(/(\s*\n\s*)+/g, ' | ').trim());
+          info.push(item.text.replace(/(\s*\n\s*)+/g, '').trim());
         });
-        row.ingredientsList = [{ 'text': info.join(' | '), 'xpath': row.ingredientsList[0].xpath }];
+        row.ingredientsList = [{ 'text': info.join(''), 'xpath': row.ingredientsList[0].xpath }];
       }
       if (row.aggregateRating) {
         row.aggregateRating.forEach(item => {
@@ -136,6 +136,55 @@ const transform = (data) => {
           }
         });
       }
+      if (row.listPrice) {
+        row.listPrice.forEach(item => {
+          item.text = item.text.replace(/(\s*)+/g, '').trim();
+          item.text = item.text.replace('Was', '').trim();
+        });
+      }
+      if (row.image) {
+        row.image.forEach(item => {
+          item.text = item.text.replace('medium', 'large').trim();
+        });
+      }
+      if (row.alternateImages) {
+        row.alternateImages.forEach(item => {
+          item.text = item.text.replace('medium', 'large').trim();
+        });
+      }
+      if (row.caloriesPerServing) {
+        row.caloriesPerServing.forEach(item => {
+          item.text = item.text.replace(/(\s*)+/g, '').trim();
+          item.text = item.text.replace('Approx.', '').trim();
+          item.text = item.text.replace(/,.*/, '');
+          item.text = item.text.split(":").pop();
+        });
+      }
+      if (row.totalFatPerServing) {
+        row.totalFatPerServing.forEach(item => {
+          item.text = item.text.replace(/(\s*)+/g, '').trim();
+          item.text = item.text.replace('Approx.', '').trim();
+          item.text = item.text.replace(/,.*/, '');
+          item.text = item.text.split(":").pop();
+        });
+      }
+      if (row.totalSugarsPerServing) {
+        row.totalSugarsPerServing.forEach(item => {
+          item.text = item.text.replace(/(\s*)+/g, '').trim();
+          item.text = item.text.replace('Approx.', '').trim();
+          item.text = item.text.replace(/,.*/, '');
+          item.text = item.text.replace('<', '');
+          item.text = item.text.split(":").pop();
+        });
+      }
+      if (row.totalCarbPerServing) {
+        row.totalCarbPerServing.forEach(item => {
+          item.text = item.text.replace(/(\s*)+/g, '').trim();
+          item.text = item.text.replace(/,.*/, '');
+          item.text = item.text.split(":").pop();
+          item.text = item.text.split("g").join("").trim();
+        });
+      }
       if (row.price) {
         let info = [];
         row.price.forEach(item => {
@@ -155,31 +204,17 @@ const transform = (data) => {
       }
 
       if (row.quantity) {
+        var quantityArr = [];
         row.quantity.forEach(item => {
-          const quantity1 = item.text.split(" ");
-          item.text = quantity1[quantity1.length - 1];
+          item.text = item.text.match(/\d+.*/);
+          quantityArr.push(item.text);
         });
+        if (quantityArr.length) {
+          row.quantity = [{ "text": quantityArr , 'xpath': row.quantity[0].xpath }];
+        } else {
+          delete row.quantity;
+        }
       }
-
-      // if (row.sodiumPerServing) {
-      //   row.sodiumPerServing.forEach(item => {
-      //     if (item.text.includes("mg")) {
-      //       let split = item.text.split("mg");
-      //       item.text = `${split[0]}`;
-      //     }
-      //   });
-
-      // }
-      // if (row.saturatedFatPerServing) {
-      //   row.saturatedFatPerServing.forEach(item => {
-      //     if (item.text.includes("g")) {
-      //       let split = item.text.split("g");
-      //       item.text = `${split[0]}`;
-      //     }
-      //   });
-
-      // }
-
       if (row.promotion) {
         let text = [];
         let join = '';
@@ -199,38 +234,22 @@ const transform = (data) => {
           },
         ];
       }
-
-      // if (row.listPrice) {
-      //   row.listPrice.forEach(item => {
-      //     let data = JSON.parse(item.text);
-      //     console.log("data",data);
-      //     if (data['offers']) {
-      //       if (data['offers']['price']) {
-      //         item.text = data['offers']['price'];
-      //       }
-      //     } else {
-      //       item.text = "";
-      //     }
-      //   });
-      // }
-      // if (row.proteinPerServing) {
-      //   row.proteinPerServing.forEach(item => {
-      //     if (item.text.includes("g")) {
-      //       let split = item.text.split("g");
-      //       item.text = `${split[0]}`;
-      //     }
-      //   });
-      // }
-
-      // if (row.totalCarbperServing) {
-      //   row.totalCarbperServing.forEach(item => {
-      //     if (item.text.includes("g")) {
-      //       let split = item.text.split("g");
-      //       item.text = `${split[0]}`;
-      //     }
-      //   });
-      // }
-
+      if (row.proteinPerServing) {
+        row.proteinPerServing.forEach(item => {
+          item.text = item.text.split("g").join("").trim();
+        });
+      }
+      if (row.sodiumPerServing) {
+        row.sodiumPerServing.forEach(item => {
+          item.text = item.text.split("mg").join("").trim();
+          item.text = item.text.replace(/,.*/, '');
+        });
+      }
+      if (row.saturatedFatPerServing) {
+        row.saturatedFatPerServing.forEach(item => {
+          item.text = item.text.split("g").join("").trim();
+        });
+      }
     }
   }
   return cleanUp(data);
