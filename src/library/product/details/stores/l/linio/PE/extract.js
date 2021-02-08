@@ -31,13 +31,14 @@ module.exports = {
     var brand = getAllXpath('//no-script//text()', 'nodeValue');
     for (var i = 0; i < brand.length; i++)
     {
-      if(brand[i].includes('product_id'))
+      if(brand[i].includes('{event:"viewItem",item:"'))
       {
         var z = brand[i].toString()
-        var a=(z).split('product_id":"')[1].split('","')[0];
+        var a=((z).split('{event:"viewItem",item:"')[1]);
+        var b = a.split('"})});')[0];
       }
     }
-    addElementToDocument('product_id', a);
+    addElementToDocument('product_id', b);
 
   });
   await context.extract(productDetails);
