@@ -27,7 +27,7 @@ const transform = (data) => {
       for (let row of group) {
         if (row.availabilityText) {                    
             row.availabilityText.forEach(item => {
-              item.text = "In Stock";
+              item.text = "In stock";
             });          
         }
         if (row.specifications) {

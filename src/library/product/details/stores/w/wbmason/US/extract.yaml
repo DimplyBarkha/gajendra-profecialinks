@@ -11,7 +11,10 @@ fields:
     xpath: //div[@class="product-images"]/img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@id="alternate-images"]//div[@class="alt-img"]/img/@src
+    xpath: //div[@id="alternate-images"]//div[@class="alt-img"]/img[not(contains(@class,"selected"))]/@src
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[@id="alternate-images"]//div[@class="alt-img"]/img[not(contains(@class,"selected"))]/@src)
   - name: nameExtended
     singleValue: false
     xpath: //h1[@class="item-name"]
