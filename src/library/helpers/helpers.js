@@ -183,48 +183,52 @@ module.exports.Helpers = class {
       await createElement(headerSection);
       const contentSection = {
         attributes: { class: 'syndigo-featureset' },
-        props: { innerHTML: await getFeatureSet(widget.items, widget.widgetType) },
+        props: { innerHTML: await getFeatureSet(widget, widget.widgetType) },
         appendTo: mainDiv,
       };
       await createElement(contentSection);
       return mainDiv;
     }
-    async function getFeatureSet (items, widgetType) {
+    async function getFeatureSet (widget, widgetType) {
       const mainDiv = await createElement({});
-      if (widgetType === 'FeatureSet') {
-        for (const feature of items[0].features) {
-          if (!feature.assetType.match(/video/gi)) {
-            if (feature.assetType === 'Image') {
-              const img = {
-                type: 'img',
-                attributes: {
-                  alt: feature.caption || '',
-                  title: feature.caption || '',
-                  width: 200,
-                  height: 200,
-                  src: feature.asset.url.replace('{0}', feature.asset.originalWidth),
-                },
-                appendTo: mainDiv,
-              };
-              await createElement(img);
-              const caption = {
-                attributes: { class: 'caption' },
-                props: { innerText: feature.caption || '' },
-                appendTo: mainDiv,
-              };
-              await createElement(caption);
+      if (widgetType === 'FeatureSet' || widgetType === 'InteractiveTour') {
+        for (const item of widget.items) {
+          const features = item.productImage ? [{ assetType: 'Image', asset: item.productImage }, ...item.features] : item.features;
+          for (const feature of features) {
+            if (!feature.assetType.match(/video/gi)) {
+              if (feature.assetType === 'Image') {
+                const img = {
+                  type: 'img',
+                  attributes: {
+                    alt: feature.caption || '',
+                    title: feature.caption || '',
+                    width: 200,
+                    height: 200,
+                    src: feature.asset.url.replace('{0}', feature.asset.originalWidth > 1920 ? (feature.asset.availableWidths && feature.asset.availableWidths[0] || 1920) : feature.asset.originalWidth),
+                  },
+                  appendTo: mainDiv,
+                };
+                await createElement(img);
+                const caption = {
+                  attributes: { class: 'caption' },
+                  props: { innerText: feature.caption || '' },
+                  appendTo: mainDiv,
+                };
+                await createElement(caption);
+              }
+              if (feature.description) {
+                const description = {
+                  attributes: { class: 'description' },
+                  props: { innerHTML: feature.description },
+                  appendTo: mainDiv,
+                };
+                await createElement(description);
+              }
             }
-            const description = {
-              attributes: { class: 'description' },
-              props: { innerHTML: feature.description },
-              appendTo: mainDiv,
-            };
-            await createElement(description);
           }
         }
-      }
-      if (widgetType === 'VideoGallery') {
-        for (const video of items) {
+      } else if (widgetType === 'VideoGallery') {
+        for (const video of widget.items) {
           const videoElement = {
             type: 'video',
             attributes: {
@@ -252,6 +256,89 @@ module.exports.Helpers = class {
             appendTo: mainDiv,
           };
           await createElement(description);
+        }
+      } else if (widgetType === 'ComparisonTable') {
+        const keys = [{ image: widget.tableImageUrl }, ...Object.values(widget.features).map(elm => ({ text: elm.caption }))];
+        const imageSize = widget.tableImageUrl ? widget.tableImageUrl.match(/(\d+)\.[^\.]+$/)[1] : '240';
+        let products = widget.products.map((elm) => ({ title: elm.columnTitle, image: elm.imageUrl.replace('{0}', imageSize), feature: elm.featureDetails }));
+        products = products.map(product => ([{ image: product.image, text: product.title }, ...product.feature.map(f => ({ text: f.text }))]));
+
+        const tableData = [keys, ...products];
+        const transpose = tableData[0].map((_, colIndex) => tableData.map(row => row[colIndex]));
+
+        const CTR = await createElement({ attributes: { id: 'ctr-table' }, styles: { overflow: 'auto' } });
+        const table = await createElement({ type: 'table', styles: { width: '100%' }, attributes: { border: 1, cellspacing: 0, cellpadding: 5 }, appendTo: CTR });
+        const tbody = await createElement({ type: 'tbody', appendTo: table });
+        for (let index = 0; index < transpose.length; index++) {
+          const element = transpose[index];
+          const row = await createElement({ type: 'tr', appendTo: tbody });
+          for (const column of element) {
+            const columnType = index === 0 ? 'th' : 'td';
+            const col = await createElement({ type: columnType, appendTo: row });
+            column.image && await createElement({ type: 'img', styles: { 'object-fit': 'contain' }, attributes: { alt: column.text || '', height: 150, width: 150, src: column.image }, appendTo: col });
+            column.text && await createElement({ props: { innerHTML: column.text }, appendTo: col });
+          }
+        };
+        return CTR.outerHTML;
+      } else if (widgetType === 'DocumentGallery') {
+        const div = await createElement({ appendTo: mainDiv });
+        const ul = await createElement({ type: 'ul', attributes: { class: 'wc-document-gallery' }, appendTo: div });
+        for (const item of widget.items) {
+          const image = item.image && item.image.url.replace('{0}', item.image.originalWidth > 1920 ? '1920' : item.image.originalWidth);
+          const caption = item.caption || '';
+          const description = item.description || '';
+          const pageCount = item.pageCount || 0;
+          const contentLength = item.contentLength && Math.round(item.contentLength / 1024) || 0;
+          const file = item.url || '';
+          const type = file && file.match(/[^\.]+$/)[0].toUpperCase() || '';
+          const html = `<h3 style="display: none;" class="wc-doc-title-above">${caption}</h3>
+             <a class="wc-document-view-link wc-document-view-link-with-image wc-doc-thumb" href=${file} target="_blank">
+               <img alt=View ${caption} ${type} src=${image}>
+             </a>
+             <div class="wc-doc-text">
+               <div>
+                 <h3 class="wc-doc-title">Use &amp; Care Guide</h3>
+                 <div class="wc-document-description">${description}</div>
+                 <div>
+                   <a class="wc-document-view-link"
+                     href=${file}
+                     target="_blank" rel="nofollow">View<span style="display: none;" class="syndigo-visually-hidden">${caption} ${type}</span></a>
+                   <span class="wc-separator">|</span>
+                   <a class="wc-document-download-link" download="download"
+                     href=${file}
+                     rel="nofollow">Download<span style="display: none;" class="syndigo-visually-hidden">${caption} ${type}</span></a>
+                 </div>
+                 <div>
+                   <svg width="20" height="20">
+                     <image xlink:href="https://content.syndigo.com/asset/icons/file-pdf.svg" width="20"
+                       height="20"></image>
+                   </svg>
+                   <small>${contentLength} KB<span style="display: none">, ${pageCount} pages</span></small>
+                 </div>
+               </div>
+             </div>`;
+          await createElement({ type: 'li', attributes: { class: 'wc-doc-wrapper wc-doc-trio' }, props: { innerHTML: html }, appendTo: ul });
+        }
+      } else if (widgetType === 'FreeFormHtml') {
+        const div = {
+          props: { innerHTML: widget.html },
+          appendTo: mainDiv,
+        };
+        await createElement(div);
+      } else if (widgetType === 'ThreeSixty') {
+        for (const item of widget.items) {
+          const img = {
+            type: 'img',
+            attributes: {
+              alt: item.alt || '',
+              title: item.alt || '',
+              width: 200,
+              height: 200,
+              src: item.url.replace('{0}', item.originalWidth > 1920 ? (item.availableWidths && item.availableWidths[0] || 1920) : item.originalWidth),
+            },
+            appendTo: mainDiv,
+          };
+          await createElement(img);
         }
       }
       return mainDiv.innerHTML;
