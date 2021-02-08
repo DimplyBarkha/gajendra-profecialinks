@@ -4,7 +4,8 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    xpath: //button[@class="sc-image-viewer-img-button"]//img/@src | //div[@class="sc-pc-image"]//img/@src
+    # xpath: //button[@class="sc-image-viewer-img-button"]//img/@src | //div[@class="sc-pc-image"]//img/@src
+    xpath: //button//div[@role="presentation"]//img/@src | //div[@class="sc-pc-image"]//img/@src
   - name: imageAlt
     xpath: //div[@class="sc-pc-large-desktop-layout"]/meta[1]/@content | //div[@class="sc-pc-image"]//img/@alt
   - name: alternateImages
@@ -27,14 +28,19 @@ fields:
     regExpReplace: $1
   - name: availabilityText
     xpath: //meta[@itemprop="availability"]/@content
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
   - name: description
     xpath: //div[@class="sc-pc-why-we-love-it"]|//div[@class="sc-pc-about-this-item"]//div[1]/text()|//div[@class="sc-pc-about-this-item"]//li|//div[@class="sc-full-description-long"]
   - name: descriptionBullets
-    xpath: count(//div[@class="sc-manufacturing-element-content"]//li | //div[@class="sc-pc-about-this-item"]//li )
+    xpath: count(//div[@class="sc-pc-about-this-item"]//li | //h4[contains(text(),'Specifications')]/following-sibling::div//li/text()[1])
+    # xpath: count(//div[@class="sc-manufacturing-element-content"]//li)
   - name: brandText
     xpath: //div[@class="main-wrapper"]//div[@class="sc-pc-large-desktop-layout"]/meta[@itemprop="brand"]/@content | //meta[@itemprop="brand"]/@content
   - name: sku
-    xpath: substring-after(//span[contains(@class, 'item-number')][last()],'# ') | //meta[@itemprop="mpn"]/@content
+    # xpath: substring-after(//span[contains(@class, 'item-number')][last()],'# ') | //meta[@itemprop="mpn"]/@content
+    xpath: //meta[@itemprop="mpn"]/@content
   - name: variantId
     xpath: //div[@class="sc-product-header"]//div[@class="sc-product-header-item-number"]
     regExp: (\d+)
@@ -48,13 +54,14 @@ fields:
   - name: variantCount
     defaultValue: "0"
   - name: manufacturerDescription
-    xpath: //div[contains(@id, 'aplus')]//div[contains(@class,'text-wrap')] | //div[@class="enhancedContent"]
+    # xpath: //div[contains(@id, 'aplus')]//div[contains(@class,'text-wrap')] | //div[@class="enhancedContent"]
+    xpath: //h1[@class="wc-ppp-caption"] | //h2[contains(@class,"wc-first-header wc-rich-features")] | //div[@class="wc-media-wrap"]/following-sibling::div[@class="wc-rich-content-description"] 
   - name: manufacturerImages
     xpath: //div[contains(@class,"aplus-body")]//img/@src | //div[@class="enhancedContent"]//img/@src | //div[contains(@class, 'inpage_selector')]//img/@srcset
     regExp: (.*?)//(.*)
     regExpReplace: https://$2
-  # - name: videos
-  #   xpath: 
+  - name: videos
+    xpath: //body[@class="sc-desktop"]/@videolink | //body[@class="sc-desktop"]/@videolink2
   - name: name
     xpath: //div[@class="sc-pc-title-full-desktop"]//h1 | //meta[@itemprop="name"]/@content
   - name: secondaryImageTotal
@@ -66,7 +73,8 @@ fields:
   - name: countryOfOrigin
     xpath: //div[@id="policies-link"]//div[@class="sc-manufacturing-element"]/h4[text()='Assembled Country']/following-sibling::div
   - name: additionalDescBulletInfo
-    xpath: //div[@class="sc-pc-about-this-item"]//li
+    # xpath: //div[@class="sc-manufacturing-element-content"]//li | //div[@class="sc-pc-about-this-item"]//li
+    xpath: //div[@class="sc-pc-about-this-item"]//li | //h4[contains(text(),'Specifications')]/following-sibling::div//li/text()[1]
   - name: technicalInformationPdfPresent
     defaultValue: No
   - name: termsAndConditions
