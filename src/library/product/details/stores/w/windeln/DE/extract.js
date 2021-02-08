@@ -118,7 +118,7 @@ async function implementation (inputs, parameters, context, dependencies) {
         await extractionHelper();
         await context.extract(productDetails, { transform }, 'MERGE_ROWS');
 
-        await new Promise((resolve, reject) => setTimeout(resolve, 500));
+        await new Promise((resolve, reject) => setTimeout(resolve, 2000));
 
         await context.evaluate(() => {
           const clickingElement3 = document.querySelector("div[class*='selected-row']").nextElementSibling;

@@ -87,18 +87,18 @@ fields:
   singleValue: false
   description: GTIN code (includes UPC/EAN)
   xpath: //h2[@class='product-description-ean']
-  regExp: '[1-9].*'
+  regExp: '[0-9].*'
 - name: sku
   singleValue: false
   description: The store-specific product identifier
   xpath: //h2[@class='product-description-ean']
-  regExp: '[1-9].*'
+  regExp: '[0-9].*'
 - name: variantId
   singleValue: false
   description: Identifier for a variant from a store where variants share the same
     sku
   xpath: //h2[@class='product-description-ean']
-  regExp: '[1-9].*'
+  regExp: '[0-9].*'
 - name: mpc
   singleValue: true
   description: The manufacturer model code (unique) of the product
