@@ -119,3 +119,6 @@ fields:
   - name: descriptionBullets
     singleValue: true
     xpath: count(//div[@class="content content--productDescription"]//ul//li)
+  - name: url
+    singleValue: true
+    xpath: //link[@rel="canonical"]/@href 
