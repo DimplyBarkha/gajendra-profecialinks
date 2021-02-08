@@ -5,7 +5,7 @@ module.exports = {
     country: 'PT',
     store: 'lojashampoo_pt',
     domain: 'lojashampoo.pt',
-    url: null,
+    url: 'https://www.lojashampoo.pt/index.php?route=product/search&search={searchTerms}&limit=100',
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
