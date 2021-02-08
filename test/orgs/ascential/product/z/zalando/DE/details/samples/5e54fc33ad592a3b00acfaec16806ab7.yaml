@@ -2,18 +2,18 @@ input:
   _url: http://zalando.de
   URL: https://en.zalando.de/carhartt-wip-philis-backpack-rucksack-black-c1454o003-q11.html
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=e35e8f30-a8cf-4cd7-8a2d-f2e6d1aac5a7/task=a0270408-695d-4965-92b3-ba624f06c7e5/6922ad5a-ad16-44fe-96c3-f3fcdfab3c20.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=18b287e2-cbc9-4db4-9af6-98d8a82bc821/task=abddbc28-1636-4fda-ba75-00c79b33b6ff/1c79f523-5156-450a-818a-5b79c82c4f5e.html
     extractionConfigId: product/details/stores/z/zalando/DE/extract
     data:
       - group:
           - productUrl:
-              - text: https://en.zalando.de/carhartt-wip-philis-backpack-rucksack-black-c1454o003-q11.html
+              - text: https://www.zalando.de/carhartt-wip-philis-backpack-tagesrucksack-black-c1454o003-q11.html
                 xpath: /html/body/div[9]
             image:
               - text: https://img01.ztat.net/article/spp-media-p1/a90572096be93fb49acd017086f53a8e/7811fb4386ec4b6f8d241cd9fae0beb2.jpg
                 xpath: /html/body/ol[1]/li[1]
             imageAlt:
-              - text: Carhartt WIP - PHILIS BACKPACK - Rucksack - black
+              - text: Carhartt WIP - PHILIS BACKPACK - Tagesrucksack - black
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
               - text: https://img01.ztat.net/article/spp-media-p1/a60b35cef91c3e45b58cb974c4408ca5/9248e91fa544408ba2d4f7e56eb4c87f.jpg
@@ -33,11 +33,8 @@ extractions:
               - text: https://img01.ztat.net/article/spp-media-p1/a81f1911fa31303589fd0950368eaab3/0f75caf9eef942969f7aa475e584dd7e.jpg
                 xpath: /html/body/ol[1]/li[9]
             nameExtended:
-              - text: Carhartt WIP PHILIS BACKPACK - Rucksack black
+              - text: Carhartt WIP PHILIS BACKPACK - Tagesrucksack black
                 xpath: /html/body/div[8]/@name_extended
-            listPrice:
-              - text: VAT included
-                xpath: /html/body/div[8]/@list_price
             price:
               - text: 89,95 €
                 xpath: /html/body/div[8]/@price
@@ -45,11 +42,13 @@ extractions:
               - text: In Stock
                 xpath: /html/body/div[8]/@availability_text
             description:
-              - text: Outer material: Polyester | Lining: Textile | Fastening: Snap fastener |
-                  Compartments: 15 inch laptop compartment | Pattern: Plain |
-                  Article number: C1454O003-Q11 | Height: 51 cm (Size One Size)
-                  | Length: 34 cm (Size One Size) | Width: 16 cm (Size One Size)
-                  | Carrying handle: 9 cm (Size One Size)
+              - text: Obermaterial: Polyester | Futter: Textil | Zusätzlicher Reißverschluss,
+                  gepolsterter Rücken, gepolsterte und längenverstellbare
+                  Schultergurte, seitlicher Reißverschluss, seitliches
+                  Mesh-Steckfach, Schnallen zur Weitenregulierung, aufgesetzte
+                  Tasche mit Reißverschlussfach vorne |
+                  Verschluss: Schnappverschluss | Fächer: Laptopfach 15 Zoll |
+                  Muster: Unifarben | Artikelnummer: C1454O003-Q11
                 xpath: /html/body/div[8]/@description
             brandText:
               - text: Carhartt WIP
@@ -57,6 +56,9 @@ extractions:
             manufacturer:
               - text: Carhartt WIP
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
+            sku:
+              - text: C1454O003-Q11
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/span[2]
             variantId:
               - text: C1454O003-Q110ONE000
                 xpath: /html/body/div[8]/@variant_id
@@ -64,10 +66,10 @@ extractions:
               - text: C1454O003
                 xpath: /html/body/div[8]/@mpc
             ratingCount:
-              - text: "13"
+              - text: "221"
                 xpath: /html/body/div[8]/@rating_count
             aggregateRating:
-              - text: 4,8
+              - text: 4,6
                 xpath: /html/body/div[8]/@aggregate_rating
             variantCount:
               - text: "1"
@@ -76,10 +78,10 @@ extractions:
               - text: black
                 xpath: /html/body/div[8]/@variant_information
             name:
-              - text: PHILIS BACKPACK - Rucksack
+              - text: PHILIS BACKPACK - Tagesrucksack
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/h1[1]
             brandLink:
-              - text: https://en.zalando.de/carhartt/
+              - text: https://www.zalando.de/carhartt/
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             secondaryImageTotal:
               - text: "8"
@@ -89,10 +91,10 @@ extractions:
                 xpath: /html/body/div[8]/@variant_information
             materials:
               - text: |-
-                  Outer material: Polyester
-                  Lining: Textile
+                  Obermaterial: Polyester
+                  Futter: Textil
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1612766789749
+    timestamp: 1612779073455
