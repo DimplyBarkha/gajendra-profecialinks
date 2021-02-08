@@ -73,11 +73,11 @@ async function implementation (inputs, parameters, context, dependencies) {
   if (pV1Length > 1) {
     for (let i = 0; i < pV1Length; i++) {
       const pV2Length = await context.evaluate(() => {
-        return document.querySelectorAll('.product-variant-2>div[style="display: block;"]>div').length;
+        return document.querySelectorAll('.product-variant-2>div[style*="display: block;"] div[class*="product-info "]').length;
       });
 
       const pV2 = await context.evaluate(() => {
-        return document.querySelectorAll('.product-variant-2>div[style="display: block;"]>div');
+        return document.querySelectorAll('.product-variant-2>div[style*="display: block;"] div[class*="product-info "]');
       });
       for (let k = 0; k < pV2Length; k++) {
         if (pV2[k + 1] !== undefined) {
