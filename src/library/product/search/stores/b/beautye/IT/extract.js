@@ -90,7 +90,7 @@ module.exports = {
     country: 'IT',
     store: 'beautye',
     transform: transform,
-    domain: 'beautye.it',
+    domain: ' ',
     zipcode: '',
   },
   implementation,
