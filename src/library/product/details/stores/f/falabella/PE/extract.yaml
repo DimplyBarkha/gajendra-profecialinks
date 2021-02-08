@@ -51,7 +51,7 @@ fields:
     xpath: //div/@data-name
   - name: nameExtended
     singleValue: true
-    xpath: concat(//div/@data-brand,'',//div/@data-name) 
+    xpath: concat(//div/@data-brand,' ',//div/@data-name) 
   - name: listPrice
     singleValue: false
     xpath: //li[contains(@class,'price-1')]//div[contains(@class,'cmr-icon-container')]/span
