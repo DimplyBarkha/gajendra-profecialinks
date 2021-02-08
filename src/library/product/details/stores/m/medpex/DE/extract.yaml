@@ -7,10 +7,10 @@ fields:
     singleValue: true 
   - name: image
     singleValue: true
-    xpath: //a[@id="product-image-link"]/img/@src | //img[@id="product-image"]/@src
+    xpath: //img[@id="product-image"]/@src
   - name: imageAlt
     singleValue: true
-    xpath: //a[@id="product-image-link"]/img/@alt
+    xpath: //img[@id="product-image"]/@alt
   - name: alternateImages
     singleValue: false
     xpath: //div[@id="fancybox-thumbs"]/ul/li/a/img/@src | //div[@id="more-images"]/a/img[not(contains(@id, 'media-1'))]/@src
@@ -115,7 +115,7 @@ fields:
     xpath: //div[@class="content"]/iframe/@src
   - name: name
     singleValue: true
-    xpath: //span[@class="productDetails-name"]
+    xpath: //span[@class="productDetails-name"]//b//text()
   - name: descriptionBullets
     singleValue: true
     xpath: count(//div[@class="content content--productDescription"]//ul//li)
