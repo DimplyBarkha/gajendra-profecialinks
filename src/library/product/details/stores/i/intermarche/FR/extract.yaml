@@ -411,16 +411,6 @@ fields:
   - name: magnesiumPerServingUom
     singleValue: true
     description: Unit of Measure Data for Magnesium
-  - name: saltPerServing
-    singleValue: true
-    description: Nutritional Information for Salt content - Usually based on per
-      100g serving
-    type: NUMBER
-    xpath: //div[@class="NutritionalTable__TableCell-sc-49ty6u-8 kytIeM"][contains(text(),'Sel')]/following-sibling::div
-  - name: saltPerServingUom
-    singleValue: true
-    description: Unit of Measure Data for Salt
-    xpath: //div[@id="ii_gram"]
   - name: dietaryInformation
     singleValue: true
     description: null
