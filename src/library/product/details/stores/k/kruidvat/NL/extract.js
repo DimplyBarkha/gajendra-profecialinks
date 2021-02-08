@@ -57,6 +57,11 @@ async function implementation(
         // var elmnt = document.getElementById("myAnchor");
         // var attr = elmnt.getAttributeNode("target").value;
     var backgroundURL = getXpath('(//@data-stock)[1]').value;
+    var price= getXpath('//span[@itemprop="price"]').innerText;
+    var upc1 =''
+    var upc=''
+    var price1=''
+    upc1 = getXpath('(//p[@class="product-information__text product-information__ean"])').innerText;
     console.log(backgroundURL,'backgroundurl-----------')
     if (backgroundURL.includes('inStock')){
       var availabilty="In Stock"
@@ -64,7 +69,22 @@ async function implementation(
     else{
       var availabilty ="Out of Stock"
     }
+    if (upc1.length>0){
+      upc=upc1.replace('EAN code:','')
+    }
+    else{
+      upc=''
+    }
+    if (price.length>0){
+      price1=price
+    }
+    else{
+      price1=''
+    }
+    console.log(price,'-----------------------PRICE')
+    addElementToDocument('price', price1);
     addElementToDocument('availabilty', availabilty);
+    addElementToDocument('upc', upc);
     
   try{
     // @ts-ignore
