@@ -11,20 +11,43 @@ module.exports = {
   implementation: async (inputs, parameters, context, dependencies) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    await context.evaluate(async function () {
-      const productpage = async function () {
-        function timeout (ms) {
-          return new Promise((resolve) => setTimeout(resolve, ms));
+
+    const pageUrl = await context.evaluate(async () => {
+      const nextButton = document.querySelector('div[class*="row product-grid"] div.product>div.product-tile>a');
+      console.log('nextbutton', nextButton);
+      if (nextButton) {
+        const pareUrl = nextButton.getAttribute('href');
+        console.log('pareUrl ====', pareUrl);
+        if (pareUrl) {
+          return pareUrl;
         }
-        const nextButton = document.querySelector('div[class*="row product-grid"] div.product>div.product-tile>a');
-        console.log('nextbutton', nextButton);
-        if (nextButton) {
-          nextButton.click();
-          await timeout(50000);
-        }
-      };
-      productpage();
+      }
+      return '';
     });
+    console.log('pageUrl ===', pageUrl);
+    if (pageUrl) {
+      await context.goto(`https://www.foodsaver.com${pageUrl}`, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
+    }
+    // const pareUrl = await context.evaluate(async function () {
+    //   // const productpage = async function () {
+    //   // function timeout (ms) {
+    //   //   return new Promise((resolve) => setTimeout(resolve, ms));
+    //   // }
+    //   const nextButton = document.querySelector('div[class*="row product-grid"] div.product>div.product-tile>a');
+    //   console.log('nextbutton', nextButton);
+    //   if (nextButton) {
+    //     const pareUrl = nextButton.getAttribute('href');
+    //     console.log('pareUrl ====', pareUrl);
+    //     if (pareUrl) {
+    //       return pareUrl;
+    //       await context.goto(pareUrl, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
+    //     }
+    //     // nextButton.click();
+    //     // await timeout(50000);
+    //   }
+    //   // };
+    //   // productpage();
+    // });
     await context.evaluate(async () => {
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
