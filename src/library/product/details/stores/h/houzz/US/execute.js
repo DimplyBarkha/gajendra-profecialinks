@@ -4,7 +4,7 @@ module.exports = {
     country: "US",
     store: "houzz",
     domain: "houzz.com",
-    loadedSelector:"body",
+    loadedSelector:"script[type='application/ld+json']",
     noResultsXPath: null,
     zipcode: "",
   },
