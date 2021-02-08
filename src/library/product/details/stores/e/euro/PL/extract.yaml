@@ -11,6 +11,8 @@ fields:
     #xpath: //div[@class='product-photos']//li[1]//following-sibling::li//a/@href
     #//div[@class='product-photos']//li/a/@href
     xpath: //div[@id='miniatures-list']//li[contains(@class, 'miniatures-photo')][position() > 1]/a/@href
+    regExp: //(.+)
+    regExpReplace: https://$1
   - name: productUrl
     xpath: //link[@rel="canonical"]/@href
   - name: metaKeywords
@@ -43,7 +45,7 @@ fields:
     #regExp: name":\s"([^"]+)
     #regExpReplace: $1
   - name: listPrice
-    xpath: //div[@id='product-top']//div[@class='price-old'] | //ul[@class="price-tabs"]/li/a[count(*)>1]/*[last()]/div | //ul[@class="price-tabs"]/li/a[count(*)=1]
+    xpath: //ul[@class="price-tabs"]//div[@class="price-cheaper"]
   - name: price
     xpath: //script[@type='application/ld+json'][contains(., 'offers')]
     regExp: price". "((\d+)\.(\d+))"
@@ -105,7 +107,7 @@ fields:
   - name: variantCount
     xpath: count(//div[contains(@class,"variant-list js-variant-list")]/a)
   - name: mpc
-    xpath: //td[contains(text(),'Kod producenta')][1]//following-sibling::td/text()
+    xpath:  //td[contains(text(),'Kod producenta')][1]//following-sibling::td/text() | //td[contains(text(),'Kod Producenta')][1]//following-sibling::td/text()
   - name: variantInformation
     xpath: //div[@id="product-variants"]//div/a[contains(@class,"active")]/@title
     # xpath: //div[@class='current-variant']//div[@class='name']/text()
@@ -113,13 +115,13 @@ fields:
     xpath: //div[@class='current-variant']//div[@class='value']/text()
   - name: variantCount
     xpath: count(//div[@id="product-variants"]//a)
-  - name: promotion
-    xpath: concat(//div[@class="instalment-message-label"]/text(),'' , //div[@class="instalment-message-label"]/span/text(),'' , //div[@class="promo-instalment-box"]/div/text() ,'', //div[@class="promo-instalment-subtitle"]/text())
+  # - name: promotion
+  #   xpath: concat(//div[@class="instalment-message-label"]/text(),'' , //div[@class="instalment-message-label"]/span/text(),'' , //div[@class="promo-instalment-box"]/div/text() ,'', //div[@class="promo-instalment-subtitle"]/text())
     # xpath:
-  - name: packSize
-    xpath: //div[@class="product-info"]//a[@title="Pojemność - pralki"]/../../span[@class="attribute-value"]
+  # - name: packSize
+  #   xpath: //div[@class="product-info"]//a[@title="Pojemność - pralki"]/../../span[@class="attribute-value"]
   - name: variants
-    xpath: //div[@id="product-variants"]//div/a/span
+    xpath: //div[@id="product-variants"]//div/a/@data-code
   - name: firstVariant
     xpath: //div[@id="product-variants"]//div/a[1]/span
   - name: secondaryImageTotal
@@ -127,7 +129,9 @@ fields:
   - name: currencyOverride
     defaultValue: PLN
   - name: quantity
-    xpath: //div[contains(@class,"variant-wrapper")]//a[contains(@class,"active-item")]
+    xpath: //td[contains(text(),'Przekątna ekranu')][1]//following-sibling::td/text()
+    regExp: (.+)/(.+)
+    regExpReplace: $1
   - name: inTheBoxUrl
     xpath: //h3[contains(.,'Zawartość') or contains(.,'W pudełku')  or contains(.,'W opakowaniu')]//ancestor::div/following-sibling::div[1][contains(@class,'description')]//img/@src | //h4[contains(.,'W opakowaniu')]/following-sibling::div//img/@src
     regExp: (.+)
@@ -141,3 +145,5 @@ fields:
     regExpReplace: Yes
   - name: unInterruptedPDP
     xpath: //section[@id="recommended-products"]//ul//li//div[@class="product-box"]//h3 | //div[@id='dynamic-suite']//div[contains(@class, 'suite-main-product')]/div[@class='product-name'] | //div[@id='dynamic-suite']//div[contains(@class, 'dynamic-suite-packages')]//div[contains(@class, 'package-product-name')]
+  - name: imageZoomFeaturePresent
+    defaultValue: Yes

@@ -128,7 +128,7 @@ const transform = (data) => {
         let dupUrl = '';
         let urls = [];
         row.manufacturerImages.forEach(item => {
-          console.log('item:: ', item.text);
+         
           urls = row.manufacturerImages.filter(it => item.text === it.text);
           if (urls && urls.length === 1) {
             manufacturerImage.push(item);
@@ -139,9 +139,27 @@ const transform = (data) => {
             }
           }
         });
-        row.manufacturerImages = manufacturerImage;
+        let textUrl = '';
+        manufacturerImage.forEach(elm=>{
+          textUrl = manufacturerImage.map(elm => elm.text.replace('https:/fckeditor','https://www.euro.com.pl/fckeditor')).join(' | ');
+        });
+        row.manufacturerImages = [
+          {
+            text: textUrl,
+          },
+        ];
       }
-
+      if (row.variantInformation) {
+        let text = '';
+        row.variantInformation.forEach(item => {
+          text = row.variantInformation.map(elm => elm.text).join(' || ');
+        });
+        row.variantInformation = [
+          {
+            text: text,
+          },
+        ];
+      }
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
@@ -155,7 +173,7 @@ const transform = (data) => {
         row.manufacturerDescription.forEach(item => {
           text = text + (text ? ' ' : ' ') + item.text;
         });
-        row.manufacturerDescription = [{ text }];
+        row.manufacturerDescription = [{ text:text.replace('Opis produktu','') }];
       }
 
 
