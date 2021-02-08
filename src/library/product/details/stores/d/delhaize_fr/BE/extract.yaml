@@ -100,12 +100,12 @@ fields:
     regExpReplace: $1
   - name: saturatedFatPerServing
     singleValue: false
-    xpath: //td[contains(text(), "Verzadigde vetten")]/following::td[1]
+    xpath: //td[contains(text(), "Graisses Saturées")]/following::td[1]
     #regExp: (<?([\d\.\,]+)%?[^mg()]*)
     #regExpReplace: $1
   - name: saturatedFatPerServingUom
     singleValue: false
-    xpath: //td[contains(text(), "Verzadigde vetten")]/following::td[1]
+    xpath: //td[contains(text(), "Graisses Saturées")]/following::td[1]
     regExp: (g|mg)
     regExpReplace: $1
   - name: saltPerServing
