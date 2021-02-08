@@ -4,10 +4,8 @@ recordSelector: null
 recordXPath: null
 fields:
 - name: drive
-  xpath: //button[contains(@class,"shopping_context_bar-module__Address")]/@aria-label
-  regExp: (\d+)
+  xpath: //head/@zipcode
 - name: retailer_id
-  xpath: //button[contains(@class,"shopping_context_bar-module__Address")]/@aria-label
-  regExp: (\d+)
+  xpath: (//button/@data-store-id)[1]
 - name: online_store
-  xpath: //button[contains(.,'Store Name')]//..//p[contains(@class,"MultiSelectFacetOption__Labe")]
+  xpath: (//button/@data-store-name)[1]

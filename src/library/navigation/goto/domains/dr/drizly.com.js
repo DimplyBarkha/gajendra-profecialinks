@@ -1,12 +1,13 @@
-
 module.exports = {
-  implements: 'navigation/goto',
-  parameterValues: {
-    domain: 'drizly.com',
-    timeout: null,
-    jsonToTable: null,
-    country: 'US',
-    store: 'drizly',
-    zipcode: '',
-  },
+    implements: 'navigation/goto',
+    parameterValues: {
+        domain: 'drizly.com',
+        timeout: 6000,
+        jsonToTable: null,
+        country: 'US',
+        store: 'drizly',
+        zipcode: '',
+        storeaddress: '',
+        storecity: ''
+    },
 };
