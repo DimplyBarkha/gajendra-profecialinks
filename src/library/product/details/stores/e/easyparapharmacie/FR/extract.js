@@ -87,7 +87,7 @@ async function implementation (inputs, parameters, context, dependencies) {
             : '';
         addElementToDom(productComposition, 'productComposition');
 
-        const aggregateRating = document.querySelector('.product-shop .rates #ratings-summary')
+        const aggregateRating = document.querySelector(".product-shop .rates #ratings-summary div[itemprop='ratingValue']")
           ? document.querySelector(".product-shop .rates #ratings-summary div[itemprop='ratingValue']").innerText.replace('.', ',')
           : '';
         addElementToDom(aggregateRating, 'aggregateRating');
@@ -111,7 +111,9 @@ async function implementation (inputs, parameters, context, dependencies) {
 
         elementsIds.forEach((elemId) => {
           const element = document.querySelector(`div#${elemId}`);
-          element.parentNode.removeChild(element);
+          if(element) {
+            element.parentNode.removeChild(element);
+          }
         });
       });
     }
@@ -174,7 +176,7 @@ async function implementation (inputs, parameters, context, dependencies) {
           : '';
       addElementToDom(productComposition, 'productComposition');
 
-      const aggregateRating = document.querySelector('.product-shop .rates #ratings-summary')
+      const aggregateRating = document.querySelector(".product-shop .rates #ratings-summary div[itemprop='ratingValue']")
         ? document.querySelector(".product-shop .rates #ratings-summary div[itemprop='ratingValue']").innerText.replace('.', ',')
         : '';
       addElementToDom(aggregateRating, 'aggregateRating');
