@@ -6,7 +6,8 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //div[@class="js_prd_swiper-slide prd_swiper-slide js_prd_zoomWrapper swiper-slide-visible swiper-slide-active"]/a/img/@src
+    xpath: //html//div[@id='img']
+    #xpath: //div[@class="js_prd_swiper-slide prd_swiper-slide js_prd_zoomWrapper swiper-slide-visible swiper-slide-active"]/a/img/@src
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -14,7 +15,8 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //*[@id="js_prd_verticalImageControlThumbnailList"]/li/img/@src
+    xpath: //div[@class="prd_swiper-wrapper js_prd_swiper-wrapper"]/div/img[@class='js_prd_inPlaceZoomSrc']/@src | //div[@class="prd_swiper-wrapper js_prd_swiper-wrapper"]/div[@class='js_prd_swiper-slide prd_swiper-slide js_prd_zoomWrapper']/@data-image-url
+    #xpath: //*[@id="js_prd_verticalImageControlThumbnailList"]/li/img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -87,7 +89,8 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: //meta[@itemprop='gtin13']/@content
+    xpath: //html//div[@id='gtin']
+    #xpath: //meta[@itemprop='gtin13']/@content
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -126,9 +129,10 @@ fields:
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //span[@class='p_rating200']/@content
-    regExp: (\d)\.(\d+)
-    regExpReplace: $1,$2
+    xpath: //html//div[@id='aggr']
+    #xpath: //span[@class='p_rating200']/@content
+    #regExp: (\d)\.(\d+)
+    #regExpReplace: $1,$2
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -255,7 +259,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: true
     description: null
-    xpath: count(//*[@id="js_prd_verticalImageControlThumbnailList"]/li/img/@src)
+    xpath: count(//div[@class="prd_swiper-wrapper js_prd_swiper-wrapper"]/div/img[@class='js_prd_inPlaceZoomSrc']/@src | //div[@class="prd_swiper-wrapper js_prd_swiper-wrapper"]/div[@class='js_prd_swiper-slide prd_swiper-slide js_prd_zoomWrapper']/@data-image-url)
     type: NUMBER
   - name: news
     singleValue: true

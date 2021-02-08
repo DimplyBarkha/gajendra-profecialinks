@@ -35,9 +35,11 @@ module.exports = {
       };
       // @ts-ignore
       const URL = window.location.href
+      let varidd=''
       try {
         var rpc = URL.split('/#variationId=')[1]
         addElementToDocument('rpcid', rpc)
+        varidd=rpc
       }
       catch (error) {
 
@@ -55,9 +57,17 @@ module.exports = {
 
       const rawdata = getXpath("//div[@class='prd_price__main']/span/span[@id='reducedPriceAmount']/@content|//div[@class='prd_price__main']/span/span[@id='normalPriceAmount']/@content", 'nodeValue');
       if (rawdata != null) {
-        var nr = rawdata//.replace('.', ',')
+        var nr = rawdata.replace('.', ',')
         var price = '€' + nr
         addElementToDocument('price', price);
+      }
+
+      const img = getXpath('//div[@class="js_prd_swiper-slide prd_swiper-slide js_prd_zoomWrapper swiper-slide-visible swiper-slide-active"]/a/@href', 'nodeValue');
+      var nimg= img
+      if (nimg != null) {
+        var nwimg = nimg.split('?$')[0]
+        //var price = '€' + nr
+        addElementToDocument('img', nwimg);
       }
       // @ts-ignore
       const aa = document.querySelector('section[class="prd_section"] div[class*=\'prd_section\']').innerText
@@ -66,16 +76,21 @@ module.exports = {
         var desc1 = aa.replace('Artikelbeschreibung', '')
         addElementToDocument('desc1', desc1);
       }
+
+      
       const rawjson = getXpath("//script[@id='productDataJson']/text()", 'nodeValue');
 
       var jsondata = JSON.parse(rawjson);
       var sku = jsondata.id;
       var a = jsondata.sortedVariationIds;
+      let gtin= jsondata.variations[varidd].ean;
+      
 
       var variants = a.join(' | ');
       addElementToDocument('sku', sku);
       addElementToDocument('variant', variants);
       addElementToDocument('cts', a.length);
+      addElementToDocument('gtin', gtin);
       // var variant = getAllXpath("//div[@class='reco_cinema reco_productlineCinema']/div[@class='reco_cinema__container']/ul/li/@data-variation-id", 'nodeValue');
       // if (variant != null) {
       //   var ab = variant.join(' | ');
@@ -98,6 +113,17 @@ module.exports = {
         }
       }
 
+      const aggr = getXpath("//span[@class='p_rating200']/@content", 'nodeValue');
+      if (aggr != null) {
+        if (aggr.includes('.')) {
+          var newaggr = aggr.replace('.',',');
+          addElementToDocument('aggr', newaggr);
+        }
+        else {
+          var newaggr = aggr
+          addElementToDocument('aggr', newaggr);
+        }
+      }
 
       const weight = getXpath("(//*[contains(text(),'Gewicht')]//parent::span//parent::td//parent::tr//td[2])[1]/text()", 'nodeValue');
       if (weight != null) {
