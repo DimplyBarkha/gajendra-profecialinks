@@ -198,8 +198,8 @@ module.exports.Helpers = class {
               const img = {
                 type: 'img',
                 attributes: {
-                  alt: feature.caption,
-                  title: feature.caption,
+                  alt: feature.caption || '',
+                  title: feature.caption || '',
                   width: 200,
                   height: 200,
                   src: feature.asset.url.replace('{0}', feature.asset.originalWidth),
@@ -209,7 +209,7 @@ module.exports.Helpers = class {
               await createElement(img);
               const caption = {
                 attributes: { class: 'caption' },
-                props: { innerText: feature.caption },
+                props: { innerText: feature.caption || '' },
                 appendTo: mainDiv,
               };
               await createElement(caption);
@@ -228,8 +228,8 @@ module.exports.Helpers = class {
           const videoElement = {
             type: 'video',
             attributes: {
-              alt: video.video.caption,
-              title: video.video.caption,
+              alt: video.video.caption || '',
+              title: video.video.caption || '',
             },
             appendTo: mainDiv,
           };
@@ -241,7 +241,7 @@ module.exports.Helpers = class {
           }
           const caption = {
             attributes: { class: 'caption' },
-            props: { innerText: video.video.caption },
+            props: { innerText: video.video.caption || '' },
             appendTo: mainDiv,
           };
           await createElement(caption);
