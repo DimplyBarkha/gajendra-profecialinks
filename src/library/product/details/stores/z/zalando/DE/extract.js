@@ -217,6 +217,20 @@ module.exports = {
 
           addedVariant.setAttribute('variant_id', currentVariantId);
 
+          let sku = document.evaluate(
+            '//div[@class="z-pdp__escape-grid"]//div[h2]/div[contains(@style, "max-height")]/div/div/span[text()="Artikelnummer"]/following-sibling::span',
+            document,
+            null,
+            XPathResult.STRING_TYPE,
+            null,
+          ).stringValue;
+
+          if (!sku) {
+            const skuMatch = currentVariantId.match(/(^\w{9}-\w{3})/);
+            sku = skuMatch ? skuMatch[1] : '';
+          }
+          addedVariant.setAttribute('sku', sku);
+
           const promotion = document.evaluate(
             '//x-wrapper-re-1-3/h1/following-sibling::div/div/preceding-sibling::span',
             document,
