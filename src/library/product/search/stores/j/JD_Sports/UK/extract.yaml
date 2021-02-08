@@ -12,9 +12,9 @@ fields:
     description: The URL for the product thumbnail image
     singleValue: false
     # xpath: //ul[not(contains(@class,'productList rcHldr'))]//a[@class="itemImage"]/picture//img/@src
-    xpath: //ul[@id="productListMain"]//a[@class="itemImage"]/picture/source/@srcset
-    regExp: (\w.+)[,]
-    regExpReplace: $1
+    xpath: //ul[@id="productListMain"]//a[@class="itemImage"]/picture/img/@src
+    # regExp: '(\w.+)[,]'
+    # regExpReplace: $1
   - name: name
     type: TEXT
     xpath: //ul[@id='productListMain']//span[@class='itemTitle']//a//text()
