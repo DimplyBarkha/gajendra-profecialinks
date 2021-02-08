@@ -149,7 +149,7 @@ const transform = (data, context) => {
           if (item.text.trim().toLowerCase().includes('add to bag')) {
             item.text = 'In Stock';
           } else {
-            item.text = 'Out of Stock';
+            item.text = 'Out Of Stock';
           }
         });
       }
