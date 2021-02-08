@@ -4,119 +4,32 @@ module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'ES',
-    store: 'elcorteingles_deportes',
+    store: 'elcorteingles_perfumeria',
     transform,
     domain: 'elcorteingles.es',
+    zipcode: '',
   },
 
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     const sectionsDiv = 'h1[id="js-product-detail-title"]';
-    await context.waitForSelector(sectionsDiv, { timeout: 90000 });
 
-    const mainURL = await context.evaluate(function () {
-      console.log('main URL');
-      return document.URL;
+    const isRedirected = await context.evaluate(async function () {
+      const homePage = 'https://www.elcorteingles.es/perfumeria/';
+      return window.location.href === homePage;
     });
 
-    // navigation to iframe
-    const iframeSelector = '#loadbeeTabContent';
+    if (isRedirected) {
+      console.log('Redirected to home page');
+      return false;
+    } else {
+      console.log('Correct page is loaded');
+    }
+
     try {
-      console.log(`Waiting for iframeSelector: ${iframeSelector}`);
-      await context.waitForSelector(iframeSelector, { timeout: 50000 });
+      await context.waitForSelector(sectionsDiv, { timeout: 90000 });
     } catch (error) {
-      console.log(`iframeSelector: ${iframeSelector} not found`);
-      console.log(error);
-    }
-
-    try {
-      const navigateLink = await context.evaluate(function (iframeSelector) {
-        console.log('getting navlink');
-        return document.querySelector(iframeSelector) && document.querySelector(iframeSelector).getAttribute('src');
-      }, iframeSelector);
-
-      if (navigateLink) {
-        console.log(navigateLink, 'Iframe Details');
-        console.log('Nagivating to Enahnced content');
-
-        await context.goto(navigateLink, {
-          timeout: 20000,
-          waitUntil: 'load',
-          checkBlocked: true,
-        });
-
-        console.log('In Enhanced content areas');
-
-        const otherSellersTable = await context.evaluate(function () {
-          return document.querySelector('.container').innerHTML;
-        });
-
-        const manufacturerDescription = await context.evaluate(function () {
-          return document.querySelector('.container').innerText;
-        });
-
-        const manufacturerImages = await context.evaluate(function () {
-          return [...document.querySelectorAll('img')].map(img => img.src).filter(Boolean).join(' | ');
-        });
-
-        console.log('Got otherSellersTable here');
-        console.log('mainURL' + mainURL);
-
-        await context.goto(mainURL, {
-          timeout: 10000,
-          waitUntil: 'load',
-          checkBlocked: false,
-          js_enabled: true,
-          css_enabled: false,
-          random_move_mouse: true,
-        });
-
-        // adding innerHtml of iframe to DOM
-        await context.evaluate(function (eleInnerHtml) {
-          const cloneNode = document.createElement('div');
-          cloneNode.setAttribute('id', 'enhancedContentFromIframe');
-          cloneNode.innerHTML = eleInnerHtml;
-          document.querySelector('div.product_detail-description-in-image').appendChild(cloneNode);
-        }, otherSellersTable);
-
-        await context.evaluate(function (value) {
-          const { manufacturerDescription, manufacturerImages } = value;
-
-          function addElementToDocument (key, value) {
-            const catElement = document.createElement('div');
-            catElement.id = key;
-            catElement.textContent = value;
-            catElement.style.display = 'none';
-            document.body.appendChild(catElement);
-          }
-
-          // manufacturerDescription
-          console.log(`manufacturerDescription: ${manufacturerDescription}`);
-          addElementToDocument('manufacturerDescription', manufacturerDescription);
-
-          // manufacturerImage
-          console.log(`manufacturerImages: ${manufacturerImages}`);
-          addElementToDocument('manufacturerImages', manufacturerImages);
-        }, {
-          manufacturerDescription: manufacturerDescription,
-          manufacturerImages: manufacturerImages,
-        });
-      }
-    } catch (err) {
-      console.log('Additional other sellers error -' + JSON.stringify(err));
-      await context.goto(mainURL, {
-        timeout: 10000,
-        waitUntil: 'load',
-        checkBlocked: false,
-        js_enabled: true,
-        css_enabled: false,
-        random_move_mouse: true,
-      });
-    }
-
-    try {
-      await context.waitForSelector('#enhancedContentFromIframe', { timeout: 30000 });
-    } catch (err) {
-      console.log('Manufacturer details did not load.');
+      console.log(`sectionsDiv selector: ${sectionsDiv} not found..seems like not a product page`);
+      return;
     }
 
     try {
@@ -152,13 +65,14 @@ module.exports = {
             var result = document.evaluate(video, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
             return result;
           } else {
+            const xpath = `//script[contains(.,'${scriptSelector}')]`;
             try {
-              const xpath = `//script[contains(.,'${scriptSelector}')]`;
               const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
               let jsonStr = element.textContent;
               jsonStr = jsonStr.trim();
               return JSON.parse(jsonStr);
             } catch (error) {
+              console.log(`xpath element not found: ${xpath}`);
               console.log(error.message);
             }
           }
@@ -173,10 +87,22 @@ module.exports = {
                 headers: { 'Content-Type': 'application/json' },
               };
 
-              return await (await fetch(url, options)).json();
+              // return await (await fetch(url, options)).json();
+              const response = await fetch(url, options);
+              if (response.status != 500) {
+                return await (response).json();
+              } else {
+                return;
+              }
             }
 
-            return await (await fetch(url, options)).text();
+            // return await (await fetch(url, options)).text();
+            const response = await fetch(url, options);
+            if (response.status != 500) {
+              return await (response).text();
+            } else {
+              return;
+            }
           } catch (err) {
             console.log('Error while making API call.', err);
           }
@@ -191,18 +117,8 @@ module.exports = {
         const imageData = findJsonObj('image');
         // Check for the data and append to DOM
         if (imageData) {
-          addElementToDocument('product_image', `${imageData.image.length === 0 ? '' : 'https:'}${imageData.image.slice(-1)[0] === undefined ? '' : imageData.image.slice(-1)[0]}`);
+          addElementToDocument('product_image', `https:${imageData.image.slice(-1)[0]}`);
           addElementToDocument('product_description', imageData.description);
-        } else {
-          const sliderImage = document.querySelectorAll('.image-layout-slides-group div')[0].querySelector('img').getAttribute('src');
-          const linkImage = document.querySelectorAll('link[as="image"]')[0].getAttribute('href');
-          if (sliderImage) {
-            console.log('slider here');
-            addElementToDocument('product_image', `https:${sliderImage}`);
-          } else {
-            console.log('link here');
-            addElementToDocument('product_image', `https:${linkImage}`);
-          }
         }
 
         const getXpath = (xpath, prop) => {
@@ -212,6 +128,17 @@ module.exports = {
           else result = elem ? elem.singleNodeValue : '';
           return result && result.trim ? result.trim() : result;
         };
+
+        function getPathDirections (xpathToExecute) {
+          var result = [];
+          var nodesSnapshot = document.evaluate(xpathToExecute, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+          for (var i = 0; i < nodesSnapshot.snapshotLength; i++) {
+            result.push(nodesSnapshot.snapshotItem(i).textContent);
+          }
+          return result;
+        }
+        const directions = getPathDirections('//div[contains(@class,"product_detail-description-in-image")]/strong[contains(text(),"Modo de aplicación:") or contains(text(),"Modo de")]/following-sibling::p | //dt[contains(text(),"Modo de")]/following-sibling::dd[1] | //strong[contains(text(),"Modo")]/following-sibling::* | //div[contains(@class,"product_detail-description")]//p[contains(.,"Modo de")]/following-sibling::p');
+        addElementToDocument('directions', directions ? directions.join(' ') : '');
 
         function nameExtended () {
           const getXpath = (xpath, prop) => {
@@ -226,19 +153,6 @@ module.exports = {
           return name;
         }
 
-        // Directions
-
-        function getPathDirections (xpathToExecute) {
-          var result = [];
-          var nodesSnapshot = document.evaluate(xpathToExecute, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-          for (var i = 0; i < nodesSnapshot.snapshotLength; i++) {
-            result.push(nodesSnapshot.snapshotItem(i).textContent);
-          }
-          return result;
-        }
-        const directions = getPathDirections('//div[contains(@class,"product_detail-description-in-image")]/strong[contains(text(),"Modo de aplicación:") or contains(text(),"Modo de")]/following-sibling::p | //dt[contains(text(),"Modo de")]/following-sibling::dd[1] | //strong[contains(text(),"Modo")]/following-sibling::* | //div[contains(@class,"product_detail-description")]//p[contains(.,"Modo de")]/following-sibling::p');
-        addElementToDocument('directions', directions ? directions.join(' ') : '');
-
         // For FirstVariant
         const firstVariant = getXpath('//div[@id="variants_container"]//select//option[@color][1]/@value', 'nodeValue');
         addElementToDocument('firstVariant', firstVariant);
@@ -248,6 +162,12 @@ module.exports = {
         // Check for the data and append to DOM
         if (dataObj) {
           if (dataObj[0].product) {
+            if (dataObj[0].product.status.toLowerCase() === 'available' || dataObj[0].product.status.toLowerCase() === 'add' || dataObj[0].product.status.toLowerCase() === 'mixed') {
+              addElementToDocument('availability', 'In Stock');
+            } else {
+              addElementToDocument('availability', 'Out Of Stock');
+            }
+            // Check for the brand  and append to DOM
             if (dataObj[0].product.brand) {
               addElementToDocument('brand', dataObj[0].product.brand);
             }
@@ -257,10 +177,10 @@ module.exports = {
               addElementToDocument('listPrice', '');
             } else {
               if (dataObj[0].product.price.o_price) {
-                addElementToDocument('listPrice', dataObj[0] && dataObj[0].product && dataObj[0].product.price && dataObj[0].product.price.o_price ? dataObj[0].product.price.o_price.toString().replace('.', ',') : '');
+                addElementToDocument('listPrice', dataObj[0].product.price.o_price.toString().replace('.', ','));
               } else {
                 if (dataObj[0].product.price.original) {
-                  addElementToDocument('listPrice', dataObj[0] && dataObj[0].product && dataObj[0].product.price && dataObj[0].product.price.original ? dataObj[0].product.price.original.toString().replace('.', ',') : '');
+                  addElementToDocument('listPrice', dataObj[0].product.price.original.toString().replace('.', ','));
                 } else {
                   addElementToDocument('listPrice', '');
                 }
@@ -269,10 +189,10 @@ module.exports = {
 
             // Check for  Price
             if (dataObj[0].product.price.o_price) {
-              addElementToDocument('price', dataObj[0] && dataObj[0].product && dataObj[0].product.price && dataObj[0].product.price.f_price ? dataObj[0].product.price.f_price.toString().replace('.', ',') : '');
+              addElementToDocument('price', dataObj[0].product.price.f_price.toString().replace('.', ','));
             } else {
               if (dataObj[0].product.price.final) {
-                addElementToDocument('price', dataObj[0] && dataObj[0].product && dataObj[0].product.price && dataObj[0].product.price.final ? dataObj[0].product.price.final.toString().replace('.', ',') : '');
+                addElementToDocument('price', dataObj[0].product.price.final.toString().replace('.', ','));
               } else {
                 addElementToDocument('price', '');
               }
@@ -291,14 +211,9 @@ module.exports = {
         function variantInformation (variantsData) {
           if (variantsData && variantsData.variant && variantsData.variant[1]) {
             if (variantsData.variant[0]) {
-              let currentVariant = '';
-              if (variantsData.variant[1].value && variantsData.variant[1].value[0]) currentVariant = currentVariant + variantsData.variant[1].value[0];
-              if (variantsData.variant[1].value && variantsData.variant[1].value[1]) currentVariant = `${currentVariant} (${variantsData.variant[1].value[1]})`;
-              if (variantsData.variant[0].value) currentVariant = `${currentVariant} ${variantsData.variant[0].value}`;
-              return currentVariant;
-              // return (`${variantsData.variant[1].value[0]} (${variantsData.variant[1].value[1]}) ${variantsData.variant[0].value}`);
+              return variantsData.variant[1].value + '-' + variantsData.variant[0].value;
             }
-          } else {
+          } else if(variantsData && variantsData.variant) {
             return variantsData.variant[1] ? variantsData.variant[1].value : '' + '' + variantsData.variant[0] ? variantsData.variant[0].value : '';
           }
         }
@@ -322,54 +237,84 @@ module.exports = {
         // Number of reviews and rating
         const passKey = 'caBFucP0zZYZzTkaZEBiCUIK6sp46Iw7JWooFww0puAxQ';
         const productAvailablity = '//div[contains(@class,"product_detail-purchase")]//div[contains(@class,"product_detail-add_to_cart")]//span[@class="dataholder"]/@data-json';
-        const productID = findJsonObj('', productAvailablity).snapshotItem(0).value ? JSON.parse(findJsonObj('', productAvailablity).snapshotItem(0).value).code_a.trim('') : '';
-        const sku = findJsonObj('', productAvailablity).snapshotItem(0).value ? JSON.parse(findJsonObj('', productAvailablity).snapshotItem(0).value).variant.trim('') : '';
-        const storeId = findJsonObj('', productAvailablity).snapshotItem(0).value ? JSON.parse(findJsonObj('', productAvailablity).snapshotItem(0).value).store_id.trim('') : '';
+        const jsonObj = findJsonObj('', productAvailablity) && findJsonObj('', productAvailablity).snapshotItem(0) && findJsonObj('', productAvailablity).snapshotItem(0).value;
+
+        const productID = jsonObj ? JSON.parse(jsonObj).code_a.trim('') : '';
+        const sku = jsonObj ? JSON.parse(jsonObj).variant.trim('') : '';
+        const storeId = jsonObj ? JSON.parse(jsonObj).store_id.trim('') : '';
 
         const reviewData = `https://api.bazaarvoice.com/data/display/0.2alpha/product/summary?PassKey=${passKey}&productid=${productID}&contentType=reviews,questions&reviewDistribution=primaryRating,recommended&rev=0&contentlocale=es_ES`;
         const apiReviewResponse = await makeApiCall(reviewData, {});
-        const responseRatingCount = JSON.parse(apiReviewResponse) ? JSON.parse(apiReviewResponse).reviewSummary.numReviews : ratingFromDOM();
-        const responseReviewRating = JSON.parse(apiReviewResponse) ? parseFloat(JSON.parse(apiReviewResponse).reviewSummary.primaryRating.average).toFixed(1).replace('.', ',')
+        console.log(`apiReviewResponse : ${JSON.stringify(apiReviewResponse)}`);
+        const apiReviewResponseJson = JSON.parse(apiReviewResponse);
+        const responseRatingCount = apiReviewResponseJson ? apiReviewResponseJson.reviewSummary.numReviews : ratingFromDOM();
+        const responseReviewRating = apiReviewResponseJson ? parseFloat(apiReviewResponseJson.reviewSummary.primaryRating.average).toFixed(1).replace('.', ',')
           : '';
         addElementToDocument('ratingCount', responseRatingCount);
         addElementToDocument('aggregateRating', responseReviewRating);
 
         const productsData = `https://www.elcorteingles.es/api/product/${productID}?product_id=${productID}&store_id=${storeId}&original_store=${storeId}`;
         const apiDataResponse = await makeApiCall(productsData, {});
+        // console.log(`apiDataResponse : ${JSON.stringify(apiDataResponse)}`);
+        // Check if the product has color variants are not
+        const numColors = document.querySelectorAll('ul.colors_list li') && document.querySelectorAll('ul.colors_list li').length ? document.querySelectorAll('ul.colors_list li').length : 0;
+        const isColorVariant = Boolean(numColors > 0);
         addElementToDocument('SKU', JSON.parse(apiDataResponse).id);
-        addElementToDocument('mpc', JSON.parse(apiDataResponse)._product_model);
+        const mpc = JSON.parse(apiDataResponse) && JSON.parse(apiDataResponse)._product_model ? JSON.parse(apiDataResponse)._product_model : '';
+        addElementToDocument('mpc', mpc);
         addElementToDocument('promotion', JSON.parse(apiDataResponse).discount ? '-' + JSON.parse(apiDataResponse).discount + '%' : '');
 
         // Append a UL and LI tag append the variant info in the DOM
-        const variants = JSON.parse(apiDataResponse).skus;
-        console.log(variants, 'Data');
+        let allVariantsData = [];
+        if (isColorVariant) {
+          const variants = JSON.parse(apiDataResponse) && JSON.parse(apiDataResponse)._all_colors ? JSON.parse(apiDataResponse)._all_colors  : '';
+          if (variants.length > 0) {
+            variants.forEach(ele => {
+              const tempVariantData = ele && ele.skus && ele.skus[0] ? ele.skus[0] : '';
+              allVariantsData.push(tempVariantData);
+            });
+          }
+        } else {
+          const variants = JSON.parse(apiDataResponse) && JSON.parse(apiDataResponse).skus ? JSON.parse(apiDataResponse).skus : '';
+          if (variants.length > 0) {
+            variants.forEach(ele => allVariantsData.push(ele));
+          }
+        }
         const targetElement = document.querySelector('body');
         const newUl = document.createElement('ul');
         newUl.id = 'variantsadd';
         targetElement.appendChild(newUl);
-
         const ul = document.querySelector('#variantsadd');
         const name = nameExtended(); // same for all variant
-
         const variantIds = [];
-        variants.forEach(q => {
-          if (q.reference_id) {
-            variantIds.push(q.reference_id.trim());
-          }
-        });
+        if (allVariantsData) {
+          allVariantsData.forEach(q => {
+            if (q && q.reference_id) {
+              variantIds.push(q.reference_id.trim());
+            }
+          });
+        }
+        console.log(`variantIds : ${variantIds}`);
         try {
-          if (variants.length) {
-            for (let i = 0; i < variants.length; i++) {
+          if (allVariantsData.length > 0) {
+            for (let i = 0; i < allVariantsData.length; i++) {
               const listItem = document.createElement('li');
+              const variantSKU = allVariantsData && allVariantsData[i] ? allVariantsData[i] : '';
+              console.log(`variantSKU : ${JSON.stringify(variantSKU)}`);
+              const color = variantSKU && variantSKU.color && variantSKU.color.title ? variantSKU.color.title : '';
+              const gtin = variantSKU && variantSKU.gtin ? variantSKU.gtin : '';
+              const retailer_product_code = variantSKU && variantSKU.reference_id ? variantSKU.reference_id : '';
+              const variantinformation = variantSKU ? variantInformation(variantSKU) : '';
+              const availability = variantSKU ? getAvailability(variantSKU) : '';
               const variantInfo = {
                 nameExtended: name,
-                color: variants[i].color.title,
-                gtin: variants[i].gtin, // eangtin
-                retailer_product_code: variants[i].reference_id,
-                variantinformation: variantInformation(variants[i]), // variantInformation,
+                color,
+                gtin,
+                retailer_product_code,
+                variantinformation, // variantInformation,
                 variantDetails: variantIds.join(' | '), // variants
-                variantcount: variants.length, // variantCount
-                availability: getAvailability(variants[i]), // availabilityText
+                variantcount: allVariantsData.length, // variantCount
+                availability, // availabilityText
               };
               console.log(`variantInfo: ${JSON.stringify(variantInfo)}`);
 
@@ -378,7 +323,7 @@ module.exports = {
             }
           }
         } catch (err) {
-          console.log(err, 'api');
+          console.log(JSON.stringify(err), 'api');
           throw 'API Needs a change';
         }
 
@@ -411,6 +356,7 @@ module.exports = {
           const xpath = '//*[contains(text(),"Ingredientes y alérgensos")]/../ul/li';
           const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
           if (element) {
+            // @ts-ignore
             const allElements = [...element.querySelectorAll('b')];
             const allergyAdvice = allElements.map(i => i.textContent).join(' ');
             addElementToDocument('allergyAdvice ', allergyAdvice);

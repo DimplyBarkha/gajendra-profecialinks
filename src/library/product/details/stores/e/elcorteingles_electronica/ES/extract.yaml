@@ -1,0 +1,145 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    xpath: //div[@class="image-slides"]/img[1]/@data-zoom
+    regExp: (.*)
+    regExpReplace: https:$&
+  - name: imageAlt
+    
+  - name: alternateImages
+    xpath: (//div[@class="image-layout-slides-group"]/div[not(div[@class="play-video-button"])]/img/@data-zoom)[position() > 1]
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: secondaryImageTotal
+    xpath: count((//div[@class="image-layout-slides-group"]/div[not(div[@class="play-video-button"])]/img/@data-zoom)[position() > 1])
+  - name: category
+    singleValue: false
+    xpath: //li[@itemprop="itemListElement"]
+  - name: nameExtended
+    xpath : concat(//h1[@id="js-product-detail-title"],' ', //span[@id="colorNameSpan"])
+  - name: listPrice
+    xpath: //div[@id='listPrice']
+  - name: price
+    xpath : //div[@id='price']
+  - name: availabilityText
+    xpath : //div[@id='availability']
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath : //*[contains(@class,"product_detail-description-in-image") or contains(@class,"product_information")]
+  - name: brandText
+    xpath : //div[@id="brand"]
+  - name: quantity
+    xpath: //dt[contains(text(),"Velocidad de centrifugado")]/following-sibling::dd[1] | //dt[contains(text(),"Diagonal de la pantalla")]/following-sibling::dd[1]
+  - name: gtin
+    xpath: //div[@id="gtin"]
+  - name: eangtin
+    xpath: //div[@id="gtin"]
+  - name: asin
+    xpath:
+  - name: sku
+    xpath: //div[@id="sku"]
+  - name: firstVariant
+    xpath: //div[@id="sku"]
+  - name: variantId
+    xpath: //div[@id="retailer_product_code"]
+  - name: mpc
+    xpath: //div[contains(@class, 'js-media-holder')]/script/@data-flix-mpn
+    # regExp: (\w+)$
+    # regExpReplace: $1
+  - name: directions
+    xpath : //div[@class="infoGroup"]//dt[contains(text(),"Modo de aplicación")]/following-sibling::dd |//div[contains(@class,"product_detail-description-in-image")]//strong[contains(text(),"Modo de aplicación")]//following-sibling::p
+  - name: videos
+    singleValue: false
+    # xpath : //div[@id="videos"]|//div[contains(@class,'video-slides')]/@data-url
+    xpath: //div[@class="image-layout-slides-group"]//img/@data-url | //div[@id="video"] | //div[@id="allVidLinks"]|//div[@id="flix_hotspots"]/*[@id='flix_product_video']/@src
+    # xpath: //div[contains(@class,'video-slides')]/@data-url
+  - name: name
+    xpath : //meta[@name="twitter:title"]/@content
+  - name: ratingCount
+    xpath: //div[@id="ratingCount"]
+  - name: warranty
+    xpath : //dt[contains(text(),"Garantía")]/following-sibling::dd[1]
+  - name: storage
+    xpath : //div/@title
+  - name: countryOfOrigin
+    xpath: //ul[@class="info-list"]//li//span[contains(text(),"País de origen")]/following-sibling::text()
+  - name: allergyAdvice
+    xpath :
+  - name: promotion
+    xpath : //div[contains(@class,"product_detail-aside")]//p[@class="price _discount"]
+  - name: alcoholContent
+    xpath : //ul[@class="info-list"]//li//span[contains(text(),"orcentaje de alcohol")]/following-sibling::text()
+  - name: variantInformation
+    xpath: //div[@id="variants_container"] /span | //div[@id='variantInformation']
+  - name: aggregateRating
+    xpath: //div[@id="aggregateRating"]
+  - name: shippingInfo
+    xpath:
+  - name: shipping
+    xpath:
+  - name: energyEfficiency
+    xpath: //dt[contains(text(),"Clasificación energética")]/following-sibling::dd[1] | //div[@id="energyRating"] | //tr[contains(.,"eficiencia energética")]//td[2]
+  - name: imageZoomFeaturePresent
+    xpath: //div[@id="imageZoomFeaturePresent"]
+  - name: shippingDimensions
+    xpath : //dt[contains(text(),"Medidas")]/following-sibling::dd[1] | //dt[contains(text(),"Dimensiones")]/following-sibling::dd[1]
+  - name: shippingWeight
+    xpath :
+  - name: variantCount
+    xpath :
+    defaultValue: "0"
+  - name: color
+    xpath : //dt[contains(text(),"Alimentação")]/following-sibling::dd[1] | //*[contains(text(),"Color")]/following-sibling::span  | //dt[contains(text(),"Color")]/following-sibling::dd[1]
+  - name: colorCode
+    xpath :
+  - name: manufacturerDescription
+    # Do not update/add xpath here. Handle in extract.js
+    xpath : //div[@id="manufacdesc"] | //div[contains(@class,'inpage_selector')][not(contains(@class,'video'))][not(//div[@id="manufacdesc"])]
+  - name: manufacturerImages
+    xpath : //div[@id='manufacturerImages'] | //div[contains(@class,'inpage_selector')][not(contains(@class,'video'))]//img/@data-flixsrcset
+  - name: termsAndConditions
+    xpath :
+  - name: additionalDescBulletInfo
+    xpath :
+  - name: specifications
+    xpath : //div[@id="specifications"] | //div[contains(@class,"product_information")]
+  - name: recyclingInformation
+    xpath :
+  - name: productOtherInformation
+    xpath :
+  - name: packaging
+    xpath :
+  - name: directions
+    xpath:
+  - name: warnings
+    xpath:
+  - name: packSize
+    xpath:
+  - name: legalDisclaimer
+    xpath:
+  - name : weightNet
+    xpath : //dt[contains(text(),"Diagonal de la pantalla")]/following-sibling::dd[1] | //dt[contains(text(),"Velocidad de centrifugado")]/following-sibling::dd[1] | //dt[contains(text(),"Peso")]/following-sibling::dd[1]
+  - name : weightGross
+    xpath :
+  - name: descriptionBullets
+    singleValue: false
+    xpath : count(//*[contains(@class,"product_detail-description-in-image") or contains(@class,"product_information")])
+  - name: galleryVideos
+    singleValue: false
+    # xpath : //div[@id="videos"]|//div[contains(@class,'video-slides')]/@data-url
+    xpath: //div[@id="flix_hotspots"]/*[@id='flix_product_video']/@src | //div[contains(@class,"slides-group")]//img[@data-type="video"]//@data-url
+    # xpath: //div[@class="image-layout-slides-group"]//img/@data-url | 
+  - name: inTheBoxUrl
+    xpath: //div[contains(@class,'InTheBox')]//img/@data-flixsrcset
+    regExp: ^(.+?)(\d+)w,(.*)
+    regExpReplace: https:$1
+  - name: inTheBoxText
+    xpath: //div[contains(@class,'InTheBox')]//span
+  - name: unInterruptedPDP
+    xpath: //li[contains(@class, 'item similar')]//div[contains(@class, 'product_preview-info')]|//div[@class="swogo-bundle-products"]/div//div[@class="swogo-product-title"]
+  - name: hasComparisonTable
+    defaultValue: No

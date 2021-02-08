@@ -17,7 +17,7 @@ async function implementation (
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 120000 }, parameters.loadedSelector, parameters.noResultsXPath);
+    }, { timeout: 60000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
 
   // Check for not found?
@@ -35,12 +35,11 @@ module.exports = {
   implements: 'product/details/execute',
   parameterValues: {
     country: 'ES',
-    store: 'elcorteingles',
+    store: 'elcorteingles_electronica',
     domain: 'elcorteingles.es',
-    loadedSelector: '.pdp-title a',
-    noResultsXPath: '//div[contains(@class,"artwork-toolbar ")]',
-    // loadedSelector: 'img[class="js-zoom-to-modal-image"]',
-    // noResultsXPath: '//span[contains(.,"No hemos")]',
+    loadedSelector: 'div.js-sticky-control',
+    noResultsXPath: '//div[contains(@class,"artwork image")]',
+    zipcode: '',
   },
   implementation,
 };

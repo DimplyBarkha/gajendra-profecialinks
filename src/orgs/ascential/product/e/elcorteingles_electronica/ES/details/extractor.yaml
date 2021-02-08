@@ -2,7 +2,8 @@ robot: product/details
 parameters:
   country: ES
   domain: elcorteingles.es
-  store: elcorteingles_deportes
+  store: elcorteingles_electronica
+  zipcode: ""
 proxy:
   zone: ZES
   type: DATA_CENTER
@@ -14,12 +15,14 @@ policy:
   retryWithResidentialProxyAfter: 99
 meta:
   branches:
-    oms_elcorteingles_apparel:
-      extractor: 8b026e5f-bbca-4f5f-8da9-da040f99111e
+    osm_elcorteingles_electronica:
+      extractor: 5a77b60b-5e04-493f-8ab1-222dc2bc76aa
       legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
-    techops-testing:
-      extractor: 58d2100f-cb96-4076-b9fd-ae63a37835c2
+    ascential-elcorteingles-electronica-ES-core:
+      extractor: b2bfceb0-8da1-4447-b7b0-75616b89a4be
+    techops-test:
+      extractor: 63d9a71e-260e-4bb9-90bc-95bfc505a42b
       legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
-    ascential-elcorteingles-appareal-ES-core:
-      extractor: 7ea137d4-9ecc-4f03-9841-1c73df578677
+    elcorteingles_electronica_es_core:
+      extractor: 350c373d-d350-422e-8102-09497a9aa3d7
       legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
