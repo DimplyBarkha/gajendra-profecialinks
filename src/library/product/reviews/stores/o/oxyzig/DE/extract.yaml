@@ -1,0 +1,41 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id="reviews"]//div[@class="product-review"]
+fields:
+- name: aggregateRating
+  xpath: ancestor::html//div[@class="ts-reviewSummary-averageRating"]/span[1]
+- name: name
+  xpath: ancestor::html//div[contains(@class,"product-title")]//h1/text()
+- name: commentCount
+- name: reviewDate
+  xpath: //span[@class="date"]
+  regExp: Veröffentlicht am (.*)
+  regExpReplace: $1
+- name: user
+  xpath: //div[@class="review-top"]/span[2]/strong/text()
+- name: brand
+  xpath: ancestor::html//div[@class="title-appendix"]//a[contains(@class,"brand-button")][1]
+- name: productRange
+- name: productFamily
+- name: colour
+- name: flavour
+- name: sku
+  xpath: ancestor::html//div[contains(@class,"product-title")]//h1/text()
+- name: reviewText
+  xpath: //div[@class="review-content"][1]/p/text()
+- name: reviewTitle
+- name: mediaURL
+  xpath: ancestor::html//meta[@property="og:image"]/@content
+- name: location
+  defaultValue: DE
+- name: helpful
+- name: verifiedPurchase
+- name: rating
+  xpath: //div[@class="review-top"]//span[@class="stars flat"]/@custom_rating
+- name: pageTitle
+  xpath: ancestor::html//meta[@property="og:title"]/@content
+- name: sourceUrl
+  xpath: ancestor::html//meta[@property="og:url"]/@content
+  regExp: (.*)\?source=facebook
+  regExpReplace: $1
