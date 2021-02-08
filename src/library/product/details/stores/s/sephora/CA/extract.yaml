@@ -11,26 +11,26 @@ fields:
     xpath: //ul[@class="css-1kxqg20 eanm77i0"]/li[1]//img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //ul[@class="css-1kxqg20 eanm77i0"]/li[position()>1]/child::*/child::*/child::*/img[not(contains(@alt,"video"))]/@src
+    xpath: //ul[@class="css-1kxqg20 eanm77i0"]/li[position()>1]/child::*/child::*/child::*/img[not(contains(@alt,"video"))]/@src | //picture/img[@data-comp="Image StyledComponent BaseComponent " and contains(@alt,"Image")]/@src
   - name: category
     singleValue: false
     xpath: //nav[@aria-label="Breadcrumbs"]/ol/li/a
   - name: nameExtended
     singleValue: false
-    xpath: //h1[contains(@class,"e65zztl0")]
+    xpath: //h1[contains(@data-comp,"DisplayName")]
   - name: listPrice
     singleValue: false
     xpath: //h1/parent::*/p[contains(@data-comp,"Price")]//span/b[2]
   - name: price
     singleValue: false
-    xpath: //h1/parent::*/p[contains(@data-comp,"Price")]//span/b[1]
+    xpath: //h1/parent::*/p[contains(@data-comp,"Price")]//span/b[1] | //span[@data-at="price"]
   - name: availabilityText
     singleValue: false
     xpath: //div[@data-at="sku_name_label" and contains(@data-comp,"SwatchDescription")]/span[@data-at="product_flag_label"]/text()
     defaultValue: In stock
   - name: description
     singleValue: false
-    xpath: //h2[@data-at="about_the_product_title"]/following::*/div[2]/button[text()="Show more"]/preceding-sibling::*/child::*
+    xpath: //h2[@data-at="about_the_product_title"]/following::*/div[2]/button[text()="Show more"]/preceding-sibling::*/child::* | //div[@data-at="product_tabs_section"]/div[@id="tabpanel0"]
   - name: brandText
     singleValue: false
     xpath: //h1/a
@@ -40,6 +40,8 @@ fields:
   - name: sku
     singleValue: false
     xpath: //script[contains(text(),"defaultSkuId:")]/text()
+    regExp: >-
+      [0-9]+
   - name: variantId
     singleValue: false
     xpath: //button[@data-at="selected_swatch" and @aria-selected="true"]//img/@src
@@ -53,8 +55,11 @@ fields:
     # regExp: ([^,]+) reviews
     # regExpReplace: $1
   - name: aggregateRating
-    singleValue: false
-    xpath: //h3[text()="Summary"]/following-sibling::*/div[last()]/div/span
+    singleValue: true
+    # //h3[text()="Summary"]/following-sibling::*/div[last()]/div/span
+    xpath:  (//div[@data-comp="StarRating "]/@aria-label)[position()=1]
+    regExp: >-
+      [0-9,.]+
   - name: variantCount
     singleValue: false
     defaultValue: 0
