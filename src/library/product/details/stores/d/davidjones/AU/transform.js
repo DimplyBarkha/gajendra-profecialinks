@@ -86,6 +86,10 @@ const transform = (data, context) => {
         row.ratingCount = [{ text: ratingcount[size], xpath: row.ratingCount[0].xpath }];
       }
 
+      if (!row.image && row.backupImage) {
+        row.image = [{ text: row.backupImage[0].text, xpath: row.backupImage[0].xpath }];
+      }
+
       // if (row.secondaryImageTotal) {
       //   let count = 0;
 

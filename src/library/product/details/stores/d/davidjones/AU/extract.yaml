@@ -5,7 +5,11 @@ recordXPath: //form[@class="item-selection"]//ul//li|//form[@class="item-selecti
 fields:
   - name: image
     description: URL of the main product image
-    xpath : ancestor::html//a[contains(@class,"medium-image")]/img/@src
+    xpath : ancestor::html//a[contains(@class,"medium-image")]/img/@src|ancestor::html//li[contains(@class, "main")]//a/@data-medium-image
+    regExp: ^(.+)$
+    regExpReplace: https://www.davidjones.com$1
+  - name: backupImage
+    xpath: ancestor::html//li[contains(@class, "main")]//a/@data-medium-image
     regExp: (.+)
     regExpReplace: https://www.davidjones.com$1
   - name: imageAlt
@@ -23,7 +27,7 @@ fields:
   - name: category
     xpath: ancestor::html//ul[contains(@class, 'breadcrumb')]//li[position()>1 and position()<last()]
   - name: nameExtended
-    xpath: concat(ancestor::html//*[@class="brand"]//span,' ',ancestor::html//h1[@itemprop='name'], ' ', ancestor::html//span[@class='colour-label'])
+    xpath: concat(ancestor::html//*[@class="brand"]//span,' ',ancestor::html//h1[@itemprop='name'], ' ', //span[@class='colour-label'])
   - name: price
     xpath: (ancestor::html//p[(@class='price now')]//span[(@class='price-display')]|ancestor::html//p[(@class='price')]//span[(@class='price-display')])
   - name: availabilityText
