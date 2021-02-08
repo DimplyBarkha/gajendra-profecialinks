@@ -13,8 +13,10 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(async () => {
-      if (document.querySelector('span.Price span.Coin') && document.querySelector('meta[itemprop="priceCurrency"]')) {
-        document.querySelector('span.Price').textContent = document.querySelector('span.Price').textContent.replace(/₪/g, '') + ' ' + document.querySelector('meta[itemprop="priceCurrency"]').getAttribute('content');
+      if (document.querySelector('div.PriceDetails span.Coin') && document.querySelector('meta[itemprop="priceCurrency"]')) {
+        document.querySelectorAll('div.PriceDetails > span').forEach(price => {
+          price.textContent = price.textContent.replace(/₪/g, '') + ' ' + document.querySelector('meta[itemprop="priceCurrency"]').getAttribute('content');
+        });
       }
     });
 
