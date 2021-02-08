@@ -111,13 +111,15 @@ fields:
     regExp: (.*)\sopini
     regExpReplace: $1
   - name: aggregateRatingText
-    singleValue: false
+    singleValue: true
     description: The stated aggregate rating
-    xpath: //h3[@id="review-section"]/following-sibling::*[@class="gb-product-reviews-rating"]/strong
+    # xpath: //h3[@id="review-section"]/following-sibling::*[@class="gb-product-reviews-rating"]/strong
+    xpath: //div[@class="gb-product-reviews-rating"]/strong
   - name: aggregateRating
-    singleValue: false
+    singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //h3[@id="review-section"]/following-sibling::*[@class="gb-product-reviews-rating"]/strong
+    # xpath: //h3[@id="review-section"]/following-sibling::*[@class="gb-product-reviews-rating"]/strong
+    xpath: //div[@class="gb-product-reviews-rating"]/strong
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
