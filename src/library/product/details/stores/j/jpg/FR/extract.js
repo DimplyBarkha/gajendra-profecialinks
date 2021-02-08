@@ -62,7 +62,7 @@ module.exports = {
       }
       if (arr2.length>=1){
       for(var k=0 ; k<arr2.length; k++){
-        final = final+" || "+ arr2[k]
+        final = final+" ||"+ arr2[k]
         }
       }
       if (final.length>=1){
