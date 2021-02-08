@@ -84,7 +84,7 @@ module.exports = {
       if (currentUrl !== 'https://www.emag.ro/?captcha_status=ok') {
         throw Error('CAPTCHA SOLVING METHOD FAILED');
       } else {
-        await context.goto(url, {
+        await context.goto(destinationUrl, {
           firstRequestTimeout: 60000,
           timeout: 25000,
           waitUntil: 'load',
