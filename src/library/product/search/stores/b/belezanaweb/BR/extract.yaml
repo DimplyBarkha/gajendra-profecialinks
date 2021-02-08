@@ -6,6 +6,8 @@ fields:
   - name: id
     SingleValue: false
     xpath: //div[contains(@class,'showcase-item')]/@data-event
+    regExp: \d{4,}
+    # regExpReplace: 
   - name: productUrl
     SingleValue: false
     xpath: //a[contains(@class,'showcase-item-image')]/@href

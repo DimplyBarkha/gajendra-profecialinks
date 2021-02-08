@@ -3,51 +3,25 @@
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
  */
-const transform = (data) => {
-  const cleanUp = (data, context) => {
-    const clean = text => text.toString()
-      .replace(/\r\n|\r|\n/g, ' ')
-      .replace(/&amp;nbsp;/g, ' ')
-      .replace(/&amp;#160/g, ' ')
-      .replace(/\u00A0/g, ' ')
-      .replace(/\s{2,}/g, ' ')
-      .replace(/"\s{1,}/g, '"')
-      .replace(/\s{1,}"/g, '"')
-      .replace(/^ +| +$|( )+/g, ' ')
+const transform = (data, context) => {
+  const clean = text => text.toString()
+    .replace(/\r\n|\r|\n/g, ' ')
+    .replace(/&amp;nbsp;/g, ' ')
+    .replace(/&amp;#160/g, ' ')
+    .replace(/\u00A0/g, ' ')
+    .replace(/\s{2,}/g, ' ')
+    .replace(/"\s{1,}/g, '"')
+    .replace(/\s{1,}"/g, '"')
+    .replace(/^ +| +$|( )+/g, ' ')
     // eslint-disable-next-line no-control-regex
-      .replace(/[\x00-\x1F]/g, '')
-      .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
-    data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
-      el.text = clean(el.text);
-    }))));
-    return data;
-  };
+    .replace(/[\x00-\x1F]/g, '')
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+  const state = context.getState();
+  let orgRankCounter = state.orgRankCounter || 0;
+  let rankCounter = state.rankCounter || 0;
+  const productCodes = state.productCodes || [];
   for (const { group } of data) {
     for (const row of group) {
-      if (row.id && row.rank) {
-        row.id.forEach(item => {
-          try {
-            const j_data = JSON.parse(item.text);
-            item.text = j_data.sku;
-          } catch (exception) { console.log('Error in id: ' + item.text, exception); }
-        });
-      }
-      if (row.rankOrganic && row.rank) {
-        row.rankOrganic.forEach(item => {
-          try {
-            const j_data = JSON.parse(item.text);
-            item.text = j_data.position;
-          } catch (exception) { console.log('Error in rankOrganic: ' + item.text, exception); }
-        });
-      }
-      if (row.rank && row.rank) {
-        row.rank.forEach(item => {
-          try {
-            const j_data = JSON.parse(item.text);
-            item.text = j_data.position;
-          } catch (exception) { console.log('Error in rank: ' + item.text, exception); }
-        });
-      }
       if (row.reviewCount) {
         row.reviewCount.forEach(item => {
           item.text = item.text.replace(/(\s*avaliações|avaliação\s*)+/isg, '').trim();
@@ -69,9 +43,23 @@ const transform = (data) => {
           item.text = item.text.replace(/(\s*avaliações|avaliação\s*)+/isg, '').trim();
         });
       }
+      if (row.id) {
+        rankCounter += 1;
+        if (!row.sponsored) {
+          orgRankCounter += 1;
+          row.rankOrganic = [{ text: orgRankCounter }];
+        }
+        row.rank = [{ text: rankCounter }];
+      }
+      Object.keys(row).forEach(header => row[header].forEach(el => {
+        el.text = clean(el.text);
+      }));
     }
   }
-  return cleanUp(data);
+  context.setState({ rankCounter });
+  context.setState({ orgRankCounter });
+  context.setState({ productCodes });
+  console.log(productCodes);
+  return data;
 };
-
 module.exports = { transform };
