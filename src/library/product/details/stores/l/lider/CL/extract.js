@@ -11,7 +11,18 @@ module.exports = {
   implementation: async (inputs, parameters, context, dependencies) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    await context.evaluate (async () => {
+    try {
+      const finalURL = await context.evaluate(async () => {
+        const url = document.querySelector('div[id*="productBox"] div div a').getAttribute('href');
+        return url;
+      });
+      if (finalURL.length > 1) {
+        await context.goto("https://www.lider.cl" + finalURL, { timeout: 30000, waitUntil: 'load', checkBlocked: false });
+      }
+    } catch (error) {
+
+    }
+    await context.evaluate(async () => {
       const getAllXpath = (xpath, prop) => {
         const nodeSet = document.evaluate(
           xpath,
