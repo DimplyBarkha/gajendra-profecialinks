@@ -1,7 +1,21 @@
 robot: product/search
+proxy:
+  zone: ZUS
+  type: DATA_CENTER
+policy:
+  numberRetries: 10
+  priority: MEDIUM
+  retryDelay: 60
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 99
 parameters:
   country: US
   domain: shop.shipt.com
   store: shipt_publix_37205
   zipcode: "37205"
 authenticated: true
+meta:
+  branches:
+    shipt_publix_us_37205:
+      extractor: 2e195aae-2a50-4516-b00f-fd83950a82ee
+      legacyAccountId: 63fd92cf-ba0e-42f9-9361-28797373bac8
