@@ -39,13 +39,10 @@ fields:
     type: CURRENCY
   - name: availabilityText
     singleValue: true
-    description: Availability as described on page for the selected variant. If
-      there is no availability but the product can be added to cart, this field
-      should be "In Stock"
-    xpath: //div[@class="stock-level-row"]//h2
+    xpath: //button[@id="addToCartButton"]
     regExp: (.+)
     regExpReplace: In Stock
-    defaultValue: Out of Stock
+    defaultValue: Out Of Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
