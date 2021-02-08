@@ -7,8 +7,9 @@ async function implementation(
 ) {
     const { transform } = parameters;
     const { productDetails } = dependencies;
+    
     await new Promise((resolve, reject) => setTimeout(resolve, 10000));
-    await context.waitForSelector('a.loadMoreButton', 6000)
+    await context.waitForSelector('a.loadMoreButton', 10000)
     await context.click('a.loadMoreButton');
     await context.evaluate(async () => {
 
