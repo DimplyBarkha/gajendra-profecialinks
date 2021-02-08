@@ -42,20 +42,22 @@ module.exports = {
         if ('price' in data[k].group[i]) {
           data[k].group[i].price[0].text = data[k].group[i].price[0].text.replace('.', ',');
         }
+        if ('quantity' in data[k].group[i]) {
+          const size = data[k].group[i].quantity[0].text.split(' ').slice(-1);
+          const reg = new RegExp('\\d+');
+          if (reg.test(size)) {
+            data[k].group[i].quantity[0].text = size;
+          } else {
+            data[k].group[i].quantity[0].text = '';
+          }
+        }
         if ('aggregateRating' in data[k].group[i]) {
           data[k].group[i].aggregateRating[0].text = data[k].group[i].aggregateRating[0].text.replace('.', ',');
         }
         if ('availabilityText' in data[k].group[i]) {
-          if (data[k].group[i].availabilityText[0].text === 'Non disponibile') {
-            data[k].group[i].availabilityText[0].text = 'Out of Stock';
-          } else {
+          if (data[k].group[i].availabilityText[0].text !== 'Out Of Stock') {
             data[k].group[i].availabilityText[0].text = 'In Stock';
           }
-        }
-        if ('description' in data[k].group[i]) {
-          var descrString = data[k].group[i].description[0].text;
-          descrString = descrString.split('Ingredienti')[0];
-          data[k].group[i].description[0].text = descrString;
         }
         if ('ingredientsList' in data[k].group[i]) {
           if (data[k].group[i].ingredientsList[0].text.includes('Ingredienti')) {
