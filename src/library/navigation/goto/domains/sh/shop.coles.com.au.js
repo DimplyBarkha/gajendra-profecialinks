@@ -6,8 +6,8 @@ module.exports = {
     timeout: 60000,
     country: 'AU',
     // store: 'colesonline',
-    // store: 'colesonline_macquariePark',
-    store: 'colesonline_burwoodEast',
+    store: 'colesonline_macquariePark',
+    // store: 'colesonline_burwoodEast',
     zipcode: '',
   },
   implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
@@ -18,9 +18,9 @@ module.exports = {
     const MAX_CAPTCHAS = 3;
     let captchas = 0;
 
-    await context.setBlockAds(false);
+    await context.setBlockAds(true);
     await context.setJavaScriptEnabled(true);
-    await context.setAntiFingerprint(true);
+    await context.setAntiFingerprint(false);
     await context.setUseRelayProxy(true);
 
     const captchaFrame = 'div#iframe-wrapper iframe';
