@@ -58,11 +58,11 @@ module.exports = {
         }
         // } catch (e) {}
       }
-      try {
-        await context.waitForSelector('div.LazyLoadImg__Wrapper-sc-1vnijxj-2.ctGTsY>img', { timeout: 7000 });
-      } catch (e) {
-        console.log('review selector not found');
-      }
+      // try {
+      //   await context.waitForSelector('div.LazyLoadImg__Wrapper-sc-1vnijxj-2.ctGTsY>img', { timeout: 7000 });
+      // } catch (e) {
+      //   console.log('review selector not found');
+      // }
     });
     return await context.extract(productDetails, { transform });
   },
