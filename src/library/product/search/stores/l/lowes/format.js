@@ -30,6 +30,21 @@ const transform = (data, context) => {
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
+      if (row.price) {
+        let text = '';
+        row.price.forEach(item => {
+          if (item.text.includes('-')) {
+            text += item.text.split('-')[0];
+          } else {
+            text += item.text;
+          }
+        });
+        row.price = [
+          {
+            text: text,
+          },
+        ];
+      }
     }
   }
   context.setState({ rankCounter });

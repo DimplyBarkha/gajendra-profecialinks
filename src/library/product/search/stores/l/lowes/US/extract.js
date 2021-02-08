@@ -1,4 +1,4 @@
-const { transform } = require('../../../../shared');
+const { transform } = require('../format');
 async function implementation (inputs, parameters, context, dependencies) {
   const { page } = inputs;
   // NOTE: Ugly hack to avoid nightmare timeout error in case of more reviews, limiting pages to 35
