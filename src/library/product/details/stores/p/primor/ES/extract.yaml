@@ -11,7 +11,7 @@ fields:
     xpath: //span[@class="img-producto"]//img[@id="bigpic"]//@alt
   - name: alternateImages
     singleValue: false
-    xpath: //li[position()>1]/a[@class="fancybox"]/img/@src
+    xpath: //div[@id="thumbs_list"]/ul/li/a[@class!="fancybox shown"]/img/@src
   - name: promotion
     singleValue: true
     xpath: //p[@id="reduction_percent"]/span[@id="reduction_percent_display"]/text()
@@ -23,7 +23,8 @@ fields:
     xpath: //html//div[@id="product_desc"]
   - name: listPrice
     singleValue: true
-    xpath: //html//div[@id='desc2']
+    # xpath: //html//div[@id='desc2']
+    xpath: //p[@id="old_price"]/span[@class="old-price"]/text()
   - name: price
     singleValue: true
     xpath: //html//div[@id='desc1']
@@ -35,7 +36,8 @@ fields:
     defaultValue: In stock
   - name: description
     singleValue: true
-    xpath: //html//div[@id='id']
+    # xpath: //html//div[@id='id']
+    xpath: //div[@itemprop="description"]
   - name: descriptionBullets
     singleValue: true
     xpath: count(//div[@itemprop="description"]/ul/li)
@@ -60,7 +62,8 @@ fields:
     # xpath: //meta[@itemprop="mpn"]/@content
   - name: sku
     singleValue: true
-    xpath: //p[@class="hidden"]/input[@id="idCombination"]/@value
+    # xpath: //p[@class="hidden"]/input[@id="idCombination"]/@value
+    xpath: //meta[@itemprop="productID"]/@content
   - name: variantId
     singleValue: true
     xpath: //input[@id="idCombination"]/@value
@@ -139,7 +142,10 @@ fields:
     description: Guarantee associated with the productit
   - name: url
     singleValue: true
-    xpath: //meta[@property="og:url"]//@content
+    # xpath: //meta[@property="og:url"]//@content
+    xpath: //div[@class="span12"]/div/form[@id="setState"]/@action
+    regExp: (/.*)
+    regExpReplace: https://www.primor.eu$1
   - name: variantInformation
     singleValue: true
     xpath: //div[@class="attribute_list"]/ul/li[@class="selected"]/span/text() | //span[@id="selected-product-name"]/text()
