@@ -35,9 +35,9 @@ module.exports = {
         const descriptionTextNodes = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         for (let i = 0; i < descriptionTextNodes.snapshotLength; i++) {
           console.log(descriptionTextNodes.snapshotItem(i).textContent);
-          descriptionTextNodes.snapshotItem(i).textContent = descriptionTextNodes.snapshotItem(i).textContent.replace(/^\s*?(•|-|\*|\d\.|✓)/gm, ' || ');
+          descriptionTextNodes.snapshotItem(i).textContent = descriptionTextNodes.snapshotItem(i).textContent.replace(/^\s*?(•|-|\d\.|✓)/gm, 'SPACEHERE||SPACEHERE');
           if ((/^\s*(•|-|\*|\d\.|✓)\s*$/).test(descriptionTextNodes.snapshotItem(i).textContent)) {
-            descriptionTextNodes.snapshotItem(i).textContent = descriptionTextNodes.snapshotItem(i).textContent.replace(/^\s*(•|-|\*|\d\.|✓)\s*$/, ' || ');
+            descriptionTextNodes.snapshotItem(i).textContent = descriptionTextNodes.snapshotItem(i).textContent.replace(/^\s*(•|-|\d\.|✓)\s*$/, 'SPACEHERE||SPACEHERE');
           }
         }
       }
@@ -46,7 +46,8 @@ module.exports = {
         const bulletTextElements = document.querySelectorAll(selector);
         if (bulletTextElements) {
           bulletTextElements.forEach(el => {
-            el.textContent = `SPACEHERE|| ${el.textContent}`;
+            el.textContent = ` || ${el.textContent}`;
+            addElementToDocument('bullet', el.textContent);
           });
         }
       }
@@ -85,9 +86,9 @@ module.exports = {
 
     const dataRef = await context.extract(productDetails, { transform });
 
-    if (dataRef[0].group[0].description) {
+   /*  if (dataRef[0].group[0].description) {
       dataRef[0].group[0].description = dataRef[0].group[0].description.filter((v, i, a) => a.findIndex(t => (t.text === v.text)) === i);
-    }
+    } */
     reduceInfoToOneField(dataRef[0].group[0].description, '');
     reduceInfoToOneField(dataRef[0].group[0].directions);
     if (dataRef[0].group[0].manufacturerDescription && dataRef[0].group[0].manufacturerDescription.length > 1) {
@@ -106,14 +107,6 @@ module.exports = {
     }
     if (dataRef[0].group[0].description && dataRef[0].group[0].description[0].text.includes('||')) {
       dataRef[0].group[0].description[0].text = dataRef[0].group[0].description[0].text.replace(/\s{2,}/g, ' ').replace(/SPACEHERE/g, ' ');
-      const bulletInfoArray = dataRef[0].group[0].description[0].text.match(/( ?\|\|.+?[.|;])/gm);
-      let bulletInfoString = '';
-      bulletInfoArray.forEach(bullet => {
-        bulletInfoString += bullet;
-      });
-      dataRef[0].group[0].additionalDescBulletInfo = [{
-        text: bulletInfoString.replace(/\s\|\s.+/, ''),
-      }];
       dataRef[0].group[0].descriptionBullets = [{
         text: dataRef[0].group[0].description[0].text.match(/\|\|/gm).length,
       }];
