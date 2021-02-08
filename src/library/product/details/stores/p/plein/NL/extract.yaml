@@ -55,10 +55,11 @@ fields:
     regExpReplace: $1
   - name: variantCount
     singleValue: false
-    defaultValue: 0 
+    xpath: count(//div[@class="product-block"]//ul[contains(@class,"volume-buttons list-unstyled")]/li)
   - name: quantity
     singleValue: false
-    defaultValue: 1 
+    xpath: //div[contains(@class,'col-xs-12 col-lg-6')]//h1
+    regExp: (\d{1,}\W)(g|G|L|Kg|Mg|Ml|ml|Oz|s|l|EA|GR|stuk|tabletten|kauwtabletten|condoms|zuigtabletten|pathch|stucks|pen|par|capsules|zakjes|zetpillen|pièces|crÃ¨me|ml roller|ampoules| ml spray|stick(s)|dragees|zak|zakjes|mg|ampoules|paar|patch| ml tube| préservatifs|pansements|set|sachet|pleisters)
   - name: gtin
     singleValue: false
     xpath: //div[@class="container"]//div[@class="film-button-container"]//@data-ean 
@@ -92,3 +93,9 @@ fields:
     xpath: //li[@class="b-video-item"]/div/@data-videoid | //li//div[@data-videoid]
     regExp: (.+)
     regExpReplace: https://www.youtube.com/watch?v=$1
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[contains(@class,"col-xs-12 col-lg-6")]/div[@class="product-block"]/div[@class="hidden-md-down"]/text()
+  - name: firstVariant
+    singleValue: false
+    xpath: //div[@class="product-block"]//ul[contains(@class,"volume-buttons list-unstyled")]/li[1]/a
