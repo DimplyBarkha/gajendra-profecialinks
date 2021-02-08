@@ -13,5 +13,3 @@ module.exports = {
     await context.goto(url);
   },
 };
-
-

@@ -22,14 +22,14 @@ const transform = (data) => {
           }, '').slice(3),
         }];
       }
-      if(row.availabilityText){
+      if (row.availabilityText) {
         row.availabilityText.forEach(item => {
-          if(item.text === 'In Stock'){
-            item.text = 'In stock'
-          }else if(item.text === 'Out of Stock'){
-            item.text = 'Out of stock'
+          if (item.text === 'In Stock') {
+            item.text = 'In stock';
+          } else if (item.text === 'Out of Stock') {
+            item.text = 'Out of stock';
           }
-        })
+        });
       }
       if (row.specifications) {
         row.specifications = [{
@@ -40,20 +40,20 @@ const transform = (data) => {
       }
       if (row.manufacturerImages) {
         const uniqueImgs = Array.from(new Set(row.manufacturerImages.map(img => img.text)))
-         .map(Text => {
-           return row.manufacturerImages.find(img => img.text === Text)
-         })
-         row.manufacturerImages = uniqueImgs;
+          .map(Text => {
+            return row.manufacturerImages.find(img => img.text === Text);
+          });
+        row.manufacturerImages = uniqueImgs;
       }
       if (row.additionalDescBulletInfo) {
         row.descriptionBullets = [{
           text: row.additionalDescBulletInfo.length,
         }];
       }
-    if (row.price) {
+      if (row.price) {
         row.price.forEach(item => {
           item.text = item.text.replace('$', ' ').trim();
-          //console.log("test",item.text);
+          // console.log("test",item.text);
         });
       }
       if (row.listPrice) {
@@ -61,18 +61,18 @@ const transform = (data) => {
           item.text = item.text.replace('$', ' ').trim();
         });
       }
-      if(row.variantInformation){
+      if (row.variantInformation) {
         row.variantInformation.forEach(item => {
-          item.text = item.text.replace(" selected", '');
-        })
+          item.text = item.text.replace(' selected', '');
+        });
       }
       if (row.nameExtended) {
         row.nameExtended.forEach(item => {
           if (item.text.includes('|')) {
-            item.text = item.text.replace(/(.*?)\s*\|.*/,'$1');
+            item.text = item.text.replace(/(.*?)\s*\|.*/, '$1');
           }
-          if(row.variantInformation){
-            if(row.variantInformation[0].text != ''){
+          if (row.variantInformation) {
+            if (row.variantInformation[0].text != '') {
               item.text = item.text + ' - ' + row.variantInformation[0].text;
             }
           }
@@ -80,9 +80,9 @@ const transform = (data) => {
       }
       if (row.quantity) {
         row.quantity.forEach(item => {
-          if(item.text.indexOf(":")){
+          if (item.text.indexOf(':')) {
             item.text = item.text.slice(6);
-          }else{
+          } else {
             item.text = item.text.slice(5);
           }
         });

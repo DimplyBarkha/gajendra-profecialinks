@@ -12,8 +12,8 @@ module.exports = {
     parameters,
     context,
     dependencies,
-  ) => {    
-    await context.evaluate(async function () {      
+  ) => {
+    await context.evaluate(async function () {
       // Get additional product info 2. Currently not retrieving.
       const productInfo2 = Array.from(document.querySelectorAll('[class^="product-info-block product-info-block--"]')).map(elm => {
         if (elm.querySelector('h3')) {
@@ -38,17 +38,17 @@ module.exports = {
         '';
       document.body.setAttribute('ingredient_list', ingredientList);
 
-      const details = document.querySelector(`script[type="application/ld+json"]`);
-      if(details) {
-        if(JSON.parse(details.text)[2]){
-          let imageArr = JSON.parse(details.text)[2].image;  
-          let images = imageArr.slice(1).join('|');
+      const details = document.querySelector('script[type="application/ld+json"]');
+      if (details) {
+        if (JSON.parse(details.text)[2]) {
+          const imageArr = JSON.parse(details.text)[2].image;
+          const images = imageArr.slice(1).join('|');
           document.body.setAttribute('additional_image', images);
-        }        
+        }
       }
     });
-    
-    //await context.waitForSelector('div.product-image__container');
+
+    // await context.waitForSelector('div.product-image__container');
     await new Promise(resolve => setTimeout(resolve, 8000));
     const { transform } = parameters;
     const { productDetails } = dependencies;

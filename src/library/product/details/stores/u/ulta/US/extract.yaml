@@ -44,10 +44,11 @@ fields:
     manualSelector: div.ProductMainSection__brandName p
   - name: manufacturerDescription
     singleValue: false
-    manualSelector: div#wc-power-page
+    xpath: //div[@id="wc-power-page"] | //div[@id="other-enh-content-text"]
+    # manualSelector: div#wc-power-page, div#other-enh-content-text
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="wc-power-page"]//img/@src
+    xpath: //div[@id="wc-power-page"]//img/@src | //div[@id="other-enh-content-images"]
   - name: videos
     singleValue: false
     xpath: //div[@class="ProductDetail__productContent"]//iframe/@src | //div[starts-with(@id,'video_')]

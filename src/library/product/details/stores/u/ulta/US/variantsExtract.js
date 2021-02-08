@@ -1,4 +1,4 @@
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -6,7 +6,7 @@ async function implementation(
 ) {
   const { createUrl, variants } = dependencies;
   await context.evaluate(function () {
-    function addHiddenDiv(className, content) {
+    function addHiddenDiv (className, content) {
       const newDiv = document.createElement('div');
       newDiv.className = className;
       newDiv.textContent = content;
@@ -14,10 +14,10 @@ async function implementation(
       return newDiv;
     }
     // let url = window.location.href;
-    
-    let fullUrl = document.querySelector('meta[property="og:url"]').getAttribute('content');
-    let selectBeforeSku = '(.+)(?=&sku)';
-    let url = fullUrl.includes('sku') ? fullUrl.match(selectBeforeSku)[0] : fullUrl;
+
+    const fullUrl = document.querySelector('meta[property="og:url"]').getAttribute('content');
+    const selectBeforeSku = '(.+)(?=&sku)';
+    const url = fullUrl.includes('sku') ? fullUrl.match(selectBeforeSku)[0] : fullUrl;
 
     const outerDiv = addHiddenDiv('variants_outer', '');
     if (document.querySelector('div.ProductSwatches__Cell div[class=""] img')) {

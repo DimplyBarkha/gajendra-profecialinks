@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'ulta.com',
-    timeout: 50000,
+    timeout: 60000,
     country: 'US',
     store: 'ulta',
     zipcode: '',
@@ -21,7 +21,7 @@ module.exports = {
     let url = `${inputs.url}`;
     await context.setBlockAds(false);
     url = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
-    await context.goto(url, { waitUntil: 'networkidle0', block_ads: false, timeout: parameterValues.timeout  });
+    await context.goto(url, { waitUntil: 'networkidle0', block_ads: false, timeout: parameterValues.timeout });
     async function autoScroll (page) {
       await page.evaluate(async () => {
         await new Promise((resolve, reject) => {
