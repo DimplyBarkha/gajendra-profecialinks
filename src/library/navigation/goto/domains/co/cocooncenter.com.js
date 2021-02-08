@@ -3,7 +3,8 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'cocooncenter.com',
-    timeout: 1000000,
+    timeout: 90000,
+    actionTimeout: 10000,
     country: 'FR',
     store: 'cocooncenter',
     zipcode: "''",
@@ -13,7 +14,7 @@ module.exports = {
     parameters,
     context,
     dependencies,
-    ) => {
+  ) => {
     const timeout = parameters.timeout ? parameters.timeout : 10000;
 
     await context.setBlockAds(false);
@@ -24,11 +25,11 @@ module.exports = {
     await context.setUseRelayProxy(false);
 
     const responseStatus = await context.goto(url, {
-    firstRequestTimeout: 60000,
-    timeout: timeout,
-    waitUntil: 'load',
-    checkBlocked: false,
+      firstRequestTimeout: 60000,
+      timeout: timeout,
+      waitUntil: 'load',
+      checkBlocked: false,
     });
     await new Promise((resolve) => setTimeout(resolve, 5000));
-    },
+  },
 };
