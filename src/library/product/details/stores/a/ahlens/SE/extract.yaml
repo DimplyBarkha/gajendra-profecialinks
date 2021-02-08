@@ -14,7 +14,9 @@ fields:
     regExp: (.+)(ProductList)(.+)
     regExpReplace: https://www.ahlens.se$1PDPMegazoom$3 
   - name: nameExtended
-    xpath: concat(//div[@ng-if="product.brand && !product.attributes.new"]/a/text()," ", //div[@class="ah-pdp-info"]//h1/text())       
+    xpath: concat(//div[@ng-if="product.brand && !product.attributes.new"]/a/text()," ", //div[@class="ah-pdp-info"]//h1/text())  
+  - name: name
+    xpath: concat(//div[@ng-if="product.brand && !product.attributes.new"]/a/text()," ", //div[@class="ah-pdp-info"]//h1/text())     
   - name: price
     xpath: //div[@class='altImage1'] 
   - name: availabilityText
