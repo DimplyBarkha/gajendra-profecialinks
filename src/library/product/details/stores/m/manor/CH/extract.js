@@ -18,6 +18,13 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  const finalURl = await context.evaluate(async function () {
+    let presentURL = window.location.href;
+    presentURL = presentURL.replace(/(http:\/\/de)(.+)/g, 'https://www.manor.ch/de$2');
+    return presentURL;
+  });
+
+  await context.goto(finalURl, { timeout: 20000, waitUntil: 'load', checkBlocked: true });
   await context.evaluate(async function () {
     function addElementToDocument(key, value) {
       const catElement = document.createElement('div');
@@ -151,7 +158,17 @@ async function implementation(
     } catch (error) {
 
     }
-    addElementToDocument('Images', alternateImages[0]);
+    try {
+      var imageZoom = document.querySelector("meta[name='og:image']").getAttribute('content');
+    } catch (error) {
+
+    }
+    if(imageZoom.includes('zoom')){
+      addElementToDocument('Images', imageZoom);
+    }
+    else{
+      addElementToDocument('Images', alternateImages[0]);
+    }
     for (let k = 1; k < alternateImages.length; k++) {
       addElementToDocument('alternateImages', alternateImages[k]);
     }
