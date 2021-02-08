@@ -14,7 +14,7 @@ module.exports = {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
-        catElement.style.display = 'none';
+        // catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
 
