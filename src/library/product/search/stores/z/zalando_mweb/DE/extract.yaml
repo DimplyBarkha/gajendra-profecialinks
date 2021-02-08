@@ -47,9 +47,10 @@ fields:
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
   - name: sponsored
-    singleValue: false
+    singleValue: true
     description: Is sponsored/paid
     type: BOOLEAN
+    xpath: //@sponsored
   # - name: totalRecordCount
   #   singleValue: true 
   #   type: NUMBER

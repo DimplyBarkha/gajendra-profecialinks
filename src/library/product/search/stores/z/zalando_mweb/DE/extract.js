@@ -10,38 +10,10 @@ module.exports = {
     domain: 'zalando.de',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, store, transform }, context, { productDetails }) => {
-    // checking for selected language and changing to German if required
-    const englishSelected = await context.evaluate(async () => !!document.querySelector('a[title="Choose language"]'));
-    if (englishSelected) {
-      console.log('Changing language');
-      await context.click('a[title="Choose language"]');
-      await context.waitForSelector('div.z-navicat-header_modalContent', { timeout: 10000 });
-      const changingLanguage = await context.evaluate(async () => {
-        const deutschLabel = document.evaluate(
-          '//label[@class="z-navicat-header_radioItem"][contains(. , "Deutsch")]',
-          document,
-          null,
-          XPathResult.ANY_UNORDERED_NODE_TYPE,
-          null,
-        ).singleNodeValue;
-        if (deutschLabel) {
-          deutschLabel.click();
-          await new Promise((resolve) => setTimeout(resolve, 2000));
-          return !!document.querySelector('div.z-navicat-header_modalContent button[class*="Primary"]');
-        }
-      });
-      if (changingLanguage) {
-        await context.click('div.z-navicat-header_modalContent button[class*="Primary"]');
-        await context.waitForNavigation({ timeout: 10000, waitUntil: 'load' });
-      }
-      console.log('Finished changing language');
-    }
-    await context.waitForSelector('script[id="z-nvg-cognac-props"]');
-
+  implementation: async (inputs, { transform }, context, { productDetails }) => {
     await context.evaluate(async () => {
-      const scriptText = document.querySelector('script[id="z-nvg-cognac-props"]').textContent;
-      const scriptObj = JSON.parse(scriptText.match(/<!\[CDATA\[(.+)\]\]>/)[1]);
+      // const scriptText = document.querySelector('script[id="z-nvg-cognac-props"]').textContent;
+      // const scriptObj = JSON.parse(scriptText.match(/<!\[CDATA\[(.+)\]\]>/)[1]);
 
       const oldListElem = document.querySelector('ol#added_product_list');
       if (oldListElem) oldListElem.remove();
@@ -79,6 +51,7 @@ module.exports = {
           null,
         ).stringValue;
         const price = priceString.match(/(\d+([\d,.]+)?.?€)/) ? priceString.match(/(\d+([\d,.]+)?.?€)/)[1] : '';
+        const sponsored = document.evaluate('./preceding-sibling::div[1][contains(. , "Gesponsert")]', product, null, XPathResult.BOOLEAN_TYPE, null).booleanValue;
 
         productElem.setAttribute('search_url', window.location.href);
         productElem.setAttribute('sku', sku);
@@ -87,6 +60,9 @@ module.exports = {
         productElem.setAttribute('thumbnail', imageUrl);
         productElem.setAttribute('price', price);
         productElem.setAttribute('manufacturer', brand);
+        // productElem.setAttribute('sponsored', sponsored.toString());
+        productElem.setAttribute('sponsored', true.toString());
+        console.log(sponsored);
 
         listElem.appendChild(productElem);
       }
@@ -111,6 +87,7 @@ module.exports = {
       // }
       // document.body.appendChild(listElem);
     });
+    console.log(!!transform);
     return await context.extract(productDetails, { transform });
   },
 };
