@@ -72,13 +72,11 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //div[@class="col product-sku__ref"]
-    regExp: (\d{3,9})
+    xpath: //input[@name="SKU"]/@value
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //div[@class="col product-sku__ref"]
-    regExp: (\d{3,9})
+    xpath: //input[@name="SKU"]/@value
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product

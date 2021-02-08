@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //article[contains(@class,'product-card')]/@data-sku/parent::article
 fields:
   - name: productUrl
     xpath: //figcaption[@class="txt-left bold x-large"]/a/@href
@@ -13,14 +13,11 @@ fields:
     description: The URL for the product thumbnail image
     xpath: //img[@class="product-card__pic"]/@src
   - name: name
-    singleValue: true
     description: The product name
-    xpath: (//figcaption[@class="txt-left bold x-large"]//a)//span[2]
+    xpath: //article[contains(@class,'product-card')]//figcaption[@class="txt-left bold x-large"]//a//span/@title
   - name: id
-    singleValue: true
     description: The store-specific product identifier
-    xpath: //article[@class="product-card product-card--close  flex col js-block-product-card "]/@data-sku
+    xpath: //article[contains(@class,'product-card')]/@data-sku
   - name: price
-    singleValue: true
     description: The offered price for the product
     xpath: //span[@class="price-value"]
