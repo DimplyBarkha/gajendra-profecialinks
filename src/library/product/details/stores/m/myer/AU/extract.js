@@ -29,12 +29,22 @@ module.exports = {
     
     try{
       await context.evaluate(function () {
-        let tmp=JSON.stringify(window.__NEXT_DATA__).replace(/.*"selectedVariant":{"id":"(.*?)".*/,'$1');
-        const newDiv = document.createElement('div');
+        let cVariantGot=false;
+        try{
+          let tmp=JSON.stringify(window.__NEXT_DATA__).replace(/.*"selectedVariant":{"id":"(.*?)".*/,'$1');
+          const newDiv = document.createElement('div');
           newDiv.id = 'customselectedVariantDiv';
           newDiv.textContent = tmp;
           newDiv.style.display = 'none';
           document.body.appendChild(newDiv);
+          cVariantGot=true;
+        }catch(e){
+
+        }
+        if(cVariantGot==false){
+          console.log('going for normal variant');
+        }
+        
       })
     }catch(e){
 
