@@ -1,4 +1,4 @@
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -12,8 +12,8 @@ async function implementation(
   //   template: 'https://www.amazon.it/product-reviews/{id}?sortBy=recent&pageNumber={page}',
   // };
 
-  async function checkDate() {
-    let reviewDateRaw = document.querySelector('ul.review-list li:last-child span.date') ? document.querySelector('ul.review-list li:last-child span.date').innerText : '';
+  async function checkDate () {
+    const reviewDateRaw = document.querySelector('ul.review-list li:last-child span.date') ? document.querySelector('ul.review-list li:last-child span.date').innerText : '';
     const topReviewDate = new Date(reviewDateRaw);
     if (topReviewDate) {
       const month = '' + (topReviewDate.getMonth() + 1);
@@ -32,7 +32,7 @@ async function implementation(
     return true;
   }
 
-  let url = await context.evaluate(function () {
+  const url = await context.evaluate(function () {
     /** @type { HTMLLinkElement } */
     const next = document.querySelector('a.arr-next');
     if (!next) {
@@ -58,7 +58,7 @@ async function implementation(
   if (!url) {
     return false;
   }
-  async function checkNoPagination() {
+  async function checkNoPagination () {
     const nextPageBtn = document.querySelector('a.arr-next');
     if (!nextPageBtn) {
       return true;
@@ -107,5 +107,5 @@ module.exports = {
     domain: 'discoverglo.co.kr',
     zipcode: '',
   },
-  implementation
+  implementation,
 };
