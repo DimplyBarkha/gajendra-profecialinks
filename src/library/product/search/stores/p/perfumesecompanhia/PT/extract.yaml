@@ -6,7 +6,9 @@ recordXPath: //div[@id="containerResultsFilter"]//div[contains(@class, " active"
 fields:
   - name: id
     singleValue: false
-    xpath: //@data-prod
+    xpath: //div[@class="preview-img"]/img/@src
+    regExp: produtos\/(.+?)[_\.]
+    regExpReplace: $1
   - name: searchUrl 
     singleValue: false
     xpath: //@searchurl
