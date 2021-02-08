@@ -16,7 +16,7 @@ fields:
     xpath: //li//span[contains(@class,"ProductPrice__PriceValu")]
   - name: thumbnail
     SingleValue: true
-    xpath: //li//img/@src
+    xpath: //div[contains(@class,"LazyLoadImg__Wrapper-sc-1vnijxj-2 ctGTsY")]/img/@src
   - name: name
     SingleValue: true
     xpath: //li//p[contains(@class,"ProductCard__Title")]
