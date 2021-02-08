@@ -45,9 +45,14 @@ module.exports = {
     //  } catch (error) {
        
     //  }
-     const brand = getXpath('//span[@class="productDetails-name"]//text()','nodeValue');
+     try{const brand = getXpath('//span[@class="productDetails-name"]//text()','nodeValue');
      var brand1=brand.split(" ");
       addElementToDocument('brand1', brand1[0])
+     }
+     catch(e)
+     {
+       
+     }
     });
     await context.extract(productDetails, { transform: transformParam });
   },
