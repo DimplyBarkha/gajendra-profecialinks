@@ -44,12 +44,18 @@ fields:
   - name: aggregateRating
     description: The product rating
     xpath: ancestor::html//div[@data-test="review-summary-box"]/h2[not(contains(text(),'%'))]
-  - name: reviewUrl
-    singleValue: false
-    xpath: ancestor::html//meta[contains(@property,'og:url')]/@content
   - name: syndicatedFrom
     singleValue: false
     xpath: //div[contains(@data-test,'review-item-cross-review')]/a[contains(text(),'.')]
+  - name: gtin
+    singleValue: false
+    xpath: ancestor::html//div[contains(@itemprop,'description')]//li[contains(text(),'EAN:')]
+    regExp: ^EAN:?(.*).
+    regExpReplace: $1
+  # description: GTIN code (includes UPC/EAN)
+  # - name: reviewUrl
+  #   singleValue: false
+  #   xpath: ancestor::html//meta[contains(@property,'og:url')]/@content
   # description: Stated place the review was syndicated from
   # - name: commentCount
   #   singleValue: false
@@ -59,9 +65,6 @@ fields:
   # - name: reviewerTags
   #   singleValue: false
   #   description: The tags a reviewer has
-  # - name: gtin
-  #   singleValue: true
-  #   description: GTIN code (includes UPC/EAN)
   # - name: verifiedPurchase
   #   singleValue: true
   #   type: BOOLEAN
