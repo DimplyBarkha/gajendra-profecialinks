@@ -25,7 +25,7 @@ module.exports = {
     // const URL = `${url}#[!opt!]{"first_request_timeout":50000, "force200": true, "cookie_jar"}[/!opt!]`;
 
     // await context.goto(URL, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
-    await context.captureRequests();
+    // await context.captureRequests();
     await context.goto(url, { first_request_timeout: 90000, timeout, waitUntil: 'load', checkBlocked: true });
     if (zipcode) {
       await dependencies.setZipCode({ url: url, zipcode: zipcode });

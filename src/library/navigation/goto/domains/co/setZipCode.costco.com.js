@@ -25,5 +25,13 @@ module.exports = {
       await context.click('button#costcoModalBtn2');
       await new Promise(resolve => setTimeout(resolve, 10000));
     }
+    await context.goto(url, {
+      block_ads: false,
+      load_all_resources: true,
+      images_enabled: true,
+      timeout: 80000,
+      waitUntil: 'load',
+    });
+    await context.waitForNavigation();
   },
 };

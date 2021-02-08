@@ -18,7 +18,7 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(async () => {
-      await new Promise(resolve => setTimeout(resolve, 5000));
+      await new Promise(resolve => setTimeout(resolve, 11000));
       const element = document.querySelectorAll('div.row.active div.product-info-description li');
       if (element) {
         for (let i = 1; i <= element.length; i++) {
@@ -130,76 +130,48 @@ module.exports = {
         document.body.appendChild(newDiv);
       }
     });
-    await context.evaluate(async function () {
-      try {
-        const iframe = document.querySelector('[title="Product Videos"]');
-        if (iframe) {
-          // @ts-ignore
-          const video = iframe.contentWindow.document.getElementsByTagName('video');
-          const videoUrls = [...video].map(elm => elm.src);
-          document.querySelector('head').setAttribute('video', videoUrls.join(''));
-        } else {
-          const id = document.querySelector('#product-body-item-number') ? document.querySelector('#product-body-item-number').textContent.match(/(\d+)/g) : '';
-          const url = `https://cors-anywhere.herokuapp.com/https://sc.liveclicker.net/service/api?method=liveclicker.widget.getList&account_id=69&dim5=${id}&format=json`;
-          const data = await fetch(url);
-          if (data.status === 200) {
-            const json = await data.json();
-            const arr = [];
-            const array = json.widgets.widget;
-            array.forEach(item => {
-              const val = item.asset_id;
-              const url = `https://d2vxgxvhgubbj8.cloudfront.net/videos/69/${val}_1_liveclicker.mp4`;
-              arr.push(url);
-            });
-            let count = 0;
-            arr.forEach(item => {
-              document.querySelector('head').setAttribute(`vid${count}`, item);
-              count++;
-            });
-          }
-        }
-      } catch (err) {}
+    // Syndigo API1 code to append enhanced content.
+    const productID = await context.evaluate(async () => {
+      const ProductUrl = document.querySelector('meta[property="og:url"][content]');
+      let id = ProductUrl.content;
+      id = id.split('product.');
+      id = id[1].split('.');
+      id = id[0];
+      return id;
     });
-    // await context.evaluate(async () => {
-    //   const moreBtn = document.querySelectorAll('div input[name="view-more"]');
-    //   if (moreBtn && moreBtn.length > 0) {
-    //     for (let cnt = 0; cnt < moreBtn.length; cnt++) {
-    //       try {
-    //         // @ts-ignore
-    //         moreBtn[cnt].click();
-    //         await new Promise(resolve => setTimeout(resolve, 2000));
-    //       } catch (err) { }
-    //     }
-    //   }
-    // });
-    // await context.evaluate(async () => {
-    //   const parentNode1 = document.querySelector('div.syndi_powerpage');
-    //   await new Promise(resolve => setTimeout(resolve, 1000));
-    //   if (parentNode1 && parentNode1.shadowRoot && parentNode1.shadowRoot.firstChild) {
-    //     const fetchNode = parentNode1.shadowRoot.firstChild;
-    //     // @ts-ignore
-    //     const allVideos = Array.from(fetchNode.querySelectorAll('video'));
-    //     for (let item = 0; item < allVideos.length; item++) {
-    //       allVideos[item].click();
-    //       await new Promise(resolve => setTimeout(resolve, 1000));
-    //     }
-    //   }
-    // });
-    // var videoRequest = await context.searchForRequest('https://content.syndigo.com/asset/.*ts', 'GET');
-    // if (videoRequest && videoRequest.url) {
-    //   console.log('videos-------->', videoRequest.url);
-    //   await context.evaluate((videoRequest) => {
-    //     function addHiddenDiv (id, content) {
-    //       const newDiv = document.createElement('div');
-    //       newDiv.id = id;
-    //       newDiv.textContent = content;
-    //       newDiv.style.display = 'none';
-    //       document.body.appendChild(newDiv);
-    //     }
-    //     addHiddenDiv('videos1', videoRequest.url);
-    //   }, videoRequest);
-    // }
-
+    const pageId = 'costco';
+    // @ts-ignore
+    async function syndigoAPI1 (productID, pageId) {
+      async function appendData (productID, pageId) {
+        const api = `https://scontent.webcollage.net/${pageId}/power-page?ird=true&channel-product-id=${productID}`;
+        // api.allorigins.win to avoid cors
+        const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(api)}`);
+        // const response = await fetch(api);
+        const text = (await response.json()).contents;
+        //   const text = await response.text();
+        if (text.match(/terminatePowerPage/) || !text.match(/_wccontent/)) {
+          console.log('Enhanced content not found');
+          return false;
+        }
+        // eslint-disable-next-line no-eval
+        eval(text.replace('document.getElementsByTagName(\'head\')[0].appendChild(_wcscript);', '//document.getElementsByTagName(\'head\')[0].appendChild(_wcscript);')); // might fail if response doesnt has the data.
+        // add HTM Content
+        const div = document.createElement('div');
+        div.id = 'added-ec1';
+        // @ts-ignore
+        div.innerHTML = window._wccontent.aplus.html;
+        // @TODO Should we retrun div instead?
+        document.body.append(div);
+        return true;
+      }
+      try {
+      // @ts-ignore
+        return await context.evaluate(appendData, productID, pageId);
+      } catch (error) {
+        console.log('Enhanced content not found. Error: ', error);
+      }
+    }
+    await syndigoAPI1(productID, pageId);
     return await context.extract(productDetails, { transform });
   },
 };

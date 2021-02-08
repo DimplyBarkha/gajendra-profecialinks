@@ -142,12 +142,9 @@ const transform = (data) => {
         });
         row.fastTrack[0].text = fastText;
       }
-      if (row.videos) {
-        row.videos.forEach(item => {
-          if (item.text.includes('.hls.m3u8')) {
-            item.text = item.text.replace('.hls.m3u8', '.mp4.480.mp4');
-          }
-        });
+
+      if (row.videos && row.videos.length > 0) {
+        row.videos = row.videos.filter((thing, index, self) => self.findIndex(t => t.text === thing.text) === index);
       }
       if (row.ratingCount) {
         row.ratingCount.forEach(item => {
