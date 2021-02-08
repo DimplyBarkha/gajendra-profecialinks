@@ -141,3 +141,5 @@ fields:
     xpath: //script[@type="application/ld+json"]
   - name: colour
     xpath: //div[contains(@class,'a2l9')]/@title
+  - name: mpc
+    xpath: (//span[contains(@class,"b5j6") and text()="Партномер"]/ancestor::dt/following-sibling::dd)[1]
