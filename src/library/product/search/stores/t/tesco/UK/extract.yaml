@@ -9,7 +9,8 @@ fields:
     regExpReplace: https://www.tesco.com$1
     description: The URL for the product details page
   - name: thumbnail
-    xpath: //a[contains(@class,"product-image-wrapper")]//img/@src
+    # xpath: //a[contains(@class,"product-image-wrapper")]//img/@src
+    xpath: //div[@class="flexi-tile"]//div[@class="tile-content"]/@imagedetail
     description: The URL for the product thumbnail image
   - name: name
     xpath: //a[@data-auto="product-tile--title"]
@@ -25,6 +26,10 @@ fields:
   - name: sponsored
     defaultValue: false
   - name: gtin
-    xpath: //a[contains(@class,"product-image-wrapper")]//img/@src
+    # xpath: //a[contains(@class,"product-image-wrapper")]//img/@
+    xpath: //div[@class="flexi-tile"]//div[@class="tile-content"]/@imagedetail
     regExp: (\d+)\/[^\/]+$
     regExpReplace: $1
+
+
+    
