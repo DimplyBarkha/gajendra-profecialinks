@@ -140,14 +140,14 @@ module.exports = {
     }
 
     await context.evaluate(async function () {
-      function addElementToDocument (key, value) {
+      function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.className = key;
         catElement.textContent = value;
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
-      function addElementToHTML (key, value) {
+      function addElementToHTML(key, value) {
         const catElement = document.createElement('div');
         catElement.className = key;
         catElement.innerHTML = value;
@@ -170,7 +170,7 @@ module.exports = {
         else result = elem ? elem.singleNodeValue : '';
         return result && result.trim ? result.trim() : result;
       };
-      function stall (ms) {
+      function stall(ms) {
         // @ts-ignore
         return new Promise((resolve, reject) => {
           setTimeout(() => {
@@ -212,7 +212,9 @@ module.exports = {
         addElementToHTML('added_video_hidden', isVideoXpath);
         const VideoXpath = getXpath('//div[@class="added_video_hidden"]//img/@data-iframe', 'nodeValue');
         // VideoXpath.substring(VideoXpath.indexOf('src=') + 4, VideoXpath.indexOf('frameborder'))
-        addElementToDocument('added_video_url', VideoXpath.substring(VideoXpath.indexOf('src=') + 5, VideoXpath.indexOf('frameborder') - 2));
+        // addElementToDocument('added_video_url', VideoXpath.substring(VideoXpath.indexOf('src=') + 5, VideoXpath.indexOf('frameborder') - 2));
+        addElementToDocument('added_gallery_video', VideoXpath.substring(VideoXpath.indexOf('src=') + 5, VideoXpath.indexOf('frameborder') - 2));
+
       }
       const name = getXpath("//div[contains(@class,'hidden-tab-up')]//div[@data-component='productDetailInfo']//h1", 'innerText');
       // var el = document.querySelector("div.hidden-lg h2[itemprop='description']").textContent;
@@ -284,18 +286,41 @@ module.exports = {
       const specificInfoXpath = getAllXpath("//ul[@class='content__Tech__block']//li[@class='content__Tech__row']", 'innerText');
       addElementToDocument('added_specific_information', specificInfoXpath.join('||'));
       // const videoUrlPath = getXpath("//div[contains(@class,'fullJwPlayerWarp')]//input[@class='flix-jw']/@value", 'nodeValue');
-      const videoUrlPath = getAllXpath("//input[@class='flix-jw']/@value", 'nodeValue');
-      if (videoUrlPath.length > 0) {
-        for (let i = 0; i < videoUrlPath.length; i++) {
-          if (videoUrlPath[i] && typeof videoUrlPath[i] === 'string') {
-            console.log(videoUrlPath[i]);
-            try {
-              var videoUrlObj = JSON.parse(videoUrlPath[i]);
-              videoUrlObj.playlist.forEach(element => {
-                addElementToDocument('added_video_url', 'https:' + element.file);
-              });
-            } catch (error) {
-              console.log(error);
+      const videoUrlPath = getAllXpath('//div[@class="fl1xcarousel"]//input[@class="flix-jw"]/@value', 'nodeValue');
+      getVideoUrl(videoUrlPath, 'added_video_url');
+
+      const galleryVideoUrl = getAllXpath('//div[@id="hotspot"]//input[@class="flix-jw"]/@value', 'nodeValue');
+      getVideoUrl(galleryVideoUrl, 'added_gallery_video');
+
+      // if (videoUrlPath.length > 0) {
+      //   for (let i = 0; i < videoUrlPath.length; i++) {
+      //     if (videoUrlPath[i] && typeof videoUrlPath[i] === 'string') {
+      //       console.log(videoUrlPath[i]);
+      //       try {
+      //         var videoUrlObj = JSON.parse(videoUrlPath[i]);
+      //         videoUrlObj.playlist.forEach(element => {
+      //           addElementToDocument('added_video_url', 'https:' + element.file);
+      //         });
+      //       } catch (error) {
+      //         console.log(error);
+      //       }
+      //     }
+      //   }
+      // }
+
+      function getVideoUrl(videoUrl, addToDOM) {
+        if (videoUrl.length > 0) {
+          for (let i = 0; i < videoUrl.length; i++) {
+            if (videoUrl[i] && typeof videoUrl[i] === 'string') {
+              console.log(videoUrl[i]);
+              try {
+                var videoUrlObj = JSON.parse(videoUrl[i]);
+                videoUrlObj.playlist.forEach(element => {
+                  addElementToDocument(addToDOM, 'https:' + element.file);
+                });
+              } catch (error) {
+                console.log(error);
+              }
             }
           }
         }
