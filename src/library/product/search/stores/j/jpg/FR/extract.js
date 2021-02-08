@@ -15,7 +15,7 @@ module.exports = {
   ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    await context.waitForSelector('ol[class="page-breadcrumb"]', { timeout: 18000 });
+    await context.waitForSelector('div[class="flex"]', { timeout: 18000 });
     const applyScroll = async function (context) {
     await context.evaluate(async () => {
       try {

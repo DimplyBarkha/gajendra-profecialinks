@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'section[class="page-category__products-cards"] article',
+    loadedSelector: 'div[class="flex"]',
     noResultsXPath: '//header[@class="search-noresult my-3"]/h3/text()|//ol[@class="page-breadcrumb"]//span[@class="js-dropdown-button"]',
     openSearchDefinition: {
       pageStartNb: 0,

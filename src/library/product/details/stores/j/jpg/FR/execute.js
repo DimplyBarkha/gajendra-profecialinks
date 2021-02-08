@@ -5,8 +5,8 @@ module.exports = {
     country: 'FR',
     store: 'jpg',
     domain: 'jpg.fr',
-    loadedSelector: 'div[class="col"] div[class="product-sku-wrapper"]',
-    noResultsXPath: '//body[@id="error-404"]',
+    loadedSelector: 'div[class="flex"]',
+    noResultsXPath: '//body[@id="error-404"]|//header[@class="search-noresult my-3"]/h3/text()',
     zipcode: '',
   },
 };
