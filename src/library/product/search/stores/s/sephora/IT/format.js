@@ -57,6 +57,13 @@ const transform = (data, context) => {
           }
         });
       }
+      if (row.price) {
+        row.price.forEach(item => {
+          console.log("item.text",item.text);
+           item.text = item.text.replace(',','.').trim();
+           console.log(" final item.text",item.text);
+        });
+      }
     }
   }
   context.setState({ rankCounter });
