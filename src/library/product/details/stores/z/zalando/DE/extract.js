@@ -15,7 +15,7 @@ module.exports = {
     if (englishSelected) {
       console.log('Changing language');
       await context.click('a[title="Choose language"]');
-      await context.waitForSelector('div.z-navicat-header_modalContent', { timeout: 5000 });
+      await context.waitForSelector('div.z-navicat-header_modalContent', { timeout: 10000 });
       const changingLanguage = await context.evaluate(async () => {
         const deutschLabel = document.evaluate(
           '//label[@class="z-navicat-header_radioItem"][contains(. , "Deutsch")]',
@@ -26,7 +26,7 @@ module.exports = {
         ).singleNodeValue;
         if (deutschLabel) {
           deutschLabel.click();
-          await new Promise((resolve) => setTimeout(resolve, 1000));
+          await new Promise((resolve) => setTimeout(resolve, 2000));
           return !!document.querySelector('div.z-navicat-header_modalContent button[class*="Primary"]');
         }
       });
@@ -68,6 +68,7 @@ module.exports = {
     for (let i = 1; i <= iterations; i++) {
       if (numOfVariants) {
         await context.click(`form[name="size-picker-form"] div[role="presentation"]:nth-of-type(${i}) label`);
+        await new Promise((resolve) => setTimeout(resolve, 2000));
       }
 
       const inStock = await context.evaluate(async () => {
@@ -83,7 +84,7 @@ module.exports = {
         ).booleanValue;
         if (closeButton) {
           closeButton.parentElement.parentElement.click();
-          await new Promise((resolve) => setTimeout(resolve, 1000));
+          await new Promise((resolve) => setTimeout(resolve, 2000));
         }
         return inStock;
       });
@@ -108,14 +109,26 @@ module.exports = {
             ? [productName]
             : [brand, productName];
 
-          const size = variantElement && variantElement.querySelector('label > span span')
-            ? variantElement.querySelector('label > span span').textContent.trim()
-            : '';
+          const size =
+            variantElement && variantElement.querySelector('label > span span')
+              ? variantElement.querySelector('label > span span').textContent.trim()
+              : '';
           if (size) nameExtended.push(size);
 
-          const colorName = document.querySelector('x-wrapper-re-1-3 > div:last-child span:last-child')
+          let colorName = document.querySelector('x-wrapper-re-1-3 > div:last-child span:last-child')
             ? document.querySelector('x-wrapper-re-1-3 > div:last-child span:last-child').textContent
             : '';
+          if (!colorName) {
+            colorName = document
+              .evaluate(
+                '//div[span[contains(text(), "Farbe")]]//button[contains(@aria-labelledby, "farbe")]//span',
+                document,
+                null,
+                XPathResult.STRING_TYPE,
+                null,
+              )
+              .stringValue.trim();
+          }
           if (colorName) {
             addedVariant.setAttribute('variant_information', colorName);
             nameExtended.push(colorName);
@@ -141,36 +154,36 @@ module.exports = {
             const firstVariantValue = firstVariantElem.getAttribute('value');
             if (firstVariantValue) addedVariant.setAttribute('first_variant', firstVariantValue);
 
-            if (inStock) {
-              const priceRow = document.querySelector('x-wrapper-re-1-3 > div > div');
-              const priceElements = document.evaluate(
-                './/span[text() and not(contains(text(), "inkl"))]',
-                priceRow,
-                null,
-                XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
-                null,
-              );
-              const price = priceElements.snapshotItem(0) ? priceElements.snapshotItem(0).textContent : '';
-              const listPrice = priceElements.snapshotItem(1) ? priceElements.snapshotItem(1).textContent : '';
-
-              addedVariant.setAttribute('price', price);
-              addedVariant.setAttribute('list_price', listPrice);
-
-              const variantsList = document.createElement('ol');
-              variantsList.id = 'variants';
-              const totalVariants = document.querySelectorAll(
-                'form[name="size-picker-form"] div[role="presentation"] > input',
-              );
-              for (let j = 0; j < totalVariants.length; j++) {
-                const variantId = totalVariants[j].getAttribute('value');
-                if (variantId !== currentVariantId) {
-                  const listItem = document.createElement('li');
-                  listItem.textContent = variantId;
-                  variantsList.appendChild(listItem);
-                }
+            const variantsList = document.createElement('ol');
+            variantsList.id = 'variants';
+            const totalVariants = document.querySelectorAll(
+              'form[name="size-picker-form"] div[role="presentation"] > input',
+            );
+            for (let j = 0; j < totalVariants.length; j++) {
+              const variantId = totalVariants[j].getAttribute('value');
+              if (variantId !== currentVariantId) {
+                const listItem = document.createElement('li');
+                listItem.textContent = variantId;
+                variantsList.appendChild(listItem);
               }
-              addedVariant.appendChild(variantsList);
             }
+            addedVariant.appendChild(variantsList);
+          }
+
+          if (inStock) {
+            const priceRow = document.querySelector('x-wrapper-re-1-3 > div > div');
+            const priceElements = document.evaluate(
+              './/span[text() and not(contains(text(), "inkl"))]',
+              priceRow,
+              null,
+              XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
+              null,
+            );
+            const price = priceElements.snapshotItem(0) ? priceElements.snapshotItem(0).textContent : '';
+            const listPrice = priceElements.snapshotItem(1) ? priceElements.snapshotItem(1).textContent : '';
+
+            addedVariant.setAttribute('price', price);
+            addedVariant.setAttribute('list_price', listPrice);
           }
 
           addedVariant.setAttribute('availability_text', availabilityText);

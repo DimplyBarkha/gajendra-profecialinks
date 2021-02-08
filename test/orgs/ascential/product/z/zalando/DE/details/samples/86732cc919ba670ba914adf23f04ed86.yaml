@@ -2,7 +2,7 @@ input:
   _url: http://zalando.de
   URL: https://en.zalando.de/michael-kors-nick-trainers-natural-1mi12o00x-b11.html
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=f05bbcbd-f617-4774-bbfd-2645527fa9fc/task=69536944-0587-44a1-ba61-1963d2f0daa6/1a698278-95c9-40d9-ac48-376710b480cb.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=e35e8f30-a8cf-4cd7-8a2d-f2e6d1aac5a7/task=87df1ee0-8dd1-48b1-9047-f68daab4bd22/ced9b8ff-fac4-4980-9888-3aa223da43b6.html
     extractionConfigId: product/details/stores/z/zalando/DE/extract
     data:
       - group:
@@ -20,13 +20,13 @@ extractions:
               - text: 1MI12O00X-B110013000
                 xpath: /html/body/div[7]/ol[1]/li[6]
             productUrl:
-              - text: https://www.zalando.de/michael-kors-nick-sneaker-low-natural-1mi12o00x-b11.html
+              - text: https://en.zalando.de/michael-kors-nick-trainers-natural-1mi12o00x-b11.html
                 xpath: /html/body/div[14]
             image:
               - text: https://img01.ztat.net/article/spp-media-p1/eb0ff51429fa3f72b2f6e890bcca8fb1/d6209cba543a46f2a9d4f8a380010d51.jpg
                 xpath: /html/body/ol[1]/li[1]
             imageAlt:
-              - text: Michael Kors - NICK - Sneaker low - natural
+              - text: Michael Kors - NICK - Trainers - natural
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
               - text: https://img01.ztat.net/article/spp-media-p1/0abe988d8a0e398e94d23fde0c1cc94a/0d9789fade114d688ad8ed09845144d2.jpg
@@ -40,21 +40,23 @@ extractions:
               - text: https://img01.ztat.net/article/spp-media-p1/302eafc1cbe434fa8398c2652818cde3/a503c809479343d88c1bbd4ba74ef6c6.jpg
                 xpath: /html/body/ol[1]/li[6]
             nameExtended:
-              - text: Michael Kors NICK - Sneaker low 40 natural
+              - text: Michael Kors NICK - Trainers 40 natural
                 xpath: /html/body/div[7]/@name_extended
+            listPrice:
+              - text: VAT included
+                xpath: /html/body/div[7]/@list_price
             price:
               - text: 224,95 €
                 xpath: /html/body/div[7]/@price
             availabilityText:
-              - text: Out Of Stock
+              - text: In Stock
                 xpath: /html/body/div[7]/@availability_text
             description:
-              - text: Obermaterial: Leder und Textil | Innenmaterial: Textil | Decksohle: Leder
-                  | Sohle: Kunststoff | Fütterungsdicke: Kalt gefüttert |
-                  Pflegehinweise: Bitte vor dem ersten Tragen imprägnieren |
-                  Details aus Veloursleder | Schuhspitze: Rund |
-                  Verschluss: Schnürung | Muster: Animal print |
-                  Details: Cut-Outs | Artikelnummer: 1MI12O00X-B11
+              - text: Upper material: Leather and textile | Lining: Textile | Insole: Leather |
+                  Sole: Synthetics | Padding type: Cold padding | Care
+                  instructions: Treat with a suitable protector before wear |
+                  Shoe tip: Round | Fastening: Laces | Pattern: Animal print |
+                  Details: Cut-outs | Article number: 1MI12O00X-B11
                 xpath: /html/body/div[7]/@description
             brandText:
               - text: Michael Kors
@@ -62,9 +64,6 @@ extractions:
             manufacturer:
               - text: Michael Kors
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
-            sku:
-              - text: 1MI12O00X-B11
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/span[2]
             variantId:
               - text: 1MI12O00X-B110007000
                 xpath: /html/body/div[7]/@variant_id
@@ -72,19 +71,22 @@ extractions:
               - text: 1MI12O00X
                 xpath: /html/body/div[7]/@mpc
             ratingCount:
-              - text: "11"
+              - text: "1"
                 xpath: /html/body/div[7]/@rating_count
             aggregateRating:
-              - text: 4,3
+              - text: "4"
                 xpath: /html/body/div[7]/@aggregate_rating
             variantCount:
               - text: "7"
                 xpath: /html/body/div[15]
+            color:
+              - text: natural
+                xpath: /html/body/div[7]/@variant_information
             name:
-              - text: NICK - Sneaker low
+              - text: NICK - Trainers
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/h1[1]
             brandLink:
-              - text: https://www.zalando.de/michaelkors/
+              - text: https://en.zalando.de/michaelkors/
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             secondaryImageTotal:
               - text: "5"
@@ -97,12 +99,12 @@ extractions:
                 xpath: /html/body/div[7]/@first_variant
             materials:
               - text: |-
-                  Obermaterial: Leder und Textil
-                  Innenmaterial: Textil
-                  Decksohle: Leder
-                  Sohle: Kunststoff
-                  Fütterungsdicke: Kalt gefüttert
-                  Pflegehinweise: Bitte vor dem ersten Tragen imprägnieren
+                  Upper material: Leather and textile
+                  Lining: Textile
+                  Insole: Leather
+                  Sole: Synthetics
+                  Padding type: Cold padding
+                  Care instructions: Treat with a suitable protector before wear
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
             imageZoomFeaturePresent:
               - text: "true"
@@ -120,13 +122,13 @@ extractions:
               - text: 1MI12O00X-B110013000
                 xpath: /html/body/div[8]/ol[1]/li[6]
             productUrl:
-              - text: https://www.zalando.de/michael-kors-nick-sneaker-low-natural-1mi12o00x-b11.html
+              - text: https://en.zalando.de/michael-kors-nick-trainers-natural-1mi12o00x-b11.html
                 xpath: /html/body/div[14]
             image:
               - text: https://img01.ztat.net/article/spp-media-p1/eb0ff51429fa3f72b2f6e890bcca8fb1/d6209cba543a46f2a9d4f8a380010d51.jpg
                 xpath: /html/body/ol[1]/li[1]
             imageAlt:
-              - text: Michael Kors - NICK - Sneaker low - natural
+              - text: Michael Kors - NICK - Trainers - natural
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
               - text: https://img01.ztat.net/article/spp-media-p1/0abe988d8a0e398e94d23fde0c1cc94a/0d9789fade114d688ad8ed09845144d2.jpg
@@ -140,21 +142,23 @@ extractions:
               - text: https://img01.ztat.net/article/spp-media-p1/302eafc1cbe434fa8398c2652818cde3/a503c809479343d88c1bbd4ba74ef6c6.jpg
                 xpath: /html/body/ol[1]/li[6]
             nameExtended:
-              - text: Michael Kors NICK - Sneaker low 41 natural
+              - text: Michael Kors NICK - Trainers 41 natural
                 xpath: /html/body/div[8]/@name_extended
+            listPrice:
+              - text: VAT included
+                xpath: /html/body/div[8]/@list_price
             price:
               - text: 224,95 €
                 xpath: /html/body/div[8]/@price
             availabilityText:
-              - text: Out Of Stock
+              - text: In Stock
                 xpath: /html/body/div[8]/@availability_text
             description:
-              - text: Obermaterial: Leder und Textil | Innenmaterial: Textil | Decksohle: Leder
-                  | Sohle: Kunststoff | Fütterungsdicke: Kalt gefüttert |
-                  Pflegehinweise: Bitte vor dem ersten Tragen imprägnieren |
-                  Details aus Veloursleder | Schuhspitze: Rund |
-                  Verschluss: Schnürung | Muster: Animal print |
-                  Details: Cut-Outs | Artikelnummer: 1MI12O00X-B11
+              - text: Upper material: Leather and textile | Lining: Textile | Insole: Leather |
+                  Sole: Synthetics | Padding type: Cold padding | Care
+                  instructions: Treat with a suitable protector before wear |
+                  Shoe tip: Round | Fastening: Laces | Pattern: Animal print |
+                  Details: Cut-outs | Article number: 1MI12O00X-B11
                 xpath: /html/body/div[8]/@description
             brandText:
               - text: Michael Kors
@@ -162,9 +166,6 @@ extractions:
             manufacturer:
               - text: Michael Kors
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
-            sku:
-              - text: 1MI12O00X-B11
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/span[2]
             variantId:
               - text: 1MI12O00X-B110008000
                 xpath: /html/body/div[8]/@variant_id
@@ -172,19 +173,22 @@ extractions:
               - text: 1MI12O00X
                 xpath: /html/body/div[8]/@mpc
             ratingCount:
-              - text: "11"
+              - text: "1"
                 xpath: /html/body/div[8]/@rating_count
             aggregateRating:
-              - text: 4,3
+              - text: "4"
                 xpath: /html/body/div[8]/@aggregate_rating
             variantCount:
               - text: "7"
                 xpath: /html/body/div[15]
+            color:
+              - text: natural
+                xpath: /html/body/div[8]/@variant_information
             name:
-              - text: NICK - Sneaker low
+              - text: NICK - Trainers
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/h1[1]
             brandLink:
-              - text: https://www.zalando.de/michaelkors/
+              - text: https://en.zalando.de/michaelkors/
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             secondaryImageTotal:
               - text: "5"
@@ -197,12 +201,12 @@ extractions:
                 xpath: /html/body/div[8]/@first_variant
             materials:
               - text: |-
-                  Obermaterial: Leder und Textil
-                  Innenmaterial: Textil
-                  Decksohle: Leder
-                  Sohle: Kunststoff
-                  Fütterungsdicke: Kalt gefüttert
-                  Pflegehinweise: Bitte vor dem ersten Tragen imprägnieren
+                  Upper material: Leather and textile
+                  Lining: Textile
+                  Insole: Leather
+                  Sole: Synthetics
+                  Padding type: Cold padding
+                  Care instructions: Treat with a suitable protector before wear
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
             imageZoomFeaturePresent:
               - text: "true"
@@ -220,13 +224,13 @@ extractions:
               - text: 1MI12O00X-B110013000
                 xpath: /html/body/div[9]/ol[1]/li[6]
             productUrl:
-              - text: https://www.zalando.de/michael-kors-nick-sneaker-low-natural-1mi12o00x-b11.html
+              - text: https://en.zalando.de/michael-kors-nick-trainers-natural-1mi12o00x-b11.html
                 xpath: /html/body/div[14]
             image:
               - text: https://img01.ztat.net/article/spp-media-p1/eb0ff51429fa3f72b2f6e890bcca8fb1/d6209cba543a46f2a9d4f8a380010d51.jpg
                 xpath: /html/body/ol[1]/li[1]
             imageAlt:
-              - text: Michael Kors - NICK - Sneaker low - natural
+              - text: Michael Kors - NICK - Trainers - natural
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
               - text: https://img01.ztat.net/article/spp-media-p1/0abe988d8a0e398e94d23fde0c1cc94a/0d9789fade114d688ad8ed09845144d2.jpg
@@ -240,21 +244,23 @@ extractions:
               - text: https://img01.ztat.net/article/spp-media-p1/302eafc1cbe434fa8398c2652818cde3/a503c809479343d88c1bbd4ba74ef6c6.jpg
                 xpath: /html/body/ol[1]/li[6]
             nameExtended:
-              - text: Michael Kors NICK - Sneaker low 42 natural
+              - text: Michael Kors NICK - Trainers 42 natural
                 xpath: /html/body/div[9]/@name_extended
+            listPrice:
+              - text: VAT included
+                xpath: /html/body/div[9]/@list_price
             price:
               - text: 224,95 €
                 xpath: /html/body/div[9]/@price
             availabilityText:
-              - text: Out Of Stock
+              - text: In Stock
                 xpath: /html/body/div[9]/@availability_text
             description:
-              - text: Obermaterial: Leder und Textil | Innenmaterial: Textil | Decksohle: Leder
-                  | Sohle: Kunststoff | Fütterungsdicke: Kalt gefüttert |
-                  Pflegehinweise: Bitte vor dem ersten Tragen imprägnieren |
-                  Details aus Veloursleder | Schuhspitze: Rund |
-                  Verschluss: Schnürung | Muster: Animal print |
-                  Details: Cut-Outs | Artikelnummer: 1MI12O00X-B11
+              - text: Upper material: Leather and textile | Lining: Textile | Insole: Leather |
+                  Sole: Synthetics | Padding type: Cold padding | Care
+                  instructions: Treat with a suitable protector before wear |
+                  Shoe tip: Round | Fastening: Laces | Pattern: Animal print |
+                  Details: Cut-outs | Article number: 1MI12O00X-B11
                 xpath: /html/body/div[9]/@description
             brandText:
               - text: Michael Kors
@@ -262,9 +268,6 @@ extractions:
             manufacturer:
               - text: Michael Kors
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
-            sku:
-              - text: 1MI12O00X-B11
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/span[2]
             variantId:
               - text: 1MI12O00X-B110009000
                 xpath: /html/body/div[9]/@variant_id
@@ -272,19 +275,22 @@ extractions:
               - text: 1MI12O00X
                 xpath: /html/body/div[9]/@mpc
             ratingCount:
-              - text: "11"
+              - text: "1"
                 xpath: /html/body/div[9]/@rating_count
             aggregateRating:
-              - text: 4,3
+              - text: "4"
                 xpath: /html/body/div[9]/@aggregate_rating
             variantCount:
               - text: "7"
                 xpath: /html/body/div[15]
+            color:
+              - text: natural
+                xpath: /html/body/div[9]/@variant_information
             name:
-              - text: NICK - Sneaker low
+              - text: NICK - Trainers
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/h1[1]
             brandLink:
-              - text: https://www.zalando.de/michaelkors/
+              - text: https://en.zalando.de/michaelkors/
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             secondaryImageTotal:
               - text: "5"
@@ -297,12 +303,12 @@ extractions:
                 xpath: /html/body/div[9]/@first_variant
             materials:
               - text: |-
-                  Obermaterial: Leder und Textil
-                  Innenmaterial: Textil
-                  Decksohle: Leder
-                  Sohle: Kunststoff
-                  Fütterungsdicke: Kalt gefüttert
-                  Pflegehinweise: Bitte vor dem ersten Tragen imprägnieren
+                  Upper material: Leather and textile
+                  Lining: Textile
+                  Insole: Leather
+                  Sole: Synthetics
+                  Padding type: Cold padding
+                  Care instructions: Treat with a suitable protector before wear
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
             imageZoomFeaturePresent:
               - text: "true"
@@ -320,13 +326,13 @@ extractions:
               - text: 1MI12O00X-B110013000
                 xpath: /html/body/div[10]/ol[1]/li[6]
             productUrl:
-              - text: https://www.zalando.de/michael-kors-nick-sneaker-low-natural-1mi12o00x-b11.html
+              - text: https://en.zalando.de/michael-kors-nick-trainers-natural-1mi12o00x-b11.html
                 xpath: /html/body/div[14]
             image:
               - text: https://img01.ztat.net/article/spp-media-p1/eb0ff51429fa3f72b2f6e890bcca8fb1/d6209cba543a46f2a9d4f8a380010d51.jpg
                 xpath: /html/body/ol[1]/li[1]
             imageAlt:
-              - text: Michael Kors - NICK - Sneaker low - natural
+              - text: Michael Kors - NICK - Trainers - natural
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
               - text: https://img01.ztat.net/article/spp-media-p1/0abe988d8a0e398e94d23fde0c1cc94a/0d9789fade114d688ad8ed09845144d2.jpg
@@ -340,21 +346,23 @@ extractions:
               - text: https://img01.ztat.net/article/spp-media-p1/302eafc1cbe434fa8398c2652818cde3/a503c809479343d88c1bbd4ba74ef6c6.jpg
                 xpath: /html/body/ol[1]/li[6]
             nameExtended:
-              - text: Michael Kors NICK - Sneaker low 43 natural
+              - text: Michael Kors NICK - Trainers 43 natural
                 xpath: /html/body/div[10]/@name_extended
+            listPrice:
+              - text: VAT included
+                xpath: /html/body/div[10]/@list_price
             price:
               - text: 224,95 €
                 xpath: /html/body/div[10]/@price
             availabilityText:
-              - text: Out Of Stock
+              - text: In Stock
                 xpath: /html/body/div[10]/@availability_text
             description:
-              - text: Obermaterial: Leder und Textil | Innenmaterial: Textil | Decksohle: Leder
-                  | Sohle: Kunststoff | Fütterungsdicke: Kalt gefüttert |
-                  Pflegehinweise: Bitte vor dem ersten Tragen imprägnieren |
-                  Details aus Veloursleder | Schuhspitze: Rund |
-                  Verschluss: Schnürung | Muster: Animal print |
-                  Details: Cut-Outs | Artikelnummer: 1MI12O00X-B11
+              - text: Upper material: Leather and textile | Lining: Textile | Insole: Leather |
+                  Sole: Synthetics | Padding type: Cold padding | Care
+                  instructions: Treat with a suitable protector before wear |
+                  Shoe tip: Round | Fastening: Laces | Pattern: Animal print |
+                  Details: Cut-outs | Article number: 1MI12O00X-B11
                 xpath: /html/body/div[10]/@description
             brandText:
               - text: Michael Kors
@@ -362,9 +370,6 @@ extractions:
             manufacturer:
               - text: Michael Kors
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
-            sku:
-              - text: 1MI12O00X-B11
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/span[2]
             variantId:
               - text: 1MI12O00X-B110010000
                 xpath: /html/body/div[10]/@variant_id
@@ -372,19 +377,22 @@ extractions:
               - text: 1MI12O00X
                 xpath: /html/body/div[10]/@mpc
             ratingCount:
-              - text: "11"
+              - text: "1"
                 xpath: /html/body/div[10]/@rating_count
             aggregateRating:
-              - text: 4,3
+              - text: "4"
                 xpath: /html/body/div[10]/@aggregate_rating
             variantCount:
               - text: "7"
                 xpath: /html/body/div[15]
+            color:
+              - text: natural
+                xpath: /html/body/div[10]/@variant_information
             name:
-              - text: NICK - Sneaker low
+              - text: NICK - Trainers
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/h1[1]
             brandLink:
-              - text: https://www.zalando.de/michaelkors/
+              - text: https://en.zalando.de/michaelkors/
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             secondaryImageTotal:
               - text: "5"
@@ -397,12 +405,12 @@ extractions:
                 xpath: /html/body/div[10]/@first_variant
             materials:
               - text: |-
-                  Obermaterial: Leder und Textil
-                  Innenmaterial: Textil
-                  Decksohle: Leder
-                  Sohle: Kunststoff
-                  Fütterungsdicke: Kalt gefüttert
-                  Pflegehinweise: Bitte vor dem ersten Tragen imprägnieren
+                  Upper material: Leather and textile
+                  Lining: Textile
+                  Insole: Leather
+                  Sole: Synthetics
+                  Padding type: Cold padding
+                  Care instructions: Treat with a suitable protector before wear
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
             imageZoomFeaturePresent:
               - text: "true"
@@ -420,13 +428,13 @@ extractions:
               - text: 1MI12O00X-B110013000
                 xpath: /html/body/div[11]/ol[1]/li[6]
             productUrl:
-              - text: https://www.zalando.de/michael-kors-nick-sneaker-low-natural-1mi12o00x-b11.html
+              - text: https://en.zalando.de/michael-kors-nick-trainers-natural-1mi12o00x-b11.html
                 xpath: /html/body/div[14]
             image:
               - text: https://img01.ztat.net/article/spp-media-p1/eb0ff51429fa3f72b2f6e890bcca8fb1/d6209cba543a46f2a9d4f8a380010d51.jpg
                 xpath: /html/body/ol[1]/li[1]
             imageAlt:
-              - text: Michael Kors - NICK - Sneaker low - natural
+              - text: Michael Kors - NICK - Trainers - natural
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
               - text: https://img01.ztat.net/article/spp-media-p1/0abe988d8a0e398e94d23fde0c1cc94a/0d9789fade114d688ad8ed09845144d2.jpg
@@ -440,21 +448,23 @@ extractions:
               - text: https://img01.ztat.net/article/spp-media-p1/302eafc1cbe434fa8398c2652818cde3/a503c809479343d88c1bbd4ba74ef6c6.jpg
                 xpath: /html/body/ol[1]/li[6]
             nameExtended:
-              - text: Michael Kors NICK - Sneaker low 44 natural
+              - text: Michael Kors NICK - Trainers 44 natural
                 xpath: /html/body/div[11]/@name_extended
+            listPrice:
+              - text: VAT included
+                xpath: /html/body/div[11]/@list_price
             price:
               - text: 224,95 €
                 xpath: /html/body/div[11]/@price
             availabilityText:
-              - text: Out Of Stock
+              - text: In Stock
                 xpath: /html/body/div[11]/@availability_text
             description:
-              - text: Obermaterial: Leder und Textil | Innenmaterial: Textil | Decksohle: Leder
-                  | Sohle: Kunststoff | Fütterungsdicke: Kalt gefüttert |
-                  Pflegehinweise: Bitte vor dem ersten Tragen imprägnieren |
-                  Details aus Veloursleder | Schuhspitze: Rund |
-                  Verschluss: Schnürung | Muster: Animal print |
-                  Details: Cut-Outs | Artikelnummer: 1MI12O00X-B11
+              - text: Upper material: Leather and textile | Lining: Textile | Insole: Leather |
+                  Sole: Synthetics | Padding type: Cold padding | Care
+                  instructions: Treat with a suitable protector before wear |
+                  Shoe tip: Round | Fastening: Laces | Pattern: Animal print |
+                  Details: Cut-outs | Article number: 1MI12O00X-B11
                 xpath: /html/body/div[11]/@description
             brandText:
               - text: Michael Kors
@@ -462,9 +472,6 @@ extractions:
             manufacturer:
               - text: Michael Kors
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
-            sku:
-              - text: 1MI12O00X-B11
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/span[2]
             variantId:
               - text: 1MI12O00X-B110011000
                 xpath: /html/body/div[11]/@variant_id
@@ -472,19 +479,22 @@ extractions:
               - text: 1MI12O00X
                 xpath: /html/body/div[11]/@mpc
             ratingCount:
-              - text: "11"
+              - text: "1"
                 xpath: /html/body/div[11]/@rating_count
             aggregateRating:
-              - text: 4,3
+              - text: "4"
                 xpath: /html/body/div[11]/@aggregate_rating
             variantCount:
               - text: "7"
                 xpath: /html/body/div[15]
+            color:
+              - text: natural
+                xpath: /html/body/div[11]/@variant_information
             name:
-              - text: NICK - Sneaker low
+              - text: NICK - Trainers
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/h1[1]
             brandLink:
-              - text: https://www.zalando.de/michaelkors/
+              - text: https://en.zalando.de/michaelkors/
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             secondaryImageTotal:
               - text: "5"
@@ -497,12 +507,12 @@ extractions:
                 xpath: /html/body/div[11]/@first_variant
             materials:
               - text: |-
-                  Obermaterial: Leder und Textil
-                  Innenmaterial: Textil
-                  Decksohle: Leder
-                  Sohle: Kunststoff
-                  Fütterungsdicke: Kalt gefüttert
-                  Pflegehinweise: Bitte vor dem ersten Tragen imprägnieren
+                  Upper material: Leather and textile
+                  Lining: Textile
+                  Insole: Leather
+                  Sole: Synthetics
+                  Padding type: Cold padding
+                  Care instructions: Treat with a suitable protector before wear
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
             imageZoomFeaturePresent:
               - text: "true"
@@ -520,13 +530,13 @@ extractions:
               - text: 1MI12O00X-B110013000
                 xpath: /html/body/div[12]/ol[1]/li[6]
             productUrl:
-              - text: https://www.zalando.de/michael-kors-nick-sneaker-low-natural-1mi12o00x-b11.html
+              - text: https://en.zalando.de/michael-kors-nick-trainers-natural-1mi12o00x-b11.html
                 xpath: /html/body/div[14]
             image:
               - text: https://img01.ztat.net/article/spp-media-p1/eb0ff51429fa3f72b2f6e890bcca8fb1/d6209cba543a46f2a9d4f8a380010d51.jpg
                 xpath: /html/body/ol[1]/li[1]
             imageAlt:
-              - text: Michael Kors - NICK - Sneaker low - natural
+              - text: Michael Kors - NICK - Trainers - natural
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
               - text: https://img01.ztat.net/article/spp-media-p1/0abe988d8a0e398e94d23fde0c1cc94a/0d9789fade114d688ad8ed09845144d2.jpg
@@ -540,21 +550,23 @@ extractions:
               - text: https://img01.ztat.net/article/spp-media-p1/302eafc1cbe434fa8398c2652818cde3/a503c809479343d88c1bbd4ba74ef6c6.jpg
                 xpath: /html/body/ol[1]/li[6]
             nameExtended:
-              - text: Michael Kors NICK - Sneaker low 45 natural
+              - text: Michael Kors NICK - Trainers 45 natural
                 xpath: /html/body/div[12]/@name_extended
+            listPrice:
+              - text: VAT included
+                xpath: /html/body/div[12]/@list_price
             price:
               - text: 224,95 €
                 xpath: /html/body/div[12]/@price
             availabilityText:
-              - text: Out Of Stock
+              - text: In Stock
                 xpath: /html/body/div[12]/@availability_text
             description:
-              - text: Obermaterial: Leder und Textil | Innenmaterial: Textil | Decksohle: Leder
-                  | Sohle: Kunststoff | Fütterungsdicke: Kalt gefüttert |
-                  Pflegehinweise: Bitte vor dem ersten Tragen imprägnieren |
-                  Details aus Veloursleder | Schuhspitze: Rund |
-                  Verschluss: Schnürung | Muster: Animal print |
-                  Details: Cut-Outs | Artikelnummer: 1MI12O00X-B11
+              - text: Upper material: Leather and textile | Lining: Textile | Insole: Leather |
+                  Sole: Synthetics | Padding type: Cold padding | Care
+                  instructions: Treat with a suitable protector before wear |
+                  Shoe tip: Round | Fastening: Laces | Pattern: Animal print |
+                  Details: Cut-outs | Article number: 1MI12O00X-B11
                 xpath: /html/body/div[12]/@description
             brandText:
               - text: Michael Kors
@@ -562,9 +574,6 @@ extractions:
             manufacturer:
               - text: Michael Kors
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
-            sku:
-              - text: 1MI12O00X-B11
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/span[2]
             variantId:
               - text: 1MI12O00X-B110012000
                 xpath: /html/body/div[12]/@variant_id
@@ -572,19 +581,22 @@ extractions:
               - text: 1MI12O00X
                 xpath: /html/body/div[12]/@mpc
             ratingCount:
-              - text: "11"
+              - text: "1"
                 xpath: /html/body/div[12]/@rating_count
             aggregateRating:
-              - text: 4,3
+              - text: "4"
                 xpath: /html/body/div[12]/@aggregate_rating
             variantCount:
               - text: "7"
                 xpath: /html/body/div[15]
+            color:
+              - text: natural
+                xpath: /html/body/div[12]/@variant_information
             name:
-              - text: NICK - Sneaker low
+              - text: NICK - Trainers
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/h1[1]
             brandLink:
-              - text: https://www.zalando.de/michaelkors/
+              - text: https://en.zalando.de/michaelkors/
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             secondaryImageTotal:
               - text: "5"
@@ -597,12 +609,12 @@ extractions:
                 xpath: /html/body/div[12]/@first_variant
             materials:
               - text: |-
-                  Obermaterial: Leder und Textil
-                  Innenmaterial: Textil
-                  Decksohle: Leder
-                  Sohle: Kunststoff
-                  Fütterungsdicke: Kalt gefüttert
-                  Pflegehinweise: Bitte vor dem ersten Tragen imprägnieren
+                  Upper material: Leather and textile
+                  Lining: Textile
+                  Insole: Leather
+                  Sole: Synthetics
+                  Padding type: Cold padding
+                  Care instructions: Treat with a suitable protector before wear
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
             imageZoomFeaturePresent:
               - text: "true"
@@ -620,13 +632,13 @@ extractions:
               - text: 1MI12O00X-B110012000
                 xpath: /html/body/div[13]/ol[1]/li[6]
             productUrl:
-              - text: https://www.zalando.de/michael-kors-nick-sneaker-low-natural-1mi12o00x-b11.html
+              - text: https://en.zalando.de/michael-kors-nick-trainers-natural-1mi12o00x-b11.html
                 xpath: /html/body/div[14]
             image:
               - text: https://img01.ztat.net/article/spp-media-p1/eb0ff51429fa3f72b2f6e890bcca8fb1/d6209cba543a46f2a9d4f8a380010d51.jpg
                 xpath: /html/body/ol[1]/li[1]
             imageAlt:
-              - text: Michael Kors - NICK - Sneaker low - natural
+              - text: Michael Kors - NICK - Trainers - natural
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
               - text: https://img01.ztat.net/article/spp-media-p1/0abe988d8a0e398e94d23fde0c1cc94a/0d9789fade114d688ad8ed09845144d2.jpg
@@ -640,21 +652,23 @@ extractions:
               - text: https://img01.ztat.net/article/spp-media-p1/302eafc1cbe434fa8398c2652818cde3/a503c809479343d88c1bbd4ba74ef6c6.jpg
                 xpath: /html/body/ol[1]/li[6]
             nameExtended:
-              - text: Michael Kors NICK - Sneaker low 46 natural
+              - text: Michael Kors NICK - Trainers 46 natural
                 xpath: /html/body/div[13]/@name_extended
+            listPrice:
+              - text: VAT included
+                xpath: /html/body/div[13]/@list_price
             price:
               - text: 224,95 €
                 xpath: /html/body/div[13]/@price
             availabilityText:
-              - text: Out Of Stock
+              - text: In Stock
                 xpath: /html/body/div[13]/@availability_text
             description:
-              - text: Obermaterial: Leder und Textil | Innenmaterial: Textil | Decksohle: Leder
-                  | Sohle: Kunststoff | Fütterungsdicke: Kalt gefüttert |
-                  Pflegehinweise: Bitte vor dem ersten Tragen imprägnieren |
-                  Details aus Veloursleder | Schuhspitze: Rund |
-                  Verschluss: Schnürung | Muster: Animal print |
-                  Details: Cut-Outs | Artikelnummer: 1MI12O00X-B11
+              - text: Upper material: Leather and textile | Lining: Textile | Insole: Leather |
+                  Sole: Synthetics | Padding type: Cold padding | Care
+                  instructions: Treat with a suitable protector before wear |
+                  Shoe tip: Round | Fastening: Laces | Pattern: Animal print |
+                  Details: Cut-outs | Article number: 1MI12O00X-B11
                 xpath: /html/body/div[13]/@description
             brandText:
               - text: Michael Kors
@@ -662,9 +676,6 @@ extractions:
             manufacturer:
               - text: Michael Kors
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
-            sku:
-              - text: 1MI12O00X-B11
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/span[2]
             variantId:
               - text: 1MI12O00X-B110013000
                 xpath: /html/body/div[13]/@variant_id
@@ -672,19 +683,22 @@ extractions:
               - text: 1MI12O00X
                 xpath: /html/body/div[13]/@mpc
             ratingCount:
-              - text: "11"
+              - text: "1"
                 xpath: /html/body/div[13]/@rating_count
             aggregateRating:
-              - text: 4,3
+              - text: "4"
                 xpath: /html/body/div[13]/@aggregate_rating
             variantCount:
               - text: "7"
                 xpath: /html/body/div[15]
+            color:
+              - text: natural
+                xpath: /html/body/div[13]/@variant_information
             name:
-              - text: NICK - Sneaker low
+              - text: NICK - Trainers
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/h1[1]
             brandLink:
-              - text: https://www.zalando.de/michaelkors/
+              - text: https://en.zalando.de/michaelkors/
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             secondaryImageTotal:
               - text: "5"
@@ -697,14 +711,14 @@ extractions:
                 xpath: /html/body/div[13]/@first_variant
             materials:
               - text: |-
-                  Obermaterial: Leder und Textil
-                  Innenmaterial: Textil
-                  Decksohle: Leder
-                  Sohle: Kunststoff
-                  Fütterungsdicke: Kalt gefüttert
-                  Pflegehinweise: Bitte vor dem ersten Tragen imprägnieren
+                  Upper material: Leather and textile
+                  Lining: Textile
+                  Insole: Leather
+                  Sole: Synthetics
+                  Padding type: Cold padding
+                  Care instructions: Treat with a suitable protector before wear
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1611741926577
+    timestamp: 1612766808077

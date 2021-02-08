@@ -2,7 +2,7 @@ input:
   _url: http://zalando.de
   URL: https://en.zalando.de/tommy-hilfiger-lightweight-cupsole-trainers-white-to112o067-a11.html
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=f05bbcbd-f617-4774-bbfd-2645527fa9fc/task=0ae29e3c-938a-40c7-964b-a18634078398/11947438-2b4b-434b-9689-e60d908bc569.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=e35e8f30-a8cf-4cd7-8a2d-f2e6d1aac5a7/task=eaa2e579-b7be-492f-835b-25c7d679546a/d9324591-aca5-4643-8c19-48932e21ac95.html
     extractionConfigId: product/details/stores/z/zalando/DE/extract
     data:
       - group:
@@ -20,13 +20,13 @@ extractions:
               - text: TO112O067-A110460000
                 xpath: /html/body/div[10]/ol[1]/li[6]
             productUrl:
-              - text: https://www.zalando.de/tommy-hilfiger-lightweight-cupsole-sneaker-low-white-to112o067-a11.html
+              - text: https://en.zalando.de/tommy-hilfiger-lightweight-cupsole-trainers-white-to112o067-a11.html
                 xpath: /html/body/div[17]
             image:
               - text: https://img01.ztat.net/article/spp-media-p1/730657235ebb33d3b2a15df3da3fa15f/01ac586592074a0c92e4b3c649d1de21.jpg
                 xpath: /html/body/ol[1]/li[1]
             imageAlt:
-              - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Sneaker low - white
+              - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Trainers - white
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
               - text: https://img01.ztat.net/article/spp-media-p1/aed1c6f0a50f3d2f8559def55b57484b/b4bf1b8436894d7bae25f2a370672755.jpg
@@ -40,24 +40,27 @@ extractions:
               - text: https://img01.ztat.net/article/spp-media-p1/d7a25e14e05d3b1490fdcc51b038d2c6/eebd257034c94856b51914da517cd40b.jpg
                 xpath: /html/body/ol[1]/li[6]
             nameExtended:
-              - text: Tommy Hilfiger LIGHTWEIGHT CUPSOLE - Sneaker low 40 white
+              - text: Tommy Hilfiger LIGHTWEIGHT CUPSOLE - Trainers 40 white
                 xpath: /html/body/div[10]/@name_extended
             listPrice:
               - text: 99,90 €
                 xpath: /html/body/div[10]/@list_price
             price:
-              - text: 59,40 €
+              - text: 57,91 €
                 xpath: /html/body/div[10]/@price
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[10]/@availability_text
             description:
-              - text: Obermaterial: Leder und Lederimitat | Innenmaterial: Textil |
-                  Decksohle: Textil | Sohle: Kunststoff | Fütterungsdicke: Kalt
-                  gefüttert | Materialkonstruktion: Kunstleder |
-                  Pflegehinweise: Bitte vor dem ersten Tragen imprägnieren |
-                  Raulederpartien | Schuhspitze: Rund | Verschluss: Schnürung |
-                  Details: Cut-Outs | Artikelnummer: TO112O067-A11
+              - text: Upper material: Leather and imitation leather | Lining: Textile |
+                  Insole: Textile | Sole: Synthetics | Padding type: Cold
+                  padding | Fabric: Faux leather | Care instructions: Treat with
+                  a suitable protector before wear | Shoe tip: Round |
+                  Fastening: Laces | Details: Cut-outs | Article
+                  number: TO112O067-A11 | Made from recycled polyesterBy using
+                  at least 20% recycled polyester over virgin polyester, this
+                  item was made using less water, energy and waste. The result?
+                  A smaller environmental footprint.
                 xpath: /html/body/div[10]/@description
             brandText:
               - text: Tommy Hilfiger
@@ -65,9 +68,6 @@ extractions:
             manufacturer:
               - text: Tommy Hilfiger
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
-            sku:
-              - text: TO112O067-A11
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/span[2]
             variantId:
               - text: TO112O067-A110400000
                 xpath: /html/body/div[10]/@variant_id
@@ -75,25 +75,28 @@ extractions:
               - text: TO112O067
                 xpath: /html/body/div[10]/@mpc
             ratingCount:
-              - text: "34"
+              - text: "null"
                 xpath: /html/body/div[10]/@rating_count
             aggregateRating:
-              - text: 4,7
+              - text: "null"
                 xpath: /html/body/div[10]/@aggregate_rating
             variantCount:
               - text: "7"
                 xpath: /html/body/div[18]
+            color:
+              - text: white
+                xpath: /html/body/div[10]/@variant_information
             name:
-              - text: LIGHTWEIGHT CUPSOLE - Sneaker low
+              - text: LIGHTWEIGHT CUPSOLE - Trainers
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/h1[1]
             brandLink:
-              - text: https://www.zalando.de/tommy-hilfiger/
+              - text: https://en.zalando.de/tommy-hilfiger/
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             secondaryImageTotal:
               - text: "5"
                 xpath: /html/body/ol[1]/@secondary_image_total
             promotion:
-              - text: 41% sparen
+              - text: 42% off
                 xpath: /html/body/div[10]/@promotion
             variantInformation:
               - text: white
@@ -103,13 +106,13 @@ extractions:
                 xpath: /html/body/div[10]/@first_variant
             materials:
               - text: |-
-                  Obermaterial: Leder und Lederimitat
-                  Innenmaterial: Textil
-                  Decksohle: Textil
-                  Sohle: Kunststoff
-                  Fütterungsdicke: Kalt gefüttert
-                  Materialkonstruktion: Kunstleder
-                  Pflegehinweise: Bitte vor dem ersten Tragen imprägnieren
+                  Upper material: Leather and imitation leather
+                  Lining: Textile
+                  Insole: Textile
+                  Sole: Synthetics
+                  Padding type: Cold padding
+                  Fabric: Faux leather
+                  Care instructions: Treat with a suitable protector before wear
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
             imageZoomFeaturePresent:
               - text: "true"
@@ -127,13 +130,13 @@ extractions:
               - text: TO112O067-A110460000
                 xpath: /html/body/div[11]/ol[1]/li[6]
             productUrl:
-              - text: https://www.zalando.de/tommy-hilfiger-lightweight-cupsole-sneaker-low-white-to112o067-a11.html
+              - text: https://en.zalando.de/tommy-hilfiger-lightweight-cupsole-trainers-white-to112o067-a11.html
                 xpath: /html/body/div[17]
             image:
               - text: https://img01.ztat.net/article/spp-media-p1/730657235ebb33d3b2a15df3da3fa15f/01ac586592074a0c92e4b3c649d1de21.jpg
                 xpath: /html/body/ol[1]/li[1]
             imageAlt:
-              - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Sneaker low - white
+              - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Trainers - white
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
               - text: https://img01.ztat.net/article/spp-media-p1/aed1c6f0a50f3d2f8559def55b57484b/b4bf1b8436894d7bae25f2a370672755.jpg
@@ -147,24 +150,27 @@ extractions:
               - text: https://img01.ztat.net/article/spp-media-p1/d7a25e14e05d3b1490fdcc51b038d2c6/eebd257034c94856b51914da517cd40b.jpg
                 xpath: /html/body/ol[1]/li[6]
             nameExtended:
-              - text: Tommy Hilfiger LIGHTWEIGHT CUPSOLE - Sneaker low 41 white
+              - text: Tommy Hilfiger LIGHTWEIGHT CUPSOLE - Trainers 41 white
                 xpath: /html/body/div[11]/@name_extended
             listPrice:
               - text: 99,90 €
                 xpath: /html/body/div[11]/@list_price
             price:
-              - text: 59,40 €
+              - text: 57,91 €
                 xpath: /html/body/div[11]/@price
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[11]/@availability_text
             description:
-              - text: Obermaterial: Leder und Lederimitat | Innenmaterial: Textil |
-                  Decksohle: Textil | Sohle: Kunststoff | Fütterungsdicke: Kalt
-                  gefüttert | Materialkonstruktion: Kunstleder |
-                  Pflegehinweise: Bitte vor dem ersten Tragen imprägnieren |
-                  Raulederpartien | Schuhspitze: Rund | Verschluss: Schnürung |
-                  Details: Cut-Outs | Artikelnummer: TO112O067-A11
+              - text: Upper material: Leather and imitation leather | Lining: Textile |
+                  Insole: Textile | Sole: Synthetics | Padding type: Cold
+                  padding | Fabric: Faux leather | Care instructions: Treat with
+                  a suitable protector before wear | Shoe tip: Round |
+                  Fastening: Laces | Details: Cut-outs | Article
+                  number: TO112O067-A11 | Made from recycled polyesterBy using
+                  at least 20% recycled polyester over virgin polyester, this
+                  item was made using less water, energy and waste. The result?
+                  A smaller environmental footprint.
                 xpath: /html/body/div[11]/@description
             brandText:
               - text: Tommy Hilfiger
@@ -172,9 +178,6 @@ extractions:
             manufacturer:
               - text: Tommy Hilfiger
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
-            sku:
-              - text: TO112O067-A11
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/span[2]
             variantId:
               - text: TO112O067-A110410000
                 xpath: /html/body/div[11]/@variant_id
@@ -182,25 +185,28 @@ extractions:
               - text: TO112O067
                 xpath: /html/body/div[11]/@mpc
             ratingCount:
-              - text: "34"
+              - text: "null"
                 xpath: /html/body/div[11]/@rating_count
             aggregateRating:
-              - text: 4,7
+              - text: "null"
                 xpath: /html/body/div[11]/@aggregate_rating
             variantCount:
               - text: "7"
                 xpath: /html/body/div[18]
+            color:
+              - text: white
+                xpath: /html/body/div[11]/@variant_information
             name:
-              - text: LIGHTWEIGHT CUPSOLE - Sneaker low
+              - text: LIGHTWEIGHT CUPSOLE - Trainers
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/h1[1]
             brandLink:
-              - text: https://www.zalando.de/tommy-hilfiger/
+              - text: https://en.zalando.de/tommy-hilfiger/
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             secondaryImageTotal:
               - text: "5"
                 xpath: /html/body/ol[1]/@secondary_image_total
             promotion:
-              - text: 41% sparen
+              - text: 42% off
                 xpath: /html/body/div[11]/@promotion
             variantInformation:
               - text: white
@@ -210,13 +216,13 @@ extractions:
                 xpath: /html/body/div[11]/@first_variant
             materials:
               - text: |-
-                  Obermaterial: Leder und Lederimitat
-                  Innenmaterial: Textil
-                  Decksohle: Textil
-                  Sohle: Kunststoff
-                  Fütterungsdicke: Kalt gefüttert
-                  Materialkonstruktion: Kunstleder
-                  Pflegehinweise: Bitte vor dem ersten Tragen imprägnieren
+                  Upper material: Leather and imitation leather
+                  Lining: Textile
+                  Insole: Textile
+                  Sole: Synthetics
+                  Padding type: Cold padding
+                  Fabric: Faux leather
+                  Care instructions: Treat with a suitable protector before wear
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
             imageZoomFeaturePresent:
               - text: "true"
@@ -234,13 +240,13 @@ extractions:
               - text: TO112O067-A110460000
                 xpath: /html/body/div[12]/ol[1]/li[6]
             productUrl:
-              - text: https://www.zalando.de/tommy-hilfiger-lightweight-cupsole-sneaker-low-white-to112o067-a11.html
+              - text: https://en.zalando.de/tommy-hilfiger-lightweight-cupsole-trainers-white-to112o067-a11.html
                 xpath: /html/body/div[17]
             image:
               - text: https://img01.ztat.net/article/spp-media-p1/730657235ebb33d3b2a15df3da3fa15f/01ac586592074a0c92e4b3c649d1de21.jpg
                 xpath: /html/body/ol[1]/li[1]
             imageAlt:
-              - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Sneaker low - white
+              - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Trainers - white
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
               - text: https://img01.ztat.net/article/spp-media-p1/aed1c6f0a50f3d2f8559def55b57484b/b4bf1b8436894d7bae25f2a370672755.jpg
@@ -254,24 +260,27 @@ extractions:
               - text: https://img01.ztat.net/article/spp-media-p1/d7a25e14e05d3b1490fdcc51b038d2c6/eebd257034c94856b51914da517cd40b.jpg
                 xpath: /html/body/ol[1]/li[6]
             nameExtended:
-              - text: Tommy Hilfiger LIGHTWEIGHT CUPSOLE - Sneaker low 42 white
+              - text: Tommy Hilfiger LIGHTWEIGHT CUPSOLE - Trainers 42 white
                 xpath: /html/body/div[12]/@name_extended
             listPrice:
               - text: 99,90 €
                 xpath: /html/body/div[12]/@list_price
             price:
-              - text: 59,40 €
+              - text: 57,91 €
                 xpath: /html/body/div[12]/@price
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[12]/@availability_text
             description:
-              - text: Obermaterial: Leder und Lederimitat | Innenmaterial: Textil |
-                  Decksohle: Textil | Sohle: Kunststoff | Fütterungsdicke: Kalt
-                  gefüttert | Materialkonstruktion: Kunstleder |
-                  Pflegehinweise: Bitte vor dem ersten Tragen imprägnieren |
-                  Raulederpartien | Schuhspitze: Rund | Verschluss: Schnürung |
-                  Details: Cut-Outs | Artikelnummer: TO112O067-A11
+              - text: Upper material: Leather and imitation leather | Lining: Textile |
+                  Insole: Textile | Sole: Synthetics | Padding type: Cold
+                  padding | Fabric: Faux leather | Care instructions: Treat with
+                  a suitable protector before wear | Shoe tip: Round |
+                  Fastening: Laces | Details: Cut-outs | Article
+                  number: TO112O067-A11 | Made from recycled polyesterBy using
+                  at least 20% recycled polyester over virgin polyester, this
+                  item was made using less water, energy and waste. The result?
+                  A smaller environmental footprint.
                 xpath: /html/body/div[12]/@description
             brandText:
               - text: Tommy Hilfiger
@@ -279,9 +288,6 @@ extractions:
             manufacturer:
               - text: Tommy Hilfiger
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
-            sku:
-              - text: TO112O067-A11
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/span[2]
             variantId:
               - text: TO112O067-A110420000
                 xpath: /html/body/div[12]/@variant_id
@@ -289,25 +295,28 @@ extractions:
               - text: TO112O067
                 xpath: /html/body/div[12]/@mpc
             ratingCount:
-              - text: "34"
+              - text: "null"
                 xpath: /html/body/div[12]/@rating_count
             aggregateRating:
-              - text: 4,7
+              - text: "null"
                 xpath: /html/body/div[12]/@aggregate_rating
             variantCount:
               - text: "7"
                 xpath: /html/body/div[18]
+            color:
+              - text: white
+                xpath: /html/body/div[12]/@variant_information
             name:
-              - text: LIGHTWEIGHT CUPSOLE - Sneaker low
+              - text: LIGHTWEIGHT CUPSOLE - Trainers
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/h1[1]
             brandLink:
-              - text: https://www.zalando.de/tommy-hilfiger/
+              - text: https://en.zalando.de/tommy-hilfiger/
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             secondaryImageTotal:
               - text: "5"
                 xpath: /html/body/ol[1]/@secondary_image_total
             promotion:
-              - text: 41% sparen
+              - text: 42% off
                 xpath: /html/body/div[12]/@promotion
             variantInformation:
               - text: white
@@ -317,13 +326,13 @@ extractions:
                 xpath: /html/body/div[12]/@first_variant
             materials:
               - text: |-
-                  Obermaterial: Leder und Lederimitat
-                  Innenmaterial: Textil
-                  Decksohle: Textil
-                  Sohle: Kunststoff
-                  Fütterungsdicke: Kalt gefüttert
-                  Materialkonstruktion: Kunstleder
-                  Pflegehinweise: Bitte vor dem ersten Tragen imprägnieren
+                  Upper material: Leather and imitation leather
+                  Lining: Textile
+                  Insole: Textile
+                  Sole: Synthetics
+                  Padding type: Cold padding
+                  Fabric: Faux leather
+                  Care instructions: Treat with a suitable protector before wear
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
             imageZoomFeaturePresent:
               - text: "true"
@@ -341,13 +350,13 @@ extractions:
               - text: TO112O067-A110460000
                 xpath: /html/body/div[13]/ol[1]/li[6]
             productUrl:
-              - text: https://www.zalando.de/tommy-hilfiger-lightweight-cupsole-sneaker-low-white-to112o067-a11.html
+              - text: https://en.zalando.de/tommy-hilfiger-lightweight-cupsole-trainers-white-to112o067-a11.html
                 xpath: /html/body/div[17]
             image:
               - text: https://img01.ztat.net/article/spp-media-p1/730657235ebb33d3b2a15df3da3fa15f/01ac586592074a0c92e4b3c649d1de21.jpg
                 xpath: /html/body/ol[1]/li[1]
             imageAlt:
-              - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Sneaker low - white
+              - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Trainers - white
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
               - text: https://img01.ztat.net/article/spp-media-p1/aed1c6f0a50f3d2f8559def55b57484b/b4bf1b8436894d7bae25f2a370672755.jpg
@@ -361,24 +370,27 @@ extractions:
               - text: https://img01.ztat.net/article/spp-media-p1/d7a25e14e05d3b1490fdcc51b038d2c6/eebd257034c94856b51914da517cd40b.jpg
                 xpath: /html/body/ol[1]/li[6]
             nameExtended:
-              - text: Tommy Hilfiger LIGHTWEIGHT CUPSOLE - Sneaker low 43 white
+              - text: Tommy Hilfiger LIGHTWEIGHT CUPSOLE - Trainers 43 white
                 xpath: /html/body/div[13]/@name_extended
             listPrice:
               - text: 99,90 €
                 xpath: /html/body/div[13]/@list_price
             price:
-              - text: 59,40 €
+              - text: 57,91 €
                 xpath: /html/body/div[13]/@price
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[13]/@availability_text
             description:
-              - text: Obermaterial: Leder und Lederimitat | Innenmaterial: Textil |
-                  Decksohle: Textil | Sohle: Kunststoff | Fütterungsdicke: Kalt
-                  gefüttert | Materialkonstruktion: Kunstleder |
-                  Pflegehinweise: Bitte vor dem ersten Tragen imprägnieren |
-                  Raulederpartien | Schuhspitze: Rund | Verschluss: Schnürung |
-                  Details: Cut-Outs | Artikelnummer: TO112O067-A11
+              - text: Upper material: Leather and imitation leather | Lining: Textile |
+                  Insole: Textile | Sole: Synthetics | Padding type: Cold
+                  padding | Fabric: Faux leather | Care instructions: Treat with
+                  a suitable protector before wear | Shoe tip: Round |
+                  Fastening: Laces | Details: Cut-outs | Article
+                  number: TO112O067-A11 | Made from recycled polyesterBy using
+                  at least 20% recycled polyester over virgin polyester, this
+                  item was made using less water, energy and waste. The result?
+                  A smaller environmental footprint.
                 xpath: /html/body/div[13]/@description
             brandText:
               - text: Tommy Hilfiger
@@ -386,9 +398,6 @@ extractions:
             manufacturer:
               - text: Tommy Hilfiger
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
-            sku:
-              - text: TO112O067-A11
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/span[2]
             variantId:
               - text: TO112O067-A110430000
                 xpath: /html/body/div[13]/@variant_id
@@ -396,25 +405,28 @@ extractions:
               - text: TO112O067
                 xpath: /html/body/div[13]/@mpc
             ratingCount:
-              - text: "34"
+              - text: "null"
                 xpath: /html/body/div[13]/@rating_count
             aggregateRating:
-              - text: 4,7
+              - text: "null"
                 xpath: /html/body/div[13]/@aggregate_rating
             variantCount:
               - text: "7"
                 xpath: /html/body/div[18]
+            color:
+              - text: white
+                xpath: /html/body/div[13]/@variant_information
             name:
-              - text: LIGHTWEIGHT CUPSOLE - Sneaker low
+              - text: LIGHTWEIGHT CUPSOLE - Trainers
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/h1[1]
             brandLink:
-              - text: https://www.zalando.de/tommy-hilfiger/
+              - text: https://en.zalando.de/tommy-hilfiger/
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             secondaryImageTotal:
               - text: "5"
                 xpath: /html/body/ol[1]/@secondary_image_total
             promotion:
-              - text: 41% sparen
+              - text: 42% off
                 xpath: /html/body/div[13]/@promotion
             variantInformation:
               - text: white
@@ -424,13 +436,13 @@ extractions:
                 xpath: /html/body/div[13]/@first_variant
             materials:
               - text: |-
-                  Obermaterial: Leder und Lederimitat
-                  Innenmaterial: Textil
-                  Decksohle: Textil
-                  Sohle: Kunststoff
-                  Fütterungsdicke: Kalt gefüttert
-                  Materialkonstruktion: Kunstleder
-                  Pflegehinweise: Bitte vor dem ersten Tragen imprägnieren
+                  Upper material: Leather and imitation leather
+                  Lining: Textile
+                  Insole: Textile
+                  Sole: Synthetics
+                  Padding type: Cold padding
+                  Fabric: Faux leather
+                  Care instructions: Treat with a suitable protector before wear
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
             imageZoomFeaturePresent:
               - text: "true"
@@ -448,13 +460,13 @@ extractions:
               - text: TO112O067-A110460000
                 xpath: /html/body/div[14]/ol[1]/li[6]
             productUrl:
-              - text: https://www.zalando.de/tommy-hilfiger-lightweight-cupsole-sneaker-low-white-to112o067-a11.html
+              - text: https://en.zalando.de/tommy-hilfiger-lightweight-cupsole-trainers-white-to112o067-a11.html
                 xpath: /html/body/div[17]
             image:
               - text: https://img01.ztat.net/article/spp-media-p1/730657235ebb33d3b2a15df3da3fa15f/01ac586592074a0c92e4b3c649d1de21.jpg
                 xpath: /html/body/ol[1]/li[1]
             imageAlt:
-              - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Sneaker low - white
+              - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Trainers - white
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
               - text: https://img01.ztat.net/article/spp-media-p1/aed1c6f0a50f3d2f8559def55b57484b/b4bf1b8436894d7bae25f2a370672755.jpg
@@ -468,24 +480,27 @@ extractions:
               - text: https://img01.ztat.net/article/spp-media-p1/d7a25e14e05d3b1490fdcc51b038d2c6/eebd257034c94856b51914da517cd40b.jpg
                 xpath: /html/body/ol[1]/li[6]
             nameExtended:
-              - text: Tommy Hilfiger LIGHTWEIGHT CUPSOLE - Sneaker low 44 white
+              - text: Tommy Hilfiger LIGHTWEIGHT CUPSOLE - Trainers 44 white
                 xpath: /html/body/div[14]/@name_extended
             listPrice:
               - text: 99,90 €
                 xpath: /html/body/div[14]/@list_price
             price:
-              - text: 59,40 €
+              - text: 57,91 €
                 xpath: /html/body/div[14]/@price
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[14]/@availability_text
             description:
-              - text: Obermaterial: Leder und Lederimitat | Innenmaterial: Textil |
-                  Decksohle: Textil | Sohle: Kunststoff | Fütterungsdicke: Kalt
-                  gefüttert | Materialkonstruktion: Kunstleder |
-                  Pflegehinweise: Bitte vor dem ersten Tragen imprägnieren |
-                  Raulederpartien | Schuhspitze: Rund | Verschluss: Schnürung |
-                  Details: Cut-Outs | Artikelnummer: TO112O067-A11
+              - text: Upper material: Leather and imitation leather | Lining: Textile |
+                  Insole: Textile | Sole: Synthetics | Padding type: Cold
+                  padding | Fabric: Faux leather | Care instructions: Treat with
+                  a suitable protector before wear | Shoe tip: Round |
+                  Fastening: Laces | Details: Cut-outs | Article
+                  number: TO112O067-A11 | Made from recycled polyesterBy using
+                  at least 20% recycled polyester over virgin polyester, this
+                  item was made using less water, energy and waste. The result?
+                  A smaller environmental footprint.
                 xpath: /html/body/div[14]/@description
             brandText:
               - text: Tommy Hilfiger
@@ -493,9 +508,6 @@ extractions:
             manufacturer:
               - text: Tommy Hilfiger
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
-            sku:
-              - text: TO112O067-A11
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/span[2]
             variantId:
               - text: TO112O067-A110440000
                 xpath: /html/body/div[14]/@variant_id
@@ -503,25 +515,28 @@ extractions:
               - text: TO112O067
                 xpath: /html/body/div[14]/@mpc
             ratingCount:
-              - text: "34"
+              - text: "null"
                 xpath: /html/body/div[14]/@rating_count
             aggregateRating:
-              - text: 4,7
+              - text: "null"
                 xpath: /html/body/div[14]/@aggregate_rating
             variantCount:
               - text: "7"
                 xpath: /html/body/div[18]
+            color:
+              - text: white
+                xpath: /html/body/div[14]/@variant_information
             name:
-              - text: LIGHTWEIGHT CUPSOLE - Sneaker low
+              - text: LIGHTWEIGHT CUPSOLE - Trainers
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/h1[1]
             brandLink:
-              - text: https://www.zalando.de/tommy-hilfiger/
+              - text: https://en.zalando.de/tommy-hilfiger/
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             secondaryImageTotal:
               - text: "5"
                 xpath: /html/body/ol[1]/@secondary_image_total
             promotion:
-              - text: 41% sparen
+              - text: 42% off
                 xpath: /html/body/div[14]/@promotion
             variantInformation:
               - text: white
@@ -531,13 +546,13 @@ extractions:
                 xpath: /html/body/div[14]/@first_variant
             materials:
               - text: |-
-                  Obermaterial: Leder und Lederimitat
-                  Innenmaterial: Textil
-                  Decksohle: Textil
-                  Sohle: Kunststoff
-                  Fütterungsdicke: Kalt gefüttert
-                  Materialkonstruktion: Kunstleder
-                  Pflegehinweise: Bitte vor dem ersten Tragen imprägnieren
+                  Upper material: Leather and imitation leather
+                  Lining: Textile
+                  Insole: Textile
+                  Sole: Synthetics
+                  Padding type: Cold padding
+                  Fabric: Faux leather
+                  Care instructions: Treat with a suitable protector before wear
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
             imageZoomFeaturePresent:
               - text: "true"
@@ -555,13 +570,13 @@ extractions:
               - text: TO112O067-A110460000
                 xpath: /html/body/div[15]/ol[1]/li[6]
             productUrl:
-              - text: https://www.zalando.de/tommy-hilfiger-lightweight-cupsole-sneaker-low-white-to112o067-a11.html
+              - text: https://en.zalando.de/tommy-hilfiger-lightweight-cupsole-trainers-white-to112o067-a11.html
                 xpath: /html/body/div[17]
             image:
               - text: https://img01.ztat.net/article/spp-media-p1/730657235ebb33d3b2a15df3da3fa15f/01ac586592074a0c92e4b3c649d1de21.jpg
                 xpath: /html/body/ol[1]/li[1]
             imageAlt:
-              - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Sneaker low - white
+              - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Trainers - white
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
               - text: https://img01.ztat.net/article/spp-media-p1/aed1c6f0a50f3d2f8559def55b57484b/b4bf1b8436894d7bae25f2a370672755.jpg
@@ -575,24 +590,27 @@ extractions:
               - text: https://img01.ztat.net/article/spp-media-p1/d7a25e14e05d3b1490fdcc51b038d2c6/eebd257034c94856b51914da517cd40b.jpg
                 xpath: /html/body/ol[1]/li[6]
             nameExtended:
-              - text: Tommy Hilfiger LIGHTWEIGHT CUPSOLE - Sneaker low 45 white
+              - text: Tommy Hilfiger LIGHTWEIGHT CUPSOLE - Trainers 45 white
                 xpath: /html/body/div[15]/@name_extended
             listPrice:
               - text: 99,90 €
                 xpath: /html/body/div[15]/@list_price
             price:
-              - text: 59,40 €
+              - text: 57,91 €
                 xpath: /html/body/div[15]/@price
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[15]/@availability_text
             description:
-              - text: Obermaterial: Leder und Lederimitat | Innenmaterial: Textil |
-                  Decksohle: Textil | Sohle: Kunststoff | Fütterungsdicke: Kalt
-                  gefüttert | Materialkonstruktion: Kunstleder |
-                  Pflegehinweise: Bitte vor dem ersten Tragen imprägnieren |
-                  Raulederpartien | Schuhspitze: Rund | Verschluss: Schnürung |
-                  Details: Cut-Outs | Artikelnummer: TO112O067-A11
+              - text: Upper material: Leather and imitation leather | Lining: Textile |
+                  Insole: Textile | Sole: Synthetics | Padding type: Cold
+                  padding | Fabric: Faux leather | Care instructions: Treat with
+                  a suitable protector before wear | Shoe tip: Round |
+                  Fastening: Laces | Details: Cut-outs | Article
+                  number: TO112O067-A11 | Made from recycled polyesterBy using
+                  at least 20% recycled polyester over virgin polyester, this
+                  item was made using less water, energy and waste. The result?
+                  A smaller environmental footprint.
                 xpath: /html/body/div[15]/@description
             brandText:
               - text: Tommy Hilfiger
@@ -600,9 +618,6 @@ extractions:
             manufacturer:
               - text: Tommy Hilfiger
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
-            sku:
-              - text: TO112O067-A11
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/span[2]
             variantId:
               - text: TO112O067-A110450000
                 xpath: /html/body/div[15]/@variant_id
@@ -610,25 +625,28 @@ extractions:
               - text: TO112O067
                 xpath: /html/body/div[15]/@mpc
             ratingCount:
-              - text: "34"
+              - text: "null"
                 xpath: /html/body/div[15]/@rating_count
             aggregateRating:
-              - text: 4,7
+              - text: "null"
                 xpath: /html/body/div[15]/@aggregate_rating
             variantCount:
               - text: "7"
                 xpath: /html/body/div[18]
+            color:
+              - text: white
+                xpath: /html/body/div[15]/@variant_information
             name:
-              - text: LIGHTWEIGHT CUPSOLE - Sneaker low
+              - text: LIGHTWEIGHT CUPSOLE - Trainers
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/h1[1]
             brandLink:
-              - text: https://www.zalando.de/tommy-hilfiger/
+              - text: https://en.zalando.de/tommy-hilfiger/
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             secondaryImageTotal:
               - text: "5"
                 xpath: /html/body/ol[1]/@secondary_image_total
             promotion:
-              - text: 41% sparen
+              - text: 42% off
                 xpath: /html/body/div[15]/@promotion
             variantInformation:
               - text: white
@@ -638,13 +656,13 @@ extractions:
                 xpath: /html/body/div[15]/@first_variant
             materials:
               - text: |-
-                  Obermaterial: Leder und Lederimitat
-                  Innenmaterial: Textil
-                  Decksohle: Textil
-                  Sohle: Kunststoff
-                  Fütterungsdicke: Kalt gefüttert
-                  Materialkonstruktion: Kunstleder
-                  Pflegehinweise: Bitte vor dem ersten Tragen imprägnieren
+                  Upper material: Leather and imitation leather
+                  Lining: Textile
+                  Insole: Textile
+                  Sole: Synthetics
+                  Padding type: Cold padding
+                  Fabric: Faux leather
+                  Care instructions: Treat with a suitable protector before wear
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
             imageZoomFeaturePresent:
               - text: "true"
@@ -662,13 +680,13 @@ extractions:
               - text: TO112O067-A110450000
                 xpath: /html/body/div[16]/ol[1]/li[6]
             productUrl:
-              - text: https://www.zalando.de/tommy-hilfiger-lightweight-cupsole-sneaker-low-white-to112o067-a11.html
+              - text: https://en.zalando.de/tommy-hilfiger-lightweight-cupsole-trainers-white-to112o067-a11.html
                 xpath: /html/body/div[17]
             image:
               - text: https://img01.ztat.net/article/spp-media-p1/730657235ebb33d3b2a15df3da3fa15f/01ac586592074a0c92e4b3c649d1de21.jpg
                 xpath: /html/body/ol[1]/li[1]
             imageAlt:
-              - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Sneaker low - white
+              - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Trainers - white
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
               - text: https://img01.ztat.net/article/spp-media-p1/aed1c6f0a50f3d2f8559def55b57484b/b4bf1b8436894d7bae25f2a370672755.jpg
@@ -682,24 +700,27 @@ extractions:
               - text: https://img01.ztat.net/article/spp-media-p1/d7a25e14e05d3b1490fdcc51b038d2c6/eebd257034c94856b51914da517cd40b.jpg
                 xpath: /html/body/ol[1]/li[6]
             nameExtended:
-              - text: Tommy Hilfiger LIGHTWEIGHT CUPSOLE - Sneaker low 46 white
+              - text: Tommy Hilfiger LIGHTWEIGHT CUPSOLE - Trainers 46 white
                 xpath: /html/body/div[16]/@name_extended
             listPrice:
               - text: 99,90 €
                 xpath: /html/body/div[16]/@list_price
             price:
-              - text: 59,40 €
+              - text: 57,91 €
                 xpath: /html/body/div[16]/@price
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[16]/@availability_text
             description:
-              - text: Obermaterial: Leder und Lederimitat | Innenmaterial: Textil |
-                  Decksohle: Textil | Sohle: Kunststoff | Fütterungsdicke: Kalt
-                  gefüttert | Materialkonstruktion: Kunstleder |
-                  Pflegehinweise: Bitte vor dem ersten Tragen imprägnieren |
-                  Raulederpartien | Schuhspitze: Rund | Verschluss: Schnürung |
-                  Details: Cut-Outs | Artikelnummer: TO112O067-A11
+              - text: Upper material: Leather and imitation leather | Lining: Textile |
+                  Insole: Textile | Sole: Synthetics | Padding type: Cold
+                  padding | Fabric: Faux leather | Care instructions: Treat with
+                  a suitable protector before wear | Shoe tip: Round |
+                  Fastening: Laces | Details: Cut-outs | Article
+                  number: TO112O067-A11 | Made from recycled polyesterBy using
+                  at least 20% recycled polyester over virgin polyester, this
+                  item was made using less water, energy and waste. The result?
+                  A smaller environmental footprint.
                 xpath: /html/body/div[16]/@description
             brandText:
               - text: Tommy Hilfiger
@@ -707,9 +728,6 @@ extractions:
             manufacturer:
               - text: Tommy Hilfiger
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
-            sku:
-              - text: TO112O067-A11
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/span[2]
             variantId:
               - text: TO112O067-A110460000
                 xpath: /html/body/div[16]/@variant_id
@@ -717,25 +735,28 @@ extractions:
               - text: TO112O067
                 xpath: /html/body/div[16]/@mpc
             ratingCount:
-              - text: "34"
+              - text: "null"
                 xpath: /html/body/div[16]/@rating_count
             aggregateRating:
-              - text: 4,7
+              - text: "null"
                 xpath: /html/body/div[16]/@aggregate_rating
             variantCount:
               - text: "7"
                 xpath: /html/body/div[18]
+            color:
+              - text: white
+                xpath: /html/body/div[16]/@variant_information
             name:
-              - text: LIGHTWEIGHT CUPSOLE - Sneaker low
+              - text: LIGHTWEIGHT CUPSOLE - Trainers
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/h1[1]
             brandLink:
-              - text: https://www.zalando.de/tommy-hilfiger/
+              - text: https://en.zalando.de/tommy-hilfiger/
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             secondaryImageTotal:
               - text: "5"
                 xpath: /html/body/ol[1]/@secondary_image_total
             promotion:
-              - text: 41% sparen
+              - text: 42% off
                 xpath: /html/body/div[16]/@promotion
             variantInformation:
               - text: white
@@ -745,15 +766,15 @@ extractions:
                 xpath: /html/body/div[16]/@first_variant
             materials:
               - text: |-
-                  Obermaterial: Leder und Lederimitat
-                  Innenmaterial: Textil
-                  Decksohle: Textil
-                  Sohle: Kunststoff
-                  Fütterungsdicke: Kalt gefüttert
-                  Materialkonstruktion: Kunstleder
-                  Pflegehinweise: Bitte vor dem ersten Tragen imprägnieren
+                  Upper material: Leather and imitation leather
+                  Lining: Textile
+                  Insole: Textile
+                  Sole: Synthetics
+                  Padding type: Cold padding
+                  Fabric: Faux leather
+                  Care instructions: Treat with a suitable protector before wear
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1611741930390
+    timestamp: 1612766809166
