@@ -15,6 +15,7 @@ module.exports = {
   ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
+    await context.waitForSelector('ol[class="page-breadcrumb"]', { timeout: 18000 });
     const applyScroll = async function (context) {
     await context.evaluate(async () => {
       try {
@@ -28,7 +29,7 @@ module.exports = {
       while (scrollTop !== 20000) {
         scrollTop += 1000;
         window.scroll(0, scrollTop);
-        await stall(1000);
+        await stall(2000);
       }
       function stall(ms) {
         return new Promise((resolve, reject) => {
