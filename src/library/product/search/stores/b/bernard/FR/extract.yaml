@@ -18,6 +18,9 @@ fields:
   - name: id
     description: The store-specific product identifier
     xpath: //article[contains(@class,'product-card')]/@data-sku
+  - name: sku
+    description: The store-specific product identifier
+    xpath: //article[contains(@class,'product-card')]/@data-sku
   - name: price
     description: The offered price for the product
     xpath: //span[@class="price-value"]
