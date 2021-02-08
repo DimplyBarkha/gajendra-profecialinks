@@ -1,10 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'navigation/goto/setZipCode',
   parameterValues: {
-    domain: 'shop-apotheke.com',
     country: 'DE',
-    timeout: 30000,
+    domain: 'shop-apotheke.com',
     store: 'shop-apotheke',
+    zipcode: '',
   },
 };

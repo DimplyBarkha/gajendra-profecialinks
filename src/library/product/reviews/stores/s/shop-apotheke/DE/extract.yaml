@@ -1,0 +1,61 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="rating-list-wrapper"]/div
+fields:
+  - name: helpfulCount
+    type: NUMBER
+    xpath: //div[@class="row rating-item"]//p[@class='helpfulness-sentence']
+    regExp: (\d)\svon
+    regExpReplace: $1
+  - name: commentCount
+    type: NUMBER
+    description: Number of comments on the review
+  - name: brandText
+    xpath: ancestor::html//script[@id="gtm-data-layer-snippet"]
+    regExp: brand"(\:)"(\w+)
+    regExpReplace: $2
+  - name: name
+    xpath: ancestor::html//h5[@class='product-name']
+  - name: sku
+    description: The store-specific product identifier
+  - name: reviewDate
+    type: DATETIME
+    xpath: //div[@class="rating-list-wrapper"]//ul/li[2]
+  - name: reviewRating
+    type: NUMBER
+    xpath: //div[@class="entry-rating-stars"]/@data-score
+  - name: reviewText
+    xpath: normalize-space(//div[@class="row rating-item"]//strong[@class='title']/following-sibling::p[1])
+  - name: reviewTitle
+    xpath: //div[@class="row rating-item"]//strong[@class='title']
+  - name: reviewerTags
+    singleValue: false
+    description: The tags a reviewer has
+  - name: gtin
+    description: GTIN code (includes UPC/EAN)
+    xpath: ancestor::html//script[@id='gtm-data-layer-snippet']
+    regExp: eanCode"(\:)"(\d+)"
+    regExpReplace: $2
+  - name: productUrl
+    xpath: ancestor::html//div[@class='product-data']/a/@href
+  - name: verifiedPurchase
+    type: BOOLEAN
+    description: Whether this of an item the reviewer purchased. "Yes" if true else ""
+  - name: manufacturerResponse
+    description: The response of the manufacturer (if any)
+  - name: syndicatedFrom
+    description: Stated place the review was syndicated from
+  - name: reviewUrl
+    description: A direct link to the review
+  - name: reviewedSku
+    description: The SKU of the item that was reviewed (may be different from the
+      sku the review was shown on). 1 if sku == reviewedSku else 0. Get sku
+      value, transform will handle the value.
+  - name: user
+    type: TEXT
+    xpath: //div[@class="rating-list-wrapper"]//ul/li[1]
+  - name: aggregateRating
+    xpath: ancestor::html//div[@class="row rating-product-details"]//span[@class='overall-rating-data-wrapper']/span
+    regExp: (\d)\svon
+    regExpReplace: $1
