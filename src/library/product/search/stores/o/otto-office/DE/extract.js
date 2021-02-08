@@ -8,33 +8,41 @@ module.exports = {
     domain: 'otto-office.com',
     zipcode: '',
   },
-implementation: async ({ inputstring }, { country, domain }, context, { productDetails }) => {
-  await context.evaluate(() => {
-    function addElementToDocument(key, value) {
-      const catElement = document.createElement('div');
-      catElement.id = key;
-      catElement.textContent = value;
-      catElement.style.display = 'none';
-      document.body.appendChild(catElement);
-    }
+  implementation,
+};
+async function implementation(
+  inputs,
+  parameters,
+  context,
+  dependencies,
+) {
+  const { transform } = parameters;
+  const { productDetails } = dependencies;
+  await context.evaluate(async function () {
+
     function addHiddenDiv1(id, content, index) {
       const newDiv = document.createElement("div");
       newDiv.id = id;
       newDiv.textContent = content;
       newDiv.style.display = "none";
-      const originalDiv = document.querySelectorAll('h1[id="oo-block-hl"]')[index];
+      const originalDiv = document.querySelectorAll('a[class="oo-link fftracking-productclick"] b')[index];
       originalDiv.parentNode.insertBefore(newDiv, originalDiv);
     }
-    let rawRating=document.querySelectorAll('div[class="item-rating-stars_gold ooB-abs"]');
-    let temp;
-    for(let i=0; i<rawRating.length; i++){
+    let rawRating = document.querySelectorAll('div[class="item-rating-stars_gold ooB-abs"]');
+    let temp, temp1;
+    for (let i = 0; i < rawRating.length; i++) {
       temp = rawRating[i].getAttribute('style')
-      temp = temp.match(/width:(\d*)px;/g);
+      if (temp.includes("width:")) {
+        temp1 = temp.split("width:")[1];
+        temp1 = temp1.split("px")[0];
+        temp1 = parseInt(temp1);
+        temp1 = (temp1 * 5) / 65;
+        addHiddenDiv1('aggrating', temp1, i);
+      }
     }
 
 
-
+    
   });
-  await context.extract(productDetails);
-},
-};
+  return await context.extract(productDetails, { transform });
+  };
