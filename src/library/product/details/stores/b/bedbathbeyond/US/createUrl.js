@@ -5,7 +5,7 @@ module.exports = {
     domain: 'bedbathbeyond.com',
     prefix: null,
     url: null,
-    country: 'US',
+    country: 'USA',
     store: 'bedbathbeyond',
     zipcode: '',
   },

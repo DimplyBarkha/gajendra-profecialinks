@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'product/details/execute',
   parameterValues: {
-    country: 'US',
+    country: 'USA',
     store: 'bedbathbeyond',
     domain: 'bedbathbeyond.com',
     loadedSelector: 'img[class*="ProductMediaCarouselStyle"]',

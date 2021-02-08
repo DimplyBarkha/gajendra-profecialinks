@@ -59,10 +59,21 @@ const transform = (data) => {
         }
         if (row.nameExtended) {            
           row.nameExtended.forEach(item => {
-              if (brand != ''){
+              if (brand != '' && item.text.indexOf(brand) === -1){
                   item.text = brand + " - " + item.text;
               }
           });          
+        }
+        if (row.backupDescriptionBullet) {
+            const info = [];
+            row.backupDescriptionBullet.forEach(item => {
+              info.push(item.text);
+            });
+            if (info.length && row.description) {
+              row.description.push({'text': (info.length === 1 ? (' || '+ info.join(' ')) : info.join(' || ')),'xpath':row.descriptionBullets[0].xpath});
+            } else if (info.length && !row.description) {
+              row.description = [{'text': (info.length === 1 ? (' || '+ info.join(' ')) : info.join(' || ')),'xpath':row.descriptionBullets[0].xpath}];
+            }
         }
         // if (row.descriptionBullets) {
         //   let info = [];          
@@ -116,7 +127,6 @@ const transform = (data) => {
           });          
           row.specifications = [{'text':info.join(' || '),'xpath':row.specifications[0].xpath}];          
         }
-        let ad_dec_data = '';
         // if(row.additionalDescBulletInfo){
         //   let arr_info = [];
         //   row.additionalDescBulletInfo.forEach(item=>{
@@ -135,9 +145,10 @@ const transform = (data) => {
         if (row.description) {
           let info = [];          
           row.description.forEach(item => {
-            info.push(item.text.replace(/(\s*\n\s*)+/g, ' ').trim());            
+            const itemText = item.text.replace(/(\s*\n\s*)+/g, ' ').replace(/•/g, ' || ');
+            info.push(itemText.trim());
           });
-          row.description = [{'text':info.join(' | ') + ad_dec_data,'xpath':row.description[0].xpath}];            
+          row.description = [{'text': info.join(' | ').replace(/\|\s{1}\|\|\s{1}/g, '|| ') ,'xpath':row.description[0].xpath}];
         }
         if(row.variantInformation){
           let arr_info = [];

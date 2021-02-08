@@ -3,10 +3,10 @@ const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
-    country: 'US',
-    store: 'bedbathbeyond',
+    country: 'USA',
+    store: 'bedbathbeyond1',
     transform: cleanUp,
-    domain: 'bedbathbeyond.com',
+    domain: 'bedbathbeyond1.com',
     zipcode: '',
   },
   implementation: async (inputs, parameters, context, dependencies) => {

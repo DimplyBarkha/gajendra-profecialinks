@@ -3,9 +3,9 @@ module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'US',
-    store: 'bedbathbeyond',
+    store: 'bedbathandbeyond',
     transform,
-    domain: 'bedbathbeyond.com',
+    domain: 'bedbathandbeyond.com',
     zipcode: '',
   },
   implementation: async (inputs,
@@ -15,9 +15,9 @@ module.exports = {
   ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    await new Promise(resolve => setTimeout(resolve, 2000));     
-    //await new Promise(resolve => setTimeout(resolve, 2000));
-    //await new Promise((resolve, reject) => setTimeout(resolve, 40000));
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    // await new Promise(resolve => setTimeout(resolve, 2000));
+    // await new Promise((resolve, reject) => setTimeout(resolve, 40000));
 
     await context.evaluate(async function () {
       let scrollTop = 0;
@@ -47,7 +47,7 @@ module.exports = {
       await context.evaluate(() => {
         const firstItem = document.querySelector('div.ShowMore_761672.relative.hideOnPrint > button');
         firstItem.click();
-      });   
+      });
     } catch (err) { }
     async function scrollToRec (node) {
       await context.evaluate(async (node) => {
@@ -95,14 +95,25 @@ module.exports = {
       let moreManufContent = '';
       let manufImg = '';
       if (document.querySelector('iframe[id^="wcframable"') && document.querySelector('iframe[id^="wcframable"').contentWindow && document.querySelector('iframe[id^="wcframable"').contentWindow.document.querySelector('body')) {
-         let arrManuf = [];
-         let arrManufImg = [];
-         [...document.querySelector('iframe[id^="wcframable"')].forEach(el => {
-          arrManuf.push(el.contentWindow.document.querySelector('body').innerText);
-          arrManufImg.push(el.contentWindow.document.querySelector('img').src);
-         });
-         moreManufContent = arrManuf.join(' | ');
-         manufImg = arrManufImg.join(' | ');
+        const arrManuf = [];
+        const arrManufImg = [];
+        [...document.querySelectorAll('iframe[id^="wcframable"')].forEach(el => {
+          if (el.contentWindow) {
+            const iframeWindow = el.contentWindow;
+            if ((iframeWindow.document.querySelector('body div.wc-video-gallery'))) {
+              // arrManuf.push(iframeWindow.document.querySelector('body div:not(.wc-video-gallery)').innerText);
+            } else {
+              if (iframeWindow.document.querySelector('body')) {
+                arrManuf.push(iframeWindow.document.querySelector('body').innerText.replace(/(\s*\n\s*)+/g, ' ').replace(/\n/g, ' '));
+              }
+              if (iframeWindow.document.querySelector('img')) {
+                arrManufImg.push(iframeWindow.document.querySelector('img').src);
+              }
+            }
+          }
+        });
+        moreManufContent = arrManuf.join(' | ');
+        manufImg = arrManufImg.join(' | ');
       }
       if (moreManufContent.length > 0) {
         addHiddenDiv('ii_manufContent', moreManufContent);
@@ -154,7 +165,7 @@ module.exports = {
     //       });
     //     }
     //   }
-    // }); 
+    // });
     await new Promise((resolve) => setTimeout(resolve, 1000));
     async function fetchManufacturerContentIframe (url) {
       await context.goto(url);
@@ -162,7 +173,7 @@ module.exports = {
         const manufacturerDescription = document.body.innerText;
         const manufacturerImagesList = document.querySelectorAll('div.wc-aplus-body img');
         const manufacturerImageArray = [];
-        let gtin = '';
+        const gtin = '';
         // try {
         //   const gtinPath = '//strong[contains(text(),"EAN:")]/../following-sibling::td[1]';
         //   const gtinText = document.evaluate(gtinPath, document, null, XPathResult.STRING_TYPE, null).stringValue;
@@ -212,15 +223,6 @@ module.exports = {
     const pageUrl = await context.evaluate(async () => {
       return window.location.href;
     });
-    try {
-      await context.waitForXPath('//a[contains(@class,"ProductMediaCarouselStyle")]');
-      await context.waitForSelector('a[class~="ProductMediaCarouselStyle"] span');
-      console.log('everything fine !!!');
-      await context.evaluate(() => {
-        const firstItem = document.querySelector('a[class~="ProductMediaCarouselStyle"] span');
-        firstItem.click();
-      });
-    } catch (err) { }
 
     console.log('pageUrl ==', pageUrl);
     const manufacturerContentLink = await checkmanufacturerContent();
@@ -228,19 +230,19 @@ module.exports = {
     if (manufacturerContentLink) {
       manContentObj = await fetchManufacturerContentIframe(manufacturerContentLink);
       await context.goto(pageUrl);
-      try {
-        await context.waitForXPath('//a[contains(@class,"ProductMediaCarouselStyle")]');
-        await context.waitForSelector('a[class~="ProductMediaCarouselStyle"] span');
-        console.log('everything fine !!!');
-        await context.evaluate(() => {
-          const firstItem = document.querySelector('a[class~="ProductMediaCarouselStyle"] span');
-          firstItem.click();
-        });
-      } catch (err) { }
     }
     await addContentToDOM(manContentObj, manufacturerContentLink);
 
+    try {
+      // await context.waitForXPath('//a[contains(@class,"ProductMediaCarouselStyle")]');
+      await context.waitForSelector('a[class^="ProductMediaCarouselStyle"] span, div[class^="ProductMediaCarouselStyle"] a', { timeout: 35000 });
+      console.log('everything fine !!!');
+      await context.evaluate(() => {
+        const firstItem = document.querySelector('a[class^="ProductMediaCarouselStyle"] span, div[class^="ProductMediaCarouselStyle"] a');
+        firstItem.click();
+      });
+    } catch (err) { }
     await new Promise((resolve) => setTimeout(resolve, 2000));
-    return await context.extract(productDetails, { transform });  
+    return await context.extract(productDetails, { transform });
   },
 };
