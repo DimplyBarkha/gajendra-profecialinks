@@ -33,13 +33,15 @@ module.exports = {
       const newUrl = await context.evaluate(() => {
         return document.evaluate('//li[@id="NgMspProductCell"]//h3[@class="Name"]/a/@href', document, null, XPathResult.STRING_TYPE, null).stringValue;
       });
-      await context.goto(newUrl, {
-        firstRequestTimeout: 60000,
-        timeout: 60000,
-        waitUntil: 'load',
-        checkBlocked: false,
-      });
-      await context.waitForNavigation();
+      if (newUrl) {
+        await context.goto(newUrl, {
+          firstRequestTimeout: 60000,
+          timeout: 60000,
+          waitUntil: 'load',
+          checkBlocked: false,
+        });
+        await context.waitForNavigation();
+      }
     }
     if (loadedSelector) {
       await context.waitForFunction(
