@@ -1,6 +1,6 @@
 const { transform } = require('../format.js');
 
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -23,21 +23,38 @@ async function implementation (
     await context.click('li.cmsHeaderMain__item.cmsHeaderMain__item--settings div.cmsHeaderIdentificationPopup.cmsHeaderIdentificationPopup--flyout div.cmsIdentificationPopup__buttons div.cmsIdentificationPopup__button.cmsIdentificationPopup__button__b2c');
   }
 
-  const videoLink = await context.evaluate(function () {
-    return !!document.evaluate('//div[@class="productImage__imageListWrapper"]//a[contains(@class, "productImage__video")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-  });
-  if (videoLink) {
-    await context.click('div.productImage__imageListWrapper a.productImage__video');
-  }
-  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-  const playBtn = await context.evaluate(function () {
-    return !!document.evaluate('//div[@id="fullscreenActiveImagecontainer"]//img[contains(@class, "Playbtn")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-  });
-  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-  if (playBtn) {
-    await context.click('div#fullscreenActiveImagecontainer img:nth-child(3)');
-  }
+  // Adding variant logic
 
+  const variantLength = await context.evaluate(async () => {
+    return (document.querySelectorAll('section.packingUnit__packagingSelector button.packingUnit__button')) ? document.querySelectorAll('section.packingUnit__packagingSelector button.packingUnit__button').length : 0;
+  });
+
+  if (variantLength > 1) {
+    for (let j = 0; j < variantLength; j++) {
+      await context.evaluate(async (j) => {
+        return document.querySelectorAll('section.packingUnit__packagingSelector button.packingUnit__button')[j].click();
+      }, j)
+      await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+
+      const videoLink = await context.evaluate(function () {
+        return !!document.evaluate('//div[@class="productImage__imageListWrapper"]//a[contains(@class, "productImage__video")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      });
+      if (videoLink) {
+        await context.click('div.productImage__imageListWrapper a.productImage__video');
+      }
+
+      await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+      const playBtn = await context.evaluate(function () {
+        return !!document.evaluate('//div[@id="fullscreenActiveImagecontainer"]//img[contains(@class, "Playbtn")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      });
+
+      await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+      if (playBtn) {
+        await context.click('div#fullscreenActiveImagecontainer img:nth-child(3)');
+      }
+      if (j !== variantLength - 1) { await context.extract(productDetails, { transform }, { type: 'APPEND' }); }
+    }
+  }
   return await context.extract(productDetails, { transform });
 }
 

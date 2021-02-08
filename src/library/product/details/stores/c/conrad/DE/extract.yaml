@@ -8,7 +8,7 @@ fields:
     singleValue: false
   - name: nameExtended
     xpath: //div[@id="product-app"]//div[@class="productDetails__wrapper"]//section[@id="detailSection"]//header//h1
-    singleValue: false    
+    singleValue: false
   - name: image
     xpath: //div[@id="product-app"]//div[@class="productDetails__wrapper"]//section[@id="detailSection"]//div[@class="productImage__container"]//div[@class="productImage__mainImageWrapper"]//img/@src
     singleValue: false
@@ -39,8 +39,9 @@ fields:
     xpath: //div[@id="product-app"]//div[@class="productDetails__wrapper"]//section[@id="detailSection"]//meta[@itemprop="mpn"]/@content
     singleValue: false
   - name: availabilityText
-    xpath: //div[@id="product-app"]//div[@class="productDetails__wrapper"]//section[@id="detailSection"]//div[@id="availabilitySection"]//div[@id="priceAvailabilityWrapper"]//div[contains(@class, "currentOfferAvailability")]//p[1]
+    xpath: //div[@id="addToCartPriceAvailability"]//button[not(contains(@disabled, "disabled"))]
     singleValue: false
+    defaultValue: Out Of Stock
   - name: category
     xpath: //div[@id="product-app"]//div[@class="productDetails__wrapper"]//div[@class="productBreadcrumb__wrapper"]//ul//li[@itemprop="itemListElement"]
     singleValue: false
@@ -64,7 +65,7 @@ fields:
     singleValue: false
   - name: listPrice
     xpath: //div[@id="product-app"]//div[@class="productDetails__wrapper"]//section[@id="detailSection"]//div[@id="availabilitySection"]//div[@id="priceAvailabilityWrapper"]//div[@class="priceAvailability__content"]//div[@id="productPrice"]//p
-    singleValue: false  
+    singleValue: false
   - name: productOtherInformation
     xpath: //div[@id="product-app"]//div[@class="productDetails__wrapper"]//section[@id="detailSection"]//div[@id="productDetailsSection"]//div[@class="productDetailsContainer"]//div[@class="productTechData"]//dl//dt
     singleValue: false
