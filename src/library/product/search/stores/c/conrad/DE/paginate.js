@@ -3,7 +3,7 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'conrad',
-    nextLinkSelector: 'ul.pagination__list li:last-child button[class="pagination__button"]',
+    nextLinkSelector: "ul.pagination__list li:last-child button:not(.disabled)",
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
