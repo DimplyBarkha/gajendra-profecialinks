@@ -29,6 +29,9 @@ fields:
   - name: nameExtended
     singleValue: true
     xpath: //div[@class='product-sku col x-large']/h1[@class='product-sku__title']
+  - name: name
+    singleValue: true
+    xpath: //div[@class='product-sku col x-large']/h1[@class='product-sku__title']
   - name: price
     singleValue: true
     xpath: //span[@class='product-sku__price-min']
@@ -51,8 +54,12 @@ fields:
     xpath: //div[contains(@class, 'product-sku')]//*[contains (@class, 'ratings')]/@data-value
   - name: ratingCount
     xpath: //div[contains(@class, 'product-sku')]//*[contains (@class, 'ratings__number')]
-
-
+  - name: gtin
+    xpath: //*/@data-upcean
+  - name: variantId
+    xpath: //div[@id="mo-product-id"]
+  - name: packSize
+    xpath: //div[@class='product-sku__pack']/p[@class='mb-1'][1]
 
 
 

@@ -46,7 +46,26 @@ module.exports = {
           })
         }
         dataJsonText.includes('InStock') ? addElementToDocument('mo-availability', 'In Stock') : addElementToDocument('mo-availability', 'Out of stock');
-      }
+      };
+
+      const sctiptNodes = document.querySelectorAll('script');
+
+      sctiptNodes.forEach(sctiptNode => {
+        if(sctiptNode.textContent.match(/ProductId/gmi)){
+          const productMatchId = sctiptNode.textContent.match(/ProductId=.*&/gmi);
+          if(productMatchId && productMatchId.length){
+            const productId = productMatchId[0].replace(/ProductId=/, '').replace(/&/, '');
+            addElementToDocument('mo-product-id', productId);
+          }
+        }
+      });
+
+      const descrItems = document.querySelectorAll('.description-sku__attribute li');
+      descrItems.forEach(descrItem => {
+        if(descrItem.textContent.match(/(Capacità|Dimensione punta|Dimensioni foglietto)/gmi)){
+          addElementToDocument('mo-size', descrItem.querySelector('strong').textContent);
+        }
+      })
 
     });
     await context.waitForSelector('#breadCramb');
