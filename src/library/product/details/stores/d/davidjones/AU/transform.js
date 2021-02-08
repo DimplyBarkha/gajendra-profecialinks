@@ -90,6 +90,10 @@ const transform = (data, context) => {
         row.image = [{ text: row.backupImage[0].text, xpath: row.backupImage[0].xpath }];
       }
 
+      if (row.variantInformation && row.nameExtended) {
+        row.nameExtended = [{ text: row.nameExtended[0].text + ' ' + row.variantInformation[0].text, xpath: row.nameExtended[0].xpath }];
+      }
+
       // if (row.secondaryImageTotal) {
       //   let count = 0;
 
