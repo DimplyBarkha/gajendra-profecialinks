@@ -5,7 +5,7 @@ module.exports = {
     country: 'DE',
     store: 'parfumdreams',
     transform: null,
-    domain: 'en.parfumdreams.de',
+    domain: 'parfumdreams.de',
     zipcode: '',
   },
   implementation: async ({ inputstring }, { country, domain }, context, { productDetails }) => {

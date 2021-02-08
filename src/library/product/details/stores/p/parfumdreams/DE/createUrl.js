@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'product/details/createUrl',
   parameterValues: {
-    domain: 'en.parfumdreams.de',
+    domain: 'parfumdreams.de',
     prefix: null,
     url: null,
     country: 'DE',
