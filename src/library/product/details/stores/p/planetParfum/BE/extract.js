@@ -20,7 +20,7 @@ module.exports = {
       await new Promise((resolve, reject) => setTimeout(resolve, 5000));
       await context.evaluate(
         async ({ i }) => {
-          function getEleByXpath (xpath) {
+          function getEleByXpath(xpath) {
             const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
             const text = element ? element.textContent : null;
             return text;
@@ -116,14 +116,42 @@ module.exports = {
           const vainantIdElem = document.querySelector('div.product-variations.attributes');
           const variantIdData = vainantIdElem ? vainantIdElem.getAttribute('data-current') : null;
           const variantIdJson = variantIdData ? JSON.parse(variantIdData) : null;
-          let variantId;
-          if (variantIdJson && variantIdJson.volume && variantIdJson.volume.value) {
-            variantId = variantIdJson.volume.value.replace('var_', '');
-          } else if (variantIdJson && variantIdJson.color && variantIdJson.color.value) {
-            variantId = variantIdJson.color.value.replace('var_', '');
-          } else variantId = '';
+          // let variantId;
+          // if (variantIdJson && variantIdJson.volume && variantIdJson.volume.value) {
+          //   variantId = variantIdJson.volume.value.replace('var_', '');
+          // } else if (variantIdJson && variantIdJson.color && variantIdJson.color.value) {
+          //   variantId = variantIdJson.color.value.replace('var_', '');
+          // } else variantId = '';
 
-          addedVariant.setAttribute('variant_id', variantId);
+          const selectedVariant = "li.variation-value.selected a"; // multiple variants
+          const singleVariant = ".product-image img" //for single variant
+          let variant_info = null;
+          let variant_id = null;
+          if (document.querySelector(selectedVariant)) {
+            const selectedVariantNode = document.querySelector(selectedVariant);
+            if (selectedVariantNode.hasAttribute('data-lgimg')) {
+              variant_id = selectedVariantNode.getAttribute('data-lgimg').replace(/(.+)\/(.+)\.jpg(.+)/g, "$2");
+            }
+            if (variant_id && selectedVariantNode.hasAttribute('title')) {
+              variant_info = selectedVariantNode.getAttribute('title') + " - " + variant_id;
+            }
+          } else {
+            if (document.querySelector(singleVariant)) {
+              if (document.querySelector(singleVariant).hasAttribute('src')) {
+                variant_id = document.querySelector(singleVariant).getAttribute('src').replace(/(.+)\/(.+)\.jpg(.+)/g, "$2");
+              }
+              if (variant_id) {
+                if (document.querySelector(singleVariant).hasAttribute('title')) {
+                  variant_info = document.querySelector(singleVariant).getAttribute('title') + " - " + variant_id;
+                }
+              }
+            }
+          }
+
+          console.log(variant_id, variant_info)
+
+          addedVariant.setAttribute('variant_id', variant_id);
+          addedVariant.setAttribute('variantInfo', variant_info);
 
           const quantityElement = document.querySelector('div.product-contents');
           const quantityText = quantityElement ? quantityElement.textContent.trim() : '';

@@ -6,7 +6,7 @@ module.exports = {
     store: 'planetParfum',
     domain: 'planetparfum.com',
     loadedSelector: 'div.pdp-main',
-    noResultsXPath: '//div[@class="error-page-message-dotted"]|//h1[contains(text(), "Page non trouvée")]|//div[@class="no-hits-headline"]',
+    noResultsXPath: '//div[@class="error-page-message-dotted"]|//h1[contains(text(), "Page non trouvée")]|//div[@class="no-hits-headline"] | //div[contains(@class,"no-hits-headline")] | //div[contains(@class,"no-result")]',
     zipcode: '',
   },
 };
