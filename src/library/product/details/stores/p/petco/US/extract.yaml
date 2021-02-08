@@ -69,9 +69,9 @@ fields:
     xpath: ancestor::html//ul[contains(@class,"DetailsTablestyled")]//li[contains(.,"Primary Color")]//h5/following-sibling::*
   - name: colorCode
   - name: manufacturerDescription
-    xpath: ancestor::html//div[contains(@id,"inpage_container")]//div[@class="flix-std-content"] | ancestor::html//div[contains(@id,"inpage_container")]//div[contains(@class,"flix-padfeed")] | ancestor::html//div[contains(@id,"inpage_container")]//div[contains(@class,"flix-title")] | ancestor::html//div[contains(@id,"inpage_container")]//div[contains(@class,"flix-passagemeat")]
+    xpath: ancestor::html//body/@manu-desc | ancestor::html//div[contains(@id,"inpage_container")]//div[@class="flix-std-content"] | ancestor::html//div[contains(@id,"inpage_container")]//div[contains(@class,"flix-padfeed")] | ancestor::html//div[contains(@id,"inpage_container")]//div[contains(@class,"flix-title")] | ancestor::html//div[contains(@id,"inpage_container")]//div[contains(@class,"flix-passagemeat")]
   - name: manufacturerImages
-    xpath: ancestor::html//div[contains(@id,"inpage_container")]//img/@data-srcset
+    xpath: ancestor::html//body/@manu-images
   - name: videos
   - name: name
     xpath: //@name
