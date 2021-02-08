@@ -396,29 +396,29 @@ module.exports = {
         }
       }
     });
-    let id = '';
-    await context.evaluate(async () => {
-      const parentNode1 = document.querySelector('div[class="syndigo-mosaic-outer syndigo-shadowed-mosaic"]');
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      if (parentNode1 && parentNode1.shadowRoot && parentNode1.shadowRoot.firstChild) {
-        const fetchNode = parentNode1.shadowRoot.firstChild;
-        // @ts-ignore
-        const VideoButton = fetchNode.querySelector('button[class="syndigo-mosaic-ribbon-eye syndigo-mosaic-iconbutton"]');
-        VideoButton.click();
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        // @ts-ignore
-        const VideoButton2 = fetchNode.querySelector('button[class="syndigo-mosaic-ribbon-internal syndigo-mosaic-iconbutton"] path[fill d="M512 903 q94 0 177 -36 q83 -35 145 -97 q62 -62 97 -145 q36 -83 36 -177 q0 -94 -36 -177 q-35 -83 -97 -145 q-62 -62 -145 -97 q-83 -36 -177 -36 q-94 0 -177 36 q-83 35 -145 97 q-62 62 -97 145 q-36 83 -36 177 l0 0 q0 94 36 177 q35 83 97 145 q62 62 145 97 q83 36 177 36 l0 0 ZM512 960 q-106 0 -199 -40 q-94 -40 -163.5 -109.5 q-69.5 -69.5 -109.5 -163.5 q-40 -93 -40 -199 q0 -106 40 -199 q40 -94 109.5 -163.5 q69.5 -69.5 163.5 -109.5 q93 -40 199 -40 q106 0 199 40 q94 40 163.5 109.5 q69.5 69.5 109.5 163.5 q40 93 40 199 l0 0 q0 106 -40 199 q-40 94 -109.5 163.5 q-69.5 69.5 -163.5 109.5 q-93 40 -199 40 l0 0 ZM341 732 l474 -284 l-474 -284 l0 568 l0 0 Z"]');
-        VideoButton2.click();
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        // @ts-ignore
-        const VideoButton3 = fetchNode.querySelector('button[class="syndigo-video-big-play-button"]');
-        VideoButton3.click();
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        // @ts-ignore
-        const VideoId = fetchNode.querySelector('video');
-        id = VideoId.id;
-      }
-    });
+    // let id = '';
+    // await context.evaluate(async () => {
+    //   const parentNode1 = document.querySelector('div[class="syndigo-mosaic-outer syndigo-shadowed-mosaic"]');
+    //   await new Promise(resolve => setTimeout(resolve, 1000));
+    //   if (parentNode1 && parentNode1.shadowRoot && parentNode1.shadowRoot.firstChild) {
+    //     const fetchNode = parentNode1.shadowRoot.firstChild;
+    //     // @ts-ignore
+    //     const VideoButton = fetchNode.querySelector('button[class="syndigo-mosaic-ribbon-eye syndigo-mosaic-iconbutton"]');
+    //     VideoButton.click();
+    //     await new Promise(resolve => setTimeout(resolve, 1000));
+    //     // @ts-ignore
+    //     const VideoButton2 = fetchNode.querySelector('button[class="syndigo-mosaic-ribbon-internal syndigo-mosaic-iconbutton"] path[fill d="M512 903 q94 0 177 -36 q83 -35 145 -97 q62 -62 97 -145 q36 -83 36 -177 q0 -94 -36 -177 q-35 -83 -97 -145 q-62 -62 -145 -97 q-83 -36 -177 -36 q-94 0 -177 36 q-83 35 -145 97 q-62 62 -97 145 q-36 83 -36 177 l0 0 q0 94 36 177 q35 83 97 145 q62 62 145 97 q83 36 177 36 l0 0 ZM512 960 q-106 0 -199 -40 q-94 -40 -163.5 -109.5 q-69.5 -69.5 -109.5 -163.5 q-40 -93 -40 -199 q0 -106 40 -199 q40 -94 109.5 -163.5 q69.5 -69.5 163.5 -109.5 q93 -40 199 -40 q106 0 199 40 q94 40 163.5 109.5 q69.5 69.5 109.5 163.5 q40 93 40 199 l0 0 q0 106 -40 199 q-40 94 -109.5 163.5 q-69.5 69.5 -163.5 109.5 q-93 40 -199 40 l0 0 ZM341 732 l474 -284 l-474 -284 l0 568 l0 0 Z"]');
+    //     VideoButton2.click();
+    //     await new Promise(resolve => setTimeout(resolve, 1000));
+    //     // @ts-ignore
+    //     const VideoButton3 = fetchNode.querySelector('button[class="syndigo-video-big-play-button"]');
+    //     VideoButton3.click();
+    //     await new Promise(resolve => setTimeout(resolve, 1000));
+    //     // @ts-ignore
+    //     const VideoId = fetchNode.querySelector('video');
+    //     id = VideoId.id;
+    //   }
+    // });
     /// /////////////////////////////////////////////////////////////////////////////////////////////////
     //  GOTO enhanced content approach
     //  Get Enhanced HTML.
@@ -490,20 +490,20 @@ module.exports = {
         addHiddenDiv('videos1', videoRequest.url);
       }, videoRequest);
     }
-    var videoRequest1 = await context.searchForRequest('https://content.syndigo.com/asset/.*m3u8', 'GET');
-    if (videoRequest1 && videoRequest1.url) {
-      console.log('videos-------->', videoRequest1.url);
-      await context.evaluate((videoRequest1) => {
-        function addHiddenDiv (id, content) {
-          const newDiv = document.createElement('div');
-          newDiv.id = id;
-          newDiv.textContent = content;
-          newDiv.style.display = 'none';
-          document.body.appendChild(newDiv);
-        }
-        addHiddenDiv('videos2', videoRequest1.url);
-      }, videoRequest);
-    }
+    // var videoRequest1 = await context.searchForRequest('https://content.syndigo.com/asset/.*m3u8', 'GET');
+    // if (videoRequest1 && videoRequest1.url) {
+    //   console.log('videos-------->', videoRequest1.url);
+    //   await context.evaluate((videoRequest1) => {
+    //     function addHiddenDiv (id, content) {
+    //       const newDiv = document.createElement('div');
+    //       newDiv.id = id;
+    //       newDiv.textContent = content;
+    //       newDiv.style.display = 'none';
+    //       document.body.appendChild(newDiv);
+    //     }
+    //     addHiddenDiv('videos2', videoRequest1.url);
+    //   }, videoRequest);
+    // }
     return await context.extract(productDetails, { transform });
   },
 };
