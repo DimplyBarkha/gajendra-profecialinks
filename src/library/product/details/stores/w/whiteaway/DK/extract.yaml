@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath : //div[1]/div[@class="js-image-placeholder gallery__details__placeholder"][@data-large]/img/@src
+    xpath : //div[1]/div[@class="js-image-placeholder gallery__details__placeholder loading"]/@data-medium
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -36,6 +36,7 @@ fields:
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: //div[@class="campaign-banner__info__right"]/span | //div[@class="vip__price-box-price"]
+    type: CURRENCY
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -93,7 +94,7 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    # xpath: //span[@class="js-sku-small"]
+    xpath: //span[@class="js-sku-small"]
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on

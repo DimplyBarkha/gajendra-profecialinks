@@ -5,7 +5,7 @@ module.exports = {
     country: 'DK',
     store: 'whiteaway',
     domain: 'whiteaway.com',
-    url: 'https://www.whiteaway.com/search_result/?keywords={searchTerms}#/sort_producent/',
+    url: 'https://www.whiteaway.com/search_result/?keywords={searchTerms}',
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',

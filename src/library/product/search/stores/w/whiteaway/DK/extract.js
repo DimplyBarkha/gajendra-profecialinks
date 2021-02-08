@@ -32,7 +32,7 @@ async function implementation(
       }
     
     let scrollTop = 0;
-    while (scrollTop !== 50000) {
+    while (scrollTop !== 60000) {
       scrollTop += 1000;
       window.scroll(0, scrollTop);
       await stall(1000);
@@ -94,10 +94,10 @@ async function implementation(
     newDiv.id = id;
     newDiv.textContent = content;
     newDiv.style.display = 'none';
-    const originalDiv = document.querySelectorAll('div[class="star-rating__front"]')[index];
+    const originalDiv = document.querySelectorAll('div.srp-product-box__image-section.list > div.star-rating > div[class="star-rating__front"]')[index];
     originalDiv.parentNode.insertBefore(newDiv, originalDiv);
   }
-  const aggregateRating = document.querySelectorAll("div[class='star-rating__front']")
+  const aggregateRating = document.querySelectorAll('div.srp-product-box__image-section.list > div.star-rating > div[class="star-rating__front"]')
   for (let k = 0; k < aggregateRating.length; k++) {
   // @ts-ignore
   let singleRating = aggregateRating[k].style.width;
