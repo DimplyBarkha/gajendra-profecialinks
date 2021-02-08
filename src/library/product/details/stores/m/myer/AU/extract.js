@@ -30,21 +30,49 @@ module.exports = {
     try{
       await context.evaluate(function () {
         let cVariantGot=false;
-        try{
-          let tmp=JSON.stringify(window.__NEXT_DATA__).replace(/.*"selectedVariant":{"id":"(.*?)".*/,'$1');
-          const newDiv = document.createElement('div');
-          newDiv.id = 'customselectedVariantDiv';
-          newDiv.textContent = tmp;
-          newDiv.style.display = 'none';
-          document.body.appendChild(newDiv);
-          cVariantGot=true;
+        let tmpData1=JSON.parse(document.querySelector('script#__NEXT_DATA__').textContent);
+        if(tmpData1.props.initialState.productDetails.attributes.hasOwnProperty('selectedAttributes')){
+          console.log('hasOwnProperty === selectedAttributes');
+          console.log('tmpData1111 :',tmpData1.props.initialState.productDetails.attributes.selectedAttributes);
+          let selAtt=tmpData1.props.initialState.productDetails.attributes.selectedAttributes;
+          if(selAtt.hasOwnProperty('id')){
+            console.log(' has id',selAtt.id);
+            console.log('tmpData1id :',tmpData1.props.initialState.productDetails.attributes.selectedAttributes.id);
+            const newDiv = document.createElement('div');
+            newDiv.id = 'customselectedVariantDiv';
+            newDiv.textContent = tmpData1.props.initialState.productDetails.attributes.selectedAttributes.id;
+            newDiv.style.display = 'none';
+            document.body.appendChild(newDiv);
+            cVariantGot=true;
+          }else{
+            console.log(' has no id');
+          }
+        }
+        //try{
+          
+        /*  
+          
         }catch(e){
 
-        }
+        }*/
         if(cVariantGot==false){
           console.log('going for normal variant');
-        }
-        
+          let tmpData=JSON.parse(document.querySelector('script#__NEXT_DATA__').textContent);
+          let tmpObj=tmpData.props.initialState.productDetails.attributes.variantsMap;
+          console.log('tmpObj:',tmpObj);
+
+          for(let tmp in tmpObj){
+            console.log('tmp:',tmp);
+            let sizeObj=tmpObj[tmp].id;
+            console.log('sizeObj:',sizeObj);
+            const newDiv = document.createElement('div');
+            newDiv.id = 'customselectedVariantDiv';
+            newDiv.textContent = sizeObj;
+            newDiv.style.display = 'none';
+            document.body.appendChild(newDiv);
+            break;
+          }
+        }        
       })
     }catch(e){
 
