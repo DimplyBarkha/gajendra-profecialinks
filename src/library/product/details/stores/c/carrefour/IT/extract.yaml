@@ -1,0 +1,116 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: (//div[contains(@class,"swiper-wrapper")]/div/img/@src)[1]
+    regExp: (.+)
+    regExpReplace: https://www.carrefour.it$1
+  - name: imageAlt
+    singleValue: false
+    xpath: (//div[contains(@class,"swiper-wrapper")]/div/img/@alt)[1]
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,"swiper-wrapper")]/div[position()>1]/img/@src
+    regExp: (.+)
+    regExpReplace: https://www.carrefour.it$1
+  - name: url
+    singleValue: false
+    xpath: //link[@rel="canonical"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.carrefour.it$
+  - name: category
+    xpath: //ul[@class="glide__slides"]/li[@id="cat-pane-farine-e-preparati"]/a/span/child::text()
+    singleValue: false 
+  - name: nameExtended
+    xpath: (//p[@class="product-name"])[1]
+    singleValue: false 
+  - name: description
+    xpath: //h1[contains(@class,"product-description")]
+    singleValue: false
+  - name: ingredientsList
+    xpath: //div[contains(@id,"panel-ingredientAndAllergens")]/p[contains(@class,"inner-title")][1]|//div[contains(@id,"panel-ingredientAndAllergens")]/ul/*
+    singleValue: false
+  - name: allergyAdvice
+    xpath: //div[contains(@id,"panel-ingredientAndAllergens")]/p[position()>2][1]
+    singleValue: false
+  - name: nutritionalComplaints
+    xpath: //div[contains(@id,"panel-ingredientAndAllergens")]/p[@class][5]
+    singleValue: false
+  - name: additives
+    xpath: //div[contains(@id,"panel-ingredientAndAllergens")]/p[@class][7]
+    singleValue: false
+  - name: salesDenomination
+    xpath: //div[contains(@id,"panel-salesDenomination")]/p[@class]
+    singleValue: false
+  - name: storage
+    xpath: //div[contains(@id,"panel-usageTips")]/p[@class][2]
+    singleValue: false
+  - name: marketing
+    xpath: //div[contains(@id,"panel-otherInformation")]/p[@class][2]
+    singleValue: false
+  - name: producer
+    xpath: //div[contains(@id,"panel-otherInformation")]/p[@class][4]
+    singleValue: false
+  - name: headquarters
+    xpath: //div[contains(@id,"panel-otherInformation")]/p[@class][6]
+    singleValue: false
+  - name: countryOfOrigin
+    xpath: //div[contains(@id,"panel-otherInformation")]/p[@class][8]
+    singleValue: false
+  - name: origin
+    xpath: //div[contains(@id,"panel-otherInformation")]/p[@class][10]
+    singleValue: false
+  - name: discountPercentage
+    xpath: //*[@id="maincontent"]/div[3]/div[2]/div/div[3]/div[2]/div/div/div/div[1]
+    singleValue: false
+  - name: onlinePrice
+    xpath: //*[@id="maincontent"]/div[3]/div[2]/div[1]/div[3]/div[2]/div[1]/div/span/span/span[2]
+    singleValue: false  
+  - name: brand
+    xpath: (//p[contains(@class,"product-name")])[1]
+    singleValue: false
+  - name: size
+    singleValue: false
+    xpath: //*[@id="maincontent"]/div[3]/div[2]/div[1]/div[3]/div[2]/div[1]/div/span/span/span[1]
+    regExp: '([^/]*$)'
+    regExpReplace: '$1'
+  - name: servingSize
+    singleValue: false
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/span)[2]
+    regExp: '([\d]+\s*(.+))'
+    regExpReplace: '$1'
+  - name: caloriesPerServing
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/span)[6]
+    singleValue: false
+  - name: totalFatPerServing
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/span)[14]
+    singleValue: false
+  - name: saturatedFatPerServing
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/span)[18]
+    singleValue: false
+  - name: totalCarbPerServing
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/span)[22]
+    singleValue: false 
+  - name: totalSugarsPerServing 
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/span)[26]
+    singleValue: false
+  - name: dietaryFibrePerServing
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/span)[30]
+    singleValue: false
+  - name: proteinPerServing
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/span)[34]
+    singleValue: false  
+  - name: saltPerServing
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/span)[38]
+    singleValue: false         
+  - name: sku
+    xpath: //div[contains(@class,"product-detail-page")]/div/@data-pid
+    singleValue: false      
+
+
+
+
+  
