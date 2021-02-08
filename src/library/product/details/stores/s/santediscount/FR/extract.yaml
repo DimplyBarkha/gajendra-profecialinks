@@ -16,7 +16,7 @@ fields:
   - name: alternateImages
     xpath: //div[@class="product-image-thumbs"]//ul//li[position()>1]//img/@data-fancybox-src
   - name: metaKeywords
-    xpath: //meta[@name="keywords"]/@content
+    xpath: ancestor::*//meta[@name="keywords"]/@content
   - name: category
     xpath: //nav[@id="breadcrumbs"]/ul/li[1]/a/@title
   - name: nameExtended
@@ -29,7 +29,7 @@ fields:
   - name: availabilityText
     xpath: //form[@id="product_addtocart_form"]//div[@class="add-to-cart-buttons"]
   - name: description
-    xpath: //div[@class="description-container"]/div[@class="std"]
+    xpath: normalize-space(//div[@class="description-container"]/div[@class="std"])
   - name: descriptionBullets
     xpath: count(//div[@class="description-container"]/div[@class="std"]//ul/li | //div[@class="std"]//div[starts-with(text(), '-')])
   - name: brandText
@@ -47,7 +47,7 @@ fields:
   - name: packSize
   - name: legalDisclaimer
   - name: directions
-    xpath: //h2[contains(text(), "Conseils d'utilisation")]/following::text()[1] | //h2[contains(text(), "Conseils d'utilisation")]/following::p[1]
+    xpath: ancestor::*//import-direction
   - name: warnings
     xpath: //*[contains(text(), 'Attention')] | //*[contains(text(), 'Attention')]/following::ul[1]
   - name: ratingCount
@@ -98,11 +98,14 @@ fields:
   - name: addonItem
   - name: fastTrack
   - name: ingredientsList
-    xpath: //h2[contains(text(), 'Composition')]/following::text()[1] | //h2[contains(text(), 'Composition')]/p[1] | //h2[contains(text(), 'Composition')]/following::*[1] 
+    xpath: ancestor::*//import-ingredients
   - name: servingSize
   - name: servingSizeUom
   - name: numberOfServingsInPackage
   - name: caloriesPerServing
+    xpath: //div[@class='description-container']/div/div[contains(., 'Valeur énergétique ')] | //div[@class='description-container']//li[contains(., 'Valeur énergétique ')]
+    regExp: Valeur énergétique . (.*)
+    regExpReplace: $1
   - name: caloriesFromFatPerServing
   - name: totalFatPerServing
     xpath: //*[contains(text(), 'Lipides')]
@@ -140,6 +143,9 @@ fields:
     regExp: (.*?):\s(.*)
     regExpReplace: $2
   - name: totalSugarsPerServing
+    xpath: //li[contains(., 'Dont sucres')]
+    regExp: Dont sucres . (.*)g
+    regExpReplace: $1
   - name: totalSugarsPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Sugar content

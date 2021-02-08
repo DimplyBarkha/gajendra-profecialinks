@@ -62,6 +62,54 @@ module.exports = {
         console.log('404');
       }
       optionalWait('section.product-view-essential');
+
+      // const descrpitionEls = document.querySelectorAll('.std > *');
+      // let directionString = '';
+      // for (const [index, item] of descrpitionEls.entries()) {
+      //   if (item.tagName === 'H2' && item.innerText.includes(`Conseils d'utilisation`)) {
+      //     for (let i = index + 1; i < descrpitionEls.length; i++) {
+      //       if (descrpitionEls[i].tagName !== 'H2') {
+      //         directionString = `${directionString}\n${descrpitionEls[i].innerText}`;
+      //       } else {
+      //         directionString = directionString.trim();
+      //         break;
+      //       }
+      //     }
+      //   }
+      // }
+      const desc = document.querySelector('.std');
+      let directionsHTML = '';
+      let ingridientsHTML = '';
+
+      if (desc) {
+        let descHTML = desc.innerHTML;
+        descHTML = descHTML.split(`<h2>Conseils d'utilisation :</h2>`);
+        
+        if (descHTML.length > 1) {
+          directionsHTML = descHTML[1].split('<h2>');
+          directionsHTML = directionsHTML[0];
+        }
+      }
+
+      
+      const newDirectionEl = document.createElement('import-direction');
+      newDirectionEl.innerHTML = directionsHTML;
+      document.body.appendChild(newDirectionEl);
+
+      if (desc) {
+        let descHTML = desc.innerHTML;
+        descHTML = descHTML.split(`<h2>Composition :</h2>`);
+        
+        if (descHTML.length > 1) {
+          ingridientsHTML = descHTML[1].split('<h2>');
+          ingridientsHTML = ingridientsHTML[0];
+        }
+      }
+
+      const newIngredientsEl = document.createElement('import-ingredients');
+      newIngredientsEl.innerHTML = ingridientsHTML;
+      document.body.appendChild(newIngredientsEl);
+
     }, inputs);
     await context.extract(productDetails, { transform });
   },
