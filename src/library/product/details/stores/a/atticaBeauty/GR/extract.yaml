@@ -30,7 +30,7 @@ fields:
     regExpReplace: $2
   - name: nameExtended
     singleValue: false
-    xpath: //div[contains(@class,'container')]//section[contains(@class,'mainContent')]//div[contains(@class,'productView')]//div[contains(@class,'productDetails')]//h1|//div[contains(@class,'container')]//section[contains(@class,'mainContent')]//div[contains(@class,'productView')]//div[contains(@class,'productDetails')]//a[contains(@class,'brand')]|//div[contains(@class,'container')]//section[contains(@class,'mainContent')]//div[contains(@class,'productView')]//div[contains(@class,'productDetails')]//div[contains(@class,'prStatus')]//span[contains(@class,'quant')]
+    xpath: //div[contains(@class,'container')]//section[contains(@class,'mainContent')]//div[contains(@class,'productView')]//div[contains(@class,'productDetails')]//a[contains(@class,'brand')] | //div[contains(@class,'container')]//section[contains(@class,'mainContent')]//div[contains(@class,'productView')]//div[contains(@class,'productDetails')]//h1 | //div[contains(@class,'container')]//section[contains(@class,'mainContent')]//div[contains(@class,'productView')]//div[contains(@class,'productDetails')]//div[contains(@class,'prStatus')]//span[contains(@class,'quant')]
   - name: name
     singleValue: false
     xpath: //div[contains(@class,'container')]//section[contains(@class,'mainContent')]//div[contains(@class,'productView')]//div[contains(@class,'productDetails')]//h1
@@ -55,7 +55,7 @@ fields:
     xpath: //div[contains(@class,'container')]//section[contains(@class,'mainContent')]//div[contains(@class,'productView')]//div[contains(@class,'productDetails')]//div[contains(@class,'tools')]//div[contains(@class,'right')]//a[contains(@class,'button')]
     regExp: (ΠΡΟΣΘΗΚΗ ΣΤΟ ΚΑΛΑΘΙ)
     regExpReplace: In Stock
-    defaultValue: Out Of Stock
+    defaultValue: Out of stock
   - name: directions
     singleValue: false
     xpath: //div[contains(@class,'container')]//section[contains(@class,'mainContent')]/@data-luceneprod
@@ -97,20 +97,9 @@ fields:
     xpath: //div[contains(@class,'container')]//section[contains(@class,'mainContent')]//figure/a/@data-video
     regExp: (src\s*=\s*"(.+?)")
     regExpReplace: $2
-  - name: firstVariant
-    singleValue: false
-    xpath: //div[contains(@class,'productDetails')]//div[contains(@class,'tools')]//div[contains(@class,'right')]//a/@data-dataremove
-  - name: variantCount
-    singleValue: false
-    xpath: //div[contains(@class,'productDetails')]//div[contains(@class,'colors')]//ul//li/a/@data-productid | //div[contains(@class,'productDetails')]//div[contains(@class,'ml')]//a/@data-sku
-  - name: variants
-    singleValue: false
-    xpath: //div[contains(@class,'productDetails')]//div[contains(@class,'colors')]//ul//li/a/@data-productid | //div[contains(@class,'productDetails')]//div[contains(@class,'ml')]//a/@data-sku
   - name: imageZoomFeaturePresent
     singleValue: false
     xpath: //div[contains(@class,'container')]//section[contains(@class,'mainContent')]//div[contains(@class,'productView')]//div[contains(@class,'productImg')]//div[contains(@class,'wrap')]//figure[contains(@class,'product__img product__img--featured')]//div[contains(@class,'product__img__zoom')]/span[contains(@class,'product__img__zoom__text')]
     regExp: (^.*)
     regExpReplace: "Yes"
     defaultValue: "No"
-
-  

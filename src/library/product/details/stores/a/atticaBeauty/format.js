@@ -19,6 +19,7 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       // Variants
+      console.log(row);
       if (row.variants) {
         const variantArray = row.variants.map((item) => {
           return item.text;
@@ -50,11 +51,13 @@ const transform = (data, context) => {
       // }
       // NameExtended
       if (row.nameExtended) {
-        const nameExtendedArr = row.nameExtended.map((item) => {
-          return item.text;
-        });
-        // [nameExtendedArr[0], nameExtendedArr[1]] = [nameExtendedArr[1], nameExtendedArr[0]];
-        row.nameExtended = [{ text: nameExtendedArr.join(' '), xpath: row.nameExtended[0].xpath }];
+        let brandName     = (row.nameExtended[1] && typeof row.nameExtended[1] !== 'undefined' )?row.nameExtended[1].text:'';
+        let productSize   = (row.nameExtended[2] && typeof row.nameExtended[2] !== 'undefined' )?row.nameExtended[2].text:'';
+        row.nameExtended[0].text  = brandName +' '+ row.nameExtended[0].text +' '+ productSize;
+        row.nameExtended = [{
+          text : row.nameExtended[0].text.trim(),
+          xpath : row.nameExtended[0].xpath
+        }]
       }
       // Price
       if (row.listPrice && row.listPrice[0]) {
