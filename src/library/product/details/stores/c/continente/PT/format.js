@@ -67,10 +67,11 @@ const transform = (data) => {
       //   row.description=[{"text":inf.join(' ')}];
       // }
       if (row.description) {
-        // console.log("row.description",row.description);
+        console.log("row.description", row.description);
         let text = '';
         row.description.forEach(item => {
-          text += item.text;
+          text += ' ' + item.text;
+          text = text.replace('', '').trim();
         });
         row.description = [{ text }];
       }
@@ -136,10 +137,9 @@ const transform = (data) => {
         console.log("row.ingredientsList", row.ingredientsList);
         row.ingredientsList.forEach(item => {
           if (item.text.includes("Ingredientes:")) {
-            item.text = item.text.replace('Ingredientes:', '').trim();
-          }
-          else{
-            item.text = item.text;
+            let split1 = item.text.split("Ingredientes:");
+            item.text = `${split1[1]}`;
+            item.text = item.text.replace('', '').trim();
           }
         });
       }

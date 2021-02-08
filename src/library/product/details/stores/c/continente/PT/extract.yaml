@@ -57,12 +57,12 @@ fields:
     defaultValue: Yes
   - name: description
     singleValue: false
-    xpath: //div[@class="productDetailSubArea"]/div[@class="body"]//div[@class='productTitle']//em |  //div[@class="productDetailSubArea"]/div[@class="body"]/p | //div[@class="productDetailSubArea"]/div[@class="body"]/div/p
+    xpath: //div[@class="productDetailSubArea"]/div[@class="body"]//div[@class='productTitle']//em |  //div[@class="productDetailSubArea"]/div[@class="body"]/p | //div[@class="productDetailSubArea"]/div[@class="body"]/div/p |//div[@class="productDetailSubArea"]/div[@class="body"]//em
     # xpath:  //div[@class ='contentLeftTop']//tr//p[not(img)] | //div[@class='body']//em
   - name: ingredientsList
     singleValue: false
     # xpath: //div[@class="productDetailSubArea"]/div[@class="body"]/p/strong[contains(text(),"Ingredientes")]/parent::*/text() | //div[contains(@class,"additionalProductInformation")]//span[contains(.,'Lista de ingredientes:')]//following-sibling::span//text()
-    xpath: //div[contains(@class,"additionalProductInformation")]//span[contains(.,'Lista de ingredientes:')]//following-sibling::span//text() | //div[@class='nutricionalInformationArea']//span[@id='additionalInformation']//font//font[contains(.,'Ingredients')]//following-sibling::font//text()
+    xpath: //div[contains(@class,"additionalProductInformation")]//span[contains(.,'Lista de ingredientes:')]//following-sibling::span//text() | //div[@class='nutricionalInformationArea']//span[@id='additionalInformation']//text()
   - name: directions
     singleValue: false
     xpath: //div[@class="productDetailSubArea"]//div[@class="title" and text()="Dicas"]/parent::*/following::div[@class="body"]/p | //div[@id='UnspecifiedPreparationTypePreparationInstructions']/text() | //div[@class="productDetailSubArea"]//div[@class='body']//div[contains(.,'Dose Diária Recomendada:')]//following-sibling::div
@@ -81,7 +81,7 @@ fields:
     xpath: //div[@id='contactName']//text()
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@class='productDetailSubArea']//div[@class='body']//p//img//@src | //div[@class='productDetailSubArea']//div[@class='body']//td//img//@src
+    xpath: //div[@class='productDetailSubArea']//div[@class='body']//p//img//@src | //div[@class='productDetailSubArea']//div[@class='body']//td//img//@src | //div[@class='productDetailSubArea']//div[@class='body']//a//img/@src
   - name: alternateImages
     singleValue: false
     xpath: //div[@class='imageAdditionalInfo']//a//img//@src
