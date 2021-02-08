@@ -5,7 +5,7 @@ module.exports = {
     country: 'UK',
     store: 'lookfantastic',
     domain: 'lookfantastic.com',
-    loadedSelector: 'body',
+    loadedSelector: 'main#mainContent',
     noResultsXPath: null,
   },
 };
