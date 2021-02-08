@@ -46,12 +46,9 @@ fields:
   xpath: //div[starts-with(@id,'ii_price')]
 - name: availabilityText
   singleValue: true
-  xpath: //div[@class="wide-6 productInformations offerDetails"]//dd[contains(@class,'availability')]/span[@title="in_stock"]/@class
-  regExp: (.+)
-  regExpReplace: In Stock 
-  defaultValue: Out of Stock 
+  xpath: //html//div[@id="availability"] 
 - name: description
-  # type: TEXT[
+  # type: TEXT[]
   singleValue: false 
   description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description

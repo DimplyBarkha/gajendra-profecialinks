@@ -8,7 +8,7 @@ module.exports = {
   },
   implementation: async ({ url }, { country, domain }, context, { productDetails }) => {
     await context.evaluate(async function () {
-      function addHiddenDiv (id, content) {
+      function addHiddenDiv(id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
@@ -42,10 +42,10 @@ module.exports = {
       // gtin
       // const gtinForm = document.querySelector('div[class="addToCartForm"] input[name="product_id"]');
       // if (!gtinForm) {
-        // const gtinSelector = document.evaluate('//*[contains(text(),"product_id")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-        // let gtin = gtinSelector ? gtinSelector.textContent.match(/.*product_id=(\w+?)".*/) : '';
-        // gtin = gtin ? gtin[1] : '';
-        // addHiddenDiv('ii_gtin', gtin);
+      // const gtinSelector = document.evaluate('//*[contains(text(),"product_id")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      // let gtin = gtinSelector ? gtinSelector.textContent.match(/.*product_id=(\w+?)".*/) : '';
+      // gtin = gtin ? gtin[1] : '';
+      // addHiddenDiv('ii_gtin', gtin);
       // }
       // manufacturer Desc
       const manufacturerDescSelector = document.querySelector('dd[class="productLongDescription"]');
@@ -58,6 +58,32 @@ module.exports = {
         }
       });
       addHiddenDiv('ii_desc', additionalDescription);
+
+      // Availability
+      var getXpath = (xpath, prop) => {
+        var elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+        let result;
+        if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+        else result = elem ? elem.singleNodeValue : '';
+        return result && result.trim ? result.trim() : result;
+      };
+      function addElementToDocument(key, value) {
+        const catElement = document.createElement('div');
+        catElement.id = key;
+        catElement.textContent = value;
+        catElement.style.display = 'none';
+        document.body.appendChild(catElement);
+      }
+      var availability = getXpath('//div[@class="wide-6 productInformations offerDetails"]//dd[contains(@class,"availability")]/span[@class="value-title"]/@title', 'nodeValue');
+      if (availability != null) {
+        if (availability.includes("in_")) {
+          availability = "In Stock";
+        } else if (availability.includes("out_of")) {
+          availability = "Out of Stock";
+        }
+        addElementToDocument('availability', availability);
+      }
+
     });
     return await context.extract(productDetails);
   },
