@@ -74,7 +74,7 @@ fields:
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
-  xpath: //div[@class="wide-6 productInformations offerDetails"]//dd[@class="packageSize"]
+  # xpath: //div[@class="wide-6 productInformations offerDetails"]//dd[@class="packageSize"]
 - name: alcoholContent
   singleValue: true
   description: Alcohol content described on the page
@@ -85,13 +85,13 @@ fields:
   singleValue: true
   description: GTIN code (includes UPC/EAN)
   manualSelector: script[type='text/javascript']
-  regExp: '(productId: ")(\d+)'
+  regExp: '({gtin: ")(\d+)'
   regExpReplace: $2
 - name: sku
   singleValue: true
   description: The store-specific product identifier
   # xpath: //div[@class="wide-6 productInformations offerDetails"]//dd[@itemprop="productID"]//text()
-  xpath: (//dl[@class="productInfos"]//dd[@itemprop="productID"]//text())[1]
+  # xpath: (//dl[@class="productInfos"]//dd[@itemprop="productID"]//text())[1]
 - name: variantId
   singleValue: true
   # xpath: //div[@class="wide-6 productInformations offerDetails"]//dd[@itemprop="productID"]//text()
@@ -167,7 +167,8 @@ fields:
 - name: nameExtended
   type: TEXT
   description: The product name
-  xpath:  normalize-space(concat(//h1[@class="name fn"]//text(),(//dd[@class="packageSize"]//text())[1],(//dd[@class="packageSize"]//text())[2]))
+  xpath:  normalize-space(concat(//h1[@class="name fn"]//text(),'-',(//dd[@class="packageSize"]//text())[1],(//dd[@class="packageSize"]//text())[2]))
+  # xpath: concat(//h1[@itemprop="name"]//text(),//dd[@class="packageSize"]//text())
 - name: name
   singleValue: true
   type: TEXT
@@ -485,6 +486,8 @@ fields:
 - name: variantInformation
   singleValue: true
   description: colour / scent / flavour / other
+  # xpath: //div[@class="similarProducts wide-12"]//dl[@class="productInfos"]//dd[@class="quantity"]//text()
+  xpath: concat((//div[@class="similarProducts wide-12"]//dl[@class="productInfos"]//dd[@class="quantity"]//text())[1],',',(//div[@class="similarProducts wide-12"]//dl[@class="productInfos"]//dd[@class="quantity"]//text())[2])
 - name: firstVariant
   singleValue: true
   description: Unique identifier for a collection of variants. For a subset of
