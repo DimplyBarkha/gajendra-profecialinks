@@ -1,4 +1,6 @@
-async function implementation(
+/* eslint-disable no-unused-vars */
+async function implementation (
+  // @ts-ignore
   inputs,
   parameters,
   context,
@@ -14,27 +16,31 @@ async function implementation(
   //   }
   // });
 
+  // @ts-ignore
   const addOptionalWait = async (selector, wait) => {
     try {
-      await context.waitForSelector(selector, { timeout: `${wait}` })
-      console.log(`${selector}------------ loaded successfully`)
+      await context.waitForSelector(selector, { timeout: `${wait}` });
+      console.log(`${selector}------------ loaded successfully`);
     } catch (e) {
       console.log(`${selector}--- not able to load the selector`);
     }
-  }
+  };
+  // @ts-ignore
   const getReferenceToElementByXpath = async (xpath) => {
     return await context.evaluate((xpath) => {
       return document.evaluate(xpath, document) && document.evaluate(xpath, document).iterateNext();
-    }, xpath)
-  }
+    }, xpath);
+  };
+  // @ts-ignore
   const getReferenceToElementBySelector = async (selector) => {
     return await context.evaluate((selector) => {
       return document.querySelector(selector);
-    }, selector)
-  }
+    }, selector);
+  };
   await context.evaluate(async () => {
     const scriptElement = document.querySelector('script[type*="application/ld+json"]');
-    const jsonData = scriptElement && scriptElement.innerText && JSON.parse(scriptElement.innerText)
+    // @ts-ignore
+    const jsonData = scriptElement && scriptElement.innerText && JSON.parse(scriptElement.innerText);
     const sku = jsonData && jsonData.sku;
     const name = jsonData && jsonData.name;
     const rating = jsonData && jsonData.aggregateRating && jsonData.aggregateRating.ratingValue;
@@ -45,46 +51,52 @@ async function implementation(
     const getListPrice = () => {
       const priceRow = document.querySelector('x-wrapper-re-1-3 > div > div');
       const priceElements = document.evaluate('.//span[text() and not(contains(text(), "VAT"))]', priceRow, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      // @ts-ignore
       const price = priceElements.snapshotItem(0) ? priceElements.snapshotItem(0).textContent : '';
       const listPrice = priceElements.snapshotItem(1) ? priceElements.snapshotItem(1).textContent : '';
       return listPrice;
-    }
+    };
 
     const getPrimaryImage = () => {
       const scriptElement = document.querySelector('script[type*="application/ld+json"]');
+      // @ts-ignore
       const jsonData = scriptElement && scriptElement.innerText && JSON.parse(scriptElement.innerText);
       const imageArray = jsonData && jsonData.image;
       const primaryImage = imageArray && imageArray.slice(0, 1);
       const primaryImageWithIncreasedSize = primaryImage.map((element) => element && element.replace(/(.+)(\?)(imwidth=)(\d+)/g, '$1$2$31800'));
       return primaryImageWithIncreasedSize[0];
-    }
+    };
 
     const getSecondaryImages = () => {
       const scriptElement = document.querySelector('script[type*="application/ld+json"]');
+      // @ts-ignore
       const jsonData = scriptElement && scriptElement.innerText && JSON.parse(scriptElement.innerText);
       const imageArray = jsonData && jsonData.image;
       const secondaryImages = imageArray && imageArray.slice(1);
       const secondaryImagesWithIncreasedSize = secondaryImages.map((element) => element && element.replace(/(.+)(\?)(imwidth=)(\d+)/g, '$1$2$31800'));
       const secondaryImageJoinedByPipe = secondaryImagesWithIncreasedSize.map(element => element && element.trim()).join(' | ');
-      return secondaryImageJoinedByPipe
-    }
+      return secondaryImageJoinedByPipe;
+    };
     const getTotalSecondaryImage = () => {
       const scriptElement = document.querySelector('script[type*="application/ld+json"]');
+      // @ts-ignore
       const jsonData = scriptElement && scriptElement.innerText && JSON.parse(scriptElement.innerText);
       const imageArray = jsonData && jsonData.image;
       const secondaryImages = imageArray && imageArray.slice(1);
       return secondaryImages && secondaryImages.length;
-    }
+    };
 
     const getVariantIDArray = () => {
       const scriptElement = document.querySelector('script[type*="application/ld+json"]');
+      // @ts-ignore
       const jsonData = scriptElement && scriptElement.innerText && JSON.parse(scriptElement.innerText);
       const variantIdArray = jsonData && jsonData.offers && jsonData.offers.map(element => element.sku);
       return variantIdArray;
-    }
+    };
 
     const getAvailabilityArray = () => {
       const scriptElement = document.querySelector('script[type*="application/ld+json"]');
+      // @ts-ignore
       const jsonData = scriptElement && scriptElement.innerText && JSON.parse(scriptElement.innerText);
       const availabilityArray = [];
       jsonData && jsonData.offers && jsonData.offers.forEach((element) => {
@@ -93,31 +105,35 @@ async function implementation(
         } else {
           availabilityArray.push('Out of Stock');
         }
-      })
+      });
       return availabilityArray;
-    }
+    };
     const getPriceArray = () => {
       const scriptElement = document.querySelector('script[type*="application/ld+json"]');
+      // @ts-ignore
       const jsonData = scriptElement && scriptElement.innerText && JSON.parse(scriptElement.innerText);
       const priceArray = jsonData && jsonData.offers && jsonData.offers.map(element => element.price);
       return priceArray;
-    }
-    const clickElement = document.querySelector('button[id="picker-trigger"]>span')
+    };
+    const clickElement = document.querySelector('button[id="picker-trigger"]>span');
     if (clickElement) {
+      // @ts-ignore
       clickElement.click();
     }
     const getsizeArray = () => {
       const sizeArray = [];
       const sizeElements = document.querySelectorAll('form[name="size-picker-form"]>div>div>div>label>span>div>span:first-child');
+      // @ts-ignore
       sizeElements && sizeElements.forEach(element => sizeArray.push(element.innerText));
       return sizeArray;
-    }
+    };
     const getComapareVariantIdArray = () => {
       const compareVariantIdArray = document.querySelectorAll('form[name="size-picker-form"]>div>div>input');
       let idArray = [];
+      // @ts-ignore
       idArray = [...compareVariantIdArray].map((element) => element.getAttribute('value'));
       return idArray;
-    }
+    };
     const primaryImage = getPrimaryImage();
     const secondaryImages = getSecondaryImages();
     const totalSecondaryImages = getTotalSecondaryImage();
@@ -128,14 +144,16 @@ async function implementation(
     const compareVariantArray = getComapareVariantIdArray();
     const listPrice = getListPrice();
     const actulaSizeArray = [];
+    // @ts-ignore
     variantIdArray.forEach((element1, index1) => {
       compareVariantArray.forEach((element2, index2) => {
         if (element1 === element2) {
           actulaSizeArray.push(sizeArray[index2]);
         }
-      })
-    })
-    //code for appending the elements to document
+      });
+    });
+    // code for appending the elements to document
+    // @ts-ignore
     variantIdArray.forEach((element, index) => {
       const productInfoElement = document.createElement('div');
       productInfoElement.className = 'productinformation';
@@ -156,7 +174,7 @@ async function implementation(
       productInfoElement.setAttribute('totalsecondaryimages', totalSecondaryImages);
       productInfoElement.setAttribute('listprice', listPrice);
       document.body.append(productInfoElement);
-    })
+    });
   });
   // const sizePickerClickElementXpath = `//button[@id="picker-trigger"]/span`;
   // const sizePickerClickElement = await getReferenceToElementByXpath(sizePickerClickElementXpath);
