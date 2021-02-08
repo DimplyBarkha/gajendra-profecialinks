@@ -9,6 +9,9 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //div[@aria-label="Carousel Pagination"]//div[@data-nav][position()>1]//img//@src 
+  - name: url
+    singleValue: true
+    xpath: //span//form/input[1]/@value
   - name: category
     singleValue: false
     xpath: //ol[@class="page-breadcrumb"]//span//a//@title
@@ -32,7 +35,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: concat(//div[@class="product-sku__details"] , //div[@class='description-sku__figure-text'])
+    xpath: //div[@id='desc']
   - name: descriptionBullets
     singleValue: true    
     type: NUMBER
