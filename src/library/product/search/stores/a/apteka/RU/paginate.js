@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: '.CatalogItemsList__grid',
+    loadedSelector: '.CatalogItemsList__grid, .ViewProductPage__bannersComponent',
     noResultsXPath: '//p[contains(text(), "Увы, ничего")]',
     openSearchDefinition: {
       template: 'https://apteka.ru/search/?q={searchTerms}&page={page}',

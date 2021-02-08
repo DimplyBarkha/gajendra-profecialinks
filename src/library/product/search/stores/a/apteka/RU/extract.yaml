@@ -1,27 +1,23 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: '.CategoryItemCard'
-recordXPath: null
+recordSelector: null
+recordXPath: //div[contains(@class, "ViewProductPage")] | //div[@class = "ViewSearch__items"]//div[@class = "CategoryItemCard"]
 fields:
   - name: id
     singleValue: false
-    xpath: //a[@class = "CategoryItemCard__title"]/@href
-    regExp: .*-(.*)\/$
-    regExpReplace: $1
+    xpath: //div[@id="import_product_id"]
   - name: search_url
     singleValue: false
     xpath: //div[@id="import_search_url"]
   - name: name
     singleValue: false
-    xpath: //a[@class = "CategoryItemCard__title"]//span
+    xpath: //div[@class = "ViewSearch__items"]//a[@class = "CategoryItemCard__title"]//span | //div[@class = "ViewProductPage__title"]//h1
   - name: productUrl
     singleValue: false
-    xpath: //a[@class = "CategoryItemCard__title"]/@href
-    regExp: (.+)
-    regExpReplace: https://apteka.ru$1
+    xpath: //div[@id="import_product_url"]
   - name: thumbnail
     singleValue: false
-    xpath: //a[contains(@class, "CategoryItemCard__image")]//img/@src
+    xpath: //div[@id="import_product_image"]
   - name: price
     singleValue: false
-    xpath: //div[@class = "CategoryItemCard__price"]//strong
+    xpath: //div[@class = "ViewSearch__items"]//div[@class = "CategoryItemCard__price"]//strong | //div[@class = "ProductOffer__price"]//span[@class="moneyprice__content"]

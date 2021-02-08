@@ -25,14 +25,26 @@ module.exports = {
       if (nextBtn) {
         nextBtn.remove();
       }
-      const productImages = document.evaluate('//div[@class = "CategoryItemCard__multiple-images"]//div[position() > 1]', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE);
-      const products = document.evaluate('//div[@class = "CategoryItemCard-wrapper"]', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE);
-      for (let i = 0; i < productImages.snapshotLength; i++) {
-        productImages.snapshotItem(i).remove();
-      }
-      console.log(products.snapshotLength);
+      const products = document.evaluate('//div[@class = "ViewSearch__items"]//div[@class = "CategoryItemCard-wrapper"]', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE);
+      const isProductPage = document.querySelector('.ViewProductPage');
+      const productIds = document.evaluate('//div[@class = "ViewSearch__items"]//a[@class = "CategoryItemCard__title"]/@href', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE);
+      const productDetailsId = document.evaluate('//meta[@itemprop = "sku"]/@content', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE);
+      const productImages = document.evaluate('//div[@class = "ViewSearch__items"]//a[contains(@class, "CategoryItemCard__image")]//img/@src', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE);
+      const productDetailsImage = document.evaluate('//div[@class = "ProductPhotos-buttons"]//img/@src', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE);
       for (let i = 0; i < products.snapshotLength; i++) {
+        const pdtId = productIds.snapshotItem(i).nodeValue.replace(/.*-(.*)\/$/, '$1');
+        const pdtURL = productIds.snapshotItem(i).nodeValue.replace(/(.+)/, 'https://apteka.ru$1');
         addHiddenDiv('import_search_url', location.href, products.snapshotItem(i));
+        addHiddenDiv('import_product_id', pdtId, products.snapshotItem(i));
+        addHiddenDiv('import_product_url', pdtURL, products.snapshotItem(i));
+        addHiddenDiv('import_product_image', productImages.snapshotItem(i).nodeValue, products.snapshotItem(i));
+      }
+      if (isProductPage) {
+        const pdtImage = productDetailsImage.snapshotItem(0).nodeValue.replace(/(.*)preview_(.*)/, '$1original_$2');
+        addHiddenDiv('import_search_url', location.href, isProductPage);
+        addHiddenDiv('import_product_id', productDetailsId.snapshotItem(0).nodeValue, isProductPage);
+        addHiddenDiv('import_product_url', location.href, isProductPage);
+        addHiddenDiv('import_product_image', pdtImage, isProductPage);
       }
     });
     await new Promise(resolve => setTimeout(resolve, 10000));
