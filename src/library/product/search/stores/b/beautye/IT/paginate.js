@@ -7,9 +7,10 @@ module.exports = {
     store: 'beautye',
     // nextLinkSelector: '#amasty-shopby-product-list > div:nth-child(4) > div.pages > ul > li.item.pages-item-next > a',
     nextLinkSelector: '#amasty-shopby-product-list > div:nth-child(4) div.pages ul li.pages-item-next a.action.next[title="Successivo"]',
+    //'#amasty-shopby-product-list > div:nth-child(4) div.pages ul li.pages-item-next a.action.next[title="Successivo"]',
     // mutationSelector: null,
     // spinnerSelector: null,
-    loadedSelector: 'div.products-grid li.product-item', // 'li.item.product.product-item',
+    loadedSelector: 'li.product-item div div.product-item-photo a img.product-image-photo', // 'li.item.product.product-item',
     noResultsXPath: '//div[@class="message notice"]/div',
     /*openSearchDefinition: {
       template: 'https://www.beautye.it/catalogsearch/result/index/?p={page}&q={searchTerms}',

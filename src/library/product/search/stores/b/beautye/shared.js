@@ -22,6 +22,13 @@ const transform = (data, context) => {
   const productCodes = state.productCodes || [];
   for (const { group } of data) {
     for (const row of group) {
+      if(row.name){
+        let text='';
+        row.name.forEach(item => {
+          text = text + (text ? ' ' : '') + item.text;
+        });
+        row.name =  [{ text }];
+       }
       if (row.id) {
         rankCounter += 1;
         if (!row.sponsored) {
@@ -34,6 +41,7 @@ const transform = (data, context) => {
           el.text = clean(el.text);
         }));
       }
+     
     }
   }
   context.setState({ rankCounter });
