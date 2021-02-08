@@ -3,10 +3,12 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //div[@class="opbox-listing"]//article
 fields:
+  - name: soldBy
+    xpath: ancestor::html//span[@data-role="filters-selected-option"]
   - name: productUrl
     xpath: //div//a[@rel="nofollow"]/@href
   - name: thumbnail
-    xpath: //a/img/@src
+    xpath: //div/div/div/a/img/@src
   - name: name
     xpath: //h2
   - name: ratingCount
@@ -16,7 +18,7 @@ fields:
     singleValue: true
     description: The number of reviews
   - name: price
-    xpath: //div[@class="mqu1_g3"]
+    xpath: //div/div[contains(@class, 'mpof_ki myre_zn')]/div[contains(@class, '3AMmE')]/div/div/span
     regExp: (\d+,\d+)
     regExpReplace: $1
   - name: rank
