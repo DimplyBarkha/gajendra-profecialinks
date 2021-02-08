@@ -6,6 +6,6 @@ module.exports = {
     store: 'bestwaywholesale',
     domain: 'bestwaywholesale.co.uk',
     zipcode: '',
-    noResultsXPath: 'div.curved-shadow, div.no-search-results',
+    noResultsXPath: '//div[contains(@class,"curved-shadow") or contains(@class,"no-search-results")]',
   },
 };
