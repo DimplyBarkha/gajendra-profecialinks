@@ -119,6 +119,11 @@ fields:
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
     xpath: //html//div[@id='brand']
+  - name: color
+    singleValue: true
+    description: A textual description of the colour
+    xpath: //ul[contains(@class,"fragrance")]/li[@class="selected"]/a|//ul[contains(@class,"color")]/li[@class="selected"]/a
+
 
 
 

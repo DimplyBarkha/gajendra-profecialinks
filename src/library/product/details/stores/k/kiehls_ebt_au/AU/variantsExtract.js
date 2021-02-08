@@ -54,7 +54,7 @@ async function implementation(
     {
     for(var i=0;i<vId.length;i++){
       //vurls.push(pgurl.replace(pgurl.match(/(\d+?).html/gm),vId[i]+".html"));
-      addElementToDocument('vurls',pgurl.replace(pgurl.match(/(\w{2,})?\d{3,}/gm),vId[i]));
+      addElementToDocument('vurls',pgurl.replace(pgurl.match(/(\w{2,})?\d{3,}.html/gm),vId[i]+'.html'));
     }
     };
 

@@ -45,76 +45,81 @@ module.exports = {
         var xy = x + ' | ' + y;
         addElementToDocument('xy', xy);
       }
-      else
-      {
+      else {
         var xy = '';
         addElementToDocument('xy', xy);
       }
 
       //variants
-      var var1 = getAllXpath('//div/ul/li/a/@data-variantid','nodeValue');
+      var var1 = getAllXpath('//div/ul/li/a/@data-variantid', 'nodeValue');
       var var2 = var1.join(' | ');
       addElementToDocument('var2', var2);
 
       //alternate image
-      var img1 = getAllXpath('//div/ul[@class="carousel_navigation_items"]/li[position()>1 and position() <= last()]/span/img/@src','nodeValue');
+      var img1 = getAllXpath('//div/ul[@class="carousel_navigation_items"]/li[position()>1 and position() <= last()]/span/img/@src', 'nodeValue');
       var img = img1.join(' | ');
-      addElementToDocument('img',img);
+      addElementToDocument('img', img);
 
       //quantity
-      var qty = getAllXpath('//div[@id="product_content"]/div[1]/ul[2]/li[1]/div/ul/li/a/span/text()','nodeValue');
-      var qty1 = getAllXpath('//div[@id="product_content"]/div[1]/ul[1]/li[1]/div/ul/li[1]/a/span/text()','nodeValue');
-      if(qty!=null)
-      {
+      var qty = getAllXpath('//div[@id="product_content"]/div[1]/ul[2]/li[1]/div/ul/li/a/span/text()', 'nodeValue');
+      var qty1 = getAllXpath('//div[@id="product_content"]/div[1]/ul[1]/li[1]/div/ul/li[1]/a/span/text()', 'nodeValue');
+      if (qty != null) {
         var qty2 = qty.toString();
-        addElementToDocument('qty2',qty2);
+        addElementToDocument('qty2', qty2);
       }
-      else if(qty1!=null)
-      {
+      else if (qty1 != null) {
         var qty2 = qty1.toString();
-        addElementToDocument('qty2',qty2);
+        addElementToDocument('qty2', qty2);
       }
 
       //IngredientList
       // @ts-ignore
-      
+
       var ing = document.querySelectorAll('div[id="tab_ingredients"] div[id="ing-copy"]');
       var ing1 = []
-      for(var i=0;i<ing.length;i++){
-            // @ts-ignore
-            ing1.push(ing[i].innerText);
+      try {
+        for (var i = 0; i < ing.length; i++) {
+          // @ts-ignore
+          ing1.push(ing[i].innerText);
+        }
+      } catch (error) {
       }
-      try{
-      // @ts-ignore
-      var ing2 = document.querySelector('div[class*="js-ingredients-dialog"][id*="ui-id"]').innerText;
-      ing1.push(ing2);
+
+      try {
+        // @ts-ignore
+        var ing2 = document.querySelector('div[class*="js-ingredients-dialog"][id*="ui-id"]').innerText;
+        ing1.push(ing2);
       }
-      catch(error){}
+      catch (error) { }
       // @ts-ignore
-      var ingre = ing1.join('').trim().replaceAll(/\n+/gm,'\n').replaceAll('•'||'●','||').replaceAll('\n',',').replace('Print', '').replaceAll('. ,',',');
-      addElementToDocument('ingre',ingre);
+      var ingre = ing1.join('').trim().replaceAll(/\n+/gm, '\n').replaceAll('•' || '●', '||').replaceAll('\n', ',').replace('Print', '').replaceAll('. ,', ',');
+      addElementToDocument('ingre', ingre);
 
       //Brand
       try {
         // @ts-ignore
         var brand = window.backendGtmEvents[0].ecommerce.detail.products[0].brand;
-        addElementToDocument('brand',brand);
-        } catch (error) {}
- 
+        addElementToDocument('brand', brand);
+      } catch (error) { }
 
-     
-      var direction = document.querySelector('div[id="tab_tips"]').innerText;
-      var specs = direction.trim().replaceAll(/\n+/gm, '').replaceAll('•' || '●', '||').replaceAll('\n', '').replaceAll('’', '').replace('Print', '').replaceAll('-', '');
-      addElementToDocument('specs', specs);
 
-    
+      try {
+        // @ts-ignore
+        var direction = document.querySelector('div[id="tab_tips"]').innerText;
+        var specs = direction.trim().replaceAll(/\n+/gm, '').replaceAll('•' || '●', '||').replaceAll('\n', '').replaceAll('’', '').replace('Print', '').replaceAll('-', '');
+        addElementToDocument('specs', specs);
+      } catch (error) {
+      }
+      
 
-    // Product Description
-    const getDescription = (d) => {
-    var desc = d.replaceAll(/\n+/gm, '\n').replaceAll('•' || '●', '||').replaceAll('\n', '|').replaceAll('|||', '||').replaceAll('’', '').replace('Print', '').replaceAll('-', '');
-    addElementToDocument('descrip', desc);
-  };
-  // @ts-ignore
+
+
+      // Product Description
+      const getDescription = (d) => {
+        var desc = d.replaceAll(/\n+/gm, '\n').replaceAll('•' || '●', '||').replaceAll('\n', '|').replaceAll('|||', '||').replaceAll('’', '').replace('Print', '').replaceAll('-', '');
+        addElementToDocument('descrip', desc);
+      };
+      // @ts-ignore
       var description = document.querySelector('div[id="tab_details"]').innerText;
       getDescription(description);
 
@@ -130,13 +135,12 @@ module.exports = {
       var aval = getXpath('//div[contains(@class,"availability")]/p[2]/span/text()', 'nodeValue');
       if (aval != null) {
         if (aval.includes('Out of stock')) {
-            aval = 'Out Of Stock';
-            addElementToDocument('aval', aval);
-          } else if (aval.includes('In Stock')) 
-          {
-            aval = 'In Stock';
-            addElementToDocument('aval', aval);
-          }
+          aval = 'Out Of Stock';
+          addElementToDocument('aval', aval);
+        } else if (aval.includes('In Stock')) {
+          aval = 'In Stock';
+          addElementToDocument('aval', aval);
+        }
       }
     });
     await context.extract(productDetails);
