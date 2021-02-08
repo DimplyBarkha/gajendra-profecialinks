@@ -32,11 +32,11 @@ fields:
   - name: listPrice
     singleValue: true
     # type: CURRENCY
-    xpath: //html//div[@id="newlistprice"]
+    xpath: //span[@class="sp2p normal-price-crossedout"]
   - name: price
     singleValue: true
     # type: CURRENCY
-    xpath: //html//div[@id="price"]
+    xpath: //span[@class="normal-price"]
   - name: availabilityText
     singleValue: true
     xpath:  //div[@class="stock stock--available"]//text()
@@ -116,3 +116,6 @@ fields:
   - name: name
     singleValue: true
     xpath: //span[@class="productDetails-name"]
+  - name: descriptionBullets
+    singleValue: true
+    xpath: count(//div[@class="content content--productDescription"]//ul//li)

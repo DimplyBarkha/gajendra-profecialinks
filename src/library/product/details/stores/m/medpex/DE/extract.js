@@ -32,19 +32,19 @@ module.exports = {
       //   stock="Out Of Stock"
       // }
       // addElementToDocument('stock', stock)
-      const size = getXpath('//h1[@itemprop="name"]/text()','nodeValue');
-      var nameArr = size.split(',');
-      addElementToDocument('size', nameArr[nameArr.length - 1])
-      const price = getXpath('//div[@itemprop="offers"]/span[@class="normal-price"]//text()','nodeValue');
-      var newprice=price.replace(",",".");
-      addElementToDocument('price', newprice)
-     try {
-      const listprice = getXpath('(//div[@class="prices"]//span[@class="sp2p normal-price-crossedout"])[1]//text()','nodeValue');
-      var newlistprice=listprice.replace(",",".");
-      addElementToDocument('newlistprice', newlistprice)
-     } catch (error) {
+    //   const size = getXpath('//h1[@itemprop="name"]/text()','nodeValue');
+    //   var nameArr = size.split(',');
+    //   addElementToDocument('size', nameArr[nameArr.length - 1])
+    //   const price = getXpath('//div[@itemprop="offers"]/span[@class="normal-price"]//text()','nodeValue');
+    //   var newprice=price.replace(",",".");
+    //   addElementToDocument('price', newprice)
+    //  try {
+    //   const listprice = getXpath('(//div[@class="prices"]//span[@class="sp2p normal-price-crossedout"])[1]//text()','nodeValue');
+    //   var newlistprice=listprice.replace(",",".");
+    //   addElementToDocument('newlistprice', newlistprice)
+    //  } catch (error) {
        
-     }
+    //  }
      const brand = getXpath('//span[@class="productDetails-name"]//text()','nodeValue');
      var brand1=brand.split(" ");
       addElementToDocument('brand1', brand1[0])
