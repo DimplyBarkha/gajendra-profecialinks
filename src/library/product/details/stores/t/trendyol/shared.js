@@ -128,6 +128,14 @@ const transform = (data, context) => {
           }           
         });
       }
+
+      if (row.manufacturerImages) {
+        row.manufacturerImages.forEach(item => {
+          item.text = String(item.text).replace("{cdn_url}","");
+          item.text = 'https://cdn.dsmcdn.com' + item.text;
+        });
+      }
+
     }
   }
  

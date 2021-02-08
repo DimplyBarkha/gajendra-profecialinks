@@ -66,7 +66,7 @@ fields:
     xpath: //th[contains(.,'Renk')]/following-sibling::td | //div[@class="item-key"][contains(.,'Renk')]/following-sibling::div | //ul//li[contains(.,'reng')]
     regExp: ([A-Z])\w+
   - name: manufacturerImages
-    xpath: //div[contains(@class,'pr-desc-content')]//img//@src
+    xpath: //div[contains(@class,'pr-desc-content')]//img//@data-src
   - name: name
     xpath: //div[@class="pr-in-cn"]/h1[@class="pr-in-br"]/div[@class="pr-in-nm"]
   # - name: productOtherInformation
@@ -93,3 +93,6 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[@id="urun-aciklamasi"]//div[contains(@class,"pr-desc-content gnr-cnt-br")]
+  - name: videos
+    singleValue: false
+    xpath: //input[@class='flix-jw']//@value
