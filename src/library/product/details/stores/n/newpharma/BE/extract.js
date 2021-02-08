@@ -47,14 +47,26 @@ module.exports = {
         return searchDescription(description, header, nextHeader).replace(/\s:/g, '').trim();
       }
 
+      const popUp = document.querySelector('div[id="wps_popup"]');
+
+      if (popUp !== null) {
+        popUp.remove();
+      }
+
+      const readMoreSelector = document.querySelector('a[class="read more"]');
+
+      if (readMoreSelector !== null) {
+        readMoreSelector.click();
+      }
+
       const data = {};
       data.url = window.location.href;
       data.brandLink = document.querySelector('div.subtitle-brand > a')
         ? `https://www.newpharma.be${document.querySelector('div.subtitle-brand > a').getAttribute('href')}` : '';
       data.quantity = extractParagraph('Présentation');
-      data.directions = extractParagraph('Conseils d’utilisation');
+      data.directions = extractParagraph('Gebruik');
       data.warnings = extractParagraph('Précautions');
-      data.ingredients = extractParagraph('Ingrédients');
+      data.ingredients = extractParagraph('Samenstelling');
       appendData(data);
     });
     await context.extract(productDetails, { transform });

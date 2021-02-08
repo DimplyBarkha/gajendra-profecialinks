@@ -55,14 +55,16 @@ fields:
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: //div[@class="headline"]
+  xpath: //div[@class="text-description-content"]
 - name: descriptionBullets
-  singleValue: true
+  singleValue: false
   description: Number of ul > li tags in the description
+  xpath: count(//div[@class="text-description-content full"]/descendant::text()[contains(., '-')]) 
 - name: brandText
-  singleValue: true
+  singleValue: false
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
+  xpath: //th[contains(., 'Merk')]/following-sibling::td
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
@@ -99,7 +101,7 @@ fields:
   singleValue: true
   description: Content under "legal disclaimer" header
 - name: directions
-  singleValue: true
+  singleValue: false
   description: Content under "directions" header
   xpath: //div[@id="product-directions"]
 - name: warnings
@@ -107,11 +109,10 @@ fields:
   description: Content under "warnings" header
   xpath: //div[@id="product-warnings"]
 - name: ratingCount
-  singleValue: true
+  singleValue: false
   description: The number of ratings
   xpath: //div[@class="product-details"]//a[contains(@id,'listing_reviews')]
-  regExp: (\d+)
-  regExpReplace: $1
+  regExp: '[0-9]+'
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
@@ -390,7 +391,7 @@ fields:
 - name: promotion
   singleValue: true
   description: promotion text on product page
-  xpath: //div[@class="box-promo__content"]
+  xpath: //div[@class="box-promo__content"] | //div[@class="c-price__badge-percent"]
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information
