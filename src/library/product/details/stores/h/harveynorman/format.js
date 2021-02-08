@@ -69,6 +69,15 @@ const transform = (data) => {
       if (row.metaKeywords) {
         row.metaKeywords[0].text = row.metaKeywords[0].text.replace(/\s*\t\s*/g, ' ');
       }
+
+      if (row.inTheBoxUrl) {
+        row.inTheBoxUrl.forEach((inTheBoxUrlItem) => {
+          inTheBoxUrlItem.text = inTheBoxUrlItem.text.replace('\s?200w', '');
+          if (!inTheBoxUrlItem.text.match('https://') && inTheBoxUrlItem.text.startsWith('//')) {
+            inTheBoxUrlItem.text = `https:${inTheBoxUrlItem.text}`;
+            }
+        });
+      }
     }
 
     const clean = text => text.toString()

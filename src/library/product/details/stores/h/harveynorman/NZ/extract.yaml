@@ -100,11 +100,11 @@ fields:
     regExpReplace: Yes
     defaultValue: No
   - name: inTheBoxText
-    xpath: //div[contains(@class, "InTheBox")]//div[@class="flix-std-content"] | //li[contains(.,"Accessories")]/ul/li
+    xpath: //div[contains(@class, "InTheBox")]//div[@class="flix-std-content"] | //li[contains(.,"Accessories")]/ul/li | //p[contains(.,"What's In The Box?")]/following-sibling::ul/li | //div[@id='added_inTheBoxText']
   - name: inTheBoxUrl
-    xpath: //div[contains(@class, "InTheBox")]//div[@class="flix-background-image"]//img/@data-flixsrcset
-    regExp: (.+)(\s?200w)(.+)
-    regExpReplace: https:$1
+    xpath: //div[contains(@class, "InTheBox")]//div[@class="flix-background-image"]//img/@data-flixsrcset | //div[@id='added_inTheBoxUrl']
+    # regExp: (.+)(\s?200w)(.+)
+    # regExpReplace: https:$1
   - name: unInterruptedPDP
     xpath: //div[contains(@class,"mainbox-featured")]//div[contains(@class,"product-col")]
   - name: hasComparisonTable
