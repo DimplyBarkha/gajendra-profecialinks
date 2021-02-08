@@ -1,5 +1,5 @@
 
-const { transform } = require('../../../../shared');
+const { transform } = require('./shared');
 
 // @ts-ignore
 async function implementation (inputs, parameters, context, dependencies) {
@@ -7,25 +7,9 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { productDetails } = dependencies;
 
   await context.evaluate(() => {
-    const url = window.location.href;
-
-    const allProducts = document.querySelectorAll('div[class*="JT3_zV DvypSJ"]');
-    allProducts.forEach((product, index) => {
-      product.setAttribute('rank', `${index + 1}`);
-    });
-    const last = allProducts[allProducts.length - 1].getAttribute('rank');
-    if (!url.includes('p=2')) {
-      document.querySelector('body').setAttribute('itemsCount', last);
-    }
-    const rest = 150 - parseInt(last);
-    if (url.includes('p=2')) {
-      // @ts-ignore
-      [...allProducts].filter(e => e.getAttribute('rank') > rest)
-        .forEach(e => e.setAttribute('trim', ''));
-    }
     const sponsoredProducts = document.querySelectorAll('div[class*="weHhRC"]');
     // @ts-ignore
-    if (sponsoredProducts) {
+    if (sponsoredProducts.length !== 0) {
       sponsoredProducts.forEach(e => {
         // @ts-ignore
         e.parentNode.classList.add('sponsored');
@@ -33,11 +17,6 @@ async function implementation (inputs, parameters, context, dependencies) {
         e.parentNode.setAttribute('sponsored', 'yes');
       });
     }
-
-    const notSponsoredProducts = document.querySelectorAll('div[class="qMZa55 SQGpu8 iOzucJ JT3_zV DvypSJ"]');
-    notSponsoredProducts.forEach((product, index) => {
-      product.setAttribute('rankorganic', `${index + 1}`);
-    });
 
     const productUrl = document.querySelectorAll('article > a');
     productUrl.forEach((element) => {
