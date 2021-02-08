@@ -11,6 +11,7 @@ module.exports = {
   implementation: async (inputs, parameters, context, dependencies) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
+    // code to see if more then one products available in details page and getting the data from first product 
     try {
       const finalURL = await context.evaluate(async () => {
         const url = document.querySelector('div[id*="productBox"] div div a').getAttribute('href');
@@ -61,7 +62,7 @@ module.exports = {
           addHiddenDiv1("hprice", price2, i);
         }
       }
-
+      // for retrieving alternate imgs through api
       var mainImage = document.querySelector('meta[property="og:image"]');
       let mainImageURL = mainImage.getAttribute("content");
       console.log(mainImageURL);
@@ -69,6 +70,7 @@ module.exports = {
       let fetchURL = 'https://wlmstatic.lider.cl/contentassets/galleries/' + FinalImageNumber + '.xml';
       console.log(fetchURL);
       let finalArrImg = [];
+      //  code to fetch data from api
       await fetch(fetchURL).then(res => res.text()).then(res => {
         const p = new DOMParser();
         const xmlDOM = p.parseFromString(res, "text/xml");
