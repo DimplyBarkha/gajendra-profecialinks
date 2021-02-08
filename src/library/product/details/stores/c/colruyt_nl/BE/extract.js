@@ -18,9 +18,9 @@ async function implementation (inputs, parameters, context, dependencies) {
     return window.location.href;
   });
   console.log('mainUrl---->', mainUrl);
-  let url = '';
+  let urlMoreButton = '';
   try {
-    url = await context.evaluate(() => {
+    urlMoreButton = await context.evaluate(() => {
       return document.querySelector('a.product__details-more').href || '';
     });
   } catch (error) {
@@ -48,19 +48,19 @@ async function implementation (inputs, parameters, context, dependencies) {
   let packaging = '';
   let dietaryFibrePerServing = '';
   let vitaminAPerServing = '';
-  let vitaminAPerServingSecond = '';
+  const vitaminAPerServingSecond = '';
   let vitaminCPerServing = '';
   let allergyAdvice = '';
 
-  console.log('url---->', url);
-  if (url) {
+  console.log('urlMoreButton---->', urlMoreButton);
+  if (urlMoreButton) {
     await context.setBlockAds(false);
     await context.setLoadAllResources(true);
     await context.setLoadImages(true);
     await context.setJavaScriptEnabled(true);
     await context.setAntiFingerprint(false);
     await context.setUseRelayProxy(false);
-    await context.goto(url, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
+    await context.goto(urlMoreButton, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
     try {
       await context.waitForSelector('button#onetrust-accept-btn-handler');
       await context.click('button#onetrust-accept-btn-handler');

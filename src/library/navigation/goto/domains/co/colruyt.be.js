@@ -16,7 +16,16 @@ module.exports = {
     await context.setJavaScriptEnabled(true);
     await context.setAntiFingerprint(false);
     await context.setUseRelayProxy(false);
-    await context.goto(url, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: true });
+    const lastResponseData = await context.goto(url, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: true });
+    try {
+      console.log('lastResponseData.status', lastResponseData.status);
+      if (lastResponseData.status === 400) {
+        console.log('Blocked: ' + lastResponseData.status);
+        return context.reportBlocked(lastResponseData.status, 'Blocked: ' + lastResponseData.status);
+      }
+    } catch (error) {
+      console.log('ResponseData status is not available');
+    }
     // await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
     try {
       await context.waitForSelector('button#onetrust-accept-btn-handler');
