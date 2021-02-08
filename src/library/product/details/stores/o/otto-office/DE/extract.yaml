@@ -57,7 +57,10 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //div[@class="ooB-table-cell ooB-table-cell-min wrap ooB-va-top"]/input[1]/@value
+    xpath: //html//div[@id="sku"]
+    # regExp: (.+ART_)(\d+)(_+.+)
+    # regExp: (.+ART_)(\d+)(([A-Z]+)?)(_+.+)
+    # regExReplace: $2$3
   - name: aggregateRating
     singleValue: true
     xpath: //div[@class="rating-stars-copy"]/text()

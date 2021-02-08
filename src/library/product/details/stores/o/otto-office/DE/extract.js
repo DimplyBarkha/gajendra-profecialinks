@@ -106,8 +106,10 @@ if(url.length>= 1){
   addElementToDocument("URL", URL);
   }
   }
-
-
+//SKU
+var sku = getXpath('//figure[@id="image-preview-container"]/img/@src', 'nodeValue');
+sku = sku.replace(/(.+ART_)(\d+)(([A-Z]+)?)(_+.+)/g,'$2$3');
+addElementToDocument("sku", sku);
 
 
     });
