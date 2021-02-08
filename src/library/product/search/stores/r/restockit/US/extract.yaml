@@ -1,0 +1,46 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="hawk-items row"]/div
+fields:
+  - name: productUrl
+    xpath: //a[@class="content"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.restockit.com$1
+  - name: thumbnail
+    xpath: //div[@class="image-wrapper"]/a/img/@src
+  - name: name
+    xpath: //a[@class="content"]/div/span/@data-original-title
+  - name: gtin
+    description: GTIN code (includes UPC/EAN)
+  - name: aggregateRatingText
+    description: The stated aggregate rating
+  - name: ratingCount
+    description: The number of ratings
+  - name: reviewCount
+    description: The number of reviews
+  - name: price
+    xpath: //a[@class="content"]//div[@class="price"]/span[@class="ProdPrice"]
+    regExp: ((\d+).(\d+))
+    regExpReplace: $1
+  - name: manufacturer
+    description: Product manufacturer
+  - name: soldBy
+    description: The name of the seller of the item (if available)
+  - name: endorsementText
+    description: The text that signifies that a product is endorsed
+  - name: shippingInfo
+    description: Shipping information for the product
+  - name: rank
+    description: search/listing rank
+    type: NUMBER    
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER 
+  - name: id
+    xpath: //a[@class="content"]/@href
+    regExp: num-(.+)
+    regExpReplace: $1
+  - name: aggregateRating
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER 
