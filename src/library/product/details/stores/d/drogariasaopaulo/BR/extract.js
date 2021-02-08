@@ -19,7 +19,7 @@ module.exports = {
     context,
     dependencies,
   ) => {
-    const cssProduct = 'a.collection-image-link';
+    const cssProduct = 'div.prateleira  ul li:last-child a.collection-link';
     const cssProductDetails = 'body';
     const { transform } = parameters;
     const { productDetails, Helpers: { Helpers } } = dependencies;

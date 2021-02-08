@@ -20,7 +20,7 @@ fields:
     description: The <meta> keywords content
   - name: category
     singleValue: false
-    xpath: //div[contains(@class,'rnk-container-product-highlight')]//span[contains(@itemprop, 'name')]
+    xpath: //div[contains(@class,'rnk-container-product-highlight')]//li[position()>1]//span[contains(@itemprop, 'name')]
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: true
