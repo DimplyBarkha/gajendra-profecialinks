@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class="product-list-entry data-tracking-product"]
 fields:
   - name: id
     singleValue: false
@@ -10,7 +10,7 @@ fields:
     # regExpReplace: $1
   - name: name
     singleValue: false
-    xpath: //span[@class="product-name"]
+    xpath: //span[@class="product-name"]//a//text()
   - name: productUrl
     singleValue: false
     xpath: //div[@class="description"]//span[@class="product-name"]//a/@href
