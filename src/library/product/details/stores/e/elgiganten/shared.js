@@ -302,6 +302,17 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.manufacturerDescription) {
+        let text = '';
+        row.manufacturerDescription.forEach(item => {
+          text += `${item.text.replace('Your browser does not support the video tag.', '')}`;
+        });
+        row.manufacturerDescription = [
+          {
+            text: text,
+          },
+        ];
+      }
       if (row.mpc) {
         let brandTxt = '';
         if (row.brandText && row.brandText.length > 0) {

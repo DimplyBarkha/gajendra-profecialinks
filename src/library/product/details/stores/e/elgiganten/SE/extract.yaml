@@ -50,7 +50,7 @@ fields:
     regExpReplace: https://www.elgiganten.se$1
   - name: videos
     singleValue: false
-    xpath: //div[contains(@class,"product-video")]//@src | //div[@data-vidurl="vidURL"] | //li[@class="b-video-item"]/div/@data-videoid
+    xpath: //div[contains(@class,"product-video")]//@src | //div[@data-vidurl="vidURL"] | //li[@class="b-video-item"]/div/@data-videoid | //div[@class="article-text article-free-html"]//source/@src
     #xpath: //div[contains(@class,"product-video")]//@src | //div[@data-vidurl="vidURL"] | //li[@class="b-video-item"]
   # - name: galleryVideos
   #   singleValue: false
@@ -110,9 +110,9 @@ fields:
   - name: mpc
     singleValue: false
     xpath: //td[contains(text(),"Modellnamn")]/following-sibling::td
-  - name: manufacturer
-    singleValue: false
-    xpath: //td[contains(text(),"Märke")]/following-sibling::td
+  # - name: manufacturer
+  #   singleValue: false
+  #   xpath: //td[contains(text(),"Märke")]/following-sibling::td
   - name: energyEfficiency
     singleValue: false
     xpath: //span[contains(text(),"Energiklass")]//../following-sibling::td
@@ -193,6 +193,7 @@ fields:
     description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
   - name: galleryVideos
     singleValue: false
-    xpath: //div[@data-vidurl="vidURL"]
+    xpath: //div[@data-vidurl="vidURL"] | //li[@class="b-video-item"]/div/@data-videoid | //div[@class="article-text article-free-html"]//source/@src
+
   
 
