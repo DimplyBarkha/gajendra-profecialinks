@@ -12,7 +12,6 @@ module.exports = {
   implementation: async (inputs, parameters, context, dependencies) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    const { input } = inputs;
     try {
       await context.click('div#_tealiumModalClose');
     } catch (error) {
@@ -32,7 +31,7 @@ module.exports = {
         scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
         await new Promise(resolve => setTimeout(resolve, 3500));
       }
-      function addElementToDocument(key, value) {
+      function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;

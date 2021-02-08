@@ -84,7 +84,7 @@ const transform = (data) => {
       if (row.imagejson && row.imagejson[0] && row.imagejson[0].text === 'Yes' && row.alter1s) {
         row.alternateImages = row.alter1s;
         row.secondaryImageTotal = [{ text: row.alternateImages.length }];
-      } else if(row.alternateImages){
+      } else if (row.alternateImages) {
         row.secondaryImageTotal = [{ text: row.alternateImages.length }];
       }
       if (!row.variantId && row.variantId1) {

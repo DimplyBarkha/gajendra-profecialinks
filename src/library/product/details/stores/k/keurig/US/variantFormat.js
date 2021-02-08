@@ -19,11 +19,10 @@ const transform = (data) => {
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
     for (const row of group) {
-      row.variantUrl = [{ text: row.variantUrl[0].text.replace(" ",'%20')}];
-      if(row.variantId && row.variantUrl && row.variantUrl[0] && row.variantId[0]){
-        row.variantId = [{ text: `${row.variantId[0].text}:${row.variantUrl[0].text}`}]
-       }
-      
+      row.variantUrl = [{ text: row.variantUrl[0].text.replace(' ', '%20') }];
+      if (row.variantId && row.variantUrl && row.variantUrl[0] && row.variantId[0]) {
+        row.variantId = [{ text: `${row.variantId[0].text}:${row.variantUrl[0].text}` }];
+      }
 
       if (row.variantId && !row.variantUrl) {
         const varaintUrl = [];
@@ -34,8 +33,8 @@ const transform = (data) => {
       }
       if (row.variantUrl && row.variantId && row.variantId[0]) {
         row.variantUrl = [{
-          text: `https://www.keurig.com/p/${row.variantId[0].text}`
-        }]
+          text: `https://www.keurig.com/p/${row.variantId[0].text}`,
+        }];
       }
     }
   }
