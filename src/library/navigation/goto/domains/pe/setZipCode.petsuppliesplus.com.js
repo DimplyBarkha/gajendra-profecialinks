@@ -29,13 +29,13 @@ async function implementation (
   };
 
   const changeZip = async (wantedZip) => {
-    await context.click('button.change-store-header');
+    await context.click('button#header-store-locator');
     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
 
-    await context.setInputValue('input#SearchBox', wantedZip);
+    await context.setInputValue('input#search-box_sll_5094BA5CD41148A28B8E36A77F838956', wantedZip);
     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
 
-    await context.click('span#SearchStoreSubmit');
+    await context.click('button#search-button_sll_5094BA5CD41148A28B8E36A77F838956');
     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
     await findButtonWithStoreSelect();
     await new Promise((resolve, reject) => setTimeout(resolve, 8000));

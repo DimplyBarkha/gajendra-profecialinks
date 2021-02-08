@@ -1,22 +1,22 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,'coveo-list-layout-container')]/div[contains(@class, 'CoveoResult')]
+recordXPath: //div[@class="coveo-card-layout CoveoResult"]
 fields:
   - name: productUrl
-    xpath: //a[@class="CoveoResultLink"]/@href
+    xpath: //a[contains(@class,"CoveoResultLink")]/@href
     regExp: ^(.*)
-    regExpReplace: https://www.petsuppliesplus.com$1
+    regExpReplace: https://www.petsuppliesplus.com$1s
   - name: thumbnail
-    xpath: //div[contains(@class, "thumbnail")]/a/img[contains(@src, 'assets')]/@data-src | //div[contains(@class, "thumbnail")]/a/img[not(contains(@src, 'assets'))]/@src
+    xpath: //div[contains(@class, "thumbnail")]/a/img[contains(@src, 'assets')]/@data-src | //div[contains(@class, "thumbnail")]/a/img[not(contains(@src, 'assets'))]/@src | //div[contains(@class,"coveo-result-cell product-image")]//img//@src
     regExp: (.*?)\?(.*)
     regExpReplace: $1
   - name: name
-    xpath: //a[@class="CoveoResultLink"]
+    xpath: //a[@class="CoveoResultLink"] | //div[@class="coveo-card-layout CoveoResult"]//a[@role="heading"]/text()
   - name: id
     singleValue: true
     description: The store-specific product identifier
-    xpath: //div[@data-product-id]/@data-product-id
+    xpath: //div[@data-product-id]/@data-product-id | //div//@data-sku
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
@@ -27,15 +27,15 @@ fields:
     singleValue: true
     description: The number of ratings
   - name: reviewCount
-    xpath: //div[@class="prod-rating"]/span
+    xpath: //div[contains(@class,"prod-rating")]//span[@class='text-muted']
     regExp: \d+
   - name: price
-    xpath: //div[contains(@class,"actual-price")]/*[last()]/strong
+    xpath: //div//@data-price
   - name: endorsementText
     xpath: //div[@class="advert"]/p[@class="bg-red"]
   - name: rank
   - name: rankOrganic
   - name: nameExtended
-    xpath: //a[@class="CoveoResultLink"]
+    xpath: //a[@class="CoveoResultLink"] | //div[@class="coveo-card-layout CoveoResult"]//a[@role="heading"]/text()
   - name: aggregateRating
     xpath: //div[@class="rating"]/following::input[1]/@value

@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'petsuppliesplus',
     domain: 'petsuppliesplus.com',
-    url: 'https://petsuppliesplus.com/Search#q={searchTerms}&sort=relevancy',
+    url: 'https://www.petsuppliesplus.com/Search#q={searchTerms}&sort=relevancy',
     noResultsXPath: '//div[@class="coveo-query-summary-no-results-string"]',
     zipcode: '60440-2380',
   },
