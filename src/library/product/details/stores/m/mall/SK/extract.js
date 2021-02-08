@@ -10,6 +10,25 @@ module.exports = {
   },
   implementation: async ({ inputstring }, { country, domain }, context, { productDetails }) => {
 
+    let cookieOkSel = 'div[id*="consent-panel"] button[class*="consent-panel"]';
+    let cookieBtnPresent = false;
+    try {
+      await context.waitForSelector(cookieOkSel);
+      cookieBtnPresent = true;
+    } catch(err) {
+      console.log('we got some error while waiting for cookie btn', err.message);
+    }
+
+    console.log('cookieBtnPresent', cookieBtnPresent);
+
+    if(cookieBtnPresent) {
+      try {
+        await context.click(cookieOkSel);
+      } catch(err) {
+        console.log('got some error while clicking the cookie btn', err.message);
+      }
+    }
+
     await context.evaluate(() => {
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
