@@ -145,7 +145,7 @@ const transform = (data) => {
       if (row.alternateImages) {
         const info = [];
         row.alternateImages.forEach(item => {
-          info.push(item.text);
+          info.push(item.text.replace(/\?&layer=comp&fit=constrain,1&wid=45&hei=45&fmt=jpg/g, ''));
         });
         info.shift();
         row.alternateImages = [{ text: info.join(' | ') }];
