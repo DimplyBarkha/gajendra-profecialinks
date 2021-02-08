@@ -120,6 +120,9 @@ fields:
     type: NUMBER
   - name: shippingInfo
     singleValue: false
+    xpath: //script[contains(text(), 'seller')]
+    regExp: (Apotek Hjartat AB)
+    regExpReplace: $1
     description: Shipping information for the product
   - name: shippingDimensions
     singleValue: false
@@ -465,7 +468,7 @@ fields:
       new desription info
   - name: variantInformation
     singleValue: false
-    description: colour / scent / flavour / other
+    xpath: //div[contains(@class, 'picker ah-picker')]/div[contains(@class, 'custom-select')]/a|//div[contains(@class, 'variant-options')]/div/ul/li/a[contains(@class, 'selected')]/@data-title
   - name: firstVariant
     singleValue: false
     description: Unique identifier for a collection of variants. For a subset of
