@@ -43,8 +43,8 @@ async function implementation (
   }
 
   try{
-    await context.waitForSelector('div#product-tabs div.swiper-slide:last-child');
-    await context.click('div#product-tabs div.swiper-slide:last-child');
+    await context.waitForSelector('div#product-tabs div[class="swiper-slide"]');
+    await context.click('div#product-tabs div[class="swiper-slide"]');
     await new Promise((resolve, reject) => setTimeout(resolve, 2000));
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {

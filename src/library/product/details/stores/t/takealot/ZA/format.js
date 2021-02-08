@@ -113,7 +113,13 @@ const transform = (data) => {
         })
         row.additionalDescBulletInfo=[{"text":inf.join(' || ')}];
       }
-      if(!row.ingredientsList){
+      if(row.ingredientsList){
+        let tmp=[],tmpVal='';
+        row.ingredientsList.forEach(item=>{
+          tmp.push(item.text);
+        })
+        row.ingredientsList=[{"text":tmp.join(' ').replace('Ingredients:','').replace('Ingredients :','').trim()}];
+      }else{
         let ingredientsListData='';
         if(row.ingredientsListOld){
           row.ingredientsListOld.forEach(item=>{
