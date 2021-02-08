@@ -20,12 +20,12 @@ module.exports = {
       }
 
       let scrollTop = 0;
-      while (scrollTop !== 5000) {
+      while (scrollTop !== 20000) {
         await stall(1000);
         scrollTop += 500;
         window.scroll(0, scrollTop);
-        if (scrollTop === 5000) {
-          await stall(500);
+        if (scrollTop === 20000) {
+          await stall(20000);
           break;
         }
       }
@@ -48,7 +48,7 @@ module.exports = {
               scrollTop += 500;
               window.scroll(0, scrollTop);
               if (scrollTop === 10000) {
-                await stall(500);
+                await stall(5000);
                 break;
               }
             }
