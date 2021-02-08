@@ -5,8 +5,8 @@ module.exports = {
     country: 'UK',
     store: 'lookfantastic',
     domain: 'lookfantastic.com',
-    url: 'https://www.lookfantastic.com/elysium.search?search={searchTerms}',
-    loadedSelector: "ul.productListProducts_products li",
+    url: 'https://www.lookfantastic.com/elysium.search?search={searchTerms}&pageNumber=1',
+    loadedSelector: "main#mainContent",
     noResultsXPath: '//div[@class="noresults"]',
   },
 };
