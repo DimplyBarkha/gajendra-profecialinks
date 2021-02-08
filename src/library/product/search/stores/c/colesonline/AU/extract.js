@@ -66,6 +66,14 @@ async function implementation (
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
+    let featured = document.querySelectorAll('span.sponsored-badge')
+    if(featured)
+    {
+    featured.forEach(element => {
+        let featuredProd = element.className;
+        console.log('Featured Product',featuredProd);
+      });
+    }
     // function addChildDiv (id, content, index) {
     //   const newDiv = document.createElement('div');
     //   newDiv.id = id;

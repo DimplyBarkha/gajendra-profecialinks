@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //section[contains(@id,'product-list')]//div[@tile='tile' and @data-ng-switch-when="product"]
+recordXPath: //div[@class="products"]//div[@class="product"] | //div[@class="products"]//div[contains(@class , "product-every-day")] |//div[@class="products"]//div[contains(@class , "product-specials")] |//div[@class="products"]//div[contains(@class , "product-down-down")] |//div[@class="products"]//div[contains(@class , "has-flag")] | //div[@class="products"]//div[contains(@class,"product-new")]
 fields: 
   - name: productUrl
     xpath: //a[contains(@class,'product-image-link')]/@href
@@ -14,7 +14,7 @@ fields:
     regExpReplace: https://shop.coles.com.au$1
     description: The URL for the product thumbnail image
   - name: name
-    xpath: //h3[@class="product-title"]
+    xpath: //h3[contains(@class,"product-title")]
     # xpath: //div[@id='ii_name']
     description: The product name
   - name: price
