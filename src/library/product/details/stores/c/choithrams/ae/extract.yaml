@@ -11,27 +11,35 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //div[@class='image']//@src
-    regExp: (.+)
-    regExpReplace: https://www.choithrams.com$1
+    # xpath: //div[@class='image']//@src
+    # regExp: (.+)
+    # regExpReplace: https://www.choithrams.com$1
+    xpath: //section[@class="product-hero"]//img[@class="product-img"]/@src
   - name: category 
     singleValue: false
-    xpath: //div[@class='trail']//a[position()>1]
+    # xpath: //div[@class='trail']//a[position()>1]
+    xpath: //p[@class='breadcrumb']//a[position()>1 and position()<last()]
   - name: nameExtended
     singleValue: true
-    xpath: //div[@class='details']//h1
+    # xpath: //div[@class='details']//h1
+    xpath: //section[@class="product-hero"]//div[contains(@class,"product-info")]/p[@class='title']
   - name: price
     singleValue: true
-    xpath: //div[@class='details']//div[@class='price']//span[1]
+    # xpath: //div[@class='details']//div[@class='price']//span[1]
+    xpath: //section[@class="product-hero"]//div[contains(@class,"product-info")]/p[contains(@class,'price')]
+    regExp: (.+)Each?
+    regExpReplace: $1
   - name: listPrice
     singleValue: true
     xpath: //div[@class='details']//div[@class='price']//span[2]
   - name: description
-    singleValue: true
-    xpath: //section[@class='product-information']//p[2]
+    singleValue: false
+    # xpath: //section[@class='product-information']//p[2]
+    xpath: //section[@class="product-summary"]//div[@class='container']//div[@class='right']//p[not(contains(@class,'title'))]
   - name: ingredientsList
-    singleValue: true
-    xpath: //div[@class='ingredients']//p
+    singleValue: false
+    # xpath: //div[@class='ingredients']//p
+    xpath: (//p[contains(.,'Ingredients')]/following-sibling::p[@class='info'])[1]
   - name: caloriesPerServing
     singleValue: true
     xpath: //div[@id='caloriesPerServing']
@@ -85,13 +93,21 @@ fields:
     xpath: //div[@id='availableText']
   - name: variantId
     singleValue: true
-    xpath: //div[@id='variantId']
+    # xpath: //div[@id='variantId']
+    xpath: //div[contains(@class,"product-info")]/@data-product-id
   - name: brandText
     singleValue: true
     xpath: //div[@id='brandText']
   - name: name
     singleValue: true
-    xpath: //div[@id='name']
+    # xpath: //div[@id='name']
+    xpath: //div[contains(@class,"product-info")]/p[@class='title']
   - name: quantity
     singleValue: true
     xpath: //div[@id='quantity']
+  - name: allergyInformation
+    singleValue: true
+    xpath: (//p[contains(.,'Allergies')]/following-sibling::p[@class='info'])[1]
+  - name: storage
+    singleValue: false
+    xpath:  (//p[contains(.,'Storage')]/following-sibling::p[@class='info'])[1]

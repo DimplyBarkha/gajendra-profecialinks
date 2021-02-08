@@ -44,19 +44,19 @@ module.exports = {
         return result;
       };
 
-      const avaiableText = getXpath("//div[@class='cart-actions']//button[@class='bright-button']//text()", 'nodeValue');
+      const avaiableText = getXpath("(//p[@class='outofstock']/text())[1]", 'nodeValue');
       console.log('my availability', avaiableText);
-      if (avaiableText === 'Add to cart') {
-        addElementToDocument('availableText', 'in stock');
-      } else addElementToDocument('availableText', 'out of stock');
+      if (avaiableText === 'Out of stock') {
+        addElementToDocument('availableText', 'Out of stock');
+      } else addElementToDocument('availableText', 'In stock');
 
-      const idPath = getXpath("//div[@class='details']//script/text()", 'nodeValue');
-      if (idPath) {
-        const idObj = JSON.stringify(idPath);
-        var myIdArr = idObj.split(':');
-        var myIdValue = myIdArr[2].match(/'(.*?)'/);
-        addElementToDocument('variantId', myIdValue[1]);
-      }
+      // const idPath = getXpath("//div[@class='details']//script/text()", 'nodeValue');
+      // if (idPath) {
+      //   const idObj = JSON.stringify(idPath);
+      //   var myIdArr = idObj.split(':');
+      //   var myIdValue = myIdArr[2].match(/'(.*?)'/);
+      //   addElementToDocument('variantId', myIdValue[1]);
+      // }
 
       const brand = getXpath("//div[@class='details']//h1//text()", 'nodeValue');
       console.log('i am in my brand ', brand);
