@@ -4,7 +4,6 @@ module.exports = {
   parameterValues: {
     domain: 'cocooncenter.com',
     timeout: 90000,
-    actionTimeout: 10000,
     country: 'FR',
     store: 'cocooncenter',
     zipcode: "''",
@@ -26,6 +25,7 @@ module.exports = {
 
     const responseStatus = await context.goto(url, {
       firstRequestTimeout: 60000,
+      actionTimeout: 10000,
       timeout: timeout,
       waitUntil: 'load',
       checkBlocked: false,
