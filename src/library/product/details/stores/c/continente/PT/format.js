@@ -132,6 +132,17 @@ const transform = (data) => {
           item.text = item.text.replace('height=512', 'height=170').trim();
         });
       }
+      if (row.ingredientsList) {
+        console.log("row.ingredientsList", row.ingredientsList);
+        row.ingredientsList.forEach(item => {
+          if (item.text.includes("Ingredientes:")) {
+            item.text = item.text.replace('Ingredientes:', '').trim();
+          }
+          else{
+            item.text = item.text;
+          }
+        });
+      }
     }
   }
   return cleanUp(data);
