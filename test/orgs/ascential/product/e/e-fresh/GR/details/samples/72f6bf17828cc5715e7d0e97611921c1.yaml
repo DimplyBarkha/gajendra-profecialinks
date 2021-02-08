@@ -2,7 +2,7 @@ input:
   id: 4400000796
   _url: http://e-fresh.gr
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5f22cd9f-9647-43d6-b543-2d4e955e4249/task=da08b851-d0fb-4921-b969-32cde28e7bc6/0e34ce68-f6d9-4d89-a23f-782f550c020b.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=3b579a14-0817-48d9-ba60-e6a89fee2597/task=17b44fcc-7f98-4ea1-a764-c297d56ca453/d71d991f-4023-4530-b1e8-202d9aa984a2.html
     extractionConfigId: product/details/stores/e/e-fresh/GR/extract
     data:
       - group:
@@ -19,19 +19,22 @@ extractions:
               - text: Χλωρίνη Ultra Protection Pink Klinex (2lt)
                 xpath: /html/head[1]/meta[17]/@content
             category:
-              - text: Προσφορές
+              - text: Καθαριότητα
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ol[1]/li[2]
+              - text: Καθαριότητα Σπιτιού
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ol[1]/li[3]
+              - text: Χλωρίνες & Άλλα Καθαριστικά
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ol[1]/li[4]
+              - text: Παχύρευστα
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ol[1]/li[5]
             nameExtended:
               - text: Χλωρίνη Ultra Protection Pink Klinex (2lt)
-                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/h2[1]
-            listPrice:
-              - text: 3,40 €
-                xpath: /html/body/div[13]
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/h2[1]
             price:
-              - text: 2,72 €
+              - text: 3,40 €
                 xpath: /html/body/div[14]
             availabilityText:
-              - text: Out Of Stock
+              - text: In Stock
                 xpath: /html/body/div[16]
             description:
               - text: >-
@@ -56,30 +59,30 @@ extractions:
             manufacturer:
               - text: Ελαϊς-Unilever Hellas Α.Ε.
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[3]/strong[1]
+            quantity:
+              - text: 2lt
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/h2[1]
             weightNet:
               - text: 2lt
-                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/h2[1]
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/h2[1]
             sku:
               - text: "4400000796"
-                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/span[1]
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/span[1]
             variantId:
               - text: "4400000796"
-                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/span[1]
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/span[1]
             mpc:
               - text: "5201028540522"
                 xpath: /html/body/div[9]
             name:
               - text: Χλωρίνη Ultra Protection Pink Klinex (2lt)
-                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/h2[1]
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/h2[1]
             pricePerUnit:
               - text: 1.700 € / lt
-                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]
             pricePerUnitUom:
               - text: lt
-                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]
-            promotion:
-              - text: -20%
-                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]
             imageZoomFeaturePresent:
               - text: Yes
                 xpath: /html/body/div[15]
@@ -108,4 +111,4 @@ extractions:
                 locale: el
                 value: 1
         xpath: /
-    timestamp: 1612215251313
+    timestamp: 1612771244565

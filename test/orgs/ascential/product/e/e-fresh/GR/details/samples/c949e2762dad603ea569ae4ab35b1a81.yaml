@@ -2,7 +2,7 @@ input:
   id: 4100000202
   _url: http://e-fresh.gr
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5f22cd9f-9647-43d6-b543-2d4e955e4249/task=61777ecc-4715-4aca-ab78-3886c332eba9/a1cd5531-059d-4e38-8e99-8ea27c2a3276.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=3b579a14-0817-48d9-ba60-e6a89fee2597/task=d4f9109d-7ee2-475c-aac2-3fb1c0eae253/bc745826-1a96-4c8f-a296-2ca2ca6906b8.html
     extractionConfigId: product/details/stores/e/e-fresh/GR/extract
     data:
       - group:
@@ -46,6 +46,9 @@ extractions:
             manufacturer:
               - text: Ίον
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[4]/strong[1]
+            quantity:
+              - text: 200g
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/h2[1]
             weightNet:
               - text: 200g
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/h2[1]
@@ -147,4 +150,4 @@ extractions:
                 locale: el
                 value: 0
         xpath: /
-    timestamp: 1612215252200
+    timestamp: 1612771247291
