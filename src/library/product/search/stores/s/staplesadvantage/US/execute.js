@@ -27,7 +27,7 @@ async function implementation (inputs, parameters, context, dependencies) {
               .iterateNext(),
         );
       },
-      { timeout: 10000 },
+      { timeout: 60000 },
       parameters.loadedSelector,
       parameters.noResultsXPath,
     );
