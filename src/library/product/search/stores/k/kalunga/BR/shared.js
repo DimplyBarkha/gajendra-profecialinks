@@ -16,7 +16,7 @@ const transform = (data) => {
           gr.reviewCount[0].text = gr.reviewCount[0].text.replace(onlyNumbers, '');
           gr['aggregateRating'] = gr.reviewCount;
         }
-        if (gr && gr.productUrl && gr.productUrl.length) gr.productUrl[0].text = 'https://www.kalunga.com.br' + gr.productUrl[0].text;
+        if (gr && gr.productUrl && gr.productUrl.length) gr.productUrl = [{ text: 'https://www.kalunga.com.br' + gr.productUrl[0].text }];
         if (gr && gr.id && gr.id.length) {
           const text = gr.id[0].text;
           gr.id[0].text = gr.id[0].text = text.substring(text.length - 6);

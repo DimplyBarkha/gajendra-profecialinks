@@ -1,26 +1,26 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@id='divProdutoDepartamento']/div/div[contains(@class, "blocoproduto")]
 fields:
   - name: name
     singleValue: true
-    xpath: //a[@class='blocoproduto__link']/h2
+    xpath: //div/div/div/div/a/h2[contains(@class, 'blocoproduto__title']
   - name: productUrl
-    singleValue: true
-    xpath: //a[@class='blocoproduto__link']/@href
+    singleValue: false
+    xpath: //div/div/div/div/a/@href
   - name: thumbnail
     singleValue: true
     xpath: //picture/img/@data-src
   - name: reviewCount
     singleValue: true
-    xpath: //div[contains(@class, 'reviews')]/div[@class='stars']
+    xpath: //div/div/div/div/div/div/span
   - name: price
     singleValue: true
-    xpath: //span[@class='blocoproduto__text blocoproduto__text--bold blocoproduto__price']
+    xpath: //div/div/div/div/div/span
   - name: id
     singleValue: true
-    xpath: //a[@class='blocoproduto__link']/@href
+    xpath: //div/div/div/div/a/@href
   - name: _input
     singleValue: true
   - name: _url
