@@ -7,6 +7,6 @@ module.exports = {
     domain: 'lookfantastic.com',
     url: 'https://www.lookfantastic.com/elysium.search?search={searchTerms}',
     loadedSelector: "ul.productListProducts_products li",
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="noresults"]',
   },
 };
