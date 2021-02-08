@@ -1,4 +1,4 @@
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -7,12 +7,13 @@ async function implementation(
   const { transform } = parameters;
   const { variants } = dependencies;
   await context.evaluate(() => {
-    function getVariantUrlArray() {
+    function getVariantUrlArray () {
       const variantUrlArray = [];
       const variantUrlElements = document.querySelectorAll('div[class*="okmnKS"]>div>div>div>div>a');
       variantUrlElements && variantUrlElements.forEach((element) => {
         variantUrlArray.push(element && element.getAttribute('href'));
-      })
+      });
+      // eslint-disable-next-line eqeqeq
       if (variantUrlArray.length == 0) {
         variantUrlArray.push(window.location.href);
       }
@@ -25,9 +26,8 @@ async function implementation(
       variantElement.style.display = 'none';
       variantElement.setAttribute('varianturl', variantUrlArray[index]);
       document.body.append(variantElement);
-
-    })
-  })
+    });
+  });
   return await context.extract(variants, { transform });
 }
 const { cleanUp } = require('./variantshared');
@@ -38,7 +38,7 @@ module.exports = {
     store: 'zalando',
     transform: cleanUp,
     domain: 'zalando.it',
-    zipcode: "",
+    zipcode: '',
   },
   implementation,
 };
