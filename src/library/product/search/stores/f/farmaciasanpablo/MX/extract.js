@@ -37,8 +37,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     const priceSelector = document.querySelectorAll('p.item-prize');
 
     for (let i = 0; i < productUrl.length; i++) {
-      let price = priceSelector[i].textContent;
-      price = price.replace('.', ',');
+      const price = priceSelector[i].textContent;
       productUrl[i].setAttribute('url', productUrl[i].href);
       priceSelector[i].setAttribute('price', price);
     }
@@ -49,24 +48,6 @@ async function implementation (inputs, parameters, context, dependencies) {
 
     stall(3000);
   });
-
-  // const nextLinkSelector = await context.evaluate(() => {
-  //   return document.querySelector('div.row.section-header.hidden-xs.hidden-sm a.next').click();
-  // });
-
-  // if (nextLinkSelector !== null) {
-  //   await extractionHelper();
-
-  //   await context.extract(productDetails, { transform });
-
-  //   await context.evaluate(() => {
-  //     document.querySelector('div.row.section-header.hidden-xs.hidden-sm a.next').click();
-  //   });
-  // } else {
-  //   await extractionHelper();
-
-  // return await context.extract(productDetails, { transform });
-  // }
 
   return await context.extract(productDetails, { transform });
 }

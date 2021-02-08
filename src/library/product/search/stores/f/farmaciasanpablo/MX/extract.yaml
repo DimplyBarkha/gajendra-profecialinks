@@ -30,7 +30,10 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
+    type: STRING
     xpath: //p[@class="item-prize"]/@price
+    regExp: '[$](.*)'
+    regExpReplace: $1
   - name: manufacturer
     singleValue: true
   - name: soldBy
