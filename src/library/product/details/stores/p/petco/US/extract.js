@@ -160,7 +160,7 @@ async function implementation (
       });
       const manuDesc = await context.evaluate(() => {
         const desc = document.evaluate(
-          '//div[@data-role="module"]//h1 | //div[@data-role="module"]//h3 | //div[@data-role="module"]//p | //div[@data-role="module"]//span',
+          '//div[@data-role="module"]//h1 | //div[@data-role="module"]//h3 | //div[@data-role="module"]//p | //div[@data-role="module"]//span | //table//*[@data-role="chart-product-name"] | //table//*[@data-role="chart-feature-name"] | //table//tbody//th[contains(@class,"feature-header")] | //table//*[@data-role="data-cell-content"]',
           document,
           null,
           XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
@@ -174,6 +174,9 @@ async function implementation (
         return text;
       });
       await context.goto(linkObj.current);
+      await context.evaluate((linkObj) => {
+        document.body.setAttribute('product-url', linkObj.current);
+      }, linkObj);
       const manuObj = {
         description: manuDesc,
         images: manuImages,

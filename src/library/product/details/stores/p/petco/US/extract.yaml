@@ -3,6 +3,8 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //div[contains(@class,"ProductVariationsstyled__OptionsContainer")]//div[contains(@class,"floats__FloatContainer")][last()]//select//option
 fields:
+  - name: productUrl
+    xpath: ancestor::html//body/@product-url
   - name: image
     xpath: ancestor::html//meta[@property="og:image"]/@content
   - name: imageAlt
