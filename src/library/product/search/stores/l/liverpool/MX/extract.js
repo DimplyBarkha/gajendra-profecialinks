@@ -32,7 +32,7 @@ module.exports = {
             
             if (itemList && itemList.length) {
                 for (let i = 0; i < itemList.length; i++) {
-                    if (Object.keys(itemList[i].item.aggregateRating).length > 1) {
+                    if (itemList[i].item.aggregateRating && Object.keys(itemList[i].item.aggregateRating).length > 1) {
                         const finalValue = itemList[i].item.aggregateRating.ratingValue
                         if (finalValue !== 'undefined') {
                             const newDiv = document.createElement('div');
