@@ -18,69 +18,73 @@ module.exports = {
     const destinationUrl = url.replace('{searchTerms}', encodeURIComponent(keywords));
     await dependencies.goto({ url: destinationUrl, zipcode });
 
-    async function waitForSolvedCaptcha () {
-      // let newContent = '';
-      // do {
-      //   newContent = await context.content();
-      // it seems even without clicking the button captcha can be solved, this piece of code makes the chances higher
+    const clickCaptchaButton = async () => {
       await context.evaluate(async function () {
-        const captchaButton = document.querySelector('div.captcha-button button.emg-button.emg-btn-large.emg-btn-full');
+        // const captchaButton = document.querySelector('div.captcha-button button.emg-button.emg-btn-large.emg-btn-full');
+        const captchaButton = document.querySelector('div.captcha-button button');
         if (captchaButton) {
           console.log('Found button to captcha which i will try to .click() here it is ->', captchaButton.textContent);
-          // @ts-ignore
-          // eslint-disable-next-line no-undef
           captchaButton.click();
         }
       });
+      try {
+        await context.waitForSelector('iframe[title="testare reCAPTCHA"]', { timeout: 10000 });
+      } catch (e) {
+        console.log("Didn't find Captcha.");
+        try {
+          console.log('Clicking captcha button using context.click()');
+          await context.click('div.captcha-button button');
+          await context.waitForSelector('iframe[title="testare reCAPTCHA"]', { timeout: 10000 });
+        } catch (e) {
+          console.log('Captcha still not present');
+        }
+      }
       await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-      // } while (!newContent.includes('submit'));
-    }
-    const captchaButton = 'div.captcha-button button';
-    const timeout = 30000;
+    };
 
-    const isCaptcha = await context.evaluate(() => {
-      return document.querySelector('div.captcha-button button');
-    });
+    // Function checking whether an element matching a given selector exists
+    const isPresent = async (selector) => await context.evaluate(
+      async (captchaSelector) => !!document.querySelector(captchaSelector), selector);
 
-    console.log('isCaptcha? ', isCaptcha);
-
-    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+    const captchaFrameSelector = 'iframe[title="testare reCAPTCHA"]';
+    const isCaptchaButton = await context.evaluate(() => !!document.querySelector('div.captcha-button button'));
+    console.log('isCaptchaButton? ', isCaptchaButton);
 
     // if there is loadedSelector given and captcha is not present we should proceed as usual to extraction
-    if (loadedSelector && !isCaptcha) {
+    if (loadedSelector && !isCaptchaButton) {
       await context.waitForFunction(function (sel, xp) {
         return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
       }, { timeout: 10000 }, loadedSelector, noResultsXPath);
-    } else { // if there is a captcha solve it (either captcha solving fails and throws error with will cause a retry of given task or it will navigate to product page after solved captcha and return 1 result found)
-      await context.waitForSelector(captchaButton);
-      await waitForSolvedCaptcha();
-      const captchaFrame = 'iframe[title="testare reCAPTCHA"]';
-      const maxRetries = 3;
-      let numberOfCaptchas = 0;
-      try {
-        await context.waitForSelector(captchaFrame);
-      } catch (e) {
-        console.log("Didn't find Captcha.");
-      }
-      while (numberOfCaptchas < maxRetries) {
-        ++numberOfCaptchas;
-        await context.waitForNavigation({ timeout });
-        try {
-          console.log(`Trying to solve captcha - count [${numberOfCaptchas}]`);
-          // @ts-ignore
-          // eslint-disable-next-line no-undef
-          await context.evaluateInFrame('iframe', () => grecaptcha.execute());
-          await context.waitForNavigation({ timeout });
-        } catch (e) {
-          console.log('Captcha did not load');
+    } else {
+      // if there is a captcha solve it (either captcha solving fails and throws
+      // error with will cause a retry of given task or it will navigate to product
+      // page after solved captcha and return 1 result found)
+      await clickCaptchaButton();
+
+      let isCaptchaFramePresent = await isPresent(captchaFrameSelector);
+      console.log('isCaptcha present:' + isCaptchaFramePresent);
+
+      for (let i = 0; i < 3; i++) {
+        if (isCaptchaFramePresent) {
+          await context.waitForNavigation({ timeout: 30000 });
+          try {
+            console.log(`Trying to solve captcha - count [${i}]`);
+            // @ts-ignore
+            // eslint-disable-next-line no-undef
+            await context.evaluateInFrame('iframe', () => grecaptcha.execute());
+            await context.waitForNavigation({ timeout: 30000 });
+            isCaptchaFramePresent = await isPresent(captchaFrameSelector);
+          } catch (e) {
+            console.log(`Waiting for navigation failed: ${i} try`);
+          }
+        } else {
+          break;
         }
       }
       // wait for homepage to load
-      await context.waitForNavigation();
+      await context.waitForSelector('input[id="searchboxTrigger"]', { timeout: 10000 });
       // get current url and check if it indicates that captcha has been solved, if yes go again to product page if not throw error (throwing error will cause next retry of this crawl run task to occur)
-      const currentUrl = await context.evaluate(async () => {
-        return window.location.href;
-      });
+      const currentUrl = await context.evaluate(async () => window.location.href);
       if (currentUrl !== 'https://www.emag.ro/?captcha_status=ok') {
         throw Error('CAPTCHA SOLVING METHOD FAILED');
       } else {
