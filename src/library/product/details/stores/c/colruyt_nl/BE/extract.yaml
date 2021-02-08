@@ -336,12 +336,12 @@ fields:
     description: Unit of Measure Data for Protein
   - name: vitaminAPerServing
     singleValue: false
-    xpath: //div[@id="vitaminAPerServing_added"]
+    xpath: //div[@id="vitaminAPerServing_added"] | //div[@id="vitaminAPerServingSecond_added"]
     description: Nutritional Information for Vitamin A content - Usually based on
       per 100g serving
   - name: vitaminAPerServingUom
     singleValue: false
-    xpath: //div[@id="vitaminAPerServing_added"]
+    xpath: //div[@id="vitaminAPerServing_added"] | //div[@id="vitaminAPerServingSecond_added"]
     description: Unit of Measure Data for Vitamin A
   - name: vitaminCPerServing
     singleValue: false
