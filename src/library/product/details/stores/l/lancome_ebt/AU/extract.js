@@ -101,26 +101,39 @@ module.exports = {
         addElementToDocument('varCount', varCount);
       }
 
-      // Ingredient List
-      const getIngredientList = (d) => {
-        addElementToDocument('ingList', d.replace('Print', '').trim().replaceAll(/\n+/gm, '\n').replaceAll('•', ',').replaceAll('●', ',').replaceAll('\n', '|'));
+      try {
+        // Ingredient List
+        const getIngredientList = (d) => {
+          addElementToDocument('ingList', d.replace('Print', '').trim().replaceAll(/\n+/gm, '\n').replaceAll('•', ',').replaceAll('●', ',').replaceAll('\n', '|'));
+        }
+        var ingredientList = document.querySelector('div[id="tab_ingredients"]').textContent;
+        getIngredientList(ingredientList);
+      } catch (error) {
+
       }
-      var ingredientList = document.querySelector('div[id="tab_ingredients"]').textContent;
-      getIngredientList(ingredientList);
 
-      // Product Description 
-      const getDescription = (d) => {
-        var desc = d.replace('Print', '').trim().replaceAll(/\n+/gm, '\n').replaceAll('•', '||').replaceAll('●', '||').replaceAll('\n', '|').replaceAll('|||', '||');
-        addElementToDocument('specs', desc);
-      };
-      // @ts-ignore
-      var description = document.querySelector('div[id="tab_description"]').textContent;
-      getDescription(description);
+      try {
+        // Product Description 
+        const getDescription = (d) => {
+          var desc = d.replace('Print', '').trim().replaceAll(/\n+/gm, '\n').replaceAll('•', '||').replaceAll('●', '||').replaceAll('\n', '|').replaceAll('|||', '||');
+          addElementToDocument('specs', desc);
+        };
+        // @ts-ignore
+        var description = document.querySelector('div[id="tab_description"]').textContent;
+        getDescription(description);
+      } catch (error) {
 
-      // Directions 
-      // @ts-ignore
-      var dir1 = document.querySelector('div[id="tab_productvideo"]').textContent;
-      addElementToDocument('directions', dir1.replace('Print', '').trim().replaceAll(/\n+/gm, '\n').replaceAll('•' || '●', '||').replaceAll('\n', '|').replaceAll('|||', '||'));
+      }
+
+      try {
+        // Directions 
+        // @ts-ignore
+        var dir1 = document.querySelector('div[id="tab_productvideo"]').textContent;
+        addElementToDocument('directions', dir1.replace('Print', '').trim().replaceAll(/\n+/gm, '\n').replaceAll('•' || '●', '||').replaceAll('\n', '|').replaceAll('|||', '||'));
+      } catch (error) {
+
+      }
+
 
       // Product url generater
       var url = "";
