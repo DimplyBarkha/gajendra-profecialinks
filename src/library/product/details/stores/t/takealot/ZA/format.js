@@ -119,12 +119,15 @@ const transform = (data) => {
           tmp.push(item.text);
         })
         row.ingredientsList=[{"text":tmp.join(' ').replace('Ingredients:','').replace('Ingredients :','').trim()}];
+        if(row.ingredientsListOld){
+          delete row.ingredientsListOld;
+        }
       }else{
         let ingredientsListData='';
         if(row.ingredientsListOld){
           row.ingredientsListOld.forEach(item=>{
-            //console.log('item.text::',item.text);
-            let tmp=item.text.match(/Ingredients\s*:\s*\n*(.+?)\n*[.*|$]/is);
+            console.log('item.text::',item.text);
+            let tmp=item.text.match(/Ingredients\s*:\s*\n*(.+?)\n*$/is);
             console.log('tmp::',tmp);
             if(tmp){
               ingredientsListData=tmp[1];
