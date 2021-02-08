@@ -9,19 +9,18 @@ fields:
     regExp: (.+)([^\d,-])
   - name: aggregateRating
     singleValue: false
-    xpath: //div[@class="rd__productinfo__rating"]
+    xpath: //div[@class="NETREVIEWS_PRODUCT_STARS"]/div
+    # regExp: (\d\.\d)
   - name: price
     singleValue: false
-    xpath: //div[@class="rd__product-list"]//a//div[@class="rd__productinfo"]//span[contains(@class, 'price rd__productinfo__price--sale')] | //div[@class="rd__product-list"]//a//div[@class="rd__productinfo"]//span[contains(@class, 'productinfo__price')]
-    regExp: €\s\d+,\d+
+    xpath: //span[@class="price-new"]//text()
+    regExp: (\d+.\d+)
   - name: productUrl
     singleValue: false
-    xpath: //@href
-    regExp: (.+)
-    regExpReplace: https://www.douglas.de$1
+    xpath: //h3[@itemprop="name"]/a/@href
   - name: thumbnail
     singleValue: false
-    xpath: //img//@data-src
+    xpath: //img[@class="img-responsive"]/@src
     description: The URL for the product thumbnail image
   - name: rank 
   - name: rankOrganic
