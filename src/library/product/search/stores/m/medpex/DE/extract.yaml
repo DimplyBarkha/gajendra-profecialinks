@@ -32,8 +32,7 @@ fields:
     xpath: //div[@class="rating"]/span/a
   - name: price
     singleValue: false
-    xpath: //div[@class="prices"]//span[@class="normal-price"]/text()
-    type: CURRENCY
+    xpath: //div[@class="prices"]//span[@class="normal-price"]//text()
   - name: manufacturer
     singleValue: false
     xpath: //select[@id="sort"]//option[@value="manufacturer"]/text()
