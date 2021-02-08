@@ -170,8 +170,15 @@ module.exports = {
 
       // Colour
       var color = getXpath('//div[contains(@class,"selected")]//span[contains(@class,"swatch_text_color product-variation-shade__textcolor hidden")]/text()', 'nodeValue');
-      if (color != null) {
-        addElementToDocument('color', color.match(/[a-zA-Z].+/gm).join());
+      if (color.includes(color.match(/[a-zA-Z].+/gm))) {
+        if (color.includes(color.match(/[0-9]+_[a-zA-Z]+/gm))) {
+          addElementToDocument('color', color.match(/[0-9]+_[a-zA-Z]+/gm).join());
+        } else {
+          addElementToDocument('color', color.match(/[a-zA-Z].+/gm).join());
+        }
+
+      } else {
+        addElementToDocument('color', color);
       }
 
       var str = getXpath('(//div[@class="product_detail pdp__detail small-12 medium-6 large-5 columns"]//span[@class="bv-rating_value "]/@style)[1]', 'nodeValue');
