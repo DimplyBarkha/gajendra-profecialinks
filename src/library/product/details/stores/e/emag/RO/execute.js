@@ -8,7 +8,7 @@ const implementation = async ({ url, id, zipcode, storeId }, { loadedSelector, n
   async function waitForSolvedCaptcha () {
     let newContent = '';
     let counter = 0;
-    while (counter < 10) {
+    while (counter < 5) {
       newContent = await context.content();
       console.log('Captcha is solving????: \n', newContent);
       await new Promise((resolve, reject) => setTimeout(resolve, 3000));
