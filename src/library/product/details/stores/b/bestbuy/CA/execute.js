@@ -6,7 +6,7 @@ module.exports = {
     store: 'bestbuy',
     domain: 'bestbuy.ca/en-ca',
     loadedSelector: 'html>body',
-    noResultsXPath: '//body[contains(@id,"page-not-found")]',
+    noResultsXPath: '//body[contains(@id,"page-not-found")] |  //div[contains(text(),"temporarily unavailable")]',
     zipcode: '',
   },
 };
