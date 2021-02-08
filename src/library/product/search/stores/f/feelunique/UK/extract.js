@@ -4,21 +4,15 @@ async function implementation(
     parameters,
     context,
     dependencies,
-) {
-    const { transform } = parameters;
+	) {
+	 const { transform } = parameters;
     const { productDetails } = dependencies;
-    
-    await new Promise((resolve, reject) => setTimeout(resolve, 10000));
-    await context.waitForSelector('a.loadMoreButton', 10000)
-    await context.click('a.loadMoreButton');
     await context.evaluate(async () => {
-
-        
-            // while (!!document.querySelector('a.loadMoreButton')) {
-            //     // @ts-ignore
-            //     document.querySelector('a.loadMoreButton').click()
-            //     await new Promise(r => setTimeout(r, 6000));
-       
+        while (!!document.querySelector('a.loadMoreButton')) {
+            // @ts-ignore
+            document.querySelector('a.loadMoreButton').click()
+            await new Promise(r => setTimeout(r, 8000));
+        }
         function addHiddenDiv(id, content, index) {
             const newDiv = document.createElement('div');
             newDiv.id = id;
@@ -27,7 +21,7 @@ async function implementation(
             const originalDiv = document.querySelectorAll('div[class="Product-image-wrapper"]')[index];
             originalDiv.parentNode.insertBefore(newDiv, originalDiv);
         }
-    
+
         const getAllXpath = (xpath, prop) => {
             const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
             const result = [];
@@ -37,12 +31,12 @@ async function implementation(
             }
             return result;
         };
-    
+
         try {
-    
+
             const data = getAllXpath('//div[@class="Product-image-wrapper"]/img/@data-src', 'nodeValue')
           for (let k = 0; k < data.length; k++) {
-    
+
             var first = data[k].split("products/")[1].split("/")[0]
             var check = data[k].split("products/")[1].split("/")[1]
             if (check == "sub-") {
@@ -58,15 +52,15 @@ async function implementation(
             addHiddenDiv("searchID", result,k)
         }
         } catch (error) {
-    
+
         }
     })
 
-    
+
     return await context.extract(productDetails, { transform });
 }
 module.exports = {
-    implements: 'product/search/extract',
+implements: 'product/search/extract',
     parameterValues: {
         country: 'UK',
         store: 'feelunique',
@@ -74,4 +68,4 @@ module.exports = {
         domain: 'feelunique.com',
     },
     implementation,
-};
+}; 
