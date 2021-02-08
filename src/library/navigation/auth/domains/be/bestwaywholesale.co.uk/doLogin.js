@@ -10,17 +10,24 @@ async function implementation (
   console.log('Username' + username);
   await context.setInputValue(usernameSelector, username);
   await context.click(buttonSelector);
-  if (loggedInSelector) {
-    await context.waitForFunction(function (sel) {
-      return Boolean(document.querySelector(sel));
-    }, { timeout: 10000 }, loggedInSelector);
-  }
+  // if (loggedInSelector) {
+  //   await context.waitForFunction(function (sel) {
+  //     return Boolean(document.querySelector(sel));
+  //   }, { timeout: 10000 }, loggedInSelector);
+  // }
   await context.setInputValue(passwordSelector, password);
   await context.click('#btn-login');
   await context.waitForNavigation({ timeout: 50000, waitUntil: 'load' });
   await context.evaluate(function () {
     document.forms[0].submit();
   });
+  await context.waitForNavigation({ timeout: 50000, waitUntil: 'load' });
+
+  // if (loggedInSelector) {
+  await context.waitForFunction(function (sel) {
+    return Boolean(document.querySelector('p.acclog'));
+  }, { timeout: 10000 }, loggedInSelector);
+  // }
 }
 
 module.exports = {
