@@ -56,7 +56,7 @@ const transform = (data) => {
         let image = row.image[0].text.trim();
         image = image.includes('NO-IMAGE') ? '' : image.substring(0, image.lastIndexOf('?'));
         // image = image.substring(0, image.lastIndexOf('?'));
-        row.image = [{ text: image, xpath: row.image[0].xpath }];
+        row.image = [{ text: image.concat('?x=800&y=800&format=jpg&ex=800&ey=800&align=center'), xpath: row.image[0].xpath }];
       }
       // if (row.imageAlt) {
       //   const imageAlt = row.imageAlt[0].text.trim().replace('  ', ' ');
