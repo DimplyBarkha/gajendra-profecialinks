@@ -3,21 +3,21 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'flaschenpost.de',
-    timeout: 50000,
+    timeout: 100000,
     country: 'DE',
     store: 'flaschenpost',
     zipcode: '28203',
   },
-  implementation: async (inputs, parameters, context, dependencies) => {
-    const { timeout = 10000 } = parameters;
-    const { url, zipcode, storeId } = inputs;
-    await context.goto(url, { timeout, waitUntil: 'load', checkBlocked: true, captureRequests: true });
-    // patch for synchronicity issue between json decoring and goto result
-    try {
-      // @ts-ignore
-      await context.waitForSelector('div[class="fp-productList"]', 6000)      
-    } catch (error) {
-      await new Promise(r => setTimeout(r, 10000));
-    }
+  implementation: async ({ url, storeId }, parameters, context, dependencies) => {
+    const timeout = parameters.timeout ? parameters.timeout : 1000000;
+    await context.setBlockAds(false);
+    await context.setLoadAllResources(true);
+    await context.setLoadImages(true);
+    await context.setJavaScriptEnabled(true);
+
+    const URL = `${url}#[!opt!]{"first_request_timeout":50000, "force200": true, "cookie_jar":[{"name":"invCheckPostalCode","value":"${parameters.zipcode}"}]}[/!opt!]`;
+
+    await context.goto(URL, { timeout: timeout, waitUntil: 'networkidle0', checkBlocked: true });
+
   },
 };
