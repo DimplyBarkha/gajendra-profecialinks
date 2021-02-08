@@ -192,6 +192,24 @@ module.exports = {
           body.setAttribute('description', descriptionData);
         }
 
+        // other product info description
+        let productOtherInfo = document.querySelector('#react-tabs-1 > div > li:last-child > p:first-of-type')
+          ? document
+            .querySelector('#react-tabs-1 > div > li:last-child > p:first-of-type')
+          // @ts-ignore
+            .innerText.split('\n')
+          : '';
+
+        if (productOtherInfo) {
+          for (let i = 1; i < productOtherInfo.length; i++) {
+            if (productOtherInfo[i] !== '') {
+              productOtherInfo[i] = ' || ' + productOtherInfo[i];
+            }
+          }
+          productOtherInfo = productOtherInfo.join('\n');
+          body.setAttribute('productOtherInfo', productOtherInfo);
+        }
+
         // gtin
         const jsonWithGtinElement = document.querySelector('head > script[type="application/ld+json"]');
         if (jsonWithGtinElement) {
