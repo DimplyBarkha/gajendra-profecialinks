@@ -10,7 +10,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[class="items"] div[class="tile_group"]:last-child , section#main , div[id*="pd_row"]',
-    noResultsXPath: '//h1[contains(text(),"NO RESULTS FOUND FOR")] | //h1[contains(text(),"Something Went Wrong")] | //h1[contains(text(),"Access Denied")]',
+    noResultsXPath: '//h1[contains(text(),"NO RESULTS FOUND FOR")] | //div[@id="mainContent"] | //div[contains(@class ,"grid-container")] | //h1[contains(text(),"Something Went Wrong")] | //h1[contains(text(),"Access Denied")]',
     domain: 'lowes.com',
     zipcode: '',
   },

@@ -9,67 +9,86 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  // const isStorePresent = await context.evaluate(async function () {
-  //   const isStorePresent = document.querySelector('#store-search-handler');
-  //   // @ts-ignore
-  //   return isStorePresent ? !!isStorePresent.innerText.trim().includes('Burbank Lowe') : false;
-  // });
-  // try {
-  //   console.log('Is store present-->', isStorePresent);
-  //   if (!isStorePresent) {
-  //     await context.waitForSelector('span#store-search-handler');
-  //     await context.evaluate(async function () {
-  //       const storeButton = document.querySelector('span#store-search-handler');
-  //       if (storeButton) {
-  //         // @ts-ignore
-  //         storeButton.click();
-  //       }
-  //     });
-  //     await context.evaluate(async function () {
-  //       const inputElement = document.querySelector('input[class*="type--text incomplete"]');
-  //       inputElement && inputElement.setAttribute('value', 'Burbank Lowe');
-  //     });
-  //     await context.waitForSelector('input[value*="Burbank Lowe"]');
-  //     await context.evaluate(async function () {
-  //       const formButton = document.querySelector('form button[class*="variant--primary"]');
-  //       // @ts-ignore
-  //       formButton && formButton.click();
-  //     });
-
-  //     await context.waitForSelector('ul[class*="styles__StoreListWrapper"] li button[class*="variant--primary"]');
-  //     await context.evaluate(async function () {
-  //       const selectButton = document.querySelector('ul[class*="styles__StoreListWrapper"] li button[class*="variant--primary"]');
-  //       // @ts-ignore
-  //       selectButton && selectButton.click();
-  //     });
-  //     await context.waitForNavigation();
-  //   }
-  // } catch (error) {
-  //   console.log('Faild to set store location', error);
-  // }
-
-  const applyScroll = async function (context) {
-    await context.evaluate(async function () {
-      let scrollTop = 0;
-      while (scrollTop !== 10000) {
-        await stall(500);
-        scrollTop += 1000;
-        window.scroll(0, scrollTop);
-        if (scrollTop === 10000) {
-          await stall(1000);
-          break;
+  const isStorePresent = await context.evaluate(async function () {
+    const isStorePresent = document.querySelector('#store-search-handler');
+    // @ts-ignore
+    return isStorePresent ? !!isStorePresent.innerText.trim().includes('Burbank Lowe') : false;
+  });
+  try {
+    console.log('Is store present-->', isStorePresent);
+    if (!isStorePresent) {
+      await context.waitForSelector('span#store-search-handler');
+      await context.evaluate(async function () {
+        const storeButton = document.querySelector('span#store-search-handler');
+        if (storeButton) {
+          // @ts-ignore
+          storeButton.click();
         }
-      }
-      function stall (ms) {
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
+      });
+      await context.evaluate(async function () {
+        const inputElement = document.querySelector('input[class*="type--text incomplete"]');
+        inputElement && inputElement.setAttribute('value', 'Burbank Lowe');
+      });
+      await context.waitForSelector('input[value*="Burbank Lowe"]');
+      await context.evaluate(async function () {
+        const formButton = document.querySelector('form button[class*="variant--primary"]');
+        // @ts-ignore
+        formButton && formButton.click();
+      });
+
+      await context.waitForSelector('ul[class*="styles__StoreListWrapper"] li button[class*="variant--primary"]');
+      await context.evaluate(async function () {
+        const selectButton = document.querySelector('ul[class*="styles__StoreListWrapper"] li button[class*="variant--primary"]');
+        // @ts-ignore
+        selectButton && selectButton.click();
+      });
+      await context.waitForNavigation();
+    }
+  } catch (error) {
+    console.log('Faild to set store location', error);
+  }
+
+  // const applyScroll = async function (context) {
+  //   await context.evaluate(async function () {
+  //     let scrollTop = 0;
+  //     while (scrollTop !== 10000) {
+  //       await stall(500);
+  //       scrollTop += 1000;
+  //       window.scroll(0, scrollTop);
+  //       if (scrollTop === 10000) {
+  //         await stall(1000);
+  //         break;
+  //       }
+  //     }
+  //     function stall (ms) {
+  //       return new Promise((resolve, reject) => {
+  //         setTimeout(() => {
+  //           resolve();
+  //         }, ms);
+  //       });
+  //     }
+  //   });
+  // };
+  // await applyScroll(context);
+  async function autoScroll (page) {
+    await page.evaluate(async () => {
+      await new Promise((resolve) => {
+        var totalHeight = 0;
+        var distance = 100;
+        var timer = setInterval(() => {
+          var scrollHeight = document.body.scrollHeight;
+          window.scrollBy(0, distance);
+          totalHeight += distance;
+
+          if (totalHeight >= scrollHeight) {
+            clearInterval(timer);
             resolve();
-          }, ms);
-        });
-      }
+          }
+        }, 100);
+      });
     });
-  };
-  await applyScroll(context);
+  }
+  await autoScroll(context);
   await context.evaluate(async function () {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
@@ -112,6 +131,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     //   myObj.forEach(obj=>obj.remove())
     // }
   });
+
   await context.evaluate(async function () {
     const URL = window.location.href;
     function addHiddenDiv (id, content, index) {
