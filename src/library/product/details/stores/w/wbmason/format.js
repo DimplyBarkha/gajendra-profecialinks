@@ -54,19 +54,6 @@ const transform = (data) => {
             }
           });
         }
-        if (row.variantId) {
-          row.variantId.forEach(item => {
-            let skuVal=item.text.replace('var digitalData = ', '');
-            skuVal=skuVal.slice(0, skuVal.indexOf(';'));
-            let data = JSON.parse(skuVal);
-            //console.log("skudata: ", data.eCommerce.productInfo[0].productSKU);
-            if(data.eCommerce.hasOwnProperty('productInfo')){
-              item.text=data.eCommerce.productInfo[0].productSKU;
-            }else{
-              item.text="";
-            }
-          });
-        }
       }
     }
     return cleanUp(data);

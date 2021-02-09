@@ -47,7 +47,7 @@ fields:
     xpath: //script[@type="text/javascript" and contains(text(), "var digitalData = ")]/text()
   - name: variantId
     singleValue: false
-    xpath: //script[@type="text/javascript" and contains(text(), "var digitalData = ")]/text()
+    xpath: //span[@id="ctl00_ContentPlaceholder1_ucProductDetail_fvProductDetail_lblItemNumber"]
   - name: name
     singleValue: false
     xpath: //h1[@class="item-name"]
