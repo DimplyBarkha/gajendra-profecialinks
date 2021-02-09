@@ -20,7 +20,7 @@ fields:
   - name: listPrice
     xpath: //span[@id='sp-price-highPrice' and contains(@class, 'strike')]
   - name: price
-    xpath: //span[@id='sp-price-highPrice' and not(contains(@class, 'strike'))] | //div[contains(@class, 'lastPrice')]
+    xpath: //span[@id='sp-price-highPrice' and not(contains(@class, 'strike'))] | //div[contains(@class, 'lastPrice')] | //p[@class="extra-price"]
   - name: description
     xpath: //div[@class='productTabTitleInformation'] | div[contains(@class,'features-container')]| //div[@id='productDescription']
   - name: descriptionTitle
