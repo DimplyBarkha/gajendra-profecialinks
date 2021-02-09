@@ -20,7 +20,7 @@ fields:
     xpath: //ul[@id='productListMain']//span[@class='itemTitle']//a//text()
   - name: id
     description: The store-specific product identifier
-    xpath: //ul[@id="productListMain"]//span/@data-productsku
+    xpath: //ul[@id="productListMain"]//span[@class="itemOverlay "]/@data-productsku
   - name: aggregateRating2
     xpath: //ul[@id='productListMain']//div[@class='pr-snippet-rating-decimal']
   - name: reviewCount
