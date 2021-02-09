@@ -26,8 +26,7 @@ fields:
   - name: price
     description: The offered price for the product
     # xpath: //div[@class='ProductPrice_mainPriceHolder__250xx']
-    type: CURRENCY
-    xpath: //span[@class="ant-typography LYSTypography_h3__3I_BO ProductPrice_priceValue__YY2PQ"]//text()
+    xpath: //html//div[@id="price"]
   - name: manufacturer
     type: TEXT
     xpath: //div[@class='ProductCard_brandImage__yA3fy']/img/@alt
