@@ -2,16 +2,19 @@ input:
   id: "256795"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=2a206261-497f-470d-9998-c41168d42409/task=35d917bc-e686-4083-bb42-b885f8a44345/5c0ce902-a0e5-46bb-9e01-bb71bf4361a0.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=9fce36d7-b7fe-47e8-b782-82868d92dc6b/task=e0de0a9b-fb88-42b9-8cd1-fc0a155aaef5/0a88a9ba-6de7-4245-8c3f-955c29f5d8c9.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
           - image:
               - text: http://www.booker.co.uk/images/ni200.jpg
-                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/a[1]/figure[1]/figure[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/a[1]/figure[1]/img[1]/@src
             nameExtended:
               - text: Bisto Gluten Free Fine Gravy Granules 1.9kg
                 xpath: /html/body/main[1]/div[2]/div[2]/h4[1]
+            price:
+              - text: £9.99
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[2]/p[1]
             description:
               - text: Gluten Free Fine Gravy Granules.
                 xpath: /html/body/main[1]/div[2]/div[2]/div[5]/p[1]
@@ -149,4 +152,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: Yes
         xpath: /html/body
-    timestamp: 1611936459712
+    timestamp: 1612871426387

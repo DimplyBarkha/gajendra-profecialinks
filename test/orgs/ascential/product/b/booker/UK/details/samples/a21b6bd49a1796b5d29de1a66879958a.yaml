@@ -2,16 +2,19 @@ input:
   id: "257876"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=2a206261-497f-470d-9998-c41168d42409/task=4da6f6d0-85e3-4bb2-9f09-c2c3ca6ef96f/9f1717ef-5e99-4d0d-a075-0d981a8c9a24.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=9fce36d7-b7fe-47e8-b782-82868d92dc6b/task=d9dc2fbb-9790-4529-b308-7a63bba2e167/12748240-6625-4f9b-a262-ed689a3bdfd2.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
           - image:
               - text: http://www.booker.co.uk/bbimages/1/cc4abdd0-b931-4339-b01a-b14baf448a1e.jpg
-                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/a[1]/figure[1]/figure[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/a[1]/figure[1]/img[1]/@src
             nameExtended:
               - text: Chef's Larder Premium Luxury Chocolate Fudge Cake
                 xpath: /html/body/main[1]/div[2]/div[2]/h4[1]
+            price:
+              - text: £65.89
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[2]/p[1]
             description:
               - text: Chocolate sponge, filled and decorated with chocolate fudge icing.
                 xpath: /html/body/main[1]/div[2]/div[2]/div[4]/p[1]
@@ -150,4 +153,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: Yes
         xpath: /html/body
-    timestamp: 1611936456391
+    timestamp: 1612871399621

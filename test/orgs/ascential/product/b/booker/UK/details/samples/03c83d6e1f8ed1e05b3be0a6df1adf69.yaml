@@ -2,24 +2,134 @@ input:
   id: "250074"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=552fba50-2098-4d1b-a2f2-908ac6672526/task=4dd8b877-0258-4783-afce-cd32278afbc4/1851b4c1-b2d6-4131-95da-02ee6a22e13e.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=9fce36d7-b7fe-47e8-b782-82868d92dc6b/task=7b5acd37-b887-4d3f-98c2-41d9730cb92c/3390026e-33a6-4c2a-af9b-466277c984e6.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
-          - productUrl:
-              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=250074&view=UnGrouped
-                xpath: /html/body/div[1]
-            metaKeywords:
-              - text: Booker, cash & carry, cash and carry, wholesale service, wholesalers, Big
-                  Food Group, Booker Premier, Happy Shopper, Tuck Shop, Malt
-                  House Vintners, Chef's Larder, Drop Shipment
+          - image:
+              - text: http://www.booker.co.uk/bbimages/1/e3236e68-d371-4169-a1ef-a4c034ca3bda.jpg
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/a[1]/figure[1]/img[1]/@src
+            nameExtended:
+              - text: Rockstar Xdurance Fully Loaded Blueberry, Pomegranate & Acai Energy Drink
+                  500ml Can PMP £1.29
+                xpath: /html/body/main[1]/div[2]/div[2]/h4[1]
+            description:
+              - text: Lightly Carbonated Mixed Fruit Energy Drink with Added Caffeine, Taurine &
+                  Vitamins
+                xpath: /html/body/main[1]/div[2]/div[2]/div[5]/p[1]
+              - text: |-
+                  No artificial sweeteners or colours 
+                   B-vitamins, real sugar, taurine, guarana
+                xpath: /html/body/main[1]/div[2]/div[2]/div[5]/p[2]
+              - text: Vitamins B3 (Niacin) and B6 contribute to the reduction of tiredness and
+                  fatigue.
+                xpath: /html/body/main[1]/div[2]/div[2]/div[5]/p[3]
+              - text: Widely Recycled Under the Authority of PepsiCo, Inc., Purchase, N.Y., USA.
+                xpath: /html/body/main[1]/div[2]/div[2]/div[5]/p[4]
+            brandText:
+              - text: Rockstar
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/p[4]/a[1]
+            quantity:
+              - text: 500ml
+                xpath: /html/body/main[1]/div[2]/div[2]/h4[1]
+            variantId:
+              - text: "250074"
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]/@data-item
+            packSize:
+              - text: Case of 12
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/p[1]
+            legalDisclaimer:
+              - text: >-
+                  The image and summary details have been prepared for
+                  illustration and information purposes only. On occasion the
+                  actual product may differ from that shown. 
+                   
+                   Whilst we have taken every care in preparing this summary and believe it to be accurate, it is not a substitute for reading the product packaging or label prior to use. You should note that products and their ingredients are subject to change. If you do require precise ingredient information you should consult the manufacturer, whose contact details will appear on the packaging or label. 
+                   
+                   Booker is therefore unable to accept liability for any incorrect information. Where this description contains a link to another party's website for further information on the product, please note that Booker has no control over and no liability for the contents of that website. This data is supplied for personal use only. It may not be reproduced in any way whatsoever without Booker's prior consent, nor without due acknowledgement.
+                xpath: /html/body/main[1]/div[3]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]
+            warnings:
+              - text: HIGH CAFFEINE CONTENT NOT RECOMMENDED FOR CHILDREN OR PREGNANT OR
+                  BREAST-FEEDING WOMEN (CAFFEINE CONTENT 32mg/100ml). PLEASE
+                  CONSUME RESPONSIBLY.
+                xpath: /html/body/main[1]/div[3]/div[1]/div[2]/div[3]/div[1]/div[2]
+            name:
+              - text: Rockstar Xdurance Fully Loaded Blueberry, Pomegranate & Acai Energy Drink
+                  500ml Can PMP £1.29
+                xpath: /html/body/main[1]/div[2]/div[2]/h4[1]
+            ingredientsList:
+              - text: Carbonated Water, Sugar, Black Carrot Juice Concentrate, Acids (Citric
+                  Acid, Lactic Acid, Malic Acid), Natural Flavouring, Green Tea
+                  Extract, Caffeine (0.03%), Antioxidant (Ascorbic Acid),
+                  Taurine (0.02%), Acidity Regulator (Potassium Phosphates),
+                  Guarana Extract (0.01%), Vitamins (Niacin, E, B6)
+                xpath: /html/body/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/p[1]
+            servingSize:
+              - text: 100ml
+                xpath: /html/body/main[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/th[3]
+            servingSizeUom:
+              - text: ml
+                xpath: /html/body/main[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/th[3]
+            storage:
+              - text: "Store in a cool dry place. Best Before End: See Base of Can."
+                xpath: /html/body/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/p[2]
+            productOtherInformation:
+              - text: Widely Recycled Under the Authority of PepsiCo, Inc., Purchase, N.Y., USA.
+                xpath: /html/body/main[1]/div[2]/div[2]/div[5]/p[4]
+            packaging:
+              - text: Can
+                xpath: /html/body/main[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/p[2]
+            productUrl:
+              - text: https://www.booker.co.uk/products/product%20detail?Code=250074&returnUrl=http%3a%2f%2fwww.booker.co.uk%2fproducts%2fproduct-list%3fkeywords%3d250074
                 xpath: /html/body/div[2]
+            metaKeywords:
+              - text: booker wholesale,wholesale uk,wholesaler,foodservice,food wholesaler
+                xpath: /html/body/div[3]
             availabilityText:
               - text: Out of Stock
-                xpath: /html/body/div[3]
+                xpath: /html/body/div[4]
             termsAndConditions:
               - text: Yes
-                xpath: /html/body/div[4]
+                xpath: /html/body/div[5]
+            caloriesPerServing:
+              - text: 1208kJ/284kcal
+                xpath: /html/body/div[8]
+            totalFatPerServing:
+              - text: "0"
+                xpath: /html/body/div[9]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[9]
+            saturatedFatPerServing:
+              - text: "0"
+                xpath: /html/body/div[10]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[10]
+            totalCarbPerServing:
+              - text: "69"
+                xpath: /html/body/div[12]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[12]
+            totalSugarsPerServing:
+              - text: "69"
+                xpath: /html/body/div[14]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[14]
+            proteinPerServing:
+              - text: <0.5
+                xpath: /html/body/div[15]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[15]
+            saltPerServing:
+              - text: "0.01"
+                xpath: /html/body/div[17]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[17]
             variantCount:
               - text: "0"
             technicalInformationPdfPresent:
@@ -29,8 +139,6 @@ extractions:
             Image360Present:
               - text: No
             imageZoomFeaturePresent:
-              - text: No
-            productOtherInformation:
-              - text: ""
+              - text: Yes
         xpath: /html/body
-    timestamp: 1610571992631
+    timestamp: 1612871434565
