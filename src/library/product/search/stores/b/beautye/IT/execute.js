@@ -11,9 +11,9 @@ module.exports = {
     noResultsXPath: '//div[@class="message notice"]/div/text()',
     zipcode: '',
   },
-  autoScroll,
+  //autoScroll,
 };
- async function autoScroll(page) {
+ /*async function autoScroll(page) {
  await page.evaluate(async () => {
  await new Promise((resolve) => {
  var totalHeight = 0;
@@ -30,7 +30,7 @@ module.exports = {
  }, 100);
  });
  });
- }
+ }*/
 
 
 

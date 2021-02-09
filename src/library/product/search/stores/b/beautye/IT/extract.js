@@ -10,8 +10,11 @@ async function implementation(
   const { productDetails } = dependencies;
   await new Promise(resolve => setTimeout(resolve, 2000));
 
-
-  //await context.waitForSelector('li.product-item div div.product-item-photo a img.product-image-photo');
+  try{
+  await context.waitForXPath('//script[@data-ommit="true"][contains(.,"impressions")]');}
+  catch(e){
+    console.log("error ",e);
+  }
 
   await context.evaluate(async function () {
     /*try{
@@ -58,11 +61,12 @@ async function implementation(
         var idInHref = document.querySelectorAll('li.product-item div div.product-item-photo a')[i].getAttribute('href');
         var patt=/\W([\d]+).html/;
         var realIdInArr=patt.exec(idInHref)?patt.exec(idInHref):0;
-        var idNumber=realIdInArr[1]?realIdInArr[1]:false;
-        if(idNumber){  
-        addElementToDocument(doc, 'added-id', idNumber);}
+        var idNumber=realIdInArr[1]?realIdInArr[1]:'';
+        if(data[i].id.replace('conf_', '')){  
+          addElementToDocument(doc, 'added-id', data[i].id.replace('conf_', ''));}
+        //addElementToDocument(doc, 'added-id', idNumber);}
         else{
-          addElementToDocument(doc, 'added-id', data[i].id.replace('conf_', ''));
+          addElementToDocument(doc, 'added-id', idNumber);
         }
         /*let desc = '';
         const descSelc = doc.querySelector('div.product-item-description');

@@ -29,6 +29,13 @@ const transform = (data, context) => {
         });
         row.name =  [{ text }];
        }
+       /*if(row.id==undefined){
+         let urlForID=row.productUrl[0].text?row.productUrl[0].text:'';
+         let pattForId=/\W([\d]+).html/;
+         let idArray=pattForId.exec(urlForID);
+         let newID=idArray[1]?idArray[1]:'';
+         row.id=[{newID}];
+       }*/
       if (row.id) {
         rankCounter += 1;
         if (!row.sponsored) {
