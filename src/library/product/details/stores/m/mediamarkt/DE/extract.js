@@ -353,6 +353,7 @@ module.exports = {
       if (moreFeatures) {
         moreFeatures.click();
       }
+      console.log('load all more buttoon is clicked sucessfully')
     });
 
     // For unInterruptedPDP
