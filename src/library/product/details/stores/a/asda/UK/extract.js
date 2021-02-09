@@ -36,11 +36,15 @@ module.exports = {
       console.log(`productDetailsAvailable: ${productDetailsAvailable}`);
       if (!productDetailsAvailable) {
         console.log('ERROR: Failed to load product details page');
-        return context.extract(productDetails);
+        return context.halt(true);
       }
     } else {
       console.log('Returning empty data');
-      return context.extract(productDetails);
+      try {
+        context.halt(true);
+      } catch (error) {
+        return;
+      }
     }
 
     const jsonFromCatalogue = await context.evaluate(async function (inputs) {
