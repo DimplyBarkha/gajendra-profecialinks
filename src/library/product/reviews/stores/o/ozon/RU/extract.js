@@ -6,17 +6,18 @@ async function implementation (
   context,
   dependencies,
 ) {
+  const { transform } = parameters;
   const { productReviews } = dependencies;
 
   try {
-    await context.waitForSelector('div.c4 div._2avF:nth-child(2) button', { timeout: 10000 });
+    await context.waitForXPath("//div[contains(text(),'Подтвердить')]", { timeout: 5000 });
   } catch (e) {
     console.log('Age confirmation popup not loaded');
   }
   await context.evaluate(async () => {
-    const popUps = document.querySelector('div.c4 div._2avF:nth-child(2) button');
-    if (popUps) {
-      popUps.click();
+    const confirmAge = document.evaluate("//div[contains(text(),'Подтвердить')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    if (confirmAge) {
+      confirmAge.click();
     }
   });
   await context.evaluate(async () => {
@@ -28,7 +29,7 @@ async function implementation (
       }
     }
   });
-  // await new Promise(resolve => setTimeout(resolve, 2000));
+  await new Promise(resolve => setTimeout(resolve, 5000));
   return await context.extract(productReviews, { transform });
 }
 

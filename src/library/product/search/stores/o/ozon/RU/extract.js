@@ -15,6 +15,7 @@ module.exports = {
     context,
     dependencies,
   ) => {
+    const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.setJavaScriptEnabled(true);
     await context.setLoadAllResources(true);
@@ -152,7 +153,7 @@ module.exports = {
     await new Promise((resolve, reject) => setTimeout(resolve, 1000));
 
     const cssHiddenImage = 'div.q8';
-    const cssAgeConfirmation = 'div.ui-a0q4 div.c8.ui-k4 button';
+    const xpathAgeConfirmation = "//div[contains(text(),'Подтвердить')]";
     const isSelectorAvailable = async (cssSelector) => {
       return await context.evaluate(function (selector) {
         return !!document.querySelector(selector);
@@ -163,14 +164,18 @@ module.exports = {
       await context.click(cssHiddenImage);
     }
     try {
-      await context.waitForSelector(cssAgeConfirmation, { timeout: 5000 });
+      await context.waitForXPath(xpathAgeConfirmation, { timeout: 5000 });
     } catch (e) {
       console.log('age confirmation popup not loaded');
     }
-    const confirmAge = await isSelectorAvailable(cssAgeConfirmation);
-    if (confirmAge) {
-      await context.click(cssAgeConfirmation);
-    }
+
+    await context.evaluate(async function () {
+      const confirmAge = document.evaluate("//div[contains(text(),'Подтвердить')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      if (confirmAge) {
+        confirmAge.click();
+      }
+    });
+
     await new Promise((resolve) => setTimeout(resolve, 2000));
 
     return await context.extract(productDetails, { transform });

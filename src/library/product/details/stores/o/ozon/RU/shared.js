@@ -110,6 +110,17 @@ const transform = (data) => {
         }
       }
 
+      if (fieldName.category) {
+        let categoryText = '';
+        fieldName.category.forEach((cat, i) => {
+          categoryText += cat.text + ' > ';
+        });
+        if (categoryText) {
+          categoryText = categoryText.slice(0, -3);
+        }
+        fieldName.category = [{ text: categoryText }];
+      }
+
       try {
         if (fieldName.caloriesPerServing) {
           const itemTextValue = fieldName.caloriesPerServing[0].text;
