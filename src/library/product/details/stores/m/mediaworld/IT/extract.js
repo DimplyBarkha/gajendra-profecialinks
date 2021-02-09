@@ -113,14 +113,24 @@ module.exports = {
         }
       }, enhancedContentInfo);
     }
+
     try {
       await new Promise(resolve => setTimeout(resolve, 5000));
       await context.waitForSelector('ul[class="productDetailsTabs"] li[class="productDetails-tab active"]', {}, { timeout: 100000 });
-      await context.waitForXPath("//div[@id='flix-inpage']//img/@srcset | //div[@id='flix-inpage']//img/@data-img-src|//div[@id='flix-inpage']//img/@data-srcset", {}, { timeout: 100000 });
-      await context.waitForSelector('div[id="flix-inpage"] img', {}, { timeout: 100000 });
     } catch (error) {
       console.log(error);
     }
+    await optionalWait('div[id="flix-inpage"] img');
+    const optionalWaitXpath = async (sel) => {
+      try {
+        await context.waitForXPath(sel, { timeout: 20000 });
+      } catch (err) {
+        console.log(`Couldn't load xpath => ${sel}`);
+      }
+    };
+    await optionalWaitXpath('//div[@id="flix-inpage"]//img/@srcset | //div[@id="flix-inpage"]//img/@data-img-src|//div[@id="flix-inpage"]//img/@data-srcset');
+
+
     try {
       await context.click('div[id="flix_hotspots"] svg[id="flix_key_features"]', {}, { timeout: 100000 });
     } catch (error) {
