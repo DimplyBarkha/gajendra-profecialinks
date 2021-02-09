@@ -6,7 +6,7 @@ module.exports = {
     store: 'reservebar',
     domain: 'reservebar.com',
     loadedSelector: null,
-    noResultsXPath: "//div[contains(@class,'empty-page-content')]",
+    noResultsXPath: "//div[contains(@class,'empty-page-content')] | //div[contains(@class,'searchspring-results')]",
     zipcode: '',
   },
 };
