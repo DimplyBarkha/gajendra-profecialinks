@@ -5,7 +5,11 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //ul[@class="css-1kxqg20 eanm77i0"]/li[1]//img/@src
+    xpath: //div[@tabindex=0 and contains(@data-comp,"BaseComponent")]//img/@src
+    # regExp: >-
+      # (.*)
+    # regExpReplace: https://www.sephora.com$1
+    # xpath: //ul[@class="css-1kxqg20 eanm77i0"]/li[1]//img/@src
   - name: imageAlt
     singleValue: false
     xpath: //ul[@class="css-1kxqg20 eanm77i0"]/li[1]//img/@alt
