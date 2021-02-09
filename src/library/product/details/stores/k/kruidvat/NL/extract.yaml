@@ -523,7 +523,7 @@ fields:
     defaultValue: 'Yes'
   - name: _url
     singleValue: true
-    xpath: (//link[@rel='canonical']/@href)[1]
+    xpath: //link[@rel='canonical']/@href
   # - name: Url
   #   singleValue: true
   #   description: The URL for the product details page
