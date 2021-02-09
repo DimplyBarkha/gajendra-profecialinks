@@ -61,7 +61,7 @@ fields:
     xpath: //div[@class='primary-image active']//img/@src
   - name: variantInformation
     singleValue: false
-    xpath: //div[@class='attributes']//fieldset//ul//li//@data-attr-value  
+    xpath: //div[@class='attributes']//fieldset//ul//li//@data-attr-value | //div[@class='attributes']//ul[contains(@class,'selection-list')]//li[not(contains(@label,'color'))]//div[@class='item']
   - name: variants
     singleValue: false
     xpath: //script[@type="text/javascript" and contains(text(),'pageDataObj =')]
