@@ -244,3 +244,6 @@ fields:
     singleValue: false
     # xpath: //p[@class='pdp-product-description-content']//b[contains(text(),'INGREDIENTS') or contains(text(),'Ingredients') or contains(text(),'ingredient')][1]/following-sibling::text()[1]
     xpath: //div[@id="ingredientList"]
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //div[contains(@class,"similar-container")]//img/@title | //div[contains(@class,"crosssell-container")]//img/@title
