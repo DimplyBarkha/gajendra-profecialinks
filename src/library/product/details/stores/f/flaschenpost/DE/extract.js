@@ -6,7 +6,7 @@ module.exports = {
     store: 'flaschenpost',
     transform: cleanUp,
     domain: 'flaschenpost.de',
-    zipcode: '28199',
+    zipcode: '28203',
   },
   implementation: async (inputs,
     parameters,

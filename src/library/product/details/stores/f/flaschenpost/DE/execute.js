@@ -5,7 +5,7 @@ module.exports = {
     country: 'DE',
     store: 'flaschenpost',
     domain: 'flaschenpost.de',
-    loadedSelector: 'body',
+    loadedSelector: 'div[class="page-detail"]',
     noResultsXPath: '//div[@class="error-page-container"]',
     zipcode: '28203',
   },

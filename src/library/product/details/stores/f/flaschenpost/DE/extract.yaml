@@ -1,149 +1,99 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class="page-detail"]
 fields:
   - name: image 
-    singleValue: false 
-    xpath: //div[@class='fp-productList_image']/img/@src
-  - name: productUrl
-    singleValue: false   
-    xpath: /html/head/link[@rel="canonical"]/@href
+    xpath: ancestor::html//div[@class='fp-productList_image']/img/@src
+  - name: productUrl   
+    xpath: ancestor::html/html/head/link[@rel="canonical"]/@href
   - name: imageAlt
-    singleValue: false
-    xpath: //div[@class='fp-productList_image']/img/@alt  
+    xpath: ancestor::html//div[@class='fp-productList_image']/img/@alt  
   - name: category
-    singleValue: false
-    xpath: //div[@class='fp-pagination']/a[position() >= 2 and position()<last()]/text()
+    xpath: ancestor::html//div[@class='fp-pagination']/a[position() >= 2 and position()<last()]/text()
   - name: nameExtended
-    singleValue: false
-    xpath: //div[@class='fp-productList_info']/h5[@class='fp-productList_productName']/text()  
+    xpath: ancestor::html//div[@class='fp-productList_info']/h5[@class='fp-productList_productName']/text()  
   - name: availabilityText
-    singleValue: false
-    defaultValue: In Stock
+    xpath: (ancestor::html//div[@class="fp-productList_action"]/img/@src)[1]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: OutOfStock
   - name: description
-    singleValue: false
-    xpath: //div[@class="fp-switcher_item active"][contains(text(),'Produktbeschreibung')]//following::p[1]
+    xpath: ancestor::html//div[@class="fp-switcher_item active"][contains(text(),'Produktbeschreibung')]//following::p[1]
   - name: brandText
-    singleValue: false
-    xpath: //div[@class="fp-pagination"]/@data-brand-name
+    xpath: ancestor::html//div[@class="fp-pagination"]/@data-brand-name
   - name: quantity
-    singleValue: false
-    xpath: //div[@class="fp-productList_bottleInfo"]/text()
+    xpath: ancestor::html//div[@class="fp-productList_bottleInfo"]/text()
   - name: variantId
-    singleValue: false
-    xpath: //div[@class="fp-productList_content"]/div/@data-article 
+    xpath: ancestor::html//div[@class="fp-productList_content"]/div/@data-article 
   - name: variantInformation
-    singleValue: false
-    xpath: //div[@class="fp-productList_bottleInfo"]/text()
+    xpath: ancestor::html//div[@class="fp-productList_bottleInfo"]/text()
   - name: variantCount
-    singleValue: false
     type: NUMBER
     xpath: count(//div[@class='fp-productList_bottleDetails'])
   - name: name
-    singleValue: false
-    xpath: //div[@class='fp-productList_info']/h5[@class='fp-productList_productName']
+    xpath: ancestor::html//div[@class='fp-productList_info']/h5[@class='fp-productList_productName']
   - name: price
-    singleValue: false
     type: CURRENCY
-    xpath: //b[@class="fp-price-is-special-offer"]/text()
+    xpath: ancestor::html//b[@class="fp-price-is-special-offer"]/text()
   - name: ingredientsList
-    singleValue: false
-    xpath: //div[@class="swiper-wrapper"]//p[2]/text()
+    xpath: ancestor::html//div[@class="swiper-wrapper"]//p[2]/text()
   - name: manufacturer
-    singleValue: false
-    xpath: //div[@id="fp-zip-check-modal"]//p[@class='fontMedium']
+    xpath: ancestor::html//div[@id="fp-zip-check-modal"]//p[@class='fontMedium']
   - name: caloriesPerServing
-    singleValue: false
-    xpath: //tbody//tr//td[contains(text(),'Brennwert')]/following-sibling::td[1]
+    xpath: ancestor::html//tbody//tr//td[contains(text(),'Brennwert')]/following-sibling::td[1]
     regExp: ([^a-zA-Z]+)
   - name: totalFatPerServing
-    singleValue: false
-    xpath: //tbody//tr//td[normalize-space(text())='Fett']/following-sibling::td[1]
+    xpath: ancestor::html//tbody//tr//td[normalize-space(text())='Fett']/following-sibling::td[1]
     regExp: ([^a-zA-Z]+)
   - name: totalFatPerServingUom
-    singleValue: false
-    xpath: //tbody//tr//td[normalize-space(text())='Fett']/following-sibling::td[1]
+    xpath: ancestor::html//tbody//tr//td[normalize-space(text())='Fett']/following-sibling::td[1]
     regExp: ([^0-9, ]+)
   - name: sodiumPerServing
-    singleValue: false
-    xpath: //tbody//tr//td[normalize-space(text())='Natrium']/following-sibling::td[1]
+    xpath: ancestor::html//tbody//tr//td[normalize-space(text())='Natrium']/following-sibling::td[1]
     regExp: ([^a-zA-Z]+)
   - name: sodiumPerServingUom
-    singleValue: false
-    xpath: //tbody//tr//td[normalize-space(text())='Natrium']/following-sibling::td[1]
+    xpath: ancestor::html//tbody//tr//td[normalize-space(text())='Natrium']/following-sibling::td[1]
     regExp: ([^0-9, ]+)
   - name: calciumPerServing
-    singleValue: false
-    xpath: //tbody//tr//td[normalize-space(text())='Calcium']/following-sibling::td[1]
+    xpath: ancestor::html//tbody//tr//td[normalize-space(text())='Calcium']/following-sibling::td[1]
     regExp: ([^a-zA-Z]+)
   - name: calciumPerServingUom
-    singleValue: false
-    xpath: //tbody//tr//td[normalize-space(text())='Calcium']/following-sibling::td[1]
+    xpath: ancestor::html//tbody//tr//td[normalize-space(text())='Calcium']/following-sibling::td[1]
     regExp: ([^0-9, ]+)
   - name: magnesiumPerServing
-    singleValue: false
-    xpath: //tbody//tr//td[normalize-space(text())='Magnesium']/following-sibling::td[1]
+    xpath: ancestor::html//tbody//tr//td[normalize-space(text())='Magnesium']/following-sibling::td[1]
     regExp: ([^a-zA-Z]+)
   - name: magnesiumPerServingUom
-    singleValue: false
-    xpath: //tbody//tr//td[normalize-space(text())='Magnesium']/following-sibling::td[1]
+    xpath: ancestor::html//tbody//tr//td[normalize-space(text())='Magnesium']/following-sibling::td[1]
     regExp: ([^0-9, ]+)
   - name: totalCarbPerServing
-    singleValue: false
-    xpath: //tbody//tr//td[contains(text(),'Kohlenhydrate')]/following-sibling::td[1]
+    xpath: ancestor::html//tbody//tr//td[contains(text(),'Kohlenhydrate')]/following-sibling::td[1]
     regExp: ([^a-zA-Z]+)
   - name: totalCarbPerServingUom
-    singleValue: false
-    xpath: //tbody//tr//td[contains(text(),'Kohlenhydrate')]/following-sibling::td[1]
+    xpath: ancestor::html//tbody//tr//td[contains(text(),'Kohlenhydrate')]/following-sibling::td[1]
     regExp: ([^0-9, ]+)
   - name: saturatedFatPerServing
-    singleValue: false
-    xpath: //tbody//tr//td[contains(text(),'Gesättigte Fettsäuren')]/following-sibling::td[1]
+    xpath: ancestor::html//tbody//tr//td[contains(text(),'Gesättigte Fettsäuren')]/following-sibling::td[1]
     regExp: ([^a-zA-Z]+)
   - name: saturatedFatPerServingUom
-    singleValue: false
-    xpath: //tbody//tr//td[contains(text(),'Gesättigte Fettsäuren')]/following-sibling::td[1]
+    xpath: ancestor::html//tbody//tr//td[contains(text(),'Gesättigte Fettsäuren')]/following-sibling::td[1]
     regExp: ([^0-9, ]+)
   - name: totalSugarsPerServing
-    singleValue: false
-    xpath: //tbody//tr//td[contains(text(),'Zucker')]/following-sibling::td[1]
+    xpath: ancestor::html//tbody//tr//td[contains(text(),'Zucker')]/following-sibling::td[1]
     regExp: ([^a-zA-Z]+)
   - name: totalSugarsPerServingUom
-    singleValue: false
-    xpath: //tbody//tr//td[contains(text(),'Zucker')]/following-sibling::td[1]
+    xpath: ancestor::html//tbody//tr//td[contains(text(),'Zucker')]/following-sibling::td[1]
     regExp: ([^0-9, ]+)
   - name: proteinPerServing
-    singleValue: false
-    xpath: //tbody//tr//td[contains(text(),'Eiweiß')]/following-sibling::td[1]
+    xpath: ancestor::html//tbody//tr//td[contains(text(),'Eiweiß')]/following-sibling::td[1]
     regExp: ([^a-zA-Z]+)
   - name: proteinPerServingUom
-    singleValue: false
-    xpath: //tbody//tr//td[contains(text(),'Eiweiß')]/following-sibling::td[1]
+    xpath: ancestor::html//tbody//tr//td[contains(text(),'Eiweiß')]/following-sibling::td[1]
     regExp: ([^0-9, ]+)
   - name: saltPerServing
-    singleValue: false
-    xpath: //tbody//tr//td[contains(text(),'Salz')]/following-sibling::td[1]
+    xpath: ancestor::html//tbody//tr//td[contains(text(),'Salz')]/following-sibling::td[1]
     regExp: ([^a-zA-Z]+)
   - name: saltPerServingUom
-    singleValue: false
-    xpath: //tbody//tr//td[contains(text(),'Salz')]/following-sibling::td[1]
-    regExp: ([^0-9, ]+)
-  - name: technicalInformationPdfPresent
-    singleValue: false
-    defaultValue: No
-  - name: termsAndConditions
-    singleValue: false
-    defaultValue: No
-  - name: privacyPolicy
-    singleValue: false
-    defaultValue: No
-  - name: customerServiceAvailability
-    singleValue: false
-    defaultValue: No  
-  - name: Image360Present
-    singleValue: false
-    defaultValue: No
-  - name: imageZoomFeaturePresent
-    singleValue: false
-    defaultValue: No
+    xpath: ancestor::html//tbody//tr//td[contains(text(),'Salz')]/following-sibling::td[1]
+    regExp: ([^0-9, ]+) 
