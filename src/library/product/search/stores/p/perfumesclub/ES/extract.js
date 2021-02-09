@@ -18,14 +18,7 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-//   const rating12=document.querySelectorAll("div[class='quedanMenos']")
-
-// for(let i=0;i<=rating12.length;i++)
-// {
-// let ratingValue1=rating[i].lastElementChild.alt;console.log(ratingValue1)
-// }
-// addHiddenDiv('aggregateRating', singleRating, k);
-
+  
   await context.evaluate(async function () {
     let scrollTop = 0;
     while (scrollTop !== 20000) {
@@ -43,8 +36,16 @@ async function implementation(
           resolve();
         }, ms);
       });
+      // const rating12=document.querySelectorAll("div[class='quedanMenos']")
+
+      // for(let i=0;i<=rating12.length;i++)
+      // {
+      // let ratingValue1=rating[i].lastElementChild.alt;console.log(ratingValue1)
+      // }
+      // addHiddenDiv('aggregateRating', singleRating, i);
     }
-    
+
+  
   });
   return await context.extract(productDetails, { transform });
 }

@@ -22,13 +22,20 @@ fields:
     description: The offered price for the product
     xpath: //span[@class="newPriceND"]/strong
     type: CURRENCY
-  - name: aggregateRating
-    xpath: //div[@class="quedanMenos"]/img/@alt
-    regExp: (\d).?(\d)?
-    regExpReplace: $1,$2
+  - name: aggregateRating 
+    singleValue: false
   - name: aggregateRating2
+    type: STRING
+    singleValue: false
     xpath: //div[@class="quedanMenos"]/img/@alt
-    regExp: (\d).?(\d)?
+    regExp: ([\d.]+)
+  # - name: aggregateRating
+  #   xpath: //div[@class="quedanMenos"]/img/@alt
+    # regExp: (\d).?(\d)?
+  #   regExpReplace: $1,$2
+  # - name: aggregateRating2
+  #   xpath: //div[@class="quedanMenos"]/img/@alt
+  #   regExp: (\d).?(\d)?
     # - name: aggregateRating2
     # xpath: //div[@class="quedanMenos"]/img/@alt
     # regExp: (\d+)\.(\d+)
