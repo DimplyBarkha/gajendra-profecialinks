@@ -13,7 +13,6 @@ async function implementation (
       newDiv.style.display = 'none';
       return newDiv;
     }
-    // let url = window.location.href;
 
     const fullUrl = document.querySelector('meta[property="og:url"]').getAttribute('content');
     const selectBeforeSku = '(.+)(?=&sku)';

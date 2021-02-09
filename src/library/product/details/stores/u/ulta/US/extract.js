@@ -1,6 +1,5 @@
 const { transform } = require('../format');
 async function implementation (inputs, parameters, context, dependencies) {
-  // await new Promise((resolve) => setTimeout(resolve, 20000));
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
@@ -17,6 +16,32 @@ async function implementation (inputs, parameters, context, dependencies) {
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
+
+    function addVariantDiv (id, sku, image, color) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.setAttribute('sku', sku);
+      newDiv.setAttribute('image', image);
+      newDiv.setAttribute('color', color);
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+
+    // check if variants are present and append data, mainly to deal w/ different skus, images, and colors
+    const variantsPresent = !!document.querySelector('div.ProductSwatches__Cell div[class=""] img');
+    if (variantsPresent) {
+      document.querySelectorAll('div.ProductSwatches__Cell div[class=""] img').forEach(variant => {
+        const variantSku = variant.src.replace(/.*\/(.*?)\?.*/, '$1').replace('sw', '');
+
+        addVariantDiv('my-variants', variantSku, variant.src, variant.getAttribute('alt'));
+      });
+    } else {
+      const mainImage = document.evaluate("//div[@id='scene7Container0_container_inner']//div[@class= 's7staticimage']//img/@src", document, null, XPathResult.STRING_TYPE, null).stringValue;
+      const mainSku = document.evaluate("//div[@class='ProductMainSection__itemNumber']/p[contains(text(),'Item')]", document, null, XPathResult.STRING_TYPE, null).stringValue;
+      const mainColor = document.evaluate('//meta[@property="product: color"]/@content', document, null, XPathResult.STRING_TYPE, null).stringValue;
+      addVariantDiv('my-variants', mainSku, mainImage, mainColor);
+    }
+
     const descContent = document.querySelector(
       'div.ProductDetail__productContent',
     )
@@ -191,7 +216,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'ulta',
-    transform: transform,
+    transform,
     domain: 'ulta.us',
     zipcode: '',
   },

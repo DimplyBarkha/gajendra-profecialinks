@@ -8,9 +8,9 @@ const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.variants) {
-        row.variantCount = [{
-          text: row.variants.length,
-        }];
+        // row.variantCount = [{
+        //   text: row.variants.length,
+        // }];
         // row.variantInformation = [{
         //   text: row.variantInformation.reduce((item, currentitem) => {
         //     return `${item} | ${currentitem.text}`;
@@ -22,6 +22,10 @@ const transform = (data) => {
           }, '').slice(3),
         }];
       }
+      if (row.color){
+        row.color = [{ text: row.color[0].text.replace('selected','') }];
+      }
+
       if (row.availabilityText) {
         row.availabilityText.forEach(item => {
           if (item.text === 'In Stock') {
@@ -66,21 +70,21 @@ const transform = (data) => {
           item.text = item.text.replace(' selected', '');
         });
       }
-      if (row.nameExtended) {
-        row.nameExtended.forEach(item => {
-          if (item.text.includes('|')) {
-            item.text = item.text.replace(/(.*?)\s*\|.*/, '$1');
-          }
-          if (row.variantInformation) {
-            if (row.variantInformation[0].text != '') {
-              item.text = item.text + ' - ' + row.variantInformation[0].text;
-            }
-          }
-        });
-      }
+      // if (row.nameExtended) {
+      //   row.nameExtended.forEach(item => {
+      //     if (item.text.includes('|')) {
+      //       item.text = item.text.replace(/(.*?)\s*\|.*/, '$1');
+      //     }
+      //     if (row.variantInformation) {
+      //       if (row.variantInformation[0].text != '') {
+      //         item.text = item.text + ' - ' + row.variantInformation[0].text;
+      //       }
+      //     }
+      //   });
+      // }
       if (row.quantity) {
         row.quantity.forEach(item => {
-          if (item.text.indexOf(':')) {
+          if (item.text.includes(':')) {
             item.text = item.text.slice(6);
           } else {
             item.text = item.text.slice(5);
