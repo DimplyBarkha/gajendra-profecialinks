@@ -27,10 +27,19 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.variantId) {
-        var arrIds = row.variantId[0].text.split(',');
-        arrIds.length > 1 && arrIds.splice(0, 1);
-        row.variantId = [{ text: arrIds[indexTemp] }];
-        row.sku = [{ text: arrIds[indexTemp] }];
+        console.log('row.variankjklfd')
+        console.log(row.variantId);
+        if (row.variantId[0] && row.variantId[0].text) {
+          console.log('row.variankjk dfd dtrt lfd')
+          console.log(row.variantId[0]);
+          console.log(row.variantId[0].text);
+          if (row.variantId[0].text.includes(',')) {
+            var arrIds = row.variantId[0].text.split(',');
+            arrIds.length > 1 && arrIds.splice(0, 1);
+            row.variantId = [{ text: arrIds[indexTemp] }];
+            row.sku = [{ text: arrIds[indexTemp] }];
+          }
+        }
       }
       if (row.sku) {
         var arrSkus = row.sku[0].text.split(',');
