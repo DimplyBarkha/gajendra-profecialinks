@@ -28,9 +28,9 @@ async function implementation (
   if (!locationSet) {
     await context.waitForSelector("button[id*='changeLocationBar']", { timeout: 30000 });
     await context.click("button[id*='changeLocationBar']");
-    await context.waitForSelector("input[id*='localisation-search']", { timeout: 30000 });
+    await context.waitForSelector("input[id*='localisation-search']", { timeout: 50000 });
     await context.setInputValue("input[id*='localisation-search']", 'Burwood East');
-    await context.waitForSelector("div[id*='search-autocomplete'] li[role*='option']:nth-child(1)", { timeout: 30000 });
+    await context.waitForSelector("div[id*='search-autocomplete'] li[role*='option']:nth-child(1)", { timeout: 50000 });
     await context.clickAndWaitForNavigation("div[id*='search-autocomplete'] li[role*='option']:nth-child(1)", {}, { timeout: 60000 });
     await context.waitForSelector("input[id*='localisation-search']", { timeout: 60000 });
     await new Promise((resolve) => setTimeout(resolve, 2000));
