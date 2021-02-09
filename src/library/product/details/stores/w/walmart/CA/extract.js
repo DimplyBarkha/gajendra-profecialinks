@@ -83,11 +83,42 @@ async function implementation (
     const sku = window.location.pathname.match(/[^\/]+$/)[0];
     document.body.setAttribute('sku', sku);
   });
+  await context.evaluate(async () => {
+    await new Promise((resolve) => setTimeout(resolve, 5000));
+
+    async function infiniteScroll () {
+      let prevScroll = document.documentElement.scrollTop;
+      while (true) {
+        window.scrollBy(0, document.documentElement.clientHeight);
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        const currentScroll = document.documentElement.scrollTop;
+        if (currentScroll === prevScroll) {
+          break;
+        }
+        prevScroll = currentScroll;
+      }
+    }
+    await infiniteScroll();
+  });
+  async function scrollToRec (node) {
+    await context.evaluate(async (node) => {
+      const element = document.querySelector(node) || null;
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+        await new Promise((resolve) => {
+          setTimeout(resolve, 5000);
+        });
+      }
+    }, node);
+  }
+  await scrollToRec('footer, footer#skip-to-footer');
+  await scrollToRec('section#from-manufacturer-section');
   async function addWITB () {
-    const element = Array.from(document.querySelector('.syndigo-shadowed-powerpage').shadowRoot.querySelectorAll('.syndigo-widget-section-header')).find(elm => elm.innerText.match(/in the box/i));
+    const element = Array.from(document.querySelector('.syndigo-shadowed-powerpage').shadowRoot.querySelectorAll('.syndigo-widget-section-header')).find(elm => elm.innerText.toLowerCase().match(/in the box/i));
     const witb = Array.from(element.nextElementSibling.querySelectorAll('.syndigo-featureset-feature')).map(elm => {
-      const img = elm.querySelector('img').getAttribute('srcset').match(/^[^\s]+/)[0];
+      const img = elm.querySelector('img').getAttribute('srcset').match(/^[^\s]+/) ? elm.querySelector('img').getAttribute('srcset').match(/^[^\s]+/)[0] : elm.querySelector('img').getAttribute('src');
       const text = elm.querySelector('img').getAttribute('alt');
+
       return { img, text };
     });
     const witbText = witb.map(elm => elm.text).join('|');
