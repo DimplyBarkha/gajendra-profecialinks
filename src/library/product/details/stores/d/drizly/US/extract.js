@@ -27,14 +27,28 @@ module.exports = {
                 await context.waitForSelector('input[type="search"]')
                 console.log('Found search for adding input')
             }
-            await context.evaluate(async function(addressText) {
-
+            await context.evaluate(async function(addressText, zipcode) {
+                document.head.setAttribute('zipcode', zipcode);
                 if (document.querySelector('input[placeholder="Enter address to shop"]')) {
                     document.querySelector('input[placeholder="Enter address to shop"]').remove();
                     let setVal = document.querySelector('input[placeholder="Enter address to shop"]');
                     setVal.value = addressText;
                     console.log('Set Value address');
-                    await new Promise((resolve) => setTimeout(resolve, 60000));
+                    let elem = document.querySelector('[name="addressSearch"]');
+                    elem.value = addressText;
+                    let event = new Event("focus");
+                    elem.dispatchEvent(event);
+                    await new Promise((resolve) => setTimeout(resolve, 5000));
+                    if (document.querySelector('div.pac-item')) {
+                        elem = document.querySelector('span.pac-item-query');
+                        elem.dispatchEvent(event);
+                        event = new Event("click");
+                        elem.dispatchEvent(event);
+                        document.querySelector('span.pac-item-query').click();
+                        await new Promise((resolve) => setTimeout(resolve, 5000));
+                    }
+                    // document.querySelector('div.pac-item').click();
+                    // await new Promise((resolve) => setTimeout(resolve, 5000));
                 }
 
                 if (document.querySelector('div[class^="RadioVariantSelector__ButtonContainer"] span.MuiButton-label')) {
@@ -42,7 +56,7 @@ module.exports = {
                     let checkAvailability = document.querySelector('div[class^="RadioVariantSelector__ButtonContainer"] span.MuiButton-label')
                     checkAvailability.click();
                 }
-            }, addressText);
+            }, addressText, zipcode);
         }
         if (parameters.loadedSelector) {
             await context.waitForFunction(function(sel, xp) {
