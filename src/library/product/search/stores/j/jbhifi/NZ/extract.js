@@ -1,5 +1,5 @@
 const { transform } = require('./../shared');
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -20,15 +20,14 @@ async function implementation(
   }
 
   await context.evaluate(async function (results, cssProductCard) {
-    const totalProducts = document.querySelector('.total-results')
-      && document.querySelector('.total-results').innerText
-      && document.querySelector('.total-results').innerText.match(/\d+/g)[0];
-    
+    const totalProducts = document.querySelector('.total-results') &&
+      document.querySelector('.total-results').innerText &&
+      document.querySelector('.total-results').innerText.match(/\d+/g)[0];
+
     const cssScrollParent = '.search-contain';
 
-    async function infiniteScroll(results, totalProducts, cssScrollParent, cssProductCard) {
+    async function infiniteScroll (results, totalProducts, cssScrollParent, cssProductCard) {
       console.log('Results expected::', results);
-      let prevScroll = document.querySelector(cssScrollParent).scrollTop;
       let count = 1;
       let productsLength = document.querySelector(cssProductCard) ? document.querySelectorAll(cssProductCard).length : 0;
       while ((productsLength <= results) && (productsLength <= totalProducts)) {
@@ -46,24 +45,22 @@ async function implementation(
         const currentScroll = document.querySelector(cssScrollParent).scrollTop;
 
         // break when desired count is loaded
-        if(currentProductLength >= results || currentProductLength >= totalProducts) {
+        if (currentProductLength >= results || currentProductLength >= totalProducts) {
           console.log('Required count of products loaded');
           console.log('currentProductLength: ', currentProductLength);
           break;
         }
 
         // sometimes we are scrolled till bottom still all the products are not loaded, so we want to scroll reverse by some px
-        if(currentProductLength <= results && currentProductLength < totalProducts) {
+        if (currentProductLength <= results && currentProductLength < totalProducts) {
           const scrollReverseBy = 500;
           console.log('Scrolling in reverse order by: ', scrollReverseBy);
           document.querySelector(cssScrollParent).scroll({
-            top: (currentScroll-scrollReverseBy), 
-            left: 0, 
-            behavior: 'smooth'
+            top: (currentScroll - scrollReverseBy),
+            left: 0,
+            behavior: 'smooth',
           });
         }
-        
-        prevScroll = currentScroll;
       }
     }
     await infiniteScroll(results, totalProducts, cssScrollParent, cssProductCard);
