@@ -33,6 +33,7 @@ const transform = (data) => {
         row.alternateImages.forEach(item => {
           item.text = item.text.replace('?w=200', '');
         });
+        row.descriptionBullets = [{text:row.alternateImages.length}];
       }
       if (row.descriptionBullets) {
         var bulletArr = [];
@@ -54,8 +55,10 @@ const transform = (data) => {
         if (scriptJSON.aggregateRating) {
           if (scriptJSON.aggregateRating.ratingValue) {
             var tempRating = scriptJSON.aggregateRating.ratingValue;
-            tempRating = tempRating.replace('.', ',');
-            row.aggregateRating = [{ text: tempRating }];
+            if (tempRating) {
+              tempRating = tempRating.toString().replace('.', ',');
+              row.aggregateRating = [{ text: tempRating }];
+            }
           }
           if (scriptJSON.aggregateRating.reviewCount) {
             row.ratingCount = [{ text: scriptJSON.aggregateRating.reviewCount }];
@@ -77,9 +80,13 @@ const transform = (data) => {
           item.text = item.text.replace('.', ',');
         });
       }
-      // if (row.variantCount) {
-      //   row.variantCount = [{ text: row.variantCount.length }];
-      // }
+      if (row.videos) {
+        row.listPrice.forEach(item => {
+          if (!item.text.includes('http')) {
+            item.text = 'http:' + item.text;
+          }
+        });
+      }
       if (row.additionalDescBulletInfo) {
         var arrBullets = [];
         row.price.forEach(item => {

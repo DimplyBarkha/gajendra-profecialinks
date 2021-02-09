@@ -18,6 +18,8 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //div[contains(@class,'ImagePlayer__ip-thumbnails')]//li//button[not(contains(@class,'active'))]//img/@src
+  - name: descriptionBullets
+    singleValue: false
   - name: price
     singleValue: false
     xpath: //div[contains(@class,'PricingInfo__ba-pricing')]//span[contains(@class,'font-weight-bold')]
@@ -26,7 +28,7 @@ fields:
     xpath: //div[contains(@class,'PricingInfo__ba-pricing')]//span[contains(@class,'UI_Currency_scratch')]
   - name: promotion
     singleValue: false
-    xpath: //ul[contains(@class,'CampaignVisuals__la')]//span[contains(@class,'color-invert')]
+    xpath: //div[contains(@class,'PricingInfo__ba-pricing___3JnR4')]//span[@class='margin-left-xsmall']
   - name: sku
     singleValue: false
     xpath: //div[@class='main']/script
@@ -89,3 +91,11 @@ fields:
   - name: privacyPolicy
     singleValue: false
     defaultValue: No
+  - name: directions
+    singleValue: false
+    #Gebruiksadvies
+    regExp: Gebruiksadvies(.+)
+    regExpReplace: $1
+  - name: videos
+    singleValue: false
+    xpath: //div[contains(@class,'Video__container___2-p20 Video__square___1bqTx')]//iframe/@id
