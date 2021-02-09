@@ -19,14 +19,14 @@ async function implementation (
     url = await dependencies.createUrl({ id });
   }
   await dependencies.goto({ url, zipcode, storeId });
-  await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
   try{
-    await context.waitForSelector('div.cookiesModal-footer-buttons>button.js-cookies-accept-all',{timeout:1000});
-    await context.click('div.cookiesModal-footer-buttons>button.js-cookies-accept-all');
-    await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+    await context.waitForSelector('button[data-testid="cookie-popup-accept"]');
+    await context.click('button[data-testid="cookie-popup-accept"]');
   }catch(e){
 
   }
+  await new Promise((resolve, reject) => setTimeout(resolve, 1000));
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());

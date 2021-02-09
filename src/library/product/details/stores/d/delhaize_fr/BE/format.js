@@ -17,7 +17,7 @@ const transform = (data) => {
           },
         ];
       }
-      if(row.temp_sku)
+      /*if(row.temp_sku)
       {
         row.sku=[{text:''}]
         row.sku[0].text=row.temp_sku[0].text
@@ -28,7 +28,7 @@ const transform = (data) => {
         row.allergyAdvice=[{text:''}]
         row.allergyAdvice[0].text=row.temp_allergyAdvice[0].text
         delete row.temp_allergyAdvice
-      }
+      }*/
       if (row.totalFatPerServing) {
         let text = '';
         row.totalFatPerServing.forEach(item => {
@@ -106,6 +106,31 @@ const transform = (data) => {
             text: text,
           },
         ];
+      }
+      let brandData='',variantIdData='';
+      if(row.availabilityText){
+        row.availabilityText.forEach(item=>{
+          let tmp=JSON.parse(item.text);
+          let avail=tmp.offers.availability;
+          brandData=tmp.brand.name;
+          variantIdData=tmp.url.split('/').pop();
+          if(avail=="http://schema.org/InStock"){
+            row.availabilityText=[{"text":"In Stock"}];
+          }else{
+            row.availabilityText=[{"text":"Out Of Stock"}];
+          }
+        })
+        if(brandData!=''){
+          row.brandText=[{"text":brandData}];
+        }
+        if(variantIdData!=''){
+          row.variantId=[{"text":variantIdData}];
+        }
+      }
+      if(row.sku){
+        row.sku.forEach(item=>{
+          item.text=item.text.split(':').pop().trim();
+        })
       }
     }
   }
