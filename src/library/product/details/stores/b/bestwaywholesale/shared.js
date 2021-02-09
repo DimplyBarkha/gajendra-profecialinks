@@ -160,7 +160,7 @@ const transform = (data) => {
           }
           row.sodiumPerServing = [
             {
-              text: sodiumPerServing,
+              text: sodiumPerServing ? sodiumPerServing : '',
             },
           ];
           row.sodiumPerServingUom = [
@@ -179,7 +179,7 @@ const transform = (data) => {
           }
           row.magnesiumPerServing = [
             {
-              text: magnesiumPerServing,
+              text: magnesiumPerServing ? magnesiumPerServing : '',
             },
           ];
           row.magnesiumPerServingUom = [
