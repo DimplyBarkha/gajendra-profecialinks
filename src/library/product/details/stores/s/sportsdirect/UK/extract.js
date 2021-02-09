@@ -13,6 +13,7 @@ module.exports = {
     await context.evaluate(async function (context) {
       const isColors = document.querySelector('ul[id="ulColourImages"]');
       if (isColors) {
+        // @ts-ignore
         const colors = [...document.querySelectorAll('ul[id="ulColourImages"] li')];
         colors.forEach((ele) => {
           ele.setAttribute('position', colors.indexOf(ele));
@@ -28,8 +29,17 @@ module.exports = {
           array[i].setAttribute('firstvariant', obj.SizeVariants[0].SizeVarId);
           array[i].setAttribute('nameextended', `${document.querySelector('div.logontitle h1').textContent} ${obj.SizeVariants[i].SizeName} ${document.querySelector('span#colourName').textContent}`);
         }
+
+        try {
+          // @ts-ignore
+          document.querySelector('ul#ulSizes li:not([class*="greyOut"])').click();
+        } catch (error) {
+          console.log('error');
+        }
+        await new Promise((resolve, reject) => setTimeout(resolve, 4000));
       }
     });
+
     return await context.extract(productDetails, { transform });
   },
 };

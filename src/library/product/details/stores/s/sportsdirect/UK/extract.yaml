@@ -55,7 +55,8 @@ fields:
   - name: aggregateRating
     xpath: ancestor::html//div[@itemprop='ratingValue']
   - name: shippingInfo
-    xpath: ancestor::html//p[@class="dropshipTitle"]/span[@class="dropshipSupplierName"]
+    # xpath: ancestor::html//p[@class="dropshipTitle"]/span[@class="dropshipSupplierName"]
+    xpath: ancestor::html//div[@id="dropShipSupplierInfoSummary"]/p[@class="dropshipTitle"]
   - name: variantCount
     xpath: count(//div[@id="productVariantAndPrice"]//ul[@id="ulSizes"]/li)
   - name: color
