@@ -50,7 +50,7 @@ async function implementation (
     var variant1 = '';
     for (var j = 0; j < length1; j++) {
       // @ts-ignore
-      variant1 = 'https://www.fressnapf.de/p/' + window.__NUXT__.data[0].product.baseOptions[0].options[j].code;
+      variant1 = 'https://www.fressnapf.de' + window.__NUXT__.data[0].product.baseOptions[0].options[j].url;
       addHiddenDiv2('variant1', variant1, 0);
     }
   });
