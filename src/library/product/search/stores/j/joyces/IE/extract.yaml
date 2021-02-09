@@ -1,14 +1,14 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //ul[@class="products columns-4"]//li
+recordXPath: //div[contains(@class,"row")]
 fields:
   - name: price
     singleValue: false
-    xpath: //span[@class="price"][not(del)] | //span[@class="price"]//ins
+    xpath: //div[contains(@class,"product__price")]
   - name: productUrl
     singleValue: false
-    xpath: //a[contains(@class,'woocommerce-loop-product__link')]/@href
+    xpath: //div[contains(@class,"product__desc")]//h3//a//@href
   - name: searchUrl
     singleValue: true
     xpath: //meta[@property='og:url']/@content
@@ -17,10 +17,10 @@ fields:
     xpath: //a[contains(@class, "product_type_simple")]/@data-product_sku
   - name: name
     singleValue: false
-    xpath: //h2[@class='woocommerce-loop-product__title']/text()
+    xpath: //div[contains(@class,"product__desc")]//h3
   - name: thumbnail
     singleValue: false
-    xpath: //ul[contains(@class,"products")]//li//a[contains(@class,'woocommerce-LoopProduct-link')]/img/@src
+    xpath: //div[contains(@class,"product-image")]//img//@src
   - name: brand
     singleValue: false
     xpath: //ul[contains(@class,"products")]//li//a[contains(@class,'woocommerce-LoopProduct-link')]/h2
