@@ -25,10 +25,10 @@ fields:
     xpath: ancestor::html(//div[@class='footer-content']/div[1])
   - name: price
     singleValue: true
-    xpath: //div[@id='schema-offer']/@data-retail-price
+    xpath: //*[@id="schema-offer"]//meta[@itemprop='price']/@content
     #xpath: (//div[@class="variation clearfix active"]//div[@class="font-headline mbs05"]/text()[1]|//div[@itemprop='offers']/div/div[contains(text(),'€')]/text())[1]
-    regExp: (\d\d?)\.(\d\d?)
-    regExpReplace: $1,$2 €
+    #regExp: (\d\d?)\.(\d\d?)
+    #regExpReplace: $1,$2 €
   - name: listPrice
     singleValue: false
     xpath: //div[@id="schema-offer"]/div[3]/div[1]/div/span
@@ -37,7 +37,7 @@ fields:
     xpath: ancestor::html//img[@role='presentation']/@src
   - name: brandText
     singleValue: true
-    xpath: ancestor::html//h1[@class='hide-text']
+    xpath: ancestor::html//span[@itemprop='brand']
   - name: sku
     singleValue: false
     xpath: //div[@id='schema-offer']/@data-runningnumber
@@ -57,7 +57,7 @@ fields:
     xpath: //div[@class='font-headline description mbs1']
   - name: variantInformation
     singleValue: true
-    xpath: //div[@id="schema-offer"]/div[2]/div/div[1]/div
+    xpath: //*[@id="schema-offer"]/div[2]/p[1]/span|//div[@id="schema-offer"]/div[2]/div/div[1]/div
   - name: variantId
     singleValue: false
     xpath: //div[@id="schema-offer"]/div[3]/meta[@itemprop='sku']/@content
@@ -78,7 +78,7 @@ fields:
     xpath: ancestor::html//div[@class='footer-content']/div[2]/p[1]
   - name: directions
     singleValue: false
-    xpath: ancestor::html//*[@id="right-column"]/div[3]/div[3]/div[3]/div[2]/p/text()
+    xpath: ancestor::html//h3[contains(text(),'Anwendung')]/parent::div/p
   # - name: eangtin
   #   singleValue: true
   #   xpath: //*[@id="schema-offer"]/div[3]/meta[3]/@content
@@ -101,7 +101,7 @@ fields:
     xpath: ancestor::html//*[@id="article-primary-image"]/div/img[1]/@alt
   - name: firstVariant
     singleValue: true
-    xpath: (ancestor::html//div[@class='variation-alt-images clearfix']/div/@data-variation-id|ancestor::html//div[@id="schema-offer"]/div[2]/div/div[1]/div)[1]
+    xpath: (ancestor::html//*[@id="schema-offer"]/div[2]/p[1]/span|ancestor::html//div[@id="schema-offer"]/div[2]/div/div[1]/div)[1]
   - name: variants
     singleValue: false
     xpath: //html//div[@id='str']
@@ -110,7 +110,7 @@ fields:
     defaultValue: Yes
   - name: color
     singleValue: true
-    xpath: ancestor::html//*[@id="variationsdropdownsearch"]/div
+    xpath: //*[@id="schema-offer"]/div[2]/p[1]/span
     regExp: (.*) \/
     regExpReplace: $1
   - name: promotion
