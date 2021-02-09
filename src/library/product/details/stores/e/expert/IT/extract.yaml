@@ -91,7 +91,7 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //div[@id="flix-inpage"]//div[contains(@id,"flixinpage")]//*[not(self::style)]//text()
+    xpath: //div[@id="flix-inpage"]//div[contains(@id,"inpage_container")]
     # xpath: //div[@id="flix-inpage"]/div/*[not(self::style)] | //div[@data-equal-heights="div.boxMiele"]|//div[@id="enhancedContent"]/text()
   - name: manufacturerImages
     singleValue: false
@@ -103,8 +103,8 @@ fields:
     description: URLs of videos on page
     # xpath: //div[contains(@class , "row_video_skt")]//iframe/@src
     xpath: //div[@id="flix-inpage"]//div[contains(@class, "fullJwPlayerWarp")]/input/@value
-    regExp: file\"\:\"(.*).mp4
-    regExpReplace: $1
+    regExp: file\"\:\"(.*.mp4)
+    regExpReplace: http:$1
   - name: name
     singleValue: false
     description: The product name
@@ -118,7 +118,7 @@ fields:
     description: promotion text on product page
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[@class="skywalker_scheda_descrizione"]//ul/li | //div[@class="skywalker_scheda_descrizione"]/ul/li 
+    xpath: //div[@class="skywalker_scheda_descrizione"]//ul/li | //div[@class="skywalker_scheda_descrizione"]/ul/li
   - name: energyEfficiency
     singleValue: false
     description: Energy rating of a product.
@@ -162,7 +162,7 @@ fields:
     description: Must include image url to show the accessories/tools which come with the product
   - name: inTheBoxText
     singleValue: false
-    xpath: //div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")]
+    xpath: //div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")] | //div[@class='inBox']
     description: Must include text to show the accessories/tools which come with the product
   - name: hasComparisonTable
     singleValue: true
