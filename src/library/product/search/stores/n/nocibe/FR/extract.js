@@ -4,7 +4,16 @@ const { transform } = require('../../../../shared');
 async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-
+  await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+  await context.evaluate(async function () {
+    const showMore = document.querySelector('section#brandLanding > div > a[class="ems-head__cta"]');
+    if (showMore !== null) {
+      // @ts-ignore
+      showMore.click();
+      await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+    }
+  });
+  await new Promise((resolve, reject) => setTimeout(resolve, 1000));
   var isButtonPresent = await context.evaluate(async () => {
     return document.querySelector('button.pagine__more');
   });
