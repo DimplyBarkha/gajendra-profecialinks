@@ -1,0 +1,82 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //figure[@id="image-preview-container"]/img/@src
+  - name: ratingCount
+    singleValue: true
+    xpath: (//div[@class="ooB-rel item-rating-stars ooB-ib"]/div/div/span/text())[1]
+  - name: name
+    singleValue: true
+    xpath: //h1[@id="oo-block-hl"]/text()
+  - name: nameExtended
+    singleValue: true
+    xpath: //h1[@id="oo-block-hl"]/text()
+  - name: category
+    singleValue: false
+    xpath: //ul[@typeof="BreadcrumbList"]/li[position()>1 and position()<last()]/a/span/text()
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class="oo-ss-container-wrapper"]/div/div[position()>1]/figure/img/@src
+  - name: promotion
+    singleValue: false
+    xpath: concat(//div[@class="gallery-pricelabel_small"]/span/text(),'',//div[@class="gallery-pricelabel_small"]/text()[2])
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[@class="oo-ss-container-wrapper"]/div/div[position()>1]/figure/img/@src)
+  - name: price
+    singleValue: true
+    # xpath: //html//div[@id="price"]
+    xpath: //div[@class="preis_gelb_links"]/p/span[1] | //div[@class="oo-pricelabel_price"]/p/span[1]/span[position()>1 and position()<4]
+    # regExp: (\d{1,3}),(\d.+)
+    # regExReplace: ($1).($2)
+    # regExp: (\d),(\d.+)
+    # regExReplace: $1.$2
+  - name: availabilityText
+    singleValue: true
+    xpath: //html//div[@id="avl"]
+  - name: description
+    singleValue: false
+    xpath: concat(//section[@id="product_description"]/h2/span[contains(text(),"Beschreibung")]/text(),' ',//section[@id="product_description"]/h2/span[contains(text(),"Beschreibung")]/parent::h2/following::div[1])
+  - name: descriptionBullets
+    singleValue: true
+    xpath: count(//ul[@class="ooB-mb24 bullet ooX-fs14 "]/li/text())
+  - name: additionalDescBulletInfo
+    singleValue: true
+    xpath: //html//div[@id="str"]
+  - name: specifications
+    singleValue: true
+    xpath: //html//div[@id="final"]
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+    xpath: //div[@id="cliplister_video"]/ @data-cliplister_requestkey
+  - name: sku
+    singleValue: true
+    description: The store-specific product identifier
+    xpath: //section[@class="ooB ooB-mb48 ooG"]/@data-init_itemcode
+    # xpath: //html//div[@id="sku"]
+    # regExp: (.+ART_)(\d+)(_+.+)
+    # regExp: (.+ART_)(\d+)(([A-Z]+)?)(_+.+)
+    # regExReplace: $2$3
+  - name: aggregateRating
+    singleValue: true
+    xpath: //div[@class="rating-stars-copy"]/text()
+  - name: url
+    singleValue: true
+    xpath: //html//div[@id="URL"]
+  - name: shippingInfo
+    singleValue: true
+    description: Shipping information for the product
+    xpath: //div[@class="bullet-before-container ooB-mt12"]
+  - name: variantId
+    singleValue: true
+    xpath: //section[@class="ooB ooB-mb48 ooG"]/@data-init_itemcode
+
+
+
+
+

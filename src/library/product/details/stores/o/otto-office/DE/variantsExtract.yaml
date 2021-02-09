@@ -1,0 +1,13 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    singleValue: true
+    description: variant id, to uniquely identify variant
+  - name: variantUrl
+    singleValue: true
+    description: variant Url
+    xpath: //html//div[@id="URL"] | //div[@class="ooG-tile ooB-mb6"]/a[not(contains(@class,'active'))]/@href
+ 
