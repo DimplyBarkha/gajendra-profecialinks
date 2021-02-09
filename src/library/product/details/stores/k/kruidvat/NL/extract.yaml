@@ -521,10 +521,10 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: 'Yes'
-  - name: _url
-    singleValue: true
-    xpath: (//link[@rel='canonical']/@href)[1]
-  # - name: Url
+  # - name: _url
   #   singleValue: true
-  #   description: The URL for the product details page
   #   xpath: (//link[@rel='canonical']/@href)[1]
+  - name: Url
+    singleValue: true
+    description: The URL for the product details page
+    xpath: (//link[@rel='canonical']/@href)[1]
