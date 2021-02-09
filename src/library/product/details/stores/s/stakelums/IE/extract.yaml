@@ -7,23 +7,17 @@ fields:
     singleValue: true
     description: URL of the main product image
     #xpath: //div[contains(@class,'fotorama')]//div[contains(@class,'fotorama__fade-rear')]//img/@src
-    xpath: //div[@id="add_image"]
+    xpath: //div[@id="add_image"] | (//div[@itemtype="http://schema.org/Product"]/link[@itemprop="image"])[1]/@href
     #regExp: [^(.*)$]
     #regExpReplace: 'https://www.stakelums.ie$1'
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
     #xpath: //div[contains(@class,'fotorama')]//div[contains(@class,'fotorama__fade-rear')]//img/@alt
-    xpath: //div[@id="add_imageAlt"]
+    xpath: //div[@id="add_imageAlt"] | //div[@itemtype="http://schema.org/Product"]/meta[@itemprop="name"]/@content
   - name: alternateImages
-    singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[contains(@class,'fotorama__nav__frame--thumb')]//div[contains(@class,'fotorama__thumb')]//img/@src
-    #xpath: //div[@id="product-page"]//div[@class="row"]//ul[contains(@class,"small-block-grid-5")]//li//a/@href
-    #regExp: [^(.*)$]
-    #regExpReplace: 'https://www.stakelums.ie$1'
-    regExp: (.*)(___T)(.*)
-    regExpReplace: $1___L$3
+    xpath: //div[@itemtype="http://schema.org/Product"]/link[@itemprop="image"][position()>1]/@href
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
