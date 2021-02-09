@@ -1,37 +1,37 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]
+recordXPath: null
 fields:
   - name: productUrl
     # xpath:  //div[@class="productsList"]//a[@itemprop="url"]/@href
-    xpath: //a[@itemprop="url"]/@href
+    xpath: //div[@class="productsList"]//a[@itemprop="url"]/@href | //div[@class="replacementPZNMessage"]/a/@href
   - name: thumbnail
     description: The URL for the product thumbnail image
-    # xpath:  //div[@class="productsList"]//img[@itemprop="image" and @class="lazy photo"]/@data-original|//div[@class="productsList"]//img[@itemprop="image" and @class="photo"]/@src
-    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//img[@class="photo"]/@src
+    xpath:  //div[@class="productsList"]//img[@itemprop="image" and @class="lazy photo"]/@data-original|//div[@class="productsList"]//img[@itemprop="image" and @class="photo"]/@src
+    # xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//img[@class="photo"]/@src
     regExp: (.+)
     regExpReplace: https://www.medikamente-per-klick.de$1
   - name: name
     type: TEXT
-    xpath: //span[@itemprop="name"]
+    xpath:  //div[@class="productsList"]//span[@itemprop="name"]
   - name: id
     description: The store-specific product identifier
-    xpath: //dd[@itemprop="productID"]
+    xpath:  //div[@class="productsList"]//dd[@itemprop="productID"]
   - name: gtin
     singleValue: false
     # xpath: //form/@name
     # regExp: cart(\w+)_.*
     # regExpReplace: $1
   - name: price
-    xpath: //span[@itemprop="price"]/@content
+    xpath:  //div[@class="productsList"]//span[@itemprop="price"]/@content
     singleValue: false
     # xpath: //div[starts-with(@id,'ii_price')]
-  - name: aggregateRating2
-    xpath: //span[@itemprop='ratingValue']
+  - name: aggregateRating
+    xpath:  //div[@class="productsList"]//span[@itemprop='ratingValue']
   - name: reviewCount
     type: NUMBER
-    xpath: //span[@itemprop='reviewCount']
+    xpath:  //div[@class="productsList"]//span[@itemprop='reviewCount']
   - name: Availability
     # xpath: //div[@class='productsList']//form[not(contains(@name,'theform'))]/dl[@class="productAvailability"]//dd/span/@title
     # defaultValue: In stock
@@ -39,7 +39,10 @@ fields:
     # regExpReplace: Out of Stock
   - name: manufacturer
     type: TEXT
-    xpath: //dd[@itemprop="brand"]
+    xpath:  //div[@class="productsList"]//dd[@itemprop="brand"]
   - name: rank
     singleValue: false
-    # xpath: //div[starts-with(@id,'ii_rank')]
+    xpath: //div[starts-with(@id,'ii_rank')]
+  - name: rankOrganic
+    singleValue: false
+    xpath: //div[starts-with(@id,'ii_rank')]
