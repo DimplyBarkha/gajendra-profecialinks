@@ -44,6 +44,12 @@ async function implementation (
       catElement.style.display = 'none';
       document.body.appendChild(catElement);
     }
+    let skuId;
+    if (document.querySelector('button.add-to-cart-button')) {
+      skuId = document.querySelector('button.add-to-cart-button').getAttribute('data-sku-id');
+    }
+    addElementToDocument('pd_skuId', skuId);
+
     if (selector1) {
       selector1.click();
       const expandData = document.querySelector('div[class*="products"]>div[class="product-block"] span[class*="c-overlay"] h3>a').textContent;

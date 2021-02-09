@@ -65,7 +65,7 @@ fields:
   - name: sku
     singleValue: false
     #xpath: //button/@data-sku-id
-    manualSelector: div.sku.product-data>span.product-data-value
+    manualSelector: div.sku.product-data>span.product-data-value, div#pd_skuId
   - name: gtin
     singleValue: false
     xpath: //script[contains(text(),"gtin13")]
@@ -108,10 +108,10 @@ fields:
     xpath: //div[contains(@class,"hover-name")] | //div[div[contains(@class,"row-title") and contains(.,'Color')]]/following-sibling::div[contains(@class,'row-value')]
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id="pd_manu_desc"]
+    xpath: //div[@id="pd_manu_desc"] | //div[@id='added-ec2']
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="wc-power-page"]//img/@src | //div[contains(@id,"aplusImg_")] | //div[contains(@id,"aplus_img")]
+    xpath: //div[@id="wc-power-page"]//img/@src | //div[contains(@id,"aplusImg_")] | //div[contains(@id,"aplus_img")] | //div[@id='added-ec2']//img/@src
   - name: videos
     singleValue: false
     xpath: //div[contains(@id,"ii_video_")] | //img[contains(@class,"wc-video")]/@wcobj
