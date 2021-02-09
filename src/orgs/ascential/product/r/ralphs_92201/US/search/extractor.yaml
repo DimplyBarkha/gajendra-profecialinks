@@ -5,18 +5,26 @@ parameters:
   store: ralphs_92201
   zipcode: "92201"
 proxy:
-  zone: CAN
-  type: DATA_CENTER
-  # zone: USA
-  # type: RESIDENTIAL
-  # zone: ZUS
-  # type: DATA_CENTER
+  zone: USA
+  type: RESIDENTIAL
 policy:
-  numberRetries: 5
+  numberRetries: 3
   priority: MEDIUM
-  retryDelay: 40
-  # backoffPolicy: EXPONENTIAL
-  # retryWithResidentialProxyAfter: 10       
+  retryDelay: 60  
+# proxy:
+# #   # zone: CAN
+# #   # type: DATA_CENTER
+#   zone: USA
+#   type: RESIDENTIAL
+# #   # zone: ZUS
+#     # zone: USA
+#     # type: DATA_CENTER
+# policy:
+#   numberRetries: 3
+#   priority: MEDIUM
+#   retryDelay: 60
+#   backoffPolicy: EXPONENTIAL
+#   retryWithResidentialProxyAfter: 10       
 meta:
   branches:
     dev:
