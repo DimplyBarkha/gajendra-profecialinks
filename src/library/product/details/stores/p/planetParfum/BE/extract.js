@@ -10,6 +10,12 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
+    await context.evaluate(async function() {
+      if(document.querySelector('.no-result')) {
+        throw new Error('Not a product page');
+      }
+    });
+
     const numOfVariants = await context.evaluate(async () => document.querySelectorAll('div.volume-row.clearfix, li.variation-value').length);
     const iterations = numOfVariants || 1;
     for (let i = 1; i <= iterations; i++) {
@@ -135,7 +141,18 @@ module.exports = {
             if (variant_id && selectedVariantNode.hasAttribute('title')) {
               variant_info = selectedVariantNode.getAttribute('title') + " - " + variant_id;
             }
-          } else {
+          } 
+          
+          else if(document.querySelector('.variant-dropdown div.selected')) {
+            let variantNode = document.querySelector('.variant-dropdown div.selected');
+            if(variantNode.querySelector('input') && variantNode.querySelector('input').hasAttribute('data-lgimg')) {
+              variant_id = variantNode.querySelector('input').getAttribute('data-lgimg').replace(/(.+)\/(.+)\.jpg(.+)/g, "$2");
+              if(variantNode.querySelector('.variation-description')) {
+                variant_info = variantNode.querySelector('.variation-description').innerText.trim() + " - " + variant_id;
+              }
+            }
+          }
+          else {
             if (document.querySelector(singleVariant)) {
               if (document.querySelector(singleVariant).hasAttribute('src')) {
                 variant_id = document.querySelector(singleVariant).getAttribute('src').replace(/(.+)\/(.+)\.jpg(.+)/g, "$2");
