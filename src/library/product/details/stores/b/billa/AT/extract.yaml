@@ -33,13 +33,14 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
+    xpath: //div[@id='added_listPrice']
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: //meta[@itemprop='price']/@content
-    regExp: (.+)
-    regExpReplace: € $1  
+    regExp: (\d+)(\.)?(\d{1,2})?
+    regExpReplace: € $1,$3
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -50,7 +51,8 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class='product-detail__desc-text ul']//p[@itemprop='description']/text() | //div[@class='product-detail__desc-text ul']/li/text()  
+    # xpath: //div[@class='product-detail__desc-text ul']//p[@itemprop='description']/text() | //div[@class='product-detail__desc-text ul']/li/text()
+    xpath: //div[@id='addedAdditionalDescription']
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -67,6 +69,7 @@ fields:
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
+    xpath: //*[@class='product-detail__desc-titleinfo']/text()
     # regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     # regExpReplace: $1$2$3$4
   - name: weightNet
@@ -283,12 +286,14 @@ fields:
   - name: numberOfServingsInPackage
     singleValue: true
     description: Suggested number of servings of the product.
-    type: NUMBER
+    # type: NUMBER
+    xpath: //div[@id='added_no_of_serving_in_package']
   - name: caloriesPerServing
     singleValue: true
     description: Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
-    xpath: //div[@class='nutrition-table-wrapper'][1]//table[contains(@class,'nutrition-table')]//tbody//td[normalize-space(text())="Energie"]/following-sibling::td/span  
+    # xpath: //div[@class='nutrition-table-wrapper'][1]//table[contains(@class,'nutrition-table')]//tbody//td[normalize-space(text())="Energie"]/following-sibling::td/span
+    xpath: //div[@id='added_calories_per_serving']
   - name: caloriesFromFatPerServing
     singleValue: true
     description: Nutritional Information for Calories From Fat content - Usually
@@ -299,20 +304,23 @@ fields:
     singleValue: true
     description: Nutritional Information for Total Fat content - Usually based on
       per 100g serving
-    type: NUMBER
-    xpath: 
+    # type: NUMBER
+    xpath: //div[@id='added_total_fat_per_serving']
   - name: totalFatPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Fat content
-    xpath: //div[@class='nutrition-table-wrapper'][1]//table[contains(@class,'nutrition-table')]//tbody//td[normalize-space(text())="Fett"]/following-sibling::td/span/abbr
+    # xpath: //div[@class='nutrition-table-wrapper'][1]//table[contains(@class,'nutrition-table')]//tbody//td[normalize-space(text())="Fett"]/following-sibling::td/span/abbr
+    xpath: //div[@id='added_total_fat_per_servingUom']
   - name: saturatedFatPerServing
     singleValue: true
     description: Nutritional Information for Saturated Fat content - Usually based
       on per 100g serving
-    type: NUMBER
+    # type: NUMBER
+    xpath: //div[@id='added_saturated_fat_per_serving']
   - name: saturatedFatPerServingUom
     singleValue: true
     description: Unit of Measure Data for Saturated Fat content
+    xpath: //div[@id='added_saturated_fat_per_serving_uom']
   - name: transFatPerServing
     singleValue: true
     description: Nutritional Information for Trans Fat content - Usually based on
@@ -341,38 +349,46 @@ fields:
     singleValue: true
     description: Nutritional Information for Total Carbohydrate content - Usually
       based on per 100g serving
-    type: NUMBER
+    # type: NUMBER
+    xpath: //div[@id='added_total_carb_per_serving']
   - name: totalCarbPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Carbohydrate content
+    xpath: //div[@id='added_total_carb_per_serving_uom']
   - name: dietaryFibrePerServing
     singleValue: true
     description: Nutritional Information for Dietary Fibre content - Usually based
       on per 100g serving
     # type: NUMBER
     # xpath: //div[@class='nutrition-table-wrapper'][1]//table[contains(@class,'nutrition-table')]//tbody//td[normalize-space(text())="Ballaststoffe"]/following-sibling::td/span/text()
+    xpath: //div[@id='added_dietary_fibre_per_serving']
   - name: dietaryFibrePerServingUom
     singleValue: true
     description: Unit of Measure Data for Dietary Fibre content
-    xpath: //div[@class='nutrition-table-wrapper'][1]//table[contains(@class,'nutrition-table')]//tbody//td[normalize-space(text())="Ballaststoffe"]/following-sibling::td/span/text()
+    # xpath: //div[@class='nutrition-table-wrapper'][1]//table[contains(@class,'nutrition-table')]//tbody//td[normalize-space(text())="Ballaststoffe"]/following-sibling::td/span/text()
+    xpath: //div[@id='added_dietary_fibre_per_serving_uom']
   - name: totalSugarsPerServing
     singleValue: true
     description: Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
     # type: NUMBER
     # xpath: //div[@class='nutrition-table-wrapper'][1]//table[contains(@class,'nutrition-table')]//tbody//td[normalize-space(text())="davon Zucker"]/following-sibling::td/span/text()
+    xpath: //div[@id='added_total_sugars_per_serving']
   - name: totalSugarsPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Sugar content
-    xpath: //div[@class='nutrition-table-wrapper'][1]//table[contains(@class,'nutrition-table')]//tbody//td[normalize-space(text())="davon Zucker"]/following-sibling::td/span/abbr/text()
+    # xpath: //div[@class='nutrition-table-wrapper'][1]//table[contains(@class,'nutrition-table')]//tbody//td[normalize-space(text())="davon Zucker"]/following-sibling::td/span/abbr/text()
+    xpath: //div[@id='added_total_sugars_per_serving_uom']
   - name: proteinPerServing
     singleValue: true
     description: Nutritional Information for Protein content - Usually based on per
       100g serving
     # type: NUMBER
+    xpath: //div[@id='added_protein_per_serving']
   - name: proteinPerServingUom
     singleValue: true
     description: Unit of Measure Data for Protein
+    xpath: //div[@id='added_protein_per_serving_uom']
   - name: vitaminAPerServing
     singleValue: true
     description: Nutritional Information for Vitamin A content - Usually based on
@@ -421,9 +437,11 @@ fields:
     description: Nutritional Information for Salt content - Usually based on per
       100g serving
     # type: NUMBER
+    xpath: //div[@id='added_salt_per_serving']
   - name: saltPerServingUom
     singleValue: true
     description: Unit of Measure Data for Salt
+    xpath: //div[@id='added_salt_per_serving_uom']
   - name: dietaryInformation
     singleValue: true
     description: null
@@ -459,6 +477,7 @@ fields:
   - name: additives
     singleValue: true
     description: List of additives in the product
+    xpath: //div[@class="nutrition-sustenance-claim"]//span/text()
   - name: pricePerUnit
     singleValue: true
     description: Price of the product split into certain units
@@ -486,6 +505,7 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
+    xpath: //*[@class='product-detail__desc-titleinfo']/text()
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of

@@ -29,6 +29,15 @@ module.exports = {
           }, ms);
         });
       }
+      let scrollTop = 500;
+      while (true) {
+        window.scroll(0, scrollTop);
+        await stall(1000);
+        scrollTop += 500;
+        if (scrollTop === 10000) {
+          break;
+        }
+      };
 
       // Method to Retrieve Xpath content of a Single Node
       const getXpath = (xpath, prop) => {
@@ -63,10 +72,10 @@ module.exports = {
       //   addElementToDocument(id, singleSeparatorText);
       // };
       // Double Pipe Concatenation
-      const pipeSeparatorDouble = (id, data) => {
-        var doubleSeparatorText = data.join(' || ');
-        addElementToDocument(id, doubleSeparatorText);
-      };
+      // const pipeSeparatorDouble = (id, data) => {
+      //   var doubleSeparatorText = data.join(' || ');
+      //   addElementToDocument(id, doubleSeparatorText);
+      // };
       // added aggregateRating
       // var aggregateRatingPath = getXpath("//span[contains(@class,'rating__title-overlay absolute')]/@title", 'nodeValue');
       // if (aggregateRatingPath != null) {
@@ -86,10 +95,16 @@ module.exports = {
         addElementToDocument('added_aggregateRating', aggregateRatingVal3.replace('.', ','));
       }
       // added additional description
-      const additionalDescription = getAllXpath("//div[@class='product-detail__desc-text ul']//p[@itemprop='description']/text() | //div[@class='product-detail__desc-text ul']/li/text()", 'nodeValue');
+      const additionalDescription = getAllXpath("//div[@class='product-detail__desc-text ul']//p[@itemprop='description']//text()", 'nodeValue');
+
+      const additionalDescriptionBulletInfo = getAllXpath("//div[@class='product-detail__desc-text ul']//li/text()", 'nodeValue');
       // addElementToDocument('addedAdditionalDescription', additionalDescription);
       if (additionalDescription !== null && additionalDescription.length > 0) {
-        pipeSeparatorDouble('addedAdditionalDescription', additionalDescription);
+        // pipeSeparatorDouble('addedAdditionalDescription', additionalDescription);
+        var finalDescription = (additionalDescriptionBulletInfo != null) ? (additionalDescriptionBulletInfo.join(' || ') + additionalDescription) : additionalDescription;
+        addElementToDocument('addedAdditionalDescription', finalDescription);
+      } else {
+        addElementToDocument('addedAdditionalDescription', additionalDescriptionBulletInfo.join(' || '));
       }
 
       // added image360present
@@ -99,24 +114,110 @@ module.exports = {
         image360PresentValue = 'Yes';
       }
       addElementToDocument('added_image30PresentText', image360PresentValue);
+
+      const listPrice = getXpath("//section[contains(@class,'product-details__product')]//div[contains(@class,'product__price-stroke')]//span[1]/text()", 'nodeValue');
+      if (listPrice != null) {
+        addElementToDocument('added_listPrice', '€ ' + listPrice);
+      }
       // added additional field values
-      var jsonStr = findScriptValue("//div[contains(@data-dd-product-detail,'eanCodes')]/@data-dd-product-detail");
-      // console.log('===========' + jsonStr);
-      // var sku = '';
-      if (jsonStr != null) {
-        var obj = JSON.parse(jsonStr);
-        console.log(obj.eanCodes);
-        addElementToDocument('eanCodes', obj.eanCodes);
-        console.log(obj.foodInformation[0].countryOrigins[0]);
-        addElementToDocument('countryOfOrigin', obj.foodInformation[0].countryOrigins[0]);
-        addElementToDocument('added_servingSize', obj.foodInformation[0].nutritions[1].relationValue);
-        addElementToDocument('added_servingSizeUom', obj.foodInformation[0].nutritions[1].unit);
-        // if (obj.measurements.type != null && (obj.measurements.type === 'Nettogehalt')) {
-        //   addElementToDocument('added_grossWeight', obj.measurements.value);
-        // }
-        // if (obj.measurements.type != null && (obj.measurements.type === 'Bruttogewicht')) {
-        //   addElementToDocument('added_netWeight', obj.measurements.value);
-        // }
+      if (document.querySelector('[data-dd-tab-content="tab-nutrition"]') !== null) {
+        var jsonStr = findScriptValue("//div[contains(@data-dd-product-detail,'eanCodes')]/@data-dd-product-detail");
+        console.log('===========' + jsonStr);
+        // var sku = '';
+        if (jsonStr != null) {
+          var obj = JSON.parse(jsonStr);
+          console.log(obj.eanCodes);
+
+          addElementToDocument('eanCodes', obj.eanCodes);
+          const nutritionObject = obj.foodInformation[0].nutritions;
+          for (let i = 0; i < nutritionObject.length; i++) {
+            for (let j = 0; j < nutritionObject[i].nutritions.length; j++) {
+              nutritionObject[i].nutritions[j].index = j;
+            }
+          }
+          console.log('===========' + nutritionObject);
+          const catElement = document.createElement('pre');
+          catElement.id = 'json-code';
+          catElement.textContent = JSON.stringify(nutritionObject);
+          catElement.style.display = 'none';
+          document.body.appendChild(catElement);
+          addElementToDocument('added_servingSize', ((nutritionObject.length > 1)) ? ((nutritionObject[0].unit === 'Portion') ? (nutritionObject[1].relationValue) : (nutritionObject[0].relationValue)) : (nutritionObject[0].relationValue));
+          addElementToDocument('added_servingSizeUom', 'Gramm');
+          addElementToDocument('added_calories_per_serving', ((nutritionObject.length > 1)) ? ((nutritionObject[0].unit === 'Portion') ? (nutritionObject[1].nutritions[0].nutritionalValue + ' kj / ' + nutritionObject[1].nutritions[1].nutritionalValue + ' kcal') : (nutritionObject[0].nutritions[0].nutritionalValue + ' kj / ' + nutritionObject[0].nutritions[1].nutritionalValue + ' kcal')) : (nutritionObject[0].nutritions[0].nutritionalValue + ' kj / ' + nutritionObject[0].nutritions[1].nutritionalValue + ' kcal'));
+          addElementToDocument('added_no_of_serving_in_package', ((nutritionObject.length > 1)) ? ((nutritionObject[0].unit === 'Portion') ? nutritionObject[0].relationValue : nutritionObject[1].relationValue) : '');
+
+          for (let i = 0; i < nutritionObject.length; i++) {
+          // if (nutritionObject[i].unit !== 'Portion') {
+            // for (let j = 0; j < nutritionObject[i].nutritions.length; j++) {
+            //   // nutritionObject[i].nutritions[j].index = j;
+            //   if (nutritionObject[i].nutritions[j].nutritionName.includes('Fett')) {
+            //     addElementToDocument('added_total_fat_per_serving', (nutritionObject[i].nutritions[j].nutritionalValue + ' g'));
+            //   }
+            // }
+            for (let j = 0; j < nutritionObject[i].nutritions.length; j++) {
+              if (nutritionObject[i].unit !== 'Portion' && nutritionObject[i].nutritions[j].nutritionName.includes('Fett') && (nutritionObject[i].nutritions[j].nutritionName.indexOf('Fettsäuren') === -1)) {
+                addElementToDocument('added_total_fat_per_serving', nutritionObject[i].nutritions[j].nutritionalValue);
+                addElementToDocument('added_total_fat_per_servingUom', 'g');
+              }
+
+              if (nutritionObject[i].unit !== 'Portion' && nutritionObject[i].nutritions[j].nutritionName.includes('Fettsäuren')) {
+                addElementToDocument('added_saturated_fat_per_serving', nutritionObject[i].nutritions[j].nutritionalValue);
+                addElementToDocument('added_saturated_fat_per_serving_uom', 'g');
+              }
+
+              if (nutritionObject[i].unit !== 'Portion' && nutritionObject[i].nutritions[j].nutritionName.includes('Kohlenhydrate')) {
+                addElementToDocument('added_total_carb_per_serving', nutritionObject[i].nutritions[j].nutritionalValue);
+                addElementToDocument('added_total_carb_per_serving_uom', 'g');
+              }
+
+              if (nutritionObject[i].unit !== 'Portion' && nutritionObject[i].nutritions[j].nutritionName.includes('davon Zucker')) {
+                addElementToDocument('added_total_sugars_per_serving', nutritionObject[i].nutritions[j].nutritionalValue);
+                addElementToDocument('added_total_sugars_per_serving_uom', 'g');
+              }
+
+              if (nutritionObject[i].unit !== 'Portion' && nutritionObject[i].nutritions[j].nutritionName.includes('Ballaststoffe')) {
+                addElementToDocument('added_dietary_fibre_per_serving', nutritionObject[i].nutritions[j].nutritionalValue);
+                addElementToDocument('added_dietary_fibre_per_serving_uom', 'g');
+              }
+
+              if (nutritionObject[i].unit !== 'Portion' && nutritionObject[i].nutritions[j].nutritionName.includes('Eiweiß')) {
+                addElementToDocument('added_protein_per_serving', nutritionObject[i].nutritions[j].nutritionalValue);
+                addElementToDocument('added_protein_per_serving_uom', 'g');
+              }
+
+              if (nutritionObject[i].unit !== 'Portion' && nutritionObject[i].nutritions[j].nutritionName.includes('Salz')) {
+                addElementToDocument('added_salt_per_serving', nutritionObject[i].nutritions[j].nutritionalValue);
+                addElementToDocument('added_salt_per_serving_uom', 'g');
+              }
+            }
+          }
+
+          // // addElementToDocument('added_total_fat_per_serving', ((nutritionObject.length > 1)) ? ((nutritionObject[0].unit === 'Portion') ? (nutritionObject[1].nutritions[2].nutritionalValue + ' g') : (nutritionObject[0].nutritions[2].nutritionalValue + ' g')) : (nutritionObject[0].nutritions[2].nutritionalValue + ' g'));
+          // addElementToDocument('added_total_fat_per_servingUom', 'g');
+          // // addElementToDocument('added_saturated_fat_per_serving', ((nutritionObject.length > 1)) ? ((nutritionObject[0].unit === 'Portion') ? (nutritionObject[1].nutritions[3].nutritionalValue + ' g') : (nutritionObject[0].nutritions[3].nutritionalValue + ' g')) : (nutritionObject[0].nutritions[3].nutritionalValue + ' g'));
+          // addElementToDocument('added_saturated_fat_per_serving_uom', 'g');
+          // // addElementToDocument('added_total_carb_per_serving', ((nutritionObject.length > 1)) ? ((nutritionObject[0].unit === 'Portion') ? (nutritionObject[1].nutritions[4].nutritionalValue + ' g') : (nutritionObject[0].nutritions[4].nutritionalValue + ' g')) : (nutritionObject[0].nutritions[4].nutritionalValue + ' g'));
+          // addElementToDocument('added_total_carb_per_serving_uom', 'g');
+          // // addElementToDocument('added_total_sugars_per_serving', ((nutritionObject.length > 1)) ? ((nutritionObject[0].unit === 'Portion') ? (nutritionObject[1].nutritions[5].nutritionalValue + ' g') : (nutritionObject[0].nutritions[5].nutritionalValue + ' g')) : (nutritionObject[0].nutritions[5].nutritionalValue + ' g'));
+          // addElementToDocument('added_total_sugars_per_serving_uom', 'g');
+          // // addElementToDocument('added_dietary_fibre_per_serving', ((nutritionObject.length > 1)) ? ((nutritionObject[0].unit === 'Portion') ? (nutritionObject[1].nutritions[6].nutritionalValue + ' g') : (nutritionObject[0].nutritions[6].nutritionalValue + ' g')) : (nutritionObject[0].nutritions[6].nutritionalValue + ' g'));
+          // addElementToDocument('added_dietary_fibre_per_serving_uom', 'g');
+          // // addElementToDocument('added_protein_per_serving', ((nutritionObject.length > 1)) ? ((nutritionObject[0].unit === 'Portion') ? (nutritionObject[1].nutritions[7].nutritionalValue + ' g') : (nutritionObject[0].nutritions[7].nutritionalValue + ' g')) : (nutritionObject[0].nutritions[7].nutritionalValue + ' g'));
+          // addElementToDocument('added_protein_per_serving_uom', 'g');
+          // // addElementToDocument('added_salt_per_serving', ((nutritionObject.length > 1)) ? ((nutritionObject[0].unit === 'Portion') ? (nutritionObject[1].nutritions[8].nutritionalValue + ' g') : (nutritionObject[0].nutritions[8].nutritionalValue + ' g')) : (nutritionObject[0].nutritions[8].nutritionalValue + ' g'));
+          // addElementToDocument('added_salt_per_serving_uom', 'g');
+          // addElementToDocument('eanCodes', obj.eanCodes);
+          // console.log(obj.foodInformation[0].countryOrigins[0]);
+          // addElementToDocument('countryOfOrigin', obj.foodInformation[0].countryOrigins[0]);
+          // addElementToDocument('added_servingSize', obj.foodInformation[0].nutritions[1].relationValue);
+          // addElementToDocument('added_servingSizeUom', obj.foodInformation[0].nutritions[1].unit);
+          // if (obj.measurements.type != null && (obj.measurements.type === 'Nettogehalt')) {
+          //   addElementToDocument('added_grossWeight', obj.measurements.value);
+          // }
+          // if (obj.measurements.type != null && (obj.measurements.type === 'Bruttogewicht')) {
+          //   addElementToDocument('added_netWeight', obj.measurements.value);
+          // }
+        }
       }
       // added weightNet & weightGross
       var netWeightText = getXpath("//div[@ng-include='includeTemplate.url']/table//tbody//div[contains(text(),'Nettogehalt')]", 'innerText');
@@ -142,15 +243,6 @@ module.exports = {
         availabilityStatusValue = 'In stock';
       }
       addElementToDocument('added_availabilityText', availabilityStatusValue);
-      let scrollTop = 500;
-      while (true) {
-        window.scroll(0, scrollTop);
-        await stall(1000);
-        scrollTop += 500;
-        if (scrollTop === 10000) {
-          break;
-        }
-      };
     });
     await context.extract(productDetails, { transform: transformParam });
   },
