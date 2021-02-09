@@ -126,6 +126,7 @@ const transform = (data) => {
         }
       }
       if (row.videos && row.videos.length > 0) {
+        row.videos = row.videos.filter((thing, index, self) => self.findIndex(t => t.text === thing.text) === index);
         row.videos.forEach(item => {
           if (item.text.includes('player.liveclicker.com')) {
             item.text = 'https:' + item.text;

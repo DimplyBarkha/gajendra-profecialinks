@@ -123,7 +123,7 @@ fields:
     xpath: //div[contains(@id,"manuf-images")] | //div[@class="product-info-description"]//img//@srcset | //div[@class="wc-aplus-body"]//img/@src | //div[@class="product-info-description"]//img//@src[contains(.,'img/') or (contains(.,'http') and contains(.,'.jpg'))]
     # xpath: //div[@class="wc-aplus-body"]//img/@src | //div[@class="product-info-description"]//img//@src[contains(.,'img/') or (contains(.,'http') and contains(.,'.jpg'))]
   - name: videos
-    xpath: //div[@class="wc-player-outer-wrap wc-vp"]//video/@src | //meta[@itemprop="contentUrl"]/@content | //body/@videos | //meta//@content[contains(.,'.mp4')] | //head/@*[contains(.,'http')] | //head/@video | //head/@*[contains(.,'http')] | //div[@id='videos'] | //div[@id='videoSrc'] | //form[contains(@action,"video-player")]/@action | //div[@id='videos1'] | //div[@id='videos2']
+    xpath: //div[@class="wc-player-outer-wrap wc-vp"]//video/@src | //meta[@itemprop="contentUrl"]/@content | //body/@videos | //meta//@content[contains(.,'.mp4')] | //head/@*[contains(.,'http')] | //head/@video | //head/@*[contains(.,'http')] | //div[@id='videos'] | //div[@id='videoSrc'] | //form[contains(@action,"video-player")]/@action | //div[@id="added-ec1"]//div[@data-section-template-code="video-gallery"]//div[@itemprop="video"]/@wcobj
   - name: videos1
     xpath: //div[@class="fullJwPlayerWarp fullPlaylist-0"]/input/@value
     regExp: file":"([^"]+)

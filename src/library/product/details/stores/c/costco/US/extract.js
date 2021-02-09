@@ -9,6 +9,8 @@ module.exports = {
   },
   // @ts-ignore
   // @ts-ignore
+  // @ts-ignore
+  // @ts-ignore
   implementation: async (inputs,
     parameters,
     context,
@@ -21,7 +23,7 @@ module.exports = {
     await context.setBlockAds(false);
     await context.setLoadAllResources(true);
     await context.setAntiFingerprint(false);
-    const timeout = parameters.timeout ? parameters.timeout : 30000;
+    // const timeout = parameters.timeout ? parameters.timeout : 30000;
 
     await context.evaluate(async () => {
       const moreBtn = document.querySelectorAll('div.flix-text-center>div.flix-btn-tech-ctrl');
@@ -337,6 +339,8 @@ module.exports = {
     };
     // @ts-ignore
     // @ts-ignore
+    // @ts-ignore
+    // @ts-ignore
     async function preparePage () {
       await new Promise(resolve => setTimeout(resolve, 1000));
       try {
@@ -396,29 +400,6 @@ module.exports = {
         }
       }
     });
-    // let id = '';
-    // await context.evaluate(async () => {
-    //   const parentNode1 = document.querySelector('div[class="syndigo-mosaic-outer syndigo-shadowed-mosaic"]');
-    //   await new Promise(resolve => setTimeout(resolve, 1000));
-    //   if (parentNode1 && parentNode1.shadowRoot && parentNode1.shadowRoot.firstChild) {
-    //     const fetchNode = parentNode1.shadowRoot.firstChild;
-    //     // @ts-ignore
-    //     const VideoButton = fetchNode.querySelector('button[class="syndigo-mosaic-ribbon-eye syndigo-mosaic-iconbutton"]');
-    //     VideoButton.click();
-    //     await new Promise(resolve => setTimeout(resolve, 1000));
-    //     // @ts-ignore
-    //     const VideoButton2 = fetchNode.querySelector('button[class="syndigo-mosaic-ribbon-internal syndigo-mosaic-iconbutton"] path[fill d="M512 903 q94 0 177 -36 q83 -35 145 -97 q62 -62 97 -145 q36 -83 36 -177 q0 -94 -36 -177 q-35 -83 -97 -145 q-62 -62 -145 -97 q-83 -36 -177 -36 q-94 0 -177 36 q-83 35 -145 97 q-62 62 -97 145 q-36 83 -36 177 l0 0 q0 94 36 177 q35 83 97 145 q62 62 145 97 q83 36 177 36 l0 0 ZM512 960 q-106 0 -199 -40 q-94 -40 -163.5 -109.5 q-69.5 -69.5 -109.5 -163.5 q-40 -93 -40 -199 q0 -106 40 -199 q40 -94 109.5 -163.5 q69.5 -69.5 163.5 -109.5 q93 -40 199 -40 q106 0 199 40 q94 40 163.5 109.5 q69.5 69.5 109.5 163.5 q40 93 40 199 l0 0 q0 106 -40 199 q-40 94 -109.5 163.5 q-69.5 69.5 -163.5 109.5 q-93 40 -199 40 l0 0 ZM341 732 l474 -284 l-474 -284 l0 568 l0 0 Z"]');
-    //     VideoButton2.click();
-    //     await new Promise(resolve => setTimeout(resolve, 1000));
-    //     // @ts-ignore
-    //     const VideoButton3 = fetchNode.querySelector('button[class="syndigo-video-big-play-button"]');
-    //     VideoButton3.click();
-    //     await new Promise(resolve => setTimeout(resolve, 1000));
-    //     // @ts-ignore
-    //     const VideoId = fetchNode.querySelector('video');
-    //     id = VideoId.id;
-    //   }
-    // });
     /// /////////////////////////////////////////////////////////////////////////////////////////////////
     //  GOTO enhanced content approach
     //  Get Enhanced HTML.
@@ -475,25 +456,55 @@ module.exports = {
     //   }, enhacnedContentJS);
     // }
     /// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // SearchForRequest for getting video urls
-    var videoRequest = await context.searchForRequest('https://content.syndigo.com/asset/.*ts', 'GET');
-    if (videoRequest && videoRequest.url) {
-      console.log('videos-------->', videoRequest.url);
-      await context.evaluate((videoRequest) => {
-        function addHiddenDiv (id, content) {
-          const newDiv = document.createElement('div');
-          newDiv.id = id;
-          newDiv.textContent = content;
-          newDiv.style.display = 'none';
-          document.body.appendChild(newDiv);
+
+    // Syndigo API1 code to append enhanced content.
+    const productID = await context.evaluate(async () => {
+      const ProductUrl = document.querySelector('meta[property="og:url"][content]');
+      let id = ProductUrl.content;
+      id = id.split('product.');
+      id = id[1].split('.');
+      id = id[0];
+      return id;
+    });
+    const pageId = 'costco';
+    // @ts-ignore
+    async function syndigoAPI1 (productID, pageId) {
+      async function appendData (productID, pageId) {
+        const api = `https://scontent.webcollage.net/${pageId}/power-page?ird=true&channel-product-id=${productID}`;
+        // api.allorigins.win to avoid cors
+        const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(api)}`);
+        // const response = await fetch(api);
+        const text = (await response.json()).contents;
+        //   const text = await response.text();
+        if (text.match(/terminatePowerPage/) || !text.match(/_wccontent/)) {
+          console.log('Enhanced content not found');
+          return false;
         }
-        addHiddenDiv('videos1', videoRequest.url);
-      }, videoRequest);
+        // eslint-disable-next-line no-eval
+        eval(text.replace('document.getElementsByTagName(\'head\')[0].appendChild(_wcscript);', '//document.getElementsByTagName(\'head\')[0].appendChild(_wcscript);')); // might fail if response doesnt has the data.
+        // add HTM Content
+        const div = document.createElement('div');
+        div.id = 'added-ec1';
+        // @ts-ignore
+        div.innerHTML = window._wccontent.aplus.html;
+        // @TODO Should we retrun div instead?
+        document.body.append(div);
+        return true;
+      }
+      try {
+      // @ts-ignore
+        return await context.evaluate(appendData, productID, pageId);
+      } catch (error) {
+        console.log('Enhanced content not found. Error: ', error);
+      }
     }
-    // var videoRequest1 = await context.searchForRequest('https://content.syndigo.com/asset/.*m3u8', 'GET');
-    // if (videoRequest1 && videoRequest1.url) {
-    //   console.log('videos-------->', videoRequest1.url);
-    //   await context.evaluate((videoRequest1) => {
+    await syndigoAPI1(productID, pageId);
+
+    // SearchForRequest for getting video urls
+    // var videoRequest = await context.searchForRequest('https://content.syndigo.com/asset/.*ts', 'GET');
+    // if (videoRequest && videoRequest.url) {
+    //   console.log('videos-------->', videoRequest.url);
+    //   await context.evaluate((videoRequest) => {
     //     function addHiddenDiv (id, content) {
     //       const newDiv = document.createElement('div');
     //       newDiv.id = id;
@@ -501,7 +512,7 @@ module.exports = {
     //       newDiv.style.display = 'none';
     //       document.body.appendChild(newDiv);
     //     }
-    //     addHiddenDiv('videos2', videoRequest1.url);
+    //     addHiddenDiv('videos1', videoRequest.url);
     //   }, videoRequest);
     // }
     return await context.extract(productDetails, { transform });
