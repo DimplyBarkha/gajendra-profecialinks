@@ -5,9 +5,9 @@ module.exports = {
     country: 'US',
     store: 'kohls',
     domain: 'kohls.com',
-    url: 'https://www.kohls.com/search.jsp?submit-search=web-regular&search="{searchTerms}"',
+    url: 'https://www.kohls.com/search.jsp?submit-search=web-regular&search={searchTerms}',
     loadedSelector: 'ul.products',
-    noResultsXPath: '//div[@class="frame_no_results"]|//div[@class="pdp-content"]|//body[not(.//ul[@class="products"])]',
+    noResultsXPath: '//div[@class="frame_no_results"]|//div[@class="pdp-content"]|//body[not(.//ul[@class="products"])]|//div[@class="searchResult_redirectMsg"]',
     zipcode: '',
   },
 };
