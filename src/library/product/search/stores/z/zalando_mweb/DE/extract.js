@@ -23,10 +23,12 @@ module.exports = {
       listElem.style.display = 'none';
 
       const allProducts = document.querySelectorAll('article[role="link"]');
+      console.log(`Products on page: ${allProducts.length}`);
       for (let i = 0; i < allProducts.length; i++) {
         const product = allProducts[i];
         const productUrl = product.querySelector('a') ? product.querySelector('a').href : '';
         const sku = productUrl.match(/(\w{9}-\w{3})\.html/) ? productUrl.match(/(\w{9}-\w{3})\.html/)[1] : '';
+        console.log(`Sku available? ${!!sku}`);
         if (sku) {
           const productElem = document.createElement('li');
           const imageSrc = product.querySelector('article[role="link"] > a > figure img:not([aria-hidden])')

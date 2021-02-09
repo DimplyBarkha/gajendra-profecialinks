@@ -15,6 +15,13 @@ module.exports = {
     const destinationUrl = url.replace('{searchTerms}', encodeURIComponent(keywords)).replace('{queryParams}', query);
     await dependencies.goto({ ...inputs, url: destinationUrl });
 
+    try {
+      await context.click('div#uc-banner-modal button[id="uc-btn-accept-banner"]');
+      await context.waitForNavigation();
+    } catch (err) {
+      console.log('Failed to close cookies popup');
+    }
+
     // checking for selected language and changing to German if required
     const englishSelected = await context.evaluate(async () => !!document.querySelector('a[title="Choose language"]'));
     if (englishSelected) {
