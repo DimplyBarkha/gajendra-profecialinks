@@ -40,14 +40,30 @@ module.exports = {
     });
 
     await new Promise(resolve => setTimeout(resolve, 1000));
+    // try {
+    //   await context.waitForXPath('//div[contains(@class, "ShowMore")][contains(@class, "relative hideOnPrint")]/button', { timeout: 15000 });
+    //   await context.waitForSelector('div[class^="ShowMore"].relative.hideOnPrint > button', { timeout: 2000 });
+    //   console.log('everything fine !!!');
+    //   await context.click('div[class^="ShowMore"].relative.hideOnPrint > button');
+    //   // await context.evaluate(() => {
+    //   //   const firstItem = document.querySelector('div[class^="ShowMore"].relative.hideOnPrint > button');
+    //   //   firstItem.click();
+    //   // });
+    // } catch (err) { }
+    await context.evaluate(function () {
+      if (document.querySelector('div[role="dialog"] button[title="close"]')) {
+        document.querySelector('div[role="dialog"] button[title="close"]').click();
+      }
+    });
     try {
-      await context.waitForXPath('//div[@class="ShowMore_761672 relative hideOnPrint"]/button');
-      await context.waitForSelector('div.ShowMore_761672.relative.hideOnPrint > button');
+      await context.waitForXPath('//div[contains(@class, "ShowMore")][contains(@class, "relative hideOnPrint")]/button', { timeout: 15000 });
+      await context.waitForSelector('div[class^="ShowMore"].relative.hideOnPrint > button', { timeout: 2000 });
       console.log('everything fine !!!');
-      await context.evaluate(() => {
-        const firstItem = document.querySelector('div.ShowMore_761672.relative.hideOnPrint > button');
-        firstItem.click();
-      });
+      await context.click('div[class^="ShowMore"].relative.hideOnPrint > button');
+      // await context.evaluate(() => {
+      //   const firstItem = document.querySelector('div[class^="ShowMore"].relative.hideOnPrint > button');
+      //   firstItem.click();
+      // });
     } catch (err) { }
     async function scrollToRec (node) {
       await context.evaluate(async (node) => {
@@ -61,6 +77,7 @@ module.exports = {
       }, node);
     }
     await scrollToRec('footer');
+    await scrollToRec('div#productDetails');
     await context.evaluate(async () => {
       // const descNode = document.querySelector('div.product-info-description');
       let desc = '';
@@ -91,35 +108,56 @@ module.exports = {
       }
       if (desc.length > 0) {
         addHiddenDiv('product-desc', desc);
+        addHiddenDiv('ii_manufContent', desc);
       }
       let moreManufContent = '';
       let manufImg = '';
+      let manufVideoText = '';
       if (document.querySelector('iframe[id^="wcframable"') && document.querySelector('iframe[id^="wcframable"').contentWindow && document.querySelector('iframe[id^="wcframable"').contentWindow.document.querySelector('body')) {
         const arrManuf = [];
         const arrManufImg = [];
+        const arrManufVideos = [];
         [...document.querySelectorAll('iframe[id^="wcframable"')].forEach(el => {
           if (el.contentWindow) {
             const iframeWindow = el.contentWindow;
-            if ((iframeWindow.document.querySelector('body div.wc-video-gallery'))) {
-              // arrManuf.push(iframeWindow.document.querySelector('body div:not(.wc-video-gallery)').innerText);
-            } else {
-              if (iframeWindow.document.querySelector('body')) {
-                arrManuf.push(iframeWindow.document.querySelector('body').innerText.replace(/(\s*\n\s*)+/g, ' ').replace(/\n/g, ' '));
-              }
-              if (iframeWindow.document.querySelector('img')) {
-                arrManufImg.push(iframeWindow.document.querySelector('img').src);
-              }
+            if (iframeWindow.document.querySelector('body') && !(iframeWindow.document.querySelector('body').innerText.includes('Play Video'))) {
+              arrManuf.push(iframeWindow.document.querySelector('body').innerText.replace(/(\s*\n\s*)+/g, ' ').replace(/\n/g, ' '));
+            }
+            
+            if (iframeWindow.document.querySelectorAll('video').length) {
+              [...iframeWindow.document.querySelectorAll('video')].forEach(video => {
+                arrManufVideos.push(video.src);
+              });
+            }
+            
+            if (iframeWindow.document.querySelectorAll('img').length) {
+              [...iframeWindow.document.querySelectorAll('img')].forEach(img => {
+                arrManufImg.push(img.src);
+              });
             }
           }
         });
         moreManufContent = arrManuf.join(' | ');
         manufImg = arrManufImg.join(' | ');
+        manufVideoText = arrManufVideos.join(' | ')
+      }
+      const hiddenVideosInImg = document.querySelectorAll('img.wc-video');
+      if (hiddenVideosInImg.length) {
+        if (manufVideoText.length) {
+          manufVideoText += ' | ';
+        }
+        [...hiddenVideosInImg].forEach(video => {
+          manufVideoText += ' | ' + video.src.replace(/_cp(.*)/g, video['data-asset-url']);
+        });
       }
       if (moreManufContent.length > 0) {
         addHiddenDiv('ii_manufContent', moreManufContent);
       }
       if (manufImg.length > 0) {
         addHiddenDiv('ii_manufImg', manufImg);
+      }
+      if (manufVideoText.length > 0) {
+        addHiddenDiv('ii_manufVid', manufVideoText);
       }
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
@@ -237,12 +275,51 @@ module.exports = {
       // await context.waitForXPath('//a[contains(@class,"ProductMediaCarouselStyle")]');
       await context.waitForSelector('a[class^="ProductMediaCarouselStyle"] span, div[class^="ProductMediaCarouselStyle"] a', { timeout: 35000 });
       console.log('everything fine !!!');
-      await context.evaluate(() => {
+      await context.evaluate(function () {
         const firstItem = document.querySelector('a[class^="ProductMediaCarouselStyle"] span, div[class^="ProductMediaCarouselStyle"] a');
         firstItem.click();
       });
     } catch (err) { }
+
     await new Promise((resolve) => setTimeout(resolve, 2000));
+    /*
+    const variantsButtonChange = await context.evaluate(async function () {
+      return document.querySelectorAll('div[itemtype="http://schema.org/Product"] div[name*="_swatches"] div.rclCustomSelectListWrapper ul[aria-label="options"] li[class^="rclCustomItem"] button').length;
+    });
+    console.log('variantsButtonChange fddf')
+    console.log(variantsButtonChange);
+
+    try {
+      // await context.waitForXPath('//a[contains(@class,"ProductMediaCarouselStyle")]');
+      await context.waitForSelector('div[itemtype="http://schema.org/Product"] div[name*="_swatches"] div.rclCustomSelectListWrapper ul[aria-label="options"] li[class^="rclCustomItem"]button', { timeout: 15000 });
+      console.log('everything fine !!!');
+    } catch (err) { }
+
+    if (variantsButtonChange !== 0) {
+      for (let i = 1; i <= variantsButtonChange; i++) {
+        await context.evaluate(() => {
+          if (document.querySelector('div[role="dialog"] button[title="close"]')) {
+            document.querySelector('div[role="dialog"] button[title="close"]').click();
+          }
+        });
+        await context.click(`div[itemtype="http://schema.org/Product"] div[name*="_swatches"] div.rclCustomSelectListWrapper ul[aria-label="options"] li[class^="rclCustomItem"]:nth-child(${i}) button`);
+        await new Promise((resolve) => setTimeout(resolve, 5000));
+
+        try {
+          // await context.waitForXPath('//a[contains(@class,"ProductMediaCarouselStyle")]');
+          await context.waitForSelector('a[class^="ProductMediaCarouselStyle"] span, div[class^="ProductMediaCarouselStyle"] a', { timeout: 35000 });
+          console.log('everything fine !!!');
+          await context.evaluate(() => {
+            const firstItem = document.querySelector('a[class^="ProductMediaCarouselStyle"] span, div[class^="ProductMediaCarouselStyle"] a');
+            firstItem.click();
+          });
+        } catch (err) { }
+        await context.extract(productDetails, { transform });
+      }
+    } else {
+      return await context.extract(productDetails, { transform });
+    }
+    */
     return await context.extract(productDetails, { transform });
   },
 };

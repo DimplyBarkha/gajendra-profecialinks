@@ -24,10 +24,10 @@ fields:
     xpath: //div[@class='slick-initialized slick-slider']//div[@class='slick-list']//div[contains(@class,'slick-slide slick-active')]//a//img/@alt
   - name: secondaryImageTotal
     singleValue: false
-    xpath: count(//div[@id='rclModal']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li[not(@class='slick-active')]//button/img[contains(@alt, "image")]/@src)
+    xpath: count(//div[@id='rclModal']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li[not(@class='slick-active')]//button/img[contains(@alt, "image")]/@src|//div[@id="productitemlist"]//img/@src)
   - name: alternateImages
     singleValue: false
-    xpath: //div[@id='rclModal']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li[not(@class='slick-active')]//button/img/@src
+    xpath: //div[@id='rclModal']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li[not(@class='slick-active')]//button/img/@src|//div[@id="productitemlist"]//img/@src
   - name: alternateImages2
     singleValue: false
     xpath: //div[@class='slick-initialized slick-slider']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li[not(@class='slick-active')]//img[contains(@class,'ProductMediaCarouselStyle_')]/@src
@@ -90,7 +90,7 @@ fields:
     # xpath: //div[@id='productDetails']//*[self::div or self::li]
   - name: videos
     SingleValue: false
-    xpath: //div[@id='rclModal']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li//button/img[@alt='Video']/@src
+    xpath: //div[@id='rclModal']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li//button/img[@alt='Video']/@src|//div[@id="ii_manufVid"]
   - name: specifications
     SingleValue: false    
     xpath: //div[@id='specs']//div[@class='grid-x Specs_5UF8Em']//div[@class='grid-x Specs_2u7UG5']
