@@ -29,19 +29,19 @@ module.exports = {
       await context.goto('https://www.auchan.fr/courses', { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: true });
 
       try {
-        await context.waitForSelector('.context-header button.context-header__button > i', { timeout: 10000 });
+        await context.waitForSelector('.context-header button.context-header__button', { timeout: 10000 });
         // await this.context.click('.context-header button.context-header__button', { timeout: 2000 });
         await context.evaluate(function () {
-          const clickModelSelector = document.querySelector('.context-header button.context-header__button > i');
+          const clickModelSelector = document.querySelector('.context-header button.context-header__button');
           console.log('clickModelSelector', clickModelSelector);
           if (clickModelSelector) clickModelSelector.click();
         });
         await context.waitForSelector('input.journeySearchInput', { timeout: 10000 });
         await context.setInputValue('input.journeySearchInput', '75020');
-        // const modelLocationClick = async () => {
-        //   await helper.ifThereClickOnIt('input.journeySearchInput');
-        // };
-        // await modelLocationClick();
+        const modelLocationClick = async () => {
+          await helper.ifThereClickOnIt('input.journeySearchInput');
+        };
+        await modelLocationClick();
         await context.waitForSelector('li.journey__search-suggest', { timeout: 10000 });
         await context.evaluate(async function () {
           const journeySelector = document.querySelector('li.journey__search-suggest');
