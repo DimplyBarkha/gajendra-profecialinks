@@ -1,4 +1,4 @@
-const { cleanUp } = require('../../../../shared');
+const { cleanUp } = require('./shared');
 
 module.exports = {
   implements: 'product/details/extract',
@@ -19,7 +19,7 @@ module.exports = {
           window.scroll(0, scrollTop);
           await stall(1000);
         }
-        function stall (ms) {
+        function stall(ms) {
           // @ts-ignore
           return new Promise((resolve, reject) => {
             setTimeout(() => {
@@ -34,12 +34,12 @@ module.exports = {
     await context.evaluate(async function (context) {
       const seeAllSelector = document.querySelector('div[class*="product-accessories"] div.next');
       for (let i = 0; i < 5; i++) {
-        seeAllSelector.click();
+        seeAllSelector && seeAllSelector.click();
       }
 
       const eanScriptXPath = '//body/script[contains(text(), "ean")]';
       const eanScriptElement = document.evaluate(eanScriptXPath, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
-      const eanScript = eanScriptElement.textContent;
+      const eanScript = eanScriptElement && eanScriptElement.textContent;
       const eanRegex = '("ean":)"(.*?)"';
       const upcValue = eanScript.match(eanRegex) ? eanScript.match(eanRegex)[2] : '';
 
@@ -48,7 +48,7 @@ module.exports = {
     await context.evaluate(async function (context) {
       const seeAllSelector1 = document.querySelector('#produktdetailseiten_reco-bottom div.next');
       for (let i = 0; i < 5; i++) {
-        seeAllSelector1.click();
+        seeAllSelector1 && seeAllSelector1.click();
       }
     });
     var extractedData = await context.extract(productDetails, { transform });
@@ -90,10 +90,10 @@ module.exports = {
       manufacturerDescription.splice(1);
     }
 
-    var availability = extractedData[0].group[0].availabilityText;
-    if (availability) {
-      availability[0].text = availability[0].text === 'InStock' ? 'In Stock' : 'Out of Stock';
-    }
+    // var availability = extractedData[0].group[0].availabilityText;
+    // if (availability) {
+    //   availability[0].text = availability[0].text === 'InStock' ? 'In Stock' : 'Out of Stock';
+    // }
 
     var servingSize = extractedData[0].group[0].servingSize;
     if (servingSize) {

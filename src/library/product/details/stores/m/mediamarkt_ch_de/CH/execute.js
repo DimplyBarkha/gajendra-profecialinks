@@ -6,7 +6,7 @@ module.exports = {
     store: 'mediamarkt_ch_de',
     domain: 'mediamarkt.ch',
     loadedSelector: 'aside#product-sidebar img',
-    noResultsXPath: '//div[contains(@id, "search_no_result")] | //h1[contains(text(), "404")] | //div[contains(@class, "outer-brand")] | //span[@class="offline-text"]',
+    noResultsXPath: '//div[contains(@id, "search_no_result")] | //h1[contains(text(), "404")] | //div[contains(@class, "outer-brand")]',
     zipcode: '',
   },
   implementation: async (
@@ -33,10 +33,21 @@ module.exports = {
       await dependencies.goto({ url, zipcode, storeId });
     }
 
+    // if (parameters.loadedSelector) {
+    //   await context.waitForFunction(function (sel, xp) {
+    //     return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
+    //   }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
+    // }
     if (parameters.loadedSelector) {
-      await context.waitForFunction(function (sel, xp) {
-        return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-      }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
+      await context.waitForFunction(
+        (selector, xpath) => {
+          return !!(document.querySelector(selector) || document.evaluate(xpath, document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue);
+        },
+        { timeout: 10000 },
+        parameters.loadedSelector,
+        parameters.noResultsXPath,
+      );
     }
+    return await context.evaluate((xpath) => !document.evaluate(xpath, document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue, parameters.noResultsXPath);
   },
 };
