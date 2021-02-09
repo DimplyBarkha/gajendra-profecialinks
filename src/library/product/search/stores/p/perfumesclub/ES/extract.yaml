@@ -25,7 +25,10 @@ fields:
   - name: aggregateRating
     xpath: //div[@class="quedanMenos"]/img/@alt
     regExp: (\d).?(\d)?
-    # regExpReplace: $1,$2
+    regExpReplace: $1,$2
+  - name: aggregateRating2
+    xpath: //div[@class="quedanMenos"]/img/@alt
+    type: NUMBER
     # - name: aggregateRating2
     # xpath: //div[@class="quedanMenos"]/img/@alt
     # regExp: (\d+)\.(\d+)
