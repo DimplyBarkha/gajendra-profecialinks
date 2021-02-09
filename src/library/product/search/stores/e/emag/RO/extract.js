@@ -26,7 +26,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   await context.evaluate(async function () {
     const price = document.querySelectorAll('div#card_grid div.card-section-wrapper.js-section-wrapper p[class="product-new-price"]');
     price.forEach((element) => {
-      const number = element.textContent.match(/\d+/)[0];
+      const number = element.textContent.match(/[\d,.]+/)[0];
       const firstPrice = number.slice(0, -2);
       const secondPrice = number.slice(-2);
       const currency = element.textContent.match(/[a-zA-Z]+/)[0];
