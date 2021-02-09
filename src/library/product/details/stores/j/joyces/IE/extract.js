@@ -11,14 +11,14 @@ module.exports = {
   },
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     await context.evaluate(async function () {
-      function addElementToDocument (key, value) {
+      function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
-      function stall (ms) {
+      function stall(ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
@@ -94,7 +94,7 @@ module.exports = {
         additionalBulletInfo = additionalDescriptionInfo.join('||');
         additionalBulletInfo.split('||').forEach((item, i) => {
           if (i === 0) {
-            addElementToDocument('added_description_bullet_info', '|| '+item);
+            addElementToDocument('added_description_bullet_info', '|| ' + item);
           } else {
             addElementToDocument('added_description_bullet_info', item);
           }
@@ -114,7 +114,7 @@ module.exports = {
         const videoPath = getXpath("//div[@id='tab-description']//iframe/@src", 'nodeValue');
         addElementToDocument('added_video_url', videoPath);
       }
-      function specification (data) {
+      function specification(data) {
         var specificationsData = data.join(' || ');
         addElementToDocument('added_specifications', specificationsData);
       }
@@ -131,6 +131,11 @@ module.exports = {
       if (descBulletCount !== null && descBulletCount.length > 0) {
         addElementToDocument('added_bulletCount', descBulletCount.length);
       }
+      if (document.querySelector('button[data-target*="additionalProductExtras"]')) {
+        let additionalInfoBtn = document.querySelector('button[data-target*="additionalProductExtras"]');
+        additionalInfoBtn.click();
+      }
+      
     });
     await context.extract(productDetails, { transform: transformParam });
   },
