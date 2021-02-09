@@ -195,11 +195,13 @@ fields:
   - name: caloriesFromFatPerServing
     singleValue: true
     xpath: (//td[contains(text(),"Calories from Fat")]/following::td[1]/text())[2]
-    type: NUMBER
+    regExp: (\d+)
+    # type: NUMBER
   - name: totalFatPerServing
     singleValue: true
-    # xpath: (//td[contains(text(),"Total Fat")])[1]/text()
-    type: NUMBER
+    xpath: (//td[contains(text(),"Total Fat")])[1]/text()
+    regExp: (\d+)
+    # type: NUMBER
   - name: totalFatPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Fat content
@@ -230,14 +232,16 @@ fields:
   - name: sodiumPerServing
     singleValue: true
     xpath: (//td[contains(text(),"Sodium")]/following::td[1]/text())[1]
-    type: NUMBER
+    regExp: (\d+)
+    # type: NUMBER
   - name: sodiumPerServingUom
     singleValue: true
     description: Unit of Measure Data for Sodium content
   - name: totalCarbPerServing
     singleValue: true
     xpath: (//td[contains(text(),"Total Carbohydrate")]/following::td[1]/text())[1]
-    type: NUMBER
+    regExp: (\d+)
+    # type: NUMBER
   - name: totalCarbPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Carbohydrate content
@@ -252,14 +256,16 @@ fields:
   - name: totalSugarsPerServing
     singleValue: true
     xpath: (//td[contains(text(),"Sugars")]/following::td[1]/text())[1]
-    type: NUMBER
+    regExp: (\d+)
+    # type: NUMBER
   - name: totalSugarsPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Sugar content
   - name: proteinPerServing
     singleValue: true
     xpath: (//td[contains(text(),"Protein")]/following::td[1]/text())[1]
-    type: NUMBER
+    regExp: (\d+)
+    # type: NUMBER
   - name: proteinPerServingUom
     singleValue: true
     description: Unit of Measure Data for Protein
