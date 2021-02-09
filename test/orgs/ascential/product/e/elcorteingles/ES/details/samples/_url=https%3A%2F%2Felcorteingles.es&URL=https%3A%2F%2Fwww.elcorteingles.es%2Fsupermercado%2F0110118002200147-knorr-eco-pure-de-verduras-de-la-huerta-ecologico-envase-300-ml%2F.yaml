@@ -1,0 +1,129 @@
+input:
+  _url: https://elcorteingles.es
+  URL: https://www.elcorteingles.es/supermercado/0110118002200147-knorr-eco-pure-de-verduras-de-la-huerta-ecologico-envase-300-ml/
+extractions:
+  - html: https://workbench.import.io/html/run=57ad56ed-3869-4e71-9dd6-65fc2011ffe8/task=ff3b623c-0e31-4c07-a84e-9ee807650e99/3107d089-39d8-44ec-b4a8-b56bc29815fb.html
+    extractionConfigId: product/details/stores/e/elcorteingles/ES/extract
+    data:
+      - group:
+          - availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[18]
+            brandLink:
+              - text: https://www.elcorteingles.es/alimentacion/marcas/knorr/
+                xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/a[1]/@href
+            brandText:
+              - text: KNORR
+                xpath: /html/body/div[19]
+            caloriesPerServing:
+              - text: 162 kJ
+                xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[3]/td[2]/table[1]/tbody[1]/tr[1]/td[1]
+            category:
+              - text: Supermercado
+                xpath: /html/body/div[4]/div[1]/ol[1]/li[1]
+              - text: Alimentación General
+                xpath: /html/body/div[4]/div[1]/ol[1]/li[2]
+              - text: Caldos, sopas, purés y gazpachos
+                xpath: /html/body/div[4]/div[1]/ol[1]/li[3]
+              - text: Cremas y purés de verdura
+                xpath: /html/body/div[4]/div[1]/ol[1]/li[4]
+            description:
+              - text: "Información generalDenominación del alimento: Crema de verdurasNombre del
+                  operador: Unilever España S.A.Dirección del operador:
+                  C/Tecnología 19, 08840 Viladecans (Barcelona)Cantidad Neta:
+                  300 Mililitros"
+                xpath: /html/body/div[23]
+            dietaryFibrePerServing:
+              - text: "1.1"
+                xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[13]/td[2]/table[1]/tbody[1]/tr[1]/td[1]
+            dietaryFibrePerServingUom:
+              - text: g
+                xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[13]/td[2]/table[1]/tbody[1]/tr[1]/td[1]
+            directions:
+              - text: "Modo de empleo: CONSEJOS DE PREPARACIÓN 1. AGITAR 2. VERTER 3. CALENTAR
+                  OLLA: REMOVER SIN LLEVAR A EBULLICIÓN MICROONDAS²: CALENTAR UN
+                  INSTANTE EN UN RECIPIENTE ADECUADO 4. DISFRUTAR"
+                xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[4]/ul[1]/li[2]
+            gtin:
+              - text: "8714100769973"
+                xpath: /html/body/div[17]
+            image:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201710/19/00118002200147____1__600x600.jpg
+                xpath: /html/body/div[15]
+            imageAlt:
+              - text: KNORR Eco puré de verduras de la huerta ecológico envase 300 ml
+                xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            ingredientsList:
+              - text: Ingredientes y alérgenos Hortalizas¹ (48%) (patata¹, zanahoria¹, raíz de
+                  apio¹, cebolla¹, judía verde¹, brocoli¹, puerro¹), agua,
+                  nata¹, almidón de maiz¹, sal y extracto de levadura.
+                  ¹Procedente de agricultura ecológica.
+                xpath: /html/body/div[24]
+            nameExtended:
+              - text: KNORR Eco puré de verduras de la huerta ecológico envase 300 ml
+            price:
+              - text: 1,75 €
+            pricePerUnit:
+              - text: 5,83 €
+                xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/span[1]/div[1]/div[4]/div[1]/div[1]/div[2]
+            pricePerUnitUom:
+              - text: € / Litro
+                xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/span[1]/div[1]/div[4]/div[1]/div[1]/div[2]
+            proteinPerServing:
+              - text: "1"
+                xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[11]/td[2]/table[1]/tbody[1]/tr[1]/td[1]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[11]/td[2]/table[1]/tbody[1]/tr[1]/td[1]
+            quantity:
+              - text: "300"
+                xpath: /html/body/div[21]
+            ratingCount:
+              - text: "4"
+                xpath: /html/body/div[22]
+            saltPerServing:
+              - text: "0.68"
+                xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[12]/td[2]/table[1]/tbody[1]/tr[1]/td[1]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[12]/td[2]/table[1]/tbody[1]/tr[1]/td[1]
+            servingSize:
+              - text: "100"
+                xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
+            servingSizeUom:
+              - text: Mililitros
+                xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
+            sku:
+              - text: "8714100769973"
+                xpath: /html/body/div[17]
+            storage:
+              - text: Una vez abierto, conservar en el frigorífico un máximo de dos días. El
+                  modo de preparación y envasado de este producto son la
+                  garantía de su conservación.
+                xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[4]/ul[1]/li[1]
+            totalCarbPerServing:
+              - text: "5.8"
+                xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[8]/td[2]/table[1]/tbody[1]/tr[1]/td[1]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[8]/td[2]/table[1]/tbody[1]/tr[1]/td[1]
+            totalFatPerServing:
+              - text: "1"
+                xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[5]/td[2]/table[1]/tbody[1]/tr[1]/td[1]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[5]/td[2]/table[1]/tbody[1]/tr[1]/td[1]
+            totalSugarsPerServing:
+              - text: "1.3"
+                xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[10]/td[2]/table[1]/tbody[1]/tr[1]/td[1]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[10]/td[2]/table[1]/tbody[1]/tr[1]/td[1]
+            variantId:
+              - text: "110118002200147"
+                xpath: /html/body/div[20]
+            weightNet:
+              - text: 300 M
+                xpath: /html/body/div[23]
+        xpath: /html/body
+    timestamp: 1591768136051
