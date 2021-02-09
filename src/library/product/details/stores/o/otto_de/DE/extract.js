@@ -62,13 +62,24 @@ module.exports = {
         addElementToDocument('price', price);
       }
 
-      const img = getXpath('//div[@class="js_prd_swiper-slide prd_swiper-slide js_prd_zoomWrapper swiper-slide-visible swiper-slide-active"]/a/@href', 'nodeValue');
+      const img = getXpath('//div[contains(@class,"js_prd_swiper-slide prd_swiper-slide js_prd_zoomWrapper swiper-slide-visible swiper-slide-active")]/a/@href', 'nodeValue');
       var nimg= img
       if (nimg != null) {
         var nwimg = nimg.split('?$')[0]
         //var price = '€' + nr
         addElementToDocument('img', nwimg);
       }
+      
+      const brandd=getXpath('//a[@id="brand"]/@data-brand', 'nodeValue');
+      const brandd2= getXpath('//div/h1[@itemprop="name"]/text()', 'nodeValue');
+      if(brandd!=null){
+        addElementToDocument('brandd', brandd);
+      }
+      else {
+        var newbrandd= brandd2.split(' ')[0]
+        addElementToDocument('brandd', newbrandd);
+      }
+      
       // @ts-ignore
       const aa = document.querySelector('section[class="prd_section"] div[class*=\'prd_section\']').innerText
       if (aa != null) {
