@@ -69,17 +69,21 @@ async function implementation (inputs, parameters, context, dependencies) {
     await context.goto(`https://www.zalando.de/damen/?q=${searchTerm}`);
     await new Promise((resolve) => setTimeout(resolve, 2000));
   }
+  if ((currentUrl.includes('?q=wimpern') || currentUrl.includes('?q=highlighter') || currentUrl.includes('?q=Augenbrauen') || currentUrl.includes('beauty-augenbrauen/?q=') || currentUrl.includes('?q=concealer')) && !currentUrl.includes('?q=concealer+hell') && !currentUrl.includes('?q=wimperntusche') && !currentUrl.includes('?q=wimpernserum') && !currentUrl.includes('?q=wachstum')) {
+    await context.goto(`https://www.zalando.de/alle/?q=${searchTerm}`);
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+  }
   if (currentUrl.includes('?q=augenbrauen%20farben')) {
     await context.goto(`https://www.zalando.de/beauty-damen/?q=${searchTerm}`);
     await new Promise((resolve) => setTimeout(resolve, 2000));
   }
-  if (currentUrl.includes('beauty-highlighter/?q') || currentUrl.includes('beauty-mascara/?q=wimperntusche') || currentUrl.includes('beauty-augenbrauengel/?q') || currentUrl.includes('?q=wimpern')) {
+  if (currentUrl.includes('beauty-highlighter/?q') || currentUrl.includes('beauty-mascara/?q=wimperntusche') || currentUrl.includes('beauty-augenbrauengel/?q')) {
     await context.goto('https://www.zalando.de/herren/');
     await new Promise((resolve) => setTimeout(resolve, 2000));
     await context.goto(`https://www.zalando.de/herren/?q=${searchTerm}`);
     await new Promise((resolve) => setTimeout(resolve, 2000));
   }
-  if ((!currentUrl.includes('beauty-augenbrauen/?q=') && !currentUrl.includes('?q=Lidschatten&') && !currentUrl.includes('?q=Damen+sneaker') && !currentUrl.includes('?q=concealer+hell') && !currentUrl.includes('?q=wimpern+serum+wachstum')) && (currentUrl.includes('?q=primer&') || currentUrl.includes('?q=duschgel+frauen') || currentUrl.includes('?q=highlighter') || currentUrl.includes('?q=wimperntusche') || currentUrl.includes('?q=bronzer&') || currentUrl.includes('?q=Gesichtsspray') || currentUrl.includes('?q=Lippenpeeling&') || currentUrl.includes('?q=Lippenpflege&') || currentUrl.includes('kinderschuhe-klassische-sneaker') || currentUrl.includes('Wasserdichte+Jacke') || currentUrl.includes('damen/?q=') || currentUrl.includes('beauty-augencreme/?q') || currentUrl.includes('Lippenscrub') || currentUrl.includes('?q=argan%C3%B6l'))) {
+  if ((!currentUrl.includes('beauty-augenbrauen/?q=') && !currentUrl.includes('?q=Lidschatten&') && !currentUrl.includes('?q=Damen+sneaker') && !currentUrl.includes('?q=concealer+hell') && !currentUrl.includes('?q=wimpern+serum+wachstum')) && (currentUrl.includes('?q=primer&') || currentUrl.includes('?q=duschgel+frauen') || currentUrl.includes('?q=wimperntusche') || currentUrl.includes('?q=bronzer&') || currentUrl.includes('?q=Gesichtsspray') || currentUrl.includes('?q=Lippenpeeling&') || currentUrl.includes('?q=Lippenpflege&') || currentUrl.includes('kinderschuhe-klassische-sneaker') || currentUrl.includes('Wasserdichte+Jacke') || currentUrl.includes('damen/?q=') || currentUrl.includes('beauty-augencreme/?q') || currentUrl.includes('Lippenscrub') || currentUrl.includes('?q=argan%C3%B6l'))) {
     await context.goto(`https://www.zalando.de/herren/?q=${searchTerm}`);
     await new Promise((resolve) => setTimeout(resolve, 2000));
   }
