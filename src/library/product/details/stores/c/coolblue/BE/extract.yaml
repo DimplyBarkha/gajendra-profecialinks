@@ -496,3 +496,8 @@ fields:
   regExp: (.*?)
   regExpReplace: Yes
   defaultValue: No
+- name: hasComparisonTable
+  xpath: //h2[contains(text(),'vergelijken')] | //span[contains(text(),'Bekijk volledige vergelijking')]
+  regExp: (.*)
+  regExpReplace: 'Yes'
+  defaultValue: 'No'
