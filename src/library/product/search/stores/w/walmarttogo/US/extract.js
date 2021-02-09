@@ -99,6 +99,7 @@ async function implementation (
       const query = {};
       window.location.search.split(/&/).forEach(elm => { query[elm.match(/^[^=]+/)[0]] = elm.match(/[^=]+$/)[0]; });
       let nextLink = 'stop';
+      // @ts-ignore
       const totalCount = Number(document.querySelector('[class="totalCount"]').innerText);
       if (totalCount < (Number(query['?count']) * Number(query.page))) {
         return nextLink;

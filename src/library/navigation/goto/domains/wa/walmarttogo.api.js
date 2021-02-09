@@ -74,7 +74,7 @@ module.exports = {
     };
 
     const lastResponseData = await context.goto(url, {
-      firstRequestTimeout: 40000,
+      firstRequestTimeout: 4000000,
       timeout,
       waitUntil: 'load',
       checkBlocked: true,

@@ -3,33 +3,9 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //td[@class="products"]/table/tbody/tr
 fields:
-#   - name: paid
-#     singleValue: false
-#     description: Whether this is a sponsored/paid result
-#     type: BOOLEAN
-#   - name: brand
-#     singleValue: false
-#     description: The brand name
-#     example: Panasonic
-#   - name: category
-#     singleValue: false
-#     description: The categories (e.g. from breadcrumbs)
-#     example: ["Dental Care","Toothbrushes & Accessories","Electric Toothbrushes & Accessories","Electric Toothbrushes","Rotating"]
-#   - name: productUrl
-#     singleValue: false
-#     description: The URL for the product details page
-#     xpath: ./@id
-#     regExp: (?:item-(\d+))$
-#     regExpReplace: https://grocery.walmart.com/product/$1
   - name: searchUrl
     singleValue: false
     xpath: ancestor::html//a[@id='currentPage']/@href
-#   - name: thumbnail
-#     singleValue: false
-#     description: The URL for the product thumbnail image
-#     xpath: //a//div[@data-automation-id="imageLinkChildren"]//img/@src
-#     regExp: (^[^?]*)
-#     regExpReplace: $1
   - name: name
     singleValue: false
     description: The product name
@@ -52,16 +28,7 @@ fields:
     singleValue: false
     description: Product Id
     xpath: //td[@class="products"]/table/tbody/tr/td[@class="USItemId"]
-  - name: displayUnitPrice
-    singleValue: false
-    description: display unit price
-    xpath: //td[@class="price"]/table/tbody/tr/td[@class="displayUnitPrice"]
-  - name: displayPrice
+  - name: price
     singleValue: false
     description: display Price
     xpath: //td[@class="price"]/table/tbody/tr/td[@class="displayPrice"]
-  - name: salesQuantity
-    singleValue: false
-    description: sales Quantity
-    xpath: //td[@class="price"]/table/tbody/tr/td[@class="salesQuantity"]  
-    
