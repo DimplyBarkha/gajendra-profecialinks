@@ -7,11 +7,11 @@ fields:
     singleValue: false
     xpath: //h3[@itemprop="name"]/a/text()
     regExp: (.+)([^\d,-])
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: false
-    xpath: //div[@class="NETREVIEWS_PRODUCT_STARS"]//text()
-    regExp: (\d\.\d)
-    type: NUMBER
+    xpath: //html//div[@class='rating']
+    # regExp: (\d\.\d)
+    # type: NUMBER
   - name: price
     singleValue: false
     xpath: //span[@class="price-new"]//text()
