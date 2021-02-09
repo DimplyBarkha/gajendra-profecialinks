@@ -14,7 +14,8 @@ fields:
   - name: alternateImages
     # singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: (//div[@class='swiper-slide swiper-slide-next']//img[@class='product-page__image-slider-thumb']/@src | (//div[@class='swiper-wrapper'])[1]//div/img/@src)
+    xpath: //div[contains(@class,'product-page__image-slider')]//div[contains(@class,'swiper-slide') and not(contains(@class,'active'))]/img/@src
+    # (//div[@class='swiper-slide swiper-slide-next']//img[@class='product-page__image-slider-thumb']/@src | (//div[@class='swiper-wrapper'])[1]//div/img/@src)
   - name: metaKeywords
     # singleValue: true
     description: The <meta> keywords content
@@ -47,13 +48,14 @@ fields:
       should be "In Stock"
     xpath: (//div[@class='product-stock'])[1]/span[2]/b
     regExp: (.+)
-    regExpReplace: In Stock
+    regExpReplace: In stock
     defaultValue: Out of Stock
   - name: description
     # singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class='read-more js-readMore']/p/text()
+    xpath: //html//div[@class='description']
+    # //div[@class='read-more js-readMore']/p/text()
   - name: descriptionBullets
     # singleValue: true
     description: Number of ul > li tags in the description
@@ -110,15 +112,16 @@ fields:
     # singleValue: true
     description: The number of ratings
     type: NUMBER
-    xpath: //a[@class='product-page__header-rating-count']/span[2]
+    xpath: //html//div[@class='reviewCount']
+    # //a[@class='product-page__header-rating-count']/span[2]
   - name: aggregateRatingText
     # singleValue: true
     description: The stated aggregate rating
   - name: aggregateRating
     # singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
-    xpath: //html//div[@id='agg']
+    # type: NUMBER
+    xpath: //html//div[@class='aggrating']
   - name: shippingInfo
     # singleValue: true
     description: Shipping information for the product
@@ -242,7 +245,7 @@ fields:
   - name: secondaryImageTotal
     # singleValue: true
     description: null
-    xpath: count(//div[@class='swiper-slide swiper-slide-next']//img[@class='product-page__image-slider-thumb']/@src | (//div[@class='swiper-wrapper'])[1]//div/img/@src)
+    xpath: count(//div[contains(@class,'product-page__image-slider')]//div[contains(@class,'swiper-slide') and not(contains(@class,'active'))]/img/@src)
     type: NUMBER
   - name: news
     # singleValue: true

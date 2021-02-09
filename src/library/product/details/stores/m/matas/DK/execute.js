@@ -6,7 +6,7 @@ module.exports = {
     store: 'matas',
     domain: 'matas.dk',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//span[@class="color-positive-text"]',
     zipcode: '',
   },
 };
