@@ -1,11 +1,15 @@
 const { transform } = require('../../../../shared');
 
-async function implementation (inputs, parameters, context, dependencies) {
+async function implementation(inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
   await context.evaluate(async () => {
-    function addElementToDocument (key, value) {
+    for (let i = 0; i <= document.body.scrollHeight; i = i + 500) {
+      window.scrollBy({ top: i, left: 0, behavior: 'smooth' });
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+    }
+    function addElementToDocument(key, value) {
       const catElement = document.createElement('div');
       catElement.id = key;
       catElement.textContent = value;
@@ -41,9 +45,7 @@ async function implementation (inputs, parameters, context, dependencies) {
         }
       }
     });
-  });
 
-  await context.evaluate(async () => {
     // add rank
     var products = document.querySelectorAll(
       'ul[class="productList"] div[class="productInfo"]');
@@ -51,18 +53,22 @@ async function implementation (inputs, parameters, context, dependencies) {
     products.forEach((element, index) => {
       element.setAttribute('rank', (index + 1).toString());
     });
-
-    // add id
-    var ids = document.querySelectorAll('ul[class="productList"] a[class="productMainImage"]');
-    ids.forEach((element) => {
-      const imgSrc = element.querySelector('img').getAttribute('src');
-      const regex = /(?<=very\/)(.*)(?=_SQ)/g;
-      const id = imgSrc.match(regex).toString();
-      if (id) {
-        element.setAttribute('id', id);
-      }
-    });
   });
+
+  // await context.evaluate(async () => {
+
+
+  // add id
+  // var ids = document.querySelectorAll('a[class="productMainImage"]');
+  // ids.forEach((element) => {
+  //   const imgSrc = element.querySelector('img').getAttribute('src');
+  //   const regex = /(?<=very\/)(.*)(?=_SQ)/g;
+  //   const id = imgSrc.match(regex).toString();
+  //   if (id) {
+  //     element.setAttribute('id', id);
+  //   }
+  // });
+  // });
 
   return await context.extract(productDetails, { transform });
 }
