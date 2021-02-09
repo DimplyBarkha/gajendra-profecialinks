@@ -30,26 +30,30 @@ async function implementation (inputs, parameters, context, dependencies) {
   // after the search results page and checking loadedSelector and noResultsXPath
   // changing language
   await context.evaluate(async () => {
-    const lang = document.querySelector('div[class*="langNav"] a[href="#"]');
-    if (lang !== null) {
-      // @ts-ignore
-      lang.click();
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-    };
+    const languageOnPage = document.querySelector('html[lang][class]')
+      ? document.querySelector('html[lang][class]').getAttribute('lang') : null;
+    if (languageOnPage.includes('en')) {
+      const lang = document.querySelector('div[class*="langNav"] a[href="#"]');
+      if (lang !== null) {
+        // @ts-ignore
+        lang.click();
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+      };
 
-    const langOpt = document.querySelector('label[for="de-m"]');
-    if (langOpt !== null) {
-      // @ts-ignore
-      langOpt.click();
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-    };
+      const langOpt = document.querySelector('label[for="de-m"]');
+      if (langOpt !== null) {
+        // @ts-ignore
+        langOpt.click();
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+      };
 
-    const langSave = document.querySelector('div[class*="modal"] button[class*="_buttonPrimary"]');
-    if (langSave !== null) {
-      // @ts-ignore
-      langSave.click();
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-    };
+      const langSave = document.querySelector('div[class*="modal"] button[class*="_buttonPrimary"]');
+      if (langSave !== null) {
+        // @ts-ignore
+        langSave.click();
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+      };
+    }
   });
   await new Promise((resolve) => setTimeout(resolve, 1500));
   const currentUrl = await context.evaluate(async () => {
@@ -69,7 +73,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     await context.goto(`https://www.zalando.de/damen/?q=${searchTerm}`);
     await new Promise((resolve) => setTimeout(resolve, 2000));
   }
-  if ((currentUrl.includes('?q=wimpern') || currentUrl.includes('?q=highlighter') || currentUrl.includes('?q=Augenbrauen') || currentUrl.includes('beauty-augenbrauen/?q=') || currentUrl.includes('?q=concealer')) && !currentUrl.includes('?q=concealer+hell') && !currentUrl.includes('?q=wimperntusche') && !currentUrl.includes('?q=wimpernserum') && !currentUrl.includes('?q=wachstum')) {
+  if ((currentUrl.includes('?q=lippenstift') || currentUrl.includes('?q=Lidschatten') || currentUrl.includes('?q=foundation') || currentUrl.includes('?q=wimpern') || currentUrl.includes('?q=highlighter') || currentUrl.includes('?q=Augenbrauen') || currentUrl.includes('beauty-augenbrauen/?q=') || currentUrl.includes('?q=concealer')) && !currentUrl.includes('?q=concealer+hell') && !currentUrl.includes('?q=wimperntusche') && !currentUrl.includes('?q=wimpernserum') && !currentUrl.includes('?q=wachstum')) {
     await context.goto(`https://www.zalando.de/alle/?q=${searchTerm}`);
     await new Promise((resolve) => setTimeout(resolve, 2000));
   }
