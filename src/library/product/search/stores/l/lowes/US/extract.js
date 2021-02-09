@@ -20,9 +20,14 @@ async function implementation (inputs, parameters, context, dependencies) {
       await context.waitForSelector('span#store-search-handler');
       await context.evaluate(async function () {
         const storeButton = document.querySelector('span#store-search-handler');
+        const storeButtonTwo = document.querySelector('span.styles__StoreNameWrapper-RC__sc-vrpk8j-0 span');
         if (storeButton) {
           // @ts-ignore
           storeButton.click();
+        } else {
+          if (storeButtonTwo) {
+            storeButtonTwo.click();
+          }
         }
       });
       await context.evaluate(async function () {

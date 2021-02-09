@@ -23,6 +23,7 @@ module.exports = {
         waitUntil: 'load',
         checkBlocked: true,
       });
+      await new Promise((resolve, reject) => setTimeout(resolve, 1500));
     } else {
       const newUrl = `${url}#SP_ACPage`;
       await context.goto(newUrl, {
