@@ -7,7 +7,7 @@ module.exports = {
     domain: 'totalwine.com',
     url: 'https://www.totalwine.com/search/all?text={searchTerms}',
     loadedSelector: 'a[class="productImg__3fOOgAmO"] > picture > img',
-    noResultsXPath: '//p[@class="resultsTitle__2yxTXNeW"]/span',
+    noResultsXPath: '//p[@class="resultsTitle__2yxTXNeW"]/span | //p[contains(text(), "Not available")] | //main[contains(@class, "superTemplate")]',
     zipcode: '95825',
   },
 };
