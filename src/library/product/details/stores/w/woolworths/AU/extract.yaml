@@ -46,7 +46,6 @@ fields:
   - name: directions
     singleValue: false
     xpath: //h3[text()='Directions']/parent::section[contains(@class,'directions')]//wow-view-more//div[contains(@class,'viewMore-')]//div//text()
-    defaultValue: "null"
   - name: warnings
     singleValue: false
     xpath: //h3[text()='Product Warnings']/parent::section[contains(@class,'product-warnings')]//div[contains(@class,'viewMore-')]//div//text()
@@ -74,19 +73,37 @@ fields:
   - name: totalFatPerServing
     singleValue: false
     xpath: //wow-product-details-nutrition-table//ul//li[contains(.,'Fat')]//following-sibling::li[2]
+  - name: totalFatPerServingUom
+    singleValue: false
+    xpath: //wow-product-details-nutrition-table//ul//li[contains(.,'Fat')]//following-sibling::li[2]
   - name: saturatedFatPerServing
+    singleValue: false
+    xpath: //wow-product-details-nutrition-table//ul//li[contains(.,'saturated')]//following-sibling::li[1]
+  - name: saturatedFatPerServingUom
     singleValue: false
     xpath: //wow-product-details-nutrition-table//ul//li[contains(.,'saturated')]//following-sibling::li[1]
   - name: sodiumPerServing
     singleValue: false
     xpath: //wow-product-details-nutrition-table//ul//li[contains(.,'Sodium')]//following-sibling::li[1]
+  - name: sodiumPerServingUom
+    singleValue: false
+    xpath: //wow-product-details-nutrition-table//ul//li[contains(.,'Sodium')]//following-sibling::li[1]
   - name: totalCarbPerServing
+    singleValue: false
+    xpath: //wow-product-details-nutrition-table//ul//li[contains(.,'Carbohydrate')]//following-sibling::li[1]
+  - name: totalCarbPerServingUom
     singleValue: false
     xpath: //wow-product-details-nutrition-table//ul//li[contains(.,'Carbohydrate')]//following-sibling::li[1]
   - name: totalSugarsPerServing
     singleValue: false
     xpath: //wow-product-details-nutrition-table//ul//li[contains(.,'– sugars')]//following-sibling::li[2]
+  - name: totalSugarsPerServingUom
+    singleValue: false
+    xpath: //wow-product-details-nutrition-table//ul//li[contains(.,'– sugars')]//following-sibling::li[2]
   - name: proteinPerServing
+    singleValue: false
+    xpath: //wow-product-details-nutrition-table//ul//li[contains(.,'Protein')]//following-sibling::li[1]
+  - name: proteinPerServingUom
     singleValue: false
     xpath: //wow-product-details-nutrition-table//ul//li[contains(.,'Protein')]//following-sibling::li[1]
   - name: promotion
@@ -97,7 +114,7 @@ fields:
     xpath: //h3[text()='Allergen']//following-sibling::wow-view-more//div[contains(@class,'viewMore-')]//div//text()
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//h2[text()='Product Details']/following-sibling::wow-view-more//div[contains(@class,'viewMore-')]//div//p[starts-with(text(), '-')])
+    defaultValue: "0"
   - name: listPrice
     singleValue: false
     xpath: //wow-product-details-panel//shared-price//div[contains(@class,'price-was price--large ng-star-inserted')]//text()
@@ -111,3 +128,15 @@ fields:
   - name: countryOfOrigin
     singleValue: false
     xpath: //wow-product-details-labels//div[contains(@class,'labels ng-star-inserted')]//div[contains(@class,'country-of-original ng-star-inserted')]//img[contains(@class,'country-of-original-image ng-star-inserted')]/@alt | //wow-product-details-labels//div[contains(@class,'labels ng-star-inserted')]//div[contains(@class,'country-of-original ng-star-inserted')]//span[contains(@class,"ng-star-inserted")]
+  - name: legalDisclaimer
+    singleValue: false
+    xpath: //section[@class="disclaimer"]//div[not(@class)]//text()
+  - name: termsAndConditions
+    singleValue: false
+    defaultValue: "Yes"
+  - name: privacyPolicy
+    singleValue: false
+    defaultValue: "Yes"
+  - name: customerServiceAvailability
+    singleValue: false
+    defaultValue: "Yes"

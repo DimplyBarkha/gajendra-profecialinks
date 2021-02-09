@@ -166,6 +166,19 @@ const transform = (data) => {
           item.text = item.text.replace('Approx.', '').trim();
           item.text = item.text.replace(/,.*/, '');
           item.text = item.text.split(":").pop();
+          item.text = item.text.split("g").join("").trim();
+          item.text = item.text.replace('<', '');
+        });
+      }
+      if (row.totalFatPerServingUom) {
+        row.totalFatPerServingUom.forEach(item => {
+          item.text = item.text.replace(/(\s*)+/g, '').trim();
+          item.text = item.text.replace('Approx.', '').trim();
+          item.text = item.text.replace(/,.*/, '');
+          item.text = item.text.split(":").pop();
+          item.text = item.text.replace('<', '');
+          item.text = item.text.replace(/[0-9]/g, '');
+          item.text = item.text.replace('.', '');
         });
       }
       if (row.totalSugarsPerServing) {
@@ -175,6 +188,7 @@ const transform = (data) => {
           item.text = item.text.replace(/,.*/, '');
           item.text = item.text.replace('<', '');
           item.text = item.text.split(":").pop();
+          item.text = item.text.split("g").join("").trim();
         });
       }
       if (row.totalCarbPerServing) {
@@ -258,9 +272,65 @@ const transform = (data) => {
           item.text = item.text.replace(/,.*/, '');
         });
       }
+      if (row.sodiumPerServingUom) {
+        row.sodiumPerServingUom.forEach(item => {
+          item.text = item.text.replace(/(\s*)+/g, '').trim();
+          item.text = item.text.replace('Approx.', '').trim();
+          item.text = item.text.replace(/,.*/, '');
+          item.text = item.text.split(":").pop();
+          item.text = item.text.replace('<', '');
+          item.text = item.text.replace(/[0-9]/g, '');
+          item.text = item.text.replace('.', '');
+        });
+      }
+      if (row.totalCarbPerServingUom) {
+        row.totalCarbPerServingUom.forEach(item => {
+          item.text = item.text.replace(/(\s*)+/g, '').trim();
+          item.text = item.text.replace('Approx.', '').trim();
+          item.text = item.text.replace(/,.*/, '');
+          item.text = item.text.split(":").pop();
+          item.text = item.text.replace('<', '');
+          item.text = item.text.replace(/[0-9]/g, '');
+          item.text = item.text.replace('.', '');
+        });
+      }
+      if (row.totalSugarsPerServingUom) {
+        row.totalSugarsPerServingUom.forEach(item => {
+          item.text = item.text.replace(/(\s*)+/g, '').trim();
+          item.text = item.text.replace('Approx.', '').trim();
+          item.text = item.text.replace(/,.*/, '');
+          item.text = item.text.split(":").pop();
+          item.text = item.text.replace('<', '');
+          item.text = item.text.replace(/[0-9]/g, '');
+          item.text = item.text.replace('.', '');
+        });
+      }
+      if (row.proteinPerServingUom) {
+        row.proteinPerServingUom.forEach(item => {
+          item.text = item.text.replace(/(\s*)+/g, '').trim();
+          item.text = item.text.replace('Approx.', '').trim();
+          item.text = item.text.replace(/,.*/, '');
+          item.text = item.text.split(":").pop();
+          item.text = item.text.replace('<', '');
+          item.text = item.text.replace(/[0-9]/g, '');
+          item.text = item.text.replace('.', '');
+        });
+      }
+      if (row.saturatedFatPerServingUom) {
+        row.saturatedFatPerServingUom.forEach(item => {
+          item.text = item.text.replace(/(\s*)+/g, '').trim();
+          item.text = item.text.replace('Approx.', '').trim();
+          item.text = item.text.replace(/,.*/, '');
+          item.text = item.text.split(":").pop();
+          item.text = item.text.replace('<', '');
+          item.text = item.text.replace(/[0-9]/g, '');
+          item.text = item.text.replace('.', '');
+        });
+      }
       if (row.saturatedFatPerServing) {
         row.saturatedFatPerServing.forEach(item => {
           item.text = item.text.split("g").join("").trim();
+          item.text = item.text.replace('<', '');
         });
       }
     }
