@@ -3,11 +3,11 @@ const { implementation, dependencies } = require('./amazon');
 module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
-    domain: 'amazon.de',
-    timeout: 50000,
-    country: 'DE',
+    domain: 'amazon.co.jp',
+    timeout: 500000,
+    country: 'JP',
     store: 'amazon',
-    // store: 'amazonApparel',
+    zipcode: '',
   },
   implementation,
   dependencies,

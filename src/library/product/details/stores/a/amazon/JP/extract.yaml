@@ -1,0 +1,28 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id="dp"]
+fields:
+  - name: manufacturer
+    xpath: ancestor::html//a[@id="bylineInfo"]
+    regExp: Brand\:\ (.*)
+    regExpReplace: $1
+  - name: colour
+  - name: flavour
+  - name: image
+    xpath: //div[@id="imgTagWrapperId"]/img/@src
+  - name: pageTitle
+    xpath: ancestor::html//meta[@name="title"]/@content
+  - name: category
+    #xpath: //ul[contains(@class,"a-unordered-list")]//li/span[@class="a-list-item"]/a/text()
+  - name: subCategory
+    #xpath: //ul[contains(@class,"a-unordered-list")]//li[last()]/span[@class="a-list-item"]/a/text()
+  - name: reviewCount
+    xpath: (//span[@id="acrCustomerReviewText"])[1]
+    regExp: (.*) ratings
+    regExpReplace: $1
+  - name: pageOffset
+  - name: sku
+    xpath: ancestor::html//link[@rel="canonical"]/@href
+    regExp: /dp/(.*)
+    regExpReplace: $1

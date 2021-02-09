@@ -1,0 +1,21 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@data-hook="review"]
+fields:
+  - name: helpfulCount
+    xpath: //span[@data-hook="helpful-vote-statement"]
+    regExp: (.*) persone
+    regExpReplace: $1
+  - name: reviewRating
+    xpath: //i[@data-hook="review-star-rating"]/span
+    regExp: (.*) su
+    regExpReplace: $1
+  - name: reviewDate
+    xpath: //span[@data-hook="review-date"]
+    regExp: il (.*)
+    regExpReplace: $1
+  - name: reviewText
+    xpath: //span[@data-hook="review-body"]/span
+  - name: reviewTitle
+    xpath: //a[@data-hook="review-title"]/span

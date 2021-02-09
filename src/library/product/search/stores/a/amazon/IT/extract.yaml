@@ -1,0 +1,19 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"s-main-slot")]/div[@data-component-type="s-search-result"]
+fields:
+  - name: manufacturer
+  - name: name
+    singleValue: true
+    xpath: //span[@dir="auto"]
+  - name: productUrl
+    xpath: //div[contains(@class,"a-spacing-top-small")]/h2/a/@href
+    regExp: (.+)\?
+    regExpReplace: https://www.amazon.it$1
+  - name: reviewCount
+    xpath: //span[@class="a-size-base" and contains(@dir,"auto")]
+  - name: sku
+    xpath: //div[contains(@class,"a-spacing-top-small")]/h2/a/@href
+    regExp: dp/(.*)/
+    regExpReplace: $1

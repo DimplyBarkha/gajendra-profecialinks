@@ -34,8 +34,10 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { id, date, keywords, page, offset } = inputs;
+  const { inputUrl, id, date, keywords, page, offset } = inputs;
   const { nextPageUrlSelector, stopConditionSelectorOrXpath, nextLinkSelector, loadedSelector, noResultsXPath, mutationSelector, loadedXpath, resultsDivSelector, dateSelector, datePattern, dateReplacePattern, spinnerSelector, openSearchDefinition, nextLinkXpath } = parameters;
+
+  //const { stopConditionSelectorOrXpath, nextLinkSelector, loadedSelector, noResultsXPath, mutationSelector, loadedXpath, resultsDivSelector, spinnerSelector, openSearchDefinition, nextLinkXpath } = parameters;
 
   let nextLink;
 
@@ -119,11 +121,15 @@ async function implementation (
   }, [nextPageUrlSelector, 'head link[rel="next"]']);
 
   if (!url && openSearchDefinition) {
-    const { pageStartNb = 1, indexOffset, pageOffset, pageIndexMultiplier, template } = openSearchDefinition;
+    const { pageStartNb = 1, indexOffset, pageOffset, pageIndexMultiplier, template, regexStr } = openSearchDefinition;
     const pageNb = page + pageStartNb - 1;
+    let idFromUrl;
+    if (inputUrl && regexStr) {
+      idFromUrl = inputUrl.match(new RegExp(regexStr))[0];
+    }
     url = template
       .replace(/{searchTerms}/g, encodeURIComponent(keywords))
-      .replace(/{id}/g, encodeURIComponent(id))
+      .replace(/{id}/g, encodeURIComponent(id || idFromUrl))
       .replace(/{date}/g, encodeURIComponent(date))
       .replace(/{page}/g, (pageNb + (pageOffset || 0)).toString())
       .replace(/{index}/g, (pageNb * (pageIndexMultiplier || 0)).toString())

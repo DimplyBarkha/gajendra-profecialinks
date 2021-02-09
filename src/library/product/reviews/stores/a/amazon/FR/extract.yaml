@@ -1,0 +1,64 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: div[data-hook='review']
+recordXPath: //div[@data-hook="review"]
+fields:
+  - name: brand
+    singleValue: false
+    description: Product brand shown - this may actually NOT be just a brand name e.g. "Visit the Gillette Store"
+    xpath: ancestor::html//div[contains(@class, 'product-by-line')]//span//a[contains(@class, 'a-size-base')]
+  - name: colour
+    singleValue: //div[contains(@class, 'review-data')]//a[contains(@class,'a-color-secondary')]
+  - name: reviewText
+    singleValue: false
+    description: The text of the review
+    xpath: //span[@data-hook='review-body']
+  - name: reviewTitle
+    singleValue: false
+    description: The title of the review
+    xpath: //a[@data-hook='review-title']//span | //span[@data-hook='review-title']
+  - name: mediaURL
+    description: product media url
+    xpath: ancestor::html//div[@id='cm_cr-product_info']//div[contains(@class, 'product-image')]//img/@src
+  - name: location
+    description: reviewer location
+    defaultValue: FR
+  - name: helpful
+    description: Number of people who said the review was helpful
+    xpath: //span[@data-hook='helpful-vote-statement']
+  - name: verifiedPurchase
+    description: Whether this of an item the reviewer purchased. "Yes" if true else ""
+    xpath: //span[@data-hook='avp-badge']
+  - name: aggregateRating
+    description: The product rating
+    xpath: ancestor::html//div[contains(@class, 'AverageCustomerReviews')]//span[@data-hook='rating-out-of-text']
+  - name: pageTitle
+    description: The url of the page title
+    xpath: ancestor::html//body/title
+  - name: sourceUrl
+    description: The url of the product url
+    xpath: ancestor::html//div[contains(@class,'product-title')]//a[@data-hook="product-link"]/@href
+  - name: name
+    description: The product name
+    xpath: ancestor::html//div[contains(@class,'product-title')]//a[@data-hook="product-link"]
+  - name: sku
+    singleValue: false
+    description: The store-specific product identifier
+    xpath: ancestor::html//link[@rel="canonical"]/@href
+  - name: commentCount
+    type: NUMBER
+    description: Number of comments on the review
+  - name: reviewDate
+    description: Date the review was made
+    xpath: //span[@data-hook='review-date']
+  - name: rating
+    description: The product rating
+    xpath: //a[@class='a-link-normal']/@title | //i[@data-hook='cmps-review-star-rating']//span
+  - name: user
+    description: The user name of the reviewer
+    xpath: //div[@data-hook='genome-widget']//div[@class='a-profile-content']
+  - name: flavour
+  - name: productFamily
+    xpath: ancestor::html//div[@id='custom_details']/@productFamily
+  - name: productRange
+    xpath: ancestor::html//div[@id='custom_details']/@productRange
