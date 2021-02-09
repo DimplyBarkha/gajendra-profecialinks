@@ -16,6 +16,20 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
       return result && result.trim ? result.trim() : result;
     };
 
+    const getAllXpath = (xpath, prop) => {
+      const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      const result = [];
+      for (let index = 0; index < nodeSet.snapshotLength; index++) {
+        const element = nodeSet.snapshotItem(index);
+        if (element) result.push(prop ? element[prop] : element.nodeValue);
+      }
+      return result;
+    };
+
+    const promotionText = getAllXpath('//div[@class="productPage__price"]//p[@class="productPriceInfo__saleInfo"] | //div[@class="productPage__price"]//p[@class="productPriceInfo__details"]', 'innerText');
+    if (promotionText && promotionText.length > 0) {
+      addElementToDocument('added_promotion', promotionText.join(' '));
+    }
     const ServingSize = getXpath('//div[@id="nutrionFacts"]//div//label[contains(text(),"Serving Size")]/following-sibling::span', 'innerText');
     const ServingPerContainer = getXpath('//div[@id="nutrionFacts"]//div//label[contains(text(),"Per Container")]/following-sibling::span | //div[@id="nutrionFacts"]//div//label[contains(text(),"Per Container")]/preceding-sibling::span', 'innerText');
     const Calories = getXpath('//div[@id="nutrionFacts"]//div//label[contains(text(),"Calories")]/following-sibling::span[1]', 'innerText');
