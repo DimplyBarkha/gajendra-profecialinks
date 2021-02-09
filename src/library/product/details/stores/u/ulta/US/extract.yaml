@@ -6,6 +6,15 @@ fields:
   - name: image
     singleValue: false
     xpath: //div[@id='my-variants']/@image
+  - name: variantId
+    singleValue: false
+    xpath: //div[@id='my-variants']/@sku
+    regExp: >-
+      [0-9]+
+    # xpath: ancestor::html//div[@class="ProductMainSection__itemNumber"]
+    # manualSelector: div.ProductMainSection__itemNumber
+    # regExp: Item\s*(.*)
+    # regExpReplace: $1
   - name: sku
     singleValue: false
     xpath: //div[@id='my-variants']/@sku
@@ -88,12 +97,6 @@ fields:
   - name: gtin
     singleValue: false
     xpath: ancestor::html//div[@data-gtin]/@data-gtin
-  - name: variantId
-    singleValue: false
-    xpath: ancestor::html//div[@class="ProductMainSection__itemNumber"]
-    # manualSelector: div.ProductMainSection__itemNumber
-    regExp: Item\s*(.*)
-    regExpReplace: $1
   - name: variantCount
     singleValue: false
     xpath: count(ancestor::html//div[@class="ProductSwatches__Cell"])
