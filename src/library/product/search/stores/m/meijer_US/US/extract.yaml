@@ -1,14 +1,14 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class="product-item"]
 fields:
  - name: id
    singleValue: false
    xpath: //input[@name='productCodePost']/@value
- - name: rankOrganic
-   singleValue: false
-   #xpath: //div[@id="rank1"]/text()
+#  - name: rankOrganic
+#    singleValue: false
+#    #xpath: //div[@id="rank1"]/text()
  - name: name
    singleValue: false
    xpath: //div[@class="tile-column details"]//a[@class="h7"]
@@ -23,26 +23,26 @@ fields:
  - name: thumbnail
    singleValue: false
    xpath: //div[@class="tile-row details-container"]//a//img/@src
- - name: url
-   singleValue: false
- - name: aggregateRating
-   singleValue: false
- - name: reviewCount
-   singleValue: false
+#  - name: url
+#    singleValue: false
+#  - name: aggregateRating
+#    singleValue: false
+#  - name: reviewCount
+#    singleValue: false
  - name: price
    singleValue: true
-   selector: div.display-price span:nth-child(2),div.display-price.sale-price
- - name: manufacturer
-   singleValue: false
- - name: soldBy
-   singleValue: false
- - name: rank
-   singleValue: false
-   #xpath: //div[@id="rank1"]/text()
- - name: endorsementText
-   singleValue: false
- - name: ratingCount
-   singleValue: false
+   xpath: //div[@id='price']
+#  - name: manufacturer
+#    singleValue: false
+#  - name: soldBy
+#    singleValue: false
+#  - name: rank
+#    singleValue: false
+#    #xpath: //div[@id="rank1"]/text()
+#  - name: endorsementText
+#    singleValue: false
+#  - name: ratingCount
+#    singleValue: false
  - name: searchUrl
    singleValue: false
    xpath: ancestor::html//div[@id="pd_url"]

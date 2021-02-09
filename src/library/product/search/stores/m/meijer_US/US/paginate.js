@@ -14,8 +14,9 @@ module.exports = {
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
     openSearchDefinition: {
+      pageStartNb: 0,
       template: 'https://www.meijer.com/shop/en/search/?q={searchTerms}&page={page}',
-    },
+      },
     domain: 'meijer.com',
     zipcode: '',
   },
