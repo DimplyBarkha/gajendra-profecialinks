@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="page-detail"]
+recordXPath: //div[@class="fp-productList_detail"]
 fields:
   - name: image 
     xpath: ancestor::html//div[@class='fp-productList_image']/img/@src
@@ -14,7 +14,7 @@ fields:
   - name: nameExtended
     xpath: ancestor::html//div[@class='fp-productList_info']/h5[@class='fp-productList_productName']/text()  
   - name: availabilityText
-    xpath: (ancestor::html//div[@class="fp-productList_action"]/img/@src)[1]
+    xpath: //div[@class="fp-productList_action"]/img/@src
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: OutOfStock
@@ -23,11 +23,11 @@ fields:
   - name: brandText
     xpath: ancestor::html//div[@class="fp-pagination"]/@data-brand-name
   - name: quantity
-    xpath: ancestor::html//div[@class="fp-productList_bottleInfo"]/text()
+    xpath: //div[@class="fp-productList_bottleInfo"]/text()
   - name: variantId
-    xpath: ancestor::html//div[@class="fp-productList_content"]/div/@data-article 
+    xpath: //div[@class="fp-productList_content"]/div/@data-article 
   - name: variantInformation
-    xpath: ancestor::html//div[@class="fp-productList_bottleInfo"]/text()
+    xpath: //div[@class="fp-productList_bottleInfo"]/text()
   - name: variantCount
     type: NUMBER
     xpath: count(//div[@class='fp-productList_bottleDetails'])
@@ -35,9 +35,9 @@ fields:
     xpath: ancestor::html//div[@class='fp-productList_info']/h5[@class='fp-productList_productName']
   - name: price
     type: CURRENCY
-    xpath: ancestor::html//b[@class="fp-price-is-special-offer"]/text()
+    xpath: //b[@class="fp-price-is-special-offer"]/text()
   - name: ingredientsList
-    xpath: ancestor::html//div[@class="swiper-wrapper"]//p[2]/text()
+    xpath: //div[@class="swiper-wrapper"]//p[2]/text()
   - name: manufacturer
     xpath: ancestor::html//div[@id="fp-zip-check-modal"]//p[@class='fontMedium']
   - name: caloriesPerServing
