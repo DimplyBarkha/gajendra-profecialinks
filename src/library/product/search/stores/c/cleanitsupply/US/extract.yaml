@@ -6,7 +6,7 @@ fields:
   - name: productUrl
     xpath: //a[@class="product-page-link"]/@href
     regExp: (.+)
-    regExpReplace: https://www.cleanitsupply.com/$1
+    regExpReplace: https://www.cleanitsupply.com$1
     singleValue: false    
   - name: thumbnail
     xpath: //a[@class="product-page-link"]//img/@src
@@ -27,9 +27,9 @@ fields:
     singleValue: false
     regExp: \(([^)]*)\)[^(]*$
     regExpReplace: $1
-  - name: id1
-    xpath: //input[@name="SKU"]/@value
-    singleValue: false  
+  # - name: id1
+  #   xpath: //input[@name="SKU"]/@value
+  #   singleValue: false  
   - name: rank
   - name: rankOrganic
   - name: sponsored
