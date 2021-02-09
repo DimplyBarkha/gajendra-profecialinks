@@ -23,8 +23,8 @@ fields:
     xpath: (ancestor::html//div[@id="schema-offer"]/div[3]/meta[@itemprop='gtin13']/@content)[1]
   - name: description
     singleValue: true
-    #xpath: //html//div[@id='desc']
-    xpath: ancestor::html(//div[@class='footer-content']/div[1])
+    xpath: ancestor::html//div[@id='d2']
+    # xpath: ancestor::html//div[@class='footer-content']/div[1]
   - name: price
     singleValue: true
     xpath: //*[@id="schema-offer"]//meta[@itemprop='price']/@content
@@ -50,7 +50,11 @@ fields:
     #xpath: //*[@id="right-column"]/div/meta/@content   
   - name: aggregateRating
     singleValue: true
-    xpath: ancestor::html//span[@itemprop="ratingValue"]
+    xpath: ancestor::html//div[@id="aggr"]
+    # xpath: ancestor::html//span[@itemprop="ratingValue"]
+  - name: ratingCount
+    singleValue: true
+    xpath: ancestor::html//span[@itemprop="reviewCount"]
   - name: category
     singleValue: false
     xpath: ancestor::html//div[@class="breadcrumb"]/div[position()>1 and position() < last()]/a/span/text()

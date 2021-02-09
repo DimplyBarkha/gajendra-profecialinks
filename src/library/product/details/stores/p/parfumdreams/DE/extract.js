@@ -105,6 +105,16 @@ module.exports = {
         }
         //addElementToDocument('name', name);
       }
+      var aggr = getXpath('//span[@itemprop="ratingValue"]/text()', 'nodeValue');
+      if (aggr != null) {
+        if (aggr.includes(",")) {
+          addElementToDocument('aggr', aggr);
+        } else {
+          var nwaggr = aggr + ',0';
+          addElementToDocument('aggr', nwaggr);
+        }
+        //addElementToDocument('name', name);
+      }
       var perunit = getXpath('(//*[@id="schema-offer"]/div[2]/p[1]/text())[1]', 'nodeValue');
       if (perunit != null) {
         var priceper = perunit.split("/")[0].split('GP: ')[1];
@@ -129,18 +139,33 @@ module.exports = {
       //     }
       //   }
       // }
+      // @ts-ignore
+      var d2 = document.querySelector('div[class="footer-content"]').innerText
+      if (d2 != null) {
+        addElementToDocument('d2', d2)
+      }
+
       var desc = []
 
       var units = getAllXpath('//div[@id="schema-offer"]/div[2]/div/div[1]/div/text()', 'nodeValue');
       // @ts-ignore
-      var name = document.querySelector("h1[class='article-header']").innerText
-      //var name= getXpath('//*[@id="right-column"]/div/div[1]/div/div[2]/div[1]/div[1]/h1', 'nodeValue');
-      for (var i = 0; i < units.length; i++) {
-        addHiddenDiv('desc', name + '- ' + units[i], i)
-        addHiddenDiv('qty', units[i], i)
+      var unitz = document.querySelectorAll('div[id="variationsdropdown"]>ul> li> a> img').innerText
+      if (units != null) {
+        // @ts-ignore
+        var name = document.querySelector("h1[class='article-header']").innerText
+        
+        for (var i = 0; i < units.length; i++) {
+          addHiddenDiv('desc', name + '- ' + units[i], i)
+          addHiddenDiv('qty', units[i], i)
+        }
+      }
+      else {
+        for (var i = 0; i < unitz.length; i++) {
+          addHiddenDiv('desc', name + '- ' + unitz[i], i)
+        }
       }
 
-      var currurl= window.location.href
+      var currurl = window.location.href
       addElementToDocument('currurl', currurl);
     });
 
