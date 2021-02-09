@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="productView__productTileRows"]//div[@class="nested_grid_content"]
+recordXPath: //div[@aria-label="Search Results"]//div[contains(@class, "grid__row")]/div
 fields:
   - name: id
     singleValue: false

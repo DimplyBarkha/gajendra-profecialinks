@@ -92,7 +92,7 @@ module.exports = {
     store: 'staplesadvantage',
     domain: 'staplesadvantage.com',
     url: 'https://www.staplesadvantage.com/search?term={searchTerms}',
-    loadedSelector: 'div.nested_grid_content',
+    loadedSelector: 'div[aria-label="Search Results"] div[class*="grid__row"] > div',
     noResultsXPath: '//p[@class="NullPage__tryAgainMessage"]',
     zipcode: '',
   },
