@@ -20,20 +20,42 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     const attributeOptions = await context.evaluate(async function () {
-      return window && window.__NUXT__ &&  window.__NUXT__.data[0] && window.__NUXT__.data[0].product && window.__NUXT__.data[0].product.attributeOptions ? window.__NUXT__.data[0].product.attributeOptions : null;
+      return window && window.__NUXT__ && window.__NUXT__.data[0] && window.__NUXT__.data[0].product && window.__NUXT__.data[0].product.attributeOptions ? window.__NUXT__.data[0].product.attributeOptions : null;
+    });
+    const singleSKU = await context.evaluate(async function () {
+      return window && window.__NUXT__ && window.__NUXT__.data[0] && window.__NUXT__.data[0].product && window.__NUXT__.data[0].product ? window.__NUXT__.data[0].product : null;
     });
 
-    await context.evaluate(async function (attributeOptions) {
-      if (attributeOptions) {
-        const attribute = document.querySelector(`ul.product-palette > li.product-palette__item:nth-child(1)`);
+    await context.evaluate(async function () {
+      const descrList = document.querySelectorAll('div[itemprop="description"] li');
+      [...descrList].forEach((ele) => {
+        ele.insertAdjacentHTML('afterbegin', '<span style="display: none">|| </div>');
+      });
+    });
+
+    await context.evaluate(async function (attributeOptions, singleSKU) {
+      function addHiddenDiv (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+      console.log('singleSKU dsdsd');
+      console.log(singleSKU)
+      const attribute = document.querySelector('ul.product-palette > li.product-palette__item:nth-child(1)');
+      if (attributeOptions && attribute) {
         const altImg = attribute ? attribute.querySelector('img').getAttribute('alt') : '';
         if (altImg.length) {
           const jsonData = attributeOptions[altImg];
           attribute.setAttribute('ii_variantId', jsonData && jsonData.product_id ? jsonData.product_id : '');
           attribute.setAttribute('ii_sku', jsonData && jsonData.productSku && jsonData.productSku[0] ? jsonData.productSku[0] : '');
         }
+      } else if (singleSKU) {
+        addHiddenDiv('ii_single_variantId', singleSKU && singleSKU.productId ? singleSKU.productId : '');
+        addHiddenDiv('ii_single_sku', singleSKU && singleSKU.productSku && singleSKU.productSku[0] ? singleSKU.productSku[0] : '');
       }
-    }, attributeOptions);
+    }, attributeOptions, singleSKU);
     await context.extract(productDetails, { transform });
     for (let index = 2; index <= variantCount; index++) {
       try {

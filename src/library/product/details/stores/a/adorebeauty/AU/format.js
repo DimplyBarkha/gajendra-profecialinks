@@ -32,6 +32,11 @@ const transform = (data, context) => {
         row.variantId = [{ text: arrIds[indexTemp] }];
         row.sku = [{ text: arrIds[indexTemp] }];
       }
+      if (row.sku) {
+        var arrSkus = row.sku[0].text.split(',');
+        arrSkus.length > 1 && arrSkus.splice(0, 1);
+        row.sku = [{ text: arrSkus[indexTemp] }];
+      }
       if (row.altVariantId) {
         row.variantId = [{ text: row.altVariantId[0].text }];
       }
@@ -43,7 +48,7 @@ const transform = (data, context) => {
         row.additionalDescBulletInfo.forEach(item => {
           arrBullets.push(item.text);
         });
-        row.additionalDescBulletInfo = [{ text: arrBullets.join(' || ') }];
+        row.additionalDescBulletInfo = [{ text: arrBullets.join(' ') }];
         row.descriptionBullets = [{ text: arrBullets.length }];
       }
       if (row.alternateImages) {

@@ -20,9 +20,9 @@ fields:
   - name: sku
     xpath: //meta[contains(@itemprop,'sku')]/@content
   - name: altVariantId
-    xpath: //button[contains(@class, "is-selected")]/ancestor::li/@ii_variantid
+    xpath: //button[contains(@class, "is-selected")]/ancestor::li/@ii_variantid|//div[@id="ii_single_variantId"]
   - name: altVariantSku
-    xpath: //button[contains(@class, "is-selected")]/ancestor::li/@ii_sku
+    xpath: //button[contains(@class, "is-selected")]/ancestor::li/@ii_sku|//div[@id="ii_single_sku"]
   - name: variantId
     xpath: //meta[contains(@itemprop,'productID')]/@content
     # regExp: child_product_id_i_mv=(.*?)\;
@@ -56,6 +56,7 @@ fields:
     defaultValue: Out Of Stock
   - name: description
     xpath: //div[@itemprop='description']
+    # xpath: //div[@itemprop='description']//*[not(self::li) and not(self::ul)]|//div[@itemprop='description']//ul/li
   - name: additionalDescBulletInfo
     xpath: //div[@itemprop='description']//ul/li
   - name: descriptionBullets
@@ -66,7 +67,7 @@ fields:
   - name: imageZoomFeaturePresent
     defaultValue: Yes
   - name: category
-    xpath: //ol[@class='vue-breadcrumb']//li[position()<last()]
+    xpath: //ol[@class='vue-breadcrumb']//li[position()<last() and position()>1]
   - name: videos
     xpath: //script[contains(text(),'videos_t_mv')]
     regExp: videos_t_mv=(\[.+?\])
