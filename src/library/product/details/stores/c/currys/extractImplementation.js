@@ -1,4 +1,4 @@
-const implementation = async({ id },
+const implementation = async ({ id },
     parameters,
     context,
     dependencies,
@@ -97,7 +97,7 @@ const implementation = async({ id },
     }
     const apiData = await context.evaluate(getApiData);
     await context.evaluate(addDynamicTable, apiData.payload, '#footer');
-    const optionalWaitForSelector = async(selector, timeout = 35000) => {
+    const optionalWaitForSelector = async (selector, timeout = 35000) => {
         try {
             await context.waitForSelector(selector, { timeout });
             console.log(`${selector} loaded.`);
@@ -119,7 +119,7 @@ const implementation = async({ id },
             return document.querySelector('div[data-open-label="Read more"] ~ .long-text-ctl a') && document.querySelector('div[data-open-label="Read more"] ~ .long-text-ctl a').innerText === 'Read more';
         });
         if (readMore) {
-            await context.evaluate(async() => {
+            await context.evaluate(async () => {
                 document.querySelector('div[data-open-label="Read more"] ~ .long-text-ctl a').click();
                 const delay = t => new Promise(resolve => setTimeout(resolve, t));
                 console.log('clicked on read more waiting for 10 sec ');
@@ -128,8 +128,8 @@ const implementation = async({ id },
         }
     }
 
-    const checkExistance = async(selector) => {
-        return await context.evaluate(async(currentSelector) => {
+    const checkExistance = async (selector) => {
+        return await context.evaluate(async (currentSelector) => {
             return await Boolean(document.querySelector(currentSelector));
         }, selector);
     };
@@ -219,8 +219,28 @@ const implementation = async({ id },
         }, desc);
     }
     await delay(10000);
+    try {
+        await context.evaluate(async () => {
+            async function infiniteScroll() {
+                let prevScroll = document.documentElement.scrollTop;
+                while (true) {
+                    window.scrollBy(0, document.documentElement.clientHeight);
+                    await new Promise(resolve => setTimeout(resolve, 2000));
+                    const currentScroll = document.documentElement.scrollTop;
+                    if (currentScroll === prevScroll) {
+                        break;
+                    }
+                    prevScroll = currentScroll;
+                }
+            }
+            await infiniteScroll();
+        });
+        await context.waitForSelector(`div[id="inpage_container"],div[id="inpage_responsive"] div[class*='inpage_selector']`, { timeout: 45000 });
+    } catch (error) {
+        console.log('Not loading manufacturer description');
+    }
 
-    await context.evaluate(async function(zip, country) {
+    await context.evaluate(async function (zip, country) {
         /* const clean = text => text.toString()
     .replace(/\r\n|\r|\n/g, ' ')
     .replace(/&amp;nbsp;/g, ' ')
@@ -263,7 +283,7 @@ const implementation = async({ id },
             document.body.appendChild(packagingElem);
         };
 
-        const makeApiCall = async(url, options) => {
+        const makeApiCall = async (url, options) => {
             try {
                 console.log(`Making API call to => ${url}`);
                 if (!options) {
