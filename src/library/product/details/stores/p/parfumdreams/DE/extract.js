@@ -10,6 +10,52 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputstring }, { country, domain }, context, { productDetails }) => {
+    const FinalURL = await context.evaluate(async () => {
+      return window.location.href;
+    });
+    const videoURL = await context.evaluate(async () => {
+      var getXpath = (xpath, prop) => {
+        var elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+        let result;
+        if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+        else result = elem ? elem.singleNodeValue : '';
+        return result && result.trim ? result.trim() : result;
+      };
+      const url = getXpath('//div[@class="center mts2"]//a[@class="link-icon overlay cboxElement"]/@href', 'nodeValue');
+      return url;
+    });
+    if (videoURL != null) {
+      await context.goto('https://www.parfumdreams.de' + videoURL, { timeout: 20000, waitUntil: 'load', checkBlocked: false });
+    }
+    const videoxpath = await context.evaluate(async () => {
+      var getXpath = (xpath, prop) => {
+        var elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+        let result;
+        if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+        else result = elem ? elem.singleNodeValue : '';
+        return result && result.trim ? result.trim() : result;
+      };
+      let xpathvideo = getXpath('//video[@class="vjs-tech"]/source[1]/@src', 'nodeValue');
+      if (xpathvideo == null) {
+        xpathvideo = 'empty';
+      }
+      return xpathvideo;
+    });
+    // if (videoURL != null) {
+    await context.goto(FinalURL, { timeout: 20000, waitUntil: 'load', checkBlocked: true });
+    // }
+    if (videoxpath != 'empty') {
+      await context.evaluate((videoxpath) => {
+        addHiddenDiv('video', videoxpath);
+        function addHiddenDiv(id, content) {
+          const newDiv = document.createElement('div');
+          newDiv.id = id;
+          newDiv.textContent = content;
+          newDiv.style.display = 'none';
+          document.body.appendChild(newDiv);
+        }
+      }, videoxpath);
+    }
     await context.evaluate(() => {
       function addElementToDocument(key, value, d) {
         const catElement = document.createElement("div");
@@ -87,7 +133,6 @@ module.exports = {
       for (var i = 0; i < units.length; i++) {
         addHiddenDiv('desc', name + '- ' + units[i], i)
       }
-
     });
 
 
