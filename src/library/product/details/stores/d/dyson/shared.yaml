@@ -44,7 +44,7 @@ fields:
     xpath: //div[@id='added_price'] | //div[contains(@id,"product_addtocart_form")]//div[contains(@id,'product-price')]/text() | (//div[contains(@id,"product_addtocart_form")]//div[contains(@id,'product-price')]/span)[1]
   - name: currencyOverride
     xpath: //div[@id='added_currency']
-  # - name: availabilityText #localedependent    
+  # - name: availabilityText #localedependent
   #   description: Availability as described on page for the selected variant. If
   #     there is no availability but the product can be added to cart, this field
   #     should be "In Stock"
@@ -54,7 +54,7 @@ fields:
     # regExp: /+(\w+Stock)
     # regExpReplace: $1
   - name: priceCurrency
-    xpath: //div[@id='added_currency']  
+    xpath: //div[@id='added_currency']
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -456,9 +456,11 @@ fields:
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
   - name: enhancedContentHTML #todo
-    defaultValue: No  
+    defaultValue: No
   - name: inTheBoxUrl
-    xpath: //div[normalize-space(@class)="contents"]//img | //div[contains(@class,"whats-in-the-box")]//img | //div[@id="in-the-box"]/ul/li//img
+    xpath: //div[normalize-space(@class)="contents"]//img | //div[contains(@class,"whats-in-the-box")]//img | //div[@id="in-the-box"]/ul/li//img | //div[contains(@data-analytics-action-title, 'tools')]/parent::div/following-sibling::section[1]//img//@data-src | //div[contains(@data-analytics-action-title, 'tools')]/parent::div/following-sibling::section[2]//img//@data-src
+    #xpath: //div[normalize-space(@class)="contents"]//img | //div[contains(@class,"whats-in-the-box")]//img | //div[@id="in-the-box"]/ul/li//img | //section[contains(@class,'column-control')][3]//div[contains(@class,'responsive-image js-responsive-image-container')]/img/@data-src | //section[contains(@class,'column-control')][2]//div[contains(@class,'responsive-image js-responsive-image-container')]/img/@data-src
+    #xpath: //section[contains(@class,'column-control')][1]//ul//li//div[contains(@class,'partial-width-image__image')]//img/@data-src
     type: IMAGE
   - name: inTheBoxText
-    xpath: //div[normalize-space(@class)="contents"]//strong | //div[contains(@class,"whats-in-the-box")]//span[@class="whats-in-the-box__tool-name"] | //p[@class="whats-in-the-box__product-name"] | //div[@id="in-the-box"]/ul/li
+    xpath: //div[normalize-space(@class)="contents"]//strong | //div[contains(@class,"whats-in-the-box")]//span[@class="whats-in-the-box__tool-name"] | //p[@class="whats-in-the-box__product-name"] | //div[@id="in-the-box"]/ul/li | //section[contains(@class,'column-control')][3]//div[contains(@class,'text')]//h3 | //section[contains(@class,'column-control')][1]//ul//li//div[contains(@class,'text__body')]//p//b | //section[contains(@class,'column-control')][2]//ul//li//div[contains(@class,'text__body')]//p//b

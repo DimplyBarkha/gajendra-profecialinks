@@ -45,6 +45,14 @@ const transform = (data) => {
         });
         row.inTheBoxText = [{ text }];
       }
+       /* if (row.inTheBoxText) {
+        let text = '';
+        row.inTheBoxText.forEach((item) => {
+         if((item.text).length()>=4){
+           item.text =item.text;
+         }
+        });
+      } */
       if (row.alternateImages) {
         let a = [];
         for (let i = 0; i < row.alternateImages.length; i++) {
