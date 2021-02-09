@@ -34,8 +34,7 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //span[@itemprop="price"]
-    type: CURRENCY
+    xpath: //div[@id="price"]
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
