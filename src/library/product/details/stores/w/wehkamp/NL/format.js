@@ -81,8 +81,8 @@ const transform = (data) => {
         });
       }
       if (row.videos) {
-        row.listPrice.forEach(item => {
-          if (!item.text.includes('http')) {
+        row.videos.forEach(item => {
+          if (!(item.text.includes('http'))) {
             item.text = 'http:' + item.text;
           }
         });
