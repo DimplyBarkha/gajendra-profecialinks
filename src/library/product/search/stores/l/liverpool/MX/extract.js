@@ -14,7 +14,7 @@ module.exports = {
     ) => {
         const { transform } = parameters;
         const { productDetails } = dependencies;
-        await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+        await new Promise((resolve, reject) => setTimeout(resolve, 1000));
         await context.evaluate(() => {
             function addHiddenDiv(id, content, index) {
                 const newDiv = document.createElement('div');
