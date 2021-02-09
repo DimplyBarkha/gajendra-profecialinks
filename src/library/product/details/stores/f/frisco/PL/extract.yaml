@@ -22,7 +22,7 @@ fields:
     xpath: //span[@class="cart-box_old-price"]
   - name: price
     singleValue: true
-    xpath: //span[@class="main-price"]
+    xpath: //span[@class="main-price"] | //span[@class="main-price promo-price"]
   - name: availabilityText
     singleValue: true
     xpath: //div[@id="avaid"]/text()

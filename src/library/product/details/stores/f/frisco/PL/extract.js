@@ -107,7 +107,7 @@ module.exports = {
       try {
         // @ts-ignore
         xPathRes7.singleNodeValue.click();
-        let tabContent = document.evaluate("//div[@class='ui-tabs_tab-content']/div/p", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        let tabContent = document.evaluate("//div[@class='ui-tabs_tab-content']/div", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         let tabContent1 = document.evaluate("//h3[contains(text(),'Zalecenia dla alergików')]/following::table/tbody", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         let componentInfo = tabContent.textContent;
         let allergyInfo = tabContent1.textContent;
