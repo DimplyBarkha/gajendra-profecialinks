@@ -32,7 +32,7 @@ module.exports = {
       });
       if (changingLanguage) {
         await context.click('div.z-navicat-header_modalContent button[class*="Primary"]');
-        await context.waitForNavigation({ timeout: 10000, waitUntil: 'load' });
+        await context.waitForNavigation({ timeout: 30000, waitUntil: 'load' });
       }
       console.log('Finished changing language');
     }
