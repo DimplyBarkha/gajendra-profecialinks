@@ -9,5 +9,4 @@ module.exports = {
     noResultsXPath: '//span[contains(@class,"messaging-messages-no-results")]',
     zipcode: '',
   },
-  implementation,
 };
