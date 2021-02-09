@@ -50,27 +50,33 @@ module.exports = {
       console.log("saturatedfatuom: ", saturatedUOM);
       if(saturatedUOM != null  ){
         const sfatUOM = saturatedUOM ? saturatedUOM.match(/([\d\.]+)(.*)/) : [];
-        addElementToDocument('sfat_uom',sfatUOM[2]);
-        addElementToDocument('sfat',sfatUOM[1]);
-        console.log(sfatUOM[1]);
+        if(sfatUOM.length > 0){
+          addElementToDocument('sfat_uom',sfatUOM[2]);
+          addElementToDocument('sfat',sfatUOM[1]);
+          console.log(sfatUOM[1]);
+          }
         }
 
         const totfatUOM = getXpath("//table[@class='detailsTable']/tbody/tr/td/table/tbody/tr/td[contains(.,'Fat')]/following-sibling::td[1]",'innerText');
         console.log("totalfatuom: ", totfatUOM);
         if(totfatUOM != null  ){
           const tfat = totfatUOM ? totfatUOM.match(/([\d\.]+)(.*)/) : [];
-          addElementToDocument('tfat_uom',tfat[2]);
-          addElementToDocument('tfat',tfat[1]);
-          console.log(tfat[1]);
+            if(tfat != null ){
+              addElementToDocument('tfat_uom',tfat[2]);
+              addElementToDocument('tfat',tfat[1]);
+              console.log(tfat[1]);
+            }
           }
 
           const totcarbUOM = getXpath("//table[@class='detailsTable']/tbody/tr/td/table/tbody/tr/td[contains(.,'Carbohydrate')]/following-sibling::td[1]",'innerText');
           console.log("totalcarbuom: ", totcarbUOM);
           if(totcarbUOM != null  ){
             const tcarb = totcarbUOM ? totcarbUOM.match(/([\d\.]+)(.*)/) : [];
-            addElementToDocument('tcarb_uom',tcarb[2]);
-            addElementToDocument('tcarb',tcarb[1]);
-            console.log(tcarb[1]);
+            if(tcarb != null ){
+              addElementToDocument('tcarb_uom',tcarb[2]);
+              addElementToDocument('tcarb',tcarb[1]);
+              console.log(tcarb[1]);
+            }
             }
 
 
@@ -78,9 +84,11 @@ module.exports = {
           console.log("totalsugaruom: ", totsugarUOM);
           if(totsugarUOM != null  ){
             const tsuguom = totsugarUOM ? totsugarUOM.match(/([\d\.]+)(.*)/) : [];
-            addElementToDocument('tsugar_uom',tsuguom[2]);
-            addElementToDocument('tsugar',tsuguom[1]);
-            console.log(tsuguom[1]);
+            if(tsuguom != null ){
+              addElementToDocument('tsugar_uom',tsuguom[2]);
+              addElementToDocument('tsugar',tsuguom[1]);
+              console.log(tsuguom[1]);
+            }
             }
 
 
@@ -88,26 +96,32 @@ module.exports = {
           console.log("totalproteinuom: ", totproteinUOM);
           if(totproteinUOM != null  ){
             const tprotienuom = totproteinUOM ? totproteinUOM.match(/([\d\.]+)(.*)/) : [];
-            addElementToDocument('tprotien_uom',tprotienuom[2]);
-            addElementToDocument('tprotien',tprotienuom[1]);
-            console.log(tprotienuom[1]);
+            if(tprotienuom != null ){
+              addElementToDocument('tprotien_uom',tprotienuom[2]);
+              addElementToDocument('tprotien',tprotienuom[1]);
+              console.log(tprotienuom[1]);
+            }
             }
 
           const totsaltUOM = getXpath("//table[@class='detailsTable']/tbody/tr/td/table/tbody/tr/td[contains(.,'Salt')]/following-sibling::td[1]",'innerText');
           console.log("totalsaltuom: ", totsaltUOM);
           if(totsaltUOM != null  ){
             const tsaltuom = totsaltUOM ? totsaltUOM.match(/([\d\.]+)(.*)/) : [];
-            addElementToDocument('tsalt_uom',tsaltuom[2]);
-            addElementToDocument('tsalt',tsaltuom[1]);
-            console.log(tsaltuom[1]);
+            if(tsaltuom != null ) {
+              addElementToDocument('tsalt_uom',tsaltuom[2]);
+              addElementToDocument('tsalt',tsaltuom[1]);
+              console.log(tsaltuom[1]);
+            }
             }
             
             const priceXpath = getXpath("/html/body/table/tbody/tr/td[1]/table[1]/tbody/tr[2]/td[2]",'innerText');
             console.log("priceXpath: ", priceXpath);
             if(priceXpath != null  ){
               const priceValue = priceXpath ? priceXpath.split('(') : [];
+              if(priceValue != null) {
               addElementToDocument('price_added',priceValue[0]);
               console.log(priceValue[0]);
+              }
               }     
 
           const queryString = window.location.search;
