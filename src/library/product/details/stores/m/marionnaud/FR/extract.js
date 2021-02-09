@@ -47,7 +47,13 @@ async function implementation (
     listPrice=listPrice+'€'
     addHiddenDiv('listPrice', listPrice);
   // @ts-ignore
-  const availabilityText = window.dataLayer[0].ecommerce.detail.products[0].stock;
+  let availabilityText = window.dataLayer[0].ecommerce.detail.products[0].stock;
+  if(availabilityText=='lowStock'){
+    availabilityText='In Stock'
+  }
+  if(availabilityText=='outOfStock'){
+    availabilityText='Out Of Stock'
+  }
   addHiddenDiv('availabilityText', availabilityText)
      // @ts-ignore
      const variantId = window.dataLayer[0].ecommerce.detail.products[0].variant;
