@@ -60,7 +60,7 @@ module.exports = {
           addElementToDocument('alter', abc);
         }
       };
-      var alter = getAllXpath("(//div[@class='s7thumb'])[position() >1]/@style", 'nodeValue');
+      var alter = getAllXpath("(//div[@class='s7thumb'])[position() >1]/div[@type='image']/parent::div/@style", 'nodeValue');
       if (alter != null) {
         sliceURL1(alter);
       }
@@ -182,6 +182,17 @@ module.exports = {
         addElementToDocument('image', img1);
       } else if (img2 != null) {
         addElementToDocument('image', img2);
+      }
+
+      //availability
+      var availability = getXpath('//div[@class="not_available"]/text()', 'nodeValue');
+      if(availability != null){
+        availability = "Out of stock";
+      }else{
+        availability = "In stock";
+      }
+      if(availability != null){
+        addElementToDocument('availability', availability);
       }
 
     });

@@ -56,15 +56,14 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    # regExp: (.+)
-    # regExpReplace: In Stock
-    # xpath: (//span[@itemprop="availability"])
+    xpath: //html//div[@id="availability"]
     defaultValue: In Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //html//div[@id='desc']
+    # xpath: //html//div[@id='desc']
+    xpath: //div[@class="VProduct_img"]/following-sibling::div[1]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -127,7 +126,7 @@ fields:
     description: The number of ratings
     type: NUMBER
     xpath: (//div[@class="bv_numReviews_text"])
-    regExp: (\d{1,2})|(\d{3,4})
+    regExp: (\d{1,4})|(\d{3,4})
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
