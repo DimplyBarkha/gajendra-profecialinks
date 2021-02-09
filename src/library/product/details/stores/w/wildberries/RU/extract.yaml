@@ -40,7 +40,7 @@ fields:
     xpath: //input[@id="tbSrch"]/@data-nm-id
   - name: variantId
     singleValue: false
-    xpath: //input[@id="tbSrch"]/@data-nm-id
+    xpath: //label[contains(@class,"active")]//input/@value
   - name: variants
     singleValue: false
     xpath: //div[contains(@class,"j-size-list size-list")]/label//input/@value
