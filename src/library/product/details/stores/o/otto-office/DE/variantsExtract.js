@@ -27,7 +27,7 @@ async function implementation(
         document.body.appendChild(catElement);
       }
   // @ts-ignore
-  let URL = windows.location.href;
+  let URL = window.location.href;
   addElementToDocument('URL', URL);
 
 
