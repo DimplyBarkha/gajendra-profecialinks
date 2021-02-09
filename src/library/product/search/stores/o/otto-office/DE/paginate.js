@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'otto-office',
-    nextLinkSelector: '#inner_content > div.col-right-wide > div:nth-child(6) > form > div.pagination-right > div.pager-container.itemlist-setting > a.pager-arrow.pager-next-img',
+    nextLinkSelector: 'a[class="pager-arrow pager-next-img"]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'body',
