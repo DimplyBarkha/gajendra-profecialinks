@@ -10,6 +10,7 @@ module.exports = {
     zipcode: '',
   },
   implementation: async (
+    // @ts-ignore
     { url },
     parameters,
     context,
@@ -27,6 +28,7 @@ module.exports = {
           await stall(1000);
         }
         function stall(ms) {
+          // @ts-ignore
           return new Promise((resolve, reject) => {
             setTimeout(() => {
               resolve();
@@ -35,15 +37,19 @@ module.exports = {
         }
       });
     };
+    // @ts-ignore
     await context.evaluate(async function (context) {
       const seeAllSelector = document.querySelector('[class="top-country-bottom"]>button');
       if (seeAllSelector) {
+        // @ts-ignore
         seeAllSelector.click();
       }
     });
+    // @ts-ignore
     await context.evaluate(async function (context) {
       const seeAllSelector1 = document.querySelector('[id="popup"]>a');
       if (seeAllSelector1) {
+        // @ts-ignore
         seeAllSelector1.click();
       }
     });
@@ -58,6 +64,7 @@ module.exports = {
       }
       const enhancedContent = document.querySelector('div[class*="syndi_powerpage"]');
       if (enhancedContent) {
+        // @ts-ignore
         const witbData = Array.from([...enhancedContent.shadowRoot.querySelectorAll('[class="syndigo-widget-section-header"]')].find(elm => elm.innerText.match(/in the box/i)).nextElementSibling.querySelectorAll('[class="syndigo-featureset-feature"]'))
         witbData.forEach(element => {
           element.querySelector('h3') && addElementToDocument('witbText', element.querySelector('h3').innerText);
@@ -66,6 +73,7 @@ module.exports = {
       }
       const comparisonTable = document.querySelector('div[class*="syndi_powerpage"]');
       if (comparisonTable) {
+        // @ts-ignore
         const witbData1 = [...comparisonTable.shadowRoot.querySelectorAll('div[class="syndi_powerpage"] div[class*="syndigo"]')]
         witbData1.forEach(element => {
           element.querySelector('h2[class="syndigo-widget-section-header"]') && addElementToDocument('witbTable', element.querySelector('h2[class="syndigo-widget-section-header"]').innerText);
@@ -144,6 +152,7 @@ module.exports = {
       if (document.getElementsByTagName('video')) {
         const vLink = parent.document.getElementById('wcframable1-0');
         if (vLink) {
+          // @ts-ignore
           var videoLink = vLink.contentWindow.document.getElementsByTagName('video').vjs_video_1_html5_api;
           // var link = '';
           if (videoLink) {
@@ -151,13 +160,22 @@ module.exports = {
           }
         }
       }
-      const links = [];
+      let links = [];
+
+      const videoIds = document.evaluate('//div[@class="jw-preview jw-reset"]/@style', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      for (let index = 0; index < videoIds.snapshotLength; index++) {
+        const element = videoIds.snapshotItem(index);
+        let video = element && element.textContent.replace(/(.+)url\("(.+)(v2\/media)(.+)\/(.+)/g, '$2previews$4');
+        links.push(video);
+      }
+
       if (document.querySelector('div.wc-reset > ul > li > div > div > img.wc-media.wc-video')) {
         document.querySelectorAll('div.wc-reset > ul > li > div > div > img.wc-media.wc-video').forEach(e => {
           links.push(e.getAttribute('wcobj'));
         });
       }
-      if (document.querySelector('div.wc-reset > ul > li > div > div > img.wc-media.wc-video')) addHiddenDiv('video', links.join(' | '));
+      // if (document.querySelector('div.wc-reset > ul > li > div > div > img.wc-media.wc-video')) 
+      addHiddenDiv('video', links.join(' | '));
       addHiddenDiv('video', link);
       // (\/p\/)(\w.+)(\?)
 

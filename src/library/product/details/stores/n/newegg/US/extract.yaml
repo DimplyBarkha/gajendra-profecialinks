@@ -219,8 +219,10 @@ fields:
 - name: manufacturerDescription
   singleValue: false
   description: The extended description of the product supplied by the lister
-  xpath: //div[@id="product-details"]/div[@class='tab-panes']/div[@class='tab-pane']/div 
+  xpath: //div[@class='tab-pane']//div[@id="overview-content"]//div[contains(@class,"a_plus_info")] | //div[@class='tab-pane']//div[@id="wc-power-page"]//div[contains(@class,"wc-fragment")]//text()
+  # xpath: //div[@id="product-details"]/div[@class='tab-panes']/div[@class='tab-pane']/div 
   # //div[@class='tab-panes']/div[@class='tab-pane'][1]
+
 
 - name: manufacturerImages
   singleValue: false
@@ -355,9 +357,9 @@ fields:
 - name: secondaryImageTotal
   singleValue: false
   description:
-  # xpath: count(//div[@class='swiper-wrapper']/div[@class='swiper-slide'][position()>1]/div/img/@src)
-
+  xpath: count(//div[@class='swiper-wrapper']/div[@class='swiper-slide'][position()>1]/div/img/@src)
   type: NUMBER
+
 - name: news
   singleValue: true
   description: 

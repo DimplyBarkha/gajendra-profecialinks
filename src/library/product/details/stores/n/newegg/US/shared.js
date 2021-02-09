@@ -143,17 +143,24 @@ const transform = (data) => {
   };
   for (const { group } of data) {
     for (const row of group) {
-      if (row.manufacturerDescription) {
-        row.manufacturerDescription.forEach(item => {
-          'https://www.newegg.com/p/pl?d={id}';
-        });
-      }
+      // if (row.manufacturerDescription) {
+      //   row.manufacturerDescription.forEach(item => {
+      //     'https://www.newegg.com/p/pl?d={id}';
+      //   });
+      // }
 
       if (!row.inTheBoxText && row.inTheBoxTextFromP) {
         let inTheBoxText = row.inTheBoxTextFromP[0].text;
         inTheBoxText = inTheBoxText.replace('In the box:', '');
         inTheBoxText = inTheBoxText.replace(/,/g, ' || ');
         row.inTheBoxText = [{ text: inTheBoxText }];
+      }
+      if (row.manufacturerImages) {
+        row.manufacturerImages.forEach(image => {
+          if (!image.text.startsWith('https')) {
+            image.text = `https:${image.text}`;
+          }
+        });
       }
     }
   }
