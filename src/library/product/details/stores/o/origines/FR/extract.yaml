@@ -90,7 +90,8 @@ fields:
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //div[@id='added_product_id']
+    xpath: //div[@class='product-details']//div[@class='price-box']//@data-product-id
+    # xpath: //div[@id='added_product_id']
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
