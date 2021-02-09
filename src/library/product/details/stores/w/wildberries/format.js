@@ -59,22 +59,13 @@ const transform = (data) => {
               });
             }
         }
-        /*if(row.variants){
-            let value = []
-            //console.log('Hey there')
-            for (let index = 0; index < row.variants.length; ++index) {
-              value.push(row.variants[index].text);
-              //console.log(index, value);
-            }
-            row.variants = [{"text": value.join(' | '), "xpath": row.variants[0].xpath}]
-        }*/
-        if (row.variants) {
+        /*if (row.variants) {
             let variantsInfo = [];
             row.variants.forEach(item => {                    
                 variantsInfo.push(item.text.trim());
             });
             row.variants = [{'text':variantsInfo.join(' | '),'xpath':row.variants[0].xpath}];
-        }
+        }*/
         if (row.availabilityText) {                    
             row.availabilityText.forEach(item => {
               item.text = "In Stock";
