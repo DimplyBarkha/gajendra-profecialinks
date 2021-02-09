@@ -108,3 +108,6 @@ fields:
   - name: pricePerUnitUom
     singleValue: false
     xpath: //section[@class="shelfProductTile"]//div[contains(@class,'shelfProductTile-cupPrice ng-star-inserted')]//text()
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //wow-product-details-labels//div[contains(@class,'labels ng-star-inserted')]//div[contains(@class,'country-of-original ng-star-inserted')]//img[contains(@class,'country-of-original-image ng-star-inserted')]/@alt | //wow-product-details-labels//div[contains(@class,'labels ng-star-inserted')]//div[contains(@class,'country-of-original ng-star-inserted')]//span[contains(@class,"ng-star-inserted")]
