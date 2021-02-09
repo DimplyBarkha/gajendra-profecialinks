@@ -7,7 +7,7 @@ module.exports = {
     domain: 'feelunique.com',
     // url: "https://www.feelunique.com/search?q={searchTerms}",
     url: "https://www.feelunique.com/search?csf=true&q={searchTerms}&go=",
-    loadedSelector: 'body',
+    loadedSelector: 'div[class="Product"]',
     noResultsXPath: null,
     zipcode: '',
   },

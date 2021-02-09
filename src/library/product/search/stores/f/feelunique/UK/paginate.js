@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
+    loadedSelector: 'div[class="Product"]',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'feelunique.com',
