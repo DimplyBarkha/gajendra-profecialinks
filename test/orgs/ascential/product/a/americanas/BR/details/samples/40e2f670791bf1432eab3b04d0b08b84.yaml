@@ -2,12 +2,12 @@ input:
   _url: http://americanas.com.br
   URL: https://www.americanas.com.br/produto/134511851/smart-tv-android-led-32-semp-32s5300-bluetooth-2-hdmi-1-usb-controle-remoto-com-comando-de-voz-e-google-assistant
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=e06334d3-d367-4245-99cc-a2bff7eb7d7f/task=e6dcfc84-4fe0-4265-b4ff-134e99440d48/49e480c5-1b81-4f17-8499-9bd99e0d9d9e.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5066c298-d765-4d57-b4fd-c76d94d60310/task=ad31a1a4-15e6-4308-af97-d6aa720b1a85/9dfd4b24-086e-45d9-a0dc-7f08f8f246af.html
     extractionConfigId: product/details/stores/a/americanas/BR/extract
     data:
       - group:
           - ratingCount:
-              - text: "342"
+              - text: "346"
                 xpath: /html/body/div[1]/div[1]/script[1]
             aggregateRating:
               - text: 4,0
@@ -33,9 +33,12 @@ extractions:
               - text: Smart TV Android LED 32" Semp 32S5300 Bluetooth 2 HDMI 1 USB Controle
                   Remoto com Comando de Voz e Google Assistant
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/span[1]
+            listPrice:
+              - text: R$ 1.287,21
+                xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/span[1]
             price:
-              - text: R$ 1.234,99
-                xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]
+              - text: R$ 1.222,84
+                xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]
             sku:
               - text: "134511869"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[3]/a[1]/@to
@@ -43,6 +46,9 @@ extractions:
               - text: Smart TV Android LED 32" Semp 32S5300 Bluetooth 2 HDMI 1 USB Controle
                   Remoto com Comando de Voz e Google Assistant
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/span[1]
+            coupon:
+              - text: 5%
+                xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]
             description:
               - text: >-
                   Todas as informações divulgadas são de responsabilidade do
@@ -77,4 +83,4 @@ extractions:
             descriptionBullets:
               - text: "0"
         xpath: /html
-    timestamp: 1612472252501
+    timestamp: 1612785250003

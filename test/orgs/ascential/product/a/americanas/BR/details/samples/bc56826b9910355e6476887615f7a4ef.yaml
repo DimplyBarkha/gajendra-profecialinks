@@ -2,11 +2,21 @@ input:
   _url: http://americanas.com.br
   URL: https://www.americanas.com.br/produto/100044574/tv-led-28-usb-hdmi-rj45-philco-bivolt-ph28n91dsgwa
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=e06334d3-d367-4245-99cc-a2bff7eb7d7f/task=82990f9e-0580-4c58-8709-f16d6a31d7d0/b17ea499-86af-47fb-af70-c67ab487a0cb.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5066c298-d765-4d57-b4fd-c76d94d60310/task=15846441-0409-4766-b902-59f52389174a/5999cc33-49f2-4c5b-bf42-f403d94b49a2.html
     extractionConfigId: product/details/stores/a/americanas/BR/extract
     data:
       - group:
-          - ratingCount:
+          - image:
+              - text: https://images-americanas.b2w.io/produtos/01/00/images/100044/5/100044577_1GG.jpg
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            alternateImages:
+              - text: https://images-americanas.b2w.io/produtos/01/00/images/100044/5/100044577_2GG.jpg
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/picture[1]/img[1]/@src
+              - text: https://images-americanas.b2w.io/produtos/01/00/images/100044/5/100044577_3GG.jpg
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/picture[1]/img[1]/@src
+              - text: https://images-americanas.b2w.io/produtos/01/00/images/100044/5/100044577_4GG.jpg
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/picture[1]/img[1]/@src
+            ratingCount:
               - text: "1"
                 xpath: /html/body/div[1]/div[1]/script[1]
             aggregateRating:
@@ -19,16 +29,6 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[3]/a[1]/text()[1]
               - text: TV LED
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/a[1]/text()[1]
-            image:
-              - text: https://images-americanas.b2w.io/produtos/01/00/images/100044/5/100044577_1GG.jpg
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
-            alternateImages:
-              - text: https://images-americanas.b2w.io/produtos/01/00/images/100044/5/100044577_2GG.jpg
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/picture[1]/img[1]/@src
-              - text: https://images-americanas.b2w.io/produtos/01/00/images/100044/5/100044577_3GG.jpg
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/picture[1]/img[1]/@src
-              - text: https://images-americanas.b2w.io/produtos/01/00/images/100044/5/100044577_4GG.jpg
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/picture[1]/img[1]/@src
             nameExtended:
               - text: Tv Led 28´´ Usb/hdmi/rj45 Philco Bivolt Ph28n91dsgwa
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/span[1]
@@ -85,4 +85,4 @@ extractions:
             descriptionBullets:
               - text: "0"
         xpath: /html
-    timestamp: 1612472209883
+    timestamp: 1612785207931
