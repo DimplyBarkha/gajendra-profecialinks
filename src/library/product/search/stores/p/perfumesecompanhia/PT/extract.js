@@ -30,12 +30,14 @@ async function implementation (
 
   let isLoadMoreButtonPresent = await checkIfLoadMoreButtonIsPresent();
   let productsAmount = await countProducts();
+  let clicksAmount = 0;
 
-  while (isLoadMoreButtonPresent && productsAmount < 150) {
+  while (isLoadMoreButtonPresent && productsAmount < 150 && clicksAmount < 20) {
     await context.click('button#btnVerMais');
-    await context.waitForXPath(`(//div[@id="containerResultsFilter"]//div[contains(@class, " active") and @id])[${productsAmount + 1}]`);
+    // await context.waitForXPath(`(//div[@id="containerResultsFilter"]//div[contains(@class, " active") and @id])[${productsAmount + 1}]`);
     isLoadMoreButtonPresent = await checkIfLoadMoreButtonIsPresent();
     productsAmount = await countProducts();
+    clicksAmount++;
   }
 
   await context.evaluate(async () => {
@@ -59,7 +61,7 @@ async function implementation (
       if (rating && rating.getAttribute('style')) {
         const ratingPercentage = rating.getAttribute('style').match(/width: ([\d.]+)%/) ? Number(rating.getAttribute('style').match(/width: ([\d.]+)%/)[1]) : 0;
         if (ratingPercentage) {
-          const ratingValue = (ratingPercentage / 20).toFixed(1);
+          const ratingValue = (ratingPercentage / 20).toFixed(1).replace('.', ',');
           product.setAttribute('rating', ratingValue);
         }
       }
