@@ -5,7 +5,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { productDetails } = dependencies;
 
   await context.evaluate(async () => {
-    function stall(ms) {
+    function stall (ms) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve();
@@ -37,9 +37,9 @@ async function implementation (inputs, parameters, context, dependencies) {
     const priceSelector = document.querySelectorAll('p.item-prize');
 
     for (let i = 0; i < productUrl.length; i++) {
-      const price = priceSelector[i].textContent;
+      const price = priceSelector[i].textContent.match('[$](.*)MX');
       productUrl[i].setAttribute('url', productUrl[i].href);
-      priceSelector[i].setAttribute('price', price);
+      priceSelector[i].setAttribute('price', price[1]);
     }
 
     const searchUrl = window.location.href;

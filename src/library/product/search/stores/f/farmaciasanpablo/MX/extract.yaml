@@ -7,7 +7,7 @@ fields:
     singleValue: false
     xpath: //div[@class="item"]/@data-product-code
   - name: searchUrl
-    singleValue: true
+    singleValue: false
     xpath: //body/@url
   - name: name
     singleValue: false
@@ -32,8 +32,6 @@ fields:
     singleValue: false
     type: STRING
     xpath: //p[@class="item-prize"]/@price
-    regExp: '[$](.*)'
-    regExpReplace: $1
   - name: manufacturer
     singleValue: true
   - name: soldBy
