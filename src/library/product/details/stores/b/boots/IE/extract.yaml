@@ -362,7 +362,8 @@ fields:
     xpath: ancestor::html//span[contains(text(),"Country of Origin:")]/following-sibling::text()[1] | //h3[@id="product_important_info"]/following-sibling::p//span[contains(.,"Made in")]
     description: The country from which the product originates
   - name: allergyAdvice
-    xpath: ancestor::html//text()[contains(.,"Allergy advice")] | //text()[contains(.,"Allergy advice")]/following-sibling::span[not(following-sibling::br[position()=1][not(following-sibling::span)])]
+    # xpath: ancestor::html//text()[contains(.,"Allergy advice")] | //text()[contains(.,"Allergy advice")]/following-sibling::span[not(following-sibling::br[position()=1][not(following-sibling::span)])]
+    xpath: //div[*/*[.='Allergy advice:']/text()] #mal
     description: Allergy information associated with the product
   - name: recyclingInformation
     description: Recycling information associated with the product
