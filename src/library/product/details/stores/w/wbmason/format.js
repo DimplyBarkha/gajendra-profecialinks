@@ -26,9 +26,13 @@ const transform = (data) => {
     for (const { group } of data) {
       for (let row of group) {
         if (row.availabilityText) {                    
-            row.availabilityText.forEach(item => {
+          row.availabilityText.forEach(item => {
+            if(item.text == "Manufacturer is currently out of stock."){
+              item.text = "Out of Stock";
+            }else{
               item.text = "In stock";
-            });          
+            }
+          });
         }
         if (row.specifications) {
           let info = [];
@@ -36,6 +40,32 @@ const transform = (data) => {
               info.push(item.text);
           });
           row.specifications = [{'text':info.join(' | '),'xpath':row.specifications[0].xpath}];
+        }
+        if (row.sku) {
+          row.sku.forEach(item => {
+            let skuVal=item.text.replace('var digitalData = ', '');
+            skuVal=skuVal.slice(0, skuVal.indexOf(';'));
+            let data = JSON.parse(skuVal);
+            //console.log("skudata: ", data.eCommerce.productInfo[0].productSKU);
+            if(data.eCommerce.hasOwnProperty('productInfo')){
+              item.text=data.eCommerce.productInfo[0].productSKU;
+            }else{
+              item.text="";
+            }
+          });
+        }
+        if (row.variantId) {
+          row.variantId.forEach(item => {
+            let skuVal=item.text.replace('var digitalData = ', '');
+            skuVal=skuVal.slice(0, skuVal.indexOf(';'));
+            let data = JSON.parse(skuVal);
+            //console.log("skudata: ", data.eCommerce.productInfo[0].productSKU);
+            if(data.eCommerce.hasOwnProperty('productInfo')){
+              item.text=data.eCommerce.productInfo[0].productSKU;
+            }else{
+              item.text="";
+            }
+          });
         }
       }
     }

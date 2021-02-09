@@ -26,13 +26,14 @@ fields:
     xpath: //div[@class="price vertical"]/span
   - name: availabilityText
     singleValue: false
-    defaultValue: Out of Stock
+    xpath: //div[@id="serviceAvailability"]/b
+    defaultValue: In Stock
   - name: description
     singleValue: false
     xpath: //div[@id="tab2_content"]//p
   - name: descriptionBullets
     singleValue: false
-    xpath: //div[@class="product-info"]//ul[@class="item-points"]/count(li)
+    xpath: count(//div[@class="product-info"]//ul[@class="item-points"]/li)
   - name: brandText
     singleValue: false
     xpath: //h1[@class="item-name"]
@@ -43,10 +44,10 @@ fields:
     regExpReplace: 1
   - name: sku
     singleValue: false
-    xpath: //input[@id="ctl00_ContentPlaceholder1_ucProductDetail_fvProductDetail_btnAddToCart"]/@data-product-sku
+    xpath: //script[@type="text/javascript" and contains(text(), "var digitalData = ")]/text()
   - name: variantId
     singleValue: false
-    xpath: //input[@id="ctl00_ContentPlaceholder1_ucProductDetail_fvProductDetail_btnAddToCart"]/@data-product-sku
+    xpath: //script[@type="text/javascript" and contains(text(), "var digitalData = ")]/text()
   - name: name
     singleValue: false
     xpath: //h1[@class="item-name"]
