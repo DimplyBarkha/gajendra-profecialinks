@@ -30,7 +30,7 @@ module.exports = {
       const productIds = document.evaluate('//div[@class = "ViewSearch__items"]//a[@class = "CategoryItemCard__title"]/@href', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE);
       const productDetailsId = document.evaluate('//meta[@itemprop = "sku"]/@content', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE);
       const productImages = document.evaluate('//div[@class = "ViewSearch__items"]//a[contains(@class, "CategoryItemCard__image")]//img/@src', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE);
-      const productDetailsImage = document.evaluate('//div[@class = "ProductPhotos-buttons"]//img/@src', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE);
+      const productDetailsImage = document.evaluate('//div[contains(@class, "ProductPhotos")]//img/@src', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE);
       for (let i = 0; i < products.snapshotLength; i++) {
         const pdtId = productIds.snapshotItem(i).nodeValue.replace(/.*-(.*)\/$/, '$1');
         const pdtURL = productIds.snapshotItem(i).nodeValue.replace(/(.+)/, 'https://apteka.ru$1');
