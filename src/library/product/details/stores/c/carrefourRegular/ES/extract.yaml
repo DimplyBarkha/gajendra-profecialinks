@@ -26,7 +26,8 @@ fields:
   - name: nameExtended
     singleValue: true
     xpath: //h1[@class="product-header__name"]
-    description: The product name, prefixing "${brand} - " if not included in "name"
+    description:
+      The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
     singleValue: true
@@ -48,7 +49,8 @@ fields:
   - name: description
     singleValue: false
     xpath: //p[contains(@class,'product-details__text')]
-    description: Product description supplied by website - may be concatenanted from
+    description:
+      Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: weightNet
     singleValue: false
@@ -99,7 +101,7 @@ fields:
   - name: variantCount
     singleValue: false
     description: Number of variants listed
-    defaultValue: '0'
+    defaultValue: "0"
   - name: color
     singleValue: true
     xpath: //dt[contains(@class,'product-details__content-title') and contains(.,'Color')]/following-sibling::dd[1]
@@ -115,7 +117,7 @@ fields:
     description: Images within the third party description
   - name: videos
     singleValue: false
-    xpath: //div[contains(@class,'fullJwPlayerWarp') and contains(@class,'fullPlaylist')]/input/@value
+    xpath: //div[@class='videoinformation']
     description: URLs of videos on page
   - name: name
     singleValue: true
@@ -146,7 +148,8 @@ fields:
   - name: brandText
     singleValue: true
     xpath: //h1[@class="product-header__name"]
-    description: Product brand shown - this may actually NOT be just a brand name,
+    description:
+      Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: otherSellersName
     singleValue: false
@@ -174,4 +177,3 @@ fields:
   - name: unInterruptedPDP
     singleValue: false
     xpath: //div[@class="product-card__media"]/a/img/@alt
-

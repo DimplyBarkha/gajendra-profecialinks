@@ -92,7 +92,7 @@ module.exports = {
         }
         const manufacturerDescTextArray = [];
         const manufacturerDescDOM = document.querySelectorAll('div.eky-container-full');
-        if (manufacturerDescDOM) { 
+        if (manufacturerDescDOM) {
           for (let i = 0; i < manufacturerDescDOM.length; i++) {
             const imgText1 = manufacturerDescDOM[i].innerText;
             imgText1 && manufacturerDescTextArray.push(imgText1);
@@ -119,8 +119,19 @@ module.exports = {
           const imgUrl1 = "https://media.flixfacts.com/eyekandy/dyson/v11/es/" + inBoxImagesList[i].getAttribute('src');
           imgUrl1 && inBoxImageArray.push(imgUrl1);
         }
+        let videoArray = [];
+        let finalVideoArray = [];
+        let videoElements = document.querySelectorAll('video');
+        videoElements.forEach((element) => {
+          videoArray.push(element.getAttribute('src'))
+        })
+        if (videoArray.length >= 1) {
+          videoArray.forEach((element) => {
+            finalVideoArray.push(`https://media.flixfacts.com/eyekandy/dyson/v11/es/${element}`)
+          })
+        }
 
-        return { inBoxTextVideoArray, inBoxImgVideoArray, inBoxImageArray, inBoxTextArray, manufacturerDescTextArray };
+        return { inBoxTextVideoArray, inBoxImgVideoArray, inBoxImageArray, inBoxTextArray, manufacturerDescTextArray, finalVideoArray };
       });
     }
 
@@ -146,8 +157,11 @@ module.exports = {
           for (let i = 0; i < manContentObj.inBoxTextVideoArray.length; i++) {
             addHiddenDivForIframe('added-inBox-Text-for-Video', manContentObj.inBoxTextVideoArray[i]);
           }
-          for (let i = 0; i< manContentObj.manufacturerDescTextArray.length; i++) {
-            addHiddenDivForIframe('manufacturerDescText',manContentObj.manufacturerDescTextArray)
+          for (let i = 0; i < manContentObj.manufacturerDescTextArray.length; i++) {
+            addHiddenDivForIframe('manufacturerDescText', manContentObj.manufacturerDescTextArray)
+          }
+          for (let i = 0; i < manContentObj.finalVideoArray.length; i++) {
+            addHiddenDivForIframe('videoinformation', manContentObj.finalVideoArray[i])
           }
         }
         else {
@@ -190,20 +204,20 @@ module.exports = {
           imageArray5.push(inBoxImage[i].getAttribute('data-flixsrcset'));
           console.log('checking image >>>>>>>>> ', imageArray5);
         }
-          if(imageArray5.length > 0){
-            for(let i = 0; i < imageArray5.length; i++){
-              let text = imageArray5[i];
-              let splits = text.split(",");
-              let splits1  = `${splits[0]}`;
-              console.log("splits1",splits1);
-              let splits2 = splits1.replace('200w','').trim();
-              inBoxImageArray.push(splits2);
-            }
+        if (imageArray5.length > 0) {
+          for (let i = 0; i < imageArray5.length; i++) {
+            let text = imageArray5[i];
+            let splits = text.split(",");
+            let splits1 = `${splits[0]}`;
+            console.log("splits1", splits1);
+            let splits2 = splits1.replace('200w', '').trim();
+            inBoxImageArray.push(splits2);
           }
-          console.log(' imageArray5 ',  inBoxImageArray);
+        }
+        console.log(' imageArray5 ', inBoxImageArray);
         // }
       }
-        return inBoxImageArray;
+      return inBoxImageArray;
 
     });
 
