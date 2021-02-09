@@ -83,7 +83,11 @@ module.exports = {
 
       if (desc) {
         let descHTML = desc.innerHTML;
-        descHTML = descHTML.split(`<h2>Conseils d'utilisation :</h2>`);
+        descHTML = descHTML.split(`\n</h2>`).join('</h2>');
+        descHTML = descHTML.split(`&nbsp;</h2>`).join('</h2>');
+        descHTML = descHTML.split(`<h2 dir="ltr">`).join('<h2>');
+        descHTML = descHTML.split(`<h2 style="text-align: justify;">`).join('<h2>');
+        descHTML = descHTML.split(`<h2>Conseils d'utilisation :`);
         
         if (descHTML.length > 1) {
           directionsHTML = descHTML[1].split('<h2>');
@@ -91,6 +95,14 @@ module.exports = {
         }
       }
 
+      if (!directionsHTML) {
+        let descHTML = desc.innerHTML;
+        descHTML = descHTML.split(`<strong>Conseils d'utilisation :</strong>`);
+
+        if (descHTML.length > 1) {
+          directionsHTML = descHTML[1].split('<strong>')[0];
+        }
+      }
       
       const newDirectionEl = document.createElement('import-direction');
       newDirectionEl.innerHTML = directionsHTML;
@@ -98,7 +110,14 @@ module.exports = {
 
       if (desc) {
         let descHTML = desc.innerHTML;
-        descHTML = descHTML.split(`<h2>Composition :</h2>`);
+        descHTML = descHTML.split(`\n</h2>`).join('</h2>');
+        descHTML = descHTML.split(`&nbsp;</h2>`).join('</h2>');
+        descHTML = descHTML.split(`<h2 dir="ltr">`).join('<h2>');
+        descHTML = descHTML.split(`<h2 style="text-align: justify;">`).join('<h2>');
+        descHTML = descHTML.split(`<h2 style="color: rgb(68, 68, 68); letter-spacing: 0.36396px;">`).join('<h2>');
+        descHTML = descHTML.split(`<span>Composition :`).join('<h2>Composition :');
+        descHTML = descHTML.replace(`<span style="color: inherit; font-size: 27.297px; font-weight: bold; letter-spacing: 0.03em;">Composition :</span>`, `<h2>Composition :`)
+        descHTML = descHTML.split(`<h2>Composition :`);
         
         if (descHTML.length > 1) {
           ingridientsHTML = descHTML[1].split('<h2>');
