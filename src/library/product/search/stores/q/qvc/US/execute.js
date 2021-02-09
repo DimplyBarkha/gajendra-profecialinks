@@ -7,7 +7,7 @@ module.exports = {
     domain: 'qvc.com',
     url: 'https://www.qvc.com/catalog/search.html?keyword={searchTerms}',
     loadedSelector: 'div[class="productInfo productGallery "]',
-    noResultsXPath: '//div[@class="monetate_selectorHTML_bcb1faba"]',
+    noResultsXPath: '//div[@class="monetate_selectorHTML_bcb1faba"] | //div[@class="pdShortDesc"]',
     zipcode: '',
   },
 };

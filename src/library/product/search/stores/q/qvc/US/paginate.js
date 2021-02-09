@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[class="productInfo productGallery "]',
-    noResultsXPath: '//div[@class="monetate_selectorHTML_bcb1faba"]',
+    noResultsXPath: '//div[@class="monetate_selectorHTML_bcb1faba"] | //div[@class="pdShortDesc"]',
     resultsDivSelector: null,
     openSearchDefinition: null,
     domain: 'qvc.com',

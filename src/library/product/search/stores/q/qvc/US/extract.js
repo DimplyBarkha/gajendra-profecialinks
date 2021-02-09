@@ -16,12 +16,6 @@ async function implementation (
     if (popUp) popUp.remove();
     if (window) window.remove();
   });
-  await context.evaluate(async () => {
-    for (let i = 0; i <= document.body.scrollHeight; i = i + 500) {
-      window.scroll(0, i);
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-    }
-  });
   const data = await context.extract(productDetails, { transform });
   for (let i = 0; i < data[0].group.length; i++) {
     if ('aggregateRating2' in data[0].group[i]) {
