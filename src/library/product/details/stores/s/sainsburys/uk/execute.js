@@ -5,7 +5,7 @@ module.exports = {
     country: 'UK',
     store: 'Sainsburys',
     domain: 'sainsburys.co.uk',
-    loadedSelector: 'h1[data-test-id="pd-product-title"]',
+    loadedSelector: 'h2[class="pt__info__description"] a',
     noResultsXPath: null,
     zipcode: '',
   },
