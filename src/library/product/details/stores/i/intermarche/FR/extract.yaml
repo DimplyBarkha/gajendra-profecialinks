@@ -24,14 +24,15 @@ fields:
   #   description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: false
-    description: The product name, prefixing "${brand} - " if not included in "name"
+    description:
+      The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
     xpath: (//div[contains(@class, 'ProductConditionnement')])[1]
   - name: nameExtended1
-    singleValue: false    
+    singleValue: false
     xpath: (//div[contains(@class, 'ProductConditionnement')])[2]
   - name: nameExtended2
-    singleValue: false    
+    singleValue: false
     xpath: (//div[contains(@class, 'ProductConditionnement')])[3]
   - name: listPrice
     singleValue: false
@@ -53,7 +54,8 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    description: Product description supplied by website - may be concatenanted from
+    description:
+      Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
     xpath: //div[contains(@class, 'Informations__Item')]/div[contains(@class, 'Informations__ItemTitle')][contains(., "Avantages")]//following-sibling::*[1]
   - name: descriptionBullets
@@ -63,7 +65,8 @@ fields:
     type: NUMBER
   - name: brandText
     singleValue: false
-    description: Product brand shown - this may actually NOT be just a brand name,
+    description:
+      Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
     xpath: //div[contains(@class, 'ProductLibelle')]
   - name: manufacturer
@@ -86,7 +89,7 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: false
-    description: The store-specific product identifier    
+    description: The store-specific product identifier
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
@@ -96,7 +99,8 @@ fields:
     description: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: false
-    description: The number of packs in the product offer (if stated separately on
+    description:
+      The number of packs in the product offer (if stated separately on
       the site to quantity)
   - name: legalDisclaimer
     singleValue: false
@@ -151,6 +155,7 @@ fields:
   - name: name
     singleValue: false
     description: The product name
+    xpath: //div[@class="styled__ProductGeneralInfoContainer-rc4bd7-0 heKoPO"]
   - name: inStorePrice
     singleValue: false
     description: Price in the selected store
@@ -174,11 +179,13 @@ fields:
     description: Text next to bullet point
   - name: salesRank
     singleValue: false
-    description: Amazon best selling rank from product details (linked back) - needs
+    description:
+      Amazon best selling rank from product details (linked back) - needs
       to be collapsed
   - name: salesRankCategory
     singleValue: false
-    description: Amazon best selling rank from product details (linked back) - needs
+    description:
+      Amazon best selling rank from product details (linked back) - needs
       to be collapsed
   - name: subscriptionPrice
     singleValue: false
@@ -259,7 +266,7 @@ fields:
   - name: servingSize
     singleValue: false
     description: The size of serving Nutritional information is based on.
-    xpath: 
+    xpath:
   - name: servingSizeUom
     singleValue: false
     description: Unit of measure of serving
@@ -269,7 +276,8 @@ fields:
     type: NUMBER
   - name: caloriesPerServing
     singleValue: false
-    description: Nutritional Information for Calories Per Serving content - Usually
+    description:
+      Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
     xpath: (//div[contains(@class, 'NutritionalTable_')]//td[contains(., "Energie")]/div)[2]
     regExp: \(([0-9,.]+) kcal\)
@@ -282,7 +290,8 @@ fields:
     regExp: ([0-9,.]+)
   - name: totalFatPerServing
     singleValue: false
-    description: Nutritional Information for Total Fat content - Usually based on
+    description:
+      Nutritional Information for Total Fat content - Usually based on
       per 100g serving
     # type: NUMBER
     regExp: ([0-9,.]+)
@@ -294,7 +303,8 @@ fields:
     xpath: (//div[contains(@class, 'NutritionalTable_')]//td[contains(., "Matière grasse")]/div)[2]
   - name: saturatedFatPerServing
     singleValue: false
-    description: Nutritional Information for Saturated Fat content - Usually based
+    description:
+      Nutritional Information for Saturated Fat content - Usually based
       on per 100g serving
     # type: NUMBER
     regExp: (\<?[0-9,.]+)
@@ -306,7 +316,8 @@ fields:
     xpath: (//div[contains(@class, 'NutritionalTable_')]//td[contains(., "gras saturé")]/div)[2]
   - name: transFatPerServing
     singleValue: false
-    description: Nutritional Information for Trans Fat content - Usually based on
+    description:
+      Nutritional Information for Trans Fat content - Usually based on
       per 100g serving
     # type: NUMBER
     regExp: (\<?[0-9,.]+)
@@ -316,7 +327,8 @@ fields:
     description: Unit of Measure Data for Trans Fat content
   - name: cholesterolPerServing
     singleValue: false
-    description: Nutritional Information for Cholesterol content - Usually based on
+    description:
+      Nutritional Information for Cholesterol content - Usually based on
       per 100g serving
     # type: NUMBER
     regExp: (\<?[0-9,.]+)
@@ -326,7 +338,8 @@ fields:
     description: Unit of Measure Data for Cholesterol content
   - name: sodiumPerServing
     singleValue: false
-    description: Nutritional Information for Sodium content - Usually based on per
+    description:
+      Nutritional Information for Sodium content - Usually based on per
       100g serving
     # type: NUMBER
     regExp: (\<?[0-9,.]+)
@@ -336,7 +349,8 @@ fields:
     description: Unit of Measure Data for Sodium content
   - name: totalCarbPerServing
     singleValue: false
-    description: Nutritional Information for Total Carbohydrate content - Usually
+    description:
+      Nutritional Information for Total Carbohydrate content - Usually
       based on per 100g serving
     # type: NUMBER
     regExp: (\<?[0-9,.]+)
@@ -348,7 +362,8 @@ fields:
     xpath: (//div[contains(@class, 'NutritionalTable_')]//td[contains(., "Glucides")]/div)[2]
   - name: dietaryFibrePerServing
     singleValue: false
-    description: Nutritional Information for Dietary Fibre content - Usually based
+    description:
+      Nutritional Information for Dietary Fibre content - Usually based
       on per 100g serving
     # type: NUMBER
     regExp: (\<?[0-9,.]+)
@@ -360,7 +375,8 @@ fields:
     xpath: (//div[contains(@class, 'NutritionalTable_')]//td[contains(., "Fibres Alimentaires")]/div)[2]
   - name: totalSugarsPerServing
     singleValue: false
-    description: Nutritional Information for Total Sugar content - Usually based on
+    description:
+      Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
     # type: NUMBER
     regExp: (\<?[0-9,.]+)
@@ -372,7 +388,8 @@ fields:
     xpath: (//div[contains(@class, 'NutritionalTable_')]//td[contains(., "sucre")]/div)[2]
   - name: proteinPerServing
     singleValue: false
-    description: Nutritional Information for Protein content - Usually based on per
+    description:
+      Nutritional Information for Protein content - Usually based on per
       100g serving
     # type: NUMBER
     regExp: (\<?[0-9,.]+)
@@ -384,7 +401,8 @@ fields:
     xpath: (//div[contains(@class, 'NutritionalTable_')]//td[contains(., "Protéines")]/div)[2]
   - name: vitaminAPerServing
     singleValue: false
-    description: Nutritional Information for Vitamin A content - Usually based on
+    description:
+      Nutritional Information for Vitamin A content - Usually based on
       per 100g serving
     # type: NUMBER
     regExp: (\<?[0-9,.]+)
@@ -394,7 +412,8 @@ fields:
     description: Unit of Measure Data for Vitamin A
   - name: vitaminCPerServing
     singleValue: false
-    description: Nutritional Information for Vitamin C content - Usually based on
+    description:
+      Nutritional Information for Vitamin C content - Usually based on
       per 100g serving
     # type: NUMBER
     regExp: (\<?[0-9,.]+)
@@ -404,7 +423,8 @@ fields:
     description: Unit of Measure Data for Vitamin C
   - name: calciumPerServing
     singleValue: false
-    description: Nutritional Information for Calcium content - Usually based on per
+    description:
+      Nutritional Information for Calcium content - Usually based on per
       100g serving
     # type: NUMBER
     regExp: (\<?[0-9,.]+)
@@ -427,7 +447,8 @@ fields:
     description: Information related to the dietary symbols of a specific product
   - name: magnesiumPerServing
     singleValue: false
-    description: Nutritional Information for Magnesium content - Usually based on
+    description:
+      Nutritional Information for Magnesium content - Usually based on
       per 100g serving
     # type: NUMBER
     regExp: (\<?[0-9,.]+)
@@ -500,11 +521,13 @@ fields:
       (https://www.amazon.es/DODOT-Sensitive-Pa%C3%B1ales-Talla-240/dp/B01ELA8U0Q/ref=sr_1_4?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=dodot%2B-%2Bpa%C3%B1ales%2Bpara%2Bni&qid=1589984387&sr=8-4&th=1)
   - name: newAsin
     singleValue: false
-    description: In product page, information about a new version of the product -
+    description:
+      In product page, information about a new version of the product -
       new asin info
   - name: newDescription
     singleValue: false
-    description: In product page, information about a new version of the product -
+    description:
+      In product page, information about a new version of the product -
       new desription info
   - name: variantInformation
     singleValue: false
