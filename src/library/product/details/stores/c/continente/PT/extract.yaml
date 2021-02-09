@@ -44,7 +44,7 @@ fields:
     defaultValue: 0
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@class="body"]//table//td//img/@src
+    xpath: //div[@class="body"]//table//td//img/@src |  //div[@class="body"]//p//img/@src
   - name: videos
     singleValue: false
     # xpath: //div[@class="ytp-title-text"]/a/@href
@@ -89,5 +89,110 @@ fields:
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//div[@class='imageAdditionalInfo']//a//img//@src)
+  - name: ironPerServing
+    singleValue: false
+    xpath: //table[@class='nutrientsTable']//td[contains(.,'ferro')]//following-sibling::td[1]
+  - name: ironPerServingUom
+    singleValue: false
+    xpath: //table[@class='nutrientsTable']//td[contains(.,'ferro')]//following-sibling::td[2]
+  - name: calciumPerServing
+    singleValue: false
+    xpath: //table[@class='nutrientsTable']//td[contains(.,'cálcio')]//following-sibling::td[1]
+  - name: calciumPerServingUom
+    singleValue: false
+    xpath: //table[@class='nutrientsTable']//td[contains(.,'cálcio')]//following-sibling::td[2]
+  - name: caloriesPerServing
+    singleValue: false
+    xpath: (//table[@class='nutrientsTable']//td[contains(.,'energia ')]//following-sibling::td[1])[1]
+  - name: allergyAdvice
+    singleValue: false
+    xpath: //div[@class='allergenStatement']//span[contains(.,'Alergénios:')]//following-sibling::span[@id='allergenStatement']//text()
+  - name: dietaryFibrePerServing
+    singleValue: false
+    xpath: //table[@class='nutrientsTable']//td[contains(.,'fibras')]//following-sibling::td[1]
+  - name: dietaryFibrePerServingUom
+    singleValue: false
+    xpath: //table[@class='nutrientsTable']//td[contains(.,'fibras')]//following-sibling::td[2]
+  - name: pricePerUnitUom
+    singleValue: false
+    defaultValue: gr
+  - name: saltPerServing
+    singleValue: false
+    xpath: //table[@class='nutrientsTable']//td[contains(.,'sal')]//following-sibling::td[1]
+  - name: saltPerServingUom
+    singleValue: false
+    xpath: //table[@class='nutrientsTable']//td[contains(.,'sal')]//following-sibling::td[2]
+  - name: saturatedFatPerServingUom
+    singleValue: false
+    xpath: //table[@class='nutrientsTable']//td[contains(.,'lípidos, dos quais ácidos gordos saturados')]//following-sibling::td[2]
+  - name: saturatedFatPerServing
+    singleValue: false
+    xpath: //table[@class='nutrientsTable']//td[contains(.,'lípidos, dos quais ácidos gordos saturados')]//following-sibling::td[1]
+  - name: weightNet
+    singleValue: false
+    xpath: (//div[@class='netContent'])[1]
+  - name: totalFatPerServing
+    singleValue: false
+    xpath: //table[@class='nutrientsTable']//td[contains(.,'lípidos ')]//following-sibling::td[1]
+  - name: totalFatPerServingUom
+    singleValue: false
+    xpath: //table[@class='nutrientsTable']//td[contains(.,'lípidos ')]//following-sibling::td[2]
+  - name: vitaminAPerServing
+    singleValue: false
+    xpath: //table[@class='nutrientsTable']//td[contains(.,'vitamina A')]//following-sibling::td[1]
+  - name: vitaminAPerServingUom
+    singleValue: false
+    xpath: //table[@class='nutrientsTable']//td[contains(.,'vitamina A')]//following-sibling::td[2]
+  - name: totalSugarsPerServing
+    singleValue: false
+    xpath: //table[@class='nutrientsTable']//td[contains(.,'hidratos de carbono, dos quais açúcares')]//following-sibling::td[1]
+  - name: totalSugarsPerServingUom
+    singleValue: false
+    xpath: //table[@class='nutrientsTable']//td[contains(.,'hidratos de carbono, dos quais açúcares')]//following-sibling::td[2]
+  - name: vitaminAPerServingUom
+    singleValue: false
+    xpath: //table[@class='nutrientsTable']//td[contains(.,'vitamina A')]//following-sibling::td[2]
+  - name: totalCarbPerServing
+    singleValue: false
+    xpath: //table[@class='nutrientsTable']//td[contains(.,'hidratos de carbono ')]//following-sibling::td[1]
+  - name: totalCarbPerServingUom
+    singleValue: false
+    xpath: //table[@class='nutrientsTable']//td[contains(.,'hidratos de carbono ')]//following-sibling::td[2]
+  - name: servingSize
+    singleValue: false
+    xpath: //div[@class='servingSizeUOM']//span[@class='label']
+  - name: servingSizeUom
+    singleValue: false
+    xpath: //div[@class='servingSizeUOM']//span[@id='servingSizeUOM']
+  - name: proteinPerServing
+    singleValue: false
+    xpath: //table[@class='nutrientsTable']//td[contains(.,'proteínas')]//following-sibling::td[1]
+  - name: proteinPerServingUom
+    singleValue: false
+    xpath: //table[@class='nutrientsTable']//td[contains(.,'proteínas')]//following-sibling::td[2]
+  - name: vitaminCPerServing
+    singleValue: false
+    xpath: //table[@class='nutrientsTable']//td[contains(.,'vitamina C ')]//following-sibling::td[1]
+  - name: vitaminCperservingUom
+    singleValue: false
+    xpath: //table[@class='nutrientsTable']//td[contains(.,'vitamina C ')]//following-sibling::td[2]
+  - name: productOtherInformation
+    singleValue: false
+    xpath: //div[@id='additionalCompulsoryAdditivesLabelInformation']//text()
+  - name: storage
+    singleValue: false
+    xpath: //div[@id='consumerUsageStorageInstruction']
+
+
+
+
+
+
+
+
+
+
+
+
 
 

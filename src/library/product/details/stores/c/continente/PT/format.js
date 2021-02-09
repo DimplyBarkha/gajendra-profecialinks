@@ -143,6 +143,23 @@ const transform = (data) => {
           }
         });
       }
+      if (row.weightNet) {
+        console.log("row.weightNet", row.weightNet);
+        row.weightNet.forEach(item => {
+          if (item.text.includes("Peso Líquido:")) {
+            item.text = item.text.replace('Peso Líquido:', '').trim();
+          }
+        });
+      }
+      if (row.servingSize) {
+        console.log("row.servingSize", row.servingSize);
+        row.servingSize.forEach(item => {
+          if (item.text.includes("Expressão por")) {
+            item.text = item.text.replace('Expressão por', '').trim();
+            item.text = item.text.replace(':', '').trim();
+          }
+        });
+      }
     }
   }
   return cleanUp(data);
