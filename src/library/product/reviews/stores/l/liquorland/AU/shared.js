@@ -33,6 +33,7 @@ const transform = (data) => {
         if(ratingValue > 5) {
           fieldName.reviewRating[0].value = Number((ratingValue / 20).toFixed(1));
           fieldName.reviewRating[0].text = `${(ratingValue / 20).toFixed(1)}`
+          fieldName.reviewRating[0].raw = `${(ratingValue / 20).toFixed(1)}`
         }
       }
 
