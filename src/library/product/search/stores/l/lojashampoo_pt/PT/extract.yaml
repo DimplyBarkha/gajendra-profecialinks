@@ -9,8 +9,9 @@ fields:
     regExp: (.+)([^\d,-])
   - name: aggregateRating
     singleValue: false
-    xpath: //div[@class="NETREVIEWS_PRODUCT_STARS"]/div
-    # regExp: (\d\.\d)
+    xpath: //div[@class="NETREVIEWS_PRODUCT_STARS"]//text()
+    regExp: (\d\.\d)
+    type: NUMBER
   - name: price
     singleValue: false
     xpath: //span[@class="price-new"]//text()
@@ -22,5 +23,8 @@ fields:
     singleValue: false
     xpath: //img[@class="img-responsive"]/@src
     description: The URL for the product thumbnail image
+  - name: id
+    xpath: //div[@class="NETREVIEWS_PRODUCT_STARS"]/@data-product-id
   - name: rank 
   - name: rankOrganic
+  
