@@ -33,6 +33,15 @@ const transform = (data) => {
           row.description = [{ "text": descArr.join(' | ') }];
         }
       }
+      if (row.ingredientsList) {
+        var descArr = [];
+        row.ingredientsList.forEach(item => {
+          descArr.push(item.text.replace(/\n\s+\n/, ' : ').trim());
+        });
+        if (descArr.length) {
+          row.ingredientsList = [{ "text": descArr.join(' ') }];
+        }
+      }
       if (row.image) {
         row.image.forEach(item => {
           item.text = 'https://b-apteka.ru' + item.text;

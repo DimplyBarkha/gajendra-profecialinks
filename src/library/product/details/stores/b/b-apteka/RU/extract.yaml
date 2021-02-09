@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -47,6 +47,22 @@ fields:
   - name: allergyAdvice
     singleValue: false
     xpath: //span[contains(text(),' Побочные эффекты ')]//ancestor::div[contains(@class,'instruction__bordered')]//span[@class='instruction__text']      
+  - name: packSize
+    singleValue: false
+    xpath: //span[@class="product-card-x__dosage"]
   - name: storage
     singleValue: false
-    xpath: //span[contains(text(),' Условия хранения ')]//ancestor::div[contains(@class,'instruction__bordered')]//span[@class='instruction__text']      
+    xpath: //span[.=" Условия хранения "]/../../following-sibling::div/div/span | //span[contains(text(),' Условия хранения ')]//ancestor::div[contains(@class,'instruction__bordered')]//span[@class='instruction__text']      
+  - name: ingredientsList
+    singleValue: false
+    xpath: //span[.=" Состав "]/../../following-sibling::div/div/span
+  - name: ingredientsList
+    singleValue: false  
+    xpath: //span[.=" Способ применения и дозы "]/../../following-sibling::div/div/span
+  - name: packaging
+    singleValue: false
+    xpath: //span[.=" Упаковка "]/../../following-sibling::div/div/span
+  - name: customerServiceAvailability
+    singleValue: false
+    defaultValue: Yes
+
