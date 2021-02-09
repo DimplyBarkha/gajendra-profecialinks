@@ -70,7 +70,7 @@ module.exports = {
       if (secondaryImageTotal) {
         addElementToDocument('added_secondaryImageTotal', secondaryImageTotal.length);
       }
-      const descriptionBullets = getAllXpath('//section[@class="panel-inner"]//div[@class="container-grid"]//li | //h2[text()="Predstavitev"]/following-sibling::section[contains(@class,"panel-inner")]//ul//li', 'nodeValue');
+      const descriptionBullets = getAllXpath('//section[@class="panel-inner"]//div[@class="container-grid"]//li | //h2[text()="Predstavitev"]/following-sibling::section[contains(@class,"panel-inner")]//table//ul//li', 'nodeValue');
       if (descriptionBullets) {
         addElementToDocument('added_descriptionBullets', descriptionBullets.length);
       }
