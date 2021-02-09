@@ -11,22 +11,21 @@ module.exports = {
   },
   implementation: async ({ inputstring }, { country, domain }, context, { productDetails }) => {
     await context.evaluate(() => {
-      // function addElementToDocument(key, value, d) {
-      //   const catElement = document.createElement("div");
-      //   catElement.id = key;
-      //   catElement.textContent = value;
-      //   catElement.style.display = 'none';
-      //   var los = "form[id='formVariatonPost']>div[id='schema-offer']:nth-child("+d+")";
-      //   const neww = document.querySelectorAll(los);
-      //   //neww(catElement, neww);
-      //   neww.parentNode(catElement);
-      // }
+      function addElementToDocument(key, value, d) {
+        const catElement = document.createElement("div");
+        catElement.id = key;
+        catElement.textContent = value;
+        catElement.style.display = 'none';
+        //const neww = document.querySelectorAll(los);
+        //neww(catElement, neww);
+        document.body.appendChild(catElement);
+      }
       function addHiddenDiv(id, content, index) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
         newDiv.style.display = 'none';
-        const originalDiv = document.querySelectorAll("form[id='formVariatonPost']>div[id='schema-offer']")[index];
+        const originalDiv = document.querySelectorAll("div[class*='font-headline description']")[index];
         originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
       const getAllXpath = (xpath, prop) => {
@@ -49,7 +48,7 @@ module.exports = {
       var str = "";
       if (dec != null) {
         str = dec.join(" | ");
-        //addElementToDocument('str', str);
+        addElementToDocument('str', str);
       }
       var name = getXpath('//*[@id="schema-offer"]/div[2]/p[2]/text()', 'nodeValue');
       if (name != null) {
@@ -62,21 +61,33 @@ module.exports = {
       }
       var perunit = getXpath('(//*[@id="schema-offer"]/div[2]/p[1]/text())[1]', 'nodeValue');
       if (perunit != null) {
-        perunit = perunit.split("/")[1]
-        //addElementToDocument('perunit', perunit);
+        var priceper = perunit.split("/")[0].split('GP: ')[1];
+        var peruni2 = perunit.split("/")[1];
+        addElementToDocument('priceper', priceper);
+        addElementToDocument('perunit', peruni2);
       }
-      var desc=[]
-      
+
+      // var avi = getAllXpath('//div[@id="schema-offer"]/@data-outofstock', 'nodeValue');
+      // for (var i = 0; i < avi.length; i++) {
+      //   if (avi[i] != null) {
+      //     if (avi[i].includes('False')) {
+      //       addHiddenDiv('avail', 'In Stock', i)
+      //     }
+      //     else {
+      //       addHiddenDiv('avail', 'Out of Stock', i)
+      //     }
+      //   }
+      // }
+      var desc = []
+
       var units = getAllXpath('//div[@id="schema-offer"]/div[2]/div/div[1]/div/text()', 'nodeValue');
-      var name= getXpath('/html/head/title/text()', 'nodeValue');
+      // @ts-ignore
+      var name = document.querySelector("h1[class='article-header']").innerText
+      //var name= getXpath('//*[@id="right-column"]/div/div[1]/div/div[2]/div[1]/div[1]/h1', 'nodeValue');
       for (var i = 0; i < units.length; i++) {
-        // @ts-ignore
-        //var a= name + '-' + units[i];
-        desc.push(name + '-' + units[i]);
-        var z= i + 2
-        addHiddenDiv('desc', desc[z],i)
-        }
-        
+        addHiddenDiv('desc', name + '- ' + units[i], i)
+      }
+
     });
 
 

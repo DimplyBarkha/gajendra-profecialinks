@@ -16,19 +16,20 @@ fields:
     xpath: ancestor::html//link[@rel="canonical"]/@href
   - name: nameExtended
     singleValue: true
-    xpath: concat(ancestor::html//*[@id="right-column"]/div/div[1]/div/div[2]/div[1]/div[1]/h1,' - ',//*[@id="schema-offer"]/div/div/div/div)
+    xpath: //html//div[@id='desc']
   - name: gtin
     singleValue: true
     xpath: (ancestor::html//div[@id="schema-offer"]/div[3]/meta[@itemprop='gtin13']/@content)[1]
   - name: description
     singleValue: true
+    #xpath: //html//div[@id='desc']
     xpath: ancestor::html(//div[@class='footer-content']/div[1])
   - name: price
     singleValue: true
     xpath: //*[@id="schema-offer"]//meta[@itemprop='price']/@content
     #xpath: (//div[@class="variation clearfix active"]//div[@class="font-headline mbs05"]/text()[1]|//div[@itemprop='offers']/div/div[contains(text(),'€')]/text())[1]
-    #regExp: (\d\d?)\.(\d\d?)
-    #regExpReplace: $1,$2 €
+    regExp: (\d\d?)\.(\d\d?)
+    regExpReplace: $1,$2 €
   - name: listPrice
     singleValue: false
     xpath: //div[@id="schema-offer"]/div[3]/div[1]/div/span
@@ -63,10 +64,11 @@ fields:
     xpath: //div[@id="schema-offer"]/div[3]/meta[@itemprop='sku']/@content
   - name: availabilityText
     singleValue: true
+    #xpath: //html//div[@id='avail']
     xpath: //div[@id="schema-offer"]/@data-outofstock
-    regExp: (True)
-    regExpReplace: Out of Stock
-    defaultValue: In Stock
+    regExp: (False)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
   - name: quantity
     singleValue: true
     xpath: //div[@id="schema-offer"]/div[2]/div/div[1]/div
@@ -88,12 +90,13 @@ fields:
     defaultValue: 0
   - name: pricePerUnit
     singleValue: true
-    xpath: (ancestor::html//*[@id="schema-offer"]/div[2]/p[1]/text())[1]
+    xpath: ancestor::html//div[@id='priceper']
   #  regExp: \€(.+)\*(.*)
   #  regExpReplace: $1$2
   - name: pricePerUnitUom
     singleValue: true
-    xpath: ancestor::html//html//div[@id='perunit']
+    xpath: ancestor::html//div[@id='perunit']
+    # xpath: ancestor::html//html//div[@id='perunit']
   #   #regExp: \/(.*)
   #   #regExpReplace: $1 
   - name: imageAlt
@@ -104,7 +107,7 @@ fields:
     xpath: (ancestor::html//*[@id="schema-offer"]/div[2]/p[1]/span|ancestor::html//div[@id="schema-offer"]/div[2]/div/div[1]/div)[1]
   - name: variants
     singleValue: false
-    xpath: //html//div[@id='str']
+    xpath: ancestor::html//div[@id='str']
   - name: imageZoomFeaturePresent
     singleValue: true
     defaultValue: Yes
