@@ -17,7 +17,7 @@ fields:
   - name: url
     xpath: //link[@rel="canonical"]/@href
   - name: category
-    xpath: //div[@class="sc-pc-breadcrumbs"]/ol/li[position()>1] | //nav[contains(@class,"breadcrumbs")]/ol/li[position()>1] 
+    xpath: //div[@class="sc-pc-breadcrumbs"]/ol/li[position()>1] | //nav[contains(@class,"breadcrumbs")]/ol/li[position()>1]
   - name: nameExtended
     xpath: //title
   - name: listPrice
@@ -48,24 +48,24 @@ fields:
   - name: mpc
     xpath: //div[@class="main-wrapper"]//div[@class="sc-pc-large-desktop-layout"]/meta[@itemprop="mpn"]/@content | //meta[@itemprop="mpn"]/@content
   - name: ratingCount
-    xpath: //div[@class="bv_numReviews_component_container"]/meta/@content
+    xpath: //div[@class="bv_numReviews_component_container"]/meta/@content | //span[@data-automation-id="stars-reviews"]//span[@itemprop="reviewCount"]
   - name: aggregateRating
-    xpath: //div[@itemprop="ratingValue"] | //span[contains(@class,'secondary-rating-summary')]
+    xpath: //div[@itemprop="ratingValue"] | //span[contains(@class,'secondary-rating-summary')] | //span[@itemprop="ratingValue"]
   - name: variantCount
     defaultValue: "0"
   - name: manufacturerDescription
     # xpath: //div[contains(@id, 'aplus')]//div[contains(@class,'text-wrap')] | //div[@class="enhancedContent"]
-    xpath: //h1[@class="wc-ppp-caption"] | //h2[contains(@class,"wc-first-header wc-rich-features")] | //div[@class="wc-media-wrap"]/following-sibling::div[@class="wc-rich-content-description"] 
+    xpath: //h1[@class="wc-ppp-caption"] | //h2[contains(@class,"wc-first-header wc-rich-features")] | //div[@class="wc-media-wrap"]/following-sibling::div[@class="wc-rich-content-description"]
   - name: manufacturerImages
     xpath: //div[contains(@class,"aplus-body")]//img/@src | //div[@class="enhancedContent"]//img/@src | //div[contains(@class, 'inpage_selector')]//img/@srcset
     regExp: (.*?)//(.*)
     regExpReplace: https://$2
   - name: videos
-    xpath: //body[@class="sc-desktop"]/@videolink | //body[@class="sc-desktop"]/@videolink2
+    xpath: //body[@class="sc-desktop"]/@videolink[not(contains(.,"null"))] | //body[@class="sc-desktop"]/@videolink2[not(contains(.,"undefined"))]
   - name: name
     xpath: //div[@class="sc-pc-title-full-desktop"]//h1 | //meta[@itemprop="name"]/@content
   - name: secondaryImageTotal
-    xpath: count(//div[@class="slider-frame"]//ul[@class="slider-list"]/li[position()>1]//img/@src) 
+    xpath: count(//div[@class="slider-frame"]//ul[@class="slider-list"]/li[position()>1]//img/@src)
   - name: specifications
     xpath: //div[@id="policies-link"]//div[@class="sc-manufacturing-element"]/h4[text()='Specifications']/following-sibling::div[1]/ul/li | //h4[text()='Specifications']/following-sibling::div[1]//p
   - name: warranty
@@ -94,3 +94,5 @@ fields:
     xpath: //meta[@itemprop="image"]/@content
     regExp: (.*)/(.*?)_(.*)
     regExpReplace: $2
+  - name: productUrl
+    xpath: //link[@rel="canonical"]/@href

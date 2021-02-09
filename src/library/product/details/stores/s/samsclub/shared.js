@@ -51,19 +51,9 @@ const cleanUp = (data, context) => {
       }
       if (row.manufacturerDescription) {
         let text = '';
-        text = row.manufacturerDescription.map(element=>element.text.trim()).join(' ');
+        text = row.manufacturerDescription.map(element => element.text.trim()).join(' ');
         row.manufacturerDescription = [{ text: text.trim() }];
       }
-      // if(row.videos){
-      //   if(row.videos[0].text.includes('null')){
-      //     row.videos.splice(0,1);
-      //   }
-      //   // if(row.videos[1].text.includes('undefined')){
-      //   //   row.videos[1].text = '';
-      //   // }
-      // }
-      
-
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
