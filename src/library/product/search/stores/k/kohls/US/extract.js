@@ -28,7 +28,7 @@ module.exports = {
         document.body.appendChild(catElement);
       }
       // wait for loading sponsored products
-      await stall(2000);
+      await stall(3000);
       const searchUrl = window.location.href;
       addElementToDocument('searchUrl', searchUrl);
     });
