@@ -40,7 +40,7 @@ module.exports = {
    
     if(JSON.stringify(node) !== '{}'){
       await context.click(`button[id='confirmed']`);
-      await new Promise(resolve => setTimeout(resolve, 9000));
+      await new Promise(resolve => setTimeout(resolve, 90000));
     }
     
    }catch(exception){
