@@ -24,16 +24,36 @@ module.exports = {
         else result = elem ? elem.singleNodeValue : '';
         return result && result.trim ? result.trim() : result;
       };
-      const size = getXpath("//div[@class='lsection mobile-product-name h6']//text()", 'nodeValue');
-      var nameArr = size.split(',');
-      addElementToDocument('size', nameArr[nameArr.length - 1])
-      const price = getXpath("//div[@class='display-price']//span[@itemprop='price']/text() | (//div[@class='display-price sale-price']/text())[1]", 'nodeValue');
-      if (price.includes('$')) {
-        addElementToDocument('price', price);
+      try {
+        const size = getXpath("//div[@class='lsection mobile-product-name h6']//text()", 'nodeValue');
+        var nameArr = size.split(',');
+        addElementToDocument('size', nameArr[nameArr.length - 1])
+        const price = getXpath("//div[@class='display-price']//span[@itemprop='price']/text() | (//div[@class='display-price sale-price']/text())[1]", 'nodeValue');
+        if (price.includes('$')) {
+          addElementToDocument('price', price);
+        }
+        else {
+          addElementToDocument('price', '$' + price);
+        }
+      } catch (error) {
+
       }
-      else {
-        addElementToDocument('price', '$' + price);
+      try {
+        var stock = "In Stock"
+        const availability = getXpath('//div[@class="rsection stock-container"]//img/@alt//text()', 'nodeValue');
+        if (availability == "Success") {
+          addElementToDocument('stock', stock);
+          console.log(stock)
+        }
+        // else {
+        //   stock = "Out Of Stock"
+        //   console.log(stock)
+        //   addElementToDocument('availability', stock);
+        // }
+      } catch (error) {
+
       }
+
     });
     await context.extract(productDetails, { transform: transformParam });
   },

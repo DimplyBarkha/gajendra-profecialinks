@@ -19,6 +19,9 @@ fields:
     singleValue: true
     description: The <meta> keywords content
     xpath: //meta[@name="keywords"]
+  - name: url
+    singleValue: true
+    xpath: //link[@rel="canonical"]/@href
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
@@ -39,7 +42,7 @@ fields:
     type: CURRENCY
   - name: availabilityText
     singleValue: true
-    xpath: //button[@id="addToCartButton"]
+    xpath: //button[@id="addToCartButton"][contains(text(),"Add to Cart")]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out Of Stock
