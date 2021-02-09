@@ -259,4 +259,4 @@ fields:
   - name: inTheBoxUrl
     xpath: //h2[contains(.,'In the box')]/..//li//img/@src | //div[@id='inTheBoxUrl']
   - name: inTheBoxText
-    xpath: //h2[contains(.,'In the box')]/..//li//h3 | /html[not(//h2[contains(.,'In the box')]/..//li//h3)]//p[contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),"in the box")]/following-sibling::ul[1]/li | /html[not(//h2[contains(.,'In the box')]/..//li//h3)]//p[contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),"included")]/following-sibling::ul[1]/li
+    xpath: //h2[contains(.,'In the box')]/..//li//h3 | /html[not(//h2[contains(.,'In the box')]/..//li//h3)]//p[contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),"in the box")]/following-sibling::ul[1]/li | /html[not(//h2[contains(.,'In the box')]/..//li//h3)]//p[contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),"included")]/following-sibling::ul[1]/li | //div[@id='inTheBoxText']
