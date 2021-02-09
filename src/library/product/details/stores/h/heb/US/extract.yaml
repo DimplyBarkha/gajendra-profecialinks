@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //html//div[@id="image"]
+    xpath: (//div[@class='pdp-mobile-image-container']/img)[1]/@src
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -17,7 +17,7 @@ fields:
     xpath: //meta[@name="keywords"]/@content
   - name: category
     singleValue: false
-    xpath: //div[@class="breadcrumb"]/div[position()>2]/a/text()
+    xpath: //div[@class="breadcrumb"]/div[position()>1]/a/text()
   - name: nameExtended
     singleValue: true
     xpath: //div[@class="first-block"]/h1[@class="pdp-product-name"]/text()
@@ -33,7 +33,8 @@ fields:
     xpath: //html//div[@id="avail"]
   - name: description
     singleValue: false
-    xpath: (//div[@class="pdp-product-desc_text pdp-step_title"]/p[@itemprop="description"]/text())[1]
+    # xpath: (//div[@class="pdp-product-desc_text pdp-step_title"]/p[@itemprop="description"]/text())[1]
+    xpath: (//div[@class="pdp-product-desc_text pdp-step_title"]/p[@itemprop="description"])[1]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -75,7 +76,7 @@ fields:
     description: Content under "legal disclaimer" header
   - name: directions
     singleValue: true
-    description: Content under "directions" header
+    xpath: (//span[contains(text(),"Preparation instructions")]/following::p[1]/text())[1]
   - name: warnings
     singleValue: true
     xpath: (//div[@class="comment more"]/text())[1]
@@ -190,12 +191,10 @@ fields:
     type: NUMBER
   - name: caloriesPerServing
     singleValue: true
-    description: Nutritional Information for Calories Per Serving content - Usually
-      based on per 100g serving
+    xpath: (//td[contains(text(),"Calories")]/following::td[1]/text())[1]
   - name: caloriesFromFatPerServing
     singleValue: true
-    description: Nutritional Information for Calories From Fat content - Usually
-      based on per 100g serving
+    xpath: (//td[contains(text(),"Calories from Fat")]/following::td[1]/text())[2]
     type: NUMBER
   - name: totalFatPerServing
     singleValue: true
@@ -230,16 +229,14 @@ fields:
     description: Unit of Measure Data for Cholesterol content
   - name: sodiumPerServing
     singleValue: true
-    description: Nutritional Information for Sodium content - Usually based on per
-      100g serving
+    xpath: (//td[contains(text(),"Sodium")]/following::td[1]/text())[1]
     type: NUMBER
   - name: sodiumPerServingUom
     singleValue: true
     description: Unit of Measure Data for Sodium content
   - name: totalCarbPerServing
     singleValue: true
-    description: Nutritional Information for Total Carbohydrate content - Usually
-      based on per 100g serving
+    xpath: (//td[contains(text(),"Total Carbohydrate")]/following::td[1]/text())[1]
     type: NUMBER
   - name: totalCarbPerServingUom
     singleValue: true
@@ -254,16 +251,14 @@ fields:
     description: Unit of Measure Data for Dietary Fibre content
   - name: totalSugarsPerServing
     singleValue: true
-    description: Nutritional Information for Total Sugar content - Usually based on
-      per 100g serving
+    xpath: (//td[contains(text(),"Sugars")]/following::td[1]/text())[1]
     type: NUMBER
   - name: totalSugarsPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Sugar content
   - name: proteinPerServing
     singleValue: true
-    description: Nutritional Information for Protein content - Usually based on per
-      100g serving
+    xpath: (//td[contains(text(),"Protein")]/following::td[1]/text())[1]
     type: NUMBER
   - name: proteinPerServingUom
     singleValue: true
@@ -437,4 +432,4 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: Yes
+    defaultValue: No
