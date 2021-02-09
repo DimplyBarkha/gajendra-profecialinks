@@ -3,6 +3,8 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //table/tbody/tr[@class="append_variant"]|//div[@id="selling-essentials"]//h3[contains(text(), "SOLD OUT")]
 fields:
+  - name: allDesignerBrands
+    xpath: ancestor::html//a[contains(@href,"designer") and contains(text(),"Designer Brands")]/../..//following-sibling::li
   - name: image
     xpath: ancestor::html//img[contains(@name,"gallery-image")]/@src
     regExp: (.+)&w=(.+)&h=
