@@ -132,7 +132,10 @@ module.exports = {
       dataRef[0].group[0].brandLink[0].text = `http://www.emag.ro${dataRef[0].group[0].brandLink[0].text}`;
     }
     if (dataRef[0].group[0].manufacturerDescription) {
-      dataRef[0].group[0].manufacturerDescription[0].text = dataRef[0].group[0].manufacturerDescription[0].text.replace(/\|\| /g, '').replace(/SPACEHERE/g, ' ');
+      console.log(dataRef[0].group[0].manufacturerDescription[0].text);
+      dataRef[0].group[0].manufacturerDescription[0].text = dataRef[0].group[0].manufacturerDescription[0].text.replace(/SPACEHERE\|\|SPACEHERE /g, '');
+      dataRef[0].group[0].manufacturerDescription[0].text = dataRef[0].group[0].manufacturerDescription[0].text.replace(/\|\|/g, '');
+      console.log(dataRef[0].group[0].manufacturerDescription[0].text);
     }
     if (dataRef[0].group[0].price) {
       if (/oferte/.test(dataRef[0].group[0].price[0].text)) {
