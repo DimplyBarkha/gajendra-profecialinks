@@ -294,7 +294,6 @@ module.exports = {
     } catch (err) { }
 
     await new Promise((resolve) => setTimeout(resolve, 2000));
-    /*
     const variantsButtonChange = await context.evaluate(async function () {
       return document.querySelectorAll('div[itemtype="http://schema.org/Product"] div[name*="_swatches"] div.rclCustomSelectListWrapper ul[aria-label="options"] li[class^="rclCustomItem"] button').length;
     });
@@ -331,7 +330,6 @@ module.exports = {
     } else {
       return await context.extract(productDetails, { transform });
     }
-    */
-    return await context.extract(productDetails, { transform });
+    // return await context.extract(productDetails, { transform });
   },
 };

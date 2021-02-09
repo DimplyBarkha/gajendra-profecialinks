@@ -28,7 +28,8 @@ fields:
     # xpath: count(//div[@id='rclModal']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li[not(@class='slick-active')]//button/img[contains(@alt, "image")]/@src|//div[@id="productitemlist"]//img/@src)
   - name: alternateImages
     singleValue: false
-    xpath: //div[@id='rclModal']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li[not(@class='slick-active')]//button/img/@src[not(contains(., "v.tvpage"))]|//div[@id="productitemlist"]//img/@src
+    xpath: //div[@id='rclModal']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li[not(@class='slick-active')]//button/img/@src[not(contains(., "v.tvpage"))]
+    # xpath: //div[@id='rclModal']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li[not(@class='slick-active')]//button/img/@src[not(contains(., "v.tvpage"))]|//div[@id="productitemlist"]//img/@src
   - name: alternateImages2
     singleValue: false
     xpath: //div[@class='slick-initialized slick-slider']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li[not(@class='slick-active')]//img[contains(@class,'ProductMediaCarouselStyle_')]/@src
