@@ -58,7 +58,7 @@ module.exports = {
       await new Promise((resolve, reject) => setTimeout(resolve, 1000));
       if (enhancedContent) {
         const enhancedData = document.createElement('div');
-        enhancedData.setAttribute('class', 'enhancedContent');
+        enhancedData && enhancedData.setAttribute('class', 'enhancedContent');
         // @ts-ignore
         enhancedData.innerHTML = enhancedContent.shadowRoot.querySelector('div').innerHTML;
         document.body.appendChild(enhancedData);
@@ -73,7 +73,7 @@ module.exports = {
       const videoLink = iframeDocuments && iframeDocuments.querySelector('video[class="vjs-tech"]');
       const link = videoLink && videoLink.getAttribute('src');
       const appendElements = document.querySelector('body[class="sc-desktop"]');
-      appendElements.setAttribute('videolink', link);
+      appendElements && appendElements.setAttribute('videolink', link);
 
       const videoLinkElement = document.querySelector('div[class="sc-image-viewer-vide0-icon"]');
       videoLinkElement && videoLinkElement.click();
@@ -97,7 +97,7 @@ module.exports = {
       const jsonData = await response.json();
       let VideoLink = '';
       VideoLink = jsonData && jsonData.sources && jsonData.sources[1].src;
-      appendElements.setAttribute('videolink2', VideoLink);
+      appendElements && appendElements.setAttribute('videolink2', VideoLink);
     });
     return await context.extract(productDetails, { transform });
   },
