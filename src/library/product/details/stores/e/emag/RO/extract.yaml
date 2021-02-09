@@ -106,7 +106,7 @@ fields:
   singleValue: false
   description: The number of packs in the product offer (if stated separately on the
     site to quantity)
-  xpath: //td[contains(.,"pachet")]/following-sibling::td
+  xpath: //section[contains(@class,"page-specs")]//td[contains(.,"pachet")]/following-sibling::td
   regExp: \d+
 - name: legalDisclaimer
   singleValue: true

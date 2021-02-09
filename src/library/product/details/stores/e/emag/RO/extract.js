@@ -85,10 +85,13 @@ module.exports = {
     });
 
     const dataRef = await context.extract(productDetails, { transform });
-
-   /*  if (dataRef[0].group[0].description) {
-      dataRef[0].group[0].description = dataRef[0].group[0].description.filter((v, i, a) => a.findIndex(t => (t.text === v.text)) === i);
-    } */
+    /* to correctly scrape additional description / bullet fields we need to go through all textNodes (avoiding textNodes from videos etc and taking into consideration that emag details page DOM is complicated)
+       this way in remote runs extractor might scrape duplicates of textNodes which we remove here omitting textNodes which indicating that there is a bullet point there */
+    if (dataRef[0].group[0].description) {
+      dataRef[0].group[0].description = dataRef[0].group[0].description.filter((v, i, a) => {
+        return v.text === 'SPACEHERE||SPACEHERE' ? true : a.findIndex(t => (t.text === v.text)) === i;
+      });
+    }
     reduceInfoToOneField(dataRef[0].group[0].description, '');
     reduceInfoToOneField(dataRef[0].group[0].directions);
     if (dataRef[0].group[0].manufacturerDescription && dataRef[0].group[0].manufacturerDescription.length > 1) {
