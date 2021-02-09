@@ -105,9 +105,9 @@ fields:
     xpath: //meta[@itemprop="brand"]/@content
   - name: inTheBoxUrl
     singleValue: false
-    xpath: ancestor::body//div[@id="in-the-box-url"]/@data | //h2[contains(.,"Комплектация") or contains(.,"Комплектации")]/following-sibling::center/img/@src
+    xpath: ancestor::body//div[@id="in-the-box-url"]/@data | //h2[contains(.,"Комплектация") or contains(.,"Комплектации")]/following-sibling::img/@src
   - name: inTheBoxText
-    xpath: ancestor::body//div[@id="in-the-box-text"]/@data | //h2[contains(.,"Комплектация") or contains(.,"Комплектации")]/following-sibling::center/img/@title
+    xpath: ancestor::body//div[@id="in-the-box-text"]/@data | //h2[contains(.,"Комплектация") or contains(.,"Комплектации")]/following-sibling::img/@title
   - name: hasComparisonTable
     defaultValue: "No"
   - name: unInterruptedPDP
