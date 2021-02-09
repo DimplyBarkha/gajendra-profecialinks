@@ -77,16 +77,16 @@ const transform = (data, context) => {
   const productCodes = state.productCodes || [];
   for (const { group } of data) {
     for (const row of group) {
-      rankCounter += 1;
-      if (!row.sponsored) {
-        orgRankCounter += 1;
-        row.rankOrganic = [{ text: orgRankCounter }];
-      }
-      row.rank = [{ text: rankCounter }];
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
       if (row.id) {
+        rankCounter += 1;
+        if (!row.sponsored) {
+          orgRankCounter += 1;
+          row.rankOrganic = [{ text: orgRankCounter }];
+        }
+        row.rank = [{ text: rankCounter }];
         for (const item of row.id) {
           if (item.text.includes('-')) {
             item.text = item.text.replace('-', '');
@@ -94,14 +94,14 @@ const transform = (data, context) => {
         }
       }
     }
-    
+
   }
   context.setState({ rankCounter });
   context.setState({ orgRankCounter });
   context.setState({ productCodes });
   console.log(productCodes);
-  console.log(rankCounter , 'rankCounter');
-  console.log(orgRankCounter , 'orgRankCounter');
+  console.log(rankCounter, 'rankCounter');
+  console.log(orgRankCounter, 'orgRankCounter');
   return data;
 };
 module.exports = { transform };
