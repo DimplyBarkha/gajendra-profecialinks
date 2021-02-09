@@ -84,23 +84,31 @@ module.exports = {
       if (desc) {
         let descHTML = desc.innerHTML;
         descHTML = descHTML.split(`\n</h2>`).join('</h2>');
+        descHTML = descHTML.split(`<h2>\n`).join('<h2>');
+        descHTML = descHTML.split(`<h2> `).join('<h2>');
         descHTML = descHTML.split(`&nbsp;</h2>`).join('</h2>');
         descHTML = descHTML.split(`<h2 dir="ltr">`).join('<h2>');
+        descHTML = descHTML.split(`<h2 class="title-block">`).join('<h2>');
+        descHTML = descHTML.split(`<h2 style="color: rgb(68, 68, 68); letter-spacing: 0.36396px;">`).join('<h2>');
         descHTML = descHTML.split(`<h2 style="text-align: justify;">`).join('<h2>');
         descHTML = descHTML.split(`<h2>Conseils d'utilisation :`);
         
         if (descHTML.length > 1) {
-          directionsHTML = descHTML[1].split('<h2>');
+          directionsHTML = descHTML[1].split('<h2');
           directionsHTML = directionsHTML[0];
         }
       }
 
       if (!directionsHTML) {
         let descHTML = desc.innerHTML;
-        descHTML = descHTML.split(`<strong>Conseils d'utilisation :</strong>`);
+        descHTML = descHTML.replace(`<strong> Conseils d'utilisation :`, `<strong>Conseils d'utilisation :`)
+        descHTML = descHTML.replace(`<strong style="letter-spacing: 0.03em; font-size: 12.132px;">Conseils d'utilisation :`, `<strong>Conseils d'utilisation :`)
+        descHTML = descHTML.replace(`<span style="color: inherit; font-size: 27.297px; font-weight: bold; letter-spacing: 0.03em;">Conseils d'utilisation :`, `<strong>Conseils d'utilisation :`)
+        descHTML = descHTML.split(`<strong>Conseils d'utilisation :`);
 
         if (descHTML.length > 1) {
-          directionsHTML = descHTML[1].split('<strong>')[0];
+          directionsHTML = descHTML[1].split('<strong')[0];
+          directionsHTML = directionsHTML.split('<h2')[0];
         }
       }
       
@@ -113,6 +121,7 @@ module.exports = {
         descHTML = descHTML.split(`\n</h2>`).join('</h2>');
         descHTML = descHTML.split(`&nbsp;</h2>`).join('</h2>');
         descHTML = descHTML.split(`<h2 dir="ltr">`).join('<h2>');
+        descHTML = descHTML.split(`<h2 style="">`).join('<h2>');
         descHTML = descHTML.split(`<h2 style="text-align: justify;">`).join('<h2>');
         descHTML = descHTML.split(`<h2 style="color: rgb(68, 68, 68); letter-spacing: 0.36396px;">`).join('<h2>');
         descHTML = descHTML.split(`<span>Composition :`).join('<h2>Composition :');
@@ -120,8 +129,18 @@ module.exports = {
         descHTML = descHTML.split(`<h2>Composition :`);
         
         if (descHTML.length > 1) {
-          ingridientsHTML = descHTML[1].split('<h2>');
+          ingridientsHTML = descHTML[1].split('<h2');
           ingridientsHTML = ingridientsHTML[0];
+        }
+      }
+
+      if (!ingridientsHTML) {
+        let descHTML = desc.innerHTML;
+        descHTML = descHTML.split(`<strong>Composition :`);
+
+        if (descHTML.length > 1) {
+          ingridientsHTML = descHTML[1].split('<strong');
+          ingridientsHTML = ingridientsHTML[0].split('<h2')[0];
         }
       }
 
