@@ -45,6 +45,7 @@ const transform = (data, context) => {
 
         row.storeName = [{ text: productObj.retailer.name }];
         row.imageUrl = [{ text: productObj.image.sizes.Best.url }];
+        row.image = [{ text: productObj.image.sizes.Best.url }];
         row.availability = [{ text: true }];
 
         setRow('pageRank', 'rank');
