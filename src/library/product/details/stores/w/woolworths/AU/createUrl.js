@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'woolworths.com.au',
     prefix: null,
-    url: null,
+    url: 'https://www.woolworths.com.au/shop/productdetails/{id}',
     country: 'AU',
     store: 'woolworths',
     zipcode: '',
