@@ -81,7 +81,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     await context.goto(`https://www.zalando.de/beauty-damen/?q=${searchTerm}`);
     await new Promise((resolve) => setTimeout(resolve, 2000));
   }
-  if (currentUrl.includes('beauty-highlighter/?q') || currentUrl.includes('beauty-mascara/?q=wimperntusche') || currentUrl.includes('beauty-augenbrauengel/?q')) {
+  if (currentUrl.includes('beauty-mascara/?q=wimperntusche') || currentUrl.includes('beauty-augenbrauengel/?q')) {
     await context.goto('https://www.zalando.de/herren/');
     await new Promise((resolve) => setTimeout(resolve, 2000));
     await context.goto(`https://www.zalando.de/herren/?q=${searchTerm}`);
