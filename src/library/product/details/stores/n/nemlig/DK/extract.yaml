@@ -26,7 +26,8 @@ fields:
     regExp: contentAsJson\s*=\s*(\{.+?\});
     regExpReplace: $1
   - name: nameExtended
-    singleValue: false    
+    singleValue: false 
+    xpath: concat(//h1[contains(@class,"product-detail")], ' ', //h2[contains(@class,"product-detail")])   
   - name: availabilityText
     singleValue: false
     xpath: //div[@class='addtobasket__btn-text' and text()='Læg i kurv']

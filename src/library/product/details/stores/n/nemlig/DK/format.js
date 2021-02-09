@@ -35,9 +35,9 @@ const transform = (data) => {
           // if (objMetaData.TrackingId) {
           //   row.sku = row.variantId = [{ text: objMetaData.TrackingId }];
           // }
-          if (row.brandText) {
-            row.nameExtended = [{ text: row.brandText[0].text + ' - ' + tempName }];
-          }
+          // if (row.brandText) {
+          //   row.nameExtended = [{ text: row.brandText[0].text + ' - ' + tempName }];
+          // }
         }
         if (scriptJSON.content) {
           var objContent = scriptJSON.content;
