@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  *
  * @param {{
@@ -6,6 +7,7 @@
  *  offset: number,
  * }} inputs
  * @param {{
+ *  nextPageUrlSelector: string,
  *  nextLinkSelector: string,
  *  nextLinkXpath: string,
  *  mutationSelector: string,
@@ -30,12 +32,12 @@ async function implementation (
   dependencies,
 ) {
   const { id, date, keywords, page, offset } = inputs;
-  const { stopConditionSelectorOrXpath, nextLinkSelector, loadedSelector, noResultsXPath, mutationSelector, loadedXpath, resultsDivSelector, spinnerSelector, openSearchDefinition, nextLinkXpath } = parameters;
+  const { nextPageUrlSelector, stopConditionSelectorOrXpath, nextLinkSelector, loadedSelector, noResultsXPath, mutationSelector, loadedXpath, resultsDivSelector, spinnerSelector, openSearchDefinition, nextLinkXpath } = parameters;
 
   let nextLink;
 
   if (stopConditionSelectorOrXpath) {
-    const conditionIsTrue = await context.waitForFunction((sel) => {
+    const conditionIsTrue = await context.evaluate((sel) => {
       try {
         const isThere = document.querySelector(sel);
         return !!isThere;
@@ -47,7 +49,7 @@ async function implementation (
           return false;
         }
       }
-    }, { timeout: 10000 }, stopConditionSelectorOrXpath);
+    }, stopConditionSelectorOrXpath);
     // @ts-ignore
     if (conditionIsTrue) return false;
   }
@@ -81,14 +83,12 @@ async function implementation (
     return true;
   }
 
-  let url = openSearchDefinition ? false : await context.evaluate(function () {
-    /** @type { HTMLLinkElement } */
-    const next = document.querySelector('head link[rel="next"]');
-    if (!next) {
-      return false;
-    }
+  let url = openSearchDefinition ? false : await context.evaluate((nextSelectors) => {
+    const selector = nextSelectors.filter(u => u).join(', ');
+    const next = document.querySelector(selector);
+    if (!next) return false;
     return next.href;
-  });
+  }, [nextPageUrlSelector, 'head link[rel="next"]']);
 
   if (!url && openSearchDefinition) {
     const { pageStartNb = 1, indexOffset, pageOffset, pageIndexMultiplier, template } = openSearchDefinition;
@@ -153,6 +153,10 @@ module.exports = {
       description: 'CSS selector for the next link',
     },
     {
+      name: 'nextPageUrlSelector',
+      description: 'CSS selector to get next page url for goto. Use this instead of openSearchDefinition if you have multiple patterns of paginate urls and next link is present in a "href".',
+    },
+    {
       name: 'nextLinkXpath',
       description: 'Xpath selector for the next link',
     },
@@ -201,7 +205,11 @@ module.exports = {
   }],
   get path () {
     const actionjsPath = preCompileFunctions.getRobotTemplateName();
-    return `${actionjsPath}/stores/\${store[0:1]}/\${store}/\${country}/paginate`;
+    return this.tempPath || `${actionjsPath}/stores/\${store[0:1]}/\${store}/\${country}/paginate`;
+  },
+  tempPath: '',
+  set path (val) {
+    this.tempPath = val;
   },
   dependencies: {
     helperLib: 'action:navigation/navigationHelperLibrary',
