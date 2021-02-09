@@ -48,6 +48,8 @@ async function implementation(
       return result && result.trim ? result.trim() : result;
     };
 
+    // Variant Ids
+
     // Variant Urls for shade and size
     var vurls = [];
     var varShade = getAllXpath('//div[contains(@class,"product-variation-shade__item")]/a/@href', 'nodeValue');
