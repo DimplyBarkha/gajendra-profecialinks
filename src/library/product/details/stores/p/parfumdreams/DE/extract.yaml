@@ -13,7 +13,8 @@ fields:
     xpath: (ancestor::html//meta[@itemprop='sku']/@content)[1]
   - name: productUrl
     singleValue: true
-    xpath: ancestor::html//link[@rel="canonical"]/@href
+    xpath: ancestor::html//div[@id='currurl']
+    # xpath: ancestor::html//link[@rel="canonical"]/@href
   - name: nameExtended
     singleValue: true
     xpath: //html//div[@id='desc']
@@ -71,7 +72,10 @@ fields:
     defaultValue: Out of Stock
   - name: quantity
     singleValue: true
-    xpath: //div[@id="schema-offer"]/div[2]/div/div[1]/div
+    xpath: //html//div[@id='qty']
+    # xpath: //div[@id="schema-offer"]/div[2]/div/div[1]/div
+    # regExp: \- (.+)
+    # regExpReplace: $1
   - name: alternateImages
     singleValue: false
     xpath: ancestor::html//div[@class="carousel more-pictures"]/div[@class="swiper-wrapper"]/div[position()>1]/div/img/@src

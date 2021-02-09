@@ -112,6 +112,11 @@ module.exports = {
         addElementToDocument('priceper', priceper);
         addElementToDocument('perunit', peruni2);
       }
+      // var qty = getAllXpath('//div[@id="schema-offer"]/div[2]/div/div[1]/div/text()', 'nodeValue');
+      // for (var i = 0; i < qty.length; i++){
+      //   var aa= qty[i]
+      //   addHiddenDiv('qty', aa, i)
+      // }
 
       // var avi = getAllXpath('//div[@id="schema-offer"]/@data-outofstock', 'nodeValue');
       // for (var i = 0; i < avi.length; i++) {
@@ -132,7 +137,11 @@ module.exports = {
       //var name= getXpath('//*[@id="right-column"]/div/div[1]/div/div[2]/div[1]/div[1]/h1', 'nodeValue');
       for (var i = 0; i < units.length; i++) {
         addHiddenDiv('desc', name + '- ' + units[i], i)
+        addHiddenDiv('qty', units[i], i)
       }
+
+      var currurl= window.location.href
+      addElementToDocument('currurl', currurl);
     });
 
 
