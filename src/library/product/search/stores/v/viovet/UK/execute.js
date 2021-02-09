@@ -7,7 +7,7 @@ module.exports = {
     domain: 'viovet.co.uk',
     url: 'https://www.viovet.co.uk/advanced_search_result.php?keywords={searchTerms}',
     loadedSelector: 'span[class="_results-view-option"]',
-    noResultsXPath: '//h3[@style="margin-top:10px;"]',
+    noResultsXPath: '//h3[contains(. , "Here is a list of our most popular products:")] | //h1[contains(. , "Page Not Found")]',
     zipcode: '',
   },
 };
