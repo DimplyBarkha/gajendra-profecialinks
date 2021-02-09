@@ -1,21 +1,21 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@data-hook="review"]
+recordXPath: //*[@data-hook="review"]
 fields:
   - name: helpfulCount
     xpath: //span[@data-hook="helpful-vote-statement"]
     regExp: (.*) people
     regExpReplace: $1
   - name: reviewRating
-    xpath: //i[@data-hook="review-star-rating"]/span
-    regExp: (.*) out
-    regExpReplace: $1
+    xpath: .//*[contains(@data-hook,"review-star-rating")]
+    regExp: '^[^\s]+'
   - name: reviewDate
-    xpath: //span[@data-hook="review-date"]
-    regExp: on (.*)
-    regExpReplace: $1
+    type: DATETIME
+    xpath: .//*[contains(@data-hook,"review-date")]
   - name: reviewText
-    xpath: //span[@data-hook="review-body"]/span
+    xpath: .//*[@data-hook="review-body"]
   - name: reviewTitle
     xpath: //a[@data-hook="review-title"]/span
+  - name: verifiedPurchaseText
+    xpath: boolean(//span[@data-hook="avp-badge"])

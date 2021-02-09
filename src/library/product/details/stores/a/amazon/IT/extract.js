@@ -1,4 +1,4 @@
-const { transform } = require('../shared');
+const { transform } = require('../../../../sharedAmazon/transformNew');
 
 module.exports = {
   implements: 'product/details/extract',

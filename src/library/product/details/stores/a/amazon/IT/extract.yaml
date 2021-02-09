@@ -1,28 +1,29 @@
-singleRecord: false
-regionsSelector: null
-recordSelector: null
-recordXPath: //div[@id="dp"]
+extends: ../../../../sharedAmazon/shared
 fields:
-  - name: manufacturer
-    xpath: ancestor::html//a[@id="bylineInfo"]
-    regExp: Marca\:\ (.*)
-    regExpReplace: $1
-  - name: colour
-  - name: flavour
-  - name: image
-    xpath: //div[@id="imgTagWrapperId"]/img/@src
+  - name: brandText
+    singleValue: false
+    xpath: //*[normalize-space(text())="Marca"]/following-sibling::*[1]
   - name: pageTitle
-    xpath: ancestor::html//meta[@name="title"]/@content
-  - name: category
-    xpath: //ul[contains(@class,"a-unordered-list")]//li/span[@class="a-list-item"]/a/text()
+    xpath: //meta[@name="title"]/@content
   - name: subCategory
-    xpath: //ul[contains(@class,"a-unordered-list")]//li[last()]/span[@class="a-list-item"]/a/text()
-  - name: reviewCount
-    xpath: (//span[@id="acrCustomerReviewText"])[1]
-    regExp: (.*) voti
-    regExpReplace: $1
-  - name: pageOffset
+    xpath: //ul[contains(@class,"a-unordered-list")]//li[last()-2]/span[@class="a-list-item"]/a/text()
   - name: sku
-    xpath: ancestor::html//link[@rel="canonical"]/@href
+    xpath: //link[@rel="canonical"]/@href
     regExp: /dp/(.*)
     regExpReplace: $1
+
+  # - name: manufacturer
+  #   xpath: ancestor::html//a[@id="bylineInfo"]
+  #   regExp: Marca\:\ (.*)
+  #   regExpReplace: $1
+  # - name: colour
+  # - name: flavour
+  # - name: image
+  #   xpath: //div[@id="imgTagWrapperId"]/img/@src
+  # - name: category
+  #   xpath: //ul[contains(@class,"a-unordered-list")]//li/span[@class="a-list-item"]/a/text()
+  # - name: reviewCount
+  #   xpath: (//span[@id="acrCustomerReviewText"])[1]
+  #   regExp: (.*) voti
+  #   regExpReplace: $1
+  # - name: pageOffset

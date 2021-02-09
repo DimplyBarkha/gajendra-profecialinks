@@ -5,7 +5,7 @@ module.exports = {
     country: 'JP',
     store: 'amazon',
     domain: 'amazon.co.jp',
-    loadedSelector: 'div#cm_cr-review_list',
+    loadedSelector: 'div[data-hook="review"]',
     noResultsXPath: '//td/b[contains(text(),"Looking for something?")]',
     reviewUrl: 'https://www.amazon.co.jp/-/en/product-reviews/{id}?sortBy=recent&pageNumber=1',
     sortButtonSelectors: null,
