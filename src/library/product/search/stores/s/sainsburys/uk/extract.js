@@ -1,4 +1,4 @@
-const { transform } = require('../../../../shared');
+const { transform } = require('../../sainsburys/uk/transform');
 // const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',

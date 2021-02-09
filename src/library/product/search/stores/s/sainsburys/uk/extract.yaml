@@ -1,11 +1,11 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+# recordXPath: //form[@class="addToTrolleyForm"]//input[@name="ItemSKU_ID"]/@value
 fields:
   - name: id
     singleValue: false
-    xpath: //input[@name="ItemSKU_ID"]/@value
+    xpath: //form[@class="addToTrolleyForm"]//input[@name="ItemSKU_ID"]/@value
     # type: NUMBER
     regExp: \d+
     # regExpReplace: ''
