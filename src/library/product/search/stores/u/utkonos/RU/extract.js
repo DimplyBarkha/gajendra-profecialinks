@@ -33,6 +33,7 @@ module.exports = {
         }
       });
     };
+    await new Promise(resolve => setTimeout(resolve, 10000));
     await applyScroll(context);
     await context.evaluate(async function () {
       const addHiddenDiv = (id, content, container) => {
