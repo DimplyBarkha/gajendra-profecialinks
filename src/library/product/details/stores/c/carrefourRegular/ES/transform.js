@@ -32,14 +32,14 @@ const transform = (data) => {
           item.text = item.text.split(' ') ? item.text.split(' ')[0] : '';
         });
       }
-      if (row.videos) {
-        row.videos.forEach(item => {
-          const videoJSON = JSON.parse(item.text.replace(/\\"/gm, '"'));
-          if (videoJSON) {
-            item.text = (videoJSON.playlist && videoJSON.playlist[0] && videoJSON.playlist[0].file) ? 'https:' + videoJSON.playlist[0].file : '';
-          }
-        });
-      }
+      // if (row.videos) {
+      //   row.videos.forEach(item => {
+      //     const videoJSON = JSON.parse(item.text.replace(/\\"/gm, '"'));
+      //     if (videoJSON) {
+      //       item.text = (videoJSON.playlist && videoJSON.playlist[0] && videoJSON.playlist[0].file) ? 'https:' + videoJSON.playlist[0].file : '';
+      //     }
+      //   });
+      // }
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
