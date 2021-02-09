@@ -20,12 +20,19 @@ async function implementation (
     });
   };
 
+  const findButtonWithShip = async () => {
+    await context.evaluate(function () {
+      const mystore = document.querySelector('button[aria-label*="Ship"]');
+      if (mystore) mystore.click();
+    });
+  };
+
   const findClosestStore = async () => {
-    const indexToClick = await context.evaluate(async function () {
-      const sections = document.querySelectorAll('div.ModalitySelector--StoreSearchResult');
-      let smallestDistance = null;
+    // const indexToClick = await context.evaluate(async function () {
+      // const sections = document.querySelectorAll('div.ModalitySelector--StoreSearchResult');
+      // let smallestDistance = null;
       //let indexToClosestStore = null;
-      let indexToClosestStore = 1;
+      // let indexToClosestStore = 1;
       // sections.forEach((sectionItem, i) => {
       //   const section = sectionItem.querySelector('div.StoreSearchResults-StoreButtonWrapper div div');
 
@@ -38,27 +45,29 @@ async function implementation (
       //   }
       //   console.log(section.textContent);
       // });
-      console.log('Closest store: ' + smallestDistance);
-      return indexToClosestStore;
-    });
+      // console.log('Closest store: ' + smallestDistance);
+      // return indexToClosestStore;
+    // });
     try {
+      const indexToClick = 1;
       await context.click(`div.ModalitySelector--StoreSearchResult:nth-of-type(${indexToClick}) div.StoreSearchResults-StartButton`);
     } catch (err) {}
   };
 
   const changeZip = async (wantedZip) => {
     await context.click('button.CurrentModality-button');
-    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 5000));
 
     await context.setInputValue('input[data-testid="PostalCodeSearchBox-input"]', wantedZip);
-    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 5000));
 
     await context.click('button.kds-SolitarySearch-button');
-    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
-    await findButtonWithStoreSelect();
-    await new Promise((resolve, reject) => setTimeout(resolve, 8000));
-    await findClosestStore();
-    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+    await findButtonWithShip();
+    // await findButtonWithStoreSelect();
+    // await new Promise((resolve, reject) => setTimeout(resolve, 8000));
+    // await findClosestStore();
+    await new Promise((resolve, reject) => setTimeout(resolve, 4000));
   };
 
   await context.evaluate(() => {
@@ -71,11 +80,12 @@ async function implementation (
   const currentZip = await getCurrentZip();
   console.log(`Want zip: ${zipcode}, got zip: ${currentZip}`);
   
-  if (currentZip !== "Citrus Plaza") {
+  // if (currentZip !== "Citrus Plaza") {
   //if (currentZip !== zipcode) {
-    console.log('Trying to change zip');
-    await changeZip(zipcode);
-  }
+  //   console.log('Trying to change zip');
+  //   await changeZip(zipcode);
+  // }
+  await changeZip(zipcode);
   await context.evaluate(() => {
     const overlay = document.querySelector('#kds-Modal-kh3pr23t > button');
     if (overlay) {
