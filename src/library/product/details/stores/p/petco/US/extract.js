@@ -84,7 +84,7 @@ async function implementation (
   try {
     await context.evaluate(() => {
       const desc = document.evaluate(
-        '//div[contains(@class,"DescriptionContainer")]/div//p | //div[contains(@class,"DescriptionContainer")]/div//ul',
+        '//div[contains(@class,"DescriptionContainer")]/div//p[not(contains(@class,"DetailsTab___StyledP"))]|//div[contains(@class,"DescriptionContainer")]/div//ul',
         document,
         null,
         XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
