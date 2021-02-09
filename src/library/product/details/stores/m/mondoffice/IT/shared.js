@@ -23,7 +23,7 @@ const transform = (data) => {
         if (gr && gr.description && gr.description.length) gr.description = removeExtraSpace(gr.description);
         if (gr && gr.price && gr.price.length) gr.price[0].text = onlyNumbersAndDot(gr.price[0].text).replace('.', ',');
         if (gr && gr.sku && gr.sku.length) {
-          gr['mpc'] = [{ text: gr.sku[0].text }];
+          // gr['mpc'] = [{ text: gr.sku[0].text }];
           gr.sku[0].text = onlyNumbersAndDot(gr.sku[0].text);
           gr['_input'] = [{ text: onlyNumbersAndDot(gr.sku[0].text) }];
         }

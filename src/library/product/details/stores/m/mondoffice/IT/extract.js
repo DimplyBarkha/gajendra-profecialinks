@@ -65,6 +65,9 @@ module.exports = {
         if(descrItem.textContent.match(/(Capacità|Dimensione punta|Dimensioni foglietto)/gmi)){
           addElementToDocument('mo-size', descrItem.querySelector('strong').textContent);
         }
+        if(descrItem.textContent.match(/mpn/gmi)){
+          addElementToDocument('mo-mpc', descrItem.querySelector('strong').textContent);
+        }
       })
 
     });
