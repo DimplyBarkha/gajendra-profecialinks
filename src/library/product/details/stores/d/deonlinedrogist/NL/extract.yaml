@@ -245,7 +245,8 @@ fields:
     singleValue: true
     description: null
   - name: ingredientsList
-    singleValue: true
+    singleValue: false
+    xpath: //div[@class='c-product-description__accordion']/div[@id='description-ingredients']/div/p
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
   - name: servingSize

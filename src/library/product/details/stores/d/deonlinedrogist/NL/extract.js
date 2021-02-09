@@ -53,6 +53,9 @@ module.exports = {
         if((availabilityText.split('/')[3]) === "InStock"){
           var text = "In Stock";
         }
+        if((availabilityText.split('/')[3]) === "OutOfStock"){
+          var text = "Out Of Stock";
+        }
         //console.log("Text:  ", text);
         addElementToDocument('added_availability_text',text);
       }
