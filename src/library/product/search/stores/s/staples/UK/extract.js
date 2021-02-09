@@ -41,7 +41,7 @@ module.exports = {
       const coffePopup = document.querySelector('#wp-close-1170165 > div');
       // @ts-ignore
       if (coffePopup) coffePopup.click();
-      const VATContent = document.querySelector('#VATContent > div.dvVatCnt.alignCenter.clear > div.dvCustType.R > div.formRow > input');
+      const VATContent = document.querySelector('#VATContent > div.dvVatCnt.alignCenter.clear > div.dvCustType.L > div.formRow > input');
       // @ts-ignore
       if (VATContent) VATContent.click();
       const discount = document.querySelector('#emailsignupmainview > div.emailsignupnew_close.scTrack.scLink');
