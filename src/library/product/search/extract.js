@@ -33,6 +33,11 @@ module.exports = {
     },
   ],
   inputs: [
+    {
+      name: 'keywords',
+      description: 'keywords to search for',
+      type: 'string',
+    },
   ],
   dependencies: {
     productDetails: 'extraction:product/search/stores/${store[0:1]}/${store}/${country}/extract',
