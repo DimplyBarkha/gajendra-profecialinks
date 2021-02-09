@@ -48,7 +48,7 @@ async function implementation (
       }
     } catch (e) { }
     const title = document.title;
-    if (title.indexOf('404 - Página não') >= 0) {
+    if (title.indexOf('404 - Página não') >= 0 || title.indexOf('Busca Resultados') >= 0) {
       return false;
     } else {
       return true;
@@ -61,8 +61,8 @@ module.exports = {
     country: 'BR',
     store: 'onofre',
     domain: 'onofre.com.br',
-    loadedSelector: 'div.product-image-gallery',
-    noResultsXPath: null,
+    loadedSelector: 'div.price-info',
+    noResultsXPath: '//div[@id="sli_noresult"]',
     zipcode: '',
   },
   implementation,
