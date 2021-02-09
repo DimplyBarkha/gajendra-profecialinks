@@ -26,7 +26,7 @@ fields:
     xpath: //div[@class="price vertical"]/span
   - name: availabilityText
     singleValue: false
-    xpath: //div[@id="serviceAvailability"]/b
+    xpath: //div[@id="serviceAvailability"]/b | //span[@id="ctl00_ContentPlaceholder1_ucProductDetail_fvProductDetail_lblDiscontinuedMessage"]
     defaultValue: In Stock
   - name: description
     singleValue: false

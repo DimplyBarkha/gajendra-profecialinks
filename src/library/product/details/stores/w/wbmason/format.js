@@ -29,6 +29,8 @@ const transform = (data) => {
           row.availabilityText.forEach(item => {
             if(item.text == "Manufacturer is currently out of stock."){
               item.text = "Out of Stock";
+            }else if(item.text == "Sorry! This item is not available."){
+              item.text = "Out of Stock";
             }else{
               item.text = "In stock";
             }
